@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
 ms.openlocfilehash: 1903655a262583f1ba78b728bf404a81278e2275
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-api-management-faqs"></a>P+F de Azure API Management
 Obtenga respuestas a preguntas comunes, patrones y procedimientos recomendados para Azure API Management.
@@ -51,7 +51,7 @@ Obtenga respuestas a preguntas comunes, patrones y procedimientos recomendados p
 Puede ponerse en contacto con nosotros mediante una de estas opciones:
 
 * Publicar sus preguntas en nuestro [foro de MSDN de API Management](https://social.msdn.microsoft.com/forums/azure/home?forum=azureapimgmt).
-* Enviar un correo electrónico a <mailto:apimgmt@microsoft.com>.
+* Envíe un correo electrónico a <mailto:apimgmt@microsoft.com>.
 * Enviar una solicitud de característica en el [foro de comentarios de Azure](https://feedback.azure.com/forums/248703-api-management).
 
 ### <a name="what-does-it-mean-when-a-feature-is-in-preview"></a>¿Qué significa que una característica se encuentra en su versión preliminar?

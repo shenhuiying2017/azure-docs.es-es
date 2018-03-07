@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: billmath
-ms.openlocfilehash: 68b36e1806d3338b07d4c2c400de233aff270132
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c3956dd379961b119f65bdebe1f5a8038c4fa8f0
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="gdpr-compliance-and-azure-ad-connect"></a>Cumplimiento del GDPR y Azure AD Connect 
 
@@ -33,7 +33,7 @@ El cumplimiento del Reglamento general de protección de datos para instalacione
 1.  Previa solicitud, extraer los datos de una persona y quitarlos de las instalaciones.
 2.  Asegurarse de que ningún dato se conserva más de 48 horas.
 
-El equipo de Azure AD Connect recomienda la segunda opción.  El motivo de ello es que es la más fácil de implementar y mantener.
+El equipo de Azure AD Connect recomienda la segunda opción, ya que es mucho más fácil de implementar y mantener.
 
 Un servidor de Azure AD Connect Sync almacena los datos siguientes que están en el ámbito del cumplimiento del GDPR:
 1.  Datos sobre una persona en la **base de datos de Azure AD Connect**

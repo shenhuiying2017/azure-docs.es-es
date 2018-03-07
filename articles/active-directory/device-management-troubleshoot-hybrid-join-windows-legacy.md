@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 5657df412b1f2b7d4d43d7551289620ae4d77de2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: ecf77a614922ef58cdfb2b2c8174f66e01ea9b46
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Solución de problemas de dispositivos híbridos de nivel inferior unidos a Azure Active Directory 
 
@@ -55,7 +55,6 @@ En este tema se proporcionan instrucciones sobre cómo resolver problemas potenc
 
 - La reinstalación del sistema operativo o la anulación del registro y el nuevo registro de forma manual pueden crear un nuevo registro en Azure AD y generar varias entradas en la pestaña de información de USUARIO de Azure Portal. 
 
-
 ## <a name="step-1-retrieve-the-registration-status"></a>Paso 1: Recuperar el estado del registro 
 
 **Para verificar el estado del registro:**  
@@ -87,13 +86,14 @@ Si la unión a Azure AD híbrido no se realiza correctamente, el cuadro de diál
     
     1. Si el usuario con la sesión iniciada no es un usuario del dominio (por ejemplo, un usuario local). La combinación híbrida de Azure AD en dispositivos de nivel inferior solo se admite para los usuarios del dominio.
     
-    2. Si, por cualquier motivo, Autoworkplace.exe no puede autenticarse de forma silenciosa con Azure AD o AD FS. Algunos posibles motivos pueden ser los problemas de conectividad de red saliente a las direcciones URL de Azure AD (compruebe los requisitos previos) o si la autenticación multifactor está habilitada o configurada para el usuario, pero WIAORMUTLIAUTHN no está configurado en el servidor de federación (compruebe los pasos de la configuración). Otra posibilidad es que la página de detección de dominio de inicio (HRD) esté esperando a la interacción del usuario e impida que Autoworkplace.exe obtenga de forma silenciosa un 
+    2. Si, por cualquier motivo, Autoworkplace.exe no puede autenticarse de forma silenciosa con Azure AD o AD FS. Algunos posibles motivos pueden ser los problemas de conectividad de red saliente a las direcciones URL de Azure AD (compruebe los requisitos previos) o si la autenticación multifactor está habilitada o configurada para el usuario, pero WIAORMUTLIAUTHN no está configurado en el servidor de federación (compruebe los pasos de la configuración). Otra posibilidad es que la página de detección de dominio de inicio (HRD) esté esperando a la interacción del usuario e impida que Autoworkplace.exe obtenga de forma silenciosa un token.
     
     3. Si la organización usa el inicio de sesión único de conexión directa de Azure AD, las siguientes direcciones URL no aparecen en la configuración de la intranet de Internet Explorer del dispositivo:
-    - https://autologon.microsoftazuread-sso.com
-    - https://aadg.windows.net.nsatc.net
     
-    y la opción "Permitir actualizaciones en la barra de estado a través de script" debe estar habilitada para la zona de la intranet.
+       - https://autologon.microsoftazuread-sso.com
+       - https://aadg.windows.net.nsatc.net
+    
+       y la opción "Permitir actualizaciones en la barra de estado a través de script" debe estar habilitada para la zona de la intranet.
 
 - Se ha alcanzado una cuota
 

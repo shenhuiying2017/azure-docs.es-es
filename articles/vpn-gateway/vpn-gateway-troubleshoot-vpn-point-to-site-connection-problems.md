@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/14/2017
 ms.author: genli
-ms.openlocfilehash: 83d96a2706e879f8817540e85369729289be9456
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: bf20a0f15b1bc285a598c64c7e9f2de0082b2904
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Solución de problemas: conexión de punto a sitio de Azure
 
@@ -42,7 +42,7 @@ Para solucionar este problema, siga estos pasos:
 
 1. Asegúrese de que los certificados siguientes están en la ubicación correcta:
 
-    | Certificate | La ubicación |
+    | Certificate | Ubicación |
     | ------------- | ------------- |
     | AzureClient.pfx  | Usuario actual\Personal\Certificados |
     | Azuregateway-*GUID*.cloudapp.net  | Usuario actual\Entidades de certificación raíz de confianza|
@@ -90,7 +90,7 @@ Al intentar conectar a una red virtual de Azure mediante el cliente de VPN, apar
 
 1. Asegúrese de que los certificados siguientes están en la ubicación correcta:
 
-    | Certificate | La ubicación |
+    | Certificate | Ubicación |
     | ------------- | ------------- |
     | AzureClient.pfx  | Usuario actual\Personal\Certificados |
     | Azuregateway-*GUID*.cloudapp.net  | Usuario actual\Entidades de certificación raíz de confianza|
@@ -335,7 +335,7 @@ El controlador NIC está obsoleto.
 Actualice el controlador NIC:
 
 1. Haga clic en **Inicio**, escriba **Administrador de dispositivos** y selecciónelo en la lista de resultados. Si se le pide una contraseña de administrador o una confirmación, escriba la contraseña o proporcione la confirmación.
-2. En las categorías de adaptadores de red, busque la NIC que quiere actualizar.  
+2. En las categorías de **adaptadores de red**, busque la NIC que quiere actualizar.  
 3. Haga doble clic en el nombre del dispositivo, seleccione **Actualizar controlador** y, luego, **Buscar software de controlador actualizado automáticamente**.
 4. Si Windows no encuentra un nuevo controlador, puede intentar buscar uno en el sitio web del fabricante del dispositivo y seguir sus instrucciones.
 5. Reinicie el equipo e intente la conexión de nuevo.

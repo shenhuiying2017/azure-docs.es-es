@@ -12,23 +12,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/18/2018
+ms.date: 02/22/2018
 ms.author: Brenduns
 ms.reviewer: JeffGoldner
-ms.openlocfilehash: c9f5bee38772623fb79fa081be8eaece981cc8ab
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 3eceb740b8115d2eaca517017f6158744d6e8e58
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Sistemas operativos invitados compatibles con Azure Stack
 
-*Se aplica a: sistemas integrados de Azure Stack y kit de desarrollo de Azure Stack*
+*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 ## <a name="windows"></a>Windows
-Azure Stack admite los siguientes sistemas operativos invitados Windows. En Marketplace hay imágenes disponibles para descargarlas en Azure Stack. Las imágenes del cliente Windows no están disponibles en Marketplace.
+Azure Stack admite los sistemas operativos invitados Windows que aparecen en la tabla siguiente: las imágenes en Marketplace están disponibles para su descarga a Azure Stack. Las imágenes del cliente Windows no están disponibles en Marketplace.
 
-Durante la implementación, Azure Stack se asegurará de que se aplica una versión adecuada del agente invitado en la imagen.
+Durante la implementación, Azure Stack inserta una versión adecuada del agente invitado en la imagen.
 
 | Sistema operativo | DESCRIPCIÓN | Publicador | OS Type (Tipo de SO) | Marketplace |
 | --- | --- | --- | --- | --- | --- |
@@ -36,8 +36,6 @@ Durante la implementación, Azure Stack se asegurará de que se aplica una versi
 | Windows Server 2012 | 64 bits | Microsoft | Windows | Centro de datos |
 | Windows Server 2012 R2 | 64 bits | Microsoft | Windows | Centro de datos |
 | Windows Server 2016 | 64 bits | Microsoft | Windows | Datacenter, Datacenter Core, Datacenter con Containers |
-| Windows 7 | 64 bits, Pro y Enterprise | Microsoft | Windows | Sin  |
-| Windows 8.1 | 64 bits, Pro y Enterprise | Microsoft | Windows | Sin  |
 | Windows 10 *(vea la nota 1)* | 64 bits, Pro y Enterprise | Microsoft | Windows | Sin  |
 
 ***Nota 1:***  *Para implementar sistemas operativos cliente Windows 10 en Azure Stack, debe tener una [licencia por usuario de Windows](https://www.microsoft.com/Licensing/product-licensing/windows10.aspx) o adquirirlo a través de un proveedor de servicios de hosting cualificado multiinquilino ([QMTH](https://www.microsoft.com/CloudandHosting/licensing_sca.aspx)).*
@@ -49,18 +47,17 @@ Las distribuciones Linux que se indican aquí incluyen el agente Linux de Micros
 
 > [!NOTE]   
 > Las imágenes creadas con versiones de WALA posteriores a la 2.2.3 *no* son compatibles y es poco probable que se puedan implementar. Se sabe que algunas versiones de agente WALA no funcionan en máquinas virtuales de Azure Stack, incluidas las versiones 2.2.12 y 2.2.13.
-
+>
+> [cloud-init](https://cloud-init.io/) solo es compatible con distribuciones Ubuntu en Azure Stack.
 
 | Distribución | DESCRIPCIÓN | Publicador | Marketplace |
 | --- | --- | --- | --- | --- | --- |
 | Container Linux |  64 bits | CoreOS | Stable |
 | Basado en CentOS 6.9 | 64 bits | Rogue Wave | Sí |
-| Basado en CentOS 7.3 | 64 bits | Rogue Wave | Sí |
 | Basado en CentOS 7.4 | 64 bits | Rogue Wave | Sí |
 | Debian 8 "Jessie" | 64 bits | credativ |  Sí |
 | Debian 9 "Stretch" | 64 bits | credativ | Sí |
-| Oracle Linux | 64 bits | Oracle | Sin  |
-| Red Hat Enterprise Linux 7.x | 64 bits | Red Hat | Sin  |
+| Red Hat Enterprise Linux 7.x (pendiente) | 64 bits | Red Hat | Sin  |
 | SLES 11SP4 | 64 bits | SUSE | Sí |
 | SLES 12SP3 | 64 bits | SUSE | Sí |
 | Ubuntu 14.04 LTS | 64 bits | Canonical | Sí |

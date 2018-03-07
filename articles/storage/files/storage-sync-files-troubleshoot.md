@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 7562e43f58f303ea34a08b8b9e056a0c3d0c10d0
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 506781ac83e75d558badbd3a8842533e314a8dfa
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Solución de problemas de Azure File Sync (versión preliminar)
 Use Azure File Sync (versión preliminar) para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -43,6 +43,10 @@ Si la instalación produce error, revise el archivo installer.log para determina
 > [!Note]  
 > Se producirá un error en la instalación del agente si utiliza Microsoft Update y no se está ejecutando el servicio Windows Update.
 
+<a id="agent-installation-on-DC"></a>**Error de instalación del agente en el controlador de dominio de Active Directory**  Si intenta instalar el agente de sincronización en un controlador de dominio de Active Directory donde el propietario del rol PDC está en un sistema operativo Windows Server 2008 R2 o inferior, puede tener un problema por el que el agente de sincronización no se pueda instalar.
+
+Para resolverlo, transfiera el rol PDC a otro controlador de dominio que ejecute Windows Server 2012R2 o una versión más reciente y, luego, instale el agente de sincronización.
+
 <a id="agent-installation-websitename-failure"></a>**Error de instalación del agente: "El agente de sincronización de Azure Storage finalizó antes de tiempo"**  
 Este problema puede producirse si se cambia el nombre predeterminado del sitio web de IIS. Para solucionar este problema, cambie el nombre del sitio web predeterminado de IIS por "Default Web Site" y vuelva a intentar la instalación. El problema se solucionará en una actualización futura del agente. 
 
@@ -51,6 +55,8 @@ Si un servidor no aparece en los **servidores registrados** de un servicio de si
 1. Inicie sesión en el servidor que desea registrar.
 2. Abra el Explorador de archivos y, a continuación, vaya al directorio de instalación del agente de sincronización de almacenamiento (la ubicación predeterminada es C:\Program Files\Azure\StorageSyncAgent). 
 3. Ejecute ServerRegistration.exe y complete el asistente para registrar el servidor en un servicio de sincronización de almacenamiento.
+
+
 
 <a id="server-already-registered"></a>**El registro de servidor muestra un mensaje durante la instalación del agente de Azure File Sync que indica que el servidor ya está registrado** 
 
@@ -95,9 +101,7 @@ Para crear un punto de conexión de nube, la cuenta de usuario debe tener los si
 
 Los siguientes roles integrados tienen los permisos necesarios de autorización de Microsoft:  
 * Propietario
-* Administrador de acceso de usuario
-
-Para determinar si su rol de la cuenta de usuario tiene los permisos necesarios:  
+* Administrador de acceso de usuario para determinar si su rol de la cuenta de usuario tiene los permisos necesarios:  
 1. En Azure Portal, seleccione **Grupos de recursos**.
 2. Seleccione el grupo de recursos donde se encuentra la cuenta de almacenamiento y seleccione en **Control de acceso (IAM)**.
 3. Seleccione el **rol** (por ejemplo, propietario o colaborador) para su cuenta de usuario.
@@ -105,11 +109,24 @@ Para determinar si su rol de la cuenta de usuario tiene los permisos necesarios:
     * **Asignación de roles** debe tener permisos de **lectura** y **escritura**.
     * **Definición de roles** debe tener permisos de **lectura** y **escritura**.
 
-<a id="server-endpoint-createjobfailed"></a>**Error de creación del punto de punto de conexión de servidor: "MgmtServerJobFailed" (código de Error: -2134375898)**                                                                                                                           
+<a id="server-endpoint-createjobfailed"></a>**Error de creación del punto de punto de conexión de servidor: "MgmtServerJobFailed" (código de Error: -2134375898)**                                                                                                                    
 Este problema se produce si la ruta de acceso del punto de conexión de servidor se encuentra en el volumen del sistema y los niveles de la nube están habilitados. Los niveles de nube no se admiten en el volumen del sistema. Para crear un punto de conexión de servidor en el volumen del sistema, deshabilite los niveles de la nube al crear el punto de conexión de servidor.
 
 <a id="server-endpoint-deletejobexpired"></a>**Error del punto de conexión de servidor: "MgmtServerJobExpired"**                
 Este problema se produce si el servidor está sin conexión o no tiene conectividad de red. Si el servidor ya no está disponible, anule el registro del servidor en el portal, lo que eliminará los puntos de conexión de servidor. Para eliminar los puntos de conexión de servidor, siga los pasos que se describen en [Anular el registro de un servidor de Azure File Sync](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
+
+<a id="server-endpoint-provisioningfailed"></a>**No se puede abrir la página de propiedades de puntos de conexión del servidor o actualizar la directiva de niveles en la nube**
+
+Este problema puede producirse si hay un error en una operación de administración en el punto de conexión del servidor. Si la página de propiedades de puntos de conexión del servidor no se abre en Azure Portal, actualizar el punto de conexión del servidor con comandos de PowerShell desde el servidor puede solucionar este problema. 
+
+```PowerShell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
+# Get the server endpoint id based on the server endpoint DisplayName property
+Get-AzureRmStorageSyncServerEndpoint -SubscriptionId mysubguid -ResourceGroupName myrgname -StorageSyncServiceName storagesvcname -SyncGroupName mysyncgroup
+
+# Update the free space percent policy for the server endpoint
+Set-AzureRmStorageSyncServerEndpoint -Id serverendpointid -CloudTiering true -VolumeFreeSpacePercent 60
+```
 
 ## <a name="sync"></a>Sync
 <a id="afs-change-detection"></a>**Si creé un archivo directamente en el recurso compartido de archivos de Azure mediante SMB o el portal, ¿cuánto tiempo tarda el archivo en sincronizarse con los servidores del grupo de sincronización?**  
@@ -128,15 +145,14 @@ Si se produce un error en la sincronización en un servidor:
 <a id="replica-not-ready"></a>**Se produce este error en la sincronización: "0x80c8300f: La réplica no está lista para realizar la operación necesaria"**  
 Este problema puede producirse si crea un punto de conexión de nube y usa un recurso compartido de archivos de Azure que contiene los datos. Cuando el trabajo de detección de cambios termine de ejecutarse en el recurso compartido de archivos de Azure (puede tardar hasta 24 horas), la sincronización debería comenzar a funcionar correctamente.
 
-<a id="broken-sync-files"></a>**Solución de problemas de archivos individuales que no se pueden sincronizar**  
-Si los archivos individuales no se podrán sincronizar:
-1. En el Visor de eventos, revise los registros de eventos operativos y de diagnósticos, ubicados en Applications and Services\Microsoft\FileSync\Agent.
-2. Compruebe que no haya ningún identificador abierto en el archivo.
 
     > [!NOTE]
-    > Azure File Sync toma instantáneas de VSS periódicamente para sincronizar los archivos que tienen identificadores abiertos.
+    > Azure File Sync periodically takes VSS snapshots to sync files that have open handles.
 
 Actualmente no se admite el movimiento de recursos a otra suscripción ni a un inquilino de Azure AD distinto.  Si la suscripción se mueve a un inquilino diferente, el recurso compartido de archivos de Azure deja de estar accesible a nuestro servicio debido al cambio de propiedad. Si se cambia el inquilino, debe eliminar los puntos de conexión del servidor y el punto de conexión en la nube (consulte la sección Administración de grupos de sincronización para obtener instrucciones sobre cómo limpiar el recurso compartido de archivos de Azure para su reutilización) y volver a crear el grupo de sincronización.
+
+<a id="doesnt-have-enough-free-space"></a>**Error: Este equipo no tiene suficiente espacio libre**  
+Si el portal muestra el estado "This PC doesn't have enough free space" ("Este equipo no tiene suficiente espacio libre"), el problema podría ser que queda menos de 1 GB de espacio libre en el volumen.  Por ejemplo, si hay un volumen de 1,5 GB, la sincronización solo podrá utilizar 0,5 GB. Si se produce este problema, amplíe el tamaño del volumen que está utilizando para el punto de conexión de servidor.
 
 ## <a name="cloud-tiering"></a>Niveles de nube 
 Los errores en la organización en niveles en la nube pueden producirse de dos formas:

@@ -12,13 +12,13 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 02/21/2018
 ms.author: danlep
-ms.openlocfilehash: dc28c3a9d46baa8e8d2136ffccbb4e7ff6675b1e
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 181e9bd7c17e4618edd63dd92d70947a61c68758
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="use-rdma-capable-or-gpu-enabled-instances-in-batch-pools"></a>Uso de instancias compatibles con RDMA o habilitadas para GPU en grupos de Batch
 
@@ -33,9 +33,11 @@ En este artículo se proporcionan instrucciones y ejemplos para usar algunos de 
 
 ## <a name="subscription-and-account-limits"></a>Límites de la cuenta y la suscripción
 
-* **Cuotas**: la [cuota de núcleos dedicada por cuenta de Batch](batch-quota-limit.md#resource-quotas) puede limitar el número o el tipo de nodos que se puede agregar a un grupo de Batch. Es más probable alcanzar una cuota al elegir tamaños de VM compatibles con RDMA, basados en GPU u otros tamaños de VM de varios núcleos. De forma predeterminada, esta cuota es de 20 núcleos. Se aplica una cuota independiente a [VM de baja prioridad](batch-low-pri-vms.md), en caso de que las use. 
+* **Cuotas y límites**: la [cuota de núcleos dedicada por cuenta de Batch](batch-quota-limit.md#resource-quotas) puede limitar el número o el tipo de nodos que se puede agregar a un grupo de Batch. Es más probable alcanzar una cuota al elegir tamaños de VM compatibles con RDMA, basados en GPU u otros tamaños de VM de varios núcleos. Se aplica una cuota independiente a [VM de baja prioridad](batch-low-pri-vms.md), en caso de que las use. 
 
-Si necesita solicitar un aumento de cuota, abra una [solicitud de soporte técnico al cliente en línea](../azure-supportability/how-to-create-azure-support-request.md) sin cargo alguno.
+  Además, el uso de ciertas familias de máquinas virtuales en su cuenta de Batch, como NCv2 y ND, está restringido debido a los límites de capacidad. El uso de estas familias solo está disponible al solicitar un aumento de cuota a partir del valor predeterminado de 0 núcleos.  
+
+  Si necesita solicitar un aumento de cuota, abra una [solicitud de soporte técnico al cliente en línea](../azure-supportability/how-to-create-azure-support-request.md) sin cargo alguno.
 
 * **Disponibilidad por regiones**: Las VM de procesos intensivos podrían no estar disponibles en las regiones donde crea las cuentas de Batch. Para comprobar que un tamaño está disponible, vea [Productos disponibles por región](https://azure.microsoft.com/regions/services/).
 
@@ -50,10 +52,10 @@ Las funcionalidades RDMA y GPU de tamaños de procesos intensivos solo se admite
 | Tamaño | Capacidad | Sistemas operativos | Requisitos de software | Configuración del grupo |
 | -------- | -------- | ----- |  -------- | ----- |
 | [H16r, H16mr, A8 y A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances) | RDMA | Ubuntu 16.04 LTS,<br/>SUSE Linux Enterprise Server 12 HPC, o<br/>HPC basado en CentOS<br/>(Azure Marketplace) | Intel MPI 5 | Habilitar la comunicación entre nodos y deshabilitar la ejecución de tareas simultáneas |
-| [NC, NCv2, serie ND*](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-ncv2-and-nd-vms) | NVIDIA Tesla GPU (varía por serie) | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3 o<br/>Basado en CentOS 7.3<br/>(Azure Marketplace) | Controladores de NVIDIA CUDA Toolkit 9.1 | N/D | 
-| [Serie NV](../virtual-machines/linux/n-series-driver-setup.md#install-grid-drivers-for-nv-vms) | GPU NVIDIA Tesla M60 | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3 o<br/>Basado en CentOS 7.3<br/>(Azure Marketplace) | Controladores de NVIDIA GRID 4.3 | N/D |
+| [NC, NCv2, serie ND*](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-ncv2-and-nd-vms) | NVIDIA Tesla GPU (varía por serie) | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3 o 7.4<br/>CentOS 7.3 o 7.4<br/>(Azure Marketplace) | Controladores de NVIDIA CUDA Toolkit | N/D | 
+| [Serie NV](../virtual-machines/linux/n-series-driver-setup.md#install-grid-drivers-for-nv-vms) | GPU NVIDIA Tesla M60 | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3 o<br/>CentOS 7.3<br/>(Azure Marketplace) | Controladores de NVIDIA GRID | N/D |
 
-*La conectividad de RDMA en máquinas virtuales NC24r, NC24r_v2 y ND24r se admite en 7.3 HPC basados en Ubuntu 16.04 LTS o CentOS (desde Azure Marketplace) con Intel MPI.
+*La conectividad de RDMA en máquinas virtuales NC24r, NC24rs_v2 y ND24r se admite en Ubuntu 16.04 LTS (desde Azure Marketplace) con Intel MPI.
 
 
 
@@ -61,11 +63,11 @@ Las funcionalidades RDMA y GPU de tamaños de procesos intensivos solo se admite
 
 | Tamaño | Capacidad | Sistemas operativos | Requisitos de software | Configuración del grupo |
 | -------- | ------ | -------- | -------- | ----- |
-| [H16r, H16mr, A8 y A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2012 R2 o<br/>Windows Server 2012 (Azure Marketplace) | Microsoft MPI 2012 R2 o posterior, o<br/> Intel MPI 5<br/><br/>Extensión HpcVMDrivers para VM de Azure | Habilitar la comunicación entre nodos y deshabilitar la ejecución de tareas simultáneas |
-| [NC, NCv2, serie ND*](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla GPU (varía por serie) | Windows Server 2016 o <br/>Windows Server 2012 R2 (Azure Marketplace) | Controladores de NVIDIA Tesla o de CUDA Toolkit 9.1| N/D | 
-| [Serie NV](../virtual-machines/windows/n-series-driver-setup.md) | GPU NVIDIA Tesla M60 | Windows Server 2016 o<br/>Windows Server 2012 R2 (Azure Marketplace) | Controladores de NVIDIA GRID 4.3 | N/D |
+| [H16r, H16mr, A8 y A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2016, 2012 R2 o<br/>2012 (Azure Marketplace) | Microsoft MPI 2012 R2 o posterior, o<br/> Intel MPI 5<br/><br/>Extensión HpcVMDrivers para VM de Azure | Habilitar la comunicación entre nodos y deshabilitar la ejecución de tareas simultáneas |
+| [NC, NCv2, serie ND*](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla GPU (varía por serie) | Windows Server 2016 o <br/>2012 R2 (Azure Marketplace) | Controladores de NVIDIA Tesla o controladores de CUDA Toolkit| N/D | 
+| [Serie NV](../virtual-machines/windows/n-series-driver-setup.md) | GPU NVIDIA Tesla M60 | Windows Server 2016 o<br/>2012 R2 (Azure Marketplace) | Controladores de NVIDIA GRID | N/D |
 
-*La conectividad de RDMA en máquinas virtuales NC24r, NC24r_v2 y ND24r se admite en Windows Server 2012 R2 (desde Azure Marketplace) con la extensión HpcVMDrivers y Microsoft MPI o Intel MPI.
+*La conectividad de RDMA en máquinas virtuales NC24r, NC24rs_v2 y ND24rs se admite en Windows Server 2016 o Windows Server 2012 R2 (desde Azure Marketplace) con la extensión HpcVMDrivers y Microsoft MPI o Intel MPI.
 
 ### <a name="windows-pools---cloud-services-configuration"></a>Grupos de Windows: configuración de servicios en la nube
 
@@ -75,7 +77,7 @@ Las funcionalidades RDMA y GPU de tamaños de procesos intensivos solo se admite
 
 | Tamaño | Capacidad | Sistemas operativos | Requisitos de software | Configuración del grupo |
 | -------- | ------- | -------- | -------- | ----- |
-| [H16r, H16mr, A8 y A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2012 R2,<br/>Windows Server 2012 o<br/>Windows Server 2008 R2 (familia del SO invitado) | Microsoft MPI 2012 R2 o posterior, o<br/>Intel MPI 5<br/><br/>Extensión HpcVMDrivers para VM de Azure | Habilitar la comunicación entre nodos y<br/> deshabilitar la ejecución de tareas simultáneas |
+| [H16r, H16mr, A8 y A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2016, 2012 R2, 2012 o<br/>2008 R2 (familia de sistemas operativos invitados) | Microsoft MPI 2012 R2 o posterior, o<br/>Intel MPI 5<br/><br/>Extensión HpcVMDrivers para VM de Azure | Habilitar la comunicación entre nodos y<br/> deshabilitar la ejecución de tareas simultáneas |
 
 
 

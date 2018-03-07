@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 2694c25b0db7a4a0b9f527ec67e62fede5de6a80
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: f0a706a5a7724788d62479d1570fffac07ce6d54
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Servicio de metadatos de instancia de Azure
 
@@ -63,7 +63,7 @@ Al consultar el servicio de metadatos de instancia, debe proporcionar el encabez
 Los metadatos de instancia están disponibles para ejecutar máquinas virtuales creadas o administradas mediante [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/). Para tener acceso a todas las categorías de datos de una instancia de máquina virtual, use la solicitud siguiente:
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-04-02"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01"
 ```
 
 > [!NOTE] 
@@ -81,7 +81,7 @@ API | Formato predeterminado de datos | Otros formatos
 Para obtener acceso a un formato de respuesta que no sea el predeterminado, especifique el formato solicitado como un parámetro de cadena de consulta en la solicitud. Por ejemplo:
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-04-02&format=text"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
 ```
 
 ### <a name="security"></a>Seguridad
@@ -149,7 +149,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-vers
 #### <a name="retrieving-public-ip-address"></a>Recuperación de dirección IP pública
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-04-02&format=text"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-08-01&format=text"
 ```
 
 #### <a name="retrieving-all-metadata-for-an-instance"></a>Recuperación de todos los metadatos para una instancia
@@ -218,13 +218,13 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 Los metadatos de instancia se pueden recuperar en Windows a través de la utilidad `curl` de PowerShell: 
 
 ```bash
-curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2017-04-02 | select -ExpandProperty Content
+curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2017-08-01 | select -ExpandProperty Content
 ```
 
 O bien a través del cmdlet `Invoke-RestMethod`:
     
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2017-04-02 -Method get 
+Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2017-08-01 -Method get 
 ```
 
 **Respuesta**
@@ -302,7 +302,7 @@ subnet/address | Dirección de subred de la máquina virtual | 2017-04-02
 subnet/prefix | Prefijo de la subred, ejemplo, 24 | 2017-04-02 
 ipv6/ipAddress | Dirección IPv6 local de la máquina virtual | 2017-04-02 
 macAddress | Dirección de MAC de la VM | 2017-04-02 
-scheduledevents | Actualmente en versión preliminar pública. Consulte [Scheduled Events](scheduled-events.md). | 2017-03-01
+scheduledevents | Consulte [Scheduled Events](scheduled-events.md). | 2017-03-01
 
 ## <a name="example-scenarios-for-usage"></a>Escenarios de ejemplo de uso  
 
@@ -313,7 +313,7 @@ Como proveedor de servicios, es posible que necesite hacer seguimiento de la can
 **Solicitud**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api-version=2017-04-02&format=text"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api-version=2017-08-01&format=text"
 ```
 
 **Respuesta**
@@ -330,7 +330,7 @@ Puede consultar directamente estos datos a través del servicio de metadatos de 
 **Solicitud**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-04-02&format=text" 
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-08-01&format=text" 
 ```
 
 **Respuesta**
@@ -346,7 +346,7 @@ Como proveedor de servicios, es posible que reciba una llamada de soporte técni
 **Solicitud**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-version=2017-04-02"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-version=2017-08-01"
 ```
 
 **Respuesta**
@@ -411,4 +411,4 @@ Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
     
 ## <a name="next-steps"></a>pasos siguientes
 
-- Más información sobre la API [Scheduled Events](scheduled-events.md) **en versión preliminar pública** proporcionada por el servicio de metadatos de instancia.
+- Más información sobre los [eventos programados](scheduled-events.md).

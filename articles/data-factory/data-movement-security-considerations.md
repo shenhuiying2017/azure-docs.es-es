@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/26/2018
 ms.author: abnarain
-ms.openlocfilehash: 898e6914a427b2e8864d97a7188eb718811ce263
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: ebe0523849b4709424e2f4bdac00f6bf98bf7cf4
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory: consideraciones de seguridad para el movimiento de datos
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -150,8 +150,8 @@ En la tabla siguiente se proporcionan el **puerto de salida** y los requisitos d
 | `*.servicebus.windows.net`    | 443, 80        | Lo necesita Integration Runtime autohospedado para conectarse a los servicios de movimiento de datos de Data Factory |
 | `*.core.windows.net`          | 443            | Lo usa Integration Runtime autohospedado para conectarse a la cuenta de Azure Storage cuando se utiliza la característica [Copia almacenada provisionalmente](copy-activity-performance.md#staged-copy). |
 | `*.frontend.clouddatahub.net` | 443            | Lo necesita Integration Runtime autohospedado para conectarse a los servicios de movimiento de Azure Data Factory. |
-| `*.database.windows.net`      | 1433           | (OPCIONAL) Necesario cuando el destino es Azure SQL Database o Azure SQL Data Warehouse. Usa la característica de copia almacenada provisionalmente para copiar datos en Azure SQL Database o Azure SQL Data Warehouse sin abrir el puerto 1433. |
-| `*.azuredatalakestore.net`    | 443            | (OPCIONAL) Necesario cuando el destino es Azure Data Lake Store. |
+| `*.database.windows.net`      | 1433           | (OPCIONAL) Necesario cuando copia desde o hacia Azure SQL Database o Azure SQL Data Warehouse. Usa la característica de copia almacenada provisionalmente para copiar datos en Azure SQL Database o Azure SQL Data Warehouse sin abrir el puerto 1433. |
+| `*.azuredatalakestore.net`<br>`login.microsoftonline.com/<tenant>/oauth2/token`    | 443            | (OPCIONAL) Necesario cuando copia desde o hacia Azure Data Lake Store |
 
 > [!NOTE] 
 > Puede que tenga que administrar puertos dominios de listas de admitidos a nivel del firewall corporativo, en función de cada origen de datos. En esta tabla, Azure SQL Database, Azure SQL Data Warehouse y Azure Data Lake Store solo se usan a modo de ejemplo.   

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/20/2017
+ms.date: 02/27/2018
 ms.author: sethm
-ms.openlocfilehash: 89042badbfefc69582e7979a8379260a7b08d7da
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 07cbdd24368d66104ecdeb263983e3aaf3f219fe
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-relay-faqs"></a>Preguntas frecuentes sobre Azure Relay
 
@@ -76,14 +76,13 @@ El envío de un mensaje a Service Bus Relay se trata como un envío "completo a 
 Las retransmisiones que se abren mediante el enlace WCF **netTCPRelay** tratan los mensajes no como mensajes individuales, sino como un flujo de datos que fluye a través del sistema. Cuando se usa este enlace, solo el remitente y el agente de escucha tienen visibilidad sobre la trama de los mensajes individuales enviados y recibidos. Para las retransmisiones que usan el enlace **netTCPRelay**, todos los datos se tratan como un flujo para el cálculo de los mensajes facturables. En este caso, Service Bus calcula la cantidad total de datos enviados o recibidos a través de cada retransmisión individual en una base de 5 minutos. A continuación, divide la cantidad total de datos entre 64 KB para determinar el número de mensajes facturables para dicha retransmisión durante ese período de tiempo.
 
 ## <a name="quotas"></a>Cuotas
-| Nombre de cuota | Scope | type | Comportamiento cuando se supera | Valor |
-| --- | --- | --- | --- | --- |
-| Agentes de escucha simultáneos en una retransmisión |Entidad |estática |Las solicitudes posteriores de conexiones adicionales se rechazarán y el código que realizó la llamada recibe una excepción. |25 |
-| Agentes de escucha simultáneos |Todo el sistema |estática |Las solicitudes posteriores de conexiones adicionales se rechazarán y el código que realizó la llamada recibe una excepción. |2.000 |
-| Conexiones de retransmisión simultáneas por todos los puntos de conexión de retransmisión en un espacio de nombres de servicio |Todo el sistema |estática |- |5.000 |
-| Puntos de conexión de retransmisión por espacio de nombres de servicio |Todo el sistema |estática |- |10.000 |
-| Tamaño de mensaje de las retransmisiones [NetOnewayRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.netonewayrelaybinding.aspx) y [NetEventRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.neteventrelaybinding.aspx) |Todo el sistema |estático |Los mensajes entrantes que superen estas cuotas se rechazarán y el código que realizó la llamada recibe una excepción. |64 KB |
-| Tamaño de mensaje de las retransmisiones [HttpRelayTransportBindingElement](https://msdn.microsoft.com/library/microsoft.servicebus.httprelaytransportbindingelement.aspx) y [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) |Todo el sistema |estática |- |Ilimitado |
+| Nombre de cuota | Scope |  Notas | Valor |
+| --- | --- | --- | --- |
+| Agentes de escucha simultáneos en una retransmisión |Entidad |Las solicitudes posteriores de conexiones adicionales se rechazarán y el código que realizó la llamada recibe una excepción. |25 |
+| Conexiones de retransmisión simultáneas por todos los puntos de conexión de retransmisión en un espacio de nombres de servicio |Espacio de nombres |- |5.000 |
+| Puntos de conexión de retransmisión por espacio de nombres de servicio |Espacio de nombres |- |10.000 |
+| Tamaño de mensaje de las retransmisiones [NetOnewayRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.netonewayrelaybinding.aspx) y [NetEventRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.neteventrelaybinding.aspx) |Espacio de nombres |Los mensajes entrantes que superen estas cuotas se rechazarán y el código que realizó la llamada recibe una excepción. |64 KB |
+| Tamaño de mensaje de las retransmisiones [HttpRelayTransportBindingElement](https://msdn.microsoft.com/library/microsoft.servicebus.httprelaytransportbindingelement.aspx) y [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) |Espacio de nombres |No hay límite en el tamaño del mensaje. |Ilimitado |
 
 ### <a name="does-relay-have-any-usage-quotas"></a>¿Tiene Relay cuotas de uso?
 De forma predeterminada, para cualquier servicio en la nube, Microsoft establece una cuota de uso mensual agregada que se calcula en todas las suscripciones del cliente. Somos conscientes de que en ocasiones sus necesidades pueden superar estos límites. Puede ponerse en contacto con el servicio de atención al cliente en cualquier momento para que podamos conocer sus necesidades y ajustar estos límites según corresponda. Para Service Bus, las cuotas de uso agregado son las siguientes:

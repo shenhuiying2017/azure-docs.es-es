@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: billmath
-ms.openlocfilehash: cde406bd745fe61757eaa69c9fc0cfc98a42d205
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c10a069f5359dc148b103688355c859bd653b5d7
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: cuentas y permisos
 El asistente para instalación de Azure AD Connect ofrece dos itinerarios diferentes:
@@ -90,7 +90,7 @@ Los permisos que requiera dependen de las características opcionales que habili
 | Sincronización de contraseñas |<li>Replicación de cambios de directorio</li>  <li>Replicación de todos los cambios de directorio |
 | Implementación híbrida de Exchange |Permisos de escritura en los atributos que se documentan en [Escritura diferida híbrida de Exchange](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) para usuarios, grupos y contactos. |
 | Carpeta pública de correo de Exchange |Permisos de lectura para los atributos que se documentan en [carpetas públicas de correo electrónico de Exchange](active-directory-aadconnectsync-attributes-synchronized.md#exchange-mail-public-folder) para las carpetas públicas. | 
-| Escritura diferida de contraseñas |Permisos de escritura en los atributos que se documentan en [Introducción a la administración de contraseñas](../active-directory-passwords-writeback.md) para los usuarios. |
+| escritura diferida de contraseñas |Permisos de escritura en los atributos que se documentan en [Introducción a la administración de contraseñas](../active-directory-passwords-writeback.md) para los usuarios. |
 | Escritura diferida de dispositivos |Los permisos concedidos con un script de PowerShell como se describe en [Escritura diferida de dispositivos](active-directory-aadconnect-feature-device-writeback.md). |
 | Escritura diferida de grupos |Objetos de grupo Leer, Crear, Actualizar y Eliminar para **grupos de Office 365** sincronizados.  Para más información, vea [Escritura diferida de grupos](active-directory-aadconnect-feature-preview.md#group-writeback).|
 
@@ -98,10 +98,10 @@ Los permisos que requiera dependen de las características opcionales que habili
 Al actualizar desde una versión de Azure AD Connect a una nueva versión, necesita los siguientes permisos:
 
 >[!IMPORTANT]
->A partir de la compilación 1.1.484, Azure AD Connect introdujo un error de regresión que requiere permisos de administrador del sistema para actualizar la base de datos SQL.  Este error sigue estando presente en la última compilación 1.1.614.  Si va a actualizar a esta versión, necesitará permisos de administrador del sistema.  Los permisos de dbo no son suficientes.  Si intenta actualizar Azure AD Connect sin tener permisos de administrador del sistema, se producirá un error en la actualización y Azure AD Connect dejará de funcionar correctamente después.  Microsoft conoce este problema y está trabajando para corregir este problema.
+>A partir de la compilación 1.1.484, Azure AD Connect introdujo un error de regresión que requiere permisos de administrador del sistema para actualizar la base de datos SQL.  Este error se corrigió en la compilación 1.1.647.  Si va a actualizar a esta versión, necesitará permisos de administrador del sistema.  Los permisos de dbo no son suficientes.  Si intenta actualizar Azure AD Connect sin tener permisos de administrador del sistema, se producirá un error en la actualización y Azure AD Connect dejará de funcionar correctamente después.  Microsoft conoce este problema y está trabajando para corregir este problema.
 
 
-| Principal | Permisos necesarios | Se usa para |
+| Principal | Permisos necesarios | Usado para |
 | --- | --- | --- |
 | Usuario que ejecuta el asistente para instalación |Administrador del servidor local |Archivos binarios de la actualización. |
 | Usuario que ejecuta el asistente para instalación |Miembro de ADSyncAdmins |Realice cambios en las reglas de sincronización y en otra configuración. |
@@ -118,7 +118,7 @@ Si usa una configuración personalizada, es responsable de crear la cuenta antes
 ### <a name="azure-ad-connect-sync-service-account"></a>Cuenta del servicio Azure AD Connect Sync
 El servicio de sincronización puede ejecutarse con diferentes cuentas. Puede ejecutarse con una **cuenta de servicio virtual** (VSA), una **cuenta de servicio administrada de grupo** (gMSA/sMSA), o una cuenta de usuario normal. Las opciones admitidas cambiaron con la versión de abril de 2017 de Connect cuando se realiza una instalación nueva. Si actualiza desde una versión anterior de Azure AD Connect, estas opciones adicionales no están disponibles.
 
-| Tipo de cuenta | Opción de instalación | Descripción |
+| Tipo de cuenta | Opción de instalación | DESCRIPCIÓN |
 | --- | --- | --- |
 | [Cuenta de servicio virtual](#virtual-service-account) | Rápida y personalizada, abril de 2017 y versiones posteriores | Es la opción utilizada para todas las instalaciones rápidas, excepto para las instalaciones en un controlador de dominio. Para las instalaciones personalizadas, es la opción predeterminada a menos que se use otra opción. |
 | [Cuenta de servicio administrada de grupo](#group-managed-service-account) | Personalizada, abril de 2017 y versiones posteriores | Si utiliza un servidor SQL remoto, se recomienda usar una cuenta de servicio administrada de grupo. |
@@ -195,5 +195,5 @@ Hay un límite de 20 cuentas de servicio de sincronización en Azure AD. Para ob
 
 Para quitar las cuentas de servicio de Azure AD sin usar, ejecute el siguiente cmdlet de Azure AD PowerShell: `Remove-AzureADUser -ObjectId <ObjectId-of-the-account-you-wish-to-remove>`
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](../active-directory-aadconnect.md).

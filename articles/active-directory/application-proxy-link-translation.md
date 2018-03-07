@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 02/23/2018
 ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: e4d143b4937a1f6c1c21783ae357dbe617816e73
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: d5d704dac58d65dd7d62bc3eca400f9541714d5d
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Redirección de los vínculos codificados de manera rígida para las aplicaciones publicadas con el Proxy de aplicación de Azure AD
 
@@ -27,7 +27,7 @@ El Proxy de aplicación de Azure AD permite que las aplicaciones locales estén 
 
 La mejor forma de asegurarse de que los vínculos funcionan del mismo modo tanto dentro como fuera de la red corporativa es configurar las direcciones URL externas de sus aplicaciones para que sean iguales que las direcciones URL internas. Use [dominios personalizados](active-directory-application-proxy-custom-domains.md) para configurar las direcciones URL externas de modo que tengan su nombre de dominio corporativo en lugar del dominio del proxy de aplicación predeterminado.
 
-Si no puede usar dominios personalizados en el inquilino, la característica de traducción de vínculos del Proxy de aplicación hará que sus vínculos sigan funcionando independientemente de dónde se encuentren los usuarios. Cuando tiene aplicaciones que apunta directamente a puertos o puntos de conexión internos, puede asignar estas direcciones URL internas a las direcciones URL del proxy de aplicación externas publicadas. Cuando se habilita la traducción de vínculos y el Proxy de aplicación busca a través de etiquetas de JavaScript selectas, CSS y HTML para vínculos internos publicados. A continuación, el servicio de Proxy de aplicación los traduce para que sus usuarios tengan una experiencia sin interrupciones.
+Si no puede usar dominios personalizados en el inquilino, la característica de traducción de vínculos del Proxy de aplicación hará que sus vínculos sigan funcionando independientemente de dónde se encuentren los usuarios. Cuando tiene aplicaciones que apunta directamente a puertos o puntos de conexión internos, puede asignar estas direcciones URL internas a las direcciones URL del proxy de aplicación externas publicadas. Cuando está habilitada la traducción de vínculos y el Proxy de aplicación busca a través de HTML y CSS los vínculos internos publicados, el servicio del Proxy de aplicación los traduce para que los usuarios reciban una experiencia sin interrupciones.
 
 >[!NOTE]
 >La característica de traducción de vínculos es para inquilinos que, por cualquier motivo, no pueden usar dominios personalizados para tener las mismas direcciones URL internas y externas para sus aplicaciones. Antes de habilitar esta característica, vea si los [dominios personalizados en el Proxy de aplicación de Azure AD](active-directory-application-proxy-custom-domains.md) son adecuados para usted.
@@ -64,7 +64,7 @@ Cuando habilita la traducción de vínculos para la aplicaciones Beneficios, los
 Para mejorar el rendimiento y la seguridad, no se traducen algunos vínculos:
 
 - Los vínculos que no están dentro de las etiquetas de código. 
-- Los vínculos que no están en HTML, CSS o JavaScript. 
+- Vínculos que no son de HTML o CSS. 
 - Los vínculos internos que se abren desde otros programas. No se traducirán los vínculos que se envían a través de correos electrónicos o mensajes instantáneos o que se incluyen en otros documentos. Los usuarios deben saber ir a la dirección URL externa.
 
 Si necesita admitir uno de estos dos escenarios, use las mismas direcciones URL internas y externas en lugar de la traducción de vínculos.  
@@ -84,7 +84,7 @@ Ahora, cuando los usuarios accedan a esta aplicación, el proxy examinará autom
 
 ## <a name="send-feedback"></a>Envío de comentarios
 
-Queremos que nos ayude a hacer que esta característica funcione para todas las aplicaciones. Buscamos en más de 30 etiquetas en HTML y CSS y estamos evaluando qué casos de JavaScript admitir. Si tiene un ejemplo de vínculos generados que no está traducido, envíe un fragmento de código a [Comentarios del Proxy de aplicación](mailto:aadapfeedback@microsoft.com). 
+Queremos que nos ayude a hacer que esta característica funcione para todas las aplicaciones. Buscamos más de 30 etiquetas en HTML y CSS. Si tiene un ejemplo de vínculos generados que no está traducido, envíe un fragmento de código a [Comentarios del Proxy de aplicación](mailto:aadapfeedback@microsoft.com). 
 
 ## <a name="next-steps"></a>pasos siguientes
 [Uso de dominios personalizados con el Proxy de aplicación de Azure AD](active-directory-application-proxy-custom-domains.md) para tener la misma dirección URL interna y externa

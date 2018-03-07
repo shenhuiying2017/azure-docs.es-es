@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 02/22/2018
 ms.author: nitinme
-ms.openlocfilehash: 2be4477528c9109151c4737eabc16741cc020ce8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 87e60bcc097157c733c1e08356b7cd9ea48bb868
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="kernels-for-jupyter-notebook-on-spark-clusters-in-azure-hdinsight"></a>Kernels para Jupyter Notebook en clústeres Spark en Azure HDInsight 
 
@@ -135,7 +135,11 @@ Puede abrir el cuaderno **00 - [READ ME FIRST] Spark Magic Kernel Features** de 
 
 ## <a name="where-are-the-notebooks-stored"></a>Almacenamiento de los cuadernos
 
-Los cuadernos de Jupyter Notebook se guardan en la cuenta de almacenamiento asociada al clúster en la carpeta **/HdiNotebooks** .  Es posible acceder a los cuadernos, los archivos de texto y las carpetas que se crean en Jupyter desde la cuenta de almacenamiento.  Por ejemplo, si usa Jupyter para crear una carpeta **myfolder** y un cuaderno **myfolder/mynotebook.ipynb**, puede acceder a él en `/HdiNotebooks/myfolder/mynotebook.ipynb` dentro de la cuenta de almacenamiento.  También ocurre lo contrario, es decir, si carga un cuaderno directamente en la cuenta de almacenamiento en `/HdiNotebooks/mynotebook1.ipynb`, se ve también desde Jupyter.  Los cuadernos permanecen en la cuenta de almacenamiento incluso después de que se elimine el clúster.
+Si el clúster usa Azure Storage como la cuenta de almacenamiento predeterminada, las instancias de Jupyter Notebook se guardan en la cuenta de almacenamiento de la carpeta **/HdiNotebooks**.  Es posible acceder a los cuadernos, los archivos de texto y las carpetas que se crean en Jupyter desde la cuenta de almacenamiento.  Por ejemplo, si usa Jupyter para crear una carpeta **myfolder** y un cuaderno **myfolder/mynotebook.ipynb**, puede acceder a él en `/HdiNotebooks/myfolder/mynotebook.ipynb` dentro de la cuenta de almacenamiento.  También ocurre lo contrario, es decir, si carga un cuaderno directamente en la cuenta de almacenamiento en `/HdiNotebooks/mynotebook1.ipynb`, se ve también desde Jupyter.  Los cuadernos permanecen en la cuenta de almacenamiento incluso después de que se elimine el clúster.
+
+> [!NOTE]
+> Los clústeres de HDInsight con Azure Data Lake Store como el almacenamiento predeterminado no almacenan los Notebooks en un almacenamiento asociado.
+>
 
 La forma de guardar los cuadernos en la cuenta de almacenamiento es compatible con HDFS. Por lo tanto, si se usa SSH en el clúster, puede usar comandos de administración de archivos como se muestra en el siguiente fragmento de código:
 
@@ -143,8 +147,7 @@ La forma de guardar los cuadernos en la cuenta de almacenamiento es compatible c
     hdfs dfs –copyToLocal /HdiNotebooks                    # Download the contents of the HdiNotebooks folder
     hdfs dfs –copyFromLocal example.ipynb /HdiNotebooks   # Upload a notebook example.ipynb to the root folder so it’s visible from Jupyter
 
-
-En caso de que haya problemas para acceder a la cuenta de almacenamiento del clúster, los cuadernos también se guardan en el nodo principal `/var/lib/jupyter`.
+Independientemente de si el clúster usa Azure Storage o Azure Data Lake Store como la cuenta de almacenamiento predeterminada, los Notebooks también se guardan en el nodo principal del clúster en `/var/lib/jupyter`.
 
 ## <a name="supported-browser"></a>Explorador compatible
 

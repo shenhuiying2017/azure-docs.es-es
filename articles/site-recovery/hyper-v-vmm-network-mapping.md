@@ -1,25 +1,24 @@
 ---
-title: "Asignación de red para la replicación de máquinas virtuales de Hyper-V en nubes de VMM con Site Recovery | Microsoft Docs"
+title: "Asignación de red para la replicación de VM de Hyper-V (con VMM) en Azure con Site Recovery | Microsoft Docs"
 description: "Describe la configuración de la asignación de red para la replicación de máquinas virtuales administradas de Hyper-V en nubes de VMM con Azure Site Recovery."
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/13/2018
+ms.date: 02/22/2018
 ms.author: raynew
-ms.openlocfilehash: 5b8ebf3bd118a7b082949b3f3c6ef60a07641ba1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 524de918bd24d51680110dc2af213bf328e349fd
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="about-network-mapping-for-hyper-v-vm-with-vmm-replication"></a>Asignación de red para máquinas virtuales de Hyper-V con replicación de VMM 
+# <a name="prepare-network-mapping-for-hyper-v-vm-replication-to-azure"></a>Preparación de la asignación de redes para la replicación de una máquina virtual de Hyper-V en Azure
 
 
-Este artículo le ayuda a entender y planear la asignación de red durante la replicación de máquinas virtuales de Hyper-V en nubes de System Center Virtual Machine Manager (VMM) mediante el [servicio Azure Site Recovery](site-recovery-overview.md).
+Este artículo le ayuda a entender y preparar la asignación de red cuando replica VM de Hyper-V de nubes de System Center Virtual Machine Manager (VMM) en Azure, o en un sitio secundario, mediante el servicio [Azure Site Recovery](site-recovery-overview.md).
 
-La asignación de red se usa cuando se replican máquinas virtuales administradas de Hyper-V en una nube de VMM, en una nube secundaria de VMM o en Azure.
 
 ## <a name="prepare-network-mapping-for-replication-to-azure"></a>Preparación de la asignación de red para la replicación en Azure
 
@@ -123,4 +122,5 @@ Se cambia la asignación de redes de VMNetwork1-Chicago. | VM-1 se conectará a 
 
 ## <a name="next-steps"></a>pasos siguientes
 
-[Información sobre](hyper-v-vmm-networking.md) el direccionamiento IP tras la conmutación por error a un sitio de VMM secundario.
+- [Información sobre](hyper-v-vmm-networking.md) el direccionamiento IP tras la conmutación por error a un sitio de VMM secundario.
+- [Información sobre](concepts-on-premises-to-azure-networking.md) el direccionamiento IP tras la conmutación por error a Azure.

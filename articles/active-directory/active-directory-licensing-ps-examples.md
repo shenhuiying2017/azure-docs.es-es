@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/05/2017
 ms.author: curtand
-ms.openlocfilehash: 82d4bdbe60fe403ea07ed958e9aec9dbf4e9fbb8
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 6a518f9c7ddb11de2b459d5d28c404316eb62355
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="powershell-examples-for-group-based-licensing-in-azure-ad"></a>Ejemplos de PowerShell para licencias basadas en grupos de Azure AD
 
@@ -27,6 +27,9 @@ Toda la funcionalidad para licencias basadas en grupos está disponible en [Azur
 
 > [!NOTE]
 > Antes de comenzar la ejecución de cmdlets, ejecute el cmdlet `Connect-MsolService` para conectarse a su inquilino.
+
+>[!WARNING]
+>Este código se proporciona como un ejemplo para fines de demostración. Si va a usarlo en su entorno, considere la posibilidad de probarlo primero a pequeña escala o en un inquilino de prueba independiente. Quizá deba ajustar el código para satisfacer las necesidades específicas de su entorno.
 
 ## <a name="view-product-licenses-assigned-to-a-group"></a>Visualización de las licencias de producto asignadas a un grupo
 El cmdlet [Get-MsolGroup](/powershell/module/msonline/get-msolgroup?view=azureadps-1.0) se puede usar para recuperar el objeto de grupo y comprobar la propiedad *Licenses*: enumera todas las licencias de producto actualmente asignadas al grupo.
@@ -70,7 +73,7 @@ c2652d63-9161-439b-b74e-fcd8228a7074 EMSandOffice             {ENTERPRISEPREMIUM
 ```
 
 ## <a name="get-statistics-for-groups-with-licenses"></a>Obtención de las estadísticas de grupos con licencias
-Puede notificar estadísticas básicas para grupos con licencias. En el ejemplo siguiente se indican el número total de usuarios, el número de usuarios con licencias ya asignadas por el grupo y el número de usuarios para los que no se pudieron asignar licencias en el grupo.
+Puede notificar estadísticas básicas para grupos con licencias. En el ejemplo siguiente, el script indica el número total de usuarios, el número de usuarios con licencias ya asignadas por el grupo y el número de usuarios para los que no se pudieron asignar licencias en el grupo.
 
 ```
 #get all groups with licenses
@@ -167,10 +170,10 @@ ObjectId                             DisplayName      License Error
 ```
 ## <a name="get-all-users-with-license-errors-in-the-entire-tenant"></a>Obtención de todos los usuarios con errores de licencia en todo el inquilino
 
-Para enumerar todos los usuarios que tienen errores de licencia de uno o varios grupos, puede utilizarse el siguiente script. Este script mostrará una fila por cada usuario y cada error de licencia, lo que le permite identificar claramente el origen de cada error.
+El script siguiente se puede usar para obtener todos los usuarios que tienen errores de licencia de uno o varios grupos. El script imprime una fila por cada usuario y cada error de licencia, lo que le permite identificar claramente el origen de cada error.
 
 > [!NOTE]
-> Este script enumerará todos los usuarios en el inquilino que pudieran no ser óptimos para inquilinos grandes.
+> Este script enumera todos los usuarios en el inquilino que pudieran no ser óptimos para inquilinos grandes.
 
 ```
 Get-MsolUser -All | Where {$_.IndirectLicenseErrors } | % {   
@@ -302,7 +305,7 @@ ObjectId                             SkuId       AssignedDirectly AssignedFromGr
 ## <a name="remove-direct-licenses-for-users-with-group-licenses"></a>Retirada de licencias directas a usuarios con licencias de grupo
 El propósito de este script es quitar las licencias directas no necesarias a los usuarios que heredan la misma licencia de un grupo; por ejemplo, como parte de una [migración de usuarios individuales con licencia a licencias basadas en grupos](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-migration-azure-portal).
 > [!NOTE]
-> Es importante validar en primer lugar que las licencias directas que va a quitar no habilitan más funcionalidades de servicio que las licencias heredadas. De lo contrario, quitar la licencia directa podría deshabilitar el acceso a servicios y datos a esos usuarios. Actualmente no es posible comprobar a través de PowerShell si los servicios se han habilitado por licencias heredadas o por licencias directas. En el script se especificará el nivel mínimo de servicios que sabemos que se heredan de grupos y se comprobará con él.
+> Es importante validar en primer lugar que las licencias directas que va a quitar no habilitan más funcionalidades de servicio que las licencias heredadas. De lo contrario, quitar la licencia directa podría deshabilitar el acceso a servicios y datos a esos usuarios. Actualmente no es posible comprobar a través de PowerShell si los servicios se han habilitado por licencias heredadas o por licencias directas. En el script, se especifica el nivel mínimo de servicios que sabemos que se heredan de grupos y se comprobará con él para asegurarse de que los usuarios no pierdan acceso a los servicios de manera inesperada.
 
 ```
 #BEGIN: Helper functions used by the script
@@ -382,7 +385,7 @@ function GetDisabledPlansForSKU
 {
     Param([string]$skuId, [string[]]$enabledPlans)
 
-    $allPlans = Get-MsolAccountSku | where {$_.AccountSkuId -ieq $skuId} | Select -ExpandProperty ServiceStatus | Where {$_.ProvisioningStatus -ine "PendingActivation"} | Select -ExpandProperty ServicePlan | Select -ExpandProperty ServiceName
+    $allPlans = Get-MsolAccountSku | where {$_.AccountSkuId -ieq $skuId} | Select -ExpandProperty ServiceStatus | Where {$_.ProvisioningStatus -ine "PendingActivation" -and $_.ServicePlan.TargetClass -ieq "User"} | Select -ExpandProperty ServicePlan | Select -ExpandProperty ServiceName
     $disabledPlans = $allPlans | Where {$enabledPlans -inotcontains $_}
 
     return $disabledPlans
@@ -476,7 +479,7 @@ aadbe4da-c4b5-4d84-800a-9400f31d7371 User has no direct license to remove. Skipp
 
 ## <a name="next-steps"></a>pasos siguientes
 
-Para más información sobre el conjunto de características de administración de licencias mediante grupos, consulte lo siguiente:
+Para más información sobre el conjunto de características de administración de licencias mediante grupos, consulte los artículos siguientes:
 
 * [¿En qué consisten las licencias basadas en grupos de Azure Active Directory?](active-directory-licensing-whatis-azure-portal.md)
 * [Asignación de licencias a un grupo en Azure Active Directory](active-directory-licensing-group-assignment-azure-portal.md)

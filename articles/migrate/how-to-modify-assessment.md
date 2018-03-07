@@ -4,13 +4,13 @@ description: "Describe cómo configurar y ejecutar una evaluación para migrar m
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 06/02/2017
+ms.date: 02/26/2018
 ms.author: raynew
-ms.openlocfilehash: 8babdbc30e062c7b289e90a674cec3222943e48d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: efb4ad59d25a0c1209e4f0f6cd406c2f0d48159c
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="customize-an-assessment"></a>Personalización de una evaluación
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 02/21/2018
 
     **Configuración** | **Detalles** | **Valor predeterminado**
     --- | --- | ---
-    **Ubicación de destino** | La ubicación de Azure a la que desea realizar la migración. |  Oeste de EE. UU. 2 es la ubicación predeterminada.
+    **Ubicación de destino** | La ubicación de Azure a la que desea realizar la migración.<br/><br/> Azure Migrate admite actualmente 30 regiones, incluidas Este de Australia, Sudeste de Australia, Sur de Brasil, Centro de Canadá, Este de Canadá, India central, Centro de EE. UU., Este de China, Norte de China, Asia Oriental, Este de EE. UU., Centro de Alemania, Noreste de Alemania, Este de EE. UU. 2, Japón Oriental, Japón Occidental, Centro de Corea del Sur, Corea del Sur, Centro y norte de EE. UU., Europa del Norte, Centro-sur de EE. UU., Sudeste Asiático, India del Sur, Sur de Reino Unido, Oeste de Reino Unido, Centro occidental de EE. UU., Europa Occidental, India occidental, Oeste de EE. UU. y Oeste de EE. UU. 2. |  Oeste de EE. UU. 2 es la ubicación predeterminada.
     **Redundancia de almacenamiento** | El tipo de redundancia de almacenamiento que las máquinas virtuales de Azure usarán después de la migración. | [El almacenamiento con redundancia local (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) es el valor predeterminado. Azure Migrate solo admite las evaluaciones basadas en discos administrados y los discos administrados solo son compatibles con LRS, por lo tanto, la propiedad solo tiene actualmente la opción de LRS. 
     **Criterio de ajuste de tamaño** | El criterio que debe utilizar Azure Migrate para ajustar el tamaño de las máquinas virtuales para Azure. Puede hacer bien un ajuste de tamaño *basado en el rendimiento* o puede ajustar el tamaño de las máquinas virtuales *como en el entorno local*, sin tener en cuenta el historial de rendimiento. | El ajuste de tamaño basado en el rendimiento es el valor predeterminado.
     **Historial de rendimiento** | La duración a tener en cuenta para evaluar el rendimiento de las máquinas virtuales. Esta propiedad solo es aplicable cuando el criterio es el *ajuste de tamaño basado en el rendimiento*. | El valor predeterminado es un día.

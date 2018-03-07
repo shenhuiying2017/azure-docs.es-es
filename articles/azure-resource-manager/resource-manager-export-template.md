@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/06/2017
+ms.date: 02/23/2018
 ms.author: tomfitz
-ms.openlocfilehash: 0af34a64cd3cc33519f2cc69653982e00e4c1e9b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7ac553a3608df41548f845e27c545ff63886e37c
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="export-an-azure-resource-manager-template-from-existing-resources"></a>Exportación de plantillas de Azure Resource Manager desde recursos existentes
 En este artículo, aprenderá a exportar una plantilla de Resource Manager desde los recursos existentes en la suscripción. Puede usar la plantilla generada para conocer mejor de la sintaxis de la plantilla.
@@ -26,38 +26,38 @@ En este artículo, aprenderá a exportar una plantilla de Resource Manager desde
 Hay dos maneras de exportar una plantilla:
 
 * Se puede exportar la **plantilla real que se usó para una implementación**. La plantilla exportada incluye todos los parámetros y variables exactamente como aparecían en la plantilla original. Este enfoque es útil cuando se implementan recursos a través del portal y se desea ver la plantilla para crearlos. Esta plantilla es fácil de usar. 
-* Puede exportar una **plantilla generada que representa el estado actual del grupo de recursos**. La plantilla exportada no se basa en ninguna plantilla que usara para la implementación. Al contrario, crea una plantilla que es una instantánea del grupo de recursos. La plantilla exportada tiene muchos valores codificados de forma rígida y es probable que no tenga tantos parámetros como normalmente se definirían. Este enfoque resulta útil si el grupo de recursos se ha modificado después de la implementación. Para poder usar esta plantilla, normalmente es preciso realizar ciertas modificaciones en ella.
+* Puede exportar una **plantilla generada que representa el estado actual del grupo de recursos**. La plantilla exportada no se basa en ninguna plantilla que usara para la implementación. Al contrario, crea una plantilla que es una "instantánea" o "copia de seguridad" del grupo de recursos. La plantilla exportada tiene muchos valores codificados de forma rígida y es probable que no tenga tantos parámetros como normalmente se definirían. Use esta opción para volver a implementar recursos en el mismo grupo de recursos. Para utilizar esta plantilla para otro grupo de recursos, es posible que tenga que modificarla de forma significativa.
 
-En este tema se muestran ambos métodos a través del portal.
+En este artículo se muestran ambos métodos a través del portal.
 
 ## <a name="deploy-resources"></a>Implementación de recursos
 Para empezar, vamos a implementar en Azure recursos que se pueden utilizar para exportarlos como una plantilla. Si en la suscripción ya tiene un grupo de recursos que desee exportar a una plantilla, puede omitir esta sección. En el resto de este artículo se da por supuesto que se ha implementado la aplicación web y la solución de base de datos SQL que se muestran en esta sección. Si utiliza otra solución, puede que el conjunto del proceso sea un poco diferente, pero los pasos para exportar una plantilla son los mismos. 
 
 1. En [Azure Portal](https://portal.azure.com), haga clic en **Crear un recurso**.
    
-      ![seleccionar Nuevo](./media/resource-manager-export-template/new.png)
+      ![Seleccionar Nuevo](./media/resource-manager-export-template/new.png)
 2. Busque **Aplicación web + SQL** y selecciónelo.
    
-      ![buscar aplicación web y SQL](./media/resource-manager-export-template/webapp-sql.png)
+      ![Buscar aplicación web y SQL](./media/resource-manager-export-template/webapp-sql.png)
 
 3. Seleccione **Crear**.
 
-      ![seleccionar crear](./media/resource-manager-export-template/create.png)
+      ![Haga clic en Crear](./media/resource-manager-export-template/create.png)
 
 4. Proporcione los valores requeridos para la aplicación web y la base de datos SQL. Seleccione **Crear**.
 
-      ![proporcionar valor de web y SQL](./media/resource-manager-export-template/provide-web-values.png)
+      ![Proporcionar valor de web y SQL](./media/resource-manager-export-template/provide-web-values.png)
 
 La implementación puede tardar un momento. Una vez que finaliza la implementación, la suscripción contiene la solución.
 
 ## <a name="view-template-from-deployment-history"></a>Visualización de una plantilla desde el historial de implementaciones
-1. Vaya a la hoja del grupo de recursos que ha creado. Observe que la hoja muestra el resultado de la última implementación. Seleccione este vínculo.
+1. Vaya al grupo de recursos del grupo de recursos que ha creado. Observe que el portal muestra el resultado de la última implementación. Seleccione este vínculo.
    
-      ![Hoja del grupo de recursos](./media/resource-manager-export-template/select-deployment.png)
-2. Se ve un historial de implementaciones para el grupo. En su caso, es probable que la hoja solo muestre una implementación. Selecciónela.
+      ![Grupos de recursos](./media/resource-manager-export-template/select-deployment.png)
+2. Se ve un historial de implementaciones para el grupo. En su caso, es probable que el portal solo muestre una implementación. Selecciónela.
    
-     ![última implementación](./media/resource-manager-export-template/select-history.png)
-3. La hoja muestra un resumen de la implementación. El resumen incluye el estado de la implementación y sus operaciones, además de los valores que proporcionó para los parámetros. Para ver la plantilla que se usó para la implementación, seleccione **Ver plantilla**.
+     ![Última implementación](./media/resource-manager-export-template/select-history.png)
+3. El portal muestra un resumen de la implementación. El resumen incluye el estado de la implementación y sus operaciones, además de los valores que proporcionó para los parámetros. Para ver la plantilla que se usó para la implementación, seleccione **Ver plantilla**.
    
      ![Ver el resumen de la implementación](./media/resource-manager-export-template/view-template.png)
 4. Resource Manager recupera los siete archivos siguientes:
@@ -70,14 +70,14 @@ La implementación puede tardar un momento. Una vez que finaliza la implementaci
    5. **.NET** : una clase .NET que puede utilizar para implementar la plantilla.
    6. **Ruby** : una clase Ruby que puede utilizar para implementar la plantilla.
       
-      Los archivos están disponibles mediante vínculos en la hoja. De forma predeterminada, la hoja muestra la plantilla.
+      De forma predeterminada, el portal muestra la plantilla.
       
        ![Ver plantilla](./media/resource-manager-export-template/see-template.png)
       
 Esta plantilla es la que se usó para crear la aplicación web y la base de datos SQL. Observe que contiene parámetros que le permiten proporcionar distintos valores en la implementación. Para aprender más sobre la estructura de una plantilla, consulte [Creación de plantillas de Azure Resource Manager](resource-group-authoring-templates.md).
 
 ## <a name="export-the-template-from-resource-group"></a>Exportación de la plantilla desde el grupo de recursos
-Si ha cambiado los recursos o ha agregado recursos en varias implementaciones manualmente, la recuperación de una plantilla desde el historial de implementaciones no refleja el estado actual del grupo de recursos. En esta sección se muestra cómo exportar una plantilla que refleja el estado actual del grupo de recursos. 
+Si ha cambiado los recursos o ha agregado recursos en varias implementaciones manualmente, la recuperación de una plantilla desde el historial de implementaciones no refleja el estado actual del grupo de recursos. En esta sección se muestra cómo exportar una plantilla que refleja el estado actual del grupo de recursos. Se ha diseñado como una instantánea del grupo de recursos, el cual puede usar para volver a implementar en el mismo grupo de recursos. Para usar la plantilla exportada para otras soluciones, debe modificarla de forma significativa.
 
 > [!NOTE]
 > No se puede exportar una plantilla a un grupo de recursos que tenga más de doscientos recursos.
@@ -86,7 +86,7 @@ Si ha cambiado los recursos o ha agregado recursos en varias implementaciones ma
 
 1. Para ver la plantilla de un grupo de recursos, seleccione **Script de Automation**.
    
-      ![exportar grupo de recursos](./media/resource-manager-export-template/select-automation.png)
+      ![Exportar grupo de recursos](./media/resource-manager-export-template/select-automation.png)
    
      Resource Manager evalúa los recursos del grupo de recursos y genera una plantilla para ellos. No todos los tipos de recursos admiten la función de exportación de plantilla. Puede ver un error que indica que hay un problema con la exportación. Puede aprender más sobre cómo resolver estos problemas en la sección [Solución de problemas de exportación](#fix-export-issues) .
 2. De nuevo ve los seis archivos que puede usar para volver a implementar la solución. Sin embargo, esta vez la plantilla es algo diferente. Observe que la plantilla generada contiene menos parámetros que la plantilla de la sección anterior. Además, muchos de los valores (como los de ubicación y SKU) se codifican de forma rígida en esta plantilla, en lugar de aceptar un valor de parámetro. Antes de volver a usar esta plantilla, puede editarla para hacer un mejor uso de los parámetros. 
@@ -95,31 +95,31 @@ Si ha cambiado los recursos o ha agregado recursos en varias implementaciones ma
    
      Si está familiarizado con el uso de un editor de JSON como [VS Code](https://code.visualstudio.com/) o [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md), es posible que prefiera descargar la plantilla localmente y usar ese editor. Para trabajar de forma local, seleccione **Descargar**.
    
-      ![Descargar plantilla](./media/resource-manager-export-template/download-template.png)
+      ![Descarga de una plantilla](./media/resource-manager-export-template/download-template.png)
    
-     Si no lo está, es preferible editar la plantilla a través del portal. En el resto de este tema se supone que ha guardado la plantilla en la biblioteca en el portal. No obstante, tendrá que realizar los mismos cambios de sintaxis en la plantilla tanto si trabaja localmente con un editor de JSON o a través del portal. Para trabajar a través del portal, seleccione **Agregar a la biblioteca**.
+     Si no lo está, es preferible editar la plantilla a través del portal. En el resto de este artículo se supone que ha guardado la plantilla en la biblioteca en el portal. No obstante, tendrá que realizar los mismos cambios de sintaxis en la plantilla tanto si trabaja localmente con un editor de JSON o a través del portal. Para trabajar a través del portal, seleccione **Agregar a la biblioteca**.
    
-      ![agregar a la biblioteca](./media/resource-manager-export-template/add-to-library.png)
+      ![Agregar a la biblioteca](./media/resource-manager-export-template/add-to-library.png)
    
-     Al agregar una plantilla a la biblioteca, asigne a la plantilla un nombre y una descripción. Después, seleccione **Guardar**.
+     Al agregar una plantilla a la biblioteca, puede asignar a la plantilla un nombre y una descripción. Después, seleccione **Guardar**.
    
-     ![establecer valores de plantilla](./media/resource-manager-export-template/save-library-template.png)
+     ![Establecer valores de plantilla](./media/resource-manager-export-template/save-library-template.png)
 4. Para ver una plantilla guardada en la biblioteca, seleccione **Más servicios**, escriba **Plantillas** para filtrar los resultados y seleccione **Plantillas**.
    
-      ![buscar plantillas](./media/resource-manager-export-template/find-templates.png)
+      ![Buscar plantillas](./media/resource-manager-export-template/find-templates.png)
 5. Seleccione la plantilla con el nombre que se guardó.
    
-      ![seleccionar plantilla](./media/resource-manager-export-template/select-saved-template.png)
+      ![Seleccionar plantilla](./media/resource-manager-export-template/select-saved-template.png)
 
 ## <a name="customize-the-template"></a>Personalización de la plantilla
 La plantilla exportada funciona bien si desea crear la misma aplicación web y base de datos cuenta SQL en todas las implementaciones. No obstante, Resource Manager proporciona opciones para que pueda implementar plantillas con mucha más flexibilidad. En este artículo se muestra cómo agregar parámetros para el nombre y la contraseña del administrador de base de datos. Este mismo método se puede usar para dar más flexibilidad a otros valores de la plantilla.
 
 1. Seleccione **Editar** para personalizar la plantilla.
    
-     ![mostrar plantilla](./media/resource-manager-export-template/select-edit.png)
+     ![Mostrar la plantilla](./media/resource-manager-export-template/select-edit.png)
 2. Seleccione la plantilla.
    
-     ![editar plantilla](./media/resource-manager-export-template/select-added-template.png)
+     ![Editar plantilla](./media/resource-manager-export-template/select-added-template.png)
 3. Para poder pasar los valores que desea especificar durante la implementación, agregue los dos parámetros siguientes a la sección **parameters** de la plantilla:
 
    ```json
@@ -154,10 +154,10 @@ La plantilla exportada funciona bien si desea crear la misma aplicación web y b
 6. Seleccione **Aceptar** cuando haya terminado la edición de la plantilla.
 7. Seleccione **Guardar** para guardar los cambios en la plantilla.
    
-     ![guardar plantilla](./media/resource-manager-export-template/save-template.png)
+     ![Guardar plantilla](./media/resource-manager-export-template/save-template.png)
 8. Para volver a implementar la plantilla actualizada, seleccione **Implementar**.
    
-     ![implementar plantilla](./media/resource-manager-export-template/redeploy-template.png)
+     ![Implementar plantilla](./media/resource-manager-export-template/redeploy-template.png)
 9. Proporcione valores de parámetro y seleccione el grupo de recursos en el que se van a implementar los recursos.
 
 
@@ -170,9 +170,8 @@ No todos los tipos de recursos admiten la función de exportación de plantilla.
 > 
 
 ## <a name="next-steps"></a>pasos siguientes
-Ha aprendido a exportar una plantilla desde recursos creados en el portal.
 
 * Puede implementar una plantilla mediante [PowerShell](resource-group-template-deploy.md), [CLI de Azure](resource-group-template-deploy-cli.md), o [API de REST](resource-group-template-deploy-rest.md).
-* Para ver cómo exportar una plantilla mediante PowerShell, consulte [Uso de Azure PowerShell con Azure Resource Manager](powershell-azure-resource-manager.md).
-* Para ver cómo exportar una plantilla mediante la CLI de Azure, consulte [Uso de la CLI de Azure para Mac, Linux y Windows con Azure Resource Manager](xplat-cli-azure-resource-manager.md).
+* Para ver cómo exportar una plantilla mediante PowerShell, consulte [Exportación de plantillas de Azure Resource Manager con PowerShell](resource-manager-export-template-powershell.md).
+* Para ver cómo exportar una plantilla mediante la CLI de Azure, consulte [Exportación de plantillas de Azure Resource Manager con CLI de Azure](resource-manager-export-template-cli.md).
 

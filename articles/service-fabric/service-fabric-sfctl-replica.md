@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 422c19dfa9a204d98a898f76bc1af92a05c054d0
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: ba67a2a20d3f3e8e9fbccb2674cea500bfbde3fb
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="sfctl-replica"></a>réplica de sfctl
 Administre las réplicas que pertenecen a las particiones del servicio.
@@ -64,7 +64,7 @@ Obtiene los detalles de la réplica implementada en un nodo de Service Fabric. L
 ## <a name="sfctl-replica-health"></a>sfctl replica health
 Obtiene el mantenimiento de una réplica de servicio con estado o de una instancia de servicio sin estado de Service Fabric.
 
-Obtiene el estado de una réplica de Service Fabric. Use EventsHealthStateFilter para filtrar la colección de eventos de estado notificados en la réplica en función del estado de mantenimiento. .
+Obtiene el estado de una réplica de Service Fabric. Use EventsHealthStateFilter para filtrar la colección de eventos de estado notificados en la réplica en función del estado de mantenimiento.
 
 ### <a name="arguments"></a>Argumentos
 
@@ -82,13 +82,13 @@ Obtiene el estado de una réplica de Service Fabric. Use EventsHealthStateFilter
 | --debug                  | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h                | Muestra este mensaje de ayuda y sale.|
 | --output -o              | Formato de salida.  Valores permitidos: json, jsonc, table y tsv.  Valor predeterminado: json.|
-| --query                  | Cadena de consulta de JMESPath. Consulte http://jmespath.org/ para obtener más información y ejemplos.|
+| --query                  | Cadena de consulta de JMESPath. Para obtener más información, consulte http://jmespath.org/.|
 | --verbose                | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos.|
 
 ## <a name="sfctl-replica-info"></a>sfctl replica info
 Obtiene la información sobre una réplica de una partición de Service Fabric.
 
-La respuesta incluye el identificador, el rol, el estado, el mantenimiento, el nombre del nodo, el tiempo de actividad y otros detalles sobre la réplica.
+La respuesta incluye el identificador, el rol, el estado, el estado, el nombre del nodo, el tiempo de actividad y otros detalles acerca de la réplica.
 
 ### <a name="arguments"></a>Argumentos
 
@@ -96,7 +96,7 @@ La respuesta incluye el identificador, el rol, el estado, el mantenimiento, el n
 | --- | --- |
 | --partition-id [Obligatorio]| La identidad de la partición.|
 | --replica-id [Obligatorio]| El identificador de la réplica.|
-| --continuation-token  | El parámetro del token de continuación se utiliza para obtener el siguiente conjunto de resultados. Un token de continuación con un valor no vacío se incluye en la respuesta de la API cuando los resultados del sistema no caben en una única respuesta. Cuando este valor se pasa a la siguiente llamada API, la API devuelve el siguiente conjunto de resultados. Si no hay ningún resultado más, el token de continuación no contiene un valor. El valor de este parámetro no debe ser la dirección URL codificada.|
+| --continuation-token  | El parámetro del token de continuación se utiliza para obtener el siguiente conjunto de resultados. Un token de continuación con un valor no vacío se incluye en la respuesta de la API cuando los resultados del sistema no caben en una única respuesta. Cuando este valor se pasa a la siguiente llamada API, la API devuelve el siguiente conjunto de resultados. Si no hay más resultados, el token de continuación no contiene ningún valor. El valor de este parámetro no debe ser la dirección URL codificada.|
 | --timeout -t          | Tiempo de espera del servidor en segundos.  Valor predeterminado: 60.|
 
 ### <a name="global-arguments"></a>Argumentos globales
@@ -106,7 +106,7 @@ La respuesta incluye el identificador, el rol, el estado, el mantenimiento, el n
 | --debug               | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h             | Muestra este mensaje de ayuda y sale.|
 | --output -o           | Formato de salida.  Valores permitidos: json, jsonc, table y tsv.  Valor predeterminado: json.|
-| --query               | Cadena de consulta de JMESPath. Consulte http://jmespath.org/ para obtener más información y ejemplos.|
+| --query               | Cadena de consulta de JMESPath. Para obtener más información, consulte http://jmespath.org/.|
 | --verbose             | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos.|
 
 ## <a name="sfctl-replica-list"></a>sfctl replica list

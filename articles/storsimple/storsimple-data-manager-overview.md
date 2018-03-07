@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 01/16/2018
+ms.date: 02/26/2018
 ms.author: vidarmsft
-ms.openlocfilehash: 8b0ff2c100878e568e0a4c67e79864006512bd78
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 4d27bc3660035ace25436a4f756c41e88200649d
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>Introducción a la solución StorSimple Data Manager
 
@@ -56,9 +56,9 @@ StorSimple Data Manager está disponible en las siguientes 7 regiones:
 
 Sin embargo, StorSimple Data Manager se puede usar para transformar datos en las siguientes regiones. 
 
-![Regiones disponibles para datos](./media/storsimple-data-manager-overview/data-manager-job-definition-different-regions.png)
+![Regiones disponibles para datos](./media/storsimple-data-manager-overview/data-manager-job-definition-different-regions-m.png)
 
-Este conjunto es mayor porque la implementación de recursos en cualquiera de las regiones anteriores es capaz de abrir el proceso de transformación en las regiones siguientes. Por lo tanto, siempre y cuando los datos residan en cualquiera de las 26 regiones, puede transformar los datos mediante este servicio.
+Este conjunto es mayor porque la implementación de recursos en cualquiera de las regiones anteriores es capaz de abrir el proceso de transformación en las regiones siguientes. Por lo tanto, siempre y cuando los datos residan en cualquiera de las 19 regiones, puede transformar los datos mediante este servicio.
 
 
 ## <a name="choosing-a-region"></a>Elección de una región

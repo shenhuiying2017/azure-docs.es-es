@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
-ms.openlocfilehash: d6a19334b369c54ff6bad3404b4cf2ffe3b47c70
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: cc609d7c7b28fc4aef6eb1e25ee46fd77edd4102
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Azure Disk Encryption para máquinas virtuales IaaS Linux y Windows
 Microsoft Azure está muy comprometido a garantizar la privacidad y soberanía de los datos, y permite controlar los datos hospedados en Azure datos mediante varias tecnologías avanzadas que cifran, controlan y administran las claves de cifrado, y controlan y auditan el acceso de los datos. Esto proporciona a los clientes de Azure la flexibilidad necesaria para elegir la solución que mejor cubra sus necesidades empresariales. En este artículo, le presentaremos a una nueva solución de tecnología, "Azure Disk Encryption para máquinas virtuales IaaS Linux y Windows", que le ayudara a proteger sus datos para que cumplan los compromisos de seguridad y compatibilidad de su organización. Ofrece información detalladas sobre cómo usar las características de cifrado de disco de Azure, incluidos los escenarios admitidos y las experiencias de los usuarios.
@@ -141,34 +141,7 @@ Antes de habilitar Azure Disk Encryption en máquinas virtuales IaaS de Azure pa
 > [!NOTE]
 > En el caso de Windows Server 2008 R2, debe tener .NET Framework 4.5 instalado para poder habilitar el cifrado en Azure. Se puede instalar desde Windows Update mediante la instalación de la actualización opcional Microsoft .NET Framework 4.5.2 para sistemas basados en x64 con Windows Server 2008 R2 ([KB2901983](https://support.microsoft.com/kb/2901983)).
 
-* Azure Disk Encryption se admite en las siguientes distribuciones y versiones del servidor Linux basadas en la Galería de Azure:
-
-| Distribución de Linux | Versión | Tipo de volumen compatible con el cifrado|
-| --- | --- |--- |
-| Ubuntu | 16.04-DAILY-LTS | Sistema operativo y disco de datos |
-| Ubuntu | 14.04.5-DAILY-LTS | Sistema operativo y disco de datos |
-| Ubuntu | 12.10 | Disco de datos |
-| Ubuntu | 12.04 | Disco de datos |
-| RHEL | 7.4 | Sistema operativo y disco de datos |
-| RHEL | 7.3 | Sistema operativo y disco de datos |
-| RHEL | LVM 7.3 | Sistema operativo y disco de datos |
-| RHEL | 7,2 | Sistema operativo y disco de datos |
-| RHEL | 6,8 | Sistema operativo y disco de datos |
-| RHEL | 6.7 | Disco de datos |
-| CentOS | 7.3 | Sistema operativo y disco de datos |
-| CentOS | 7.2n | Sistema operativo y disco de datos |
-| CentOS | 6,8 | Sistema operativo y disco de datos |
-| CentOS | 7.1 | Disco de datos |
-| CentOS | 7.0 | Disco de datos |
-| CentOS | 6.7 | Disco de datos |
-| CentOS | 6.6 | Disco de datos |
-| CentOS | 6.5 | Disco de datos |
-| openSUSE | 13.2 | Disco de datos |
-| SLES | 12 SP1 | Disco de datos |
-| SLES | 12-SP1 (Premium) | Disco de datos |
-| SLES | HPC 12 | Disco de datos |
-| SLES | 11-SP4 (Premium) | Disco de datos |
-| SLES | 11 SP4 | Disco de datos |
+* Azure Disk Encryption solo se admite en distribuciones y versiones específicas del servidor Linux basadas en la Galería de Azure.  Para obtener la lista de versiones admitidas actualmente, consulte [Preguntas más frecuentes de Azure Disk Encryption](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption-faq).
 
 * Azure Disk Encryption requiere que el almacén de claves y las máquinas virtuales residan en la misma región y suscripción de Azure.
 
@@ -379,7 +352,7 @@ Para comprender algunos de los términos comunes que usa esta tecnología, utili
 | --- | --- |
 | Azure AD | Azure AD es [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/). Una cuenta de Azure AD es un requisito previo para autenticar, almacenar y recuperar secretos del almacén de claves. |
 | Azure Key Vault | Key Vault es un servicio de administración de claves criptográficas basado en módulos de seguridad de hardware validados por el Estándar federal de procesamiento de información (FIPS), que ayuda a proteger las claves criptográficas y los secretos confidenciales. Para obtener más información, consulte la documentación de [Key Vault](https://azure.microsoft.com/services/key-vault/). |
-| ARM | Administrador de recursos de Azure |
+| ARM | Azure Resource Manager |
 | BitLocker |[BitLocker](https://technet.microsoft.com/library/hh831713.aspx) es una tecnología de cifrado de volúmenes de Windows reconocida por el sector que se usa para habilitar el cifrado de disco en máquinas virtuales IaaS con Windows. |
 | BEK | Las claves de cifrado de BitLocker se usan para cifrar el volumen de arranque del sistema operativo y los volúmenes de datos. Las claves de BitLocker están protegidas en un almacén de claves como secretos. |
 | CLI | Vea [Instalación de la CLI de Azure](../cli-install-nodejs.md). |
@@ -395,7 +368,7 @@ Para crear un almacén de claves, use una de las siguientes opciones:
 
 * [Plantilla de Resource Manager llamada "101-Key-Vault-Create"](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
 * [Cmdlets de almacén de claves de Azure PowerShell](/powershell/module/azurerm.keyvault/#key_vault)
-* Administrador de recursos de Azure
+* Azure Resource Manager
 * Cómo [Proteger un almacén de claves](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault)
 
 > [!NOTE]
@@ -1284,9 +1257,6 @@ Cuando conecte un disco del sistema operativo, pase `$KeyEncryptionKey` y `$secr
             -DiskEncryptionKeyUrl $SecretUrl `
             -KeyEncryptionKeyVaultId $KeyVault.ResourceId `
             -KeyEncryptionKeyURL $KeyEncryptionKey.Id
-
-## <a name="download-this-guide"></a>Descargar esta guía
-Puede descargar esta guía de la [Galería de TechNet](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0).
 
 ## <a name="for-more-information"></a>Para obtener más información
 [Explore Azure Disk Encryption with Azure PowerShell - Part 1](http://blogs.msdn.com/b/azuresecurity/archive/2015/11/16/explore-azure-disk-encryption-with-azure-powershell.aspx?wa=wsignin1.0) (Exploración de Azure Disk Encryption con Azure PowerShell - Parte 1)  

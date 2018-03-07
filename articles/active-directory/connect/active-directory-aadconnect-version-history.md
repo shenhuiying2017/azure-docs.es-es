@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/14/2017
+ms.date: 02/16/2018
 ms.author: billmath
-ms.openlocfilehash: 815d2f289e18a97eff0a05ad1d7dfe4cad1fdfc5
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 63ae975426f1057b178171ef89ce98402ff18725
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: historial de versiones
 El equipo de Azure Active Directory (Azure AD) actualiza periódicamente Azure AD Connect con nuevas características y funcionalidades. No todas las adiciones son aplicables a todas las audiencias.
@@ -34,6 +34,72 @@ Pasos para actualizar desde Azure AD Connect | Diferentes métodos para [actuali
 Permisos necesarios | Para más información sobre los permisos necesarios para aplicar una actualización, consulte [cuentas y permisos](./active-directory-aadconnect-accounts-permissions.md#upgrade).
 
 Descarga | [Descargar Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
+
+## <a name="117490"></a>1.1.749.0
+Estado: publicado para clientes exclusivos Esta versión se distribuye actualmente en una sección pequeña y aleatoria de los inquilinos de AADConnect que tenga habilitada la actualización automática. Expandiremos este grupo de inquilinos en las próximas semanas hasta que el 100 % de nuestros clientes con actualización automática hayan recibido esta versión. Después de eso, publicaremos la compilación para descarga general en el enlace de descarga anterior, actualmente planeada para mediados de marzo de 2018.
+>[!NOTE]
+>Cuando se haya completado la actualización a esta nueva versión, se desencadenará automáticamente una sincronización completa y una importación completa para el conector de Azure AD y una sincronización completa para el conector de AD. Puesto que esta acción puede tardar algún tiempo en función del tamaño del entorno de Azure AD Connect, asegúrese de que ha seguido los pasos necesarios para admitir esto o aplace la actualización hasta que haya encontrado un momento adecuado para hacerlo.
+
+### <a name="azure-ad-connect"></a>Azure AD Connect
+#### <a name="fixed-issues"></a>Problemas corregidos
+* Corrección de la ventana de sincronización en las tareas en segundo plano para la página de filtrado de particiones cuando
+* Corrección de la ventana de sincronización en las tareas en segundo plano para la página de filtrado de particiones al cambiar a la página siguiente.
+
+* Se ha corregido un error que provocó una infracción de acceso durante la acción personalizada ConfigDB.
+
+* Se ha corregido un error para recuperarse del tiempo de espera de la conexión de SQL.
+
+* Se ha corregido un error que provocaba que los certificados con caracteres comodín de SAN generaran un error al realizar una comprobación de requisitos previos.
+
+* Se ha corregido un error que provocaba que miiserver.exe se bloqueara durante una exportación del conector de Azure AD.
+
+* Se ha corregido un error cuyo intento de contraseña incorrecta se registró en el controlador de dominio al ejecutar el asistente de Azure AD Connect para cambiar la configuración.
+
+
+#### <a name="new-features-and-improvements"></a>Nuevas características y mejoras
+
+* Adición de una configuración de privacidad para la reglamento general de protección de datos (GDPR).  En el caso de GDPR, es necesario indicar los tipos de datos de cliente que se comparten con Microsoft (telemétricos, de mantenimiento, etc.), así como tener vínculos a documentación en línea detallada y proporcionar un método para que nuestros clientes cambien sus preferencias.  En esta comprobación se agrega lo siguiente:
+
+
+    - Uso compartido de datos y notificación de privacidad en la página de EULA de instalación limpia.
+    - Uso compartido de datos y notificación de privacidad en la página de actualización.
+    - Una tarea "Configuración de privacidad" adicional, donde el usuario puede cambiar sus preferencias.
+
+* Telemetría de aplicaciones: el administrador puede activar o desactivar este tipo de datos como desee
+
+* Datos de mantenimiento de Azure AD: el administrador debe visitar el portal de mantenimiento para controlar la configuración de mantenimiento.
+   Una vez se haya cambiado la directiva del servicio, los agentes la leerán y la aplicarán.
+
+* Se han agregado acciones de configuración de reescritura de dispositivos y una barra de progreso para la página de inicialización.
+
+* Se han mejorado los diagnósticos generales con un informe HTML y una recopilación completa de datos en un informe HTML o de texto ZIP.
+
+* Se ha mejorado la confiabilidad de la actualización automática y se ha agregado telemetría adicional para asegurarse de que se puede determinar el mantenimiento del servidor.
+
+* Se han restringido los permisos disponibles para las cuentas con privilegios de la cuenta del conector AD.
+
+  * Para las nuevas instalaciones, el asistente restringirá los permisos que las cuentas con privilegios tiene en la cuenta de MSOL tras la creación de dicha cuenta.
+
+Los cambios se encargarán de lo siguiente:
+1. Instalaciones rápidas
+2. Instalaciones personalizadas con la cuenta de creación automática
+
+* Se ha cambiado el instalador, por lo que no se requiere el privilegio de asociación de seguridad en una instalación limpia de Azure AD Connect.
+
+* Se ha agregado una utilidad nueva para solucionar problemas de sincronización de un objeto específico. Está disponible en la opción "Solucionar problemas de sincronización de objetos" de la tarea adicional de solución de problemas del asistente de Azure AD Connect. Actualmente, la utilidad comprueba lo siguiente:
+
+  * Error de coincidencia de UserPrincipalName entre el objeto de usuario sincronizado y la cuenta de usuario del inquilino de Azure AD.
+  * Si se filtra el objeto de sincronización debido al filtrado de dominio
+  * Si se filtra el objeto de sincronización debido al filtrado de unidad organizativa (UO)
+
+* Se ha agregado una utilidad nueva para sincronizar el hash de contraseña actual almacenado en el Active Directory local para una cuenta de usuario específica.
+
+La utilidad no requiere un cambio de contraseña. Está disponible en la opción "Solucionar problemas de sincronización del hash de contraseña" de la tarea adicional de solución de problemas del asistente de Azure AD Connect.
+
+
+
+
+
 
 ## <a name="116540"></a>1.1.654.0
 Estado: 12 de diciembre de 2017

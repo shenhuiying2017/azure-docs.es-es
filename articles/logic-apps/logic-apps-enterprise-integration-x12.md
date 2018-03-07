@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 7a274ad33b7181d238203290cf63937df5f13bbc
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c644dd98d468a8c99625c45bad3f06031ff22b4e
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="exchange-x12-messages-for-enterprise-integration-with-logic-apps"></a>Intercambio de mensajes X12 para la integración empresarial con aplicaciones lógicas
 
@@ -31,37 +31,34 @@ Para poder intercambiar mensajes X12 para Azure Logic Apps, debe crear un contra
 
 Esto es lo que necesita:
 
-* Una [cuenta de integración](../logic-apps/logic-apps-enterprise-integration-accounts.md) que ya esté definida y asociada a su suscripción de Azure
+* Una [cuenta de integración](logic-apps-enterprise-integration-create-integration-account.md) que ya esté definida y asociada a su suscripción de Azure
 * Al menos dos [asociados](../logic-apps/logic-apps-enterprise-integration-partners.md) que estén definidos en su cuenta de integración y configurados con el identificador X12 en **Identidades de negocio**    
-* Un [esquema](../logic-apps/logic-apps-enterprise-integration-schemas.md) obligatorio para cargarlo en su [cuenta de integración](../logic-apps/logic-apps-enterprise-integration-accounts.md)
+* Un [esquema](../logic-apps/logic-apps-enterprise-integration-schemas.md) obligatorio que puede cargar en su cuenta de integración
 
-Una vez que haya [creado una cuenta de integración](../logic-apps/logic-apps-enterprise-integration-accounts.md), [agregado asociados](logic-apps-enterprise-integration-partners.md) y obtenido un [esquema](../logic-apps/logic-apps-enterprise-integration-schemas.md) que desee usar, puede crear un contrato X12 siguiendo estos pasos.
+Una vez que haya [creado una cuenta de integración](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), [agregado asociados](logic-apps-enterprise-integration-partners.md) y obtenido un [esquema](../logic-apps/logic-apps-enterprise-integration-schemas.md) que desee usar, puede crear un contrato X12 siguiendo estos pasos.
 
 ## <a name="create-an-x12-agreement"></a>Creación de un contrato X12
 
-1.  Inicie sesión en [Azure Portal](http://portal.azure.com "Azure Portal"). En el menú izquierdo, seleccione **Todos los servicios**. 
+1. Inicie sesión en [Azure Portal](http://portal.azure.com "Azure Portal"). 
 
-    > [!TIP]
-    > Si no ve **Todos los servicios**, expanda el menú. En la parte superior del menú contraído, seleccione **Mostrar menú**.
+2. En el menú principal de Azure, seleccione **Todos los servicios**. En el cuadro de búsqueda, escriba "integración" y, después, seleccione **Cuentas de integración**.  
 
-    ![En el menú izquierdo, seleccione "Todos los servicios"](./media/logic-apps-enterprise-integration-x12/account-1.png)
+   ![Búsqueda de la cuenta de integración](./media/logic-apps-enterprise-integration-x12/account-1.png)
 
-2.  En el cuadro de búsqueda, escriba "integración" como filtro. En la lista de resultados, seleccione **Cuentas de integración**.  
+   > [!TIP]
+   > Si no aparece **Todos los servicios**, expanda el menú. En la parte superior del menú contraído, seleccione **Mostrar menú**.
 
-    ![Filtre por "integración", seleccione "Cuentas de integración"](./media/logic-apps-enterprise-integration-x12/account-2.png)
+3. En **Cuentas de integración**, seleccione la cuenta de integración en la que va a agregar el contrato.
 
-3. En la hoja **Cuentas de integración** que se abre, seleccione la cuenta de integración en la que va a agregar el contrato.
-Si no ve ninguna, [créela](../logic-apps/logic-apps-enterprise-integration-accounts.md "Información completa sobre las cuentas de integración").
-
-    ![Selección de la cuenta de integración donde desea crear el contrato](./media/logic-apps-enterprise-integration-x12/account-3.png)
+   ![Selección de la cuenta de integración donde desea crear el contrato](./media/logic-apps-enterprise-integration-x12/account-3.png)
 
 4. Seleccione **Información general** y el icono **Acuerdos**. Si no tiene un icono Acuerdos, agréguelo. 
 
-    ![Elección del icono "Acuerdos"](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
+   ![Elección del icono "Acuerdos"](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
 
-5. En la hoja Acuerdos que se abre, seleccione **Agregar**.
+5. En **Acuerdos**, elija **Agregar**.
 
-    ![Elección de "Agregar"](./media/logic-apps-enterprise-integration-as2/agreement-2.png)     
+   ![Elección de "Agregar"](./media/logic-apps-enterprise-integration-as2/agreement-2.png)     
 
 6. En **Agregar**, escriba un valor en **Nombre** para el contrato. Para el tipo de contrato, seleccione **X12**. Seleccione valores en **Asociado del host**, **Identidad del host**, **Asociado invitado** e **Identidad del invitado** para el contrato. Para más detalles sobre las propiedades, consulte la tabla en este paso.
 
@@ -291,13 +288,13 @@ Cuando haya completado cada fila de validación, se agrega otra automáticamente
 
 ## <a name="find-your-created-agreement"></a>Búsqueda del contrato creado
 
-1.  Cuando termine de establecer las propiedades del contrato, en la hoja **Agregar**, elija **Aceptar** para terminar de crear el contrato y volver a la hoja de la cuenta de integración.
+1.  Cuando termine de establecer todas las propiedades del contrato, en la página **Agregar**, elija **Aceptar** para terminar de crear el contrato y volver a la cuenta de integración.
 
     Ahora el contrato recién agregado aparece en la lista **Acuerdos**.
 
-2.  También puede ver los contratos en la información general de la cuenta de integración. En la hoja de la cuenta de integración, elija **Información general** y seleccione el icono **Acuerdos**.
+2.  También puede ver los contratos en la información general de la cuenta de integración. En el menú de la cuenta de integración, elija **Información general** y seleccione el icono **Acuerdos**.
 
-    ![Elección del icono "Acuerdos" para ver todos los contratos](./media/logic-apps-enterprise-integration-x12/x12-1-5.png)   
+    ![Elección del icono "Acuerdos"](./media/logic-apps-enterprise-integration-x12/x12-1-5.png)   
 
 ## <a name="view-the-swagger"></a>Visualización de Swagger
 Vea los [detalles de Swagger](/connectors/x12/). 

@@ -1,24 +1,24 @@
 ---
 title: "Acciones de webhook para alertas de registro en Alertas de Azure (versión preliminar) | Microsoft Docs"
-description: "En este artículo se describe la manera en que una regla de alertas de registro puede insertar datos como webhook de HTTP mediante Log Analytics, así como los detalles de las diferentes personalizaciones posibles."
+description: "En este artículo se describe cómo una regla de alertas de registro puede insertar datos como webhook de HTTP mediante Log Analytics, así como los detalles de las diferentes personalizaciones posibles."
 author: msvijayn
 manager: kmadnani1
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 49905638-f9f2-427b-8489-a0bcc7d8b9fe
+ms.assetid: 
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/05/2018
+ms.date: 2/2/2018
 ms.author: vinagara
-ms.openlocfilehash: 4af1bb61888810011ce64fde7931cabfefe76ab6
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ee7bdf03c96e078d0d64eeaaffc38ff61596d837
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Acciones de webhook para reglas de alertas de registro
 Cuando se [crea una alerta en Azure (versión preliminar) ](monitor-alerts-unified-usage.md), tiene la opción de [configurarla mediante grupos de acción](monitoring-action-groups.md), para así poder realizar una o varias acciones.  En este artículo se describen las diferentes acciones de webhook que están disponibles y los detalles sobre la configuración de los webhook personalizados basados en JSON.
@@ -26,35 +26,38 @@ Cuando se [crea una alerta en Azure (versión preliminar) ](monitor-alerts-unifi
 
 ## <a name="webhook-actions"></a>Acciones de webhook
 
-Las acciones de Webhook permiten invocar un proceso externo a través de una sola solicitud HTTP POST.  El servicio que se llama debe admitir webhooks y determinar cómo utilizará toda la carga que reciba.  También puede llamar a una API de REST que no admita específicamente webhooks mientras la solicitud esté en un formato que entienda la API.  Ejemplos de uso de un webhook en respuesta a una alerta donde se envía un mensaje en [Slack](http://slack.com) o se crea un incidente en [PagerDuty](http://pagerduty.com/).  Puede encontrar un tutorial completo sobre la creación de una regla de alerta con un webhook para llamar a Slack en [Webhooks en alertas de Log Analytics](../log-analytics/log-analytics-alerts-webhooks.md).
+Las acciones de Webhook permiten invocar un proceso externo a través de una sola solicitud HTTP POST.  El servicio que se llama debe admitir webhooks y determinar cómo usa cualquier carga que recibe.   Ejemplos de uso de un webhook en respuesta a una alerta donde se envía un mensaje en [Slack](http://slack.com) o se crea un incidente en [PagerDuty](http://pagerduty.com/).  
 
-Las acciones de webhook requieren las propiedades de la siguiente tabla.
+Las acciones de webhook requieren las propiedades de la siguiente tabla:
 
 | Propiedad | DESCRIPCIÓN |
 |:--- |:--- |
 | Dirección URL de Webhook |La dirección URL del webhook. |
-| Carga de JSON personalizada |Carga personalizada para enviar con el webhook.  Si se elige la opción durante la creación de la alerta. Puede obtener más información en [Manage alerts using Azure Alerts (Preview)](monitor-alerts-unified-usage.md) [Administrar alertas mediante Alertas de Azure (versión preliminar)] |
+| Carga de JSON personalizada |Carga personalizada para enviar con el webhook, cuando esta opción se elige durante la creación de la alerta. Puede obtener más información en [Manage alerts using Azure Alerts (Preview)](monitor-alerts-unified-usage.md) [Administrar alertas mediante Alertas de Azure (versión preliminar)] |
 
 > [!NOTE]
-> Si prueba el botón de webhook junto con la opción *Incluir la carga personalizada de JSON para webhook* de la alerta del registro, se desencadenará una llamada ficticia para probar la URL de webhook. No contiene datos reales o esquemas típicos de JSON que se usen en las alertas de registro. Mientras prueba cualquier webhook con el típico formato JSON personalizado, todos los webhook configurados en el grupo de acciones se enviarán con una carga personalizada de JSON.
+> Si prueba el botón de webhook junto con la opción *Incluir la carga personalizada de JSON para webhook* de la alerta del registro, se desencadenará una llamada ficticia para probar la URL de webhook. No contiene datos reales ni representativos del esquema JSON que se usen en las alertas de registro. 
 
-Los webhooks incluyen una dirección URL y una carga en formato JSON que son los datos enviados al servicio externo.  De forma predeterminada, la carga incluirá los valores en la tabla siguiente.  Puede optar por reemplazar esta carga con una personalizada de su propiedad.  En ese caso, puede utilizar las variables de la tabla para cada uno de los parámetros para incluir su valor en la carga personalizada.
+Los webhooks incluyen una dirección URL y una carga en formato JSON que son los datos enviados al servicio externo.  De manera predeterminada, la carga incluye los valores de la tabla siguiente: Puede elegir si reemplazar esta carga por una personalizada.  En ese caso, puede utilizar las variables de la tabla para cada uno de los parámetros para incluir su valor en la carga personalizada.
 
 
 | . | Variable | DESCRIPCIÓN |
 |:--- |:--- |:--- |
 | AlertRuleName |#alertrulename |Nombre de la regla de alerta. |
+| Severity |#severity |Gravedad establecida en la alerta de registros activada. |
 | AlertThresholdOperator |ThresholdOperator |Operador de umbral para la regla de alerta.  *Mayor que* o *menor que*. |
 | AlertThresholdValue |#thresholdvalue |Valor de umbral para la regla de alerta. |
 | LinkToSearchResults |#linktosearchresults |Vincular a la búsqueda de registros de Log Analytics que devuelve los registros de la consulta que creó la alerta. |
 | ResultCount |#searchresultcount |Número de registros en los resultados de la búsqueda. |
-| SearchIntervalEndtimeUtc |#searchintervalendtimeutc |Hora de finalización de la consulta en formato UTC. |
-| SearchIntervalInSeconds |#searchinterval |Período de tiempo para la regla de alerta. |
-| SearchIntervalStartTimeUtc |#searchintervalstarttimeutc |Hora de inicio para la consulta en formato UTC. |
+| Search Interval End time |#searchintervalendtimeutc |Hora de finalización de la consulta en formato UTC. |
+| Search Interval |#searchinterval |Período de tiempo para la regla de alerta. |
+| Search Interval StartTime |#searchintervalstarttimeutc |Hora de inicio para la consulta en formato UTC. 
 | SearchQuery |#searchquery |Consulta de búsqueda de registros utilizada por la regla de alerta. |
-| SearchResults |"IncludeSearchResults":true|Son los registros que devuelve la consulta a modo de tabla de JSON y que están limitados a los primeros 1000 registros o filas, si el elemento "IncludeSearchResults":true se agrega a una definición de webhook personalizada de JSON como propiedad de alto nivel. |
-| WorkspaceID |#workspaceid |Identificador del área de trabajo de Log Analytics. |
-| Severity |#severity |Gravedad establecida en la alerta de registros activada. |
+| SearchResults |"IncludeSearchResults": true|Son los registros que devuelve la consulta a modo de tabla de JSON y que están limitados a los primeros 1000 registros, si el elemento "IncludeSearchResults":true se agrega a una definición de webhook personalizada de JSON como propiedad de alto nivel. |
+| WorkspaceID |#workspaceid |Identificador del área de trabajo de Log Analytics (OMS). |
+| Identificador de aplicación |#applicationid |Identificador de la aplicación Application Insights. |
+| Id. de suscripción |#subscriptionid |Identificador de la suscripción de Azure que se usa con Application Insights. 
+
 
 Por ejemplo, podría especificar la siguiente carga personalizada que incluye un único parámetro denominado *text*.  El servicio al que llama este webhook estaría esperando este parámetro.
 
@@ -68,22 +71,19 @@ Esta carga de ejemplo se resolvería en algo similar a lo siguiente al enviarse 
         "text":"My Alert Rule fired with 18 records over threshold of 10 ."
     }
 
-Para incluir resultados de búsqueda en una carga personalizada, asegúrese de que **IncudeSearchResults** se establece como una propiedad de nivel superior en la carga de JSON.
+Para incluir resultados de búsqueda en una carga personalizada, asegúrese de que **IncudeSearchResults** se establece como una propiedad de nivel superior en la carga de JSON. 
 
-
-Puede recorrer un ejemplo completo de creación de una regla de alerta con un webhook para iniciar un servicio externo en [Creación de una acción de alerta de webhook en Log Analytics de OMS para enviar mensajes a Slack](../log-analytics/log-analytics-alerts-webhooks.md).
-
-## <a name="sample-payload"></a>Carga de ejemplo
+## <a name="sample-payloads"></a>Cargas de ejemplo
 En esta sección se muestra la carga de ejemplo de webhook para las alertas del registro, incluso cuando la carga es estándar y se ha personalizado.
 
 > [!NOTE]
-> Para garantizar la compatibilidad con versiones anteriores, la carga de webhook estándar para alertas correspondiente a Azure Log Analytics es la misma que la [administración de alertas de OMS](../log-analytics/log-analytics-solution-alert-management.md). En cuanto a las alertas de registro que usan [Application Insights](../application-insights/app-insights-analytics.md), la carga de webhook estándar se basa en el esquema del grupo de acciones.
+> Para garantizar la compatibilidad con versiones anteriores, la carga de webhook estándar para alertas correspondiente a Azure Log Analytics es la misma que la [administración de alertas de OMS](../log-analytics/log-analytics-alerts-creating.md). En cuanto a las alertas de registro que usan [Application Insights](../application-insights/app-insights-analytics.md), la carga de webhook estándar se basa en el esquema del grupo de acciones.
 
-### <a name="standard-webhook-for-log-alerts"></a>Webhook estándar de las alertas de registro
+### <a name="standard-webhook-for-log-alerts"></a>Webhook estándar de las alertas de registro 
 En ambos ejemplos se indica una carga ficticia con solo dos columnas y dos filas.
 
 #### <a name="log-alert-for-azure-log-analytics"></a>Alerta de registro de Azure Log-Analytics
-A continuación se muestra una carga de ejemplo de una acción de webhook estándar y sin el formato JSON personalizado, cuando se usa en las alertas de registro basadas en Log Analytics.
+A continuación, se muestra una carga de ejemplo de una acción de webhook estándar *sin la opción JSON personalizada* cuando se usa en las alertas basadas en Log Analytics.
 
     {
     "WorkspaceId":"12345a-1234b-123c-123d-12345678e",
@@ -113,19 +113,19 @@ A continuación se muestra una carga de ejemplo de una acción de webhook están
     "SearchIntervalInSeconds": 3600,
     "LinkToSearchResults": "https://workspaceID.portal.mms.microsoft.com/#Workspace/search/index?_timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
     "Description": null,
-    "Severity": "Low"
+    "Severity": "Warning"
     }
-
+    
 
 
 #### <a name="log-alert-for-azure-application-insights"></a>Alerta de registro de Azure Application Insights
-A continuación se muestra una carga de ejemplo de una acción de webhook estándar y sin el formato JSON personalizado, cuando se usa en las alertas de registro basadas en Application Insights.
-
+A continuación, se muestra una carga de ejemplo de un webhook estándar *sin la opción JSON personalizada* cuando se usa en las alertas de registro basadas en Application Insights.
+    
 
     {
-    "schemaId":"LogAlert","data":
-    {
-    "WorkspaceId":"12345a-1234b-123c-123d-12345678e",
+    "schemaId":"Microsoft.Insights/LogAlert","data":
+    { 
+    "SubscriptionId":"12345a-1234b-123c-123d-12345678e",
     "AlertRuleName":"AcmeRule","SearchQuery":"search *",
     "SearchResult":
         {
@@ -150,15 +150,16 @@ A continuación se muestra una carga de ejemplo de una acción de webhook están
     "AlertThresholdValue": 0,
     "ResultCount": 2,
     "SearchIntervalInSeconds": 3600,
-    "LinkToSearchResults": "https://workspaceID.portal.mms.microsoft.com/#Workspace/search/index?_timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
+    "LinkToSearchResults": "https://analytics.applicationinsights.io/subscriptions/12345a-1234b-123c-123d-12345678e/?query=search+*+&timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
     "Description": null,
-    "Severity": "Low"
+    "Severity": "Error"
+    "ApplicationId": "123123f0-01d3-12ab-123f-abc1ab01c0a1"
     }
     }
 
 
 #### <a name="log-alert-with-custom-json-payload"></a>Alerta de registro con carga de JSON personalizada
-Por ejemplo, para crear una carga personalizada que incluya solo el nombre de la alerta y los resultados de la búsqueda, puede utilizar lo siguiente.
+Por ejemplo, para crear una carga personalizada que incluya solo el nombre de la alerta y los resultados de la búsqueda, puede usar lo siguiente: 
 
     {
        "alertname":"#alertrulename",
@@ -166,7 +167,7 @@ Por ejemplo, para crear una carga personalizada que incluya solo el nombre de la
     }
 
 A continuación se muestra una carga de ejemplo para una acción de webhook personalizada para cualquier alerta de registro.
-
+    
 
     {
     "AlertRuleName":"AcmeRule","IncludeSearchResults":true,
@@ -193,5 +194,7 @@ A continuación se muestra una carga de ejemplo para una acción de webhook pers
 
 
 ## <a name="next-steps"></a>pasos siguientes
-- Crear y administrar [grupos de acciones en Azure](monitoring-action-groups.md)
 - Obtenga información sobre las [alertas de registro en Alertas de Azure (versión preliminar)](monitor-alerts-unified-log.md).
+- Crear y administrar [grupos de acciones en Azure](monitoring-action-groups.md)
+- Más información sobre [Application Insights](../application-insights/app-insights-analytics.md)
+- Más información sobre [Log Analytics](../log-analytics/log-analytics-overview.md). 

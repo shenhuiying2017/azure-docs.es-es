@@ -9,7 +9,7 @@
   ```
   sudo ./install -d <Install Location> -r MS -v VmWare -q
   ```
-3. Una vez completada la instalación, Mobility Service debe ser registrado en el servidor de configuración. Ejecute el siguiente comando para registrar Mobility Service en el servidor de configuración.
+3. Una vez completada la instalación, Mobility Service debe registrarse en el servidor de configuración. Ejecute el siguiente comando para registrar Mobility Service en el servidor de configuración:
 
   ```
   /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <CSIP> -P /var/passphrase.txt
@@ -24,10 +24,10 @@ Usage:
 
 |.|type|DESCRIPCIÓN|Valores posibles|
 |-|-|-|-|
-|-r |Obligatorio|Especifica si se debe instalar Mobility Service (MS) o debe instalarse MasterTarget(MT)|MS </br> MT|
-|-d |Opcional|Ubicación en que se instalará Mobility Service|/usr/local/ASR|
-|-v|Obligatorio|Especifica la plataforma en la que se instala Mobility Service </br> </br>-**VMware: use este valor si va a instalar Mobility Service en una máquina virtual que se ejecuta en *hosts ESXi de VMware vSphere*, *hosts de Hyper-V y *servidores físicos* </br> - **Azure: use este valor si va a instalar el agente en una máquina virtual de IaaS de Azure| VMware </br> Azure|
-|-q|Opcional|Especifica que se ejecute el programa de instalación en modo silencioso| N/D|
+|-r |Obligatorio|Especifica si se debe instalar Mobility Service (MS) o MasterTarget(MT).|MS </br> MT|
+|-d |Opcional|Ubicación en que se instala Mobility Service.|/usr/local/ASR|
+|-v|Obligatorio|Especifica la plataforma en la que se instala Mobility Service. </br> </br>- **VMware**: use este valor si instala Mobility Service en una máquina virtual que se ejecuta en *hosts ESXi de VMware vSphere*, *hosts de Hyper-V* y *servidores físicos*. </br> - **Azure**: use este valor si va a instalar el agente en una máquina virtual de IaaS de Azure.| VMware </br> Azure|
+|-q|Opcional|Especifica que se ejecute el programa de instalación en modo silencioso.| N/D|
 
 
 #### <a name="mobility-service-configuration-command-line"></a>Línea de comandos de configuración de Mobility Service

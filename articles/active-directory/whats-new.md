@@ -14,14 +14,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 02/26/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 7cdeb0a996835f976e6c80e9831479a2ff917434
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a30b5d08377594b8ad7e10b63a23e2a9d168af9c
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="whats-new-in-azure-active-directory"></a>¿Cuáles son las novedades de Azure Active Directory?
 
@@ -41,6 +41,256 @@ En Azure AD se realizan mejoras de forma continua. Para mantenerse al día de lo
 Esta página se actualiza mensualmente, por lo que se recomienda visitarla con frecuencia.
 
 
+
+## <a name="february-2018"></a>Febrero de 2018
+ 
+
+### <a name="improved-navigation-for-managing-users-and-groups"></a>Navegación mejorada para administrar usuarios y grupos
+
+**Tipo:** plan de cambio  
+**Categoría del servicio:** administración de directorios  
+**Funcionalidad del producto:** directorio
+ 
+
+Se ha simplificado la experiencia de navegación para administrar usuarios y grupos. Ahora puede ir directamente desde la información general del directorio a la lista de todos los usuarios, con un acceso más fácil a la lista de usuarios eliminados. Ahora puede ir directamente desde la información general del directorio a la lista de todos los grupos, con un acceso más fácil a la configuración de administración de grupos. Y también en la página de información general del directorio puede buscar un usuario, grupo, aplicación empresarial o registro de la aplicación.
+ 
+
+---
+
+
+### <a name="availability-of-sign-ins-and-audit-reports-in-microsoft-azure-operated-by-21vianet-azure-china-21vianet"></a>Disponibilidad de los informes de inicios de sesión y auditoría en Microsoft Azure controlado por 21Vianet (Azure China 21Vianet)
+
+**Tipo:** nueva característica  
+**Categoría de servicio:** nubes soberanas  
+**Funcionalidad del producto:** supervisión e informes
+ 
+
+Los informes de registro de actividad de Azure AD ya están disponibles en Microsoft Azure controlado por instancias de 21Vianet (Azure China 21Vianet). Se incluyen los siguientes registros:
+
+- **Registros de actividad de inicios de sesión**: incluye todos los registros de inicios de sesión asociados con el inquilino.
+
+- **Registros de auditoría de contraseñas de autoservicio**: incluye todos los registros de auditoría de SSPR.
+
+- **Registros de auditoría de administración de directorios**: incluye todos los registros de auditoría relacionados con la administración de directorios como, por ejemplo, administración de usuarios, administración de aplicaciones y otros.
+
+Con estos registros, puede obtener información detallada sobre el funcionamiento de su entorno. Los datos proporcionados le permiten:
+
+- Determinar cómo utilizan los usuarios las aplicaciones y servicios.
+
+- Solucionar problemas que impiden a los usuarios finalizar su trabajo.
+
+Para más información sobre cómo usar estos informes, consulte [Informes de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal).
+ 
+
+---
+
+
+### <a name="use-report-reader-role-non-admin-role-to-view-azure-ad-activity-reports"></a>Use el rol "Lector de informes" (rol que no es de administrador) para ver los informes de actividad de Azure AD
+
+**Tipo:** nueva característica  
+**Categoría del servicio:** informes  
+**Funcionalidad del producto:** supervisión e informes
+ 
+
+Como parte de los comentarios de los clientes para habilitar los roles que no son de administrador para acceder a los registros de actividades de Azure AD, hemos habilitado la posibilidad de que los usuarios con el rol "Lector de informes" puedan acceder a las actividades de inicios de sesión y de auditoría en Azure Portal así como a través de Graph API. 
+
+Para más información sobre cómo usar estos informes, consulte [Informes de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal). 
+
+---
+ 
+
+
+### <a name="employeeid-claim-available-as-user-attribute-and-user-identifier"></a>Notificación de EmployeeID disponible como atributo de usuario e identificador de usuario
+
+**Tipo:** nueva característica  
+**Categoría del servicio:** aplicaciones empresariales  
+**Funcionalidad del producto:** SSO
+ 
+
+Puede configurar **EmployeeID** como el identificador de usuario y el atributo de usuario para los usuarios miembros y para los invitados B2B en aplicaciones de inicio de sesión basadas en SAML desde la interfaz de usuario de la aplicación empresarial.
+
+Para más información, consulte [Personalización de las notificaciones emitidas en el token SAML para aplicaciones empresariales en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization).
+ 
+
+---
+
+
+### <a name="simplified-application-management-using-wildcards-in-azure-ad-application-proxy"></a>Administración simplificada de aplicaciones mediante caracteres comodín en Azure AD Application Proxy
+
+**Tipo:** nueva característica  
+**Categoría del servicio:** proxy de aplicaciones  
+**Funcionalidad del producto:** autenticación de usuarios
+ 
+
+Para facilitar la implementación de aplicaciones y reducir la carga administrativa, ahora se admite la posibilidad de publicar aplicaciones mediante caracteres comodín. Para publicar una aplicación de comodines, puede seguir el flujo de publicación de aplicaciones estándar, pero usando un carácter comodín en las direcciones URL internas y externas.
+
+Para más información, consulte [aplicaciones con comodín en Azure Active Directory Application Proxy](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-wildcard).
+
+ 
+
+---
+ 
+### <a name="new-cmdlets-to-support-configuration-of-application-proxy"></a>Nuevos cmdlets para admitir la configuración de Application Proxy
+
+**Tipo:** nueva característica  
+**Categoría del servicio:** proxy de aplicaciones  
+**Funcionalidad del producto:** plataforma
+ 
+
+La versión más reciente de la versión preliminar del módulo de Azure AD PowerShell contiene nuevos cmdlets que permiten a los clientes configurar aplicaciones de Application Proxy mediante PowerShell.
+
+Los nuevos cmdlets son: 
+
+- Get-AzureADApplicationProxyApplication
+- Get-AzureADApplicationProxyApplicationConnectorGroup
+- Get-AzureADApplicationProxyConnector
+- Get-AzureADApplicationProxyConnectorGroup
+- Get-AzureADApplicationProxyConnectorGroupMembers
+- Get-AzureADApplicationProxyConnectorMemberOf
+- New-AzureADApplicationProxyApplication
+- New-AzureADApplicationProxyConnectorGroup
+- Remove-AzureADApplicationProxyApplication
+- Remove-AzureADApplicationProxyApplicationConnectorGroup
+- Remove-AzureADApplicationProxyConnectorGroup
+- Set-AzureADApplicationProxyApplication
+- Set-AzureADApplicationProxyApplicationConnectorGroup
+- Set-AzureADApplicationProxyApplicationCustomDomainCertificate
+- Set-AzureADApplicationProxyApplicationSingleSignOn
+- Set-AzureADApplicationProxyConnector
+- Set-AzureADApplicationProxyConnectorGroup
+
+
+ 
+
+---
+ 
+
+### <a name="new-cmdlets-to-support-configuration-of-groups"></a>Nuevos cmdlets para admitir la configuración de grupos
+
+**Tipo:** nueva característica  
+**Categoría del servicio:** proxy de aplicaciones  
+**Funcionalidad del producto:** plataforma
+ 
+
+La versión más reciente del módulo de Azure AD PowerShell contiene cmdlets para administrar grupos en Azure AD. Estos cmdlets no estaban disponibles anteriormente en el módulo AzureADPreview y ahora se han agregado al módulo AzureAD.
+
+Los cmdlets de grupo que ya se han publicado con disponibilidad general son: 
+
+- Get-AzureADMSGroup
+- New-AzureADMSGroup
+- Remove-AzureADMSGroup
+- Set-AzureADMSGroup
+- Get-AzureADMSGroupLifecyclePolicy
+- New-AzureADMSGroupLifecyclePolicy
+- Remove-AzureADMSGroupLifecyclePolicy
+- Add-AzureADMSLifecyclePolicyGroup
+- Remove-AzureADMSLifecyclePolicyGroup
+- Reset-AzureADMSLifeCycleGroup   
+- Get-AzureADMSLifecyclePolicyGroup
+ 
+
+---
+ 
+### <a name="a-new-release-of-azure-ad-connect-is-available"></a>Está disponible una nueva versión de Azure AD Connect
+
+**Tipo:** nueva característica  
+**Categoría del servicio:** sincronización de AD  
+**Funcionalidad del producto:** plataforma
+ 
+
+Azure AD Connect es la herramienta preferida para sincronizar datos entre Azure AD y los orígenes de datos locales, incluidos Windows Server Active Directory y LDAP.
+
+**Importante**
+ 
+Esta compilación introduce cambios en las reglas de sincronización y en el esquema. El servicio de sincronización de Azure AD Connect desencadenará pasos de importación completa y sincronización completa después de una actualización. Para obtener información sobre cómo cambiar este comportamiento, consulte [Aplazamiento de la sincronización completa después de la actualización](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version#how-to-defer-full-synchronization-after-upgrade).
+
+Esta versión incluye las siguientes actualizaciones y cambios:
+
+**Problemas corregidos:**
+
+- Corrección de la ventana de sincronización en las tareas en segundo plano para la página de filtrado de particiones al cambiar a la página siguiente.
+- Se ha corregido un error que provocó una infracción de acceso durante la acción personalizada ConfigDB.
+- Se ha corregido un error para recuperarse del tiempo de espera de la conexión de SQL.
+- Se ha corregido un error que provocaba que los certificados con caracteres comodín de SAN generaran un error al realizar una comprobación de requisitos previos.
+- Se ha corregido un error que provocaba que miiserver.exe se bloqueara durante una exportación del conector de AAD.
+- Se ha corregido un error cuyo intento de contraseña incorrecta se registró en el controlador de dominio al ejecutar el asistente de AAD Connect para cambiar la configuración.
+
+**Nuevas características y mejoras**
+
+- En el caso de GDPR, es necesario indicar los tipos de datos de cliente que se comparten con Microsoft (telemétricos, de mantenimiento, etc.), así como tener vínculos a documentación en línea detallada y proporcionar un método para que pueda cambiar sus preferencias.  En esta comprobación se agrega lo siguiente:
+    - Uso compartido de datos y notificación de privacidad en la página de EULA de instalación limpia.
+
+    - Uso compartido de datos y notificación de privacidad en la página de actualización.
+
+    - Una tarea **Configuración de privacidad** adicional, donde el usuario puede cambiar sus preferencias.
+ 
+- Telemetría de aplicaciones: los administradores pueden activar o desactivar este tipo de datos.
+
+- Datos de mantenimiento de Azure AD: los administradores deben visitar el portal de mantenimiento para controlar la configuración de mantenimiento. Una vez se haya cambiado la directiva del servicio, los agentes la leerán y la aplicarán.
+
+- Se han agregado acciones de configuración de escritura diferida de dispositivo y una barra de progreso para la inicialización de la página.
+
+- Se han mejorado los diagnósticos generales con un informe HTML y una recopilación completa de datos en un informe HTML o de texto ZIP.
+
+- Se ha mejorado la confiabilidad de la actualización automática y se ha agregado telemetría adicional para asegurarse de que se puede determinar el mantenimiento del servidor.
+
+- Se han restringido los permisos disponibles para las cuentas con privilegios de la cuenta del conector AD. Para las nuevas instalaciones, el asistente restringe los permisos que las cuentas con privilegios tienen en la cuenta de MSOL tras la creación de esa cuenta. Los cambios afectan a las instalaciones rápidas y a las instalaciones personalizadas con la opción de creación automática de cuenta.
+
+- Se ha cambiado el instalador, por lo que no se requiere el privilegio de asociación de seguridad en una instalación limpia de AADConnect.
+
+- Se ha agregado una utilidad nueva para solucionar problemas de sincronización de un objeto específico. Actualmente, la utilidad comprueba lo siguiente:
+
+    - Error de coincidencia de UserPrincipalName entre el objeto de usuario sincronizado y la cuenta de usuario del inquilino de Azure AD.
+  
+    - Si se filtra el objeto de sincronización debido al filtrado de dominio
+  
+    - Si se filtra el objeto de sincronización debido al filtrado de unidad organizativa (UO)
+
+- Se ha agregado una utilidad nueva para sincronizar el hash de contraseña actual almacenado en el Active Directory local para una cuenta de usuario específica. La utilidad no requiere un cambio de contraseña. 
+ 
+
+---
+ 
+
+### <a name="applications-supporting-intune-app-protection-policies-added-for-use-with-azure-ad-application-based-conditional-access"></a>Se han agregado aplicaciones compatibles con directivas de Intune App Protection para usarlas con el acceso condicional basado en aplicaciones de Azure AD
+
+**Tipo:** característica modificada  
+**Categoría del servicio:** acceso condicional  
+**Funcionalidad del producto:** protección y seguridad de la identidad
+ 
+
+Se han agregado más aplicaciones que admiten el acceso condicional basado en aplicaciones. Ahora, ya puede acceder a Office 365 y otras aplicaciones en la nube conectadas a Azure AD mediante estas aplicaciones cliente aprobadas.
+
+Las siguientes aplicaciones se agregarán a finales del mes de febrero 
+
+- Microsoft Power BI
+
+- Microsoft Launcher
+
+- Microsoft Invoicing
+
+Para más información, consulte:
+
+- [Requisito de aplicación cliente aprobada](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
+- [Acceso condicional basado en aplicaciones de Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
+
+ 
+
+---
+ 
+
+### <a name="terms-of-use-update-to-mobile-experience"></a>Actualización de los términos de uso relacionados con la experiencia móvil 
+
+**Tipo:** característica modificada  
+**Categoría de servicio:** términos de uso  
+**Funcionalidad del producto:** gobierno
+ 
+
+Cuando aparecen los términos de uso, puede hacer clic en **¿Tiene problemas con la visualización? Haga clic aquí.** Si hace clic en este vínculo se abren los términos de uso de forma nativa en el dispositivo. Independientemente del tamaño de fuente en el documento o el tamaño de pantalla del dispositivo, puede acercar o alejar y leer el documento según sea necesario. 
+ 
+
+---
+ 
 ## <a name="january-2018"></a>Enero de 2018
  
 

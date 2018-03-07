@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 06/02/2017
 ms.author: raynew
-ms.openlocfilehash: db09ff30ff9f3852e84162b8400572e76515230f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: b264e2ceac4e76faa37d21972b94cfe323aa3ce5
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="assessment-calculations"></a>Cálculos de evaluación
 
@@ -109,11 +109,11 @@ Si el criterio de ajuste de tamaño es *como local*, Azure Migrate no tiene en c
  
 ### <a name="confidence-rating"></a>Clasificación de confianza
 
-Cada valoración de Azure Migrate está asociada con una clasificación de confianza que va de 1 a 5 estrellas (siendo 1 estrella la más baja y 5 estrellas la más alta). La clasificación de confianza se asigna a una valoración que se basa en la disponibilidad de puntos de datos necesarios para calcular tal valoración. Le ayuda a calcular la confiabilidad de las recomendaciones de tamaño que proporciona Azure Migrate. 
+Cada valoración de Azure Migrate está asociada con una clasificación de confianza que va de 1 a 5 estrellas (siendo 1 estrella la más baja y 5 estrellas la más alta). La clasificación de confianza se asigna a una valoración que se basa en la disponibilidad de puntos de datos necesarios para calcular tal valoración. La clasificación de confianza de una valoración le ayuda a calcular la confiabilidad de las recomendaciones de tamaño que proporciona Azure Migrate. 
 
-La clasificación de confianza es útil cuando está realizando el *ajuste de tamaño basado en el rendimiento* dado que puede que no estén disponibles todos los puntos de datos. Para el *ajuste de tamaño como local*, la clasificación de confianza siempre es de 5 estrellas, puesto que Azure Migrate tiene todos los datos que necesita para ajustar el tamaño de la máquina virtual. 
+La clasificación de confianza es útil cuando se está realizando un *ajuste del tamaño basado en el rendimiento* porque Azure Migrate puede no tener suficientes puntos de datos para realizar el ajuste de tamaño en función del uso. Para el *ajuste de tamaño como local*, la clasificación de confianza siempre es de 5 estrellas, puesto que Azure Migrate tiene todos los datos que necesita para ajustar el tamaño de la máquina virtual. 
 
-Para ajustar el tamaño basado en el rendimiento, Azure Migrate necesita los datos de uso de la CPU y la memoria. Para cada disco asociado a la máquina virtual, se necesita el valor de IOPS de lectura o escritura y el rendimiento para realizar el ajuste de tamaño basado en el rendimiento. De forma similar, para cada adaptador de red asociado a la máquina virtual, Azure Migrate necesita la entrada o la salida de red para realizar el ajuste de tamaño basado en el rendimiento. Si alguno de los números de uso anteriores no está disponible en vCenter Server, la recomendación de tamaño que realiza Azure Migrate podría no ser de confianza. Según el porcentaje de puntos de datos disponibles, se proporciona la clasificación de confianza para la valoración:
+Para ajustar el tamaño en función del rendimiento, Azure Migrate necesita los datos de uso de la CPU y la memoria. Además, para cada disco asociado a la máquina virtual, necesita el valor de IOPS de lectura o escritura y el rendimiento. De forma similar, para cada adaptador de red asociado a la máquina virtual, Azure Migrate necesita la entrada o la salida de red para realizar el ajuste de tamaño basado en el rendimiento. Si alguno de los números de uso anteriores no está disponible en vCenter Server, la recomendación de tamaño que realiza Azure Migrate podría no ser de confianza. Según el porcentaje de puntos de datos disponibles, se proporciona la clasificación de confianza para la valoración:
 
    **Disponibilidad de puntos de datos** | **Clasificación de confianza**
    --- | ---
@@ -124,13 +124,13 @@ Para ajustar el tamaño basado en el rendimiento, Azure Migrate necesita los dat
    81 % - 100 % | 5 estrellas
 
 Debido a uno de los siguientes motivos, puede que las valoraciones no tengan todos los puntos de datos disponibles:
-- La configuración de estadísticas en vCenter Server no está establecida en el nivel 3 y la valoración tiene como criterio de tamaño el ajuste de tamaño basado en el rendimiento. Si la configuración de estadísticas en vCenter Server es inferior al nivel 3, no se recopilan los datos de rendimiento de disco y de red de vCenter Server. En este caso, la recomendación que proporciona Azure Migrate de disco y de red se basa solamente en lo que se asignó en local. Para el almacenamiento, Azure Migrate recomienda discos estándar ya que no hay ninguna manera de identificar si el disco tiene una IOPS o un rendimiento altos y necesita discos premium.
-- La configuración de estadísticas en vCenter Server se estableció en el nivel 3 durante un corto período, antes de iniciar la detección. Por ejemplo, si hoy cambia el nivel de configuración de estadísticas a 3 y mañana inicia la detección mediante el dispositivo recopilador (una vez pasadas 24 horas), si está creando una valoración durante un día, tendrá todos los puntos de datos. Pero si cambia la duración del rendimiento a un mes en las propiedades de la valoración, la clasificación de confianza descenderá dado que el disco y los datos de rendimiento de la red durante el último mes no están disponibles. Si quisiera considerar los datos de rendimiento del último mes, se recomienda que mantenga la configuración de las estadísticas de vCenter Server en el nivel 3 durante un mes antes de iniciar la detección. 
+- La configuración de estadísticas en vCenter Server no está establecida en el nivel 3 y la valoración tiene como criterio de tamaño el ajuste de tamaño basado en el rendimiento. Si la configuración de estadísticas en vCenter Server es inferior al nivel 3, no se recopilan los datos de rendimiento de disco y de red de vCenter Server. En este caso, la recomendación que proporciona Azure Migrate de disco y de red no se basa en el uso. Para el almacenamiento, Azure Migrate recomienda discos estándar porque, sin tener en cuenta el valor de IOPS o el rendimiento del disco, Azure Migrate no puede identificar si el disco necesitará un disco premium de Azure.
+- La configuración de estadísticas en vCenter Server se estableció en el nivel 3 durante un período más corto, antes de iniciar la detección. Por ejemplo, veamos un escenario en el que hoy cambia el nivel de configuración de estadísticas a 3 y mañana inicia la detección mediante el dispositivo recopilador (una vez pasadas 24 horas). Si va a crear una valoración durante un día, tiene todos los puntos de datos y la clasificación de confianza de la valoración sería 5 estrellas. Pero, si cambia la duración del rendimiento a un mes en las propiedades de la valoración, la clasificación de confianza descenderá dado que los datos de disco y rendimiento de la red durante el último mes no estarían disponibles. Si quisiera considerar los datos de rendimiento del último mes, se recomienda que mantenga la configuración de las estadísticas de vCenter Server en el nivel 3 durante un mes antes de iniciar la detección. 
 - Se apagaron algunas máquinas virtuales en el período durante el que se calcula la valoración. Si se han apagado todas las máquinas virtuales durante un tiempo, vCenter Server no tendrá los datos de rendimiento de ese período. 
 - Algunas máquinas virtuales se crearon en algún momento del período durante el cual se calcula la valoración. Por ejemplo, si va a crear una valoración para el historial de rendimiento del último mes, pero algunas máquinas virtuales se crearon en el entorno hace solo una semana. En tales casos, el historial de rendimiento de las nuevas máquinas virtuales no permanecerá durante toda la duración.
 
 > [!NOTE]
-> Si la clasificación de confianza de cualquier valoración es inferior a 3 estrellas, recomendamos que cambie el nivel de configuración de las estadísticas de vCenter Server a 3, espere la duración que desee considerar para la valoración (un día, una semana o un mes) y, a continuación, realice la detección y la valoración. Si no se puede realizar lo anterior, el ajuste de tamaño basado en el rendimiento podría no ser de confianza y se recomienda cambiar a *como local* cambiando las propiedades de la valoración.
+> Si la clasificación de confianza de cualquier valoración es inferior a 4 estrellas, recomendamos que cambie el nivel de configuración de las estadísticas de vCenter Server a 3, espere la duración que desee considerar para la valoración (un día, una semana o un mes) y, a continuación, realice la detección y la valoración. Si no se puede realizar lo anterior, el ajuste de tamaño basado en el rendimiento podría no ser de confianza y se recomienda cambiar a *como local* cambiando las propiedades de la valoración.
 
 ## <a name="monthly-cost-estimation"></a>Estimación del costo mensual
 

@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/10/2018
+ms.date: 02/27/2018
 ms.author: alexwun
-ms.openlocfilehash: 4b64331a4f25ce0cc01b2ee9f32633ab035e3131
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 3c34a3851dbb5c5258b3dc0cf35a510f62cbe14e
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="understand-the-imagestoreconnectionstring-setting"></a>Descripción del valor ImageStoreConnectionString
 
@@ -42,7 +42,9 @@ El tipo de proveedor utilizado en producción es el servicio de almacén de imá
 
 El hospedaje del almacén de imágenes en un servicio de sistema dentro del propio clúster elimina dependencias externas para el repositorio de paquetes y nos proporciona mayor control sobre la localidad del almacenamiento. Es probable que las futuras mejoras para el almacén de imágenes se centren primero, si no exclusivamente, en el proveedor de dicho almacén. La cadena de conexión para el proveedor del servicio de almacén de imágenes no tiene ninguna información exclusiva puesto que el cliente ya está conectado al clúster de destino. El cliente solo debe saber que se deben usar protocolos cuyo destino sea el servicio del sistema.
 
-El proveedor del sistema de archivos se utiliza en lugar del servicio de almacén de imágenes para los clústeres one-box locales durante el desarrollo para arrancar el clúster un poco más rápido. La diferencia es generalmente pequeña, pero es una optimización útil para la mayoría de la gente durante el desarrollo. Es posible implementar también un clúster one-box local con los otros tipos de proveedor de almacenamiento, pero normalmente no hay ninguna razón para hacerlo ya que el flujo de trabajo de desarrollo y pruebas sigue siendo el mismo independientemente del proveedor. Aparte de este uso, los proveedores de sistema de archivos y de Azure Storage solo existen para la compatibilidad heredada.
+El proveedor del sistema de archivos se utiliza en lugar del servicio de almacén de imágenes para los clústeres one-box locales durante el desarrollo para arrancar el clúster un poco más rápido. La diferencia es generalmente pequeña, pero es una optimización útil para la mayoría de la gente durante el desarrollo. Es posible implementar también un clúster one-box local con los otros tipos de proveedor de almacenamiento, pero normalmente no hay ninguna razón para hacerlo ya que el flujo de trabajo de desarrollo y pruebas sigue siendo el mismo independientemente del proveedor. El proveedor de Azure Storage solo existe por la compatibilidad heredada de los clústeres antiguos antes de que se introdujera el proveedor de servicios de almacén de imágenes.
+
+Además, ni el proveedor del sistema de archivos ni el proveedor de Azure Storage se deben usar como método para compartir un almacén de imágenes entre varios clústeres; esto provocará daños en los datos de configuración del clúster dado que cada clúster puede escribir datos en conflicto en el almacén de imágenes. Para compartir paquetes de aplicación aprovisionados entre varios clústeres, use en su lugar archivos [sfpkg][12], que se pueden cargar en cualquier almacén externo con un URI de descarga.
 
 Por lo tanto, aunque ImageStoreConnectionString se puede configurar, generalmente solo se usa el valor predeterminado. Al publicar en Azure a través de Visual Studio, el parámetro se establece automáticamente en consecuencia. Para la implementación mediante programación en clústeres hospedados en Azure, la cadena de conexión siempre es "fabric:ImageStore". Sin embargo, en caso de duda, su valor siempre se puede comprobar recuperando el manifiesto de clúster mediante [PowerShell](https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricclustermanifest), [.NET](https://msdn.microsoft.com/library/azure/mt161375.aspx) o [REST](https://docs.microsoft.com/rest/api/servicefabric/get-a-cluster-manifest). Tanto los clústeres de producción como de prueba locales siempre deben configurarse para usar también el proveedor de servicio de almacén de imágenes.
 
@@ -55,4 +57,4 @@ Por lo tanto, aunque ImageStoreConnectionString se puede configurar, generalment
 
 [10]: service-fabric-deploy-remove-applications.md
 [11]: service-fabric-cluster-creation-via-portal.md
-
+[12]: service-fabric-package-apps.md#create-an-sfpkg

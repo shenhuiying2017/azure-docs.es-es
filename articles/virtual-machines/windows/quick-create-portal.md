@@ -32,11 +32,11 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Inicie sesión en Azure Portal: http://portal.azure.com/.
 
-## <a name="create-virtual-machine"></a>Create virtual machine
+## <a name="create-virtual-machine"></a>Crear máquina virtual
 
 1. Haga clic en **Crear un recurso** en la esquina superior izquierda de Azure Portal.
 
-2. Seleccione **Compute**y, después, seleccione **Windows Server 2016 Datacenter**. 
+2. Seleccione **Compute** y, después, seleccione **Windows Server 2016 Datacenter**. 
 
 3. Escriba la información de la máquina virtual. El nombre de usuario y la contraseña que especifique aquí se usarán para iniciar sesión en la máquina virtual. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](faq.md#what-are-the-password-requirements-when-creating-a-vm). Cuando haya terminado, haga clic en **Aceptar**.
 
@@ -100,7 +100,7 @@ Con IIS instalado y el puerto 80 abierto para la máquina virtual, se puede acce
 
 Cuando ya no los necesite, elimine el grupo de recursos, la máquina virtual y todos los recursos relacionados. Para ello, seleccione el grupo de recursos de la máquina virtual y haga clic en **Eliminar**.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En esta guía de inicio rápido, ha implementado una máquina virtual simple y una regla de grupo de seguridad de red, y ha instalado un servidor web. Para más información acerca de las máquinas virtuales de Azure, continúe con el tutorial de máquinas virtuales Windows.
 

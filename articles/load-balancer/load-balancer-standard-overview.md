@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2018
 ms.author: kumud
-ms.openlocfilehash: cf7be370ab0d79be9068534f0c43b88f454bc024
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 8f98fd7773acb960ae79e743663aceb216f217c4
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-load-balancer-standard-overview-preview"></a>Introducción a Azure Load Balancer estándar (versión preliminar)
 
@@ -302,9 +302,11 @@ Las SKU no son mutables. Siga los pasos de esta sección para cambiar de una SKU
 
 1. Cree un nuevo recurso estándar (Load Balancer y direcciones IP públicas cuando sea necesario). Vuelva a crear sus reglas y definiciones de sondeo.
 
-2. Quite los recursos de SKU básica (Load Balancer y direcciones IP públicas, según corresponda) de todas las instancias de máquina virtual. Asegúrese de quitar también todas las instancias de máquina virtual de un conjunto de disponibilidad.
+2. Cree un grupo de seguridad de red nuevo o actualice uno existente en la NIC o la subred para incluir en la lista de permitidos el tráfico con equilibrio de carga  y cualquier otro tráfico que desee permitir.
 
-3. Asocie todas las instancias de máquina virtual a los nuevos recursos de SKU estándar.
+3. Quite los recursos de SKU básica (Load Balancer y direcciones IP públicas, según corresponda) de todas las instancias de máquina virtual. Asegúrese de quitar también todas las instancias de máquina virtual de un conjunto de disponibilidad.
+
+4. Asocie todas las instancias de máquina virtual a los nuevos recursos de SKU estándar.
 
 ### <a name="migrate-from-standard-to-basic-sku"></a>Migración de SKU estándar a básica
 
@@ -470,6 +472,6 @@ Las siguientes limitaciones se aplican al periodo de versión preliminar y está
 
 - Aprenda más sobre [Load Balancer básico](load-balancer-overview.md).
 - Aprenda más sobre [zonas de disponibilidad](../availability-zones/az-overview.md).
-- Obtenga información sobre los [grupos de seguridad de red](../virtual-network/virtual-networks-nsg.md).
+- Más información sobre los [grupos de seguridad de red](../virtual-network/virtual-networks-nsg.md).
 - Aprenda sobre las demás [funcionalidades de red](../networking/networking-overview.md) clave en Azure.
 - Obtenga información sobre las [métricas que se utilizan](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkloadbalancers) en [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).

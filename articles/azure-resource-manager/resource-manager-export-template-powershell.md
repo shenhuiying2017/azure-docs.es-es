@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/01/2017
+ms.date: 02/23/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7543811eb9448222b6e7c266756e68debc7d54be
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a6e36e12717eea61477f55d2d98c00bff31ec643
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="export-azure-resource-manager-templates-with-powershell"></a>Exportación de plantillas de Azure Resource Manager con Azure PowerShell
 
@@ -25,10 +25,10 @@ Resource Manager permite exportar una plantilla de Resource Manager a partir de 
 
 Es importante tener en cuenta que hay dos formas diferentes de exportar una plantilla:
 
-* Puede exportar la plantilla que utilizó para una implementación. La plantilla exportada incluye todos los parámetros y variables exactamente como aparecían en la plantilla original. Este enfoque es útil cuando se necesita recuperar una plantilla.
-* Puede exportar una plantilla que representa el estado actual del grupo de recursos. La plantilla exportada no se basa en ninguna plantilla que usara para la implementación. Al contrario, crea una plantilla que es una instantánea del grupo de recursos. La plantilla exportada tiene muchos valores codificados de forma rígida y es probable que no tenga tantos parámetros como normalmente se definirían. Este enfoque resulta útil cuando se ha modificado el grupo de recursos. Ahora, debe capturar el grupo de recursos como plantilla.
+* Se puede exportar la **plantilla real que se usó para una implementación**. La plantilla exportada incluye todos los parámetros y variables exactamente como aparecían en la plantilla original. Este enfoque es útil cuando se necesita recuperar una plantilla.
+* Puede exportar una **plantilla generada que representa el estado actual del grupo de recursos**. La plantilla exportada no se basa en ninguna plantilla que usara para la implementación. Al contrario, crea una plantilla que es una "instantánea" o "copia de seguridad" del grupo de recursos. La plantilla exportada tiene muchos valores codificados de forma rígida y es probable que no tenga tantos parámetros como normalmente se definirían. Use esta opción para volver a implementar recursos en el mismo grupo de recursos. Para utilizar esta plantilla para otro grupo de recursos, es posible que tenga que modificarla de forma significativa.
 
-En este tema se muestran ambos métodos.
+En este artículo se contemplan ambos métodos.
 
 ## <a name="deploy-a-solution"></a>Implementación de una solución
 
@@ -61,7 +61,7 @@ Abra el archivo y tenga en cuenta que es la misma plantilla que usó para la imp
 
 ## <a name="export-resource-group-as-template"></a>Exportación de un grupo de recursos como una plantilla
 
-En lugar de recuperar una plantilla del historial de implementación, puede recuperar una plantilla que represente el estado actual de un grupo de recursos mediante el uso del comando [Export-AzureRmResourceGroup](/powershell/module/azurerm.resources/export-azurermresourcegroup). Utilice este comando si ha realizado muchos cambios en el grupo de recursos y ninguna plantilla existente representa todos los cambios.
+En lugar de recuperar una plantilla del historial de implementación, puede recuperar una plantilla que represente el estado actual de un grupo de recursos mediante el uso del comando [Export-AzureRmResourceGroup](/powershell/module/azurerm.resources/export-azurermresourcegroup). Utilice este comando si ha realizado muchos cambios en el grupo de recursos y ninguna plantilla existente representa todos los cambios. Se ha diseñado como una instantánea del grupo de recursos, el cual puede usar para volver a implementar en el mismo grupo de recursos. Para usar la plantilla exportada para otras soluciones, debe modificarla de forma significativa.
 
 ```powershell
 Export-AzureRmResourceGroup -ResourceGroupName ExampleGroup
@@ -217,7 +217,7 @@ La plantilla ahora tiene el aspecto siguiente:
 
 Vuelva a implementar la plantilla modificada.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Para más información sobre el uso del portal para exportar una plantilla, vea [Exportación de plantillas de Azure Resource Manager desde recursos existentes](resource-manager-export-template.md).
 * Para definir parámetros de plantilla, consulte [Creación de plantillas](resource-group-authoring-templates.md#parameters).
 * Para obtener sugerencias para resolver los errores de implementación más comunes, consulte [Solución de errores comunes de implementación de Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md).

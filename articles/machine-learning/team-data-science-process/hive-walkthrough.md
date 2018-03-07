@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: bradsev
-ms.openlocfilehash: daf5168ba9a21a56d72fc14649c349b0fb63a167
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 4671493c23bfed72517e436dd6922f4ef8a213b0
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Proceso de ciencia de datos en equipos en acción: uso de clústeres de Hadoop de Azure HDInsight
-En este tutorial, empleamos el [proceso de ciencia de datos en equipo](overview.md) en un escenario completo. Utilizamos un [clúster de Hadoop de HDInsight de Azure](https://azure.microsoft.com/services/hdinsight/) para almacenar, explorar y diseñar características de los datos del conjunto de datos de [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) disponible públicamente, así como para reducir el tamaño de los datos. Para controlar las tareas predictivas de clasificación binaria y de clases múltiples, así como las de regresión, se generan modelos de datos con Azure Machine Learning. 
+En este tutorial, empleamos el [proceso de ciencia de datos en equipo](overview.md) en un escenario completo. Utilizamos un [clúster de Hadoop para Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) para almacenar, explorar y diseñar características de los datos del conjunto de datos de [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) disponible públicamente, así como para reducir el muestreo de los datos. Para controlar las tareas predictivas de clasificación binaria y de clases múltiples, así como las de regresión, se generan modelos de datos con Azure Machine Learning. 
 
 Para ver un tutorial acerca de cómo controlar un conjunto de datos mayor, consulte [Proceso de ciencia de datos en equipos en acción: Uso de un clúster de Hadoop de Azure HDInsight en un conjunto de datos de 1 TB](hive-criteo-walkthrough.md).
 
@@ -38,7 +38,7 @@ Los datos de NYC Taxi Trip son aproximadamente 20 GB de archivos de valores sep
         0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,1,N,2013-01-05 18:49:41,2013-01-05 18:54:23,1,282,1.10,-74.004707,40.73777,-74.009834,40.726002
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:54:15,2013-01-07 23:58:20,2,244,.70,-73.974602,40.759945,-73.984734,40.759388
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:25:03,2013-01-07 23:34:24,1,560,2.10,-73.97625,40.748528,-74.002586,40.747868
-- Los archivos CSV "trip_fare" contienen información detallada de la tarifa abonada en cada carrera. Esto incluye el tipo de pago, la tarifa, los suplementos y los impuestos, las propinas y los peajes y la cantidad total abonada. Estos son algunos registros de ejemplo:
+- Los archivos CSV "trip_fare" contienen información detallada de la tarifa abonada en cada carrera. Esto incluye el tipo de pago, la tarifa, los suplementos y los impuestos, las propinas y los peajes, y la cantidad total abonada. Estos son algunos registros de ejemplo:
    
         medallion, hack_license, vendor_id, pickup_datetime, payment_type, fare_amount, surcharge, mta_tax, tip_amount, tolls_amount, total_amount
         89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,2013-01-01 15:11:48,CSH,6.5,0,0.5,0,0,7
@@ -104,10 +104,10 @@ Aquí se describe cómo utilizar AzCopy para transferir los archivos que contien
 
 En los siguientes comandos de AzCopy, reemplace los siguientes parámetros con los valores reales que se especificó al crear el clúster de Hadoop y descomprimir los archivos de datos.
 
-* ***#60;path_to_data_folder>***: el directorio (junto con la ruta de acceso) del equipo que contiene los archivos de datos sin comprimir.  
-* ***&#60;storage account name of Hadoop cluster>***: la cuenta de almacenamiento asociada con el clúster de HDInsight.
-* ***&#60;default container of Hadoop cluster>***: el contenedor predeterminado que usa el clúster. Tenga en cuenta que el nombre del contenedor predeterminado suele ser el mismo que el del propio clúster. Por ejemplo, si el clúster se llama "abc123.azurehdinsight.net", el contenedor predeterminado es abc123.
-* ***&#60;storage account key>***: clave para la cuenta de almacenamiento usada por el clúster.
+* ***<ruta_a_carpeta_datos>***: el directorio (junto con la ruta de acceso) de la máquina que contiene los archivos de datos sin comprimir.  
+* ***<storage account name of Hadoop cluster>***: cuenta de almacenamiento asociada al clúster de HDInsight.
+* ***<default container of Hadoop cluster>***: contenedor predeterminado utilizado por el clúster. Tenga en cuenta que el nombre del contenedor predeterminado suele ser el mismo que el del propio clúster. Por ejemplo, si el clúster se llama "abc123.azurehdinsight.net", el contenedor predeterminado es abc123.
+* ***<storage account key>***: clave para la cuenta de almacenamiento usada por el clúster.
 
 Desde un símbolo del sistema o una ventana de Windows PowerShell, ejecute los dos comandos siguientes de AzCopy.
 
@@ -578,7 +578,7 @@ Después de la fase de análisis de exploración de datos, estamos preparados pa
 ### <a name="down-sampling-the-data"></a>Reducción de tamaño de los datos
 Este procedimiento incluye dos pasos. En primer lugar, se unen las tablas **nyctaxidb.trip** y **nyctaxidb.fare** en función de tres claves incluidas en todos los registros: **medallion**, **hack\_license** y **pickup\_datetime**. Después se genera una etiqueta de clasificación binaria **tipped** y una etiqueta de clasificación de múltiples clases **tip\_class**.
 
-Para usar los datos muestreados directamente desde el módulo [Importar datos][import-data] de Machine Learning, debe almacenar los resultados de la consulta anterior en una tabla interna de Hive. En lo que sigue, se crea una tabla interna de Hive y se rellena su contenido con los datos reducidos y combinados.
+Para usar los datos muestreados directamente desde el módulo [Importar datos][import-data] de Machine Learning, debe almacenar los resultados de la consulta anterior en una tabla interna de Hive. En el paso siguiente, se crea una tabla interna de Hive y se rellena su contenido con los datos con muestreo reducido y combinados.
 
 La consulta se aplica a las funciones estándar de Hive directamente para generar lo siguientes desde el campo **pickup\_datetime**:
 - Hora del día
@@ -763,7 +763,7 @@ Ya puede pasar a la creación del modelo y la implementación del mismo en [Mach
 
   **Lector usado** : regresión logística de dos clases
 
-  a. En este problema la etiqueta de destino (o clase) es **tipped**. El conjunto de datos reducido original incluye algunas columnas que no contienen datos para el experimento de clasificación. Se trata, en concreto, de **tip\_class**, **tip\_amount** y **total\_amount**, que dan información sobre la etiqueta de destino que no está disponible en el momento de la prueba. Quitaremos estas columnas mediante el módulo [Seleccionar columnas de conjunto de datos][select-columns].
+  a. En este problema la etiqueta de destino (o clase) es **tipped**. El conjunto de datos con muestreo reducido original incluye algunas columnas que no contienen datos para el experimento de clasificación. Se trata, en concreto, de **tip\_class**, **tip\_amount** y **total\_amount**, que dan información sobre la etiqueta de destino que no está disponible en el momento de la prueba. Quitaremos estas columnas mediante el módulo [Seleccionar columnas de conjunto de datos][select-columns].
 
   El siguiente diagrama muestra nuestro experimento para predecir si se pagó o no una propina por una carrera determinada:
 

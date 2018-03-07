@@ -11,13 +11,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/01/2017
+ms.date: 02/23/2018
 ms.author: tomfitz
-ms.openlocfilehash: e93fe5af62893d361b6cc4adac42a7d172235978
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 15e7e811c7cb1777e34f1bfb629fa24a60f9e5cb
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="export-azure-resource-manager-templates-with-azure-cli"></a>Exportación de plantillas de Azure Resource Manager con CLI de Azure
 
@@ -25,10 +25,10 @@ Resource Manager permite exportar una plantilla de Resource Manager a partir de 
 
 Es importante tener en cuenta que hay dos formas diferentes de exportar una plantilla:
 
-* Puede exportar la plantilla que utilizó para una implementación. La plantilla exportada incluye todos los parámetros y variables exactamente como aparecían en la plantilla original. Este enfoque es útil cuando se necesita recuperar una plantilla.
-* Puede exportar una plantilla que representa el estado actual del grupo de recursos. La plantilla exportada no se basa en ninguna plantilla que usara para la implementación. Al contrario, crea una plantilla que es una instantánea del grupo de recursos. La plantilla exportada tiene muchos valores codificados de forma rígida y es probable que no tenga tantos parámetros como normalmente se definirían. Este enfoque resulta útil cuando se ha modificado el grupo de recursos. Ahora, debe capturar el grupo de recursos como plantilla.
+* Se puede exportar la **plantilla real que se usó para una implementación**. La plantilla exportada incluye todos los parámetros y variables exactamente como aparecían en la plantilla original. Este enfoque es útil cuando se necesita recuperar una plantilla.
+* Puede exportar una **plantilla generada que representa el estado actual del grupo de recursos**. La plantilla exportada no se basa en ninguna plantilla que usara para la implementación. Al contrario, crea una plantilla que es una "instantánea" o "copia de seguridad" del grupo de recursos. La plantilla exportada tiene muchos valores codificados de forma rígida y es probable que no tenga tantos parámetros como normalmente se definirían. Use esta opción para volver a implementar recursos en el mismo grupo de recursos. Para utilizar esta plantilla para otro grupo de recursos, es posible que tenga que modificarla de forma significativa.
 
-En este tema se muestran ambos métodos.
+En este artículo se contemplan ambos métodos.
 
 ## <a name="deploy-a-solution"></a>Implementación de una solución
 
@@ -55,13 +55,13 @@ Devuelve la plantilla. Copie el JSON y guárdelo como un archivo. Tenga en cuent
 
 ## <a name="export-resource-group-as-template"></a>Exportación de un grupo de recursos como una plantilla
 
-En lugar de recuperar una plantilla del historial de implementación, puede recuperar una plantilla que represente el estado actual de un grupo de recursos mediante el uso del comando [az group export](/cli/azure/group#az_group_export). Utilice este comando si ha realizado muchos cambios en el grupo de recursos y ninguna plantilla existente representa todos los cambios.
+En lugar de recuperar una plantilla del historial de implementación, puede recuperar una plantilla que represente el estado actual de un grupo de recursos mediante el uso del comando [az group export](/cli/azure/group#az_group_export). Utilice este comando si ha realizado muchos cambios en el grupo de recursos y ninguna plantilla existente representa todos los cambios. Se ha diseñado como una instantánea del grupo de recursos, el cual puede usar para volver a implementar en el mismo grupo de recursos. Para usar la plantilla exportada para otras soluciones, debe modificarla de forma significativa.
 
 ```azurecli
 az group export --name ExampleGroup
 ```
 
-Devuelve la plantilla. Copie el JSON y guárdelo como un archivo. Tenga en cuenta que es diferente de la plantilla en GitHub. Tiene parámetros diferentes y no hay ninguna variable. La ubicación y las SKU de almacenamiento tienen una codificación de forma rígida en los valores. En el ejemplo siguiente se muestra la plantilla exportada, pero la plantilla tiene un nombre de parámetro ligeramente diferente:
+Devuelve la plantilla. Copie el JSON y guárdelo como un archivo. Tenga en cuenta que es diferente de la plantilla en GitHub. La plantilla tiene parámetros diferentes y no hay ninguna variable. La ubicación y las SKU de almacenamiento tienen una codificación de forma rígida en los valores. En el ejemplo siguiente se muestra la plantilla exportada, pero la plantilla tiene un nombre de parámetro ligeramente diferente:
 
 ```json
 {

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2017
 ms.author: ganesr;cherylmc
-ms.openlocfilehash: 37713db70f3ae837edafc997b78b16b121d0a885
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: d6c675d314e96cd0caab7e5eb5c60e3b1458e4a0
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>Creación y modificación del emparejamiento de un circuito ExpressRoute (clásica)
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ Este artículo le guiará por los pasos necesarios para crear y administrar la c
 
 [!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 
-**Información acerca de los modelos de implementación de Azure**
+**Información sobre los modelos de implementación de Azure**
 
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
@@ -78,10 +78,10 @@ Esta sección proporciona instrucciones sobre cómo crear, obtener, actualizar y
 ### <a name="to-create-azure-private-peering"></a>Creación de un emparejamiento privado de Azure
 1. **Importe el módulo de PowerShell para ExpressRoute.**
    
-    Tiene que importar los módulos de Azure y ExpressRoute en la sesión de PowerShell para poder usar los cmdlets de ExpressRoute. Ejecute los siguientes comandos para importar los módulos de Azure y ExpressRoute en la sesión de PowerShell.  
+    Tiene que importar los módulos de Azure y ExpressRoute en la sesión de PowerShell para poder usar los cmdlets de ExpressRoute. Ejecute los siguientes comandos para importar los módulos de Azure y ExpressRoute en la sesión de PowerShell. La versión puede variar.    
    
-        Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
-        Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
+        Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
+        Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
 2. **Creación de un circuito ExpressRoute.**
    
     Siga las instrucciones para crear un [circuito ExpressRoute](expressroute-howto-circuit-classic.md) y habilite su aprovisionamiento a través del proveedor de conectividad. Si su proveedor de conectividad ofrece servicios administrados de nivel 3, puede solicitarle que habilite la configuración entre pares privados de Azure. En ese caso, no necesita seguir las instrucciones que aparecen en las secciones siguientes. Por otra parte, si su proveedor de conectividad no administra este enrutamiento, una vez que cree el circuito siga las instrucciones siguientes. 
@@ -168,10 +168,10 @@ Esta sección proporciona instrucciones sobre cómo crear, obtener, actualizar y
 ### <a name="to-create-azure-public-peering"></a>Creación de un emparejamiento público de Azure
 1. **Importe el módulo de PowerShell para ExpressRoute.**
    
-    Tiene que importar los módulos de Azure y ExpressRoute en la sesión de PowerShell para poder usar los cmdlets de ExpressRoute. Ejecute los siguientes comandos para importar los módulos de Azure y ExpressRoute en la sesión de PowerShell. 
+    Tiene que importar los módulos de Azure y ExpressRoute en la sesión de PowerShell para poder usar los cmdlets de ExpressRoute. Ejecute los siguientes comandos para importar los módulos de Azure y ExpressRoute en la sesión de PowerShell. La versión puede variar.   
    
-        Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
-        Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
+        Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
+        Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
 2. **Creación de un circuito ExpressRoute**
    
     Siga las instrucciones para crear un [circuito ExpressRoute](expressroute-howto-circuit-classic.md) y habilite su aprovisionamiento a través del proveedor de conectividad. Si el proveedor de conectividad ofrece servicios administrados de nivel 3, puede solicitarle que habilite la configuración entre pares públicos de Azure. En ese caso, no necesita seguir las instrucciones que aparecen en las secciones siguientes. Por otra parte, si su proveedor de conectividad no administra este enrutamiento, una vez que cree el circuito siga las instrucciones siguientes.
@@ -254,10 +254,10 @@ Esta sección proporciona instrucciones sobre cómo crear, obtener, actualizar y
 ### <a name="to-create-microsoft-peering"></a>Creación del emparejamiento de Microsoft
 1. **Importe el módulo de PowerShell para ExpressRoute.**
    
-    Tiene que importar los módulos de Azure y ExpressRoute en la sesión de PowerShell para poder usar los cmdlets de ExpressRoute. Ejecute los siguientes comandos para importar los módulos de Azure y ExpressRoute en la sesión de PowerShell.  
+    Tiene que importar los módulos de Azure y ExpressRoute en la sesión de PowerShell para poder usar los cmdlets de ExpressRoute. Ejecute los siguientes comandos para importar los módulos de Azure y ExpressRoute en la sesión de PowerShell. La versión puede variar.   
    
-        Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
-        Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
+        Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
+        Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
 2. **Creación de un circuito ExpressRoute**
    
     Siga las instrucciones para crear un [circuito ExpressRoute](expressroute-howto-circuit-classic.md) y habilite su aprovisionamiento a través del proveedor de conectividad. Si su proveedor de conectividad ofrece servicios administrados de nivel 3, puede solicitarle que habilite la configuración entre pares privados de Azure. En ese caso, no necesita seguir las instrucciones que aparecen en las secciones siguientes. Por otra parte, si su proveedor de conectividad no administra este enrutamiento, una vez que cree el circuito siga las instrucciones siguientes.
@@ -326,7 +326,7 @@ Puede quitar el establecimiento de configuración entre pares ejecutando el sigu
 
     Remove-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************"
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 A continuación, [Vinculación de una red virtual a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
 * Para obtener más información sobre los flujos de trabajo, consulte [Flujos de trabajo de ExpressRoute](expressroute-workflows.md).

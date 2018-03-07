@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: LADocs; mandia
-ms.openlocfilehash: fa61bbecc51c4f3163bd1cc077391bb102662297
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8c6dbc507cd1b79fe9424071bc3eb8bf24331a16
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="exchange-as2-messages-for-enterprise-integration-with-logic-apps"></a>Intercambio de mensajes AS2 para la integración empresarial con las aplicaciones lógicas
 
@@ -40,23 +40,22 @@ Cuando haya [creado una cuenta de integración](../logic-apps/logic-apps-enterpr
 
 1.  Inicie sesión en [Azure Portal](http://portal.azure.com "Azure Portal").  
 
-2.  En el menú izquierdo, seleccione **Todos los servicios**. En el cuadro de búsqueda, escriba **integración** como filtro. En la lista de resultados, seleccione **Cuentas de integración**.
+2. En el menú principal de Azure, seleccione **Todos los servicios**. En el cuadro de búsqueda, especifique "integración" y seleccione **Cuentas de integración**.
 
-    > [!TIP]
-    > Si no ve **Todos los servicios**, expanda el menú. En la parte superior del menú contraído, seleccione **Mostrar menú**.
+   ![Búsqueda de la cuenta de integración](./media/logic-apps-enterprise-integration-as2/overview-1.png)
 
-    ![En Todos lo servicios, filtre por "integración", seleccione "Cuentas de integración"](./media/logic-apps-enterprise-integration-as2/overview-1.png)
+   > [!TIP]
+   > Si no ve **Todos los servicios**, expanda el menú. En la parte superior del menú contraído, seleccione **Mostrar etiquetas de texto**.
 
-3. En la hoja **Cuentas de integración** que se abre, seleccione la cuenta donde se vaya a crear el contrato.
-Si no ve ninguna, [créela](../logic-apps/logic-apps-enterprise-integration-accounts.md "Información completa sobre las cuentas de integración").  
+3. En la hoja **Cuentas de integración**, seleccione la cuenta de integración donde se vaya a crear el contrato.
 
-    ![Selección de la cuenta de integración donde desea crear el contrato](./media/logic-apps-enterprise-integration-overview/overview-3.png)
+   ![Selección de la cuenta de integración donde desea crear el contrato](./media/logic-apps-enterprise-integration-overview/overview-3.png)
 
 4. Seleccione el icono de **contratos**. Si no tiene un icono Acuerdos, agréguelo.
 
     ![Elección del icono "Acuerdos"](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
 
-5. En la hoja Acuerdos que se abre, seleccione **Agregar**.
+5. En **Contratos**, elija **Agregar**.
 
     ![Elección de "Agregar"](./media/logic-apps-enterprise-integration-as2/agreement-2.png)
 
@@ -166,13 +165,13 @@ Ahora el contrato está preparado para controlar los mensajes salientes que cump
 
 ## <a name="find-your-created-agreement"></a>Búsqueda del contrato creado
 
-1.  Cuando termine de establecer las propiedades del contrato, en la hoja **Agregar**, elija **Aceptar** para terminar de crear el contrato y volver a la hoja de la cuenta de integración.
+1. Cuando termine de establecer todas las propiedades del contrato, en la página **Agregar**, elija **Aceptar** para terminar de crear el contrato y volver a la cuenta de integración.
 
     Ahora el contrato recién agregado aparece en la lista **Acuerdos**.
 
-2.  También puede ver los contratos en la información general de la cuenta de integración. En la hoja de la cuenta de integración, elija **Información general** y seleccione el icono **Acuerdos**. 
+2. También puede ver los contratos en la información general de la cuenta de integración. En el menú de la cuenta de integración, elija **Información general** y seleccione el icono **Acuerdos**. 
 
-    ![Elección del icono "Acuerdos" para ver todos los contratos](./media/logic-apps-enterprise-integration-as2/agreement-6.png)
+   ![Elección del icono "Acuerdos" para ver todos los contratos](./media/logic-apps-enterprise-integration-as2/agreement-6.png)
 
 ## <a name="view-the-swagger"></a>Visualización de Swagger
 Vea los [detalles de Swagger](/connectors/as2/). 

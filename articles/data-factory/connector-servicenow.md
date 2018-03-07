@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 02/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 28ecdc541bc7e95dfa6d7c1b2d984cba0654699f
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 64b0982ab1d0b212120d962d4c47a1b8db8ca025
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory-beta"></a>Copiar datos de ServiceNow con Azure Data Factory (beta)
 
@@ -50,7 +50,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de ServiceN
 | Tipo | La propiedad type debe establecerse en: **ServiceNow**. | Sí |
 | endpoint | El punto de conexión del servidor de ServiceNow (`http://ServiceNowData.com`).  | Sí |
 | authenticationType | Tipo de autenticación que se debe usar. <br/>Los valores permitidos son: **Basic** y **OAuth2**. | Sí |
-| Nombre de usuario | Nombre de usuario utilizado para conectarse al servidor de ServiceNow para la autenticación Basic y OAuth2.  | Sin  |
+| nombre de usuario | Nombre de usuario utilizado para conectarse al servidor de ServiceNow para la autenticación Basic y OAuth2.  | Sin  |
 | contraseña | Contraseña correspondiente al nombre de usuario para la autenticación Basic y OAuth2. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sin  |
 | clientId | Id. de cliente para la autenticación OAuth2.  | Sin  |
 | clientSecret | Secreto de cliente para la autenticación OAuth2. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sin  |
@@ -114,11 +114,11 @@ Para copiar datos de ServiceNow, establezca el tipo de origen de la actividad de
 
 Cuando se especifica el esquema y la columna para ServiceNow en la consulta, tenga en cuenta lo siguiente:
 
-- **Esquema:** consulta a ServiceNow necesaria para especificar el esquema como `Actual` o `Display`, que se puede considerar como el parámetro de `sysparm_display_value` verdadero o falso al llamar a las [API Restful de ServiceNow](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET). 
-- **Columna:** el nombre de columna del valor real es `[columne name]_value` mientras que el valor de visualización es `[columne name]_display_value`.
+- **Esquema:** especifica el esquema como `Actual` o `Display` en la consulta de ServiceNow, que puede considerar como el parámetro de `sysparm_display_value` verdadero o falso al llamar a las [API Restful de ServiceNow](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET). 
+- **Columna:** el nombre de columna del valor real del esquema `Actual` es `[columne name]_value`, mientras que el valor de visualización del esquema `Display` es `[columne name]_display_value`. Tenga en cuenta que el nombre de columna se debe asignar al esquema que se usa en la consulta.
 
 **Consulta de ejemplo:**
-`SELECT distinct col_value, col_display_value FROM Actual.alm_asset` O `SELECT distinct col_value, col_display_value FROM Display.alm_asset`
+`SELECT col_value FROM Actual.alm_asset` O `SELECT col_display_value FROM Display.alm_asset`
 
 **Ejemplo:**
 

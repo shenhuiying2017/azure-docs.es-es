@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 20760650b093216a2929de580f5971c45e0534a8
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 9638c7148d4347bb9cbc9e48022037ee6cb983d7
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="back-up-windows-virtual-machines-in-azure"></a>Copia de seguridad de máquinas virtuales Windows en Azure
 
@@ -46,7 +46,7 @@ Cuando finaliza la transferencia de datos, se elimina la instantánea y se crea 
 ## <a name="create-a-backup"></a>Creación de una copia de seguridad
 Cree una copia de seguridad diaria programada simple en un almacén de Recovery Services. 
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 2. En el menú de la izquierda, haga clic en **Máquinas virtuales**. 
 3. En la lista, seleccione la máquina virtual de la que quiere realizar una copia de seguridad.
 4. En la hoja de la máquina virtual, en la sección **Configuración**, haga clic en **Copia de seguridad**. Se abre la hoja **Habilitar copia de seguridad**.
@@ -92,9 +92,9 @@ En este ejemplo, se muestra cómo recuperar el archivo de imagen que se usa en l
 18. En el equipo local, vuelva a la pestaña de explorador de Azure Portal y en **Paso 3: Desmontar los discos después de la recuperación**, haga clic en el botón **Desmontar discos**. Si olvida realizar este paso, la conexión al punto de montaje se cierra automáticamente tras 12 horas. A las 12 horas, es preciso que descargue un script nuevo para crear un nuevo punto de montaje.
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
-En este tutorial, ha aprendido cómo:
+En este tutorial aprendió lo siguiente:
 
 > [!div class="checklist"]
 > * Crear una copia de seguridad de una máquina virtual.
@@ -104,7 +104,7 @@ En este tutorial, ha aprendido cómo:
 En el siguiente tutorial se explica cómo supervisar máquinas virtuales.
 
 > [!div class="nextstepaction"]
-> [Supervisión de máquinas virtuales](tutorial-monitoring.md)
+> [Control de máquinas virtuales](tutorial-govern-resources.md)
 
 
 

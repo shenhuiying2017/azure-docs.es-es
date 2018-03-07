@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: vinagara
-ms.openlocfilehash: f6072e4e8a9ab72f677c35e498e31b5218579f1b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 438776e7f0885dbdb0d66ccdd18d854e14beb299
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="log-alerts-in-azure-monitor---alerts-preview"></a>Alertas de registro en Azure Monitor: Alertas (versión preliminar)
 En este artículo se proporcionan detalles sobre cómo funcionan las reglas de alertas de consultas de Analytics en Alertas de Azure (versión preliminar) y se describen las diferencias entre los distintos tipos de reglas de alertas de registro.
@@ -27,11 +27,20 @@ Actualmente, Alertas de Azure (versión preliminar) admite las alertas de regist
 
 > [!WARNING]
 
-> Actualmente, las alertas de registro de Alertas de Azure (versión preliminar) no admiten consultas entre áreas de trabajo ni entre aplicaciones.
+> Actualmente, la alerta de registro de Alertas de Azure (versión preliminar) no admite consultas entre áreas de trabajo ni entre aplicaciones.
+
+Además, los usuarios pueden perfeccionar sus consultas en la plataforma de Analytics de su preferencia en Azure y luego *importarlas para usarlas en Alertas (versión preliminar) al guardar la consulta*. Pasos a seguir:
+- Para Application Insights: vaya al portal de Analytics, valide la consulta y sus resultados. Luego guárdela con un nombre único en *Consultas compartidas*.
+- Para Log Analytics: vaya a Búsqueda de registros, valide la consulta y sus resultados. Luego use Guardar con un nombre único en cualquier categoría.
+
+Entonces, cuando [cree una alerta de registro en Alertas (versión preliminar)](monitor-alerts-unified-usage.md), verá que la consulta guardada aparece como el tipo de señal **Registro (consulta guardada)**, tal como aparece en el ejemplo siguiente: ![Consulta guardada importada a Alertas](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog-new.png)
+
+> [!NOTE]
+> Usar **Registro (consulta guardada)** genera una importación a Alertas. Por lo tanto, cualquier cambio que se realice después en Analytics no se reflejará en las reglas de alertas guardadas y viceversa.
 
 ## <a name="log-alert-rules"></a>Reglas de alertas de registro
 
-Las alertas creadas por Alertas de Azure (versión preliminar) ejecutan automáticamente consultas de registros a intervalos regulares.  Si los resultados de la consulta de registros coinciden con determinados criterios, se crea un registro de alertas. Luego, la regla puede ejecutar automáticamente una o varias acciones para avisarle proactivamente de la alerta o invocar otro proceso, como la ejecución de runbooks, mediante la utilización de [grupos de acciones](monitoring-action-groups.md).  Diferentes tipos de reglas de alerta usan una lógica distinta para realizar este análisis.
+Las alertas creadas por Alertas de Azure (versión preliminar) ejecutan automáticamente consultas de registros a intervalos regulares.  Si los resultados de la consulta de registros coinciden con determinados criterios, se crea un registro de alertas. Luego, la regla puede ejecutar automáticamente una o varias acciones para avisarle de manera proactiva de la alerta o invocar otro proceso, como enviar datos a una aplicación externa mediante [json based webhook](monitor-alerts-unified-log-webhook.md) con [Grupos de acciones](monitoring-action-groups.md). Diferentes tipos de reglas de alerta usan una lógica distinta para realizar este análisis.
 
 Las reglas de alerta se definen mediante los siguientes detalles:
 
@@ -47,24 +56,26 @@ Cada regla de alertas de Log Analytics es de uno de los dos tipos posibles.  Cad
 
 Las diferencias entre los tipos de reglas de alerta son las siguientes.
 
-- La regla de alertas para **número de resultados** crea siempre una alerta única mientras que la regla de alertas para **unidades métricas** crea una alerta para cada objeto que supere el umbral.
+- **La regla de alertas para número de resultados crea siempre una alerta única mientras que la regla de alertas para **Unidades métricas** crea una alerta para cada objeto que supere el umbral.
 - Las reglas de alerta para **número de resultados** crean una alerta cuando se supera el umbral una sola vez. Las reglas de alerta para **unidades métricas** pueden crear una alerta cuando se supera el umbral un número determinado de veces en un intervalo de tiempo determinado.
 
 ## <a name="number-of-results-alert-rules"></a>Reglas de alerta para número de resultados
-Las reglas de alerta para **número de resultados** crean una única alerta cuando el número de registros devueltos por la consulta de búsqueda supera el umbral especificado.
+Las reglas de alerta para **número de resultados** crean una única alerta cuando el número de registros devueltos por la consulta de búsqueda supera el umbral especificado. Este tipo de regla de alertas es perfecto para trabajar con eventos como, por ejemplo, registros de eventos de Windows, Syslog, respuesta de WebApp y registros personalizados.  Es posible que desee crear una alerta cuando se genere un evento de error concreto o cuando se generen varios eventos de error durante un período de tiempo establecido.
 
-**Umbral**: el umbral de una regla de alertas para un **número de resultados** es mayor o menor que un valor determinado.  Se crea una alerta si el número de registros devueltos por la búsqueda de registros coincide con este criterio.
+**Umbral**: el umbral de reglas de alertas para un **número de resultados es mayor o menor que un valor determinado.  Se crea una alerta si el número de registros devueltos por la búsqueda de registros coincide con este criterio.
 
-### <a name="scenarios"></a>Escenarios
-
-#### <a name="events"></a>Eventos
-Este tipo de regla de alertas es perfecto para trabajar con eventos como, por ejemplo, registros de eventos de Windows, Syslog y registros personalizados.  Es posible que desee crear una alerta cuando se genere un evento de error concreto o cuando se generen varios eventos de error durante un período de tiempo establecido.
-
-Para generar una alerta en un solo evento, determine que el número de resultados sea mayor que cero y que la frecuencia y el período de tiempo sean de cinco minutos.  De ese modo, se ejecuta la consulta cada cinco minutos y se busca la aparición de un evento único creado en el tiempo transcurrido desde la última vez que se ejecutó la consulta.  Una frecuencia mayor puede retrasar el tiempo entre la recopilación del evento y la creación de la alerta.
-
-Algunas aplicaciones pueden registrar un error ocasional que no tiene por qué haber generado necesariamente una alerta.  Por ejemplo, la aplicación puede volver a intentar realizar el proceso que creó el evento de error y completarlo correctamente la vez siguiente.  En este caso, es posible que no desee crear la alerta a menos que se creen varios eventos en un período de tiempo determinado.  
+Para generar una alerta en un evento único, establezca el número de resultados en un valor mayor que 0 y compruebe la aparición de un evento único que se creó desde la última vez que se ejecutó la consulta. Algunas aplicaciones pueden registrar un error ocasional que no tiene por qué haber generado necesariamente una alerta.  Por ejemplo, la aplicación puede volver a intentar realizar el proceso que creó el evento de error y completarlo correctamente la vez siguiente.  En este caso, es posible que no desee crear la alerta a menos que se creen varios eventos en un período de tiempo determinado.  
 
 En algunos casos, quizá quiera crear una alerta sin que haya un evento.  Por ejemplo, un proceso puede registrar eventos regulares para indicar que está funcionando correctamente.  Si no se registra uno de estos eventos dentro de un período de tiempo determinado, debe crearse una alerta.  En este caso, tendría que establecer el umbral en un valor **less than 1** (menor que 1).
+
+### <a name="example"></a>Ejemplo
+Considere un escenario donde desea saber cuándo la aplicación basada en web proporciona una respuesta a los usuarios con el código 500, un error interno del servidor. Crearía una regla de alertas con los detalles siguientes:  
+**Consulta:** solicitudes | donde resultCode == "500"<br>
+**Ventana de tiempo:** 30 minutos<br>
+**Frecuencia de alerta:** cinco minutos<br>
+**Valor de umbral:** mayor que 0<br>
+
+De ese modo, la alerta ejecutaría la consulta cada 5 minutos, con 30 minutos de datos, para buscar cualquier registro con un código de resultado de 500. Si se encuentra aunque sea uno de estos registros, se desencadena la alerta y la acción configurada.
 
 ## <a name="metric-measurement-alert-rules"></a>Reglas de alertas para medición de métricas
 
@@ -74,7 +85,7 @@ Las reglas de alertas para **unidades métricas** crean una alerta para cada obj
 
 > [!NOTE]
 
-> La función de agregado en la consulta debe denominarse/llamarse AggregatedValue y proporcionar un valor numérico.
+> La función de agregado en la consulta debe denominarse/llamarse AggregatedValue y proporcionar un valor numérico. 
 
 
 **Campo de grupo**: se crea un registro con un valor agregado para cada instancia de este campo y se puede generar una alerta para cada una.  Por ejemplo, si desea generar una alerta para cada equipo, usaría **by Computer** (por Equipo).   
@@ -84,6 +95,8 @@ Las reglas de alertas para **unidades métricas** crean una alerta para cada obj
 > Para las reglas de alerta de unidades métricas que se basan en Application Insights, puede especificar el campo para agrupar los datos. Para ello, use la opción **Agregado en** en la definición de la regla.   
 
 **Intervalo**: define el intervalo de tiempo durante el cual se agregan los datos.  Por ejemplo, si especifica **cinco minutos**, se crearía un registro para cada instancia del campo de grupo que se agrega a intervalos de cinco minutos en la ventana de tiempo especificada para la alerta.
+> [!NOTE]
+> La función Bin se debe usar en la consulta. Además, si se generan intervalos de tiempo distintos para la ventana de tiempo por el uso de la función Bin, la alerta usará en su lugar la función bin_at para asegurarse de que hay un punto fijo
 
 **Umbral**: el umbral de las reglas de alertas para unidades métricas se define por un valor agregado y un número de infracciones.  Si cualquier punto de datos de la búsqueda de registros supera este valor, se considera una infracción.  Si el número de infracciones para cualquier objeto de los resultados supera el valor especificado, se crea una alerta para ese objeto.
 
@@ -104,6 +117,8 @@ En este ejemplo, se crearán alertas independientes para srv02 y srv03 porque ha
 
 
 ## <a name="next-steps"></a>pasos siguientes
+* Conocer las [acciones de webhook para alertas de registro](monitor-alerts-unified-log-webhook.md)
 * [Obtenga información general sobre Alertas de Azure (versión preliminar)](monitoring-overview-unified-alerts.md).
 * Obtenga información sobre cómo [utilizar Alertas de Azure (versión preliminar)](monitor-alerts-unified-usage.md).
+* Más información sobre [Application Insights](../application-insights/app-insights-analytics.md)
 * Más información sobre [Log Analytics](../log-analytics/log-analytics-overview.md).    

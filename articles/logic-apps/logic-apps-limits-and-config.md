@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 8de3cc6665fc3861aedcf4f36cdce4a4a776e80d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 5c4597ede16f01c36e147dc0d70acf4b4f5635e8
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="logic-apps-limits-and-configuration"></a>Límites y configuración de Logic Apps
 
@@ -58,15 +58,22 @@ Estos límites se aplican a una única solicitud HTTP o llamada de conector.
 
 Estos límites se aplican a una única ejecución de aplicación lógica.
 
-| NOMBRE | Límite | 
-| ---- | ----- | 
-| Duración de la ejecución | 90 días | 
-| Retención de almacenamiento | 90 días a partir de la hora de inicio de la ejecución | 
-| Intervalo de periodicidad mínima | 1 segundo </br>Para las aplicaciones lógicas con un plan de App Service: 15 segundos | 
-| Intervalo de periodicidad máxima | 500 días | 
-||| 
+| NOMBRE | Valor predeterminado | Límite |
+| ---- | ------- | ----- |
+| Duración de la ejecución   | 90 días | De 7 a 90 días |
+| Retención de almacenamiento | 90 días a partir de la hora de inicio de la ejecución |  De 7 a 90 días a partir de la hora de inicio de la ejecución |
+||||
 
 Si desea superar los límites de la duración de ejecución o de la retención de almacenamiento del flujo de procesamiento normal, [póngase en contacto con el equipo del producto](mailto://logicappsemail@microsoft.com) para recibir asistencia según sus necesidades.
+
+
+### <a name="recurrence-interval"></a>Intervalo de periodicidad
+
+| NOMBRE | Límite |
+| ---- | ------- |
+| Intervalo de periodicidad mínima | 1 segundo </br>Para las aplicaciones lógicas con un plan de App Service: 15 segundos |
+| Intervalo de periodicidad máxima | 500 días |
+|||
 
 ### <a name="looping-and-debatching-limits"></a>Límites de bucle y anulación de procesamiento por lotes
 

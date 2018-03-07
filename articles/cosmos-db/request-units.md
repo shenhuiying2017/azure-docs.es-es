@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 02/23/2018
 ms.author: mimig
-ms.openlocfilehash: c7aadb4e535ed221f882f251324b6d4e633c2d5e
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: b63c778f02b88bea4d68206f441aef7b32172c24
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unidades de solicitud en Azure Cosmos DB
 Ya disponible: la [calculadora de unidades de solicitud](https://www.documentdb.com/capacityplanner) de Azure Cosmos DB. Obtenga más información en [Estimación de las necesidades de rendimiento](request-units.md#estimating-throughput-needs).
@@ -26,7 +26,7 @@ Ya disponible: la [calculadora de unidades de solicitud](https://www.documentdb.
 ![Calculadora de rendimiento][5]
 
 ## <a name="introduction"></a>Introducción
-[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Con Azure Cosmos DB, no tendrá que alquilar máquinas virtuales, implementar software ni supervisar bases de datos. Los mejores ingenieros de Microsoft operan y supervisan de forma continua Azure Cosmos DB para ofrecer disponibilidad, rendimiento y protección de datos universales. Puede acceder a los datos mediante las API de su elección, como SQL a través de la [API de SQL](documentdb-introduction.md), la [API MongoDB](mongodb-introduction.md), [Table API](table-introduction.md), y Gremlin a través de la [API Graph](graph-introduction.md); todas ellas son compatibles de forma nativa. La divisa de Azure Cosmos DB es la Unidad de solicitud (RU). Con las RU, no necesita reservar funcionalidades de lectura o escritura ni aprovisionar CPU, memoria ni IOPS.
+[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Con Azure Cosmos DB, no tendrá que alquilar máquinas virtuales, implementar software ni supervisar bases de datos. Los mejores ingenieros de Microsoft operan y supervisan de forma continua Azure Cosmos DB para ofrecer disponibilidad, rendimiento y protección de datos universales. Puede acceder a los datos mediante las API de su elección, por ejemplo, [SQL API](documentdb-introduction.md), [MongoDB API](mongodb-introduction.md), [Table API](table-introduction.md) y Gremlin a través de [Graph API](graph-introduction.md); todas ellas son compatibles de forma nativa. La divisa de Azure Cosmos DB es la Unidad de solicitud (RU). Con las RU, no necesita reservar funcionalidades de lectura o escritura ni aprovisionar CPU, memoria ni IOPS.
 
 Azure Cosmos DB admite varias API con distintas operaciones que varían desde lecturas y escrituras sencillas hasta consultas de grafos complejos. Puesto que no todas las solicitudes son iguales, se les asigna una cantidad regularizada de **unidades de solicitud** según el número de procesamientos necesario para prestar servicio a la solicitud. El número de unidades de solicitud para una operación es determinista y puede realizar un seguimiento del número de unidades de solicitud consumidas por cualquier operación de Azure Cosmos DB a través de un encabezado de respuesta. 
 
@@ -44,7 +44,7 @@ Debido a que Azure Cosmos DB es un servicio de base de datos con varios modelos,
 ## <a name="request-units-and-request-charges"></a>Unidades de solicitud y cargos de solicitud
 Azure Cosmos DB ofrece un rendimiento predecible y rápido mediante la *reserva* de recursos para satisfacer las necesidades de rendimiento de la aplicación.  Como la carga de aplicaciones y los patrones de acceso cambian con el tiempo, Azure Cosmos DB permite aumentar o disminuir fácilmente el rendimiento reservado disponible para la aplicación.
 
-Con Azure Cosmos DB, el rendimiento reservado se especifica en términos de procesamiento de unidades de solicitud por segundo. Puede pensar en unidades de solicitud como divisa de rendimiento, donde se *reserva* una cantidad de unidades de solicitud garantizadas para la aplicación por segundo.  Cada operación de Azure Cosmos DB: escritura de un documento, realización de una consulta, actualización de un documento, consume CPU, memoria y E/S por segundo.  Es decir, cada operación implica un *cargo de solicitud*, que se expresa en *unidades de solicitud*.  La descripción de los factores que afectan a los cargos de unidades de solicitud, junto con los requisitos de rendimiento de la aplicación, le permite ejecutar la aplicación de la forma más rentable posible. El explorador de consultas también es una excelente herramienta para probar el centro de una consulta.
+Con Azure Cosmos DB, el rendimiento reservado se especifica en términos de procesamiento de unidades de solicitud por segundo. Puede pensar en unidades de solicitud como divisa de rendimiento, donde se *reserva* una cantidad de unidades de solicitud garantizadas para la aplicación por segundo.  Cada operación de Azure Cosmos DB: escritura de un documento, realización de una consulta, actualización de un documento, consume CPU, memoria y E/S por segundo.  Es decir, cada operación implica un *cargo de solicitud*, que se expresa en *unidades de solicitud*.  La descripción de los factores que afectan a los cargos de unidades de solicitud, junto con los requisitos de rendimiento de la aplicación, le permite ejecutar la aplicación de la forma más rentable posible. El Explorador de datos de Azure Portal también es una excelente herramienta para probar el centro de una consulta.
 
 Se recomienda ver una introducción en el vídeo siguiente, donde Aravind Ramachandran explica las unidades de solicitud y un rendimiento predecible con Azure Cosmos DB.
 
@@ -190,9 +190,7 @@ El uso de la herramienta es simple:
 > 
 
 ### <a name="use-the-azure-cosmos-db-request-charge-response-header"></a>Uso del encabezado de respuesta de cargo de solicitud de Azure Cosmos DB
-Cada respuesta del servicio de Azure Cosmos DB incluye un encabezado personalizado (`x-ms-request-charge`) que contiene las unidades de solicitud consumidas por la solicitud. Este encabezado también es accesible a través de los SDK de Azure Cosmos DB. En el SDK de .NET, RequestCharge es una propiedad del objeto ResourceResponse.  Para las consultas, el Explorador de consultas de Azure Cosmos DB en Azure Portal proporciona la información de carga de solicitud para las consultas ejecutadas.
-
-![Comprobación de los cargos de RU en el Explorador de consultas][1]
+Cada respuesta del servicio de Azure Cosmos DB incluye un encabezado personalizado (`x-ms-request-charge`) que contiene las unidades de solicitud consumidas por la solicitud. Este encabezado también es accesible a través de los SDK de Azure Cosmos DB. En el SDK de .NET, RequestCharge es una propiedad del objeto ResourceResponse.  Para las consultas, el Explorador de datos de Azure Cosmos DB en Azure Portal proporciona la información de carga de solicitud para las consultas ejecutadas.
 
 Con esto en mente, un método para calcular la cantidad de rendimiento reservado requerido por la aplicación es registrar el cargo de la unidad de solicitud asociado a la ejecución de las operaciones típicas frente a un elemento representativo usado por la aplicación y, a continuación, calcular el número de operaciones que prevé realizar cada segundo.  Asegúrese de medir e incluir las consultas típicas y el uso del script de Azure Cosmos DB también.
 
@@ -358,7 +356,6 @@ Para más información sobre Azure Cosmos DB, consulte la [documentación](https
 
 Para empezar a usar pruebas de escala y rendimiento con Azure Cosmos DB, consulte [Pruebas de escala y rendimiento con Azure Cosmos DB](performance-testing.md).
 
-[1]: ./media/request-units/queryexplorer.png 
 [2]: ./media/request-units/RUEstimatorUpload.png
 [3]: ./media/request-units/RUEstimatorDocuments.png
 [4]: ./media/request-units/RUEstimatorResults.png

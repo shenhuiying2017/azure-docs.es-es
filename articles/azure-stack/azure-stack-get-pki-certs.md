@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/22/2018
 ms.author: jeffgilb
 ms.reviewer: ppacent
-ms.openlocfilehash: a9f2a882947e07cde0e0505458608f86043b2a67
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 991a94e4ca41bad438a3c8d06e4e1f691cff91bc
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="generate-pki-certificates-for-azure-stack-deployment"></a>Generación de certificados de infraestructura de clave pública para la implementación de Azure Stack
 Ahora que conoce [los requisitos de los certificados PKI](azure-stack-pki-certs.md) para las implementaciones de Azure Stack, debe obtener dichos certificados de la entidad de certificación (CA) que prefiera. 
@@ -75,4 +75,4 @@ El siguiente proceso describe cómo puede personalizar y usar el ejemplo de arch
 5. **Exporte y copie el archivo . PFX en las carpetas de implementación**. Exporte el certificado (incluida la clave privada) como un archivo .PFX y cópielo en las carpetas de implementación descritas en los [requisitos de PKI de la implementación de Azure Stack](azure-stack-pki-certs.md).
 
 ## <a name="next-steps"></a>pasos siguientes
-[Integración de identidades](azure-stack-integrate-identity.md)
+[Preparación de certificados PKI de Azure Stack](prepare-pki-certs.md)

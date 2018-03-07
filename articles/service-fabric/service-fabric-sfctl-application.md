@@ -12,13 +12,13 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/22/2018
+ms.date: 02/23/2018
 ms.author: ryanwi
-ms.openlocfilehash: 345717e76097931f52354369e822af41133b34f0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3a10437d0a2d680e586ada6a87750a69453c1f0c
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="sfctl-application"></a>aplicación de sfctl
 Cree, elimine y administre aplicaciones y tipos de aplicaciones.
@@ -37,7 +37,7 @@ Cree, elimine y administre aplicaciones y tipos de aplicaciones.
 | list         | Obtiene la lista de aplicaciones creadas en el clúster de Service Fabric que coinciden con los filtros especificados como parámetro.|
 | load | Obtiene la información de carga sobre una aplicación de Service Fabric. |
 | manifest     | Obtiene el manifiesto que describe un tipo de aplicación.|
-| provision    | Aprovisiona o registra un tipo de aplicación de Service Fabric en el clúster.|
+| provision    | Aprovisiona o registra un tipo de aplicación de Service Fabric con el clúster mediante el paquete .sfpkg en el almacén externo o mediante el paquete de aplicación en el almacén de imágenes.|
 | report-health| Envía un informe de estado sobre la aplicación de Service Fabric.|
 | Tipo         | Obtiene la lista de tipos de aplicaciones del clúster de Service Fabric que coinciden exactamente con el nombre especificado.|
 | type-list    | Obtiene la lista de tipos de aplicaciones del clúster de Service Fabric.|
@@ -83,7 +83,7 @@ Elimina una aplicación existente de Service Fabric. Una aplicación debe crears
 
 |Argumento|DESCRIPCIÓN|
 | --- | --- |
-| --application-id [Obligatorio]| La identidad de la aplicación. Suele ser el nombre completo de la aplicación sin el esquema URI 'fabric:'. A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "~". Por ejemplo, si el nombre de la aplicación es "fabric://myapp/app1", la identidad de la aplicación sería "myapp~app1" en 6.0+ y "myapp/app1" en las versiones anteriores.|
+| --application-id [Obligatorio]| La identidad de la aplicación. Suele ser el nombre completo de la aplicación sin el esquema URI 'fabric:'. A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "~". Por ejemplo, si el nombre de la aplicación es "fabric:/myapp/app1", la identidad de la aplicación sería "myapp~app1" en 6.0+ y "myapp/app1" en las versiones anteriores.|
 | --force-remove          | Elimina una aplicación o un servicio de Service Fabric de manera forzada sin pasar por la secuencia de apagado correcta. Este parámetro puede usarse para forzar la eliminación de una aplicación o un servicio cuya eliminación normal requiere un tiempo de espera a causa de problemas del código del servicio que impiden el cierre correcto de las réplicas.|
 | --timeout -t            | Tiempo de espera del servidor en segundos.  Valor predeterminado: 60.|
 
@@ -99,12 +99,14 @@ Elimina una aplicación existente de Service Fabric. Una aplicación debe crears
 
 ## <a name="sfctl-application-deployed"></a>sfctl application deployed
 Obtiene la información sobre una aplicación implementada en un nodo de Service Fabric.
+
+Obtiene la información sobre una aplicación implementada en un nodo de Service Fabric.  Esta consulta devuelve información de la aplicación del sistema si el identificador de aplicación proporcionado es para la aplicación del sistema. Los resultados abarcan las aplicaciones implementadas en los estados activo, activando y descargando. Esta consulta requiere que el nombre del nodo corresponda a un nodo en el clúster. La consulta produce un error si el nombre de nodo proporcionado no apunta a ningún nodo de Service Fabric activo en el clúster.
      
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|DESCRIPCIÓN|
 | --- | --- |
-| --application-id [Obligatorio]| La identidad de la aplicación. Suele ser el nombre completo de la aplicación sin el esquema URI 'fabric:'. A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "~". Por ejemplo, si el nombre de la aplicación es "fabric://myapp/app1", la identidad de la aplicación sería "myapp~app1" en 6.0+ y "myapp/app1" en las versiones anteriores.|
+| --application-id [Obligatorio]| La identidad de la aplicación. Suele ser el nombre completo de la aplicación sin el esquema URI 'fabric:'. A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "~". Por ejemplo, si el nombre de la aplicación es "fabric:/myapp/app1", la identidad de la aplicación sería "myapp~app1" en 6.0+ y "myapp/app1" en las versiones anteriores.|
 | --node-name [Obligatorio]| El nombre del nodo.|
 | --timeout -t            | Tiempo de espera del servidor en segundos.  Valor predeterminado: 60.|
 
@@ -127,11 +129,11 @@ Devuelve el estado de mantenimiento de la aplicación de Service Fabric. La resp
 
 |Argumento|DESCRIPCIÓN|
 | --- | --- |
-| --application-id [Obligatorio]| La identidad de la aplicación. Este suele ser el nombre completo de la aplicación sin el esquema de URI "fabric:". A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "~". Por ejemplo, si el nombre de la aplicación es "fabric://myapp/app1", la identidad de la aplicación sería "myapp~app1" en 6.0+ y "myapp/app1" en las versiones anteriores.|
+| --application-id [Obligatorio]| La identidad de la aplicación. Este suele ser el nombre completo de la aplicación sin el esquema de URI "fabric:". A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "~". Por ejemplo, si el nombre de la aplicación es "fabric:/myapp/app1", la identidad de la aplicación sería "myapp~app1" en 6.0+ y "myapp/app1" en las versiones anteriores.|
 | --deployed-applications-health-state-filter| Permite filtrar los objetos de estado de mantenimiento de las aplicaciones implementadas devueltos en el resultado de la consulta de mantenimiento de las aplicaciones según su estado de mantenimiento. Los valores posibles para este parámetro incluyen el valor entero de uno de los siguientes estados de mantenimiento. Solo se devolverán las aplicaciones implementadas que coincidan con el filtro. Todas las aplicaciones implementadas se utilizan para evaluar el estado de mantenimiento agregado. Si no se especifica, se devuelven todas las entradas. Los valores de estado se marcan según la enumeración, por lo que el valor puede ser una combinación de estos valores obtenidos mediante el operador bit a bit 'OR'. Por ejemplo, si el valor proporcionado es 6, se devuelve el estado de mantenimiento de las aplicaciones implementadas con el valor HealthState de Ok (2) y Warning (4). - Default: valor predeterminado. Coincide con cualquier HealthState. El valor predeterminado es cero. - None: filtro que no coincide con ningún valor de HealthState. Se utiliza para no devolver ningún resultado en una determinada colección de estados. El valor es 1. - Ok: filtro que asocia la entrada con el valor de HealthState de Ok. El valor es 2. - Warning: filtro que asocia la entrada con el valor de HealthState de Warning. El valor es 4. - Error: filtro que asocia la entrada con el valor de HealthState de Error. El valor es 8. - All: filtro que asocia la entrada con cualquier valor de HealthState. El valor es 65535.|
 | --events-health-state-filter            | Permite filtrar la colección de objetos HealthEvent devueltos según el estado de mantenimiento. Los valores posibles para este parámetro incluyen el valor entero de uno de los siguientes estados de mantenimiento. Se devuelven únicamente los eventos que coinciden con el filtro. Todos los eventos se utilizan para evaluar el estado de mantenimiento agregado. Si no se especifica, se devuelven todas las entradas. Los valores de estado se marcan según la enumeración, por lo que el valor puede ser una combinación de estos valores obtenidos mediante el operador bit a bit 'OR'. Por ejemplo, si el valor proporcionado es 6, se devuelven todos los eventos con el valor HealthState de Ok (2) y Warning (4). - Default: valor predeterminado. Coincide con cualquier HealthState. El valor predeterminado es cero. - None: filtro que no coincide con ningún valor de HealthState. Se utiliza para no devolver ningún resultado en una determinada colección de estados. El valor es 1. - Ok: filtro que asocia la entrada con el valor de HealthState de Ok. El valor es 2. - Warning: filtro que asocia la entrada con el valor de HealthState de Warning. El valor es 4. - Error: filtro que asocia la entrada con el valor de HealthState de Error. El valor es 8. - All: filtro que asocia la entrada con cualquier valor de HealthState. El valor es 65535.|
 | --exclude-health-statistics | Indica si las estadísticas de mantenimiento se deben devolver como parte del resultado de la consulta. El valor predeterminado es false. Las estadísticas muestran el número de entidades secundarias en estado de mantenimiento Ok, Warning y Error.|
-| --services-health-state-filter          | Permite filtrar los objetos de estado de mantenimiento de los servicios devueltos en el resultado del la consulta de mantenimiento de los servicios en función de su estado de mantenimiento. Los valores posibles para este parámetro incluyen el valor entero de uno de los siguientes estados de mantenimiento. Se devuelven únicamente los servicios que coinciden con el filtro. Todos los servicios se utilizan para evaluar el estado de mantenimiento agregado. Si no se especifica, se devuelven todas las entradas. Los valores de estado se marcan según la enumeración, por lo que el valor puede ser una combinación de estos valores obtenidos mediante el operador bit a bit 'OR'. Por ejemplo, si el valor proporcionado es 6, se devuelve el estado de mantenimiento de los servicios con el valor HealthState de Ok (2) y Warning (4). - Default: valor predeterminado. Coincide con cualquier HealthState. El valor predeterminado es cero. - None: filtro que no coincide con ningún valor de HealthState. Se utiliza para no devolver ningún resultado en una determinada colección de estados. El valor es 1. - Ok: filtro que asocia la entrada con el valor de HealthState de Ok. El valor es 2. - Warning: filtro que asocia la entrada con el valor de HealthState de Warning. El valor es 4. - Error: filtro que asocia la entrada con el valor de HealthState de Error. El valor es 8. - All: filtro que asocia la entrada con cualquier valor de HealthState. El valor es 65535.|
+| --services-health-state-filter          | Permite filtrar los objetos de estado de mantenimiento de los servicios devueltos en el resultado del la consulta de mantenimiento de los servicios en función de su estado de mantenimiento. Los valores posibles para este parámetro incluyen el valor entero de uno de los siguientes estados de mantenimiento. Se devuelven únicamente los servicios que coinciden con el filtro. Todos los servicios se utilizan para evaluar el estado de mantenimiento agregado. Si no se especifica, se devuelven todas las entradas. Los valores de estado se marcan según la enumeración, por lo que el valor puede ser una combinación de estos valores obtenidos mediante el operador bit a bit 'OR'. Por ejemplo, si el valor proporcionado es 6, se devuelve el estado de mantenimiento de los servicios con el valor HealthState de OK (2) y Warning (4). - Default: valor predeterminado. Coincide con cualquier HealthState. El valor predeterminado es cero. - None: filtro que no coincide con ningún valor de HealthState. Se utiliza para no devolver ningún resultado en una determinada colección de estados. El valor es 1. - Ok: filtro que asocia la entrada con el valor de HealthState de Ok. El valor es 2. - Warning: filtro que asocia la entrada con el valor de HealthState de Warning. El valor es 4. - Error: filtro que asocia la entrada con el valor de HealthState de Error. El valor es 8. - All: filtro que asocia la entrada con cualquier valor de HealthState. El valor es 65535.|
 | --timeout -t                            | Tiempo de espera del servidor en segundos.  Valor predeterminado: 60.|
 
 ### <a name="global-arguments"></a>Argumentos globales
@@ -141,7 +143,7 @@ Devuelve el estado de mantenimiento de la aplicación de Service Fabric. La resp
 | --debug                                 | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h                               | Muestra este mensaje de ayuda y sale.|
 | --output -o                             | Formato de salida.  Valores permitidos: json, jsonc, table y tsv.  Valor predeterminado: json.|
-| --query                                 | Cadena de consulta de JMESPath. Consulte http://jmespath.org/ para obtener más información y ejemplos.|
+| --query                                 | Cadena de consulta de JMESPath. Para obtener más información, consulte http://jmespath.org/.|
 | --verbose                               | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos.|
 
 ## <a name="sfctl-application-info"></a>sfctl application info
@@ -153,7 +155,7 @@ Devuelve la información sobre la aplicación que se creó o que está en proces
 
 |Argumento|DESCRIPCIÓN|
 | --- | --- |
-| --application-id [Obligatorio]| La identidad de la aplicación. Suele ser el nombre completo de la aplicación sin el esquema URI 'fabric:'. A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "~". Por ejemplo, si el nombre de la aplicación es "fabric://myapp/app1", la identidad de la aplicación sería "myapp~app1" en 6.0+ y "myapp/app1" en las versiones anteriores.|
+| --application-id [Obligatorio]| La identidad de la aplicación. Suele ser el nombre completo de la aplicación sin el esquema URI 'fabric:'. A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "~". Por ejemplo, si el nombre de la aplicación es "fabric:/myapp/app1", la identidad de la aplicación sería "myapp~app1" en 6.0+ y "myapp/app1" en las versiones anteriores.|
 | --exclude-application-parameters| La marca que especifica si los parámetros de la aplicación se excluirán del resultado.|
 | --timeout -t                 | Tiempo de espera del servidor en segundos.  Valor predeterminado: 60.|
 
@@ -164,22 +166,23 @@ Devuelve la información sobre la aplicación que se creó o que está en proces
 | --debug                      | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h                    | Muestra este mensaje de ayuda y sale.|
 | --output -o                  | Formato de salida.  Valores permitidos: json, jsonc, table y tsv.             Valor predeterminado: json.|
-| --query                      | Cadena de consulta de JMESPath. Consulte http://jmespath.org/ para obtener más información y ejemplos.|
+| --query                      | Cadena de consulta de JMESPath. Para obtener más información, consulte http://jmespath.org/.|
 | --verbose                    | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos.|
 
 ## <a name="sfctl-application-list"></a>sfctl application list
 Obtiene la lista de aplicaciones creadas en el clúster de Service Fabric que coinciden con los filtros especificados como parámetro.
 
-Obtiene la información sobre las aplicaciones que se crearon o que están en proceso de creación en el clúster de Service Fabric y que coinciden con los filtros especificados como parámetro. La respuesta incluye el nombre, el tipo, el estado, los parámetros y otros detalles sobre la aplicación. Si las aplicaciones no caben en una página, se devuelve una página de resultados, así como un token de continuación que puede usarse para obtener la página siguiente.
+Obtiene la información sobre las aplicaciones que se crearon o que están en proceso de creación en el clúster de Service Fabric y que coinciden con los filtros especificados como parámetro. La respuesta incluye el nombre, el tipo, el estado, los parámetros y otros detalles sobre la aplicación. Si las aplicaciones no caben en una página, se devuelve una página de resultados, así como un token de continuación que puede usarse para obtener la página siguiente. No se pueden especificar los filtros ApplicationTypeName y ApplicationDefinitionKindFilter a la vez.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|DESCRIPCIÓN|
 | --- | --- |
-|--application-definition-kind-filter| Se usa para filtrar por ApplicationDefinitionKind en las operaciones de consulta de aplicación. - Default: valor predeterminado. Filtro que asocia la entrada con cualquier valor de ApplicationDefinitionKind. El valor es 0. - All: filtro que asocia la entrada con cualquier valor de ApplicationDefinitionKind. El valor es 65535. -ServiceFabricApplicationDescription: filtro que asocia la entrada con el valor ServiceFabricApplicationDescription de ApplicationDefinitionKind. El valor es 1. - All: filtro que asocia la entrada con el valor Compose de ApplicationDefinitionKind. El valor es 2. Valor predeterminado: 65535.|
+|--application-definition-kind-filter| Se usa para filtrar según ApplicationDefinitionKind que es el mecanismo utilizado para definir una aplicación de Service Fabric. - Default: valor predeterminado que realiza la misma función que la selección de "All". El valor es 0. - All: filtro que asocia la entrada con cualquier valor de ApplicationDefinitionKind. El valor es 65535. - ServiceFabricApplicationDescription: filtro que asocia la entrada con el valor ServiceFabricApplicationDescription de ApplicationDefinitionKind. El valor es 1. - All: filtro que asocia la entrada con el valor Compose de ApplicationDefinitionKind. El valor es 2.|
 | --application-type-name      | El nombre del tipo de aplicación utilizado para filtrar las aplicaciones que se van a consultar. Este valor no debe contener la versión del tipo de aplicación.|
 | --continuation-token         | El parámetro del token de continuación se utiliza para obtener el siguiente conjunto de resultados. Un token de continuación con un valor no vacío se incluye en la respuesta de la API cuando los resultados del sistema no caben en una única respuesta. Cuando este valor se pasa a la siguiente llamada API, la API devuelve el siguiente conjunto de resultados. Si no hay ningún resultado más, el token de continuación no contiene un valor. El valor de este parámetro no debe ser la dirección URL codificada.|
 | --exclude-application-parameters| La marca que especifica si los parámetros de la aplicación se excluirán del resultado.|
+| --max-results|El número máximo de resultados que se devuelven como parte de las consultas paginadas. Este parámetro define el límite superior en el número de resultados devueltos. Los resultados devueltos pueden ser menos que el número máximo de resultados especificado si no caben en el mensaje según las restricciones del tamaño máximo del mensaje definidas en la configuración. Si este parámetro es cero o no se especifica, las consultas paginadas incluyen tantos resultados como quepan en el mensaje devuelto.|
 | --timeout -t                 | Tiempo de espera del servidor en segundos.  Valor predeterminado: 60.|
 
 ### <a name="global-arguments"></a>Argumentos globales
@@ -200,7 +203,7 @@ Devuelve la información de carga sobre la aplicación que se creó o que está 
 ### <a name="arguments"></a>Argumentos
 |Argumento|DESCRIPCIÓN|
 | --- | --- |
-|--application-id [Obligatorio]| La identidad de la aplicación. Este suele ser el nombre completo de la aplicación sin el esquema de URI "fabric:". A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "~". Por ejemplo, si el nombre de la aplicación es "fabric://myapp/app1", la identidad de la aplicación sería "myapp~app1" en 6.0+ y "myapp/app1" en las versiones anteriores. |
+|--application-id [Obligatorio]| La identidad de la aplicación. Este suele ser el nombre completo de la aplicación sin el esquema de URI "fabric:". A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "~". Por ejemplo, si el nombre de la aplicación es "fabric:/myapp/app1", la identidad de la aplicación sería "myapp~app1" en 6.0+ y "myapp/app1" en las versiones anteriores. |
 | --timeout -t               | Tiempo de espera del servidor en segundos.  Valor predeterminado: 60.|
 
 ### <a name="global-arguments"></a>Argumentos globales
@@ -209,7 +212,7 @@ Devuelve la información de carga sobre la aplicación que se creó o que está 
 |--debug                    | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
     --help -h                  | Muestra este mensaje de ayuda y sale.|
     --output -o                | Formato de salida.  Valores permitidos: json, jsonc, table y tsv.  Valor predeterminado: json.|
-    --query                    | Cadena de consulta de JMESPath. Consulte http://jmespath.org/ para obtener más información y ejemplos.|
+    --query                    | Cadena de consulta de JMESPath. Para obtener más información, consulte http://jmespath.org/.|
     --verbose                  | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos.|
 
 ## <a name="sfctl-application-manifest"></a>sfctl application manifest
@@ -232,20 +235,29 @@ Obtiene el manifiesto que describe un tipo de aplicación. La respuesta contiene
 | --debug                           | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h                         | Muestra este mensaje de ayuda y sale.|
 | --output -o                       | Formato de salida.  Valores permitidos: json, jsonc, table y tsv.                  Valor predeterminado: json.|
-| --query                           | Cadena de consulta de JMESPath. Consulte http://jmespath.org/ para obtener más información y ejemplos.|
+| --query                           | Cadena de consulta de JMESPath. Para obtener más información, consulte http://jmespath.org/.|
 | --verbose                         | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos.|
 
 ## <a name="sfctl-application-provision"></a>sfctl application provision
-Aprovisiona o registra un tipo de aplicación de Service Fabric en el clúster.
+Aprovisiona o registra un tipo de aplicación de Service Fabric con el clúster mediante el paquete SFPKG en el almacén externo o mediante el paquete de aplicación en el almacén de imágenes.
+
+Aprovisiona un tipo de aplicación de Service Fabric con el clúster. Es necesario para poder crear instancias de las aplicaciones nuevas. La operación de aprovisionamiento se puede realizar en el paquete de aplicación especificado por relativePathInImageStore o mediante el identificador URI del SFPKG externo. A menos que el aprovisionamiento externo esté establecido, este comando espera un aprovisionamiento del almacén
+
+de imágenes.
         
-Aprovisiona o registra un tipo de aplicación de Service Fabric en el clúster. Es necesario para poder crear instancias de las aplicaciones nuevas.
+
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|DESCRIPCIÓN|
 | --- | --- |
-| --application-type-build-path [Obligatorio]| Ruta de acceso relativa del almacén de imágenes al paquete de aplicación.|
-| --timeout -t                         | Tiempo de espera del servidor en segundos.  Valor predeterminado: 60.|
+| --application-package-download-uri| La ruta al paquete de aplicación '.sfpkg' desde la que puede descargar el paquete de aplicación mediante los protocolos HTTP o HTTPS. Solo para aprovisionamiento de un almacén externo. El paquete de aplicación puede almacenarse en un almacén externo que proporcione la operación GET para descargar el archivo. Los protocolos compatibles son HTTP y HTTPS, y la ruta de acceso debe permitir un acceso de lectura.|
+| --application-type-build-path       | Solo para aprovisionamiento de un almacén de imágenes de tipo. La ruta de acceso relativa para el paquete de aplicación en el almacén de imágenes especificado durante la operación de carga anterior. |
+| --application-type-name| Solo para aprovisionamiento de un almacén externo. El nombre del tipo de aplicación representa el nombre del tipo de aplicación que se encuentra en el manifiesto de aplicación.|
+| --application-type-version| Solo para aprovisionamiento de un almacén externo. La versión del tipo de aplicación representa la versión del tipo de aplicación que se encuentra en el manifiesto de aplicación.|
+| --external-provision| La ubicación desde donde se puede registrar o aprovisionar un paquete de aplicación. Indica que el aprovisionamiento es para un paquete de aplicación que se ha cargado previamente en un almacén externo. El paquete de aplicación termina con la extensión *.sfpkg.|
+| --no-wait| Indica si el aprovisionamiento se debe realizar o no de forma asincrónica.  Cuando se establece en true, la operación de aprovisionamiento se devuelve cuando el sistema acepta la solicitud y la operación de aprovisionamiento continúa sin ningún límite de tiempo de espera. El valor predeterminado es false. Para paquetes de aplicación de gran tamaño, se recomienda establecer el valor en true.|
+| --timeout -t                      | Tiempo de espera del servidor en segundos.  Valor predeterminado: 60.|
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -254,20 +266,21 @@ Aprovisiona o registra un tipo de aplicación de Service Fabric en el clúster. 
 | --debug                              | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h                            | Muestra este mensaje de ayuda y sale.|
 | --output -o                          | Formato de salida.  Valores permitidos: json, jsonc, table y tsv.  Valor predeterminado: json.|
-| --query                              | Cadena de consulta de JMESPath. Consulte http://jmespath.org/ para obtener más información y ejemplos.|
+| --query                              | Cadena de consulta de JMESPath. Para obtener más información, consulte http://jmespath.org/.|
 | --verbose                            | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos.|
 
 ## <a name="sfctl-application-type"></a>sfctl application type
 
 Obtiene la lista de tipos de aplicaciones del clúster de Service Fabric que coinciden exactamente con el nombre especificado.
 
-Devuelve la información sobre los tipos de aplicaciones aprovisionados o en proceso de aprovisionamiento en el clúster de Service Fabric. Estos resultados son los tipos de aplicaciones cuyo nombre coincide exactamente con el especificado como parámetro y que coinciden con los parámetros de consulta establecidos. Se devuelven todas las versiones del tipo de aplicación que coinciden con el nombre del tipo de aplicación, y cada versión se devuelve como un tipo de aplicación. La respuesta incluye el nombre, la versión, el estado y otros detalles sobre el tipo de la aplicación. Se trata de una consulta paginada, lo que significa que, si no caben todos los tipos de aplicaciones en una página, se devuelve una página de resultados, así como un token de continuación que puede usarse para obtener la página siguiente. Por ejemplo, si hay diez tipos de aplicaciones, pero en una página solo caben tres o si el número máximo de resultados está establecido en tres, entonces solo se devuelven tres. Para acceder a los demás resultados, recupere las páginas siguientes con el token de continuación devuelto en la siguiente consulta. Si no existen páginas sucesivas, se devuelve un token de continuación vacío.
+Devuelve la información sobre los tipos de aplicaciones aprovisionados o en proceso de aprovisionamiento en el clúster de Service Fabric. Estos resultados son los tipos de aplicaciones cuyo nombre coincide exactamente con el especificado como parámetro y que coinciden con los parámetros de consulta establecidos. Se devuelven todas las versiones del tipo de aplicación que coinciden con el nombre del tipo de aplicación, y cada versión se devuelve como un tipo de aplicación. La respuesta incluye el nombre, la versión, el estado y otros detalles sobre el tipo de la aplicación. Se trata de una consulta paginada, lo que significa que, si no caben todos los tipos de aplicaciones en una página, se devuelve una página de resultados, así como un token de continuación que puede usarse para obtener la página siguiente. Por ejemplo, si hay diez tipos de aplicación, pero en una página solo caben tres o si el número máximo de resultados está establecido en tres, entonces solo se devuelven tres. Para acceder a los demás resultados, recupere las páginas siguientes con el token de continuación devuelto en la siguiente consulta. Si no existen páginas sucesivas, se devuelve un token de continuación vacío.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --application-type-name [Obligatorio]| Nombre del tipo de aplicación.|
+| --application-type-version        | La versión del tipo de aplicación.|
 | --continuation-token           | El parámetro del token de continuación se utiliza para obtener el siguiente conjunto de resultados. Un token de continuación con un valor no vacío se incluye en la respuesta de la API cuando los resultados del sistema no caben en una única respuesta. Cuando este valor se pasa a la siguiente llamada API, la API devuelve el siguiente conjunto de resultados. Si no hay ningún resultado más, el token de continuación no contiene un valor. El valor de este parámetro no debe ser la dirección URL codificada.|
 | --exclude-application-parameters  | La marca que especifica si los parámetros de la aplicación se excluirán del resultado.|
 | --max-results                  | El número máximo de resultados que se devuelven como parte de las consultas paginadas. Este parámetro define el límite superior en el número de resultados devueltos. Los resultados devueltos pueden ser menos que el número máximo de resultados especificado si no caben en el mensaje según las restricciones del tamaño máximo del mensaje definidas en la configuración. Si este parámetro es cero o no se especifica, la consulta paginada incluye tantos resultados como quepan en el mensaje devuelto.|
@@ -293,7 +306,8 @@ Elimina un tipo de aplicación de Service Fabric del clúster o anula su registr
 |Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --application-type-name [Obligatorio]| Nombre del tipo de aplicación.|
-| --application-type-version [Obligatorio]| La versión del tipo de aplicación.|
+| --application-type-version [Obligatorio]| La versión del tipo de aplicación, tal como se define en el manifiesto de aplicación.|
+|--async-parameter                    | La marca indica si el desaprovisionamiento se debe realizar o no de forma asincrónica. Cuando se establece en true, la operación de desaprovisionamiento se devuelve cuando el sistema acepta la solicitud y la operación de desaprovisionamiento continúa sin ningún límite de tiempo de espera. El valor predeterminado es false. Sin embargo, se recomienda que lo establezca en true para los paquetes de aplicación de gran tamaño que se han aprovisionado.|
 | --timeout -t                      | Tiempo de espera del servidor en segundos.  Valor predeterminado: 60.|
 
 ### <a name="global-arguments"></a>Argumentos globales
@@ -303,19 +317,19 @@ Elimina un tipo de aplicación de Service Fabric del clúster o anula su registr
 | --debug                           | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h                         | Muestra este mensaje de ayuda y sale.|
 | --output -o                       | Formato de salida.  Valores permitidos: json, jsonc, table y tsv.                  Valor predeterminado: json.|
-| --query                           | Cadena de consulta de JMESPath. Consulte http://jmespath.org/ para obtener más información y ejemplos.|
+| --query                           | Cadena de consulta de JMESPath. Para obtener más información, consulte http://jmespath.org/.|
 | --verbose                         | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos.|
 
 ## <a name="sfctl-application-upgrade"></a>sfctl application upgrade
 Inicia la actualización de una aplicación en el clúster de Service Fabric.
 
-Valida los parámetros de actualización de la aplicación proporcionados e inicia la actualización de la aplicación si los parámetros son válidos. Tenga en cuenta que la descripción de la actualización reemplaza la descripción existente. Esto significa que, si no se especifican los parámetros, los que ya existen en la aplicación se sobrescribirán con la lista de parámetros vacía. Esto da lugar a que la aplicación use el valor predeterminado de los parámetros del manifiesto de aplicación.
+Valida los parámetros de actualización de la aplicación proporcionados e inicia la actualización de la aplicación si los parámetros son válidos. La descripción de la actualización reemplaza la descripción de aplicación existente. Esto significa que, si no se especifican los parámetros, los que ya existen en la aplicación se sobrescriben con la lista de parámetros vacía. Esto da lugar a que la aplicación use el valor predeterminado de los parámetros del manifiesto de aplicación.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|DESCRIPCIÓN|
 | --- | --- |
-| --app-id [Obligatorio]| La identidad de la aplicación. Suele ser el nombre completo de la aplicación sin el esquema URI 'fabric:'. A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "~". Por ejemplo, si el nombre de la aplicación es "fabric://myapp/app1", la identidad de la aplicación sería "myapp~app1" en 6.0+ y "myapp/app1" en las versiones anteriores.|
+| --app-id [Obligatorio]| La identidad de la aplicación. Suele ser el nombre completo de la aplicación sin el esquema URI 'fabric:'. A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "~". Por ejemplo, si el nombre de la aplicación es "fabric:/myapp/app1", la identidad de la aplicación sería "myapp~app1" en 6.0+ y "myapp/app1" en las versiones anteriores.|
 | --app-version [Obligatorio]| Versión de aplicación de destino.|
 | --parameters [Obligatorio]| Una lista codificada en JSON de reemplazos de parámetros de aplicación que se aplicarán al actualizar la aplicación.|
 | --default-service-health-policy| Especificación codificada en JSON de la directiva de mantenimiento que se usa de forma predeterminada para evaluar el estado de un tipo de servicio.|
@@ -363,7 +377,7 @@ Opcionalmente, se muestra el progreso de carga de cada archivo en el paquete. El
 | --debug       | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h     | Muestra este mensaje de ayuda y sale.|
 | --output -o   | Formato de salida.  Valores permitidos: json, jsonc, table y tsv.  Valor predeterminado: json.|
-| --query       | Cadena de consulta de JMESPath. Consulte http://jmespath.org/ para obtener más información y ejemplos.|
+| --query       | Cadena de consulta de JMESPath. Para obtener más información, consulte http://jmespath.org/.|
 | --verbose     | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos.|
 
 ## <a name="next-steps"></a>pasos siguientes

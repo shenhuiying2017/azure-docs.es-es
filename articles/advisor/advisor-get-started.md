@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/10/2017
 ms.author: makohli
-ms.openlocfilehash: d15f91c91281eae28ddaff52af3ee8e617f142c1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 5a7864597e50294c8e1227cbab7a3be73dde0a7f
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="get-started-with-azure-advisor"></a>Introducción a Azure Advisor
 
@@ -66,7 +66,7 @@ Puede filtrar las recomendaciones para explorar en profundidad lo que es más im
 
     ![Criterios de filtro de búsqueda de Advisor](./media/advisor-get-started/advisor-filters.png)
 
-## <a name="snooze-or-dismiss-advisor-recommendations"></a>Posponer o descartar recomendaciones de Advisor
+## <a name="postpone-or-dismiss-advisor-recommendations"></a>Posponer o descartar recomendaciones de Advisor
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) y después abra [Azure Advisor](https://aka.ms/azureadvisordashboard).
 
@@ -74,7 +74,7 @@ Puede filtrar las recomendaciones para explorar en profundidad lo que es más im
 
 3. Haga clic en la recomendación.
 
-4. Haga clic en **Posponer**. 
+4. Haga clic en **Postpone** (Posponer). 
 
 5. Puede especificar el tiempo que se pospondrá o seleccionar **Never** (Nunca) para descartar la recomendación.
 

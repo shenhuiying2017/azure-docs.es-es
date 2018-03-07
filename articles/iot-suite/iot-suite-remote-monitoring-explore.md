@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 02/15/2018
+ms.date: 02/22/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 5bc01c7e70e6837989c6bebd843ba1f41c8c5aeb
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 96d701860abcc645b37d0420fe352da2adeb992f
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="explore-the-capabilities-of-the-remote-monitoring-preconfigured-solution"></a>Exploración de las funcionalidades de la solución preconfigurada de supervisión remota
 
@@ -114,7 +114,7 @@ En la página **Mantenimiento**, puede ver los detalles de la regla que desencad
 
     ![La página de mantenimiento muestra la lista de las alarmas que se han desencadenado](media/iot-suite-remote-monitoring-explore/maintenancealarmlist.png)
 
-1. La primera alarma de la lista es la más reciente. Haga clic en la alarma **Presión del refrigerador** para ver los dispositivos asociados y la telemetría. La telemetría muestra un incremento de la presión del refrigerador:
+1. La primera alarma de la lista es la más reciente. Haga clic en la alarma **Presión del refrigerador demasiado alta** para ver los dispositivos asociados y la telemetría. La telemetría muestra un incremento de la presión del refrigerador:
 
     ![La página de mantenimiento muestra la telemetría de una alarma seleccionada](media/iot-suite-remote-monitoring-explore/maintenancetelemetry.png)
 
@@ -159,12 +159,12 @@ Para hacer las tareas necesarias de administración de dispositivos, use la pág
 
     ![Selección de un dispositivo en la página Dispositivos](media/iot-suite-remote-monitoring-explore/devicesselect.png)
 
-1. Haga clic en el botón **Programar** y, luego, elija **Actualización de firmware**. Escriba los valores para **Nombre del trabajo** y **URI de firmware**. Elija **Aplicar** para programar el trabajo para que se ejecute ahora:
+1. Haga clic en el botón **Programar** y, luego, elija **Actualización de firmware**. Escriba valores para **Nombre del trabajo**, **Versión de firmware** y **URI de firmware**. Elija **Aplicar** para programar el trabajo para que se ejecute ahora:
 
     ![Programación de la actualización del firmware en el dispositivo](media/iot-suite-remote-monitoring-explore/devicesschedulefirmware.png)
 
     > [!NOTE]
-    > Con los dispositivos simulados, puede usar cualquier dirección URL que desee como el valor de **URI de firmware**. Los dispositivos simulados no tienen acceso a la dirección URL.
+    > Con los dispositivos simulados puede usar cualquier dirección URL que desee como valor de **URI de firmware** y cualquier valor que desee como **Versión de firmware**. Los dispositivos simulados no tienen acceso a la dirección URL.
 
 1. Observe a cuántos dispositivos afecta el trabajo y elija **Aplicar**:
 

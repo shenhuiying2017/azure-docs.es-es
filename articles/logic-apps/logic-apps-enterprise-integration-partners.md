@@ -15,79 +15,85 @@ ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; padmavc
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 950cb449b53f400f0f0f860caf5415bbb5212269
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 89066ba062c2b243136a03a52144fd99ae87eddc
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="add-or-update-partners-in-business-to-business-agreements-in-your-workflow"></a>Incorporación o actualización de asociados de contratos de negocio a negocio del flujo de trabajo
 
 Los asociados son entidades que participan en transacciones de negocio a negocio (B2B) e intercambian mensajes entre ellos. Antes de poder crear asociados que le representen a usted y a otra organización en estas transacciones, debe compartir la información que identifica y valida los mensajes enviados por cada uno. Después de analizar estos detalles y prepararse para comenzar la relación de negocios, podrá crear asociados en la cuenta de integración para que los represente a ambos.
 
-## <a name="what-roles-do-partners-have-in-your-integration-account"></a>¿Qué roles tienen los asociados en la cuenta de integración?
+## <a name="what-roles-do-partners-play-in-your-integration-account"></a>¿Qué roles desempeñan los asociados en la cuenta de integración?
 
 Para definir los detalles acerca de los mensajes intercambiados entre los asociados, debe crear contratos entre ellos. No obstante, antes de crear uno, hay que agregar, como mínimo, dos asociados a la cuenta de integración. La organización debe formar parte del contrato como **asociado del host**. El otro asociado, o **asociado invitado**, representa la organización que intercambia mensajes con su organización. El asociado invitado puede ser otra compañía o incluso un departamento de su organización.
 
 Después de agregar a estos asociados, puede crear un contrato.
 
-La configuración de recepción y de envío afecta exclusivamente al partner anfitrión. Por ejemplo, la configuración de recepción de un contrato determina cómo el partner anfitrión recibe los mensajes enviados de un partner invitado. Del mismo modo, la configuración de envío del contrato indica cómo el partner anfitrión envía mensajes al partner invitado.
+La configuración de recepción y de envío afecta exclusivamente al partner anfitrión. Por ejemplo, la configuración de recepción de un contrato determina cómo el asociado anfitrión recibe los mensajes enviados de un asociado invitado. Del mismo modo, la configuración de envío del contrato indica cómo el asociado anfitrión envía mensajes al asociado invitado.
 
-## <a name="how-to-create-a-partner"></a>¿Cómo se crean partners?
+## <a name="create-partner"></a>Creación de un asociado
 
-1. En Azure Portal, seleccione **Examinar**.
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
-    ![](./media/logic-apps-enterprise-integration-overview/overview-1.png)
+2. En el menú principal de Azure, seleccione **Todos los servicios**. En el cuadro de búsqueda, escriba "integración" y, después, seleccione **Cuentas de integración**.
 
-2. En el cuadro de búsqueda, especifique **integración** y seleccione **Integration Accounts** (Cuentas de integración) en la lista de resultados.
+   ![Búsqueda de la cuenta de integración](./media/logic-apps-enterprise-integration-partners/account-1.png)
 
-    ![](./media/logic-apps-enterprise-integration-overview/overview-2.png)
+3. En **Cuentas de integración**, seleccione la cuenta de integración en la que va a agregar los asociados.
 
-3. Seleccione la cuenta integración en la que desea agregar a los asociados.
+   ![Seleccionar cuenta de integración](./media/logic-apps-enterprise-integration-partners/account-2.png)
 
-    ![](./media/logic-apps-enterprise-integration-overview/overview-3.png)
+4. Elija el icono de **Asociados**.
 
-4. Seleccione el icono de **Asociados** .
+   ![Elección de "Asociados"](./media/logic-apps-enterprise-integration-partners/partner-1.png)
 
-    ![](./media/logic-apps-enterprise-integration-partners/partner-1.png)
+5. En **Asociados**, elija **Agregar**.
 
-5. En la hoja de asociados, seleccione **Agregar**.
+   ![Elección de "Agregar"](./media/logic-apps-enterprise-integration-partners/partner-2.png)
 
-    ![](./media/logic-apps-enterprise-integration-partners/partner-2.png)
+6. Escriba un nombre para el asociado y, a continuación, seleccione un **Calificador**. Escriba un **valor** para identificar los documentos que las aplicaciones reciben. Cuando termine, elija **Aceptar**.
 
-6. Escriba un nombre para el asociado y, a continuación, seleccione un **Calificador**. Finalmente, escriba un **valor** para ayudar a identificar los documentos que se incluyen en las aplicaciones.
+   ![Incorporación de los detalles del asociado](./media/logic-apps-enterprise-integration-partners/partner-3.png)
 
-    ![](./media/logic-apps-enterprise-integration-partners/partner-3.png)
+7. Elija de nuevo el icono de **Asociados**.
 
-7. Seleccione el icono de notificación de *campana* para ver el progreso del proceso de creación de asociados.
+   ![Elección del icono "Asociados"](./media/logic-apps-enterprise-integration-partners/partner-5.png)
 
-    ![](./media/logic-apps-enterprise-integration-partners/partner-4.png)
+   Ahora aparece el nuevo asociado. 
 
-8. Para confirmar que los nuevos asociados se agregaron correctamente, seleccione el icono de **Asociados**.
+   ![Visualización del nuevo asociado](./media/logic-apps-enterprise-integration-partners/partner-6.png)
 
-    ![](./media/logic-apps-enterprise-integration-partners/partner-5.png)
+## <a name="edit-partner"></a>Edición del asociado
 
-    Cuando haya seleccionado el icono de Asociados, también verá que los asociados que acaba de agregar aparecen en la hoja Asociados.
+1. En [Azure Portal](https://portal.azure.com), busque y seleccione la cuenta de integración. Elija el icono de **Asociados**.
 
-    ![](./media/logic-apps-enterprise-integration-partners/partner-6.png)
+   ![Elección del icono "Asociados"](./media/logic-apps-enterprise-integration-partners/edit.png)
 
-## <a name="how-to-edit-existing-partners-in-your-integration-account"></a>Edición de asociados existentes en su cuenta de integración
+2. En **Asociados**, seleccione el asociado que quiera editar.
 
-1. Seleccione el icono de **Asociados** .
-2. Seleccione el asociado que quiera editar cuando se abra la hoja Asociados.
-3. En el icono **Actualizar asociado**, realice los cambios.
-4. Cuando haya terminado, elija **Guardar** o, para cancelar los cambios, seleccione **Descartar**.
+   ![Selección del asociado para eliminar](./media/logic-apps-enterprise-integration-partners/edit-1.png)
 
-    ![](./media/logic-apps-enterprise-integration-partners/edit-1.png)
+3. En **Actualizar asociado**, realice los cambios.
+Cuando termine, seleccione **Guardar**. 
 
-## <a name="how-to-delete-a-partner"></a>¿Cómo se eliminan partners?
+   ![Haga los cambios y guárdelos](./media/logic-apps-enterprise-integration-partners/edit-2.png)
 
-1. Seleccione el icono de **Asociados** .
-2. Seleccione el asociado que desea eliminar cuando se abra la hoja Asociados.
-3. Elija **Eliminar**.
+   Para cancelar los cambios, seleccione **Descartar**.
 
-    ![](./media/logic-apps-enterprise-integration-partners/delete-1.png)
+## <a name="delete-partner"></a>Eliminación del asociado
 
-## <a name="next-steps"></a>Pasos siguientes
+1. En [Azure Portal](https://portal.azure.com), busque y seleccione la cuenta de integración. Elija el icono de **Asociados**.
+
+   ![Elección del icono "Asociados"](./media/logic-apps-enterprise-integration-partners/delete.png)
+
+2. En **Asociados**, seleccione el asociado que desee eliminar.
+Elija **Eliminar**.
+
+   ![Eliminación del asociado](./media/logic-apps-enterprise-integration-partners/delete-1.png)
+
+## <a name="next-steps"></a>pasos siguientes
+
 * [Más información sobre los contratos](../logic-apps/logic-apps-enterprise-integration-agreements.md "Información sobre los contratos de integración de empresas")  
 

@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/29/2018
+ms.date: 02/26/2018
 ms.author: elioda
-ms.openlocfilehash: 01951afa983e7a578281fda38bb4714df6b41891
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 624f706532645034f19af15d10352dbc6db0b6c1
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>Lenguaje de consulta de IoT Hub para dispositivos gemelos, trabajos y enrutamiento de mensajes
 
@@ -298,27 +298,27 @@ IoT Hub da por supuesto la siguiente representación JSON de los encabezados del
 
 ```json
 {
-    "$messageId": "",
-    "$enqueuedTime": "",
-    "$to": "",
-    "$expiryTimeUtc": "",
-    "$correlationId": "",
-    "$userId": "",
-    "$ack": "",
-    "$connectionDeviceId": "",
-    "$connectionDeviceGenerationId": "",
-    "$connectionAuthMethod": "",
-    "$content-type": "",
-    "$content-encoding": "",
-
-    "userProperty1": "",
-    "userProperty2": ""
+  "message": {
+    "systemProperties": {
+      "contentType": "application/json",
+      "contentEncoding": "utf-8",
+      "iothub-message-source": "deviceMessages",
+      "iothub-enqueuedtime": "2017-05-08T18:55:31.8514657Z"
+    },
+    "appProperties": {
+      "processingPath": "<optional>",
+      "verbose": "<optional>",
+      "severity": "<optional>",
+      "testDevice": "<optional>"
+    },
+    "body": "{\"Weather\":{\"Temperature\":50}}"
+  }
 }
 ```
 
 Las propiedades del sistema de mensajes tienen como prefijo el símbolo `'$'`.
-Siempre se accede a las propiedades de usuario con su nombre. Si un nombre de propiedad de usuario coincide con el de una propiedad del sistema (como `$to`), se recupera la propiedad de usuario con la expresión `$to`.
-Siempre puede acceder a la propiedad del sistema mediante corchetes `{}`: por ejemplo, puede usar la expresión `{$to}` para acceder a la propiedad del sistema `to`. Los nombres de propiedad entre corchetes siempre permiten recuperar la propiedad del sistema correspondiente.
+Siempre se accede a las propiedades de usuario con su nombre. Si un nombre de propiedad de usuario coincide con el de una propiedad del sistema (como `$contentType`), se recupera la propiedad de usuario con la expresión `$contentType`.
+Siempre puede acceder a la propiedad del sistema mediante corchetes `{}`: por ejemplo, puede usar la expresión `{$contentType}` para acceder a la propiedad del sistema `contentType`. Los nombres de propiedad entre corchetes siempre permiten recuperar la propiedad del sistema correspondiente.
 
 Recuerde que los nombres de propiedad no distinguen mayúsculas de minúsculas.
 
@@ -350,12 +350,58 @@ Consulte la sección [Expresiones y condiciones][lnk-query-expressions] para obt
 
 IoT Hub solo puede realizar el enrutamiento según el contenido del cuerpo del mensaje si este tiene un formato JSON correcto codificado en UTF-8, UTF-16 o UTF-32. Defina el tipo de contenido del mensaje en `application/json`. Establezca la codificación del contenido en una de las codificaciones UTF compatibles en los encabezados del mensaje. Si no se especifica cualquiera de los encabezados, IoT Hub no intenta evaluar ninguna expresión de consulta que implique el cuerpo con respecto al mensaje. Si el mensaje no es un mensaje JSON o si no especifica el tipo de contenido ni la codificación de contenido, se puede seguir usando el enrutamiento de mensajes para enrutar el mensaje según los encabezados del mensaje.
 
+En el ejemplo siguiente se muestra cómo crear un mensaje con un cuerpo JSON codificado y formado correctamente:
+
+```csharp
+string messageBody = @"{ 
+                            ""Weather"":{ 
+                                ""Temperature"":50, 
+                                ""Time"":""2017-03-09T00:00:00.000Z"", 
+                                ""PrevTemperatures"":[ 
+                                    20, 
+                                    30, 
+                                    40 
+                                ], 
+                                ""IsEnabled"":true, 
+                                ""Location"":{ 
+                                    ""Street"":""One Microsoft Way"", 
+                                    ""City"":""Redmond"", 
+                                    ""State"":""WA"" 
+                                }, 
+                                ""HistoricalData"":[ 
+                                    { 
+                                    ""Month"":""Feb"", 
+                                    ""Temperature"":40 
+                                    }, 
+                                    { 
+                                    ""Month"":""Jan"", 
+                                    ""Temperature"":30 
+                                    } 
+                                ] 
+                            } 
+                        }"; 
+ 
+// Encode message body using UTF-8 
+byte[] messageBytes = Encoding.UTF8.GetBytes(messageBody); 
+ 
+using (var message = new Message(messageBytes)) 
+{ 
+    // Set message body type and content encoding. 
+    message.ContentEncoding = "utf-8"; 
+    message.ContentType = "application/json"; 
+ 
+    // Add other custom application properties.  
+    message.Properties["Status"] = "Active";    
+ 
+    await deviceClient.SendEventAsync(message); 
+}
+```
+
 Puede usar `$body` en la expresión de consulta para enrutar el mensaje. Puede usar una referencia al cuerpo simple, una referencia a la matriz del cuerpo o varias referencias al cuerpo en la expresión de consulta. La expresión de consulta también puede combinar una referencia al cuerpo con una referencia al encabezado del mensaje. Por ejemplo, todas las expresiones siguientes son expresiones de consulta válidas:
 
 ```sql
-$body.message.Weather.Location.State = 'WA'
 $body.Weather.HistoricalData[0].Month = 'Feb'
-$body.Weather.Temperature = 50 AND $body.message.Weather.IsEnabled
+$body.Weather.Temperature = 50 AND $body.Weather.IsEnabled
 length($body.Weather.Location.State) = 2
 $body.Weather.Temperature = 50 AND Status = 'Active'
 ```

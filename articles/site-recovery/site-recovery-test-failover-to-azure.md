@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: raynew
-ms.openlocfilehash: c6a227ca78a1312fe315cc6838834ec956a08b01
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 442e9df550bec750afe0eab6e94b7e8550015fdd
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="test-failover-to-azure-in-site-recovery"></a>Conmutación por error de prueba a Azure en Site Recovery
 
@@ -81,7 +81,7 @@ En todos los demás casos, no es necesario ningún paso intermedio y el tiempo n
 Se recomienda que para realizar una conmutación por error de prueba, elija una red que esté aislada de la del sitio de recuperación de producción concreto proporcionada en la configuración de **Proceso y red** de cada máquina virtual. De forma predeterminada, cualquier red virtual que se cree en Azure está aislada de otras redes. La red de prueba debe imitar la de producción:
 
 - La red de prueba debe tener el mismo número de subredes que la de producción. Las subredes deben tener los mismos nombres.
-- La red de prueba debe utilizar el mismo rango de direcciones IP.
+- La red de prueba debe usar el mismo intervalo de direcciones IP.
 - Actualice el DNS de la red de prueba con la dirección IP especificada para la máquina virtual de DNS en la configuración de **Proceso y red**. Lea [Consideraciones sobre la conmutación por error de prueba para Active Directory](site-recovery-active-directory.md#test-failover-considerations) para más información.
 
 

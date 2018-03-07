@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jeedes
-ms.openlocfilehash: 8e54630d97dee2388ffc9c8877faeac269df1609
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 60430f08f54232db619efd054ca3a7d9a44f4cdc
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---admin-ui"></a>Tutorial: Integración de Azure Active Directory con Palo Alto Networks: interfaz de usuario de administración
 
@@ -106,11 +106,14 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 3. En la sección **Dominio y direcciones URL de Palo Alto Networks: interfaz de usuario de administración**, siga estos pasos:
 
-    ![Información de inicio de sesión único con Dominio y direcciones URL de Palo Alto Networks: interfaz de usuario de administración](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_url.png)
-
+    ![Información de inicio de sesión único con Dominio y direcciones URL de Palo Alto Networks: interfaz de usuario de administración](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_general_show_advanced_url.png)
+    
     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<Customer Firewall FQDN>/php/login.php`.
 
-    b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<Customer Firewall FQDN>/SAML20/SP`
+    b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<Customer Firewall FQDN>:443/SAML20/SP`
+    
+    c. En el cuadro de texto **Dirección URL de respuesta**, escriba la dirección URL del Servicio de consumidor de aserciones (ACS) con el siguiente patrón: `https://<Customer Firewall FQDN>:443/SAML20/SP/ACS`.
+    
 
     > [!NOTE] 
     > Estos valores no son reales. Debe actualizarlos con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con [el equipo de soporte técnico del cliente de Palo Alto Networks: interfaz de usuario de administración](https://support.paloaltonetworks.com/support) para obtener estos valores. 
@@ -123,7 +126,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
         
     | Nombre del atributo | Valor de atributo |
     | --- | --- |    
-    | Nombre de usuario | user.userprincipalname |
+    | nombre de usuario | user.userprincipalname |
     | adminrole | customadmin |
 
     a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
@@ -163,13 +166,71 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 11. Realice las siguientes acciones en la ventana Importar:
 
-    ![Configuración del inicio de sesión único de Palo Alto](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_admin3.png)
+    ![Configuración del inicio de sesión único de Palo Alto](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_idp.png)
 
-    a. En el cuadro de texto **Nombre de perfil**, proporcione un nombre, por ejemplo, Azure AD Admin UI.
+    a. En el cuadro de texto **Nombre de perfil**, proporcione un nombre, por ejemplo, interfaz de usuario de administrador de Azure AD.
     
     b. En **Metadatos del proveedor de identidades**, haga clic en **Examinar** y seleccione el archivo metadata.xml que ha descargado de Azure Portal.
     
-    c. Haga clic en **Aceptar**
+    c. Deseleccione "**Validate Identity Provider Certificate**" (Validar certificado de proveedor de identidades).
+    
+    d. Haga clic en **Aceptar**
+    
+    e. Confirme las configuraciones en el firewall mediante la selección del botón **Commit** (Confirmar).
+
+12. En la barra de navegación izquierda, seleccione **SAML Identity Provider** (Proveedor de identidades de SAML) y haga clic en el perfil del proveedor de identidades de SAML (por ejemplo, IU de administrador de AzureAD) creado en el paso anterior. 
+    
+  ![Configuración del inicio de sesión único de Palo Alto Networks](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_idp_select.png)
+
+13. Realice las siguientes acciones en la ventana **SAML Identity Provider Server Profile** (Perfil de servidor del proveedor de identidades de SAML).
+
+  ![Configuración del cierre de sesión de Palo Alto Networks](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_slo.png)
+  
+  a. En el cuadro de texto **Identity Provieder SLO URL** (Dirección URL de SLO del proveedor de identidades), quite la dirección URL de SLO importada anteriormente y agregue la siguiente dirección URL: `https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0`
+  
+  b. Haga clic en **Aceptar**
+
+
+14. En la interfaz de usuario de administrador del firewall de Palo Alto Networks, haga clic en **Device** (Dispositivo) y seleccione **Admin Roles** (Roles de administrador).
+
+15. Haga clic en el botón **Agregar**. En la ventana de perfil de rol de administrador, proporcione un nombre para el rol de administrador (por ejemplo, fwadmin). Este nombre de rol de administrador coincide con el nombre de atributo del rol de administrador de SAML enviado por el proveedor de identidades. En el paso 5, se crearon el nombre y el valor del rol de administrador. 
+
+  ![Configuración del rol de administrador de Palo Alto Networks](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_adminrole.png)
+  
+16. En la interfaz de usuario de administrador del firewall, haga clic en **Device** (Dispositivo) y seleccione **Authentication Profile** (Perfil de autenticación).
+
+17. Haga clic en el botón **Agregar**. En la ventana Authentication Profile (Perfil de autenticación), realice las siguientes acciones: 
+
+ ![Configuración del perfil de autenticación de Palo Alto Networks](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_authentication_profile.png)
+
+   a. En el cuadro de texto **Name** (Nombre), proporcione un nombre, por ejemplo, AzureSAML_Admin_AuthProfile.
+    
+   b. En la lista desplegable **Type** (Tipo), seleccione **SAML**. 
+   
+   c. En la lista desplegable de perfiles de servidor de IdP, seleccione el perfil adecuado de servidor de proveedor de identidades de SAML (por ejemplo, IU de administrador de AzureAD).
+   
+   c. Active la casilla "**Enable Single Logout**" (Habilitar el cierre de sesión único).
+    
+   d. Escriba el nombre del atributo (por ejemplo, roladmin) en el cuadro de texto Admin Role Attribute (Atributo de rol de administrador). 
+   
+   e. Seleccione la pestaña Advanced (Avanzadas) y haga clic en el botón **Add** (Agregar) en el panel Allow List (Lista de permitidos). Seleccione todos los usuarios y grupos, o algunos de ellos, que se puedan autenticar con este perfil. Cuando un usuario se autentica, el firewall compara el nombre de usuario o grupo asociado con las entradas de esta lista. Si no agrega entradas, ningún usuario puede autenticarse.
+   
+   ![Configuración del perfil de autenticación de Palo Alto Networks](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_allowlist.png)
+   
+   f. Haga clic en **Aceptar**
+
+18. Para permitir que los administradores usen el inicio de sesión único de SAML mediante Azure, haga clic en **Device** (Dispositivo) y seleccione **Setup** (Configuración). En el panel de configuración, seleccione la pestaña **Management** (Administración) y haga clic en el icono de engranaje en **Authentication Settings** (Configuración de autenticación). 
+
+ ![Configuración de la autenticación de Palo Alto Networks](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_authsetup.png)
+
+19. Seleccione el perfil de autenticación de SAML que creó en el paso 17. (por ejemplo, AzureSAML_Admin_AuthProfile)
+
+ ![Configuración de la autenticación de Palo Alto Networks](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_authsettings.png)
+
+20. Haga clic en **Aceptar**
+
+21. Para confirmar la configuración, seleccione el botón **Commit** (Confirmar).
+
 
 > [!TIP]
 > Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)

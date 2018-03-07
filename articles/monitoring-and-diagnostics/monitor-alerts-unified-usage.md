@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: vinagara
-ms.openlocfilehash: 5e4068cc694b623f67d998f410f207356efd873f
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b537bb42d43c4232c100061322e09bf492f2a20f
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="create-view-and-manage-alerts-using-azure-monitor---alerts-preview"></a>Creación, visualización y administración de alertas en la sección Alertas (versión preliminar) de Azure Monitor
 
@@ -28,11 +28,11 @@ En este artículo se explica cómo configurar las alertas en la nueva interfaz d
 - Criterios: condición o lógica específicas que, cuando se señaliza la alerta, deben desencadenar una acción.
 - Acción: llamada específica enviada a un receptor de una notificación (correo electrónico, SMS, webhook, etc.).
 
-En Alertas (versión preliminar), se usa el término **Alertas de registro** para describir aquellas alertas cuya señal es una consulta personalizada basada en [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md). La funcionalidad de alertas de métricas llamada [Alerta de métricas de Near Real Time](monitoring-near-real-time-metric-alerts.md) en la experiencia de alertas existente se denomina **Alertas de métrica** en Alertas (versión preliminar). En *Alertas de métrica*, algunos tipos de recursos proporcionan [métricas multidimensionales](monitoring-metric-charts.md) para un recurso específico de Azure y, por tanto, las alertas de dicho recurso pueden hacerse más específicas con filtros adicionales sobre las dimensiones; tales alertas se conocen como **Alertas de métricas multidimensionales**.
+En Alertas (versión preliminar), se usa el término **Alertas de registro** para describir aquellas alertas cuya señal es una consulta personalizada basada en [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) o [Azure Application Insights](../application-insights/app-insights-analytics.md). La funcionalidad de alertas de métricas llamada [Alerta de métricas de Near Real Time](monitoring-near-real-time-metric-alerts.md) en la experiencia de alertas existente se denomina **Alertas de métrica** en Alertas (versión preliminar). En *Alertas de métrica*, algunos tipos de recursos proporcionan [métricas multidimensionales](monitoring-metric-charts.md) para un recurso específico de Azure y, por tanto, las alertas de dicho recurso pueden hacerse más específicas con filtros adicionales sobre las dimensiones; tales alertas se conocen como **Alertas de métricas multidimensionales**.
 Alertas de Azure (versión preliminar) también ofrece una vista unificada de todas las reglas de alertas y la posibilidad de administrarlas desde un único lugar, incluida la visualización de cualquier alerta sin resolver. Obtenga más información sobre la funcionalidad en la [introducción sobre Alertas de Azure (versión preliminar)](monitoring-overview-unified-alerts.md).
 
 > [!NOTE]
-> Alertas de Azure (versión preliminar) ofrece una experiencia nueva y mejorada para la creación de alertas en Azure. La experiencia existente de [Alertas de Azure](monitoring-overview-alerts.md) ya no se puede utilizar.
+> Alertas de Azure (versión preliminar) ofrece una experiencia nueva y mejorada para la creación de alertas en Azure. La experiencia existente de [Alertas de Azure](monitoring-overview-alerts.md) sigue sin poderse usar.
 >
 
 A continuación, se ofrecen instrucciones detalladas sobre cómo usar Alertas de Azure (versión preliminar).
@@ -81,16 +81,13 @@ A continuación, se ofrecen instrucciones detalladas sobre cómo usar Alertas de
 
     ![Configuración de la lógica de señal de métricas multidimensionales](./media/monitor-alerts-unified/AlertsPreviewCriteriaMultiDim.png)
 
-8. *Alertas de registro*: asegúrese de que la opción **Tipo de recurso** sea un origen de análisis como *Log Analytics*/*Application Insights*; después, una vez elegido el **recurso** apropiado, haga clic en *Listo*. A continuación, use el botón **Agregar criterios** para ver la lista de opciones de señal disponibles para el recurso y, de la lista de señales, la opción **Búsqueda de registros personalizada** para el servicio de supervisión del registro, como *Log Analytics*/*Application Insights*.
+8. *Alertas de registro*: asegúrese de que la opción **Tipo de recurso** sea un origen de análisis como *Log Analytics* o *Application Insights*; después, una vez elegido el **recurso** apropiado, haga clic en *Listo*. A continuación, use el botón **Agregar criterios** para ver la lista de opciones de señal disponibles para el recurso y, de la lista de señales, la opción **Búsqueda de registros personalizada** para el servicio de supervisión del registro, como *Log Analytics* o *Application Insights*.
 
    ![Selección de un recurso: búsqueda de recursos personalizada](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog.png)
 
    > [!NOTE]
 
-   > **La versión preliminar de Alertas** enumera las búsquedas de registros guardadas con el tipo de señal Registro (consulta guardada), cuando se elige el recurso en Log Analytics.
-   Para que pueda perfeccionar la consulta en Analytics luego guardarla para un uso futuro, hay más detalles disponibles en [Uso de búsqueda de registros en Log Analytics](../log-analytics/log-analytics-log-searches.md). A continuación, puede crear reglas de alerta según estas consultas directamente, tal como se muestra en la siguiente pantalla de ejemplo con búsquedas guardadas:
-
-   ![Selección de un recurso: búsqueda de recursos personalizada](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog-new.png)
+   > Las listas de Alertas (versión preliminar) pueden importar una consulta de análisis como tipo de señal (**Log (Saved Query)** (Registro (consulta guardada)), tal como se muestra en la ilustración anterior). Por tanto, los usuarios pueden perfeccionar la consulta en Analytics y luego guardarla para usarla en alertas en otro momento. Puede encontrar más detalles sobre el uso de consultas guardadas en [Descripción de las búsquedas de registros en Log Analytics](../log-analytics/log-analytics-log-searches.md) o [¿Qué es Log Analytics?](../log-analytics/log-analytics-overview.md). 
 
 9.  *Alertas de registro*: una vez seleccionada esta opción, la consulta de alertas se puede indicar en el campo **Consulta de búsqueda**; si la sintaxis de la consulta es incorrecta, en el campo aparece el error en ROJO. Si la sintaxis de consulta es correcta, como referencia, se muestran los datos históricos de la consulta indicada en formato de gráfico con la opción de retocar la ventana de tiempo desde las últimas seis horas hasta la última semana.
 
@@ -125,7 +122,7 @@ Para las **Alertas de registro**, las alertas pueden basarse en lo siguiente:
     Para las **alertas de registro**, se encuentra disponible alguna funcionalidad adicional para reemplazar las acciones predeterminadas:
 
     - **Notificación por correo electrónico**: reemplaza el asunto del correo electrónico enviado mediante el grupo de acciones. No se puede modificar el cuerpo del mensaje de correo.
-    - **Incluir carga de JSON personalizada**: invalida la carga de JSON del webhook que usan los grupos de acciones y, en su lugar, reemplaza la carga predeterminada por una carga personalizada. Para obtener más detalles sobre los formatos de webhook, consulte [Webhook action for Log Alerts](monitor-alerts-unified-log-webhook.md) (Acción de webhook para alertas de registro).
+    - **Incluir carga de JSON personalizada**: invalida la carga de JSON del webhook que usan los grupos de acciones y, en su lugar, reemplaza la carga predeterminada por una carga personalizada. Para más información sobre los formatos de webhook, consulte [Acciones de webhook para reglas de alertas de registro](monitor-alerts-unified-log-webhook.md).
 
         ![Invalidaciones de acciones para alertas de registro](./media/monitor-alerts-unified/AlertsPreviewOverrideLog.png)
 

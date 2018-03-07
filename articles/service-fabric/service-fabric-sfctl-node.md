@@ -12,13 +12,13 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/22/2017
+ms.date: 02/22/2018
 ms.author: ryanwi
-ms.openlocfilehash: b94c5a7d6c3c74e1dd66559dea288238c35d664c
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 50c7fe38d8bf7b14adf437f85c758e465e7d231d
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="sfctl-node"></a>sfctl node
 Administre los nodos que forman un clúster.
@@ -30,7 +30,7 @@ Administre los nodos que forman un clúster.
 |    disable       | Desactive un nodo de clúster de Service Fabric con la intención de desactivación especificada.|
 |    enable        | Active un nodo de clúster de Service Fabric, que está actualmente desactivado.|
 |    health        | Obtiene el estado de un nodo de Service Fabric.|
-|    info          | Obtiene la lista de nodos del clúster de Service Fabric.|
+|    info          | Obtiene la información sobre un nodo específico en el clúster de Service Fabric.|
 |    list          | Obtiene la lista de nodos del clúster de Service Fabric.|
 |    load          | Obtiene la información de carga de un nodo de Service Fabric.|
 |    remove-state  | Notifica a Service Fabric que el estado persistente en un nodo se quitó o perdió de forma permanente.|
@@ -50,7 +50,7 @@ Desactive un nodo de clúster de Service Fabric con la intención de desactivaci
 |Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --node-name [Obligatorio]| El nombre del nodo.|
-| --deactivation-intent | Describe la intención o el motivo para desactivar el nodo. Los valores posibles son los siguientes. - Pause: indica que se debe pausar el nodo. El valor es 1. - Restart: indica que la intención es que el nodo se reinicie tras un breve período. El valor es 2. - RemoveData: indica que la intención es que el nodo quite los datos. El valor es 3. .|
+| --deactivation-intent | Describe la intención o el motivo para desactivar el nodo. |
 | --timeout -t       | Tiempo de espera del servidor en segundos.  Valor predeterminado: 60.|
 
 ### <a name="global-arguments"></a>Argumentos globales
@@ -109,9 +109,9 @@ Obtiene el estado de un nodo de Service Fabric. Use EventsHealthStateFilter para
 | --verbose                | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos.|
 
 ## <a name="sfctl-node-info"></a>sfctl node info
-Obtiene la lista de nodos del clúster de Service Fabric.
+Obtiene la información sobre un nodo específico en el clúster de Service Fabric.
 
-Obtiene la información sobre un nodo específico en el clúster de Service Fabric. La respuesta incluye el nombre, el estado, el id., el mantenimiento, el tiempo de actividad y otros detalles acerca del nodo.
+Obtiene información sobre un nodo específico en el clúster de Service Fabric. La respuesta incluye el nombre, el estado, el identificador, el estado, el tiempo de actividad y otros detalles acerca del nodo.
 
 ### <a name="arguments"></a>Argumentos
 
@@ -133,14 +133,14 @@ Obtiene la información sobre un nodo específico en el clúster de Service Fabr
 ## <a name="sfctl-node-list"></a>sfctl node list
 Obtiene la lista de nodos del clúster de Service Fabric.
 
-El punto de conexión de los nodos devuelve información sobre los nodos en el clúster de Service Fabric. La respuesta incluye el nombre, el estado, el id., el mantenimiento, el tiempo de actividad y otros detalles acerca del nodo.
+Obtiene la lista de nodos del clúster de Service Fabric. La respuesta incluye el nombre, el estado, el identificador, el estado, el tiempo de actividad y otros detalles acerca del nodo.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --continuation-token| El parámetro continuation token se utiliza para obtener el siguiente conjunto de resultados. Un continuation token con un valor no vacío se incluye en la respuesta de la API cuando los resultados del sistema no caben en una única respuesta.      Cuando este valor se pasa a la siguiente llamada de la API, la API devuelve el siguiente conjunto de resultados. Si no hay ningún resultado más, el continuation token no contiene un valor. El valor de este parámetro no debe ser la dirección URL codificada.|
-| --node-status-filter| Permite filtrar los nodos según NodeStatus. Se devuelven únicamente los nodos que coinciden con el valor de filtro especificado. El valor de filtro puede ser uno de los siguientes. - default: este valor de filtro coincide con todos los nodos, excepto aquellas con estados Unknown o Removed. - all: este valor de filtro coincide con todos los nodos. - up: este valor de filtro coincide con los nodos con estado Up (en funcionamiento). - down: este valor de filtro coincide con los nodos con estado Down (fuera de servicio). - enabling: este valor de filtro coincide con los nodos que están en proceso de habilitación con estado Enabling (en habilitación). - disabling: este valor de filtro coincide con los nodos que están en proceso de deshabilitación con estado Disabling (en deshabilitación). - disabled: este valor de filtro coincide con los nodos con estado Disabled (deshabilitados). - unknown: este valor de filtro coincide con nodos cuyo estado es Unknown (desconocido). Un nodo estaría en estado Unknown si Service Fabric no tiene información de autorización sobre ese nodo. Esto puede ocurrir si el sistema aprende sobre un nodo en tiempo de ejecución. - removed: este valor de filtro coincide con nodos cuyo estado es Removed (quitado). Estos son los nodos que se quitaron del clúster con la API RemoveNodeState. .      Valor predeterminado: default.|
+| --node-status-filter| Permite filtrar los nodos según NodeStatus. Se devuelven únicamente los nodos que coinciden con el valor de filtro especificado. El valor de filtro puede ser uno de los siguientes. Valor predeterminado: default.|
 | --timeout -t     | Tiempo de espera del servidor en segundos.  Valor predeterminado: 60.|
 
 ### <a name="global-arguments"></a>Argumentos globales
@@ -156,7 +156,7 @@ El punto de conexión de los nodos devuelve información sobre los nodos en el c
 ## <a name="sfctl-node-load"></a>sfctl node load
 Obtiene la información de carga de un nodo de Service Fabric.
 
-Obtiene la información de carga de un nodo de Service Fabric.
+Recupera la información de carga de un nodo de Service Fabric para todas las métricas que tienen una carga o una capacidad definida.
 
 ### <a name="arguments"></a>Argumentos
 
@@ -203,7 +203,7 @@ Reinicia un nodo de clúster de Service Fabric que ya se inició.
 Inicia o detiene un nodo de clúster.
 
 Inicia o detiene un nodo de clúster.  Un nodo de clúster es un proceso, no la propia instancia del sistema operativo.
-Para iniciar un nodo, pase "Start" para el parámetro NodeTransitionType. Para detener un nodo, pase "Stop" para el parámetro NodeTransitionType. Esta API inicia la operación: cuando la API devuelve el nodo, puede no haya terminado de realizar la transición aún. Llame a GetNodeTransitionProgress con el mismo OperationId para obtener el progreso de la operación. .
+Para iniciar un nodo, pase "Start" para el parámetro NodeTransitionType. Para detener un nodo, pase "Stop" para el parámetro NodeTransitionType. Esta API inicia la operación: cuando la API devuelve el nodo, puede no haya terminado de realizar la transición aún. Llame a GetNodeTransitionProgress con el mismo OperationId para obtener el progreso de la operación. 
 
 ### <a name="arguments"></a>Argumentos
 
@@ -211,7 +211,7 @@ Para iniciar un nodo, pase "Start" para el parámetro NodeTransitionType. Para d
 | --- | --- |
 | --node-instance-id [Obligatorio]| El identificador de instancia del nodo de destino. Puede determinarse a través de la API GetNodeInfo.|
 | --node-name [Obligatorio]| El nombre del nodo.|
-| --node-transition-type [Obligatorio]| Indica el tipo de transición que se va a realizar.                       NodeTransitionType.Start inicia un nodo detenido.                       NodeTransitionType.Stop detiene un nodo que está en funcionamiento. - Invalid: reservado.  No se pasa a la API. -Start: realizar una transición de un nodo detenido a en funcionamiento. -Stop: realizar una transición de un nodo en funcionamiento a detenido. .|
+| --node-transition-type [Obligatorio]| Indica el tipo de transición que se va a realizar.                       NodeTransitionType.Start inicia un nodo detenido.                       NodeTransitionType. Stop detiene un nodo que está en funcionamiento. |
 | --operation-id [Obligatorio]| Un GUID que identifica una llamada de esta API.  Se pasa a la API GetProgress correspondiente.|
 | --stop-duration-in-seconds [Obligatorio]| La duración, en segundos, para conservar el nodo detenido.  El valor mínimo es 600; y el máximo, 14400. Después de que expire este tiempo, el nodo automáticamente vuelve a estar en funcionamiento.|
 | --timeout -t                      | Tiempo de espera del servidor en segundos.  Valor predeterminado: 60.|

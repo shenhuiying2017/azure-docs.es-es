@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 11/23/2017
+ms.date: 02/22/2018
 ms.author: bsiva
-ms.openlocfilehash: 2c5377f7193f8357a7e99ed1ef1a61b066b8ce5f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 6704ddc24db8415051a6064bbde79a6fc527871a
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="prepare-target-vmware-to-azure"></a>Preparación del destino (VMware a Azure)
+# <a name="prepare-target-physical-to-azure"></a>Preparación del destino (físico a Azure)
 > [!div class="op_single_selector"]
 > * [VMware a Azure](./site-recovery-prepare-target-vmware-to-azure.md)
-> * [Físico a Azure](./site-recovery-prepare-target-physical-to-azure.md)
+> * [Físico en Azure](./site-recovery-prepare-target-physical-to-azure.md)
 
 En este artículo se describe cómo preparar el entorno de Azure para comenzar a replicar servidores físicos (x64) que ejecutan Windows o Linux en Azure.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 En este artículo se da por supuesto lo siguiente:
 - Ha creado un almacén de Recovery Services para proteger sus servidores físicos. Puede crear un almacén de Recovery Services desde [Azure Portal](http://portal.azure.com "Azure Portal").
@@ -48,5 +48,5 @@ Una vez completadas las validaciones correctamente, haga clic en Aceptar para ir
 
 Si no tiene una cuenta de almacenamiento de Resource Manager compatible o una red virtual, puede crearla haciendo clic en los botones **+ Cuenta de almacenamiento** o **+ Red** en la parte superior de la página.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 [Configuración de las opciones de replicación](./site-recovery-setup-replication-settings-vmware.md).

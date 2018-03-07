@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/14/2017
 ms.author: LADocs; millopis; estfan
-ms.openlocfilehash: f385d832deed2eaf8ea21eb75d62944cbbf3d13d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5160913b2f08a04f0a985d8ddadd6641a664b258
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="connect-to-data-sources-on-premises-from-logic-apps-with-on-premises-data-gateway"></a>Conexión a orígenes de datos locales desde aplicaciones lógicas con una puerta de enlace de datos local
 
@@ -63,21 +63,19 @@ Para información sobre cómo usar la puerta de enlace con otros servicios, cons
   > [!NOTE]
   > Esta cuenta de servicio de Windows no es la misma que se usa para conectarse a orígenes de datos locales, ni la cuenta profesional o educativa de Azure que se usa para iniciar sesión en servicios en la nube.
 
-## <a name="set-up-the-data-gateway-connection"></a>Configuración de una conexión de puerta de enlace de datos
-
-### <a name="1-install-the-on-premises-data-gateway"></a>1. Instalación de la puerta de enlace de datos local
+## <a name="install-the-on-premises-data-gateway"></a>Instalación de la puerta de enlace de datos local
 
 Si aún no lo ha hecho, siga los [pasos para instalar la puerta de enlace de datos local](logic-apps-gateway-install.md). Antes de continuar con los demás pasos, asegúrese de haber instalado la puerta de enlace de datos en un equipo local.
 
 <a name="create-gateway-resource"></a>
 
-### <a name="2-create-an-azure-resource-for-the-on-premises-data-gateway"></a>2. Creación de un recurso de Azure para la puerta de enlace de datos local
+## <a name="create-an-azure-resource-for-the-on-premises-data-gateway"></a>Creación de un recurso de Azure para la puerta de enlace de datos local
 
 Después de instalar la puerta de enlace en un equipo local, debe crear la puerta de enlace de datos como recurso en Azure. En este paso también se asocia el recurso de puerta de enlace a su suscripción de Azure.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com "Azure Portal"). Asegúrese de usar la misma dirección de correo electrónico profesional o educativa de Azure que se usó para instalar la puerta de enlace.
 
-2. En el menú de la izquierda de Azure, elija **Nuevo** > **Enterprise Integration** > **On-premises data gateway**, como se muestra aquí:
+2. En el menú principal de Azure, elija **Crear un recurso** > **Integración empresarial** > **Puerta de enlace de datos local**.
 
    ![Busque "Puerta de enlace de datos local".](./media/logic-apps-gateway-connection/find-on-premises-data-gateway.png)
 
@@ -105,17 +103,18 @@ Después de instalar la puerta de enlace en un equipo local, debe crear la puert
     Para agregar el recurso de puerta de enlace al panel de Azure, elija **Anclar al panel**. 
     Cuando termine, seleccione **Crear**.
 
-    Por ejemplo:
+    Por ejemplo: 
 
     ![Proporcionar detalles para crear la puerta de enlace de datos local](./media/logic-apps-gateway-connection/createblade.png)
 
-    Para buscar o ver la puerta de enlace de datos en cualquier momento, en el menú principal de Azure de la izquierda, vaya a **Más servicios** > **Enterprise Integration** > **Puertas de enlace de datos locales**.
+    Para buscar o ver la puerta de enlace de datos en cualquier momento, en el menú principal de Azure, elija **Todos los servicios**. 
+    En el cuadro de búsqueda, escriba "puertas de enlace de datos locales" y, a continuación, elija **Puertas de enlace de datos locales**.
 
-    ![Vaya a "Más servicios", "Enterprise Integration", "Puertas de enlace de datos locales"](./media/logic-apps-gateway-connection/find-on-premises-data-gateway-enterprise-integration.png)
+    ![Busque "Puertas de enlace de datos locales".](./media/logic-apps-gateway-connection/find-on-premises-data-gateway-enterprise-integration.png)
 
 <a name="connect-logic-app-gateway"></a>
 
-### <a name="3-connect-your-logic-app-to-the-on-premises-data-gateway"></a>3. Conexión de la aplicación lógica a la puerta de enlace de datos local
+## <a name="connect-your-logic-app-to-the-on-premises-data-gateway"></a>Conexión de la aplicación lógica a la puerta de enlace de datos local
 
 Ahora que ha creado el recurso de puerta de enlace de datos y ha asociado su suscripción de Azure a ese recurso, cree una conexión entre la aplicación lógica y la puerta de enlace de datos.
 
@@ -157,6 +156,7 @@ Después de crear una conexión de puerta de enlace para la aplicación lógica,
    > Si las actualizaciones no surten efecto, intente [detener y reiniciar el servicio de Windows de puerta de enlace](./logic-apps-gateway-install.md#restart-gateway).
 
 <a name="change-delete-gateway-resource"></a>
+
 ## <a name="switch-or-delete-your-on-premises-data-gateway-resource"></a>Cambiar o eliminar el recurso de puerta de enlace de datos local
 
 Para crear un recurso de puerta de enlace diferente, asociar la puerta de enlace a un recurso diferente o quitar el recurso de puerta de enlace, puede eliminar el recurso de puerta de enlace sin que afecte a la instalación de puerta de enlace. 
@@ -166,11 +166,12 @@ Para crear un recurso de puerta de enlace diferente, asociar la puerta de enlace
 3. Elija **Puerta de enlace de datos local** y, en la barra de herramientas de recursos, elija **Eliminar**.
 
 <a name="faq"></a>
+
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
 [!INCLUDE [existing-gateway-location-changed](../../includes/logic-apps-existing-gateway-location-changed.md)]
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * [Protección de las aplicaciones lógicas](./logic-apps-securing-a-logic-app.md)
 * [Ejemplos y escenarios habituales de las aplicaciones lógicas](./logic-apps-examples-and-scenarios.md)

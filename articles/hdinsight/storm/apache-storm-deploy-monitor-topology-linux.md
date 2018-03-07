@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2017
+ms.date: 02/22/2018
 ms.author: larryfr
-ms.openlocfilehash: a972344e2b6205fbcf69d2969c42211ec5b24869
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 18b7b5d56acb4d9d0c2ed007f0521193e37d82e8
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-hdinsight"></a>Implementación y administración de topologías de Apache Storm en HDInsight
 
@@ -31,7 +31,7 @@ En este documento, aprenderá los aspectos básicos de administración y supervi
 > Para obtener información sobre la implementación y la supervisar de topologías en HDInsight basado en Windows, vea [Implementar y administrar topologías de Apache Storm en HDInsight basado en Windows](apache-storm-deploy-monitor-topology.md)
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 * **Clúster de Storm basado en Linux en HDInsight**: consulte [Introducción a Apache Storm en HDInsight](apache-storm-tutorial-get-started-linux.md) para conocer los pasos para crear un clúster.
 
@@ -226,7 +226,7 @@ Puede encontrar el nombre de dominio completo (FQDN) del nodo principal del clú
 
 * **Desde una sesión de SSH**: use el comando `headnode -f` desde una sesión SSH al clúster.
 * **Desde Web de Ambari**: seleccione **Servicios** en la parte superior de la pantalla y, luego, seleccione **Storm**. En la pestaña **Resumen**, seleccione **Storm UI Server** (Servidor de IU de Storm). El FQDN del nodo que hospeda la IU de Storm y la API de REST se muestra en la parte superior de la página.
-* **Desde la API de REST de Ambari**: use el comando `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` para recuperar información sobre el nodo en que se ejecutan la IU de Storm y la API de REST. Reemplace **PASSWORD** por la contraseña de administrador del clúster. Reemplace **CLUSTERNAME** por el nombre del clúster. En la respuesta, la entrada "host_name" contiene el FQDN del nodo.
+* **Desde la API de REST de Ambari**: use el comando `curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` para recuperar información sobre el nodo en que se ejecutan la IU de Storm y la API de REST. Reemplace **CLUSTERNAME** por el nombre del clúster. Cuando se le solicite, escriba la contraseña de la cuenta de inicio de sesión (administrador). En la respuesta, la entrada "host_name" contiene el FQDN del nodo.
 
 ### <a name="authentication"></a>Autenticación
 

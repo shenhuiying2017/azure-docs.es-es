@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/01/2017
+ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 0ae573922938b775900b839a24a917e4211fbadc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 983e167d248d711efde9c64a70f59d5a9e81769a
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Creación de clústeres de HDInsight mediante la CLI de Azure
 
@@ -29,19 +29,20 @@ ms.lasthandoff: 12/11/2017
 Los pasos de este tutorial describen la creación de un clúster de HDInsight 3.5 mediante la CLI de Azure 1.0.
 
 > [!IMPORTANT]
-> Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> En este tema se describe la creación de un clúster de HDInsight con la CLI de Azure 1.0. Esta versión de la CLI está en desuso y no se agregó compatibilidad para crear clústeres de HDInsight a la CLI de Azure 2.0.
+>
+> También se pueden crear y administrar clústeres de HDInsight con Azure PowerShell. Para más información, consulte el documento sobre la [creación de clústeres de HDInsight con Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md).
 
-
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-* **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 * **CLI de Azure** Los pasos de este documento se probaron por última vez en la versión 0.10.14 de la CLI de Azure.
 
     > [!IMPORTANT]
-    > Los pasos descritos en este documento no funcionan con la CLI de Azure 2.0. La CLI de Azure 2.0 no admite la creación de un clúster de HDInsight.
+    > La CLI de Azure 1.0 está en desuso y no se agregó compatibilidad para crear clústeres de HDInsight a la CLI de Azure 2.0.
 
 ## <a name="log-in-to-your-azure-subscription"></a>Inicio de sesión en la suscripción de Azure
 
@@ -127,7 +128,7 @@ Los siguientes pasos deben realizarse desde una línea de comandos como PowerShe
 
 Si experimenta problemas con la creación de clústeres de HDInsight, consulte los [requisitos de control de acceso](hdinsight-administer-use-portal-linux.md#create-clusters).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Una vez creado correctamente un clúster de HDInsight correctamente mediante la CLI de Azure, use los siguientes vínculos para aprender a trabajar con él:
 

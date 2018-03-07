@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 8816885a7703e89c53bbfd839c9e7eb1337c3879
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e5acf32353f675a98b05692e352c3ca323588ac3
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="copy-data-from-hive-using-azure-data-factory"></a>Copiar datos de Hive con Azure Data Factory 
 
@@ -48,12 +48,12 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Hive:
 | host | Dirección IP o nombre de host del servidor de Hive, separados por ";" para varios hosts (solo cuando serviceDiscoveryMode está habilitado).  | Sí |
 | puerto | Puerto TCP que el servidor de Hive utiliza para escuchar las conexiones del cliente.  | Sin  |
 | serverType | Tipo de servidor de Hive. <br/>Los valores permitidos son: **HiveServer1**, **HiveServer2** y **HiveThriftServer**. | Sin  |
-| thriftTransportProtocol | Protocolo de transporte que se va a usar en la capa de Thrift. <br/>Los valores permitidos son: **Binary**, **SASL** y **HTTP **. | Sin  |
+| thriftTransportProtocol | Protocolo de transporte que se va a usar en la capa de Thrift. <br/>Los valores permitidos son: **Binary** (Binario), **SASL** y **HTTP**. | Sin  |
 | authenticationType | Método de autenticación que se usa para tener acceso al servidor de Hive. <br/>Los valores permitidos son: **Anonymous**, **Username**, **UsernameAndPassword** y **WindowsAzureHDInsightService**. | Sí |
 | serviceDiscoveryMode | True para indicar que se usa el servicio de ZooKeeper; false para indicar que no.  | Sin  |
 | zooKeeperNameSpace | Espacio de nombres en ZooKeeper en el que se agregan nodos de Hive Server 2.  | Sin  |
 | useNativeQuery | Especifica si el controlador usa las consultas nativas de HiveQL o las convierte en un formato equivalente en HiveQL.  | Sin  |
-| Nombre de usuario | Nombre de usuario que utiliza para acceder al servidor de Hive.  | Sin  |
+| nombre de usuario | Nombre de usuario que utiliza para acceder al servidor de Hive.  | Sin  |
 | contraseña | Contraseña que corresponde al usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sin  |
 | httpPath | Dirección URL parcial correspondiente al servidor de Hive.  | Sin  |
 | enableSsl | Especifica si las conexiones al servidor se cifran mediante SSL. El valor predeterminado es false.  | Sin  |

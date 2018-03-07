@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 12/12/2017
+ms.date: 02/22/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: d26275b6b03115b775990c9efb5d4706fcb829d1
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: dd01246075a5c0db0ed49133ed51fb56d8fcf8e5
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="troubleshoot-and-remediate-device-issues"></a>Solución de problemas de los dispositivos
 
@@ -30,7 +30,7 @@ En este tutorial, aprenderá a:
 > * Usar la página **Mantenimiento** para investigar la alarma
 > * Llamar a un método de dispositivo para solucionar el problema
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para seguir este tutorial, necesitará una instancia implementada de la solución de supervisión remota en la suscripción de Azure.
 
@@ -58,6 +58,8 @@ Para confirmar la alarma, seleccione **Alarm occurrences** (Repeticiones de alar
 
 ![Confirmación de las alarmas](media/iot-suite-remote-monitoring-maintain/maintenanceacknowledge.png)
 
+Al confirmar la alarma, el estado de la repetición cambia a **Confirmado**.
+
 En la lista, puede ver el dispositivo **Prototipo** responsable de activar la alarma de temperatura:
 
 ![Lista de los dispositivos que causan la alarma](media/iot-suite-remote-monitoring-maintain/maintenanceresponsibledevice.png)
@@ -82,9 +84,9 @@ Para ver los detalles de una llamada de método o un trabajo específico, elíja
 
 ![Ver detalles del trabajo](media/iot-suite-remote-monitoring-maintain/maintenancejobdetail.png)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
-En este tutorial le mostramos cómo:
+En este tutorial, aprenderá a:
 
 <!-- Repeat task list from intro -->
 >[!div class="checklist"]

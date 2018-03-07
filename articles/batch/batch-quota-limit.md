@@ -12,14 +12,14 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 02/21/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 06445845ef8f93a06cb4b52e07108965cc3b7f8a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 775db415e667729f6eecf8223a84f5ac0aa45c4c
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="batch-service-quotas-and-limits"></a>Límites y cuotas del servicio Batch
 
@@ -39,9 +39,10 @@ Si planea ejecutar cargas de trabajo de producción en Batch, es posible que ten
 ## <a name="resource-quotas"></a>Cuotas de recursos
 [!INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
 
-### <a name="quotas-in-user-subscription-mode"></a>Cuotas en el modo de suscripción de usuario
 
-Si usó una versión anterior de la API de Batch para crear una cuenta de Batch con el modo de asignación de grupo establecido en **suscripción de usuario**, las cuotas se aplican de forma diferente. En este modo, que ya no se recomienda, las máquinas virtuales de Batch y otros recursos se crean directamente en su suscripción cuando se crea un grupo. La cuota de núcleos de Azure Batch no se aplica a una cuenta creada en este modo. En su lugar, se aplican las cuotas en la suscripción para núcleos de proceso regionales y otros recursos. Aprenda más sobre estas cuotas en [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md).
+### <a name="cores-quotas-in-user-subscription-mode"></a>Cuotas de núcleos en el modo de suscripción de usuario
+
+Si creó una cuenta de Batch con el modo de asignación de grupo establecido en **suscripción de usuario**, las cuotas se aplican de manera diferente. En este modo, las máquinas virtuales de Batch y otros recursos se crean directamente en la suscripción cuando se crea un grupo. Las cuotas de núcleos de Azure Batch no se aplican a las cuentas creadas en este modo. En su lugar, se aplican las cuotas en la suscripción para núcleos de proceso regionales y otros recursos. Aprenda más sobre estas cuotas en [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md).
 
 ## <a name="other-limits"></a>Otros límites
 | **Recurso** | **Límite máximo** |

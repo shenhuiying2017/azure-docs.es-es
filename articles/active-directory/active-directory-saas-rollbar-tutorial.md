@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/04/2017
 ms.author: jeedes
-ms.openlocfilehash: bb8a81327163513ab721d2ad72da19173b59bc1f
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 43dc50d0a5381ace8bcfeb3cae39e249ba743876
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rollbar"></a>Tutorial: integración de Azure Active Directory con Rollbar
 
@@ -32,7 +32,7 @@ La integración de Rollbar con Azure AD le proporciona las siguientes ventajas:
 
 Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para configurar la integración de Azure AD con Rollbar, necesita los siguientes elementos:
 
@@ -149,11 +149,14 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     c. Haga clic en **Save**(Guardar).
 
-11. Después de hacer clic en el botón Guardar, la pantalla se verá de la siguiente manera. Siga los pasos que aparecen en esta sección:
+11. Después de hacer clic en el botón Guardar, la pantalla se verá de la siguiente manera:
     
     ![Configuración](./media/active-directory-saas-rollbar-tutorial/configure3.png)
+    > [!NOTE] 
+    > Para completar el paso siguiente, primero debe haberse agregado como usuario de la aplicación Rollbar en Azure.
+    a. Si necesita que los usuarios se autentiquen a través de Azure, haga clic en **Log in via your identity provider** (Iniciar sesión a través del proveedor de identidades propio) para volver a autenticar a través de Azure.  
 
-    a. Active la casilla de verificación **Require login via SAML Identity Provider** (Requerir inicio de sesión vía el proveedor de identidades de SAML).
+    b.  Cuando se le haya redirigido a la pantalla, seleccione la casilla **Require login via SAML Identity Provider** (Requerir inicio de sesión a través del proveedor de identidades SAML).
 
     b. Haga clic en **Save**(Guardar).
 

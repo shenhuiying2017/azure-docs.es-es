@@ -14,11 +14,11 @@ ms.devlang: cpp
 ms.topic: article
 ms.date: 12/25/2016
 ms.author: aasthan
-ms.openlocfilehash: da969e3f619c9703ea0c02a148f11a9509d6e988
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: b1dc49a9da42aa3630618c8099a7994950b313b4
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-cosmos-db-c-console-application-tutorial-for-the-sql-api"></a>Azure Cosmos DB: tutorial de la aplicación de consola de C++ para la API de SQL
 > [!div class="op_single_selector"]
@@ -52,7 +52,7 @@ Esta guía de inicio rápido incluye:
 Comencemos.
 
 ## <a name="prerequisites-for-the-c-tutorial"></a>Requisitos previos para el tutorial de C++
-Asegúrese de que dispone de lo siguiente:
+Asegúrese de que dispone de los siguientes recursos:
 
 * Una cuenta de Azure activa. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar. 
 
@@ -74,14 +74,14 @@ Vamos a crear una cuenta de Azure Cosmos DB. Si ya tiene una cuenta que desea us
 4. Una vez creado el proyecto, abra el Administrador de paquetes de NuGet haciendo clic con el botón derecho en el proyecto **hellodocumentdb** en **el Explorador de soluciones** y luego haciendo clic en **Administrar paquetes de NuGet**. 
    
     ![Captura de pantalla que muestra Administrar paquetes NuGet en el menú del proyecto](media/sql-api-cpp-get-started/nuget.png)
-5. En la pestaña **NuGet: hellodocumentdb** haga clic en **Examinar**, y, a continuación, busque *documentdbcpp*. En los resultados, seleccione DocumentDbCPP, tal como se muestra en la siguiente captura de pantalla. Este paquete instala las referencias a C++ REST SDK, que es una dependencia para DocumentDbCPP.  
+5. En la pestaña **NuGet: hellodocumentdb** haga clic en **Examinar**, y, a continuación, busque *documentdbcpp*. En los resultados, seleccione DocumentDbCPP, tal como se muestra en la siguiente captura de pantalla:   
    
     ![Captura de pantalla que muestra el paquete de DocumentDbCpp resaltado](media/sql-api-cpp-get-started/cpp.png)
    
-    Una vez que los paquetes se han agregado al proyecto, ya está todo preparado para empezar a escribir código.   
+    Este paquete instala las referencias a C++ REST SDK, que es una dependencia para DocumentDbCPP. Una vez que los paquetes se han agregado al proyecto, ya está todo preparado para empezar a escribir código.   
 
 ## <a id="Config"></a>Paso 3: Copia de los detalles de la conexión de Azure Portal para la base de datos de Azure Cosmos DB
-Abra [Azure Portal](https://portal.azure.com) y vaya hasta la cuenta de la base de datos de Azure Cosmos DB que ha creado. Se necesitará el URI y la clave principal de Azure Portal en el paso siguiente para establecer una conexión desde el fragmento de código de C++. 
+Abra [Azure Portal](https://portal.azure.com) y vaya hasta la cuenta de Azure Cosmos DB que ha creado. Necesita el URI y la clave principal de Azure Portal en el paso siguiente para establecer una conexión desde el fragmento de código de C++. 
 
 ![Identificador URI y claves de Azure Cosmos DB en Azure Portal](media/sql-api-cpp-get-started/nosql-tutorial-keys.png)
 
@@ -134,7 +134,7 @@ Los [documentos](sql-api-resources.md#documents) son contenido JSON definido por
       wcout << ex.message();
     }
 
-En resumen, este código crea una base de datos, una colección y documentos de Azure Cosmos DB que se pueden consultar en el Explorador de documentos en Azure Portal. 
+En resumen, este código crea una base de datos, una colección y documentos de Azure Cosmos DB que se pueden consultar en el Explorador de datos en Azure Portal. 
 
 ![Tutorial C++: Diagrama que muestra la relación jerárquica entre la cuenta, la base de datos, la colección y los documentos](media/sql-api-cpp-get-started/docs.png)
 
@@ -218,7 +218,7 @@ Copie y pegue el siguiente fragmento de código (función cleanup) después de l
     }
 
 ## <a id="Run"></a>Paso 11: Ejecución de la aplicación C++
-Hemos agregado código para crear, consultar, modificar y eliminar distintos recursos de Azure Cosmos DB.  Vamos ahora a conectar esto mediante la adición de llamadas a estas distintas funciones desde la función principal en hellodocumentdb.cpp junto con algunos mensajes de diagnóstico.
+Ha agregado código para crear, consultar, modificar y eliminar distintos recursos de Azure Cosmos DB.  Ahora conecte esto mediante la adición de llamadas a estas distintas funciones desde la función principal en hellodocumentdb.cpp junto con algunos mensajes de diagnóstico.
 
 Para ello, reemplace la función principal de la aplicación con el código siguiente. Con esto se sobrescriben los valores de account_configuration_uri y primary_key que copió en el código en el Paso 3, por lo que debe guardar esa línea o volver a copiar los valores desde el portal. 
 
@@ -271,7 +271,7 @@ Para ello, reemplace la función principal de la aplicación con el código sigu
 
 Ahora podrá generar y ejecutar el código en Visual Studio presionando F5 o de forma alternativa en la ventana de terminal buscando la aplicación y ejecutando el archivo ejecutable. 
 
-Ahora debería ver la salida de la aplicación GetStarted. El resultado debería coincidir con la siguiente captura de pantalla.
+Ahora debería ver la salida de la aplicación GetStarted. El resultado debería coincidir con la siguiente captura de pantalla:
 
 ![Salida de la aplicación de C++ de Azure Cosmos DB](media/sql-api-cpp-get-started/console.png)
 
@@ -285,7 +285,7 @@ Para compilar la solución GetStarted que contiene todos los ejemplos de este ar
 
 ## <a name="next-steps"></a>pasos siguientes
 * Información acerca de cómo [supervisar una cuenta de Azure Cosmos DB](monitor-accounts.md).
-* Ejecute las consultas en nuestro conjunto de datos de ejemplo en el [área de consultas](https://www.documentdb.com/sql/demo).
+* Ejecute las consultas en un conjunto de datos de ejemplo en el [área de consultas](https://www.documentdb.com/sql/demo).
 * Obtenga más información sobre el modelo de programación en la sección sobre desarrollo de la [página de documentación de Azure Cosmos DB](https://azure.microsoft.com/documentation/services/cosmos-db/).
 
 [create-account]: create-sql-api-dotnet.md#create-account

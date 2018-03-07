@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro;seohack1
-ms.openlocfilehash: ade7f1d3c868c2ce6ccedbbf11aaf7dc54706cff
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 48ec84cd01126f431f22457a4ace451e4d9bce42
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Restricciones y directivas de contraseñas en Azure Active Directory
 
@@ -86,8 +86,8 @@ Cada cuenta de usuario que necesita iniciar sesión en Azure AD debe tener un va
 | Propiedad | Requisitos de UserPrincipalName |
 | --- | --- |
 | Caracteres permitidos |<ul> <li>A – Z</li> <li>a - z</li><li>0 – 9</li> <li> . - \_ ! \# ^ \~</li></ul> |
-| Caracteres no permitidos |<ul> <li>Cualquier carácter "@" que no separa el nombre de usuario del dominio.</li> <li>No puede contener un carácter de punto "." inmediatamente antes del símbolo "@".</li></ul> |
-| Restricciones de longitud |<ul> <li>La longitud total no debe superar los 113 caracteres.</li><li>Puede haber hasta 64 caracteres antes del símbolo "@".</li><li>Puede haber hasta 48 caracteres después del símbolo "@".</li></ul> |
+| Caracteres no permitidos |<ul> <li>Cualquier carácter "\@\" que no separa el nombre de usuario del dominio.</li> <li>No puede contener un carácter de punto "." inmediatamente antes del símbolo "\@\".</li></ul> |
+| Restricciones de longitud |<ul> <li>La longitud total no debe superar los 113 caracteres.</li><li>Puede haber hasta 64 caracteres antes del símbolo "\@\"</li><li>Puede haber hasta 48 caracteres después del símbolo "\@\"</li></ul> |
 
 ## <a name="password-policies-that-only-apply-to-cloud-user-accounts"></a>Directivas de contraseña que solo se aplican a cuentas de usuario en la nube
 
@@ -96,7 +96,7 @@ En la tabla siguiente se describe la configuración de directivas de contraseña
 | Propiedad | Requisitos |
 | --- | --- |
 | Caracteres permitidos |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ “ ( ) ;</li></ul> |
-| Caracteres no permitidos |<ul><li>Caracteres Unicode.</li><li>Espacios.</li><li> Solo contraseñas seguras: no pueden contener un carácter de punto "." inmediatamente antes del símbolo "@".</li></ul> |
+| Caracteres no permitidos |<ul><li>Caracteres Unicode.</li><li>Espacios.</li><li> Solo contraseñas seguras: no pueden contener un carácter de punto "." inmediatamente antes del símbolo "\@\".</li></ul> |
 | Restricciones de contraseña |<ul><li>Un mínimo de 8 caracteres y un máximo de 16 caracteres.</li><li>Solo contraseñas seguras: requiere al menos tres de los cuatro requisitos siguientes:<ul><li>Caracteres en minúsculas.</li><li>Caracteres en mayúsculas.</li><li>Números (0-9).</li><li>Símbolos (vea las anteriores restricciones de contraseña).</li></ul></li></ul> |
 | Duración de las contraseñas |<ul><li>Valor predeterminado: **90** días.</li><li>El valor se puede configurar con el cmdlet `Set-MsolPasswordPolicy`del módulo Active Directory para Windows PowerShell.</li></ul> |
 | Notificación de la expiración de contraseñas |<ul><li>Valor predeterminado: **14** días (antes de que expire la contraseña).</li><li>El valor se puede configurar con el cmdlet `Set-MsolPasswordPolicy`.</li></ul> |

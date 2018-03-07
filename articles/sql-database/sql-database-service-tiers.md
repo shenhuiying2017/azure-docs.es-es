@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 02/12/2018
+ms.date: 02/26/2018
 ms.author: carlrab
-ms.openlocfilehash: c0dc3181d3cd5c642dfca1c0f6031b83726478c0
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: b36af32d900f9426424dd08c43946e7dcb5b39b9
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="what-are-azure-sql-database-service-tiers"></a>¿Qué son los niveles de servicio de Azure SQL Database?
 
@@ -35,8 +35,8 @@ La selección de un nivel de servicio depende sobre todo de los requisitos de co
 |Acuerdo de Nivel de Servicio de tiempo de actividad|99,99%|99,99%|99,99%|N/D en versión preliminar|
 |Retención de copias de seguridad|7 días|35 días|35 días|
 |CPU|Bajo|Bajo, medio, alto|Medio, alto|
-|Rendimiento de E/S|Bajo  | Mediano | Orden de magnitud mayor que Estándar|
-|Latencia de E/S|Mayor que Premium|Mayor que Premium|Menor que Básico y Estándar|
+|Rendimiento de E/S (aproximado) |2,5 IOPS por DTU  | 2,5 IOPS por DTU | 48 IOPS por DTU|
+|Latencia de E/S (aproximada)|5 ms (lectura), 10 ms (escritura)|5 ms (lectura), 10 ms (escritura)|2 ms (lectura/escritura)|
 |Indexación de almacén de columnas y OLTP en memoria|N/D|N/D|Compatible|
 |||||
 

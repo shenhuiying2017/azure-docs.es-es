@@ -7,13 +7,13 @@ manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 02/26/2018
 ms.author: sujayt
-ms.openlocfilehash: 73b8a28fa2f2b432f12a230be9326b6696d3908a
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 4383286285f02bad1645344fab43f8b6bdb145cb
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Matriz de compatibilidad de Azure Site Recovery para la replicación de Azure a Azure
 
@@ -153,8 +153,8 @@ Disco temporal | Siempre se excluyen de la replicación | El disco temporal se e
 Velocidad de cambio de datos en el disco | Máximo de 10 MBps por disco de almacenamiento premium y 2 MBps por disco de almacenamiento estándar | Si la velocidad media de cambio de los datos en el disco supera los 10 MBps (para premium) y 2 MBps (para estándar) de forma continua, la replicación no mantendrá el ritmo. Sin embargo, si es una ráfaga de datos ocasional y la velocidad de cambio de los datos es superior a 10 MBps (para premium) y 2 MBps (para estándar) durante algún tiempo y desciende, la replicación mantendrá el ritmo. En este caso, podría ver puntos de recuperación ligeramente retrasados.
 Discos en cuentas de almacenamiento estándar | Compatible |
 Discos en cuentas de almacenamiento premium | Compatible | Si una máquina virtual tiene discos repartidas entre cuentas de almacenamiento estándar y premium, puede seleccionar una cuenta de almacenamiento de destino diferente para cada disco a fin de garantizar que tenga la misma configuración de almacenamiento en la región de destino.
-Discos administrados estándar | No compatible |  
-Discos administrados premium | No compatible |
+Discos administrados estándar | Se admite en regiones de Azure en las que se pueda usar Azure Site Recovery. Las nubes de administración pública no se admiten en este momento.  |  
+Discos administrados premium | Se admite en regiones de Azure en las que se pueda usar Azure Site Recovery. Las nubes de administración pública no se admiten en este momento. |
 Espacios de almacenamiento | Compatible |         
 Cifrado en reposo (SSE) | Compatible | Para las cuentas de almacenamiento de destino y de almacenamiento en caché, puede seleccionar una cuenta de almacenamiento habilitada para SSE.     
 Azure Disk Encryption (ADE) | No compatible |

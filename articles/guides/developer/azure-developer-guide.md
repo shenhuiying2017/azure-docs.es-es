@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 8eb3cae792a09fc530b84243f2baa01ecc5d13dc
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e740b655cbd22a08aab988e83a057cc770e8dfe3
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guía de introducción para desarrolladores de Azure
 
@@ -151,7 +151,7 @@ Azure proporciona varias maneras de utilizar contenedores en sus aplicaciones.
 
     >**Cuándo se usa**: para implementar una aplicación web en Linux en una imagen de Docker.
 
-    >**Para empezar**: [use una imagen de Docker personalizada para App Service en Linux](../../app-service/containers/quickstart-custom-docker-image.md).
+    >**Para empezar**: [use una imagen de Docker personalizada para App Service en Linux](../../app-service/containers/quickstart-docker-go.md).
 
 ### <a name="authentication"></a>Autenticación
 
@@ -241,7 +241,7 @@ Además de las API de REST, muchos servicios de Azure también permiten administ
 
 Servicios como [Mobile Apps](../../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md) y [Azure Media Services](../../media-services/media-services-dotnet-how-to-use.md) proporcionan SDK de cliente para que pueda acceder a los servicios desde aplicaciones de cliente móviles y web.
 
-### <a name="azure-resource-manager"></a>Administrador de recursos de Azure 
+### <a name="azure-resource-manager"></a>Azure Resource Manager 
     
 Ejecutar una aplicación en Azure suele implicar trabajar con varios servicios de Azure, todos los cuales siguen el mismo ciclo de vida y pueden considerarse como una unidad lógica. Por ejemplo, una aplicación web podría usar los servicios Web Apps, SQL Database, Storage, Azure Redis Cache y Azure Content Delivery Network. [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) permite trabajar con los recursos de la aplicación como un grupo. Todos los recursos se pueden implementar, actualizar o eliminar en una sola operación coordinada.
 

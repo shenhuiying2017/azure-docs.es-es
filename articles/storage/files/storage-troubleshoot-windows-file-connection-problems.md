@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: genli
-ms.openlocfilehash: 5aacc8a920c9343c5efa89128aabb1505fc2d9aa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 073d163e139c9fd400e4b3177c26d4ddb6228ed0
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Solucione problemas de Azure Files en Windows
 
@@ -164,6 +164,12 @@ Use una de las soluciones siguientes:
 
 -   Monte la unidad desde la misma cuenta de usuario que contiene la aplicación. Puede usar una herramienta como PsExec.
 - Pase el nombre y la clave de la cuenta de almacenamiento en los parámetros de nombre de usuario y contraseña del comando net use.
+- Use el comando cmdkey para agregar las credenciales en el Administrador de credenciales. Haga esta operación desde una línea de comandos en el contexto de la cuenta de servicio, mediante un inicio de sesión interactivo o con runas.
+  
+  `cmdkey /add:<storage-account-name>.file.core.windows.net /user:AZURE\<storage-account-name> /pass:<storage-account-key>`
+- Asigne el recurso compartido directamente sin usar una letra de unidad asignada. Algunas aplicaciones pueden no volver a conectarse a la letra de unidad correctamente, por lo que resultará más confiable usar la ruta de acceso UNC completa. 
+
+  `net use * \\storage-account-name.file.core.windows.net\share`
 
 Después de seguir estas instrucciones, podría recibir el mensaje de error siguiente cuando ejecute net use para la cuenta de servicio de red o del sistema: "Error de sistema 1312. Una sesión de inicio especificada no existe. Es posible que haya finalizado." En este caso, asegúrese de que el nombre de usuario pasado a net use incluya la información de dominio (por ejemplo, "[nombre de la cuenta de almacenamiento].file.core.windows.net").
 

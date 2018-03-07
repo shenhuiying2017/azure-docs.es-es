@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: 8ae99c7ce6382626657777d003a1cb82348c4aba
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a4096b11a828cf6676aa22b11c4dd4d75f3b0286
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="introduction-to-azure-advisor"></a>Introducción a Azure Advisor
 
@@ -69,9 +69,9 @@ Para obtener recomendaciones de Advisor para una suscripción, primero debe regi
 
 Advisor proporciona recomendaciones para máquinas virtuales, conjuntos de disponibilidad, puertas de enlace de aplicaciones, App Services, servidores SQL Server, bases de datos SQL y Redis Cache.
 
-### <a name="can-i-snooze-or-dismiss-a-recommendation"></a>¿Se puede posponer o descartar una recomendación?
+### <a name="can-i-postpone-or-dismiss-a-recommendation"></a>¿Se puede posponer o descartar una recomendación?
 
-Para posponer o descartar una recomendación, haga clic en el **Snooze** (Posponer). Puede especificar un tiempo de posposición o seleccionar **Never** (Nunca) para descartar la recomendación.
+Para posponer o descartar una recomendación, haga clic en el vínculo **Postpone** (Posponer). Puede especificar un tiempo de posposición o seleccionar **Never** (Nunca) para descartar la recomendación.
 
 ## <a name="next-steps"></a>pasos siguientes
 

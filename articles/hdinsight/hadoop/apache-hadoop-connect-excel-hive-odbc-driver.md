@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/06/2017
+ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: d169645b9b701e611d27e0d984bf44b7ca85d2ad
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.openlocfilehash: b2b5427f037203e86f6b73610084993892ed4a37
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="connect-excel-to-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Conexión de Excel a Hadoop en Azure HDInsight con el controlador ODBC de Microsoft Hive
 
@@ -46,7 +46,7 @@ Antes de empezar este artículo, debe tener los siguientes elementos:
 ## <a name="install-microsoft-hive-odbc-driver"></a>Instalación de Microsoft Hive ODBC Driver
 Descargue e instale Microsoft Hive ODBC Driver desde el [Centro de descarga][hive-odbc-driver-download].
 
-Este controlador se puede instalar en las versiones de 32 bits o 64 bits de Windows 7, Windows 8, Windows 10, Windows Server 2008 R2 y Windows Server 2012. Además, puede conectarse con Azure HDInsight (versión 1.6 y posterior) y el emulador de Azure HDInsight (versión 1.0.0.0 y posterior). Debe instalar la versión que coincida con la de la aplicación en la que va a usar el controlador ODBC. Para este tutorial, el controlador se usará desde Office Excel.
+Este controlador se puede instalar en las versiones de 32 bits o 64 bits de Windows 7, Windows 8, Windows 10, Windows Server 2008 R2 y Windows Server 2012. El controlador permite la conexión a Azure HDInsight. Debe instalar la versión que coincida con la de la aplicación en la que va a usar el controlador ODBC. Para este tutorial, el controlador se usará desde Office Excel.
 
 ## <a name="create-hive-odbc-data-source"></a>Creación de un origen de datos de Hive ODBC
 En los siguientes pasos se explica cómo crear un origen de datos de Hive ODBC.

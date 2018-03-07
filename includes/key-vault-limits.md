@@ -13,4 +13,6 @@ Secretos, claves de cuentas de almacenamiento administradas y transacciones de a
 | Todas las transacciones |2000 |
 |
 
+Vea la [Guía de las limitaciones de Azure Key Vault](../key-vault/key-vault-ovw-throttling.md) para obtener información sobre cómo controlar la limitación cuando se superan estos límites.
+
 <sup>1</sup> El límite global para la suscripción para todos los tipos de transacciones es 5 veces el límite del almacén de claves. Por ejemplo, en "HSM - otras transacciones" el límite es de 5000 transacciones en 10 segundos por suscripción.

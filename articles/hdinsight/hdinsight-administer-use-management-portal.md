@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 77c47809a01e9ff2bb851163f9adf987738f98f6
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0b34f861b306dc62cbdbf97378a1c370494bbb20
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Administración de clústeres de Hadoop basados en Windows en HDInsight con el portal de Azure
 
@@ -294,7 +294,7 @@ La consola de consulta de HDInsight incluye las siguientes características:
     ![HDInsight portal YARN UI](./media/hdinsight-administer-use-management-portal/hdinsight-yarn-ui.png)
 
 ## <a name="run-hive-queries"></a>Ejecución de consultas de Hive
-Para ejecutar trabajos de Hive desde el Portal, haga clic en **Editor Hive** en la consola de HDInsight Query. Vea [Apertura de la consola de consulta de HDInsight](#open-hdinsight-query-console).
+Para ejecutar trabajos de Hive desde el Portal, haga clic en **Hive Editor** (Editor de Hive) en la consola de HDInsight Query. Vea [Apertura de la consola de consulta de HDInsight](#open-hdinsight-query-console).
 
 ## <a name="monitor-jobs"></a>Supervisión de trabajos
 Para supervisar trabajos desde el Portal, haga clic en **Historial de trabajos** en la consola de HDInsight Query. Vea [Apertura de la consola de consulta de HDInsight](#open-hdinsight-query-console).
@@ -356,7 +356,7 @@ Para conectarse al clúster mediante el Escritorio remoto y usar la línea de co
 
     Para obtener más información acerca de los comandos de Hadoop, consulte [Referencia de comandos de Hadoop](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CommandsManual.html).
 
-En la captura de pantalla anterior, el nombre de la carpeta tiene el número de versión de Hadoop incrustado. El número de versión se puede cambiar según la versión de los componentes de Hadoop instalados en el clúster. Puede usar las variables de entorno de Hadoop para referirse a esas carpetas. Por ejemplo: 
+En la captura de pantalla anterior, el nombre de la carpeta tiene el número de versión de Hadoop incrustado. El número de versión puede cambiar según la versión de los componentes de Hadoop instalados en el clúster. Puede usar las variables de entorno de Hadoop para referirse a esas carpetas. Por ejemplo: 
 
     cd %hadoop_home%
     cd %hive_home%

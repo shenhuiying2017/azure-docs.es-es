@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/26/2016
 ms.author: LADocs; jonfan
-ms.openlocfilehash: 68009b74a410f7e854de675a1d8d0c32e310d2c9
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 4b1ea9966add3cf0d5f75988f11cda57fa4e4cf6
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="exchange-edifact-messages-for-enterprise-integration-with-logic-apps"></a>Intercambio de mensajes EDIFACT para la integración empresarial con las aplicaciones lógicas
 
@@ -32,65 +32,63 @@ Para poder intercambiar mensajes EDIFACT para Azure Logic Apps, debe crear un co
 
 Esto es lo que necesita:
 
-* Una [cuenta de integración](../logic-apps/logic-apps-enterprise-integration-accounts.md) que ya esté definida y asociada a su suscripción de Azure  
+* Una [cuenta de integración](logic-apps-enterprise-integration-create-integration-account.md) que ya esté definida y asociada a su suscripción de Azure  
 * Al menos dos [asociados](logic-apps-enterprise-integration-partners.md) que ya estén definidos en su cuenta de integración.
 
 > [!NOTE]
 > Al crear un contrato, el contenido de los mensajes que envíe al asociado o reciba de este debe coincidir con el tipo de contrato.
 
-Cuando haya [creado una cuenta de integración](../logic-apps/logic-apps-enterprise-integration-accounts.md) y [agregado los asociados](logic-apps-enterprise-integration-partners.md), siga estos pasos para generar un contrato EDIFACT.
+Cuando haya [creado una cuenta de integración](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) y [agregado los asociados](logic-apps-enterprise-integration-partners.md), siga estos pasos para generar un contrato EDIFACT.
 
 ## <a name="create-an-edifact-agreement"></a>Creación de un acuerdo EDIFACT 
 
-1.  Inicie sesión en [Azure Portal](http://portal.azure.com "Azure Portal"). En el menú izquierdo, seleccione **Todos los servicios**.
+1. Inicie sesión en [Azure Portal](http://portal.azure.com "Azure Portal"). 
 
-    > [!TIP]
-    > Si no ve **Todos los servicios**, expanda el menú. En la parte superior del menú contraído, seleccione **Mostrar menú**.
+2. En el menú principal de Azure, seleccione **Todos los servicios**. En el cuadro de búsqueda, especifique "integration" y seleccione **Cuentas de integración**.
 
-    ![En el menú izquierdo, seleccione "Todos los servicios"](./media/logic-apps-enterprise-integration-edifact/edifact-0.png)
+   ![Búsqueda de la cuenta de integración](./media/logic-apps-enterprise-integration-edifact/edifact-0.png)
 
-2. En el cuadro de búsqueda, escriba "integración" como filtro. En la lista de resultados, seleccione **Cuentas de integración**.
+   > [!TIP]
+   > Si no aparece **Todos los servicios**, expanda el menú. En la parte superior del menú contraído, seleccione **Mostrar etiquetas de texto**.
 
-    ![Filtre por "integración", seleccione "Cuentas de integración"](./media/logic-apps-enterprise-integration-edifact/edifact-1-3.png)
+3. En **Cuentas de integración**, seleccione la cuenta de integración en la que va a crear el contrato.
 
-3. En la hoja **Cuentas de integración** que se abre, seleccione la cuenta donde se vaya a crear el contrato.
-Si no ve ninguna, [créela](../logic-apps/logic-apps-enterprise-integration-accounts.md "Información completa sobre las cuentas de integración").  
+   ![Selección de la cuenta de integración donde desea crear el contrato](./media/logic-apps-enterprise-integration-edifact/edifact-1-4.png)
 
-    ![Selección de la cuenta de integración donde desea crear el contrato](./media/logic-apps-enterprise-integration-edifact/edifact-1-4.png)
+4. Elija **Acuerdos**. Si no tiene un icono Acuerdos, agréguelo.   
 
-4. Seleccione el icono de **contratos**. Si no tiene un icono Acuerdos, agréguelo.   
+   ![Elección del icono "Acuerdos"](./media/logic-apps-enterprise-integration-edifact/edifact-1-5.png)
 
-    ![Elección del icono "Acuerdos"](./media/logic-apps-enterprise-integration-edifact/edifact-1-5.png)
+5. En la página Acuerdos, elija **Agregar**.
 
-5. En la hoja Acuerdos que se abre, seleccione **Agregar**.
-
-    ![Elección de "Agregar"](./media/logic-apps-enterprise-integration-edifact/edifact-agreement-2.png)
+   ![Elección de "Agregar"](./media/logic-apps-enterprise-integration-edifact/edifact-agreement-2.png)
 
 6. En **Agregar**, escriba un valor en **Nombre** para el contrato. Para el **Tipo de contrato**, seleccione **EDIFACT**. Seleccione valores en **Asociado del host**, **Identidad del host**, **Asociado invitado** e **Identidad del invitado** para el contrato.
 
-    ![Especificación de los detalles del contrato](./media/logic-apps-enterprise-integration-edifact/edifact-1.png)
+   ![Especificación de los detalles del contrato](./media/logic-apps-enterprise-integration-edifact/edifact-1.png)
 
-    | Propiedad | DESCRIPCIÓN |
-    | --- | --- |
-    | NOMBRE |Nombre del contrato |
-    | Tipo de contrato | Debe ser EDIFACT |
-    | Host Partner (Partner anfitrión) |Un contrato tiene asociado un partner anfitrión e invitado. El asociado del host representa la organización que configura el contrato. |
-    | Host Identity (Identidad anfitriona) |Un identificador del asociado del host. |
-    | Guest Partner (Partner invitado) |Un contrato tiene asociado un partner anfitrión e invitado. El partner invitado representa la organización que está haciendo negocios con el partner anfitrión. |
-    | Guest Identity |Un identificador del asociado invitado. |
-    | Receive Settings (Configuración de recepción) |Estas propiedades se aplican a todos los mensajes que recibe un contrato. |
-    | Send Settings (Configuración de envío) |Estas propiedades se aplican a todos los mensajes que envía un contrato. |
+   | Propiedad | DESCRIPCIÓN |
+   | --- | --- |
+   | NOMBRE |Nombre del contrato |
+   | Tipo de contrato | Debe ser EDIFACT |
+   | Host Partner (Partner anfitrión) |Un contrato tiene asociado un partner anfitrión e invitado. El asociado del host representa la organización que configura el contrato. |
+   | Host Identity (Identidad anfitriona) |Un identificador del asociado del host. |
+   | Guest Partner (Partner invitado) |Un contrato tiene asociado un partner anfitrión e invitado. El partner invitado representa la organización que está haciendo negocios con el partner anfitrión. |
+   | Guest Identity |Un identificador del asociado invitado. |
+   | Receive Settings (Configuración de recepción) |Estas propiedades se aplican a todos los mensajes que recibe un contrato. |
+   | Send Settings (Configuración de envío) |Estas propiedades se aplican a todos los mensajes que envía un contrato. |
+   ||| 
 
 ## <a name="configure-how-your-agreement-handles-received-messages"></a>Configuración de la forma en que su contrato controla los mensajes recibidos
 
 Ahora que ha establecido las propiedades del contrato, puede configurar cómo este identifica y controla los mensajes entrantes recibidos del asociado a través de este contrato.
 
-1.  En **Agregar**, seleccione **Configuración de recepción**.
+1. En **Agregar**, seleccione **Configuración de recepción**.
 Configure estas propiedades en función del contrato con el asociado con el que intercambia mensajes. Para las descripciones de las propiedades, consulte las tablas de esta sección.
 
-    **Configuración de recepción** se divide en las siguientes secciones: Identificadores, Confirmación, Esquemas, Números de control, Validaciones y Configuración interna.
+   **Configuración de recepción** se divide en las siguientes secciones: Identificadores, Confirmación, Esquemas, Números de control, Validaciones y Configuración interna.
 
-    ![Selección de "Configuración de recepción"](./media/logic-apps-enterprise-integration-edifact/edifact-2.png)  
+   ![Selección de "Configuración de recepción"](./media/logic-apps-enterprise-integration-edifact/edifact-2.png)  
 
 2. Cuando haya terminado, asegúrese de guardar la configuración con **Aceptar**.
 
@@ -240,13 +238,13 @@ Cuando haya completado cada fila de validación, se agrega otra automáticamente
 
 ## <a name="find-your-created-agreement"></a>Búsqueda del contrato creado
 
-1.  Cuando termine de establecer las propiedades del contrato, en la hoja **Agregar**, elija **Aceptar** para terminar de crear el contrato y volver a la hoja de la cuenta de integración.
+1.  Cuando termine de establecer todas las propiedades del contrato, en la página **Agregar**, elija **Aceptar** para terminar de crear el contrato y volver a la cuenta de integración.
 
     Ahora el contrato recién agregado aparece en la lista **Acuerdos**.
 
-2.  También puede ver los contratos en la información general de la cuenta de integración. En la hoja de la cuenta de integración, elija **Información general** y seleccione el icono **Acuerdos**. 
+2.  También puede ver los contratos en la información general de la cuenta de integración. En el menú de la cuenta de integración, elija **Información general** y seleccione el icono **Acuerdos**. 
 
-    ![Elección del icono "Acuerdos" para ver todos los contratos](./media/logic-apps-enterprise-integration-edifact/edifact-4.png)   
+    ![Elección del icono "Acuerdos"](./media/logic-apps-enterprise-integration-edifact/edifact-4.png)   
 
 ## <a name="view-swagger-file"></a>Ver el archivo de Swagger
 Para ver los detalles de Swagger para el conector EDIFACT, consulte [EDIFACT](/connectors/edifact/).

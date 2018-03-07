@@ -12,13 +12,13 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 02/27/2018
 ms.author: billmath
-ms.openlocfilehash: dbf531302e53ca52e24dbd2ba954defad391060f
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 8003951fb0c80bda56de4718cbe94526dc118b61
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologías de Azure AD Connect
 En este artículo se describen diversas topologías locales y de Azure Active Directory (Azure AD) que usan Azure AD Connect Sync como solución de integración de claves. En este artículo se describen tanto las configuraciones admitidas como las no admitidas.
@@ -144,7 +144,9 @@ En esta topología, un servidor de Azure AD Connect Sync está conectado a cada 
 
 Un dominio DNS solo se puede registrar en un único inquilino de Azure AD. Los UPN de los usuarios de la instancia de Active Directory local deben usar también espacios de nombres independientes. Por ejemplo, en la imagen anterior, se registran tres sufijos UPN independientes en la instancia de Active Directory local: contoso.com, fabrikam.com y wingtiptoys.com. Los usuarios de cada dominio de Active Directory local usan un espacio de nombres diferente.
 
-No se sincronizan las GAL de las distintas instancias de inquilino de Azure AD. La libreta de direcciones de Exchange Online y Skype Empresarial solo muestra los usuarios del mismo inquilino.
+>[!NOTE]
+>La sincronización de la lista global de direcciones (GalSync) no se realiza automáticamente en esta topología y requiere otra implementación de MIM personalizada para garantizar que cada inquilino tiene una lista global de direcciones (GAL) completa en Exchange Online y Skype Empresarial Online.
+
 
 Esta topología presenta las siguientes restricciones en escenarios que, por lo demás, se admiten:
 

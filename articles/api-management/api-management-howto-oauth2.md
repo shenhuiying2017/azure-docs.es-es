@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: bd8b3d13754e981235cbce39e919f39228820426
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 47011bf2cfde268bb6248e54e98930f3a0b522e4
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Procedimiento para autorizar a las cuentas de desarrollador para que usen OAuth 2.0 en Azure API Management
 Muchas API admiten [OAuth 2.0](http://oauth.net/2/) para proteger la API y garantizar que solo usuarios válidos obtengan acceso y que, además, solo puedan tener acceso a los recursos para los que estén autorizados. Para usar la consola interactiva para desarrolladores de la Azure API Management, el servicio permite configurar la instancia del servicio para que funcione con la API habilitada para OAuth 2.0.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"> </a>Requisitos previos
 En esta guía se explica cómo configurar la instancia del servicio Administración de API para que use la autorización OAuth 2.0 con las cuentas de desarrollador, pero no se explica cómo configurar un proveedor de OAuth 2.0. Aunque los proveedores de OAuth 2.0 tienen configuraciones diferentes, los pasos son similares y se precisa la misma información para configurar OAuth 2.0 en la instancia del servicio Administración de API. Este tema muestra ejemplos donde Azure Active Directory actúa como proveedor de OAuth 2.0.
 
 > [!NOTE]
@@ -101,7 +101,7 @@ Seleccione el **Servidor de autorización** que quiera en la lista desplegable y
 ## <a name="step3"></a>Probar la autorización de usuario OAuth 2.0 en el portal para desarrolladores
 Tras configurar el servidor de autorización OAuth 2.0 y las API para que usen dicho servidor, puede probarlo. Para ello, vaya al portal para desarrolladores y llame a una API.  Haga clic en **Portal para desarrolladores** en el menú superior derecho.
 
-![portal para desarrolladores][api-management-developer-portal-menu]
+![Portal para desarrolladores][api-management-developer-portal-menu]
 
 Haga clic en **API** en el menú superior y seleccione **API eco**.
 
@@ -131,12 +131,9 @@ Tras iniciar sesión, los **Encabezados de solicitud** se rellenan con el encabe
 
 Llegado a este punto, puede configurar los valores que desea para los demás parámetros y enviar la solicitud. 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para obtener más información acerca del uso de OAuth 2.0 y Administración de API, vea el siguiente vídeo y el [artículo](api-management-howto-protect-backend-with-aad.md)que lo acompaña.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Protecting-Web-API-Backend-with-Azure-Active-Directory-and-API-Management/player]
-> 
-> 
 
 [api-management-management-console]: ./media/api-management-howto-oauth2/api-management-management-console.png
 [api-management-oauth2]: ./media/api-management-howto-oauth2/api-management-oauth2.png

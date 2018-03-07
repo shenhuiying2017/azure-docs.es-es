@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/21/2018
 ms.author: mimig
-ms.openlocfilehash: 9083ae631f654789b621a1fc62e0b9d31c24f119
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: af14e9dbd5f65d5cefa3d9424b8628f10d8160da
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Table API .NET de Azure Cosmos DB: descarga y notas de la versión
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ ms.lasthandoff: 02/09/2018
 |**Documentación de la API**|[Documentación de referencia de API de .NET](https://aka.ms/acdbtableapiref)|
 |**Guía de inicio rápido**|[Azure Cosmos DB: compilación de una aplicación con .NET y Table API](create-table-dotnet.md)|
 |**Tutorial**|[Azure Cosmos DB: desarrollo con Table API en .NET](tutorial-develop-table-dotnet.md)|
-|**Plataforma admitida actualmente**|[Microsoft .NET 4.5 Framework](https://www.microsoft.com/download/details.aspx?id=30653)|
+|**Plataforma admitida actualmente**|[Microsoft .NET Framework 4.5.1](https://www.microsoft.com/en-us/download/details.aspx?id=40779)|
 
 > [!IMPORTANT]
 > Si ha creado una cuenta de Table API durante la versión preliminar, cree una [nueva cuenta de Table API](create-table-dotnet.md#create-a-database-account) para trabajar con los SDK de Table API disponibles con carácter general.

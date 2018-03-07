@@ -12,13 +12,13 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/22/2017
+ms.date: 02/22/2018
 ms.author: ryanwi
-ms.openlocfilehash: 5eeff271fea67cd859dff598cae0010cf3b8e13f
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: c83dc3eeb6ca0d66b0c70236354fd7bab80f355f
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="sfctl-cluster"></a>sfctl cluster
 Seleccione, administre y opere clústeres de Service Fabric.
@@ -144,7 +144,7 @@ Si se conecta al clúster segura, especifique un archivo de certificado (.crt) y
 ## <a name="sfctl-cluster-unprovision"></a>sfctl cluster unprovision
 Deshace el aprovisionamiento del código o los paquetes de configuración de un clúster de Service Fabric.
 
-Deshace el aprovisionamiento del código o los paquetes de configuración de un clúster de Service Fabric.
+Deshace el aprovisionamiento del código o los paquetes de configuración de un clúster de Service Fabric. Es posible deshacer el aprovisionamiento de código y la configuración por separado.
 
 ### <a name="arguments"></a>Argumentos
 |Argumento|DESCRIPCIÓN|

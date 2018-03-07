@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/18/2018
 ms.author: billmath
-ms.openlocfilehash: b9a0b9027bbead00300040186e453933b3a7f46b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d66f717f546271a5e5c3c49d6cbaef1c190d18d8
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="gdpr-compliance-and-azure-ad-connect-health"></a>Cumplimiento con GDPR y Azure AD Connect Health 
 
@@ -35,6 +35,8 @@ Azure AD Connect Health se incluye dentro de la categoría de **procesador de da
 
 ## <a name="data-retention-policy"></a>Directiva de retención de datos
 Azure AD Connect Health no genera informes, ni realiza análisis ni proporciona información después de 30 días. Por lo tanto, no almacena, procesa ni retiene datos más allá de ese período. Este diseño es compatible con el reglamento del GDPR, las regulaciones de cumplimiento de la privacidad de Microsoft y las directivas de retención de datos de Azure AD. 
+
+El hecho de que aparezca en servidores la alerta de **error** **Los datos del servicio de mantenimiento no están actualizados** durante más de 30 días consecutivos sugiere que ningún dato ha llegado a Connect Health durante ese tiempo. Estos servidores se deshabilitarán y no aparecerán en el portal de Connect Health. Para volver a habilitar los servidores, debe desinstalar y [volver a instalar el agente de mantenimiento](active-directory-aadconnect-health-agent-install.md). Tenga en cuenta que esto no se aplica a las **advertencias** con el mismo tipo de alerta. Las advertencias indican que parte de los datos no está presente en el servidor para el que se generan las alertas. 
  
 ## <a name="disable-data-collection-and-monitoring-in-azure-ad-connect-health"></a>Deshabilitación de la recopilación de datos y la supervisión en Azure AD Connect Health
 Azure AD Connect Health le permite detener la recopilación de datos de cada servidor supervisado individual o de una instancia de un servicio supervisado. Por ejemplo, puede detener la recopilación de datos de servidores de ADFS (Servicios de federación de Active Directory) individuales que se supervisan mediante Azure AD Connect Health. También puede detener la recopilación de datos de la instancia completa de ADFS que se supervisa mediante Azure AD Connect Health. Si decide hacerlo, los servidores correspondientes se eliminan del portal de Azure AD Connect Health después de detener la recopilación de datos. 
@@ -53,7 +55,7 @@ Si detiene la recopilación de datos y la supervisión de un servidor supervisad
 - Todos los datos que pertenecen a la instancia del servicio supervisado se eliminan según la directiva de retención de datos de Microsoft Azure.
 
 ### <a name="disable-data-collection-and-monitoring-for-a-monitored-server"></a>Deshabilitación de la recopilación de datos y la supervisión en un servidor supervisado
-Consulte [cómo eliminar un servidor de Azure AD Connect Health](active-directory-aadconnect-health-operations.md#to-delete-a-server-from-the-azure-ad-connect-health-service).
+Consulte [cómo eliminar un servidor de Azure AD Connect Health](active-directory-aadconnect-health-operations.md#delete-a-server-from-the-azure-ad-connect-health-service).
 
 ### <a name="disable-data-collection-and-monitoring-for-an-instance-of-a-monitored-service"></a>Deshabilitación de la recopilación de datos y la supervisión en una instancia de un servicio supervisado
 Consulte [cómo eliminar una instancia de servicio de Azure AD Connect Health](active-directory-aadconnect-health-operations.md#delete-a-service-instance-from-azure-ad-connect-health-service).

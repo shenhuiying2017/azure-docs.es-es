@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: c1a9310d0a09d714f1d58f29e5683097c9dc6b90
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f19fa1ac4dd970ca3df2c0fdbf8e0778e171c43d
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Codificación y comprobación de las funciones de Azure Functions en un entorno local
 
@@ -105,6 +105,14 @@ Initialized empty Git repository in D:/Code/Playground/MyFunctionProj/.git/
 ```
 
 Para crear el proyecto sin un repositorio Git local, use la opción `--no-source-control [-n]`.
+
+## <a name="register-extensions"></a>Registro de las extensiones
+
+En la versión 2.x del entorno de ejecución de Azure Functions, debe registrar explícitamente las [extensiones de enlace](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/README.md) que utilice en la aplicación de función. 
+
+[!INCLUDE [Full bindings table](../../includes/functions-core-tools-install-extension.md)]
+
+Para más información, consulte [Conceptos básicos sobre los enlaces y desencadenadores de Azure Functions](functions-triggers-bindings.md#register-binding-extensions).
 
 ## <a name="local-settings-file"></a>Archivo de configuración local
 
@@ -232,6 +240,9 @@ Para iniciar el host y configurar la depuración de JavaScript, ejecute:
 func host start --debug vscode
 ```
 
+> [!IMPORTANT]
+> Para la depuración, solo se admite Node.js 8.x. Node.js 9.x no es compatible. 
+
 Luego, en la vista de **depuración** de Visual Studio Code, seleccione **Attach to Azure Functions** (Asociar a Azure Functions). Puede asociar puntos de interrupción, inspeccionar variables y recorrer el código.
 
 ![Depuración de JavaScript con Visual Studio Code](./media/functions-run-local/vscode-javascript-debugging.png)
@@ -308,6 +319,10 @@ Por ejemplo, para llamar a una función desencadenada por HTTP y pasar cuerpo de
 ```
 func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 ```
+
+### <a name="viewing-log-files-locally"></a>Consulta de los archivos de registro en el entorno local
+
+[!INCLUDE [functions-local-logs-location](../../includes/functions-local-logs-location.md)]
 
 ## <a name="publish"></a>Publicación en Azure
 

@@ -1,6 +1,6 @@
 ---
-title: "Supervisión de copias de seguridad de máquinas virtuales implementadas por Resource Manager | Microsoft Docs"
-description: "Supervise eventos y alertas de copias de seguridad de máquinas virtuales implementadas por Resource Manager. Envíe correo electrónico basado en alertas."
+title: "Supervisión de alertas de copia de seguridad para máquinas virtuales de Azure | Microsoft Docs"
+description: "Supervise eventos y alertas de los trabajos de copia de seguridad para máquinas virtuales de Azure. Envíe correo electrónico basado en alertas."
 services: backup
 documentationcenter: dev-center-name
 author: markgalioto
@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2016
+ms.date: 02/23/2018
 ms.author: markgal;trinadhk;giridham;
-ms.openlocfilehash: 1e9f6d44965e8a6cd9529ef860f0fb57fd8e572d
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 0f92d63d6eabe48bfac444b79bc10e090df239ca
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>Supervisión de alertas de copias de seguridad de máquinas virtuales de Azure
 Las alertas son las respuestas del servicio que indican que se ha alcanzado o superado un umbral de evento. Saber cuándo comenzaron los problemas puede ser vital para reducir los costos del negocio. Las alertas no se producen de forma programada por lo general, por lo que resulta útil conocerlas tan pronto como se produjeron. Por ejemplo, cuando se produce un error en un trabajo de copia de seguridad o de restauración, se produce una alerta en los cinco minutos siguientes al error. En el panel del almacén, el icono Alertas de copias de seguridad muestra eventos de nivel crítico y de advertencia. En la configuración de Alertas de copias de seguridad, puede ver todos los eventos. Pero, ¿qué hacer si se produce una alerta cuando está trabajando en otro asunto? Si no sabe cuándo se produce la alerta, esto puede ser un inconveniente secundario o puede llegar incluso a comprometer los datos. Para asegurarse de que las personas adecuadas se enteran de una alerta cuando esta se produce, configure el servicio para enviar notificaciones de alerta por correo electrónico. Para más información acerca de cómo configurar las notificaciones por correo electrónico, consulte [Configuración de notificaciones](backup-azure-monitor-vms.md#configure-notifications).

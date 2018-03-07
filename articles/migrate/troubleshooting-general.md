@@ -4,13 +4,13 @@ description: "Se proporciona información general sobre los problemas conocidos 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: troubleshooting
-ms.date: 12/12/2017
+ms.date: 02/21/2018
 ms.author: raynew
-ms.openlocfilehash: 1fcc9e12e63eda73d53ae2085bc2a64d31ea2067
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 249de45dbd9bedf1b3c2d2a5957acf31d6c0d243
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="troubleshoot-azure-migrate"></a>Solución de problemas de Azure Migrate
 
@@ -31,7 +31,7 @@ Si va a usar un proxy de firewall basado en direcciones URL para controlar la co
 
 **El recopilador no se puede conectar al proyecto con el identificador de proyecto y la clave que copié del portal**
 
-Asegúrese de haber copiado y pegado la información correcta. Para solucionar el problema, instale Microsoft Monitoring Agent (MMA) como sigue:
+Asegúrese de haber copiado y pegado la información correcta. Para solucionar problemas, instale Microsoft Monitoring Agent (MMA) y compruebe si el MMA puede conectarse al proyecto como se indica a continuación:
 
 1. Descargue [MMA](https://go.microsoft.com/fwlink/?LinkId=828603) en la máquina virtual del recopilador.
 2. Para iniciar la instalación, haga doble clic en el archivo descargado.
@@ -69,9 +69,9 @@ Para habilitar la recopilación de los datos de rendimiento del disco y la red, 
 
 **Problema** | **Revisión**
 --- | ---
-Tipo de arranque no admitido | Cambie el BIOS antes de ejecutar una migración.
+Tipo de arranque no compatible | Azure no admite máquinas virtuales con el tipo de arranque EFI. Se recomienda convertir el tipo de arranque a BIOS antes de ejecutar una migración. <br/><br/>Puede usar [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/tutorial-migrate-on-premises-to-azure) para realizar la migración de las máquinas virtuales de este tipo, dado que durante la migración el tipo de arranque de la máquina virtual se convertirá a BIOS.
 El recuento del disco supera el límite | Quite los discos no utilizados del equipo antes de la migración.
-El tamaño del disco supera el límite | Reduzca los discos a un tamaño inferior a 4 TB antes de la migración. 
+El tamaño del disco supera el límite | Azure admite discos con un tamaño de hasta 4 TB. Reduzca los discos a un tamaño inferior a 4 TB antes de la migración. 
 El disco no está disponible en la ubicación especificada | Asegúrese de que el disco está en la ubicación de destino antes de realizar la migración.
 El disco no está disponible para la redundancia especificada | El disco debe usar el tipo de almacenamiento de redundancia definido en la configuración de evaluación (LRS de forma predeterminada).
 No se pudo determinar la idoneidad del disco debido a un error interno | Intente crear una evaluación para el grupo. 
@@ -83,12 +83,15 @@ No se pudo determinar la idoneidad de uno o varios discos debido a un error inte
 No se pudo determinar la idoneidad de uno o varios adaptadores de red debido a un error interno | Intente crear una evaluación para el grupo.
 No se encontró ninguna máquina virtual para el rendimiento de almacenamiento requerido | El rendimiento de almacenamiento (IOPS/rendimiento) requerido para la máquina excede el soporte técnico de máquina virtual de Azure. Reduzca los requisitos de almacenamiento de la máquina antes de realizar la migración.
 No se encontró ninguna máquina virtual para el rendimiento de red requerido | El rendimiento de red (entrada/salida) requerido para la máquina excede el soporte técnico de máquina virtual de Azure. Reduzca los requisitos de red de la máquina. 
-No se encontró ninguna máquina virtual para el plan de tarifa especificado. | Compruebe la configuración del plan de tarifa. 
+No se encontró ninguna máquina virtual en el plan de tarifa especificado. | Si el plan de tarifa está establecido en Estándar, considere la posibilidad de reducir el tamaño de la máquina virtual antes de migrar a Azure. Si el nivel de ajuste de tamaño es Básico, considere la posibilidad de cambiar el plan de tarifa de la valoración a Estándar. 
 No se encontró la máquina virtual en la ubicación especificada | Utilice una ubicación de destino diferente antes de la migración.
-Problemas de compatibilidad con el SO Linux | Asegúrese de que ejecuta 64 bits con estos [sistemas operativos](../virtual-machines/linux/endorsed-distros.md) compatibles.
-Problemas de compatibilidad con el SO Windows | Asegúrese de que ejecuta un sistema operativo compatible. [Más información](concepts-assessment-calculation.md#azure-suitability-analysis)
-Sistema operativo desconocido | Compruebe que el sistema operativo especificado en vCenter es correcto y repita el proceso de detección.
-Requiere una suscripción a Visual Studio | Los sistemas operativos cliente Windows solo se admiten en suscripciones de Visual Studio (MSDN).
+Sistema operativo desconocido | El sistema operativo de la máquina virtual se especificó como "Otro" en vCenter Server, debido a que Azure Migrate no puede identificar la preparación para Azure de la máquina virtual. Asegúrese de que el sistema operativo que se ejecuta dentro de la máquina se [admite](https://aka.ms/azureoslist) en Azure antes de migrar la máquina.
+Sistema operativo Windows admitido con condiciones | El sistema operativo alcanzó la fecha de finalización del soporte técnico y necesita un contrato de soporte técnico personalizado (CSA) para [recibir soporte técnico en Azure](https://aka.ms/WSosstatement). Considere la posibilidad de actualizar el sistema operativo antes de migrar a Azure.
+Sistema operativo Windows no admitido | Azure solo admite [algunas versiones del sistema operativo Windows](https://aka.ms/WSosstatement). Considere la posibilidad de actualizar el sistema operativo de la máquina antes de migrar a Azure. 
+Sistema operativo Linux aprobado con condiciones | Azure solo aprueba [algunas versiones del sistema operativo Linux](../virtual-machines/linux/endorsed-distros.md). Considere la posibilidad de actualizar el sistema operativo de la máquina antes de migrar a Azure.
+Sistema operativo Linux no aprobado | La máquina se puede arrancar en Azure, pero Azure no proporciona compatibilidad con ningún sistema operativo. Considere la posibilidad de actualizar el sistema operativo a una [versión Linux aprobada](../virtual-machines/linux/endorsed-distros.md) antes de migrar a Azure
+Valor de bits de sistema operativo no aprobado | Las máquinas virtuales con sistemas operativos de 32 bits pueden arrancar en Azure; sin embargo, se recomienda actualizar el sistema operativo de la máquina virtual a 64 bits antes de migrar a Azure.
+Requiere una suscripción a Visual Studio | Las máquinas tienen un sistema operativo cliente de Windows que se ejecuta en su interior, que solo se admite en suscripciones de Visual Studio.
 
 
 ## <a name="collect-logs"></a>Recopilación de registros

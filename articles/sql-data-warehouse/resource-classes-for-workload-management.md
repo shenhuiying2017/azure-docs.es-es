@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 10/23/2017
 ms.author: joeyong;barbkess;kavithaj
-ms.openlocfilehash: 122646f73b6e4e7c62eb0e6d4b6672b603d8acb2
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: c76fb73c9beda93c407d1af29e157682c7fe58c0
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="resource-classes-for-workload-management"></a>Clases de recursos para la administración de cargas de trabajo
 Instrucciones para usar las clases de recursos para administrar la cantidad de consultas que se ejecutan de forma simultánea y calcular los recursos de tales consultas en Azure SQL Data Warehouse.
@@ -84,6 +84,11 @@ EXEC sp_droprolemember 'largerc', 'loaduser';
 ```
 
 La clase de recursos del administrador de servicios es fija y no se puede cambiar.  El administrador de servicios es el usuario que se creó durante el proceso de aprovisionamiento.
+
+> [!NOTE]
+> Los usuarios o grupos definidos como administrador de Active Directory también son administradores de servicio.
+>
+>
 
 ### <a name="default-resource-class"></a>Clase de recursos predeterminada
 De forma predeterminada, cada usuario es miembro de la clase de recursos pequeña: **smallrc**. 
@@ -501,7 +506,7 @@ GO
 
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para obtener más información sobre cómo administrar los usuarios y la seguridad de la base de datos, consulte [Proteger una base de datos en SQL Data Warehouse][Secure a database in SQL Data Warehouse]. Para obtener más información sobre la manera en que las clases de recursos más grandes pueden mejorar la calidad de los índices de almacén de columnas en clúster, consulte [Memory optimizations for columnstore compression (Optimizaciones de memoria para la compresión del almacén de columnas)](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 
 <!--Image references-->

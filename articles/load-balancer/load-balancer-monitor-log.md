@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 36b9379f88ce024c1dcbf9977a873d95076d10df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4388a1e933a0ebf211b5a7621c74b0622be41a4c
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="log-analytics-for-azure-load-balancer"></a>Análisis del registros para el Equilibrador de carga de Azure
 
@@ -52,7 +52,7 @@ Inicie sesión en el [Portal de Azure](http://portal.azure.com). Si aún no tien
 5. En el panel **Diagnósticos**, debajo de **Estado**, seleccione **Activar**.
 6. Haga clic en **Cuenta de almacenamiento**.
 7. En **Registros**, seleccione una cuenta de almacenamiento existente o cree una nueva. Utilice el control deslizante para determinar cuántos días de datos de eventos se almacenarán en los registros de eventos. 
-8. Haga clic en **Guardar**.
+8. Haga clic en **Save**(Guardar).
 
     ![Portal - Registros de diagnósticos](./media/load-balancer-monitor-log/load-balancer-diagnostics.png)
 
@@ -145,6 +145,6 @@ Debe conectarse a la cuenta de almacenamiento y recuperar las entradas del regis
 * [Visualize your Azure Audit Logs with Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) (Visualizar los registros de auditoría de Azure con Power BI).
 * [View and analyze Azure Audit Logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) (Visualizar los registros de auditoría de Azure con Power BI).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 [Descripción de los sondeos del equilibrador de carga](load-balancer-custom-probe-overview.md)

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 02/21/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c62ea8efe56186a2f3ee934823b4ea03775037b0
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: fe27577b73c26731647a217c249913d8332c0c59
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>SDK de .NET Core para la API de SQL de Azure Cosmos DB: notas de la versión y recursos
 > [!div class="op_single_selector"]
@@ -59,7 +59,11 @@ El SDK de .NET Core para Azure Cosmos DB incluye paridad de características con
 > [!NOTE] 
 > El SDK de .NET Core para Azure Cosmos DB aún no es compatible con aplicaciones de la Plataforma universal de Windows (UWP). Si quiere que el SDK de .NET Core que admita aplicaciones de UWP, envíe un correo electrónico a [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
 
-### <a name="a-name180181"></a><a name="1.8.0"/>1.8.1
+### <a name="a-name182182"></a><a name="1.8.2"/>1.8.2
+
+* Se ha corregido el error que se producía en ciertas condiciones de carrera, que daba como resultado errores intermitentes "Microsoft.Azure.Documents.NotFoundException: la sesión de lectura no está disponible para el token de sesión de entrada" cuando se utilizaba el nivel de coherencia de sesión.
+
+### <a name="a-name181181"></a><a name="1.8.1"/>1.8.1
 
 * Se ha corregido la regresión en la que FeedOptions.MaxItemCount = -1 producía una excepción System.ArithmeticException: el tamaño de la página es negativo.
 * Se agregó una nueva función ToString() a QueryMetrics.
@@ -165,6 +169,7 @@ Si tiene preguntas relacionadas con este SDK, publíquelas en los foros de [Stac
 
 | Versión | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
+| [1.8.2](#1.8.2) |21 de febrero de 2018 |--- |
 | [1.8.1](#1.8.1) |5 de febrero de 2018 |--- |
 | [1.7.1](#1.7.1) |16 de noviembre de 2017 |--- |
 | [1.7.0](#1.7.0) |10 de noviembre de 2017 |--- |

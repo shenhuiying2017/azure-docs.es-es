@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 12/12/2017
+ms.date: 02/22/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: fab3fd4163141aadc06b385f5759c19eece7fd14
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 66005b78a368c15a463844b3f098eac9fd64f621
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="manage-and-configure-your-devices"></a>Administración y configuración de los dispositivos
 
@@ -34,7 +34,7 @@ En este tutorial, aprenderá a:
 > * Llamar a los métodos de dispositivo desde la solución.
 > * Volver a configurar un dispositivo.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para seguir este tutorial, necesitará una instancia implementada de la solución de supervisión remota en la suscripción de Azure.
 
@@ -42,11 +42,11 @@ Si aún no ha implementado la solución de supervisión remota, debe completar e
 
 ## <a name="add-a-simulated-device"></a>Adición de un dispositivo simulado
 
-Vaya a la página **Dispositivos** en la solución y elija **Nuevo dispositivo**. En el panel **Nuevo dispositivo**, elija **Simulado**:
+Vaya a la página **Dispositivos** en la solución y elija **+ Nuevo dispositivo**. En el panel **Nuevo dispositivo**, elija **Simulado**:
 
 ![Aprovisionamiento de un dispositivo simulado](media/iot-suite-remote-monitoring-manage/devicesprovision.png)
 
-Deje el número de dispositivos que se van a aprovisionar en **1**. Elija **Faulty Engine** (Fallo del motor) como el **Modelo de dispositivo** y, luego, elija **Aplicar** para crear el dispositivo simulado:
+Deje el número de dispositivos que se van a aprovisionar en **1**. Elija el modelo de dispositivo **Faulty Engine** (Fallo del motor) y, luego, elija **Aplicar** para crear el dispositivo simulado:
 
 ![Aprovisionamiento de un dispositivo de motor simulado](media/iot-suite-remote-monitoring-manage/devicesprovisionengine.png)
 
@@ -98,7 +98,7 @@ Para hacer un cambio, agregue un nombre para el trabajo, actualice los valores d
 
 Para realizar un seguimiento del estado del trabajo en la página **Mantenimiento**, elija **Trabajos**.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Este tutorial le ha mostrado cómo:
 

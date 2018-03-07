@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/16/2017
+ms.date: 02/22/2018
 ms.author: sethm
-ms.openlocfilehash: 31f5a11cda1827a0a50fd2be0b7260daedf26e24
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: d72a4de8591898a55e4225ace154fd5ed53e6f91
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>El protocolo AMQP 1.0 de Microsoft Azure Service Bus: operaciones de respuesta/solicitud
 
-En este tema se define la lista de operaciones de respuesta/solicitud de Microsoft Azure Service Bus. Esta información se basa en la versión 1.0 de Administración de AMQP (fase de borrador).  
+En este artículo se define la lista de operaciones de respuesta/solicitud de Microsoft Azure Service Bus. Esta información se basa en la versión 1.0 de Administración de AMQP (fase de borrador).  
   
 Si desea obtener una guía detallada a nivel de conexión del protocolo AMQP 1.0, que describe cómo se implementa Service Bus y se construye sobre la especificación técnica de OASIS AMQP, consulte la [Guía del protocolo AMQP 1.0 en Service Bus de Azure y Event Hubs][Guía del protocolo AMQP 1.0].  
   
@@ -114,7 +114,7 @@ Las direcciones de las entidades de Service Bus deben tener el siguiente formato
 |-----------------|-------------|-------------|  
 |queue|`<queue_name>`|`“myQueue”`<br /><br /> `“site1/myQueue”`|  
 |topic|`<topic_name>`|`“myTopic”`<br /><br /> `“site2/page1/myQueue”`|  
-|subscription|`<topic_name>/Subscriptions/<subscription_name>`|`“myTopic/Subscriptions/MySub”`|  
+|suscripción|`<topic_name>/Subscriptions/<subscription_name>`|`“myTopic/Subscriptions/MySub”`|  
   
 ## <a name="message-operations"></a>Operaciones de mensajes  
   
@@ -129,7 +129,7 @@ El mensaje de solicitud debe incluir las siguientes propiedades de la aplicació
 |Clave|Tipo de valor|Obligatorio|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
 |operación|string|Sí|`com.microsoft:renew-lock`|  
-|`com.microsoft:server-timeout`|uint|No|Tiempo de espera de funcionamiento del servidor en milisegundos.|  
+|`com.microsoft:server-timeout`|uint|Sin |Tiempo de espera de funcionamiento del servidor en milisegundos.|  
   
  El cuerpo del mensaje de solicitud debe constar de una sección con el valor de AMQP que contiene una asignación con las siguientes entradas:  
   
@@ -137,14 +137,14 @@ El mensaje de solicitud debe incluir las siguientes propiedades de la aplicació
 |---------|----------------|--------------|--------------------|  
 |`lock-tokens`|Matriz de UUID|Sí|Tokens de bloqueo de renovación de mensajes.|  
   
-#### <a name="response"></a>Respuesta  
+#### <a name="response"></a>Response  
 
 El mensaje de respuesta debe incluir las siguientes propiedades de la aplicación:  
   
 |Clave|Tipo de valor|Obligatorio|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Sí|Código de respuesta HTTP [RFC2616]<br /><br /> 200: operación realizada correctamente; en caso contrario, significa que se ha producido un error.|  
-|statusDescription|string|No|Descripción del estado.|  
+|statusDescription|string|Sin |Descripción del estado.|  
   
 El cuerpo del mensaje de respuesta debe constar de una sección con el valor de AMQP que contiene una asignación con las siguientes entradas:  
   
@@ -163,7 +163,7 @@ El mensaje de solicitud debe incluir las siguientes propiedades de la aplicació
 |Clave|Tipo de valor|Obligatorio|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
 |operación|string|Sí|`com.microsoft:peek-message`|  
-|`com.microsoft:server-timeout`|uint|No|Tiempo de espera de funcionamiento del servidor en milisegundos.|  
+|`com.microsoft:server-timeout`|uint|Sin |Tiempo de espera de funcionamiento del servidor en milisegundos.|  
   
 El cuerpo del mensaje de solicitud debe constar de una sección con el **valor de AMQP** que contiene una **asignación** con las siguientes entradas:  
   
@@ -172,14 +172,14 @@ El cuerpo del mensaje de solicitud debe constar de una sección con el **valor d
 |`from-sequence-number`|long|Sí|Número de secuencia desde la que se iniciará la inspección.|  
 |`message-count`|int|Sí|Número máximo de mensajes que se inspeccionarán.|  
   
-#### <a name="response"></a>Respuesta  
+#### <a name="response"></a>Response  
 
 El mensaje de respuesta debe incluir las siguientes propiedades de la aplicación:  
   
 |Clave|Tipo de valor|Obligatorio|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Sí|Código de respuesta HTTP [RFC2616]<br /><br /> 200: operación realizada correctamente; hay más mensajes.<br /><br /> 0xCC: sin contenido; no hay más mensajes.|  
-|statusDescription|string|No|Descripción del estado.|  
+|statusDescription|string|Sin |Descripción del estado.|  
   
 El cuerpo del mensaje de respuesta debe constar de una sección con el **valor de AMQP** que contiene una **asignación** con las siguientes entradas:  
   
@@ -204,7 +204,7 @@ El mensaje de solicitud debe incluir las siguientes propiedades de la aplicació
 |Clave|Tipo de valor|Obligatorio|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
 |operación|string|Sí|`com.microsoft:schedule-message`|  
-|`com.microsoft:server-timeout`|uint|No|Tiempo de espera de funcionamiento del servidor en milisegundos.|  
+|`com.microsoft:server-timeout`|uint|Sin |Tiempo de espera de funcionamiento del servidor en milisegundos.|  
   
 El cuerpo del mensaje de solicitud debe constar de una sección con el **valor de AMQP** que contiene una **asignación** con las siguientes entradas:  
   
@@ -228,7 +228,7 @@ El mensaje de respuesta debe incluir las siguientes propiedades de la aplicació
 |Clave|Tipo de valor|Obligatorio|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Sí|Código de respuesta HTTP [RFC2616]<br /><br /> 200: operación realizada correctamente; en caso contrario, significa que se ha producido un error.|  
-|statusDescription|string|No|Descripción del estado.|  
+|statusDescription|string|Sin |Descripción del estado.|  
   
 El cuerpo del mensaje de respuesta debe constar de una sección con el **valor de AMQP** que contiene una asignación con las siguientes entradas:  
   
@@ -247,7 +247,7 @@ El mensaje de solicitud debe incluir las siguientes propiedades de la aplicació
 |Clave|Tipo de valor|Obligatorio|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
 |operación|string|Sí|`com.microsoft:cancel-scheduled-message`|  
-|`com.microsoft:server-timeout`|uint|No|Tiempo de espera de funcionamiento del servidor en milisegundos.|  
+|`com.microsoft:server-timeout`|uint|Sin |Tiempo de espera de funcionamiento del servidor en milisegundos.|  
   
 El cuerpo del mensaje de solicitud debe constar de una sección con el **valor de AMQP** que contiene una **asignación** con las siguientes entradas:  
   
@@ -262,7 +262,7 @@ El mensaje de respuesta debe incluir las siguientes propiedades de la aplicació
 |Clave|Tipo de valor|Obligatorio|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Sí|Código de respuesta HTTP [RFC2616]<br /><br /> 200: operación realizada correctamente; en caso contrario, significa que se ha producido un error.|  
-|statusDescription|string|No|Descripción del estado.|  
+|statusDescription|string|Sin |Descripción del estado.|  
   
 El cuerpo del mensaje de respuesta debe constar de una sección con el **valor de AMQP** que contiene una asignación con las siguientes entradas:  
   
@@ -283,7 +283,7 @@ El mensaje de solicitud debe incluir las siguientes propiedades de la aplicació
 |Clave|Tipo de valor|Obligatorio|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
 |operación|string|Sí|`com.microsoft:renew-session-lock`|  
-|`com.microsoft:server-timeout`|uint|No|Tiempo de espera de funcionamiento del servidor en milisegundos.|  
+|`com.microsoft:server-timeout`|uint|Sin |Tiempo de espera de funcionamiento del servidor en milisegundos.|  
   
 El cuerpo del mensaje de solicitud debe constar de una sección con el **valor de AMQP** que contiene una **asignación** con las siguientes entradas:  
   
@@ -298,7 +298,7 @@ El mensaje de respuesta debe incluir las siguientes propiedades de la aplicació
 |Clave|Tipo de valor|Obligatorio|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Sí|Código de respuesta HTTP [RFC2616]<br /><br /> 200: operación realizada correctamente; hay más mensajes.<br /><br /> 0xCC: sin contenido; no hay más mensajes.|  
-|statusDescription|string|No|Descripción del estado.|  
+|statusDescription|string|Sin |Descripción del estado.|  
   
 El cuerpo del mensaje de respuesta debe constar de una sección con el **valor de AMQP** que contiene una asignación con las siguientes entradas:  
   
@@ -317,7 +317,7 @@ El mensaje de solicitud debe incluir las siguientes propiedades de la aplicació
 |Clave|Tipo de valor|Obligatorio|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
 |operación|string|Sí|`com.microsoft:peek-message`|  
-|`com.microsoft:server-timeout`|uint|No|Tiempo de espera de funcionamiento del servidor en milisegundos.|  
+|`com.microsoft:server-timeout`|uint|Sin |Tiempo de espera de funcionamiento del servidor en milisegundos.|  
   
 El cuerpo del mensaje de solicitud debe constar de una sección con el **valor de AMQP** que contiene una **asignación** con las siguientes entradas:  
   
@@ -334,7 +334,7 @@ El mensaje de respuesta debe incluir las siguientes propiedades de la aplicació
 |Clave|Tipo de valor|Obligatorio|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Sí|Código de respuesta HTTP [RFC2616]<br /><br /> 200: operación realizada correctamente; hay más mensajes.<br /><br /> 0xCC: sin contenido; no hay más mensajes.|  
-|statusDescription|string|No|Descripción del estado.|  
+|statusDescription|string|Sin |Descripción del estado.|  
   
 El cuerpo del mensaje de respuesta debe constar de una sección con el **valor de AMQP** que contiene una asignación con las siguientes entradas:  
   
@@ -359,7 +359,7 @@ El mensaje de solicitud debe incluir las siguientes propiedades de la aplicació
 |Clave|Tipo de valor|Obligatorio|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
 |operación|string|Sí|`com.microsoft:peek-message`|  
-|`com.microsoft:server-timeout`|uint|No|Tiempo de espera de funcionamiento del servidor en milisegundos.|  
+|`com.microsoft:server-timeout`|uint|Sin |Tiempo de espera de funcionamiento del servidor en milisegundos.|  
   
 El cuerpo del mensaje de solicitud debe constar de una sección con el **valor de AMQP** que contiene una **asignación** con las siguientes entradas:  
   
@@ -375,7 +375,7 @@ El mensaje de respuesta debe incluir las siguientes propiedades de la aplicació
 |Clave|Tipo de valor|Obligatorio|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Sí|Código de respuesta HTTP [RFC2616]<br /><br /> 200: operación realizada correctamente; en caso contrario, significa que se ha producido un error.|  
-|statusDescription|string|No|Descripción del estado.|  
+|statusDescription|string|Sin |Descripción del estado.|  
   
 ### <a name="get-session-state"></a>Obtención del estado de sesiones  
 
@@ -388,7 +388,7 @@ El mensaje de solicitud debe incluir las siguientes propiedades de la aplicació
 |Clave|Tipo de valor|Obligatorio|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
 |operación|string|Sí|`com.microsoft:get-session-state`|  
-|`com.microsoft:server-timeout`|uint|No|Tiempo de espera de funcionamiento del servidor en milisegundos.|  
+|`com.microsoft:server-timeout`|uint|Sin |Tiempo de espera de funcionamiento del servidor en milisegundos.|  
   
 El cuerpo del mensaje de solicitud debe constar de una sección con el **valor de AMQP** que contiene una **asignación** con las siguientes entradas:  
   
@@ -403,7 +403,7 @@ El mensaje de respuesta debe incluir las siguientes propiedades de la aplicació
 |Clave|Tipo de valor|Obligatorio|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Sí|Código de respuesta HTTP [RFC2616]<br /><br /> 200: operación realizada correctamente; en caso contrario, significa que se ha producido un error.|  
-|statusDescription|string|No|Descripción del estado.|  
+|statusDescription|string|Sin |Descripción del estado.|  
   
 El cuerpo del mensaje de respuesta debe constar de una sección con el **valor de AMQP** que contiene una **asignación** con las siguientes entradas:  
   
@@ -422,7 +422,7 @@ El mensaje de solicitud debe incluir las siguientes propiedades de la aplicació
 |Clave|Tipo de valor|Obligatorio|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
 |operación|string|Sí|`com.microsoft:get-message-sessions`|  
-|`com.microsoft:server-timeout`|uint|No|Tiempo de espera de funcionamiento del servidor en milisegundos.|  
+|`com.microsoft:server-timeout`|uint|Sin |Tiempo de espera de funcionamiento del servidor en milisegundos.|  
   
 El cuerpo del mensaje de solicitud debe constar de una sección con el **valor de AMQP** que contiene una **asignación** con las siguientes entradas:  
   
@@ -439,7 +439,7 @@ El mensaje de respuesta debe incluir las siguientes propiedades de la aplicació
 |Clave|Tipo de valor|Obligatorio|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Sí|Código de respuesta HTTP [RFC2616]<br /><br /> 200: operación realizada correctamente; hay más mensajes.<br /><br /> 0xCC: sin contenido; no hay más mensajes.|  
-|statusDescription|string|No|Descripción del estado.|  
+|statusDescription|string|Sin |Descripción del estado.|  
   
 El cuerpo del mensaje de respuesta debe constar de una sección con el **valor de AMQP** que contiene una **asignación** con las siguientes entradas:  
   
@@ -459,7 +459,7 @@ El mensaje de solicitud debe incluir las siguientes propiedades de la aplicació
 |Clave|Tipo de valor|Obligatorio|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
 |operación|string|Sí|`com.microsoft:add-rule`|  
-|`com.microsoft:server-timeout`|uint|No|Tiempo de espera de funcionamiento del servidor en milisegundos.|  
+|`com.microsoft:server-timeout`|uint|Sin |Tiempo de espera de funcionamiento del servidor en milisegundos.|  
   
 El cuerpo del mensaje de solicitud debe constar de una sección con el **valor de AMQP** que contiene una **asignación** con las siguientes entradas:  
   
@@ -486,15 +486,15 @@ La asignación **correlation-filter** debe incluir, al menos, una de las siguien
   
 |Clave|Tipo de valor|Obligatorio|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
-|correlation-id|string|No||  
-|message-id|string|No||  
-|to|string|No||  
-|reply-to|string|No||  
-|label|string|No||  
-|session-id|string|No||  
-|reply-to-session-id|string|No||  
-|content-type|string|No||  
-|propiedades|map|No|Se asigna [BrokeredMessage.Properties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Properties) a Service Bus.|  
+|correlation-id|string|Sin ||  
+|message-id|string|Sin ||  
+|to|string|Sin ||  
+|reply-to|string|Sin ||  
+|label|string|Sin ||  
+|session-id|string|Sin ||  
+|reply-to-session-id|string|Sin ||  
+|content-type|string|Sin ||  
+|propiedades|map|Sin |Se asigna [BrokeredMessage.Properties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Properties) a Service Bus.|  
   
 La asignación**sql-rule-action** debe incluir las siguientes entradas:  
   
@@ -509,7 +509,7 @@ El mensaje de respuesta debe incluir las siguientes propiedades de la aplicació
 |Clave|Tipo de valor|Obligatorio|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Sí|Código de respuesta HTTP [RFC2616]<br /><br /> 200: operación realizada correctamente; en caso contrario, significa que se ha producido un error.|  
-|statusDescription|string|No|Descripción del estado.|  
+|statusDescription|string|Sin |Descripción del estado.|  
   
 ### <a name="remove-rule"></a>Eliminación de reglas  
   
@@ -520,7 +520,7 @@ El mensaje de solicitud debe incluir las siguientes propiedades de la aplicació
 |Clave|Tipo de valor|Obligatorio|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
 |operación|string|Sí|`com.microsoft:remove-rule`|  
-|`com.microsoft:server-timeout`|uint|No|Tiempo de espera de funcionamiento del servidor en milisegundos.|  
+|`com.microsoft:server-timeout`|uint|Sin |Tiempo de espera de funcionamiento del servidor en milisegundos.|  
   
 El cuerpo del mensaje de solicitud debe constar de una sección con el **valor de AMQP** que contiene una **asignación** con las siguientes entradas:  
   
@@ -535,7 +535,7 @@ El mensaje de respuesta debe incluir las siguientes propiedades de la aplicació
 |Clave|Tipo de valor|Obligatorio|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Sí|Código de respuesta HTTP [RFC2616]<br /><br /> 200: operación realizada correctamente; en caso contrario, significa que se ha producido un error.|  
-|statusDescription|string|No|Descripción del estado.|  
+|statusDescription|string|Sin |Descripción del estado.|  
   
 ## <a name="deferred-message-operations"></a>Operaciones de mensajes diferidos  
   
@@ -550,7 +550,7 @@ El mensaje de solicitud debe incluir las siguientes propiedades de la aplicació
 |Clave|Tipo de valor|Obligatorio|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
 |operación|string|Sí|`com.microsoft:receive-by-sequence-number`|  
-|`com.microsoft:server-timeout`|uint|No|Tiempo de espera de funcionamiento del servidor en milisegundos.|  
+|`com.microsoft:server-timeout`|uint|Sin |Tiempo de espera de funcionamiento del servidor en milisegundos.|  
   
 El cuerpo del mensaje de solicitud debe constar de una sección con el **valor de AMQP** que contiene una **asignación** con las siguientes entradas:  
   
@@ -566,7 +566,7 @@ El mensaje de respuesta debe incluir las siguientes propiedades de la aplicació
 |Clave|Tipo de valor|Obligatorio|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Sí|Código de respuesta HTTP [RFC2616]<br /><br /> 200: operación realizada correctamente; en caso contrario, significa que se ha producido un error.|  
-|statusDescription|string|No|Descripción del estado.|  
+|statusDescription|string|Sin |Descripción del estado.|  
   
 El cuerpo del mensaje de respuesta debe constar de una sección con el **valor de AMQP** que contiene una **asignación** con las siguientes entradas:  
   
@@ -592,7 +592,7 @@ El mensaje de solicitud debe incluir las siguientes propiedades de la aplicació
 |Clave|Tipo de valor|Obligatorio|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
 |operación|string|Sí|`com.microsoft:update-disposition`|  
-|`com.microsoft:server-timeout`|uint|No|Tiempo de espera de funcionamiento del servidor en milisegundos.|  
+|`com.microsoft:server-timeout`|uint|Sin |Tiempo de espera de funcionamiento del servidor en milisegundos.|  
   
 El cuerpo del mensaje de solicitud debe constar de una sección con el **valor de AMQP** que contiene una **asignación** con las siguientes entradas:  
   
@@ -600,9 +600,9 @@ El cuerpo del mensaje de solicitud debe constar de una sección con el **valor d
 |---------|----------------|--------------|--------------------|  
 |disposition-status|string|Sí|completed<br /><br /> abandoned<br /><br /> suspended|  
 |lock-tokens|Matriz de UUID|Sí|Tokens de bloqueo de mensajes para actualizar el estado de disposición.|  
-|deadletter-reason|string|No|Puede establecerse si el estado de disposición es **suspended**.|  
-|deadletter-description|string|No|Puede establecerse si el estado de disposición es **suspended**.|  
-|properties-to-modify|map|No|Lista de propiedades de mensajes asincrónicos de Service Bus que se van a modificar.|  
+|deadletter-reason|string|Sin |Puede establecerse si el estado de disposición es **suspended**.|  
+|deadletter-description|string|Sin |Puede establecerse si el estado de disposición es **suspended**.|  
+|properties-to-modify|map|Sin |Lista de propiedades de mensajes asincrónicos de Service Bus que se van a modificar.|  
   
 #### <a name="response"></a>Response  
 
@@ -611,9 +611,9 @@ El mensaje de respuesta debe incluir las siguientes propiedades de la aplicació
 |Clave|Tipo de valor|Obligatorio|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Sí|Código de respuesta HTTP [RFC2616]<br /><br /> 200: operación realizada correctamente; en caso contrario, significa que se ha producido un error.|  
-|statusDescription|string|No|Descripción del estado.|
+|statusDescription|string|Sin |Descripción del estado.|
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para obtener más información sobre AMQP y Service Bus, visite los siguientes vínculos:
 

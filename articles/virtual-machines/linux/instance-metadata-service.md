@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 40b684fe5681123f3c32d3984b2725f97b427f1b
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 9222fcebd51ff13e797f40f3fdb0ddaa955d2611
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Servicio de metadatos de instancia de Azure
 
@@ -302,7 +302,7 @@ subnet/address | Dirección de subred de la máquina virtual | 2017-04-02
 subnet/prefix | Prefijo de la subred, ejemplo, 24 | 2017-04-02 
 ipv6/ipAddress | Dirección IPv6 local de la máquina virtual | 2017-04-02 
 macAddress | Dirección de MAC de la VM | 2017-04-02 
-scheduledevents | Actualmente en Versión preliminar pública Vea [scheduledevents](scheduled-events.md) | 2017-03-01
+scheduledevents | Consulte [scheduledevents](scheduled-events.md). | 2017-03-01
 
 ## <a name="example-scenarios-for-usage"></a>Escenarios de ejemplo de uso  
 
@@ -411,4 +411,4 @@ Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
     
 ## <a name="next-steps"></a>pasos siguientes
 
-- Más información sobre la API [Scheduled Events](scheduled-events.md) **en versión preliminar pública** proporcionada por el servicio de metadatos de instancia.
+- Más información sobre los [programado eventos](scheduled-events.md).

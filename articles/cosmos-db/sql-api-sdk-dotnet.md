@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 02/21/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 796a455ffb906a47ab4ac9ae069537b0d7a31156
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: b9e81bbff7c09f3bfb60fcdeda5cd3c8faf23adc
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>API de SQL para el SDK de .NET para Azure Cosmos DB: descarga y notas de la versión
 > [!div class="op_single_selector"]
@@ -53,6 +53,10 @@ ms.lasthandoff: 02/13/2018
 </table></br>
 
 ## <a name="release-notes"></a>Notas de la versión
+### <a name="a-name12021202"></a><a name="1.20.2"/>1.20.2
+
+* Se ha corregido el error que se producía en ciertas condiciones de carrera, que daba como resultado errores intermitentes "Microsoft.Azure.Documents.NotFoundException: la sesión de lectura no está disponible para el token de sesión de entrada" cuando se utilizaba el nivel de coherencia de sesión.
+
 ### <a name="a-name12011201"></a><a name="1.20.1"/>1.20.1
 
 * Se ha corregido la regresión en la que FeedOptions.MaxItemCount = -1 produjo una excepción System.ArithmeticException: el tamaño de la página es negativo.
@@ -285,6 +289,7 @@ El servicio rechaza cualquier solicitud realizada a Azure Cosmos DB mediante un 
 
 | Versión | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
+| [1.20.2](#1.20.2) |21 de febrero de 2018 |--- |
 | [1.20.1](#1.20.1) |5 de febrero de 2018 |--- |
 | [1.19.1](#1.19.1) |16 de noviembre de 2017 |--- |
 | [1.19.0](#1.19.0) |10 de noviembre de 2017 |--- |
