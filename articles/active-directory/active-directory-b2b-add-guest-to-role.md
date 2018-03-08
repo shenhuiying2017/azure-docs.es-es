@@ -3,7 +3,7 @@ title: "Adición de un usuario de colaboración B2B de Azure Active Directory a 
 description: "Adición de un usuario invitado a un rol en Azure Active Directory"
 services: active-directory
 documentationcenter: 
-author: sasubram
+author: twooley
 manager: mtillman
 editor: 
 tags: 
@@ -14,13 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 03/15/2017
-ms.author: sasubram
+ms.author: twooley
+ms.reviewer: sasubram
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 63281ed7e5560d82ce33648aa626a9566346be2a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b788b003299ff11bcbdcb11a2c7a21ac5081d634
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="grant-permissions-to-users-from-partner-organizations-in-your-azure-active-directory-tenant"></a>Conceda permisos a los usuarios de organizaciones asociadas en el inquilino de Azure Active Directory
 

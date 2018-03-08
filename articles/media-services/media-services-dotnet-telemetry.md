@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 1f8e22dc5e277407860b7ed31409caed15be59cb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 362773bbefa754fc90aa4dbd471889245b4b6cf5
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="configuring-azure-media-services-telemetry-with-net"></a>Configuración de la telemetría de Azure Media Services con .NET
 
@@ -31,7 +31,7 @@ Puede utilizar los datos de telemetría de una de las maneras siguientes:
 
 - Leer datos directamente desde Azure Table Storage (por ejemplo, mediante el SDK de Storage). Para obtener la descripción de las tablas de almacenamiento de telemetría, consulte la sección sobre el **uso de información de telemetría** de [este](https://msdn.microsoft.com/library/mt742089.aspx) artículo.
 
-O
+o
 
 - Aproveche la compatibilidad del SDK de .NET de Media Services para leer los datos de almacenamiento. En este ar se muestra cómo habilitar la telemetría de la cuenta de AMS especificada y cómo consultar las métricas usando el SDK de .NET de Azure Media Services.  
 
@@ -40,23 +40,27 @@ O
 Para habilitar la telemetría es necesario realizar los pasos siguientes:
 
 - Obtener las credenciales de la cuenta de almacenamiento vinculada a la cuenta de Media Services. 
-- Crear un punto de conexión de notificación con **EndPointType** establecido en **AzureTable** y endPointAddress apuntando a la tabla de almacenamiento.
+- Cree un punto de conexión de notificación con **EndPointType** establecido en **AzureTable** y endPointAddress apuntando a la tabla de almacenamiento.
 
+```csharp
         INotificationEndPoint notificationEndPoint = 
                       _context.NotificationEndPoints.Create("monitoring", 
                       NotificationEndPointType.AzureTable,
                       "https://" + _mediaServicesStorageAccountName + ".table.core.windows.net/");
+```
 
 - Crear unos valores de configuración de supervisión para los servicios que desea supervisar. No se permite más que una configuración de supervisión. 
-  
+
+```csharp
         IMonitoringConfiguration monitoringConfiguration = _context.MonitoringConfigurations.Create(notificationEndPoint.Id,
             new List<ComponentMonitoringSetting>()
             {
                 new ComponentMonitoringSetting(MonitoringComponent.Channel, MonitoringLevel.Normal),
                 new ComponentMonitoringSetting(MonitoringComponent.StreamingEndpoint, MonitoringLevel.Normal)
             });
+```
 
-## <a name="consuming-telemetry-information"></a>Uso de información de telemetría
+## <a name="consuming-telemetry-information"></a>uso de información de telemetría
 
 Para obtener información sobre el consumo de la información de telemetría, consulte [este](media-services-telemetry-overview.md) artículo.
 
@@ -66,13 +70,15 @@ Para obtener información sobre el consumo de la información de telemetría, co
 
 2. Agregue los siguientes elementos al elemento **appSettings** definido en el archivo app.config:
 
-    <add key="StorageAccountName" value="storage_name" />
+    ```xml
+        <add key="StorageAccountName" value="storage_name" />
+    ```
  
 ## <a name="example"></a>Ejemplo  
     
 El ejemplo siguiente muestra cómo habilitar la telemetría de la cuenta de AMS especifica y cómo consultar las métricas usando el SDK de .NET de Azure Media Services.  
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Configuration;

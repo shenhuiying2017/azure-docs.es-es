@@ -4,7 +4,7 @@ description: "Aprenda a agregar interfaces de red a máquinas virtuales o a elim
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: jdial
-ms.openlocfilehash: 30e6950a976307023bd5232fa1c1f1342c1d012b
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: bb21690865cd9384fe3d3c82e60f11e0fc64114c
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="add-network-interfaces-to-or-remove-network-interfaces-from-virtual-machines"></a>Incorporación de interfaces de red a máquinas virtuales o su eliminación de ellas
 
@@ -29,12 +29,12 @@ Si tiene que agregar, cambiar o quitar direcciones IP para una interfaz de red, 
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Antes de realizar los pasos de las secciones de este artículo, complete las tareas siguientes:
+Complete las tareas siguientes antes de seguir los pasos de las secciones de este artículo:
 
-- Inicie sesión en [Azure Portal](https://portal.azure.com), la CLI de Azure o Azure PowerShell con una cuenta de Azure. Si aún no tiene una cuenta de Azure, regístrese para obtener una [evaluación gratuita](https://azure.microsoft.com/free).
-- Si usa comandos de PowerShell para completar las tareas de este artículo, [instale y configure Azure PowerShell](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json). Asegúrese de que tiene instalada la versión más reciente de los cmdlets de Azure PowerShell. Para obtener ayuda con los comandos de PowerShell, con ejemplos, escriba `get-help <command> -full`. 
-- Como alternativa, puede usar Azure Cloud Shell. Azure Cloud Shell es una instancia de PowerShell gratuita que se ejecuta directamente en Azure Portal. Tiene preinstalado y configurado PowerShell para usarlo con su cuenta. Para usar esta opción, seleccione el botón **>_** de Cloud Shell en la parte superior del [portal](https://portal.azure.com) y seleccione PowerShell en la esquina superior izquierda.
-- Si usa comandos de la CLI de Azure para realizar las tareas de este artículo, [instale y configure la CLI de Azure](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Asegúrese de tener instalada la versión más reciente de la CLI de Azure. Para obtener ayuda con los comandos de la CLI, escriba `az <command> --help`. 
+- Si todavía no tiene una cuenta de Azure, regístrese para obtener una [cuenta de evaluación gratuita](https://azure.microsoft.com/free).
+- Si usa el portal, abra https://portal.azure.com e inicie sesión con la cuenta de Azure.
+- Si usa comandos de PowerShell para completar las tareas de este artículo, ejecute los comandos que se encuentran en [Azure Cloud Shell](https://shell.azure.com/powershell) o ejecute PowerShell en el equipo. Azure Cloud Shell es un shell interactivo gratuito que puede usar para ejecutar los pasos de este artículo. Tiene las herramientas comunes de Azure preinstaladas y configuradas para usarlas en la cuenta. Para realizar este tutorial es necesaria la versión 5.2.0 del módulo de Azure PowerShell, o cualquier versión posterior. Ejecute `Get-Module -ListAvailable AzureRM` para buscar la versión instalada. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Login-AzureRmAccount` para crear una conexión con Azure.
+- Si usa la interfaz de la línea de comandos (CLI) de Azure para completar las tareas de este artículo, ejecute los comandos que se encuentran en [Azure Cloud Shell](https://shell.azure.com/bash) o ejecute la CLI en el equipo. Para realizar este tutorial es necesaria la versión 2.0.26 o superior de la CLI de Azure. Ejecute `az --version` para buscar la versión instalada. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0](/cli/azure/install-azure-cli). Si ejecuta de forma local la CLI de Azure, también debe ejecutar `az login` para crear una conexión con Azure.
 
 ## <a name="add-existing-network-interfaces-to-a-new-vm"></a>Adición de interfaces de red existentes a una nueva máquina virtual
 
@@ -121,7 +121,7 @@ Puede ver las interfaces de red asociadas actualmente a una máquina virtual par
 - Si una interfaz de red tiene una dirección IPv6 privada asignada, debe agregarla (asociarla) a una máquina virtual en el momento que se cree. Después de crear la máquina virtual, no se podrá agregar una interfaz de red con una dirección IPv6 asignada. Si agrega una interfaz de red con una dirección IPv6 privada asignada al crear una máquina virtual, solo se puede agregar esa interfaz de red a la máquina virtual, independientemente de cuántas interfaces de red admita el tamaño de la máquina virtual. Consulte [Administración de direcciones IP de interfaz de red](virtual-network-network-interface-addresses.md) para más información sobre la asignación de direcciones IP a interfaces de red.
 - De manera similar a IPv6, después de crear una máquina virtual no se le puede asociar una interfaz de red con redes aceleradas habilitadas. Además, para aprovechar las redes aceleradas, también debe completar pasos dentro del sistema operativo de la máquina virtual. Aprenda más sobre las redes aceleradas y otras restricciones cuando la use, en [Windows](create-vm-accelerated-networking-powershell.md) o [Linux](create-vm-accelerated-networking-cli.md).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para crear una máquina virtual con varias interfaces de red o direcciones IP, lea los siguientes artículos:
 
 ### <a name="commands"></a>Comandos:

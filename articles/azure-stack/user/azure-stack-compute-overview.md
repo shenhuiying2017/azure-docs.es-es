@@ -2,27 +2,28 @@
 title: "Introducción a máquinas virtuales de Azure Stack"
 description: "Más información sobre máquinas virtuales de Azure Stack"
 services: azure-stack
-author: anjayajodha
+author: mattbriggs
+manager: femila
 ms.service: azure-stack
 ms.topic: get-started-article
-ms.date: 9/25/2017
-ms.author: victorh
-ms.openlocfilehash: c37ad8ac5b6c37261e22237e843dd97e2bbd09f9
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.date: 02/28/2018
+ms.author: mabrigg
+ms.openlocfilehash: 2453f2449124cb4956797e0d9748f1ee3bf0d9ad
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="introduction-to-azure-stack-virtual-machines"></a>Introducción a máquinas virtuales de Azure Stack
 
-*Se aplica a: Sistemas integrados de Azure Stack y Azure Stack Development Kit*
+*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 ## <a name="overview"></a>Información general
 Una máquina virtual de Azure Stack es un tipo de recurso informático escalable y a petición que ofrece Azure Stack. Por lo general, elegirá una máquina virtual cuando necesite más control sobre su entorno informático del que ofrecen las otras opciones. En este artículo se proporciona información sobre lo que debe considerar antes de crear una máquina virtual, cómo crearla y cómo administrarla.
 
 Una máquina virtual de Azure Stack le da la flexibilidad de virtualización sin necesidad de administrar máquinas o clústeres individuales. Sin embargo, aún necesita mantener la máquina virtual con tareas como configurar, aplicar revisiones e instalar el software que se ejecuta en ella.
 
-Las máquinas virtuales de Azure Stack pueden usarse de diversas maneras. Por ejemplo:
+Las máquinas virtuales de Azure Stack pueden usarse de diversas maneras. Por ejemplo: 
 
 * **Desarrollo y pruebas**: las máquinas virtuales de Azure Stack ofrecen una manera rápida y sencilla de crear un equipo con configuraciones específicas necesarias para codificar y probar una aplicación.
 
@@ -65,7 +66,7 @@ Azure Stack proporciona un Marketplace para usar con diversas versiones y tipos 
 En la tabla siguiente se muestran algunas maneras de encontrar la información sobre una imagen:
 
 
-|Método|Descripción|
+|Método|DESCRIPCIÓN|
 |---------|---------|
 |Portal de Azure Stack|Los valores se especifican automáticamente cuando se selecciona una imagen para usarla.|
 |PowerShell de Azure Stack|`Get-AzureRMVMImagePublisher -Location "location"`<br>`Get-AzureRMVMImageOffer -Location "location" -Publisher "publisherName"`<br>`Get-AzureRMVMImageSku -Location "location" -Publisher "publisherName" -Offer "offerName"`|
@@ -87,14 +88,14 @@ Pueden llevarse a cabo estas tareas comunes mediante las extensiones:
 Los recursos de la tabla siguiente se usan en la máquina virtual y deben ya existir o crearse al tiempo que la máquina virtual.
 
 
-|Recurso|Obligatorio|Descripción|
+|Recurso|Obligatorio|DESCRIPCIÓN|
 |---------|---------|---------|
 |Grupos de recursos|Sí|La máquina virtual debe encontrarse en un grupo de recursos.|
 |Cuenta de almacenamiento|Sí|La máquina virtual necesita la cuenta de almacenamiento para almacenar sus discos duros virtuales.|
 |Red virtual|Sí|La máquina virtual debe ser miembro de una red virtual.|
-|Dirección IP pública|No|La máquina virtual puede tener una dirección IP pública asignada para acceder remotamente a ella.|
-|Interfaz de red|Sí|La máquina virtual necesita la interfaz de red para comunicarse en la red.|
-|Discos de datos|No|La máquina virtual puede incluir discos de datos para ampliar las funcionalidades de almacenamiento.|
+|Dirección IP pública|Sin |La máquina virtual puede tener una dirección IP pública asignada para acceder remotamente a ella.|
+|interfaz de red|Sí|La máquina virtual necesita la interfaz de red para comunicarse en la red.|
+|Discos de datos|Sin |La máquina virtual puede incluir discos de datos para ampliar las funcionalidades de almacenamiento.|
 
 ## <a name="how-do-i-create-my-first-vm"></a>¿Cómo se crea la primera máquina virtual?
 
@@ -118,7 +119,7 @@ Las máquinas virtuales pueden administrarse mediante un portal basado en el exp
 En la tabla siguiente se muestran algunas maneras en que puede obtener información sobre una máquina virtual.
 
 
-|Método|Descripción|
+|Método|DESCRIPCIÓN|
 |---------|---------|
 |Portal de Azure Stack|En el menú del concentrador, haga clic en Máquinas virtuales y seleccione la máquina virtual en la lista. En la página de la máquina virtual, puede ver información general, establecer valores y supervisar métricas.|
 |Azure PowerShell|La administración de las máquinas virtuales es similar en Azure y Azure Stack. Para más información sobre el uso de PowerShell, consulte el siguiente tema de Azure:<br>[Creación y administración de máquinas virtuales Windows con el módulo de Azure PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes)|

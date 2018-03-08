@@ -3,25 +3,25 @@ title: "Creación de una entidad de servicio de Azure Stack | Microsoft Docs"
 description: "Describe cómo crear una nueva entidad de servicio que puede usarse con el control de acceso basado en roles en Azure Resource Manager para administrar el acceso a los recursos."
 services: azure-resource-manager
 documentationcenter: na
-author: heathl17
-manager: byronr
+author: mattbriggs
+manager: femila
 ms.assetid: 7068617b-ac5e-47b3-a1de-a18c918297b6
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/17/2017
-ms.author: helaw
-ms.openlocfilehash: 96d5cdfc28759fd516eab5fd97c6cf444af08cf6
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.date: 02/25/2018
+ms.author: mabrigg
+ms.openlocfilehash: 64c424ee7045ae20b3fba6433166039580387d76
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Proporcionar a las aplicaciones acceso a Azure Stack
 
-*Se aplica a: Sistemas integrados de Azure Stack y Azure Stack Development Kit*
+*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 Cuando una aplicación necesite acceso para implementar o configurar recursos a través de Azure Resource Manager en Azure Stack, cree una entidad de servicio, que es una credencial para la aplicación.  A continuación, puede delegar únicamente los permisos necesarios para esa entidad de servicio.  
 
@@ -83,9 +83,9 @@ Requisitos:
 Se requiere la siguiente información como entrada para los parámetros de automatización:
 
 
-|Parámetro|Description|Ejemplo|
+|.|DESCRIPCIÓN|Ejemplo|
 |---------|---------|---------|
-|Nombre|Nombre de la cuenta SPN|MyAPP|
+|NOMBRE|Nombre de la cuenta SPN|MyAPP|
 |ClientCertificates|Matriz de objetos de certificado|Certificado X509|
 |ClientRedirectUris<br>(Opcional)|URI de redireccionamiento de aplicación|         |
 
@@ -111,7 +111,7 @@ Se requiere la siguiente información como entrada para los parámetros de autom
 
 2. Una vez finalizada la automatización, esta muestra los detalles necesarios para usar el SPN. 
 
-   Por ejemplo:
+   Por ejemplo: 
 
    ```
    ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356

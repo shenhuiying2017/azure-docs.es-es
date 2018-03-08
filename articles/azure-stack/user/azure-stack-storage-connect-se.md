@@ -3,26 +3,25 @@ title: "Conexión del Explorador de Storage a una suscripción de Azure Stack"
 description: "Aprenda a conectar el Explorador de Storage a una suscripción de Azure Stack"
 services: azure-stack
 documentationcenter: 
-author: xiaofmao
-manager: 
-editor: 
+author: mattbriggs
+manager: femila
 ms.assetid: 
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 9/25/2017
+ms.date: 02/28/2018
 ms.author: xiaofmao
-ms.openlocfilehash: c7e6d70148d39fd74f6409a0a239833f8e9f7614
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: bad4b6b0d829fb68dc25e84406a453071a36476a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription"></a>Conexión del Explorador de Storage a una suscripción de Azure Stack
 
-*Se aplica a: Sistemas integrados de Azure Stack y Azure Stack Development Kit*
+*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 El Explorador de Azure Storage (versión preliminar) es una aplicación independiente que permite trabajar fácilmente con datos de Azure Stack Storage en Windows, macOS y Linux. Hay varias herramientas disponibles para mover datos hacia Azure Stack Storage y desde este. Para más información, consulte [Herramientas de transferencia de datos de Azure Stack Storage](azure-stack-storage-transfer.md).
 
@@ -36,7 +35,7 @@ Después de conectarse a su suscripción de Azure Stack, puede usar los [artícu
 
 Necesita acceder al escritorio de la máquina del host de Azure Stack o una conexión VPN para que el Explorador de Storage pueda acceder de forma remota a la suscripción de Azure Stack. Para más información sobre cómo configurar una conexión VPN a Azure Stack, consulte [Conexión a Azure Stack con VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn).
 
-Para Azure Stack Development Kit, debe exportar el certificado raíz de la entidad de certificación de Azure Stack.
+Para el Kit de desarrollo de Azure Stack, debe exportar el certificado raíz de la entidad de certificación de Azure Stack.
 
 ### <a name="to-export-and-then-import-the-azure-stack-certificate"></a>Exportación y posterior importación del certificado de Azure Stack
 

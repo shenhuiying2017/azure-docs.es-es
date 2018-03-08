@@ -3,26 +3,25 @@ title: "Introducción a Azure Stack Storage"
 description: "Más información acerca de Azure Stack Storage"
 services: azure-stack
 documentationcenter: 
-author: xiaofmao
-manager: 
-editor: 
+author: mattbriggs
+manager: femila
 ms.assetid: 092aba28-04bc-44c0-90e1-e79d82f4ff42
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 9/25/2017
-ms.author: xiaofmao
-ms.openlocfilehash: 8777aa486a627cf8b2d8ba443e115638354d10da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/29/2018
+ms.author: mabrigg
+ms.openlocfilehash: dbc2ffb7540feb91b14c3d502e7f4007a0751ebd
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="introduction-to-azure-stack-storage"></a>Introducción a Azure Stack Storage
 
-*Se aplica a: Sistemas integrados de Azure Stack y Azure Stack Development Kit*
+*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 ## <a name="overview"></a>Información general
 Azure Stack Storage es un conjunto de servicios de almacenamiento en la nube que incluyen blobs, tablas y colas que son coherentes con los servicios de Azure Storage.
@@ -75,7 +74,7 @@ A menudo, las aplicaciones modernas demandan almacenes de datos con una flexibil
 
 Este tipo de almacenamiento se basa en un almacén de clave-atributo, lo que significa que cada valor de una tabla se almacena con un nombre de propiedad tipado. El nombre de propiedad se puede usar para filtrar y especificar criterios de selección. Una colección de propiedades y sus valores, componen una entidad. Puesto que este tipo de almacenamiento no tiene esquema, dos entidades de una misma tabla pueden contener distintas colecciones de propiedades y dichas propiedades pueden ser de distintos tipos.
 
-El almacenamiento de tablas se puede usar para almacenar conjuntos de datos flexibles, como datos de usuarios para aplicaciones web, libretas de direcciones, información de dispositivos y cualquier otro tipo de metadatos requerido por el servicio. Para las aplicaciones actuales basadas en Internet, las bases de datos NoSQL, como las de Table Storage, ofrecen una alternativa popular a las bases de datos relacionales tradicionales.
+Table Storage se puede usar para almacenar conjuntos de datos flexibles, como datos de usuarios para aplicaciones web, libretas de direcciones, información de dispositivos y cualquier otro tipo de metadatos requerido por el servicio. Para las aplicaciones actuales basadas en Internet, las bases de datos NoSQL, como las de Table Storage, ofrecen una alternativa popular a las bases de datos relacionales tradicionales.
 
 Una cuenta de almacenamiento puede contener un número cualquiera de tablas y una tabla puede incluir un número cualquiera de entidades, hasta alcanzar el límite de capacidad de este tipo de cuenta.
 

@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: bb8ad6d9defcbaef255065b20a9a9b542e74d73d
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 975069dbe9283c98482d7d0d5741a595ef323b35
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>Implementación de un clúster de Azure Container Service (AKS)
 
@@ -49,59 +49,6 @@ az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 
 ```
 
 Después de varios minutos, la implementación se completa y devuelve información en formato json sobre la implementación de AKS.
-
-```azurecli
-{
-  "additionalProperties": {},
-  "agentPoolProfiles": [
-    {
-      "additionalProperties": {},
-      "count": 1,
-      "dnsPrefix": null,
-      "fqdn": null,
-      "name": "nodepool1",
-      "osDiskSizeGb": null,
-      "osType": "Linux",
-      "ports": null,
-      "storageProfile": "ManagedDisks",
-      "vmSize": "Standard_DS1_v2",
-      "vnetSubnetId": null
-    }
-    ...
-```
-
-## <a name="getting-information-about-your-cluster"></a>Obtención de información sobre el clúster
-
-Una vez que se ha implementado el clúster, podrá utilizar `az aks show` para consultar el clúster y recuperar información importante. Estos datos se pueden utilizar como un parámetro al realizar operaciones más complejas en el clúster. Por ejemplo, si desea obtener información sobre el perfil de Linux que se ejecuta en el clúster, puede ejecutar el siguiente comando.
-
-```azurecli
-az aks show --name myAKSCluster --resource-group myResourceGroup --query "linuxProfile"
-
-{
-  "additionalProperties": {},
-  "adminUsername": "azureuser",
-  "ssh": {
-    "additionalProperties": {},
-    "publicKeys": [
-      {
-        "additionalProperties": {},
-        "keyData": "ssh-rsa AAAAB3NzaC1yc2EAAAADA...
-      }
-    ]
-  }
-}
-```
-
-Esto mostrará información sobre el usuario administrador y las claves públicas de SSH. También puede ejecutar consultas más detalladas mediante la anexión de propiedades JSON a la cadena de consulta, como se indica a continuación.
-
-```azurecli
-az aks show -n myakscluster  -g my-group --query "{name:agentPoolProfiles[0].name, nodeCount:agentPoolProfiles[0].count}"
-{
-  "name": "nodepool1",
-  "nodeCount": 1
-}
-```
-Esto puede resultar útil para acceder rápidamente a los datos sobre el clúster implementado. Obtenga [aquí](http://jmespath.org/tutorial.html) más información sobre las consultas de JMESPath.
 
 ## <a name="install-the-kubectl-cli"></a>Instalación de la CLI de kubectl
 
@@ -143,22 +90,22 @@ La autenticación debe configurarse entre el clúster de AKS y el registro de AC
 En primer lugar, obtenga el identificador de la entidad de servicio configurado para AKS. Actualice el nombre del grupo de recursos y el nombre del clúster de AKS para que coincida con su entorno.
 
 ```azurecli
-$CLIENT_ID = $(az aks show --resource-group myResourceGroup --name myAKSCluster --query "servicePrincipalProfile.clientId" --output tsv)
+CLIENT_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query "servicePrincipalProfile.clientId" --output tsv)
 ```
 
 Obtenga el identificador del recurso del registro de ACR. Actualice el nombre de registro con el del registro de ACR y el grupo de recursos con el grupo de recursos donde se encuentra el registro de ACR.
 
 ```azurecli
-$ACR_ID = $(az acr show --name myACRRegistry --resource-group myResourceGroup --query "id" --output tsv)
+ACR_ID=$(az acr show --name myACRRegistry --resource-group myResourceGroup --query "id" --output tsv)
 ```
 
 Cree la asignación de roles, que concede el acceso adecuado.
 
 ```azurecli
-az role assignment create --assignee $CLIENT_ID --role Contributor --scope $ACR_ID
+az role assignment create --assignee $CLIENT_ID --role Reader --scope $ACR_ID
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, se implementó un clúster de Kubernetes en AKS. Se han completado los siguientes pasos:
 

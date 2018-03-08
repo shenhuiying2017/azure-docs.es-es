@@ -3,7 +3,7 @@ title: "Propiedades de un usuario de colaboración B2B de Azure Active Directory
 description: "Las propiedades de un usuario de colaboración B2B de Azure Active Directory son configurables."
 services: active-directory
 documentationcenter: 
-author: sasubram
+author: twooley
 manager: mtillman
 editor: 
 tags: 
@@ -14,12 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/25/2017
-ms.author: sasubram
-ms.openlocfilehash: f7cf0451147adf539fd11753c41b1f08c442e527
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: twooley
+ms.reviewer: sasubram
+ms.openlocfilehash: 7e1eb709124262d55fc4c6a5bfd8c1ccb33fa8bb
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Propiedades de un usuario de colaboración B2B de Azure Active Directory
 
@@ -58,7 +59,7 @@ Esta propiedad indica la relación del usuario con el espacio host. Esta propied
   > [!NOTE]
   > UserType no tiene relación alguna con la forma en que el usuario inicia sesión, el rol de directorio del usuario, etc. Esta propiedad simplemente indica la relación del usuario con la organización host y permite a la organización exigir directivas que dependan de esta propiedad.
 
-### <a name="source"></a>Source
+### <a name="source"></a>Origen
 Esta propiedad indica la forma en que el usuario inicia sesión.
 
 - Invited User: este usuario ha recibido la invitación, pero aún no la ha canjeado.

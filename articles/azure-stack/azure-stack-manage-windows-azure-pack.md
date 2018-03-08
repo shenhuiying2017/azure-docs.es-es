@@ -3,8 +3,8 @@ title: "Administrar máquinas virtuales de Windows Azure Pack desde Azure Stack 
 description: "Aprenda cómo administrar las máquinas virtuales de Windows Azure Pack (WAP) desde el portal de usuarios en Azure Stack."
 services: azure-stack
 documentationcenter: 
-author: walterov
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: 213c2792-d404-4b44-8340-235adf3f8f0b
 ms.service: azure-stack
@@ -12,19 +12,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: walterov
-ms.openlocfilehash: b07a18055d149e20cd605a892063eccecf3df8a4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/28/2018
+ms.author: mabrigg
+ms.openlocfilehash: a7e4896c84938b392a86f4d9609c4932324c785d
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="manage-windows-azure-pack-virtual-machines-from-azure-stack"></a>Administrar máquinas virtuales de Windows Azure Pack desde Azure Stack
 
-*Se aplica a: Azure Stack Development Kit*
+*Se aplica a: Kit de desarrollo de Azure Stack*
 
-En Azure Stack Development Kit, puede habilitar el acceso desde el portal de usuarios de Azure Stack a las máquinas virtuales de inquilinos que se ejecutan en Windows Azure Pack. Los usuarios pueden usar el portal de Azure Stack para administrar sus máquinas virtuales y redes virtuales IaaS existentes. Estos recursos están disponibles en Windows Azure Pack a través de los componentes subyacentes Service Provider Foundation (SPF) y Virtual Machine Manager (VMM). En concreto, los usuarios pueden:
+En el Kit de desarrollo de Azure Stack, puede habilitar el acceso desde el portal de usuarios de Azure Stack a las máquinas virtuales de inquilinos que se ejecutan en Windows Azure Pack. Los usuarios pueden usar el portal de Azure Stack para administrar sus máquinas virtuales y redes virtuales IaaS existentes. Estos recursos están disponibles en Windows Azure Pack a través de los componentes subyacentes Service Provider Foundation (SPF) y Virtual Machine Manager (VMM). En concreto, los usuarios pueden:
 
 * Examinar los recursos.
 * Examinar los valores de configuración.
@@ -44,7 +44,7 @@ Para esta versión preliminar del conector, tenga en cuenta lo siguiente:
 * Para revisar los problemas conocidos, consulte [Microsoft Azure Stack troubleshooting](azure-stack-troubleshooting.md) (Solución de problemas de Microsoft Azure Stack).
 
 
-## <a name="architecture"></a>Arquitectura
+## <a name="architecture"></a>Architecture
 En el siguiente diagrama se muestran los componentes principales del conector de Windows Azure Pack.
 
 ![Componentes del conector de Windows Azure Pack](media/azure-stack-manage-wap/image1.png)
@@ -65,7 +65,7 @@ Cuando un usuario realiza una acción a través del portal de Azure Stack dirigi
 
 En el entorno del kit de desarrollo, Windows Azure Pack y Azure Stack tienen proveedores de identidad independientes. Los usuarios que tienen acceso a ambos entornos del portal de Azure Stack deben tener el mismo nombre principal de usuario (UPN) en ambos proveedores de identidades. Por ejemplo, la cuenta *azurestackadmin@azurestack.local* también debe existir en el STS de Windows Azure Pack. Si AD FS no está configurado para admitir las relaciones de confianza saliente, se establecerá la confianza de los componentes de Windows Azure Pack (API de inquilino) a la instancia de Azure Stack de AD FS.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 ### <a name="download-the-windows-azure-pack-connector"></a>Descargar el conector de Windows Azure Pack
 En el [Centro de descarga de Microsoft](https://aka.ms/wapconnectorazurestackdlc), descargue el archivo .exe y extráigalo en el equipo local. Luego, copie el contenido en un equipo que pueda acceder a su entorno de Windows Azure Pack.
@@ -93,7 +93,7 @@ Antes de configurar el conector de Windows Azure Pack, debe habilitar el modo de
 Para habilitar el modo de varias nubes, debe ejecutar el script Add-AzurePackConnector.ps1 después de la implementación de Azure Stack. En la siguiente tabla se describen los parámetros del script.
 
 
-|  Parámetro | Description | Ejemplo |   
+|  . | DESCRIPCIÓN | Ejemplo |   
 | -------- | ------------- | ------- |  
 | AzurePackClouds | Los URI de los conectores de Windows Azure Pack. Estos URI deben corresponder a los portales de inquilinos de Windows Azure Pack. | @{CloudName = "AzurePack1"; CloudEndpoint = "https://waptenantportal1:40005"},@{CloudName = "AzurePack2"; CloudEndpoint = "https://waptenantportal2:40005"}<br><br>  (De manera predeterminada, el valor del puerto es 40005). |  
 | AzureStackCloudName | Etiqueta para representar la nube local de Azure Stack.| "AzureStack" |
@@ -179,7 +179,7 @@ Para esta versión preliminar, use el conector de Windows Azure Pack únicamente
 
     f. Para finalizar la configuración de estos tres servicios, ejecute el script **Configure-WapConnector.ps1** para actualizar los parámetros del archivo Web.config.
 
-    |  Parámetro | Description | Ejemplo |   
+    |  . | DESCRIPCIÓN | Ejemplo |   
     | -------- | ------------- | ------- |  
     | TenantPortalFQDN | FQDN del portal de inquilinos de Windows Azure Pack. | tenant.contoso.com | 
     | TenantAPIFQDN | FQDN de la API de inquilino de Windows Azure Pack. | tenantapi.contoso.com  |
@@ -214,7 +214,7 @@ Para esta versión preliminar, use el conector de Windows Azure Pack únicamente
     f.  Repita el paso 2 en todas las demás máquinas virtuales que ejecuten la API de inquilino.
 3. Desde **sola una**  de las máquinas virtuales de la API de inquilino, ejecute el script Configure-TrustAzureStack.ps1 para agregar una relación de confianza entre la API de inquilino y la instancia de AD FS en Azure Stack. Debe usar una cuenta con acceso de administrador del sistema a la base de datos Microsoft.MgmtSvc.Store. Este script tiene los parámetros siguientes:
 
-    | Parámetro | Description | Ejemplo |
+    | . | DESCRIPCIÓN | Ejemplo |
     | --------- | ------------| ------- |
    | SqlServer | Nombre de la instancia de SQL Server que contiene la base de datos Microsoft.MgmtSvc.Store. Este parámetro es obligatorio. | SQLServer | 
    | DataFile | Archivo de salida que se generó durante la configuración del modo de varias nubes de Azure Stack con anterioridad. Este parámetro es obligatorio. | AzurePack-06-27-15-50.txt | 

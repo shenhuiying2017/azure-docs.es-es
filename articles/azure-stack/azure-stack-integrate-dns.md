@@ -3,17 +3,18 @@ title: "Integración del centro de datos de Azure Stack: DNS"
 description: "Obtenga información sobre cómo integrar el DNS de Azure Stack con el DNS de su centro de datos."
 services: azure-stack
 author: jeffgilb
+manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/28/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: 
-ms.openlocfilehash: 504cbabe6ea4b7ad71601186dac853515f8c4709
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5bdac2f3e6082f9449800fe2d4b303e2d59ade46
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-stack-datacenter-integration---dns"></a>Integración del centro de datos de Azure Stack: DNS
 Para tener acceso a los puntos de conexión de Azure Stack (`portal`, `adminportal`, `management`, `adminmanagement`, etc.) desde fuera de Azure Stack, debe integrar los servicios de DNS de Azure Stack con los servidores DNS que hospedan las zonas DNS que quiere usar en Azure Stack.
@@ -136,6 +137,6 @@ Cada registrador dispone de sus propias herramientas de administración de DNS p
 
 La mayoría de los registradores DNS requieren que se proporcione un mínimo de dos servidores DNS para completar la delegación.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 [Integración del firewall](azure-stack-firewall.md)

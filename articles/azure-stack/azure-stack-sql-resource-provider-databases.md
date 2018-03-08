@@ -3,25 +3,25 @@ title: Uso de las bases de datos proporcionadas por el RP del adaptador de SQL e
 description: "Cómo crear y administrar las bases de datos SQL aprovisionadas con el proveedor de recursos del adaptador de SQL"
 services: azure-stack
 documentationCenter: 
-author: JeffGoldner
-manager: bradleyb
+author: mattbriggs
+manager: femila
 editor: 
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
-ms.author: JeffGo
-ms.openlocfilehash: 0cc08c37e879b00f8cd9a4046a4c81c55dab167c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/28/2018
+ms.author: mabrigg
+ms.openlocfilehash: 39f6cc30191f07a7c891446a9132222a6d264dc4
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="create-sql-databases"></a>Creación de bases de datos SQL
 
-*Se aplica a: Sistemas integrados de Azure Stack y Azure Stack Development Kit*
+*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 Las bases de datos de autoservicio se proporcionan a través del portal de usuarios. Un usuario necesita una suscripción que tenga una oferta, que contiene el servicio de base de datos.
 

@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 01/23/2018
 ms.author: jiata
 ms.custom: mvc
-ms.openlocfilehash: 83b4c18959cd18d920fcb9822b933dbea9f1b936
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 6aa12e38c1f2c86c44c00eb87906a7f0fe93cdca
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>Tutorial: Ejecución de una simulación de R en paralelo con Azure Batch 
 
@@ -49,7 +49,10 @@ En la consola de RStudio, instale el [paquete doAzureParallel de Github](http://
 ```R
 # Install the devtools package  
 install.packages("devtools") 
-  
+
+# Install rAzureBatch package
+devtools::install_github("Azure/rAzureBatch") 
+
 # Install the doAzureParallel package 
 devtools::install_github("Azure/doAzureParallel") 
  
@@ -252,8 +255,8 @@ El trabajo se elimina automáticamente una vez completado. Cuando el clúster ya
 stopCluster(cluster)
 ```
 
-## <a name="next-steps"></a>pasos siguientes
-En este tutorial, ha aprendido cómo:
+## <a name="next-steps"></a>Pasos siguientes
+En este tutorial, ha aprendido a:
 
 > [!div class="checklist"]
 Instalar doAzureParallel y configurarlo para acceder a las cuentas de Batch y Storage

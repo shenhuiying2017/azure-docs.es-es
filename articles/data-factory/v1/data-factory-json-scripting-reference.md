@@ -3,7 +3,7 @@ title: Azure Data Factory - Referencia de scripting JSON | Microsoft Docs
 description: Proporciona esquemas JSON para entidades de Data Factory.
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: sharonlo101
 manager: jhubbard
 editor: 
 ms.service: data-factory
@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: spelluru
+ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 9457e90f378cf7b30810ca9cadfcad139e91e2d4
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 519a762e5f89533f4425d38e4a1ca76d8e3dd40f
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - Referencia de scripting JSON
 > [!NOTE]
@@ -1595,7 +1595,7 @@ Para definir un servicio vinculado de Amazon Redshift, establezca el **tipo** de
 | Servidor |Dirección IP o nombre de host del servidor de Amazon Redshift. |Sí |
 | puerto |El número del puerto TCP que el servidor de Amazon Redshift utiliza para escuchar las conexiones del cliente. |No, valor predeterminado: 5439 |
 | database |Nombre de la base de datos de Amazon Redshift. |Sí |
-| Nombre de usuario |Nombre del usuario que tiene acceso a la base de datos. |Sí |
+| nombre de usuario |Nombre del usuario que tiene acceso a la base de datos. |Sí |
 | contraseña |Contraseña para la cuenta de usuario. |Sí |
 
 #### <a name="example"></a>Ejemplo
@@ -1708,7 +1708,7 @@ Para definir un servicio vinculado de IBM DB2, establezca el **tipo** de servici
 | Base de datos |Nombre de la base de datos DB2. |Sí |
 | schema |Nombre del esquema de la base de datos. El nombre del esquema distingue mayúsculas de minúsculas. |Sin  |
 | authenticationType |Tipo de autenticación usado para conectarse a la base de datos DB2. Los valores posibles son: Anonymous, Basic y Windows. |Sí |
-| Nombre de usuario |Especifique el nombre de usuario si usa la autenticación Basic o Windows. |Sin  |
+| nombre de usuario |Especifique el nombre de usuario si usa la autenticación Basic o Windows. |Sin  |
 | contraseña |Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. |Sin  |
 | gatewayName |Nombre de la puerta de enlace que debe usar el servicio Factoría de datos para conectarse a la base de datos DB2 local. |Sí |
 
@@ -1824,7 +1824,7 @@ Para definir un servicio vinculado de MySQL, establezca el **tipo** de servicio 
 | Base de datos |Nombre de la base de datos MySQL. |Sí |
 | schema |Nombre del esquema de la base de datos. |Sin  |
 | authenticationType |Tipo de autenticación usado para conectarse a la Base de datos MySQL. Los valores posibles son: `Basic`. |Sí |
-| Nombre de usuario |Especifique el nombre de usuario para conectarse a la base de datos de MySQL. |Sí |
+| nombre de usuario |Especifique el nombre de usuario para conectarse a la base de datos de MySQL. |Sí |
 | contraseña |Especifique la contraseña de la cuenta de usuario especificada. |Sí |
 | gatewayName |Nombre de la puerta de enlace que debe usar el servicio Factoría de datos para conectarse a la Base de datos MySQL local. |Sí |
 
@@ -2115,7 +2115,7 @@ Para definir un servicio vinculado de PostgreSQL, establezca el **tipo** de serv
 | Base de datos |Nombre de la base de datos de PostgreSQL. |Sí |
 | schema |Nombre del esquema de la base de datos. El nombre del esquema distingue mayúsculas de minúsculas. |Sin  |
 | authenticationType |Tipo de autenticación usado para conectarse a la base de datos de PostgreSQL. Los valores posibles son: Anonymous, Basic y Windows. |Sí |
-| Nombre de usuario |Especifique el nombre de usuario si usa la autenticación Basic o Windows. |Sin  |
+| nombre de usuario |Especifique el nombre de usuario si usa la autenticación Basic o Windows. |Sin  |
 | contraseña |Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. |Sin  |
 | gatewayName |Nombre de la puerta de enlace que debe usar el servicio Factoría de datos para conectarse a la base de datos de PostgreSQL local. |Sí |
 
@@ -2230,13 +2230,13 @@ Para definir un servicio vinculado de SAP Business Warehouse (BW), establezca el
 
 Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio
 -------- | ----------- | -------------- | --------
-Servidor | Nombre del servidor en el que reside la instancia de SAP BW. | cadena | Sí
+Servidor | Nombre del servidor en el que reside la instancia de SAP BW. | string | Sí
 systemNumber | Número del sistema de SAP BW. | Número decimal de dos dígitos que se representa en forma de cadena. | Sí
 clientId | Identificador del cliente en el sistema SAP W. | Número decimal de tres dígitos que se representa en forma de cadena. | Sí
-Nombre de usuario | Nombre del usuario que tiene acceso al servidor SAP | cadena | Sí
-contraseña | Contraseña del usuario. | cadena | Sí
-gatewayName | Nombre de la puerta de enlace que debe usar el servicio Data Factory para conectarse a la instancia de SAP BW local. | cadena | Sí
-encryptedCredential | La cadena de credenciales cifrada. | cadena | Sin 
+nombre de usuario | Nombre del usuario que tiene acceso al servidor SAP | string | Sí
+contraseña | Contraseña del usuario. | string | Sí
+gatewayName | Nombre de la puerta de enlace que debe usar el servicio Data Factory para conectarse a la instancia de SAP BW local. | string | Sí
+encryptedCredential | La cadena de credenciales cifrada. | string | Sin 
 
 #### <a name="example"></a>Ejemplo
 
@@ -2340,12 +2340,12 @@ Para definir un servicio vinculado de SAP HANA, establezca el **tipo** de servic
 
 Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio
 -------- | ----------- | -------------- | --------
-Servidor | Nombre del servidor en el que reside la instancia de SAP HANA. Si el servidor usa un puerto personalizado, especifique `server:port`. | cadena | Sí
+Servidor | Nombre del servidor en el que reside la instancia de SAP HANA. Si el servidor usa un puerto personalizado, especifique `server:port`. | string | Sí
 authenticationType | Tipo de autenticación. | cadena. "Basic" o "Windows" | Sí 
-Nombre de usuario | Nombre del usuario que tiene acceso al servidor SAP | cadena | Sí
-contraseña | Contraseña del usuario. | cadena | Sí
-gatewayName | Nombre de la puerta de enlace que debe usar el servicio Data Factory para conectarse a la instancia de SAP HANA local. | cadena | Sí
-encryptedCredential | La cadena de credenciales cifrada. | cadena | Sin 
+nombre de usuario | Nombre del usuario que tiene acceso al servidor SAP | string | Sí
+contraseña | Contraseña del usuario. | string | Sí
+gatewayName | Nombre de la puerta de enlace que debe usar el servicio Data Factory para conectarse a la instancia de SAP HANA local. | string | Sí
+encryptedCredential | La cadena de credenciales cifrada. | string | Sin 
 
 #### <a name="example"></a>Ejemplo
 
@@ -2673,7 +2673,7 @@ Para definir un servicio vinculado de Sybase, establezca el **tipo** de servicio
 | Base de datos |Nombre de la base de datos Sybase. |Sí |
 | schema |Nombre del esquema de la base de datos. |Sin  |
 | authenticationType |Tipo de autenticación usado para conectarse a la base de datos Sybase. Los valores posibles son: Anonymous, Basic y Windows. |Sí |
-| Nombre de usuario |Especifique el nombre de usuario si usa la autenticación Basic o Windows. |Sin  |
+| nombre de usuario |Especifique el nombre de usuario si usa la autenticación Basic o Windows. |Sin  |
 | contraseña |Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. |Sin  |
 | gatewayName |Nombre de la puerta de enlace que debe usar el servicio Factoría de datos para conectarse a la base de datos de Sybase local. |Sí |
 
@@ -2791,7 +2791,7 @@ Para definir un servicio vinculado de Teradata, establezca el **tipo** de servic
 | --- | --- | --- |
 | Servidor |Nombre del servidor de Teradata. |Sí |
 | authenticationType |Tipo de autenticación usado para conectarse a la base de datos Teradata. Los valores posibles son: Anonymous, Basic y Windows. |Sí |
-| Nombre de usuario |Especifique el nombre de usuario si usa la autenticación Basic o Windows. |Sin  |
+| nombre de usuario |Especifique el nombre de usuario si usa la autenticación Basic o Windows. |Sin  |
 | contraseña |Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. |Sin  |
 | gatewayName |Nombre de la puerta de enlace que debe usar el servicio Factoría de datos para conectarse a la base de datos Teradata local. |Sí |
 
@@ -2906,7 +2906,7 @@ Para definir un servicio vinculado de Cassandra, establezca el **tipo** de servi
 | host |Una o varias direcciones IP o nombres de host de los servidores de Cassandra.<br/><br/>Especifica una lista de direcciones IP o nombres de host separada por comas para conectar con todos los servidores a la vez. |Sí |
 | puerto |Puerto TCP que el servidor de Cassandra utiliza para escuchar las conexiones del cliente. |No. El valor predeterminado es 9042. |
 | authenticationType |Básica o anónima |Sí |
-| Nombre de usuario |Especifique el nombre de usuario de la cuenta de usuario. |Sí, si el valor de authenticationType es Basic. |
+| nombre de usuario |Especifique el nombre de usuario de la cuenta de usuario. |Sí, si el valor de authenticationType es Basic. |
 | contraseña |Especifique la contraseña para la cuenta de usuario. |Sí, si el valor de authenticationType es Basic. |
 | gatewayName |Nombre de la puerta de enlace que se va a utilizar en la conexión con la base de datos de Cassandra local. |Sí |
 | encryptedCredential |Credencial cifrada por la puerta de enlace. |Sin  |
@@ -3033,7 +3033,7 @@ Para definir un servicio vinculado de MongoDB, establezca el **tipo** de servici
 | Servidor |Dirección IP o nombre de host del servidor de MongoDB. |Sí |
 | puerto |Puerto TCP que el servidor de MongoDB utiliza para escuchar las conexiones del cliente. |Valor predeterminado opcional: 27017 |
 | authenticationType |Básica o anónima. |Sí |
-| Nombre de usuario |Cuenta de usuario para tener acceso a MongoDB. |Sí (si se usa la autenticación básica). |
+| nombre de usuario |Cuenta de usuario para tener acceso a MongoDB. |Sí (si se usa la autenticación básica). |
 | contraseña |Contraseña del usuario. |Sí (si se usa la autenticación básica). |
 | authSource |Nombre de la base de datos de MongoDB que desea usar para comprobar las credenciales de autenticación. |Opcional (si se usa la autenticación básica). Valor predeterminado: se utiliza la cuenta de administrador y la base de datos especificada mediante la propiedad databaseName. |
 | databaseName |Nombre de la base de datos de MongoDB a la que desea acceder. |Sí |
@@ -3151,7 +3151,7 @@ Para definir un servicio vinculado de Amazon S3, establezca el **tipo** de servi
 
 | Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio |
 | --- | --- | --- | --- |
-| accessKeyID |Id. de la clave de acceso secreta. |cadena |Sí |
+| accessKeyID |Id. de la clave de acceso secreta. |string |Sí |
 | secretAccessKey |La propia clave de acceso secreta. |Cadena secreta cifrada |Sí |
 
 #### <a name="example"></a>Ejemplo
@@ -3550,7 +3550,7 @@ Para definir un servicio vinculado de FTP, establezca el **tipo** de servicio vi
 | --- | --- | --- | --- |
 | host |Nombre o dirección IP del servidor FTP |Sí |&nbsp; |
 | authenticationType |Especificar el tipo de autenticación |Sí |Basic, Anonymous |
-| Nombre de usuario |Usuario que tiene acceso al servidor FTP |Sin  |&nbsp; |
+| nombre de usuario |Usuario que tiene acceso al servidor FTP |Sin  |&nbsp; |
 | contraseña |Contraseña para el usuario (nombre de usuario) |Sin  |&nbsp; |
 | encryptedCredential |Credenciales cifradas para acceder al servidor FTP |Sin  |&nbsp; |
 | gatewayName |Nombre de la puerta de enlace de administración de datos para conectarse a un servidor FTP local |Sin  |&nbsp; |
@@ -3876,7 +3876,7 @@ Para usar la autenticación básica, establezca `authenticationType` como `Basic
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- | --- |
-| Nombre de usuario | Usuario que tiene acceso al servidor SFTP. |Sí |
+| nombre de usuario | Usuario que tiene acceso al servidor SFTP. |Sí |
 | contraseña | Contraseña para el usuario (nombre de usuario). | Sí |
 
 ```json
@@ -3925,7 +3925,7 @@ Para usar la autenticación básica, establezca `authenticationType` como `SshPu
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- | --- |
-| Nombre de usuario |Usuario que tiene acceso al servidor SFTP. |Sí |
+| nombre de usuario |Usuario que tiene acceso al servidor SFTP. |Sí |
 | privateKeyPath | Especifique una ruta de acceso absoluta al archivo de clave privada al que pueda acceder la puerta de enlace. | Especifique `privateKeyPath` o `privateKeyContent`. <br><br> Se aplica solo cuando se copian datos desde un servidor SFTP local. |
 | privateKeyContent | Una cadena serializada del contenido de la clave privada. El Asistente para copiar puede leer el archivo de clave privada y extraer automáticamente el contenido de la clave privada. Si va a usar cualquier otra herramienta o SDK, utilice en su lugar la propiedad privateKeyPath. | Especifique `privateKeyPath` o `privateKeyContent`. |
 | passPhrase | Especifique la contraseña o la frase de contraseña para descifrar la clave privada si el archivo de clave está protegido por una frase de contraseña. | Sí, si el archivo de clave privada está protegido por una frase de contraseña. |
@@ -4080,7 +4080,7 @@ Establezca `authenticationType` como `Basic`, `Digest` o `Windows`, y especifiqu
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
-| Nombre de usuario | Nombre de usuario para acceder al punto de conexión HTTP. | Sí |
+| nombre de usuario | Nombre de usuario para acceder al punto de conexión HTTP. | Sí |
 | contraseña | Contraseña para el usuario (nombre de usuario). | Sí |
 
 ```json
@@ -4269,7 +4269,7 @@ Para definir un servicio vinculado de OData, establezca el **tipo** de servicio 
 | --- | --- | --- |
 | URL |Dirección URL del servicio de OData. |Sí |
 | authenticationType |Tipo de autenticación que se usa para conectarse al origen de OData. <br/><br/> Para OData en la nube, los valores posibles son Anonymous, Basic y OAuth (tenga en cuenta que Azure Data Factory en estos momentos solo admite la autenticación OAuth basada en Azure Active Directory). <br/><br/> Para OData local, los valores posibles son: Anonymous, Basic y Windows. |Sí |
-| Nombre de usuario |Especifique el nombre de usuario si usa la autenticación básica. |Sí (solo si usa la autenticación básica) |
+| nombre de usuario |Especifique el nombre de usuario si usa la autenticación básica. |Sí (solo si usa la autenticación básica) |
 | contraseña |Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. |Sí (solo si usa la autenticación básica) |
 | authorizedCredential |Si está usando OAuth, haga clic en el botón **Autorizar** del Editor o el Asistente para copiar de Data Factory y escriba su credencial. Después, el valor de esta propiedad se generará automáticamente. |Sí (solo si usa la autenticación OAuth) |
 | gatewayName |Nombre de la puerta de enlace que debe usar el servicio Factoría de datos para conectarse al servicio de OData local. Especifique solo si va a copiar datos del origen de OData local. |Sin  |
@@ -4440,7 +4440,7 @@ Para definir un servicio vinculado de ODBC, establezca el **tipo** de servicio v
 | connectionString |La parte de la credencial de no acceso de la cadena de conexión, así como una credencial cifrada opcional. Vea ejemplos en las secciones siguientes. |Sí |
 | credential |La parte de la credencial de acceso de la cadena de conexión especificada en formato de valor de propiedad específico del controlador. Ejemplo: “Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;”. |Sin  |
 | authenticationType |Tipo de autenticación que se usa para conectarse al almacén de datos ODBC. Los valores posibles son: Anonymous y Basic. |Sí |
-| Nombre de usuario |Especifique el nombre de usuario si usa la autenticación básica. |Sin  |
+| nombre de usuario |Especifique el nombre de usuario si usa la autenticación básica. |Sin  |
 | contraseña |Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. |Sin  |
 | gatewayName |Nombre de la puerta de enlace que el servicio Factoría de datos debe usar para conectarse al almacén de datos ODBC. |Sí |
 
@@ -4592,7 +4592,7 @@ Para definir un servicio vinculado de Salesforce, establezca el **tipo** de serv
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
 | environmentUrl | Especifique la URL de la instancia de Salesforce. <br><br> - La dirección predeterminada es "https://login.salesforce.com". <br> - Para copiar los datos desde el espacio aislado, especifique "https://test.salesforce.com". <br> - Para copiar datos del dominio personalizado, especifique, por ejemplo, "https://[dominio].my.salesforce.com". |Sin  |
-| Nombre de usuario |Especifique el nombre de usuario de la cuenta de usuario. |Sí |
+| nombre de usuario |Especifique el nombre de usuario de la cuenta de usuario. |Sí |
 | contraseña |Especifique la contraseña para la cuenta de usuario. |Sí |
 | securityToken |Especifique el token de seguridad para la cuenta de usuario. Consulte [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) (Obtención de un token de seguridad) para ver instrucciones sobre cómo restablecer u obtener un token de seguridad. Para más información acerca de los tokens de seguridad en general, consulte [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)(Seguridad y la API). |Sí |
 
@@ -4874,7 +4874,7 @@ En la siguiente tabla se ofrecen descripciones de las propiedades que se usan en
 | --- | --- | --- |
 | Tipo |La propiedad type se debe establecer en **HDInsight**. |Sí |
 | clusterUri |El URI del clúster de HDInsight. |Sí |
-| Nombre de usuario |Especifique el nombre de usuario que se usará para conectarse a un clúster de HDInsight existente. |Sí |
+| nombre de usuario |Especifique el nombre de usuario que se usará para conectarse a un clúster de HDInsight existente. |Sí |
 | contraseña |Especifique la contraseña para la cuenta de usuario. |Sí |
 | linkedServiceName | Nombre del servicio vinculado para Azure Storage que hace referencia al almacenamiento Azure Blob Storage que usa el clúster de HDInsight. <p>Actualmente, no se puede especificar un servicio vinculado de Azure Data Lake Store para esta propiedad. Puede acceder a los datos de Azure Data Lake Store desde scripts de Pig/Hive si el clúster de HDInsight tiene acceso a Data Lake Store. </p>  |Sí |
 

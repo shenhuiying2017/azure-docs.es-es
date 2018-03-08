@@ -3,7 +3,7 @@ title: "Ejemplos de código y PowerShell para la colaboración B2B de Azure Acti
 description: "Ejemplos de código y PowerShell para la colaboración B2B de Azure Active Directory"
 services: active-directory
 documentationcenter: 
-author: sasubram
+author: twooley
 manager: mtillman
 editor: 
 tags: 
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 04/11/2017
 ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: d727894a51eba5b29970a8d933f635a338bcec26
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 6006dde5ea34db9881a02550e7aff33e48c6498e
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-active-directory-b2b-collaboration-code-and-powershell-samples"></a>Ejemplos de código y PowerShell para la colaboración B2B de Azure Active Directory
 
@@ -231,7 +231,7 @@ namespace SampleInviteApp
 ```
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Examine nuestros otros artículos sobre la colaboración B2B de Azure AD:
 

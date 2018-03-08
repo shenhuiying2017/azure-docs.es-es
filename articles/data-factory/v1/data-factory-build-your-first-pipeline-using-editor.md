@@ -3,9 +3,9 @@ title: "Compilación de la primera instancia de Data Factory (Azure Portal) | Mi
 description: "En este tutorial, se crea una canalización de Azure Data Factory de ejemplo mediante Data Factory Editor en Azure Portal."
 services: data-factory
 documentationcenter: 
-author: spelluru
-manager: jhubbard
-editor: monicar
+author: sharonlo101
+manager: 
+editor: 
 ms.assetid: d5b14e9e-e358-45be-943c-5297435d402d
 ms.service: data-factory
 ms.workload: data-services
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/22/2018
-ms.author: spelluru
+ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 995abf497e7267434b5e87132d30183e3c293af3
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: c4fe0e01936ebc131b10f011b98e9d0c1782179b
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Tutorial: Compilación de la primera instancia de Data Factory mediante Azure Portal
 > [!div class="op_single_selector"]
@@ -61,7 +61,7 @@ Para crear una factoría de datos, siga estos pasos:
 
 3. En la hoja **Nueva factoría de datos**, en **Nombre**, escriba **GetStartedDF**.
 
-   ![Hoja Nueva factoría de datos](./media/data-factory-build-your-first-pipeline-using-editor/new-data-factory-blade.png)
+   ![Hoja Nueva Factoría de datos](./media/data-factory-build-your-first-pipeline-using-editor/new-data-factory-blade.png)
 
    > [!IMPORTANT]
    > El nombre de la factoría de datos debe ser globalmente único. Si aparece el error "El nombre GetStartedDF de factoría de datos no está disponible", cambie dicho nombre. Por ejemplo, use yournameGetStartedDF y vuelva a crear la factoría de datos. Para más información acerca de las reglas de nomenclatura, consulte [Data Factory: Naming rules](data-factory-naming-rules.md) (Data Factory: reglas de nomenclatura).
@@ -87,7 +87,7 @@ Para crear una factoría de datos, siga estos pasos:
 
    ![Estado Deploying Data Factory (Implementando Data Factory)](./media/data-factory-build-your-first-pipeline-using-editor/creating-data-factory-image.png)
 
-10. Tras crear la factoría de datos, se ve la página de la **factoría de datos**, que muestra el contenido de la misma.     
+10. Tras crear la factoría de datos, se ve la página de la **factoría de datos**, que muestra su contenido.     
 
     ![Hoja Factoría de datos](./media/data-factory-build-your-first-pipeline-using-editor/data-factory-blade.png)
 
@@ -113,11 +113,11 @@ En este paso, vinculará su cuenta de almacenamiento con su factoría de datos. 
 
 4. Reemplace **account name** por el nombre de su cuenta de almacenamiento. Reemplace **account key** por la clave de acceso de la cuenta de almacenamiento. Para aprender a obtener la clave de acceso de almacenamiento, consulte cómo ver, copiar y regenerar las claves de acceso de almacenamiento en [Administración de la cuenta de almacenamiento](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
 
-5. Haga clic en **Implementar** en la barra de comandos para implementar el servicio vinculado.
+5. Seleccione **Implementar** en la barra de comandos para implementar el servicio vinculado.
 
     ![Botón Implementar](./media/data-factory-build-your-first-pipeline-using-editor/deploy-button.png)
 
-   Después de que el servicio vinculado se ha implementado correctamente la ventana Borrador-1 desaparece. **AzureStorageLinkedService** aparece en la vista de árbol de la izquierda.
+   Después de que el servicio vinculado se haya implementado correctamente, la ventana Borrador-1 desaparece. **AzureStorageLinkedService** aparece en la vista de árbol de la izquierda.
 
     ![AzureStorageLinkedService](./media/data-factory-build-your-first-pipeline-using-editor/StorageLinkedServiceInTree.png)    
 
@@ -178,7 +178,7 @@ En este paso, vinculará un clúster de HDInsight a petición con la factoría d
 En este paso, creará conjuntos de datos que representan los datos de entrada y salida para el procesamiento de Hive. Estos conjuntos de datos hacen referencia al servicio AzureStorageLinkedService1 que creó anteriormente en este tutorial. Los puntos de servicio vinculados a una cuenta de almacenamiento. Los conjuntos de datos especifican el contenedor, la carpeta y el nombre de archivo del almacenamiento que contiene los datos de entrada y salida.   
 
 ### <a name="create-the-input-dataset"></a>Creación del conjunto de datos de entrada
-1. En Data Factory Editor, seleccione **Más** > **Nuevo conjunto de datos** > **Almacenamiento de blobs de Azure**.
+1. En Data Factory Editor, seleccione **More** > **New dataset** > **Azure Blob Storage** (Más > Nuevo conjunto de datos > Azure Blob Storage).
 
     ![Nuevo conjunto de datos](./media/data-factory-build-your-first-pipeline-using-editor/new-data-set.png)
 
@@ -215,9 +215,9 @@ En este paso, creará conjuntos de datos que representan los datos de entrada y 
    | linkedServiceName |Hace referencia al servicio AzureStorageLinkedService que creó anteriormente. |
    | folderPath | Especifica el contenedor de blobs y la carpeta que contiene los blobs de entrada. | 
    | fileName |Esta propiedad es opcional. Si omite esta propiedad, se seleccionan todos los archivos de folderPath. En este tutorial, solo se procesa el archivo input.log. |
-   | type |Los archivos de registro están en formato de texto, así que use **TextFormat**. |
+   | Tipo |Los archivos de registro están en formato de texto, así que use **TextFormat**. |
    | columnDelimiter |Las columnas de los archivos de registro están delimitadas por una coma (`,`). |
-   | frequency/interval |La frecuencia se establece en **Mes** y el intervalo es **1**, lo que significa que los segmentos de entrada estarán disponibles cada mes. |
+   | frecuencia/intervalo |La frecuencia se establece en **Mes** y el intervalo es **1**, lo que significa que los segmentos de entrada estarán disponibles cada mes. |
    | external | Esta propiedad se establece en **true** si esta canalización no ha generado los datos de entrada. En este tutorial, esta canalización no genera el archivo input.log, por lo que la propiedad se establece en **true**. |
 
     Para más información acerca de estas propiedades de JSON, consulte el artículo acerca del [conector de blobs de Azure](data-factory-azure-blob-connector.md#dataset-properties).
@@ -227,7 +227,7 @@ En este paso, creará conjuntos de datos que representan los datos de entrada y 
 ### <a name="create-the-output-dataset"></a>Creación del conjunto de datos de salida
 Ahora, cree el conjunto de datos de salida que representa los datos de salida almacenados en el almacenamiento de blobs.
 
-1. En Data Factory Editor, seleccione **Más** > **Nuevo conjunto de datos** > **Almacenamiento de blobs de Azure**.
+1. En Data Factory Editor, seleccione **More** > **New dataset** > **Azure Blob Storage** (Más > Nuevo conjunto de datos > Azure Blob Storage).
 
 2. Copie y pegue el fragmento de código siguiente en la ventana Borrador-1. En el fragmento de código JSON, cree un conjunto de datos llamado **AzureBlobOutput** para especificar la estructura de los datos que genera el script de Hive. Especifique también que los resultados se almacenen en el contenedor de blobs **adfgetstarted** y en la carpeta **partitioneddata**. La sección **availability** especifica que el conjunto de datos de salida se genera mensualmente.
 
@@ -425,7 +425,7 @@ Para supervisar las canalizaciones también se puede usar la aplicación Supervi
 ## <a name="summary"></a>Resumen
 En este tutorial, ha creado una factoría de datos para procesar datos mediante la ejecución de un script de Hive en un clúster de Hadoop de HDInsight. Ha usado Data Factory Editor en Azure Portal para realizar las siguientes tareas:  
 
-* Crear una factoría de datos.
+* Creación de una factoría de datos.
 * Crear dos servicios vinculados:
    * Un servicio vinculado de Storage para vincular el almacenamiento de blobs que contiene los archivos de entrada y salida a la factoría de datos.
    * Un servicio vinculado de HDInsight a petición para vincular un clúster de Hadoop de HDInsight a petición a la factoría de datos. Data Factory crea un clúster de Hadoop en HDInsight justo a tiempo para procesar los datos de entrada y generar datos de salida.

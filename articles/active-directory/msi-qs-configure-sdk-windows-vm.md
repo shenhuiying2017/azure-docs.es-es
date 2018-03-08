@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 09/28/2017
 ms.author: daveba
 ms.openlocfilehash: dee89e4cd6501bb56015a2e4cfc045cc6308400e
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/07/2018
 ---
 # <a name="configure-a-vm-managed-service-identity-msi-using-an-azure-sdk"></a>Configuración de Managed Service Identity (MSI) de una máquina virtual mediante un SDK de Azure
 
@@ -43,7 +43,7 @@ Azure admite varias plataformas de programación a través de una serie de [SDK 
 | Python | [Creación de una máquina virtual con MSI habilitado](https://azure.microsoft.com/resources/samples/compute-python-msi-vm/) |
 | Ruby   | [Creación de una máquina virtual de Azure con MSI](https://azure.microsoft.com/resources/samples/compute-ruby-msi-vm/) |
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Consulte los artículos relacionados en "Configuración de MSI para una máquina virtual de Azure", para obtener información sobre cómo puede usar también Azure Portal, PowerShell, la CLI y las plantillas de recursos.
 

@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
 ms.openlocfilehash: 2db9e60fe2807b1aa8ed7cab7eed6f7db8059a89
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configuración de Workday para el aprovisionamiento automático de usuarios
 
@@ -229,7 +229,7 @@ Siga estas instrucciones para configurar el aprovisionamiento de cuentas de usua
 
 **Para configurar Workday en el aprovisionamiento de Active Directory:**
 
-1.  Vaya a <https://portal.azure.com>
+1.  Vaya a <https://portal.azure.com>.
 
 2.  En la barra de navegación de la izquierda, seleccione **Azure Active Directory**.
 
@@ -589,7 +589,7 @@ Siga estas instrucciones para configurar la reescritura de direcciones de correo
 
 **Para configurar Workday en el aprovisionamiento de Active Directory:**
 
-1.  Vaya a <https://portal.azure.com>
+1.  Vaya a <https://portal.azure.com>.
 
 2.  En la barra de navegación de la izquierda, seleccione **Azure Active Directory**.
 
@@ -774,6 +774,6 @@ Para ello, debe usar [Workday Studio](https://community.workday.com/studio-downl
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Aprenda a revisar los registros y a obtener informes sobre la actividad de aprovisionamiento](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting)

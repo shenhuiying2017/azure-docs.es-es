@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 54b9c38d1122d898dd584a189b9ea2e3405dc6f5
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 91461af20cdb189ab23671fee0f3dea182ec0bb1
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-playready-andor-widevine-dynamic-common-encryption"></a>Uso de cifrado dinámico común de PlayReady o Widevine
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 01/10/2018
 
 ## <a name="overview"></a>Información general
 
- Puede usar Media Services para entregar transmisiones MPEG-DASH, Smooth Streaming y HTTP Live Streaming (HLS) protegidas con [la administración de derechos digitales (DRM) de PlayReady](https://www.microsoft.com/playready/overview/). También puede entregar transmisiones DASH cifradas con licencias DRM de Widevine. Tanto PlayReady como Widevine se cifran según la especificación de cifrado común (ISO/IEC 23001-7 CENC). Puede usar el [.NET SDK de Media Services](https://www.nuget.org/packages/windowsazure.mediaservices/) (a partir de la versión 3.5.1) o la API de REST para configurar AssetDeliveryConfiguration para usar Widevine.
+ Puede usar Media Services para entregar transmisiones MPEG-DASH, Smooth Streaming y HTTP Live Streaming (HLS) protegidas con [la administración de derechos digitales (DRM) de PlayReady](https://www.microsoft.com/playready/overview/). También puede entregar transmisiones DASH cifradas con licencias DRM de Widevine. Tanto PlayReady como Widevine se cifran según la especificación de cifrado común (ISO/IEC 23001-7 CENC). Puede usar el [SDK de Media Services para .NET](https://www.nuget.org/packages/windowsazure.mediaservices/) (a partir de la versión 3.5.1) o la API de REST para configurar AssetDeliveryConfiguration para usar Widevine.
 
 Media Services proporciona un servicio para entregar licencias DRM de PlayReady y Widevine. Media Services también proporciona unas API que puede usar para configurar los derechos y las restricciones que desee aplicar en tiempo de ejecución de DRM de PlayReady o Widevine cuando un usuario reproduzca contenido protegido. Cuando un usuario solicita contenido protegido con DRM, la aplicación del reproductor solicita una licencia del servicio de licencias de Media Services. Si la aplicación del reproductor está autorizada, el servicio de licencias de Media Services otorga una licencia al reproductor. Una licencia de PlayReady o Widevine contiene la clave de descifrado que puede usar el reproductor cliente para descifrar y transmitir el contenido.
 
@@ -135,6 +135,7 @@ Para obtener instrucciones sobre cómo publicar un recurso y generar una direcci
 ## <a name="get-a-test-token"></a>Obtención de un token de prueba
 Obtenga un token de prueba basado en la restricción de token que se usó para la directiva de autorización de claves.
 
+```csharp
     // Deserializes a string containing an XML representation of a TokenRestrictionTemplate
     // back into a TokenRestrictionTemplate class instance.
     TokenRestrictionTemplate tokenTemplate =
@@ -145,7 +146,7 @@ Obtenga un token de prueba basado en la restricción de token que se usó para l
     //so you have to add it in front of the token string.
     string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTemplate);
     Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
-
+```
 
 Puede usar [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html) para probar la secuencia.
 
@@ -155,8 +156,10 @@ Puede usar [Azure Media Services Player](http://amsplayer.azurewebsites.net/azur
 
 2. Agregue los siguientes elementos al elemento **appSettings** definido en el archivo app.config:
 
+```xml
         <add key="Issuer" value="http://testacs.com"/>
         <add key="Audience" value="urn:test"/>
+```
 
 ## <a name="example"></a>Ejemplo
 
@@ -171,7 +174,7 @@ Para más información, consulte el artículo acerca de cómo [administrar los r
 
 Asegúrese de actualizar las variables para que apunten a las carpetas donde se encuentran los archivos de entrada.
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -607,7 +610,7 @@ namespace DynamicEncryptionWithDRM
 }
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 

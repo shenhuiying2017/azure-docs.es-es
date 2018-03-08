@@ -3,7 +3,7 @@ title: "Incorporación de usuarios de colaboración B2B como trabajadores de la 
 description: "La colaboración B2B permite a los trabajadores de la información agregar usuarios de su organización para el acceso a Azure AD | Microsoft Docs"
 services: active-directory
 documentationcenter: 
-author: sasubram
+author: twooley
 manager: mtillman
 editor: curtand
 tags: 
@@ -14,12 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/23/2017
-ms.author: sasubram
-ms.openlocfilehash: e02f23c055af24b42fd41394b26a4df827cb0fc8
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.author: twooley
+ms.reviewer: sasubram
+ms.openlocfilehash: 37660311d74bd6230dd6c229e4160e4d68d467a3
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="how-do-information-workers-add-b2b-collaboration-users-to-azure-active-directory"></a>¿Cómo agregan los trabajadores de la información usuarios de colaboración B2B a Azure Active Directory?
 
@@ -37,7 +38,7 @@ Los trabajadores de la información pueden agregar del mismo modo usuarios de co
 > No puede agregar usuarios de colaboración B2B a un grupo dinámico o a uno que se ha sincronizado con la instancia local de Active Directory.
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Examine nuestros otros artículos sobre la colaboración B2B de Azure AD:
 

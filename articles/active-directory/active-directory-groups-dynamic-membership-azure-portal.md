@@ -17,10 +17,10 @@ ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
 ms.openlocfilehash: 3ece2326a19e32666f46e8b737d15a48e335de6a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/06/2018
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Creación de reglas de pertenencia dinámica a grupos basadas en atributos en Azure Active Directory
 En Azure Active Directory (Azure AD), puede crear reglas avanzadas para habilitar la pertenencia dinámica a grupos basada en atributos complejos. En este artículo se detallan los atributos y la sintaxis para crear reglas de pertenencia dinámica para usuarios o dispositivos.
@@ -102,7 +102,7 @@ Todos los operadores se enumeran a continuación por orden de precedencia, de me
 -eq -ne -startsWith -notStartsWith -contains -notContains -match –notMatch -in -notIn
 ````
 Todos los operadores se pueden utilizar con o sin el prefijo de guion. Los paréntesis son necesarios solo si la precedencia no cumple sus requisitos.
-Por ejemplo:
+Por ejemplo: 
 ```
    user.department –eq "Marketing" –and user.country –eq "US"
 ```
@@ -137,7 +137,7 @@ Operadores permitidos
 * -eq
 * -ne
 
-| Propiedades | Valores permitidos | Uso |
+| Properties (Propiedades) | Valores permitidos | Uso |
 | --- | --- | --- |
 | accountEnabled |true false |user.accountEnabled -eq true |
 | dirSyncEnabled |true false |user.dirSyncEnabled -eq true |
@@ -156,7 +156,7 @@ Operadores permitidos
 * -in
 * -notIn
 
-| Propiedades | Valores permitidos | Uso |
+| Properties (Propiedades) | Valores permitidos | Uso |
 | --- | --- | --- |
 | city |Cualquier valor de cadena o *null* |(user.city -eq "value") |
 | country |Cualquier valor de cadena o *null* |(user.country -eq "value") |
@@ -191,7 +191,7 @@ Operadores permitidos
 * -contains
 * -notContains
 
-| Propiedades | Valores permitidos | Uso |
+| Properties (Propiedades) | Valores permitidos | Uso |
 | --- | --- | --- |
 | otherMails |Cualquier valor de cadena |(user.otherMails -contains "alias@domain") |
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
@@ -202,11 +202,11 @@ Operadores permitidos
 * -any (se satisface cuando al menos un elemento de la colección coincide con la condición)
 * -all (se satisface cuando todos los elementos de la colección coinciden con la condición)
 
-| Propiedades | Valores | Uso |
+| Properties (Propiedades) | Valores | Uso |
 | --- | --- | --- |
 | assignedPlans |Cada objeto de la colección expone las siguientes propiedades de cadena: capabilityStatus, service, servicePlanId |user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled") |
 
-Las propiedades de varios valores son colecciones de objetos del mismo tipo. Puede usar los operadores -any y -all para aplicar una condición a uno o todos los elementos de la colección, respectivamente. Por ejemplo:
+Las propiedades de varios valores son colecciones de objetos del mismo tipo. Puede usar los operadores -any y -all para aplicar una condición a uno o todos los elementos de la colección, respectivamente. Por ejemplo: 
 
 assignedPlans es una propiedad de varios valores que muestra todos los planes de servicio asignados al usuario. En la expresión siguiente se seleccionarán los usuarios que tienen el plan de servicio Exchange Online (Plan 2) que también está en estado Habilitado:
 
@@ -360,7 +360,7 @@ ConvertStaticGroupToDynamic "a58913b2-eee4-44f9-beb2-e381c375058f" "user.display
 ## <a name="next-steps"></a>Pasos siguientes
 En estos artículos se proporciona información adicional sobre los grupos en Azure Active Directory.
 
-* [Consulta de los grupos existentes](active-directory-groups-view-azure-portal.md)
+* [Ver los grupos existentes](active-directory-groups-view-azure-portal.md)
 * [Crear un nuevo grupo y agregar miembros](active-directory-groups-create-azure-portal.md)
 * [Administrar la configuración de un grupo](active-directory-groups-settings-azure-portal.md)
 * [Administrar la pertenencia a grupos](active-directory-groups-membership-azure-portal.md)

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: juluk
-ms.openlocfilehash: 21a050373a9901220e106534464a8c13565bb3d8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 245e2e1ca52e7d3c5bd22d5f2569e3e8d7ae6671
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Limitaciones de Azure Cloud Shell
 
@@ -54,11 +54,11 @@ Cloud Shell está pensado para casos de uso interactivos. Por tanto, todas las s
 
 ### <a name="user-permissions"></a>Permisos de usuario
 
-Los permisos se establecen como usuarios normales sin acceso a sudo. No se conserva ninguna instalación fuera de los directorios `$Home` ni `clouddrive`.
+Los permisos se establecen como usuarios normales sin acceso a sudo. No se conserva cualquier instalación fuera del directorio `$Home`.
 
 ### <a name="editing-bashrc"></a>Editar .bashrc
 
-Tenga cuidado al editar .bashrc, ya que puede producir errores inesperados con Bash en Cloud Shell.
+Tenga cuidado al editar .bashrc, ya que puede producir errores inesperados en Cloud Shell.
 
 ## <a name="powershell-limitations"></a>Limitaciones de PowerShell
 
@@ -68,7 +68,7 @@ PowerShell en Azure Cloud Shell (versión preliminar) podría tardar hasta 60 se
 
 ### <a name="no-home-directory-persistence"></a>El directorio $Home no persiste
 
-Los datos que cualquier aplicación (como git, vim y otras) escriben en `$Home` no se conservan entre las sesiones de PowerShell. [Consulte aquí](troubleshooting.md#powershell-resolutions) para ver una solución alternativa.
+Los datos que cualquier aplicación (como git, vim y otras) escriben en `$Home` no se conservan entre las sesiones de PowerShell. [Consulte aquí](troubleshooting.md#powershell-troubleshooting) para ver una solución alternativa.
 
 ### <a name="default-file-location-when-created-from-azure-drive"></a>Ubicación del archivo predeterminada cuando se crea a partir de la unidad de Azure:
 
@@ -78,7 +78,7 @@ Con los cmdlets de PowerShell, los usuarios no pueden crear archivos en la unida
 
 Si el usuario ejecuta un comando que crearía un cuadro de diálogo de Windows, como `Connect-AzureAD` o `Login-AzureRMAccount`, se ve un mensaje de error como el siguiente: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 [Solución de problemas de Cloud Shell](troubleshooting.md) <br>
 [Inicio rápido de Bash](quickstart.md) <br>

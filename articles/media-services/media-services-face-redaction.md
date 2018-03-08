@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako;
-ms.openlocfilehash: 2e936379968f74eb8bea420916acea2b8d96bb24
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 73d2f7135e85b829b1ecbd9eb0264024df36244a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Censura de rostros con Azure Media Analytics
 ## <a name="overview"></a>Información general
@@ -57,6 +57,7 @@ El paso **analizar** del flujo de trabajo de dos pasos toma una entrada de víde
 
 #### <a name="output-example"></a>Ejemplo de salida:
 
+```json
     {
       "version": 1,
       "timescale": 24000,
@@ -103,6 +104,7 @@ El paso **analizar** del flujo de trabajo de dos pasos toma una entrada de víde
             ],
 
     … truncated
+```
 
 ### <a name="redact-mode"></a>Modo Redact (Censurar)
 El segundo paso del flujo de trabajo tiene un mayor número de entradas que tienen que combinarse en un solo recurso.
@@ -138,7 +140,9 @@ Puede encontrar ejemplos de los tipos de desenfoque a continuación.
 
 ### <a name="example-json"></a>Ejemplo de JSON:
 
+```json
     {'version':'1.0', 'options': {'Mode': 'Combined', 'BlurType': 'High'}}
+```
 
 #### <a name="low"></a>Bajo
 
@@ -170,10 +174,18 @@ El procesador multimedia de censura proporciona detección de ubicación y segui
 
 El programa siguiente muestra cómo:
 
-1. Crear un recurso y cargar un archivo multimedia en dicho recurso.
+1. Crear un recurso y cargar un archivo multimedia en él.
 2. Crear un trabajo con una tarea de censura de rostros basándose en un archivo de configuración que contiene el siguiente valor predeterminado de JSON: 
-   
-        {'version':'1.0', 'options': {'mode':'combined'}}
+
+    ```json
+            {
+                'version':'1.0',
+                'options': {
+                    'mode':'combined'
+                }
+            }
+    ```
+
 3. Descargar los archivos JSON de salida. 
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Creación y configuración de un proyecto de Visual Studio
@@ -182,7 +194,7 @@ Configure el entorno de desarrollo y rellene el archivo app.config con la inform
 
 #### <a name="example"></a>Ejemplo
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.IO;
@@ -358,7 +370,7 @@ namespace FaceRedaction
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Vínculos relacionados
-[Azure Media Services Analytics Overview (Información general sobre análisis de Servicios multimedia de Azure)](media-services-analytics-overview.md)
+[Azure Media Services Analytics Overview (Información general sobre Azure Media Services Analytics)](media-services-analytics-overview.md)
 
 [Demostraciones de Azure Media Analytics](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
