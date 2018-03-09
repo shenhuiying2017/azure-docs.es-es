@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: web
-ms.date: 12/11/2017
+ms.date: 02/28/2018
 ms.author: tarcher
 ms.custom: jenkins
-ms.openlocfilehash: 04a60bf021ec6e265a3880264386ad32ec7e8177
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 557b21340a0ba4e5381d7505b14a172aa3478b84
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="build-a-project-in-azure-using-jenkins-and-azure-container-instances"></a>Compilar un proyecto en Azure con Jenkins y Azure Container Instances
 
@@ -30,7 +30,7 @@ Aprenderá a:
 > * Instalar y configurar el complemento de Azure Container Agents para Jenkins
 > * Usar Azure Container Instances para compilar la [aplicación de ejemplo Spring PetClinic](https://github.com/spring-projects/spring-petclinic)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 - **Suscripción de Azure**: para obtener información acerca de las opciones de compra de Azure, consulte [Instrucciones para contratar Azure](https://azure.microsoft.com/pricing/purchase-options/) o [Evaluación gratuita de un mes](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -327,6 +327,6 @@ Si ya no necesita usar cualquiera de los recursos de un grupo de recursos de Azu
 az group delete -n <resourceGroup>
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 > [!div class="nextstepaction"]
 > [Visite el concentrador Jenkins en Azure para ver los últimos artículos y ejemplos](https://docs.microsoft.com/azure/jenkins/)

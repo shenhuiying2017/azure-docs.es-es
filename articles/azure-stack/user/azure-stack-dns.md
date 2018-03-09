@@ -3,26 +3,25 @@ title: DNS en Azure Stack | Microsoft Docs
 description: DNS en Azure Stack
 services: azure-stack
 documentationcenter: 
-author: ScottNapolitan
-manager: byronr
-editor: 
+author: mattbriggs
+manager: femila
 ms.assetid: 
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 9/25/2017
-ms.author: victorh
-ms.openlocfilehash: ac93b5eb4228cef373428b7b69932d5993d54fa0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/28/2018
+ms.author: mabrigg
+ms.openlocfilehash: 394abe5295af4ed99e48d50b5886ac93af87e875
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="dns-in-azure-stack"></a>DNS en Azure Stack
 
-*Se aplica a: Sistemas integrados de Azure Stack y Azure Stack Development Kit*
+*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 Azure Stack incluye las siguientes características de DNS:
 * Compatibilidad con la resolución de nombres de host DNS
@@ -84,7 +83,7 @@ En el nivel de la API de REST de DNS de Azure Stack, los valores de ETag se espe
 
 | Encabezado | Comportamiento|
 |--------|---------|
-| Ninguna   | PUT siempre se realiza correctamente (sin comprobaciones de ETag)|
+| None   | PUT siempre se realiza correctamente (sin comprobaciones de ETag)|
 | If-match| PUT solo se realiza correctamente si el recurso existe y ETag coincide|
 | If-match *| PUT solo se realiza correctamente si el recurso existe|
 | If-none-match *| PUT solo se realiza correctamente si el recurso no existe|
@@ -97,7 +96,7 @@ Se aplican los límites predeterminados siguientes cuando se usa el DNS de Azure
 |---------|--------------|
 | Zonas por suscripción| 100|
 | Conjuntos de registros por zona| 5000|
-| Registros por conjunto de registros| 20 ||
+| Registros por conjunto de registros| 20 |
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Presentación de iDNS para Azure Stack](azure-stack-understanding-dns.md)

@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: milanga;juliako;
-ms.openlocfilehash: 5741a484dcda05e3143b5f896ddee2e8591dabee
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7a16745fc21d03f81ca6140ace54f84468749364
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Detección de caras y emociones con Análisis multimedia de Azure
 ## <a name="overview"></a>Información general
@@ -64,21 +64,24 @@ Face Detector (Detector de caras) usa técnicas de fragmentación (donde los met
 ### <a name="task-configuration-preset"></a>Configuración de tareas (valor preestablecido)
 Al crear una tarea con **Azure Media Face Detector**(Detector de caras multimedia de Azure), debe especificar un valor predeterminado de configuración. El siguiente valor predeterminado de configuración es solo para detección de caras.
 
+```json
     {
       "version":"1.0",
       "options":{
           "TrackingMode": "Fast"
       }
     }
+```
 
 #### <a name="attribute-descriptions"></a>Descripciones de atributos
-| Nombre del atributo | Description |
+| Nombre del atributo | DESCRIPCIÓN |
 | --- | --- |
 | Mode |Rápido: procesamiento rápido, pero menos preciso (valor predeterminado).|
 
 ### <a name="json-output"></a>Salida de JSON
 El siguiente ejemplo de salida de JSON se truncó.
 
+```json
     {
     "version": 1,
     "timescale": 30000,
@@ -123,8 +126,8 @@ El siguiente ejemplo de salida de JSON se truncó.
                 "height": 0.151389
             }
             ],
+```
 
-        . . . 
 
 ## <a name="emotion-detection-input-and-output-example"></a>Ejemplo de entrada y salida de detección de emociones
 ### <a name="input-video"></a>Vídeo de entrada
@@ -133,6 +136,7 @@ El siguiente ejemplo de salida de JSON se truncó.
 ### <a name="task-configuration-preset"></a>Configuración de tareas (valor preestablecido)
 Al crear una tarea con **Azure Media Face Detector**(Detector de caras multimedia de Azure), debe especificar un valor predeterminado de configuración. El siguiente valor predeterminado de configuración especifica la creación de JSON basándose en la detección de emociones.
 
+```json
     {
       "version": "1.0",
       "options": {
@@ -141,10 +145,11 @@ Al crear una tarea con **Azure Media Face Detector**(Detector de caras multimedi
         "aggregateEmotionIntervalMs": "342"
       }
     }
+```
 
 
 #### <a name="attribute-descriptions"></a>Descripciones de atributos
-| Nombre del atributo | Description |
+| Nombre del atributo | DESCRIPCIÓN |
 | --- | --- |
 | Mode |Faces: solo detección de caras.<br/>PerFaceEmotion: devolver emociones independientemente para cada detección de cara.<br/>AggregateEmotion: Devolver valores de emociones medios para todas las caras del fotograma. |
 | AggregateEmotionWindowMs |Utilizar si se selecciona el modo AggregateEmotion. Especifica la longitud del vídeo que se utiliza para generar cada resultado agregado, en milisegundos. |
@@ -161,6 +166,7 @@ A continuación figuran valores recomendados para la configuración de ventana e
 ### <a name="json-output"></a>Salida de JSON
 Salida de JSON para la emoción agregada (truncada):
 
+```json
     {
      "version": 1,
      "timescale": 30000,
@@ -311,6 +317,7 @@ Salida de JSON para la emoción agregada (truncada):
                  "anger": 0,
                  "disgust": 0,
                  "fear": 0,
+```
 
 ## <a name="limitations"></a>Limitaciones
 * Los formatos de vídeo de entrada admitidos incluyen MP4, MOV y WMV.
@@ -322,12 +329,14 @@ Salida de JSON para la emoción agregada (truncada):
 
 El programa siguiente muestra cómo:
 
-1. Crear un recurso y cargar un archivo multimedia en dicho recurso.
+1. Crear un recurso y cargar un archivo multimedia en él.
 2. Crear un trabajo con una tarea de detección de caras basándose en un archivo de configuración que contiene el siguiente valor predeterminado de JSON: 
-   
-        {
-            "version": "1.0"
-        }
+
+    ```json
+            {
+                "version": "1.0"
+            }
+    ```
 3. Descargar los archivos JSON de salida. 
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Creación y configuración de un proyecto de Visual Studio
@@ -336,7 +345,7 @@ Configure el entorno de desarrollo y rellene el archivo app.config con la inform
 
 #### <a name="example"></a>Ejemplo
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.IO;
@@ -510,7 +519,7 @@ namespace FaceDetection
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Vínculos relacionados
-[Azure Media Services Analytics Overview (Información general sobre análisis de Servicios multimedia de Azure)](media-services-analytics-overview.md)
+[Azure Media Services Analytics Overview (Información general sobre Azure Media Services Analytics)](media-services-analytics-overview.md)
 
 [Demostraciones de Azure Media Analytics](http://amslabs.azurewebsites.net/demos/Analytics.html)
 

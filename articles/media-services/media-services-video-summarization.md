@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: milanga;juliako;
-ms.openlocfilehash: 92c730addb69bc4d12708ccd789edce0c2336c80
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4f40c9364d02929fe5bb193b4e8eb0a0157d34d2
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Usar Miniaturas de vídeo multimedia de Azure para crear un resumen de vídeo
 ## <a name="overview"></a>Información general
@@ -41,14 +41,18 @@ Estos son algunos ejemplos de lo que puede hacer el procesador de multimedia Min
 ### <a name="video-thumbnail-result"></a>Resultado de miniaturas de vídeo
 [Resultado de miniaturas de vídeo](http://ampdemo.azureedge.net/azuremediaplayer.html?url=http%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Ff5c91052-4232-41d4-b531-062e07b6a9ae%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)
 
-## <a name="task-configuration-preset"></a>Configuración de tareas (valor preestablecido)
+## <a name="task-configuration-preset"></a>Configuración de tareas (valor predeterminado)
 Al crear una tarea de miniatura de vídeo con **Miniaturas de vídeo multimedia de Azure**, debe especificar un valor predeterminado de configuración. El ejemplo de miniatura anterior se creó con la siguiente configuración básica de JSON:
 
-    {"version":"1.0"}
+```json
+    {
+        "version":"1.0"
+    }
+```
 
 En este momento puede modificar los siguientes parámetros:
 
-| Parámetro | Description |
+| Parámetro | DESCRIPCIÓN |
 | --- | --- |
 | outputAudio |Especifica si el vídeo resultante contiene audio o no. <br/>Los valores permitidos son: True o False. El valor predeterminado es True. |
 | fadeInFadeOut |Especifica si se usan transiciones de fundido entre las distintas miniaturas de movimiento.  <br/>Los valores permitidos son: True o False.  El valor predeterminado es True. |
@@ -63,6 +67,7 @@ En la tabla siguiente se describe la duración predeterminada cuando no se usa *
 
 El siguiente JSON establece los parámetros disponibles.
 
+```json
     {
         "version": "1.0",
         "options": {
@@ -71,22 +76,26 @@ El siguiente JSON establece los parámetros disponibles.
             "fadeInFadeOut": "true"
         }
     }
+```
 
 ## <a name="net-sample-code"></a>Código de ejemplo de .NET
 
 El programa siguiente muestra cómo:
 
-1. Crear un recurso y cargar un archivo multimedia en dicho recurso.
+1. Crear un recurso y cargar un archivo multimedia en él.
 2. Crea un trabajo con una tarea de miniatura de vídeo basada en un archivo de configuración que contiene el siguiente valor predeterminado de JSON: 
-   
-        {                
-            "version": "1.0",
-            "options": {
-                "outputAudio": "true",
-                "maxMotionThumbnailDurationInSecs": "30",
-                "fadeInFadeOut": "false"
+    
+    ```json
+            {                
+                "version": "1.0",
+                "options": {
+                    "outputAudio": "true",
+                    "maxMotionThumbnailDurationInSecs": "30",
+                    "fadeInFadeOut": "false"
+                }
             }
-        }
+    ```
+
 3. Descargar los archivos de salida 
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Creación y configuración de un proyecto de Visual Studio
@@ -95,6 +104,7 @@ Configure el entorno de desarrollo y rellene el archivo app.config con la inform
 
 #### <a name="example"></a>Ejemplo
 
+```csharp
     using System;
     using System.Configuration;
     using System.IO;
@@ -262,6 +272,7 @@ Configure el entorno de desarrollo y rellene el archivo app.config con la inform
 
         }
     }
+```
 
 ### <a name="video-thumbnail-output"></a>Resultado de miniaturas de vídeo
 [Resultado de miniaturas de vídeo](http://ampdemo.azureedge.net/azuremediaplayer.html?url=http%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Fd06f24dc-bc81-488e-a8d0-348b7dc41b56%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)
@@ -273,7 +284,7 @@ Configure el entorno de desarrollo y rellene el archivo app.config con la inform
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Vínculos relacionados
-[Azure Media Services Analytics Overview (Información general sobre análisis de Servicios multimedia de Azure)](media-services-analytics-overview.md)
+[Azure Media Services Analytics Overview (Información general sobre Azure Media Services Analytics)](media-services-analytics-overview.md)
 
 [Demostraciones de Azure Media Analytics](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 

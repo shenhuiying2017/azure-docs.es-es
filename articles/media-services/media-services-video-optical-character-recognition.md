@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 739e80633f828e8c14f024dc22971e7d8858cf78
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 03b9de7374880cdb2741821edae246bffaf3f921
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>Uso de Análisis multimedia de Azure para convertir el contenido de texto de archivos de vídeo en texto digital
 ## <a name="overview"></a>Información general
@@ -41,16 +41,17 @@ Configuración de tareas (valor predeterminado) Cuando se crea una tarea con **A
 >
 
 ### <a name="attribute-descriptions"></a>Descripciones de atributos
-| Nombre del atributo | Descripción |
+| Nombre del atributo | DESCRIPCIÓN |
 | --- | --- |
 |AdvancedOutput| Si establece AdvancedOutput en true, la salida JSON contendrá datos posicionales para cada palabra única (además de frases y regiones). Si no desea ver estos detalles, establezca la marca en false. El valor predeterminado es false. Para más información, vea [este blog](https://azure.microsoft.com/blog/azure-media-ocr-simplified-output/).|
-| language |(Opcional) Describe el idioma del texto que desea buscar. Está disponible en los idiomas siguientes: Detección automática (predeterminado), alemán, árabe, chino (simplificado y tradicional), checo, coreano, danés, español, finés, francés, griego, húngaro, inglés, italiano, japonés, neerlandés, noruego, polaco, portugués, rumano, ruso, serbio cirílico, serbio latino, eslovaco, sueco, turco. |
+| Idioma |(Opcional) Describe el idioma del texto que desea buscar. Está disponible en los idiomas siguientes: Detección automática (predeterminado), alemán, árabe, chino (simplificado y tradicional), checo, coreano, danés, español, finés, francés, griego, húngaro, inglés, italiano, japonés, neerlandés, noruego, polaco, portugués, rumano, ruso, serbio cirílico, serbio latino, eslovaco, sueco, turco. |
 | TextOrientation |(Opcional) Describe la orientación del texto que desea buscar.  "Izquierda" significa que la parte superior de todas las letras apunta a la izquierda.  El texto predeterminado (similar al que se encuentra en un libro) se puede denominar orientado "hacia arriba".  Uno de los siguientes: detección automática (valor predeterminado), arriba, derecha, abajo, izquierda. |
 | TimeInterval |(Opcional) Describe la frecuencia de muestreo.  El valor predeterminado es cada 1/2 segundo.<br/>Formato JSON: HH:mm:ss.SSS (predeterminado 00:00:00.500)<br/>Formato XML – primitiva de duración W3C XSD (valor predeterminado PT0.5) |
 | DetectRegions |(Opcional) Una matriz de objetos DetectRegion que especifica regiones dentro del marco de vídeo en el que se va a detectar el texto.<br/>Un objeto DetectRegion consta de los siguientes cuatro valores enteros:<br/>Izquierda: píxeles desde el margen izquierdo<br/>Parte superior: píxeles desde el margen superior<br/>Ancho: ancho de la región en píxeles<br/>Alto: el alto de la región en píxeles |
 
 #### <a name="json-preset-example"></a>Ejemplo de JSON preestablecido
 
+```json
     {
         "Version":1.0, 
         "Options": 
@@ -69,8 +70,11 @@ Configuración de tareas (valor predeterminado) Cuando se crea una tarea con **A
              ]
         }
     }
+```
 
 #### <a name="xml-preset-example"></a>Ejemplo de XML preestablecido
+
+```xml
     <?xml version=""1.0"" encoding=""utf-16""?>
     <VideoOcrPreset xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"" Version=""1.0"" xmlns=""http://www.windowsazure.com/media/encoding/Preset/2014/03"">
       <Options>
@@ -88,6 +92,7 @@ Configuración de tareas (valor predeterminado) Cuando se crea una tarea con **A
        <TextOrientation>Up</TextOrientation>
       </Options>
     </VideoOcrPreset>
+```
 
 ## <a name="ocr-output-files"></a>Archivos de salida OCR
 La salida del procesador multimedia OCR es un archivo JSON.
@@ -97,7 +102,7 @@ La salida de vídeo OCR proporciona datos segmentados en tiempo en los caractere
 
 La salida contiene los siguientes atributos:
 
-| Elemento | Description |
+| Elemento | DESCRIPCIÓN |
 | --- | --- |
 | Escala de tiempo |"Tics" por segundo del vídeo |
 | Offset |Diferencia de tiempo para las marcas de tiempo En la versión 1.0 de las API de vídeo, será siempre 0. |
@@ -118,6 +123,7 @@ La salida contiene los siguientes atributos:
 ### <a name="json-output-example"></a>Ejemplo de salida JSON
 En el siguiente ejemplo de salida contiene la información general de vídeo y varios fragmentos de vídeo. Cada fragmento de vídeo contiene todas las regiones, que las detecta el módulo de administración del reconocimiento óptico de caracteres, con el idioma y la orientación del texto. La región también contiene las líneas de palabras en esta región con el texto de la línea, la posición de la línea y cualquier otra información de las palabras (contenido de palabras, posición y confianza) de esta línea. El siguiente es un ejemplo y he agregado algunos comentarios entre líneas.
 
+```json
     {
         "version": 1, 
         "timescale": 90000, 
@@ -170,12 +176,13 @@ En el siguiente ejemplo de salida contiene la información general de vídeo y v
             }
         ]
     }
+```
 
 ## <a name="net-sample-code"></a>Código de ejemplo de .NET
 
 El programa siguiente muestra cómo:
 
-1. Crear un recurso y cargar un archivo multimedia en dicho recurso.
+1. Crear un recurso y cargar un archivo multimedia en él.
 2. Cree un trabajo con un archivo de configuración o valores preestablecidos de OCR.
 3. Descargar los archivos JSON de salida. 
    
@@ -185,7 +192,7 @@ Configure el entorno de desarrollo y rellene el archivo app.config con la inform
 
 #### <a name="example"></a>Ejemplo
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.IO;

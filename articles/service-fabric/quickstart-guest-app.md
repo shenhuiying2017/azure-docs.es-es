@@ -9,22 +9,22 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: adegeo
-ms.openlocfilehash: 304d22c14f6877138213db14333773f1e293c57a
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 1130ce3231b9e96a03d3e8dc5f75721dd0415928
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Hospedaje de una aplicación de Node.js en Azure Service Fabric
 
 Esta guía de inicio rápido le ayudará a implementar una aplicación existente (Node.js en este ejemplo) en un clúster de Service Fabric que se ejecuta en Azure.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Antes de comenzar, asegúrese de haber [configurado el entorno de desarrollo](service-fabric-get-started.md). Aquí se incluye la instalación del SDK de Service Fabric y Visual Studio 2017 o 2015.
 
@@ -95,7 +95,7 @@ Abra el archivo **ServiceManifest.xml** en el proyecto. En la parte inferior del
   </Resources>
 ```
 
-## <a name="deploy-to-azure"></a>Implementación en Azure
+## <a name="deploy-to-azure"></a>Implementar en Azure
 
 Si presiona **F5** y ejecuta el proyecto, este se implementa en el clúster local. Sin embargo, vamos a implementarlo en Azure.
 
@@ -125,7 +125,7 @@ Una vez publicado su servicio, pruébelo en un explorador web.
 
 En primer lugar, abra Azure Portal y busque el servicio Service Fabric.
 
-Compruebe la hoja de información general de la dirección del servicio. Use el nombre de dominio de la propiedad _Punto de conexión del cliente_. Por ejemplo: `http://mysvcfab1.westus2.cloudapp.azure.com`.
+Compruebe la hoja de información general de la dirección del servicio. Use el nombre de dominio de la propiedad _Punto de conexión del cliente_. Por ejemplo, `http://mysvcfab1.westus2.cloudapp.azure.com`.
 
 ![Hoja de información general de Service Fabric en Azure Portal][overview]
 

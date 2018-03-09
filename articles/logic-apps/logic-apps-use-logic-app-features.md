@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/28/2017
 ms.author: estfan; LADocs
 ms.openlocfilehash: cca13db916dc2560ff78d477a0faa241e032ab27
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/03/2018
 ---
 # <a name="use-logic-apps-features"></a>Uso de las características de Logic Apps
 
@@ -143,7 +143,7 @@ Para iniciar un flujo de trabajo, los servicios pueden llamar a un punto de cone
 <!-- Shared links -->
 [Azure Portal]: https://portal.azure.com
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Instrucciones switch](../logic-apps/logic-apps-switch-case.md) 
 * [Bucles, ámbitos y desagrupación](../logic-apps/logic-apps-loops-and-scopes.md)

@@ -203,8 +203,6 @@
           href: maintenance-notifications.md
         - name: Mitigación de ejecución especulativa
           href: mitigate-se.md
-        - name: Preguntas más frecuentes sobre mantenimiento acelerado
-          href: accelerated-maintenance.md
         - name: Eventos programados
           href: scheduled-events.md
         - name: Supervisión de metadatos

@@ -3,17 +3,18 @@ title: "Integración del centro de datos de Azure Stack: Seguridad"
 description: Aprenda a integrar la seguridad de Azure Stack con la seguridad de su centro de datos.
 services: azure-stack
 author: jeffgilb
+manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/28/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: 
-ms.openlocfilehash: 16d97765c9340555bfc0db22975a43227cc6b517
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 8ce9045a3e4fd12d61e9b1600ee98880762bc544
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-stack-datacenter-integration---security"></a>Integración del centro de datos de Azure Stack: Seguridad
 Azure Stack se ha diseñado y compilado con una atención especial a la seguridad. Azure Stack es un sistema bloqueado, por lo que no se admite la instalación de agentes de seguridad de software.
@@ -89,6 +90,6 @@ Todos los dispositivos físicos de Azure Stack pueden enviar mensajes de Syslog.
 
 La dirección de destino de Syslog es un parámetro opcional que se recopila para la implementación, pero se puede agregar también después de esta.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 [Directiva de mantenimiento](azure-stack-servicing-policy.md)

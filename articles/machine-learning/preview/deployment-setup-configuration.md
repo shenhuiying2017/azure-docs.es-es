@@ -5,16 +5,16 @@ services: machine-learning
 author: raymondlaghaeian
 ms.author: raymondl
 manager: hjerez
-ms.reviewer: jasonwhowell, mldocs
+ms.reviewer: jmartens,jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/6/2017
-ms.openlocfilehash: 391c02c5c76a3be3f5338790a81bca0311fb301b
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 4e2ac548ee08f1a20cf2c1744242ee13535e55cc
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="model-management-setup"></a>Instalación de Administración de modelos
 
@@ -161,5 +161,5 @@ Ahora está listo para implementar el modelo guardado como un servicio web.
 az ml service create realtime --model-file [model file/folder path] -f [scoring file e.g. score.py] -n [your service name] -s [schema file e.g. service_schema.json] -r [runtime for the Docker container e.g. spark-py or python] -c [conda dependencies file for additional python packages]
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Pruebe uno de los muchos ejemplos en la galería.

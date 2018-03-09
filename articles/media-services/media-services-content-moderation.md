@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/06/2018
 ms.author: sajagtap
-ms.openlocfilehash: 43e22e553b5243d6edc413c7a667089793f95396
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 1b473a6aef87e5f4c75be2becbf814ecaaab6f3a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>Usar Azure Media Content Moderator para detectar contenido para adultos
 
@@ -90,6 +90,7 @@ En el siguiente ejemplo de código de .NET se usa el SDK de .NET de Media Servic
 Consulte la [guía de inicio rápido para vídeos de Content Moderator](../cognitive-services/Content-Moderator/video-moderation-api.md) para obtener el código fuente y el proyecto de Visual Studio completos.
 
 
+```csharp
     /// <summary>
     /// Run the Content Moderator job on the designated Asset from local file or blob storage
     /// </summary>
@@ -155,14 +156,14 @@ Consulte la [guía de inicio rápido para vídeos de Content Moderator](../cogni
         DownloadAsset(job.OutputMediaAssets.First(), OUTPUT_FOLDER);
     }
 
-Para obtener el código fuente y el proyecto de Visual Studio completos, consulte la [guía de inicio rápido para vídeos de Content Moderator](../cognitive-services/Content-Moderator/video-moderation-api.md).
+For the full source code and the Visual Studio project, check out the [Content Moderator video quickstart](../cognitive-services/Content-Moderator/video-moderation-api.md).
 
-### <a name="json-output"></a>Salida de JSON
+### JSON output
 
-En el siguiente ejemplo se muestra un elemento de salida JSON de Content Moderator que se truncó.
+The following example of a Content Moderator JSON output was truncated.
 
 > [!NOTE]
-> Ubicación de un fotograma clave en segundos = marca de tiempo/escala temporal
+> Location of a keyframe in seconds = timestamp/timescale
 
     {
     "version": 2,
@@ -213,7 +214,7 @@ En el siguiente ejemplo se muestra un elemento de salida JSON de Content Moderat
     }
     ]
     }
-
+```
 
 ## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -226,7 +227,7 @@ En el siguiente ejemplo se muestra un elemento de salida JSON de Content Moderat
 
 [Demostraciones de Azure Media Analytics](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Obtenga más información acerca de la [solución para la moderación y revisión de vídeos](../cognitive-services/Content-Moderator/video-moderation-human-review.md) de Content Moderator.
 
