@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: d966a1ce5f30531668c05e68bfe709057c6dee35
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7e4ad361df8a37d4a82c1bc50c6fb134a1ad5159
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-java-device-sdk-for-iot-hub-device-provisioning-service"></a>Creación y aprovisionamiento de un dispositivo X.509 simulado mediante el SDK de dispositivos Java para el servicio Azure IoT Hub Device Provisioning
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -76,6 +76,9 @@ Asegúrese de completar los pasos descritos en [Configuración de un servicio Az
 
         1. Escriba **Y** en _Do you want to input Verification Code_ (¿Quiere introducir un código de verificación?) y mantenga el programa abierto para usarlo como referencia más adelante en la guía de inicio rápido. Tenga en cuenta los valores de _Client Cert_ (Certificado de cliente), _Client Cert Private Key_ (Clave privada del certificado de cliente), _Signer Cert_ (Certificado de firmante) y _Root Cert_ (Certificado raíz).
 
+        > [!NOTE]
+        > El `Root Cert` anterior solo se puede aplicar a los certificados creados en la salida de la consola y no se puede usar para firmar certificados de cliente adicionales. Si necesita un conjunto más sólido de certificados de prueba, consulte el artículo [Managing CA Certificates Sample](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) (Ejemplo de administración de certificados de CA).
+        >
 
 ## <a name="create-a-device-enrollment-entry"></a>Creación de una entrada de inscripción de dispositivo
 
@@ -189,7 +192,7 @@ Asegúrese de completar los pasos descritos en [Configuración de un servicio Az
             String rootPem = "<Your Root Certificate here>";
                 
             signerCertificates.add(intermediatePem);
-            signerCertificates.add(root);
+            signerCertificates.add(rootPem);
             ```
     
             - Para incluir los certificados, utilice el formato siguiente:
@@ -237,7 +240,7 @@ Si piensa seguir trabajando con el ejemplo de cliente de dispositivo y explorán
 1. Desde el menú de la izquierda en Azure Portal, haga clic en **Todos los recursos** y seleccione su centro de IoT. Abra la hoja **IoT Devices** (Dispositivos IoT) de su centro, seleccione el *ID. DE DISPOSITIVO* del dispositivo que registró en esta guía de inicio rápido y, a continuación, haga clic en el botón **Eliminar** situado en la parte superior.
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En esta guía de inicio rápido, creó un dispositivo simulado X.509 en su máquina Windows y lo aprovisionó con IoT Hub mediante el servicio Azure IoT Hub Device Provisioning en el portal. Para obtener información sobre cómo inscribir el dispositivo X.509 mediante programación, siga la guía de inicio rápido para la inscripción de dispositivos X.509 mediante programación. 
 

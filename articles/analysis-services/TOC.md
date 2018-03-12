@@ -20,6 +20,10 @@
 ## [Copia de seguridad y restauración](analysis-services-backup.md)
 ## [Realización de una actualización con la API de REST](analysis-services-async-refresh.md)
 ## [Configuración de la escalabilidad horizontal](analysis-services-scale-out.md)
+## Automatización de tareas administrativas
+### [Creación de entidad de servicio: Azure Portal](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+### [Creación de entidad de servicio: PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+### [Incorporación de una entidad de servicio al rol de administrador del servidor](analysis-services-addservprinc-admins.md)
 ## Administración de servidor
 ### [Configuración de un alias de nombre del servidor](analysis-services-server-alias.md)
 ### [Administración de un servicio](analysis-services-manage.md)

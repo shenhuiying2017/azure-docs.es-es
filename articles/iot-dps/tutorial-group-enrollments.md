@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 14e5e7613fd5df650625cf8997d569b754ceb689
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 2f1ae92c05e02dffa22fb2c64c6c076a0adfc176
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>Creación y aprovisionamiento de un dispositivo X.509 simulado mediante el SDK de dispositivos y servicios Java y las inscripciones de grupos para el servicio Azure IoT Hub Device Provisioning
 
@@ -39,9 +39,7 @@ Asegúrese de completar los pasos descritos en [Configuración de un servicio Az
     > Este paso requiere [OpenSSL](https://www.openssl.org/), que se puede integrar e instalar desde el origen o descargarse e instalarse desde el sitio web de un [tercero](https://wiki.openssl.org/index.php/Binaries) como [este](https://sourceforge.net/projects/openssl/). Si ya ha creado los certificados _raíz_, _intermedio_ y de _dispositivo_, puede omitir este paso.
     >
 
-1. Cree la información del grupo de inscripción:
-
-    1. Siga el **paso 1** y el **paso 2** para crear sus certificados _raíz_ e _intermedio_.
+    1. Siga los dos primeros pasos para crear sus certificados _raíz_ e _intermedio_.
 
     1. Inicie sesión en Azure Portal, haga clic en el botón **Todos los recursos** situado en el menú izquierdo y abra el servicio de aprovisionamiento.
 
@@ -56,16 +54,16 @@ Asegúrese de completar los pasos descritos en [Configuración de un servicio Az
 
         1. Seleccione el certificado recién creado:
             - Haga clic en **Generar código de verificación**. Copie el código generado.
-            - Continúe con el **paso 3**. Escriba el _código de verificación_ o haga clic con el botón derecho para pegarlo en la ventana de PowerShell que se está ejecutando.  Presione **Entrar**.
+            - Ejecute el paso de comprobación. Escriba el _código de verificación_ o haga clic con el botón derecho para pegarlo en la ventana de PowerShell que se está ejecutando.  Presione **Entrar**.
             - Seleccione el archivo **_verifyCert4.pem_** recién creado en Azure Portal. Haga clic en **Comprobar**.
 
             ![Validación del certificado](./media/tutorial-group-enrollments/validate-certificate.png)
 
-1. Para terminar, realice el **paso 4** y el **paso 5** para crear los certificados de dispositivo y los recursos de limpieza.
+    1. Para finalizar, ejecute los pasos necesarios para crear los certificados de los dispositivos y limpiar recursos.
 
-> [!NOTE]
-> Al crear los certificados de dispositivo, asegúrese de usar solo caracteres alfanuméricos en minúsculas y guiones en el nombre del dispositivo.
->
+    > [!NOTE]
+    > Al crear los certificados de dispositivo, asegúrese de usar solo caracteres alfanuméricos en minúsculas y guiones en el nombre del dispositivo.
+    >
 
 
 ## <a name="create-a-device-enrollment-entry"></a>Creación de una entrada de inscripción de dispositivo
@@ -215,7 +213,7 @@ Si piensa seguir trabajando con el ejemplo de cliente de dispositivo y explorán
 1. Desde el menú de la izquierda en Azure Portal, haga clic en **Todos los recursos** y seleccione su centro de IoT. Abra la hoja **IoT Devices** (Dispositivos IoT) de su centro, seleccione el *ID. DE DISPOSITIVO* del dispositivo que registró en esta guía de inicio rápido y, a continuación, haga clic en el botón **Eliminar** situado en la parte superior.
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, creó un dispositivo simulado X.509 en su máquina Windows y lo aprovisionó con IoT Hub mediante el servicio Azure IoT Hub Device Provisioning y los grupos de inscripción. Para más información sobre el dispositivo X.509, continúe con los conceptos de dispositivo. 
 

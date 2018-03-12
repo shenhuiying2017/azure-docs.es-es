@@ -14,11 +14,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 10/02/2017
   ms.author: carolz
-  ms.openlocfilehash: 6ab2ecc6e2082939b51eef8a95fe68a9303ab47c
-  ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+  ms.openlocfilehash: 5a4a9b6ad3a1de27a722a6b5b250e68aa72e52e7
+  ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 01/12/2018
+  ms.lasthandoff: 03/09/2018
 abstract:
   description: "Azure Stack es una plataforma en la nube híbrida que le permite usar servicios de Azure desde el centro de datos del proveedor de servicios o de su empresa. Como desarrollador, puede compilar aplicaciones en Azure Stack. Luego, puede implementarlas en Azure Stack o en Azure, o bien puede compilar aplicaciones realmente híbridas que aprovechen la conectividad entre una nube de Azure Stack y Azure. Aprenda a crear recursos e implementar aplicaciones con nuestros inicios rápidos y tutoriales.<br/><br/>Si es un operador de Azure Stack que administra la infraestructura y ofrece servicios, consulte la <a href=\"/azure/azure-stack/\">documentación del operador</a>."
 sections:
@@ -73,4 +73,4 @@ sections:
     className: cardsD
     items:
     - title: "Línea de comandos"
-      html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.10">Azure Stack PowerShell</a></p><p><a href="/cli/azure/?view=azure-cli-2017-03-09-profile">CLI de Azure Stack</a></p>
+      html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.10">Azure Stack PowerShell</a></p><p><a href="/cli/azure/reference-index?view=azure-cli-2017-03-09-profile">CLI de Azure Stack</a></p>

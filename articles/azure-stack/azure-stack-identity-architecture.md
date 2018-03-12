@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/22/2018
+ms.date: 2/28/2018
 ms.author: brenduns
 ms.reviewer: 
-ms.openlocfilehash: 0f3e28f7726afab02211902b5ba2e478ae8065df
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 7f2ec78da38f3c97fde810fb8fc965cfbb6fda08
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="identity-architecture-for-azure-stack"></a>Arquitectura de identidad para Azure Stack
 Antes de elegir un proveedor de identidad para usarlo con Azure Stack, conozca las diferencias importantes entre las opciones de Azure Active Directory (Azure AD) y Servicios de federación de Active Directory (AD FS). 
@@ -86,7 +86,7 @@ Con esta topología:
 
   Para interactuar con la instancia de AD, Graph API requiere credenciales de usuario de su instancia de AD que tengan permiso de solo lectura a esta. 
   - La versión integrada de AD FS se basa en Server 2016. 
-  - Sus instancias de AD FS y AD deben basarse en Server 2012 o versiones anteriores. 
+  - Sus instancias de AD FS y AD deben basarse en Server 2012, o en las versiones posteriores.  
   
   Entre la instancia de AD y la de AD FS integrada, las interacciones no se restringen a OpenID Connect y pueden usar cualquier protocolo que ambas admitan.  
   - Las cuentas de usuario se crean y se administran en la instancia de AD local.
@@ -94,6 +94,6 @@ Con esta topología:
 
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 - [Introducción a las identidades](azure-stack-identity-overview.md)   
 - [Integración del centro de datos: identidad](azure-stack-integrate-identity.md)

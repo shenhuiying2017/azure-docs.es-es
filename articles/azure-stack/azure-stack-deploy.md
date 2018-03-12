@@ -1,6 +1,6 @@
 ---
-title: "Requisitos previos de implementación de Azure Stack Development Kit | Microsoft Docs"
-description: Consulte el entorno y los requisitos de hardware de Azure Stack Development Kit (operador en la nube).
+title: "Requisitos previos de implementación del Kit de desarrollo de Azure Stack | Microsoft Docs"
+description: Consulte el entorno y los requisitos de hardware del Kit de desarrollo de Azure Stack (operador en la nube).
 services: azure-stack
 documentationcenter: 
 author: jeffgilb
@@ -12,20 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/08/2017
+ms.date: 03/02/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 0fa0d00112e731a9f2effd453ba74f5561fca358
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 03682e7f5867360cc3d854f0dff2bc5d1c1c9619
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="azure-stack-deployment-prerequisites"></a>Requisitos previos de implementación de Azure Stack
 
-*Se aplica a: Azure Stack Development Kit*
+*Se aplica a: Kit de desarrollo de Azure Stack*
 
-Antes de implementar [Azure Stack Development Kit](azure-stack-poc.md), asegúrese de que el equipo cumple los requisitos siguientes:
+Antes de implementar el [Kit de desarrollo de Azure Stack (ASDK)](azure-stack-poc.md), asegúrese de que el equipo host del kit de desarrollo cumple los requisitos que se describen en este artículo.
 
+> [!NOTE]
+> El ASDK se debe instalar en un equipo host físico. No se admite la instalación del ASDK en una máquina virtual de Azure.
 
 ## <a name="hardware"></a>Hardware
 | Componente | Mínima | Recomendado |
@@ -64,7 +66,7 @@ Antes de implementar [Azure Stack Development Kit](azure-stack-poc.md), asegúre
 
 Están disponibles configuraciones de OEM de ejemplo.
 
-## <a name="operating-system"></a>Sistema operativos
+## <a name="operating-system"></a>Sistema operativo
 |  | **Requisitos** |
 | --- | --- |
 | **Versión del SO.** |Windows Server 2012 R2 o posterior. La versión del sistema operativo no es crítica antes de iniciar la implementación, ya que podrá arrancar el equipo host en el disco duro virtual que se incluye en la instalación de Azure Stack. El sistema operativo y todas las revisiones necesarias ya están integradas en la imagen. No use ninguna clave para activar las instancias de Windows Server utilizadas en el kit de desarrollo. |
@@ -81,9 +83,9 @@ Si el entorno no está conectado a Internet o no desea usar Azure AD, puede impl
 Si implementa mediante la opción de AD FS, debe volver a implementar Azure Stack para cambiar a Azure AD.
 
 ### <a name="azure-active-directory-accounts"></a>Cuentas de Azure Active Directory
-Para implementar Azure Stack mediante una cuenta de Azure AD, debe preparar una cuenta de Azure AD antes de ejecutar el script de PowerShell de implementación. Esta cuenta se convierte en el administrador global para el inquilino de Azure AD. Se utiliza para aprovisionar y delegar aplicaciones y entidades de servicio para todos los servicios de Azure Stack que interactúan con Azure Active Directory y la API Graph. También se utiliza como el propietario de la suscripción de proveedor predeterminada (que puede cambiar más adelante). Puede iniciar sesión en el portal del administrador del sistema de Azure Stack mediante el uso de esta cuenta.
+Para implementar Azure Stack mediante una cuenta de Azure AD, debe preparar una cuenta de Azure AD antes de ejecutar el script de PowerShell de implementación. Esta cuenta se convierte en el administrador global para el inquilino de Azure AD. Se utiliza para aprovisionar y delegar aplicaciones y entidades de servicio para todos los servicios de Azure Stack que interactúan con Azure Active Directory y Graph API. También se utiliza como el propietario de la suscripción de proveedor predeterminada (que puede cambiar más adelante). Puede iniciar sesión en el portal del administrador del sistema de Azure Stack mediante el uso de esta cuenta.
 
-1. Cree una cuenta de Azure AD que sea el administrador de directorios de al menos una instancia de Azure AD. Si ya tiene una, puede usarla. En caso contrario, puede crear una de forma gratuita en [http://azure.microsoft.com/en-us/pricing/free-trial/](http://azure.microsoft.com/pricing/free-trial/) (en China, visite <http://go.microsoft.com/fwlink/?LinkID=717821> en su lugar). Si tiene previsto más adelante [registrar Azure Stack en Azure](azure-stack-register.md), también debe tener una suscripción en la cuenta recién creada.
+1. Cree una cuenta de Azure AD que sea el administrador de directorios de al menos una instancia de Azure AD. Si ya tiene una, puede usarla. En caso contrario, puede crearla de forma gratuita en [http://azure.microsoft.com/en-us/pricing/free-trial/](http://azure.microsoft.com/pricing/free-trial/) (en China, visite <http://go.microsoft.com/fwlink/?LinkID=717821>). Si tiene previsto más adelante [registrar Azure Stack en Azure](azure-stack-register.md), también debe tener una suscripción en la cuenta recién creada.
    
     Guarde estas credenciales para su uso en el paso 6 de [Implementación del kit de desarrollo](azure-stack-run-powershell-script.md). Los *administradores de servicios* pueden configurar y administrar recursos en la nube, cuentas de usuario, planes de inquilinos, cuotas y precios. En el portal, pueden crear nubes de sitios web, nubes privadas de máquinas virtuales, crear planes y administrar suscripciones de usuario.
 2. [Cree](azure-stack-add-new-user-aad.md) al menos una cuenta para que pueda iniciar sesión en el kit de desarrollo como un inquilino.
@@ -124,7 +126,6 @@ Azure Stack necesita acceso a Internet, ya sea directamente o a través de un pr
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Descarga del paquete de implementación de Azure Stack Development Kit](https://azure.microsoft.com/overview/azure-stack/try/?v=try)
+[Descarga del paquete de implementación del Kit de desarrollo de Azure Stack](https://azure.microsoft.com/overview/azure-stack/try/?v=try)
 
-[Implementación de Azure Stack Development Kit](azure-stack-run-powershell-script.md)
-
+[Implementación del Kit de desarrollo de Azure Stack](azure-stack-run-powershell-script.md)

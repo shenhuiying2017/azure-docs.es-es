@@ -73,13 +73,13 @@
 ## [Storage](azure-operations-guide.md#azure-storage)
 
 ### [Almacenamiento de blobs de Azure](../../storage/blobs/storage-blob-storage-tiers.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Introducción al Almacenamiento de blobs de Azure mediante .NET](../../storage/blobs/storage-dotnet-how-to-use-blobs.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Introducción a Azure Blob Storage mediante .NET](../../storage/blobs/storage-dotnet-how-to-use-blobs.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Introducción a Azure File Storage en Windows](../../storage/files/storage-how-to-use-files-windows.md?toc=%2fazure%2fguides%2foperations%2ftoc.json) 
 ### [Uso de Azure File Storage con Linux](../../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Introducción al Almacenamiento de tablas de Azure](../../cosmos-db/table-storage-how-to-use-dotnet.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Introducción a Azure Queue Storage](../../storage/queues/storage-dotnet-how-to-use-queues.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Cree una cuenta de almacenamiento](../../storage/common/storage-create-storage-account.md#create-a-storage-account)
-### [Usar Azure PowerShell con Almacenamiento de Azure](../../storage/common/storage-powershell-guide-full.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [crear una cuenta de almacenamiento](../../storage/common/storage-create-storage-account.md#create-a-storage-account)
+### [Usar Azure PowerShell con Azure Storage](../../storage/common/storage-powershell-guide-full.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Uso de la CLI de Azure con Azure Storage](../../storage/common/storage-azure-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Herramientas de cliente de Azure Storage](../../storage/common/storage-explorers.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Referencia de la API de REST de los servicios de Azure Storage](/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference)
@@ -88,9 +88,9 @@
 
 
 ## [Redes virtuales](azure-operations-guide.md#azure-virtual-network)
-### [Creación de una red virtual mediante Azure Portal](../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Creación de una red virtual usando Azure PowerShell](../../virtual-network/virtual-networks-create-vnet-arm-ps.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Creación de una red virtual usando la CLI de Azure](../../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Creación de una red virtual mediante Azure Portal](../../virtual-network/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Creación de una red virtual usando Azure PowerShell](../../virtual-network/quick-create-powershell.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Creación de una red virtual usando la CLI de Azure](../../virtual-network/quick-create-cli.md#create-a-virtual-network?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Filtrado del tráfico de red con grupos de seguridad de red](../../virtual-network/virtual-networks-nsg.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### Tutoriales de redes virtuales
 #### [Equilibrio de carga de máquinas virtuales](../../virtual-machines/linux/tutorial-load-balance-nodejs.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)

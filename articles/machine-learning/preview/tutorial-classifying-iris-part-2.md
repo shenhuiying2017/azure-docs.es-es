@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 02/28/2018
-ms.openlocfilehash: f52d4268c3983b419a6393bbd651301022688029
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 9a1613e2137e178d00a24f9f5b3c802f8a894b15
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="tutorial-classify-iris-part-2---build-a-model"></a>Tutorial: Parte 2 de la clasificación de Iris: compilación de un modelo
 Azure Machine Learning Services (versión preliminar) es una solución de análisis avanzado y ciencia de datos completa e integrada que permite a los científicos de datos profesionales preparar datos, desarrollar experimentos e implementar modelos a escala de la nube.
 
-Este tutorial es la segunda parte de una serie de tres partes. Aquí se usará Azure Machine Learning Services (versión preliminar) para:
+Este tutorial es la **segunda de una serie de tres partes**. Aquí se usará Azure Machine Learning Services (versión preliminar) para:
 
 > [!div class="checklist"]
 > * Usar Azure Machine Learning Workbench.
@@ -380,7 +380,7 @@ También puede ejecutar este script en un clúster de HDInsight Spark. Aprenda a
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En esta segunda parte de la serie de tutoriales de tres partes, ha aprendido a usar Azure Machine Learning Services para:
 > [!div class="checklist"]
 > * Usar Azure Machine Learning Workbench.

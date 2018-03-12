@@ -27,7 +27,8 @@
 ### [Grupos de seguridad de red](virtual-networks-nsg.md)
 
 ## Implementación
-### [Redes virtuales](virtual-networks-create-vnet-arm-pportal.md)
+### Redes virtuales
+#### [portal de Azure](virtual-networks-create-vnet-arm-pportal.md)
 #### [Azure PowerShell](virtual-networks-create-vnet-arm-ps.md)
 #### [CLI de Azure](virtual-networks-create-vnet-arm-cli.md)
 #### [Plantilla](virtual-networks-create-vnet-arm-template-click.md)
@@ -42,17 +43,20 @@
 ##### [Azure PowerShell](virtual-networks-create-nsg-classic-ps.md)
 ##### [CLI de Azure 1.0](virtual-networks-create-nsg-classic-cli.md)
 
-### Rutas definidas por el usuario
-#### [portal de Azure](create-user-defined-route-portal.md)
-#### [Azure PowerShell](virtual-network-create-udr-arm-ps.md)
-#### [CLI de Azure](virtual-network-create-udr-arm-cli.md)
+### Tablas de ruta
+#### [portal de Azure](tutorial-create-route-table-portal.md)
+#### [Azure PowerShell](tutorial-create-route-table-powershell.md)
+#### [CLI de Azure](tutorial-create-route-table-cli.md)
 #### [Plantilla](virtual-network-create-udr-arm-template.md)
 #### Clásico
 ##### [Azure PowerShell](virtual-network-create-udr-classic-ps.md)
 ##### [CLI de Azure](virtual-network-create-udr-classic-cli.md)
 
 ### Emparejamiento de redes virtuales de Azure
-#### [Mismo modelo de implementación, misma suscripción](virtual-network-create-peering.md)
+#### Mismo modelo de implementación, misma suscripción
+##### [portal de Azure](tutorial-connect-virtual-networks-portal.md)
+##### [Azure PowerShell](tutorial-connect-virtual-networks-powershell.md)
+##### [CLI de Azure](tutorial-connect-virtual-networks-cli.md)
 #### [Mismo modelo de implementación, diferentes suscripciones](create-peering-different-subscriptions.md)
 #### [Diferentes modelos de implementación, misma suscripción](create-peering-different-deployment-models.md)
 #### [Diferentes modelos de implementación, diferentes suscripciones](create-peering-different-deployment-models-subscriptions.md)

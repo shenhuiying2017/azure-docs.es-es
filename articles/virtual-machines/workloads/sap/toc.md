@@ -1,5 +1,5 @@
 # Información general
-## [Introducción](get-started.md)
+## [Primeros pasos](get-started.md)
 ## [Certificaciones](sap-certifications.md)
 # SAP HANA en Azure (instancias grandes)
 ## [Introducción y arquitectura](hana-overview-architecture.md)
@@ -7,14 +7,18 @@
 ## [Instalación de SAP HANA](hana-installation.md)
 ## [Alta disponibilidad y recuperación ante desastres](hana-overview-high-availability-disaster-recovery.md)
 ## [Solución de problemas y supervisión](troubleshooting-monitoring.md)
-## Cómo
+## Procedimientos
 ### [Configurar alta disponibilidad con STONITH](ha-setup-with-stonith.md)
 ### [Copia de seguridad del sistema operativo para SKU de tipo II](os-backup-type-ii-skus.md)
 # SAP HANA en Azure Virtual Machines
 ## [Instalación de instancia individual de SAP HANA](hana-get-started.md)
 ## [Guía de implementación de S/4 HANA o BW/4 HANA SAP CAL](cal-s4h.md)
 ## [SAP HANA en la guía de operaciones de Azure](hana-vm-operations.md)
-## [SAP HANA: alta disponibilidad en máquinas virtuales de Azure](sap-hana-high-availability.md)
+## Disponibilidad de SAP HANA en Azure Virtual Machines
+### [Introducción a la disponibilidad de SAP HANA en Azure](sap-hana-availability-overview.md)
+### [Disponibilidad de SAP HANA en Azure dentro de una región de Azure](sap-hana-availability-one-region.md)
+### [Disponibilidad de SAP HANA en Azure entre regiones de Azure](sap-hana-availability-across-regions.md)
+## [Configuración de la replicación del sistema de SAP HANA en máquinas virtuales de Azure](sap-hana-high-availability.md)
 ## [SAP HANA: información general sobre copias de seguridad](sap-hana-backup-guide.md)
 ## [SAP HANA: copia de seguridad en el nivel de archivo](sap-hana-backup-file-level.md)
 ## [SAP HANA: copias de seguridad de instantáneas de almacenamiento](sap-hana-backup-storage-snapshots.md)

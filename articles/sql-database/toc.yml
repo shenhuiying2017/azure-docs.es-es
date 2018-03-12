@@ -45,12 +45,14 @@
       href: sql-database-design-first-database.md
     - name: 1 - Diseño de una base de datos con .NET
       href: sql-database-design-first-database-csharp.md
-    - name: 2 - Migración de bases de datos de SQL Server
+    - name: 2 - Migración a una base de datos de SQL Server
       href: sql-database-migrate-your-sql-server-database.md
     - name: 3 - Protección de SQL Database
       href: sql-database-security-tutorial.md
     - name: '4: Implementación de una base de datos distribuida geográficamente'
       href: sql-database-implement-geo-distributed-database.md
+    - name: 5 - Creación de instancia administrada
+      href: sql-database-managed-instance-tutorial-portal.md
 - name: Ejemplos
   items:
     - name: Ejemplos de código
@@ -61,26 +63,26 @@
       href: sql-database-powershell-samples.md
 - name: Conceptos
   items:
-    - name: Servicio de base de datos
-      items:
-        - name: Servidores y bases de datos
-          href: sql-database-servers-databases.md
-        - name: Niveles de servicio
-          href: sql-database-service-tiers.md
-        - name: Límites de recursos
-          href: sql-database-resource-limits.md
-        - name: Bases de datos únicas
-          href: sql-database-single-database-resources.md
-        - name: Grupos elásticos
-          href: sql-database-elastic-pool.md
-        - name: Arquitectura de conectividad
-          href: sql-database-connectivity-architecture.md
-        - name: DTU y eDTU
-          href: sql-database-what-is-a-dtu.md
-        - name: Prueba comparativa de DTU
-          href: sql-database-benchmark-overview.md
-        - name: Características comunes de SQL Server
-          href: sql-database-features.md
+    - name: Servidores y bases de datos
+      href: sql-database-servers-databases.md
+    - name: Instancia administrada
+      href: sql-database-managed-instance.md
+    - name: Niveles de servicio
+      href: sql-database-service-tiers.md
+    - name: Límites de recursos
+      href: sql-database-resource-limits.md
+    - name: Bases de datos únicas
+      href: sql-database-single-database-resources.md
+    - name: Grupos elásticos
+      href: sql-database-elastic-pool.md
+    - name: Arquitectura de conectividad
+      href: sql-database-connectivity-architecture.md
+    - name: DTU y eDTU
+      href: sql-database-what-is-a-dtu.md
+    - name: Prueba comparativa de DTU
+      href: sql-database-benchmark-overview.md
+    - name: Características comunes de SQL Server
+      href: sql-database-features.md
     - name: Alta disponibilidad
       href: sql-database-high-availability.md
     - name: Seguridad
@@ -101,8 +103,10 @@
           href: sql-database-ssms-mfa-authentication.md
         - name: Auditoría
           href: sql-database-auditing.md
-        - name: Detección de amenazas
+        - name: 'Detección de amenazas: SQL Database'
           href: sql-database-threat-detection.md
+        - name: 'Detección de amenazas: Instancia administrada'
+          href: sql-database-managed-instance-threat-detection.md
         - name: Auditoría de tablas y TDS
           href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
         - name: Enmascaramiento de datos dinámicos
@@ -137,11 +141,15 @@
           href: sql-database-disaster-recovery-drills.md
     - name: Migración a SQL Database
       items:
-        - name: Información general
+        - name: Migración a SQL Database
           href: sql-database-cloud-migrate.md
-        - name: Cambios de T-SQL
+        - name: Migración a Instancia administrada
+          href: sql-database-managed-instance-migrate.md
+        - name: Información adicional sobre T-SQL para SQL Database
           href: sql-database-transact-sql-information.md
-        - name: Administración de bases de datos después de la migración
+        - name: Información adicional sobre T-SQL para Instancia administrada
+          href: sql-database-managed-instance-transact-sql-information.md
+        - name: Administración de SQL Database después de una migración
           href: sql-database-manage-after-migration.md
     - name: Carga y movimiento de datos
       items:
@@ -265,6 +273,16 @@
           href: sql-database-elastic-query-horizontal-partitioning.md
         - name: Consulta de tablas con esquemas diferentes
           href: sql-database-elastic-query-vertical-partitioning.md
+    - name: Instancia administrada
+      items:
+        - name: Configuración de VNET
+          href: sql-database-managed-instance-vnet-configuration.md
+        - name: DNS personalizado
+          href: sql-database-managed-instance-custom-dns.md
+        - name: Conexión de aplicaciones
+          href: sql-database-managed-instance-connect-app.md
+        - name: Sincronización de la configuración de red
+          href: sql-database-managed-instance-sync-network-configuration.md
     - name: Seguridad
       items:
         - name: Configuración de la autenticación de Azure AD
@@ -472,4 +490,4 @@
     - name: Centro de arquitectura
       href: /azure/architecture/
     - name: Testimonios de clientes
-      href: 'https://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc'
+      href: 'https://customers.microsoft.com/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc'
