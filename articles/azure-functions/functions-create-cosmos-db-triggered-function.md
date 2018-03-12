@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 12/07/2017
 ms.author: glenga
 ms.custom: 
-ms.openlocfilehash: ff0c468179ef7b71151b64426bf2e6701d5032fe
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 9ee3eddda53052c47f2cecff80f971f5eadac414
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Creación de una función desencadenada por Azure Cosmos DB
 
@@ -75,7 +75,7 @@ Después, cree una función en la nueva Function App.
     | ------------ | ---------------- | ------------------------------------------ |
     | **Id** | Nombre de base de datos | Identificador único para la base de datos de Azure Cosmos DB  |
     | **API** | SQL (DocumentDB) | En este tema se usa la API de base de datos de documentos.  |
-    | **Suscripción** | Suscripción de Azure | Suscripción de Azure  |
+    | **Suscripción** | Suscripción de Azure | La suscripción en la que se crea esta nueva cuenta de Cosmos DB.  |
     | **Grupo de recursos** | myResourceGroup |  Use el grupo de recursos existente que contiene la aplicación de función. |
     | **Ubicación**  | WestEurope | Seleccione una ubicación cerca de la aplicación de función o de otras aplicaciones que usen los documentos almacenados.  |
 
@@ -143,7 +143,7 @@ Una vez que la colección especificada en el enlace de función existe, puede pr
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Ha creado una función que se ejecuta cuando se agrega o modifica un documento en su instancia de Azure Cosmos DB.
 

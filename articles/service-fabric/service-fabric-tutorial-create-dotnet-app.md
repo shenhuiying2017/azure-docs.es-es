@@ -1,10 +1,26 @@
--- title: Creación de una aplicación .NET para Service Fabric | Microsoft Docs description: En este tutorial, aprenderá cómo crear una aplicación con un front-end de ASP.NET Core y un back-end de servicio de confianza con estado e implementar la aplicación en un clúster.
-services: service-fabric documentationcenter: .net author: rwike77 manager: timlt editor: ''
-
-ms.assetid: ms.service: service-fabric ms.devlang: dotNet ms.topic: tutorial ms.tgt_pltfrm: NA ms.workload: NA ms.date: 01/29/2018 ms.author: ryanwi ms.custom: mvc
-
 ---
-
+title: "Creación de una aplicación .NET para Service Fabric | Microsoft Docs"
+description: "En este tutorial, aprenderá a crear una aplicación con un front-end de ASP.NET Core y un back-end de servicio confiable con estado, así como a implementar la aplicación en un clúster."
+services: service-fabric
+documentationcenter: .net
+author: rwike77
+manager: timlt
+editor: 
+ms.assetid: 
+ms.service: service-fabric
+ms.devlang: dotNet
+ms.topic: tutorial
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 01/29/2018
+ms.author: ryanwi
+ms.custom: mvc
+ms.openlocfilehash: f8d9733b7dad4c6beeed9bcc950910ed6b426585
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 03/02/2018
+---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Tutorial: Creación e implementación de una aplicación con un servicio de front-end de ASP.NET Core Web API y un servicio back-end con estado
 Este tutorial es la primera parte de una serie.  Aprenda a crear una aplicación de Azure Service Fabric con un front-end de ASP.NET Core Web API y un servicio back-end con estado para almacenar los datos. Cuando termine, tendrá una aplicación de votación con un front-end web de ASP.NET Core que guarda los resultados de una votación en un servicio back-end con estado en el clúster. Si no desea crear manualmente la aplicación de votación, puede [descargar el código fuente](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) de la aplicación terminada y pasar directamente al [Tutorial de la aplicación de ejemplo de votación](#walkthrough_anchor).
 
@@ -613,7 +629,7 @@ Para ver lo que ocurre en el código, siga estos pasos:
 Para detener la sesión de depuración, pulse **Maýus+F5**.
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En esta parte del tutorial, ha aprendido a:
 
 > [!div class="checklist"]

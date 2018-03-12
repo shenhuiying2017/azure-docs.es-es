@@ -8,6 +8,8 @@
       href: overview.md
     - name: ¿Qué es la máquina virtual de aprendizaje profundo?
       href: deep-learning-dsvm-overview.md
+    - name: ¿Qué es la máquina virtual de ciencia de datos para inteligencia artificial y análisis geoespacial?
+      href: geo-ai-dsvm-overview.md
 - name: Introducción
   items:
     - name: Creación de una máquina virtual de ciencia de datos de Windows
@@ -18,6 +20,8 @@
       href: linux-dsvm-intro.md
     - name: Creación de una máquina virtual de aprendizaje profundo
       href: provision-deep-learning-dsvm.md
+    - name: Creación de una máquina virtual de ciencia de datos para inteligencia artificial y análisis geoespacial
+      href: provision-geo-ai-dsvm.md
 - name: Procedimientos
   items:
     - name: Uso de una máquina virtual de ciencia de datos de Windows
@@ -26,6 +30,8 @@
       href: linux-dsvm-walkthrough.md
     - name: Uso de una máquina virtual de aprendizaje profundo
       href: use-deep-learning-dsvm.md
+    - name: Uso de una máquina virtual de ciencia de datos para inteligencia artificial y análisis geoespacial
+      href: use-geo-ai-dsvm.md
 - name: Referencia
   expanded: true
   items:

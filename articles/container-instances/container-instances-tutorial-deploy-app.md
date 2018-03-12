@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 99bd03bf4c3ca2d7b1ced51ebfe8be669f271c1c
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 0532d255b271b2155ae3115f8f96c4cbb53916e4
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="deploy-a-container-to-azure-container-instances"></a>Implementación de un contenedor en Azure Container Instances
 
@@ -50,7 +50,7 @@ Contraseña del registro de contenedor:
 az acr credential show --name <acrName> --query "passwords[0].value"
 ```
 
-Para implementar una imagen de contenedor desde el registro de contenedor con una solicitud de recurso de 1 núcleo de CPU y 1 GB de memoria, ejecute el comando siguiente. Reemplace `<acrLoginServer>` y `<acrPassword>` por los valores obtenidos en los dos comandos anteriores. Reemplace `<acrName>` por el nombre de Registro de contenedor.
+La aplicación tendrá que haberse [preparado de antemano][prepare-app]; para implementar una imagen de contenedor desde el registro del contenedor con una solicitud de recurso de 1 núcleo de CPU y 1 GB de memoria, ejecute el siguiente comando, [az container create][az-container-create]. Reemplace `<acrLoginServer>` y `<acrPassword>` por los valores obtenidos en los dos comandos anteriores. Reemplace `<acrName>` por el nombre de su registro de contenedor; también puede reemplazar `aci-tutorial-app` por el nombre que desea dar a la nueva aplicación.
 
 ```azurecli
 az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-username <acrName> --registry-password <acrPassword> --dns-name-label aci-demo --ports 80
@@ -102,7 +102,7 @@ Si ya no necesita ninguno de los recursos creados en esta serie de tutoriales, p
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial se completó el proceso de implementar los contenedores en Azure Container Instances. Se han completado los siguientes pasos:
 
@@ -123,6 +123,7 @@ En este tutorial se completó el proceso de implementar los contenedores en Azur
 [docker-windows]: https://docs.docker.com/docker-for-windows/
 
 <!-- LINKS - internal -->
+[az-container-create]: /cli/azure/container#az_container_create
 [az-container-show]: /cli/azure/container#az_container_show
 [az-group-delete]: /cli/azure/group#az_group_delete
 [azure-cli-install]: /cli/azure/install-azure-cli

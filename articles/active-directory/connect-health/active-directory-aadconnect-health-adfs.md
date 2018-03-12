@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 834dbbd0be30181de1a71df05d2867be0e1c59b4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4928364ffd732f587e41a788c4d834e91339a7fc
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Supervisión de AD FS mediante Azure AD Connect Health
 La siguiente documentación es específica de la supervisión de la infraestructura de AD FS con Azure AD Connect Health. Para más información sobre la supervisión de Azure AD Connect (Sync) con Azure AD Connect Health, consulte [Uso de Azure AD Connect Health para sincronización](active-directory-aadconnect-health-sync.md). Para obtener información adicional sobre la supervisión de Active Directory Domain Services con Azure AD Connect Health, consulte [Using Azure AD Connect Health with AD DS](active-directory-aadconnect-health-adds.md)(Uso de Azure AD Connect Health con AD DS).
@@ -86,7 +86,7 @@ Una de las causas comunes de los errores de solicitud de autenticación en un se
 
 Pero hay otros motivos que pueden provocar que los servidores de AD FS tengan que controlar un número inesperado de solicitudes como, por ejemplo: una aplicación que almacena en la memoria caché las credenciales de un usuario y estas expiran o un usuario malintencionado que intenta iniciar sesión en una cuenta con una serie de contraseñas conocidas. Estos dos ejemplos son motivos válidos que podrían dar lugar a un aumento repentino de las solicitudes.
 
-Azure AD Connect Health para ADFS proporciona un informe con los primeros 50 usuarios con errores de intento de inicio de sesión por nombre de usuario o una contraseña no válidos. Este informe se ha logrado procesando los eventos de auditoría generados por todos los servidores de AD FS de las granjas.
+Azure AD Connect Health para ADFS proporciona un informe con los primeros 50 usuarios con errores de intento de inicio de sesión por nombre de usuario o una contraseña no válidos. Este informe se logra mediante el procesamiento de los eventos de auditoría generados por todos los servidores de AD FS en las granjas.
 
 ![portal de Azure AD Connect Health](./media/active-directory-aadconnect-health-adfs/report1a.png)
 
@@ -95,7 +95,7 @@ En este informe, tiene un acceso sencillo a los elementos de información siguie
 * Nº total de solicitudes con error por nombre de usuario o contraseña incorrectos en los últimos 30 días
 * Número promedio de usuarios con error de inicio de sesión por nombre de usuario o contraseña incorrectos por día.
 
-Al hacer clic en esta parte, se abre la hoja del informe principal que proporciona información adicional. Esta hoja incluye un gráfico con información de tendencias para ayudar a establecer una línea base sobre las solicitudes con contraseña o nombre de usuario incorrecto. Además, proporciona la lista de los 50 usuarios principales junto con el número de intentos fallidos.
+Al hacer clic en esta parte, se abre la hoja del informe principal que proporciona información adicional. Esta hoja incluye un gráfico con información de tendencias para ayudar a establecer una línea base sobre las solicitudes con contraseña o nombre de usuario incorrecto. Además, proporciona la lista de los 50 usuarios qué más intentos fallidos realizaron en la semana anterior.
 
 El gráfico ofrece la siguiente información:
 
@@ -107,7 +107,7 @@ El gráfico ofrece la siguiente información:
 
 El informe ofrece la siguiente información:
 
-| Elemento de informe | Description |
+| Elemento de informe | DESCRIPCIÓN |
 | --- | --- |
 | Id. de usuario |Muestra el identificador de usuario que se usó. Este valor es lo que el usuario escribió, que en algunos casos es el identificador de usuario equivocado que se va a utilizar. |
 | Intentos con error |Muestra el número total de intentos con error para ese identificador de usuario específico. La tabla está ordenada por el mayor número de intentos con error en orden descendente. |
@@ -115,7 +115,7 @@ El informe ofrece la siguiente información:
 | Última IP con error |Muestra la dirección IP del cliente de la última solicitud incorrecta. |
 
 > [!NOTE]
-> Este informe se actualiza automáticamente cada dos horas con la información recopilada durante este período. Como resultado, puede que el informe no incluya los intentos de inicio de sesión de las últimas dos horas.
+> Este informe se actualiza automáticamente cada 12 horas con la información recopilada durante este período. Como resultado, puede que el informe no incluya los intentos de inicio de sesión de las últimas dos horas.
 >
 >
 

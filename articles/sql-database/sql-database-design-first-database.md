@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 01/29/2018
 ms.author: carlrab
-ms.openlocfilehash: 5c5402c89091b84cd3b49815d892c9fa0d59e22a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 52ec8afa693e6ac3c8c73f070f748a01116ec68f
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="design-your-first-azure-sql-database"></a>Diseño de la primera instancia de Azure SQL Database
 
@@ -55,7 +55,7 @@ Siga estos pasos para crear una instancia en blanco de SQL Database.
 
 1. Haga clic en **Crear un recurso** en la esquina superior izquierda de Azure Portal.
 
-2. Seleccione **Bases de datos** en la página **Nuevo** y seleccione **Crear** en **SQL Database** en la página **Nuevo**.
+2. Seleccione **Databases** en la página **Nuevos** y seleccione **Crear** en **Base de datos SQL** en la página **Nuevos**.
 
    ![crear una base de datos en blanco](./media/sql-database-design-first-database/create-empty-database.png)
 
@@ -324,7 +324,7 @@ Imagine que ha eliminado accidentalmente una tabla. No se puede recuperar con fa
 
 3. Haga clic en **Aceptar** para restaurar la base de datos a [un momento dado](sql-database-recovery-using-backups.md#point-in-time-restore) antes de que se agregaran las tablas. Restaurar una base de datos a un momento dado distinto crea una base de datos duplicada en el mismo servidor que la base de datos original a partir del momento dado que especifique, siempre que se encuentre dentro del período de retención para el [nivel de servicio](sql-database-service-tiers.md).
 
-## <a name="next-steps"></a>pasos siguientes 
+## <a name="next-steps"></a>Pasos siguientes 
 En este tutorial ha aprendido las tareas básicas de una base de datos, como crear una base de datos y tablas, cargar y consultar datos, y restaurar la base de datos a un momento anterior en el tiempo. Ha aprendido a:
 > [!div class="checklist"]
 > * Creación de una base de datos

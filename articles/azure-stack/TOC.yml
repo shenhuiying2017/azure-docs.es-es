@@ -10,6 +10,8 @@
           href: azure-stack-asdk-release-notes.md
         - name: Notas de la versión de los sistemas integrados
           items:
+            - name: Actualización 1802
+              href: azure-stack-update-1802.md
             - name: Actualización 1712
               href: azure-stack-update-1712.md
             - name: Actualización 1711
@@ -133,14 +135,18 @@
           href: azure-stack-monitor-health.md
         - name: Administración de recursos de red
           href: azure-stack-viewing-public-ip-address-consumption.md
-        - name: Administración de recursos de almacenamiento
-          href: azure-stack-manage-storage-accounts.md
-        - name: Administración de la capacidad de almacenamiento
-          href: azure-stack-manage-storage-shares.md
         - name: Administración de máquinas virtuales de Windows Azure Pack
           href: azure-stack-manage-windows-azure-pack.md
         - name: Inicio y detención de Azure Stack
           href: azure-stack-start-and-stop.md
+        - name: Administrar la capacidad
+          items:
+            - name: Administración de recursos de almacenamiento
+              href: azure-stack-manage-storage-accounts.md
+            - name: Administración de la capacidad de almacenamiento
+              href: azure-stack-manage-storage-shares.md
+            - name: Administración de la capacidad de almacenamiento física para Azure Stack
+              href: azure-stack-manage-storage-physical-capacity.md
         - name: Reemplazo de hardware
           items:
             - name: Acciones de nodo

@@ -4,7 +4,7 @@
   items:
     - name: Acerca de Azure Location Based Services
       href: about-location-based-services.md
-- name: Inicios rápidos
+- name: Guías de inicio rápido
   expanded: true
   items:
     - name: Aplicación de mapas mediante Location Based Services
@@ -19,10 +19,16 @@
       href: tutorial-prioritized-routes.md
 - name: Conceptos
   items:
+    - name: Niveles de zoom y cuadrícula de mosaico
+      href: zoom-levels-and-tile-grid.md
     - name: Cobertura de geocodificación
       href: geocoding-coverage.md
     - name: Cobertura de tráfico
       href: traffic-coverage.md
+    - name: Cobertura de representación
+      href: render-coverage.md
+    - name: Cobertura de enrutamiento
+      href: routing-coverage.md
 - name: Guías de procedimientos
   items:
     - name: Administración de cuentas y claves
@@ -53,7 +59,7 @@
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Actualizaciones del servicio
       href: 'https://azure.microsoft.com/updates'
-    - name: Stackoverflow
+    - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/azure-location-based-services'
     - name: Casos prácticos técnicos
       href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'

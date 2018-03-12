@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 7b7625b3250d7e5b4cdb4090f34072eb58dda07c
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 5b1c443cae8481d98c32a3f4d9e3899621d1dd89
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>Logre alta disponibilidad de los datos de aplicación con Azure Storage
 
@@ -69,7 +69,7 @@ Siga estos pasos para crear una cuenta de almacenamiento con redundancia geográ
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Name** | mystorageaccount | Valor único para la cuenta de almacenamiento |
    | **Modelo de implementación** | Resource Manager  | Resource Manager contiene las características más recientes.|
-   | **Tipo de cuenta** | Uso general | Para más información sobre los tipos de cuenta, consulte [Tipos de cuentas de almacenamiento](../common/storage-introduction.md#types-of-storage-accounts) |
+   | **Tipo de cuenta** | StorageV2 | Para más información sobre los tipos de cuenta, consulte [Tipos de cuentas de almacenamiento](../common/storage-introduction.md#types-of-storage-accounts) |
    | **Rendimiento** | Estándar | Suficiente para el escenario de ejemplo. |
    | **Replicación**| Almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS). | Necesario para el ejemplo funcione. |
    |**Se requiere transferencia segura** | Disabled| No es necesario para este escenario. |
@@ -77,7 +77,7 @@ Siga estos pasos para crear una cuenta de almacenamiento con redundancia geográ
    |**ResourceGroup** | myResourceGroup |Para conocer cuáles son los nombres de grupo de recursos válidos, consulte el artículo [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Convenciones de nomenclatura). |
    |**Ubicación** | Este de EE. UU | Elija una ubicación. |
 
-![creación de cuenta de almacenamiento](media/storage-create-geo-redundant-storage/figure1.png)
+![creación de cuenta de almacenamiento](media/storage-create-geo-redundant-storage/createragrsstracct.png)
 
 ## <a name="download-the-sample"></a>Descarga del ejemplo
 
@@ -236,7 +236,7 @@ def response_callback(response):
 
 ---
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En la primera parte de la serie, aprendió a lograr alta disponibilidad para una aplicación con las cuentas de RA-GRS, además de:
 

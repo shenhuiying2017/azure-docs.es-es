@@ -73,6 +73,7 @@
 ### [Visualización de patrones de tráfico de red mediante herramientas de código abierto](network-watcher-using-open-source-tools.md)
 ## Análisis de registros de flujo de grupo de seguridad de red
 ### [Lectura de registros de flujo de NSG](network-watcher-read-nsg-flow-logs.md)
+### [Uso de Análisis de tráfico](traffic-analytics.md)
 ### [Uso de Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 ### [Uso de Elastic Stack](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
 ### [Uso de Grafana](network-watcher-nsg-grafana.md)

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.openlocfilehash: 726799e5d885f144d6e24ab88aaa022f95f0bdd8
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 5eca18ca2f34097d98ce947c61c635abc6ab27b8
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>Filtrado del tráfico de red con grupos de seguridad de red
 
@@ -30,9 +30,9 @@ Un grupo de seguridad de red (NSG) contiene una lista de reglas de seguridad que
 ## <a name="nsg-resource"></a>Recurso NSG
 Los grupos de seguridad de red contienen las siguientes propiedades:
 
-| Propiedad | Description | Restricciones | Consideraciones |
+| Propiedad | DESCRIPCIÓN | Restricciones | Consideraciones |
 | --- | --- | --- | --- |
-| Nombre |Nombre del grupo de seguridad de red |Debe ser único dentro de la región.<br/>Puede incluir letras, números, caracteres de subrayado, puntos y guiones.<br/>Debe empezar por una letra o un número.<br/>Debe finalizar en una letra, un número o un carácter de subrayado.<br/>No puede superar los 80 caracteres. |Dado que es posible que tenga que crear varios grupos de seguridad de red, asegúrese de tener una convención de nomenclatura que facilite la identificación de su función. |
+| NOMBRE |Nombre del grupo de seguridad de red |Debe ser único dentro de la región.<br/>Puede incluir letras, números, caracteres de subrayado, puntos y guiones.<br/>Debe empezar por una letra o un número.<br/>Debe finalizar en una letra, un número o un carácter de subrayado.<br/>No puede superar los 80 caracteres. |Dado que es posible que tenga que crear varios grupos de seguridad de red, asegúrese de tener una convención de nomenclatura que facilite la identificación de su función. |
 | Region |[Región](https://azure.microsoft.com/regions) de Azure donde se crea el grupo de seguridad de red. |Los grupos de seguridad de red solo se pueden asociar a recursos dentro de la misma región que el grupo. |Para ver sobre cuántos grupos de seguridad de red puede tener por región, lea el artículo sobre los [límites de Azure](../azure-subscription-service-limits.md#virtual-networking-limits-classic).|
 | Grupos de recursos |El [grupo de recursos](../azure-resource-manager/resource-group-overview.md#resource-groups) donde existe el grupo de seguridad de red. |Aunque un grupo de seguridad de red existe en un grupo de recursos, puede estar asociado a recursos de cualquier grupo de recursos, siempre y cuando el recurso forme parte de la misma región de Azure que el grupo de seguridad de red. |Los grupos de recursos se usan para administrar varios recursos juntos, como una unidad de implementación.<br/>Puede considerar la posibilidad de agrupar los grupos de seguridad de red con los recursos a los que están asociados. |
 | Reglas |Las reglas de entrada o de salida que definen qué tráfico se permite o deniega. | |Consulte la sección [Reglas de grupo de seguridad de red](#Nsg-rules) de este artículo. |
@@ -44,7 +44,7 @@ Los grupos de seguridad de red contienen las siguientes propiedades:
 ### <a name="nsg-rules"></a>Reglas de grupo de seguridad de red
 Las reglas de grupo de seguridad de red contienen las siguientes propiedades:
 
-| Propiedad | Description | Restricciones | Consideraciones |
+| Propiedad | DESCRIPCIÓN | Restricciones | Consideraciones |
 | --- | --- | --- | --- |
 | **Name** |Nombre de la regla. |Debe ser único dentro de la región.<br/>Puede incluir letras, números, caracteres de subrayado, puntos y guiones.<br/>Debe empezar por una letra o un número.<br/>Debe finalizar en una letra, un número o un carácter de subrayado.<br/>No puede superar los 80 caracteres. |Puede tener varias reglas dentro de un grupo de seguridad de red, de modo que asegúrese de seguir una convención de nomenclatura que le permita identificar su función. |
 | **Protocolo** |Protocolo que debe coincidir con la regla. |TCP, UDP o *. |El uso de * como protocolo incluye ICMP (solo tráfico este-oeste), así como UDP y TCP, y puede reducir el número de reglas necesarias.<br/>Al mismo tiempo, usar * podría ser un enfoque demasiado amplio, por lo que se recomienda que solo lo use cuando sea necesario. |
@@ -66,7 +66,7 @@ En la imagen anterior se muestra cómo se procesan las reglas de grupo de seguri
 Las etiquetas predeterminadas son identificadores proporcionados por el sistema para tratar una categoría de direcciones IP. Puede usar etiquetas predeterminadas en las propiedades de **prefijo de dirección de origen** y **prefijo de dirección de destino** de cualquier regla. Hay tres etiquetas predeterminadas que puede utilizar:
 
 * **VirtualNetwork** (Resource Manager) (**VIRTUAL_NETWORK** para el modelo clásico): esta etiqueta incluye el espacio de direcciones de red virtual (intervalos CIDR definidos en Azure), todos los espacios de direcciones locales conectados y las redes virtuales de Azure conectadas (redes locales).
-* **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** para el modelo clásico): esta etiqueta denota el equilibrador de carga de la infraestructura de Azure. La etiqueta se traducirá en una IP de centro de datos de Azure donde se originan los sondeos de mantenimiento de Azure.
+* **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** para el modelo clásico): esta etiqueta denota el equilibrador de carga de la infraestructura de Azure. La etiqueta se traducirá en una IP del centro de datos de Azure en el se originan los sondeos de mantenimiento de Azure Load Balancer.
 * **Internet** (Resource Manager) (**INTERNET** para el modelo clásico): esta etiqueta denota el espacio de direcciones IP que se encuentra fuera de la red virtual y es accesible mediante la red pública de Internet. El intervalo incluye además el [espacio de IP públicas propiedad de Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 
 ### <a name="default-rules"></a>Reglas predeterminadas
@@ -75,23 +75,23 @@ Todos los grupos de seguridad de red contienen un conjunto de reglas predetermin
 Las reglas predeterminadas permiten y deniegan el tráfico como se indica a continuación:
 - **Red virtual:** el tráfico que se origina y termina en una red virtual se permite en las direcciones tanto de entrada como de salida.
 - **Internet:** se permite el tráfico saliente, pero se bloquea el entrante.
-- **Equilibrador de carga:** permita que el equilibrador de carga de Azure sondee el estado de las máquinas virtuales y las instancias de rol. Si no va a usar un conjunto con equilibrio de carga, puede invalidar esta regla.
+- **Load Balancer:** permita que Azure Load Balancer sondee el mantenimiento tanto de las máquinas virtuales como de las instancias de rol. Si anula esta regla, no se realizarán los sondeos del mantenimiento de Azure Load Balancer, lo que podría afectar a su servicio.
 
 **Reglas predeterminadas de entrada**
 
-| Nombre | Prioridad | IP de origen | Puerto de origen | IP de destino | Puerto de destino | Protocolo | Access |
+| NOMBRE | Prioridad | IP de origen | Puerto de origen | IP de destino | Puerto de destino | Protocolo | Access |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | AllowVNetInBound |65000 | VirtualNetwork | * | VirtualNetwork | * | * | PERMITIR |
 | AllowAzureLoadBalancerInBound | 65001 | AzureLoadBalancer | * | * | * | * | PERMITIR |
-| DenyAllInBound |65500 | * | * | * | * | * | DENEGAR |
+| DenyAllInBound |65500 | * | * | * | * | * | Denegar |
 
 **Reglas predeterminadas de salida**
 
-| Nombre | Prioridad | IP de origen | Puerto de origen | IP de destino | Puerto de destino | Protocolo | Access |
+| NOMBRE | Prioridad | IP de origen | Puerto de origen | IP de destino | Puerto de destino | Protocolo | Access |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | AllowVnetOutBound | 65000 | VirtualNetwork | * | VirtualNetwork | * | * | PERMITIR |
 | AllowInternetOutBound | 65001 | * | * | Internet | * | * | PERMITIR |
-| DenyAllOutBound | 65500 | * | * | * | * | * | DENEGAR |
+| DenyAllOutBound | 65500 | * | * | * | * | * | Denegar |
 
 ## <a name="associating-nsgs"></a>Asociación de grupos de seguridad de red 
 Puede asociar un grupo de seguridad de red a máquinas virtuales, interfaces de red y subredes, según el modelo de implementación que use, de la forma siguiente:
@@ -123,16 +123,16 @@ Puede implementar los grupos de seguridad de red en el modelo de implementación
 
 | Herramienta de implementación | Clásico | Resource Manager |
 | --- | --- | --- |
-| Azure Portal   | No | [Sí](virtual-networks-create-nsg-arm-pportal.md) |
+| Azure Portal   | Sin  | [Sí](virtual-networks-create-nsg-arm-pportal.md) |
 | PowerShell     | [Sí](virtual-networks-create-nsg-classic-ps.md) | [Sí](virtual-networks-create-nsg-arm-ps.md) |
 | CLI de Azure **V1**   | [Sí](virtual-networks-create-nsg-classic-cli.md) | [Sí](virtual-networks-create-nsg-arm-cli.md) |
-| CLI de Azure **V2**   | No | [Sí](virtual-networks-create-nsg-arm-cli.md) |
-| Plantilla del Administrador de recursos de Azure   | No  | [Sí](virtual-networks-create-nsg-arm-template.md) |
+| CLI de Azure **V2**   | Sin  | [Sí](virtual-networks-create-nsg-arm-cli.md) |
+| Plantilla del Administrador de recursos de Azure   | Sin   | [Sí](virtual-networks-create-nsg-arm-template.md) |
 
 ## <a name="planning"></a>Planificación
 Antes de implementar los grupos de seguridad de red, deberá responder a las siguientes preguntas:
 
-1. ¿Para qué tipos de recursos desea filtrar el tráfico entrante o saliente? Puede conectarse a recursos como interfaces de red (Resource Manager), máquinas virtuales (clásicas), Cloud Services, entornos de servicio de aplicación y conjuntos de escalado de máquinas virtuales. 
+1. ¿Para qué tipos de recursos desea filtrar el tráfico entrante o saliente? Puede conectarse a recursos como interfaces de red (Resource Manager), máquinas virtuales (clásicas), Cloud Services, entornos de servicio de aplicaciones y conjuntos de escalado de máquinas virtuales. 
 2. ¿Estás los recursos para los que desea filtrar tráfico entrante o saliente conectados a subredes en redes virtuales existentes?
 
 Para más información sobre cómo planear la seguridad de red en Azure, lea el artículo [Servicios en la nube de Microsoft y seguridad de red](../best-practices-network-security.md). 
@@ -140,7 +140,7 @@ Para más información sobre cómo planear la seguridad de red en Azure, lea el 
 ## <a name="design-considerations"></a>Consideraciones de diseño
 Una vez que sepa las respuestas a las preguntas de la sección [Planeación](#Planning), revise las siguientes secciones antes de definir los grupos de seguridad de red:
 
-### <a name="limits"></a>Límites
+### <a name="limits"></a>límites
 Existen límites para el número de grupos de seguridad de red puede tener en una suscripción y el número de reglas por grupo de seguridad de red. Para más información sobre los límites, lea el artículo sobre los [límites de Azure](../azure-subscription-service-limits.md#networking-limits).
 
 ### <a name="vnet-and-subnet-design"></a>Diseño de red virtual y subred
@@ -163,7 +163,8 @@ Las reglas de los grupos de seguridad de red actuales solo permiten los protocol
 ### <a name="load-balancers"></a>Equilibradores de carga
 * Tenga en cuenta las reglas de equilibrio de red y traducción de direcciones de red (NAT) para cada equilibrador de carga usado en cada una de las cargas de trabajo. Las reglas NAT se enlazan a un grupo de back-end que contiene interfaces de red (Resource Manager) o máquinas virtuales e instancias de rol de Cloud Services (clásicas). Considere la posibilidad de crear un grupo de seguridad de red para cada grupo de back-end, de forma que solo se permita el tráfico asignado mediante las reglas implementadas en los equilibradores de carga. Con la creación de un grupo de seguridad de red para cada grupo de back-end, se garantiza que el tráfico que llegue al grupo de back-end directamente (en lugar de a través del equilibrador de carga) también se filtre.
 * En implementaciones clásicas, cree puntos de conexión que asignen puertos de un equilibrador de carga a puertos de las máquinas virtuales o instancias de rol. También puede crear su propio equilibrador de carga de acceso público individual mediante Resource Manager. El puerto de destino para el tráfico entrante es el puerto real en la máquina virtual o la instancia de rol, no el expuesto por un equilibrador de carga. La dirección y el puerto de origen para la conexión a la máquina virtual se encuentran en el equipo remoto en Internet, no son los que expone el equilibrador de carga.
-* Cuando crea grupos de seguridad de red para filtrar el tráfico que llega a través de un equilibrador de carga interno (ILB), el puerto y el intervalo de direcciones de origen aplicados son del equipo de origen, no del equilibrador de carga. El puerto y el intervalo de direcciones de destino son los del equipo de destino, no del equilibrador de carga.
+* Cuando crea grupos de seguridad de red para filtrar el tráfico que llega a través de una instancia de Azure Load Balancer, tanto el puerto como el intervalo de direcciones de origen aplicados son del equipo de origen, no del font-end del equilibrador de carga. Tanto el puerto de destino como el intervalo de direcciones de destino son los del equipo de destino, no los del font-end del equilibrador de carga.
+* Si bloquea la etiqueta AzureLoadBalancer, los sondeos del mantenimiento de Azure Load Balancer no se realizarán y su servicio puede verse afectado.
 
 ### <a name="other"></a>Otros
 * No se admiten listas de control de acceso (ACL) ni grupos de seguridad basados en puntos de conexión en la misma instancia de máquina virtual. Si desea usar un grupo de seguridad de red y ya tiene un extremo del ACL, quite primero el extremo del ACL. Para información sobre cómo quitar una ACL de punto de conexión, consulte el artículo [Administración de listas de control de acceso de puntos de conexión](virtual-networks-acl-powershell.md).
@@ -197,26 +198,26 @@ Los requisitos del 1 al 6 (excepto el 3 y el 4) se limitan a los espacios de sub
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Allow-Inbound-HTTP-Internet | PERMITIR | 100 | Internet | * | * | 80 | TCP |
 | Allow-Inbound-RDP-Internet | PERMITIR | 200 | Internet | * | * | 3389 | TCP |
-| Deny-Inbound-All | DENEGAR | 300 | Internet | * | * | * | TCP |
+| Deny-Inbound-All | Denegar | 300 | Internet | * | * | * | TCP |
 
 **Reglas de salida**
 
 | Regla | Access | Prioridad | Intervalo de direcciones de origen | Puerto de origen | Intervalo de direcciones de destino | Puerto de destino | Protocolo |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Deny-Internet-All |DENEGAR |100 | * | * | Internet | * | * |
+| Deny-Internet-All |Denegar |100 | * | * | Internet | * | * |
 
 ### <a name="backend"></a>BackEnd
 **Reglas de entrada**
 
 | Regla | Access | Prioridad | Intervalo de direcciones de origen | Puerto de origen | Intervalo de direcciones de destino | Puerto de destino | Protocolo |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Deny-Internet-All | DENEGAR | 100 | Internet | * | * | * | * |
+| Deny-Internet-All | Denegar | 100 | Internet | * | * | * | * |
 
 **Reglas de salida**
 
 | Regla | Access | Prioridad | Intervalo de direcciones de origen | Puerto de origen | Intervalo de direcciones de destino | Puerto de destino | Protocolo |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Deny-Internet-All | DENEGAR | 100 | * | * | Internet | * | * |
+| Deny-Internet-All | Denegar | 100 | * | * | Internet | * | * |
 
 Se crean los siguientes grupos de seguridad de red y se asocian a interfaces de red en las máquinas virtuales siguientes:
 
@@ -229,7 +230,7 @@ Se crean los siguientes grupos de seguridad de red y se asocian a interfaces de 
 | Allow-Inbound-HTTP-Internet | PERMITIR | 200 | Internet | * | * | 80 | TCP |
 
 > [!NOTE]
-> El intervalo de direcciones de origen para las reglas anteriores es **Internet**, no la dirección IP virtual del equilibrador de carga. El puerto de origen es *, no 500001. Las reglas NAT para equilibradores de carga no son iguales que las reglas de seguridad de grupo de seguridad de red. Estas últimas siempre se relacionan con el origen inicial y el destino final del tráfico, **no** con el equilibrador de carga entre ambos. 
+> El intervalo de direcciones de origen para las reglas anteriores es **Internet**, no la dirección IP virtual del equilibrador de carga. El puerto de origen es *, no 500001. Las reglas NAT para equilibradores de carga no son iguales que las reglas de seguridad de grupo de seguridad de red. Estas últimas siempre se relacionan con el origen inicial y el destino final del tráfico, **no** con el equilibrador de carga entre ambos. Azure Load Balancer siempre conserva la dirección IP y el puerto de origen.
 > 
 > 
 
@@ -238,7 +239,7 @@ Se crean los siguientes grupos de seguridad de red y se asocian a interfaces de 
 
 | Regla | Access | Prioridad | Intervalo de direcciones de origen | Puerto de origen | Intervalo de direcciones de destino | Puerto de destino | Protocolo |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Deny-Inbound-RDP-Internet | DENEGAR | 100 | Internet | * | * | 3389 | TCP |
+| Deny-Inbound-RDP-Internet | Denegar | 100 | Internet | * | * | 3389 | TCP |
 | Allow-Inbound-HTTP-Internet | PERMITIR | 200 | Internet | * | * | 80 | TCP |
 
 ### <a name="db-servers-management-nic"></a>Servidores de bases de datos (interfaz de red de administración)

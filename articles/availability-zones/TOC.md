@@ -33,6 +33,9 @@
 #### [Creación de una dirección IP pública en una zona de disponibilidad con PowerShell](../virtual-network/create-public-ip-availability-zone-powershell.md)
 #### [Creación de una dirección IP pública en una zona de disponibilidad con la CLI](../virtual-network/create-public-ip-availability-zone-cli.md)
 
+### SQL Database
+#### [Zonas de disponibilidad con SQL Database](../sql-database/sql-database-high-availability.md#availability-zones)
+
 ### Storage
 #### [Almacenamiento con redundancia de zona](../storage/common/storage-redundancy.md#zone-redundant-storage)
 

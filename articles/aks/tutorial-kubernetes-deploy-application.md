@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 4ee59782a0e40f9d09023a75862ab0f8415e6d12
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 0639a2b7e71878103542d3e037040f8a7444976f
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="run-applications-in-azure-container-service-aks"></a>Ejecutar aplicaciones en Azure Container Service (AKS)
 
@@ -52,12 +52,26 @@ El archivo de manifiesto se creó previamente con el nombre de servidor de inici
 vi azure-vote-all-in-one-redis.yaml
 ```
 
+O bien, si trabaja en Windows, puede usar Visual Studio Code.
+
+```console
+code azure-vote-all-in-one-redis.yaml
+```
+
 Reemplace `microsoft` por el nombre del servidor de inicio de sesión de ACR. Este valor se encuentra en la línea **47** del archivo de manifiesto.
 
 ```yaml
 containers:
 - name: azure-vote-front
   image: microsoft/azure-vote-front:v1
+```
+
+El código anterior pasa a ser este:
+
+```yaml
+containers:
+- name: azure-vote-front
+  image: <acrName>.azurecr.io/azure-vote-front:v1
 ```
 
 Guarde y cierre el archivo.
@@ -109,7 +123,7 @@ Si no se cargó la aplicación, esto se puede deber a un problema de autorizaci�
 
 Siga estos pasos para [permitir el acceso mediante un secreto de Kubernetes](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-auth-aks#access-with-kubernetes-secret).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, se ha implementado la aplicación Azure Vote en un clúster de Kubernetes en AKS. Las tareas completadas incluyen:  
 

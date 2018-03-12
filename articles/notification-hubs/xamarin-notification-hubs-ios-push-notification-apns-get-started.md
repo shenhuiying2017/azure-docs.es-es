@@ -15,11 +15,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 12/22/2017
 ms.author: jawh
-ms.openlocfilehash: edb48cd8de9b1f7357c40cea73fa4b9a422cb8fa
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 38ad8a15fcc4077926e735e01f877a4ee66718ef
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="get-started-with-azure-notification-hubs-for-xamarinios-apps"></a>Introducción a Azure Notification Hubs para aplicaciones Xamarin.iOS
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -75,14 +75,14 @@ Esta sección le guía en la creación de un nuevo centro de notificaciones y la
 Su centro de notificaciones está ahora configurado para funcionar con APNS, y tiene las cadenas de conexión para registrar su aplicación y enviar notificaciones push.
 
 ## <a name="connect-your-app-to-the-notification-hub"></a>Conexión de la aplicación al Centro de notificaciones
-#### <a name="create-a-new-project"></a>Crear un nuevo proyecto
+#### <a name="create-a-new-project"></a>Creación de un nuevo proyecto
 1. En Visual Studio, cree un nuevo proyecto de iOS y seleccione la plantilla **Aplicación de una vista**. A continuación, haga clic en **Siguiente**.
    
      ![Visual Studio: selección del tipo de aplicación][31]
 
 2. Escriba el nombre de la aplicación y el identificador de la organización y, a continuación, haga clic en **Siguiente** y en **Crear**.
 
-3. En la vista Solución, haga doble clic en *Into.plist* y, en **Identidad**, asegúrese de que el identificador del conjunto coincida con el usado al crear el perfil de aprovisionamiento. En **Firma**, asegúrese de que la cuenta de desarrollador esté seleccionada en **Equipo**, "Automatically manage signing" (Administrar automáticamente la firma) esté seleccionado, y las opciones Certificado de firma y Perfil de aprovisionamiento estén seleccionadas automáticamente.
+3. En la vista Solución, haga doble clic en *Into.plist* y, en **Identity** (Identidad) asegúrese de que el identificador del lote coincida con el que se usó al crear el perfil de aprovisionamiento. En **Firma**, asegúrese de que la cuenta de desarrollador esté seleccionada en **Equipo**, "Automatically manage signing" (Administrar automáticamente la firma) esté seleccionado, y las opciones Certificado de firma y Perfil de aprovisionamiento estén seleccionadas automáticamente.
 
     ![Visual Studio: configuración de aplicaciones iOS][32]
 
@@ -209,7 +209,7 @@ Puede probar de recibir notificaciones en la aplicación con la opción *Envío 
 
 ![Azure Portal: envío de prueba][30]
 
-Las notificaciones push se envían normalmente en un servicio back-end como Mobile Apps o ASP.NET mediante una biblioteca compatible. También puede usar la API de REST directamente para enviar mensajes de notificación si no hay disponible una biblioteca para su back-end.
+Las notificaciones push se envían normalmente en un servicio back-end como Mobile Apps o ASP.NET mediante una biblioteca compatible. También puede usar la API de REST directamente para enviar mensajes de notificación si no hay disponible ninguna biblioteca para su back-end.
 
 A continuación, se recomienda consultar el tutorial sobre el [uso de Notification Hubs para enviar notificaciones push a los usuarios](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) como paso siguiente para enviar notificaciones desde un back-end de ASP.NET. Sin embargo, se pueden usar los siguientes enfoques para enviar notificaciones:
 
@@ -219,7 +219,7 @@ A continuación, presentamos una lista de algunos otros tutoriales que podría i
 * Node.js: [uso de Notification Hubs desde Node.js](notification-hubs-nodejs-push-notification-tutorial.md).
 * Java/PHP**: para ver un ejemplo de cómo enviar notificaciones push mediante las API de REST, consulte "Uso de Notification Hubs desde Java/PHP" ([Java](notification-hubs-java-push-notification-tutorial.md) | [PHP](notification-hubs-php-push-notification-tutorial.md)).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este sencillo ejemplo, se difunden notificaciones push a todos los dispositivos iOS. Para dirigirse a usuarios específicos, consulte el tutorial [Uso de los Centros de notificaciones para insertar notificaciones para los usuarios]. Si desea segmentar a sus usuarios por grupos de interés, puede leer [Uso de Centros de notificaciones para enviar noticias de último minuto]. Para más información sobre el uso de Notification Hubs, consulte [Introducción a Notification Hubs] y [Procedimientos de Notification Hubs para iOS].
 
 <!-- Images. -->
@@ -255,4 +255,4 @@ En este sencillo ejemplo, se difunden notificaciones push a todos los dispositiv
 
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
 [GitHub]: https://github.com/xamarin/mobile-samples/tree/master/Azure/NotificationHubs
-[Portal de Azure]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
