@@ -27,6 +27,7 @@
 ### [Introducción al modelo de autenticación y seguridad](event-hubs-authentication-and-security-model-overview.md)
 ### [Disponibilidad y coherencia](event-hubs-availability-and-consistency.md)
 ### [Escalado automático de las unidades de rendimiento](event-hubs-auto-inflate.md)
+### [Integración de Apache Spark con Event Hubs](event-hubs-spark-connector.md)
 ## Desarrollo
 ### [Envío de eventos mediante .NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
 ### [Recepción de eventos mediante .NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)

@@ -97,7 +97,7 @@
       items:
         - name: Implementar la aplicación
           items:
-            - name: Implementación de un archivo ZIP
+            - name: Implementación de un archivo ZIP o WAR
               href: app-service-deploy-zip.md
             - name: Implementación a través de FTP
               href: app-service-deploy-ftp.md
