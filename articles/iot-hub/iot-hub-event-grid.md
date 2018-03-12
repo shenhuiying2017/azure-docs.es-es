@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure IoT Hub y Event Grid | Microsoft Docs
 description: Use Azure Event Grid para desencadenar procesos basados en acciones que se producen en IoT Hub.
 services: iot-hub
@@ -18,7 +18,7 @@ ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/23/2018
 ---
-# <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions---preview"></a>Reacción a eventos de IoT Hub usando Event Grid para desencadenar acciones (versión preliminar)
+# <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions---preview"></a>Reacción a eventos de IoT Hub utilizando Event Grid para lanzar acciones (versión preliminar)
 
 Azure IoT Hub se integra con Azure Event Grid para poder enviar notificaciones de eventos a otros servicios y desencadenar procesos de descarga. Configure las aplicaciones empresariales para escuchar eventos de IoT Hub, a fin de poder crear reacciones a eventos críticos de manera confiable, escalable y segura. Por ejemplo, compile una aplicación que realice varias acciones, por ejemplo, actualizar una base de datos, crear un vale y enviar una notificación por correo electrónico cada vez que se registre un nuevo dispositivo IoT en IoT Hub. 
 
@@ -28,7 +28,7 @@ Azure IoT Hub se integra con Azure Event Grid para poder enviar notificaciones d
 
 ## <a name="regional-availability"></a>Disponibilidad regional
 
-La integración de Event Grid está disponible en centros de IoT ubicados en las regiones donde se admite Event Grid. Para conocer la lista más reciente de regiones disponibles [Introducción a Azure Event Grid][lnk-eg-overview]. 
+La integración de Event Grid está disponible en centros de IoT ubicados en las regiones donde se admite Event Grid. Para conocer la lista más reciente de regiones disponibles, consulte [Introducción a Azure Event Grid][lnk-eg-overview]. 
 
 ## <a name="event-types"></a>Tipos de eventos
 
