@@ -15,19 +15,19 @@
 # Introducción
 ## [Configuración de Network Watcher](network-watcher-create.md)
 ## Administración de capturas de paquete
-### [portal de Azure](network-watcher-packet-capture-manage-portal.md)
+### [Azure Portal](network-watcher-packet-capture-manage-portal.md)
 ### [Azure PowerShell](network-watcher-packet-capture-manage-powershell.md)
 ### [CLI de Azure 1.0](network-watcher-packet-capture-manage-cli-nodejs.md)
 ### [CLI de Azure](network-watcher-packet-capture-manage-cli.md)
 ### [REST](network-watcher-packet-capture-manage-rest.md)
 ## Comprobación de los flujos de IP hacia y desde una máquina virtual
-### [portal de Azure](network-watcher-check-ip-flow-verify-portal.md)
+### [Azure Portal](network-watcher-check-ip-flow-verify-portal.md)
 ### [Azure PowerShell](network-watcher-check-ip-flow-verify-powershell.md)
 ### [CLI de Azure 1.0](network-watcher-check-ip-flow-verify-cli-nodejs.md)
 ### [CLI de Azure](network-watcher-check-ip-flow-verify-cli.md)
 ### [REST](network-watcher-check-ip-flow-verify-rest.md)
 ## Análisis del próximo salto
-### [portal de Azure](network-watcher-check-next-hop-portal.md)
+### [Azure Portal](network-watcher-check-next-hop-portal.md)
 ### [Azure PowerShell](network-watcher-check-next-hop-powershell.md)
 ### [CLI de Azure 1.0](network-watcher-check-next-hop-cli-nodejs.md)
 ### [CLI de Azure](network-watcher-check-next-hop-cli.md)
@@ -38,7 +38,7 @@
 ### [CLI de Azure](network-watcher-topology-cli.md)
 ### [REST](network-watcher-topology-rest.md)
 ## Solución de problemas de VPN Gateway y de las conexiones
-### [portal de Azure](network-watcher-troubleshoot-manage-portal.md)
+### [Azure Portal](network-watcher-troubleshoot-manage-portal.md)
 ### [Azure PowerShell](network-watcher-troubleshoot-manage-powershell.md)
 ### [CLI de Azure 1.0](network-watcher-troubleshoot-manage-cli-nodejs.md)
 ### [CLI de Azure](network-watcher-troubleshoot-manage-cli.md)
@@ -49,12 +49,12 @@
 ### [CLI de Azure](network-watcher-security-group-view-cli.md)
 ### [REST](network-watcher-security-group-view-rest.md)
 ## Solución de problemas de conexiones
-### [portal de Azure](network-watcher-connectivity-portal.md)
+### [Azure Portal](network-watcher-connectivity-portal.md)
 ### [Azure PowerShell](network-watcher-connectivity-powershell.md)
 ### [CLI de Azure](network-watcher-connectivity-cli.md)
 ### [REST](network-watcher-connectivity-rest.md)
 ## Configuración de registros de flujo para NSG
-### [portal de Azure](network-watcher-nsg-flow-logging-portal.md)
+### [Azure Portal](network-watcher-nsg-flow-logging-portal.md)
 ### [Azure PowerShell](network-watcher-nsg-flow-logging-powershell.md)
 ### [CLI de Azure 1.0](network-watcher-nsg-flow-logging-cli-nodejs.md)
 ### [CLI de Azure](network-watcher-nsg-flow-logging-cli.md)
@@ -73,7 +73,9 @@
 ### [Visualización de patrones de tráfico de red mediante herramientas de código abierto](network-watcher-using-open-source-tools.md)
 ## Análisis de registros de flujo de grupo de seguridad de red
 ### [Lectura de registros de flujo de NSG](network-watcher-read-nsg-flow-logs.md)
-### [Uso de Análisis de tráfico](traffic-analytics.md)
+### Análisis de tráfico
+#### [Uso de Análisis de tráfico](traffic-analytics.md)
+#### [Preguntas más frecuentes](traffic-analytics-faq.md)
 ### [Uso de Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 ### [Uso de Elastic Stack](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
 ### [Uso de Grafana](network-watcher-nsg-grafana.md)

@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Documentación sobre Azure Cost Management
+title: "Documentación sobre Azure Cost Management"
 metadata:
-  title: 'Documentación sobre Cost Management: tutoriales y referencia de API | Microsoft Docs'
-  description: 'Azure Cost Management de Cloudyn es una solución de administración de costos en varias nubes que le permitirá usar Azure y otros recursos en la nube. Aprenda a revisar el uso y los costos, administrar activamente los costos, pronosticar gastos y optimizar los costos con nuestros inicios rápidos y tutoriales.'
+  title: "Documentación sobre Cost Management: tutoriales y referencia de API | Microsoft Docs"
+  description: "Azure Cost Management es una solución de administración de costos en varias nubes que le permitirá usar Azure y otros recursos en la nube. Aprenda a revisar el uso y los costos, administrar activamente los costos, pronosticar gastos y optimizar los costos con nuestros inicios rápidos y tutoriales."
   services: cost-management
   author: czeumault
   manager: carolz
@@ -13,28 +13,33 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/18/2017
   ms.author: carolz
+  ms.openlocfilehash: c88a093c75122c2ff32060ff2780bd4bf4d83f34
+  ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 03/09/2018
 abstract:
-  description: 'Azure Cost Management de Cloudyn es una solución de administración de costos en varias nubes que le ayuda a usar y administrar mejor Azure y otros recursos en la nube. Aprenda a revisar el uso y los costos, administrar activamente los costos, pronosticar gastos y optimizar los costos con nuestros inicios rápidos y tutoriales.'
+  description: "Azure Cost Management se concede bajo licencia de Cloudyn y es una solución de administración de costos en varias nubes que le ayuda a usar y administrar mejor Azure y otros recursos en la nube. Aprenda a revisar el uso y los costos, administrar activamente los costos, pronosticar gastos y optimizar los costos con nuestros inicios rápidos y tutoriales."
 sections:
-  - title: Inicios rápidos en 5 minutos
+- title: "Inicios rápidos en 5 minutos"
+  items:
+  - type: paragraph
+    text: "Aprenda a registrar la información sobre su contrato o suscripción de Azure con Cost Management y empiece a ver los datos de costos."
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: Aprenda a registrar la información sobre su contrato o suscripción de Azure con Cost Management y empiece a ver los datos de costos.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
-            text: Ver datos de costos
-            href: quick-register-azure-sub
-  - title: Tutoriales detallados
+    - image:
+        src: https://docs.microsoft.com/media/common/i_portal.svg
+      text: Ver datos de costos
+      href: quick-register-azure-sub
+- title: Tutoriales detallados
+  items:
+  - type: paragraph
+    text: Aprenda a revisar el uso y los costos, administrar activamente los costos, pronosticar gastos y optimizar los costos con Cost Management.
+  - type: list
+    style: ordered
     items:
-      - type: paragraph
-        text: 'Aprenda a revisar el uso y los costos, administrar activamente los costos, pronosticar gastos y optimizar los costos con Cost Management.'
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="tutorial-review-usage">Revisión del uso y los costos para detectar anomalías y eficiencias</a>
-          - html: <a href="tutorial-user-access">Asignación del acceso a los datos de Cost Management</a>
-          - html: <a href="tutorial-forecast-spending">Previsión de gastos futuros</a>
-          - html: '<a href="tutorial-manage-costs">Administración de costos con informes de asignación, visualización y anulación de costos</a>'
+    - html: "<a href=\"tutorial-review-usage\">Revisión del uso y los costos para detectar anomalías y eficiencias</a>"
+    - html: "<a href=\"tutorial-user-access\">Asignación del acceso a los datos de Cost Management</a>"
+    - html: "<a href=\"tutorial-forecast-spending\">Previsión de gastos futuros</a>"
+    - html: "<a href=\"tutorial-manage-costs\">Administración de costos con informes de asignación, visualización y anulación de costos</a>"
