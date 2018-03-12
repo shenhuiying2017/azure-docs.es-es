@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: json
 ms.topic: article
-ms.date: 12/06/2017
+ms.date: 03/05/2018
 ms.author: richrund
-ms.openlocfilehash: cea25429dc6e5f9f12f472d17e8743d272135257
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: db9b941e84c018a3a56dd683c118e47ee808259d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Administración de Log Analytics mediante las plantillas de Azure Resource Manager
 Puede utilizar las [plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) para crear y configurar áreas de trabajo de Log Analytics. Estos son algunos ejemplos de las tareas que puede realizar con las plantillas:
@@ -31,7 +31,6 @@ Puede utilizar las [plantillas de Azure Resource Manager](../azure-resource-mana
 * Recopilar contadores de rendimiento en equipos Linux y Windows
 * Recopilar eventos de Syslog en equipos Linux 
 * Recopilar eventos de registros de eventos de Windows
-* Recopilar registros de eventos personalizados
 * Agregar al agente de Log Analytics a una máquina virtual de Azure
 * Configurar Log Analytics para indizar los datos recopilados mediante Diagnósticos de Azure
 
@@ -60,7 +59,6 @@ El siguiente ejemplo de plantilla muestra cómo realizar estas tareas:
 7. Recopilar eventos de Syslog de equipos Linux
 8. Recopilar eventos de error y advertencia del registro de eventos de aplicación de los equipos de Windows
 9. Recopilar contadores de rendimiento de MB disponibles de equipos Windows
-10. Recopilar registros personalizados 
 11. Recopilar registros de IIS s de eventos de Windows escritos por Diagnósticos de Azure en una cuenta de almacenamiento
 
 ```json
@@ -295,61 +293,6 @@ El siguiente ejemplo de plantilla muestra cómo realizar estas tareas:
         },
         {
           "apiVersion": "2015-11-01-preview",
-          "type": "datasources",
-          "name": "sampleCustomLog1",
-          "dependsOn": [
-            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
-          ],
-          "kind": "CustomLog",
-          "properties": {
-            "customLogName": "sampleCustomLog1",
-            "description": "test custom log datasources",
-            "inputs": [
-              {
-                "location": {
-                  "fileSystemLocations": {
-                    "windowsFileTypeLogPaths": [ "e:\\iis5\\*.log" ],
-                    "linuxFileTypeLogPaths": [ "/var/logs" ]
-                  }
-                },
-                "recordDelimiter": {
-                  "regexDelimiter": {
-                    "pattern": "\\n",
-                    "matchIndex": 0,
-                    "matchIndexSpecified": true,
-                    "numberedGroup": null
-                  }
-                }
-              }
-            ],
-            "extractions": [
-              {
-                "extractionName": "TimeGenerated",
-                "extractionType": "DateTime",
-                "extractionProperties": {
-                  "dateTimeExtraction": {
-                    "regex": null,
-                    "joinStringRegex": null
-                  }
-                }
-              }
-            ]
-          }
-        },
-        {
-          "apiVersion": "2015-11-01-preview",
-          "type": "datasources",
-          "name": "sampleCustomLogCollection1",
-          "dependsOn": [
-            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
-          ],
-          "kind": "CustomLogCollection",
-          "properties": {
-            "state": "LinuxLogsEnabled"
-          }
-        },
-        {
-          "apiVersion": "2015-11-01-preview",
           "name": "[concat(parameters('applicationDiagnosticsStorageAccountName'),parameters('workspaceName'))]",
           "type": "storageinsightconfigs",
           "dependsOn": [
@@ -491,6 +434,6 @@ La galería de plantillas de inicio rápido de Azure incluye varias plantillas p
 * [Implementación de un clúster de Service Fabric y supervisión de este con un área de trabajo de Log Analytics](https://azure.microsoft.com/documentation/templates/service-fabric-oms/)
 * [Implementación de un clúster de Service Fabric y creación de un área de trabajo de Log Analytics para supervisarlo](https://azure.microsoft.com/documentation/templates/service-fabric-vmss-oms/)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Implemente agentes en máquinas virtuales de Azure mediante plantillas de Resource Manager](log-analytics-azure-vm-extension.md)
 
