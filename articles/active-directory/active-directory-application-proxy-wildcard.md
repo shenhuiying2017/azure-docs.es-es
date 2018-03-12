@@ -1,5 +1,5 @@
 ---
-title: "Aplicaciones con comodín en el proxy de aplicación de Azure Active Directory | Microsoft Docs"
+title: "Aplicaciones con comodín en Azure Active Directory Application Proxy | Microsoft Docs"
 description: "Aprenda a usar aplicaciones con comodín en el proxy de aplicación de Azure Active Directory."
 services: active-directory
 documentationcenter: 
@@ -21,7 +21,7 @@ ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/09/2018
 ---
-# <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Aplicaciones con comodín en el proxy de aplicación de Azure Active Directory 
+# <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Aplicaciones con comodín en Azure Active Directory Application Proxy 
 
 En Azure Active Directory (Azure AD), la configuración de un gran número de aplicaciones locales puede rápidamente dificultar la administración e incorpora riesgos innecesarios de errores de configuración si muchas de ellas requieren la misma configuración. Con el [proxy de aplicación de Azure AD](active-directory-application-proxy-get-started.md), puede resolver este problema con aplicaciones con comodín para publicar y administrar muchas aplicaciones a la vez. Se trata de una solución que permite:
 
