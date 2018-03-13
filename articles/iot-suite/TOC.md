@@ -66,6 +66,7 @@
 ### [Creación de un nuevo dispositivo simulado](iot-suite-remote-monitoring-test.md)
 ### [Personalización de la solución](iot-suite-remote-monitoring-customize.md)
 ### [Implementación mediante la CLI](iot-suite-remote-monitoring-deploy-cli.md)
+### [Implementación local](iot-suite-remote-monitoring-deploy-local.md)
 ### Conexión de un dispositivo físico
 #### [C en Windows](iot-suite-connecting-devices.md)
 #### [C en Linux](iot-suite-connecting-devices-linux.md)

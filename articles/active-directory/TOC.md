@@ -76,7 +76,7 @@
 
 ## [Administración de grupos y miembros](active-directory-manage-groups.md)
 ### Administrar grupos
-#### [portal de Azure](active-directory-groups-create-azure-portal.md)
+#### [Azure Portal](active-directory-groups-create-azure-portal.md)
 #### [Azure PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 ### [Administración de miembros del grupo](active-directory-groups-members-azure-portal.md)
 ### [Administración de propietarios de grupo](active-directory-accessmanagement-managing-group-owners.md)
@@ -98,7 +98,7 @@
 #### [Azure Portal](active-directory-groups-settings-azure-portal.md)
 #### [Cmdlets](active-directory-accessmanagement-groups-settings-cmdlets.md)
 ### Creación de reglas avanzadas
-#### [Portal de Azure](active-directory-groups-dynamic-membership-azure-portal.md)
+#### [Azure Portal](active-directory-groups-dynamic-membership-azure-portal.md)
 ### [Configuración de grupos de autoservicio](active-directory-accessmanagement-self-service-group-management.md)
 ### [Solución de problemas](active-directory-accessmanagement-troubleshooting.md)
 
@@ -290,9 +290,10 @@
 ### [Roles de administrador](active-directory-assign-admin-roles-azure-portal.md)
 #### [Asignación de un rol de administrador a un usuario](active-directory-users-assign-role-azure-portal.md)
 #### [Comparación de permisos para miembros y para usuarios invitados](users-default-permissions.md)
+### [Protección del acceso con privilegios](admin-roles-best-practices.md) 
+### [Creación de cuentas administrativas de acceso de emergencia](active-directory-admin-manage-emergency-access-accounts.md)
 ### [Unidades administrativas](active-directory-administrative-units-management.md)
 ### [Configuración de la vigencia de los tokens](active-directory-configurable-token-lifetimes.md)
-### [Administración de cuentas administrativas de acceso de emergencia](active-directory-admin-manage-emergency-access-accounts.md)
 
 ## Revisiones de acceso
 ### [Introducción a las revisiones de acceso](active-directory-azure-ad-controls-access-reviews-overview.md)
