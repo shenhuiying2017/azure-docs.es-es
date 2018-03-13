@@ -91,8 +91,10 @@
           maintainContext: true
     - name: Streaming de Spark
       items:
-        - name: Información general
+        - name: Introducción al streaming
           href: apache-spark-streaming-overview.md
+        - name: Introducción a Structured Streaming
+          href: apache-spark-structured-streaming-overview.md
         - name: Creación de trabajos de streaming de Spark con alta disponibilidad en YARN
           href: apache-spark-streaming-high-availability.md
         - name: Flujo estructurado mediante Event Hubs

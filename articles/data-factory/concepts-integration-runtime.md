@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 7308c8754198ea3e7533b8a9c378cfaac1b5bbd2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 18792d8dc8b232ad048db2440c5b52428c50f92e
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime en Azure Data Factory
 Integration Runtime (IR) es la infraestructura de proceso que usa Azure Data Factory para proporcionar las siguientes funcionalidades de integración de datos en distintos entornos de red:
@@ -123,7 +123,7 @@ En el siguiente diagrama se muestran dos ejemplos de actividades de copia:
 ![Qué instancia de Integration Runtime debe usarse](media/concepts-integration-runtime/which-integration-runtime-to-use.png)
 
 ## <a name="integration-runtime-location"></a>Ubicación de Integration Runtime
-La ubicación de Data Factory es donde se almacenan los metadatos de la factoría de datos y desde donde se inicia el desencadenamiento de la canalización. Actualmente, las ubicaciones de Data Factory admitidas son: Este de EE. UU., Este de EE. UU. 2. y Europa Occidental. Sin embargo, una factoría de datos puede acceder a almacenes de datos y a servicios de proceso en otras regiones de Azure para mover datos entre los almacenes de datos o para procesar datos mediante servicios de proceso. Este comportamiento se lleva a cabo a través de la instancia de Integration Runtime disponible globalmente en varias regiones para garantizar el cumplimiento de los datos, la eficacia y los menores costes de salida de la red.
+La ubicación de Data Factory es donde se almacenan los metadatos de la factoría de datos y desde donde se inicia el desencadenamiento de la canalización. Actualmente, las ubicaciones de Data Factory admitidas son: Este de EE. UU., Este de EE. UU. 2., Sudeste Asiático y Europa Occidental. Sin embargo, una factoría de datos puede acceder a almacenes de datos y a servicios de proceso en otras regiones de Azure para mover datos entre los almacenes de datos o para procesar datos mediante servicios de proceso. Este comportamiento se lleva a cabo a través de la instancia de Integration Runtime disponible globalmente en varias regiones para garantizar el cumplimiento de los datos, la eficacia y los menores costes de salida de la red.
 
 La ubicación de Integration Runtime define la ubicación de su proceso de back-end y, en esencia, la ubicación donde se realizan el movimiento de datos, la distribución de actividades y la ejecución de paquetes de SSIS. La ubicación de Integration Runtime puede ser diferente de la ubicación de la factoría de datos a la que pertenece. En el diagrama siguiente se muestra la configuración de la ubicación de Data Factory y sus instancias de Integration Runtime:
 
@@ -176,14 +176,14 @@ Integration Runtime autohospedado se registra lógicamente en Data Factory, y el
 Cuando se utiliza para realizar el movimiento de datos, Integration Runtime autohospedado extrae datos del origen y los escribe en el destino.
 
 ### <a name="azure-ssis-ir"></a>Integration Runtime de SSIS de Azure
-Al seleccionar la ubicación adecuada para Integration Runtime de SSIS de Azure, es esencial lograr un alto rendimiento en los flujos de trabajo de extracción, transformación y carga (ETL).  Dos ubicaciones están disponibles inicialmente para la versión preliminar (Este de EE. UU. y Europa del Norte).
+Al seleccionar la ubicación adecuada para Integration Runtime de SSIS de Azure, es esencial lograr un alto rendimiento en los flujos de trabajo de extracción, transformación y carga (ETL).  Hay seis ubicaciones disponibles inicialmente para su versión preliminar (Este de EE. UU., Este de EE. UU. 2, Centro de EE. UU., Este de Australia, Europa del Norte y Europa Occidental).
 
 - La ubicación de Integration Runtime de SSIS de Azure no tiene que ser la misma que la ubicación de la factoría de datos, pero debe ser la misma que la ubicación de su propio servidor de la Instancia administrada de Azure SQL Database (versión preliminar privada) donde se hospedará la SSISDB. De esta manera, Integration Runtime de SSIS de Azure puede acceder fácilmente a SSISDB sin incurrir en un tráfico excesivo entre las distintas ubicaciones.
 - Si no tiene un servidor existente de Instancia administrada de Azure SQL Database (versión preliminar privada) para hospedar la SSISDB, pero tiene orígenes y destinos de datos locales, debe crear un nuevo servidor de Instancia administrada de Azure SQL Database (versión preliminar privada) en la misma ubicación de una VNet conectada a la red local.  De esta manera, puede crear la instancia de Integration Runtime de SSIS de Azure usando el nuevo servidor de Instancia administrada de Azure SQL Database (versión preliminar privada) y unirse a esa VNet, todo en la misma ubicación, lo que minimiza de manera eficaz los movimientos de datos entre distintas ubicaciones.
 - Si la ubicación de su servidor existente de Instancia administrada de Azure SQL Database (versión preliminar privada) donde se hospeda la SSISDB no es la misma que la ubicación de una VNet conectada a la red local, primero cree la instancia de Integration Runtime de SSIS de Azure con un servidor existente de Instancia administrada de Azure SQL Database (versión preliminar privada) y únase a otra VNet en la misma ubicación y, a continuación, configure una conexión de red virtual a red virtual entre distintas ubicaciones.
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Consulte los artículos siguientes:
 
 - [Crear Integration Runtime autohospedado](create-self-hosted-integration-runtime.md)
