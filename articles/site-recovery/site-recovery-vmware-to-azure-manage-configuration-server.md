@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/18/2018
 ms.author: anoopkv
 ms.openlocfilehash: 80426b076481aaf2001644498da8cdce6f0311ab
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/07/2018
 ---
 # <a name="manage-the-configuration-server-for-vmware-vms"></a>Administración del servidor de configuración para máquinas virtuales de VMware
 
@@ -153,6 +153,6 @@ En lo que respecta a las implementaciones de servidores de configuración antes 
 3. Haga clic en **Renew Certificates** (Renovar certificados). 
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Revise los tutoriales para configurar la recuperación ante desastres de [máquinas virtuales de VMware](tutorial-vmware-to-azure.md) en Azure.

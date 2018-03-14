@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 02/22/2018
 ms.author: nisoneji
 ms.openlocfilehash: 50dccf6196b7affd3d21087f851b929d0e850f6d
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/07/2018
 ---
 # <a name="fail-back-from-azure-to-an-on-premises-site"></a>Conmutación por recuperación de Azure a un sitio local
 
@@ -103,7 +103,7 @@ Tras finalizar la conmutación por recuperación y tras iniciar la confirmación
 > [!NOTE]
 > Después del arranque de una máquina virtual local, el agente tarda algún tiempo en registrar de nuevo en el servidor de configuración (hasta 15 minutos). Durante este tiempo, la reprotección produce errores y devuelve un mensaje de error que indica que el agente no está instalado. Espere unos minutos y vuelva a intentarlo.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Una vez finalizado el trabajo de reprotección, la máquina virtual se replica de nuevo en Azure y podrá realizar una [conmutación por error](site-recovery-failover.md) para mover de nuevo las máquinas virtuales a Azure.
 

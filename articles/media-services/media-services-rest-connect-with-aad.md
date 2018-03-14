@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/26/2017
 ms.author: willzhan;juliako;johndeu
 ms.openlocfilehash: ed78d6c6d4c695b841dbfbf917cd1681adc44ee7
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="use-azure-ad-authentication-to-access-the-azure-media-services-api-with-rest"></a>Usar autenticación de Azure AD para acceder a la API de Azure Media Services con REST
 
@@ -59,7 +59,7 @@ Para obtener acceso a la API de Media Services, debe recopilar los siguientes pu
 
 |Configuración|Ejemplo|DESCRIPCIÓN|
 |---|-------|-----|
-|Dominio del inquilino de Azure Active Directory|microsoft.onmicrosoft.com|Azure AD como punto de conexión de servicio de token seguro (STS) se crea con el formato siguiente: https://login.microsoftonline.com/{nombre-de-su-inquilino-aad.onmicrosoft.com}/oauth2/token. Azure AD emite un JWT para tener acceso a los recursos (un token de acceso).|
+|Dominio del inquilino de Azure Active Directory|microsoft.onmicrosoft.com|Azure AD como punto de conexión de servicio de token seguro (STS) se crea con el siguiente formato: https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token. Azure AD emite un JWT para tener acceso a los recursos (un token de acceso).|
 |Punto de conexión de la API de REST|https://amshelloworld.restv2.westus.media.azure.net/api/|Este es el punto de conexión en el que se realizan todas las llamadas API de REST de Media Services en la aplicación.|
 |Identificador de cliente (identificador de aplicación)|f7fbbb29-a02d-4d91-bbc6-59a2579259d2|Identificador de aplicación de Azure AD (cliente). El identificador de cliente es necesario para obtener el token de acceso. |
 |Secreto del cliente|+mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq+Dbim0=|Claves de aplicación de Azure AD (secreto del cliente). El secreto de cliente es necesario para obtener el token de acceso.|
@@ -123,7 +123,7 @@ Esta sección muestra cómo usar **Postman** para ejecutar una API de REST que d
 2. Seleccione **POST**.
 3. Escriba la dirección URL que incluye el nombre de inquilino con el formato siguiente: el nombre del inquilino debe terminar por **. onmicrosoft.com** y la dirección URL debe terminar por **oauth2/token**: 
 
-    https://login.microsoftonline.com/{el-nombre-de-su-inquilino.onmicrosoft.com}/oauth2/token
+    https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token
 
 4. Seleccione la pestaña **Encabezados**.
 5. Escriba la información de **Encabezados** mediante la cuadrícula de datos "Clave/Valor". 
@@ -159,7 +159,7 @@ Esta sección muestra cómo obtener acceso a la API **Assets** mediante **Postma
 
 1. Abra **Postman**.
 2. Seleccione **GET**.
-3. Pegue el punto de conexión de la API de REST (por ejemplo, https://amshelloworld.restv2.westus.media.azure.net/api/Assets).
+3. Pegue el punto de conexión de REST API (por ejemplo, https://amshelloworld.restv2.westus.media.azure.net/api/Assets)
 4. Seleccione la pestaña **Autorización**. 
 5. Seleccione **Token de portador**.
 6. Pegue el token que se creó en la sección anterior.
@@ -185,7 +185,7 @@ Esta sección muestra cómo obtener acceso a la API **Assets** mediante **Postma
 
 La respuesta que se devuelve contiene los activos que están en su cuenta.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * Pruebe el código de ejemplo en [Azure AD Authentication for Azure Media Services Access: Both via REST API](https://github.com/willzhan/WAMSRESTSoln) (Autenticación de Azure AD para el acceso a Azure Media Services: a través de la API de REST).
 * [Cargar archivos mediante .NET](media-services-dotnet-upload-files.md)

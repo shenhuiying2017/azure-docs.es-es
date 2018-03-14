@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 10/23/2017
 ms.author: barbkess
-ms.openlocfilehash: 0476afb875616ed0758835aa52fb2334b63959a9
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 6640ed8958f6b05c015fb6c61d07aeea95b18022
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Maximización de la calidad del grupo de filas del almacén de columnas
 
@@ -139,7 +139,7 @@ OPTION (MAXDOP 1);
 
 Juntos, el tamaño de DWU y la clase de recursos de usuario, determinan cuánta memoria hay disponible para la consulta de un usuario. A fin de incrementar la concesión de memoria para una consulta de carga, puede aumentar el número de DWU o la clase de recursos.
 
-- Para aumentar las DWU, consulte [¿Cómo se realiza el escalado del rendimiento?](sql-data-warehouse-manage-compute-overview.md#scale-compute)
+- Para aumentar las DWU, consulte [¿Cómo se realiza el escalado del rendimiento?](quickstart-scale-compute-portal.md)
 - Para cambiar la clase de recursos de una consulta, consulte [Cambio de ejemplo de clase de recursos de usuario](sql-data-warehouse-develop-concurrency.md#changing-user-resource-class-example).
 
 Por ejemplo, con 100 DWU, un usuario de la clase de recursos smallrc puede usar 100 MB de memoria para cada distribución. Para obtener información más detallada, consulte el artículo sobre [simultaneidad en SQL Data Warehouse](sql-data-warehouse-develop-concurrency.md).
