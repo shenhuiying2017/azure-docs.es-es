@@ -17,11 +17,11 @@ ms.topic: troubleshooting
 ms.date: 12/13/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7f061197cbe9fd52594d9fb000d8f3bcbd2d5285
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: ff694ee7c2ecf7f8ee5ea89902fa77efad3f501c
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Transferencia de la propiedad de una suscripción de Azure a otra cuenta
 
@@ -29,7 +29,7 @@ Transfiera su suscripción a otro usuario del Centro de cuentas para cambiar el 
 
 > [!IMPORTANT]
 > 
-> Actualmente no se admiten transferencias de suscripción de la evaluación gratuita o de [Azure bajo licencia Open (AIO)](https://azure.microsoft.com/offers/ms-azr-0111p/) suscripciones. Para ver una solución alternativa, consulte [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](../azure-resource-manager/resource-group-move-resources.md).
+> Si se transfiere una suscripción a un nuevo inquilino de Azure AD, todas las asignaciones de roles en el [control de acceso basado en roles (RBAC)](../active-directory/role-based-access-control-what-is.md) se eliminan permanentemente del inquilino de origen y no se migran al inquilino de destino.
 
 ## <a name="transfer-ownership-of-an-azure-subscription"></a>Transferencia de la propiedad de una suscripción de Azure
 
@@ -49,7 +49,12 @@ Transfiera su suscripción a otro usuario del Centro de cuentas para cambiar el 
    ![Pestaña Suscripciones de cuenta de Azure](./media/billing-subscription-transfer/image1.png)
 1. Especifique el destinatario.
 
+   > [!IMPORTANT]
+   > 
+   > Si se transfiere una suscripción a un nuevo inquilino de Azure AD, todas las asignaciones de roles en el [control de acceso basado en roles (RBAC)](../active-directory/role-based-access-control-what-is.md) se eliminan permanentemente del inquilino de origen y no se migran al inquilino de destino.
+
    ![Cuadro de diálogo Transferir suscripción](./media/billing-subscription-transfer/image2.PNG)
+
 1. El destinatario obtiene automáticamente un correo electrónico con un vínculo de aceptación.
 
    ![Correo electrónico de transferencia de suscripción a destinatario](./media/billing-subscription-transfer/image3.png)
@@ -70,7 +75,7 @@ El administrador de la empresa puede transferir la propiedad de las suscripcione
 
 1. Ahora es el administrador de cuenta. Revise y actualice el administrador del servicio, los coadministradores y otros roles de RBAC. Para más información, consulte [Adición o cambio de roles de administrador de Azure que administran la suscripción o servicios](billing-add-change-azure-subscription-administrator.md).
 1. Actualice las credenciales asociadas a los servicios de esta suscripción:
-   1. Certificados de administración que conceden al usuario derechos administrativos a los recursos de la suscripción. Para obtener más información, consulte [Create and upload a management certificate for Azure](../cloud-services/cloud-services-certs-create.md)
+   1. Certificados de administración que conceden al usuario derechos administrativos a los recursos de la suscripción. Para obtener más información, consulte [Crear y cargar un certificado de administración para Azure](../cloud-services/cloud-services-certs-create.md).
    1. Claves de acceso para servicios como Almacenamiento. Para más información, consulte [Acerca de las cuentas de almacenamiento de Azure](../storage/common/storage-create-storage-account.md).
    1. Credenciales de acceso remoto para servicios como Azure Virtual Machines. 
 1. [Actualice las alertas de facturación para esta suscripción](billing-set-up-alerts.md) en el [Centro de cuentas de Azure](https://account.windowsazure.com/Subscriptions). 
@@ -80,7 +85,7 @@ El administrador de la empresa puede transferir la propiedad de las suscripcione
 
 ## <a name="whats-supported"></a>Lo que se admite:
 
-La transferencia de las suscripciones de autoservicio está disponible para las ofertas o tipos de suscripciones que se muestran en la tabla siguiente. Para transferir otras suscripciones, como [Patrocinio](https://azure.microsoft.com/offers/ms-azr-0036p/) o planes de soporte técnico, [póngase en contacto con el soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+La transferencia de las suscripciones de autoservicio está disponible para las ofertas o tipos de suscripciones que se muestran en la tabla siguiente. Actualmente no se puede transferir una evaluación gratuita o las suscripciones de [Azure bajo licencia Open (AIO)](https://azure.microsoft.com/offers/ms-azr-0111p/). Para ver una solución alternativa, consulte [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](../azure-resource-manager/resource-group-move-resources.md). Para transferir otras suscripciones, como [Patrocinio](https://azure.microsoft.com/offers/ms-azr-0036p/) o planes de soporte técnico, [póngase en contacto con el soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 | Nombre de la oferta                                                                             | Número de la oferta |
 |----------------------------------------------------------------------------------------|--------------|
@@ -128,7 +133,7 @@ Se crea una suscripción de Azure en el directorio al que pertenece el administr
 
 Si la suscripción se transfiere a otro inquilino, los usuarios asociados al inquilino anterior perderán el acceso a la suscripción. Aunque un usuario deje de ser administrador o coadministrador de servicios, puede seguir teniendo acceso a la suscripción a través de otros mecanismos de seguridad, como los siguientes:
 
-* Certificados de administración que conceden al usuario derechos administrativos a los recursos de la suscripción. Para más información, consulte [Create and Upload a Management Certificate for Azure](../cloud-services/cloud-services-certs-create.md) (Creación y actualización de un certificado de administración para Azure).
+* Certificados de administración que conceden al usuario derechos administrativos a los recursos de la suscripción. Para obtener más información, consulte [Crear y cargar un certificado de administración para Azure](../cloud-services/cloud-services-certs-create.md).
 * Claves de acceso para servicios como Almacenamiento. Para más información, consulte [Acerca de las cuentas de almacenamiento de Azure](../storage/common/storage-create-storage-account.md).
 * Credenciales de acceso remoto para servicios como Azure Virtual Machines.
 
@@ -149,7 +154,7 @@ El remitente es el responsable del pago de cualquier uso que se notificó hasta 
 
 ### <a name="can-the-offer-be-changed-during-a-transfer"></a>¿Se puede cambiar la oferta durante una transferencia?
 
-La oferta debe permanecer igual. Para cambiar la oferta, consulte [Switch your Azure subscription to another offer](billing-how-to-switch-azure-offer.md) (Cambio de la suscripción de Azure a otra oferta).
+La oferta debe permanecer igual. Para cambiar la oferta, consulte [Cambio de la suscripción de Azure a otra oferta](billing-how-to-switch-azure-offer.md).
 
 ### <a name="can-i-transfer-a-subscription-to-a-user-account-in-another-country"></a>¿Puedo transferir una suscripción a una cuenta de usuario de otro país?
 
@@ -165,7 +170,7 @@ Para aceptar una transferencia de suscripción, se debe proporcionar una tarjeta
 
 ### <a name="how-do-i-migrate-data-and-services-for-my-azure-subscription-to-new-subscription"></a>¿Cómo se migran los datos y servicios de una suscripción de Azure a otra?
 
-Si no se puede transferir la propiedad de suscripción, puede migrar manualmente los recursos. Consulte [Move resources to new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md) (Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción).
+Si no se puede transferir la propiedad de suscripción, puede migrar manualmente los recursos. Consulte [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](../azure-resource-manager/resource-group-move-resources.md).
 
 ## <a name="need-help-contact-support"></a>¿Necesita ayuda? Póngase en contacto con el servicio de soporte técnico.
 

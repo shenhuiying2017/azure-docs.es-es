@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/26/2018
 ms.author: tdykstra
-ms.openlocfilehash: e1d623c831a912598db72ccd0242cf827c88ee6c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 2a6fe85c2c3d6d4f44dc197db6c28ebbc2b1d431
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Desencadenador de Event Grid para Azure Functions
 
@@ -318,7 +318,7 @@ Use una herramienta como [Postman](https://www.getpostman.com/) o [curl](https:/
 http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={methodname}
 ``` 
 
-El parámetro `functionName` debe ser el nombre del método, no el nombre especificado en el atributo `FunctionName`. Por esta razón, si tiene varias funciones en un proyecto, necesitan tener nombres de método únicos (no todos se pueden llamar `Run`) para desencadenadores de Event Grid de prueba local.
+El parámetro `functionName` debe ser el nombre especificado en el atributo `FunctionName`.
 
 Las capturas de pantalla siguientes muestran los encabezados y el cuerpo de la solicitud en Postman:
 
@@ -379,7 +379,7 @@ Cree una suscripción a Event Grid del tipo que desee probar y asígnele el punt
 https://{subdomain}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={methodname}
 ``` 
 
-El parámetro `functionName` debe ser el nombre del método, no el nombre especificado en el atributo `FunctionName`. Por esta razón, si tiene varias funciones en un proyecto, necesitan tener nombres de método únicos (no todos se pueden llamar `Run`) para desencadenadores de Event Grid de prueba local.
+El parámetro `functionName` debe ser el nombre especificado en el atributo `FunctionName`.
 
 A continuación se facilita un ejemplo mediante el uso de la CLI de Azure:
 
@@ -474,7 +474,7 @@ El código de control de eventos pasa al bucle a través de la matriz `messages`
 
 Para más información acerca de la dirección URL que se debe utilizar para invocar la función localmente o cuando se ejecuta en Azure, consulte la [documentación de referencia de enlaces del desencadenador HTTP](functions-bindings-http-webhook.md). 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Más información sobre desencadenadores y enlaces de Azure Functions](functions-triggers-bindings.md)

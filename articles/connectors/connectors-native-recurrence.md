@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: 9384752c7f12074aae6ff165241e954eb2a4a01e
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 0dead955f9eb723dfa232d3ce751498a09ce1b29
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/05/2018
 ---
-# <a name="schedule-tasks-and-workflows-that-run-regularly-with-logic-apps"></a>Programación con Logic Apps de tareas y flujos de trabajo ejecutados con regularidad
+# <a name="create-and-schedule-regularly-running-tasks-with-azure-logic-apps"></a>Creación y programación de tareas ejecutadas con regularidad con Azure Logic Apps
 
 Para programar tareas, acciones, cargas de trabajo o procesos que se ejecutan con regularidad, puede crear un flujo de trabajo de aplicación lógica que se inicie con el [desencadenador](../logic-apps/logic-apps-overview.md#logic-app-concepts) **Schedule - Recurrence**. Con este desencadenador, puede establecer una fecha y hora para iniciar la periodicidad y una programación de periodicidad para realizar tareas, como estos ejemplos, y mucho más:
 
@@ -109,7 +109,7 @@ Puede configurar estas propiedades en el desencadenador de periodicidad.
 
 ## <a name="json-example"></a>Ejemplo JSON
 
-Este es un ejemplo de definición de desencadenador de periodicidad:
+Este es un ejemplo de [definición de desencadenador de periodicidad](../logic-apps/logic-apps-workflow-actions-triggers.md#recurrence-trigger):
 
 ``` json
 {
@@ -200,7 +200,7 @@ En este escenario, el motor de Logic Apps calcula las horas de ejecución en fun
 
 Por tanto, en este escenario, no importa el tiempo que haya transcurrido desde que especificó la hora de inicio; por ejemplo, **05**-09-2017 a las 2:00 p. m. o **01**-09-2017 a las 2:00 p. m., ya que la hora de la primera ejecución es la misma.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Acciones y desencadenadores de flujo de trabajo](../logic-apps/logic-apps-workflow-actions-triggers.md#recurrence-trigger)
 * [Conectores](../connectors/apis-list.md)

@@ -1,24 +1,24 @@
 ---
-title: "Descripción de los informes de costos en Azure Cost Management | Microsoft Docs"
-description: "Este artículo le ayuda a entender la estructura y las funciones básicas de los informes de Cloudyn."
+title: "Informes de administración de costos en Azure Cost Management | Microsoft Docs"
+description: "Este artículo le ayuda a entender la estructura y las funciones básicas de los informes de administración de costos de Cloudyn."
 services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 03/01/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: 38c1313f42a58403e158cad9c2930b6541da5adc
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 4effd63fbd9cb972a0d130826a7347dd34561792
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="understanding-cost-reports"></a>Descripción de los informes de costos
+# <a name="understanding-cost-management-reports"></a>Informes de administración de costos
 
-Este artículo le ayuda a entender la estructura y las funciones básicas de los informes de Cloudyn. La mayoría de los informes de Cloudyn son intuitivos y tienen un aspecto uniforme. Después de leer este artículo, estará listo para usar todos los informes. Muchas características estándar están disponibles en los distintos informes, lo que le permite navegar por ellos con facilidad. Los informes son personalizables y puede seleccionar entre varias opciones para calcular y mostrar los resultados.
+Este artículo le ayuda a entender la estructura y las funciones básicas de los informes de administración de costos de Cloudyn. La mayoría de los informes de Cloudyn son intuitivos y tienen un aspecto uniforme. Después de leer este artículo, está listo para usar todos los informes de administración de costos. Muchas características estándar están disponibles en los distintos informes, lo que le permite navegar por ellos con facilidad. Los informes son personalizables y puede seleccionar entre varias opciones para calcular y mostrar los resultados.
 
 ## <a name="report-fields-and-options"></a>Campos y opciones de informes
 
@@ -132,6 +132,27 @@ Cada área numerada de la imagen anterior se describe detalladamente en la sigui
 
     Utilice Actions para guardar, exportar o programar el informe.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="save-and-schedule-reports"></a>Guardar y programar informes
+
+Después de crear un informe, puede guardarlo para usarlo más adelante. Los informes guardados están disponibles en **Mis herramientas** > **Mis informes**. Si realiza cambios en un informe existente y lo guarda, el informe se guarda como una nueva versión. También puede guardarlo como un nuevo informe.
+
+### <a name="save-a-report-to-the-cloudyn-portal"></a>Guardar un informe en el portal de Cloudyn
+
+Mientras ve cualquier informe, haga clic en **Actions** (Acciones) y, a continuación, seleccione **Save to my reports** (Guardar en Mis informes). Asigne un nombre al informe y, a continuación, agregue su propia dirección URL o use la dirección URL creada automáticamente. Opcionalmente puede **compartir** el informe públicamente con otras personas de la organización o con su entidad. Aunque no comparta el informe, sigue siendo un informe personal que solo puede ver. Guarde el informe.
+
+
+### <a name="save-a-report-to-cloud-provider-storage"></a>Guardar un informe en el almacenamiento del proveedor de nube
+
+Para guardar un informe en su proveedor de servicios en la nube, ya debe haber configurado una cuenta de almacenamiento. Mientras ve cualquier informe, haga clic en **Actions** (Acciones) y, a continuación, seleccione **Schedule report** (Programar informe). Asigne un nombre al informe y, a continuación, agregue su propia dirección URL o use la dirección URL creada automáticamente. Seleccione **Save to storage** (Guardar en el almacenamiento) y, a continuación, seleccione la cuenta de almacenamiento o agregue una nueva. Escriba un prefijo que se anexe al nombre de archivo del informe. Seleccione el formato de archivo CSV o JSON y, a continuación, guarde el informe.
+
+### <a name="schedule-a-report"></a>Programar un informe
+
+Puede ejecutar informes a intervalos programados y puede enviarlos a una lista de destinatarios o a una cuenta de almacenamiento del proveedor de servicios en la nube. Mientras ve cualquier informe, haga clic en **Actions** (Acciones) y, a continuación, seleccione **Schedule report** (Programar informe). Puede enviar el informe por correo electrónico y guardarlo en una cuenta de almacenamiento. En **Schedule** (Programar), seleccione el intervalo (diario, semanal, mensual). Para intervalos semanales o mensuales, seleccione el día o las fechas de entrega y seleccione la hora. Guarde el informe programado. Si selecciona el formato de informe de Excel, el informe se envía como datos adjuntos. Cuando se selecciona el formato de contenido de correo electrónico, los resultados del informe que se muestran en formato de gráfico se entregan como un gráfico.
+
+### <a name="export-a-report-as-a-csv-file"></a>Exportar un informe como un archivo CSV
+
+Mientras ve cualquier informe, haga clic en **Actions** (Acciones) y, a continuación, seleccione **Export all report data** (Exportar todos los datos del informe). Aparece una ventana emergente y se descarga un archivo CSV.
+
+## <a name="next-steps"></a>Pasos siguientes
 
 - Si aún no ha completado el primer tutorial de Cost Management, léalo en [Revisión del uso y los costos](tutorial-review-usage.md).

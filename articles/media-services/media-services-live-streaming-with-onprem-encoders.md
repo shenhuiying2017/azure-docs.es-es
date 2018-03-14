@@ -14,11 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: d7c33dc0a3c1f01cc53a91e05feb33272cb21f47
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 1266c7b6c1539f84eafea1007999fb4360184857
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>Streaming en vivo con codificadores locales que crean transmisiones de velocidad de bits múltiple
 ## <a name="overview"></a>Información general
@@ -184,7 +184,7 @@ En la tabla siguiente se muestra cómo se asignan los estados del canal al modo 
 | **Starting** (iniciándose) |**Starting** (iniciándose) |No (estado transitorio) |
 | **Ejecución** |**Ready** (Listo) (sin programas en ejecución)<p><p>o<p>**Streaming** (al menos un programa en ejecución) |Sí |
 | **Stopping** (Deteniéndose) |**Stopping** (Deteniéndose) |No (estado transitorio) |
-| **Stopped** |**Stopped** |No |
+| **Stopped** |**Stopped** |Sin  |
 
 ## <a id="cc_and_ads"></a>Subtítulos e inserción de anuncios
 En la siguiente tabla se muestran los estándares de subtítulos e inserción de anuncios compatibles.
@@ -209,6 +209,10 @@ Cuando se usa un codificador en vivo local para enviar una transmisión de veloc
 Aquí encontrará otras consideraciones sobre el funcionamiento de los canales y los componentes relacionados:
 
 * Cada vez que vuelva a configurar el codificador en directo, llame al método **Restablecer** en el canal. Antes de restablecer el canal, debe detener el programa. Después de restablecer el canal, reinicie el programa.
+
+  > [!NOTE]
+  > Cuando se reinicie el programa, debe asociarlo a un nuevo recurso y crear un localizador nuevo. 
+  
 * Un canal se puede detener solo cuando está en el estado **En ejecución** y se han detenido todos los programas del canal.
 * Solo puede agregar cinco canales a su cuenta de Media Services de forma predeterminada. Para más información, consulte [Cuotas y limitaciones](media-services-quotas-and-limitations.md).
 * Solo se le cobrará cuando el canal esté en estado **En ejecución**. Para más información, consulte la sección [Estados de los canales y facturación](media-services-live-streaming-with-onprem-encoders.md#states).

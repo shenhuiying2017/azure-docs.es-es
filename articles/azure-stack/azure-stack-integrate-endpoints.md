@@ -3,29 +3,30 @@ title: "Integración del centro de datos de Azure Stack: publicar puntos de cone
 description: "Obtenga información sobre cómo publicar puntos de conexión de Azure Stack en su centro de datos."
 services: azure-stack
 author: jeffgilb
+manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 02/16/2018
+ms.date: 02/28/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords: 
-ms.openlocfilehash: 8af533147f3cc12f2334a43e7b672c69d0d25802
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8dec686b9ccf87009a23cedf6023f15b84a0f155
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Integración del centro de datos de Azure Stack: publicar puntos de conexión
-Azure Stack configura varias direcciones IP virtuales (VIP) para sus roles de infraestructura. Estas VIP se asignan desde el grupo de direcciones IP públicas. Cada VIP está protegida con una lista de control de acceso (ACL) en el nivel de red definido por software. Las ACL también se usan en los conmutadores físicos (Tor y BMC) para proteger aún más la solución. Se crea una entrada DNS para cada punto de conexión de la zona DNS externa que se haya especificado durante la implementación.
+Azure Stack configura direcciones IP virtuales (VIP) para sus roles de infraestructura. Estas VIP se asignan desde el grupo de direcciones IP públicas. Cada VIP está protegida con una lista de control de acceso (ACL) en el nivel de red definido por software. Las ACL también se usan en los conmutadores físicos (Tor y BMC) para proteger aún más la solución. Se crea una entrada DNS para cada punto de conexión de la zona DNS externa que se haya especificado durante la implementación.
 
 
 En el siguiente diagrama de arquitectura se muestran los diferentes niveles de red y ACL:
 
-![Diagrama de arquitectura](media/azure-stack-integrate-endpoints/Integrate-Endpoints-01.png)
+![Imagen estructural](media/azure-stack-integrate-endpoints/Integrate-Endpoints-01.png)
 
 ## <a name="ports-and-protocols-inbound"></a>Puertos y protocolos (de entrada)
 
-A continuación, se muestran las VIP de infraestructura necesarias para la publicación de puntos de conexión de Azure Stack en redes externas. En la lista se muestra cada punto de conexión, el puerto requerido y el protocolo. Los puntos de conexión necesarios para otros proveedores de recursos, como el proveedor de recursos SQL, se tratan en la documentación de implementación del proveedor de recursos específico.
+Se requiere un conjunto de direcciones IP virtuales de infraestructura para publicar los puntos de conexión de Azure Stack en redes externas. La tabla *Punto de conexión (VIP)* se muestra cada punto de conexión, el puerto requerido y el protocolo. Consulte la documentación de implementación de proveedor de recursos específica para los puntos de conexión que requieren proveedores de recursos adicionales, como el proveedor de recursos de SQL.
 
 No se indican las VIP de infraestructura interna porque no son necesarias para la publicación de Azure Stack.
 
@@ -69,5 +70,6 @@ Azure Stack solo admite servidores proxy transparentes. En una implementación e
 |Uso|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.com|HTTPS|443|
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
+
 [Requisitos de PKI de Azure Stack](azure-stack-pki-certs.md)

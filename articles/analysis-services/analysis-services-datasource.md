@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 02/27/2018
 ms.author: owend
-ms.openlocfilehash: e2f7e356b260c0e5af67d28811bd88a63a601312
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 9f2a4acdd0a2b29bc1485f62c0049f0065cbf711
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Orígenes de datos admitidos en Azure Analysis Services
 
@@ -48,7 +48,7 @@ Los modelos En memoria y DirectQuery que se conectan a orígenes de datos de Azu
 
 ## <a name="on-premises-data-sources"></a>Orígenes de datos locales
 
-Para establecer conexión con un origen de datos local, se necesita una puerta de enlace local. Si utiliza una puerta de enlace, asegúrese de que se han instalado proveedores de 64 bits.
+Para conectarse a los orígenes de datos locales desde el servidor AS de Azure, se necesita una puerta de enlace local. Cuando se usa una puerta de enlace, se requieren proveedores de 64 bits.
 
 ### <a name="in-memory-and-directquery"></a>En memoria y DirectQuery
 
@@ -60,31 +60,26 @@ Para establecer conexión con un origen de datos local, se necesita una puerta d
 | Teradata |Proveedor OLE DB para Teradata, Proveedor de datos de Teradata para .NET |Proveedor de datos de Teradata para .NET | |
 | | | |
 
-\* Solo modelos tabulares 1400.
-
 ### <a name="in-memory-only"></a>Solo En memoria
-
-> [!IMPORTANT]
-> Las pruebas de los proveedores con los siguientes orígenes de datos siguen en proceso. 
 
 |Origen de datos  |  
 |---------|---------|
 |Base de datos de Access     |  
 |Active Directory*     |  
-|Analysis Services     | 
+|Analysis Services     |  
 |Analytics Platform System     |  
 |Dynamics CRM*     |  
-|Libro de Excel     | 
+|Libro de Excel     |  
 |Exchange*     |  
 |Carpeta*     | 
 |Documento JSON*     |  
 |Líneas de archivo binario*     | 
 |Base de datos MySQL     | 
-|Fuente OData*     | 
+|Fuente OData*     |  
 |Consulta ODBC     | 
-|OLE DB     |  
+|OLE DB     |   
 |Base de datos de Postgre SQL*    | 
-|SAP HANA*    |   
+|SAP HANA*    |  
 |SAP Business Warehouse*    |  
 |SharePoint*     |   
 |Base de datos de Sybase     |  
@@ -117,7 +112,7 @@ Para orígenes de datos en la nube:
 
 * Si se utiliza la autenticación de SQL, la suplantación debe ser la Cuenta de servicio.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Puerta de enlace local](analysis-services-gateway.md)   
 [Administración del servidor](analysis-services-manage.md)   
 

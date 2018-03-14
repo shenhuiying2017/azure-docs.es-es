@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 440b70f4d04728973d77e54e7f6303e1ad7fcd89
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 827fe91c14a44cbaf8a9bb5921e5c9962d984414
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-or-mac-device---preview"></a>Guía de inicio rápido: implementación del primer módulo de IoT Edge en un dispositivo Linux o Mac (versión preliminar)
 
@@ -21,7 +21,7 @@ Azure IoT Edge traslada la eficacia de la nube a los dispositivos de Internet de
 
 Si no tiene una suscripción activa a Azure, cree una [cuenta gratuita][lnk-account] antes de comenzar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 En esta guía de inicio rápido se usa el equipo o la máquina virtual como un dispositivo de Internet de las cosas. Para convertir una máquina en un dispositivo IoT Edge, se requieren los siguientes servicios:
 
@@ -70,22 +70,22 @@ Cree una identidad para el dispositivo simulado, con el fin de que pueda comunic
 El runtime de IoT Edge se implementa en todos los dispositivos con IoT Edge. Consta de dos módulos. En primer lugar, el agente de IoT Edge facilita la implementación y supervisión de los módulos en el dispositivo de IoT Edge. En segundo lugar, el centro de IoT Edge administra las comunicaciones entre los módulos del dispositivo de IoT Edge y entre el dispositivo e IoT Hub. 
 
 En el equipo en el que va a ejecutar el dispositivo con IoT Edge, descargue el script de control de IoT Edge:
-```cmd
+```bash
 sudo pip install -U azure-iot-edge-runtime-ctl
 ```
 
 Configure el runtime con la cadena de conexión del dispositivo de IoT Edge de la sección anterior:
-```cmd
+```bash
 sudo iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
 ```
 
 Inicie el runtime:
-```cmd
+```bash
 sudo iotedgectl start
 ```
 
 Compruebe Docker para ver si el agente de IoT Edge se ejecuta como un módulo:
-```cmd
+```bash
 sudo docker ps
 ```
 
@@ -101,7 +101,7 @@ En esta guía de inicio rápido, ha creado un nuevo dispositivo de IoT Edge y ha
 
 Vuelva a abrir el símbolo del sistema en el equipo que ejecuta el dispositivo simulado. Confirme que el módulo implementado desde la nube se está ejecutando en el dispositivo IoT Edge:
 
-```cmd
+```bash
 sudo docker ps
 ```
 
@@ -109,7 +109,7 @@ sudo docker ps
 
 Vea los mensajes que se envían desde el módulo tempSensor a la nube:
 
-```cmd
+```bash
 sudo docker logs -f tempSensor
 ```
 
@@ -119,13 +119,19 @@ También puede ver la telemetría que envía el dispositivo mediante la [herrami
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
+Si quiere quitar el dispositivo simulado que creó, junto con los contenedores de Docker que se iniciaron para cada módulo, use el comando siguiente: 
+
+```bash
+sudo iotedgectl uninstall
+```
+
 Cuando ya no necesite la instancia de IoT Hub que ha creado, puede usar el comando [az iot hub delete][lnk-delete] para quitar el recurso y todos los dispositivos que tenga asociados:
 
 ```azurecli
 az iot hub delete --name {your iot hub name} --resource-group {your resource group name}
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Ha aprendido a implementar un módulo de IoT Edge en un dispositivo de IoT Edge. Ahora intente implementar distintos tipos de servicios de Azure como módulos, para poder analizar los datos en el perímetro. 
 

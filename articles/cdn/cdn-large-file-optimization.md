@@ -1,5 +1,5 @@
 ---
-title: "Optimización de descarga de archivos grandes mediante Azure Content Delivery Network"
+title: "Optimización de descarga de archivos grandes mediante Azure CDN"
 description: "Optimización de descargas de archivos grandes explicada en profundidad"
 services: cdn
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: v-semcev
-ms.openlocfilehash: 7a5d5d1d0de24ebb0a5115ede1e572f38454bd78
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6e6266fdaaac6a1a1a5d3a5595c10f79fd9f01a7
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="large-file-download-optimization-via-the-azure-content-delivery-network"></a>Optimización de descarga de archivos grandes mediante Azure Content Delivery Network
+# <a name="large-file-download-optimization-via-azure-cdn"></a>Optimización de descarga de archivos grandes mediante Azure CDN
 
 El tamaño de los archivos de contenido enviado por Internet sigue creciendo debido a una funcionalidad mejorada, a gráficos mejorados y a un contenido multimedia enriquecido. Este crecimiento se debe a muchos factores: el acceso de la banda ancha, dispositivos de almacenamiento de bajo costo, aumento generalizado de vídeo de alta definición y dispositivos conectados a Internet (IoT). Un mecanismo de entrega rápido y eficiente de los archivos grandes es fundamental para garantizar una experiencia sin complicaciones y divertida para el consumidor.
 
@@ -34,7 +34,7 @@ Azure Content Delivery Network de Akamai ahora proporciona una característica q
 
 ## <a name="configure-a-cdn-endpoint-to-optimize-delivery-of-large-files"></a>Configurar un punto de conexión de la red CDN para optimizar la entrega de archivos grandes
 
-Puede configurar el punto de conexión de la red CDN para optimizar la entrega de archivos grandes a través de Azure Portal. También puede utilizar nuestras API de REST o cualquiera de los SDK de cliente para hacer esto. En los pasos siguientes se muestra el proceso a través de Azure Portal.
+Puede configurar el punto de conexión de la red CDN para optimizar la entrega de archivos grandes a través de Azure Portal. También puede usar nuestras API de REST o cualquiera de los SDK de cliente para hacer esto. En los pasos siguientes se muestra el proceso a través de Azure Portal.
 
 1. Para agregar un nuevo punto de conexión, en la página **Perfil de CDN**, seleccione **Punto de conexión**.
 

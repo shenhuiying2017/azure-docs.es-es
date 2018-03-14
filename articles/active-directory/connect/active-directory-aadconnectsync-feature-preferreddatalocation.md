@@ -1,6 +1,6 @@
 ---
-title: "Sincronización de Azure AD Connect: Configuración de la ubicación de datos preferida para las capacidades multigeográficas de Office 365 | Microsoft Docs"
-description: "Describe cómo poner los recursos de usuario de Office 365 cerca del usuario con la sincronización de Azure AD Connect."
+title: "Sincronización de Azure Active Directory Connect: Configuración de la ubicación de datos preferida para las funcionalidades multigeográficas de Office 365 | Microsoft Docs"
+description: "Describe cómo poner los recursos de usuario de Office 365 cerca del usuario con la sincronización de Azure Active Directory Connect."
 services: active-directory
 documentationcenter: 
 author: billmath
@@ -14,31 +14,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: billmath
-ms.openlocfilehash: 021f009e66e57665a2252646b210f0e6dc55d33c
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: a5ebd61539af7116b8f92cdf9404cd2b5cdea193
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="azure-ad-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Sincronización de Azure AD Connect: Configuración de la ubicación de datos preferida para los recursos de Office 365
-El objetivo de este tema es guiarle en la configuración de PreferredDataLocation en la sincronización de Azure AD Connect. Cuando un cliente usa las capacidades multigeográficas de Office 365, ese atributo se usa para designar la ubicación geográfica de los datos de Office 365 del usuario. Los términos **región** y **zona geográfica** se usan indistintamente.
+# <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Sincronización de Azure Active Directory Connect: Configuración de la ubicación preferida para los recursos de Office 365
+El objetivo de este tema es guiarle por la configuración del atributo de la ubicación de datos preferida en la sincronización de Azure Active Directory (Azure AD) Connect. Cuando alguien usa las funcionalidades multigeográficas de Office 365, este atributo se usa para designar la ubicación geográfica de los datos de Office 365 del usuario. (Los términos *región* y *geoárea* se usan indistintamente).
 
 > [!IMPORTANT]
 > Actualmente, las capacidades multigeográficas se encuentran en versión preliminar. Si desea participar en el programa de versión preliminar, póngase en contacto con su representante de Microsoft.
 >
 >
 
-## <a name="enable-synchronization-of-preferreddatalocation"></a>Habilitar la sincronización de PreferredDataLocation
-De forma predeterminada, los recursos de Office 365 para los usuarios se encuentran en la misma zona geográfica que el inquilino de Azure AD. Por ejemplo, si el inquilino se encuentra en Estados Unidos, los buzones de Exchange de los usuarios también se encontrarán allí. Esto podría no ser adecuado para una organización multinacional. Se puede definir la zona geográfica del usuario mediante la definición del atributo preferredDataLocation.
+## <a name="enable-synchronization-of-preferred-data-location"></a>Habilitación de la sincronización de la ubicación de datos preferida
+De forma predeterminada, los recursos de Office 365 para los usuarios se encuentran en la misma zona geográfica que el inquilino de Azure AD. Por ejemplo, si el inquilino se encuentra en Estados Unidos, los buzones de Exchange de los usuarios también se encontrarán allí. Esto podría no ser adecuado para una organización multinacional.
 
-Al configurar este atributo, puede tener los recursos de Office 365 del usuario, como el buzón de correo y OneDrive, en la misma zona geográfica que el usuario y, aún así, tener un inquilino para toda la organización.
+Es posible definir la geoárea de un usuario si se establece el atributo **preferredDataLocation**. Puede tener los recursos de Office 365 del usuario, como el buzón de correo y OneDrive, en la misma geoárea que el usuario y, aún así, tener un inquilino para toda la organización.
 
 > [!IMPORTANT]
-> Para poder optar a las capacidades multigeográficas, debe disponer de al menos 5000 puestos en la suscripción de Office 365.
+> Para poder optar a las funcionalidades multigeográficas, debe disponer de al menos 5,000 puestos en la suscripción de Office 365.
 >
 >
 
-Puede encontrar una lista de todas las zonas geográficas de Office 365 en [¿Dónde se encuentran tus datos?](https://aka.ms/datamaps).
+Puede encontrar una lista de todas las geoáreas de Office 365 en [¿Dónde se encuentran tus datos?](https://aka.ms/datamaps)
 
 Las zonas geográficas de Office 365 disponibles para la funcionalidad multigeográfica son:
 
@@ -54,92 +54,82 @@ Las zonas geográficas de Office 365 disponibles para la funcionalidad multigeog
 | Reino Unido | GBR |
 | Estados Unidos | NAM |
 
-* Si una región geográfica no aparece en esta tabla, por ejemplo, Sudamérica, no se puede usar con la funcionalidad multigeográfica.
+* Si una geoárea no aparece en esta tabla, por ejemplo, Sudamérica, no se puede usar con la funcionalidad multigeográfica.
 * India y Corea del sur solo están disponibles para los clientes con direcciones de facturación y licencias adquiridas en esas zonas geográficas.
-* No todas las cargas de trabajo de Office 365 admiten la configuración de la zona geográfica de un usuario.
+* No todas las cargas de trabajo de Office 365 admiten la configuración de la geoárea de un usuario.
 
-Azure AD Connect admite la sincronización del atributo **PreferredDataLocation** para objetos **User** en la versión 1.1.524.0 y posteriores. Más concretamente, se introdujeron los cambios siguientes:
+### <a name="azure-ad-connect-support-for-synchronization"></a>Compatibilidad de Azure AD Connect con la sincronización
 
-* El esquema del tipo de objeto **User** de Conector de Azure AD se extiende para incluir el atributo PreferredDataLocation, que es de tipo cadena de un solo valor.
-* El esquema del tipo de objeto **Person** del metaverso se extiende para incluir el atributo PreferredDataLocation, que es de tipo cadena y tiene un solo valor.
+Azure AD Connect es compatible con la sincronización del atributo **preferredDataLocation** para los objetos **User** en la versión 1.1.524.0 y posteriores. Concretamente:
 
-De forma predeterminada, el atributo PreferredDataLocation no está habilitado para la sincronización. Esta característica está pensada para organizaciones grandes y no todos se pueden beneficiar de ella. También debe identificar un atributo para que contenga la zona geográfica de Office 365 de los usuarios ya que no hay ningún atributo PreferredDataLocation en la instancia local de Active Directory. Esto será diferente para cada organización.
+* El esquema del tipo de objeto **User** en el conector de Azure AD se extiende para incluir el atributo **preferredDataLocation**. El atributo es del tipo "cadena de un solo valor".
+* El esquema del tipo de objeto **Person** en el metaverso se extiende para incluir el atributo **preferredDataLocation**. El atributo es del tipo "cadena de un solo valor".
+
+De manera predeterminada, el atributo **preferredDataLocation** no está habilitado para la sincronización. Esta característica está diseñada para organizaciones grandes. También debe identificar un atributo para que contenga la geoárea de Office 365 para los usuarios, porque no hay atributo **preferredDataLocation** en la instancia de Active Directory local. Esto será diferente para cada organización.
 
 > [!IMPORTANT]
-> Actualmente, Azure AD permite que el atributo PreferredDataLocation de los objetos User sincronizados y en la nube se configure directamente con Azure AD PowerShell. Una vez habilitada la sincronización del atributo PreferredDataLocation, debe detener el uso de Azure AD PowerShell para configurar el atributo en **objetos User sincronizados** porque Azure AD Connect los reemplazará según los valores de atributo de origen en la instancia local de Active Directory.
+> Azure AD permite que el atributo **preferredDataLocation** de los **objetos User de la nube** se configure directamente con Azure AD PowerShell. Azure AD ya no permite que el atributo **preferredDataLocation** de los **objetos User sincronizados** se configure directamente con Azure PowerShell. Para configurar este atributo en los **objetos User sincronizado**, debe usar Azure AD Connect.
 
-> [!IMPORTANT]
-> Desde el 1 de septiembre de 2017, Azure AD ya no permite que el atributo PreferredDataLocation de los **objetos User sincronizados** se configure directamente con Azure AD PowerShell. Para configurar el atributo PreferredLocation de los objetos User sincronizados, debe usar Azure AD Connect.
+Antes de habilitar la sincronización:
 
-Antes de habilitar la sincronización del atributo PreferredDataLocation:
-
-* En primer lugar, debe decidir qué atributo local de Active Directory se usará como atributo de origen. Debería ser de tipo **cadena de un solo valor**. En los pasos siguientes se usa uno de los extensionAttributes.
-* Si ha configurado previamente el atributo PreferredDataLocation en objetos User sincronizados existentes de Azure AD con Azure AD PowerShell, deberá **restituir** los valores de atributo a los objetos User correspondientes de la instancia local de Active Directory.
+* Decida qué atributo de Active Directory local se usará como el atributo de origen. Debería ser del tipo **cadena de un solo valor**. En los pasos siguientes, se usa uno de los atributos **extensionAttributes**.
+* Si configuró previamente el atributo **preferredDataLocation** en **objetos User sincronizados** existentes de Azure AD con Azure AD PowerShell, deberá restituir los valores de atributo a los objetos **User** correspondientes de la instancia local de Active Directory.
 
     > [!IMPORTANT]
-    > Si no restituye los valores de atributo a los objetos User correspondientes de la instancia local de Active Directory, Azure AD Connect quitará los valores de atributo existentes en Azure AD cuando se habilite la sincronización para el atributo PreferredDataLocation.
+    > Si no restituye estos valores, Azure AD Connect quita los valores de atributo existentes en Azure AD cuando la sincronización del atributo **preferredDataLocation** está habilitada.
 
-* Se recomienda configurar el atributo de origen en al menos un par de objetos User locales de AD ahora para que puedan usarse para la comprobación más tarde.
+* Ahora configure el atributo de origen en al menos un par de objetos User de la instancia de Active Directory local. Puede usar esto para una posterior comprobación.
 
-Los pasos para habilitar la sincronización del atributo PreferredDataLocation se pueden resumir en:
-
-1. Deshabilitar el programador de sincronización y comprobar que no hay ninguna sincronización en curso
-2. Agregar el atributo de origen al esquema de conector de ADDS local
-3. Agregar PreferredDataLocation al esquema de conector de Azure AD
-4. Crear una regla de sincronización de entrada para enviar el valor del atributo desde la instancia local de Active Directory
-5. Crear una regla de sincronización de salida para enviar el valor del atributo a Azure AD
-6. Iniciar el ciclo de sincronización completo
-7. Habilitar el programador de sincronización
-8. Comprobar el resultado
+En las secciones siguientes se detallan los pasos para habilitar la sincronización del atributo **preferredDataLocation**.
 
 > [!NOTE]
-> El resto de esta sección trata estos pasos detalladamente. Se describen en el contexto de una implementación de Azure AD con topología de bosque único y sin reglas de sincronización personalizadas. Si tiene una topología de varios bosques, reglas de sincronización personalizadas configuradas o un servidor de ensayo, debe ajustar los pasos según corresponda.
+> Los pasos se describen en el contexto de una implementación de Azure AD con topología de bosque único y sin reglas de sincronización personalizadas. Si tiene una topología de varios bosques, reglas de sincronización personalizadas configuradas o un servidor de ensayo, debe ajustar los pasos según corresponda.
 
 ## <a name="step-1-disable-sync-scheduler-and-verify-there-is-no-synchronization-in-progress"></a>Paso 1: Deshabilitar el programador de sincronización y comprobar que no hay ninguna sincronización en curso
-Asegúrese de que no realiza ninguna sincronización mientras está actualizando reglas de sincronización para evitar que se exporten cambios no deseados a Azure AD. Para deshabilitar el programador de sincronización integrado:
+Para evitar que cualquier cambio no deseado se exporte a Azure AD, asegúrese de que no se realice ninguna sincronización mientras está realizando la actualización de las reglas de sincronización. Para deshabilitar el programador de sincronización integrado:
 
 1. Inicie una sesión de PowerShell en el servidor de Azure AD Connect.
-2. Deshabilite la sincronización programada mediante la ejecución del cmdlet: `Set-ADSyncScheduler -SyncCycleEnabled $false`.
+2. Deshabilite la sincronización programada mediante la ejecución de este cmdlet: `Set-ADSyncScheduler -SyncCycleEnabled $false`.
 3. Inicie **Synchronization Service Manager**. Para ello, vaya a **INICIO** > **Servicio de sincronización**.
-4. Vaya a la pestaña **Operaciones** y confirme que no hay ninguna operación cuyo estado sea *en curso*.
+4. Seleccione la pestaña **Operaciones** y confirme que no hay ninguna operación cuyo estado sea *en curso*.
 
-![Synchronization Service Manager: comprobar que no hay ninguna operación en curso](./media/active-directory-aadconnectsync-feature-preferreddatalocation/preferreddatalocation-step1.png)
+![Captura de pantalla de Synchronization Service Manager](./media/active-directory-aadconnectsync-feature-preferreddatalocation/preferreddatalocation-step1.png)
 
-## <a name="step-2-add-the-source-attribute-to-the-on-premises-adds-connector-schema"></a>Paso 2: Agregar el atributo de origen al esquema de conector de ADDS local
-No todos los atributos de AD se importan en el espacio de Conector AD local. Si ha seleccionado utilizar un atributo no sincronizado de forma predeterminada, deberá importarlo. Para agregar el atributo de origen a la lista de atributos importados:
+## <a name="step-2-add-the-source-attribute-to-the-on-premises-active-directory-connector-schema"></a>Paso 2: Agregar el atributo de origen al esquema del conector de Active Directory local
+No todos los atributos de Azure AD se importan en el espacio del conector de Active Directory. Si seleccionó usar un atributo no sincronizado de manera predeterminada, deberá importarlo. Para agregar el atributo de origen a la lista de atributos importados:
 
-1. Vaya a la pestaña **Connectors** (Conectores) de Synchronization Service Manager.
-2. Haga clic con el botón derecho en **Conector de AD local** y seleccione **Propiedades**.
+1. Seleccione la pestaña **Conectores** de Synchronization Service Manager.
+2. Haga clic con el botón derecho en la instancia del conector de Active Directory local y seleccione **Propiedades**.
 3. En el cuadro de diálogo emergente, vaya a la pestaña **Seleccionar atributos**.
-4. Asegúrese de que el atributo de origen que seleccionó está activado en la lista de atributos. Si no ve el atributo, haga clic en la casilla "Mostrar todos".
-5. Haga clic en **Aceptar** para guardarlo.
+4. Asegúrese de que el atributo de origen que seleccionó está activado en la lista de atributos. Si no ve el atributo, active la casilla de verificación **Mostrar todo**.
+5. Seleccione **Aceptar** para guardar.
 
-![Agregar el atributo de origen al esquema de Conector AD local](./media/active-directory-aadconnectsync-feature-preferreddatalocation/preferreddatalocation-step2.png)
+![Captura de pantalla de Synchronization Service Manager y el cuadro de diálogo Propiedades](./media/active-directory-aadconnectsync-feature-preferreddatalocation/preferreddatalocation-step2.png)
 
-## <a name="step-3-add-preferreddatalocation-to-the-azure-ad-connector-schema"></a>Paso 3: Agregar PreferredDataLocation al esquema de conector de Azure AD
-De forma predeterminada, el atributo PreferredDataLocation no se importa en el espacio del conector de Azure AD. Para agregar el atributo PreferredDataLocation a la lista de atributos importados:
+## <a name="step-3-add-preferreddatalocation-to-the-azure-ad-connector-schema"></a>Paso 3: Agregar **preferredDataLocation** al esquema del conector de Azure AD
+De manera predeterminada, el atributo **preferredDataLocation** no se importa en el espacio del conector de Azure AD. Para agregarlo a la lista de los atributos importados:
 
-1. Vaya a la pestaña **Connectors** (Conectores) de Synchronization Service Manager.
-2. Haga clic con el botón derecho en **Conector de Azure AD** y seleccione **Propiedades**.
+1. Seleccione la pestaña **Conectores** de Synchronization Service Manager.
+2. Haga clic con el botón derecho en el conector de Azure AD y seleccione **Propiedades**.
 3. En el cuadro de diálogo emergente, vaya a la pestaña **Seleccionar atributos**.
-4. Seleccione el atributo preferredDataLocation en la lista de atributos.
-5. Haga clic en **Aceptar** para guardarlo.
+4. Seleccione el atributo **preferredDataLocation** en la lista.
+5. Seleccione **Aceptar** para guardar.
 
-![Agregar el atributo de origen al esquema de Conector Azure AD](./media/active-directory-aadconnectsync-feature-preferreddatalocation/preferreddatalocation-step3.png)
+![Captura de pantalla de Synchronization Service Manager y el cuadro de diálogo Propiedades](./media/active-directory-aadconnectsync-feature-preferreddatalocation/preferreddatalocation-step3.png)
 
-## <a name="step-4-create-an-inbound-synchronization-rule-to-flow-the-attribute-value-from-on-premises-active-directory"></a>Paso 4: Crear una regla de sincronización de entrada para enviar el valor del atributo desde la instancia local de Active Directory
-La regla de sincronización de entrada permite enviar el valor del atributo desde el atributo de origen de la instancia local de Active Directory al metaverso:
+## <a name="step-4-create-an-inbound-synchronization-rule"></a>Paso 4: Crear una regla de sincronización de entrada
+La regla de sincronización de entrada permite enviar el valor del atributo desde el atributo de origen de la instancia local de Active Directory al metaverso.
 
 1. Inicie el **Editor de reglas de sincronización**. Para ello, vaya a **INICIO** > **Editor de reglas de sincronización**.
 2. Establezca el filtro de búsqueda **Dirección** como **Entrada**.
-3. Haga clic en el botón **Agregar nueva regla** para crear una nueva regla de entrada.
+3. Para crear una regla de entrada, seleccione **Agregar nueva regla**.
 4. En la pestaña **Descripción**, proporcione la configuración siguiente:
 
     | Atributo | Valor | Detalles |
     | --- | --- | --- |
-    | NOMBRE | *Proporcione un nombre*. | Por ejemplo, *"In from AD – User PreferredDataLocation"* |
+    | NOMBRE | *Proporcione un nombre*. | Por ejemplo, "In from AD – User preferredDataLocation" |
     | DESCRIPCIÓN | *Proporcione una descripción personalizada* |  |
-    | Sistema conectado | *Elija Conector AD local* |  |
+    | Sistema conectado | *Elija el conector de Active Directory local* |  |
     | Tipo de objeto de sistema conectado | **User** |  |
     | Propiedades de objeto de metaverso | **Person** |  |
     | Tipo de vínculo | **Join** |  |
@@ -150,128 +140,128 @@ La regla de sincronización de entrada permite enviar el valor del atributo desd
 
     | Tipo de flujo | Atributo de destino | Origen | Aplicar una vez | Tipo de combinación |
     | --- | --- | --- | --- | --- |
-    |Directo | PreferredDataLocation | Elegir el atributo de origen | No activado | Actualizar |
+    |Directo | preferredDataLocation | Elegir el atributo de origen | No activado | Actualizar |
 
-7. Haga clic en **Agregar** para crear la regla de entrada.
+7. Para crear la regla de entrada, seleccione **Agregar**.
 
-![Crear regla de sincronización de entrada](./media/active-directory-aadconnectsync-feature-preferreddatalocation/preferreddatalocation-step4.png)
+![Captura de pantalla de Crear regla de sincronización de entrada](./media/active-directory-aadconnectsync-feature-preferreddatalocation/preferreddatalocation-step4.png)
 
-## <a name="step-5-create-an-outbound-synchronization-rule-to-flow-the-attribute-value-to-azure-ad"></a>Paso 5: Crear una regla de sincronización de salida para enviar el valor de atributo a Azure AD
-La regla de sincronización de salida permite enviar el valor del atributo desde el metaverso al atributo PreferredDataLocation en Azure AD:
+## <a name="step-5-create-an-outbound-synchronization-rule"></a>Paso 5: Crear una regla de sincronización de salida
+La regla de sincronización de salida permite enviar el valor del atributo desde el metaverso al atributo **preferredDataLocation** en Azure AD:
 
-1. Vaya al Editor de **Reglas de sincronización**.
+1. Vaya al **Editor de Reglas de sincronización**.
 2. Establezca el filtro de búsqueda **Dirección** como **Salida**.
-3. Haga clic en el botón **Agregar nueva regla**.
+3. Seleccione **Agregar nueva regla**.
 4. En la pestaña **Descripción**, proporcione la configuración siguiente:
 
     | Atributo | Valor | Detalles |
     | ----- | ------ | --- |
-    | NOMBRE | *Proporcione un nombre*. | Por ejemplo, "Out to AAD – User PreferredDataLocation". |
+    | NOMBRE | *Proporcione un nombre*. | Por ejemplo, "Out to Azure AD – User preferredDataLocation" |
     | DESCRIPCIÓN | *Proporcione una descripción* ||
-    | Sistema conectado | *Seleccione el conector AAD* ||
-    | Tipo de objeto de sistema conectado | Usuario ||
+    | Sistema conectado | *Seleccione Azure AD Connector* ||
+    | Tipo de objeto de sistema conectado | **User** ||
     | Propiedades de objeto de metaverso | **Person** ||
     | Tipo de vínculo | **Join** ||
     | Prioridad | *Elija un número entre 1 y 99* | El intervalo de 1 a 99 se reserva para las reglas de sincronización personalizadas. No elija ningún valor que use otra regla de sincronización. |
 
-5. Vaya a la pestaña **Filtro de ámbito** y agregue un **solo grupo de filtro de ámbito con dos cláusulas**:
+5. Vaya a la pestaña **Filtro de ámbito** y agregue un solo grupo de filtro de ámbito con dos cláusulas:
 
     | Atributo | Operador | Valor |
     | --- | --- | --- |
     | sourceObjectType | EQUAL | Usuario |
     | cloudMastered | NOTEQUAL | True |
 
-    El filtro de ámbito determina a qué objetos de Azure AD se aplica esta regla de sincronización de salida. En este ejemplo, se utiliza el mismo filtro de ámbito de la regla de sincronización de OOB "Out to AD – User Identity". Impide que la regla de sincronización se aplique a los objetos User que no se sincronizan desde la instancia local de Active Directory. Puede que necesite retocar el filtro de ámbito en función de su implementación de Azure AD Connect.
+    El filtro de ámbito determina a qué objetos de Azure AD se aplica esta regla de sincronización de salida. En este ejemplo, se usa el mismo filtro de ámbito de la regla de sincronización integrada "Out to AD – User Identity". Impide que la regla de sincronización se aplique a los objetos **Use**r que no se sincronizan desde la instancia local de Active Directory. Puede que necesite retocar el filtro de ámbito en función de su implementación de Azure AD Connect.
 
 6. Vaya a la pestaña **Transformación** e implemente la siguiente regla de transformación:
 
     | Tipo de flujo | Atributo de destino | Origen | Aplicar una vez | Tipo de combinación |
     | --- | --- | --- | --- | --- |
-    | Directo | PreferredDataLocation | PreferredDataLocation | No activado | Actualizar |
+    | Directo | preferredDataLocation | preferredDataLocation | No activado | Actualizar |
 
 7. Haga clic en **Agregar** para crear la regla de salida.
 
-![Crear regla de sincronización de salida](./media/active-directory-aadconnectsync-feature-preferreddatalocation/preferreddatalocation-step5.png)
+![Captura de pantalla de Crear regla de sincronización de salida](./media/active-directory-aadconnectsync-feature-preferreddatalocation/preferreddatalocation-step5.png)
 
 ## <a name="step-6-run-full-synchronization-cycle"></a>Paso 6: Ejecutar el ciclo de sincronización completo
-En general, se requiere el ciclo de sincronización completo porque hemos agregado nuevos atributos a los esquemas de los Conectores Azure AD y AD y hemos introducido reglas de sincronización personalizadas. Se recomienda que compruebe los cambios antes de exportarlos a Azure AD. Puede usar los pasos siguientes para comprobar los cambios mientras sigue los pasos que forman un ciclo de sincronización completo manualmente.
+En general, se requiere un ciclo de sincronización completo. Esto se debe a que agregó atributos nuevos a los esquemas de los conectores de Azure AD y de Active Directory e introdujo reglas de sincronización personalizadas. Compruebe los cambios antes de exportarlos a Azure AD. Puede usar los pasos siguientes para comprobar los cambios mientras sigue los pasos que forman un ciclo de sincronización completo manualmente.
 
-1. Ejecute el paso **Importación completa** en **on-premises AD Connector** (Conector AD local):
+1. Ejecute **Importación completa** en el conector de Active Directory local:
 
    1. Vaya a la pestaña **Operations** (Operaciones) de Synchronization Service Manager.
-   2. Haga clic con el botón derecho en **Conector de AD local** y seleccione **Ejecutar...**.
-   3. En el cuadro de diálogo emergente, seleccione **Importación completa** y haga clic en **Aceptar**.
-   4. Espere a que la operación finalice.
+   2. Haga clic con el botón derecho en el **conector de Active Directory local** y seleccione **Ejecutar**.
+   3. En el cuadro de diálogo, seleccione **Importación completa** y seleccione **Aceptar**.
+   4. Espere a que se complete la operación.
 
     > [!NOTE]
-    > Puede omitir la importación completa en Conector AD local si el atributo de origen ya está incluido en la lista de atributos importados. En otras palabras, no tuvo que realizar ningún cambio durante el [Paso 2: Agregar el atributo de origen al esquema de Conector AD local](#step-2-add-the-source-attribute-to-the-on-premises-adds-connector-schema).
+    > Puede omitir la importación completa en el conector de Active Directory local si el atributo de origen ya está incluido en la lista de atributos importados. En otras palabras, no debería haber hecho ningún cambio en el paso 2 de este artículo.
 
-2. Ejecute el paso **Importación completa** en **Azure AD Connector** (Conector Azure AD):
+2. Ejecute una **importación completa** en el conector de Azure AD:
 
-   1. Haga clic con el botón derecho en **Azure AD Connector** (Conector Azure AD) y seleccione **Ejecutar...**
-   2. En el cuadro de diálogo emergente, seleccione **Importación completa** y haga clic en **Aceptar**.
-   3. Espere a que la operación finalice.
+   1. Haga clic con el botón derecho en **Conector de Azure AD** y seleccione **Ejecutar**.
+   2. En el cuadro de diálogo, seleccione **Importación completa** y seleccione **Aceptar**.
+   3. Espere a que se complete la operación.
 
-3. Compruebe los cambios de la regla de sincronización en un objeto User existente:
+3. Compruebe los cambios de la regla de sincronización en un objeto **User** existente.
 
-El atributo de origen de la instancia local de Active Directory y PreferredDataLocation de Azure AD se han importado en el espacio del conector correspondiente. Antes de continuar con el paso Sincronización completa, se recomienda que realice una **versión preliminar** de un objeto User existente en el espacio del conector de AD local. El objeto que ha seleccionado debe tener el atributo de origen rellenado. Una **vista previa** correcta con el valor PreferredDataLocation rellenado en el metaverso es un buen indicador de que ha configurado las reglas de sincronización correctamente. Para obtener información acerca de cómo llevar a cabo una **vista previa**, consulte la sección [Comprobar el cambio](active-directory-aadconnectsync-change-the-configuration.md#verify-the-change).
+   El atributo de origen de la instancia local de Active Directory y **preferredDataLocation** de Azure AD se han importado en cada espacio del conector correspondiente. Antes de continuar con el paso de sincronización completa, obtenga una vista previa de un objeto **User** existente en el espacio del conector de Active Directory local. El objeto que ha seleccionado debe tener el atributo de origen rellenado. Una vista previa correcta con el valor **preferredDataLocation** rellenado en el metaverso es un buen indicador de que configuró correctamente las reglas de sincronización. Para información sobre cómo obtener una vista previa, consulte [Comprobación del cambio](active-directory-aadconnectsync-change-the-configuration.md#verify-the-change).
 
-4. Realice el paso **Sincronización completa** en **on-premises AD Connector** (Conector AD local):
+4. Ejecute una **sincronización completa** en el conector de Active Directory local:
 
-   1. Haga clic con el botón derecho en **Conector de AD local** y seleccione **Ejecutar...**.
-   2. En el cuadro de diálogo emergente, seleccione **Sincronización completa** y haga clic en **Aceptar**.
-   3. Espere a que la operación finalice.
+   1. Haga clic con el botón derecho en el **conector de Active Directory local** y seleccione **Ejecutar**.
+   2. En el cuadro de diálogo, seleccione **Sincronización completa** y **Aceptar**.
+   3. Espere a que se complete la operación.
 
 5. Compruebe las **exportaciones pendientes** en Azure AD:
 
    1. Haga clic con el botón derecho en **Conector de Azure AD** y seleccione **Espacio del conector de búsqueda**.
-   2. En el cuadro de diálogo emergente Search Connector Space (Espacio del conector de búsqueda):
+   2. En el cuadro de diálogo **Search Connector Space** (Espacio del conector de búsqueda):
 
-      1. Establezca el **ámbito** en **Pending Export** (Exportación pendiente).
-      2. Active las tres casillas, incluidas **Agregar, Modificar y Eliminar**.
-      3. Haga clic en el botón **Buscar** para obtener la lista de objetos con los cambios que se exportarán. Para examinar los cambios de un determinado objeto, haga doble clic en el objeto.
-      4. Compruebe que los cambios estén previstos.
+        a. Establezca el **ámbito** en **Pending Export** (Exportación pendiente).<br>
+        b. Active las tres casillas, incluidas **Agregar, Modificar y Eliminar**.<br>
+        c. Para ver la lista de objetos con cambios que se deben exportar, seleccione **Buscar**. Para examinar los cambios de un determinado objeto, haga doble clic en el objeto.<br>
+        d. Compruebe que los cambios sean los previstos.
 
-6. Ejecute el paso **Exportación** en **Azure AD Connector** (Conector Azure AD):
+6. Ejecute **Exportar** en el **conector de Azure AD**
 
-   1. Haga clic con el botón derecho en **Conector de Azure AD** y seleccione **Ejecutar...**.
-   2. En el cuadro de diálogo emergente Run Connector (Ejecutar conector), seleccione el paso **Exportar** y haga clic en **Aceptar**.
-   3. Espere a que la exportación a Azure AD se complete.
+   1. Haga clic con el botón derecho en **Conector de Azure AD** y seleccione **Ejecutar**.
+   2. En el cuadro de diálogo **Ejecutar conector**, seleccione **Exportar** y **Aceptar**.
+   3. Espere a que se complete la operación.
 
 > [!NOTE]
-> Puede que observe que no se incluye el paso de Sincronización completa en el conector de Azure AD y Exportar en el conector de AD. Estos pasos no son necesarios, ya que los valores de atributo solo se envían desde la instancia local de Active Directory a Azure AD.
+> Es posible que observe que los pasos no incluyen el paso de sincronización completa en el conector de Azure AD ni el paso de exportación en el conector de Active Directory. Los pasos no son necesarios, ya que los valores de atributo solo se envían desde la instancia local de Active Directory a Azure AD.
 
 ## <a name="step-7-re-enable-sync-scheduler"></a>Paso 7: Volver a habilitar el programador de sincronización
 Vuelva a habilitar el programador de sincronización integrado:
 
-1. Inicie la sesión de PowerShell.
-2. Vuelva a habilitar la sincronización programada mediante la ejecución del cmdlet: `Set-ADSyncScheduler -SyncCycleEnabled $true`
+1. Inicie una sesión de PowerShell.
+2. Vuelva a habilitar la sincronización programada mediante la ejecución de este cmdlet: `Set-ADSyncScheduler -SyncCycleEnabled $true`
 
 ## <a name="step-8-verify-the-result"></a>Paso 8: Comprobar el resultado
 Ahora es el momento de comprobar la configuración y habilitarla para los usuarios.
 
-1. Agregue la zona geográfica al atributo seleccionado en un usuario. La lista de zonas geográficas disponibles se puede encontrar en [esta tabla](#enable-synchronization-of-preferreddatalocation).  
-![Atributo de AD agregado a un usuario](./media/active-directory-aadconnectsync-feature-preferreddatalocation/preferreddatalocation-adattribute.png)
+1. Agregue la zona geográfica al atributo seleccionado en un usuario. La lista de geoáreas disponibles se puede encontrar en [esta tabla](#enable-synchronization-of-preferreddatalocation).  
+![Captura de pantalla del atributo de AD agregado a un usuario](./media/active-directory-aadconnectsync-feature-preferreddatalocation/preferreddatalocation-adattribute.png)
 2. Espere a que el atributo se sincronice con Azure AD.
 3. Con Exchange Online PowerShell, compruebe que la región del buzón de correo se ha configurado correctamente.  
-![Región del buzón de correo configurada en un usuario de Exchange Online](./media/active-directory-aadconnectsync-feature-preferreddatalocation/preferreddatalocation-mailboxregion.png)  
+![Captura de pantalla de Exchange Online PowerShell](./media/active-directory-aadconnectsync-feature-preferreddatalocation/preferreddatalocation-mailboxregion.png)  
 Suponiendo que el inquilino se haya marcado para que pueda usar esta característica, el buzón de correo se mueve a la zona geográfica correcta. Esto se puede comprobar examinando el nombre del servidor donde se encuentra el buzón.
-4. Para comprobar que esta configuración ha sido efectiva sobre muchos buzones, utilice el script de la [galería de Technet](https://gallery.technet.microsoft.com/office/PowerShell-Script-to-a6bbfc2e). Este script también contiene una lista de todos los prefijos de servidor de los centros de datos de Office 365 y la zona geográfica en la que se encuentran. Se puede utilizar como una referencia en el paso anterior para comprobar la ubicación del buzón de correo.
+4. Para comprobar que esta configuración ha sido efectiva sobre muchos buzones, use el script de la [galería de Technet](https://gallery.technet.microsoft.com/office/PowerShell-Script-to-a6bbfc2e). Este script también contiene una lista de todos los prefijos de servidor de todos los centros de datos de Office 365 y la geoárea en la que se encuentran. Se puede utilizar como una referencia en el paso anterior para comprobar la ubicación del buzón de correo.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
-**Más información sobre las capacidades multigeográficas de Office 365:**
+Más información sobre las funcionalidades multigeográficas de Office 365:
 
-* Sesiones sobre capacidades multigeográficas en Ignite: https://aka.ms/MultiGeoIgnite
-* Capacidades multigeográficas en OneDrive: https://aka.ms/OneDriveMultiGeo
-* Capacidades multigeográficas en SharePoint Online: https://aka.ms/SharePointMultiGeo
+* [Sesiones sobre funcionalidades multigeográficas en Ignite](https://aka.ms/MultiGeoIgnite)
+* [Funcionalidades multigeográficas en OneDrive](https://aka.ms/OneDriveMultiGeo)
+* [Funcionalidades multigeográficas en SharePoint Online](https://aka.ms/SharePointMultiGeo)
 
-**Más información sobre el modelo de configuración del motor de sincronización:**
+Más información sobre el modelo de configuración del motor de sincronización:
 
 * Obtenga más información sobre el modelo de configuración en el artículo de información sobre el [aprovisionamiento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
 * Consulte más detalles sobre el lenguaje de expresiones en el artículo [Descripción de las expresiones de aprovisionamiento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
 
-**Temas de introducción**
+Temas de introducción:
 
 * [Sincronización de Azure AD Connect: comprender y personalizar la sincronización](active-directory-aadconnectsync-whatis.md)
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)

@@ -1,6 +1,6 @@
 ---
 title: "Configuración de directivas de entrega de recursos con el SDK de .NET | Microsoft Docs"
-description: "En este tema se muestra cómo configurar distintas directivas de entrega de recursos con .NET SDK de Servicios multimedia de Azure."
+description: "En este tema se muestra cómo configurar distintas directivas de entrega de recursos con .NET SDK de Azure Media Services."
 services: media-services
 documentationcenter: 
 author: Mingfeiy
@@ -14,31 +14,31 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: juliako;mingfeiy
-ms.openlocfilehash: 282fd9e24dc147e31613469926128894d48366f4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 515467fefe9b318900ed64979d950b0ab783fd4a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="configure-asset-delivery-policies-with-net-sdk"></a>Configuración de directivas de entrega de recursos con el SDK de .NET
 [!INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
 
 ## <a name="overview"></a>Información general
-Si tiene pensado entregar activos cifrados, uno de los pasos del flujo de trabajo de entrega de contenido de Servicios multimedia consiste en configurar directivas de entrega para los activos. La directiva de entrega de recursos indica a los Servicios multimedia cómo desea usted que se entregue el recurso: en qué protocolo de streaming se debe empaquetar de forma dinámica el recurso (por ejemplo, MPEG DASH, HLS, Smooth Streaming o todos) o si desea o no cifrar de forma dinámica el recurso y de qué manera (cifrado de sobre o común).
+Si tiene pensado entregar activos cifrados, uno de los pasos del flujo de trabajo de entrega de contenido de Media Services consiste en configurar directivas de entrega para los activos. La directiva de entrega de recursos indica a los Media Services cómo desea usted que se entregue el recurso: en qué protocolo de streaming se debe empaquetar de forma dinámica el recurso (por ejemplo, MPEG DASH, HLS, Smooth Streaming o todos) o si desea o no cifrar de forma dinámica el recurso y de qué manera (cifrado de sobre o común).
 
-En este tema se explica por qué y cómo crear y configurar directivas de entrega de recursos.
+En este artículo se explica por qué y cómo crear y configurar directivas de entrega de recursos.
 
 >[!NOTE]
->Cuando se crea la cuenta de AMS, se agrega un punto de conexión de streaming **predeterminado** a la cuenta en estado **Stopped** (Detenido). Para iniciar la transmisión del contenido y aprovechar el empaquetado dinámico y el cifrado dinámico, el punto de conexión de streaming desde el que va a transmitir el contenido debe estar en estado **Running** (En ejecución). 
+>Cuando se crea una cuenta de AMS, se agrega un punto de conexión de streaming **predeterminado** a la cuenta en estado **Stopped** (Detenido). Para iniciar la transmisión del contenido y aprovechar el empaquetado dinámico y el cifrado dinámico, el punto de conexión de streaming desde el que va a transmitir el contenido debe estar en estado **Running** (En ejecución). 
 >
 >Además, para poder usar el empaquetado dinámico y el cifrado dinámico, el recurso debe contener un conjunto de archivos MP4 de velocidad de bits adaptable o archivos Smooth Streaming de velocidad de bits adaptable.
 
 
-Puede aplicar diferentes directivas al mismo recurso. Por ejemplo, puede aplicar cifrado PlayReady a Smooth Streaming y cifrado de sobre AES a MPEG DASH y HLS. Se bloqueará la transmisión para todos los protocolos que no estén definidos en una directiva de entrega (por ejemplo, si agrega una sola directiva que solo especifica HLS como el protocolo). La excepción a esta regla se produce en el caso de que no haya definido ninguna directiva de entrega de recursos. En tal caso, todos los protocolos estarán habilitados sin cifrar.
+Puede aplicar diferentes directivas al mismo recurso. Por ejemplo, puede aplicar cifrado PlayReady a Smooth Streaming y cifrado de sobre AES a MPEG DASH y HLS. Se bloqueará la transmisión para todos los protocolos que no estén definidos en una directiva de entrega (por ejemplo, si agrega una sola directiva que solo especifica HLS como el protocolo). La excepción se produce en el caso de que no haya definido ninguna directiva de entrega de recursos. En tal caso, todos los protocolos estarán habilitados sin cifrar.
 
 Si desea entregar un recurso de almacenamiento cifrado, debe configurar la directiva de entrega de recursos. Antes de poder transmitir el recurso, el servidor de streaming quita el cifrado de almacenamiento y transmite el contenido usando la directiva de entrega especificada. Por ejemplo, para entregar el recurso cifrado con la clave de cifrado de sobre de Estándar de cifrado avanzado (AES), establezca el tipo de directiva en **DynamicEnvelopeEncryption**. Para quitar el cifrado de almacenamiento y transmitir el recurso sin cifrar, establezca el tipo de directiva en **NoDynamicEncryption**. A continuación se muestran ejemplos de configuración de estos tipos de directiva.
 
-Según cómo configure la directiva de entrega de recursos podrá realizar el empaquetamiento de forma dinámica, cifrar de forma dinámica y hacer streaming de los protocolos de streaming siguientes: secuencias Smooth Streaming, HLS y MPEG-DASH.
+Según cómo configure la directiva de entrega de recursos, podrá empaquetar, cifrar y hacer streaming de forma dinámica de los protocolos de streaming siguientes: Smooth Streaming, HLS y MPEG-DASH.
 
 En la lista siguiente se muestran los formatos usados para transmitir Smooth Streaming, HLS y DASH.
 
@@ -67,6 +67,7 @@ El método **ConfigureClearAssetDeliveryPolicy** siguiente especifica que no se 
 
 Para obtener información sobre los valores que puede especificar al crear una entidad AssetDeliveryPolicy, consulte la sección [Tipos usados al definir AssetDeliveryPolicy](#types) .
 
+```csharp
     static public void ConfigureClearAssetDeliveryPolicy(IAsset asset)
     {
         IAssetDeliveryPolicy policy =
@@ -76,13 +77,14 @@ Para obtener información sobre los valores que puede especificar al crear una e
         
         asset.DeliveryPolicies.Add(policy);
     }
-
+```
 ## <a name="dynamiccommonencryption-asset-delivery-policy"></a>Directiva de entrega de recursos DynamicCommonEncryption
 
 El método siguiente **CreateAssetDeliveryPolicy** crea la entidad **AssetDeliveryPolicy** que se configura para aplicar el cifrado común dinámico (**DynamicCommonEncryption**) a un protocolo de streaming con velocidad de transmisión adaptable (se bloqueará el streaming para otros protocolos). El método toma dos parámetros: **Asset** (el recurso al que desea aplicar la directiva de entrega) e **IContentKey** (la clave de contenido de tipo **CommonEncryption**. Para más información, consulte [Creación de una clave de contenido](media-services-dotnet-create-contentkey.md#common_contentkey)).
 
 Para obtener información sobre los valores que puede especificar al crear una entidad AssetDeliveryPolicy, consulte la sección [Tipos usados al definir AssetDeliveryPolicy](#types) .
 
+```csharp
     static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
     {
         Uri acquisitionUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.PlayReadyLicense);
@@ -106,9 +108,11 @@ Para obtener información sobre los valores que puede especificar al crear una e
             Console.WriteLine("Adding Asset Delivery Policy: " +
                 assetDeliveryPolicy.AssetDeliveryPolicyType);
      }
+```
 
-Los Servicios multimedia de Azure también permiten agregar el cifrado de Widevine. En el ejemplo siguiente se muestra cómo se agrega tanto PlayReady como Widevine a la directiva de entrega de recursos.
+Azure Media Services también permiten agregar el cifrado de Widevine. En el ejemplo siguiente se muestra cómo se agrega tanto PlayReady como Widevine a la directiva de entrega de recursos.
 
+```csharp
     static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
     {
         // Get the PlayReady license service URL.
@@ -146,7 +150,7 @@ Los Servicios multimedia de Azure también permiten agregar el cifrado de Widevi
         asset.DeliveryPolicies.Add(assetDeliveryPolicy);
 
     }
-
+```
 > [!NOTE]
 > Al cifrar con Widevine, solo podría entregar con DASH. Asegúrese de especificar DASH en el protocolo de entrega de activos.
 > 
@@ -157,6 +161,7 @@ El método **CreateAssetDeliveryPolicy** siguiente crea la entidad **AssetDelive
 
 Para obtener información sobre los valores que puede especificar al crear una entidad AssetDeliveryPolicy, consulte la sección [Tipos usados al definir AssetDeliveryPolicy](#types) .   
 
+```csharp
     private static void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
     {
 
@@ -193,7 +198,7 @@ Para obtener información sobre los valores que puede especificar al crear una e
         Console.WriteLine();
         Console.WriteLine("Adding Asset Delivery Policy: " + assetDeliveryPolicy.AssetDeliveryPolicyType);
     }
-
+```
 
 ## <a id="types"></a>Tipos usados al definir AssetDeliveryPolicy
 
@@ -201,6 +206,7 @@ Para obtener información sobre los valores que puede especificar al crear una e
 
 La enumeración siguiente describe los valores que puede establecer para el protocolo de entrega de recursos.
 
+```csharp
     [Flags]
     public enum AssetDeliveryProtocol
     {
@@ -231,11 +237,11 @@ La enumeración siguiente describe los valores que puede establecer para el prot
         /// </summary>
         All = 0xFFFF
     }
-
+```
 ### <a id="AssetDeliveryPolicyType"></a>AssetDeliveryPolicyType
 
 La enumeración siguiente describe los valores que puede establecer para el tipo de directiva de entrega de recursos.  
-
+```csharp
     public enum AssetDeliveryPolicyType
     {
         /// <summary>
@@ -264,11 +270,11 @@ La enumeración siguiente describe los valores que puede establecer para el tipo
         /// </summary>
         DynamicCommonEncryption
         }
-
+```
 ### <a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
 
 La enumeración siguiente describe los valores que puede utilizar para configurar el método de entrega de la clave de contenido al cliente.
-    
+  ```csharp  
     public enum ContentKeyDeliveryType
     {
         /// <summary>
@@ -296,11 +302,11 @@ La enumeración siguiente describe los valores que puede utilizar para configura
         Widevine = 3
 
     }
-
+```
 ### <a id="AssetDeliveryPolicyConfigurationKey"></a>AssetDeliveryPolicyConfigurationKey
 
 La enumeración siguiente describe los valores que puede establecer para configurar las claves usadas para obtener la configuración específica para una directiva de entrega de recursos.
-
+```csharp
     public enum AssetDeliveryPolicyConfigurationKey
     {
         /// <summary>
@@ -343,8 +349,8 @@ La enumeración siguiente describe los valores que puede establecer para configu
         /// </summary>
         WidevineLicenseAcquisitionUrl
     }
-
-## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Servicios multimedia
+```
+## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Envío de comentarios

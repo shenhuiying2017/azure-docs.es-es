@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 2/21/2018
 ms.author: raynew
-ms.openlocfilehash: 886977764517f1fec89eee77fc3263d30ff9ab31
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: bcbb2ace6686e4052149a5dde1ed837a16c36bad
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="dependency-visualization"></a>Visualización de dependencia
 
@@ -35,6 +35,19 @@ Para usar la visualización de dependencias, debe descargar e instalar agentes e
 
 ## <a name="do-i-need-to-pay-for-it"></a>¿Tengo qué pagar por ello?
 
+Azure Migrate está disponible sin costo adicional. Para utilizar las características de visualización de dependencias de Azure Migrate, es necesario Service Map. Al crear un proyecto de Azure Migrate, Azure Migrate creará automáticamente una nueva área de trabajo de Log Analytics en su nombre.
+
+> [!NOTE]
+> La característica de visualización de dependencias usa Service Map mediante un área de trabajo de Log Analytics. Desde el 28 de febrero de 2018, con el anuncio de la disponibilidad general de Azure Migrate, la característica está ahora disponible sin costo adicional. Deberá crear un nuevo proyecto para poder usar el área de trabajo de uso gratuito. Las áreas de trabajo existentes antes de la disponibilidad general siguen siendo facturables, por lo que se recomienda que cambie a un nuevo proyecto.
+
+1. El uso de cualquier solución distinta a Service Map en esta área de trabajo de Log Analytics conlleva los cargos normales de Log Analytics. 
+2. Para admitir escenarios de migración sin costo adicional, la solución de Service Map no conllevará costos durante los primeros 180 días desde la creación del proyecto de Azure Migrate, tras lo cual se aplicarán las tarifas normales.
+3. Solo el área de trabajo creada como parte de la creación del proyecto se podrá usar de manera gratuita.
+
+Al registrar agentes en el área de trabajo, utilice el identificador y la clave proporcionados por el proyecto en la página de pasos de instalación del agente. No se puede usar un área de trabajo existente y asociarla al proyecto de Azure Migrate.
+
+Al eliminar el proyecto de Azure Migrate, el área de trabajo no se elimina con él. Tras la eliminación del proyecto, el uso de Service Map dejará de ser gratuito y cada nodo se facturará conforme al nivel de pago del área de trabajo de Log Analytics.
+
 [Aquí](https://azure.microsoft.com/pricing/details/azure-migrate/) puede encontrar más información sobre los precios de Azure Migrate. 
 
 ## <a name="how-do-i-manage-the-workspace"></a>¿Cómo administro el área de trabajo?
@@ -43,6 +56,6 @@ Puede usar el área de trabajo de Log Analytics fuera de Azure Migrate. No se el
 
 No elimine el área de trabajo creado por Azure Migrate, a menos que elimine el proyecto de migración. Si lo hace, las dependencias no funcionarán como se esperaba.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 [Agrupación de máquinas con dependencias de máquina](how-to-create-group-machine-dependencies.md)

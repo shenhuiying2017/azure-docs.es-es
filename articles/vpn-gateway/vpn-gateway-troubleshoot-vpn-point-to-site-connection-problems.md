@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2017
+ms.date: 02/23/2018
 ms.author: genli
-ms.openlocfilehash: bf20a0f15b1bc285a598c64c7e9f2de0082b2904
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 3884eec0e65f856be87505d45c25cad7d3742bab
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Solución de problemas: conexión de punto a sitio de Azure
 
@@ -40,7 +40,9 @@ Este problema se produce si el certificado de cliente no está en **Certificados
 
 Para solucionar este problema, siga estos pasos:
 
-1. Asegúrese de que los certificados siguientes están en la ubicación correcta:
+1. Abra el Administrador de certificados: haga clic en **Inicio**, escriba **Administrar certificados de equipo** y, a continuación, haga clic en **Administrar certificados de equipo** en el resultado de la búsqueda.
+
+2. Asegúrese de que los certificados siguientes están en la ubicación correcta:
 
     | Certificate | Ubicación |
     | ------------- | ------------- |
@@ -48,7 +50,7 @@ Para solucionar este problema, siga estos pasos:
     | Azuregateway-*GUID*.cloudapp.net  | Usuario actual\Entidades de certificación raíz de confianza|
     | AzureGateway-*GUID*.cloudapp.net, AzureRoot.cer    | Equipo local\Entidades de certificación raíz de confianza|
 
-2. Vaya a \<NombreDeUsuario> \AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID>, instale manualmente el certificado (archivo *.cer) en el usuario y en el almacén del equipo.
+3. Vaya a \<NombreDeUsuario> \AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID>, instale manualmente el certificado (archivo *.cer) en el usuario y en el almacén del equipo.
 
 Para más información sobre cómo instalar el certificado de cliente, consulte [Generación y exportación de certificados para conexiones de punto a sitio](vpn-gateway-certificates-point-to-site.md).
 

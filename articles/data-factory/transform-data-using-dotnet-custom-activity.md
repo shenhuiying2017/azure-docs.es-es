@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: ad829fc771bf67953315f3f42abd66eaa2628c13
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 4b9714bc456ad28d9dd46742ca16f52e68c61399
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Uso de actividades personalizadas en una canalización de Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -300,7 +300,7 @@ Si desea usar el contenido de stdout.txt en actividades de bajada, puede obtener
 
 ## <a name="difference-between-custom-activity-in-azure-data-factory-version-2-and-custom-dotnet-activity-in-azure-data-factory-version-1"></a>Diferencias entre la actividad personalizada de la versión 2 de Azure Data Factory y la actividad de DotNet (personalizada) de la versión 1 de Azure Data Factory
 
-  En la versión 1 de Azure Data Factory, puede implementar el código de la actividad de DotNet (personalizada) al crear un proyecto de biblioteca de clases .Net con una clase que implementa el método Execute de la interfaz IDotNetActivity. Los servicios vinculados, los conjuntos de datos y las propiedades extendidas de la carga útil de JSON de la actividad de DotNet (personalizada) se pasan al método de ejecución como objetos con tipos seguros. Para más información, consulte la actividad de [DotNet (personalizada) en la versión 1](v1/data-factory-use-custom-activities.md). Por este motivo, el código personalizado debe escribirse en .Net Framework 4.5.2 y ejecutarse en nodos de grupo de Azure Batch basados en Windows. 
+  En la versión 1 de Azure Data Factory, puede implementar el código de la actividad de DotNet (personalizada) al crear un proyecto de biblioteca de clases .Net con una clase que implementa el método Execute de la interfaz IDotNetActivity. Los servicios vinculados, los conjuntos de datos y las propiedades extendidas de la carga útil de JSON de la actividad de DotNet (personalizada) se pasan al método de ejecución como objetos con tipos seguros. Para más información, consulte la actividad de [DotNet (personalizada) en la versión 1](v1/data-factory-use-custom-activities.md). Debido a esta implementación, el código personalizado debe escribirse en .Net Framework 4.5.2 y ejecutarse en nodos de grupo de Azure Batch basados en Windows. 
 
   En la actividad personalizada de Azure Data Factory V2, no tiene que implementar ninguna interfaz .Net. Ahora ya puede ejecutar directamente comandos, scripts y su propio código personalizado compilado como ejecutable. Puede hacerlo especificando la propiedad Command junto con la propiedad folderPath. La actividad personalizada carga el archivo ejecutable y las dependencias en folderpath y ejecuta el comando en su lugar. 
 
@@ -317,7 +317,7 @@ Si desea usar el contenido de stdout.txt en actividades de bajada, puede obtener
 |Entorno de ejecución de la lógica personalizada      |Windows o Linux      |Windows (.Net Framework 4.5.2)      |
 |Ejecución de scripts      |Admite la ejecución directa de scripts (por ejemplo "cmd /c echo hello world" en la VM de Windows)      |Requiere la implementación en el archivo DLL de .Net      |
 |Conjunto de datos requerido      |Opcional      |Necesario para encadenar actividades y pasar información      |
-|Pasar información de actividad a la lógica personalizada      |Mediante ReferenceObjects (LinkedServices y conjuntos de datos) y ExtendedProperties (propiedades personalizadas) y      |Mediante ExtendedProperties (propiedades personalizadas), y conjuntos de datos de entrada y salida      |
+|Pasar información de actividad a la lógica personalizada      |Mediante ReferenceObjects (LinkedServices y conjuntos de datos) y ExtendedProperties (propiedades personalizadas)      |Mediante ExtendedProperties (propiedades personalizadas), y conjuntos de datos de entrada y salida      |
 |Recuperación de información en lógica personalizada      |Analizar los archivos activity.json, linkedServices.json y datasets.json almacenados en la misma carpeta que el ejecutable      |Mediante SDK de .Net (.Net Frame 4.5.2)      |
 |Registro      |Escribe directamente en STDOUT      |Se implementa el registrador en el archivo DLL de .Net      |
 
@@ -353,7 +353,7 @@ Para más información, consulte [Escalado automático de los nodos de proceso e
 Si el grupo usa el valor predeterminado de la propiedad [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx), el servicio Batch puede tardar de 15 a 30 minutos en preparar la máquina virtual antes de ejecutar la actividad personalizada.  Si el grupo usa otro valor de autoScaleEvaluationInterval diferente, el servicio Batch podría tardar el valor de autoScaleEvaluationInterval más 10 minutos.
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Vea los siguientes artículos, en los que se explica cómo transformar datos de otras maneras: 
 
 * [Actividad de U-SQL](transform-data-using-data-lake-analytics.md)

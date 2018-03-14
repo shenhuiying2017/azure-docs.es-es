@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: mbullwin
-ms.openlocfilehash: bd09e2a21c25097fa4b378cb2dbe2787edbb1967
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 4139e3675e2202cc42b6b8d7ff7562e9c9d693bb
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="metric-telemetry-application-insights-data-model"></a>Telemetría de métricas: modelo de datos de Application Insights
 
@@ -31,7 +31,7 @@ Métricas que representan los contadores del sistema y de procesos:
 | **Nombre de .NET**             | **Nombre independiente de la plataforma** | **Nombre de API DE REST** | **Descripción**
 | ------------------------- | -------------------------- | ----------------- | ---------------- 
 | `\Processor(_Total)\% Processor Time` | Trabajo en curso... | [processorCpuPercentage](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FprocessorCpuPercentage) | CPU total del equipo
-| `\Memory\Available Bytes`                 | Trabajo en curso... | [memoryAvailableBytes](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FmemoryAvailableBytes) | memoria disponible en disco
+| `\Memory\Available Bytes`                 | Trabajo en curso... | [memoryAvailableBytes](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FmemoryAvailableBytes) | Muestra la cantidad de memoria física, en bytes, disponible para procesos que se ejecutan en el equipo. Se calcula sumando la cantidad de espacio en las listas de memoria cero, libre y en espera. La memoria libre está preparada para su uso; la memoria cero consta de páginas de memoria rellena con ceros para impedir que los procesos posteriores vean los datos usados en un proceso anterior; la memoria en espera es la memoria que se ha quitado de un espacio de trabajo del proceso (su memoria física) de camino al disco pero que aún está disponible para recuperación. Consulte [Memory Object](https://msdn.microsoft.com/library/ms804008.aspx) (Objeto de memoria).
 | `\Process(??APP_WIN32_PROC??)\% Processor Time` | Trabajo en curso... | [processCpuPercentage](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FprocessCpuPercentage) | CPU del proceso que hospeda la aplicación
 | `\Process(??APP_WIN32_PROC??)\Private Bytes`      | Trabajo en curso... | [processPrivateBytes](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FprocessPrivateBytes) | memoria que usa el proceso que hospeda la aplicación
 | `\Process(??APP_WIN32_PROC??)\IO Data Bytes/sec` | Trabajo en curso... | [processIOBytesPerSecond](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FprocessIOBytesPerSecond) | tasa de operaciones de E/S ejecutadas por el proceso que hospeda la aplicación
@@ -40,7 +40,7 @@ Métricas que representan los contadores del sistema y de procesos:
 | `\ASP.NET Applications(??APP_W3SVC_PROC??)\Request Execution Time`   | Trabajo en curso... | [requestExecutionTime](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FrequestExecutionTime) | tiempo medio de ejecución de solicitudes
 | `\ASP.NET Applications(??APP_W3SVC_PROC??)\Requests In Application Queue` | Trabajo en curso... | [requestsInQueue](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FrequestsInQueue) | número de peticiones en espera de procesamiento en una cola
 
-## <a name="name"></a>Nombre
+## <a name="name"></a>NOMBRE
 
 El nombre de la métrica que le gustaría ver en el portal de Application Insights y la interfaz de usuario. 
 
@@ -73,5 +73,5 @@ La métrica con la propiedad personalizada `CustomPerfCounter` establecida en `t
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Obtenga información sobre cómo usar la [API de Application Insights para eventos y métricas personalizados](app-insights-api-custom-events-metrics.md#trackmetric).
-- Consulte el [modelo de datos](application-insights-data-model.md) para ver los tipos y el modelo de datos de Application Insights.
+- Consulte [modelo de datos](application-insights-data-model.md) para los tipos y el modelo de datos de Application Insights.
 - Consulte las [plataformas](app-insights-platforms.md) compatibles con Application Insights.

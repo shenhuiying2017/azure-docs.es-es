@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2018
+ms.date: 03/02/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: f93fc95d6bed517cae3adb706f690941f97c366e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 25ef6ba9ff105486f39cee8b6181a8c63e64ec13
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Consideraciones de integración del centro de datos para sistemas integrados de Azure Stack
 Si está interesado en un sistema integrado de Azure Stack, debería comprender algunas de las principales consideraciones de planeamiento acerca de la implementación y el modo en que el sistema se adapta a su centro de datos. En este artículo se proporciona información general de alto nivel de estas consideraciones para ayudarle a tomar importantes decisiones de infraestructura para el sistema de varios nodos de Azure Stack. Entender estas consideraciones ayuda a trabajar con su proveedor de hardware OEM cuando se implementa Azure Stack en el centro de datos.  
@@ -30,6 +30,15 @@ Si está interesado en un sistema integrado de Azure Stack, debería comprender 
 Para implementar Azure Stack, debe proporcionar información de planeamiento al proveedor de soluciones antes de que comience la implementación a fin de facilitar el avance rápido y sencillo del proceso. La información requerida se extiende a través de redes, seguridad e información de identidad con muchas decisiones importantes, que pueden requerir conocimiento de diferentes áreas y de distintos responsables en la toma de decisiones. Por lo tanto, es posible que tenga que atraer a personas de varios equipos de su organización para asegurarse de que tiene lista toda la información necesaria antes de comenzar la implementación. Puede ser útil hablar con su proveedor de hardware mientras recopila esta información, ya que puede que tenga consejos útiles para su toma de decisiones.
 
 Al investigar y recopilar la información necesaria, es posible que tenga que realizar algunos cambios en la configuración previa a la implementación en su entorno de red. Esto podría incluir la reserva de espacios de direcciones IP para la solución Azure Stack, la configuración de los enrutadores, conmutadores y firewall para prepararse para la conectividad con los nuevos conmutadores de la solución Azure Stack. Asegúrese de tener al experto del área temática a mano para ayudarle con el planeamiento.
+
+## <a name="capacity-planning-considerations"></a>Consideraciones de planeamiento de capacidad
+Al evaluar una solución Azure Stack para la adquisición es necesario seleccionar entre las opciones de configuración de hardware, esta selección tiene un impacto directo en la capacidad total de su solución Azure Stack. Esto incluye las opciones clásicas de CPU, densidad de memoria, configuración de almacenamiento y escala de solución global (por ejemplo, el número de servidores). A diferencia de una solución de virtualización tradicional, la aritmética simple de estos componentes no es aplicable a la hora de determinar la capacidad utilizable. El primer motivo es que Azure Stack se ha diseñado para hospedar los componentes de infraestructura o administración dentro de la propia solución. El segundo motivo es que parte de la capacidad de la solución está reservada en apoyo de resistencia; la actualización del software de la solución de forma que minimiza la interrupción de las cargas de trabajo de inquilino. 
+
+La [hoja de cálculo del programador de capacidad de Azure Stack](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) ayuda a tomar decisiones fundamentadas con respecto al planeamiento de la capacidad de dos maneras: ya sea seleccionando una oferta de hardware e intentando colocar una combinación de recursos, o mediante la definición de la carga de trabajo que Azure Stack está destinado a ejecutar para ver los SKU de hardware disponibles que la admiten. Por último, la hoja de cálculo está pensada como una guía para ayudar a tomar decisiones relacionadas con el planeamiento y configuración de Azure Stack. 
+
+La hoja de cálculo no está pensada para que actúe como un sustituto de su propia investigación y análisis.  Microsoft no ofrece ninguna manifestación o garantía, ni expresa ni implícita, con respecto a la información proporcionada en la hoja de cálculo.
+
+
 
 ## <a name="management-considerations"></a>Consideraciones de administración
 Azure Stack es un sistema sellado en el cual la infraestructura está bloqueada desde una perspectiva de red y de permisos. Las listas de control de acceso (ACL) de red se aplican para bloquear todo el tráfico entrante no autorizado y todas las comunicaciones innecesarias entre los componentes de infraestructura. Esto dificulta el acceso al sistema de los usuarios no autorizados.
@@ -189,5 +198,5 @@ Para replicar datos en una ubicación secundaria y orquestar la conmutación por
 - Para obtener información acerca de los casos de uso, las compras, los asociados y los distribuidores de hardware de OEM, consulte la página del producto de [Azure Stack](https://azure.microsoft.com/overview/azure-stack/).
 - Para obtener información acerca del mapa de ruta y la disponibilidad geográfica para los sistemas integrados de Azure Stack, consulte las notas del producto: [Azure Stack: una extensión de Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Modelos de conexión de la implementación de Azure Stack](azure-stack-connection-models.md)

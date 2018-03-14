@@ -10,17 +10,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/22/2018
+ms.date: 2/28/2018
 ms.author: rithorn
-ms.openlocfilehash: d1974ff9716d6b84a5f4b4f1795a84483d277a05
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 1264bf77b6d922f5beb22177d1ac63efa9386ef2
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organización de los recursos con grupos de administración de Azure 
 
-Si tiene varias suscripciones, puede organizarlas en contenedores llamados "grupos de administración" para ayudarle a administrar el acceso, la directiva y el cumplimiento en las suscripciones. Estos contenedores proporcionan capacidad de administración de nivel empresarial a gran escala con independencia del tipo de suscripciones que tenga.  
+Si tiene varias suscripciones, puede organizarlas en contenedores llamados "grupos de administración" para ayudarle a administrar el acceso, la directiva y el cumplimiento en las suscripciones. Los grupos de administración proporcionan capacidad de administración de nivel empresarial a gran escala con independencia del tipo de suscripciones que tenga.  
 
 La característica de grupo de administración está disponible en versión preliminar pública. Para empezar a usar los grupos de administración, inicie sesión en [Azure Portal](https://portal.azure.com) y busque **Grupos de administración** en la sección **Todos los servicios**. 
 
@@ -66,7 +66,7 @@ Aunque cualquier [rol de control de acceso basado en rol integrado](../active-di
 - **lector** solo puede ver los recursos existentes de Azure. 
 
 
-## <a name="next-steps"></a>pasos siguientes 
+## <a name="next-steps"></a>Pasos siguientes 
 Para más información sobre los grupos de administración, consulte: 
 - [Creación de grupos de administración para organizar los recursos de Azure](management-groups-create.md)
 - [Cambio, eliminación y administración de los grupos de administración](management-groups-manage.md)

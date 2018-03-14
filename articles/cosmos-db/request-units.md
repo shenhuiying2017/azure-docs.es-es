@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2018
+ms.date: 02/28/2018
 ms.author: mimig
-ms.openlocfilehash: b63c778f02b88bea4d68206f441aef7b32172c24
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: d263c4f5ad14f6692a7c8f6e66429b439a52a84a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unidades de solicitud en Azure Cosmos DB
 Ya disponible: la [calculadora de unidades de solicitud](https://www.documentdb.com/capacityplanner) de Azure Cosmos DB. Obtenga más información en [Estimación de las necesidades de rendimiento](request-units.md#estimating-throughput-needs).
@@ -92,6 +92,10 @@ await client.ReplaceOfferAsync(offer);
 ```
 
 No se producirá ningún cambio en la disponibilidad del contenedor cuando cambie el rendimiento. Por lo general, el nuevo rendimiento reservado es efectivo en cuestión de segundos después de su aplicación.
+
+## <a name="throughput-isolation-in-globally-distributed-databases"></a>Aislamiento del rendimiento en las bases de datos distribuidas globalmente
+
+Cuando la base de datos se ha replicado en más de una región, Azure Cosmos DB proporciona aislamiento del rendimiento para asegurarse de que el uso de la unidad de solicitud (RU) en una región no afecta a su uso en otra región. Por ejemplo, si escribe datos en una región y lee datos de otra región, las RU usadas para realizar la operación de escritura en la región A no se quitan de las RU usadas para la operación de lectura en la región B. Las RU no se dividen entre las regiones en las que ha realizado la implementación. Cada región en la que se replica la base de datos tiene la cantidad total de RU aprovisionadas. Para más información, consulte [Cómo se distribuyen datos globalmente con Azure Cosmos DB](distribute-data-globally.md).
 
 ## <a name="request-unit-considerations"></a>Consideraciones de la unidad de solicitud
 Al estimar el número de unidades de solicitud que se reservan para el contenedor de Azure Cosmos DB, es importante tener en cuenta las siguientes variables:
@@ -209,7 +213,7 @@ Por ejemplo:
 6. Calcule las unidades de solicitud necesarias según el número estimado de operaciones que se prevé ejecutar cada segundo.
 
 ## <a id="GetLastRequestStatistics"></a>Uso del comando GetLastRequestStatistics de la API de MongoDB
-La API de MongoDB admite un comando personalizado, *getLastRequestStatistics*, para recuperar la carga de solicitud de operaciones especificadas.
+La API de MongoDB admite un comando personalizado, *getLastRequestStatistics*, para recuperar la carga de solicitudes de las operaciones especificadas.
 
 Por ejemplo, en el shell de Mongo, ejecute la operación para la que desea comprobar la carga de solicitud.
 ```
@@ -235,10 +239,10 @@ Con esto en mente, un método para calcular la cantidad de rendimiento reservado
 > 
 > 
 
-## <a name="use-api-for-mongodbs-portal-metrics"></a>Uso de las métricas del Portal de la API de MongoDB
-La manera más sencilla de obtener una buena estimación de los cargos en materia de unidad de solicitud de la API de MongoDB es usar las métricas [Azure Portal](https://portal.azure.com). Con los grafos *Número de solicitudes* y *Cargo de solicitud*, puede obtener una estimación de cuántas unidades de solicitud está consumiendo cada operación y cuántas unidades de solicitud consumen entre sí.
+## <a name="use-mongodb-api-portal-metrics"></a>Uso de métricas del portal de API de MongoDB
+La manera más sencilla de obtener una buena estimación de los cargos por la unidad de solicitud de la base de datos de API de MongoDB es usar las métricas de [Azure Portal](https://portal.azure.com). Con los grafos *Número de solicitudes* y *Cargo de solicitud*, puede obtener una estimación de cuántas unidades de solicitud está consumiendo cada operación y cuántas unidades de solicitud consumen entre sí.
 
-![Métricas del Portal de la API de MongoDB][6]
+![Métricas del portal de API de MongoDB][6]
 
 ## <a name="a-request-unit-estimation-example"></a>Un ejemplo de estimación de la unidad de solicitud
 Considere el siguiente documento de ~1 KB:
@@ -346,7 +350,7 @@ Si tiene más de un cliente de manera acumulativa funcionando por encima de la t
 ## <a id="RequestRateTooLargeAPIforMongoDB"></a> Superación de los límites de rendimiento reservados en la API de MongoDB
 Las aplicaciones que superan la frecuencia de unidad de solicitud aprovisionada para una colección se limitarán hasta que la frecuencia caiga por debajo del nivel reservado. Cuando se produce una limitación, el back-end finalizará la solicitud de forma preferente con un código de error*16500*: *Demasiadas solicitudes*. De forma predeterminada, la API de MongoDB volverá a intentarlo automáticamente hasta 10 veces antes de devolver un código de error *Demasiadas solicitudes*. Si recibe numerosos códigos de error *Demasiadas solicitudes*, puede plantearse agregar un comportamiento de reintento en las rutinas de control de error de la aplicación o [mejorar el rendimiento reservado de la colección](set-throughput.md).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre el rendimiento con bases de datos de Azure Cosmos DB, explore estos recursos:
 
 * [Precios de Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/)

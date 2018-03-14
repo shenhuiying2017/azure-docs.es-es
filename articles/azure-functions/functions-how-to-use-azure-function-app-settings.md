@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2017
 ms.author: glenga
-ms.openlocfilehash: f174766d4ab909fea0feea517a17b9d648722c2a
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 2aa35cf814f8de2af89c6f7e0eda1f919301d6a3
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Administración de una Function App en Azure Portal 
 
@@ -119,13 +119,13 @@ Para más información sobre cómo trabajar con la configuración de App Service
 
 | | |
 |-|-|
-| ![Definición de API de Function App mediante Swagger en Azure Portal](./media/functions-how-to-use-azure-function-app-settings/function-app-api-definition.png) | Functions admite Swagger para permitir que los clientes consuman las funciones desencadenadas por HTTP de forma más fácil. Para más información sobre cómo crear definiciones de API con Swagger, visite la [introducción a API Apps y Swagger en Azure](../app-service/app-service-web-tutorial-rest-api.md). También puede usar Functions Proxies para definir una única superficie de API para varias funciones. Para más información, vea [Trabajo con Azure Functions Proxies](functions-proxies.md). |
+| ![Definición de API de Function App mediante Swagger en Azure Portal](./media/functions-how-to-use-azure-function-app-settings/function-app-api-definition.png) | Functions admite Swagger para permitir que los clientes consuman las funciones desencadenadas por HTTP de forma más fácil. Para más información sobre cómo crear definiciones de API con Swagger, visite [Hospedaje de una API RESTful con CORS en Azure App Service](../app-service/app-service-web-tutorial-rest-api.md). También puede usar Functions Proxies para definir una única superficie de API para varias funciones. Para más información, vea [Trabajo con Azure Functions Proxies](functions-proxies.md). |
 
 ![Configuración de la API de Function App](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-apidef.png)
 
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 + [Configuración de Azure App Service](../app-service/web-sites-configure.md)
 + [Implementación continua para Azure Functions](functions-continuous-deployment.md)

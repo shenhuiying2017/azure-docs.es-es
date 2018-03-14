@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/11/2018
+ms.date: 03/01/2018
 ms.author: markvi
-ms.reviewer: nigu
-ms.openlocfilehash: 028a3f4411e6984b70e0f98c5cf3284e5be1c3b2
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.reviewer: calebb
+ms.openlocfilehash: c9712cf0cf20bbcfc089eb18896370f9e02eb571
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="location-conditions-in-azure-active-directory-conditional-access"></a>Condiciones de ubicación del acceso condicional de Azure Active Directory 
 
@@ -120,9 +120,12 @@ Con esta opción, puede seleccionar una o varias ubicaciones con nombre. Para un
 
 Las directivas de acceso condicional se evalúan cuando: 
 
-- Un usuario inicia sesión por primera vez 
+- Un usuario inicia sesión por primera vez en una aplicación web, móvil o de escritorio. 
 
-- Azure AD emite un token para la aplicación en la nube en la que se ha establecido la directiva de acceso condicional. 
+- Una aplicación móvil o de escritorio que usa la autenticación moderna, con un token de actualización para adquirir un nuevo token de acceso. De forma predeterminada, una vez por hora. 
+
+Esto significa que para que las aplicaciones móviles y de escritorio usen la autenticación moderna, se detecta un cambio en la ubicación a la una hora de cambiar la ubicación de red. Para las aplicaciones de escritorio y móviles que no usan la autenticación moderna, la directiva se aplica para cada solicitud de token. La frecuencia de la solicitud varía en función de la aplicación. De forma similar, para las aplicaciones web, la directiva se aplica en el primer inicio de sesión y es adecuada para la duración de la sesión en la aplicación web. Debido a las diferencias en la duración de la sesión de las aplicaciones, el tiempo de una evaluación de directiva a otra también varía. Cada vez que la aplicación solicita un nuevo token de inicio de sesión, la directiva se aplica.
+
 
 De manera predeterminada, Azure AD emite un token cada hora. Tras salir de la red corporativa, la directiva se aplica a las aplicaciones que usan la autenticación moderna en un plazo de una hora.
 
@@ -152,7 +155,7 @@ La API y PowerShell no son compatibles todavía con las ubicaciones con nombre o
 
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Si quiere saber cómo configurar una directiva de acceso condicional, consulte [Get started with conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md) (Introducción al acceso condicional en Azure Active Directory).
 

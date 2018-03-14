@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: brenduns
 ms.reviewer: anwestg
-ms.openlocfilehash: 310bea356ac611a92d9e3899da5d4fb19c50e94e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 277ed277b14886d386e097e0ce4bef8add5d4ba1
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="configure-deployment-sources"></a>Configuración de orígenes de implementación
 *Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
@@ -27,7 +27,7 @@ ms.lasthandoff: 02/21/2018
 
 App Service en Azure Stack admite la implementación a petición de varios proveedores de control de código fuente. Esta característica permite a los desarrolladores de aplicaciones implementar directamente desde sus repositorios de control de código fuente. Si los usuarios desean configurar App Service con el fin de conectarse a sus repositorios, en primer lugar, un operador en la nube debe configurar la integración entre App Service en Azure Stack y el proveedor de control de código fuente.  
 
-Los proveedores de control de código fuente compatibles, además de Git local, son los siguientes:
+Además de Git local, se admiten los siguientes proveedores de control de código fuente:
 
 * GitHub
 * BitBucket
@@ -79,7 +79,7 @@ Debe tener una cuenta de BitBucket para llevar a cabo esta tarea. Puede que dese
 9.  En una nueva pestaña o ventana del explorador, inicie sesión en el Portal de administración de Azure Stack (https://adminportal.local.azurestack.external) como administrador de servicios.
 10.  Vaya a **Proveedores de recursos** y seleccione **App Service Resource Provider Admin** (Administración de proveedores de recursos de App Service).
 11. Haga clic en la **Source control configuration** (Configuración de control de código fuente).
-12. Copie y pegue la **clave** en el cuadro de entrada de **identificador de cliente**, y el **secreto** en el cuadro de entrada de **secreto de cliente** de BitBucket.
+12. Copie y pegue la **clave** en el cuadro de entrada de **identificador de cliente** y el **secreto** en el cuadro de entrada de **secreto de cliente** de BitBucket.
 13. Haga clic en **Save**(Guardar).
 
 
@@ -94,7 +94,8 @@ Debe tener una cuenta de Microsoft vinculada a una de OneDrive para completar es
 2. En **Mis aplicaciones**, haga clic en **Agregar una aplicación**.
 ![Aplicaciones de OneDrive][10]
 3. Escriba un **nombre** para el nuevo registro de aplicación, especifique **App Service en Azure Stack** y haga clic en **Crear aplicación**.
-4. En la pantalla siguiente se enumeran las propiedades de la nueva aplicación. Anote el **identificador de aplicación**. ![Propiedades de la aplicación OneDrive][11]
+4. En la pantalla siguiente se enumeran las propiedades de la nueva aplicación. Anote el **identificador de aplicación**.
+![Propiedades de la aplicación OneDrive][11]
 5. En **Secretos de aplicación**, haga clic en **Generar nueva contraseña**. Tome nota de la **nueva contraseña generada**. Es el secreto de aplicación y no se puede recuperar tras hacer clic en **Aceptar** en esta fase.
 6. En **Plataformas**, haga clic en **Agregar plataforma** y seleccione **Web**.
 7. Copie el **URI de redirección**.  En una implementación de Azure Stack predeterminada, el URI de redirección tiene el formato https://portal.local.azurestack.external/tokenauthorize. Si está usando otro dominio, sustituya el suyo por azurestack.local. ![Aplicación de OneDrive - Agregar plataforma web][12]
@@ -152,6 +153,6 @@ Debe tener una cuenta de Microsoft vinculada a una de OneDrive para completar es
 [15]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin-Dropbox-application-registration.png
 [16]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin-Dropbox-application-configuration.png
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Los usuarios ahora pueden usar los orígenes de implementación para utilidades como la [implementación continua](https://docs.microsoft.com/azure/app-service-web/app-service-continuous-deployment), la [implementación de Git local](https://docs.microsoft.com/azure/app-service-web/app-service-deploy-local-git) y la [sincronización de carpetas en la nube](https://docs.microsoft.com/azure/app-service-web/app-service-deploy-content-sync).

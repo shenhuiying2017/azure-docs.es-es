@@ -15,18 +15,21 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 02/26/2018
 ms.author: owend
-ms.openlocfilehash: 43eab587a1e5209069a248f1e2e1f57af158a2b8
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: e0be0c69b501d7e93c65bcf23d4dd1b6bfa89caf
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="import-a-power-bi-desktop-file"></a>Importación de un archivo de Power BI Desktop
 
-Puede crear un nuevo modelo en el sistema autónomo (AS)* de Azure importando un archivo de Power BI Desktop (pbix). Se importan metadatos del modelo, datos en caché y conexiones a origen de datos. Los informes y las visualizaciones no se importan. Una vez en su servidor, los cambios en el modelo pueden realizarse actualizando y volviendo a importar el pbix, usando la característica del diseñador web (versión preliminar) o utilizando SQL Server Management Studio (SSMS). Los modelos importados no se pueden abrir ni exportar a Visual Studio.
+Puede crear un nuevo modelo en el sistema autónomo (AS)* de Azure importando un archivo de Power BI Desktop (pbix). Se importan metadatos del modelo, datos en caché y conexiones a origen de datos. Los informes y las visualizaciones no se importan.
 
-> [!NOTE]
-> Si su modelo pbix se conecta a orígenes de datos locales, una [puerta de enlace local](analysis-services-gateway.md) se debe configurar para su servidor.
+**Restricciones**   
+- El modelo pbix debe conectar únicamente con los [orígenes de datos admitidos de Analysis Services](analysis-services-datasource.md). 
+- El modelo pbix no puede tener conexiones en vivo o de DirectQuery. 
+- Si el modelo pbix se conecta a orígenes de datos locales, se debe configurar una [puerta de enlace local](analysis-services-gateway.md) para el servidor de Analysis Services.
+- Se puede producir un error en la importación si el modelo de datos pbix contiene metadatos que no se admiten en Analysis Services.
 
 ## <a name="to-import-from-pbix"></a>Para importar desde pbix
 

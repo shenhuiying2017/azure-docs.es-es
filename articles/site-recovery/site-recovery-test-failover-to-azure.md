@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: raynew
-ms.openlocfilehash: 442e9df550bec750afe0eab6e94b7e8550015fdd
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: bfc9df3c1190d9b94f5e8d726665acb7f999311f
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="test-failover-to-azure-in-site-recovery"></a>Conmutación por error de prueba a Azure en Site Recovery
 
@@ -112,5 +112,5 @@ Si desea conectarse a máquinas virtuales de Azure mediante RDP después de la c
 
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Después de haber completado una exploración de recuperación ante desastres, obtenga más información sobre otros tipos de [conmutación por error](site-recovery-failover.md).

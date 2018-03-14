@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/29/2018
+ms.date: 03/01/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: c2728545aeb202bdd216e00fd4a7e464e483b1da
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 66b2ef53e613a9c61eea17746a25357119cf6900
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-azure-cost-management"></a>Activación de suscripciones y cuentas de Azure con Azure Cost Management
 
@@ -56,7 +56,7 @@ Cuando se agrega una cuenta o se actualiza una suscripción, se conceder a Azure
 
 ### <a name="update-a-subscription"></a>Actualización de una suscripción
 
-1. Si desea actualizar una suscripción _no activada_ que ya existe en Azure Cost Management en Accounts Management (Administración de cuentas), haga clic en el símbolo del lápiz, que se encuentra a la derecha del _identificador único global del inquilino_.
+1. Si desea actualizar una suscripción _no activada_ que ya existe en Azure Cost Management en Accounts Management (Administración de cuentas), haga clic en el símbolo del lápiz, que se encuentra a la derecha del _identificador único global del inquilino_ principal. Las suscripciones se agrupan en un inquilino principal, así es que evite activar las suscripciones de manera individual.
     ![Volver a detectar las suscripciones](./media/activate-subs-accounts/existing-sub.png)
 2. Si es necesario, escriba el identificador del inquilino. Si no conoce el identificador del inquilino, siga estos pasos para encontrarlo:
     1. Inicie sesión en [Azure Portal](https://portal.azure.com).
@@ -104,6 +104,6 @@ Para poder generar la clave de API de Contrato Enterprise de Azure para configur
 
 Es posible que también deba conceder permisos a administradores de departamento, propietarios de cuentas y administradores de empresa para _ver cargos_ con la API de facturación.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Si aún no ha completado el primer tutorial de Cost Management, léalo en [Revisión del uso y los costos](tutorial-review-usage.md).

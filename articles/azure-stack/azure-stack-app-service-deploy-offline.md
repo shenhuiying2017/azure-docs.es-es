@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2018
+ms.date: 02/28/2018
 ms.author: brenduns
 ms.reviewer: anwestg
-ms.openlocfilehash: 89571468e7f74f45bc1b679737f634fa0c76fa07
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c42aaabd27afeb9e7fdd0b9add3de62a2d00eeaf
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Incorporación de un proveedor de recursos de App Service a un entorno de Azure Stack desconectado protegido por AD FS
 *Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
@@ -83,7 +83,7 @@ Para implementar App Service en un entorno desconectado, primero debe crear un p
 
     ![Instalador de App Service](media/azure-stack-app-service-deploy/image03.png)
 
-8. Escriba la información para el recurso compartido de archivos y, a continuación, haga clic en **Siguiente**. La dirección del recurso compartido de archivos debe utilizar el nombre de dominio completo del servidor de archivos, por ejemplo: \\\appservicefileserver.local.cloudapp.azurestack.external\websites o la dirección IP como, por ejemplo, \\\10.0.0.1\websites.
+8. Escriba la información para el recurso compartido de archivos y, a continuación, haga clic en **Siguiente**. La dirección del recurso compartido de archivos debe usar el nombre de dominio completo del servidor de archivos o la dirección IP. Por ejemplo, \\\appservicefileserver.local.cloudapp.azurestack.external\websites o \\\10.0.0.1\websites.
 
     ![Instalador de App Service](media/azure-stack-app-service-deploy/image04.png)
 
@@ -199,7 +199,7 @@ A partir de la tercera versión preliminar técnica, para crear aplicaciones web
 
 3. Si también implementó un proveedor de recursos de SQL Server, puede implementar un sitio web de DNN en Marketplace. Cuando se le pidan los parámetros de la base de datos, elija una base de datos del equipo que ejecute la instancia de SQL Server que está conectado a su proveedor de recursos.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 También puede probar otros [servicios de Plataforma como servicio (PaaS)](azure-stack-tools-paas-services.md).
 

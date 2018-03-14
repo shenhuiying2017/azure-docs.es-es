@@ -1,18 +1,43 @@
-### <a name="prerequisites"></a>Requisitos previos
-* Una cuenta [GitHub](http://GitHub.com). 
+---
+title: "archivo de inclusión"
+description: "archivo de inclusión"
+services: logic-apps
+author: MandiOhlinger
+ms.service: logic-apps
+ms.topic: include
+ms.date: 03/02/2018
+ms.author: mandia
+ms.custom: include file
+ms.openlocfilehash: ec5b3ca9ccd139cbdf17768056eb1d835336e7a7
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 03/05/2018
+---
+1. En [Azure Portal](https://portal.azure.com), cree una aplicación lógica en blanco. 
 
-Para poder usar su cuenta de GitHub en una aplicación lógica, debe autorizar a la aplicación lógica para que pueda conectarse a dicha cuenta. Por suerte, esto es muy fácil de hacer desde la aplicación lógica en el Portal de Azure. 
+2. En el Diseñador de aplicaciones lógicas, escriba "github" como filtro. 
 
-Aquí se explica cómo autorizar a la aplicación lógica para conectarse a su cuenta de GitHub:
+3. Seleccione el conector y el desencadenador de GitHub que desea usar.
 
-1. Para crear una conexión a GitHub, en el diseñador de Logic Apps, seleccione **Mostrar las API administradas por Microsoft** en la lista desplegable y, luego, escriba *GitHub* en el cuadro de búsqueda. Seleccione el desencadenador o la acción que quiera usar:   
-   ![](./media/connectors-create-api-github/github-1.png)
-2. Si no ha creado ninguna conexión a GitHub antes, se le pedirá que indique sus credenciales de GitHub. Estas credenciales se usarán para autorizar a la aplicación lógica a conectarse y acceder a los datos de su cuenta de GitHub:  
-   ![](./media/connectors-create-api-github/github-2.png)
-3. Indique su nombre de usuario y contraseña de GitHub para autorizar a la aplicación lógica:  
-   ![](./media/connectors-create-api-github/github-3.png)   
-4. Confirme sus intenciones:  
-   ![](./media/connectors-create-api-github/github-4.png)   
-5. Observe que la conexión se ha creado en el portal. Ya puede continuar para crear la aplicación lógica y usar GitHub en ella:   
-   ![](./media/connectors-create-api-github/github-5.png)   
+   ![Selección del conector y el desencadenador de GitHub](./media/connectors-create-api-github/github-connector.png)
+
+   > [!NOTE]
+   > Todos los flujos de trabajo de aplicaciones lógicas deben comenzar con un desencadenador. Puede seleccionar acciones solo cuando el flujo de trabajo de lógica ya se inicia con un desencadenador. 
+
+4. Si anteriormente no creó una conexión, elija **Iniciar sesión** para proporcionar sus credenciales de GitHub cuando se le soliciten.  
+
+   ![Inicio de sesión con sus credenciales de GitHub](./media/connectors-create-api-github/github-connector-sign-in-credentials.png)
+
+   La aplicación lógica usa estas credenciales para autorizar la conexión y el acceso a los datos a la cuenta de GitHub. 
+
+5. Indique su nombre de usuario y contraseña de GitHub y luego confirme su autorización.
+
+   ![Provisión de credenciales y confirmación de la autorización](./media/connectors-create-api-github/github-connector-authorize.png)   
+
+   Ya se ha creado la conexión en Azure Portal y está lista para su uso.
+
+6. Continúe definiendo el flujo de trabajo de aplicación lógica.
+
+   ![Adición de más acciones al flujo de trabajo de la aplicación lógica](./media/connectors-create-api-github/github-connector-logic-app.png)
 

@@ -3,7 +3,7 @@ title: "Elementos del correo electrónico de invitación para la colaboración B
 description: "Plantilla de correo electrónico de invitación de colaboración B2B de Azure Active Directory"
 services: active-directory
 documentationcenter: 
-author: sasubram
+author: twooley
 manager: mtillman
 editor: 
 tags: 
@@ -12,12 +12,13 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.date: 05/23/2017
-ms.author: sasubram
-ms.openlocfilehash: d3529397762cdb814e939b53d8c789add4955149
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: twooley
+ms.reviewer: sasubram
+ms.openlocfilehash: 0d26fc4758b2defc3f1b8b5643daafdac4d2baac
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Elementos del correo electrónico de invitación para la colaboración B2B: Azure Active Directory
 
@@ -69,7 +70,7 @@ El pie de página contiene la marca de empresa de Microsoft y permite que el des
   ![Si el destinatario no necesita canjear la invitación.](media/active-directory-b2b-invitation-email/when-recipient-doesnt-redeem.png)
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Examine nuestros otros artículos sobre la colaboración B2B de Azure AD:
 

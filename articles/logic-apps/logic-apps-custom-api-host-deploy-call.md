@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: LADocs; stepsic
-ms.openlocfilehash: 3df59ec172b037daaeed9e3eb69ffb990d70d8a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c7a240bf5b7ed5e7780b90f438d2e336ee79f0b3
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="deploy-and-call-custom-apis-from-logic-app-workflows"></a>Implementación y llamada de API personalizadas desde flujos de trabajo de aplicación lógica
 
@@ -39,13 +39,13 @@ Para poder llamar a su API personalizada desde una aplicación lógica, implemé
 
    ![Vinculación al archivo de OpenAPI para la API personalizada](./media/logic-apps-custom-api-deploy-call/custom-api-swagger-url.png)
 
-3. En **API**, elija **CORS**. Establezca la directiva CORS para **Orígenes permitidos** en  **"*"** (permitir todos).
+3. En **API**, elija **CORS**. Establezca la directiva ORS para **Orígenes permitido** en **"*"** (permitir todos).
 
    Esta configuración permite solicitudes del Diseñador de aplicación lógica.
 
    ![Permitir solicitudes del Diseñador de aplicación lógica a la API personalizada](./media/logic-apps-custom-api-deploy-call/custom-api-cors.png)
 
-Para obtener más información, consulte [Creación de una API de RESTful de Node.js](../app-service/app-service-web-tutorial-rest-api.md).
+Para más información, consulte [Hospedaje de una API RESTful con CORS en Azure App Service](../app-service/app-service-web-tutorial-rest-api.md).
 
 ## <a name="call-your-custom-api-from-logic-app-workflows"></a>Llamada a la API personalizada desde flujos de trabajo de aplicación lógica
 

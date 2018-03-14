@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: negat
-ms.openlocfilehash: 836d56012afa9e5d5bdec35d85c37dd4b0b788ce
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: cdd1015f63e80b7ec51565c18f3440ce1828fb03
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modificación de un conjunto de escalado de máquinas virtuales
 En este artículo se describe cómo modificar un conjunto de escalado existente. Esto incluye cómo cambiar la configuración del conjunto de escalado, cómo cambiar la configuración de las aplicaciones que se ejecutan en el conjunto de escalado, cómo administrar la disponibilidad y mucho más.
@@ -255,7 +255,7 @@ También puede usar los [Azure SDK](https://azure.microsoft.com/downloads/) para
 > Los clústeres de Service Fabric solo pueden usar el modo automático, pero la actualización se administra de forma diferente. Para más información sobre las actualizaciones de Service Fabric, consulte la [documentación de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade).
 
 >[!NOTE]
-> Hay un tipo de modificación en las propiedades globales del conjunto de escalado que no sigue la directiva de actualización. Y son los cambios en el perfil del sistema operativo del conjunto de escalado (por ejemplo, el nombre de usuario y la contraseña de administrador). Estos cambios solo se aplican a las máquinas virtuales creadas después del cambio en el modelo de conjunto de escalado. Para actualizar las máquinas virtuales existentes, debe realizar un "restablecimiento de la imagen inicial" de cada una de ellas. Para ello, puede usar:
+> Hay un tipo de modificación en las propiedades globales del conjunto de escalado que no sigue la directiva de actualización. Y son los cambios en el perfil del sistema operativo del conjunto de escalado (por ejemplo, el nombre de usuario y la contraseña de administrador). Estas propiedades solo se pueden modificar en la versión API del 1 de diciembre de 2017 o posterior. Estos cambios solo se aplican a las máquinas virtuales creadas después del cambio en el modelo de conjunto de escalado. Para actualizar las máquinas virtuales existentes, debe realizar un "restablecimiento de la imagen inicial" de cada una de ellas. Para ello, puede usar:
 
 API REST: `POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/reimage?api-version={apiVersion}` (para más información, consulte la [documentación de API REST](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/reimage))
 

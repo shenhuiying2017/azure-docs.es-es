@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 01/08/2018
 ms.author: raynew
-ms.openlocfilehash: d1063d1f2777095c880896b49249f6de4cda6f3a
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 9d9ebef66be269c63a62d393eda76254946b13e7
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Detección y evaluación de un entorno grande de VMware
 
@@ -30,26 +30,28 @@ Planee las detecciones y evaluaciones en función de los límites siguientes:
 | **Entidad** | **Límite de máquinas** |
 | ---------- | ----------------- |
 | proyecto    | 1500              | 
-| Detección  | 1000              |
-| Evaluación | 400               |
+| Detección  | 1500              |
+| Evaluación | 1500               |
 
-- Si tiene menos de 400 máquinas para detectar y evaluar, necesita un solo proyecto y una sola detección. En función de los requisitos, puede evaluar todas las máquinas en una única evaluación o dividir las máquinas en varias evaluaciones. 
-- Si tiene menos entre 400 y 1000 máquinas para detectar, necesita un solo proyecto con una sola detección. Sin embargo, necesitará varias evaluaciones para evaluar estas máquinas porque una evaluación solo puede contener un máximo de 400 máquinas.
-- Si tiene entre 1001 y 1500 máquinas, necesita un solo proyecto con dos detecciones.
-- Si tiene más de 1500 máquinas, debe crear varios proyectos y realizar varias detecciones, según sus requisitos. Por ejemplo: 
-    - Si tiene 3000 máquinas, puede configurar dos proyectos con dos detecciones o tres proyectos con una sola detección.
-    - Si tiene 5000 máquinas, puede configurar cuatro proyectos: tres con una detección de 1500 máquinas y uno con una detección de 500 máquinas. También puede configurar cinco proyectos con una sola detección en cada uno. 
+<!-- 
+- If you have fewer than 400 machines to discover and assess, you need a single project and a single discovery. Depending on your requirements, you can either assess all the machines in a single assessment or split the machines into multiple assessments. 
+- If you have 400 to 1,000 machines to discover, you need a single project with a single discovery. But you will need multiple assessments to assess these machines, because a single assessment can hold up to 400 machines.
+- If you have 1,001 to 1,500 machines, you need a single project with two discoveries in it.
+- If you have more than 1,500 machines, you need to create multiple projects, and perform multiple discoveries, according to your requirements. For example:
+    - If you have 3,000 machines, you can set up two projects with two discoveries, or three projects with a single discovery.
+    - If you have 5,000 machines, you can set up four projects: three with a discovery of 1,500 machines, and one with a discovery of 500 machines. Alternatively, you can set up five projects with a single discovery in each one. 
+-->
 
 ## <a name="plan-multiple-discoveries"></a>Planeación de varias detecciones
 
 Puede usar la misma instancia de Azure Migrate Collector para realizar varias detecciones en uno o varios proyectos. Tenga en cuenta estas consideraciones de planeación:
  
 - Al realizar una detección mediante Azure Migrate Collector, puede establecer el ámbito de detección en una carpeta, un centro de datos, un clúster o un host de vCenter Server.
-- Para hacer más de una detección, verifique en vCenter Server si las máquinas virtuales que desea detectar están en carpetas, en centros de datos o en clústeres que admiten la limitación de 1000 máquinas.
+- Para hacer más de una detección, verifique en vCenter Server si las máquinas virtuales que desea detectar están en carpetas, centros de datos, clústeres o hosts que admiten la limitación de 1500 máquinas.
 - Se recomienda que, para los fines de evaluación, mantenga las máquinas con interdependencias dentro del mismo proyecto y de la misma evaluación. En vCenter Server, asegúrese de que las máquinas dependientes están en la misma carpeta, centro de datos o clúster para la evaluación.
 
 
-## <a name="create-a-project"></a>Creación de un proyecto
+## <a name="create-a-project"></a>Crear un proyecto
 
 Cree un proyecto de Azure Migrate según sus necesidades:
 
@@ -83,6 +85,14 @@ Compruebe que el archivo OVA es seguro, antes de implementarlo:
 
    Ejemplo de uso: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. Asegúrese de que el código hash generado coincida con la configuración siguiente.
+
+    Para la versión 1.0.9.5 de OVA
+
+    **Algoritmo** | **Valor del código hash**
+    --- | ---
+    MD5 | fb11ca234ed1f779a61fbb8439d82969
+    SHA1 | 5bee071a6334b6a46226ec417f0d2c494709a42e
+    SHA256 | b92ad637e7f522c1d7385b009e7d20904b7b9c28d6f1592e8a14d88fbdd3241c  
 
     Para la versión 1.0.9.2 de OVA
 
@@ -197,7 +207,7 @@ El tiempo de detección depende de cuántas VM se están detectando. Normalmente
 2. Compruebe que las VM que desea detectar aparecen en el portal.
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Obtenga información sobre cómo [crear un grupo](how-to-create-a-group.md) para evaluación.
 - [Obtenga más información](concepts-assessment-calculation.md) sobre cómo se calculan las evaluaciones.

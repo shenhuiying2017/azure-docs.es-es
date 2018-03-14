@@ -3,22 +3,16 @@ title: Uso de Azure Import/Export para transferir datos a y desde Azure Storage 
 description: "Aprenda a crear trabajos de importación y exportación en Azure Portal para transferir datos a y desde Azure Storage."
 author: muralikk
 manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: 
-ms.assetid: 668f53f2-f5a4-48b5-9369-88ec5ea05eb5
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2017
+ms.date: 02/28/2018
 ms.author: muralikk
-ms.openlocfilehash: 0c34b7ce028ef0fae77322513f62557fa9f9929c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e9fce2530bc4e654304b946cea1715ac8e2ce6fa
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Uso del servicio Microsoft Azure Import/Export para transferir datos a Azure Storage
 En este artículo, se proporcionan instrucciones detalladas sobre el uso del servicio Azure Import/Export para transferir de forma segura grandes cantidades de datos a Azure Blob Storage y Azure Files mediante el envío de unidades de disco duro a un centro de datos de Azure. También se puede usar este servicio para transferir datos desde Azure Storage hasta las unidades de disco duro y enviarlas al sitio local. Es posible importar los datos de una sola unidad de disco SATA interna a Azure Blob Storage o Azure Files. 
@@ -31,25 +25,34 @@ En este artículo, se proporcionan instrucciones detalladas sobre el uso del ser
 Siga estos pasos si los datos del disco se van a importar en Azure Storage.
 ### <a name="step-1-prepare-the-drives-using-waimportexport-tool-and-generate-journal-files"></a>Paso 1: Preparar las unidades que utilizan la herramienta WAImportExport y generar los archivos de diario.
 
-1.  Identifique los datos que se van a importar en Azure Storage. Podrían ser directorios o archivos independientes situados en el servidor local o un recurso compartido de red.
+1.  Identifique los datos que se van a importar en Azure Storage. Puede importar directorios o archivos independientes situados en el servidor local o un recurso compartido de red.
 2.  Dependiendo del tamaño total de los datos, proporcione el número necesario de unidades de disco duro SATA II o III de 2,5 o 3,5 pulgadas o SSD de 2,5 pulgadas.
 3.  Conecte los discos duros directamente con SATA o con adaptadores USB externos a una máquina de Windows.
-4.  Cree un volumen NTFS en cada unidad de disco duro y asigne una letra de unidad al volumen. No hay puntos de montaje.
-5.  Para habilitar el cifrado en la máquina Windows, habilite el cifrado BitLocker en el volumen NTFS. Use las instrucciones que se indican en https://technet.microsoft.com/en-us/library/cc731549(v=ws.10).aspx.
-6.  Copie completamente los datos en estos volúmenes NTFS únicos cifrados mediante la funcionalidad de copiar y pegar, arrastrar y colocar, Robocopy o cualquier herramienta de este tipo.
+1.  Cree un volumen NTFS en cada unidad de disco duro y asigne una letra de unidad al volumen. No hay puntos de montaje.
+2.  Para habilitar el cifrado en la máquina Windows, habilite el cifrado BitLocker en el volumen NTFS. Use las instrucciones que se indican en https://technet.microsoft.com/en-us/library/cc731549(v=ws.10).aspx.
+3.  Copie completamente los datos en estos volúmenes NTFS únicos cifrados mediante la funcionalidad de copiar y pegar, arrastrar y colocar, Robocopy o cualquier herramienta de este tipo.
 7.  Descargue WAImportExport v1 desde https://www.microsoft.com/en-us/download/details.aspx?id=42659.
 8.  Descomprima en la carpeta predeterminada waimportexportv1. Por ejemplo, C:\WaImportExportV1.  
 9.  Ejecute como administrador y abra una instancia de PowerShell o la línea de comandos y cambie el directorio a la carpeta descomprimida. Por ejemplo, cd C:\WaImportExportV1.
-10. Copie la siguiente línea de comandos en el Bloc de notas y edítela para crear una línea de comandos.
-  ./WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1 /sk:***== /t:D /bk:*** /srcdir:D:\ /dstdir:ContainerName/ /skipwrite
+10. Copie la siguiente línea de comandos en un editor de texto y edítela para crear una línea de comandos:
+
+    ```
+    ./WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1 /sk:***== /t:D /bk:*** /srcdir:D:\ /dstdir:ContainerName/ 
+    ```
     
-    /j: el nombre de un archivo denominado archivo de diario con la extensión .jrn. Se genera un archivo de diario por unidad, por lo que se recomienda utilizar el número de serie del disco como nombre para el archivo de diario.
-    /sk: clave de la cuenta de Azure Storage. /t: letra de unidad del disco que se va a enviar. Por ejemplo, D /bk: es la clave de BitLocker de la unidad. /srcdir: letra de la unidad del disco que se va a enviar seguida de :\. Por ejemplo, D:\.
-    /dstdir: nombre del contenedor de Azure Storage en el que se van a importar los datos.
-    /skipwrite 
-    
-11. Repita el paso 10 para cada disco que tenga que enviarse.
-12. Se crea un archivo de diario con el nombre proporcionado con el parámetro /j: para cada ejecución de la línea de comandos.
+    Las opciones de línea de comandos se describen en la tabla siguiente:
+
+    |Opción  |DESCRIPCIÓN  |
+    |---------|---------|
+    |/j:     |nombre del archivo de diario, con la extensión .jrn. Se genera un archivo de diario por unidad. Se recomienda usar el número de serie del disco como nombre del archivo de diario.         |
+    |/sk:     |clave de la cuenta de Azure Storage.         |
+    |/t:     |letra de unidad del disco que se va a enviar. Por ejemplo, unidad `D`.         |
+    |/bk:     |clave de BitLocker de la unidad.         |
+    |/srcdir:     |letra de unidad del disco que se va a enviar seguida de `:\`. Por ejemplo, `D:\`.         |
+    |/dstdir:     |nombre del contenedor de destino en Azure Storage.         |
+
+1. Repita el paso 10 para cada disco que tenga que enviarse.
+2. Se crea un archivo de diario con el nombre proporcionado con el parámetro /j: para cada ejecución de la línea de comandos.
 
 ### <a name="step-2-create-an-import-job-on-azure-portal"></a>Paso 2: Crear un trabajo de importación en Azure Portal.
 
@@ -88,6 +91,11 @@ En esta sección, se enumeran los requisitos previos necesarios para utilizar es
 
 ### <a name="storage-account"></a>Cuenta de almacenamiento
 Debe disponer de una suscripción de Azure existente y una o varias cuentas de almacenamiento para utilizar el servicio Import/Export. Azure Import/Export solo admite las cuentas clásicas de Blob Storage y las cuentas de almacenamiento de uso general v1. Puede utilizar cada trabajo para transferir datos desde o hacia una sola cuenta de almacenamiento. Dicho de otra forma, un trabajo de importación y exportación no puede abarcar varias cuentas de almacenamiento. Para obtener información acerca de la creación de una nueva cuenta de almacenamiento, consulte [Creación de una cuenta de almacenamiento](storage-create-storage-account.md#create-a-storage-account).
+
+> [!IMPORTANT] 
+> El servicio Azure Import/Export no admite cuentas de almacenamiento con la característica [Puntos de conexión del servicio Virtual Network](../../virtual-network/virtual-network-service-endpoints-overview.md) habilitada. 
+> 
+> 
 
 ### <a name="data-types"></a>Tipos de datos
 Puede usar el servicio Azure Import/Export para copiar datos de blobs **en bloque**, **en páginas** o **archivos**. Y a la inversa, solo puede exportar blobs **en bloque**, **en páginas** o **en anexos** de Azure Storage mediante este servicio. El servicio admite solo la importación de Azure Files en Azure Storage. Actualmente no se admite la exportación de Azure Files.
@@ -561,7 +569,7 @@ Si usa [WAImportExport Tool](http://download.microsoft.com/download/3/6/B/36BFF2
 DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
 G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631 |
 ```
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Configuración de la herramienta WAImportExport](storage-import-export-tool-how-to.md)
 * [Introducción a la utilidad de línea de comandos AzCopy](storage-use-azcopy.md)
