@@ -127,7 +127,7 @@ Sí, las copias de seguridad funcionan sin problemas.
 
 No es preciso realizar cambios. 
 
-**¿Está permitida la migración automática de un conjunto de escalado de máquinas virtuales (VMSS) existente de discos no administrados a Managed Disks?**
+**¿Está permitida la migración automática de un conjunto de escalado de máquinas virtuales existente de discos no administrados a Managed Disks?**
 
 Nº Puede crear un nuevo VMSS con Managed Disks con la imagen del antiguo conjunto de escalado de máquinas virtuales con discos no administrados. 
 
@@ -141,7 +141,7 @@ Sí, puede realizar la conmutación por error a una máquina virtual con Managed
 
 **¿Hay algún impacto en la migración de las máquinas virtuales de Azure protegidas por Azure Site Recovery (ASR) mediante la replicación de Azure a Azure?**
 
-Sí. No se admite la protección de máquinas virtuales con Managed Disks con ASR de Azure a Azure. Se admitirá a partir de finales del primer trimestre de 2018. 
+Sí. Actualmente, la protección de ASR Azure a Azure para máquinas virtuales con Managed Disks solo está disponible como un servicio público en versión preliminar.
 
 **¿Puedo migrar máquinas virtuales con discos no administrados que se encuentran en las cuentas de almacenamiento que se hayan cifrado previamente en discos administrados?**
 

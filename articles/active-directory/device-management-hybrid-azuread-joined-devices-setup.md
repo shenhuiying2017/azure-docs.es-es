@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 5eb53d13ed85093616f43b79b58d43ba62ffbd67
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 203e36b198186db63b7e902db296adeaa9ffb4ee
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Configuración de dispositivos híbridos unidos a Azure Active Directory
 
@@ -33,6 +33,8 @@ Si tiene un entorno local de Active Directory y quiere unir sus dispositivos uni
 Antes de empezar a configurar dispositivos híbridos unidos a un dominio de Active AD en su entorno, debe familiarizarse con los escenarios admitidos y las restricciones.  
 
 Si está confiando en la [Herramienta de preparación del sistema (Sysprep)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc721940(v=ws.10)), asegúrese de crear imágenes desde una instalación de Windows que no se haya registrado aún con Azure AD.
+
+Todos los dispositivos unidos a un dominio en que se ejecuten la Actualización de aniversario de Windows 10 y Windows Server 2016 se registran automáticamente en Azure AD cuando el dispositivo se reinicie o el usuario inicie sesión una vez finalizados los pasos de configuración mencionados a continuación. Si no se prefiere este comportamiento de registro automático o si se desea un lanzamiento controlado, siga primero las instrucciones de la sección Control de implementación y lanzamiento a continuación para habilitar o deshabilitar de forma selectiva el lanzamiento automático antes de seguir los otros pasos de configuración.  
 
 Para mejorar la legibilidad de las descripciones, en este tema se utiliza el término siguiente: 
 
@@ -566,7 +568,8 @@ Para controlar el lanzamiento de equipos actuales de Windows, es preciso que imp
    > [!NOTE]
    > Esta plantilla de directiva de grupo ha cambiado de nombre desde versiones anteriores de la consola de Administración de directivas de grupo. Si utiliza una versión anterior de la consola, vaya a `Computer Configuration > Policies > Administrative Templates > Windows Components > Workplace Join > Automatically workplace join client computers`. 
 
-7. Seleccione **Habilitado** y luego **Aplicar**.
+7. Seleccione **Habilitado** y luego **Aplicar**. Debe seleccionar **Deshabilitado** si desea que la directiva bloquee los dispositivos controlados por esta directiva de grupo del registro automático con Azure AD.
+
 8. Haga clic en **OK**.
 9. Vincule el objeto de la directiva de grupo a una ubicación de su elección. Por ejemplo, puede vincularlo a una unidad organizativa específica. También puede vincularlo a un grupo de seguridad específico de equipos que se unen automáticamente en Azure AD. Para establecer esta directiva para todos los equipos con Windows 10 y Windows Server 2016 unidos a un dominio en su organización, vincule el objeto de directiva de grupo al dominio.
 
@@ -584,7 +587,7 @@ Para comprobar los dispositivos unidos correctamente en la organización, use el
 
 La salida de este cmdlet muestra los dispositivos que se han registrado y unido en Azure AD. Para obtener todos los dispositivos, use el parámetro **-All** y, después, fíltrelos mediante la propiedad **deviceTrustType**. Los dispositivos unidos a un dominio tienen el valor **Unido a dominio**.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Introducción a la administración de dispositivos en Azure Active Directory](device-management-introduction.md)
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
-ms.author: LADocs; jehollan
-ms.openlocfilehash: dab336da4e010d0a78de9a2bdd62536d8fdd9bf1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: klam; LADocs
+ms.openlocfilehash: de4f4ee086fbf3799fcac1f1b008d9237b5e7a09
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-logic-apps"></a>Llamada, desencadenamiento o anidamiento de flujos de trabajo con puntos de conexión HTTP en aplicaciones lógicas
 
@@ -30,7 +30,7 @@ Para crear puntos de conexión HTTP, puede agregar estos desencadenadores para q
 
 * [Solicitud](../connectors/connectors-native-reqres.md)
 
-* [Webhook de conexión de API](logic-apps-workflow-actions-triggers.md#api-connection-trigger)
+* [Webhook de conexión de API](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnection-trigger)
 
 * [Webhook HTTP](../connectors/connectors-native-webhook.md)
 
@@ -166,6 +166,7 @@ Si desea que la dirección URL del punto de conexión HTTP acepte parámetros, p
     `Hello 123456`
 
 <a name="generated-tokens"></a>
+
 ### <a name="tokens-generated-from-json-schemas-for-your-logic-app"></a>Tokens generados a partir de esquemas JSON para aplicaciones lógicas
 
 Cuando se proporciona un esquema JSON en el desencadenador **Request**, el Diseñador de aplicación lógica genera tokens para las propiedades de dicho esquema. Después puede usar esos tokens para pasar datos a través del flujo de trabajo de la aplicación lógica.
@@ -206,6 +207,9 @@ Puede anidar los flujos de trabajo en la aplicación lógica mediante la adició
 
 Una vez que haya creado el punto de conexión HTTP, puede desencadenar la aplicación lógica mediante un método `POST` a la dirección URL completa. Las aplicaciones lógicas tienen compatibilidad integrada para los puntos de conexión de acceso directo.
 
+> [!NOTE] 
+> Para ejecutar una aplicación lógica manualmente en cualquier momento, en la barra de herramientas del Diseñador de aplicación lógica o la Vista de código de aplicación lógica, elija **Ejecutar**.
+
 ## <a name="reference-content-from-an-incoming-request"></a>Referencia al contenido de una solicitud entrante
 
 Si el tipo de contenido es `application/json`, puede hacer referencia a las propiedades desde la solicitud entrante. En caso contrario, el contenido se trata como una sola unidad binaria que se puede pasar a otras API. Para hacer referencia a este contenido dentro del flujo de trabajo, debe convertir ese contenido. Por ejemplo, si pasa contenido de `application/xml`, puede usar `@xpath()` para una extracción de XPath, o bien `@json()` para convertir de XML a JSON. Obtenga información sobre cómo [trabajar con tipos de contenido](../logic-apps/logic-apps-content-type.md).
@@ -240,11 +244,11 @@ Puede incluir más de un encabezado y cualquier tipo de contenido en el cuerpo d
 
 Las respuestas tienen estas propiedades:
 
-| Propiedad | Description |
+| Propiedad | DESCRIPCIÓN |
 | --- | --- |
 | statusCode |Especifica el código de estado HTTP para responder a la solicitud entrante. Este código puede ser cualquier código de estado válido que comience con 2xx, 4xx o 5xx. En cambio, no se permiten códigos de estado 3xx. |
 | encabezados |Define cualquier número de encabezados para incluirse en la respuesta. |
-| body |Especifica un objeto de cuerpo que puede ser una cadena, un objeto JSON o incluso contenido binario al que se hace referencia desde un paso anterior. |
+| Cuerpo |Especifica un objeto de cuerpo que puede ser una cadena, un objeto JSON o incluso contenido binario al que se hace referencia desde un paso anterior. |
 
 A continuación se presenta el aspecto del esquema JSON ahora para la acción **Response**:
 
@@ -303,7 +307,7 @@ R: Este es un resumen sobre estos cambios:
 | Referencia al cuerpo entrante mediante `@triggerOutputs().body.Content` |Referencia a través de `@triggerOutputs().body` |
 | **Enviar respuesta HTTP** del Agente de escucha HTTP |Haga clic en **Responder a la solicitud HTTP** (no se necesita ninguna aplicación de API) |
 
-## <a name="get-help"></a>Obtener ayuda
+## <a name="get-help"></a>Obtención de ayuda
 
 Para formular preguntas, o responderlas, y saber lo que hacen otros usuarios de Azure Logic Apps, visite el [foro de Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 

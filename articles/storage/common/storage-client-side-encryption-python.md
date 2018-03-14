@@ -1,6 +1,6 @@
 ---
 title: Cifrado del lado cliente con Python para Microsoft Azure Storage | Microsoft Docs
-description: "Biblioteca de cliente de Almacenamiento de Azure para Python admite el cifrado de lado cliente para obtener una seguridad máxima de las aplicaciones de Almacenamiento de Azure."
+description: "Biblioteca de cliente de Azure Storage para Python admite el cifrado de lado cliente para obtener una seguridad máxima de las aplicaciones de Azure Storage."
 services: storage
 documentationcenter: python
 author: lakasa
@@ -14,20 +14,20 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: lakasa
-ms.openlocfilehash: bf6696cfdfe9fc18dd2f000162a4e787a7ca6e21
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c925b41d1654bd5c9b40438c4b6b9f402ec4bac2
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="client-side-encryption-with-python-for-microsoft-azure-storage"></a>Cifrado del lado cliente con Python para Almacenamiento de Microsoft Azure
+# <a name="client-side-encryption-with-python-for-microsoft-azure-storage"></a>Cifrado del lado cliente con Python para Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
 
 ## <a name="overview"></a>Información general
-La [Biblioteca de cliente de Almacenamiento de Azure para Python](https://pypi.python.org/pypi/azure-storage) permite tanto el cifrado de datos dentro de las aplicaciones de cliente antes de cargarlos en el Almacenamiento de Azure, como el descifrado de datos mientras estos se descargan al cliente.
+La [Biblioteca de cliente de Azure Storage para Python](https://pypi.python.org/pypi/azure-storage) permite tanto el cifrado de datos dentro de las aplicaciones de cliente antes de cargarlos en Azure Storage, como el descifrado de datos mientras estos se descargan al cliente.
 
 > [!NOTE]
-> La biblioteca de Python para Almacenamiento de Azure está en su versión preliminar.
+> La biblioteca de Python para Azure Storage está en su versión preliminar.
 > 
 > 
 
@@ -41,7 +41,7 @@ El cifrado mediante la técnica de sobres funciona de la siguiente manera:
 2. Los datos de usuario se cifran mediante esta CEK.
 3. Se encapsula la CEK (cifrada) con la clave de cifrado de clave (KEK). La KEK se identifica mediante un identificador de clave y puede ser un par de clave asimétrico o una clave simétrica que se administra de forma local.
    La propia biblioteca de cliente de almacenamiento no tiene nunca acceso a la KEK. La biblioteca invoca el algoritmo de encapsulado de clave proporcionado por la KEK. Los usuarios pueden elegir utilizar proveedores personalizados para el ajuste y desajuste clave si lo desean.
-4. A continuación, se cargan los datos cifrados en el servicio Almacenamiento de Azure. La clave encapsulada y algunos metadatos adicionales de cifrado se almacenan como metadatos (en un blob) o se interpolan con los datos cifrados (cola de mensajes y las entidades de tabla).
+4. A continuación, se cargan los datos cifrados en el servicio Azure Storage. La clave encapsulada y algunos metadatos adicionales de cifrado se almacenan como metadatos (en un blob) o se interpolan con los datos cifrados (cola de mensajes y las entidades de tabla).
 
 ### <a name="decryption-via-the-envelope-technique"></a>Descifrado a través de la técnica de sobres
 El descifrado mediante la técnica de sobres funciona de la siguiente manera:
@@ -106,6 +106,10 @@ Si se crea un lote como el administrador de contexto a través del método table
 Tenga en cuenta que las entidades se cifran en cuanto se insertan en el lote con la directiva de cifrado del lote (las entidades NO se cifran en el momento de enviar el lote con la directiva de cifrado de tableservice).
 
 ### <a name="queries"></a>Consultas
+> [!NOTE]
+> Dado que las entidades están cifradas, no se pueden ejecutar consultas que filtran por una propiedad cifrada.  Si lo intenta, los resultados serán incorrectos, porque el servicio estaría intentando comparar los datos cifrados con los datos sin cifrar.
+> 
+>
 Para realizar operaciones de consulta, debe especificar a una resolución de clave que sea capaz de resolver todas las claves en el conjunto de resultados. Si una entidad incluida en el resultado de la consulta no se puede resolver en un proveedor, la biblioteca de cliente producirá un error. Para cualquier consulta que realice proyecciones del lado servidor, la biblioteca de cliente agregará las propiedades de metadatos de cifrado especiales (\_ClientEncryptionMetadata1 y \_ClientEncryptionMetadata2) a las columnas seleccionadas de forma predeterminada.
 
 > [!IMPORTANT]
@@ -118,7 +122,7 @@ Para realizar operaciones de consulta, debe especificar a una resolución de cla
 > 
 > 
 
-La biblioteca de cliente de almacenamiento espera la KEK proporcionada y la resolución de claves para implementar la interfaz siguiente. [Almacén de claves de Azure](https://azure.microsoft.com/services/key-vault/) con la administración de KEK de Python está pendiente y se integrará a esta biblioteca cuando se complete.
+La biblioteca de cliente de almacenamiento espera la KEK proporcionada y la resolución de claves para implementar la interfaz siguiente. [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) con la administración de KEK de Python está pendiente y se integrará a esta biblioteca cuando se complete.
 
 ## <a name="client-api--interface"></a>Interfaz/API de cliente
 Una vez que se crea un objeto de servicio de almacenamiento (es decir, blockblobservice), el usuario puede asignar valores a los campos que constituyen una directiva de cifrado: key_encryption_key, key_resolver_function y require_encryption. Los usuarios pueden proporcionar solo una KEK, solo una resolución o ambos. key_encryption_key es el tipo de clave básico que se identifica mediante un identificador de claves y que proporciona la lógica para la encapsulación y desencapsulación. key_resolver_function se usa para resolver una clave durante el proceso de descifrado. Devuelve una KEK válida en función de un identificador de clave. Esto ofrece a los usuarios la posibilidad de elegir entre varias claves que se administran en varias ubicaciones.
@@ -146,7 +150,7 @@ La resolución de claves debe, como mínimo, implementar un método que, dado un
 ### <a name="requireencryption-mode"></a>Modo RequireEncryption
 Los usuarios pueden habilitar opcionalmente un modo de operación en el que se deben cifrar todas las cargas y descargas. En este modo, los intentos de cargar datos sin una directiva de cifrado o de descargar datos no cifrados en el servicio generarán un error en el cliente. La marca **require_encryption** en el objeto de servicio controla este comportamiento.
 
-### <a name="blob-service-encryption"></a>Cifrado del servicio de blobs
+### <a name="blob-service-encryption"></a>Cifrado de Blob service
 Establezca los campos de directiva de cifrado en el objeto blockblobservice. Todo lo demás lo controlará la biblioteca de cliente internamente.
 
 ```python
@@ -194,7 +198,7 @@ my_queue_service.put_message(queue_name, content)
 retrieved_message_list = my_queue_service.get_messages(queue_name)
 ```
 
-### <a name="table-service-encryption"></a>Cifrado del servicio Tabla
+### <a name="table-service-encryption"></a>Cifrado de Table service
 Además de crear una directiva de cifrado y configurarla en las opciones de solicitud, debe especificar un elemento **encryption_resolver_function** en **tableservice**, o bien establecer el atributo de cifrado en EntityProperty.
 
 ### <a name="using-the-resolver"></a>Uso de la resolución
@@ -239,5 +243,5 @@ encrypted_property_1 = EntityProperty(EdmType.STRING, value, encrypt=True)
 Tenga en cuenta que el cifrado de sus resultados de datos de almacenamiento da lugar a la sobrecarga de rendimiento adicional. Se deben generar la clave de contenido e IV, se debe cifrar el contenido mismo y se debe dar formato a metadatos adicionales, además de cargarlos. Esta sobrecarga variará según la cantidad de datos que se cifran. Se recomienda que los clientes prueben siempre sus aplicaciones para obtener un rendimiento durante el desarrollo.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Descargue el [paquete PyPi de Biblioteca de cliente de Almacenamiento de Azure para Java](https://pypi.python.org/pypi/azure-storage)
-* Descargue el [Código fuente de la Biblioteca de cliente de Almacenamiento de Azure para Python desde GitHub](https://github.com/Azure/azure-storage-python)
+* Descargue el [paquete PyPi de Biblioteca de cliente de Azure Storage para Java](https://pypi.python.org/pypi/azure-storage)
+* Descargue el [Código fuente de la Biblioteca de cliente de Azure Storage para Python desde GitHub](https://github.com/Azure/azure-storage-python)

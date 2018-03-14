@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
-ms.openlocfilehash: d7b81c12c31fe7de40acca6baa8972e65c306ee0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: acf521bdc15dfab4c7e43081159bc1385768838e
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="manage-databases-in-azure-sql-data-warehouse"></a>Administración de base datos en Almacenamiento de datos SQL de Azure
 Almacenamiento de datos SQL automatiza muchos aspectos de la administración de las bases de datos. Por ejemplo, para escalar el rendimiento solo necesita ajustar y pagar por el nivel adecuado de recursos de proceso y, a continuación, dejar que Almacenamiento de datos SQL haga todo el trabajo de escalado horizontal y escalado de nuevo.
@@ -34,25 +34,25 @@ Esta información general describe estos aspectos de Almacenamiento de datos SQL
 * Prácticas recomendadas de rendimiento
 * Supervisión de consulta
 * Seguridad
-* Copia de seguridad y restauración
+* Creación de copias de seguridad y restauración de datos
 
 ## <a name="management-tools"></a>Herramientas de administración
 Puede usar una variedad de herramientas para administrar bases de datos en Almacenamiento de datos SQL. A medida que administra bases de datos, desarrollará las preferencias de la herramienta para cada tipo de tarea que necesite realizar.
 
-### <a name="azure-portal"></a>Portal de Azure
-[Azure Portal][Azure portal] es un portal basado en web donde se pueden crear, actualizar y eliminar bases de datos, así como supervisar recursos de bases de datos. Es una herramienta muy útil si se está empezando a trabajar con Azure, se administran pocas bases de datos de almacenamiento de datos o hay que hacer algo rápidamente.
+### <a name="azure-portal"></a>Azure Portal
+[Azure Portal][Azure portal] es un portal basado en web donde se pueden crear, actualizar y eliminar bases de datos, así como supervisar recursos de bases de datos. Esta herramienta es excelente si está empezando a trabajar con Azure, se administran pocas bases de datos de almacenamiento de datos o hay que hacer algo rápidamente.
 
 Para empezar a usar Azure Portal, consulte [Creación de una instancia de SQL Data Warehouse (Azure Portal)][Create a SQL Data Warehouse (Azure portal)].
 
 ### <a name="sql-server-data-tools-in-visual-studio"></a>SQL Server Data Tools en Visual Studio
 [SQL Server Data Tools][SQL Server Data Tools] (SSDT) de Visual Studio le permite conectar, administrar y desarrollar las bases de datos. Si es un programador familiarizado con Visual Studio o con otros entornos de desarrollo integrado (IDE), pruebe a usar SSDT en Visual Studio.
 
-SSDT incluye el Explorador de objetos de SQL Server, que permite visualizar, conectar y ejecutar scripts en bases de datos de Almacenamiento de datos SQL. Para conectarse rápidamente a SQL Data Warehouse, simplemente haga clic en el botón **Abrir en Visual Studio** de la barra de comandos al visualizar los detalles de la base de datos en Azure Portal.  
+SSDT incluye el Explorador de objetos de SQL Server, que permite visualizar, conectar y ejecutar scripts en bases de datos de SQL Data Warehouse. Para conectarse rápidamente a SQL Data Warehouse, simplemente haga clic en el botón **Abrir en Visual Studio** de la barra de comandos al visualizar los detalles de la base de datos en Azure Portal.  
 
 Para consultar una introducción a SSDT en Visual Studio, vea [Consultas en SQL Data Warehouse de Azure con Visual Studio][Query Azure SQL Data Warehouse with Visual Studio].
 
 ### <a name="command-line-tools"></a>Herramientas de línea de comandos
-Las herramientas de línea de comandos son ideales para automatizar las cargas de trabajo.  PowerShell y sqlcmd son dos excelentes formas de automatizar los procesos.  Se recomienda el uso de estas herramientas para administrar un gran número de servidores lógicos e implementar cambios en los recursos en un entorno de producción, ya que las tareas necesarias se pueden realizar mediante scripts y automatizar.
+Las herramientas de línea de comandos son muy adecuadas para automatizar las cargas de trabajo.  PowerShell y sqlcmd son dos excelentes formas de automatizar los procesos.  Se recomienda el uso de estas herramientas para administrar un gran número de servidores lógicos e implementar cambios en los recursos en un entorno de producción, ya que las tareas necesarias se pueden realizar mediante scripts y automatizar.
 
 ### <a name="dynamic-management-views"></a>Vistas de administración dinámica
 Las DMV son las herramientas esenciales de la administración de Almacenamiento de datos SQL. Casi toda la información que se presenta en el portal se basa en DMV. Para ver una lista de las DMV de SQL Data Warehouse, consulte [Vistas del sistema de SQL Data Warehouse][SQL Data Warehouse system views].
@@ -84,7 +84,7 @@ Para mantener un sistema seguro, debe estar en la alerta y protegerse contra cua
 
 Para obtener más información sobre cómo administrar la seguridad, consulte [Introducción a la seguridad][Security overview].
 
-## <a name="backup-and-restore"></a>Copia de seguridad y restauración
+## <a name="back-up-and-restore"></a>Creación de copias de seguridad y restauración de datos
 Una parte esencial de cualquier base de datos de producción es contar con copias de seguridad confiables de los datos. Almacenamiento de datos SQL mantiene los datos seguros al realizar automáticamente una copia de seguridad de las bases de datos activas a intervalos regulares. Estas copias de seguridad le permiten recuperarse de situaciones en las que los datos han quedado dañados o los datos o la base de datos se han eliminado por accidente.  Para obtener información sobre la programación de copias de seguridad de datos, la directiva de retención y la restauración de bases de datos, consulte [Restauración desde una instantánea][Restore from snapshot].
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -100,10 +100,10 @@ Unos buenos principios de diseño de base de datos le facilitarán la administra
 [Connect and query with sqlcmd]: sql-data-warehouse-get-started-connect-sqlcmd.md
 [Development overview]: sql-data-warehouse-overview-develop.md
 [Monitor your workload using DMVs]: sql-data-warehouse-manage-monitor.md
-[Pause compute]: sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
+[Pause compute]: pause-and-resume-compute-portal.md#pause-compute
 [Restore from snapshot]: sql-data-warehouse-restore-database-overview.md
-[Resume compute]: sql-data-warehouse-manage-compute-overview.md#resume-compute-bk
-[Escalado del rendimiento]: sql-data-warehouse-manage-compute-overview.md#scale-compute
+[Resume compute]: pause-and-resume-compute-portal.md#resume-compute
+[Escalado del rendimiento]: quickstart-scale-compute-portal.md#scale-compute
 [Security overview]: sql-data-warehouse-overview-manage-security.md
 [SQL Data Warehouse Best Practices]: sql-data-warehouse-best-practices.md
 [SQL Data Warehouse system views]: sql-data-warehouse-reference-tsql-system-views.md

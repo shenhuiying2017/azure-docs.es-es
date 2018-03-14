@@ -14,13 +14,16 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 05099e868e62f612be0a3354eb8b339507ac7e4a
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 46cdd8523117e1100e7ce2a29ade9eb2dc0afe75
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="stateful-singletons-in-durable-functions---counter-sample"></a>Singletons con estado en Durable Functions: ejemplo de contador
+
+> [!NOTE]
+> Vamos a volver a escribir este ejemplo. Se han quitado los fragmentos de código, y un nuevo artículo para un nuevo ejemplo lo reemplazará.
 
 Los singletons con estado son funciones de orquestador de larga duración (quizá permanentes) que almacenan el estado; otras funciones las pueden invocar y consultar. Los singletons con estado se parecen al [modelo de actor](https://en.wikipedia.org/wiki/Actor_model) en computación distribuida.
 
@@ -28,7 +31,7 @@ Aunque no son una implementación "de actor" en sí, las funciones de orquestado
 
 Este artículo muestra cómo ejecutar el *contador* de ejemplo. El ejemplo muestra un objeto singleton que admite operaciones de *incremento* y *decremento* operaciones y se actualiza el estado interno en consecuencia.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 * Siga las instrucciones del artículo de [instalación de Durable Functions](durable-functions-install.md) para configurar el ejemplo.
 * En este artículo se da por supuesto que ya se ha leído el tutorial de [Hello Sequence](durable-functions-sequence.md) de ejemplo.
@@ -55,11 +58,11 @@ En las siguientes secciones se explica el código que se usa para el desarrollo 
 
 Archivo function.json:
 
-[!code-json[Main](~/samples-durable-functions/samples/csx/E3_Counter/function.json)]
+<!-- [!code-json[Main](~/samples-durable-functions/samples/csx/E3_Counter/function.json)] -->
 
 Archivo run.csx:
 
-[!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Counter/run.csx)]
+<!-- [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Counter/run.csx)] -->
 
 ### <a name="precompiled-c"></a>C# precompilado 
 
@@ -67,7 +70,7 @@ En las siguientes secciones se explica el código que se usa para el desarrollo 
 
 Este es el código que implementa la función de orquestador:
 
-[!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Counter.cs)]
+<!-- [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Counter.cs)] -->
 
 ### <a name="explanation-of-the-code"></a>Explicación del código
 

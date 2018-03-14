@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: glenga
-ms.openlocfilehash: e44261e8ee62ce6a91110da0ec0bc489c426f688
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 6ef2719a100ff65d69caa8d05ccfee23851adbcb
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Enlaces de Azure Blob Storage para Azure Functions
 
@@ -32,7 +32,7 @@ En este artículo se explica cómo trabajar con enlaces de Azure Blob Storage en
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!NOTE]
-> Las [cuentas de almacenamiento de solo blob](../storage/common/storage-create-storage-account.md#blob-storage-accounts) no son compatibles. Los desencadenadores y enlaces de Blob Storage necesitan una cuenta de almacenamiento de uso general. 
+> Las [cuentas de almacenamiento de solo blob](../storage/common/storage-create-storage-account.md#blob-storage-accounts) no se admiten para desencadenadores de blobs. Los desencadenadores de Blob Storage necesitan una cuenta de almacenamiento de uso general. Para los enlaces de entrada y salida puede usar cuentas de almacenamiento de solo blob.
 
 ## <a name="trigger"></a>Desencadenador
 
@@ -63,7 +63,7 @@ public static void Run([BlobTrigger("samples-workitems/{name}")] Stream myBlob, 
 }
 ```
 
-La cadena `{name}` en la ruta de acceso del desencadenador de blobs `samples-workitems/{name}` crea una [expresión de enlace](functions-triggers-bindings.md#binding-expressions-and-patterns) que puede usar en el código de función para acceder al nombre de archivo del blob desencadenador. Para más información, consulte [Patrones de nombre de blob](#trigger---blob-name-patterns) que aparece más adelante en este artículo.
+La cadena `{name}` en la ruta de acceso del desencadenador de blobs `samples-workitems/{name}` crea una [expresión de enlace](functions-triggers-bindings.md#binding-expressions-and-patterns) que puede usar en el código de función para acceder al nombre de archivo del blob de desencadenamiento. Para más información, consulte [Patrones de nombre de blob](#trigger---blob-name-patterns) que aparece más adelante en este artículo.
 
 Para obtener más información sobre el atributo `BlobTrigger`, consulte [Desencadenador: atributos](#trigger---attributes).
 
@@ -762,7 +762,7 @@ En JavaScript, acceda a los datos de blob mediante `context.bindings.<name from 
 | Blob, tabla, cola |  [Códigos de error de almacenamiento](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
 | Blob, tabla, cola |  [Solución de problemas](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Ir a un inicio rápido que use un desencadenador de Blob Storage](functions-create-storage-blob-triggered-function.md)

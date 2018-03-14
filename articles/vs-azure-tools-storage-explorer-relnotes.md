@@ -14,17 +14,82 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: d23ddfb881695b2310d379a9112e6ab8305c0cce
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0e5523e297979a89ffd4b4ed51c8476fb1354419
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="microsoft-azure-storage-explorer-preview-release-notes"></a>Notas de la versión de Explorador de Microsoft Azure Storage (versión preliminar)
 
-Este artículo contiene las notas de la versión del Explorador de Azure Storage 0.9.5 (versión preliminar), así como las de versiones anteriores.
+Este artículo contiene las notas de la versión del Explorador de Azure Storage 0.9.6 (versión preliminar), así como las de versiones anteriores.
 
 [Explorador de Microsoft Azure Storage (versión preliminar)](./vs-azure-tools-storage-manage-with-storage-explorer.md) es una aplicación independiente que permite trabajar fácilmente con los datos de Azure Storage en Windows, macOS y Linux.
+
+## <a name="version-096"></a>Versión 0.9.6
+28/02/2018
+
+### <a name="download-azure-storage-explorer-096-preview"></a>Descarga del Explorador de Azure Storage 0.9.6 (versión preliminar)
+- [Explorador de Azure Storage 0.9.6 (versión preliminar) para Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Explorador de Azure Storage 0.9.6 (versión preliminar) para Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Explorador de Azure Storage 0.9.6 (versión preliminar) para Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="fixes"></a>Correcciones
+* Un problema impedía que los blobs o archivos que esperaba se mostraran en el editor. Esto se ha solucionado.
+* Un problema provocaba que los elementos se mostrarán de manera incorrecta al cambiar entre vistas de instantánea. Esto se ha solucionado.
+
+### <a name="known-issues"></a>Problemas conocidos
+* El Explorador de Storage no admite cuentas de AD FS.
+* Cuando el destino es Azure Stack, es posible que la carga de determinados archivos como blobs en anexos pueda producir errores.
+* Después de hacer clic en “Cancelar” en una tarea, puede que esta tarde un tiempo en cancelarse. Esto es porque se usa la solución de filtro de cancelación que se describe [aquí](https://github.com/Azure/azure-storage-node/issues/317).
+* Si no elige el certificado de tarjeta inteligente o PIN adecuados, tendrá que reiniciar para que el Explorador de Storage olvide esa decisión.
+* El panel de configuración de la cuenta puede indicar que necesita especificar de nuevo las credenciales para filtrar las suscripciones.
+* Al cambiar de nombre los blobs (individualmente o dentro de un contenedor de blobs cuyo nombre ha cambiado), no se conservan las instantáneas. Todas las demás propiedades y metadatos de blobs, archivos y entidades se conservan al cambiar de nombre.
+* Aunque Azure Stack actualmente no admite recursos compartidos de archivos, todavía aparece un nodo de recurso compartido de archivos en la cuenta de almacenamiento de Azure Stack conectada.
+* El shell de Electron que usa el Explorador de Storage tiene problemas con la aceleración de hardware de GPU (unidad de procesamiento gráfico). Si el Explorador de Storage muestra una ventana principal en blanco (vacía), puede intentar iniciar el Explorador de Storage desde la línea de comandos y deshabilitar la aceleración de GPU al agregar el conmutador `--disable-gpu`:
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* Los usuarios de Ubuntu 14.04 tendrán que asegurarse de que GCC está actualizado. Para ello, se pueden ejecutar los siguientes comandos. Después, es necesario reiniciar la máquina:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Los usuarios de Ubuntu 17.04 tendrán que instalar GConf. Esto se puede hacer mediante la ejecución de los siguientes comandos. Después de esto, es necesario reiniciar la máquina.
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+## <a name="previous-releases"></a>Versiones anteriores
+
+* [Versión 0.9.5](#version-095)
+* [Versión 0.9.4 y 0.9.3](#version-094-and-093)
+* [Versión 0.9.2](#version-092)
+* [Versión 0.9.1 y 0.9.0](#version-091-and-090)
+* [Versión 0.8.16](#version-0816)
+* [Versión 0.8.14](#version-0814)
+* [Versión 0.8.13](#version-0813)
+* [Versión 0.8.12, 0.8.11 y 0.8.10](#version-0812-and-0811-and-0810)
+* [Versión 0.8.9 y 0.8.8](#version-089-and-088)
+* [Versión 0.8.7](#version-087)
+* [Versión 0.8.6](#version-086)
+* [Versión 0.8.5](#version-085)
+* [Versión 0.8.4](#version-084)
+* [Versión 0.8.3](#version-083)
+* [Versión 0.8.2](#version-082)
+* [Versión 0.8.0](#version-080)
+* [Versión 0.7.20160509.0](#version-07201605090)
+* [Versión 0.7.20160325.0](#version-07201603250)
+* [Versión 0.7.20160129.1](#version-07201601291)
+* [Versión 0.7.20160105.0](#version-07201601050)
+* [Versión 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-095"></a>Versión 0.9.5
 06/02/2018
@@ -80,7 +145,7 @@ Este artículo contiene las notas de la versión del Explorador de Azure Storage
     sudo apt-get install libgconf-2-4
     ```
 
-## <a name="version-094--093"></a>Versión 0.9.4 / 0.9.3
+## <a name="version-094-and-093"></a>Versión 0.9.4 y 0.9.3
 01/21/2018
 
 ### <a name="download-azure-storage-explorer-094-preview"></a>Descarga del Explorador de Azure Storage 0.9.4 (versión preliminar)
@@ -129,28 +194,6 @@ Este artículo contiene las notas de la versión del Explorador de Azure Storage
     ```
     sudo apt-get install libgconf-2-4
     ```
-
-## <a name="previous-releases"></a>Versiones anteriores
-
-* [Versión 0.9.2](#version-092)
-* [Versión 0.9.1 / 0.9.0](#version-091)
-* [Versión 0.8.16](#version-0816)
-* [Versión 0.8.14](#version-0814)
-* [Versión 0.8.13](#version-0813)
-* [Versión 0.8.12 / 0.8.11 / 0.8.10](#version-0812--0811--0810)
-* [Versión 0.8.9 / 0.8.8](#version-089--088)
-* [Versión 0.8.7](#version-087)
-* [Versión 0.8.6](#version-086)
-* [Versión 0.8.5](#version-085)
-* [Versión 0.8.4](#version-084)
-* [Versión 0.8.3](#version-083)
-* [Versión 0.8.2](#version-082)
-* [Versión 0.8.0](#version-080)
-* [Versión 0.7.20160509.0](#version-07201605090)
-* [Versión 0.7.20160325.0](#version-07201603250)
-* [Versión 0.7.20160129.1](#version-07201601291)
-* [Versión 0.7.20160105.0](#version-07201601050)
-* [Versión 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-092"></a>Versión 0.9.2
 01/11/2017
@@ -214,7 +257,7 @@ Este artículo contiene las notas de la versión del Explorador de Azure Storage
     sudo apt-get install libgconf-2-4
     ```
 
-## <a name="version-091--090-preview"></a>Versión 0.9.1 / 0.9.0 (versión preliminar)
+## <a name="version-091-and-090"></a>Versión 0.9.1 y 0.9.0
 20/10/2017
 ### <a name="new"></a>Nuevo
 * Compatibilidad de versión preliminar para Azure Cosmos DB:
@@ -370,7 +413,7 @@ Este artículo contiene las notas de la versión del Explorador de Azure Storage
     ```
 
 
-### <a name="version-0812--0811--0810"></a>Versión 0.8.12 / 0.8.11 / 0.8.10
+### <a name="version-0812-and-0811-and-0810"></a>Versión 0.8.12, 0.8.11 y 0.8.10
 07/04/2017
 
 #### <a name="new"></a>Nuevo
@@ -413,7 +456,7 @@ Este artículo contiene las notas de la versión del Explorador de Azure Storage
     ```
 
 
-### <a name="version-089--088"></a>Versión 0.8.9 / 0.8.8
+### <a name="version-089-and-088"></a>Versión 0.8.9 y 0.8.8
 23/02/2017
 
 >[!VIDEO https://www.youtube.com/embed/R6gonK3cYAc?ecver=1]

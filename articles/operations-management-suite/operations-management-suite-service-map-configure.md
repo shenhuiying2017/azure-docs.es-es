@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: d535c738943b4fea81798b6fc2eedc60ae6be41f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 66023a501360a8d73f88e2fe9682c1bf8f207a07
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="configure-service-map-in-azure"></a>Configuración de Service Map en Azure
 Mapa de servicio detecta automáticamente los componentes de la aplicación en sistemas Windows y Linux y asigna la comunicación entre servicios. Puede usarlo para ver los servidores tal como los considera: como sistemas interconectados que ofrecen servicios críticos. Service Map muestra las conexiones entre servidores, procesos y puertos en cualquier arquitectura conectada TCP sin una configuración necesaria que sea distinta a la instalación de un agente.
@@ -29,7 +29,7 @@ En este artículo se describen los detalles sobre cómo configurar agentes de in
 | Archivo | SO | Versión | SHA-256 |
 |:--|:--|:--|:--|
 | [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.4.1 | 0DCCE16495E7A3254A5FE1B5EADE66110984C3BE799A1FAAD7D119F23614592E |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.4.1 | 1E4ED4CA5940BEA462FC7CAEDF4DF1C7F92C927DE6D538C4DC61DCFDFFAB1A0B  |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.4.2 | E0888727125FA4E4ECACFB4B2633284C014933EE0CC2F7A9F93F36AEDBD6C2C4  |
 
 
 ## <a name="connected-sources"></a>Orígenes conectados
@@ -114,7 +114,7 @@ Para ver una lista de marcas de instalación, ejecute el programa de instalació
 
 Los archivos del agente de dependencia se colocan en los directorios siguientes:
 
-| Archivos | La ubicación |
+| Archivos | Ubicación |
 |:--|:--|
 | Archivos principales | /opt/microsoft/dependency-agent |
 | Archivos de registro | /var/opt/microsoft/dependency-agent/log |
@@ -387,5 +387,5 @@ Para más información sobre la recopilación de datos y su utilización, consul
 
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 - Obtenga información sobre cómo [usar Service Map](operations-management-suite-service-map.md) una vez implementado y configurado.

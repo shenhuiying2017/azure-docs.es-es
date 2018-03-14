@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: juluk
-ms.openlocfilehash: 300630919ed832b059dd96fa0f35f89b52b0430d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 31c7c17b4604532eb513597db5db68a64ae10c93
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="features--tools-for-bash-in-azure-cloud-shell"></a>Características y herramientas para Bash en Azure Cloud Shell
 
@@ -70,12 +70,12 @@ Bash de Cloud Shell incluye autenticación configurada previamente para herramie
 |Idioma   |Versión   |
 |---|---|
 |.NET       |2.0.0       |
-|Go         |1.7        |
+|Go         |1.9        |
 |Java       |1.8        |
-|Node.js    |6.9.4      |
+|Node.js    |8.9.4      |
 |PowerShell |[6.0.0](https://github.com/PowerShell/powershell/releases)       |
 |Python     |2.7 y 3.5 (predeterminadas)|
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Guía de inicio rápido de Bash en Cloud Shell](quickstart.md) <br>
 [Más información sobre la CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/)

@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/16/2017
 ms.author: jdial
 ms.openlocfilehash: 0319029277091611673f15c94604604850cbfcbe
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 03/06/2018
 ---
 # <a name="create-a-user-defined-route---azure-portal"></a>Creación de una ruta definida por el usuario - Azure Portal
 
@@ -53,7 +53,7 @@ En este artículo se indican los pasos para crear una ruta definida por el usuar
 
         |Configuración|Valor|
         |-----|-----|
-        |Nombre|DMZ|
+        |NOMBRE|DMZ|
         |Intervalo de direcciones (bloque CIDR)|10.0.2.0/24|
 
 6. Cree una máquina virtual de la aplicación virtual de red:
@@ -63,12 +63,12 @@ En este artículo se indican los pasos para crear una ruta definida por el usuar
 
         |Configuración|Valor|
         |---|---|
-        |Nombre|myVm-Nva|
+        |NOMBRE|myVm-Nva|
         |Nombre de usuario|azureuser|
         |Contraseña y Confirmar contraseña|Una contraseña de su elección|
         |La suscripción|Seleccione su suscripción.|
         |Grupos de recursos|Haga clic en **Usar existente** y, a continuación, seleccione **myResourceGroup**|
-        |Ubicación|Este de EE. UU.|
+        |Ubicación|Este de EE. UU|
     - En la hoja **Elegir un tamaño** que aparece, haga clic en **DS1_V2 Standard** y en **Seleccionar**.
     - En la hoja **Configuración** que aparece, haga clic en **Red virtual**. Haga clic en **myVnet** en la hoja **Elegir red virtual** que aparece.
     - En la hoja **Configuración**, haga clic en **Subred**. Haga clic en **DMZ**, en la hoja **Elegir subred** que aparece. 
@@ -102,10 +102,10 @@ En este artículo se indican los pasos para crear una ruta definida por el usuar
 
         |Configuración|Valor|
         |---|---|
-        |Nombre|myRouteTable-Public|
+        |NOMBRE|myRouteTable-Public|
         |La suscripción|Seleccione su suscripción.|
         |Grupos de recursos|Seleccione **Usar existente** y, a continuación, **myResourceGroup**|
-        |Ubicación|Este de EE. UU.|
+        |Ubicación|Este de EE. UU|
     
     - Vuelva a completar los subpasos anteriores del paso 8, pero asigne el nombre *myRouteTable-Private* a la tabla de ruta.
 9. Agregue rutas a la tabla de ruta *myRouteTable-Public* y asocie esta a la subred *Pública*:
@@ -270,9 +270,9 @@ En este artículo se indican los pasos para crear una ruta definida por el usuar
     - Complete los pasos anteriores conectándose a la máquina virtual *myVm-Private* y haciendo ping en la máquina virtual *myVm-Public*. En la ruta de seguimiento se muestra la circulación de la comunicación a través de 10.0.2.4 antes de llegar a 10.0.0.4 (la máquina virtual de la subred pública).
 
       > [!NOTE]
-      > Los pasos anteriores le permiten confirmar el enrutamiento entre direcciones IP privadas de Azure. Si desea reenviar, o transmitir, el tráfico a direcciones IP públicas a través de un dispositivo virtual de red:
+      > Los pasos anteriores le permiten confirmar el enrutamiento entre direcciones IP privadas de Azure. Si desea reenviar, o transmitir, el tráfico a direcciones IP públicas a través de una aplicación virtual de red:
       > - El dispositivo debe proporcionar la traducción de direcciones de red o la funcionalidad del proxy. Si existe la traducción de direcciones de red, el dispositivo debe traducir la dirección IP de origen a la suya propia y, después, reenviar esa solicitud a la dirección IP pública. Si el dispositivo tiene una dirección de red traducida a la dirección de origen, o se está transmitiendo, Azure traduce la dirección IP privada del dispositivo virtual de red a una dirección IP pública. Para más información acerca de los distintos métodos que Azure usa para traducir direcciones IP privadas a direcciones IP públicas, consulte [Comprender las conexiones salientes](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-      > - Es necesaria una ruta adicional en la tabla de rutas, como prefijo: 0.0.0.0/0, tipo del próximo salto VirtualAppliance y dirección IP del próximo salto 10.0.2.4 (en el script del ejemplo anterior).
+      > - Una ruta adicional en la tabla de rutas, como el prefijo: 0.0.0.0/0, tipo de próximo salto VirtualAppliance y dirección IP del próximo salto 10.0.2.4 (en el script del ejemplo anterior).
       >
     - **Opcionalmente**: para validar el próximo salto entre dos máquinas virtuales de Azure, use la funcionalidad de próximo salto de Azure Network Watcher. Antes de usar Network Watcher, primero debe [crear una instancia de Azure Network Watcher](../network-watcher/network-watcher-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para la región donde desea utilizarla. En este tutorial, se usa la región de Este de EE. UU. Una vez que haya habilitado una instancia de Network Watcher para la región, escriba el siguiente comando para ver la información del próximo salto entre las máquinas virtuales de las subredes pública y privada:
      

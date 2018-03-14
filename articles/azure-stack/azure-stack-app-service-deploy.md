@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: brenduns
 ms.reviewer: anwestg
-ms.openlocfilehash: d4394463be02d067b8228099acd30a0421ce4be9
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 570ef0b782e073220af8bc7299cc4ad388d47136
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Incorporación de un proveedor de recursos de App Service a Azure Stack
 *Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
@@ -70,7 +70,7 @@ Para implementar el proveedor de recursos de App Service, siga estos pasos:
 
     ![Instalador de App Service](media/azure-stack-app-service-deploy/image03.png)
 
-7. Escriba la información para el recurso compartido de archivos y, a continuación, haga clic en **Siguiente**. La dirección del recurso compartido de archivos debe utilizar el nombre de dominio completo del servidor de archivos, por ejemplo: \\\appservicefileserver.local.cloudapp.azurestack.external\websites o la dirección IP como, por ejemplo, \\\10.0.0.1\websites.
+7. Escriba la información para el recurso compartido de archivos y, a continuación, haga clic en **Siguiente**. La dirección del recurso compartido de archivos debe usar el nombre de dominio completo del servidor de archivos o la dirección IP. Por ejemplo, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, or \\\10.0.0.1\websites.
 
     ![Instalador de App Service](media/azure-stack-app-service-deploy/image04.png)
 
@@ -83,7 +83,7 @@ Para implementar el proveedor de recursos de App Service, siga estos pasos:
 
     ![Instalador de App Service](media/azure-stack-app-service-deploy/image05.png)
 
-9. Para cada uno de los tres cuadros de archivo de certificado, haga clic en **Examinar** y navegue hasta el archivo de certificado adecuado. Debe proporcionar la contraseña de cada certificado. Estos certificados son los que creó en el [paso para crear los certificados necesarios](azure-stack-app-service-deploy.md#create-the-required-certificates). Haga clic en **Siguiente** después de escribir toda la información.
+9. Para cada uno de los tres cuadros de archivo de certificado, haga clic en **Examinar** y navegue hasta el archivo de certificado adecuado. Proporcione la contraseña de cada certificado. Estos certificados son los que creó en el [paso para crear los certificados necesarios](azure-stack-app-service-deploy.md#create-the-required-certificates). Haga clic en **Siguiente** después de escribir toda la información.
 
     | Box | Ejemplo de nombre de archivo de certificado |
     | --- | --- |
@@ -185,7 +185,7 @@ Para crear aplicaciones web, de API y Azure Functions, se debe usar el portal de
 
 3. Si también implementó un proveedor de recursos de SQL Server, puede implementar un sitio web de DNN en Marketplace. Cuando se le pidan los parámetros de la base de datos, elija una base de datos del equipo que ejecute la instancia de SQL Server que está conectado a su proveedor de recursos.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 También puede probar otros [servicios de Plataforma como servicio (PaaS)](azure-stack-tools-paas-services.md).
 

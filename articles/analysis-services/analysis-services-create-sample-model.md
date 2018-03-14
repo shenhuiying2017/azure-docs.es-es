@@ -1,6 +1,6 @@
 ---
-title: "Creación de un modelo tabular de ejemplo para el servidor de Azure Analysis Services | Microsoft Docs"
-description: Aprenda a crear un modelo de ejemplo en Azure Analysis Services.
+title: "Incorporación de un modelo tabular de ejemplo para el servidor de Azure Analysis Services | Microsoft Docs"
+description: "Obtenga información sobre cómo agregar un modelo de ejemplo en Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
 author: minewiskan
@@ -13,17 +13,17 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/27/2018
+ms.date: 02/28/2018
 ms.author: owend
-ms.openlocfilehash: 1cc36ebf4c410d4764eb28ab89d7f2a5e7749ae5
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: df83f5dd86d1edf857378ae69b16a86b57f9a2fe
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="tutorial-create-a-sample-model"></a>Tutorial: Creación de un modelo de ejemplo
+# <a name="tutorial-add-a-sample-model"></a>Tutorial: Incorporación de un modelo de ejemplo
 
-En este tutorial, creará un modelo de ejemplo de Adventure Works. El modelo de ejemplo es una versión completa del tutorial de modelado de datos de Adventure Works Internet Sales (1200). Un modelo de ejemplo es útil para probar la administración de modelos, la conexión con las herramientas y las aplicaciones cliente, y para consultar datos de modelos.
+En este tutorial, agregará un modelo de ejemplo de Adventure Works al servidor. El modelo de ejemplo es una versión completa del tutorial de modelado de datos de Adventure Works Internet Sales (1200). Un modelo de ejemplo es útil para probar la administración de modelos, la conexión con las herramientas y las aplicaciones cliente, y para consultar datos de modelos.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -67,7 +67,7 @@ El modelo de ejemplo usa los recursos de memoria caché. Si no va a usar el mode
 
     ![Eliminar la base de datos de ejemplo](./media/analysis-services-create-sample-model/aas-create-sample-cleanup-delete.png)
 
-## <a name="next-steps"></a>pasos siguientes 
+## <a name="next-steps"></a>Pasos siguientes 
 
 [Conexión en Power BI Desktop](analysis-services-connect-pbi.md)   
 [Administración de usuarios y roles de base de datos](analysis-services-database-users.md)

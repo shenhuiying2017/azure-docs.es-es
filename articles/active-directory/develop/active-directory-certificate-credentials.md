@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 06/02/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 9267a7d2b27930fbcd0aa70ec9e2ddc62b6b0b2a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d05456912324c06a0895cd4cf049b60c9d126904
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>Credenciales de certificado para la autenticación de aplicaciones
 
-Azure Active Directory permite que una aplicación use sus propias credenciales para la autenticación, por ejemplo, en el flujo de concesión de credenciales de cliente de OAuth 2.0 y el flujo en nombre de otro.
+Azure Active Directory permite que una aplicación use sus propias credenciales para la autenticación, por ejemplo, en el flujo de concesión de credenciales de cliente de OAuth 2.0 ([v1](active-directory-protocols-oauth-service-to-service.md) [v2](active-directory-v2-protocols-oauth-client-creds.md)) y el flujo en nombre de ([v1](active-directory-protocols-oauth-on-behalf-of.md) [v2](active-directory-v2-protocols-oauth-on-behalf-of.md)).
 Un formato de credencial que se puede utilizar es una aserción de JSON Web Token (JWT) firmada con un certificado que la aplicación posea.
 
 ## <a name="format-of-the-assertion"></a>Formato de la aserción
@@ -31,7 +31,7 @@ Para calcular la aserción, es posible que desee utilizar una de las muchas bibl
 
 #### <a name="header"></a>Encabezado
 
-| Parámetro |  Comentario |
+| . |  Comentario |
 | --- | --- | --- |
 | `alg` | Debe ser **RS256** |
 | `typ` | Debe ser **JWT** |
@@ -39,7 +39,7 @@ Para calcular la aserción, es posible que desee utilizar una de las muchas bibl
 
 #### <a name="claims-payload"></a>Notificaciones (carga útil)
 
-| Parámetro |  Comentario |
+| . |  Comentario |
 | --- | --- | --- |
 | `aud` | Público: debe ser **https://login.microsoftonline.com/*tenant_Id*/oauth2/token** |
 | `exp` | Fecha de expiración: la fecha en que el token expira. La hora se representa como el número de segundos desde el 1 de enero de 1970 (1970-01-01T0:0:0Z) UTC hasta el momento en que la validez del token expira.|

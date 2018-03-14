@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 1fd3b2c251860e883519744b11fcfc2b925cd2fa
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 561729e5e495500222ccec5b4b536a3152cb25e3
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="troubleshoot-deployment-issues-with-azure-container-instances"></a>Solución de problemas en las implementaciones en Azure Container Instances
 
@@ -91,6 +91,10 @@ La salida incluye las propiedades básicas del contenedor, junto con los eventos
 ## <a name="common-deployment-issues"></a>Problemas comunes de implementación
 
 Hay algunos problemas comunes relacionados con la mayoría de los errores de implementación.
+
+## <a name="image-version-not-supported"></a>Versión de imagen no compatible
+
+Si se especifica una imagen que Azure Container Instances no admite, se devolverá un error como `ImageVersionNotSupported`. El valor del error mostrará `The version of image '{0}' is not supported.`. Este error actualmente se aplica a las imágenes de Windows 1709 para mitigar el uso de una imagen de Windows LTS. Se está trabajando para la compatibilidad con las imágenes de Windows 1709.
 
 ## <a name="unable-to-pull-image"></a>No se puede extraer la imagen
 

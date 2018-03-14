@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.openlocfilehash: 858bc1dd2880583a3283522a01c9a48679b76296
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 949b957716af2d7dfd704b4fca48afb78d0fed1e
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Características del motor de reglas de la red CDN de Azure
 En este tema se muestran descripciones detalladas de las características disponibles para el [motor de reglas](cdn-rules-engine.md)de Azure Content Delivery Network (CDN).
@@ -30,7 +30,7 @@ La tercera parte de una regla es la característica. Una característica define 
 Estas características están diseñadas para controlar el acceso al contenido.
 
 
-Nombre | Propósito
+NOMBRE | Propósito
 -----|--------
 [Denegar acceso (403)](#deny-access-403) | Determina si todas las solicitudes se rechazan con una respuesta 403-Prohibido.
 [Autenticación de token](#token-auth) | Determina si se aplica una solicitud de autenticación basada en tokens a una solicitud.
@@ -43,37 +43,37 @@ Nombre | Propósito
 
 Estas características están diseñadas para personalizar cuándo y cómo se almacena el contenido en caché.
 
-Nombre | Propósito
+NOMBRE | Propósito
 -----|--------
 [Parámetros de ancho de banda](#bandwidth-parameters) | Determina si los parámetros de limitación de ancho de banda (por ejemplo, ec_rate y ec_prebuf) están activos.
 [Limitación de ancho de banda](#bandwidth-throttling) | Limita el ancho de banda de la respuesta de los servidores perimetrales.
 [Omisión de la memoria caché](#bypass-cache) | Determina si la solicitud debe omitir el almacenamiento en caché.
 [Tratamiento de encabezados Cache-Control](#cache-control-header-treatment) | Controla la generación de encabezados `Cache-Control` mediante el servidor perimetral cuando está activa la característica externa Max-Age.
-[Cadena de consulta de clave de caché](#cache-key-query-string) | Determina si la clave de caché incluirá o excluirá los parámetros de cadena de consulta asociados a una solicitud.
+[Cadena de consulta de clave de caché](#cache-key-query-string) | Determina si la clave de caché incluye o excluye los parámetros de cadena de consulta asociados a una solicitud.
 [Reescritura de clave de caché](#cache-key-rewrite) | Reescribe la clave de caché asociada a una solicitud.
 [Relleno de la memoria caché completa](#complete-cache-fill) | Determina lo que ocurre cuando una solicitud tiene como resultado un error de caché parcial en un servidor perimetral.
-[Comprimir tipos de archivo](#compress-file-types) | Define los formatos de archivo que se van a comprimir en el servidor.
+[Comprimir tipos de archivo](#compress-file-types) | Define los formatos de los archivos que se van a comprimir en el servidor.
 [Max-Age interna predeterminada](#default-internal-max-age) | Determina el intervalo predeterminado de max-age para el servidor perimetral en la revalidación de caché del servidor de origen.
 [Tratamiento del encabezado Expires](#expires-header-treatment) | Controla la generación de encabezados `Expires` mediante el servidor perimetral cuando está activa la característica externa Max-Age.
 [Max-Age externa](#external-max-age) | Determina el intervalo de max-age para el explorador en la revalidación de caché del servidor de perimetral.
 [Forzar Max-Age interna](#force-internal-max-age) | Determina el intervalo de max-age para el servidor perimetral en la revalidación de caché del servidor de origen.
 [Compatibilidad de H.264 (descarga progresiva de HTTP)](#h264-support-http-progressive-download) | Determina los tipos de formatos de archivo H.264 que pueden usarse para transmitir contenido en streaming.
-[Respetar la solicitud de no almacenar en caché](#honor-no-cache-request) | Determina si las solicitudes de no almacenar en caché de un cliente HTTP se reenviarán al servidor de origen.
+[Respetar la solicitud de no almacenar en caché](#honor-no-cache-request) | Determina si las solicitudes de no almacenar en caché de un cliente HTTP se reenvían al servidor de origen.
 [Ignorar la opción de no almacenar en caché de origen](#ignore-origin-no-cache) | Determina si la CDN ignora determinadas directivas procedentes de un servidor de origen.
 [Ignorar intervalos que no se puedan satisfacer](#ignore-unsatisfiable-ranges) | Determina la respuesta que se devolverá a los clientes cuando una solicitud genere un código de estado "416 - No se puede satisfacer el intervalo solicitado".
 [Max-Stale interna](#internal-max-stale) | Controla cuánto tiempo después de la hora de expiración normal puede atenderse un recurso almacenado en caché desde un servidor perimetral cuando el servidor perimetral no puede volver a validar el recurso almacenado en caché con el servidor de origen.
 [Uso compartido de caché parcial](#partial-cache-sharing) | Determina si una solicitud puede generar contenido almacenado parcialmente en caché.
-[Prevalidar el contenido guardado en caché](#prevalidate-cached-content) | Determina si el contenido almacenado en caché será apto para la revalidación temprana antes de que expire su período de vida.
+[Prevalidar el contenido guardado en caché](#prevalidate-cached-content) | Determina si el contenido almacenado en caché es apto para la revalidación temprana antes de que expire su período de vida.
 [Actualizar archivos de caché de cero bytes](#refresh-zero-byte-cache-files) | Determina cómo controlan los servidores perimetrales la solicitud de un cliente HTTP para un recurso de la caché de 0 bytes.
 [Establecer códigos de estado almacenables en caché](#set-cacheable-status-codes) | Define el conjunto de códigos de estado que puede dar lugar a contenido almacenado en caché.
-[Entrega de contenido obsoleto en caso de error](#stale-content-delivery-on-error) | Determina si se entregará el contenido almacenado en caché cuando se produzca un error durante la revalidación de caché o al recuperar el contenido solicitado desde el servidor de origen del cliente.
+[Entrega de contenido obsoleto en caso de error](#stale-content-delivery-on-error) | Determina si se entrega el contenido almacenado en caché cuando se produce un error durante la revalidación de caché o al recuperar el contenido solicitado desde el servidor de origen del cliente.
 [Obsoleto durante revalidación](#stale-while-revalidate) | Mejora el rendimiento al permitir que los servidores perimetrales sirvan un cliente obsoleto al solicitante mientras se lleva a cabo la revalidación.
 
 ## <a name="comment-feature"></a>Característica de comentario
 
 Esta característica está diseñada para proporcionar información adicional dentro de una regla.
 
-Nombre | Propósito
+NOMBRE | Propósito
 -----|--------
 [Comment](#comment) | Permite agregar una nota en una regla.
  
@@ -81,9 +81,9 @@ Nombre | Propósito
 
 Estas características están diseñadas para agregar, modificar o eliminar encabezados de la solicitud o respuesta.
 
-Nombre | Propósito
+NOMBRE | Propósito
 -----|--------
-[Encabezado de respuesta Age](#age-response-header) | Determina si se incluirá un encabezado de respuesta Age en la respuesta enviada al solicitante.
+[Encabezado de respuesta Age](#age-response-header) | Determina si se incluye un encabezado de respuesta Age en la respuesta enviada al solicitante.
 [Depurar encabezados de respuesta de la caché](#debug-cache-response-headers) | Determina si una respuesta puede incluir el encabezado de respuesta X-EC-Debug que proporciona información sobre la directiva de caché del recurso solicitado.
 [Modificar encabezado de solicitud de cliente](#modify-client-request-header) | Sobrescribe, agrega o elimina un encabezado en una solicitud.
 [Modificar encabezado de respuesta de cliente](#modify-client-response-header) | Sobrescribe, agrega o elimina un encabezado en una respuesta.
@@ -94,10 +94,10 @@ Nombre | Propósito
 
 Estas características están diseñadas para personalizar los datos almacenados en archivos de registro sin procesar.
 
-Nombre | Propósito
+NOMBRE | Propósito
 -----|--------
-[Campo de registro personalizado 1](#custom-log-field-1) | Determina el formato y el contenido que se asignará al campo de registro personalizado en un archivo de registro sin procesar.
-[Cadena de consulta del registro](#log-query-string) | Determina si una cadena de consulta se almacenará con la dirección URL en los registros de acceso.
+[Campo de registro personalizado 1](#custom-log-field-1) | Determina el formato y el contenido que se asigna al campo de registro personalizado en un archivo de registro sin procesar.
+[Cadena de consulta del registro](#log-query-string) | Determina si una cadena de consulta se almacena con la dirección URL en los registros de acceso.
 
 
 <!---
@@ -148,17 +148,17 @@ If the desired site does not appear in the list, then you should edit its config
 
 Estas características están diseñadas para controlar la forma en que la red CDN se comunica con un servidor de origen.
 
-Nombre | Propósito
+NOMBRE | Propósito
 -----|--------
 [Número máximo de solicitudes de conexión persistente](#maximum-keep-alive-requests) | Define el número máximo de solicitudes de conexión persistente antes de cerrarse.
-[Encabezados de proxy especiales](#proxy-special-headers) | Define el conjunto de encabezados de solicitud específicos de la red CDN que se reenviará desde un servidor perimetral a un servidor de origen.
+[Encabezados de proxy especiales](#proxy-special-headers) | Define el conjunto de encabezados de solicitud específicos de la red CDN que se reenvía desde un servidor perimetral a un servidor de origen.
 
 
 ## <a name="specialty-features"></a>Características de especialidad
 
 Estas características ofrecen funcionalidades avanzadas que solo deben utilizar los usuarios avanzados.
 
-Nombre | Propósito
+NOMBRE | Propósito
 -----|--------
 [Métodos HTTP almacenables en caché](#cacheable-http-methods) | Determina el conjunto de métodos HTTP adicionales que pueden almacenarse en caché en la red.
 [Tamaño del cuerpo de solicitud almacenable en caché](#cacheable-request-body-size) | Define el umbral que determina si una respuesta POST se puede almacenar en caché.
@@ -169,7 +169,7 @@ Nombre | Propósito
 
 Estas características permiten reescribir una solicitud o redirigirla a una dirección URL diferente.
 
-Nombre | Propósito
+NOMBRE | Propósito
 -----|--------
 [Seguir redireccionamientos](#follow-redirects) | Determina si las solicitudes se pueden redirigir al nombre de host definido en el encabezado Ubicación que devuelve el servidor de origen de un cliente.
 [Redirección de direcciones URL](#url-redirect) | Redirige las solicitudes a través del encabezado Ubicación.
@@ -195,14 +195,14 @@ Disabled | El encabezado de respuesta Age se excluye de la respuesta enviada al 
 
 ---
 ### <a name="bandwidth-parameters"></a>Parámetros de ancho de banda
-**Objetivo:** determina si los parámetros de limitación de ancho de banda (por ejemplo, ec_rate y ec_prebuf) estarán activos.
+**Propósito:** determina si los parámetros de limitación de ancho de banda (por ejemplo, ec_rate y ec_prebuf) están activos.
 
-Los parámetros de limitación de ancho de banda determinan si la velocidad de transferencia de datos para la solicitud de un cliente se limitará a una velocidad personalizada.
+Los parámetros de limitación de ancho de banda determinan si la velocidad de transferencia de datos para la solicitud de un cliente se limita a una velocidad personalizada.
 
 Valor|Resultado
 --|--
 habilitado|Permite que los servidores perimetrales admitan las solicitudes de limitación de ancho de banda.
-Disabled|Hace que los servidores perimetrales ignoren los parámetros de limitación de ancho de banda. El contenido solicitado se servirá normalmente (es decir, sin limitación de ancho de banda).
+Disabled|Hace que los servidores perimetrales ignoren los parámetros de limitación de ancho de banda. El contenido solicitado se sirve normalmente (es decir, sin limitación de ancho de banda).
 
 **Comportamiento predeterminado**: habilitado.
  
@@ -216,7 +216,7 @@ Disabled|Hace que los servidores perimetrales ignoren los parámetros de limitac
 
 Dos de las siguientes opciones deben definirse para configurar correctamente la limitación de ancho de banda.
 
-Opción|Descripción
+Opción|DESCRIPCIÓN
 --|--
 Kbytes por segundo|Establezca esta opción en el ancho de banda máximo (Kb por segundo) que puede utilizarse para entregar la respuesta.
 Segundos de búfer previo|Establezca esta opción en el número de segundos que los servidores perimetrales deben esperar hasta limitar el ancho de banda. El propósito de este período de tiempo de ancho de banda no restringido es evitar que un reproductor multimedia experimente problemas de cortes o de almacenamiento en búfer debido a la limitación del ancho de banda.
@@ -233,7 +233,7 @@ Segundos de búfer previo|Establezca esta opción en el número de segundos que 
 
 Valor|Resultado
 --|--
-Enabled|Hace que todas las solicitudes pasen al servidor de origen, aunque el contenido se haya almacenado antes en caché en los servidores perimetrales.
+habilitado|Hace que todas las solicitudes pasen al servidor de origen, aunque el contenido se haya almacenado antes en caché en los servidores perimetrales.
 Disabled|Hace que los servidores perimetrales almacenen en caché los recursos según la directiva de caché definida en sus encabezados de respuesta.
 
 **Comportamiento predeterminado**:
@@ -269,7 +269,7 @@ Información importante:
 ### <a name="cacheable-request-body-size"></a>Tamaño del cuerpo de solicitud almacenable en caché
 **Propósito**: define el umbral que determina si una respuesta POST se puede almacenar en caché.
 
-Este umbral se determina especificando un tamaño máximo de cuerpo de solicitud. Las solicitudes que contengan un cuerpo de solicitud más grandes no se almacenarán en caché.
+Este umbral se determina especificando un tamaño máximo de cuerpo de solicitud. Las solicitudes que contengan un cuerpo de solicitud más grandes no se almacenan en caché.
 
 Información importante:
 
@@ -295,7 +295,7 @@ La manera más fácil de lograr este tipo de configuración es colocar las carac
 
 Valor|Resultado
 --|--
-Sobrescribir|Garantiza que se llevarán a cabo las siguientes acciones:<br/> - Sobrescribe el encabezado `Cache-Control` que generó el servidor de origen. <br/>- Agrega a la respuesta el encabezado `Cache-Control` que generó la característica externa Max-Age.
+Sobrescribir|Garantiza que se llevarán a cabo las siguientes acciones:<br/> - Sobrescribe el encabezado `Cache-Control` que generó el servidor de origen. <br/>- Agregar a la respuesta el encabezado `Cache-Control` que generó la característica externa Max-Age.
 Pass Through|Garantiza que el encabezado `Cache-Control` que generó la característica externa Max-Age nunca se agregue a la respuesta. <br/> Si el servidor de origen genera un encabezado `Cache-Control`, se pasará directamente al usuario final. <br/> Si el servidor de origen no genera un encabezado `Cache-Control`, esta opción puede provocar que el encabezado de respuesta no contenga un encabezado `Cache-Control`.
 Add if Missing|Si no se recibió un encabezado `Cache-Control` desde el servidor de origen, esta opción agrega el encabezado `Cache-Control` que generó la característica externa Max-Age. Esta opción es útil para garantizar que todos los recursos se asignan a un encabezado `Cache-Control`.
 Remove| Esta opción garantiza que no se incluirá un encabezado `Cache-Control` en la respuesta de encabezado. Si ya se ha asignado un encabezado `Cache-Control`, se quitará de la respuesta de encabezado.
@@ -308,23 +308,23 @@ Remove| Esta opción garantiza que no se incluirá un encabezado `Cache-Control`
 
 ---
 ### <a name="cache-key-query-string"></a>Cadena de consulta de clave de caché
-**Propósito**: determina si la clave de caché incluirá o excluirá los parámetros de cadena de consulta asociados a una solicitud.
+**Propósito:** determina si la clave de caché incluye o excluye los parámetros de cadena de consulta asociados a una solicitud.
 
 Información importante:
 
-- Especifique uno o más nombres de parámetro de cadena de consulta. Cada nombre de parámetro debe delimitarse con un único espacio.
-- Esta característica determina si los parámetros de cadena de consulta se incluirán o excluirán de la clave de caché. A continuación se proporciona información adicional para cada opción.
+- Especifique uno o más nombres de parámetro de cadena de consulta. Delimite cada nombre de parámetro con un único espacio.
+- Esta característica determina si los parámetros de cadena de consulta se incluyen o excluyen de la clave de caché. En la tabla siguiente se proporciona información adicional para cada opción.
 
-Tipo|Descripción
+type|DESCRIPCIÓN
 --|--
- Include|  Indica que cada parámetro especificado debe estar incluido en la clave de caché. Se generará una clave de caché única para cada solicitud que contenga un valor único para un parámetro de cadena de consulta definido en esta característica. 
- Include All  |Indica que se creará una clave de caché única para cada solicitud a un recurso que incluya una cadena de consulta única. Normalmente no se recomienda este tipo de configuración porque puede dar lugar a un pequeño porcentaje de aciertos de caché. Esto aumentará la carga en el servidor de origen, ya que tendrá que atender más solicitudes. Esta configuración reproduce el comportamiento de almacenamiento en caché que se conoce como "cache única" en la página Almacenamiento en caché de cadenas de consulta. 
- Exclude | Indica que solo los parámetros especificados se excluirán de la clave de caché. Todos los demás parámetros de cadena de consulta se incluirán en la clave de caché. 
- Exclude All  |Indica que todos los parámetros de cadena de consulta se excluirán de la clave de caché. Esta configuración reproduce el comportamiento predeterminado, que se conoce como "caché estándar" en la página Almacenamiento en caché de cadenas de consulta. 
+ Include|  Indica que cada parámetro especificado debe estar incluido en la clave de caché. Se genera una clave de caché única para cada solicitud que contenga un valor único para un parámetro de cadena de consulta definido en esta característica. 
+ Include All  |Indica que se crea una clave de caché única para cada solicitud a un recurso que incluya una cadena de consulta única. Normalmente no se recomienda este tipo de configuración porque puede dar lugar a un pequeño porcentaje de aciertos de caché. Un bajo número de aciertos de caché aumenta la carga en el servidor de origen, porque debe atender más solicitudes. Esta configuración reproduce el comportamiento de almacenamiento en caché que se conoce como "cache única" en la página Almacenamiento en caché de cadenas de consulta. 
+ Exclude | Indica que solo los parámetros especificados se excluyen de la clave de caché. Todos los demás parámetros de cadena de consulta se incluyen en la clave de caché. 
+ Exclude All  |Indica que todos los parámetros de cadena de consulta se excluyen de la clave de caché. Esta configuración reproduce el comportamiento de caché predeterminado, que se conoce como "caché estándar", en la página Almacenamiento en caché de cadenas de consulta.  
 
-La versatilidad del motor de reglas HTTP permite personalizar la manera en que se implementará el almacenamiento en caché de cadenas de consulta. Por ejemplo, puede especificar que el almacenamiento en caché de cadena consultas solo se realizará en determinadas ubicaciones o tipos de archivo.
+El motor de reglas permite personalizar la manera en que se implementará el almacenamiento en caché de cadenas de consulta. Por ejemplo, puede especificar que el almacenamiento en caché de cadena consultas solo se realice en determinadas ubicaciones o tipos de archivo.
 
-Si desea replicar el comportamiento de almacenamiento en caché de cadenas de consulta conocido como "no almacenar en cache" en la página Almacenamiento en caché de cadenas de consulta, tendrá que crear una regla que contenga una condición de coincidencia de caracteres comodín de consulta de URL y una característica Omisión de la memoria caché. La condición de coincidencia de caracteres comodín de consulta de dirección URL debe establecerse en un asterisco (*).
+Para replicar el comportamiento de almacenamiento en caché de cadenas de consulta conocido como "no almacenar en caché" en la página Almacenamiento en caché de cadenas de consulta, cree una regla que contenga una condición de coincidencia de caracteres comodín de consulta de dirección URL y una característica Omisión de la memoria caché. Establezca la condición de coincidencia de caracteres comodín de consulta de dirección URL en un asterisco (*).
 
 #### <a name="sample-scenarios"></a>Escenarios de ejemplo
 
@@ -383,13 +383,13 @@ Este tipo de configuración generaría la siguiente clave de caché de parámetr
 ### <a name="cache-key-rewrite"></a>Reescritura de clave de caché
 **Propósito**: reescribe la clave de caché asociada a una solicitud.
 
-Una clave de caché es la ruta de acceso relativa que identifica un recurso con fines de almacenamiento en caché. En otras palabras, los servidores buscarán una versión almacenada en caché de un recurso de acuerdo a la ruta de acceso que definió la clave de caché.
+Una clave de caché es la ruta de acceso relativa que identifica un recurso con fines de almacenamiento en caché. En otras palabras, los servidores buscan una versión almacenada en caché de un recurso de acuerdo a la ruta de acceso que definió la clave de caché.
 
 Para configurar esta característica, puede definir las siguientes opciones:
 
-Opción|Descripción
+Opción|DESCRIPCIÓN
 --|--
-Ruta de acceso original| Define la ruta de acceso relativa a los tipos de solicitudes cuyas claves de caché se reescribirán. Para definir una ruta de acceso relativa, seleccione una ruta de acceso de origen de base y, a continuación, define un patrón de expresión regular.
+Ruta de acceso original| Define la ruta de acceso relativa a los tipos de solicitudes cuyas claves de caché se reescriben. Para definir una ruta de acceso relativa, seleccione una ruta de acceso de origen de base y, a continuación, define un patrón de expresión regular.
 Nueva ruta de acceso|Define la ruta de acceso relativa de la nueva clave de caché. Para definir una ruta de acceso relativa, seleccione una ruta de acceso de origen de base y, a continuación, define un patrón de expresión regular. Esta ruta de acceso relativa se puede construir dinámicamente mediante variables HTTP.
 **Comportamiento predeterminado:** la clave de caché de una solicitud viene determinada por el URI de solicitud.
 
@@ -422,7 +422,7 @@ Un error de caché parcial describe el estado de la memoria caché para un recur
 This feature is not available for the ADN platform. The typical traffic on this platform consists of relatively small assets. The size of the assets served through these platforms helps mitigate the effects of partial cache misses, since the next request will typically result in the asset being cached on that POP.
 
 --->
-Un error de caché parcial normalmente se produce después de que un usuario anule una descarga o en el caso de los recursos que se solicitan únicamente con solicitudes de intervalos HTTP. Esta característica resulta especialmente útil para recursos de gran tamaño que los usuarios no suelen descargar de principio a fin (por ejemplo, vídeos). Por lo tanto, esta característica está habilitada de forma predeterminada en la plataforma HTTP Large. Está deshabilitada en todas las demás plataformas.
+Un error de caché parcial normalmente se produce después de que un usuario anule una descarga o en el caso de los recursos que se solicitan únicamente con solicitudes de intervalos HTTP. Esta característica resulta especialmente útil para recursos de gran tamaño que no se suelen descargar de principio a fin (por ejemplo, vídeos). Por lo tanto, esta característica está habilitada de forma predeterminada en la plataforma HTTP Large. Está deshabilitada en todas las demás plataformas.
 
 Deje la configuración predeterminada de la plataforma HTTP Large, ya que reduce la carga en el servidor de origen del cliente y aumenta la velocidad con la que los clientes descargan el contenido.
 
@@ -430,8 +430,8 @@ Debido a la manera en que se realiza el seguimiento de la configuración de la m
 
 Valor|Resultado
 --|--
-Enabled|Restablece el comportamiento predeterminado. El comportamiento predeterminado consiste en forzar al servidor perimetral para que inicie una captura de fondo del recurso desde el servidor de origen. Después, el recurso estará en la caché local del servidor perimetral.
-Disabled|Evita que un servidor perimetral realice una captura de fondo del recurso. Esto significa que la próxima solicitud para ese recurso realizada desde esa región hará que un servidor perimetral lo solicite desde el servidor de origen del cliente.
+habilitado|Restablece el comportamiento predeterminado. El comportamiento predeterminado consiste en forzar al servidor perimetral para que inicie una captura de fondo del recurso desde el servidor de origen. Después, el recurso estará en la caché local del servidor perimetral.
+Disabled|Evita que un servidor perimetral realice una captura de fondo del recurso. Como resultado, la próxima solicitud para ese recurso realizada desde esa región hace que un servidor perimetral lo solicite desde el servidor de origen del cliente.
 
 **Comportamiento predeterminado**: habilitado.
 
@@ -441,11 +441,11 @@ Disabled|Evita que un servidor perimetral realice una captura de fondo del recur
 
 ---
 ### <a name="compress-file-types"></a>Comprimir tipos de archivo
-**Propósito**: define los formatos de archivo que se van a comprimir en el servidor.
+**Propósito:** define los formatos de los archivos que se van a comprimir en el servidor.
 
 Los formatos de archivo se pueden especificar con su tipo de medio de Internet (es decir, Content-Type). El tipo de medio de Internet son los metadatos independientes de la plataforma que permiten que los servidores identifiquen el formato de archivo de un recurso determinado. La siguiente es la lista de los tipos de medios más comunes de Internet.
 
-Tipo de medio de Internet|Descripción
+Tipo de medio de Internet|DESCRIPCIÓN
 --|--
 text/plain|Texto sin formato
 text/html| Archivos HTML
@@ -455,10 +455,10 @@ application/javascript|Javascript
 Información importante:
 
 - Especifique varios tipos de medios de Internet delimitando cada uno con un solo espacio. 
-- Esta característica solo comprimirá recursos con un tamaño inferior a 1 MB. Nuestros servidores no comprimirán los recursos de mayor tamaño.
-- Algunos tipos de contenido, como las imágenes, los vídeos y los recursos multimedia de audio (p. ej., JPG, MP3, MP4, etc.), ya están comprimidos. Una compresión adicional en estos tipos de recursos no reducirá significativamente el tamaño de archivo. Por lo tanto, se recomienda no habilitar la compresión en estos tipos de recursos.
+- Esta característica solo comprime recursos con un tamaño inferior a 1 MB. Los servidores no comprimen recursos de mayor tamaño.
+- Algunos tipos de contenido, como las imágenes, los vídeos y los recursos multimedia de audio (p. ej., JPG, MP3, MP4, etc.), ya están comprimidos. Debido a que una compresión adicional en estos tipos de recursos no reduce significativamente el tamaño del archivo, se recomienda no habilitar la compresión en ellos.
 - No se admiten caracteres comodín, como asteriscos.
-- Antes de agregar esta característica a una regla, asegúrese de deshabilitar la opción Compression (Compresión) de la página Compression (Compresión) para la plataforma a la que se aplicará esta regla.
+- Antes de agregar esta característica a una regla, asegúrese de deshabilitar la opción Compression (Compresión) de la página Compression (Compresión) para la plataforma a la que se aplica esta regla.
 
 [Volver arriba](#azure-cdn-rules-engine-features)
 
@@ -470,9 +470,9 @@ Información importante:
 
 El propósito principal de este campo personalizado es que le permite determinar qué valores de encabezado de solicitud y respuesta se almacenarán en los archivos de registro.
 
-De forma predeterminada, el campo de registro personalizado se llama "x-ec_custom-1". Sin embargo, el nombre de este campo se puede personalizar en la página Configuración de registro sin procesar.
+De forma predeterminada, el campo de registro personalizado se llama "x-ec_custom-1". El nombre de este campo se puede personalizar en la página Configuración de registro sin procesar.
 
-A continuación se define el formato que se debe usar para especificar encabezados de solicitud y respuesta.
+El formato para especificar los encabezados de solicitud y respuesta se define de la siguiente manera:
 
 Tipo de encabezado|Formato|Ejemplos
 -|-|-
@@ -482,9 +482,9 @@ Encabezado de respuesta|%{[ResponseHeader]()}[o]()| %{Age}o <br/> %{Content-Type
 Información importante:
 
 - Un campo de registro personalizado puede contener cualquier combinación de campos de encabezado y texto sin formato.
-- Los caracteres válidos en este campo son los siguientes: alfanumérico (0-9, a-z y A-z), guiones, signo de dos puntos, punto y coma, apóstrofos, comas, puntos, caracteres de subrayado, signos de igual, paréntesis, corchetes y espacios. Solo se permiten los símbolos de porcentaje y las llaves cuando se usa para especificar un campo de encabezado.
+- Los caracteres válidos en este campo son los siguientes: alfanumérico (0-9, a-z y A-Z), guiones, signo de dos puntos, punto y coma, apóstrofos, comas, puntos, caracteres de subrayado, signos de igual, paréntesis, corchetes y espacios. Solo se permiten los símbolos de porcentaje y las llaves cuando se usa para especificar un campo de encabezado.
 - La ortografía para cada campo de encabezado especificado debe coincidir con el nombre de encabezado de solicitud o respuesta deseado.
-- Si desea especificar varios encabezados, se recomienda utilizar un separador para indicar cada encabezado. Por ejemplo, podría utilizar una abreviatura para cada encabezado. Esta es una sintaxis de ejemplo.
+- Si quiere especificar varios encabezados, use un separador para indicar cada uno de ellos. Por ejemplo, podría utilizar una abreviatura para cada encabezado:
     - AE: %{Accept-Encoding}i A: %{Authorization}i CT: %{Content-Type}o 
 
 **Valor predeterminado** -:
@@ -495,7 +495,7 @@ Información importante:
 
 ---
 ### <a name="debug-cache-response-headers"></a>Depurar encabezados de respuesta de la caché
-**Propósito**: determina si una respuesta puede incluir el encabezado de respuesta X-EC-Debug, que proporciona información sobre la directiva de caché para el recurso solicitado.
+**Propósito:** determina si una respuesta puede incluir el encabezado de respuesta X-EC-Debug, que proporciona información sobre la directiva de caché para el recurso solicitado.
 
 Los encabezados de respuesta de depuración de caché se incluirán en la respuesta cuando se cumplan las dos condiciones siguientes:
 
@@ -512,7 +512,7 @@ X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 
 Valor|Resultado
 -|-
-Enabled|Las solicitudes de encabezados de respuesta de caché de depuración devolverán una respuesta que incluye el encabezado X-EC-Debug.
+habilitado|Las solicitudes de encabezados de respuesta de caché de depuración devolverán una respuesta que incluye el encabezado X-EC-Debug.
 Disabled|El encabezado de respuesta X-EC-Debug se excluirá de la respuesta.
 
 **Comportamiento predeterminado**: deshabilitado.
@@ -557,7 +557,7 @@ Información importante:
 
 Valor | Resultado
 ------|-------
-Enabled| Hace que todas las solicitudes que cumplen los criterios de coincidencia se rechacen con respuesta 403 Prohibido.
+habilitado| Hace que todas las solicitudes que cumplen los criterios de coincidencia se rechacen con respuesta 403 Prohibido.
 Disabled| Restablece el comportamiento predeterminado. El comportamiento predeterminado es permitir que el servidor de origen determine el tipo de respuesta que se devolverá.
 
 **Comportamiento predeterminado**: deshabilitado.
@@ -617,7 +617,7 @@ Información importante:
 
 Valor|Resultado
 -|-
-Enabled|Las solicitudes se pueden redirigir.
+habilitado|Las solicitudes se pueden redirigir.
 Disabled|Las solicitudes no se redirigirán.
 
 **Comportamiento predeterminado**: deshabilitado.
@@ -678,7 +678,7 @@ Una solicitud para no almacenar en caché se produce cuando el cliente HTTP env�
 
 Valor|Resultado
 --|--
-Enabled|Permite reenviar las solicitudes de no almacenar en caché de un cliente HTTP al servidor de origen, y el servidor de origen devolverá los encabezados y el cuerpo de respuesta a través del servidor perimetral al cliente HTTP.
+habilitado|Permite reenviar las solicitudes de no almacenar en caché de un cliente HTTP al servidor de origen, y el servidor de origen devolverá los encabezados y el cuerpo de respuesta a través del servidor perimetral al cliente HTTP.
 Disabled|Restablece el comportamiento predeterminado. El comportamiento predeterminado es impedir que las solicitudes de no almacenar en caché se reenvíen al servidor de origen.
 
 Para todo el tráfico de producción, se recomienda dejar esta característica deshabilitada de forma predeterminada. De lo contrario, los servidores de origen no estarán protegidos frente a usuarios finales que accidentalmente podrían desencadenar muchas solicitudes de no almacenar en caché al actualizar las páginas web, o frente a muchos reproductores de medios populares que están codificados para enviar un encabezado de no almacenar en caché con cada solicitud de vídeo. No obstante, esta característica puede ser útil para aplicarla a determinados directorios de ensayo o pruebas que no son de producción, para poder extraer contenido nuevo a petición desde el servidor de origen.
@@ -777,7 +777,7 @@ Información importante:
 
 Valor|Resultado
 -|-
-Enabled|Permite almacenar cadenas de consulta cuando se anotan direcciones URL en un registro de acceso. Si una dirección URL no contiene una cadena de consulta, esta opción no tendrá efecto.
+habilitado|Permite almacenar cadenas de consulta cuando se anotan direcciones URL en un registro de acceso. Si una dirección URL no contiene una cadena de consulta, esta opción no tendrá efecto.
 Disabled|Restablece el comportamiento predeterminado. El comportamiento predeterminado es pasar por alto las cadenas de consulta cuando se anotan direcciones URL en un registro de acceso.
 
 **Comportamiento predeterminado**: deshabilitado.
@@ -814,7 +814,7 @@ Las solicitudes que se reenvían a un servidor de origen reflejarán los cambios
 
 En un encabezado de solicitud se puede realizar una de las siguientes acciones:
 
-Opción|Descripción|Ejemplo
+Opción|DESCRIPCIÓN|Ejemplo
 -|-|-
 Append|El valor especificado se agregará al final del valor del encabezado de solicitud existente.|**Valor de encabezado de solicitud (cliente):**Valor1 <br/> **Valor de encabezado de solicitud (motor de reglas HTTP):**Valor2 <br/>**Nuevo valor de encabezado de solicitud:**Valor1Valor2
 Sobrescribir|El valor del encabezado de solicitud se establecerá en el valor especificado.|**Valor de encabezado de solicitud (cliente):**Valor1 <br/>**Valor de encabezado de solicitud (motor de reglas HTTP):**Valor2 <br/>**Nuevo valor de encabezado de solicitud:**Valor2 <br/>
@@ -852,7 +852,7 @@ De forma predeterminada, un servidor de origen y los servidores perimetrales def
 
 En un encabezado de respuesta se puede realizar una de las siguientes acciones:
 
-Opción|Descripción|Ejemplo
+Opción|DESCRIPCIÓN|Ejemplo
 -|-|-
 Append|El valor especificado se agregará al final del valor del encabezado de respuesta existente.|**Valor de encabezado de respuesta (cliente):**Valor1 <br/> **Valor de encabezado de respuesta (motor de reglas HTTP):**Valor2 <br/>**Nuevo valor de encabezado de respuesta:**Valor1Valor2
 Sobrescribir|El valor del encabezado de respuesta se establecerá en el valor especificado.|**Valor de encabezado de respuesta (cliente):**Valor1 <br/>**Valor de encabezado de respuesta (motor de reglas HTTP):**Valor2 <br/>**Nuevo valor de encabezado de respuesta:**Valor2 <br/>
@@ -874,7 +874,7 @@ Información importante:
     - content-length
     - content-range
     - fecha
-    - server
+    - Servidor
     - trailer
     - transfer-encoding
     - upgrade
@@ -895,7 +895,7 @@ Esta caché parcial puede utilizarse para atender nuevas solicitudes de ese cont
 
 Valor|Resultado
 -|-
-Enabled|Las solicitudes pueden generar contenido almacenado parcialmente en caché.
+habilitado|Las solicitudes pueden generar contenido almacenado parcialmente en caché.
 Disabled|Las solicitudes solamente pueden generar una versión completamente almacenada en caché del contenido solicitado.
 
 **Comportamiento predeterminado**: deshabilitado.
@@ -981,7 +981,7 @@ Información importante:
 
 La opción Header name (Nombre de encabezado) define el nombre del encabezado de solicitud personalizado donde se almacena la dirección IP del cliente.
 
-Esta característica permite al servidor de origen del cliente averiguar las direcciones IP del cliente mediante un encabezado de solicitud personalizado. Si la solicitud se envió desde la memoria caché, no se informará al servidor de origen sobre la dirección IP del cliente. Por lo tanto, se recomienda usar esta característica con ADN o con recursos que no se almacenarán en caché.
+Esta característica permite al servidor de origen del cliente averiguar las direcciones IP del cliente mediante un encabezado de solicitud personalizado. Si la solicitud se envió desde la memoria caché, no se informará al servidor de origen sobre la dirección IP del cliente. Por lo tanto, se recomienda usar esta característica con recursos que no se almacenan en caché.
 
 Asegúrese de que el nombre de encabezado especificado no coincida con ninguno de los nombres siguientes:
 
@@ -1041,7 +1041,7 @@ La clave de cifrado que se usa para cifrar y descifrar los valores del token se 
 
 Valor | Resultado
 ------|---------
-Enabled | Protege el contenido solicitado con autenticación basada en token. Solo se admitirán las solicitudes de los clientes que proporcionen un token válido y cumplan los requisitos. Las transacciones de FTP se excluyen de la autenticación basada en token.
+habilitado | Protege el contenido solicitado con autenticación basada en token. Solo se admitirán las solicitudes de los clientes que proporcionen un token válido y cumplan los requisitos. Las transacciones de FTP se excluyen de la autenticación basada en token.
 Disabled| Restablece el comportamiento predeterminado. El comportamiento predeterminado es permitir la configuración de la autenticación basada en token para determinar si se protegerá una solicitud.
 
 **Comportamiento predeterminado**: deshabilitado.
@@ -1056,7 +1056,7 @@ Disabled| Restablece el comportamiento predeterminado. El comportamiento predete
 
 Los códigos de respuesta disponibles se enumeran a continuación.
 
-Código de respuesta|Nombre de la respuesta|Descripción
+Código de respuesta|Nombre de la respuesta|DESCRIPCIÓN
 ----------------|-----------|--------
 301|Movido permanentemente|Este código de estado redirige a los usuarios no autorizados a la dirección URL especificada en el encabezado Ubicación.
 302|Encontrado|Este código de estado redirige a los usuarios no autorizados a la dirección URL especificada en el encabezado Ubicación. Este código de estado es el método estándar del sector para llevar a cabo una redirección.
@@ -1130,7 +1130,7 @@ Información importante:
 
 Valor|Resultado
 ----|----
-Enabled|La opción Value (Valor) define el nombre del parámetro de cadena de consulta a través del cual se definirá un token.
+habilitado|La opción Value (Valor) define el nombre del parámetro de cadena de consulta a través del cual se definirá un token.
 Disabled|Un token se puede especificar como un parámetro de cadena de consulta no definido en la dirección URL de la solicitud.
 
 **Comportamiento predeterminado**: deshabilitado. Un token se puede especificar como un parámetro de cadena de consulta no definido en la dirección URL de la solicitud.
@@ -1145,7 +1145,7 @@ Disabled|Un token se puede especificar como un parámetro de cadena de consulta 
 
 Para configurar esta característica hay que establecer las siguientes opciones:
 
-Opción|Descripción
+Opción|DESCRIPCIÓN
 -|-
 Código|Seleccione el código de respuesta que se devolverá al solicitante.
 Origen y patrón| Esta opción define un patrón de URI de solicitud que identifica el tipo de solicitudes que se pueden redirigir. Solo se redirigirán las solicitudes cuya dirección URL satisfaga ambos criterios siguientes: <br/> <br/> **Origen (o punto de acceso a contenido):** seleccione una ruta de acceso relativa que identifique un servidor de origen. Se trata de la sección "/XXXX/" y el nombre del punto de conexión. <br/> **Origen (patrón):** se debe definir un patrón que identifique las solicitudes por ruta de acceso relativa. Este patrón de expresión regular debe definir una ruta de acceso que comienza directamente después del punto de acceso al contenido seleccionado anteriormente (vea más arriba). <br/> - Asegúrese de que los criterios de URI de solicitud (es decir, el origen y el patrón) definidos anteriormente no entren en conflicto con las condiciones de coincidencia definidas para esta característica. <br/> -Especifique un patrón; si usa un valor en blanco como patrón, se busca la coincidencia con todas las cadenas.
@@ -1188,7 +1188,7 @@ Información importante:
 
 - Para configurar esta característica hay que establecer las siguientes opciones:
 
-Opción|Descripción
+Opción|DESCRIPCIÓN
 -|-
  Origen y patrón | Esta opción define un patrón de URI de solicitud que identifica el tipo de solicitudes que se pueden reescribir. Solo se reescribirán las solicitudes cuya dirección URL satisfaga ambos criterios siguientes: <br/>     - **Origen (o punto de acceso al contenido)**: seleccione una ruta de acceso relativa que identifique un servidor de origen. Se trata de la sección "/XXXX/" y el nombre del punto de conexión. <br/> - **Origen (patrón):** se debe definir un patrón que identifique las solicitudes por ruta de acceso relativa. Este patrón de expresión regular debe definir una ruta de acceso que comienza directamente después del punto de acceso al contenido seleccionado anteriormente (vea más arriba). <br/> Compruebe que los criterios de URI de solicitud (es decir, el origen y el patrón) definidos anteriormente no entren en conflicto con las condiciones de coincidencia definidas para esta característica. Especifique un patrón; si usa un valor en blanco como patrón, se busca la coincidencia con todas las cadenas. 
  Destino  |Defina la dirección URL relativa en la que se sobrescribirán las solicitudes anteriores: <br/>    1. Seleccione un punto de acceso al contenido que identifique un servidor de origen. <br/>    2. Defina el uso de una ruta de acceso relativa: <br/>        - Un patrón de expresión regular <br/>        - Variables HTTP <br/> <br/> Tome los valores capturados en el patrón de origen y sustitúyalos en el patrón de destino mediante $_n_, donde _n_ identifica un valor por el orden en el que se capturó. Por ejemplo, $1 representa el primer valor capturado en el patrón de origen, mientras que $2 representa el segundo valor. 
@@ -1251,5 +1251,5 @@ Esta característica incluye los criterios de coincidencia que deben cumplirse p
 * [Referencia del motor de reglas](cdn-rules-engine-reference.md)
 * [Expresiones condicionales del motor de reglas](cdn-rules-engine-reference-conditional-expressions.md)
 * [Condiciones de coincidencia del motor de reglas](cdn-rules-engine-reference-match-conditions.md)
-* [Invalidación del comportamiento HTTP predeterminado mediante el motor de reglas](cdn-rules-engine.md)
-* [Información general de la red CDN de Azure](cdn-overview.md)
+* [Invalidación del comportamiento HTTP mediante el motor de reglas](cdn-rules-engine.md)
+* [Información general de Azure CDN](cdn-overview.md)

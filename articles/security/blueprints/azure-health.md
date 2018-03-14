@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/27/2018
 ms.author: simorjay
-ms.openlocfilehash: 41b36a25eab9c1564dc59a40acd7daefde888b7f
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 2bca630bb98b3d9c2be566fbd23ae3313c6a5a47
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Proyecto de seguridad y cumplimiento de Azure: IA y datos médicos HIPAA/HITRUST
 
@@ -40,21 +40,15 @@ Este proyecto está diseñado para servir como base modular para que los cliente
 
 -   Los clientes son responsables de llevar a cabo las revisiones de seguridad y cumplimiento adecuadas de todas las soluciones creadas con esta arquitectura base.
 
-Para obtener información general de cómo funciona esta solución, vea este [vídeo](https://aka.ms/healthblueprintvideo) en el que se explica y demuestra cómo realizar la implementación.
-
 ## <a name="deploying-the-automation"></a>Implementación de la automatización
 
 - Para implementar la solución, siga las instrucciones proporcionadas en la guía de implementación. 
 
 [![](./images/deploy.png)](https://aka.ms/healthblueprintdeploy)
 
+Para obtener información general de cómo funciona esta solución, vea este [vídeo](https://aka.ms/healthblueprintvideo) en el que se explica y demuestra cómo realizar la implementación.
+
 - Las preguntas más frecuentes se pueden encontrar en la guía de [preguntas más frecuentes](https://aka.ms/healthblueprintfaq).
-
-
-## <a name="solution-components"></a>Componentes de soluciones
-
-
-La arquitectura fundamental consta de los siguientes componentes:
 
 -   **Diagrama de arquitectura.** El diagrama muestra la arquitectura de referencia utilizada en el proyecto y el escenario del caso de uso de ejemplo.
 
@@ -66,12 +60,16 @@ La arquitectura fundamental consta de los siguientes componentes:
 -   Una instalación de módulo y un script de configuración del [administrador global](/azure/active-directory/active-directory-assign-admin-roles-azure-portal) se usan para instalar y comprobar que los roles de administrador global y los módulos de PowerShell necesarios están configurados correctamente. 
 -   Se usa un script de instalación de PowerShell para implementar la solución, que se proporciona en un archivo .zip que contiene funciones de demostración integradas.
 
+## <a name="solution-components"></a>Componentes de soluciones
+
+
+La arquitectura fundamental consta de los siguientes componentes:
 
 -   **[Modelo de amenazas](https://aka.ms/healththreatmodel)** se proporciona un modelo de amenazas completo en formato tm7 para su uso con [Microsoft Threat Modeling Tool](https://www.microsoft.com/en-us/download/details.aspx?id=49168) que muestra los componentes de la solución, los datos que fluyen entre ellos y los límites de confianza. El modelo puede ayudar a los clientes a comprender los puntos de riesgo potencial de la infraestructura del sistema al desarrollar componentes de aprendizaje automático u otras modificaciones.
 
--   **[Matriz de responsabilidad del cliente](https://aka.ms/healthcrmblueprint)** un libro de Microsoft Excel enumera los requisitos de HITRUST pertinentes y explica cómo Microsoft y el cliente son responsables del cumplimiento de cada uno de ellos.
+-   **[Matriz de implementación del cliente](https://aka.ms/healthcrmblueprint)** un libro de Microsoft Excel enumera los requisitos de HITRUST pertinentes y explica cómo Microsoft y el cliente son responsables del cumplimiento de cada uno de ellos.
 
--   **[Revisión de datos médicos. La solución ha sido revisada por Coalfire Systems, Inc. El documento de revisión del cumplimiento en datos médicos (HIPAA y HITRUST) y las instrucciones para la implementación proporcionan la opinión del auditor \' sobre la solución y sus consideraciones para transformar el proyecto en una implementación lista para producción.
+-   **[Revisión de datos médicos.](https://aka.ms/healthreviewpaper)** La solución ha sido revisada por Coalfire Systems, Inc. El documento de revisión del cumplimiento en datos médicos (HIPAA y HITRUST) y las instrucciones para la implementación proporcionan la opinión del auditor \' sobre la solución y sus consideraciones para transformar el proyecto en una implementación lista para producción.
 
 # <a name="architectural-diagram"></a>Diagrama de arquitectura
 

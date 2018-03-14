@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 11/10/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1c6cc4ba95f440f09f11a93927fd67873f8813e8
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: f51d85da1bda0d9483883301b71c20e405724b9b
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="configure-azure-backup-reports"></a>Configuración de informes de Azure Backup
 En este artículo se habla sobre los pasos para configurar informes de Azure Backup con el almacén de Recovery Services y para acceder a estos informes mediante Power BI. Después de realizar estos pasos, puede ir directamente a Power BI para ver todos los informes, personalizarlos y crearlos. 
@@ -153,7 +153,7 @@ Después de configurar la cuenta de Storage para informes con el almacén de Rec
 | Después de configurar la cuenta de Storage para los informes de Backup, **Cuenta de Storage** sigue mostrando **No configurado**. | Si ha configurado correctamente la cuenta de Storage, los datos de los informes se transmitirán a pesar de este problema. Para resolver este problema, vaya a Azure Portal > Todos los servicios > Configuración de diagnóstico > Almacén RS > Editar configuración. Elimine el valor configurado previamente y cree una nueva configuración en la misma hoja. Esta vez establezca el campo **Nombre** en **servicio**. Se debería mostrar la cuenta de Storage configurada. |
 |Después de importar el paquete de contenido de Azure Backup en Power BI, aparece el error **404-no se encuentra el contenedor**. | Tal como se sugiere en este documento, debe esperar 24 horas después de configurar los informes en el almacén de Recovery Services para verlos correctamente en Power BI. Si intenta obtener los informes antes de 24 horas obtendrá este error, ya que aún no hay datos completos para mostrar informes válidos. |
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Ahora que ha configurado la cuenta de Storage y ha importado el paquete de contenido de Azure Backup, el siguiente paso es personalizar estos informes y usar el modelo de datos de informes para crear informes. Consulte los siguientes artículos para obtener más información.
 
 * [Uso del modelo de datos de informes de Azure Backup](backup-azure-reports-data-model.md)

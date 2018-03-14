@@ -3,8 +3,8 @@ title: "Información sobre los controles de seguridad de Azure Stack | Microsoft
 description: Como administrador de servicios, conozca los controles de seguridad aplicados a Azure Stack
 services: azure-stack
 documentationcenter: 
-author: Heathl17
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: cccac19a-e1bf-4e36-8ac8-2228e8487646
 ms.service: azure-stack
@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: helaw
-ms.openlocfilehash: 106fcf7b0edc095a52e82d58ad48a73084b65d1e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/28/2018
+ms.author: mabrigg
+ms.openlocfilehash: fa0800f03d823769dcd9f01601689122b0d09ec5
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Posición de seguridad de la infraestructura de Azure Stack
 
-*Se aplica a: Sistemas integrados de Azure Stack*
+*Se aplica a: sistemas integrados de Azure Stack*
 
 Entre los principales factores que determinan el uso de nubes híbridas están las consideraciones de seguridad y las regulaciones de conformidad. Azure Stack se diseñó para estos escenarios, así que es importante comprender los controles ya existentes al adoptarlo.
 
@@ -31,10 +31,10 @@ En Azure Stack, hay dos capas de posición de seguridad que coexisten. La primer
 ## <a name="security-approach"></a>Enfoque de seguridad
 Azure Stack se diseñó con una posición de seguridad para defenderse contra las modernas amenazas, y se creó para satisfacer los requisitos de los principales estándares de cumplimiento. Como resultado, la posición de seguridad de Azure Stack se cimienta sobre dos pilares:
 
- - **Supuesto de infracción.** A partir de la suposición de que el sistema ya se ha infringido, nos centramos en *detectar y limitar el impacto de las infracciones*, en lugar de intentar únicamente impedir los ataques. 
- - **Protección predeterminada.**  Dado que la infraestructura se ejecuta en hardware y software bien definidos, se *habilitan, configuran y validan características de seguridad* que normalmente se deja que implementen los clientes.
+ - **Supuesto de infracción.** A partir de la suposición de que el sistema ya se ha infringido, céntrese en *detectar y limitar el impacto de las infracciones*, en lugar de intentar únicamente impedir los ataques. 
+ - **Protección predeterminada.**  Dado que la infraestructura se ejecuta en hardware y software bien definidos, *habilite, configure y valide características de seguridad* que se deja que implementen los clientes.
 
-Como Azure Stack se proporciona como un sistema integrado, la posición de seguridad de la infraestructura de Azure Stack la define Microsoft.  Al igual que en Azure, los inquilinos son responsables de definir la posición de seguridad de sus cargas de trabajo de inquilino. En este documento se proporciona conocimiento básico sobre la posición de seguridad de la infraestructura de Azure Stack.
+Como Azure Stack se proporciona como un sistema integrado, la posición de seguridad de la infraestructura de Azure Stack la define Microsoft. Al igual que en Azure, los inquilinos son responsables de definir la posición de seguridad de sus cargas de trabajo de inquilino. En este documento se proporciona conocimiento básico sobre la posición de seguridad de la infraestructura de Azure Stack.
 
 ## <a name="data-at-rest-encryption"></a>Cifrado de datos en reposo
 Todos los datos de la infraestructura de Azure Stack y de los inquilinos se cifran en reposo mediante Bitlocker. Este cifrado protege contra la pérdida física o el robo de componentes de almacenamiento de Azure Stack. 
@@ -71,7 +71,7 @@ La administración de Azure Stack está controlada mediante el uso de tres punto
 3. Para operaciones específicas de bajo nivel, por ejemplo, integración del centro de datos o escenarios de soporte técnico, Azure Stack expone un punto de conexión de PowerShell denominado [punto de conexión con privilegios](azure-stack-privileged-endpoint.md). Este punto de conexión solo expone un conjunto de cmdlets incluidos en lista blanca y está sometido a una auditoría exhaustiva.
 
 ## <a name="network-controls"></a>Controles de red
-La infraestructura de Azure Stack incluye varias capas de listas de control de acceso a redes (ACL).  Las ACL impiden el acceso no autorizado a los componentes de la infraestructura y limitan las comunicaciones de esta con solo las rutas de acceso que son necesarias para su funcionamiento. 
+La infraestructura de Azure Stack incluye varias capas de listas de control de acceso a redes (ACL). Las ACL impiden el acceso no autorizado a los componentes de la infraestructura y limitan las comunicaciones de esta con solo las rutas de acceso que son necesarias para su funcionamiento. 
 
 Las ACL de red se exigen en tres capas:
 1.  Parte superior del conmutador del rack

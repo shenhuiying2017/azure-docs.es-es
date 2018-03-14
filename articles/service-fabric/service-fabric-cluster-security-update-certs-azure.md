@@ -1,24 +1,8 @@
----
-title: "Administración de certificados en un clúster de Azure Service Fabric | Microsoft Docs"
-description: "Describe cómo agregar nuevos certificados, sustituir certificados y quitar certificados de un clúster de Service Fabric."
-services: service-fabric
-documentationcenter: .net
-author: ChackDan
-manager: timlt
-editor: 
-ms.assetid: 91adc3d3-a4ca-46cf-ac5f-368fb6458d74
-ms.service: service-fabric
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/09/2017
-ms.author: chackdan
-ms.openlocfilehash: c433e8683755e454f9561f094269c3daccf78a62
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+-- title: Administración de certificados en un clúster de Azure Service Fabric | Microsoft Docs description: Se describe cómo agregar, sustituir y quitar certificados en un clúster de Service Fabric.
+services: service-fabric documentationcenter: .net author: ChackDan manager: timlt editor: ''
+
+ms.assetid: 91adc3d3-a4ca-46cf-ac5f-368fb6458d74 ms.service: service-fabric ms.devlang: dotnet ms.topic: article ms.tgt_pltfrm: na ms.workload: na ms.date: 02/23/2018 ms.author: chackdan
+
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Agregar o quitar certificados para un clúster de Service Fabric de Azure
 Se recomienda leer [Escenarios de seguridad de los clústeres de Service Fabric](service-fabric-cluster-security.md) para familiarizarse con cómo Service Fabric usa los certificados X.509. Debe entender qué es un certificado de clúster y para qué se usa antes de seguir avanzando.
@@ -49,6 +33,8 @@ Para quitar un certificado secundario y dejar de usarlo para la seguridad del cl
 Si su intención es quitar el certificado que está marcado como principal, debe intercambiarlo primero con el certificado secundario y, después, eliminar la base de datos secundaria una vez completada la actualización.
 
 ## <a name="add-a-secondary-certificate-using-resource-manager-powershell"></a>Incorporación de un certificado secundario mediante Powershell para Resource Manager
+> [!ACTUALIZACIÓN!] Ahora disponemos de una forma mejor y más fácil de agregar un certificado secundario mediante [Add-AzureRmServiceFabricClusterCertificate](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/add-azurermservicefabricclustercertificate?view=azurermps-5.3.0). Si usa Add-AzureRmServiceFabricClusterCertificate, no es necesario que siga el resto de los pasos de esta sección.
+
 
 En estos pasos se da por hecho que está familiarizado con el funcionamiento de Resource Manager, que ha implementado al menos un clúster de Service Fabric mediante una plantilla de Resource Manager, y que tiene a mano la plantilla que utilizó para configurar el clúster. También se da por hecho que está familiarizado con el uso de JSON.
 

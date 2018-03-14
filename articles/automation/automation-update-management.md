@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: gwallace
-ms.openlocfilehash: bb20137cc3ac8daf82ee21300be6981e09ce3fe0
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 9280925cdd5cccf8d1d2f2b33a7de8523a07cd14
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="update-management-solution-in-azure"></a>Solución Update Management de Azure
 
@@ -56,8 +56,8 @@ En la tabla siguiente se muestra una lista de sistemas operativos compatibles:
 
 |Sistema operativo  |Notas  |
 |---------|---------|
-|Windows Server 2008 y versiones posterior     | Solo admite las evaluaciones de actualización         |
-|Windows Server 2008 R2 SP1 y versiones posteriores     |Se necesitan .NET Framework 4.5 y WMF 5.0 o posterior para Windows Server 2008 R2 SP1<br>Nano Server no se admite         |
+|Windows Server 2008, Windows Server 2008 R2 RTM    | Solo admite las evaluaciones de actualización         |
+|Windows Server 2008 R2 SP1 y versiones posteriores     |Se necesitan .NET Framework 4.5 y WMF 5.0 o posterior para Windows Server 2008 R2 SP1        |
 |CentOS 6 (x86/x64) y 7 (x64)      | Los agentes de Linux deben tener acceso a un repositorio de actualización.        |
 |Red Hat Enterprise (x86/x64) 6 y 7 (x64)     | Los agentes de Linux deben tener acceso a un repositorio de actualización.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) y 12 (x64)     | Los agentes de Linux deben tener acceso a un repositorio de actualización.        |
@@ -70,7 +70,7 @@ En la tabla siguiente se enumeran los sistemas operativos no admitidos:
 |Sistema operativo  |Notas  |
 |---------|---------|
 |Cliente Windows     | No se admiten los sistemas operativos cliente (Windows 7, Windows 10, etc.).        |
-|Nano Server     | Nano Server es parte de Windows 2016.        |
+|Windows Server 2016 Nano Server     | No compatible       |
 
 ### <a name="client-requirements"></a>Requisitos del cliente
 
@@ -255,7 +255,7 @@ Si se producen problemas al intentar incorporar la solución o una máquina virt
 | El certificado presentado por el servicio <wsid>.oms.opinsights.azure.com<br>no fue emitido por una entidad de certificación<br>utilizada para los servicios de Microsoft. Contacto<br>el administrador de red para comprobar si están ejecutando un proxy que intercepte<br>la comunicación TLS/SSL. |El proxy, la puerta de enlace o el firewall están bloqueando la comunicación | [Revise los requisitos de red](automation-offering-get-started.md#network-planning)|  
 | No se pudo registrar la máquina para la administración de revisiones,<br>error en el registro con la excepción<br>AgentService.HybridRegistration.<br>PowerShell.Certificates.CertificateCreationException:<br>error al crear un certificado autofirmado. ---><br>System.UnauthorizedAccessException: se denegó el acceso. | Error al generar un certificado autofirmado | Compruebe que la cuenta del sistema tiene<br>acceso de lectura a la carpeta:<br>**C:\ProgramData\Microsoft\**<br>**Crypto\RSA**|  
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Continúe con el tutorial para aprender a administrar actualizaciones de máquinas virtuales Windows.
 

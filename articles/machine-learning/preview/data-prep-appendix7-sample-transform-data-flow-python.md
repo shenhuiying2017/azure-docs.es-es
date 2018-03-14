@@ -5,18 +5,18 @@ services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 8146c2a41a2b8fc241131a42ec74227795867609
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: aa213a3b1a8949f0fca5e4bbb7ec5a6a775ae6ec
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="sample-of-custom-data-flow-transforms-python"></a>Ejemplo de transformaciones de flujo de datos personalizados (Python) 
 El nombre de la transformación en el menú es **Transform Dataflow (Script)** (Transformar flujo de datos [script]). Antes de leer este apéndice, vea la [Introducción a la extensibilidad de Python](data-prep-python-extensibility-overview.md).
@@ -42,8 +42,8 @@ Reformula los datos para cumplir una fórmula para reducir los valores atípicos
 
 ## <a name="transform-data-flow"></a>Transformación del flujo de datos
 ### <a name="fill-down"></a>Rellenar hacia abajo 
-"Rellenar hacia abajo" requiere dos transformaciones. Se asume que tenemos unos datos como estos:
 
+"Rellenar hacia abajo" requiere dos transformaciones. Se asume que tenemos unos datos como los de la tabla siguiente:
 
 |Estado         |City       |
 |--------------|-----------|
@@ -58,16 +58,17 @@ Reformula los datos para cumplir una fórmula para reducir los valores atípicos
 |              |San Antonio|
 |              |Houston    |
 
-En primer lugar, cree una transformación "Add Column (Script)" (Agregar columna [script]) que contenga el siguiente código:
+1. Cree una transformación "Add Column (Script)" (Agregar columna [script]) con el código siguiente:
 ```python
     row['State'] if len(row['State']) > 0 else None
 ```
-Luego, cree una transformación "Transform Data Flow (Script)" (Transformar flujo de datos [script]) que contenga el siguiente código:
+
+2. Cree una transformación "Transform Data Flow (Script)" (Transformar flujo de datos [script]) que contenga el siguiente código:
 ```python
     df = df.fillna( method='pad')
 ```
 
-Los datos ahora tienen un aspecto similar al siguiente:
+Los datos ahora tienen un aspecto similar a la tabla siguiente:
 
 |Estado         |newState         |City       |
 |--------------|--------------|-----------|

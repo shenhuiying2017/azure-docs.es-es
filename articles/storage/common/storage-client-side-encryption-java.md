@@ -1,6 +1,6 @@
 ---
 title: Cifrado del lado de cliente con Java para el Microsoft Azure Storage | Microsoft Docs
-description: "La biblioteca de cliente de Almacenamiento de Azure para Azure ofrece compatibilidad para el cifrado de cliente e integración con el Almacén de claves de Azure para obtener una seguridad máxima para sus aplicaciones de Almacenamiento de Azure."
+description: "La biblioteca de cliente de Azure Storage para Azure ofrece compatibilidad para el cifrado de cliente e integración con Azure Key Vault para obtener una seguridad máxima para sus aplicaciones de Azure Storage."
 services: storage
 documentationcenter: java
 author: lakasa
@@ -14,17 +14,17 @@ ms.devlang: java
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: lakasa
-ms.openlocfilehash: 9f9ed8043d3671beacb9fabeb9e96604a8f065ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b4f3814ac2dbc8b74cef8f5fcb0540b7509efa0d
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="client-side-encryption-and-azure-key-vault-with-java-for-microsoft-azure-storage"></a>Cifrado del lado de cliente y Azure Key Vault para Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
 
 ## <a name="overview"></a>Información general
-La [Biblioteca de cliente del Almacenamiento de Azure para Java](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) permite tanto el cifrado de datos dentro de las aplicaciones de cliente antes de cargarlos en el Almacenamiento de Azure, como el descifrado de datos mientras estos se descargan al cliente. Asimismo, la biblioteca también admite la integración con el [Almacén de claves de Azure](https://azure.microsoft.com/services/key-vault/) para la administración de claves de la cuenta de almacenamiento.
+La [Biblioteca de cliente de Azure Storage para Java](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) permite tanto el cifrado de datos dentro de las aplicaciones de cliente antes de cargarlos en Azure Storage, como el descifrado de datos mientras estos se descargan al cliente. Asimismo, la biblioteca también admite la integración con [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) para la administración de claves de la cuenta de almacenamiento.
 
 ## <a name="encryption-and-decryption-via-the-envelope-technique"></a>Cifrado y descifrado a través de la técnica de sobres
 El proceso de cifrado y descifrado sigue la técnica de sobres.  
@@ -34,9 +34,9 @@ El cifrado mediante la técnica de sobres funciona de la siguiente manera:
 
 1. La biblioteca de cliente de almacenamiento de Azure genera una clave de cifrado de contenido (CEK), que es una clave simétrica de un solo uso.  
 2. Los datos de usuario se cifran mediante esta CEK.   
-3. Se encapsula la CEK (cifrada) con la clave de cifrado de clave (KEK). La KEK se identifica mediante un identificador de clave y puede ser un par de clave asimétrico o una clave simétrica que puede administrarse de forma local o guardarse en Almacén de claves de Azure.  
-   La propia biblioteca de cliente de almacenamiento no tiene nunca acceso a la KEK. La biblioteca invoca el algoritmo de encapsulado de clave proporcionado por Almacén de claves. Los usuarios pueden elegir utilizar proveedores personalizados para el ajuste y desajuste clave si lo desean.  
-4. A continuación, se cargan los datos cifrados en el servicio Almacenamiento de Azure. La clave encapsulada y algunos metadatos adicionales de cifrado se almacenan como metadatos (en un blob) o se interpolan con los datos cifrados (cola de mensajes y las entidades de tabla).
+3. Se encapsula la CEK (cifrada) con la clave de cifrado de clave (KEK). La KEK se identifica mediante un identificador de clave y puede ser un par de clave asimétrico o una clave simétrica que puede administrarse de forma local o guardarse en Azure Key Vault.  
+   La propia biblioteca de cliente de almacenamiento no tiene nunca acceso a la KEK. La biblioteca invoca el algoritmo de encapsulado de clave proporcionado por Key Vault. Los usuarios pueden elegir utilizar proveedores personalizados para el ajuste y desajuste clave si lo desean.  
+4. A continuación, se cargan los datos cifrados en el servicio Azure Storage. La clave encapsulada y algunos metadatos adicionales de cifrado se almacenan como metadatos (en un blob) o se interpolan con los datos cifrados (cola de mensajes y las entidades de tabla).
 
 ### <a name="decryption-via-the-envelope-technique"></a>Descifrado a través de la técnica de sobres
 El descifrado mediante la técnica de sobres funciona de la siguiente manera:  
@@ -99,28 +99,32 @@ El cifrado de datos de tabla funciona de la siguiente forma:
 En las operaciones por lotes, se usará la misma KEK en todas las filas de esa operación por lotes porque la biblioteca de cliente solo permite un objeto de opciones (y, por lo tanto, una directiva/KEK) por cada operación por lotes. Sin embargo, la biblioteca de cliente generará internamente un nuevo vector de inicialización aleatorio y una CEK aleatoria por cada fila del lote. Los usuarios también pueden optar por cifrar diferentes propiedades para cada operación del lote mediante la definición de este comportamiento en la resolución de cifrado.
 
 ### <a name="queries"></a>Consultas
+> [!NOTE]
+> Dado que las entidades están cifradas, no se pueden ejecutar consultas que filtren por una propiedad cifrada.  Si lo intenta, los resultados serán incorrectos, porque el servicio estaría intentando comparar los datos cifrados con los datos sin cifrar.
+> 
+>
 Para realizar operaciones de consulta, debe especificar a una resolución de clave que sea capaz de resolver todas las claves en el conjunto de resultados. Si una entidad incluida en el resultado de la consulta no se puede resolver en un proveedor, la biblioteca de cliente producirá un error. Para cualquier consulta que realice proyecciones del lado servidor, la biblioteca de cliente agregará las propiedades de metadatos de cifrado especiales (_ClientEncryptionMetadata1 y _ClientEncryptionMetadata2) a las columnas seleccionadas de forma predeterminada.
 
-## <a name="azure-key-vault"></a>Almacén de claves de Azure
-El Almacén de claves de Azure ayuda a proteger claves criptográficas y secretos usados por servicios y aplicaciones en la nube. Mediante el uso del Almacén de claves de Azure, los usuarios pueden cifrar claves y secretos (por ejemplo claves de autenticación, claves de cuenta de almacenamiento, claves de cifrado de datos, archivos .PFX y contraseñas) usando claves que están protegidas por módulos de seguridad de hardware (HSM). Para obtener más información, consulte [¿Qué es el Almacén de claves de Azure?](../../key-vault/key-vault-whatis.md)
+## <a name="azure-key-vault"></a>Azure Key Vault
+Azure Key Vault ayuda a proteger claves criptográficas y secretos usados por servicios y aplicaciones en la nube. Con Azure Key Vault, los usuarios pueden cifrar claves y secretos (por ejemplo, claves de autenticación, claves de cuenta de almacenamiento, claves de cifrado de datos, archivos .PFX y contraseñas) usando claves que están protegidas por módulos de seguridad de hardware (HSM). Para obtener más información, consulte [¿Qué es Azure Key Vault?](../../key-vault/key-vault-whatis.md)
 
-La biblioteca de cliente de almacenamiento utiliza la biblioteca básica del Almacén de claves para proporcionar un marco común en Azure para administrar las claves. Los usuarios obtienen también la ventaja adicional de usar la biblioteca de extensiones del Almacén de claves. La biblioteca de extensiones ofrece funciones útiles para los proveedores de claves en la nube y locales simétricas/RSA, así como para la agregación y el almacenamiento en caché.
+La biblioteca de cliente de almacenamiento utiliza la biblioteca básica de Key Vault para proporcionar un marco común en Azure para administrar las claves. Los usuarios obtienen también la ventaja adicional de usar la biblioteca de extensiones de Key Vault. La biblioteca de extensiones ofrece funciones útiles para los proveedores de claves en la nube y locales simétricas/RSA, así como para la agregación y el almacenamiento en caché.
 
 ### <a name="interface-and-dependencies"></a>Interfaz y dependencias
-Hay tres paquetes del Almacén de claves:  
+Hay tres paquetes de Key Vault:  
 
 * azure-keyvault-core contiene IKey e IKeyResolver. Es un paquete pequeño sin dependencias. La biblioteca de cliente de almacenamiento para Java lo define como dependencia.
-* azure-keyvault contiene el cliente de REST del Almacén de claves.  
-* azure-keyvault-extensions contiene el código de extensión que incluye implementaciones de algoritmos criptográficos, además de una RSAKey y una SymmetricKey. Depende de los espacios de nombres principales y KeyVault. Proporciona funcionalidad para definir una resolución de agregado (cuando los usuarios desean utilizar varios proveedores de clave) y una resolución de clave de almacenamiento en caché. Aunque la biblioteca de cliente de almacenamiento no depende directamente de este paquete, si los usuarios desean usar el Almacén de claves de Azure para almacenar sus claves o utilizar las extensiones del Almacén de claves para consumir los proveedores de servicios criptográficos locales y en la nube, necesitarán este paquete.  
+* azure-keyvault contiene el cliente de REST de Key Vault.  
+* azure-keyvault-extensions contiene el código de extensión que incluye implementaciones de algoritmos criptográficos, además de una RSAKey y una SymmetricKey. Depende de los espacios de nombres principales y KeyVault. Proporciona funcionalidad para definir una resolución de agregado (cuando los usuarios desean utilizar varios proveedores de clave) y una resolución de clave de almacenamiento en caché. Aunque la biblioteca de cliente de almacenamiento no depende directamente de este paquete, si los usuarios desean usar Azure Key Vault para almacenar sus claves o utilizar las extensiones de Key Vault para consumir los proveedores de servicios criptográficos locales y en la nube, necesitarán este paquete.  
   
-  El Almacén de claves está diseñado para claves maestras de gran valor. Por su parte, los valores de limitación por cada Almacén de claves se diseñan teniendo en cuenta este aspecto. Al realizar el cifrado en el lado cliente con el Almacén de claves, el modelo preferido es usar las claves maestras simétricas almacenadas como secretos en el Almacén de claves y almacenadas en caché localmente. Los usuarios deben hacer lo siguiente:  
+  Key Vault está diseñado para claves maestras de gran valor. Por su parte, los valores de limitación por cada almacén de claves se diseñan teniendo en cuenta este aspecto. Al realizar el cifrado en el lado cliente con Key Vault, el modelo preferido es usar las claves maestras simétricas almacenadas como secretos en Key Vault y almacenadas en caché localmente. Los usuarios deben hacer lo siguiente:  
 
-1. Crear un secreto sin conexión y cargarlo en el Almacén de claves.  
+1. Crear un secreto sin conexión y cargarlo en  Key Vault.  
 2. Usar el identificador de base del secreto como un parámetro para resolver la versión actual del secreto para el cifrado y el almacenamiento en caché de esta información localmente. Usar CachingKeyResolver para el almacenamiento en caché (los usuarios no deben implementar su propia lógica de almacenamiento en caché).  
 3. Utilizar la resolución de caché como una entrada al crear la directiva de cifrado.
-   Puede encontrar más información acerca del uso del Almacén de claves en los ejemplos de código de cifrado. <fix URL>  
+   Puede encontrar más información acerca del uso de Key Vault en los ejemplos de código de cifrado. <fix URL>  
 
-## <a name="best-practices"></a>Prácticas recomendadas
+## <a name="best-practices"></a>Procedimientos recomendados
 La compatibilidad con el cifrado solo está disponible en la biblioteca de cliente de almacenamiento para Java.
 
 > [!IMPORTANT]
@@ -145,11 +149,11 @@ Al crear un objeto de EncryptionPolicy, los usuarios pueden proporcionar solo un
     Los [ejemplos de cifrado](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples) <fix URL>muestran un escenario más detallado de un extremo a otro para blobs, colas y tablas, junto con la integración de Key Vault.
 
 ### <a name="requireencryption-mode"></a>Modo RequireEncryption
-Los usuarios pueden habilitar opcionalmente un modo de operación en el que se deben cifrar todas las cargas y descargas. En este modo, los intentos de cargar datos sin una directiva de cifrado o de descargar datos no cifrados en el servicio generarán un error en el cliente. La marca **requireEncryption** del objeto de opciones de solicitud es la que controla este comportamiento. Si la aplicación va a cifrar todos los objetos almacenados en el Almacenamiento de Azure, puede establecer la propiedad **requireEncryption** en las opciones de solicitud predeterminadas del objeto de cliente de servicio.   
+Los usuarios pueden habilitar opcionalmente un modo de operación en el que se deben cifrar todas las cargas y descargas. En este modo, los intentos de cargar datos sin una directiva de cifrado o de descargar datos no cifrados en el servicio generarán un error en el cliente. La marca **requireEncryption** del objeto de opciones de solicitud es la que controla este comportamiento. Si la aplicación va a cifrar todos los objetos almacenados en Azure Storage, puede establecer la propiedad **requireEncryption** en las opciones de solicitud predeterminadas del objeto de cliente de servicio.   
 
 Por ejemplo, use **CloudBlobClient.getDefaultRequestOptions().setRequireEncryption(true)** para solicitar que se realice el cifrado de todas las operaciones de blob llevadas a cabo a través de ese objeto de cliente.
 
-### <a name="blob-service-encryption"></a>Cifrado del servicio de blobs
+### <a name="blob-service-encryption"></a>Cifrado de Blob service
 Cree un objeto **BlobEncryptionPolicy** y configúrelo en las opciones de solicitud (por API o en un nivel de cliente mediante el elemento **DefaultRequestOptions**). Todo lo demás lo controlará la biblioteca de cliente internamente.
 
 ```java
@@ -191,7 +195,7 @@ queue.addMessage(message, 0, 0, options, null);
 CloudQueueMessage retrMessage = queue.retrieveMessage(30, options, null);
 ```
 
-### <a name="table-service-encryption"></a>Cifrado del servicio Tabla
+### <a name="table-service-encryption"></a>Cifrado de Table service
 Además de crear una directiva de cifrado y configurarla en las opciones de solicitud, debe especificar un elemento **EncryptionResolver** en **TableRequestOptions** o establecer el atributo [Encrypt] en el captador y establecedor de la entidad.
 
 ### <a name="using-the-resolver"></a>Uso de la resolución
@@ -248,9 +252,9 @@ public void setEncryptedProperty1(final String encryptedProperty1) {
 Tenga en cuenta que el cifrado de sus resultados de datos de almacenamiento da lugar a la sobrecarga de rendimiento adicional. Se deben generar la clave de contenido e IV, se debe cifrar el propio contenido y se deben formatear y cargar metadatos adicionales. Esta sobrecarga variará según la cantidad de datos que se cifran. Se recomienda que los clientes prueben siempre sus aplicaciones para obtener un rendimiento durante el desarrollo.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Descargue el [paquete Maven de la Biblioteca de cliente de Almacenamiento de Azure para Java](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage)  
-* Descargue el [Código fuente de la Biblioteca de cliente de Almacenamiento de Azure para Java desde GitHub](https://github.com/Azure/azure-storage-java)   
-* Descargue la biblioteca Maven del Almacén de claves de Azure para los paquetes Maven de Java:
+* Descargue el [paquete Maven de la Biblioteca de cliente de Azure Storage para Java](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage)  
+* Descargue el [Código fuente de la Biblioteca de cliente de Azure Storage para Java desde GitHub](https://github.com/Azure/azure-storage-java)   
+* Descargue la biblioteca Maven de Azure Key Vault para los paquetes Maven de Java:
   * [principal](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault-core)
   * [cliente](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault)
-* Consulte la [documentación del Almacén de claves de Azure](../../key-vault/key-vault-whatis.md)
+* Consulte la [documentación de Azure Key Vault](../../key-vault/key-vault-whatis.md)
