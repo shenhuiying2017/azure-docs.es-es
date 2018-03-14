@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 12/19/2017
 ms.author: anoopkv
 ms.openlocfilehash: 1b75acb13ac4c8990f99f7454a6de5483f6ca2f1
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/07/2018
 ---
 # <a name="manage-a-process-server-running-in-azure-resource-manager"></a>Administración de un servidor de procesos que se ejecuta en Azure (Resource Manager)
 > [!div class="op_single_selector"]
@@ -48,7 +48,7 @@ Durante la conmutación por recuperación, se recomienda implementar el servidor
 |Elija dónde desea implementar el servidor de procesos.|Seleccione el valor **Deploy a failback process server in Azure** (Implementar un servidor de procesos de conmutación de recuperación en Azure). |
 |La suscripción|Seleccione la suscripción de Azure donde ha conmutado por error las máquinas virtuales|
 |Grupo de recursos|Puede crear un grupo de recursos para implementar este servidor de procesos u optar por implementar el servidor de procesos en un grupo de recursos existente.|
-|La ubicación|Seleccione el centro de datos de Azure en donde se han conmutado por error las máquinas virtuales.|
+|Ubicación|Seleccione el centro de datos de Azure en donde se han conmutado por error las máquinas virtuales.|
 |Red de Azure|Seleccione la instancia de Azure Virtual Network en donde se han conmutado por error las máquinas virtuales. Si ha conmutado por error máquinas virtuales en varias redes virtuales de Azure, necesita un servidor de proceso implementado por red virtual.|
 
 4. Rellene el resto de las propiedades en el servidor de procesos.

@@ -15,10 +15,10 @@ ms.workload: backup-recovery
 ms.date: 02/22/2018
 ms.author: bsiva
 ms.openlocfilehash: 6704ddc24db8415051a6064bbde79a6fc527871a
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/07/2018
 ---
 # <a name="prepare-target-physical-to-azure"></a>Preparación del destino (físico a Azure)
 > [!div class="op_single_selector"]
@@ -48,5 +48,5 @@ Una vez completadas las validaciones correctamente, haga clic en Aceptar para ir
 
 Si no tiene una cuenta de almacenamiento de Resource Manager compatible o una red virtual, puede crearla haciendo clic en los botones **+ Cuenta de almacenamiento** o **+ Red** en la parte superior de la página.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Configuración de las opciones de replicación](./site-recovery-setup-replication-settings-vmware.md).

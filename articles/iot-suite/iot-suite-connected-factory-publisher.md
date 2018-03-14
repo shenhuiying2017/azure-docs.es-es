@@ -1,5 +1,5 @@
 ---
-title: "Uso de OPC Publisher de factoría conectada del Conjunto de aplicaciones de IoT de Azure | Microsoft Docs"
+title: "Uso de OPC Publisher de factoría conectada de Azure IoT Suite | Microsoft Docs"
 description: "Compilación e implementación de la referencia de OPC Publisher de factoría conectada."
 services: 
 suite: iot-suite
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/14/2017
 ms.author: dobett
 ms.openlocfilehash: 934f4deb3139c136c871ab0125ba45267e1d1b05
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/06/2018
 ---
 # <a name="opc-publisher-for-azure-iot-edge"></a>OPC Publisher para Azure IoT Edge
 
@@ -44,7 +44,7 @@ Esta aplicación usa la pila de referencia de OPC UA de OPC Foundations y, por t
 
 Puede encontrar el código fuente de OPC Publisher en el repositorio de GitHub [OPC Publisher para Azure IoT Edge](https://github.com/Azure/iot-edge-opc-publisher).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para compilar la aplicación, necesita el [SDK 1.1 de .NET Core](https://docs.microsoft.com/dotnet/core/sdk) para su sistema operativo.
 
@@ -382,7 +382,7 @@ docker run -h publisher microsoft/iot-edge-opc-publisher <applicationname> [<IoT
 
 #### <a name="using-bind-mounts-shared-filesystem"></a>Mediante montajes de enlaces (sistema de archivos compartido)
 
-En algunos escenarios, puede que desee leer la información de configuración desde ubicaciones del host, o escribir archivos de registro en estas ubicaciones, en lugar de usar el sistema de archivos del contenedor. Para configurar este comportamiento, use la opción `-v` de `docker run` en el modo de montaje de enlaces. Por ejemplo:
+En algunos escenarios, puede que desee leer la información de configuración desde ubicaciones del host, o escribir archivos de registro en estas ubicaciones, en lugar de usar el sistema de archivos del contenedor. Para configurar este comportamiento, use la opción `-v` de `docker run` en el modo de montaje de enlaces. Por ejemplo: 
 
 ```cmd/sh
 -v //D/docker:/build/out/Logs
