@@ -19,7 +19,7 @@ ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/05/2018
 ---
-# <a name="overview-of-azure-data-lake-store"></a>Información general del Almacén de Azure Data Lake
+# <a name="overview-of-azure-data-lake-store"></a>Información general del Almacenamiento con Azure Data Lake
 En este artículo hallará más información sobre los procedimientos recomendados y las consideraciones que debe tener en cuenta al trabajar con Azure Data Lake Store. En este artículo se proporciona información sobre seguridad, rendimiento, resistencia y supervisión de Data Lake Store. Antes de Data Lake Store, el trabajo con macrodatos en servicios como Azure HDInsight era complicado. Había que particionar los datos en varias cuentas de almacenamiento de blobs para que se pudiera lograr un almacenamiento de petabytes y un rendimiento óptimo a esa escala. Gracias a Data Lake Store, la mayoría de los restrictivos límites de tamaño y rendimiento se han eliminado. No obstante, aún quedan algunas consideraciones que debe tener en cuenta y que se describen en este artículo para que pueda obtener el mejor rendimiento de Data Lake Store. 
 
 ## <a name="security-considerations"></a>Consideraciones sobre la seguridad
@@ -28,7 +28,7 @@ Azure Data Lake Store ofrece controles de acceso de POSIX y una auditoría detal
 
 Suponga que tiene una carpeta con 100 000 objetos secundarios. Si tomamos el límite inferior de 30 objetos procesados por segundo, actualizar el permiso para toda la carpeta podría llevar una hora. Hay disponible más información sobre las listas de control de acceso de Data Lake Store en [Control de acceso en Azure Data Lake Store](data-lake-store-access-control.md). Para conseguir un rendimiento mejorado a la hora de asignar las listas de control de acceso de forma recursiva, puede usar la herramienta de línea de comandos de Azure Data Lake Store. Esta herramienta crea varios subprocesos y una lógica de navegación recursiva que permite aplicar rápidamente las listas de control de acceso a millones de archivos. La herramienta está disponible para Linux y Windows, y la [documentación](https://github.com/Azure/data-lake-adlstool) y las [descargas](http://aka.ms/adlstool-download) de esta herramienta se encuentran en GitHub.
 
-### <a name="use-security-groups-versus-individual-users"></a>Uso de grupos de seguridad en comparación con el de usuarios individuales 
+### <a name="use-security-groups-versus-individual-users"></a>Comparación entre el uso de grupos de seguridad con el de usuarios individuales 
 
 Cuando se trabaja con macrodatos en Data Lake Store, lo más probable es que se use una entidad de servicio para permitir que servicios como Azure HDInsight puedan trabajar con los datos. Sin embargo, puede haber casos en que los usuarios individuales también necesiten acceder a los datos. En estos casos, debe usar grupos de seguridad de Azure Active Directory en lugar de asignar usuarios individuales a carpetas y archivos. Una vez que se asignan permisos a un grupo de seguridad, agregar o quitar usuarios del grupo no requiere ninguna actualización en Data Lake Store. 
 
@@ -40,7 +40,7 @@ Como ya se ha explicado, si los usuarios necesitan acceder a Data Lake Store, es
 
 Azure HDInsight suele usar entidades de servicio de Azure Active Directory para acceder a datos de Data Lake Store. Según los requisitos de acceso de varias cargas de trabajo, puede que haya que tener en cuenta algunas consideraciones para garantizar la seguridad dentro y fuera de la organización. Para muchos clientes, puede que sea suficiente una única entidad de servicio de Azure Active Directory, y esta puede contener permisos completos en la raíz de Data Lake Store. Puede que otros clientes requieran varios clústeres con diferentes entidades de servicio donde uno de los clústeres tenga acceso total a los datos y otro tenga solo acceso de lectura. Al igual que con los grupos de seguridad, puede considerar la opción de crear una entidad de servicio para cada escenario previsto (lectura, escritura, total) una vez que haya creado la cuenta de Data Lake Store. 
 
-### <a name="enable-the-data-lake-store-firewall-with-azure-service-access"></a>Habilitamiento del firewall de Data Lake Store para el acceso de servicios de Azure 
+### <a name="enable-the-data-lake-store-firewall-with-azure-service-access"></a>Activar el firewall de Data Lake Store para el acceso de servicios de Azure 
 
 Data Lake Store admite la opción de activar un firewall y limitar el acceso solo a los servicios de Azure, lo cual se recomienda para reducir los vectores de ataque procedentes de intrusiones externas. El firewall se puede habilitar en la cuenta de Data Lake Store de Azure Portal a través de las opciones **Firewall** > **Habilitar firewall (ON)** > **Allow access to Azure services** (Permitir acceso a servicios de Azure).  
 
@@ -50,7 +50,7 @@ Una vez habilitado el firewall, solo los servicios de Azure como HDInsight, Data
 
 ## <a name="performance-and-scale-considerations"></a>Consideraciones sobre rendimiento y escalado
 
-Una de las características más eficaces de Data Lake Store es que permite eliminar los estrictos límites de rendimiento de datos. La eliminación de los límites permite a los clientes aumentar el tamaño de los datos y de los requisitos de rendimiento que estos requieren sin necesidad de particionar los datos. Una de las consideraciones más importantes a la hora de optimizar el rendimiento de Data Lake Store es que este funciona mejor si se proporciona paralelismo.
+Una de las características más eficaces de Data Lake Store es que permite eliminar los estrictos límites de rendimiento de datos. Al eliminar los límites permite a los clientes aumentar el tamaño de los datos y de los requisitos de rendimiento que estos requieren sin necesidad de particionar los datos. Una de las consideraciones más importantes a la hora de optimizar el rendimiento de Data Lake Store es que este funciona mejor si se proporciona paralelismo.
 
 ### <a name="improve-throughput-with-parallelism"></a>Mejora del rendimiento mediante el paralelismo 
 
@@ -77,7 +77,7 @@ Otro ejemplo que debe tener en cuenta es cuando se usa Azure Data Lake Analytics
 
 Azure Data Lake Store permite suprimir las limitaciones estrictas de E/S que tienen las cuentas de Blob Storage. No obstante, aún hay limitaciones flexibles que debe tener en cuenta. Las limitaciones predeterminadas de entrada y salida permiten satisfacer las necesidades de la mayoría de los escenarios. Si su carga de trabajo necesita que se aumenten los límites, póngase en contacto con el soporte técnico de Microsoft. Además, observe los límites durante la fase de prueba de concepto para que no se alcancen los límites de E/S durante la producción. Si eso sucede, puede que tenga que esperar un aumento manual por parte del equipo de ingeniería de Microsoft. Si se produce una limitación de E/S, Azure Data Lake Store devolverá un código de error 429 y, lo ideal sería volver a intentarlo con una directiva de retroceso exponencial adecuada. 
 
-### <a name="optimize-writes-with-the-data-lake-store-driver-buffer"></a>Optimización de "escrituras" con el búfer de controlador de Data Lake Store 
+### <a name="optimize-writes-with-the-data-lake-store-driver-buffer"></a>Optimización de "escritura" con el búfer de controlador de Data Lake Store 
 
 Para optimizar el rendimiento y reducir el número de operaciones de E/S por segundo cuando escriba en Data Lake Store desde Hadoop, ejecute operaciones de escritura en un número lo más adecuado posible al tamaño del búfer de controlador de Data Lake Store. Intente no superar el tamaño de búfer antes de vaciarlo como sucede, por ejemplo, durante el streaming mediante Apache Storm o en las cargas de trabajo de streaming de Spark. Al escribir en Data Lake Store desde HDInsight/Hadoop, es importante saber que Data Lake Store tiene un controlador con un búfer de 4 MB. Al igual que con muchos otros controladores del sistema de archivos, este búfer se puede vaciar manualmente antes de alcanzar ese tamaño. De lo contrario, si la siguiente operación de escritura supera el tamaño máximo del búfer este se vaciará inmediatamente en el almacenamiento. Siempre que sea posible, debe evitar tanto el desbordamiento como una significativa infrautilización del búfer al sincronizar o vaciar directivas por recuentos o períodos de tiempo.
 
