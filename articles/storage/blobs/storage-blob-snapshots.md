@@ -6,13 +6,13 @@ author: tamram
 manager: jeconnoc
 ms.service: storage
 ms.topic: article
-ms.date: 04/11/2017
+ms.date: 03/06/2018
 ms.author: tamram
-ms.openlocfilehash: cba28ada79ea806ead4ae9165abba2dc4e04f001
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 1a27dfd61850d9dfa1f232eacf7f09d66202cafe
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-blob-snapshot"></a>Creación de una instantánea de un blob
 
@@ -31,8 +31,6 @@ Cuando se crea una instantánea de un blob, las propiedades del sistema se copia
 Las concesiones asociadas con el blob base no afectan la instantánea. No puede adquirir una concesión en una instantánea.
 
 Se usa un archivo VHD para almacenar el estado y la información actual de un disco de máquina virtual. Puede desconectar un disco desde la máquina virtual o apagándola y, después, realizar una instantánea de su archivo VHD. Puede usar ese archivo de instantánea más adelante para recuperar el archivo VHD en ese momento y volver a crear la máquina virtual.
-
-Si está habilitado el cifrado del servicio Storage (SSE) en la cuenta de almacenamiento en la que reside el blob, todas las instantáneas realizadas de dicho blob se cifrarán en reposo.
 
 ## <a name="create-a-snapshot"></a>Crear una instantánea
 En el siguiente código de ejemplo se muestra cómo crear una instantánea mediante el uso de la [biblioteca de cliente de Azure Storage para .NET](https://www.nuget.org/packages/WindowsAzure.Storage/). En este ejemplo se especifican metadatos adicionales para la instantánea cuando se crea.
@@ -165,7 +163,7 @@ En la situación 4, el blob de base se ha actualizado totalmente y no contiene n
 
 ![Recursos de Azure Storage](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-4.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * Puede encontrar más información acerca de cómo trabajar con instantáneas de discos de máquina virtuales (VM) en [Copias de seguridad de discos de máquinas virtuales de Azure no administrados con instantáneas incrementales](../../virtual-machines/windows/incremental-snapshots.md)
 

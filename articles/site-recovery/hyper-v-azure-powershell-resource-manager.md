@@ -6,13 +6,13 @@ author: bsiva
 manager: abhiag
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 03/08/2018
 ms.author: bsiva
-ms.openlocfilehash: 5269fa528b6c32576b9cf1fb945ebf85b41ce819
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 4304cad9dc6aab7eb95885815a3ceb636ca6ff52
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>Configurar la recuperación ante desastres en Azure para máquinas virtuales de Hyper-V mediante PowerShell y Azure Resource Manager
 
@@ -41,7 +41,7 @@ Asegúrese de que tiene preparados estos requisitos previos:
 Además, en el ejemplo específico que se describe en este artículo verá que necesita cumplir los siguientes requisitos previos:
 
 * Un host de Hyper-V que ejecute Windows Server 2012 R2 o Microsoft Hyper-V Server 2012 R2 que contenga una o varias máquinas virtuales. Los servidores de Hyper-V deben estar conectados a Internet, directamente o a través de un proxy.
-* Las máquinas virtuales que quiera replicar deben cumplir con [estos requisitos previos](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+* Las máquinas virtuales que quiera replicar deben cumplir con [estos requisitos previos](hyper-v-azure-support-matrix.md#replicated-vms).
 
 ## <a name="step-1-sign-in-to-your-azure-account"></a>Paso 1: Inicio de sesión en la cuenta de Azure
 
@@ -203,5 +203,5 @@ Antes de comenzar, recuerde que la cuenta de almacenamiento especificada debe es
 
         $TFjob = Resume-AzureRmSiteRecoveryJob -Job $TFjob
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Más información](https://msdn.microsoft.com/library/azure/mt637930.aspx) sobre Azure Site Recovery con los cmdlets de PowerShell de Azure Resource Manager.

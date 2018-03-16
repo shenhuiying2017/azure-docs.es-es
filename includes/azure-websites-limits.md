@@ -1,4 +1,4 @@
-| Recurso | Gratuito | Compartido (Vista previa) | Básica | Estándar | Premium (vista previa)</th> |
+| Recurso | Gratuito | Compartido (Vista previa) | Básica | Estándar | Premium </th> |
 | --- | --- | --- | --- | --- | --- |
 | [Aplicaciones web, móviles o de API](https://azure.microsoft.com/services/app-service/) por [plan de App Service](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)<sup>1</sup> |10 |100 |Ilimitado<sup>2</sup> |Ilimitado<sup>2</sup> |Ilimitado<sup>2</sup> |
 | [Logic Apps](https://azure.microsoft.com/services/app-service/logic/) por [plan de App Service](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)</a><sup>1</sup> |10 |10 |10 |20 por núcleo |20 por núcleo |
@@ -33,7 +33,7 @@
 <sup>4</sup>El nivel Premium permite hasta 50 instancias de proceso (en función de la disponibilidad) y 500 GB de espacio en disco cuando se usa en entornos de App Service, y 20 instancias de proceso y 250 GB de almacenamiento, en caso contrario.  
 <sup>5</sup>El límite de almacenamiento es el tamaño total del contenido en todas las aplicaciones en el mismo plan de App Service. Hay más opciones de almacenamiento en [App Service Environment](../articles/app-service/environment/app-service-web-configure-an-app-service-environment.md#storage).  
 <sup>6</sup>Estos recursos están limitados por los recursos físicos en las instancias dedicadas (el tamaño de la instancia y el número de instancias).  
-<sup>7</sup>Si se escala una aplicación en el nivel Básico a dos instancias, dispone de 350 conexiones simultáneas para cada una de las dos.  
+<sup>7</sup>Si se escala una aplicación en el nivel Básico a dos instancias, dispones de 350 conexiones simultáneas para cada una de las dos.  
 <sup>8</sup>Ejecute scripts o archivos ejecutables personalizados bajo demanda, según una programación o de manera continua como tarea en segundo plano dentro de su instancia de App Service. Siempre disponible se requiere para la ejecución continua de Trabajos web. Se requiere Azure Scheduler de nivel Gratis o Estándar para Trabajos web programados. No hay ningún límite predefinido en el número de WebJobs que puede ejecutar en una instancia de App Service, pero sí hay límites prácticos que dependen de lo que el código de la aplicación esté intentando hacer.   
 <sup>9</sup>Acuerdo de nivel de servicio (SLA) del 99,95 % que se proporciona para realizar implementaciones que usan varias instancias con Azure Traffic Manager configurado para la conmutación por error.  
 

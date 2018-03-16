@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: 3cedc16e3a420fd846b7860b69f4b19591ad1777
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: b50e98fa7bfff75efe8c9b926838ea847f640651
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Introducción a Data Science Virtual Machine de Azure para Linux y Windows
 
@@ -89,7 +89,7 @@ La máquina virtual de ciencia de datos tiene muchas herramientas de ciencia de 
 | SDK para obtener acceso al conjunto de aplicaciones Cortana Intelligence y Azure | Y | Y |
 | **Herramientas de movimiento de datos y administración** | | |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Explorador de Azure Storage | Y | Y |
-| &nbsp;&nbsp;&nbsp;&nbsp;*   [CLI de Azure](https://docs.microsoft.com/cli/azure/overview) | Y | Y |
+| &nbsp;&nbsp;&nbsp;&nbsp;*   [CLI de Azure](https://docs.microsoft.com/cli/azure) | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Azure Powershell | Y | N |
 | &nbsp;&nbsp;&nbsp;&nbsp;*   [Azcopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy) | Y | N |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Controlador de Blob FUSE](https://github.com/Azure/azure-storage-fuse) | N | Y |
@@ -149,7 +149,7 @@ La máquina virtual de ciencia de datos tiene muchas herramientas de ciencia de 
 * En el símbolo del sistema de shell, especifique dsvm-more-info.
 * Para un escritorio gráfico, descargue el cliente X2Go para la plataforma cliente [aquí](http://wiki.x2go.org/doku.php/doc:installation:x2goclient) y siga las instrucciones en el documento de VM de ciencia de datos de Linux [Aprovisionamiento de máquina virtual de ciencia de datos de Linux](linux-dsvm-intro.md#installing-and-configuring-x2go-client).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 ### <a name="for-the-windows-data-science-vm"></a>Para la VM de ciencia de datos de Windows
 * Para obtener más información sobre cómo ejecutar las herramientas específicas disponibles en la versión de Windows, vea [Aprovisionamiento de la máquina virtual de ciencia de datos de Microsoft](provision-vm.md) y
 * Para obtener información sobre cómo realizar diversas tareas necesarias para el proyecto de ciencia de datos en la VM de Windows, vea [Diez cosas que puede hacer en la máquina virtual de ciencia de datos](vm-do-ten-things.md).

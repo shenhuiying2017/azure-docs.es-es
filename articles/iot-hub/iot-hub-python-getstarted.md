@@ -10,14 +10,14 @@ ms.devlang: python
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/25/2017
+ms.date: 03/02/2018
 ms.author: dkshir
 ms.custom: na
-ms.openlocfilehash: acc237afc5c7eccbf2caf876973c147eb8574d7b
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 2c14176a3d45b85ae94c27549e5d6448e240ed98
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="connect-your-simulated-device-to-your-iot-hub-using-python"></a>Conexión de un dispositivo simulado a IoT Hub mediante Python
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
@@ -37,7 +37,7 @@ Para completar este tutorial, necesitará lo siguiente:
 * [Python 2.x o 3.x][lnk-python-download]. Asegúrese de usar la instalación de 32 bits o 64 bits en función del programa de instalación. Cuando se le solicite durante la instalación, asegúrese de agregar Python a la variable de entorno específica de la plataforma. Si usa Python 2.x, puede que necesite [instalar o actualizar *pip*, el sistema de administración de paquetes de Python][lnk-install-pip].
 * Si utiliza Windows OS, el [paquete redistribuible de Visual C++][lnk-visual-c-redist] permitirá el uso de archivos DLL nativos de Python.
 * [Node.js 4.0 o posterior][lnk-node-download]. Asegúrese de usar la instalación de 32 bits o 64 bits en función del programa de instalación. Esto es necesario para instalar la [herramienta Explorador de IoT Hub][lnk-iot-hub-explorer].
-* Una cuenta de Azure activa. En caso de no tener ninguna, puede crear una [cuenta gratuita][lnk-free-trial] en tan solo unos minutos.
+* Una cuenta de Azure activa. Si no tiene ninguna, puede crear una [cuenta gratuita][lnk-free-trial] en tan solo unos minutos.
 
 > [!NOTE]
 > Los paquetes *pip* de `azure-iothub-service-client` y `azure-iothub-device-client` actualmente solo están disponibles para el sistema operativo Windows. Para Linux o Mac OS, consulte las secciones específicas del sistema operativo Mac y Linux en la publicación sobre cómo [preparar el entorno de desarrollo para Python][lnk-python-devbox].
@@ -45,7 +45,7 @@ Para completar este tutorial, necesitará lo siguiente:
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
-Ahora ha creado su Centro de IoT. Use el nombre de host y la cadena de conexión de IoT Hub en el resto del tutorial.
+Ahora ha creado su instancia de IoT Hub. Use el nombre de host y la cadena de conexión de IoT Hub en el resto del tutorial.
 
 > [!NOTE]
 > Puede también crear fácilmente una instancia de IoT Hub en una línea de comandos, mediante la CLI de Azure basada en Python o Node.js. En el artículo [Creación de una instancia de IoT Hub mediante la CLI de Azure 2.0][lnk-azure-cli-hub] se muestran los pasos rápidos para hacerlo. 
@@ -133,7 +133,7 @@ En esta sección se enumeran los pasos para crear una aplicación de consola de 
     ![Dispositivo creado][1]
 
 > [!NOTE]
-> El registro de identidades de IoT Hub solo almacena identidades de dispositivos para permitir el acceso seguro al centro de IoT. Almacena las claves y los identificadores de dispositivo para usarlos como credenciales de seguridad, y un indicador de habilitado o deshabilitado que permite deshabilitar el acceso a un dispositivo individual. Si la aplicación necesita almacenar otros metadatos específicos del dispositivo, debe usar un almacén específico de la aplicación. Consulte la [guía para desarrolladores de IoT Hub][lnk-devguide-identity] para más información.
+> El registro de identidades de IoT Hub solo almacena identidades de dispositivos para permitir el acceso seguro a IoT Hub. Almacena las claves y los identificadores de dispositivo para usarlos como credenciales de seguridad, y un indicador de habilitado o deshabilitado que permite deshabilitar el acceso a un dispositivo individual. Si la aplicación necesita almacenar otros metadatos específicos del dispositivo, debe usar un almacén específico de la aplicación. Consulte la [guía para desarrolladores de IoT Hub][lnk-devguide-identity] para más información.
 > 
 > 
 
@@ -283,7 +283,7 @@ Para recibir mensajes de telemetría del dispositivo, debe usar un punto de cone
     ![Mensajes de Python del dispositivo a la nube][2]
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este tutorial, configuró una nueva instancia de IoT Hub en Azure Portal y, después, creó una identidad de dispositivo en el registro de identidades de IoT Hub. Usó esta identidad de dispositivo para habilitar la aplicación del dispositivo simulado para enviar al centro de IoT los mensajes del dispositivo a la nube. Observó los mensajes que recibió IoT Hub con la ayuda de la herramienta Explorador de IoT Hub. 
+En este tutorial, configuró una nueva instancia de IoT Hub en Azure Portal y, después, creó una identidad de dispositivo en el registro de identidades de IoT Hub. Usó esta identidad de dispositivo para habilitar la aplicación del dispositivo simulado para enviar a IoT Hub los mensajes del dispositivo a la nube. Observó los mensajes que recibió IoT Hub con la ayuda de la herramienta Explorador de IoT Hub. 
 
 Para explorar el SDK de Python para el uso intensivo de Azure IoT Hub, visite [este repositorio de Git Hub][lnk-python-github]. Para revisar las funcionalidades de mensajería del SDK del servicio Azure IoT Hub para Python, puede descargar y ejecutar [iothub_messaging_sample.py][lnk-messaging-sample]. Para la simulación del lado del dispositivo mediante el SDK del dispositivo Azure IoT Hub para Python, puede descargar y ejecutar [iothub_client_sample.py][lnk-client-sample].
 

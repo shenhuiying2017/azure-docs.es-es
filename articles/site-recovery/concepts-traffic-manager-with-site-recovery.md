@@ -5,20 +5,15 @@ services: site-recovery
 documentationcenter: 
 author: mayanknayar
 manager: rochakm
-editor: 
-ms.assetid: 
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/05/2018
 ms.author: manayar
-ms.openlocfilehash: 3192c67938fe118e79aa68ee6194e76f21d65d98
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 8305a354588875926cab52a55d99d3a29bcfb509
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-traffic-manager-with-azure-site-recovery"></a>Azure Traffic Manager con Azure Site Recovery
 
@@ -49,11 +44,11 @@ En caso de desastre, la Compañía A puede desencadenar una [conmutación por er
 
 En función de sus requisitos empresariales, la **Compañía A** puede elegir una [frecuencia de sondeo](../traffic-manager/traffic-manager-monitoring.md) mayor o menor para cambiar entre el entorno local y Azure en caso de desastre, y así garantizar un tiempo de inactividad mínimo para los usuarios.
 
-Cuando el desastre está controlado, la **Compañía A** puede conmutar por recuperación de Azure a su entorno local ([VMware](site-recovery-how-to-failback-azure-to-vmware.md) o [Hyper-V](site-recovery-failback-from-azure-to-hyper-v.md)) mediante Azure Site Recovery. Luego, cuando Traffic Manager detecta que el punto de conexión **Principal** tiene de nuevo un estado correcto, lo usa automáticamente en sus respuestas DNS.
+Cuando el desastre está controlado, la **Compañía A** puede conmutar por recuperación de Azure a su entorno local ([VMware](vmware-azure-failback.md) o [Hyper-V](hyper-v-azure-failback.md)) mediante Azure Site Recovery. Luego, cuando Traffic Manager detecta que el punto de conexión **Principal** tiene de nuevo un estado correcto, lo usa automáticamente en sus respuestas DNS.
 
 ## <a name="on-premises-to-azure-migration"></a>Migración del entorno local a Azure
 
-Además de la recuperación ante desastres, Azure Site Recovery también permite [migraciones a Azure](site-recovery-migrate-to-azure.md). Gracias a las eficaces funcionalidades de conmutación por error de prueba de Azure Site Recovery, los clientes pueden valorar el rendimiento de las aplicaciones en Azure sin que su entorno local resulte afectado. Y, cuando estén listos para migrar, pueden elegir migrar cargas de trabajo enteras todas juntas o migrarlas y escalarlas gradualmente.
+Además de la recuperación ante desastres, Azure Site Recovery también permite [migraciones a Azure](migrate-overview.md). Gracias a las eficaces funcionalidades de conmutación por error de prueba de Azure Site Recovery, los clientes pueden valorar el rendimiento de las aplicaciones en Azure sin que su entorno local resulte afectado. Y, cuando estén listos para migrar, pueden elegir migrar cargas de trabajo enteras todas juntas o migrarlas y escalarlas gradualmente.
 
 El método de enrutamiento [Ponderado](../traffic-manager/traffic-manager-configure-weighted-routing-method.md) de Azure Traffic Manager puede usarse para dirigir parte del tráfico de entrada a Azure, mientras se dirige la mayoría al entorno local. Este enfoque puede ayudar a valorar el rendimiento a escala, dado que puede seguir aumentando el peso asignado a Azure a medida que se migran más y más cargas de trabajo a Azure.
 
@@ -120,7 +115,7 @@ Además, puede optimizar el valor de período de vida (TTL) de DNS para el perfi
 
 El TTL que experimenta el cliente tampoco aumenta si el número de resoluciones DNS entre el cliente y el servidor DNS autoritativo se incrementa. Las resoluciones DNS realizan la "cuenta atrás" del TTL y solo pasan un valor de TTL que refleja el tiempo transcurrido desde que el registro se almacenó en la caché. De esta forma, se garantiza que el registro DNS llega actualizado al cliente después del TTL, con independencia del número de resoluciones DNS en la cadena.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 - Más información sobre los [métodos de enrutamiento](../traffic-manager/traffic-manager-routing-methods.md) de Traffic Manager.
 - Más información sobre los [perfiles anidados de Traffic Manager](../traffic-manager/traffic-manager-nested-profiles.md).
 - Más información sobre la [supervisión de los puntos de conexión](../traffic-manager/traffic-manager-monitoring.md).

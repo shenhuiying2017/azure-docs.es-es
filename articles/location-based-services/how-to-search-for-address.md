@@ -3,16 +3,16 @@ title: "Cómo buscar una dirección mediante el servicio de búsqueda Azure Loca
 description: "Obtenga información sobre cómo buscar una dirección mediante el servicio de búsqueda Azure Location Based Services (versión preliminar)"
 services: location-based-services
 keywords: No agregue o edite palabras clave sin consultar su campo SEO.
-author: philmea
-ms.author: philmea
+author: kgremban
+ms.author: kgremban
 ms.date: 11/29/2017
 ms.topic: article
 ms.service: location-based-services
-ms.openlocfilehash: cacaaab869d3a7752b5a750f01bbfbdaf79814f7
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: dd8026c55d71f6e421b976d8e7ae12f1cfd679a1
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-find-an-address-using-the-azure-location-based-services-preview-search-service"></a>Cómo buscar una dirección mediante el servicio de búsqueda Azure Location Based Services (versión preliminar)
 El servicio de búsqueda es un conjunto de RESTful de API diseñadas para que los desarrolladores busquen direcciones, lugares, puntos de interés, listados de empresas y otra información geográfica. El servicio de búsqueda asigna una latitud/longitud a una dirección específica, calle transversal, característica geográfica o punto de interés (POI). Los valores de latitud y longitud devueltos por las API del servicio de búsqueda se pueden usar como parámetros en otros servicios Azure Location Based Services como las API de ruta y flujo de tráfico.
@@ -214,5 +214,5 @@ Puede pasar una dirección completa o parcial a la API de dirección de búsqued
     
 4. Haga clic en **Enviar** y revise el cuerpo de la respuesta. 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 - Explore la documentación de la API [Azure Location Based Serices Search service](https://docs.microsoft.com/rest/api/location-based-services/search) (Servicio de búsqueda Azure Location Based Services) 

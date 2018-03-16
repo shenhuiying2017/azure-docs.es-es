@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 01/31/2018
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: 1e52b89cf8ac1a8ddeaa7e08ebd3734d1affe98e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: ee01b83101d4ab4ee8665c32aca22a793b41ac0d
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="configure-virtual-network-service-endpoints"></a>Configuración de los puntos de conexión de servicio de Virtual Network
 
@@ -72,7 +72,7 @@ Espacio de direcciones | 10.0.0.0/16
 Nombre de subred|mySubnet
 Intervalo de direcciones de subred|10.0.0.0/24
 Grupos de recursos|Deje seleccionado Crear nuevo y después introduzca un nombre.
-La ubicación|Cualquier región admitida, por ejemplo, este de Australia
+Ubicación|Cualquier región admitida, por ejemplo, este de Australia
 La suscripción|Seleccione su suscripción.
 __ServiceEndpoints__|habilitado
 __Servicios__ | Seleccione uno de los servicios disponibles, o todos. Servicios admitidos: __"Microsoft.Storage", "Microsoft.Sql"__.
@@ -230,7 +230,7 @@ Get-AzureRmVirtualNetwork -ResourceGroupName "myRG" -Name "myVNet" | Set-AzureRm
 ## <a name="azure-cli"></a>Azure CLI
 
 Configuración de los requisitos previos:
-- Inicie sesión en la suscripción de Azure con el comando [az login](/cli/azure/#az_login) y siga las instrucciones de la pantalla. Para más información, consulte [Get started with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)(Introducción a la CLI de Azure 2.0).
+- Inicie sesión en la suscripción de Azure con el comando [az login](/cli/azure/reference-index#az_login) y siga las instrucciones de la pantalla. Para más información, consulte [Get started with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)(Introducción a la CLI de Azure 2.0).
  - La cuenta debe tener todos los [permisos](#provisioning) necesarios para crear una red virtual y un punto de conexión de servicio.
 
  Para obtener una lista completa de comandos para las redes virtuales, consulte los [comandos de red virtual de CLI de Azure](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest).

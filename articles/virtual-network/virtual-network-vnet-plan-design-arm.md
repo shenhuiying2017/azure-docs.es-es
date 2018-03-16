@@ -4,7 +4,7 @@ description: "Obtenga información sobre cómo planear y diseñar redes virtuale
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: jeconnoc
 editor: tysonn
 ms.assetid: 3a4a9aea-7608-4d2e-bb3c-40de2e537200
 ms.service: virtual-network
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/08/2016
 ms.author: jdial
-ms.openlocfilehash: 9a0126235c9ff3fec05d7709bdee95ab4832a33b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ecdc3a847821fd83718f9cfc42308667460feabc
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/09/2018
 ---
-# <a name="plan-and-design-azure-virtual-networks"></a>Planeación y diseño de redes virtuales de Azure
-Crear una red virtual con la cual experimentar es bastante sencillo, pero es probable que, con el tiempo, implemente varias redes virtuales para satisfacer las necesidades de producción que tiene su organización. Si aplica cierta planeación y diseño, podrá implementar redes virtuales y conectar los recursos que necesita de manera más eficaz. Si no conoce las redes virtuales, le recomendamos que [obtenga información sobre ellas](virtual-networks-overview.md) y aprenda [a implementar](virtual-networks-create-vnet-arm-pportal.md) una antes de continuar.
+# <a name="plan-and-design-azure-virtual-networks"></a>Planeación y diseño de Azure Virtual Network
+Crear una red virtual con la cual experimentar es bastante sencillo, pero es probable que, con el tiempo, implemente varias redes virtuales para satisfacer las necesidades de producción que tiene su organización. Si aplica cierta planeación y diseño, podrá implementar redes virtuales y conectar los recursos que necesita de manera más eficaz. Si no conoce las redes virtuales, le recomendamos que [obtenga información sobre ellas](virtual-networks-overview.md) y aprenda [a implementar](quick-create-portal.md) una antes de continuar.
 
 ## <a name="plan"></a>Plan
 Un conocimiento detallado de las suscripciones, las regiones y los recursos de red de Azure resulta fundamental para obtener éxito. Como punto de partida, puede usar la lista de consideraciones que aparece a continuación. Una vez que compra esas consideraciones, podrá definir los requisitos para el diseño de la red.
@@ -58,7 +58,7 @@ Los recursos de las redes virtuales y las subredes ayudan a definir un límite d
 
 Las Redes virtuales contienen las siguientes propiedades:
 
-| Propiedad | Description | Restricciones |
+| Propiedad | DESCRIPCIÓN | Restricciones |
 | --- | --- | --- |
 | **name** |Nombre de red virtual |Cadena de hasta 80 caracteres. Puede incluir letras, números, caracteres de subrayado, puntos o guiones. Debe empezar por una letra o un número. Debe finalizar en una letra, un número o un carácter de subrayado. Puede incluir letras mayúsculas o minúsculas. |
 | **ubicación** |La ubicación de Azure (también conocida como región). |Debe ser una de las ubicaciones válidas de Azure. |
@@ -71,7 +71,7 @@ Una subred es un recurso secundario de una red virtual que le ayudará a definir
 
 Las subredes contienen las siguientes propiedades:
 
-| Propiedad | Description | Restricciones |
+| Propiedad | DESCRIPCIÓN | Restricciones |
 | --- | --- | --- |
 | **name** |Nombre de subred |Cadena de hasta 80 caracteres. Puede incluir letras, números, caracteres de subrayado, puntos o guiones. Debe empezar por una letra o un número. Debe finalizar en una letra, un número o un carácter de subrayado. Puede incluir letras mayúsculas o minúsculas. |
 | **ubicación** |La ubicación de Azure (también conocida como región). |Debe ser una de las ubicaciones válidas de Azure. |
@@ -183,7 +183,7 @@ Para comenzar a planear el diseño, deberá responder la pregunta que aparece en
     Sí. Todas las aplicaciones deberán estar completamente aisladas entre sí y cada nivel de aplicación también deberá estar aislado.
 6. ¿Necesita controlar el flujo de tráfico mediante aplicaciones virtuales?
 
-    No. Se pueden usar aplicaciones virtuales para brindar más control sobre el flujo de tráfico, incluido el registro del plano de datos.
+    Nº Se pueden usar aplicaciones virtuales para brindar más control sobre el flujo de tráfico, incluido el registro del plano de datos.
 7. ¿Los usuarios necesitan distintos conjuntos de permisos para los diferentes recursos de Azure?
 
     Sí. El equipo de red necesita tener el control completo de la configuración de las redes virtuales, mientras que los desarrolladores solo debería poder implementar sus máquinas virtuales en las subredes existentes previamente.
@@ -208,14 +208,14 @@ También deberá especificar el espacio de direcciones para cada red virtual. Da
 
 | **Suscripción** | **Red virtual** | **Región de Azure** | **Espacio de direcciones** |
 | --- | --- | --- | --- |
-| BU1 |ProdBU1US1 |Oeste de EE. UU. |172.16.0.0/16 |
-| BU1 |ProdBU1US2 |Este de EE. UU. |172.17.0.0/16 |
+| BU1 |ProdBU1US1 |Oeste de EE. UU |172.16.0.0/16 |
+| BU1 |ProdBU1US2 |Este de EE. UU |172.17.0.0/16 |
 | BU1 |ProdBU1EU1 |Europa del Norte |172.18.0.0/16 |
 | BU1 |ProdBU1EU2 |Europa occidental |172.19.0.0/16 |
-| BU1 |TestDevBU1 |Oeste de EE. UU. |172.20.0.0/16 |
-| BU2 |TestDevBU2 |Oeste de EE. UU. |172.21.0.0/16 |
-| BU2 |ProdBU2US1 |Oeste de EE. UU. |172.22.0.0/16 |
-| BU2 |ProdBU2US2 |Este de EE. UU. |172.23.0.0/16 |
+| BU1 |TestDevBU1 |Oeste de EE. UU |172.20.0.0/16 |
+| BU2 |TestDevBU2 |Oeste de EE. UU |172.21.0.0/16 |
+| BU2 |ProdBU2US1 |Oeste de EE. UU |172.22.0.0/16 |
+| BU2 |ProdBU2US2 |Este de EE. UU |172.23.0.0/16 |
 | BU2 |ProdBU2EU1 |Europa del Norte |172.24.0.0/16 |
 | BU2 |ProdBU2EU2 |Europa occidental |172.25.0.0/16 |
 

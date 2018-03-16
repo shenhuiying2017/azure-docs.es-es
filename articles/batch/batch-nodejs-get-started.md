@@ -11,11 +11,11 @@ ms.topic: hero-article
 ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: shwetams
-ms.openlocfilehash: ce3d6d5aa721f84bda6d8de6eac161deb934a1e5
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 96a4203c11cc20e01eb164dfdd9178988074ff48
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Introducción al SDK de Batch para Node.js
 
@@ -73,7 +73,7 @@ Este comando instala la versión más reciente del SDK de Azure Batch.
 
 ### <a name="step-2-create-an-azure-batch-account"></a>Paso 2: Creación de una cuenta de Azure Batch
 
-Puede crearla desde [Azure Portal](batch-account-create-portal.md) o desde la línea de comandos ([Powershell](batch-powershell-cmdlets-get-started.md) /[CLI de Azure](/cli/azure/overview)).
+Puede crearla desde [Azure Portal](batch-account-create-portal.md) o desde la línea de comandos ([Powershell](batch-powershell-cmdlets-get-started.md) /[CLI de Azure](/cli/azure)).
 
 A continuación se muestran los comandos para crear una mediante la CLI de Azure.
 
@@ -357,7 +357,7 @@ El código agrega varias tareas al grupo. Y cada una de las tareas se ejecuta en
 
 El portal tiene vistas detalladas del estado de las tareas y trabajos. También puede utilizar la lista y obtener funciones en el SDK de Azure Batch para Node.js. En la documentación del siguiente [enlace](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Job.html) se proporcionan más detalles.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Consulte el artículo [Información general de las características de Azure Batch](batch-api-basics.md) , que es especialmente recomendable si no se conoce el servicio.
 - Consulte la [referencia de Batch Node.js](/javascript/api/overview/azure/batch) para explorar la API de Batch.

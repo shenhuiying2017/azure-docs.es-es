@@ -11,11 +11,11 @@ ms.devlang: azure-cli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 02/28/2018
-ms.openlocfilehash: c8b099e859e9ab418fd121a987920d037ed3f36d
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 14e365d90942a09db8bbd2f3eeb4c72a8be3819b
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="restore-an-azure-database-for-postgresql-server-using-azure-cli"></a>Restauración de un servidor de Azure Database for PostgreSQL mediante la CLI de Azure
 Este script de la CLI de ejemplo restaura un único servidor de Azure Database for PostgreSQL a un momento anterior.
@@ -42,7 +42,7 @@ Este script usa los comandos que se describen en la tabla siguiente:
 | [az postgresql server restore](/cli/azure/postgresql/server#az_msql_server_restore) | Restaura un servidor desde una copia de seguridad. |
 | [az group delete](/cli/azure/group#az_group_delete) | Elimina un grupo de recursos, incluidos todos los recursos anidados. |
 
-## <a name="next-steps"></a>pasos siguientes
-- Para más información sobre la CLI de Azure: [Documentación de la CLI de Azure](/cli/azure/overview).
+## <a name="next-steps"></a>Pasos siguientes
+- Para más información sobre la CLI de Azure: [Documentación de la CLI de Azure](/cli/azure).
 - Pruebe otros scripts adicionales: [Ejemplos de la CLI de Azure para Azure Database for PostgreSQL](../sample-scripts-azure-cli.md).
 - [Copia de seguridad y restauración de un servidor en Azure Database for PostgreSQL mediante Azure Portal](../howto-restore-server-portal.md)

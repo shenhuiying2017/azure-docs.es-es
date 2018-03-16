@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: e8a6722c74f044b5310ce0fcb937002f5a1e8fa2
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 6c3fb08a43bce6193aa0094992616a290129bac8
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Creación, cambio o eliminación de una interfaz de red
 
@@ -39,7 +39,7 @@ Complete las tareas siguientes antes de seguir los pasos de las secciones de est
 
 ## <a name="create-a-network-interface"></a>Crear una interfaz de red
 
-Al crear una máquina virtual desde Azure Portal, este crea una interfaz de red con la configuración predeterminada. Si prefiere especificar toda la configuración de la interfaz de red, puede crear una interfaz de red con una configuración personalizada y asociar la interfaz de red a una máquina virtual al crear esta última (con PowerShell o la CLI de Azure). También puede crear una interfaz de red y agregarla a una máquina virtual existente (con PowerShell o la CLI de Azure). Para obtener información sobre cómo crear una máquina virtual con una interfaz de red existente, o cómo agregar interfaces de red a máquinas virtuales existentes, o quitarlas, consulte el artículo [Adición o eliminación de interfaces de red](virtual-network-network-interface-vm.md). En la misma ubicación y suscripción donde vaya a crear la interfaz de red, debe tener previamente una [red virtual](virtual-networks-create-vnet-arm-pportal.md).
+Al crear una máquina virtual desde Azure Portal, este crea una interfaz de red con la configuración predeterminada. Si prefiere especificar toda la configuración de la interfaz de red, puede crear una interfaz de red con una configuración personalizada y asociar la interfaz de red a una máquina virtual al crear esta última (con PowerShell o la CLI de Azure). También puede crear una interfaz de red y agregarla a una máquina virtual existente (con PowerShell o la CLI de Azure). Para obtener información sobre cómo crear una máquina virtual con una interfaz de red existente, o cómo agregar interfaces de red a máquinas virtuales existentes, o quitarlas, consulte el artículo [Adición o eliminación de interfaces de red](virtual-network-network-interface-vm.md). En la misma ubicación y suscripción donde vaya a crear la interfaz de red, debe tener previamente una [red virtual](manage-virtual-network.md#create-a-virtual-network).
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta que, como mínimo, tenga asignados los permisos del rol de colaborador de red para la suscripción. Lea el artículo [Roles integrados para el control de acceso basado en roles de Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) para más información sobre la asignación de roles y permisos a las cuentas.
 2. En el cuadro que contiene el texto *Buscar recursos*, en la parte superior de Azure Portal, escriba *interfaces de red*. Cuando **interfaces de red** aparezca en los resultados de búsqueda, haga clic en él.

@@ -8,11 +8,11 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: babanisa
-ms.openlocfilehash: 1025fd10b00bc07872e23cb10da2682fa8cca394
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 9d2b32df6e4b931539eac34d09135ea33069b936
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="event-grid-security-and-authentication"></a>Seguridad y autenticación de Event Grid 
 
@@ -63,7 +63,7 @@ Para comprobar la propiedad del punto de conexión, devuelva el código de valid
 
 Puede proteger el punto de conexión del webhook mediante la incorporación de parámetros de consulta a la URL del webhook al crear una suscripción a eventos. Establezca uno de estos parámetros de consulta como secreto, como un [token de acceso](https://en.wikipedia.org/wiki/Access_token) con el que el webhook reconozca que el evento viene de Event Grid con permisos válidos. Event Grid incluye estos parámetros de consulta en cada entrega de eventos al webhook.
 
-Al editar la suscripción a eventos, los parámetros de consulta no se muestran ni se devuelven, a menos que el parámetro [--include-full-endpoint-url](https://docs.microsoft.com/en-us/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_show) se utilice en la [CLI](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest) de Azure.
+Al editar la suscripción a eventos, los parámetros de consulta no se muestran ni se devuelven, a menos que el parámetro [--include-full-endpoint-url](https://docs.microsoft.com/en-us/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_show) se utilice en la [CLI](https://docs.microsoft.com/en-us/cli/azure?view=azure-cli-latest) de Azure.
 
 Por último, es importante tener en cuenta que Azure Event Grid solo admite puntos de conexión de webhook HTTPS.
 
@@ -241,6 +241,6 @@ Para asignar el rol a un usuario, use:
 az role assignment create --assignee <user name> --role "<name of role>"
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * Para obtener una introducción a Event Grid, vea [About Event Grid](overview.md) (Acerca de Event Grid).

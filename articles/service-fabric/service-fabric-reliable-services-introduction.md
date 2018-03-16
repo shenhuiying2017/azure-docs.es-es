@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/23/2018
+ms.date: 3/9/2018
 ms.author: masnider;
-ms.openlocfilehash: 3c583d99a63c13a0a2ab351f82a4f5ff6840788a
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: cf647c078728c9fbe357fea5bef4aa6dfb86c975
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="reliable-services-overview"></a>Información general sobre Reliable Services
 Azure Service Fabric simplifica la escritura y administración de los servicios de Reliable Services con y sin estado. En este tema se explica:
@@ -88,10 +88,6 @@ Un servicio con estado es el que debe tener alguna parte del estado coherente y 
 
 Actualmente la mayoría de servicios almacena su estado externamente debido a que el almacén externo es lo que proporciona confiabilidad, disponibilidad, escalabilidad y coherencia para ese estado. En Service Fabric, los servicios no necesitan almacenar su estado externamente. Service Fabric se ocupa de estos requisitos tanto para el código de servicio como para el estado de servicio.
 
-> [!NOTE]
-> Linux todavía no es compatible con Reliable Services con estado (para C# o Java).
->
-
 Supongamos que queremos escribir un servicio que procesa imágenes. Para ello, el servicio toma una imagen y la serie de conversiones que se han de realizar en dicha imagen. Luego devuelve un agente de escucha de comunicación (por ejemplo, una WebAPI) que expone una API como `ConvertImage(Image i, IList<Conversion> conversions)`. Cuando recibe una solicitud, el servicio la almacena en una `IReliableQueue` y devuelve algún identificador al cliente para que pueda realizar un seguimiento de la solicitud.
 
 En este servicio, `RunAsync()` podría ser más complejo. El servicio tiene un bucle dentro de su elemento `RunAsync()` que extrae las solicitudes de `IReliableQueue` y realiza las conversiones solicitadas. Los resultados se almacenan en una instancia de `IReliableDictionary`, por lo que, cuando el cliente vuelve, puede recibir sus imágenes convertidas. Para asegurarse de que, incluso si algo no va bien, la imagen no se pierda, este servicio de Reliable Services podría extraerla de la cola, realizar las conversiones y almacenar el resultado en una única transacción. En este caso, el mensaje se quita de la cola y los resultados se almacenan en el diccionario de resultados solo cuando se completan las conversiones. El servicio también podría extraer la imagen de la cola y almacenarla inmediatamente en un almacén remoto. Esto reduce la cantidad de estado que el servicio tiene que administrar, pero aumenta la complejidad, ya que el servicio tiene que mantener los metadatos necesarios para administrar el almacenamiento remoto. Con cualquiera de estos dos métodos, si se produce un error en algún punto intermedio, la solicitud permanece en la cola esperando a ser procesada.
@@ -113,7 +109,7 @@ Considere el uso de API de Reliable Services si sus necesidades de servicios de 
 * La aplicación necesita mantener el historial de cambios para sus unidades de estado.
 * Desea desarrollar o consumir proveedores de estado personalizados desarrollados por terceros.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Introducción a Reliable Services de Service Fabric de Microsoft Azure](service-fabric-reliable-services-quick-start.md)
 * [Uso avanzado de Reliable Services](service-fabric-reliable-services-advanced-usage.md)
 * [El modelo de programación de Reliable Actors](service-fabric-reliable-actors-introduction.md)

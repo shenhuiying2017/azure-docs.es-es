@@ -7,13 +7,13 @@ author: mayanknayar
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/05/2018
 ms.author: manayar
-ms.openlocfilehash: e07b868883b0154ad38ba2f7f51dd2db663525a0
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: df5f40a49aa7359c082b0feb9e047818a642a871
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="use-azure-site-recovery-to-protect-active-directory-and-dns"></a>Uso de Azure Site Recovery para proteger Active Directory y DNS
 
@@ -73,7 +73,7 @@ Para evitar afectar a las cargas de trabajo de producción, la conmutación por 
 
 La mayoría de las aplicaciones requieren la presencia de un controlador de dominio o un servidor DNS. Por lo tanto, antes de la conmutación por error de la aplicación, tiene que crear un controlador de dominio en la red aislada que se usará para la conmutación por error de prueba. La manera más fácil de hacerlo usar Site Recovery para replicar una máquina virtual que hospede un controlador de dominio o DNS. A continuación, ejecute una conmutación por error de prueba de la máquina virtual del controlador de dominio antes de ejecutar una conmutación por error de prueba del plan de recuperación para la aplicación. Así es cómo debe hacerlo:
 
-1. Use Site Recovery para [replicar](site-recovery-replicate-vmware-to-azure.md) la máquina virtual que hospeda el controlador de dominio o DNS.
+1. Use Site Recovery para [replicar](vmware-azure-tutorial.md) la máquina virtual que hospeda el controlador de dominio o DNS.
 2. Cree una red aislada. Cualquier red virtual que se cree en Azure está aislada de otras redes de forma predeterminada. Se recomienda usar el mismo intervalo de direcciones IP para esta red sea el mismo que el usado en la red de producción. No habilite la conectividad de sitio a sitio en esta red.
 3. Proporcione una dirección IP de DNS en la red aislada. Use la dirección IP que se espera que obtenga la máquina virtual de DNS. Si replica en Azure, indique la dirección IP para la máquina virtual que se utiliza en la conmutación por error. Para escribir la dirección IP, en la máquina virtual replicada, en la opción **Proceso y red**, seleccione el valor **IP de destino**.
 
@@ -209,5 +209,5 @@ Puede utilizar un servidor DNS nuevo y crear todas las zonas necesarias. Por eje
 
     `dnscmd /config contoso.com /allowupdate 1`
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Más información sobre la [protección de cargas de trabajo empresariales con Azure Site Recovery](site-recovery-workload.md).

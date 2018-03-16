@@ -18,11 +18,11 @@ ms.author: Joe.Sack
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: migration
-ms.openlocfilehash: b65236fb2d11473d626ee2602237ed4a49380702
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: ee1d847e04e1f1fa0472d8702c7022d622b9fe0f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Nuevo DBA en la nube: administración de la base de datos en Azure SQL Database
 
@@ -47,7 +47,7 @@ En Azure SQL DB no se crean copias de seguridad porque no es necesario. SQL Data
 |Nivel de rendimiento|Período de retención en días|
 |---|:---:|
 |Básica|7|
-|Standard|35|
+|Estándar|35|
 |Premium|35|
 |||
 
@@ -133,7 +133,7 @@ De forma predeterminada, en SQL Database, los datos en reposo de los archivos de
 |**Características**|**Always Encrypted**|**Cifrado de datos transparente**|
 |---|---|---|
 |**Cifrado**|Completa|Datos en reposo|
-|**El servidor de bases de datos puede acceder a datos confidenciales**|No|Sí, ya que el cifrado es para los datos en reposo|
+|**El servidor de bases de datos puede acceder a datos confidenciales**|Sin |Sí, ya que el cifrado es para los datos en reposo|
 |**Operaciones permitidas de T-SQL**|Comparación de igualdad|Toda el área expuesta de T-SQL está disponible|
 |**Cambios de aplicación necesarios para usar la característica**|Mínimo|Muy mínimo|
 |**Granularidad de cifrado**|Nivel de columna|Nivel de base de datos|
@@ -234,7 +234,7 @@ SQL Database ofrece varios niveles de servicio: Básico, Estándar y Premium. Co
 |**Nivel de servicio**|**Escenarios de casos de uso comunes**|
 |---|---|
 |**Básico**|Aplicaciones con pocos usuarios y una base de datos que no tienen grandes requisitos de simultaneidad, escalabilidad y rendimiento. |
-|**Standard**|Aplicaciones con requisitos de simultaneidad, escalabilidad y rendimiento considerables, y una demanda de E/S de baja a media. |
+|**Estándar**|Aplicaciones con requisitos de simultaneidad, escalabilidad y rendimiento considerables, y una demanda de E/S de baja a media. |
 |**Premium**|Aplicaciones con una gran cantidad de usuarios simultáneos, y altas demandas de CPU/memoria y E/S. Las aplicaciones confidenciales con una alta latencia, un alto rendimiento y una alta simultaneidad pueden usar el nivel Premium. |
 |||
 
@@ -260,7 +260,7 @@ SQL Database utiliza algunas técnicas inteligentes que permiten controlar ciert
 ### <a name="how-do-i-synchronize-data-between-sql-database-and-sql-server"></a>¿Cómo se pueden sincronizar los datos entre SQL Database y SQL Server?
 Hay varias maneras de conseguir este objetivo: 
 - **[Sincronización de datos](sql-database-sync-data.md)**: esta característica le ayuda a sincronizar los datos bidireccionalmente entre varias bases de datos de SQL Server locales y SQL Database. Para la sincronización con bases de datos de SQL Server locales, debe instalar y configurar el agente de sincronización en un equipo local y abrir el puerto TCP de salida 1433.
-- **[Replicación de transacciones](https://azure.microsoft.com/en-us/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)**: con la replicación de transacciones puede sincronizar sus datos de la base de datos local a Azure SQL DB, donde la base de datos local es el anunciante y Azure SQL DB es el suscriptor. Por ahora, solo se admite esta configuración. Para obtener más información sobre cómo migrar sus datos de la base de datos local a Azure SQL con el tiempo de inactividad mínimo, consulte el tema sobre el [uso de la replicación de transacciones](sql-database-cloud-migrate.md#method-2-use-transactional-replication).
+- **[Replicación de transacciones](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)**: con la replicación de transacciones puede sincronizar sus datos de la base de datos local a Azure SQL DB, donde la base de datos local es el anunciante y Azure SQL DB es el suscriptor. Por ahora, solo se admite esta configuración. Para obtener más información sobre cómo migrar sus datos de la base de datos local a Azure SQL con el tiempo de inactividad mínimo, consulte el tema sobre el [uso de la replicación de transacciones](sql-database-cloud-migrate.md#method-2-use-transactional-replication).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Obtenga información sobre [SQL Database](sql-database-technical-overview.md).

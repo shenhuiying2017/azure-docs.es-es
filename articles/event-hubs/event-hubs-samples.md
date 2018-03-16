@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2017
+ms.date: 03/05/2018
 ms.author: sethm
-ms.openlocfilehash: e037d0e291384849739825ae7ad59064a135db95
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: a581b7039a3631b7f1dc35816175242f892bd7dd
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="event-hubs-samples"></a>Ejemplos de Event Hubs 
 
@@ -61,11 +61,7 @@ El ejemplo de [Event Hubs Getting Started](https://code.msdn.microsoft.com/Servi
 
 El ejemplo de [escalado horizontal del procesamiento de eventos](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3) muestra cómo utilizar el [host del procesador de eventos](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/) para distribuir la carga de trabajo del consumo de flujo de Event Hubs. Muestra cómo implementar los objetos **EventProcessor** y **EventProcessorFactory** para administrar el flujo de eventos. 
 
-### <a name="pull-web-data-into-an-event-hub"></a>Extracción de datos web a un centro de eventos 
-
-El ejemplo de [Import data from the web](https://github.com/Azure-Samples/event-hubs-dotnet-importfromweb) (Importación de datos desde la web) muestra cómo extraer datos de fuentes públicas (como la información de tráfico del Departamento de transporte) e insertarlos en un centro de eventos.
-
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Si desea conocer más información sobre las versiones de .NET Framework, visite los vínculos siguientes:
 
@@ -75,5 +71,5 @@ Si desea conocer más información sobre las versiones de .NET Framework, visite
 Si desea conocer más información acerca de Event Hubs, consulte los siguientes artículos:
 
 - [Información general de Event Hubs](event-hubs-what-is-event-hubs.md)
-- [Creación de un centro de eventos](event-hubs-create.md)
+- [Características de Event Hubs](event-hubs-features.md)
 - [Preguntas más frecuentes sobre Event Hubs](event-hubs-faq.md)

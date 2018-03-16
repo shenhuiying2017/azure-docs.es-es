@@ -12,22 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/8/2018
+ms.date: 2/27/2018
 ms.author: jeffgilb
-ms.openlocfilehash: b58b3fc538d2237c12a860d268d550c4223155ba
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 8d520e1917d63b56a2adf3823ddbb741721fe751
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="register-azure-stack-with-your-azure-subscription"></a>Registro de Azure Stack con una suscripción de Azure
 
-*Se aplica a: sistemas integrados de Azure Stack y kit de desarrollo de Azure Stack*
+*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 Puede registrar [Azure Stack](azure-stack-poc.md) con Azure para descargar los elementos de marketplace de Azure y configurar informes de datos comerciales para Microsoft.
 
 > [!NOTE]
->El registro se recomienda porque le permite probar cierta funcionalidad importante de Azure Stack, como son los informes de uso y distribución de marketplace. Después de registrar Azure Stack, se informa del uso para el comercio de Azure. Puede verlo en la suscripción que usó para el registro. No se cobra a los usuarios de Azure Stack Development Kit por ningún uso que comuniquen.
+>El registro se recomienda porque le permite probar cierta funcionalidad importante de Azure Stack, como son los informes de uso y distribución de marketplace. Después de registrar Azure Stack, se informa del uso para el comercio de Azure. Puede verlo en la suscripción que usó para el registro. No se cobra a los usuarios del Kit de desarrollo de Azure Stack por ningún uso que comuniquen.
 
 
 ## <a name="get-azure-subscription"></a>Obtención de la suscripción a Azure
@@ -42,7 +42,7 @@ Si no tiene una suscripción de Azure que cumpla estos requisitos, puede [crear 
 
 ## <a name="register-azure-stack-with-azure"></a>Registro de Azure Stack con Azure  
 > [!NOTE]
-> Todos estos pasos se deben ejecutar desde un equipo que tenga acceso al punto de conexión con privilegios. En cuanto al kit de desarrollo de Azure Stack, deberá ser el equipo host. Si usa un sistema integrado, póngase en contacto con su operador de Azure Stack.
+> Todos estos pasos se deben ejecutar desde un equipo que tenga acceso al punto de conexión con privilegios. En cuanto al Kit de desarrollo de Azure Stack, deberá ser el equipo host. Si usa un sistema integrado, póngase en contacto con su operador de Azure Stack.
 >
 
 1. Abra una consola de PowerShell como administrador e [instale PowerShell para Azure Stack](azure-stack-powershell-install.md).  
@@ -193,5 +193,5 @@ Si desea eliminar el recurso de registro, debe usar UnRegister-AzsEnvironment y 
    ```
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Conexión a Azure Stack](azure-stack-connect-azure-stack.md)

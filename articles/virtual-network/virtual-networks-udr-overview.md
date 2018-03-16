@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: d05492425381649a7893b872c4b1c49e9f241b50
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 4f4c4e9749eb5f0f6ba1950521f459f140cb5221
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="virtual-network-traffic-routing"></a>Enrutamiento del tráfico de redes virtuales
 
@@ -45,7 +45,7 @@ Cada ruta contiene un prefijo de dirección y el tipo de próximo salto. Cuando 
 
 Los tipos de próximo salto enumerados en la tabla anterior representan la forma en que Azure enruta el tráfico destinado al prefijo de dirección enumerado. Estas son las explicaciones de los tipos de próximo salto:
 
-- **Red virtual**: enruta el tráfico entre los intervalos de direcciones del [espacio de direcciones](virtual-network-manage-network.md#add-address-spaces) de una red virtual. Azure crea una ruta con un prefijo de dirección que corresponde a cada intervalo de direcciones definido en el espacio de direcciones de una red virtual. Si el espacio de direcciones de la red virtual tiene varios intervalos de direcciones definidos, Azure crea una ruta individual para cada intervalo de direcciones. Azure automáticamente enruta el tráfico entre subredes mediante las rutas que se crea para cada intervalo de direcciones. No es preciso definir las puertas de enlace de Azure para enrutar el tráfico entre subredes. Aunque una red virtual contiene subredes y cada una de ellas tiene un intervalo de direcciones definido, Azure *no* crea rutas predeterminadas para los intervalos de direcciones de la subred, ya que cada uno de ellos se encuentra dentro de un intervalo de direcciones del espacio de direcciones de una red virtual.
+- **Red virtual**: enruta el tráfico entre los intervalos de direcciones del [espacio de direcciones](manage-virtual-network.md#add-or-remove-an-address-range) de una red virtual. Azure crea una ruta con un prefijo de dirección que corresponde a cada intervalo de direcciones definido en el espacio de direcciones de una red virtual. Si el espacio de direcciones de la red virtual tiene varios intervalos de direcciones definidos, Azure crea una ruta individual para cada intervalo de direcciones. Azure automáticamente enruta el tráfico entre subredes mediante las rutas que se crea para cada intervalo de direcciones. No es preciso definir las puertas de enlace de Azure para enrutar el tráfico entre subredes. Aunque una red virtual contiene subredes y cada una de ellas tiene un intervalo de direcciones definido, Azure *no* crea rutas predeterminadas para los intervalos de direcciones de la subred, ya que cada uno de ellos se encuentra dentro de un intervalo de direcciones del espacio de direcciones de una red virtual.
 
 - **Internet**: enruta a Internet el tráfico que especifica el prefijo de dirección. La ruta predeterminada del sistema especifica el prefijo de dirección 0.0.0.0/0. Si no se invalidan las rutas predeterminadas de Azure, Azure enruta a Internet el tráfico de todas las direcciones que no se haya especificada un intervalo de direcciones en una red virtual, con una excepción. Si la dirección de destino es para uno de los servicios de Azure, este enruta el tráfico directamente al servicio a través de la red troncal de Azure, en lugar de enrutarlo a Internet. El tráfico entre los servicios de Azure no atraviesa Internet, independientemente de la región de Azure en que exista la red virtual o de la región de Azure en que se implementa una instancia del servicio de Azure. Puede reemplazar la ruta del sistema predeterminada de Azure predeterminado para el prefijo de dirección 0.0.0.0/0 por un [ruta personalizada](#custom-routes).
 
@@ -248,9 +248,9 @@ La tabla de rutas de *Subnet2* en la imagen contiene las rutas siguientes:
 
 La tabla de rutas de *Subnet2* contiene todas las rutas predeterminadas creadas por Azure y el emparejamiento de VNet opcional y las rutas opcionales de la puerta de enlace de red virtual. Azure ha agregado las rutas opcionales a todas las subredes de la red virtual cuando tanto la puerta de enlace como el emparejamiento se han agregado a la red virtual. Azure ha quitado las rutas de los prefijos de dirección 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 y 100.64.0.0/10 de la tabla de rutas de *Subnet1* cuando la ruta definida por el usuario del prefijo de dirección 0.0.0.0/0 se ha agregado a *Subnet1*.  
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
-- [Creación de una ruta definida por el usuario - Azure Portal](create-user-defined-route-portal.md)
+- [Creación de una ruta definida por el usuario - Azure Portal](tutorial-create-route-table-portal.md)
 - [Configuración de BGP para Azure VPN Gateway con PowerShell](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Uso de BGP con ExpressRoute](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#route-aggregation-and-prefix-limits)
 - [Solución de problemas de rutas mediante Azure Portal](virtual-network-routes-troubleshoot-portal.md). Las tablas de rutas definidas por el usuario solo muestran las rutas definidas por el usuario, no las rutas predeterminada y de BGP de una subred. La visualización de todas las rutas muestra las rutas predeterminada, de BGP y definidas por el usuario de la subred en que se encuentra una interfaz de red.

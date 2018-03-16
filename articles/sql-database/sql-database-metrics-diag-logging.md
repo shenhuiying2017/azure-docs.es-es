@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2017
 ms.author: vvasic
-ms.openlocfilehash: 87bbbd1fdcb9afb59de0bda29e99e23e0b9ad104
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 2d0a2d5966c8c99e7d71d97d4819d58a1474c2fe
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas y registros de diagnóstico de Azure SQL Database 
 Azure SQL Database puede emitir métricas y registros de diagnóstico para facilitar la supervisión. SQL Database se puede configurar para que almacene el uso de recursos, los trabajadores y sesiones, y la conectividad en uno de estos recursos de Azure:
@@ -385,7 +385,7 @@ Obtenga más información sobre los [datos de estadísticas de espera del Almac�
 |query_hash_s|Hash de consulta de la consulta errónea, si está disponible.|
 |query_plan_hash_s|Hash de plan de consulta de la consulta errónea, si está disponible.|
 
-Obtenga más información sobre [mensajes de error de SQL Server](https://msdn.microsoft.com/en-us/library/cc645603.aspx).
+Obtenga más información sobre [mensajes de error de SQL Server](https://msdn.microsoft.com/library/cc645603.aspx).
 
 ### <a name="database-wait-statistics-dataset"></a>Conjunto de datos de estadísticas de espera de base de datos
 
@@ -466,7 +466,7 @@ Obtenga más información sobre las [estadísticas de espera de la base de datos
 ### <a name="intelligent-insights-dataset"></a>Conjunto de datos de Intelligent Insights
 Obtenga más información sobre el [formato de registro de Intelligent Insights](sql-database-intelligent-insights-use-diagnostics-log.md).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para aprender a habilitar el registro y comprender las métricas y las categorías de registro admitidas por los diferentes servicios de Azure, lea lo siguiente:
 

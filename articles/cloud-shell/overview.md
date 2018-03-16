@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: juluk
-ms.openlocfilehash: da415f4fb276f3d86d3ff1634a08fa11eabe6e7f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 72338a4c168b4d3b7c918fbb16758724f73fefc2
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Introducción a Azure Cloud Shell
 Azure Cloud Shell es un shell interactivo, accesible desde el explorador, para administrar recursos de Azure.
@@ -54,7 +54,7 @@ Vea la lista completa de herramientas para la [experiencia de Bash](features.md#
 Cloud Shell es una herramienta flexible que puede utilizarse desde:
 * [portal.azure.com](https://portal.azure.com)
 * [shell.azure.com](https://shell.azure.com)
-* [Documentación de "Pruébelo" de la CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest)
+* [Documentación de "Pruébelo" de la CLI de Azure 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)
 * [Aplicación móvil de Azure](https://azure.microsoft.com/features/azure-portal/mobile-app/)
 * [Extensión de la cuenta de Azure de VS Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 
@@ -101,6 +101,6 @@ Obtenga más información sobre las características en [Bash en Cloud Shell](fe
 ## <a name="pricing"></a>Precios
 La máquina que hospeda Cloud Shell es gratis, con un requisito previo de un recurso compartido de Azure Files montado. Se aplican costos por almacenamiento normal.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Guía de inicio rápido de Bash en Cloud Shell](quickstart.md) <br>
 [Guía de inicio rápido de PowerShell en Cloud Shell (versión preliminar)](quickstart-powershell.md)

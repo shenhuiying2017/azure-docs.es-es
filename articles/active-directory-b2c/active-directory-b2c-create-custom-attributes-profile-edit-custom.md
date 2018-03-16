@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: joroja
-ms.openlocfilehash: 0d4ee064c15c914eea7353900c6bb5a77b3e3b3b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 33c9e4322444895a3affc16e11af5443f2db6b6d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-b2c-creating-and-using-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C: creación y uso de atributos personalizados en una directiva de edición de perfil personalizada
 
@@ -26,17 +26,17 @@ ms.lasthandoff: 12/11/2017
 
 En este artículo, creará un atributo personalizado en un directorio de Azure AD B2C y lo usará como notificación personalizada en el recorrido del usuario de la edición del perfil.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Complete los pasos del artículo [Introducción a las directivas personalizadas](active-directory-b2c-get-started-custom.md).
 
 ## <a name="use-custom-attributes-to-collect-information-about-your-customers-in-azure-active-directory-b2c-using-custom-policies"></a>Uso de los atributos personalizados para recopilar información acerca de los clientes en Azure Active Directory B2C mediante directivas personalizadas
-El directorio de Azure Active Directory (Azure AD) B2C incluye un conjunto integrado de atributos: Given Name, Surname, City, Postal Code, userPrincipalName, etc.  A menudo, necesitará crear sus propios atributos.  Por ejemplo:
+El directorio de Azure Active Directory (Azure AD) B2C incluye un conjunto integrado de atributos: Given Name, Surname, City, Postal Code, userPrincipalName, etc.  A menudo, necesitará crear sus propios atributos.  Por ejemplo: 
 * Una aplicación orientada al cliente necesita conservar un atributo como "LoyaltyNumber".
 * Un proveedor de identidades tiene un identificador de usuario único que se debe guardar como "uniqueUserGUID"".
 * Un recorrido del usuario personalizado necesita conservar el estado del usuario como "migrationStatus".
 
-Con Azure AD B2C, puede ampliar el conjunto de atributos que se almacenan en cada cuenta de usuario. También puede leer y escribir estos atributos mediante la [API de Azure AD Graph](active-directory-b2c-devquickstarts-graph-dotnet.md).
+Con Azure AD B2C, puede ampliar el conjunto de atributos que se almacenan en cada cuenta de usuario. También puede leer y escribir estos atributos mediante [Graph API de Azure AD](active-directory-b2c-devquickstarts-graph-dotnet.md).
 
 Las propiedades de extensión extienden el esquema de los objetos de usuario en el directorio.  Los términos propiedad de la extensión, atributo personalizado y notificación personalizada hacen referencia a la misma cosa en el contexto de este artículo y el nombre varía según el contexto (aplicación, objeto, directiva).
 
@@ -152,7 +152,7 @@ Las propiedades de extensión solo existen en el contexto de una aplicación reg
             <InputClaim ClaimTypeReferenceId="userPrincipalName" />
 
             <!-- Optional claims. These claims are collected from the user and can be modified. Any claim added here should be updated in the
-                 ValidationTechnicalProfile referenced below so it can be written to directory after being updateed by the user, i.e. AAD-UserWriteProfileUsingObjectId. -->
+                 ValidationTechnicalProfile referenced below so it can be written to directory after being updated by the user, i.e. AAD-UserWriteProfileUsingObjectId. -->
             <InputClaim ClaimTypeReferenceId="givenName" />
             <InputClaim ClaimTypeReferenceId="surname" />
             <InputClaim ClaimTypeReferenceId="extension_loyaltyId"/>
@@ -162,7 +162,7 @@ Las propiedades de extensión solo existen en el contexto de una aplicación reg
             <OutputClaim ClaimTypeReferenceId="executed-SelfAsserted-Input" DefaultValue="true" />
 
             <!-- Optional claims. These claims are collected from the user and can be modified. Any claim added here should be updated in the
-                 ValidationTechnicalProfile referenced below so it can be written to directory after being updateed by the user, i.e. AAD-UserWriteProfileUsingObjectId. -->
+                 ValidationTechnicalProfile referenced below so it can be written to directory after being updated by the user, i.e. AAD-UserWriteProfileUsingObjectId. -->
             <OutputClaim ClaimTypeReferenceId="givenName" />
             <OutputClaim ClaimTypeReferenceId="surname" />
             <OutputClaim ClaimTypeReferenceId="extension_loyaltyId"/>
@@ -294,7 +294,7 @@ extension_<app-guid>_ActivationStatus via the Graph API.
 * Un **perfil técnico (TP)** es un tipo de elemento que se puede considerar una *función* que define el nombre de un punto de conexión, sus metadatos y su protocolo, y que detalla el intercambio de notificaciones que el marco de experiencia de identidad debe realizar.  Cuando se llama a esta *función* en un paso de la orquestación o desde otra instancia de TechnicalProfile, quien realiza la llamada especifica InputClaims y OutputClaims como parámetros.
 
 
-* En el artículo [Extensiones de esquema de directorio | Conceptos de la API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) se tratan exhaustivamente las propiedades de extensión.
+* En el artículo [Extensiones de esquema de directorio | Conceptos de Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) se tratan exhaustivamente las propiedades de extensión.
 
 >[!NOTE]
->Los atributos de extensión en la API Graph se denominan mediante la convención `extension_ApplicationObjectID_attributename`. Las directivas personalizadas hacen referencia a los atributos de extensión como extension_attributename, con lo que se omite ApplicationObjectId en el archivo XML
+>Los atributos de extensión en Graph API se denominan mediante la convención `extension_ApplicationObjectID_attributename`. Las directivas personalizadas hacen referencia a los atributos de extensión como extension_attributename, con lo que se omite ApplicationObjectId en el archivo XML

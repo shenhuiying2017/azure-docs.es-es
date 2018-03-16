@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: e2f4601daf9aa3537f9170c3516d62ab1bd602e5
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: e96003de4a0dd4a5d8b060bb5883e51291827316
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="use-sqoop-with-hadoop-in-hdinsight"></a>Uso de Sqoop con Hadoop en HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -47,14 +47,14 @@ El clúster de HDInsight incluye algunos datos de ejemplo. Utilice los dos ejemp
   
   | Campo | Tipo de datos |
   | --- | --- |
-  | clientid |cadena |
-  | querytime |cadena |
-  | market |cadena |
-  | deviceplatform |cadena |
-  | devicemake |cadena |
-  | devicemodel |cadena |
-  | state |cadena |
-  | country |cadena |
+  | clientid |string |
+  | querytime |string |
+  | market |string |
+  | deviceplatform |string |
+  | devicemake |string |
+  | devicemodel |string |
+  | state |string |
+  | country |string |
   | querydwelltime |double |
   | sessionid |bigint |
   | sessionpagevieworder |bigint |
@@ -118,7 +118,7 @@ Si opta por usar la base de datos SQL de Azure existente o Microsoft SQL Server
   > 
   > 
   
-  * Para crear y configurar una red virtual, consulte [Creación de una red virtual mediante Azure Portal](../../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
+  * Para crear y configurar una red virtual, consulte [Creación de una red virtual mediante Azure Portal](../../virtual-network/quick-create-portal.md).
     
     * Cuando use SQL Server en el centro de datos, debe configurar la red virtual como de *sitio a sitio* o de *punto a sitio*.
       
@@ -161,7 +161,7 @@ HDInsight puede ejecutar trabajos de Sqoop mediante una variedad de métodos. Us
 * Exportación masiva: con HDInsight basado en Linux, el conector Sqoop que se utiliza para exportar datos a Microsoft SQL Server o SQL Database Azure no es compatible actualmente con las inserciones masivas.
 * Procesamiento por lotes: con HDInsight basado en Linux, cuando se usa `-batch` al realizar inserciones, Sqoop realiza varias inserciones en lugar de procesar por lotes las operaciones de inserción.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Ahora ya ha aprendido a usar Sqoop. Para obtener más información, consulte:
 
 * [Uso de Hive con HDInsight](../hdinsight-use-hive.md)

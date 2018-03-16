@@ -15,17 +15,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/14/2017
 ms.author: nepeters
-ms.openlocfilehash: 11d30931bd549f7e877264b4a33f8e06c6b1c802
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: e54ea62b7b7a7adb4874866a540ed9a6a097fc42
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="using-the-azure-cli-on-windows"></a>Uso de la CLI de Azure en Windows
 
 La interfaz de línea de comandos (CLI) de Azure proporciona un entorno de scripting para crear y administrar recursos de Azure. La CLI de Azure está disponible para los sistemas operativos Windows, Linux y macOS. En estos sistemas operativos, los comandos de la CLI son idénticos; sin embargo, puede diferir la sintaxis de scripting de cada sistema operativo.
 
-En este documento se describen las maneras en que la CLI de Azure se puede instalar y ejecutar en Windows, y ofrece información sobre las consideraciones sintácticas de cada uno. Para documentación más detallada sobre la CLI de Azure, consulte la [documentación de la CLI de Azure]( https://docs.microsoft.com/cli/azure/overview).
+En este documento se describen las maneras en que la CLI de Azure se puede instalar y ejecutar en Windows, y ofrece información sobre las consideraciones sintácticas de cada uno. Para documentación más detallada sobre la CLI de Azure, consulte la [documentación de la CLI de Azure]( https://docs.microsoft.com/cli/azure).
 
 ## <a name="windows-subsystem-for-linux"></a>Subsistema de Windows para Linux
 
@@ -33,7 +33,7 @@ El subsistema de Windows para Linux (WSL) proporciona un entorno Linux de Ubuntu
 
 Para usar la CLI de Azure en WSL, haga lo siguiente.
 
-|Tarea | Instrucciones |
+|Task | Instrucciones |
 |---|---|
 | Habilitación de WSL | [Instalación de la documentación de WSL](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide) |
 | Instalación de la CLI de Azure |[Instalación de la CLI en WSL/Ubuntu 14.04](https://docs.microsoft.com/cli/azure/install-az-cli2#ubuntu)|

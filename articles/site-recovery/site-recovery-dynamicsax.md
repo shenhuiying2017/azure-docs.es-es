@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 03/09/2018
 ms.author: asgang
-ms.openlocfilehash: 8ffc4a5a573b1c5951fab98fb766aed36f626fe4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b390f6c62a6ddf8c800f79b42a36dac2c4f4c908
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="replicate-a-multitier-dynamics-ax-application-by-using-azure-site-recovery"></a>Replicación de una implementación de Dynamics AX en varios niveles múltiples mediante Azure Site Recovery
 
@@ -33,7 +33,7 @@ En este artículo se explica cómo crear una solución de recuperación ante des
 
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 La implementación de la recuperación ante desastres para aplicaciones de Dynamics AX mediante Site Recovery requiere los siguientes requisitos previos:
 
@@ -57,7 +57,7 @@ Para elaborar este artículo, se utilizaron máquinas virtuales de VMware con Dy
 
 ## <a name="enable-disaster-recovery-of-the-dynamics-ax-application-by-using-site-recovery"></a>Habilitación de la recuperación ante desastres de la aplicación Dynamics AX mediante Site Recovery
 ### <a name="protect-your-dynamics-ax-application"></a>Proteger la aplicación Dynamics AX
-Para habilitar la recuperación y replicación completas de la aplicación, es preciso proteger todos los componentes de Dynamics AX. 
+Para habilitar la recuperación y replicación completas de la aplicación, es preciso proteger todos los componentes de Dynamics AX.
 
 ### <a name="1-set-up-active-directory-and-dns-replication"></a>1. Configuración de la replicación de DNS y Active Directory
 
@@ -111,7 +111,7 @@ En Site Recovery se puede crear un plan de recuperación para automatizar el pro
 
 3. Seleccione los valores apropiados en **Origen** y **Destino**. El destino puede ser Azure o un sitio secundario. Si elige Azure, debe especificar el modelo de implementación.
 
-    ![Creación de un plan de recuperación](./media/site-recovery-dynamics-ax/recoveryplancreation1.png)
+    ![Crear plan de recuperación](./media/site-recovery-dynamics-ax/recoveryplancreation1.png)
 
 4. Seleccione las máquinas virtuales cliente y de Application Object Server para el plan de recuperación y seleccione el ✓.
 
@@ -137,7 +137,7 @@ Agregue un script (a través de Azure Automation) después de que se active el g
 
 ### <a name="perform-a-test-failover"></a>Realización de una conmutación por error de prueba
 
-Para más información específica acerca de Active Directory durante la conmutación por error de prueba, consulte la guía complementaria de "solución de recuperación ante desastres de Active Directory". 
+Para más información específica acerca de Active Directory durante la conmutación por error de prueba, consulte la guía complementaria de "solución de recuperación ante desastres de Active Directory".
 
 Para más información específica acerca de Active Directory durante la conmutación por error de prueba, consulte [Replicación de aplicaciones con SQL Server y Azure Site Recovery](site-recovery-sql.md).
 

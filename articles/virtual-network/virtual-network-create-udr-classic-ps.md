@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
-ms.openlocfilehash: e9564d223cb85529f1fa97bc398d35c6debcedae
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 09a8c1bbfc42146098f5f4aa799a39e589c175e7
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="control-routing-and-use-virtual-appliances-classic-using-powershell"></a>Control del enrutamiento y uso de aplicaciones virtuales (clásico) mediante PowerShell
 
 > [!div class="op_single_selector"]
-> * [PowerShell](virtual-network-create-udr-arm-ps.md)
-> * [CLI de Azure](virtual-network-create-udr-arm-cli.md)
+> * [PowerShell](tutorial-create-route-table-powershell.md)
+> * [CLI de Azure](tutorial-create-route-table-cli.md)
 > * [Plantilla](virtual-network-create-udr-arm-template.md)
 > * [PowerShell (clásico)](virtual-network-create-udr-classic-ps.md)
 > * [CLI (clásico)](virtual-network-create-udr-classic-cli.md)
@@ -72,7 +72,7 @@ Para crear la tabla de rutas y la ruta necesaria para la subred front-end según
 ## <a name="create-the-udr-for-the-back-end-subnet"></a>Creación de la ruta definida por el usuario para la subred back-end
 Para crear la tabla de rutas y la ruta necesarias para la subred back-end según el escenario, siga estos pasos:
 
-1. Ejecute el siguiente comando para crear una tabla de rutas para la subred back-end:
+1. Ejecute el comando siguiente para crear una tabla de rutas para la subred back-end:
 
     ```powershell
     New-AzureRouteTable -Name UDR-BackEnd `
@@ -91,7 +91,7 @@ Para crear la tabla de rutas y la ruta necesarias para la subred back-end según
     -NextHopIpAddress 192.168.0.4
     ```
 
-3. Ejecute el siguiente comando para asociar la tabla de rutas a la subred **BackEnd**:
+3. Ejecute el comando siguiente para asociar la tabla de rutas a la subred **BackEnd**:
 
     ```powershell
     Set-AzureSubnetRouteTable -VirtualNetworkName TestVNet `

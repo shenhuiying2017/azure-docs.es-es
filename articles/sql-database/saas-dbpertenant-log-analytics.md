@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: billgib; sstein
-ms.openlocfilehash: 90510520e5f6bbfa8aea4026d7437a4a4881984f
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 7747092d5613a40fa0aff09cfbdfb9b786b37954
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="set-up-and-use-log-analytics-oms-with-a-multi-tenant-azure-sql-database-saas-app"></a>Configuración y uso de Log Analytics (OMS) con la aplicación SaaS de Azure SQL Database multiinquilino
 
@@ -132,12 +132,12 @@ En el Portal de OMS, puede explorar aún más los datos de registro y métricas 
 
 La supervisión y las alertas de Log Analytics y OMS se basan en consultas de datos en el área de trabajo, a diferencia de las alertas definidas en cada recurso en Azure Portal. Al basar las alertas en consultas, puede definir una alerta única que busque en todas las bases de datos, en lugar de definir una por cada base de datos. Las consultas solo se ven limitadas por los datos disponibles en el área de trabajo.
 
-Para obtener más información sobre el uso de OMS para consultar y establecer alertas, consulte [Uso de reglas de alertas en Log Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-alerts-creating).
+Para obtener más información sobre el uso de OMS para consultar y establecer alertas, consulte [Uso de reglas de alertas en Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts-creating).
 
 Log Analytics para SQL Database se cobra en función del volumen de datos del área de trabajo. En este tutorial, ha creado un área de trabajo disponible, que está limitado a 500 MB al día. Una vez alcanzado ese límite, ya no se agregan más datos al área de trabajo.
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, ha aprendido cómo:
 

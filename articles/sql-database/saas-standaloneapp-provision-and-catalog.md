@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: billgib
-ms.openlocfilehash: a13eeb79320360da078ee19a61cc32a2e1f35354
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: dd43ede94d6f219f3b551091fc6e4b59f56386d1
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>Aprovisionar y catalogar nuevos inquilinos mediante el patrón SaaS de aplicación por inquilino
 
@@ -31,7 +31,7 @@ Este artículo se divide en dos partes principales:
     * Asimismo, el tutorial usa la aplicación SaaS de ejemplo Wingtip Tickets, adaptada al patrón de aplicación por inquilino independiente.
 
 ## <a name="standalone-application-per-tenant-pattern"></a>Patrón de aplicación independiente por inquilino
-El patrón de aplicación por inquilino independiente es uno de los distintos patrones para aplicaciones SaaS multiinquilino.  En este patrón se aprovisiona una aplicación independiente por cada inquilino. La aplicación consta de componentes de nivel de aplicación y una base de datos SQL.  Cada aplicación de inquilino se puede implementar en la suscripción del proveedor.  Como alternativa, Azure ofrece un [programa de aplicaciones administradas](https://docs.microsoft.com/en-us/azure/managed-applications/overview) en el cual una aplicación se puede implementar en la suscripción del inquilino para que el proveedor la administre en nombre del inquilino. 
+El patrón de aplicación por inquilino independiente es uno de los distintos patrones para aplicaciones SaaS multiinquilino.  En este patrón se aprovisiona una aplicación independiente por cada inquilino. La aplicación consta de componentes de nivel de aplicación y una base de datos SQL.  Cada aplicación de inquilino se puede implementar en la suscripción del proveedor.  Como alternativa, Azure ofrece un [programa de aplicaciones administradas](https://docs.microsoft.com/azure/managed-applications/overview) en el cual una aplicación se puede implementar en la suscripción del inquilino para que el proveedor la administre en nombre del inquilino. 
 
    ![patrón de aplicación por inquilino](media/saas-standaloneapp-provision-and-catalog/standalone-app-pattern.png)
 
@@ -45,7 +45,7 @@ Mientras que la aplicación y la base de datos de cada inquilino estén totalmen
 El catálogo de inquilinos contiene una asignación entre un identificador de inquilino y una base de datos de inquilino, lo que permite resolver un identificador en un nombre de servidor y de base de datos.  En la aplicación SaaS de Wingtip, el identificador del inquilino se calcula como un hash del nombre de inquilino, aunque se podrían usar otros esquemas.  Como las aplicaciones independientes no necesitan el catálogo para administrar las conexiones, el catálogo se puede usar para agregar otras acciones a un conjunto de bases de datos de inquilino. Por ejemplo, la consulta Elastic puede usar el catálogo para determinar el conjunto de bases de datos en las que se distribuyen las consultas de los informes entre inquilinos.
 
 ## <a name="elastic-database-client-library"></a>Biblioteca de cliente de Elastic Database
-En la aplicación de ejemplo de Wingtip, el catálogo se implementa mediante las características de administración de particiones de la [biblioteca cliente de Elastic Database](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-elastic-database-client-library) (EDCL).  La biblioteca permite que una aplicación pueda crear, administrar y usar un mapa de particiones que se almacena en una base de datos. En el ejemplo de Wingtip Tickets, el catálogo se almacena en la base de datos del *catálogo de inquilinos*.  Igualmente, la partición asigna una clave de inquilino a la partición (base de datos) en la que se almacenan los datos de ese inquilino.  Las funciones de EDCL se encargan de administrar un *mapa de particiones global* que se almacena en tablas de la base de datos del *catálogo de inquilinos* y en un *mapa de particiones local* almacenado en cada partición.
+En la aplicación de ejemplo de Wingtip, el catálogo se implementa mediante las características de administración de particiones de la [biblioteca cliente de Elastic Database](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-database-client-library) (EDCL).  La biblioteca permite que una aplicación pueda crear, administrar y usar un mapa de particiones que se almacena en una base de datos. En el ejemplo de Wingtip Tickets, el catálogo se almacena en la base de datos del *catálogo de inquilinos*.  Igualmente, la partición asigna una clave de inquilino a la partición (base de datos) en la que se almacenan los datos de ese inquilino.  Las funciones de EDCL se encargan de administrar un *mapa de particiones global* que se almacena en tablas de la base de datos del *catálogo de inquilinos* y en un *mapa de particiones local* almacenado en cada partición.
 
 Asimismo, se pueden usar las funciones de EDCL desde aplicaciones o scripts de PowerShell para crear y administrar las entradas del mapa de particiones. Por otro lado, se pueden usar otras funciones de EDCL para recuperar el conjunto de particiones o para conectarse a la base de datos correspondiente a la clave de inquilino. 
     
@@ -69,7 +69,7 @@ Al final de este tutorial, tendrá un conjunto de aplicaciones de inquilino inde
 ## <a name="prerequisites"></a>requisitos previos
 Para completar este tutorial, asegúrese de cumplir estos requisitos previos: 
 * Azure PowerShell está instalado. Para más información, consulte [Introducción a Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
-* Se implementan las tres aplicaciones de inquilino de ejemplo. Para implementar estas aplicaciones en menos de cinco minutos, consulte el artículo [Deploy and explore the Wingtip Tickets SaaS Standalone Application pattern](https://docs.microsoft.com/en-us/azure/sql-database/saas-standaloneapp-get-started-deploy) (Implementar y explorar el patrón de la aplicación independiente SaaS Wingtip Tickets).
+* Se implementan las tres aplicaciones de inquilino de ejemplo. Para implementar estas aplicaciones en menos de cinco minutos, consulte el artículo [Deploy and explore the Wingtip Tickets SaaS Standalone Application pattern](https://docs.microsoft.com/azure/sql-database/saas-standaloneapp-get-started-deploy) (Implementar y explorar el patrón de la aplicación independiente SaaS Wingtip Tickets).
 
 ## <a name="provision-the-catalog"></a>Aprovisionar el catálogo
 En esta tarea, aprenderá a aprovisionar el catálogo que se usa para registrar todas las bases de datos de inquilino. Podrá: 
@@ -140,7 +140,7 @@ Cuando haya terminado de utilizar el ejemplo, elimine todos los grupos de recurs
 
 - Para obtener más información acerca de las aplicaciones SaaS multiinquilino, consulte [Design patterns for multi-tenant SaaS applications](saas-tenancy-app-design-patterns.md) (Patrones de diseño para aplicaciones SaaS multiinquilino).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial ha obtenido información:
 
@@ -149,4 +149,4 @@ En este tutorial ha obtenido información:
 > * Información sobre los servidores y las bases de datos que componen la aplicación.
 > * Información sobre cómo eliminar los recursos de ejemplo para detener la facturación relacionada con ellos.
 
-Puede explorar cómo se usa el catálogo para admitir diversos escenarios entre inquilinos con la versión de base de datos por inquilino de la [aplicación SaaS Wingtip Tickets](https://docs.microsoft.com/en-us/azure/sql-database/saas-dbpertenant-wingtip-app-overview).  
+Puede explorar cómo se usa el catálogo para admitir diversos escenarios entre inquilinos con la versión de base de datos por inquilino de la [aplicación SaaS Wingtip Tickets](https://docs.microsoft.com/azure/sql-database/saas-dbpertenant-wingtip-app-overview).  

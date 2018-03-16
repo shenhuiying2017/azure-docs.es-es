@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 46b1be5bdd4fa400f437bca274e7f3f6e0dfec08
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 4d47b5426da5d857085991767faa5fb227476408
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Implementación y administración de una instancia de StorSimple Cloud Appliance en Azure (Update 3 y versiones posteriores)
 
@@ -78,7 +78,7 @@ En las siguientes secciones se explican los requisitos previos de configuración
 Antes de aprovisionar el dispositivo de nube, debe realizar los siguientes preparativos en el entorno de Azure:
 
 * Asegúrese de que tiene un dispositivo físico StorSimple 8000 series (modelo 8100 o 8600) implementado y en ejecución en el centro de datos. Registre este dispositivo con el mismo servicio de StorSimple Device Manager para el que va a crear un StorSimple Cloud Appliance.
-* Para el dispositivo de nube, [configure una red virtual en Azure](../virtual-network/virtual-networks-create-vnet-arm-pportal.md). Si usa Premium Storage, tiene que crear una red virtual en una región de Azure que admita dicho almacenamiento. Las regiones Premium Storage son las que corresponden a la fila de almacenamiento en disco de la [lista de servicios de Azure por región](https://azure.microsoft.com/regions/services/).
+* Para el dispositivo de nube, [configure una red virtual en Azure](../virtual-network/manage-virtual-network.md#create-a-virtual-network). Si usa Premium Storage, tiene que crear una red virtual en una región de Azure que admita dicho almacenamiento. Las regiones Premium Storage son las que corresponden a la fila de almacenamiento en disco de la [lista de servicios de Azure por región](https://azure.microsoft.com/regions/services/).
 * Se recomienda usar el servidor DNS predeterminado proporcionado por Azure en lugar de especificar su propio nombre de servidor DNS. Si el nombre del servidor DNS no es válido o si el servidor DNS no es capaz de resolver direcciones IP correctamente, la creación del dispositivo de nube dará error.
 * Punto a sitio y sitio a sitio son opcionales, pero no obligatorios. Si lo desea, puede configurar estas opciones para escenarios más avanzados.
 * Puede crear [Azure Virtual Machines](../virtual-machines/virtual-machines-windows-quick-create-portal.md) (servidores host) en la red virtual que pueden usar los volúmenes expuestos por el dispositivo de nube. Estos servidores deben cumplir los siguientes requisitos:

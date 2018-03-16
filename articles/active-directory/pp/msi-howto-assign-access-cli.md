@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 5bea41999f59fe8be7ae0a0bd5b726527beeddd5
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 8cdfd80f436a9ef39426da9d3f2f76ae59677847
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="assign-a-user-assigned-managed-service-identity-msi-access-to-a-resource-using-azure-cli"></a>Asignación a una identidad de servicio administrada (MSI) asignada por el usuario acceso a un recurso mediante la CLI de Azure
 
@@ -33,7 +33,7 @@ Una vez haya creado una identidad de servicio administrada asignada por el usuar
 Para ejecutar los ejemplos de script de la CLI de este tutorial, tiene dos opciones:
 
 - Use [Azure Cloud Shell](~/articles/cloud-shell/overview.md) desde Azure Portal o mediante el botón "Pruébelo", situado en la esquina superior derecha de cada bloque de código.
-- [Instale la versión más reciente de la CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 o posterior), si prefiere usar una consola de la CLI local. A continuación, inicie sesión en Azure mediante [az login](/cli/azure/#az_login). Use una cuenta asociada a la suscripción de Azure en la que desearía implementar la MSI asignada por el usuario y la máquina virtual:
+- [Instale la versión más reciente de la CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 o posterior), si prefiere usar una consola de la CLI local. A continuación, inicie sesión en Azure mediante [az login](/cli/azure/reference-index#az_login). Use una cuenta asociada a la suscripción de Azure en la que desearía implementar la MSI asignada por el usuario y la máquina virtual:
 
    ```azurecli
    az login
@@ -96,7 +96,7 @@ En el ejemplo siguiente, se proporciona a una MSI asignada por el usuario acceso
    }
    ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Para obtener información general sobre MSI, consulte [Managed Service Identity overview](msi-overview.md) (Introducción a Managed Service Identity).
 - Para configurar una MSI asignada por el usuario en una máquina virtual de Azure, consulte [Configuración de una identidad de servicio administrada (MSI) asignada por el usuario para una máquina virtual, mediante la CLI de Azure](msi-qs-configure-cli-windows-vm.md).

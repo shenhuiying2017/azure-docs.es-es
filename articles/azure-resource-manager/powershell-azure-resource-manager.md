@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7e2f988fd62753e1ebed702728dee7ede65c72c4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 96206482195cdcbd06ee2dafdc551f7b1f81d319
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="manage-resources-with-azure-powershell"></a>Administración de recursos con Azure PowerShell
 
-[!include[Resource Manager governance introduction](../../includes/resource-manager-governance-intro.md)]
+[!INCLUDE [Resource Manager governance introduction](../../includes/resource-manager-governance-intro.md)]
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
@@ -30,7 +30,7 @@ Si decide instalar y usar PowerShell de forma local, consulte el [módulo sobre 
 
 ## <a name="understand-scope"></a>Descripción del ámbito
 
-[!include[Resource Manager governance scope](../../includes/resource-manager-governance-scope.md)]
+[!INCLUDE [Resource Manager governance scope](../../includes/resource-manager-governance-scope.md)]
 
 En este artículo, aplica toda la configuración de administración a un grupo de recursos para que pueda quitar fácilmente esos valores cuando haya finalizado.
 
@@ -45,7 +45,7 @@ Actualmente, el grupo de recursos está vacío.
 
 ## <a name="role-based-access-control"></a>Control de acceso basado en rol
 
-[!include[Resource Manager governance policy](../../includes/resource-manager-governance-rbac.md)]
+[!INCLUDE [Resource Manager governance policy](../../includes/resource-manager-governance-rbac.md)]
 
 ### <a name="assign-a-role"></a>Asignar un rol
 
@@ -73,7 +73,7 @@ Por lo general, repetirá el proceso para **Colaborador de la red** y **Colabora
 
 ## <a name="azure-policies"></a>Directivas de Azure
 
-[!include[Resource Manager governance policy](../../includes/resource-manager-governance-policy.md)]
+[!INCLUDE [Resource Manager governance policy](../../includes/resource-manager-governance-policy.md)]
 
 ### <a name="apply-policies"></a>Aplicación de directivas
 
@@ -131,7 +131,7 @@ Una vez finalizada la implementación, puede aplicar más opciones de configurac
 
 ## <a name="lock-resources"></a>Bloqueo de recursos
 
-[!include[Resource Manager governance locks](../../includes/resource-manager-governance-locks.md)]
+[!INCLUDE [Resource Manager governance locks](../../includes/resource-manager-governance-locks.md)]
 
 ### <a name="lock-a-resource"></a>Bloqueo de un recurso
 
@@ -154,11 +154,11 @@ Solo se puede eliminar la máquina virtual si quita el bloqueo específicamente.
 
 ## <a name="tag-resources"></a>Etiquetado de recursos
 
-[!include[Resource Manager governance tags](../../includes/resource-manager-governance-tags.md)]
+[!INCLUDE [Resource Manager governance tags](../../includes/resource-manager-governance-tags.md)]
 
 ### <a name="tag-resources"></a>Etiquetado de recursos
 
-[!include[Resource Manager governance tags Powershell](../../includes/resource-manager-governance-tags-powershell.md)]
+[!INCLUDE [Resource Manager governance tags Powershell](../../includes/resource-manager-governance-tags-powershell.md)]
 
 Para aplicar etiquetas a una máquina virtual, use:
 
@@ -218,7 +218,7 @@ Cuando ya no se necesiten, puede usar el comando [Remove-AzureRmResourceGroup](/
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Para obtener información acerca de la supervisión de las máquinas virtuales, consulte [Supervisar y actualizar una máquina virtual Windows con Azure PowerShell](../virtual-machines/windows/tutorial-monitoring.md).
 * Para obtener información acerca del uso de Azure Security Center para implementar prácticas recomendadas de seguridad,consulte [Supervisión de la seguridad de máquinas virtuales mediante Azure Security Center](../virtual-machines/windows/tutorial-azure-security.md).
 * Puede mover recursos existentes a un nuevo grupo de recursos. Para consultar ejemplos, vea [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](resource-group-move-resources.md).

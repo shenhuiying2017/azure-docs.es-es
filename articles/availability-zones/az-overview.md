@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2017
+ms.date: 03/05/2018
 ms.author: markgal
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: a0e654637bc4aca4230c56cc7c1706f5cd73622e
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: db4801d105a6ca7382756224aa84c9e7b305194f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="overview-of-availability-zones-in-azure-preview"></a>Introducción a las zonas de disponibilidad en Azure (versión preliminar)
 
@@ -45,7 +45,7 @@ Los servicios de Azure que admiten zonas de disponibilidad son:
 - Managed Disks
 - Load Balancer
 - Dirección IP pública
-- Almacenamiento con redundancia de zona
+- SQL Database
 
 ## <a name="get-started-with-the-availability-zones-preview"></a>Introducción a la versión preliminar de las zonas de disponibilidad
 
@@ -60,5 +60,5 @@ La versión preliminar de las zonas de disponibilidad está disponible en las re
     - [Agregación de un disco administrado mediante PowerShell](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
     - [Equilibrador de carga](../load-balancer/load-balancer-standard-overview.md)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 - [Plantillas de inicio rápido](http://aka.ms/azqs)

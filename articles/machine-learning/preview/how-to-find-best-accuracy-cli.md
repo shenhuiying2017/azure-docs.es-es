@@ -5,16 +5,16 @@ services: machine-learning
 author: totekp
 ms.author: kefzhou
 manager: akannava
-ms.reviewer: akannava, haining, mldocs, garyericson, jasonwhowell
+ms.reviewer: akannava, haining, mldocs, jmartens, jasonwhowell
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/29/2017
-ms.openlocfilehash: 40e066fe602e8c4680043158f1d401a884e07c19
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: bd8888d911730831435b87d3a60b48a7797eea98
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="find-runs-with-the-best-accuracy-and-lowest-duration"></a>Búsqueda de ejecuciones con la mejor precisión y la menor duración
 Cuando hay varias ejecuciones, un caso de uso es buscar las que tienen la máxima precisión. Un enfoque consiste en usar la interfaz de la línea de comandos (CLI) con una consulta [JMESPath](http://jmespath.org/). Para obtener más información acerca de cómo usar JMESPath en la CLI de Azure, consulte [Uso de consultas JMESPath con CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest). En el ejemplo siguiente, se crean cuatro ejecuciones con los siguientes valores de precisión: 0; 0,98; 1 y 1. Las ejecuciones se filtran si están en el intervalo `[MaxAccuracy-Threshold, MaxAccuracy]` donde `Threshold = .03`.
@@ -68,5 +68,5 @@ $find_runs_query = '@[?Accuracy >= sum(`[{0}, -{1}]`)] | sort_by(@, &duration)' 
 az ml history list --query $find_runs_query
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para más información acerca del registro, consulte [Cómo usar el historial de ejecución y las métricas de modelo de Azure Machine Learning Workbench](how-to-use-run-history-model-metrics.md).    

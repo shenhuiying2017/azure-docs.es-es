@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
-ms.openlocfilehash: 8fcb98723e7e872c932908e3456dc8680deb0901
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 6bfdfcdde39d64d662bb6d2ea55fadca24d49091
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="control-routing-and-use-virtual-appliances-classic-using-the-azure-cli"></a>Control del enrutamiento y uso de aplicaciones virtuales (clásico) mediante la CLI de Azure
 
 > [!div class="op_single_selector"]
-> * [PowerShell](virtual-network-create-udr-arm-ps.md)
-> * [CLI de Azure](virtual-network-create-udr-arm-cli.md)
+> * [PowerShell](tutorial-create-route-table-powershell.md)
+> * [CLI de Azure](tutorial-create-route-table-cli.md)
 > * [Plantilla](virtual-network-create-udr-arm-template.md)
 > * [PowerShell (clásico)](virtual-network-create-udr-classic-ps.md)
 > * [CLI (clásico)](virtual-network-create-udr-classic-cli.md)
@@ -34,7 +34,7 @@ ms.lasthandoff: 12/21/2017
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-Este artículo trata sobre el modelo de implementación clásico. También puede [controlar el enrutamiento y el uso de aplicaciones virtuales en el modelo de implementación del Administrador de recursos](virtual-network-create-udr-arm-cli.md).
+Este artículo trata sobre el modelo de implementación clásico. También puede [controlar el enrutamiento y el uso de aplicaciones virtuales en el modelo de implementación del Administrador de recursos](tutorial-create-route-table-cli.md).
 
 [!INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
 
@@ -72,7 +72,7 @@ Para crear la tabla de rutas y la ruta necesaria para la subred front-end según
    
     Parámetros:
    
-   * **-l (o --location)**. Región de Azure donde se creará la red virtual. En este escenario, *TestRG*.
+   * **-l (or --location)**. Región de Azure donde se creará la red virtual. En este escenario, *TestRG*.
    * **-n (o --name)**. Nombre del nuevo grupo de seguridad de red. En este escenario, *NSG-FrontEnd*.
 3. Ejecute el siguiente comando para crear una ruta en la tabla de rutas para enviar todo el tráfico destinado a la subred back-end (192.168.2.0/24) a la máquina virtual **FW1** (192.168.0.4):
 

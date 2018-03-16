@@ -15,16 +15,15 @@ ms.workload: data-services
 ms.custom: reference
 ms.date: 01/22/2018
 ms.author: barbkess
-ms.openlocfilehash: 9c686c9cd4f9baf4f2c13194e58aadc9ebec0a24
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 51e2bf8e9e0bbd6b2e61d37b438bf51325192058
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="system-views"></a>Vistas de sistema
 ## <a name="sql-data-warehouse-catalog-views"></a>Vistas de catálogo de SQL Data Warehouse
 * [sys.pdw_column_distribution_properties](http://msdn.microsoft.com/library/mt204022.aspx)
-* [sys.pdw_database_mappings](http://msdn.microsoft.com/library/mt203891.aspx)
 * [sys.pdw_distributions](http://msdn.microsoft.com/library/mt203892.aspx)
 * [sys.pdw_index_mappings](http://msdn.microsoft.com/library/mt203912.aspx)
 * [sys.pdw_loader_backup_run_details](https://msdn.microsoft.com/library/mt203877.aspx)
@@ -209,6 +208,8 @@ SQL Data Warehouse y el almacenamiento de datos paralelos (PDW) de Analytics Pla
 | sys.dm_pdw_nodes_tran_top_version_generators |[sys.dm_tran_top_version_generators](http://msdn.microsoft.com/library/ms188778.aspx) |
 
 ## <a name="sql-server-2016-polybase-dmvs-available-in-sql-data-warehouse"></a>DMV de PolyBase de SQL Server 2016 disponibles en SQL Data Warehouse
+Las siguientes DMV son aplicables a SQL Data Warehouse, pero para ejecutarlas, es necesario conectarse a la base de datos **maestra** .
+
 * [sys.dm_exec_compute_node_errors](http://msdn.microsoft.com/library/mt146380.aspx)
 * [sys.dm_exec_compute_node_status](http://msdn.microsoft.com/library/mt146382.aspx)
 * [sys.dm_exec_compute_nodes](https://msdn.microsoft.com/library/mt130700.aspx)
@@ -231,7 +232,7 @@ SQL Data Warehouse y el almacenamiento de datos paralelos (PDW) de Analytics Pla
 * [VIEW_TABLE_USAGE](https://msdn.microsoft.com/library/ms173869.aspx)
 * [VISTAS](http://msdn.microsoft.com/library/ms181381.aspx)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información de referencia, vea [Información general de referencia de SQL Data Warehouse][SQL Data Warehouse reference overview].
 
 <!--Image references-->

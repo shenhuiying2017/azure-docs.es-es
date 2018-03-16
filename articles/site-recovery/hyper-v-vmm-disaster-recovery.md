@@ -6,13 +6,13 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 03/08/2018
 ms.author: raynew
-ms.openlocfilehash: bf6d7c8b831e670db9fff28218c8f36391a73c9b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 13dcc0794c1d89bd27c79cbe6636397da4f008f9
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>Configuración de la recuperación ante desastres para máquinas virtuales de Hyper-V en el sitio local secundario
 
@@ -33,9 +33,8 @@ En este artículo se muestra cómo configurar la recuperación ante desastres en
 Para realizar este escenario:
 
 - Revise la [arquitectura del escenario y sus componentes](hyper-v-vmm-architecture.md).
-- Revise los [requisitos de compatibilidad](site-recovery-support-matrix-to-sec-site.md) de todos los componentes.
-- Asegúrese de que los servidores VMM y los hosts Hyper-V cumplan los [requisitos de compatibilidad](site-recovery-support-matrix-to-sec-site.md).
-- Compruebe que las máquinas que desea replicar cumplen con la [compatibilidad con máquinas replicadas](site-recovery-support-matrix-to-sec-site.md#support-for-replicated-machine-os-versions).
+- Asegúrese de que los servidores VMM y los hosts Hyper-V cumplan los [requisitos de compatibilidad](hyper-v-vmm-secondary-support-matrix.md).
+- Compruebe que las máquinas que desea replicar cumplen con la [compatibilidad con máquinas replicadas](hyper-v-vmm-secondary-support-matrix.md#replicated-vm-support).
 - Prepare los servidores VMM para la asignación de red.
 
 ### <a name="prepare-for-network-mapping"></a>Preparar la asignación de red
@@ -153,6 +152,6 @@ Antes de comenzar, asegúrese de que todos los hosts que usan la directiva tiene
 
 Puede hacer un seguimiento del progreso de la acción **Habilitar protección** en **Trabajos** > **Trabajos de Site Recovery**. Una vez concluido el trabajo **Finalizar protección**, la replicación inicial finaliza y la máquina virtual está preparada para la conmutación por error.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 [Exploración de la recuperación ante desastres](hyper-v-vmm-test-failover.md)

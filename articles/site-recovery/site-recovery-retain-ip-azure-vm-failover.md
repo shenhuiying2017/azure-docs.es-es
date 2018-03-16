@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: 28d772df384e620c7e82812adfa2bfa148401132
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 15f87ba87d90cee765f52d3188796bc1ff7b8a35
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="ip-address-retention-for-azure-virtual-machine-failover"></a>Conservar las direcciones IP para la conmutación por error de una máquina virtual de Azure
 
@@ -88,7 +88,7 @@ Las puertas de enlace VPN pueden usar direcciones IP públicas y saltos de puert
 
 Esta característica está actualmente en versión preliminar pública y se ampliará para admitir más regiones; asimismo, se habilitará la conectividad directa de máquina virtual a máquina virtual sin ninguna intervención pública de Internet y sin saltos adicionales.
 
-Para obtener más información, consulte la [documentación de emparejamiento](../virtual-network/virtual-network-create-peering.md#register) y los [precios](https://azure.microsoft.com/en-us/pricing/details/virtual-network/).
+Para obtener más información, consulte la [documentación de emparejamiento](../virtual-network/tutorial-connect-virtual-networks-portal.md#register) y los [precios](https://azure.microsoft.com/pricing/details/virtual-network/).
 
 ## <a name="on-premises-to-azure-connectivity"></a>Conectividad local a Azure
 
@@ -118,5 +118,5 @@ A diferencia del escenario de Azure a Azure que se describe para la **empresa A*
 
 Para conseguir la resistencia de las aplicaciones, es recomendable alojar cada aplicación en su propia red virtual dedicada de Azure. A continuación, se pueden conmutar por error las aplicaciones de forma aislada y las conexiones locales a origen necesarias se pueden enrutar hacia la región de destino, tal como se describió anteriormente.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 - Obtenga más información sobre los [planes de recuperación](site-recovery-create-recovery-plans.md).

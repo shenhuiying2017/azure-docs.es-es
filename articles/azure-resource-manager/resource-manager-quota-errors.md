@@ -11,13 +11,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 11/27/2017
+ms.date: 03/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3ed3da2d9730d8c30d8170ddf40fe4895dfa5dec
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: d2cc760bf516e8ee96629886120a1bb092932a82
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>Resolución de errores de cuotas de recursos
 
@@ -47,9 +47,9 @@ please delete some resources of this type before creating a new one.
 Las cuotas se aplican por grupo de recursos, suscripciones, cuentas y otros ámbitos. Por ejemplo, la suscripción puede configurarse para limitar el número de núcleos para una región. Si trata de implementar una máquina virtual con más núcleos que los permitidos, recibirá un error que indica que se ha superado la cuota.
 Para obtener información completa de las cuotas, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md).
 
-## <a name="solution"></a>Solución
+## <a name="troubleshooting"></a>solución de problemas
 
-### <a name="solution-1"></a>Solución 1
+### <a name="azure-cli"></a>Azure CLI
 
 Para la CLI de Azure, use el comando `az vm list-usage` para encontrar las cuotas de máquina virtual.
 
@@ -73,7 +73,7 @@ Que devuelve:
 ]
 ```
 
-### <a name="solution-2"></a>Solución 2
+### <a name="powershell"></a>PowerShell
 
 Para PowerShell, use el comando **Get AzureRmVMUsage** para encontrar las cuotas de máquina virtual.
 
@@ -91,7 +91,7 @@ Total Regional Cores                         0   100 Count
 Virtual Machines                             0 10000 Count
 ```
 
-### <a name="solution-3"></a>Solución 3
+## <a name="solution"></a>Solución
 
 Para solicitar un aumento de cuota, vaya al portal y abra una incidencia de soporte técnico. En la incidencia de soporte técnico, solicite un aumento de la cuota para la región en la que desea realizar la implementación.
 

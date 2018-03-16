@@ -2,23 +2,17 @@
 title: "Conmutación por error en Site Recovery | Microsoft Docs"
 description: "Azure Site Recovery coordina la replicación, la conmutación por error y la recuperación de máquinas virtuales y servidores físicos. Obtenga información acerca de la conmutación por error en Azure o en un centro de datos secundario."
 services: site-recovery
-documentationcenter: 
-author: prateek9us
-manager: gauravd
-editor: 
-ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 09/25/2017
-ms.author: pratshar
-ms.openlocfilehash: afdab6e5ee5ae3bb8bc553afd93ff8f1ee18147f
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.date: 03/09/2018
+ms.author: ponatara
+ms.openlocfilehash: f7a60cd82508629ad3cf46882564aa68995ba3e6
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="failover-in-site-recovery"></a>Conmutación por error en Site Recovery
 En este artículo se describe cómo se realiza la conmutación por error en máquinas virtuales y en servidores físicos protegidos con Site Recovery.
@@ -96,18 +90,18 @@ Cuando se desencadena una conmutación por error, se realizan estos pasos:
 En algunos casos, la conmutación por error de máquinas virtuales requiere un paso intermedio adicional que normalmente tarda aproximadamente de 8 a 10 minutos en completarse. En los casos siguientes, el tiempo necesario para la conmutación por error será mayor de lo habitual:
 
 * Máquinas virtuales de VMware con el servicio de movilidad de una versión anterior a 9.8
-* Servidores físicos 
+* Servidores físicos
 * Máquinas virtuales de VMware Linux
 * Máquinas virtuales Hyper-V protegidas como servidores físicos
-* Máquinas virtuales de VMware donde los siguientes controladores no están presentes como controladores de arranque 
-    * storvsc 
-    * vmbus 
-    * storflt 
-    * intelide 
+* Máquinas virtuales de VMware donde los siguientes controladores no están presentes como controladores de arranque
+    * storvsc
+    * vmbus
+    * storflt
+    * intelide
     * atapi
 * Máquinas virtuales de VMware que no tienen el servicio DHCP habilitado independientemente de si usan direcciones IP estáticas o DHCP
 
-En los demás casos, no es necesario este paso intermedio y el tiempo necesario para la conmutación por error es menor. 
+En los demás casos, no es necesario este paso intermedio y el tiempo necesario para la conmutación por error es menor.
 
 
 
@@ -118,16 +112,16 @@ Es posible que desee automatizar determinadas acciones de la conmutación por er
 
 ## <a name="post-failover-considerations"></a>Consideraciones posteriores a la conmutación por error
 Conviene tener en cuenta las siguientes recomendaciones tras la conmutación por error:
-### <a name="retaining-drive-letter-after-failover"></a>Conservación de la letra de unidad después de la conmutación por error 
+### <a name="retaining-drive-letter-after-failover"></a>Conservación de la letra de unidad después de la conmutación por error
 Para conservar la letra de unidad en las máquinas virtuales después de la conmutación por error, puede establecer la **Directiva SAN** de la máquina virtual en **OnlineAll**. [Más información](https://support.microsoft.com/en-us/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure).
 
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 > [!WARNING]
-> Una vez que finalizada la conmutación por error de las máquinas virtuales y cuando el centro de datos local esté disponible, debe [**volver a proteger**](site-recovery-how-to-reprotect.md) las máquinas virtuales de VMware en el centro de datos local.
+> Una vez que finalizada la conmutación por error de las máquinas virtuales y cuando el centro de datos local esté disponible, debe [**volver a proteger**](vmware-azure-reprotect.md) las máquinas virtuales de VMware en el centro de datos local.
 
-Use la opción de[**conmutación por error planeada**](site-recovery-failback-from-azure-to-hyper-v.md) para la **conmutación por recuperación** de máquinas virtuales de Hyper-V hacia el entorno local desde Azure.
+Use la opción de[**conmutación por error planeada**](hyper-v-azure-failback.md) para la **conmutación por recuperación** de máquinas virtuales de Hyper-V hacia el entorno local desde Azure.
 
 Si se ha producido una conmutación por error de una máquina virtual de Hyper-V a otro centro de datos local administrado por un servidor de VMM y el centro de datos principal está disponible, use la **replicación inversa** para iniciar la replicación hacia el centro de datos principal.
