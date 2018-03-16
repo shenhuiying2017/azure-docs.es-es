@@ -2,25 +2,20 @@
 title: "Conmutación por recuperación en Azure Site Recovery | Microsoft Docs"
 description: "En este artículo se proporciona información general acerca de los diversos tipos de conmutación por recuperación y advertencias que deben considerarse al conmutar por recuperación de forma local con el servicio de Azure Site Recovery."
 services: site-recovery
-documentationcenter: 
 author: rajani-janaki-ram
 manager: guaravd
-editor: 
-ms.assetid: 
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 12/18/2017
+ms.date: 03/05/2018
 ms.author: rajanki
-ms.openlocfilehash: 07dc05c0bd89e69b6bfcff7577919494647efed0
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 372a7867b47960338d7a1bf7e646fb9fffbe72e1
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="overview-of-failback"></a>Introducción a la conmutación por recuperación
+
 Después de conmutar por error a Azure, puede conmutar por recuperación a su sitio local. Existen dos tipos diferentes de conmutación por error posibles con Azure Site Recovery: 
 
 - Conmutación por recuperación a la ubicación original 
@@ -53,7 +48,7 @@ Si no existe máquina virtual local antes de volver a proteger la máquina virtu
 > [!NOTE]
 > Cuando una máquina física conmuta por error en Azure, solo puede conmutar por recuperación como una máquina virtual de VMware. Esto sigue el mismo flujo de trabajo que la recuperación en ubicación alternativa. Asegúrese detectar al menos un servidor de destino principal junto con los hosts ESX/ESXi necesarios para la conmutación por recuperación.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
-Siga los pasos para realizar la [operación de conmutación por recuperación](site-recovery-how-to-failback-azure-to-vmware.md).
+Siga los pasos para realizar la [operación de conmutación por recuperación](vmware-azure-failback.md).
 

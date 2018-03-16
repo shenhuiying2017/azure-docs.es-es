@@ -3,8 +3,8 @@ title: "Búsqueda de mapa interactiva con Azure Location Based Services | Micros
 description: "Guía de inicio rápido de Azure: inicio de una búsqueda de mapa interactiva de demostración con Azure Location Based Services (versión preliminar)"
 services: location-based-services
 keywords: 
-author: dsk-2015
-ms.author: dkshir
+author: kgremban
+ms.author: kgremban
 ms.date: 11/28/2017
 ms.topic: quickstart
 ms.service: location-based-services
@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 09022648c03ffa12aa3b060e5094c40ea5c3d61e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 288044b2f8a4b996489bbd6a6b0a61b455e8f4ad
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="launch-a-demo-interactive-map-search-using-azure-location-based-services-preview"></a>Inicio de una búsqueda de mapa interactiva de demostración con Azure Location Based Services (versión preliminar)
 
@@ -64,7 +64,7 @@ Los tutoriales analizan con detalle cómo se usa y cómo se configura Azure Loca
 1. Cierre el explorador donde se ejecuta la aplicación web **AzureMapDemo.html**.
 2. En el menú de la izquierda de Azure Portal, haga clic en **Todos los recursos** y seleccione la cuenta de LBS. En la parte superior de la hoja **Todos los recursos**, haga clic en **Eliminar**.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En esta guía de inicio rápido, creó una cuenta de Azure LBS e inició una aplicación de demostración con su cuenta. Para información sobre cómo crear su propia aplicación con las API de Azure Location Based Services, pase al tutorial siguiente.
 

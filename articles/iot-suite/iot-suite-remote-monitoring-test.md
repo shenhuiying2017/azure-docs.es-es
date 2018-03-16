@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 9f51c35be09af6f3a8dde7061dcf57a9c4cc9fdb
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 563a5a1c177b1f18be18d9b3cc9f3f9a7ee8ae4a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-new-simulated-device"></a>Creación de un nuevo dispositivo simulado
 
@@ -104,7 +104,7 @@ Complete las siguientes tareas para preparar el entorno de desarrollo y así pod
 
 Cuando cree la solución de supervisión remota en [www.azureiotsuite.com](https://www.azureiotsuite.com), elija un nombre para la solución. El nombre de la solución se convierte en el nombre del grupo de recursos de Azure que contiene los distintos recursos implementados que utiliza la solución. Los siguientes comandos usan un grupo de recursos denominado **Contoso-01**, así que debe reemplazar **Contoso-01** con el nombre de su grupo de recursos.
 
-Los siguientes comandos usan el comando `az` de la [CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest). Puede instalar la CLI de Azure 2.0 en la máquina de desarrollo, o usar [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) en [Azure Portal](http://portal.azure.com). La CLI de Azure 2.0 viene preinstalada en Cloud Shell.
+Los siguientes comandos usan el comando `az` de la [CLI de Azure 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest). Puede instalar la CLI de Azure 2.0 en la máquina de desarrollo, o usar [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) en [Azure Portal](http://portal.azure.com). La CLI de Azure 2.0 viene preinstalada en Cloud Shell.
 
 1. Para comprobar el nombre del grupo de recursos que contiene los recursos de supervisión remotos, ejecute el siguiente comando:
 
@@ -680,7 +680,7 @@ En la página **Dispositivos**, puede aprovisionar instancias del tipo actualiza
 
 Puede ver la telemetría **Temperatura interna** nueva desde el dispositivo simulado.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Este tutorial le ha mostrado cómo:
 

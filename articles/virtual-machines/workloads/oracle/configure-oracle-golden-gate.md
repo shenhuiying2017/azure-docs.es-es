@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: rclaus
-ms.openlocfilehash: 5c0011da9d7c57a532589b4b8ae19643ab554c35
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: c99023d794dfb3b78b26ef721d89302e126f5cb1
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Implementación de Oracle Golden Gate en máquinas virtuales Linux de Azure 
 
@@ -50,7 +50,7 @@ Lo siguiente es un resumen de la configuración del entorno:
 
 ### <a name="sign-in-to-azure"></a>Inicio de sesión en Azure 
 
-Inicie sesión en su suscripción de Azure con el comando [az login](/cli/azure/#az_login). Después, siga las instrucciones que aparecen en pantalla.
+Inicie sesión en su suscripción de Azure con el comando [az login](/cli/azure/reference-index#az_login). Después, siga las instrucciones que aparecen en pantalla.
 
 ```azurecli
 az login
@@ -243,7 +243,7 @@ Establezca las variables ORACLE_SID y ORACLE_HOME.
 
 ```bash
 $ ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
-$ ORACLE_SID=gg1; export ORACLE_SID
+$ ORACLE_SID=cdb1; export ORACLE_SID
 $ LD_LIBRARY_PATH=ORACLE_HOME/lib; export LD_LIBRARY_PATH
 ```
 
@@ -253,7 +253,7 @@ Opcionalmente, puede agregar ORACLE_HOME y ORACLE_SID al archivo .bashrc, para q
 # add oracle home
 export ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1
 # add oracle sid
-export ORACLE_SID=gg1
+export ORACLE_SID=cdb1
 # add Oracle library path
 export LD_LIBRARY_PATH=$ORACLE_HOME/lib
 ```
@@ -436,7 +436,7 @@ Para instalar Oracle Golden Gate, complete los pasos siguientes:
 
   ![Captura de pantalla de la página Select Installation (Seleccionar instalación) en el instalador](./media/oracle-golden-gate/golden_gate_install_01.png)
 
-3. Cambie la ubicación del software. A continuación, active la casilla **Start Manager** (Iniciar administrador) y especifique la ubicación de la base de datos. Seleccione **Siguiente** para continuar.
+3. Cambie la ubicación del software. A continuación, active la casilla **Start Manager** (Iniciar administrador) y especifique la ubicación de la base de datos. Seleccione **Next** (Siguiente) para continuar.
 
   ![Captura de pantalla de la página Select Installation (Seleccionar instalación)](./media/oracle-golden-gate/golden_gate_install_02.png)
 
@@ -803,7 +803,7 @@ Cuando ya no los necesite, se puede usar el comando siguiente para quitar el gru
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 [Tutorial de creación de máquinas virtuales de alta disponibilidad](../../linux/create-cli-complete.md)
 

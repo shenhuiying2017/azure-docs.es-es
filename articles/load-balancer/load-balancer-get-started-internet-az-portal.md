@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/20/2017
 ms.author: kumud
-ms.openlocfilehash: b9b4275497798db5310f2a28aeb6c582b1a7429c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d09115d7b01b72476ebc9eb883a43aa4c59d2e3b
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 #  <a name="create-a-public-load-balancer-standard-with-zone-redundant-public-ip-address-frontend-using-azure-portal"></a>Creación de un estándar de equilibrador de carga público con redundancia de zona en el front-end para la dirección IP pública mediante Azure Portal
 
@@ -37,7 +37,7 @@ La [SKU estándar de Load Balancer](https://aka.ms/azureloadbalancerstandard) se
 
 Antes de seleccionar una zona o una opción con redundancia de zona para la dirección IP pública de front-end de Load Balancer, primero debe completar los pasos descritos en el [registro para la versión preliminar de zonas de disponibilidad](https://docs.microsoft.com/azure/availability-zones/az-overview).
 
-## <a name="log-in-to-azure"></a>Inicie sesión en Azure. 
+## <a name="log-in-to-azure"></a>Inicio de sesión en Azure 
 
 Inicie sesión en Azure Portal en https://portal.azure.com.
 
@@ -54,8 +54,8 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
     ![creación de un estándar de equilibrador de carga con redundancia de zona con Azure Portal](./media/load-balancer-get-started-internet-az-portal/create-zone-redundant-load-balancer-standard.png)
 
 
-## <a name="next-steps"></a>pasos siguientes
-- Aprenda a [crear una dirección IP pública en una zona de disponibilidad](../virtual-network/create-public-ip-availability-zone-portal.md).
+## <a name="next-steps"></a>Pasos siguientes
+- Aprenda a [crear una dirección IP pública en una zona de disponibilidad](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address).
 
 
 

@@ -12,15 +12,15 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 674245f1e284e7308474fed0f6c53b350ec1c819
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: a1224c48537441726c0e01134f6a9256cf3b71c6
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="how-to-use-azure-cli-20-and-the-iot-extension-to-manage-device-provisioning-services"></a>Uso de la CLI de Azure 2.0 y de la extensión de IoT para administrar los servicios de aprovisionamiento de dispositivos
 
-La [CLI de Azure 2.0](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest) es una herramienta de línea de comandos multiplataforma y de código abierto para la administración de recursos de Azure, como IoT Edge. Está disponible en Windows, Linux y MacOS. La CLI de Azure 2.0 permite administrar recursos de Azure IoT Hub, instancias de servicio de aprovisionamiento de dispositivos y centros vinculados listos para usar.
+La [CLI de Azure 2.0](https://docs.microsoft.com/en-us/cli/azure?view=azure-cli-latest) es una herramienta de línea de comandos multiplataforma y de código abierto para la administración de recursos de Azure, como IoT Edge. Está disponible en Windows, Linux y MacOS. La CLI de Azure 2.0 permite administrar recursos de Azure IoT Hub, instancias de servicio de aprovisionamiento de dispositivos y centros vinculados listos para usar.
 
 La extensión de IoT enriquece la CLI de Azure 2.0 con características como administración de dispositivos y funcionalidad completa de IoT Edge.
 
@@ -57,7 +57,7 @@ Antes de comenzar, realice los pasos de instalación descritos anteriormente. Si
 
     az group create -l eastus -n IoTHubBlogDemo
 
-![Crear grupo de recursos][2]
+![Creación de un grupo de recursos][2]
 
 
 ### <a name="3-create-two-device-provisioning-services"></a>3. Cree dos servicios de aprovisionamiento de dispositivos
@@ -96,7 +96,7 @@ Antes de comenzar, realice los pasos de instalación descritos anteriormente. Si
 [6]: ./media/how-to-manage-dps-with-cli/link-hub.jpg
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este tutorial aprendió lo siguiente:
 
 > [!div class="checklist"]

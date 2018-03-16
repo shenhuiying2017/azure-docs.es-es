@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: kumud
-ms.openlocfilehash: 0b0d474752615e60747ffe7681c2d04cd2685bba
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 3f67d4f537a832d1d3e13ff2a67645ae17ed8669
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="get-started-with-azure-dns-using-powershell"></a>Introducción a DNS de Azure con PowerShell
 
 > [!div class="op_single_selector"]
-> * [Portal de Azure](dns-getstarted-portal.md)
+> * [Azure Portal](dns-getstarted-portal.md)
 > * [PowerShell](dns-getstarted-powershell.md)
 > * [CLI de Azure 1.0](dns-getstarted-cli-nodejs.md)
 > * [CLI de Azure 2.0](dns-getstarted-cli.md)
@@ -78,7 +78,7 @@ Una vez haya comprobado que la zona y los registros DNS se han configurado corre
 Los servidores de nombres de su zona se proporcionan con el cmdlet `Get-AzureRmDnsZone`:
 
 ```powershell
-Get-AzureRmDnsZone -ZoneName contoso.com -ResourceGroupName MyResourceGroup
+Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyResourceGroup
 
 Name                  : contoso.com
 ResourceGroupName     : myresourcegroup

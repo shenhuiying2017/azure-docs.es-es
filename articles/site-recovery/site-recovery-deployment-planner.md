@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/04/2017
+ms.date: 03/09/2018
 ms.author: nisoneji
-ms.openlocfilehash: 7e3e0cebbb1ae0c7c63de586f458814f5dc6f202
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 77e76e5f9960f8a7c54ebcb82321784be5c1aa99
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Azure Site Recovery Deployment Planner para VMware en Azure
 Este artículo es la guía del usuario de Azure Site Recovery Deployment Planner para implementaciones de producción de VMware en Azure.
@@ -36,7 +36,7 @@ La herramienta proporciona los detalles siguientes:
 **Evaluación de compatibilidad**
 
 * Evaluación de la idoneidad de una máquina virtual, en función del número de discos, su tamaño, IOPS, la renovación, el tipo de arranque (EFI/BIOS) y la versión del sistema operativo
- 
+
 **Necesidad de ancho de banda de red frente a evaluación de RPO**
 
 * El ancho de banda de red necesario para la replicación diferencial
@@ -93,13 +93,16 @@ La herramienta tiene dos fases principales: la generación de perfiles y la gene
 >
 
 ## <a name="download-and-extract-the-deployment-planner-tool"></a>Descarga y extracción de Deployment Planner Tool
-1. Descargue la versión más reciente de [Site Recovery Deployment Planner](https://aka.ms/asr-deployment-planner). La herramienta está empaquetada en una carpeta en formato zip. La versión actual de la herramienta admite únicamente el escenario de VMware a Azure.
+1. Descargue la versión más reciente de [Site Recovery Deployment Planner](https://aka.ms/asr-deployment-planner).
+La herramienta está empaquetada en una carpeta en formato zip. La versión actual de la herramienta admite únicamente el escenario de VMware a Azure.
 
-2. Copie la carpeta .zip en la instancia de Windows Server desde la que desea ejecutar la herramienta. La herramienta se puede ejecutar desde Windows Server 2012 R2 si el servidor tiene acceso a la red para conectarse al servidor de vCenter/host de vSphere ESXi que contiene las máquinas virtuales cuyo perfil se va a generar. Sin embargo, se recomienda ejecutar la herramienta en un servidor cuya configuración de hardware cumpla las [directrices de tamaño del servidor de configuración](https://aka.ms/asr-v2a-on-prem-components). Si ya ha implementado los componentes de Site Recovery de forma local, ejecute la herramienta desde el servidor de configuración.
+2. Copie la carpeta .zip en la instancia de Windows Server desde la que desea ejecutar la herramienta.
+La herramienta se puede ejecutar desde Windows Server 2012 R2 si el servidor tiene acceso a la red para conectarse al servidor de vCenter/host de vSphere ESXi que contiene las máquinas virtuales cuyo perfil se va a generar. Sin embargo, se recomienda ejecutar la herramienta en un servidor cuya configuración de hardware cumpla las [directrices de tamaño del servidor de configuración](https://aka.ms/asr-v2a-on-prem-components). Si ya ha implementado los componentes de Site Recovery de forma local, ejecute la herramienta desde el servidor de configuración.
 
     Se recomienda que tenga la misma configuración de hardware sea la misma que el servidor de configuración (que tiene un servidor de procesos incorporado) en el servidor en el que se ejecuta la herramienta. Dicha configuración garantiza que el rendimiento obtenido que indica la herramienta coincide con el rendimiento real que Site Recovery puede lograr durante la replicación. El cálculo del rendimiento depende del ancho de banda de red disponible en el servidor y de la configuración del hardware (como CPU y almacenamiento) del servidor. Si ejecuta la herramienta desde cualquier otro servidor, el rendimiento se calcula desde dicho servidor en Azure. Además, dado que la configuración del hardware del servidor puede diferir de la del servidor de configuración, el rendimiento obtenido del que informa la herramienta puede ser imprecisa.
 
-3. Extraiga la carpeta .zip. La carpeta contiene varios archivos y subcarpetas. El archivo ejecutable es ASRDeploymentPlanner.exe y está en la carpeta primaria.
+3. Extraiga la carpeta .zip.
+La carpeta contiene varios archivos y subcarpetas. El archivo ejecutable es ASRDeploymentPlanner.exe y está en la carpeta primaria.
 
     Ejemplo: copie el archivo .zip en la unidad E:\ y extráigalo.
     E:\ASR Deployment Planner_v2.1zip
@@ -123,5 +126,5 @@ Si tiene una versión anterior de Deployment Planner, realice una de las siguien
 La versión más reciente de la herramienta Site Recovery Deployment Planner es la 2.1.
 Para saber qué correcciones se agregan en cada actualización, consulte [ASR Deployment Planner Version History](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) (Historial de versiones de ASR Deployment Planner).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Ejecución de Site Recovery Deployment Planner](site-recovery-vmware-deployment-planner-run.md)

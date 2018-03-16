@@ -14,10 +14,10 @@ ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: nitinme
 ms.openlocfilehash: 7e6e37c0f5c8447b0e6d147a297b460d323b8894
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="authentication-with-data-lake-store-using-azure-active-directory"></a>Autenticación con Data Lake Store mediante Azure Active Directory
 
@@ -48,7 +48,7 @@ En la tabla siguiente se indica cómo se admiten los mecanismos de autenticació
 
 Vea [Escenarios de autenticación para Azure AD](../active-directory/develop/active-directory-authentication-scenarios.md) para obtener más información sobre cómo usar Azure Active Directory para la autenticación.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Autenticación de usuario final](data-lake-store-end-user-authenticate-using-active-directory.md)
 * [Autenticación entre servicios](data-lake-store-service-to-service-authenticate-using-active-directory.md)

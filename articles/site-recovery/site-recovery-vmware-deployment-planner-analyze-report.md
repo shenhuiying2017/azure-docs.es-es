@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/04/2017
+ms.date: 03/09/2018
 ms.author: nisoneji
-ms.openlocfilehash: d8c4f5431d8e2d406cd5b203b468c447d4dd6e17
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: dce374d85ef32fe1fbfc88502780fa2ad7a5eae4
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="azure-site-recovery-deployment-planner-report"></a>Informe de Azure Site Recovery Deployment Planner
 El informe de Microsoft Excel generado contiene las siguientes hojas:
@@ -132,16 +132,16 @@ En el gráfico siguiente se muestra la vista de resumen del costo total estimado
 ![Resumen de la estimación de costos](media/site-recovery-vmware-deployment-planner-analyze-report/cost-estimation-summary-v2a.png)
 
 El resumen le ayuda a comprender lo que debe pagar por los servicios de almacenamiento, proceso, red y licencia cuando protege todas las máquinas virtuales compatibles en Azure mediante Azure Site Recovery. El costo se calcula para las máquinas virtuales compatibles y no para todas las máquinas virtuales para las que se han generado perfiles.  
- 
+
 Puede ver el costo mensual o anual. Obtenga más información sobre las [regiones de destino admitidas](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions) y las [monedas admitidas](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies).
 
 **Cost by components**: el costo total de la recuperación ante desastres se divide entre cuatro componentes: Compute, Storage, Network y el costo de la licencia de Azure Site Recovery. El costo se calcula en función del consumo en el que se incurrirá durante la replicación y en el transcurso del simulacro de recuperación ante desastres por los servicios de proceso, almacenamiento (premium y estándar), circuito ExpressRoute o VPN configurados entre el sitio local y Azure, y la licencia de Azure Site Recovery.
 
-**Cost by states**: el costo total de recuperación ante desastres se clasifica según dos estados diferentes: replicación y simulacro de recuperación ante desastres. 
+**Cost by states**: el costo total de recuperación ante desastres se clasifica según dos estados diferentes: replicación y simulacro de recuperación ante desastres.
 
-**Replication cost**: costo en el que se incurrirá durante la replicación. Incluye el costo de almacenamiento, red y licencia de Azure Site Recovery. 
+**Replication cost**: costo en el que se incurrirá durante la replicación. Incluye el costo de almacenamiento, red y licencia de Azure Site Recovery.
 
-**DR-Drill cost** (Costo del simulacro de recuperación ante desastres): costo en el que se incurrirá durante las conmutaciones por error de prueba. Azure Site Recovery pone en marcha las máquinas virtuales durante la conmutación por error de prueba. El costo del simulacro de recuperación ante desastres incluye el costo de los servicios de proceso y almacenamiento de las máquinas virtuales en ejecución. 
+**DR-Drill cost** (Costo del simulacro de recuperación ante desastres): costo en el que se incurrirá durante las conmutaciones por error de prueba. Azure Site Recovery pone en marcha las máquinas virtuales durante la conmutación por error de prueba. El costo del simulacro de recuperación ante desastres incluye el costo de los servicios de proceso y almacenamiento de las máquinas virtuales en ejecución.
 
 **Azure storage cost per Month/Year**: muestra el costo total en el que se incurrirá por el almacenamiento premium y estándar por la replicación y el simulacro de recuperación ante desastres.
 Puede ver el análisis detallado de los costos por máquina virtual en la hoja [Cost Estimation](site-recovery-vmware-deployment-planner-cost-estimation.md) (Estimación de costos).
@@ -266,7 +266,7 @@ Por ejemplo, si las características de carga de trabajo de un disco lo colocan 
 
 **Boot Type**: tipo de arranque de la máquina virtual. Puede ser BIOS o EFI.  Actualmente, Azure Site Recovery admite máquinas virtuales de EFI de Windows Server (Windows Server 2012, 2012 R2 y 2016) siempre que el número de particiones en el disco de arranque sea menor que 4 y el tamaño del sector de arranque sea de 512 bytes. Para proteger las máquinas virtuales de EFI, la versión de Mobility Service de Azure Site Recovery debe ser la 9.13, o cualquier versión superior. Solo se admite la conmutación por error de las máquinas virtuales de EFI. No se admite la conmutación por recuperación.
 
-**Tipo de sistema operativo**: se trata del tipo de sistema operativo de la máquina virtual. Puede ser Windows o Linux u otra, según la plantilla de VMware vSphere elegida al crear la máquina virtual. 
+**Tipo de sistema operativo**: se trata del tipo de sistema operativo de la máquina virtual. Puede ser Windows o Linux u otra, según la plantilla de VMware vSphere elegida al crear la máquina virtual.
 
 ## <a name="azure-site-recovery-limits"></a>Límites de Azure Site Recovery
 En la tabla siguiente se proporcionan los límites de Azure Site Recovery. Estos límites se basan en nuestras pruebas, pero no pueden cubrir todas las combinaciones de E/S posibles de la aplicación. Los resultados reales pueden variar en función de la combinación de E/S de la aplicación. Para unos mejores resultados, incluso después del planeamiento de la implementación, es aconsejable probar siempre la aplicación de forma exhaustiva mediante una conmutación por error de prueba para obtener una imagen real del rendimiento de la aplicación.
@@ -282,16 +282,16 @@ Disco Premium P20, P30, P40 o P50 | 16 KB, o más |10 MB/s | 842 GB por disco
 
 **Actividad de datos de origen** | **Límite máximo**
 ---|---
-Actividad de datos media por máquina virtual| 25 MB/s 
+Actividad de datos media por máquina virtual| 25 MB/s
 Actividad de datos máxima entre todos los discos de una máquina virtual | 54 MB/s
-Actividad de datos máxima por día admitida por un servidor de procesos | 2 TB 
+Actividad de datos máxima por día admitida por un servidor de procesos | 2 TB
 
 Estos son los números promedio si la superposición de E/S es del 30 %. Site Recovery es capaz de controlar un mayor rendimiento en función de la relación de superposición, tamaños de escritura mayores y el comportamiento real de E/S de la carga de trabajo. Los números anteriores asumen un trabajo pendiente típico de aproximadamente cinco minutos. Es decir, una vez que se cargan los datos, se procesan y se crea un punto de recuperación en menos de cinco minutos.
 
 
 ## <a name="cost-estimation"></a>Estimación de costos
-Obtenga más información sobre la [estimación de costos](site-recovery-vmware-deployment-planner-cost-estimation.md). 
+Obtenga más información sobre la [estimación de costos](site-recovery-vmware-deployment-planner-cost-estimation.md).
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre la [estimación de costos](site-recovery-vmware-deployment-planner-cost-estimation.md).

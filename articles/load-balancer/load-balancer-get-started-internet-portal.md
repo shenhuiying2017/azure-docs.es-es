@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: ff61008710766830640c0de31bf9fd23198946fd
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 35632cc93c9a0650b45220ba84b4983679de3d9c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="creating-an-internet-facing-load-balancer-using-the-azure-portal"></a>Creación de un equilibrador de carga orientado a Internet mediante Azure Portal
 
@@ -54,7 +54,7 @@ Puede obtener más información sobre los componentes del equilibrador de carga 
 ## <a name="set-up-a-load-balancer-in-azure-portal"></a>Configuración de un equilibrador de carga en Azure Portal
 
 > [!IMPORTANT]
-> En este ejemplo se supone que tiene una red virtual denominada **myVNet**. Consulte [Creación de una red virtual](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) para hacerlo. También se supone que hay una subred dentro de **myVNet** denominada **LB-Subnet-BE** y dos máquinas virtuales que se llaman **web1** y **web2** respectivamente en el mismo conjunto de disponibilidad llamado **myAvailSet** en **myVNet**. Consulte [este vínculo](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para crear máquinas virtuales.
+> En este ejemplo se supone que tiene una red virtual denominada **myVNet**. Consulte [Creación de una red virtual](../virtual-network/manage-virtual-network.md#create-a-virtual-network) para hacerlo. También se supone que hay una subred dentro de **myVNet** denominada **LB-Subnet-BE** y dos máquinas virtuales que se llaman **web1** y **web2** respectivamente en el mismo conjunto de disponibilidad llamado **myAvailSet** en **myVNet**. Consulte [este vínculo](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para crear máquinas virtuales.
 
 1. Desde un explorador, vaya a Azure Portal: [http://portal.azure.com](http://portal.azure.com) e inicie sesión con su cuenta de Azure.
 2. En la parte superior izquierda de la pantalla, seleccione **Crear un recurso** > **Redes** > **Equilibrador de carga**.
@@ -105,7 +105,7 @@ Puede obtener más información sobre los componentes del equilibrador de carga 
 
 Para eliminar un equilibrador de carga, seleccione el equilibrador de carga que desea quitar. En la hoja *Equilibrador de carga* , haga clic en **Eliminar** en la parte superior de la hoja. A continuación, seleccione **Sí** cuando se le solicite.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 [Introducción a la configuración de un equilibrador de carga interno](load-balancer-get-started-ilb-arm-cli.md)
 

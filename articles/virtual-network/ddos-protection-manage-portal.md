@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: jdial
-ms.openlocfilehash: ee418537fb52dbfb3eacca6e99d8572152a60910
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 6a5ab1ba44197c0103e1e7d353a116dc01dfc163
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Administración de Protección contra DDoS de Azure estándar mediante Azure Portal
 
@@ -33,7 +33,7 @@ Obtenga información acerca de cómo habilitar y deshabilitar la protección con
 1. Inicie sesión en Azure Portal: http://portal.azure.com/. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 2. Haga clic en **Crear un recurso** en la esquina superior izquierda de Azure Portal.
 3. Haga clic en **Redes** y seleccione **Red virtual**.
-4. Cree una red virtual con la configuración elegida. Para más información sobre cómo crear redes virtuales en Azure, vea [Creación de una red virtual con varias subredes](virtual-networks-create-vnet-arm-pportal.md). En **Protección contra DDoS**, haga clic en **Habilitado** y luego haga clic en **Crear**. Si no ve **Protección contra DDoS**, una causa probable es que su suscripción no esté registrada para disponer de la característica. Debe realizar el [registro](http://aka.ms/ddosprotection) y recibir una notificación de que la característica está habilitada para su suscripción para que **Protección contra DDoS** aparezca.
+4. Cree una red virtual con la configuración elegida. Para más información sobre cómo crear redes virtuales en Azure, vea [Creación de una red virtual con varias subredes](manage-virtual-network.md#create-a-virtual-network). En **Protección contra DDoS**, haga clic en **Habilitado** y luego haga clic en **Crear**. Si no ve **Protección contra DDoS**, una causa probable es que su suscripción no esté registrada para disponer de la característica. Debe realizar el [registro](http://aka.ms/ddosprotection) y recibir una notificación de que la característica está habilitada para su suscripción para que **Protección contra DDoS** aparezca.
 
     ![Creación de una red virtual](./media/ddos-protection-manage-portal/ddos-create-vnet.png)   
 
@@ -99,7 +99,7 @@ Los nombres de las métricas presentan distintos tipos de paquetes y bytes frent
 - **Nombre de etiqueta de reenviados (por ejemplo: paquetes de entrada reenviados por DDoS)**: el número de paquetes reenviados por el sistema DDoS a la dirección IP virtual de destino (tráfico que no se filtró).
 - **Sin nombre de etiqueta (por ejemplo, paquetes de entrada por DDoS):** el número total de paquetes que han llegado al sistema de limpieza (representa la suma de los paquetes quitados y los reenviados).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - [Más información sobre los registros de Diagnósticos de Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Análisis de registros desde Azure Storage con Log Analytics](../log-analytics/log-analytics-azure-storage.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

@@ -6,13 +6,13 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/08/2018
 ms.author: raynew
-ms.openlocfilehash: d4c8dc8083fbffc46e94673230241075b763b444
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: d460da197c6e9f0bface402d83d4788f8164cc9c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Configurar la recuperación ante desastres para servidores físicos locales en Azure
 
@@ -32,8 +32,8 @@ Este tutorial muestra cómo configurar la recuperación ante desastres de servid
 Para completar este tutorial:
 
 - Asegúrese de entender la [arquitectura y los componentes del escenario](physical-azure-architecture.md).
-- Revise los [requisitos de compatibilidad](site-recovery-support-matrix-to-azure.md) de todos los componentes.
-- Asegúrese de que los servidores que quiere replicar cumplen los [requisitos de VM de Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+- Revise los [requisitos de compatibilidad](vmware-physical-secondary-support-matrix.md) de todos los componentes.
+- Asegúrese de que los servidores que quiere replicar cumplen los [requisitos de VM de Azure](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
 - Prepare Azure. Necesita una suscripción de Azure, una red virtual de Azure y una cuenta de almacenamiento.
 - Prepare una cuenta para la instalación automática de Mobility Service en cada servidor que quiera replicar.
 
@@ -177,6 +177,6 @@ Habilite la replicación para cada servidor.
 
 Para supervisar los servidores que agregue, puede comprobar la última hora de detección en **Servidores de configuración** > **Último contacto**. Para agregar equipos sin esperar a una hora de detección programada, resalte el servidor de configuración (sin hacer clic en él) y haga clic en **Actualizar**.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 [Ejecute un simulacro de recuperación ante desastres](tutorial-dr-drill-azure.md).

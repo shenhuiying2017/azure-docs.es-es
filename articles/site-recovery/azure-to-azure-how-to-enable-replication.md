@@ -6,13 +6,13 @@ author: asgang
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/12/2017
+ms.date: 03/09/2018
 ms.author: asgang
-ms.openlocfilehash: 5a0e1f638d68131c3c9f1cac36d63795b87e8f41
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 39d81ed6408e5f2c434a4fbaa681efc4c0b19a63
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="replicate-azure-virtual-machines-to-another-azure-region"></a>Replicación de máquinas virtuales de Azure en otra región de Azure
 
@@ -76,7 +76,6 @@ Puede modificar la configuración de destino predeterminada utilizada por Site R
 >Durante la replicación inicial, el estado de la máquina virtual puede tardar un tiempo en actualizarse, sin ningún progreso. Haga clic en el botón **Actualizar** para ver el estado más reciente.
 >
 
-# <a name="next-steps"></a>pasos siguientes
+# <a name="next-steps"></a>Pasos siguientes
 
 [Más información](site-recovery-test-failover-to-azure.md) sobre la ejecución de una conmutación por error de prueba.
-

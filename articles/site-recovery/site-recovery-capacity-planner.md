@@ -12,17 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/28/2017
+ms.date: 03/09/2018
 ms.author: nisoneji
-ms.openlocfilehash: bfeefde53aa2b3645934f068d580c0714714dd69
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d9c2645be73c4b6e34d194d6b2444a700e3900d2
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="plan-capacity-for-protecting-hyper-v-vms-with-site-recovery"></a>Planeamiento de la capacidad para proteger las máquinas virtuales de Hyper-V con Site Recovery
 
-Ahora hay disponible una nueva versión mejorada de [Azure Site Recovery Deployment Planner en el escenario de Hyper-V en Azure](site-recovery-hyper-v-deployment-planner.md). Reemplaza a la antigua herramienta. Use la herramienta nueva para el planeamiento de la implementación. La herramienta proporciona las directrices siguientes:
+Ahora hay disponible una nueva versión mejorada de [Azure Site Recovery Deployment Planner en el escenario de Hyper-V en Azure](site-recovery-hyper-v-deployment-planner.md). Reemplaza a la antigua herramienta. Use la herramienta nueva para el planeamiento de la implementación.
+La herramienta proporciona las directrices siguientes:
 
 * Evaluación de la idoneidad de las máquinas virtuales en función del número de discos, el tamaño de estos, las IOPS, la actividad de datos y algunas otras características de las máquinas virtuales.
 * Necesidad de ancho de banda de red frente a evaluación de RPO.
@@ -45,7 +46,7 @@ Puede ejecutar la herramienta de dos modos distintos:
 
 * Recopile información sobre su entorno, incluidas las máquinas virtuales, discos por máquina virtual y almacenamiento por disco.
 * Identifique la tasa de cambio (renovación) diaria para los datos replicados. Descargue la [herramienta de planeamiento de la capacidad de Hyper-V](https://www.microsoft.com/download/details.aspx?id=39057) para obtener la tasa de cambio. [Más información](site-recovery-capacity-planning-for-hyper-v-replication.md) sobre esta herramienta. Se recomienda ejecutar esta herramienta durante una semana para capturar los promedios.
-   
+
 
 ## <a name="run-the-quick-planner"></a>Ejecución de Quick Planner
 1. Descargue y abra [Site Recovery Capacity Planner](http://aka.ms/asr-capacity-planner-excel). Tendrá que ejecutar macros. Cuando se le pida, realice las selecciones para habilitar la edición y el contenido.
@@ -58,7 +59,7 @@ Puede ejecutar la herramienta de dos modos distintos:
 
    a. En **Select your scenario** (Seleccionar escenario) elija **Hyper-V to Azure** (Hyper-V a Azure) o **VMware/Physical to Azure** (VMWare/Físico a Azure).
 
-   b. En **Average daily data change rate (%)** [Tasa media diaria de cambio de datos (%)], escriba la información que ha recopilado con la [herramienta de planeamiento de capacidad de Hyper-V](site-recovery-capacity-planning-for-hyper-v-replication.md) o con [Site Recovery Deployment Planner](./site-recovery-deployment-planner.md). 
+   b. En **Average daily data change rate (%)** [Tasa media diaria de cambio de datos (%)], escriba la información que ha recopilado con la [herramienta de planeamiento de capacidad de Hyper-V](site-recovery-capacity-planning-for-hyper-v-replication.md) o con [Site Recovery Deployment Planner](./site-recovery-deployment-planner.md).
 
    c. El valor de **compresión** no se utiliza al replicar máquinas virtuales de Hyper-V en Azure. Para la compresión, use un dispositivo de terceros como Riverbed.
 
@@ -147,9 +148,9 @@ Después de especificar toda la información, seleccione **Submit data to the pl
 ### <a name="submit-data-in-capacity-planner"></a>Envío de datos en Capacity Planner
 1. Cuando se abre la hoja de cálculo **Capacity Planner**, esta se rellena en función de la configuración que haya especificado. La palabra «Workload» aparece en la celda **Infra inputs source** (Origen de entradas de infraestructura) para indicar que la entrada es la hoja de cálculo **Workload Qualification**.
 
-2. Si desea realizar cambios, deberá modificar la hoja de cálculo **Workload Qualification**. A continuación, vuelva a seleccionar **Submit data to the planner tool** (Enviar datos a la herramienta de planeación). 
+2. Si desea realizar cambios, deberá modificar la hoja de cálculo **Workload Qualification**. A continuación, vuelva a seleccionar **Submit data to the planner tool** (Enviar datos a la herramienta de planeación).
 
    ![Capacity Planner](./media/site-recovery-capacity-planner/capacity-planner.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Aprenda a ejecutar](site-recovery-capacity-planning-for-hyper-v-replication.md) la herramienta de planeamiento de capacidad.

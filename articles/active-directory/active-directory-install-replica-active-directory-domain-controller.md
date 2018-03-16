@@ -16,11 +16,11 @@ ms.date: 11/12/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 3f7624d588e958985a73c5b40e8010e18e8879cb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f4e64fbc6c2fda026297b69bd54471d49b6785a1
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="install-a-replica-active-directory-domain-controller-in-an-azure-virtual-network"></a>Instalación de un controlador de dominio de Active Directory de réplica en una red virtual de Azure
 En este tema se muestra cómo instalar controladores de dominio adicionales para usarlos como controladores de dominio de réplica para un dominio de Active Directory local en máquinas virtuales (VM) de Azure en una red virtual de Azure. También [puede instalar un bosque de Windows Server Active Directory en una red virtual de Azure](active-directory-new-forest-virtual-machine.md). Para obtener instrucciones sobre la instalación de Active Directory Domain Services (AD DS) en una red virtual de Azure, consulte [Directrices para implementar Windows Server Active Directory en máquinas virtuales de Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx).
@@ -50,7 +50,7 @@ Para crear máquinas virtuales para hospedar el rol de controlador de dominio, r
 
 Para crear las máquinas virtuales con Windows PowerShell en lugar Azure Portal, consulte [Uso de Azure PowerShell para crear y preconfigurar máquinas virtuales basadas en Windows](../virtual-machines/windows/classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-Reserve una dirección IP estática para las máquinas virtuales que ejecutarán el rol de controlador de dominio. Para reservar una dirección IP estática, descargue el instalador de plataforma web de Microsoft, [instale Azure PowerShell](/powershell/azure/overview) y ejecute el cmdlet Set-AzureStaticVNetIP. Por ejemplo:
+Reserve una dirección IP estática para las máquinas virtuales que ejecutarán el rol de controlador de dominio. Para reservar una dirección IP estática, descargue el instalador de plataforma web de Microsoft, [instale Azure PowerShell](/powershell/azure/overview) y ejecute el cmdlet Set-AzureStaticVNetIP. Por ejemplo: 
 
 ````
 Get-AzureVM -ServiceName AzureDC1 -Name AzureDC1 | Set-AzureStaticVNetIP -IPAddress 10.0.0.4 | Update-AzureVM
@@ -62,7 +62,7 @@ Inicie sesión en una máquina virtual y compruebe que tiene conectividad a trav
 
 ## <a name="reconfigure-dns-server-for-the-virtual-network"></a>Volver a configurar el servidor DNS para la red virtual
 1. Para obtener una lista de nombres de red virtual, en [Azure Portal](https://portal.azure.com), busque *Redes virtuales* y, a continuación, seleccione **Redes virtuales** para ver la lista. 
-2. Abra la red virtual que quiere administrar y, a continuación, [vuelva a configurar las direcciones IP del servidor DNS de la red virtual](../virtual-network/virtual-network-manage-network.md#dns-servers) para usar las direcciones IP estáticas que están asignadas a los controladores de dominio de réplica en lugar de las direcciones IP de los servidores DNS locales.
+2. Abra la red virtual que quiere administrar y, a continuación, [vuelva a configurar las direcciones IP del servidor DNS de la red virtual](../virtual-network/manage-virtual-network.md#change-dns-servers) para usar las direcciones IP estáticas que están asignadas a los controladores de dominio de réplica en lugar de las direcciones IP de los servidores DNS locales.
 3. Para asegurarse de que todas las máquinas virtuales de controlador de dominio de réplica en la red virtual estén configuradas para usar servidores DNS en la red virtual:
   1. Seleccione **Máquinas virtuales**.
   2. Seleccione las máquinas virtuales y, a continuación, elija **Reiniciar**. 

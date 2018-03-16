@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/02/2018
 ms.author: nitinme
-ms.openlocfilehash: 212789e8189abf362bb8eaf12e4c551b113b7adb
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 8e4213813ff23586ac683556d4a3c0c587edea58
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="use-databricks-cli-from-azure-cloud-shell"></a>Uso de la CLI de Databricks desde Azure Cloud Shell
 
 Aprenda a usar la CLI Databricks desde Azure Cloud Shell para realizar operaciones en Databricks.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 * Un área de trabajo y un clúster de Azure Databricks. Para obtener instrucciones, consulte [Introducción a Azure Databricks](quickstart-create-databricks-workspace-portal.md). 
 
@@ -84,7 +84,7 @@ Para obtener una referencia completa de los comandos, consulte [Databricks CLI](
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para más información acerca de la CLI de Azure, consulte [Introducción a Azure Cloud Shell](../cloud-shell/overview.md)
-* Para ver una lista de los comandos de la CLI de Azure, consulte la [referencia de la CLI de Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)
+* Para ver una lista de los comandos de la CLI de Azure, consulte la [referencia de la CLI de Azure](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest)
 * Para ver una lista de comandos de la CLI de Databricks, consulte [Databricks CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html) (CLI de Databricks)
 
 

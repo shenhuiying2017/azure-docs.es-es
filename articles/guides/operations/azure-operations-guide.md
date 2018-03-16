@@ -15,11 +15,11 @@ ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 06/12/2017
 ms.author: nepeters
-ms.openlocfilehash: 4a913e188dd40b0306be375b016b9e8a3739ed72
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 8d7cbe27e5acfe741aeb5ed85756bf3c7ce2160b
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>Introducción a la informática en la nube y Microsoft Azure
 
@@ -48,7 +48,7 @@ Con la infraestructura local, tiene un control completo sobre el hardware y soft
 
 Microsoft ha implementado muchos centros de datos de Azure todo el mundo y hay más previstos. Además, Microsoft está aumentando las nubes independientes en regiones como China y Alemania. Solo las empresas más grandes a nivel global pueden implementar centros de datos de esta manera, por lo que el uso de Azure facilita a las empresas de cualquier tamaño la implementación de los servicios cerca de sus clientes.
 
-Para las pequeñas empresas, Azure permite un punto de entrada de bajo costo, con la capacidad de escalar rápidamente a medida que aumenta la demanda de proceso. Esto evita una gran inversión de capital inicial en infraestructura y proporciona la flexibilidad para diseñar y volver a diseñar sistemas según sea necesario. El uso de la informática en la nube encaja bien con los modelos de escalado rápido y bajada rápida en el crecimiento de empresas emergentes.
+Para las pequeñas empresas, Azure permite un punto de entrada de bajo costo, con la capacidad de escalar rápidamente a medida que aumenta la demanda de proceso. Esto evita una gran inversión de capital inicial en infraestructura y proporciona la flexibilidad para diseñar y volver a diseñar sistemas según sea necesario. El uso de la informática en la nube encaja bien con los modelos de escalado rápido y de fracaso y respuesta rápida a los errores de las empresas emergentes.
 
 Para más información sobre las regiones de Azure disponibles, consulte [Regiones de Azure](https://azure.microsoft.com/regions/).
 
@@ -145,7 +145,7 @@ Azure es una plataforma en la nube global que está disponible con carácter gen
 
 Una de las ventajas del uso de Azure es que puede implementar aplicaciones en distintos centros de datos de todo el mundo. La región que elija puede afectar al rendimiento de la aplicación. Resulta óptimo elegir la región más cercana a la mayoría de sus clientes, para reducir la latencia de las solicitudes de red. También puede seleccionar una región para cumplir los requisitos legales para distribuir la aplicación en determinados países.
 
-### <a name="azure-portal"></a>Portal de Azure
+### <a name="azure-portal"></a>Azure Portal
 
 
 Azure Portal es una aplicación basada en web que puede usarse para crear, administrar y eliminar los servicios y recursos de Azure. Azure Portal se encuentra en https://portal.azure.com. Incluye un panel personalizable y herramientas para administrar los recursos de Azure. También proporciona información de suscripciones y facturación. Para más información, consulte [Información general sobre Microsoft Azure Portal](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) y [Administración de los recursos de Azure a través del Portal](https://docs.microsoft.com/azure/azure-portal/resource-group-portal).
@@ -169,7 +169,7 @@ Además de crear, administrar y eliminar recursos mediante Azure Portal, puede a
 
 **Azure PowerShell**
 
-Azure PowerShell es un conjunto de módulos que ofrece varios cmdlet para administrar Azure. Puede usar los cmdlet para crear, administrar y eliminar servicios de Azure. Con los cmdlet puede lograr implementaciones coherentes, repetibles y sin intervención humana. Para más información, vea [Instalación y configuración de Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Azure PowerShell es un conjunto de módulos que ofrece varios cmdlet para administrar Azure. Puede usar los cmdlet para crear, administrar y eliminar servicios de Azure. Con los cmdlet puede lograr implementaciones coherentes, repetibles y sin intervención humana. Para obtener más información, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 **interfaz de la línea de comandos de Azure**
 
@@ -238,7 +238,7 @@ El precio de cada servicio en Azure es diferente. Muchos servicios de Azure prop
 
 Después de haber implementado la aplicación o la solución en Azure, puede crear alertas que le envíen correos electrónicos al aproximarse a los límites de gastos definidos en la alerta. Para obtener más información, consulte [Configurar alertas de facturación para las suscripciones de Microsoft Azure](../../billing/billing-set-up-alerts.md).
 
-## <a name="azure-resource-manager"></a>Administrador de recursos de Azure
+## <a name="azure-resource-manager"></a>Azure Resource Manager
 
 Azure Resource Manager es un mecanismo de implementación, administración y organización de los recursos de Azure. Mediante Resource Manager, puede colocar muchos recursos individuales juntos en un grupo de recursos.
 
@@ -410,7 +410,7 @@ Para más información, vea [Introducción a Azure File Storage en Windows](../.
 
 Almacenamiento de tablas de Azure es un servicio que almacena datos de NoSQL estructurados en la nube. Table Storage es un almacén de claves y atributos con un diseño sin esquema. Como Table Storage carece de esquema, es fácil adaptar los datos a medida que evolucionan las necesidades de la aplicación. El acceso a los datos es rápido y rentable para todos los tipos de aplicaciones y, además, su coste es muy inferior al del SQL tradicional para volúmenes de datos similares.
 
-El almacenamiento de tablas se puede usar para almacenar conjuntos de datos flexibles, como datos de usuarios para aplicaciones web, libretas de direcciones, información de dispositivos y cualquier otro tipo de metadatos requerido por el servicio. Puede almacenar cualquier número de entidades en una tabla. Una cuenta de almacenamiento puede contener cualquier número de tablas, hasta el límite de capacidad de la cuenta de almacenamiento.
+Table Storage se puede usar para almacenar conjuntos de datos flexibles, como datos de usuarios para aplicaciones web, libretas de direcciones, información de dispositivos y cualquier otro tipo de metadatos requerido por el servicio. Puede almacenar cualquier número de entidades en una tabla. Una cuenta de almacenamiento puede contener cualquier número de tablas, hasta el límite de capacidad de la cuenta de almacenamiento.
 
 Para más información, consulte [Introducción a Azure Table Storage](../../cosmos-db/table-storage-how-to-use-dotnet.md).
 
@@ -491,19 +491,19 @@ Hay varias opciones para implementar una red virtual.
 
 **Portal**
 
-La implementación de una red virtual de Azure mediante Azure Portal requiere solo una suscripción activa de Azure y acceso a un explorador web. Puede implementar una nueva red virtual en un grupo de recursos nuevo o existente. Al crear una nueva máquina virtual desde el portal, puede seleccionar una red virtual existente o crear una nueva. Para más información, consulte [Creación de una red virtual mediante Azure Portal](../../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
+La implementación de una red virtual de Azure mediante Azure Portal requiere solo una suscripción activa de Azure y acceso a un explorador web. Puede implementar una nueva red virtual en un grupo de recursos nuevo o existente. Al crear una nueva máquina virtual desde el portal, puede seleccionar una red virtual existente o crear una nueva. Para más información, consulte [Creación de una red virtual mediante Azure Portal](../../virtual-network/quick-create-portal.md).
 
 Además de implementar una red virtual de Azure desde Azure Portal, puede implementar una plantilla de Azure Resource Manager desde el portal. Esto implementará y configurará todos los recursos tal como se define en la plantilla, incluido cualquier recurso de red virtual. Para más información, consulte [Implementación de recursos con plantillas de Resource Manager y Azure Portal](../../azure-resource-manager/resource-group-template-deploy-portal.md).
 
 **PowerShell**
 
-La implementación de una red virtual de Azure mediante PowerShell permite la automatización de la implementación completa de los recursos de la red virtual. Para más información, consulte [Creación de una red virtual usando PowerShell](../../virtual-network/virtual-networks-create-vnet-arm-ps.md).
+La implementación de una red virtual de Azure mediante PowerShell permite la automatización de la implementación completa de los recursos de la red virtual. Para más información, consulte [Creación de una red virtual usando PowerShell](../../virtual-network/quick-create-powershell.md).
 
 Además de implementar individualmente los recursos de Azure, puede usar el módulo Azure PowerShell para implementar una plantilla de Azure Resource Manager. Para más información, consulte [Implementación de recursos con plantillas de Resource Manager y Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md).
 
 **Interfaz de la línea de comandos (CLI)**
 
-Al igual que con el módulo de PowerShell, la interfaz de línea de comandos de Azure proporciona automatización de la implementación y puede usarse en sistemas Windows, OS X o Linux. Puede utilizar el comando **network vnet create** de la CLI de Azure para crear una red virtual. Para más información, consulte [Creación de una red virtual mediante la CLI de Azure](../../virtual-network/virtual-networks-create-vnet-arm-cli.md).
+Al igual que con el módulo de PowerShell, la interfaz de línea de comandos de Azure proporciona automatización de la implementación y puede usarse en sistemas Windows, OS X o Linux. Puede utilizar el comando **network vnet create** de la CLI de Azure para crear una red virtual. Para más información, consulte [Creación de una red virtual mediante la CLI de Azure](../../virtual-network/quick-create-cli.md).
 
 Del mismo modo, puede utilizar la CLI de Azure para implementar una plantilla de Azure Resource Manager. Para más información, consulte [Implementación de recursos con plantillas de Resource Manager y la CLI de Azure](../../azure-resource-manager/resource-group-template-deploy-cli.md).
 

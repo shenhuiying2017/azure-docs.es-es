@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 12/14/2017
 ms.author: bwren
 ms.openlocfilehash: 401fbb39194a24721274f55f0fc2a4cdc235a32b
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="custom-logs-in-log-analytics"></a>Registros personalizados de Log Analytics
 El origen de datos de registros personalizados en Log Analytics permite recopilar eventos de archivos de texto en equipos Windows y Linux. Muchas aplicaciones registran información en archivos de texto, en lugar de los servicios de registro estándar, como el registro de eventos de Windows o Syslog.  Una vez recopilada la información, puede analizar cada entrada del registro en campos individuales mediante la característica [Campos personalizados](log-analytics-custom-fields.md) de Log Analytics.
@@ -49,7 +49,7 @@ El Asistente para registros personalizados se ejecuta en Azure Portal y le permi
 3. De forma predeterminada, todos los cambios realizados en la configuración se insertan automáticamente en todos los agentes.  En el caso de los agentes de Linux, se envía un archivo de configuración al recopilador de datos Fluentd.  Si desea modificar este archivo manualmente en cada uno de los agentes de Linux, desactive la casilla *Apply below configuration to my Linux machines*(Aplicar la configuración siguiente a mis equipos Linux).
 4. Haga clic en **Agregar+** para abrir el Asistente para registros personalizados.
 
-### <a name="step-2-upload-and-parse-a-sample-log"></a>Paso 2: Carga y análisis de un registro de ejemplo
+### <a name="step-2-upload-and-parse-a-sample-log"></a>Paso 2. Carga y análisis de un registro de ejemplo
 Para empezar, cargue una muestra del registro personalizado.  El Asistente analizará y mostrará las entradas de este archivo para que las valide.  Log Analytics utilizará el delimitador especificado para identificar cada registro.
 
 **Nueva línea** es el delimitador predeterminado y se utiliza para los archivos de registro que tienen una sola entrada por línea.  Si la línea empieza con una fecha y hora en uno de los formatos disponibles, puede especificar un delimitador de **marca de tiempo** que admita entradas que abarcan más de una línea.
@@ -63,7 +63,7 @@ Si se usa un delimitador de marca de tiempo, la propiedad TimeGenerated de cada 
 4. Cambie el delimitador que se utiliza para identificar un registro nuevo y seleccione el delimitador que mejor identifica las entradas en el archivo de registro.
 5. Haga clic en **Next**.
 
-### <a name="step-3-add-log-collection-paths"></a>Paso 3: Incorporación de rutas de recopilación de registros
+### <a name="step-3-add-log-collection-paths"></a>Paso 3. Incorporación de rutas de recopilación de registros
 Debe definir una o más rutas de acceso en el agente para colocar el registro personalizado.  Puede proporcionar un nombre y una ruta de acceso específicos para el archivo de registro, o bien puede especificar una ruta de acceso con un carácter comodín para el nombre.  Esto admite aplicaciones que crean un archivo nuevo cada día o cuando un archivo alcanza un tamaño determinado.  También puede proporcionar varias rutas de acceso para un solo archivo de registro.
 
 Por ejemplo, una aplicación puede crear un archivo de registro cada día con la fecha incluida en el nombre, como registro20100316.txt. Un patrón para dicho registro podría ser *registro\*.txt*, que se aplicará a cualquier archivo de registro que siga el esquema de asignación de nombres de la aplicación.
@@ -170,6 +170,6 @@ Los campos personalizados se usan para definir los campos *EventTime* (Hora del 
 
 ![Consulta del registro con campos personalizados](media/log-analytics-data-sources-custom-logs/query-02.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Utilice [Campos personalizados](log-analytics-custom-fields.md) para analizar las entradas del registro personalizado en campos individuales.
-* Obtenga información acerca de las [búsquedas de registros](log-analytics-log-searches.md) para analizar los datos recopilados de soluciones y orígenes de datos.
+* Obtenga información acerca de las [búsquedas de registros](log-analytics-log-searches.md) para analizar los datos recopilados de las soluciones y los orígenes de datos.

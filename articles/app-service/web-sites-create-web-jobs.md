@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/09/2017
 ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
 ms.openlocfilehash: 91839d8f547340d55f6badb3350a393a48a13c7d
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Ejecución de tareas en segundo plano con WebJobs en Azure App Service
 
@@ -78,14 +78,14 @@ when making changes in one don't forget the other two.
 
    ![Página Agregar WebJob](./media/web-sites-create-web-jobs/addwjcontinuous.png)
 
-   | Configuración      | Valor de ejemplo   | Descripción  |
+   | Configuración      | Valor de ejemplo   | DESCRIPCIÓN  |
    | ------------ | ----------------- | ------------ |
    | **Name** | myContinuousWebJob | Nombre único dentro de una aplicación de App Service. Debe comenzar con una letra o un número y no puede contener caracteres especiales salvo "-" y "_". |
    | **Carga de archivos** | ConsoleApp.zip | Archivo *ZIP* que contiene el archivo de script o el archivo ejecutable así como cualquier archivo complementario necesario para ejecutar el programa o script. Los tipos de archivo de script o de archivo ejecutable compatibles aparecen en la sección [Tipos de archivo admitidos](#acceptablefiles). |
    | **Tipo** | Continuo | Los [tipos de WebJob](#webjob-types) aparecen descritos anteriormente en este artículo. |
    | **Escala** | Instancias múltiples | Solo disponible para WebJobs continuos. Determina si el programa o el script se ejecuta en todas las instancias o solo en una. La opción para que se ejecute en varias instancias no se aplica a los [planes de tarifa](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) Gratis o Compartido. | 
 
-4. Haga clic en **Aceptar**.
+4. Haga clic en **OK**.
 
    El WebJob nuevo aparece en la página **WebJobs**.
 
@@ -116,14 +116,14 @@ when making changes in one don't forget the other two.
 
    ![Página Agregar WebJob](./media/web-sites-create-web-jobs/addwjtriggered.png)
 
-   | Configuración      | Valor de ejemplo   | Descripción  |
+   | Configuración      | Valor de ejemplo   | DESCRIPCIÓN  |
    | ------------ | ----------------- | ------------ |
    | **Name** | myTriggeredWebJob | Nombre único dentro de una aplicación de App Service. Debe comenzar con una letra o un número y no puede contener caracteres especiales salvo "-" y "_".|
    | **Carga de archivos** | ConsoleApp.zip | Archivo *ZIP* que contiene el archivo de script o el archivo ejecutable así como cualquier archivo complementario necesario para ejecutar el programa o script. Los tipos de archivo de script o de archivo ejecutable compatibles aparecen en la sección [Tipos de archivo admitidos](#acceptablefiles). |
    | **Tipo** | Desencadenado | Los [tipos de WebJob](#webjob-types) aparecen descritos anteriormente en este artículo. |
    | **Desencadenadores** | Manual | |
 
-4. Haga clic en **Aceptar**.
+4. Haga clic en **OK**.
 
    El WebJob nuevo aparece en la página **WebJobs**.
 
@@ -154,7 +154,7 @@ when making changes in one don't forget the other two.
 
    ![Página Agregar WebJob](./media/web-sites-create-web-jobs/addwjscheduled.png)
 
-   | Configuración      | Valor de ejemplo   | Descripción  |
+   | Configuración      | Valor de ejemplo   | DESCRIPCIÓN  |
    | ------------ | ----------------- | ------------ |
    | **Name** | myScheduledWebJob | Nombre único dentro de una aplicación de App Service. Debe comenzar con una letra o un número y no puede contener caracteres especiales salvo "-" y "_". |
    | **Carga de archivos** | ConsoleApp.zip | Archivo *ZIP* que contiene el archivo de script o el archivo ejecutable así como cualquier archivo complementario necesario para ejecutar el programa o script. Los tipos de archivo de script o de archivo ejecutable compatibles aparecen en la sección [Tipos de archivo admitidos](#acceptablefiles). |
@@ -162,7 +162,7 @@ when making changes in one don't forget the other two.
    | **Desencadenadores** | Programado | Para que la programación funcione de manera confiable, habilite la característica AlwaysOn. AlwaysOn solo está disponible en los planes de tarifa Básico, Estándar y Premium.|
    | **Expresión CRON** | 0 0/20 * * * * | Las [expresiones CRON](#cron-expressions) se describen en la sección siguiente. |
 
-4. Haga clic en **Aceptar**.
+4. Haga clic en **OK**.
 
    El WebJob nuevo aparece en la página **WebJobs**.
 

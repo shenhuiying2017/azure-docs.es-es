@@ -13,13 +13,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 12/22/2017
+ms.date: 03/06/2018
 ms.author: jawh
-ms.openlocfilehash: 7d44d0a0f8683ad6ad55136ad17879e98e26498b
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 38d60001293a3bae6eb9f90179abb8af7815fbe7
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="get-started-with-azure-notification-hubs-for-windows-phone-apps"></a>Introducción a Azure Notification Hubs para aplicaciones Windows Phone
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -67,7 +67,7 @@ El concentrador se crea y configura ahora para enviar una notificación sin aute
 ## <a name="connecting-your-app-to-the-notification-hub"></a>Conexión de su aplicación al centro de notificaciones
 1. En Visual Studio, cree una aplicación nueva de Windows Phone 8.
    
-       ![Visual Studio - New Project - Windows Phone App][13]
+    ![Visual Studio: Nuevo proyecto: Aplicación de Windows Phone][13]
    
     En Visual Studio 2013 Update 2 o versiones posteriores, cree en su lugar una aplicación Silverlight de Windows Phone.
    
@@ -119,9 +119,9 @@ El concentrador se crea y configura ahora para enviar una notificación sin aute
    > 
 6. En el Explorador de soluciones, expanda **Propiedades**, abra el archivo `WMAppManifest.xml`, haga clic en la pestaña **Funcionalidades** y asegúrese de que la funcionalidad **ID_CAP_PUSH_NOTIFICATION** esté marcada.
    
-       ![Visual Studio - Windows Phone App Capabilities][14]
+    ![Visual Studio, funcionalidades de la aplicación de Windows Phone][14]
    
-       This ensures that your app can receive push notifications. Without it, any attempt to send a push notification to the app will fail.
+    Esto asegura que la aplicación pueda recibir notificaciones de inserción. Sin esta opción, se producirá un error en cualquier intento de enviar una notificación push a la aplicación.
 7. Presione la tecla `F5` para ejecutar la aplicación.
    
     Se muestra un mensaje de registro en la aplicación.
@@ -131,7 +131,7 @@ El concentrador se crea y configura ahora para enviar una notificación sin aute
    > Para recibir una notificación push, la aplicación no se debe estar ejecutando en primer plano.
    >
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este sencillo ejemplo, ha difundido notificaciones push a todos los dispositivos Windows Phone 8. 
 
 Para dirigirse a usuarios específicos, consulte el tutorial [Uso de Notification Hubs para insertar notificaciones para los usuarios] . 

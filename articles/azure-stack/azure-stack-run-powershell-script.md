@@ -1,6 +1,6 @@
 ---
-title: "Implementación de Azure Stack Development Kit | Microsoft Docs"
-description: Aprenda a preparar Azure Stack Development Kit y a ejecutar el script de PowerShell para implementarlo.
+title: "Implementación del Kit de desarrollo de Azure Stack | Microsoft Docs"
+description: Aprenda a preparar el Kit de desarrollo de Azure Stack y a ejecutar el script de PowerShell para implementarlo.
 services: azure-stack
 documentationcenter: 
 author: jeffgilb
@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/15/2017
+ms.date: 02/27/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 470a45aea253e1e238983527427b600117e413fe
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 6a5912117a475c7af028f01ea47a7042677992ca
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="deploy-the-azure-stack-development-kit"></a>Implementación de Azure Stack Development Kit
+# <a name="deploy-the-azure-stack-development-kit"></a>Implementación del Kit de desarrollo de Azure Stack
 
-*Se aplica a: Azure Stack Development Kit*
+*Se aplica a: Kit de desarrollo de Azure Stack*
 
-Para implementar [Azure Stack Development Kit](azure-stack-poc.md), debe completar los pasos siguientes:
+Para implementar [el Kit de desarrollo de Azure Stack](azure-stack-poc.md), debe completar los pasos siguientes:
 
 1. [Descargue el paquete de implementación](https://azure.microsoft.com/overview/azure-stack/try/?v=try) para obtener el archivo Cloudbuilder.vhdx.
 2. Prepare el archivo cloudbuilder.vhdx para configurar el equipo (el host) en el que desea instalar el kit de desarrollo. Después de este paso, el host del kit de desarrollo arrancará con el archivo Cloudbuilder.vhdx.
@@ -40,9 +40,9 @@ Para implementar [Azure Stack Development Kit](azure-stack-poc.md), debe complet
   - El equipo debe tener al menos 60 GB de espacio en disco disponible en cuatro unidades de disco duro idénticas e independientes además del disco de sistema operativo.
   - [.NET framework 4.6 (o una versión posterior)](https://aka.ms/r6mkiy) debe estar instalado.
 
-2. [Vaya a la página de introducción](https://azure.microsoft.com/overview/azure-stack/try/?v=try) donde puede descargar Azure Stack Development Kit, proporcione sus datos y, a continuación, haga clic en **Enviar**.
-3. Descargue y ejecute el [comprobador de implementaciones de Azure Stack Development Kit](https://go.microsoft.com/fwlink/?LinkId=828735&clcid=0x409) que es el script de comprobación que constituye un requisito previo. Este script independiente revisa las comprobaciones previas realizadas por la configuración de Azure Stack Development Kit. Ofrece una manera de confirmar que se están cumpliendo los requisitos de hardware y software, antes de descargar el paquete más grande de Azure Stack Development Kit.
-4. En **Descargar el software**, haga clic en **Azure Stack Development Kit**.
+2. [Vaya a la página de introducción](https://azure.microsoft.com/overview/azure-stack/try/?v=try) donde puede descargar el Kit de desarrollo de Azure Stack, proporcione sus datos y, a continuación, haga clic en **Enviar**.
+3. Descargue y ejecute el [comprobador de implementaciones del Kit de desarrollo de Azure Stack](https://go.microsoft.com/fwlink/?LinkId=828735&clcid=0x409) que es el script de comprobación que constituye un requisito previo. Este script independiente revisa las comprobaciones previas realizadas por la configuración del Kit de desarrollo de Azure Stack. Ofrece una manera de confirmar que se están cumpliendo los requisitos de hardware y software, antes de descargar el paquete más grande del Kit de desarrollo de Azure Stack.
+4. En **Descargar el software**, haga clic en **Kit de desarrollo de Azure Stack**.
 
   > [!NOTE]
   > Solo la descarga de ASDK (AzureStackDevelopmentKit.exe) es de 10 GB aproximadamente. Si también desea descargar el archivo ISO de la versión de evaluación de Windows Server 2016, el tamaño de la descarga puede alcanzar unos 17 GB. Puede utilizar ese archivo ISO para crear y agregar una imagen de máquina virtual de Windows Server 2016 a Azure Stack Marketplace una vez que se complete la instalación de ASDK. Tenga en cuenta que esta imagen de evaluación de Windows Server 2016 solo se puede usar con ASDK y está sujeto a los términos de licencia de este.
@@ -61,7 +61,7 @@ Para implementar [Azure Stack Development Kit](azure-stack-poc.md), debe complet
 ASDK se puede implementar mediante una interfaz gráfica de usuario (GUI) que se proporciona al descargar y ejecutar el script de PowerShell asdk-installer.ps1.
 
 > [!NOTE]
-> La interfaz de usuario del instalador de Azure Stack Development Kit es un script de código abierto basado en WCF y PowerShell.
+> La interfaz de usuario del instalador del Kit de desarrollo de Azure Stack es un script de código abierto basado en WCF y PowerShell.
 
 ### <a name="prepare-the-development-kit-host-using-a-guided-user-experience"></a>Preparación del host del kit de desarrollo mediante una experiencia guiada de usuario
 Para poder instalar ASDK en el equipo host, se debe preparar el entorno de este.
@@ -70,6 +70,7 @@ Para poder instalar ASDK en el equipo host, se debe preparar el entorno de este.
 3. Ejecute el script siguiente para descargar el archivo instalador del kit de desarrollo (asdk-installer.ps1) del [repositorios de herramientas de GitHub para Azure Stack](https://github.com/Azure/AzureStack-Tools) en la carpeta **C:\AzureStack_Installer** del equipo host del kit de desarrollo:
 
   ```powershell
+  [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
   # Variables
   $Uri = 'https://raw.githubusercontent.com/Azure/AzureStack-Tools/master/Deployment/asdk-installer.ps1'
   $LocalPath = 'C:\AzureStack_Installer'
@@ -90,7 +91,7 @@ Para poder instalar ASDK en el equipo host, se debe preparar el entorno de este.
     - **Nombre del equipo**: esta opción permite establecer el nombre para el host del kit de desarrollo. El nombre debe cumplir los requisitos de FQDN y debe tener una longitud máxima de 15 caracteres. El valor predeterminado es un nombre de equipo aleatorio generado por Windows.
     - **Zona horaria**: permite establecer la zona horaria para el host del kit de desarrollo. El valor predeterminado es la hora del Pacífico (EE.UU. y Canadá) (UTC-8:00).
     - **Configuración de IP estática**: hace que la implementación use una dirección IP estática. En caso contrario, cuando se reinicia el instalador en cloudbuilder.vhx, las interfaces de red se configuran con DHCP.
-11. Haga clic en **Siguiente**.
+11. Haga clic en **Next**.
 12. Si ha elegido una configuración de IP estática en el paso anterior, ahora debe:
     - Seleccionar un adaptador de red. Asegúrese de que puede conectarse al adaptador antes de hacer clic en **Siguiente**.
     - Comprobar que los valores de **dirección IP**, **puerta de enlace**, y **DNS** valores son correctos y, a continuación, hacer clic en **Siguiente**.
@@ -119,7 +120,7 @@ Después de preparar el equipo host de ASDK, este se puede implementar en la ima
   > [!TIP]
   > Para buscar una dirección IP de servidor horario, visite [pool.ntp.org](http:\\pool.ntp.org) o haga ping a time.windows.com. 
   
-8. Haga clic en **Siguiente**. 
+8. Haga clic en **Next**. 
 9. En la página **Verifying network interface card properties** (Comprobación de las propiedades de la tarjeta de interfaz de red), verá una barra de progreso. 
     - Si dice **An update cannot be downloaded** (No se puede descargar una actualización), siga las instrucciones que aparecen en la página.
     - Cuando diga **Completado**, haga clic en **Siguiente**.
@@ -216,7 +217,7 @@ Si su entorno **no** tiene DHCP habilitado, debe incluir los siguientes parámet
 ```
 
 ### <a name="asdk-installazurestackpocps1-optional-parameters"></a>Parámetros opcionales InstallAzureStackPOC.ps1 de ASDK
-|Parámetro|Obligatorio/opcional|Descripción|
+|.|Obligatorio/opcional|DESCRIPCIÓN|
 |-----|-----|-----|
 |AdminPassword|Obligatorio|Establece la cuenta de administrador local y el resto de cuentas de usuario en todas las máquinas virtuales que se crean como parte de la implementación del kit de desarrollo. Esta contraseña debe coincidir con la contraseña de administrador local actual del host.|
 |InfraAzureDirectoryTenantName|Obligatorio|Establece el directorio del inquilino. Utilice este parámetro para especificar un directorio concreto en el que la cuenta de AAD tenga permisos para administrar varios directorios. Nombre completo de un inquilino de Azure Active Directory con el formato .onmicrosoft.com, o bien un nombre de dominio personalizado de Azure AD.|

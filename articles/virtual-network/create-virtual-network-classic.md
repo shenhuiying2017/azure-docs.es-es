@@ -16,20 +16,20 @@ ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: f4a1562983ffa68dbd6586a2ae3a569f766387b5
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1ec6d8d5327ec6d5ebb92e125cb4c52a7a929c0e
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>Creación de una red virtual (clásica) con varias subredes
 
 > [!IMPORTANT]
-> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Este artículo trata del modelo de implementación clásico. Microsoft recomienda crear las redes virtuales más nuevas a través del modelo de implementación de [Resource Manager](virtual-networks-create-vnet-arm-pportal.md).
+> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Este artículo trata del modelo de implementación clásico. Microsoft recomienda crear las redes virtuales más nuevas a través del modelo de implementación de [Resource Manager](quick-create-portal.md).
 
 En este tutorial, aprenderá a crear una red virtual (clásica) básica de Azure con subredes públicas y privadas independientes. Puede crear recursos de Azure, como máquinas virtuales y servicios en la nube en una subred. Los recursos creados en las redes virtuales (clásicas) se pueden comunicar entre sí y con los recursos de otras redes conectadas a una red virtual.
 
-Más información sobre todos los valores de [red virtual](virtual-network-manage-network.md) y [subred](virtual-network-manage-subnet.md).
+Más información sobre todos los valores de [red virtual](manage-virtual-network.md) y [subred](virtual-network-manage-subnet.md).
 
 > [!WARNING]
 > Azure elimina inmediatamente las redes virtuales (clásicas) cuando se [deshabilita una suscripción](../billing/billing-subscription-become-disable.md?toc=%2fazure%2fvirtual-network%2ftoc.json#you-reached-your-spending-limit). Las redes virtuales (clásicas) se eliminan independientemente de si hay recursos en la red virtual. Si más adelante vuelve a habilitar la suscripción, debe volver a crear los recursos que existían en la red virtual.
@@ -159,9 +159,9 @@ Puede crear una red virtual (clásica) mediante [Azure Portal](#portal), la [int
 
 ---
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
-- Para más información sobre todos los valores de red virtual y subred, vea [Administración de redes virtuales](virtual-network-manage-network.md) y [Manage virtual network subnets (Administración de subredes virtuales)](virtual-network-manage-subnet.md). Tiene varias opciones para el uso de redes virtuales y subredes en un entorno de producción para satisfacer requisitos diferentes.
+- Para más información sobre todos los valores de red virtual y subred, vea [Administración de redes virtuales](manage-virtual-network.md) y [Manage virtual network subnets (Administración de subredes virtuales)](virtual-network-manage-subnet.md). Tiene varias opciones para el uso de redes virtuales y subredes en un entorno de producción para satisfacer requisitos diferentes.
 - Para filtrar el tráfico de subred entrante y saliente, cree y aplique [grupos de seguridad de red](virtual-networks-nsg.md) a las subredes.
 - Cree una máquina virtual [Windows](../virtual-machines/windows/classic/createportal-classic.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Linux](../virtual-machines/linux/classic/createportal-classic.md?toc=%2fazure%2fvirtual-network%2ftoc.json) y después conéctela a una red virtual existente.
 - Para conectar dos redes virtuales en la misma ubicación de Azure, cree un [emparejamiento de red virtual](create-peering-different-deployment-models.md) entre las redes virtuales. Puede emparejar una red virtual (Resource Manager) en una red virtual (clásica), pero no puede crear un emparejamiento entre dos redes virtuales (clásicas).

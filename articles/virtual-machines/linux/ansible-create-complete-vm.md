@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: d5e3f3db4726bfb16cbb389cf99b9bf7c511da97
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 5efb666652bf124160df836b5d12305903d907ba
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="create-a-complete-linux-virtual-machine-environment-in-azure-with-ansible"></a>Creación de un entorno completo de máquina virtual Linux en Azure con Ansible
 Ansible permite automatizar la implementación y la configuración de recursos en un entorno. Puede usar Ansible para administrar máquinas virtuales (VM) en Azure al igual que podría hacerlo con cualquier otro recurso. En este artículo se muestra cómo crear un entorno completo de Linux y recursos de apoyo con Ansible. También puede obtener información sobre cómo [crear una VM básica con Ansible](ansible-create-vm.md).
@@ -44,7 +44,7 @@ Con la siguiente sección de una guía de Ansible se crea una red virtual llamad
   azure_rm_virtualnetwork:
     resource_group: myResourceGroup
     name: myVnet
-    address_prefixes: "10.10.0.0/16"
+    address_prefixes: "10.0.0.0/16"
 ```
 
 Para agregar una subred, la siguiente sección crea una subred llamada *mySubnet* en la red virtual *myVnet*:
@@ -81,7 +81,7 @@ Los grupos de seguridad de red controlan el flujo del tráfico de red entrada y 
     name: myNetworkSecurityGroup
     rules:
       - name: SSH
-        protocol: TCP
+        protocol: Tcp
         destination_port_range: 22
         access: Allow
         priority: 1001
@@ -104,7 +104,7 @@ Las tarjetas de interfaz de red (NIC) virtuales conectan la VM a una red virtual
 ```
 
 
-## <a name="create-virtual-machine"></a>Create virtual machine
+## <a name="create-virtual-machine"></a>Crear máquina virtual
 El último paso es crear una máquina virtual y usar todos los recursos creados. Con la siguiente sección de una guía de Ansible se crea una VM llamada *myVM* y se adjunta la NIC virtual llamada *myNIC*. Especifique los datos completos de su propia clave pública en el par *key_data* de la siguiente forma:
 
 ```yaml
@@ -229,5 +229,5 @@ PLAY RECAP ****************************************************************
 localhost                  : ok=7    changed=6    unreachable=0    failed=0
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este ejemplo se crea un entorno de VM completo, incluidos los recursos de red virtual necesarios. Para ver un ejemplo más directo de creación de una VM en recursos de red existentes con opciones predeterminadas, consulte [Creación de una VM](ansible-create-vm.md).

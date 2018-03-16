@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2017
+ms.date: 02/26/2018
 ms.author: mabrigg
-ms.openlocfilehash: 3ca71abb1b84f619cfafbf4c25b0c0cb95430858
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: ad258cf6c73b2c1ea5f208ebef9906a0e3d35ea4
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="install-and-configure-cli-for-use-with-azure-stack"></a>Instalar y configurar la CLI para su uso con Azure Stack
 
-En este artículo, le guiaremos en el proceso de uso de la interfaz de la línea de comandos (CLI) de Azure para administrar los recursos del kit de desarrollo de Azure Stack de las plataformas de cliente de Linux y Mac. 
+En este artículo, le guiaremos en el proceso de uso de la interfaz de la línea de comandos (CLI) de Azure para administrar los recursos del Kit de desarrollo de Azure Stack de las plataformas de cliente de Linux y Mac. 
 
 ## <a name="install-cli"></a>Instalar la CLI
 
@@ -190,7 +190,7 @@ Hay algunos problemas conocidos que debe tener en cuenta cuando use la CLI en Az
 * De forma predeterminada, CLI 2.0 utiliza "Standard_DS1_v2" como tamaño predeterminado de la imagen de máquina virtual. Sin embargo, este tamaño no está disponible todavía en Azure Stack, por lo tanto, debe especificar el parámetro `--size` explícitamente al crear una máquina virtual. Puede obtener la lista de tamaños de máquina virtual que están disponibles en Azure Stack con el comando `az vm list-sizes --location <locationName>`.
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 [Implementación de plantillas con la CLI de Azure](azure-stack-deploy-template-command-line.md)
 

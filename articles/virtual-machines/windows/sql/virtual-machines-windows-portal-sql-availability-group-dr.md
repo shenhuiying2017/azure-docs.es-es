@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.openlocfilehash: 2a954ca10bdec3343dbd8796b50053a1c8c40ff4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 84fa2e051c46e178e3e72709886babc8c3db7b9d
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>Configuración de un grupo de disponibilidad AlwaysOn en máquinas virtuales de Azure en distintas regiones
 
@@ -61,7 +61,7 @@ El diagrama siguiente muestra cómo se comunican las redes entre centros de dato
 
 Para crear una réplica en un centro de datos remoto, siga estos pasos:
 
-1. [Cree una red virtual en la nueva región](../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
+1. [Cree una red virtual en la nueva región](../../../virtual-network/manage-virtual-network.md#create-a-virtual-network).
 
 1. [Configure una conexión de red virtual a red virtual mediante Azure Portal](../../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
 
@@ -163,7 +163,7 @@ Para probar la conectividad del agente de escucha con la región remota, puede c
 
 Después de probar la conectividad, mueva la réplica principal de nuevo a su centro de datos principal y vuelva a establecer el modo de disponibilidad en su configuración de funcionamiento normal. En la tabla siguiente se muestra la configuración de funcionamiento normal de la arquitectura descrita en este documento:
 
-| La ubicación | Instancia del servidor | Rol | Modo de disponibilidad | Modo de conmutación por error
+| Ubicación | Instancia del servidor | Rol | Modo de disponibilidad | Modo de conmutación por error
 | ----- | ----- | ----- | ----- | -----
 | Centro de datos principal | SQL-1 | Principal | Sincrónico | Automático
 | Centro de datos principal | SQL-2 | Secundario | Sincrónico | Automático

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: robinsh
-ms.openlocfilehash: f94febfa1610795cd46b4315bbbbe56aa2bca861
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 7bd8d17d5a2c918f2bef770c224398e7332785f9
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Usar Azure PowerShell con Azure Storage
 
@@ -44,7 +44,7 @@ Para este ejercicio, puede escribir los comandos en una ventana de PowerShell re
 
 Para más información sobre las cuentas de almacenamiento, vea [Introducción a Microsoft Azure Storage](storage-introduction.md) y [Acerca de las cuentas de almacenamiento de Azure](storage-create-storage-account.md).
 
-## <a name="log-in-to-azure"></a>Inicie sesión en Azure.
+## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
 
 Inicie sesión en la suscripción de Azure con el comando `Login-AzureRmAccount` y siga las instrucciones de la pantalla.
 
@@ -136,8 +136,6 @@ Para cambiar la configuración de una cuenta de almacenamiento, utilice [Set-Azu
 * La **SKU** es la configuración de replicación de la cuenta de almacenamiento, como LRS (almacenamiento con redundancia local). Por ejemplo, puede cambiar de Standard\_LRS a Standard\_GRS o Standard\_RAGRS. Tenga en cuenta que no se puede cambiar Standard\_ZRS o Premium\_LRS a otra SKU, ni cambiar otras SKU a estos niveles.
 
 * El **nivel de acceso** para las cuentas de Blob Storage. El valor del nivel de acceso se establece en **frecuente** o **esporádico** y permite minimizar los costes gracias a la selección del nivel de acceso que mejor se adapta a la forma de utilizar la cuenta de almacenamiento. Para más información, vea [Niveles de almacenamiento de archivo, esporádico y frecuente](../blobs/storage-blob-storage-tiers.md).
-
-* La configuración de cifrado del servicio de almacenamiento para Blob Storage o File Storage. Para más información sobre SSE, vea [Cifrado del servicio Storage](storage-service-encryption.md).
 
 * Permitir solo el tráfico HTTPS. 
 
@@ -240,7 +238,7 @@ Si ha creado un nuevo grupo de recursos y una cuenta de almacenamiento para este
 ```powershell
 Remove-AzureRmResourceGroup -Name $resourceGroup
 ```
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este artículo de ayuda se tratan las operaciones comunes con los cmdlets del plano de administración para administrar las cuentas de almacenamiento. Ha aprendido a: 
 

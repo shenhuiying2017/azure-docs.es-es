@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 02/1/2018
 ms.author: mazha
-ms.openlocfilehash: f5609f98de7ce6967dd1ff502e88d798741384df
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: bafb04a1a19c4436d8f6c1c21700e9463334b3de
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-content-delivery-network"></a>Administrar la caducidad de Azure Blob Storage en Azure Content Delivery Network
 > [!div class="op_single_selector"]
@@ -53,7 +53,7 @@ El método preferido para establecer el encabezado `Cache-Control` de un blob co
 
    ![Botón Reglas de caché de CDN](./media/cdn-manage-expiration-of-blob-content/cdn-caching-rules-btn.png)
 
-   Aparece la página**Reglas de caché**.
+   Aparece la página **Reglas de caché**.
 
    ![Página de caché de CDN](./media/cdn-manage-expiration-of-blob-content/cdn-caching-page.png)
 
@@ -159,7 +159,7 @@ Para actualizar la propiedad *CacheControl* de un blob con el Explorador de Azur
 ![Propiedades del Explorador de Azure Storage](./media/cdn-manage-expiration-of-blob-content/cdn-storage-explorer-properties.png)
 
 ### <a name="azure-command-line-interface"></a>Interfaz de la línea de comandos de Azure
-Con la [interfaz de la línea de comandos de Azure](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest) (CLI), puede administrar recursos de blob de Azure desde la línea de comandos. Para establecer el encabezado de control de caché cuando cargue un blob con la CLI de Azure, establezca la propiedad *cacheControl* mediante el uso del modificador `-p`. En el siguiente ejemplo, se muestra cómo se establece el período de vida en una hora (3600 segundos):
+Con la [interfaz de la línea de comandos de Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) (CLI), puede administrar recursos de blob de Azure desde la línea de comandos. Para establecer el encabezado de control de caché cuando cargue un blob con la CLI de Azure, establezca la propiedad *cacheControl* mediante el uso del modificador `-p`. En el siguiente ejemplo, se muestra cómo se establece el período de vida en una hora (3600 segundos):
   
 ```azurecli
 azure storage blob upload -c <connectionstring> -p cacheControl="max-age=3600" .\<blob name> <container name> <blob name>

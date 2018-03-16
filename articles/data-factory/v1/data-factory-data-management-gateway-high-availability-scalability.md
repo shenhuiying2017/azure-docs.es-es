@@ -15,10 +15,10 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 195a1a4810de478b77538716fa8d1362428864d8
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Data Management Gateway - Alta disponibilidad y escalabilidad (versión preliminar)
 > [!NOTE]
@@ -256,7 +256,7 @@ Para revertir desde la versión preliminar, elimine todos los nodos excepto uno.
 Después de eliminarlo, haga clic en **Característica de versión preliminar** en la misma página de Azure Portal y deshabilite la característica de versión preliminar. Ha restablecido la puerta de enlace como puerta de enlace de un nodo GA (disponibilidad general).
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Consulte los artículos siguientes:
 - [Data Management Gateway](data-factory-data-management-gateway.md): ofrece una información general detallada de la puerta de enlace.
 - [Movimiento de datos entre equipos locales y almacenes de datos en la nube](data-factory-move-data-between-onprem-and-cloud.md): contiene un tutorial con instrucciones paso a paso para usar una puerta de enlace con un único nodo. 

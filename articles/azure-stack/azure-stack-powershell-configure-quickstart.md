@@ -12,17 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2018
+ms.date: 02/27/2018
 ms.author: mabrigg
-ms.openlocfilehash: ca61562607da274f0e0c7f504d1a24723210f2f7
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: cba6f8295e5d4b75192e566d4931cbd617e7dc8d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="get-up-and-running-with-powershell-in-azure-stack"></a>Póngase a trabajar con PowerShell en Azure Stack
 
-*Se aplica a: sistemas integrados de Azure Stack y kit de desarrollo de Azure Stack*
+*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 Este inicio rápido le ayuda a instalar y configurar un entorno de Azure Stack con PowerShell. El script proporcionado en este artículo solo viene delimitado por el **operador de Azure Stack**.
 
@@ -31,7 +31,7 @@ Este artículo es una versión comprimida de los pasos descritos en los artícul
 
 ## <a name="set-up-powershell-for-azure-active-directory-based-deployments"></a>Configuración de PowerShell para las implementaciones basadas en Azure Active Directory
 
-Inicie sesión en Azure Stack Development Kit o en un cliente externo basado en Windows, si está conectado a través de VPN. Abra una sesión de PowerShell ISE con privilegios elevados y, luego, ejecute el siguiente script. Asegúrese de actualizar las variables **TenantName**, **ArmEndpoint** y **GraphAudience** según sea necesario para la configuración del entorno:
+Inicie sesión en el Kit de desarrollo de Azure Stack o en un cliente externo basado en Windows, si está conectado a través de VPN. Abra una sesión de PowerShell ISE con privilegios elevados y, luego, ejecute el siguiente script. Asegúrese de actualizar las variables **TenantName**, **ArmEndpoint** y **GraphAudience** según sea necesario para la configuración del entorno:
 
 > [!IMPORTANT]
 > La versión del módulo de PowerShell AzureRM 1.2.11 incluye una lista de los últimos cambios. Para actualizar desde la versión 1.2.10, vea la [guía de migración](https://aka.ms/azspowershellmigration).
@@ -68,7 +68,7 @@ Install-Module `
 
 # Download Azure Stack tools from GitHub and import the connect module.
 cd \
-
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
 invoke-webrequest `
   https://github.com/Azure/AzureStack-Tools/archive/master.zip `
   -OutFile master.zip
@@ -106,7 +106,7 @@ $KeyvaultDnsSuffix = "<Keyvault DNS suffix for your environment>"
 
 ## <a name="set-up-powershell-for-ad-fs-based-deployments"></a>Configuración de PowerShell para las implementaciones basadas en AD FS
 
-Si al conectarse a Internet está trabajando con Azure Stack, puede utilizar el siguiente script. Sin embargo, si trabaja con Azure Stack sin conectividad a Internet, use la [forma desconectada de instalar PowerShell](azure-stack-powershell-install.md#install-powershell-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity) y los cmdlets para configurar PowerShell permanecerán igual que se muestran en este script. Inicie sesión en Azure Stack Development Kit o en un cliente externo basado en Windows, si está conectado a través de VPN. Abra una sesión de PowerShell ISE con privilegios elevados y, luego, ejecute el siguiente script. Asegúrese de actualizar las variables **ArmEndpoint** y **GraphAudience** según sea necesario para la configuración del entorno:
+Si al conectarse a Internet está trabajando con Azure Stack, puede utilizar el siguiente script. Sin embargo, si trabaja con Azure Stack sin conectividad a Internet, use la [forma desconectada de instalar PowerShell](azure-stack-powershell-install.md#install-powershell-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity) y los cmdlets para configurar PowerShell permanecerán igual que se muestran en este script. Inicie sesión en el Kit de desarrollo de Azure Stack o en un cliente externo basado en Windows, si está conectado a través de VPN. Abra una sesión de PowerShell ISE con privilegios elevados y, luego, ejecute el siguiente script. Asegúrese de actualizar las variables **ArmEndpoint** y **GraphAudience** según sea necesario para la configuración del entorno:
 
 ```powershell
 
@@ -138,6 +138,7 @@ Install-Module `
 
 # Download Azure Stack tools from GitHub and import the connect module.
 cd \
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 invoke-webrequest `
   https://github.com/Azure/AzureStack-Tools/archive/master.zip `
   -OutFile master.zip
@@ -182,7 +183,7 @@ New-AzureRMResourceGroup -Name "ContosoVMRG" -Location Local
 
 Cuando se crea el grupo de recursos, la propiedad de **estado de aprovisionamiento** se establece en **Correcto**.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Instalación y configuración de la CLI](azure-stack-connect-cli.md)
 

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 12/11/2017
 ms.author: genli
 ms.openlocfilehash: 916fbb436806c64ded9ebf9fdd9c57c42d0809f0
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Configuración y problemas de administración de Microsoft Azure Cloud Services: preguntas más frecuentes (P+F)
 
@@ -180,7 +180,7 @@ Windows 10 y Windows Server 2016 incluyen compatibilidad con HTTP/2 en el lado s
 5. Reinicie el servidor.
 6. Vaya a **Sitio web predeterminado** y, en **Enlaces**, cree un enlace de TLS con el certificado autofirmado que acaba de crear. 
 
-Para obtener más información, consulte 
+Para más información, consulte:
 
 - [HTTP/2 on IIS](https://blogs.iis.net/davidso/http2) (HTTP/2 en IIS)
 - [Vídeo: HTTP/2 in Windows 10: Browser, Apps and Web Server](https://channel9.msdn.com/Events/Build/2015/3-88) (HTTP/2 en Windows 10: explorador, aplicaciones y servidor web)

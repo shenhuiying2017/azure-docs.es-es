@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: damaerte
-ms.openlocfilehash: 9f089b5c5d573bf469d6920f9144b7cc5c97c03a
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 03706914db2b6b09ff31d5ed4b25871e7a53298a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="features--tools-for-powershell-in-azure-cloud-shell-preview"></a>Características y herramientas para PowerShell en Azure Cloud Shell (versión preliminar)
 
@@ -90,7 +90,7 @@ Estos comandos se basan en la supervisión de PowerShell y requieren la conectiv
 
 |**Categoría**    |**Name**                                 |
 |----------------|-----------------------------------------|
-|Herramientas de Azure     |[Azure PowerShell (5.2.0)](https://docs.microsoft.com/powershell/azure/overview)<br> [CLI de Azure (2.0.26)](https://docs.microsoft.com/cli/azure/overview)|
+|Herramientas de Azure     |[Azure PowerShell (5.2.0)](https://docs.microsoft.com/powershell/azure/overview)<br> [CLI de Azure (2.0.26)](https://docs.microsoft.com/cli/azure)|
 |Editores de texto    |vim<br> nano                             |
 |Administrador de paquetes |PowerShellGet<br> PackageManagement<br> npm<br> pip |
 |Control de código fuente  |git                                      |
@@ -106,7 +106,7 @@ Estos comandos se basan en la supervisión de PowerShell y requieren la conectiv
 |PowerShell  |5.1 y [6.0.0](https://github.com/PowerShell/powershell/releases)       |
 |Python      |2.7        |
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 [Guía de inicio rápido de PowerShell en Cloud Shell (versión preliminar)](quickstart-powershell.md)
 
