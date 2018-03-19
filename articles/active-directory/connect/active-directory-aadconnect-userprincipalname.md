@@ -35,7 +35,7 @@ En este artículo se usa la siguiente terminología:
 UserPrincipalName es un atributo de inicio de sesión del estilo de Internet para un usuario basado en el estándar de Internet [RFC 822](http://www.ietf.org/rfc/rfc0822.txt). 
 
 ### <a name="upn-format"></a>Formato de UPN
-Un UPN consta de un prefijo de UPN (el nombre de la cuenta de usuario) y un sufijo de UPN (un nombre de dominio DNS). El prefijo se une con el sufijo mediante el símbolo "@". Por ejemplo, "someone@example.com". Un UPN debe ser único entre todos los objetos de entidad de seguridad dentro de un bosque de directorio. 
+Un UPN consta de un prefijo de UPN (el nombre de la cuenta de usuario) y un sufijo de UPN (un nombre de dominio DNS). El prefijo se une con el sufijo mediante el símbolo "\@\". Por ejemplo, "someone@example.com". Un UPN debe ser único entre todos los objetos de entidad de seguridad dentro de un bosque de directorio. 
 
 ## <a name="upn-in-azure-ad"></a>UPN en Azure AD 
 Azure AD usa el UPN para permitir que los usuarios inicien sesión.  El UPN que un usuario puede usar depende de si el dominio se ha verificado o no.  Si se ha verificado, un usuario con dicho sufijo podrá iniciar sesión en Azure AD.  
