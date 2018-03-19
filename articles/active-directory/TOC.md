@@ -221,7 +221,7 @@
 ##### [Escritorio remoto](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
 ##### [Microsoft Teams](application-proxy-teams.md)
-#### [PowerShell](https://docs.microsoft.com/powershell/module/azuread)
+#### [PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview)
 #### [Solución de problemas](active-directory-application-proxy-troubleshoot.md)
 
 
@@ -311,7 +311,7 @@
 #### [Condiciones](active-directory-conditional-access-conditions.md)
 #### [Condición de ubicación](active-directory-conditional-access-locations.md)
 #### [Controles](active-directory-conditional-access-controls.md)
-#### [Primeros pasos](active-directory-conditional-access-azure-portal-get-started.md)
+#### [Introducción](active-directory-conditional-access-azure-portal-get-started.md)
 #### [procedimientos recomendados](active-directory-conditional-access-best-practices.md)
 #### [Descripción de directivas de dispositivo para servicios de Office 365](active-directory-conditional-access-device-policies.md)
 #### [Migración de directivas clásicas](active-directory-conditional-access-migration.md)
@@ -333,7 +333,7 @@
 ### Autenticación basada en certificados
 #### [Android](active-directory-certificate-based-authentication-android.md)
 #### [iOS](active-directory-certificate-based-authentication-ios.md)
-#### [Primeros pasos](active-directory-certificate-based-authentication-get-started.md)
+#### [Introducción](active-directory-certificate-based-authentication-get-started.md)
 
 ### [Azure AD Identity Protection](active-directory-identityprotection.md)
 #### [Habilitación](active-directory-identityprotection-enable.md)

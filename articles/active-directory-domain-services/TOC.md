@@ -22,7 +22,6 @@
 ## [Comprobar el mantenimiento de un dominio administrado](active-directory-ds-check-health.md)
 ## [Usar Azure AD Domain Services en suscripciones de Azure CSP](active-directory-ds-csp.md)
 ## [Habilitar Azure AD Domain Services mediante PowerShell](active-directory-ds-enable-using-powershell.md)
-## [Comprobación del estado del dominio](active-directory-ds-check-health.md)
 ## Unirse a un dominio administrado
 ### [Máquina virtual Windows Server](active-directory-ds-admin-guide-join-windows-vm-portal.md)
 ### [Máquina virtual Windows Server a partir de plantilla](active-directory-ds-join-windows-vm-template.md)
