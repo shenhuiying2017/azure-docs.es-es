@@ -16,12 +16,11 @@ ms.workload: na
 ms.date: 01/21/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
-experiment: 
-ms.openlocfilehash: 391cf4b5df4b52e6fcbe496c6e31052f1fda4a44
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c1f7c1a12aea8336b71d6e3eb47037d193841ddb
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Creación de su primera función en Azure Portal
 
@@ -31,7 +30,7 @@ Azure Functions permite ejecutar el código en un entorno [sin servidor](https:/
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="log-in-to-azure"></a>Inicie sesión en Azure.
+## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
 
 Inicie sesión en Azure Portal en <http://portal.azure.com> con su cuenta de Azure.
 
@@ -79,7 +78,7 @@ Ahora, puede ejecutar la nueva función mediante el envío de una solicitud HTTP
 
 [!INCLUDE [Clean-up resources](../../includes/functions-quickstart-cleanup.md)]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Ha creado una Function App con una función simple desencadenada por HTTP.  
 

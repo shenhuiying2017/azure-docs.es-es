@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/14/2017
+ms.date: 03/06/2018
 ms.author: billmath
-ms.openlocfilehash: c01ea7c6a05c77244ab29fe6eec00ed1e49b6f7e
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: e29e842a54d286e19d23c1c91c08d55933a0eada
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-active-directory-terms-of-use-feature-preview"></a>Característica Términos de uso de Azure Active Directory (versión preliminar)
 Términos de uso de Azure AD proporciona un método sencillo que las organizaciones pueden usar para presentar la información a los usuarios finales.  Esto garantiza que los usuarios ven las declinaciones de responsabilidades pertinentes para los requisitos legales o de cumplimiento.
@@ -36,7 +36,7 @@ Términos de uso de Azure AD puede utilizarse en los escenarios siguientes:
 -   Términos de uso basados en el acceso a las aplicaciones de alto impacto empresarial, como Salesforce.
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Siga estos pasos para configurar los Términos de uso de Azure AD:
 
 1. Inicie sesión en Azure AD usando un administrador global, administrador de seguridad o un administrador de acceso condicional para el directorio para el que desea configurar los Términos de uso de Azure AD.
@@ -59,7 +59,7 @@ Una vez que haya finalizado los Términos de uso, utilice el procedimiento sigui
 6. **Seleccionar** un idioma para los términos de uso.  La opción de idioma permite cargar varios términos de uso, cada uno con un idioma diferente.  La versión de los términos de uso que verá un usuario final se basará en sus preferencias del explorador.
 7. Seleccione activado o desactivado para **Requerir a los usuarios que expandan las condiciones de uso**.  Si se establece en activado, los usuarios finales deberán consultar las condiciones de uso antes de aceptarlas.
 8. En la sección **Acceso condicional**, puede **Forzar** los términos de uso cargados mediante una plantilla o una directiva personalizada de acceso condicional.  Las directivas personalizadas de acceso condicional permiten términos de uso pormenorizados, hasta una aplicación de nube específica o un grupo de usuarios.  Para más información, consulte el artículo sobre [configuración de directivas de acceso condicional](active-directory-conditional-access-best-practices.md)
-9. Haga clic en **Crear**.
+9. Haga clic en **Create**(Crear).
 10. Si ha seleccionado una plantilla personalizada de acceso condicional, a continuación, aparece una nueva pantalla que le permite personalizar la directiva de entidad emisora de certificados.
 11. Ahora debería ver los nuevos Términos de uso.</br>
 
@@ -127,8 +127,8 @@ R: La aceptación de los términos de uso por un usuario se escribe en el regist
 **P: ¿Si cambian los términos de uso, es necesario para los usuarios aceptar de nuevo?**</br>
 R: Sí, un administrador puede cambiar las condiciones de los términos de uso y esto requiere volver a aceptar las nuevas condiciones.
 
-**P: ¿Puede una condición ser compatible con varios idiomas?**</br>
-R: No, actualmente no es posible tener varios idiomas en una única condición de uso.  Sin embargo, puede restringir el ámbito a un grupo (por ejemplo, los términos de uso para Francia son diferentes de los términos de uso de Reino Unido). 
+**P: ¿Pueden los términos de uso ser compatibles con varios idiomas?**</br>
+R: Sí.  Actualmente, un administrador puede configurar hasta 18 idiomas diferentes para un solo término de uso. 
 
 **P: ¿Cuándo se desencadenan los términos de uso?**</br>
 R: Los términos de uso se desencadenan durante la experiencia de inicio de sesión.

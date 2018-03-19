@@ -11,14 +11,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/01/2018
+ms.date: 03/09/2018
 ms.author: nitinme
 ms.custom: mvc
-ms.openlocfilehash: 0112e5bf53f24150708b9c03440cd6183601f069
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 6a0e69e1ab2c52586b447d8a249b52b09bbff705
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Guía de inicio rápido: ejecución de un trabajo de Spark en Azure Databricks con Azure Portal
 
@@ -48,12 +48,17 @@ En esta sección, creará un área de trabajo de Azure Databricks mediante Azure
     * En **Suscripción**, en el cuadro desplegable, seleccione su suscripción de Azure.
     * Para **Grupo de recursos**, especifique si desea crear un grupo de recursos o utilizar uno existente. Un grupo de recursos es un contenedor que almacena los recursos relacionados con una solución de Azure. Para más información, consulte [Información general del grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md).
     * En **Ubicación**, seleccione **Este de EE.UU. 2**. Para otras regiones disponibles, consulte [Productos disponibles por región](https://azure.microsoft.com/regions/services/).
+    * En **Plan de tarifa**, seleccione **Estándar** o **Premium**. Para más información sobre estos planes, consulte la [página de precios de Databricks](https://azure.microsoft.com/pricing/details/databricks/).
 
-4. Haga clic en **Create**(Crear).
+    Haga clic en **Create**(Crear).
+
+4. La cuenta tarda unos minutos en crearse. Durante la creación de cuentas el portal, se muestra el icono **Implementando Azure Databricks** a la derecha. Puede que deba desplazarse a la derecha del panel para ver el icono. También hay una barra de progreso que se muestra en la parte superior de la pantalla. Puede ver cualquier área para el progreso.
+
+    ![Icono de implementación de Databricks](./media/quickstart-create-databricks-workspace-portal/databricks-deployment-tile.png "Databricks deployment tile")
 
 ## <a name="create-a-spark-cluster-in-databricks"></a>Creación de un clúster de Spark en Databricks
 
-1. En Azure Portal, vaya al área de trabajo de Databricks que creó y, a continuación, haga clic en **Inicializar área de trabajo**.
+1. En Azure Portal, vaya al área de trabajo de Databricks que ha creado y, después, haga clic en **Launch Workspace** (Iniciar área de trabajo).
 
 2. Se le redirigirá al portal de Azure Databricks. Desde el portal, haga clic en **Clúster**.
 
@@ -64,7 +69,7 @@ En esta sección, creará un área de trabajo de Azure Databricks mediante Azure
     ![Creación de un clúster de Databricks Spark en Azure](./media/quickstart-create-databricks-workspace-portal/create-databricks-spark-cluster.png "Creación de un clúster de Databricks Spark en Azure")
 
     * Escriba un nombre para el clúster.
-    * Para este artículo, cree un clúster con el runtime **4.0 (beta)**. 
+    * Para este artículo, cree un clúster con el entorno en tiempo de ejecución **4.0**. 
     * Asegúrese de que selecciona la casilla **Terminate after ____ minutes of inactivity** (Terminar después de ____ minutos de inactividad). Proporcione una duración (en minutos) para terminar el clúster, si este no se usa.
     * Acepte los demás valores predeterminados. 
     * Haga clic en **Crear clúster**. Una vez que el clúster se está ejecutando, puede asociarle notebooks y ejecutar trabajos de Spark.
@@ -96,7 +101,7 @@ Realice los pasos siguientes para crear un notebook en Databricks, configúrelo 
     > [!IMPORTANT]
     >En este artículo se utiliza el **enfoque para montar el almacenamiento con DBFS**. Este enfoque garantiza que el almacenamiento montado se asocia con el propio sistema de archivos del clúster. De esa forma, cualquier aplicación que acceda al clúster puede usar también el almacenamiento asociado. El enfoque del acceso directo está limitado a la aplicación desde donde se configura el acceso.
     >
-    > Para usar el enfoque del montaje, es preciso crear un clúster de Spark con la versión **4.0 (beta)** del runtime de Databricks, que es lo que eligió en este artículo.
+    > Para usar el enfoque del montaje, es preciso crear un clúster de Spark con la versión **4.0** del entorno en tiempo de ejecución de Databricks, que es lo que ha elegido en este artículo.
 
     En el siguiente fragmento de código, reemplace `{YOUR CONTAINER NAME}`, `{YOUR STORAGE ACCOUNT NAME}` y `{YOUR STORAGE ACCOUNT ACCESS KEY}` por los valores adecuados de su cuenta de Azure Storage. Pegue el fragmento de código siguiente en una celda vacía del notebook y, después, presione MAYÚS + ENTRAR para ejecutar la celda de código.
 

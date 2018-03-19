@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 12/14/2017
+ms.date: 02/28/2018
 ms.author: jroth
-ms.openlocfilehash: 268ae1dae1a247ee63adef22403f89680daa4961
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c5c480db8586db7ef125d5c992ff66f5cc28c1e2
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>¿Qué es SQL Server en máquinas virtuales de Azure? (Windows)
 
@@ -51,10 +51,7 @@ Las máquinas virtuales de Azure ofrecen tamaños de máquina diferentes para sa
 Para empezar, elija una imagen de máquina virtual con SQL Server con la versión, la edición y el sistema operativo requeridos. Las secciones siguientes proporcionan vínculos directos a Azure Portal para las imágenes de la galería de máquinas virtuales de SQL Server.
 
 > [!TIP]
-> Para entender los precios de máquinas virtuales y SQL, consulte [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Orientación de precios de máquinas virtuales de SQL Server en Azure).
-
-> [!TIP]
-> Para entender la directiva de ciclo de vida y actualización para las imágenes de la galería de máquinas virtuales de SQL Server, consulte [Preguntas más frecuentes sobre las máquinas virtuales de SQL Server](virtual-machines-windows-sql-server-iaas-faq.md#images).
+> Para conocer los precios de las imágenes de SQL, consulte la [Guía de precios para máquinas virtuales de Azure con SQL Server](virtual-machines-windows-sql-server-pricing-guidance.md). 
 
 ### <a id="payasyougo"></a> Pago por uso
 En la tabla siguiente se proporciona la matriz de imágenes de SQL SErver de pago por uso.
@@ -87,6 +84,9 @@ Después de crear la máquina virtual con SQL Server, conéctese a ella desde ap
 ### <a name="migrate-your-data"></a>Migración de los datos
 Si tiene una base de datos existente, debe moverla a la máquina virtual de SQL recién aprovisionada. Para ver una lista de las opciones de migración e instrucciones, consulte [Migración de una Base de datos SQL Server a SQL Server en una máquina virtual de Azure](virtual-machines-windows-migrate-sql.md).
 
+## <a id="lifecycle"></a> Directiva de actualización de imagen de máquina virtual de SQL
+Azure solo mantiene una imagen de máquina virtual para cada combinación admitida de sistema operativo, versión y edición. Esto significa que a lo largo del tiempo se actualizan las imágenes y las más antiguas se eliminan. Para más información, consulte la sección **Imágenes** de las [preguntas más frecuentes sobre máquinas virtuales de SQL Server](virtual-machines-windows-sql-server-iaas-faq.md#images).
+
 ## <a name="customer-experience-improvement-program-ceip"></a>Programa para la mejora de la experiencia del usuario (CEIP)
 De manera predeterminada, el Programa para la mejora de la experiencia del cliente (CEIP) está habilitado. Esto permitirá enviar periódicamente informes a Microsoft para ayudar a mejorar SQL Server. No hay ninguna tarea de administración requerida relacionada con el CEIP, a menos que desee deshabilitarlo después del aprovisionamiento. Puede personalizar o deshabilitar el CEIP mediante la conexión a la máquina virtual a través del escritorio remoto. A continuación, ejecute la utilidad **Informes de uso y errores de SQL Server** . Siga las instrucciones para deshabilitar los informes. Para más información acerca de la recopilación de datos, vea la [declaración de privacidad de SQL Server](https://www.microsoft.com/EN-US/privacystatement/SQLServer/Default.aspx).
 
@@ -106,7 +106,7 @@ De manera predeterminada, el Programa para la mejora de la experiencia del clien
 * [Documentación de SQL Server](https://docs.microsoft.com/sql/index)
 * [Comparación de Azure SQL Database](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Introducción a SQL Server en máquinas virtuales de Azure:
 

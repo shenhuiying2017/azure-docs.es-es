@@ -1,6 +1,6 @@
 ---
 title: "Registrarse con información de asociado de CSP en Administración de costos de Azure | Documentos de Microsoft"
-description: "Puede usar la información de asociado de CSP para registrarse en Administración de costos de Azure de Cloudyn."
+description: "Use la información de asociado de CSP para registrarse en Azure Cost Management."
 services: cost-management
 keywords: 
 author: bandersmsft
@@ -10,15 +10,15 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.service: cost-management
 manager: carmonm
-ms.openlocfilehash: 0e5e247182335b88f109aa6624a40bc782975b97
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: cf4fb7e82529388a030fd37da9469bf17c8dc343
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>Registrarse con el programa de asociados de CSP y ver los datos de costo
 
-Como asociado de CSP, puede registrarse en Administración de costos de Azure de Cloudyn. Este registro le proporciona acceso al portal de Cloudyn. En esta guía de inicio rápido se detalla el proceso de registro necesario para crear una suscripción de evaluación de Cloudyn e iniciar sesión en el portal de Cloudyn. También se muestra cómo empezar a ver inmediatamente los datos de costo.
+Como asociado de CSP, puede registrarse en Azure Cost Management. Este registro le proporciona acceso al portal de Cloudyn. En esta guía de inicio rápido se detalla el proceso de registro necesario para crear una suscripción de evaluación de Cloudyn e iniciar sesión en el portal de Cloudyn. También se muestra cómo empezar a ver inmediatamente los datos de costo.
 
 
 >[!NOTE]
@@ -30,7 +30,7 @@ Para más información, consulte [cómo conectarse a Partner Center API](https:/
 >
 >El acceso a Cloudyn se puede a disposición de los distribuidores indirectos de CSP después de que su proveedor indirect de CSP se registre en Cloudyn. Posteriormente, los distribuidores indirectos de CSP pueden proporcionar acceso de Cloudyn para suscripciones y clientes de Azure.
 
-## <a name="log-in-to-azure"></a>Inicie sesión en Azure.
+## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
 
 - Inicie sesión en Azure Portal: http://portal.azure.com/.
 
@@ -69,9 +69,9 @@ Los asociados de CSP indirecto inician sesión en el portal de Cloudyn con las c
 
 [!INCLUDE [cost-management-create-account-view-data](../../includes/cost-management-create-account-view-data.md)]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
-En esta guía de inicio rápido, se usa la información de CSP para registrarse en Administración de costos. También se inicia sesión en el portal de Cloudyn para que pueda empezar a visualizar los datos de costo. Para obtener más información acerca de Administración de costos de Azure de Cloudyn, continúe con el tutorial de Administración de costos.
+En esta guía de inicio rápido, se usa la información de CSP para registrarse en Administración de costos. También se inicia sesión en el portal de Cloudyn para que pueda empezar a visualizar los datos de costo. Para más información sobre Azure Cost Management, continúe con el tutorial de Cost Management.
 
 > [!div class="nextstepaction"]
 > [Revisión del uso y los costos](./tutorial-review-usage.md)

@@ -9,11 +9,11 @@ ms.workload: storage
 ms.topic: get-started-article
 ms.date: 01/17/2018
 ms.author: jirwin
-ms.openlocfilehash: aa8704b9991dde639b50a5b6c9a27ad5cd08ad02
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 2c69519b865169b477950bc8fa659d5ad9081bbf
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="azure-storage-account-options"></a>Opciones de la cuenta de Azure Storage
 
@@ -298,8 +298,8 @@ Puede crear una aplicación personalizada para migrar sus datos a una cuenta de 
 
 Para más información, consulte [Introducción a Azure Blob Storage](../blobs/storage-dotnet-how-to-use-blobs.md).
 
-> [!NOTE]
-> BLOB cifrado mediante el cifrado de cliente para almacenar metadatos relacionados con el cifrado almacenados con el blob. Es fundamental que cualquier mecanismo de copia se asegure de que los metadatos del blob, especialmente los relacionados con el cifrado, no desaparecen. Si copia los blobs sin estos metadatos, su contenido no puede volver a recuperarse. Para más información acerca de los metadatos relacionados con el cifrado, consulte [Cifrado del lado de cliente y Almacén de claves de Azure para Microsoft Azure Storage](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+> [!IMPORTANT]
+> Los blobs que usan el cifrado de cliente almacenan metadatos relacionados con el cifrado junto con el blob. Si copia un blob en el que se usa un cifrado de cliente, asegúrese de que la operación de copia conserva los metadatos del blob y, especialmente, los metadatos relacionados con el cifrado. Si copia un blob sin los metadatos de cifrado, su contenido no puede volver a recuperarse. Para más información acerca de los metadatos relacionados con el cifrado, consulte [Cifrado del lado de cliente y Almacén de claves de Azure para Microsoft Azure Storage](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ## <a name="faq"></a>Preguntas más frecuentes
 
@@ -351,7 +351,7 @@ Los precios de las transacciones y del ancho de banda de las cuentas GPv2 son po
 
 Las cuentas de almacenamiento de GPv2 son muy parecidas a las cuentas de almacenamiento de GPv1 y admiten todas las características principales de Azure Storage, como alta durabilidad y disponibilidad, escalabilidad, rendimiento y seguridad. Aparte de las características y restricciones específicas de las cuentas de almacenamiento de blobs y de sus capas de almacenamiento que ya se han indicado, cuando se realiza la actualización a las cuentas de almacenamiento de uso general v2 o de almacenamiento de blobs no se produce ningún cambio.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 ### <a name="evaluate-blob-storage-accounts"></a>Evaluación de cuentas de Almacenamiento de blobs
 

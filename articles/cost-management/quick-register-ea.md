@@ -1,6 +1,6 @@
 ---
 title: "Registrar el Contrato Enterprise de Azure con Administración de costos de Azure | Microsoft Docs"
-description: "Use el Contrato Enterprise para registrarse en la Administración de costos de Azure de Cloudyn."
+description: Use el Contrato Enterprise para registrarse en Azure Cost Management.
 services: cost-management
 keywords: 
 author: bandersmsft
@@ -10,17 +10,17 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.service: cost-management
 manager: carmonm
-ms.openlocfilehash: 1b552ba5a0c3afd066e2ac62c8b3a90dd7696185
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 75ae3aabf51a14ceb3326e7f3cee3e20d9b98579
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="register-an-azure-enterprise-agreement-and-view-cost-data"></a>Registrar un Contrato Enterprise de Azure y ver datos de costo
 
-El Contrato Enterprise se usa para registrarse en la Administración de costos de Azure de Cloudyn. Este registro le proporciona acceso al portal de Cloudyn. En esta guía de inicio rápido se detalla el proceso de registro necesario para crear una suscripción de evaluación de Cloudyn e iniciar sesión en el portal de Cloudyn. También se muestra cómo empezar a ver inmediatamente los datos de costo.
+El Contrato Enterprise se usa para registrarse en Azure Cost Management. Este registro le proporciona acceso al portal de Cloudyn. En esta guía de inicio rápido se detalla el proceso de registro necesario para crear una suscripción de evaluación de Cloudyn e iniciar sesión en el portal de Cloudyn. También se muestra cómo empezar a ver inmediatamente los datos de costo.
 
-## <a name="log-in-to-azure"></a>Inicie sesión en Azure.
+## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
 
 - Inicie sesión en Azure Portal: http://portal.azure.com/.
 
@@ -41,13 +41,13 @@ El Contrato Enterprise se usa para registrarse en la Administración de costos d
 7. En **Invite other stakeholders** (Invitar a otras partes interesadas), puede agregar usuarios escribiendo sus direcciones de correo electrónico. Cuando haya terminado, haga clic en **Siguiente**. Según el tamaño de la inscripción de Azure, puede tardar hasta 24 horas para que todos sus datos de facturación se agreguen a Cloudyn.
 8. Haga clic en **Go to Cloudyn** (Ir a Cloudyn) para abrir el portal de Cloudyn y, después, en la página **Cloud Accounts Management**, (Administración de cuentas en la nube) debería ver la información de la cuenta de EA registrada.
 
-Para ver un tutorial de vídeo sobre cómo registrar su contrato Enterprise, consulte [How to Find Your EA Enrollment ID and API Key for use in Azure Cost Management by Cloudyn](https://youtu.be/u_phLs_udig) (Búsqueda del identificador de registro de EA y de la clave de API para su uso en Azure Cost Management de Cloudyn).
+Para ver un tutorial de vídeo sobre cómo registrar su contrato Enterprise, consulte [How to Find Your EA Enrollment ID and API Key for use in Azure Cost Management by Cloudyn](https://youtu.be/u_phLs_udig) (Búsqueda del identificador de registro de EA y de la clave de API para su uso en Azure Cost Management).
 
 [!INCLUDE [cost-management-create-account-view-data](../../includes/cost-management-create-account-view-data.md)]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
-En esta guía de inicio rápido, se usa la información de su Contrato Enterprise de Azure para registrarse en Administración de costos. También se inicia sesión en el portal de Cloudyn para que pueda empezar a visualizar los datos de costo. Para obtener más información acerca de Administración de costos de Azure de Cloudyn, continúe con el tutorial de Administración de costos.
+En esta guía de inicio rápido, se usa la información de su Contrato Enterprise de Azure para registrarse en Administración de costos. También se inicia sesión en el portal de Cloudyn para que pueda empezar a visualizar los datos de costo. Para más información sobre Azure Cost Management, continúe con el tutorial de Cost Management.
 
 > [!div class="nextstepaction"]
 > [Revisión del uso y los costos](./tutorial-review-usage.md)

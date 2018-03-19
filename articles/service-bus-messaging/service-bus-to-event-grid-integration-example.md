@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 02/15/2018
 ms.author: chwolf
-ms.openlocfilehash: 2a4d17673340d145de9a3514f920c74f7eebf6b6
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 3819a274696762861fbe76a9684b8495f1724f6a
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="azure-service-bus-to-azure-event-grid-examples"></a>Ejemplos de Azure Service Bus en Azure Event Grid
 
@@ -118,7 +118,7 @@ Haga clic en Guardar y ejecutar.
 
 ## <a name="connect-function-and-namespace-via-event-grid"></a>Conexión de la función y el espacio de nombres mediante Event Grid
 
-El paso siguiente consiste en asociar la función y el espacio de nombres de Service Bus. En este ejemplo, use Azure Portal. Consulte la página [concepts](service-bus-to-event-grid-integration-concept.md para aprender a usar PowerShell o la CLI de Azure para lograr el mismo resultado.
+El paso siguiente consiste en asociar la función y el espacio de nombres de Service Bus. En este ejemplo, use Azure Portal. Consulte la página de [conceptos](service-bus-to-event-grid-integration-concept.md) para saber cómo se usa PowerShell o la CLI de Azure para lograr el mismo resultado.
 
 Para crear una nueva suscripción a Azure Event Grid, vaya al espacio de nombres en Azure Portal y seleccione la hoja Event Grid. Haga clic en "+ Suscripción de eventos".
 
@@ -188,7 +188,7 @@ Guarde la aplicación lógica y envíe un mensaje al tema de Service Bus como se
 
 ![18][]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * Más información sobre [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/).
 * Más información acerca de [Azure Functions](https://docs.microsoft.com/azure/azure-functions/).

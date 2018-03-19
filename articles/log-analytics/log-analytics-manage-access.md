@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/12/2017
 ms.author: magoedte
-ms.openlocfilehash: 5121535768b7fb430486c1c2c623e1a3a488858f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 6caa0c8769ea6e62a22659089f37f74f6962e1c7
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="manage-workspaces"></a>Administración de áreas de trabajo
 
@@ -246,7 +246,7 @@ Siga estos pasos para quitar un usuario de un área de trabajo. La eliminación 
 4. Seleccione el grupo en los resultados de la lista y después haga clic en **Agregar**.
 
 ## <a name="link-an-existing-workspace-to-an-azure-subscription"></a>Vincular un área de trabajo existente a una suscripción de Azure
-Todas las áreas de trabajo creadas después del 26 de septiembre de 2016 deben estar vinculadas a una suscripción de Azure en el momento de la creación. Las áreas de trabajo creadas antes de esta fecha deben estar vinculadas a un área de trabajo la próxima vez que inicie sesión. Al crear el área de trabajo desde Azure Portal, o al vincular el área de trabajo a una suscripción de Azure, su instancia de Azure Active Directory quedará vinculada como su cuenta de organización.
+Todas las áreas de trabajo creadas después del 26 de septiembre de 2016 deben estar vinculadas a una suscripción de Azure en el momento de la creación. Las áreas de trabajo creadas antes de esta fecha deben estar vinculadas a una suscripción cuando inicie sesión. Al crear el área de trabajo desde Azure Portal, o al vincular el área de trabajo a una suscripción de Azure, su instancia de Azure Active Directory quedará vinculada como su cuenta de organización.
 
 ### <a name="to-link-a-workspace-to-an-azure-subscription-in-the-oms-portal"></a>Para vincular un área de trabajo a una suscripción de Azure en el portal OMS
 
@@ -270,7 +270,7 @@ Todas las áreas de trabajo creadas después del 26 de septiembre de 2016 deben 
 7. Si es necesario, puede cambiar los valores de los elementos siguientes:
    * La suscripción
    * Grupos de recursos
-   * La ubicación
+   * Ubicación
    * Nivel de precios  
      ![cambiar valores](./media/log-analytics-manage-access/manage-access-link-azure05.png)
 8. Haga clic en **OK**. Ahora, el área de trabajo está vinculada a su cuenta de Azure.
@@ -292,6 +292,6 @@ Puede cambiar la organización de Azure Active Directory para un área de trabaj
 3. Especifique los datos de identidad del administrador del dominio de Azure Active Directory. A continuación, verá un mensaje de confirmación en el que se indica que el área de trabajo se ha vinculado al dominio de Azure Active Directory.  
     ![confirmación de área de trabajo vinculada](./media/log-analytics-manage-access/manage-access-add-adorg02.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Consulte [Entender la utilización de datos](log-analytics-usage.md) para saber cómo analizar el volumen de datos recopilados por las soluciones y enviados desde los equipos.
 * [Agregue soluciones de administración de Log Analytics desde Azure Marketplace](log-analytics-add-solutions.md) para agregar funcionalidad y recopilar datos.

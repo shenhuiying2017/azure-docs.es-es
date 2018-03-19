@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 975069dbe9283c98482d7d0d5741a595ef323b35
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: d02229739e3f358e4a6510dfbb0585939e947f9c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>Implementación de un clúster de Azure Container Service (AKS)
 
@@ -85,7 +85,7 @@ Al finalizar el tutorial, tendrá un clúster de AKS preparado para cargas de tr
 
 ## <a name="configure-acr-authentication"></a>Configuración de la autenticación de ACR
 
-La autenticación debe configurarse entre el clúster de AKS y el registro de ACR. Esto implica conceder a la identidad de ACS los derechos adecuados para extraer imágenes del registro de ACR.
+La autenticación debe configurarse entre el clúster de AKS y el registro de ACR. Esto implica conceder a la identidad de AKS los derechos adecuados para extraer imágenes del registro de ACR.
 
 En primer lugar, obtenga el identificador de la entidad de servicio configurado para AKS. Actualice el nombre del grupo de recursos y el nombre del clúster de AKS para que coincida con su entorno.
 

@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 0e2edc946c5d6ada1049fbd6a960ec138f7088f2
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 6434eb9780eefdcd492273f11f8675668d8d6479
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="tutorial-assign-access-to-cost-management-data"></a>Tutorial: Asignación de acceso a los datos de administración de costos
 
@@ -54,7 +54,7 @@ Los usuarios típicos que necesitan acceder a datos de administración de costos
 
 ![agregar un usuario nuevo con acceso de usuario](.\media\tutorial-user-access\new-user-access.png)
 
-Para ver un vídeo tutorial sobre cómo agregar usuarios, consulte [Adding Users to Azure Cost Management by Cloudyn](https://youtu.be/Nzn7GLahx30) (Adición de usuarios a Azure Cost Management de Cloudyn).
+Para ver un tutorial en vídeo acerca de cómo agregar usuarios, consulte [Adding Users to Azure Cost Management by Cloudyn](https://youtu.be/Nzn7GLahx30) (Adición de usuarios a Azure Cost Management de Cloudyn).
 
 ## <a name="create-entities"></a>Crear entidades
 
@@ -75,11 +75,11 @@ Junto a **Entities** (Entidades), haga clic en **Add Entity** (Agregar entidad).
 Al acabar, **guarde** la entidad.
 
 
-Para ver un vídeo tutorial acerca de cómo crear una jerarquía de entidades de costo, consulte [Creating a Cost Entity Hierarchy in Azure Cost Management by Cloudyn](https://youtu.be/dAd9G7u0FmU) (Creación de una jerarquía de entidades de costo en Azure Cost Management de Cloudyn).
+Para ver un tutorial en vídeo acerca de cómo crear una jerarquía de entidades de costo, consulte [Creating a Cost Entity Hierarchy in Azure Cost Management by Cloudyn](https://youtu.be/dAd9G7u0FmU) (Creación de una jerarquía de entidades de costo en Azure Cost Management de Cloudyn).
 
-Si es un usuario de contrato Enterprise de Azure, vea un vídeo tutorial acerca de cómo asociar cuentas y las suscripciones a las entidades en [Connecting to Azure Resource Manager with Azure Cost Management by Cloudyn](https://youtu.be/oCIwvfBB6kk) (Conexión a Azure Resource Manager con Azure Cost Management de Cloudyn).
+Los usuarios con Contrato Enterprise de Azure, pueden ver un tutorial en vídeo acerca de cómo asociar cuentas y suscripciones a entidades en [Connecting to Azure Resource Manager with Azure Cost Management by Cloudyn](https://youtu.be/oCIwvfBB6kk) (Conexión a Azure Resource Manager con Azure Cost Management de Cloudyn).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial aprendió lo siguiente:
 

@@ -1,6 +1,6 @@
 ---
 title: "Registrar la suscripción de Azure con Administración de costos de Azure | Microsoft Docs"
-description: "Use la suscripción de Azure para registrarse en Administración de costos de Cloudyn."
+description: "Use la suscripción de Azure para registrarse en Azure Cost Management."
 services: cost-management
 keywords: 
 author: bandersmsft
@@ -10,17 +10,17 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.service: cost-management
 manager: carmonm
-ms.openlocfilehash: 666919e37ffa3bb039fc9387737b8e6c3789311a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: b7c1fee3276d98b6b7c611a09133804c1253384a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="register-an-individual-azure-subscription-and-view-cost-data"></a>Registrar una suscripción individual de Azure y ver los datos de costo
 
-Puede usar su suscripción de Azure para registrarse en Administración de costos de Azure de Cloudyn. El registro proporciona acceso al portal de Cloudyn. En esta guía de inicio rápido se detalla el proceso de registro necesario para crear una suscripción de evaluación de Cloudyn e iniciar sesión en el portal de Cloudyn. También se muestra cómo empezar a ver inmediatamente los datos de costo.
+Puede usar la suscripción de Azure para registrarse en Azure Cost Management. Este registro le proporciona acceso al portal de Cloudyn. En esta guía de inicio rápido se detalla el proceso de registro necesario para crear una suscripción de evaluación de Cloudyn e iniciar sesión en el portal de Cloudyn. También se muestra cómo empezar a ver inmediatamente los datos de costo.
 
-## <a name="log-in-to-azure"></a>Inicie sesión en Azure.
+## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
 
 - Inicie sesión en Azure Portal: http://portal.azure.com/.
 
@@ -44,9 +44,9 @@ Para ver un vídeo tutorial sobre cómo registrar su suscripción de Azure, cons
 
 [!INCLUDE [cost-management-create-account-view-data](../../includes/cost-management-create-account-view-data.md)]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
-En esta guía de inicio rápido, se usa la información de su suscripción de Azure para registrarse en Administración de costos. También se inicia sesión en el portal de Cloudyn para que pueda empezar a visualizar los datos de costo. Para obtener más información acerca de Administración de costos de Azure de Cloudyn, continúe con el tutorial de Administración de costos.
+En esta guía de inicio rápido, se usa la información de su suscripción de Azure para registrarse en Administración de costos. También se inicia sesión en el portal de Cloudyn para que pueda empezar a visualizar los datos de costo. Para más información sobre Azure Cost Management, continúe con el tutorial de Cost Management.
 
 > [!div class="nextstepaction"]
 > [Revisión del uso y los costos](./tutorial-review-usage.md)

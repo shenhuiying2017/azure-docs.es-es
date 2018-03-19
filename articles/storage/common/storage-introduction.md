@@ -2,23 +2,17 @@
 title: "Introducción a Azure Storage | Microsoft Docs"
 description: "Introducción a Azure Storage, el servicio de almacenamiento de datos de Microsoft en la nube."
 services: storage
-documentationcenter: 
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: a4a1bc58-ea14-4bf5-b040-f85114edc1f1
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/21/2018
+ms.date: 03/06/2018
 ms.author: tamram
-ms.openlocfilehash: 088a58bf5bfe3736a158d2384c69cb5928b53556
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 799636d0a702407be06bbe8cebae552b34d860db
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Introducción a Microsoft Azure Storage
 
@@ -41,7 +35,7 @@ Para iniciar y ejecutar con Azure Storage, consulte [Crear una cuenta de almacen
 
 Para utilizar cualquiera de los servicios que proporciona Azure Storage (Blob Storage, File Storage y Queue Storage), cree primero una cuenta de almacenamiento para migrar datos desde o hacia uno de sus servicios específicos.
 
-## <a name="blob-storage"></a>Blob Storage
+## <a name="blob-storage"></a>Almacenamiento de blobs
 
 Básicamente, los blobs son archivos como los que se almacenan en el equipo (o tableta, dispositivo móvil, etc.). Pueden ser imágenes, archivos de Microsoft Excel, archivos HTML, discos duros virtuales (VHD), macrodatos, como registros, copias de seguridad de bases de datos..., cualquier cosa. Los blobs se almacenan en contenedores, que son similares a las carpetas.
 
@@ -137,7 +131,7 @@ Hay dos tipos básicos de cifrado disponibles para los servicios de almacenamien
 
 Cifrado del servicio Azure Storage (SSE) en reposo le ayuda a asegurar y proteger sus datos con el fin de cumplir con los compromisos de cumplimiento y seguridad de su organización. Con esta característica, Azure Storage cifra automáticamente sus datos antes de continuar al almacenamiento y los descifra después de la recuperación. La administración de claves, el cifrado y el descifrado son completamente transparentes para los usuarios.
 
-Puede habilitar Cifrado del servicio Storage (SSE) para Blob Storage y Azure Files (versión preliminar). Si está habilitado, todos los datos escritos en el servicio específico se cifran antes de la escritura. Cuando se leen los datos, se descifran antes de devolverlos.
+SSE cifra automáticamente los datos de todos los niveles de rendimiento (Estándar y Premium), todos los modelos de implementación (Azure Resource Manager y clásico) y todos los servicios de Azure Storage (Blob, Queue, Table y File). SSE no afecta al rendimiento de Azure Storage.
 
 Para más información sobre el cifrado de SSE en reposo, consulte [Cifrado del servicio Azure Storage para datos en reposo](storage-service-encryption.md).
 
@@ -209,7 +203,7 @@ Es posible acceder a los recursos de Azure Storage por medio de cualquier lengua
 * [Cmdlets de Storage para PowerShell](/powershell/module/azure.storage/?view=azurermps-4.1.0&viewFallbackFrom=azurermps-4.0.0)
 * [Comandos de Storage para la CLI 2.0](/cli/azure/storage)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Más información sobre Blob Storage](../blobs/storage-blobs-introduction.md)
 * [Más información sobre File Storage](../storage-files-introduction.md)

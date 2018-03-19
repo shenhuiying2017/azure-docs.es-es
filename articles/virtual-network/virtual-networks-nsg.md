@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.openlocfilehash: 5eca18ca2f34097d98ce947c61c635abc6ab27b8
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: bd15b7786552d21c8791eeb307aa8c87066b2bcd
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>Filtrado del tráfico de red con grupos de seguridad de red
 
 Un grupo de seguridad de red (NSG) contiene una lista de reglas de seguridad que permiten o deniegan el tráfico de red a recursos conectados a Azure Virtual Network (VNet). Los grupos de seguridad de red se pueden asociar a subredes, máquinas virtuales individuales (clásicas) o interfaces de red (NIC) individuales conectadas a máquinas virtuales (Resource Manager). Cuando un grupo de seguridad de red está asociado a una subred, las reglas se aplican a todos los recursos conectados a la subred. El tráfico se puede restringir aún más si se asocia también un grupo de seguridad de red a una máquina virtual o interfaz de red.
-
+ 
 > [!NOTE]
 > Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../resource-manager-deployment-model.md). En este artículo se trata el uso de ambos modelos, pero Microsoft recomienda que la mayoría de las nuevas implementaciones usen el modelo del Administrador de recursos.
 
@@ -98,7 +98,7 @@ Puede asociar un grupo de seguridad de red a máquinas virtuales, interfaces de 
 
 * **Máquina virtual (solo clásica):** las reglas de seguridad se aplican a todo el tráfico hacia la máquina virtual y desde ella. 
 * **Interfaz de red (solo Resource Manager):** las reglas de seguridad se aplican a todo el tráfico hacia la interfaz de red a la que está asociado el grupo de seguridad de red y desde ella. En una máquina virtual con varias interfaces de red, puede aplicar diferentes grupos de seguridad de red (o uno mismo) a cada interfaz de red individualmente. 
-* **Subred (Resource Manager y clásica):** las reglas de seguridad se aplican a todo el tráfico hacia cualquier recurso conectado a la red virtual y desde ella.
+* **Subred (Resource Manager y clásica):** las reglas de seguridad se aplican a todo el tráfico hacia cualquier recurso conectado a la subred y desde ella.
 
 Puede asociar grupos de seguridad de red diferentes a una máquina virtual (o interfaz de red, según el modelo de implementación) y a la subred a la que está conectada una interfaz de red o una máquina virtual. Las reglas de seguridad se aplican al tráfico, por prioridad, en cada grupo de seguridad de red, en el orden siguiente:
 

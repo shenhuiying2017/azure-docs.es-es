@@ -13,11 +13,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 02/15/2018
 ms.author: jroth
-ms.openlocfilehash: a9976810a67d47d92d6b04cd33c83fb35bf3d466
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: daa5043a948e660b6c3e685e933855afff8f7671
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="quickstart-create-a-sql-server-windows-virtual-machine-with-azure-powershell"></a>Inicio rápido: Creación de una máquina virtual Windows de SQL Server con Azure PowerShell
 
@@ -26,7 +26,15 @@ Esta guía de inicio rápido le ayuda a crear una máquina virtual de SQL Server
 > [!TIP]
 > Esta guía de inicio rápido describe una manera de aprovisionar y conectarse a una máquina virtual de SQL rápidamente. Para más información sobre otras opciones de Azure PowerShell para crear máquinas virtuales de SQL, consulte la [guía de aprovisionamiento de máquinas virtuales de SQL Server con Azure PowerShell](virtual-machines-windows-ps-sql-create.md).
 
+> [!TIP]
+> Si tiene alguna pregunta sobre las máquinas virtuales de SQL Server, consulte las [Preguntas más frecuentes](virtual-machines-windows-sql-server-iaas-faq.md).
+
+## <a id="subscription"></a> Obtener una suscripción de Azure
+
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+
+
+## <a id="powershell"></a> Obtener Azure PowerShell
 
 Para realizar los pasos de esta guía, se requiere la versión 3.6 del módulo Azure PowerShell, o cualquier versión posterior. Ejecute `Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps) (Instalación y configuración de Azure PowerShell).
 
@@ -181,7 +189,7 @@ Stop-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
 
 También puede eliminar de forma definitiva todos los recursos asociados a la máquina virtual con el comando **Remove-AzureRmResourceGroup**. Como esta acción también elimina la máquina virtual definitivamente, use este comando con cuidado.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En esta guía de inicio rápido, ha creado una máquina virtual de SQL Server 2017 con Azure PowerShell. Para más información sobre la migración de los datos a la nueva instancia de SQL Server, consulte el artículo siguiente.
 
