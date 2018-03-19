@@ -1,0 +1,87 @@
+- name: Documentación sobre el Kit de desarrollo de Azure Stack
+  href: index.yml
+- name: Información general
+  expanded: true
+  items:
+    - name: ¿Qué es el Kit de desarrollo de Azure Stack?
+      href: asdk-what-is.md
+    - name: Notas de la versión del Kit de desarrollo de Azure Stack
+      href: asdk-release-notes.md
+- name: Tutoriales
+  items:
+    - name: 1. Implementación del ASDK
+      items:
+        - name: 'Implementación del Kit de desarrollo de Azure Stack: Instalador'
+          href: asdk-deploy.md
+        - name: 'Implementación del Kit de desarrollo de Azure Stack: PowerShell'
+          href: asdk-deploy-powershell.md
+        - name: Reimplementación del Kit de desarrollo de Azure Stack
+          href: asdk-redeploy.md
+    - name: 2. Incorporación de un elemento de Marketplace
+      items:
+        - name: Descarga de Azure
+          href: asdk-marketplace-item.md
+        - name: Incorporación desde un origen local
+          href: asdk-marketplace-item-offline.md
+    - name: 3. Ofertas de servicios de IaaS
+      href: asdk-offer-services.md
+    - name: 4. Suscripción a una oferta
+      href: asdk-subscribe-services.md
+    - name: 5. Actualización de ofertas y planes
+      href: asdk-update-offers.md
+    - name: 6. Creación de una máquina virtual a partir de una plantilla
+      href: asdk-create-vm-template.md
+- name: Conceptos
+  items:
+    - name: Consideraciones de planeación de implementación
+      href: asdk-deploy-considerations.md
+    - name: Arquitectura de Development Kit
+      href: asdk-architecture.md
+    - name: Conceptos básicos de administración del Kit de desarrollo de Azure Stack
+      href: asdk-admin-basics.md
+    - name: Tareas de evaluación avanzadas
+      href: asdk-advanced-eval.md
+- name: Procedimientos
+  items:
+    - name: Instalación del Kit de desarrollo de Azure Stack
+      items:
+        - name: Descargue y extraiga el kit de desarrollo
+          href: asdk-download.md
+        - name: Preparación del equipo host del Kit de desarrollo de Azure Stack
+          href: asdk-prepare-host.md
+        - name: Instalación del Kit de desarrollo de Azure Stack
+          href: asdk-install.md
+        - name: Configuración posterior a la implementación
+          href: asdk-post-deploy.md
+    - name: Registro del Kit de desarrollo de Azure Stack
+      href: asdk-register.md
+    - name: Configuración de los valores de telemetría de Azure Stack
+      href: asdk-telemetry.md
+    - name: solución de problemas
+      href: asdk-troubleshooting.md
+- name: Referencia
+  items:
+    - name: PowerShell de Azure Stack
+      href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.10
+    - name: CLI de Azure Stack
+      href: /cli/azure/?view=azure-cli-2017-03-09-profile
+- name: Temas relacionados
+  items:
+    - name: Documentación del operador de Azure Stack
+      href: /azure/azure-stack/
+    - name: Documentación de usuario de Azure Stack
+      href: /azure/azure-stack/user/
+- name: Recursos
+  items:
+    - name: Mapa de ruta de Azure Stack
+      href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
+    - name: Foro de MSDN de Azure Stack
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack'
+    - name: Comentarios sobre la documentación de Azure Stack
+      href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
+    - name: Información de precios
+      href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-stack'
+    - name: Aprendizaje y certificación
+      href: 'https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert'

@@ -5,7 +5,7 @@
 ## [¿Qué es Azure IoT Hub?](iot-hub-what-is-iot-hub.md)
 ## [Introducción a la administración de dispositivos](iot-hub-device-management-overview.md)
 
-# [Primeros pasos](iot-hub-get-started.md)
+# [Introducción](iot-hub-get-started.md)
 
 ## Configuración del dispositivo
 ### [Simulación de un dispositivo en su PC](iot-hub-get-started-simulated.md)
@@ -26,9 +26,9 @@
 #### [Intel Edison con Node.js](iot-hub-intel-edison-kit-node-get-started.md)
 #### [Intel Edison con C](iot-hub-intel-edison-kit-c-get-started.md)
 
-#### [Adafruit Feather HUZZAH ESP8266 con Arduino IDE](iot-hub-arduino-huzzah-esp8266-get-started.md)
-#### [Sparkfun ESP8266 Thing Dev con Arduino IDE](iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
-#### [Adafruit Feather M0 con Arduino IDE](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
+#### [Adafruit Feather HUZZAH ESP8266 con Arduino](iot-hub-arduino-huzzah-esp8266-get-started.md)
+#### [Sparkfun ESP8266 Thing Dev con Arduino](iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
+#### [Adafruit Feather M0 con Arduino](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 
 ## Escenarios de IoT ampliados
 ### [Administración de la mensajería de dispositivos en la nube con iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)

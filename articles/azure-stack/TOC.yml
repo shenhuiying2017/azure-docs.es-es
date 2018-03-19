@@ -232,14 +232,22 @@
               href: azure-stack-app-service-capacity-planning.md
             - name: Antes de comenzar
               href: azure-stack-app-service-before-you-get-started.md
+            - name: Redistribución de Azure App Service en Azure Stack entre dominios de error
+              href: azure-stack-app-service-fault-domain-update.md
             - name: Implementación del proveedor de recursos de App Service
               href: azure-stack-app-service-deploy.md
             - name: Implementación de App Service sin conexión
               href: azure-stack-app-service-deploy-offline.md
+            - name: Actualización de App Service
+              href: azure-stack-app-service-update.md
+            - name: Actualización de App Service sin conexión
+              href: azure-stack-app-service-update-offline.md
             - name: Incorporación de más roles de trabajo web
               href: azure-stack-app-service-add-worker-roles.md
             - name: Configuración de orígenes de implementación
               href: azure-stack-app-service-configure-deployment-sources.md
+            - name: Notas de la versión de la actualización uno de App Service
+              href: azure-stack-app-service-release-notes-update-one.md
         - name: Rellenado de Marketplace
           items:
             - name: Introducción a Marketplace

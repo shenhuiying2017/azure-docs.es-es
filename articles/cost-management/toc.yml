@@ -21,7 +21,9 @@
       href: tutorial-forecast-spending.md
     - name: 3 - Administración de gastos
       href: tutorial-manage-costs.md
-    - name: 4 - Control del acceso a los datos
+    - name: 4 - Optimización de instancias reservadas
+      href: tutorial-optimize-reserved-instances.md
+    - name: 5 - Control del acceso a los datos
       href: tutorial-user-access.md
 - name: Conceptos
   items:

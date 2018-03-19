@@ -67,6 +67,8 @@
       items:
         - name: Replicación en Azure
           items:
+            - name: Preguntas habituales sobre la replicación de VMware en Azure
+              href: vmware-azure-common-questions.md
             - name: Matriz de compatibilidad de VMware o dispositivo físico a Azure
               href: vmware-physical-azure-support-matrix.md
             - name: Arquitectura de VMware a Azure
@@ -77,6 +79,8 @@
               href: vmware-azure-multi-tenant-overview.md
             - name: Acerca de Mobility Service
               href: vmware-azure-install-mobility-service.md
+            - name: Opciones de ubicación de conmutación por recuperación
+              href: concepts-types-of-failback.md
         - name: Replicación en un sitio secundario
           items:
             - name: Matriz de compatibilidad de VMware o dispositivo físico a sitio secundario
@@ -117,7 +121,7 @@
               href: azure-to-azure-about-networking.md
             - name: Preparación de la asignación de redes durante la recuperación ante desastres de las máquinas virtuales de Azure
               href: azure-to-azure-network-mapping.md
-            - name: Configuración del direccionamiento IP después de una conmutación por error de una máquina virtual de Azure
+            - name: Configuración de direcciones IP para la conmutación por error
               href: site-recovery-retain-ip-azure-vm-failover.md
         - name: Recuperación ante desastres
           items:
@@ -139,7 +143,7 @@
           items:
             - name: Administración de interfaces de red para la replicación desde un sitio local en Azure
               href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
-            - name: Configuración del direccionamiento IP tras la conmutación por error a Azure
+            - name: Configuración de direcciones IP para la conmutación por error
               href: concepts-on-premises-to-azure-networking.md
         - name: Planificación de capacidad
           items:
@@ -241,7 +245,7 @@
           items:
             - name: Administración de interfaces de red para la replicación desde un sitio local en Azure
               href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
-            - name: Configuración del direccionamiento IP tras la conmutación por error a Azure
+            - name: Configuración de direcciones IP para la conmutación por error
               href: concepts-on-premises-to-azure-networking.md
         - name: Planificación de capacidad
           items:
@@ -255,8 +259,6 @@
                   href: hyper-v-deployment-planner-analyze-report.md
                 - name: Análisis del informe de estimación de costo
                   href: hyper-v-deployment-planner-cost-estimation.md
-            - name: Pruebas de escala de rendimiento para la replicación de Hyper-V en un sitio secundario
-              href: hyper-v-vmm-performance-results.md
         - name: Recuperación ante desastres
           items:
             - name: Configuración de la replicación de Hyper-V a Azure (sin VMM) mediante PowerShell
@@ -295,12 +297,14 @@
           href: hyper-v-vmm-powershell-resource-manager.md
         - name: Ejecución de una exploración de recuperación ante desastres de máquinas virtuales de Hyper-V en un sitio secundario
           href: hyper-v-vmm-test-failover.md
-        - name: Configuración del direccionamiento IP tras la conmutación por error a un sitio secundario
+        - name: Configuración de direcciones IP para la conmutación por error
           href: hyper-v-vmm-networking.md
         - name: Adición de scripts de VMM a los planes de recuperación
           href: hyper-v-vmm-recovery-script.md
         - name: Ejecución de una conmutación por error y una conmutación por recuperación entre sitios locales
           href: hyper-v-vmm-failover-failback.md
+        - name: Pruebas de escala de rendimiento para la replicación de Hyper-V en un sitio secundario
+          href: hyper-v-vmm-performance-results.md
     - name: Replicación de aplicaciones
       items:
         - name: Active Directory y DNS

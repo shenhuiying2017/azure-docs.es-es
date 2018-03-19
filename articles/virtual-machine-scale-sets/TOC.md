@@ -38,6 +38,7 @@
 #### [Uso de la CLI de Azure 2.0](virtual-machine-scale-sets-encrypt-disks-cli.md)
 ### [Uso de grandes conjuntos de escalado](virtual-machine-scale-sets-placement-groups.md)
 ### [Conversión de una plantilla de conjunto de escalado para que use un disco administrado](virtual-machine-scale-sets-convert-template-to-md.md)
+### [Uso de la prioridad baja](virtual-machine-scale-sets-use-low-priority.md)
 
 ## administración
 ### Tareas comunes de administración

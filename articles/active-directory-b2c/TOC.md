@@ -61,11 +61,12 @@
 ## [Personalización de lenguaje](active-directory-b2c-reference-language-customization.md)
 ## [Uso de la API de informes](active-directory-b2c-reference-usage-reporting-api.md)
 ## [Migración de usuarios](active-directory-b2c-user-migration.md)
+## [Migración de identidades sociales](active-directory-b2c-social-migration.md)
 
 # Marco de experiencia de identidad
 ## [Directivas personalizadas](active-directory-b2c-overview-custom.md)
 ## Guías
-### [Primeros pasos](active-directory-b2c-get-started-custom.md)
+### [Introducción](active-directory-b2c-get-started-custom.md)
 ### Configuración de proveedores de OIDC/OAUTH
 #### [Azure AD](active-directory-b2c-setup-aad-custom.md)
 #### [Cuenta Microsoft](active-directory-b2c-custom-setup-msa-idp.md)
