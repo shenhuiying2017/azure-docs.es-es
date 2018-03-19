@@ -3,28 +3,28 @@ title: Herramientas de Azure Stack Storage
 description: "Obtenga información acerca de las herramientas de transferencia de datos de Azure Stack Storage"
 services: azure-stack
 documentationcenter: 
-author: xiaofmao
-manager: 
-editor: 
+author: mattbriggs
+manager: femila
 ms.assetid: 
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 9/25/2017
-ms.author: xiaofmao
-ms.openlocfilehash: 9799498a11449a9ed496d0fdb40312603eda064e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/21/2018
+ms.author: mabrigg
+ms.reviewer: xiaofmao
+ms.openlocfilehash: 9318b7af3c3dd545207f1896c9008207f562b735
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="tools-for-azure-stack-storage"></a>Herramientas de Azure Stack Storage
 
-*Se aplica a: Sistemas integrados de Azure Stack y Azure Stack Development Kit*
+*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
-Microsoft Azure Stack proporciona un conjunto de servicios de almacenamiento para discos, blobs, tablas, colas y funcionalidad de administración de cuentas. Puede usar un conjunto de herramientas de Azure Storage si desea administrar o mover datos a Azure Stack Storage, o desde él. En este artículo se proporciona una descripción general de las herramientas disponibles.
+Microsoft Azure Stack proporciona un conjunto de servicios de almacenamiento para discos, blobs, tablas, colas y funciones de administración de cuentas. Puede usar un conjunto de herramientas de Azure Storage si desea administrar o mover datos a Azure Stack Storage, o desde él. En este artículo se proporciona una descripción general de las herramientas disponibles.
 
 La herramienta que mejor se adapte a usted depende de sus requisitos:
 * [AzCopy](#azcopy)
@@ -50,7 +50,11 @@ Dadas las diferencias en los servicios de Storage entre Azure y Azure Stack, pue
 AzCopy es una utilidad de línea de comandos diseñada para copiar datos hacia y desde los servicios Microsoft Azure Blob Storage y Table Storage mediante sencillos comandos con un rendimiento óptimo. También puede copiar datos de un objeto a otro dentro de la cuenta de almacenamiento o entre cuentas de almacenamiento. Hay dos versiones de AzCopy: AzCopy en Windows y AzCopy en Linux. Azure Stack solo admite la versión de Windows. 
  
 ### <a name="download-and-install-azcopy"></a>Descarga e instalación de AzCopy 
+
 [Descargue](https://aka.ms/azcopyforazurestack) la versión compatible con Windows de AzCopy para Azure Stack. AzCopy se puede instalar y usar en Azure Stack del mismo modo que Azure. Para más información, consulte [Transferencia de datos con AzCopy en Windows](../../storage/common/storage-use-azcopy.md). 
+
+ - Para la actualización 1802 o versiones más recientes, [descargue AzCopy 7.1.0](https://aka.ms/azcopyforazurestack20170417).
+ - Para la versión anterior, [descargue AzCopy 5.0.0](https://aka.ms/azcopyforazurestack20150405).
 
 ### <a name="azcopy-command-examples-for-data-transfer"></a>Ejemplos del comando AzCopy para la transferencia de datos
 Los ejemplos siguientes muestran varios escenarios habituales para copiar datos a los blobs de Azure Stack y desde ellos. Para más información, consulte [Transferencia de datos con AzCopy en Windows](../../storage/storage-use-azcopy.md). 
@@ -63,14 +67,14 @@ AzCopy.exe /source:https://myaccount.blob.local.azurestack.external/mycontainer 
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.local.azurestack.external/mycontainer/vd /DestKey:key /Pattern:abc.txt
 ```
 #### <a name="move-data-between-azure-and-azure-stack-storage"></a>Movimiento de datos entre Azure y Azure Stack Storage 
-No se admite la transferencia de datos asincrónica entre Azure Storage y Azure Stack. La transferencia se debe especificar con la opción `/SyncCopy`. 
+No se admite la transferencia de datos asincrónica entre Azure Storage y Azure Stack. La transferencia se debe especificar con la opción **/SyncCopy**. 
 ```azcopy 
 Azcopy /Source:https://myaccount.blob.local.azurestack.external/mycontainer /Dest:https://myaccount2.blob.core.windows.net/mycontainer2 /SourceKey:AzSKey /DestKey:Azurekey /S /SyncCopy
 ```
 
 ### <a name="azcopy-known-issues"></a>Problemas conocidos de Azcopy
 * Las operaciones de AzCopy en File Storage no están disponible porque File Storage aún no está disponible en Azure Stack.
-* No se admite la transferencia de datos asincrónica entre Azure Storage y Azure Stack. Puede especificar la transferencia con la opción `/SyncCopy` para copiar los datos.
+* No se admite la transferencia de datos asincrónica entre Azure Storage y Azure Stack. Puede especificar la transferencia con la opción **/SyncCopy** para copiar los datos.
 * No se admite la versión Linux de Azcopy para Azure Stack Storage. 
 
 ## <a name="azure-powershell"></a>Azure PowerShell
@@ -80,7 +84,7 @@ Azure PowerShell es un módulo que proporciona cmdlets para administrar servicio
 Los módulos de Azure PowerShell compatibles con Azure Stack se requieren para trabajar con Azure Stack. Para más información, consulte [Instalación de PowerShell para Azure Stack](azure-stack-powershell-install.md) y [Configuración del entorno de PowerShell del usuario de Azure Stack](azure-stack-powershell-configure-user.md).
 
 ### <a name="powershell-sample-script-for-azure-stack"></a>Script de ejemplo de PowerShell para Azure Stack 
-En este ejemplo se supone que ha [instalado PowerShell para Azure Stack](azure-stack-powershell-install.md) correctamente. Este script le ayudará a completar la configuración y a pedir las credenciales de su inquilino de Azure Stack para agregar su cuenta al entorno local de PowerShell. A continuación, el script establecerá la suscripción predeterminada de Azure, creará un una nueva cuenta de almacenamiento en Azure, creará un nuevo contenedor en dicha cuenta de almacenamiento y cargará un archivo de imagen existente (blob) en dicho contenedor. Una vez el script ha enumerado todos los blobs en ese contenedor, creará un nuevo directorio de destino en el equipo local y descargará el archivo de imagen.
+En este ejemplo se supone que ha [instalado PowerShell para Azure Stack](azure-stack-powershell-install.md) correctamente. Este script le ayudará a completar la configuración y a pedir las credenciales del inquilino de Azure Stack para agregar la cuenta al entorno local de PowerShell. A continuación, el script establecerá la suscripción predeterminada de Azure, creará un una nueva cuenta de almacenamiento en Azure, creará un nuevo contenedor en dicha cuenta de almacenamiento y cargará un archivo de imagen existente (blob) en dicho contenedor. Una vez el script ha enumerado todos los blobs en ese contenedor, creará un nuevo directorio de destino en el equipo local y descargará el archivo de imagen.
 
 1. Instale los [módulos de Azure PowerShell compatibles con Azure Stack](azure-stack-powershell-install.md).  
 2. Descargue las [herramientas necesarias para trabajar con Azure Stack](azure-stack-powershell-download.md).  
@@ -172,7 +176,7 @@ La versión actual del módulo Azure PowerShell compatible con Azure Stack es 1.
    ```
    Para más información, consulte [Get-AzureRmStorageAccountKey](https://docs.microsoft.com/powershell/module/azurerm.storage/Get-AzureRmStorageAccountKey?view=azurermps-4.1.0).
 
-## <a name="azure-cli"></a>CLI de Azure
+## <a name="azure-cli"></a>Azure CLI
 La CLI de Azure es la forma de usar la línea de comandos de Azure para administrar los recursos de Azure. Puede instalarla en macOS, Linux y Windows, y ejecutarla desde la línea de comandos. 
 
 La CLI de Azure está optimizada para administrar recursos de Azure desde la línea de comandos y para compilar scripts de automatización que funcionen con Azure Resource Manager. Proporciona muchas de las funciones que se encuentran en Azure Stack Portal, lo que incluye el acceso a datos enriquecidos.
@@ -220,17 +224,16 @@ az storage blob download --container-name $AZURESTACK_STORAGE_CONTAINER_NAME --a
 echo "Done"
 ```
 
-## <a name="microsoft-azure-storage-explorer"></a>Explorador de almacenamiento de Microsoft Azure
+## <a name="microsoft-azure-storage-explorer"></a>Explorador de Microsoft Azure Storage
 
 El Explorador de Microsoft Azure Storage es una aplicación independiente de Microsoft que permite trabajar fácilmente con los datos de Azure Storage y Azure Stack Storage en Windows, macOS y Linux. Si desea una manera fácil de administrar los datos de Azure Stack Storage, considere la posibilidad de usar el Explorador de Microsoft Azure Storage.
 
-Para más información acerca de cómo configurar el Explorador de Azure Storage para que funcione con Azure Stack, consulte [Connect Storage Explorer to an Azure Stack subscription](azure-stack-storage-connect-se.md) (Conexión del Explorador de Storage a una suscripción de Azure Stack).
-
-Para más información acerca del Explorador de Microsoft Azure Storage, consulte [Introducción al Explorador de Storage (versión preliminar)](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
+ - Para más información sobre cómo configurar el Explorador de Azure Storage para que funcione con Azure Stack, consulte [Conexión del Explorador de Storage a una suscripción de Azure Stack](azure-stack-storage-connect-se.md).
+ - Para más información sobre del Explorador de Microsoft Azure Storage, consulte [Introducción al Explorador de Storage (versión preliminar)](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Conexión del Explorador de Storage a una suscripción de Azure Stack](azure-stack-storage-connect-se.md)
 * [Introducción al Explorador de Storage (versión preliminar)](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
 * [Azure Stack Storage: Differences and considerations](azure-stack-acs-differences.md) (Azure Stack Storage: diferencias y consideraciones)
-* [Introducción a Almacenamiento de Microsoft Azure](../../storage/common/storage-introduction.md)
+* [Introducción a Microsoft Azure Storage](../../storage/common/storage-introduction.md)
 

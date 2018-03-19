@@ -10,15 +10,15 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 35142cb40560db848c71da266bbaa1881f12e15d
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 20046d8bb475ddce8962915e5bd8215117261ac6
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="tutorial-forecast-future-spending"></a>Tutorial: Previsión de gastos futuros
 
-Azure Cost Management de Cloudyn le ayuda a pronosticar los gastos futuros mediante el historial de uso y los datos de gasto. Use informes de Cloudyn para ver todos los datos de proyección de costos. Los ejemplos de este tutorial le guían por la revisión de las proyecciones de costos mediante los informes. En este tutorial, aprenderá a:
+Azure Cost Management le ayuda a predecir los gastos futuros mediante el historial de uso y los datos de gasto. Use informes de Cloudyn para ver todos los datos de proyección de costos. Los ejemplos de este tutorial le guían por la revisión de las proyecciones de costos mediante los informes. En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 > * Previsión de gastos futuros
@@ -56,7 +56,7 @@ En el ejemplo, puede ver en qué servicios se realiza un mayor gasto. Al igual q
 
 En la imagen anterior, el costo previsto anual de máquinas virtuales de Azure es 28.374 dólares USA.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial aprendió lo siguiente:
 

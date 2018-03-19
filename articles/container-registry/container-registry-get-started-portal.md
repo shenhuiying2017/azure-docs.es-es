@@ -6,18 +6,18 @@ author: mmacy
 manager: timlt
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 12/06/2017
+ms.date: 03/03/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 1a4c5b365b93b30987ff6541aba762cbf8a4b7a5
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: db112f7f8f486093509a86f9781c30133925c25f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-a-container-registry-using-the-azure-portal"></a>Creación de un registro de contenedor mediante Azure Portal
 
-Azure Container Registry es un registro privado de Docker en Azure donde se pueden almacenar y administrar las imágenes de contenedor privado de Docker. En esta guía de inicio rápido, creará un registro de contenedor con Azure Portal.
+Azure Container Registry es un registro privado de Docker en Azure donde se pueden almacenar y administrar las imágenes de contenedor privado de Docker. En esta guía de inicio rápido, se crea un registro de contenedores con Azure Portal, se inserta una imagen del contenedor en el registro y, finalmente, se implementa el contenedor desde el registro en Azure Container Instances (ACI).
 
 Para realizar este manual de inicio rápido, debe Docker instalado localmente. Docker proporciona paquetes que permiten configurar Docker fácilmente en cualquier sistema [Mac][docker-mac], [Windows][docker-windows] o [Linux][docker-linux].
 
@@ -73,13 +73,13 @@ docker pull microsoft/aci-helloworld
 
 Antes de insertar la imagen en el registro, debe etiquetar la imagen con el nombre del servidor de inicio de sesión de ACR. Etiquete la imagen mediante el comando [docker tag][docker-tag]. Reemplace *servidor de inicio de sesión* por el nombre del servidor de inicio de sesión que anotó anteriormente.
 
-```
+```bash
 docker tag microsoft/aci-helloworld <login server>/aci-helloworld:v1
 ```
 
 Por último, use el comando [docker push][docker-push] para insertar la imagen en la instancia de ACR. Reemplace *servidor de inicio de sesión* por el nombre del servidor de inicio de sesión de su instancia de ACR.
 
-```
+```bash
 docker push <login server>/aci-helloworld:v1
 ```
 
@@ -104,15 +104,43 @@ En este ejemplo, se selecciona el repositorio **aci-helloworld**, y se puede ver
 
 ![Creación de un registro de contenedor en Azure Portal][qs-portal-09]
 
+## <a name="deploy-image-to-aci"></a>Implementación de la imagen en ACI
+
+Para implementar en una instancia desde el registro, debe navegar hasta el repositorio (aci-helloworld) y, a continuación, hacer clic en el botón de puntos suspensivos situado junto a v1.
+
+![Inicio de una instancia de Azure Container Instance desde el portal][qs-portal-10]
+
+Aparecerá un menú contextual, seleccione **Ejecutar instancia**:
+
+![Inicio del menú contextual de ACI][qs-portal-11]
+
+Rellene el **Nombre del contenedor**, asegúrese de que está seleccionada la suscripción correcta, seleccione el **Grupo de recursos** existente "myResourceGroup" y, a continuación, haga clic en **Aceptar** para iniciar Azure Container Instance.
+
+![Inicio de las opciones de implementación de ACI][qs-portal-12]
+
+Cuando se inicia una implementación, en el panel del portal aparece un icono que indica el progreso de la implementación. Una vez finalizada la implementación, el icono se actualiza para mostrar el nuevo grupo de contenedores **mycontainer**.
+
+![Estado de la implementación de ACI][qs-portal-13]
+
+Seleccione el grupo de contenedores mycontainer para mostrar las propiedades del grupo de contenedores. Anote la **dirección IP** del grupo de contenedores, además del valor de **STATUS** del contenedor.
+
+![Detalles del contenedor de ACI][qs-portal-14]
+
+## <a name="view-the-application"></a>Visualización de la aplicación
+
+Una vez que el contenedor pasa al estado **En ejecución**, vaya a la dirección IP que anotó en el paso anterior para mostrar la aplicación.
+
+![Aplicación Hola mundo en el explorador][qs-portal-15]
+
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Cuando ya no lo necesite, elimine el grupo de recursos **myResourceGroup**. De esta forma eliminará el grupo de recursos, la instancia de ACR y todas las imágenes de contenedor.
+Para limpiar los recursos, vaya al grupo de recursos **myResourceGroup** en el portal. Una vez cargado el grupo de recursos, haga clic en **Eliminar grupo de recursos** para eliminar el grupo de recursos, la instancia de Azure Container Registry y todas las instancias de Azure Container Instances.
 
 ![Creación de un registro de contenedor en Azure Portal][qs-portal-08]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
-En esta guía de inicio rápido, creará una instancia de Azure Container Registry con Azure Portal. Si quiere usar Azure Container Registry con Azure Container Instances, continúe con el tutorial de Azure Container Instances.
+En esta guía de inicio rápido, ha creado una instancia de Azure Container Registry con la CLI de Azure e iniciado dicha instancia con Azure Container Instances. Siga el tutorial de Azure Container Instances para información más detallada de ACI.
 
 > [!div class="nextstepaction"]
 > [Tutoriales de Azure Container Instances][container-instances-tutorial-prepare-app]
@@ -127,6 +155,12 @@ En esta guía de inicio rápido, creará una instancia de Azure Container Regist
 [qs-portal-07]: ./media/container-registry-get-started-portal/qs-portal-07.png
 [qs-portal-08]: ./media/container-registry-get-started-portal/qs-portal-08.png
 [qs-portal-09]: ./media/container-registry-get-started-portal/qs-portal-09.png
+[qs-portal-10]: ./media/container-registry-get-started-portal/qs-portal-10.png
+[qs-portal-11]: ./media/container-registry-get-started-portal/qs-portal-11.png
+[qs-portal-12]: ./media/container-registry-get-started-portal/qs-portal-12.png
+[qs-portal-13]: ./media/container-registry-get-started-portal/qs-portal-13.png
+[qs-portal-14]: ./media/container-registry-get-started-portal/qs-portal-14.png
+[qs-portal-15]: ./media/container-registry-get-started-portal/qs-portal-15.png
 
 <!-- LINKS - external -->
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms

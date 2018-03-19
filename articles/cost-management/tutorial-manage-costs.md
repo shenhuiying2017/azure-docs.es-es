@@ -10,15 +10,15 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 7e9f11e702dbbe8864f8a0c307777c922e5f028d
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 238964540bffaf8d05148c587462256ce20d87f4
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="tutorial-manage-costs-by-using-azure-cost-management"></a>Tutorial: Administración de costos con Azure Cost Management
 
-Administre los costos y genere informes de visualización de costos con Azure Cost Management de Cloudyn mediante la asignación de costos basados en etiquetas. El proceso de asignación de costos asigna los costos a los recursos consumidos en la nube. Los costos se asignan completamente cuando todos los recursos se clasifican con etiquetas. Una vez asignados los costos, puede mostrar o cargar los costos a los usuarios mediante paneles e informes. Pero puede ser que muchos recursos no estén etiquetados o no se puedan etiquetar al empezar a usar Cost Management.
+Administre los costos y genere informes de visualización de costos con Azure Cost Management mediante la asignación de costos basados en etiquetas. El proceso de asignación de costos asigna los costos a los recursos consumidos en la nube. Los costos se asignan completamente cuando todos los recursos se clasifican con etiquetas. Una vez asignados los costos, puede mostrar o cargar los costos a los usuarios mediante paneles e informes. Pero puede ser que muchos recursos no estén etiquetados o no se puedan etiquetar al empezar a usar Cost Management.
 
 Por ejemplo, puede ser que quiera obtener el reembolso de los costos de ingeniería. Debe poder demostrar al equipo de ingeniería que necesita un importe concreto, en función de los costos de los recursos. Puede mostrarles un informe de todos los recursos consumidos y etiquetados con el término *ingeniería*.
 
@@ -119,7 +119,7 @@ Puede crear y guardar fácilmente los informes que se centran en servicios concr
 Si tiene que proporcionar datos de instantáneas a otros equipos, puede exportar los informes en formato PDF o CSV.
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial aprendió lo siguiente:
 

@@ -5,17 +5,17 @@ services: machine-learning
 author: hning86
 ms.author: haining, j-martens
 manager: mwinkle
-ms.reviewer: jmartens, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs, gcampanella
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 02/28/2018
-ms.openlocfilehash: 12cba3d4acf0e6018cea6e76df9208bcf380d976
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.date: 3/7/2018
+ms.openlocfilehash: caddfff329d0e8f4c4007386b377ea56a51249a5
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="tutorial-classify-iris-part-1---preparing-the-data"></a>Tutorial: Clasificación de iris, parte 1: preparación de los datos
 
@@ -60,8 +60,8 @@ Si ha seguido los pasos descritos en la [guía de inicio rápido de instalación
    Nombre de proyecto | myIris |Elija un nombre único que identifique la cuenta. Puede usar su propio nombre o el nombre de departamento o proyecto que mejor identifique el experimento. El nombre debe tener entre 2 y 32 caracteres. Debe incluir solo caracteres alfanuméricos y el carácter de guión (-). 
    Directorio del proyecto | c:\Temp\ | Especifique el directorio en el que se creará el proyecto.
    Descripción del proyecto | _déjelo en blanco_ | Campo opcional útil para describir los proyectos.
-   Visualstudio.com |_déjelo en blanco_ | Campo opcional. Puede asociar un proyecto con un repositorio de Git en Visual Studio Team Services para el control de código fuente y la colaboración. [Aprenda a configurarlo](https://docs.microsoft.com/en-us/azure/machine-learning/preview/using-git-ml-project#step-3-set-up-a-machine-learning-project-and-git-repo). 
-   Área de trabajo | IrisGarden (si existe) | Elija un área de trabajo que ha creado para su cuenta de Experimentación en Azure Portal. <br/>Si ha seguido la guía de inicio rápido, tendrá un área de trabajo con el nombre IrisGarden. Si no es así, seleccione el que creó cuando creó su cuenta de Experimentación o cualquier otro que desee utilizar.
+   Dirección URL de repositorio de GIT de VisualStudio.com |_déjelo en blanco_ | Campo opcional. Puede asociar un proyecto con un repositorio de Git en Visual Studio Team Services para el control de código fuente y la colaboración. [Aprenda a configurarlo](https://docs.microsoft.com/en-us/azure/machine-learning/preview/using-git-ml-project#step-3-set-up-a-machine-learning-project-and-git-repo). 
+   Área de trabajo seleccionada | IrisGarden (si existe) | Elija un área de trabajo que ha creado para su cuenta de Experimentación en Azure Portal. <br/>Si ha seguido la guía de inicio rápido, tendrá un área de trabajo con el nombre IrisGarden. Si no es así, seleccione el que creó cuando creó su cuenta de Experimentación o cualquier otro que desee utilizar.
    Plantilla de proyecto | Clasificación de iris | Las plantillas contienen scripts y datos que puede usar para explorar el producto. Esta plantilla contiene los scripts y los datos que necesita para esta guía de inicio rápido y otros tutoriales en este sitio de documentación. 
 
    ![Nuevo proyecto](media/tutorial-classifying-iris/new_project.png)
@@ -77,7 +77,7 @@ A continuación, puede explorar los datos y empezar a prepararlos en Azure Machi
 
 Este paquete de preparación de datos se puede entregar posteriormente a un runtime, por ejemplo, local-C#/CoreCLR, Scala/Spark o Scala/HDI. 
 
-1. Seleccione el icono de carpeta para abrir la vista de archivo y, a continuación, seleccione **iris.csv** para abrir el archivo.  
+1. Seleccione el icono de carpeta para abrir la vista Files (Archivos) y seleccione **iris.csv** para abrirlo.
 
    Este archivo contiene una tabla con 5 columnas y 50 filas. Cuatro columnas son columnas de características numéricas. La quinta columna es una columna de destino de cadena. Ninguna de las columnas tienen nombres de encabezado.
 
@@ -86,32 +86,29 @@ Este paquete de preparación de datos se puede entregar posteriormente a un runt
    >[!NOTE]
    > No incluya archivos de datos en la carpeta del proyecto, especialmente cuando el tamaño del archivo sea grande. Dado que el archivo de datos **iris.csv** es muy pequeño, se incluyó en esta plantilla para fines de demostración. Para obtener más información, consulte [How to read and write large data files](how-to-read-write-files.md) (Procedimiento para leer y escribir archivos de datos de gran tamaño).
 
-2. En **Data View** (Vista de datos), seleccione el signo más (**+**) para agregar un nuevo origen de datos. Se abre la página **Add Data Source** (Agregar origen de datos). 
+2. En la **Data View** (Vista de datos), seleccione el signo más (**+**) para agregar un nuevo origen de datos. Se abre la página **Add Data Source** (Agregar origen de datos). 
 
    ![Vista de datos en Azure Machine Learning Workbench](media/tutorial-classifying-iris/data_view.png)
 
-3. Seleccione **Text Files (*.csv, .json, .txt.,...)** (Archivos de texto ) y haga clic en **Next** (Siguiente).
+3. Seleccione **Text Files (\*.csv, \*.json, \*.txt.,...)** (Archivos de texto ) y haga clic en **Next** (Siguiente).
    ![Origen de datos en Azure Machine Learning Workbench](media/tutorial-classifying-iris/data-source.png)
-   
 
-4. Vaya al archivo **iris.csv** y haga clic en **Next** (Siguiente).  
+4. Vaya al archivo **iris.csv** y haga clic en **Finish** (Finalizar). Se usarán los valores predeterminados para los parámetros como el separador y los tipos de datos.
 
    >[!IMPORTANT]
    >Asegúrese de seleccionar el archivo **iris.csv** desde el directorio del proyecto actual de este ejercicio. De lo contrario, los pasos posteriores podrían dar error.
  
    ![Selección de Iris](media/tutorial-classifying-iris/select_iris_csv.png)
    
-5. Deje los valores predeterminados y haga clic en **Finish** (Finalizar).
-
-6. Se crea un nuevo archivo denominado **iris-1.dsource**. Se asigna un nombre único al archivo que contiene "-1", porque el proyecto de ejemplo ya contiene un archivo **iris.dsource** sin numerar.  
+5. Se crea un nuevo archivo denominado **iris-1.dsource**. Se asigna un nombre único al archivo que contiene "-1", porque el proyecto de ejemplo ya contiene un archivo **iris.dsource** sin numerar.  
 
    Se abre el archivo y se muestran los datos. De forma automática, se agrega una serie de encabezados de columna, de **Column1** a **Column5**, a este conjunto de datos. Desplácese hasta el final y observe que la última fila del conjunto de datos está vacía. La fila está vacía porque no hay un salto de línea adicional en el archivo CSV.
 
    ![Vista de datos de Iris](media/tutorial-classifying-iris/iris_data_view.png)
 
-1. Seleccione el botón **Metrics** (Métricas). Se generan histogramas que se muestran en pantalla.
+1. Seleccione el botón **Metrics** (Métricas). Se generan y se muestran histogramas.
 
-   Vuelva a la vista de datos, para lo que debe seleccionar el botón **Data** (Datos). 
+   Puede volver a la vista de datos, para lo que debe seleccionar el botón **Data** (Datos).
    
    ![Vista de datos de Iris](media/tutorial-classifying-iris/iris_data_view_metrics.png)
 
@@ -121,7 +118,7 @@ Este paquete de preparación de datos se puede entregar posteriormente a un runt
 
 8. Empiece a crear un paquete de preparación de datos, para lo que debe seleccionar el botón **Prepare** (Preparar). Se abre el cuadro de diálogo **Prepare** (Preparar). 
 
-   El proyecto de ejemplo contiene un archivo de preparación de datos, **iris.dprep**, de forma predeterminada. 
+   El proyecto de ejemplo contiene un archivo de preparación de datos, **iris.dprep** que está seleccionado de forma predeterminada. 
 
    ![Vista de datos de Iris](media/tutorial-classifying-iris/prepare.png)
 
@@ -129,7 +126,7 @@ Este paquete de preparación de datos se puede entregar posteriormente a un runt
 
    ![Vista de datos de Iris](media/tutorial-classifying-iris/prepare_new.png)
 
-1. Escriba un valor nuevo como nombre del paquete, use **iris-1** y, luego, pulse **Aceptar**.
+1. Escriba un valor nuevo como nombre del paquete (use **iris-1**) y, luego, pulse **Aceptar**.
 
    Se crea un nuevo paquete de preparación de datos denominado **iris-1.dprep** y se abre en el editor de preparación de datos.
 
@@ -148,7 +145,7 @@ Este paquete de preparación de datos se puede entregar posteriormente a un runt
    1. Haga clic con el botón derecho para seleccionarla. 
    1. Seleccione **Value Counts** (Recuentos de valores) en el menú desplegable. 
 
-   Se abre el panel **Inspectores** debajo de los datos. Aparece un histograma con cuatro barras. La columna de destino tiene tres valores distintos: **Iris_virginica**, **Iris_versicolor**, **Iris-setosa** y un valor **(null)**.
+   Se abre el panel **Inspectores** debajo de los datos. Aparece un histograma con cuatro barras. La columna de destino tiene cuatro valores distintos: **Iris_virginica**, **Iris_versicolor**, **Iris-setosa** y un valor **(null)**.
 
    ![Selección de Value Counts (Recuentos de valores)](media/tutorial-classifying-iris/value_count.png)
 
@@ -160,11 +157,11 @@ Este paquete de preparación de datos se puede entregar posteriormente a un runt
 
    ![Filtrar valores null](media/tutorial-classifying-iris/filter_out2.png)
 
-1. Fíjese en los pasos de la preparación de datos individuales que se detallan en el panel **STEPS** (PASOS). Mientras cambiaba el nombre de las columnas y filtraba las filas con el valor NULL, cada acción se registró como un paso de preparación de datos. Puede editar los pasos individuales para ajustar la configuración, volver a ordenar los pasos y eliminarlos.
+1. Fíjese en los pasos de la preparación de datos individuales que se detallan en el panel **STEPS** (PASOS). Cuando cambió el nombre de las columnas y filtró las filas con valor null, todas las acciones se registraron como pasos de la preparación de datos. Puede editar los pasos individuales para ajustar su configuración, reordenar los pasos y eliminarlos.
 
    ![Pasos](media/tutorial-classifying-iris/steps.png)
 
-1. Cierre el editor de preparación de datos. Seleccione el icono de la x en la pestaña **iris-1** con el icono del gráfico para cerrar la pestaña. El trabajo se guarda automáticamente en el archivo **iris-1.dprep** que aparece bajo el encabezado **Data Preparations** (Preparaciones de datos).
+1. Cierre el editor de preparación de datos. Seleccione el icono de la **x** en la pestaña **iris-1** con el icono del gráfico para cerrar la pestaña. El trabajo se guarda automáticamente en el archivo **iris-1.dprep** que aparece bajo el encabezado **Data Preparations** (Preparaciones de datos).
 
    ![cierre](media/tutorial-classifying-iris/close.png)
 
@@ -197,7 +194,7 @@ Este paquete de preparación de datos se puede entregar posteriormente a un runt
    df.head(10)
    ```
 
-   En función del contexto en el que se ejecuta este código, `df` representa un tipo de dataframe. 
+   En función del contexto en el que se ejecuta este código, `df` representa un tipo de DataFrame diferente:
    + Cuando se ejecuta en un runtime de Python, se usa un [DataFrame de pandas](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html).
    + Cuando se ejecuta en un runtime de Spark, se usa un [DataFrame de Spark](https://spark.apache.org/docs/latest/sql-programming-guide.html). 
    

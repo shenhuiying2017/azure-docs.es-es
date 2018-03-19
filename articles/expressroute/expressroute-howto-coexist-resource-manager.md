@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: charwen,cherylmc
-ms.openlocfilehash: d1dd5a71d922d688ee7b64cef8887e903f78c802
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: bec984aa04efbe123b71fa9088fbd37ae53cc2f2
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections"></a>Configuración de conexiones coexistentes de ExpressRoute de sitio a sitio
 > [!div class="op_single_selector"]
@@ -88,7 +88,7 @@ Este procedimiento le guía en la creación de una red virtual y conexiones de s
   $resgrp = New-AzureRmResourceGroup -Name "ErVpnCoex" -Location $location
   $VNetASN = 65010
   ```
-3. Cree una red virtual, incluida la subred de la puerta de enlace. Para más información sobre la configuración de la red virtual, consulte [Configuración de Azure Virtual Network](../virtual-network/virtual-networks-create-vnet-arm-ps.md).
+3. Cree una red virtual, incluida la subred de la puerta de enlace. Para más información acerca de cómo crear una red virtual en Azure, consulte [Create a virtual network](../virtual-network/manage-virtual-network.md#create-a-virtual-network) (Creación de una red virtual). Para más información acerca de cómo crear subredes, consulte [Incorporación de una subred](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet)
    
    > [!IMPORTANT]
    > La subred de puerta de enlace debe ser /27 o un prefijo más corto (por ejemplo, /26 o /25).
@@ -230,5 +230,5 @@ Para agregar una configuración de punto a sitio a la puerta de enlace de VPN en
 
 Para más información sobre la VPN de punto a sitio, consulte [Configuración de una conexión punto a sitio a una red virtual mediante PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información acerca de ExpressRoute, consulte [P+F de ExpressRoute](expressroute-faqs.md).

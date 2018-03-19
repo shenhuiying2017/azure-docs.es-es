@@ -1,6 +1,6 @@
 ---
-title: "Introducción a Administración de costos de Azure de Cloudyn | Microsoft Docs"
-description: "Administración de costos de Azure de Cloudyn es una solución de administración de costos en varias nubes que le permitirá usar Azure y otros recursos en la nube."
+title: "Introducción a Azure Cost Management | Microsoft Docs"
+description: "Azure Cost Management es una solución de administración de costos en varias nubes que le permitirá usar Azure y otros recursos en la nube."
 services: cost-management
 keywords: 
 author: bandersmsft
@@ -10,17 +10,17 @@ ms.topic: overview
 ms.service: cost-management
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: f09bb135d4521325ab3e3e12af2f69d862434b75
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e2f12a989eb275e645c8b3bde3494928c5cbdb47
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="what-is-azure-cost-management"></a>¿Qué es Administración de costos de Azure?
 
-Administración de costos de Azure de Cloudyn permite realizar un seguimiento de los gastos y el uso de la nube para los recursos de Azure y otros proveedores de servicios en la nube, como AWS y Google. Los sencillos informes del panel proporcionan ayuda con la asignación de costos, los contracargos y la visibilidad de los gastos. Administración de costos le ayuda a optimizar los gastos en la nube mediante la identificación de los recursos que no está aprovechando para que pueda administrarlos y ajustarlos.
+Azure Cost Management se concede bajo licencia de Cloudyn, una subsidiaria de Microsoft, y le permite realizar un seguimiento de los gastos y el uso de la nube para los recursos de Azure y otros proveedores de servicios en la nube, como AWS y Google. Los sencillos informes del panel proporcionan ayuda con la asignación de costos, los contracargos y la visibilidad de los gastos. Administración de costos le ayuda a optimizar los gastos en la nube mediante la identificación de los recursos que no está aprovechando para que pueda administrarlos y ajustarlos.
 
-Para ver un vídeo de introducción, consulte [Introducción a Azure Cost Management de Cloudyn](https://youtu.be/NWIRny6Wpsk).
+Para ver un vídeo de introducción, consulte [Introducción a Azure Cost Management](https://youtu.be/NWIRny6Wpsk).
 
 ## <a name="monitor-usage-and-spending"></a>Supervisión del uso y del gasto
 
@@ -49,7 +49,7 @@ Puede determinar el uso óptimo de las VM e identificar o eliminar VM inactivas,
 
 Si aprovisionó instancias reservadas de AWS, puede mejorar el uso de las instancias reservadas con informes de optimización que le permiten consultar recomendaciones de compra, modificar reservas sin usar y planear el aprovisionamiento.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Ahora que está familiarizado con Administración de costos, el paso siguiente es registrar el entorno de nube y empezar a explorar los datos.
 

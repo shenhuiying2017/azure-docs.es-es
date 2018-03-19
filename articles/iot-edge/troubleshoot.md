@@ -10,11 +10,11 @@ ms.date: 12/15/2017
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 5de069eb35e88c1dce6dcfa5a1661e8ab87302b1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7b9f9f8295aac0920ae4726289c535aae12c4482
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Problemas habituales y soluciones para Azure IoT Edge
 
@@ -30,10 +30,10 @@ Si detecta un problema, consiga más información sobre el estado del dispositiv
    docker logs <container name>
    ```
 
-* Vea los mensajes que se envían mediante el centro de Edge y recopile información sobre las actualizaciones de las propiedades del dispositivo con los registros detallados procedentes de los contenedores del entorno de ejecución.
+* Vea los mensajes que se envían mediante el centro de Edge y recopile información sobre las actualizaciones de las propiedades del dispositivo con los registros detallados procedentes de los contenedores del entorno de ejecución. Puede que desee agregar la opción "--auto-cert-gen-force-no-passwords" si está siguiendo los artículos de la guía de inicio rápido.
 
    ```cmd
-   iotedgectl setup --runtime-log-level DEBUG
+   iotedgectl setup --connection-string "{device connection string}" --runtime-log-level debug
    ```
 
 * Si experimenta problemas de conectividad, inspeccione las variables del entorno del dispositivo perimetral, como la cadena de conexión del dispositivo:
@@ -97,5 +97,22 @@ El agente de Edge no tiene permisos para acceder a la imagen de un módulo.
 ### <a name="resolution"></a>Resolución
 Intente ejecutar el comando `iotedgectl login` de nuevo.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="iotedgectl-cant-find-docker"></a>iotedgectl no puede encontrar Docker
+iotedgectl no puede ejecutar el programa de instalación o el comando de inicio y se imprime el mensaje siguiente en los registros:
+```output
+File "/usr/local/lib/python2.7/dist-packages/edgectl/host/dockerclient.py", line 98, in get_os_type
+  info = self._client.info()
+File "/usr/local/lib/python2.7/dist-packages/docker/client.py", line 174, in info
+  return self.api.info(*args, **kwargs)
+File "/usr/local/lib/python2.7/dist-packages/docker/api/daemon.py", line 88, in info
+  return self._result(self._get(self._url("/info")), True)
+```
+
+### <a name="root-cause"></a>Causa principal
+iotedgectl no puede encontrar Docker, que es un requisito previo.
+
+### <a name="resolution"></a>Resolución
+Instale Docker, asegúrese de que está ejecutando e inténtelo de nuevo.
+
+## <a name="next-steps"></a>Pasos siguientes
 ¿Cree que encontró un error en la plataforma de IoT Edge? Use la opción [Enviar un problema](https://github.com/Azure/iot-edge/issues) para que podamos seguir mejorando. 

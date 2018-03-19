@@ -15,11 +15,11 @@ ms.topic: overview
 ms.date: 01/19/2018
 ms.author: mscurrell
 ms.custom: mvc
-ms.openlocfilehash: 93eabc0bdf4889d89f8dc3fc30f99dafa1b3a47a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: d6a0355874e9fc98e551a2a05c776109c916d90a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="what-is-azure-batch"></a>¿Qué es Azure Batch?
 
@@ -85,9 +85,9 @@ El siguiente diagrama muestra los pasos de un flujo de trabajo común de Batch, 
 
 No olvide que esta es simplemente una forma de usar Batch y que este escenario describe solo algunas de sus características. Por ejemplo, puede ejecutar [varias tareas en paralelo](batch-parallel-node-tasks.md) en cada nodo de proceso. O bien, usar [tareas de preparación y finalización de trabajos](batch-job-prep-release.md) para preparar los nodos para los trabajos y, a continuación, limpiarlos. 
 
-Consulte [Introducción a las características de Batch para desarrolladores](batch-api-basics.md) para obtener información más detallada acerca de los grupos, nodos, trabajos y tareas, así como las numerosas características de API que se pueden usar al compilar cualquier aplicación de Batch. 
+Consulte [Introducción a las características de Batch para desarrolladores](batch-api-basics.md) para obtener información más detallada acerca de los grupos, nodos, trabajos y tareas, así como las numerosas características de API que se pueden usar al compilar cualquier aplicación de Batch. Consulte también la versión más reciente de las [actualizaciones del servicio Batch](https://azure.microsoft.com/updates/?product=batch).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Comience a usar Azure Batch con alguna de estas guías de inicio rápido:
 * [Ejecución del primer trabajo de Batch con la CLI de Azure](quick-create-cli.md)

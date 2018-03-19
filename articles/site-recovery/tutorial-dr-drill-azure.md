@@ -5,16 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/31/2017
+ms.date: 03/08/2018
 ms.author: raynew
-ms.openlocfilehash: f7dc5e2df95a64685a8b70d25e839c371d4fc2de
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 2ac15e4da411efa6f018a3e3fb620023bc8964cc
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/09/2018
 ---
-# <a name="run-a-disaster-recovery-drill-to-azure"></a>Ejecución de un simulacro de recuperación ante desastres
- en Azure
+# <a name="run-a-disaster-recovery-drill-to-azure"></a>Ejecución de un simulacro de recuperación ante desastresen Azure
 
 En este tutorial se muestra cómo ejecutar una exploración en profundidad de una recuperación ante desastres para una máquina local en Azure, mediante una conmutación por error de prueba. Una exploración en profundidad valida su estrategia de replicación sin pérdida de datos. En este tutorial, aprenderá a:
 
@@ -29,9 +28,9 @@ Este es el cuarto tutorial de una serie. En este tutorial se da por hecho que ya
 2. [Preparación de instancias locales de VMware](tutorial-prepare-on-premises-vmware.md)
 3. [Configuración de la recuperación ante desastres](tutorial-vmware-to-azure.md)
 
-## <a name="verify-vm-properties"></a>Verificación de las propiedades de la máquina virtual
+## <a name="verify-vm-properties"></a>Comprobar las propiedades de la máquina virtual
 
-Antes de ejecutar una conmutación por error de prueba, compruebe las propiedades de la máquina virtual y asegúrese de que la máquina virtual cumpla con los [requisitos de Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+Antes de ejecutar una conmutación por error de prueba, compruebe las propiedades de la máquina virtual y asegúrese de que la máquina virtual de Hyper-V [hyper-v-azure-support-matrix.md#replicated-vms], la [máquina virtual de VMware o el servidor físico](vmware-physical-azure-support-matrix.md#replicated-machines) cumplen con los requisitos de Azure.
 
 1. En **Elementos protegidos**, haga clic en **Elementos replicados** > VM.
 2. En el panel **Elemento replicado**, puede ver un resumen de la información de la máquina virtual, el estado de mantenimiento y los puntos de recuperación disponibles más recientes. Haga clic en **Propiedades** para ver más detalles.
@@ -64,7 +63,7 @@ Ejecute la conmutación por error de prueba de la manera siguiente:
 
 En algunos escenarios, la conmutación por error requiere un procesamiento adicional que tarda aproximadamente de ocho a diez minutos en completarse. Puede observar tiempos de conmutación por error de prueba más largos en las máquinas de VMware Linux, las máquinas virtuales de VMware que no tienen el servicio DHCP habilitado y las máquinas virtuales de VMware que no tienen los siguientes controladores de arranque: storvsc, vmbus, storflt, intelide, atapi.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Ejecución de una conmutación por error y una conmutación por recuperación entre máquinas de VMware locales](tutorial-vmware-to-azure-failover-failback.md).
+> [Ejecución de una conmutación por error y una conmutación por recuperación entre máquinas de VMware locales](vmware-azure-tutorial-failover-failback.md).

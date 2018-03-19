@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 06/28/2017
 ms.author: daredis
-ms.openlocfilehash: 90c03f1538197e1cd1c90165417a4ec74c9c5961
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 678f3ae09a57cbbbb486d256f81f0f58563b482c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="secure-your-azure-sql-database"></a>Protección de Azure SQL Database
 
@@ -39,7 +39,7 @@ Con unos pocos pasos sencillos puede mejorar la protección de su base de datos 
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para completar este tutorial, asegúrese de lo siguiente:
 
@@ -47,7 +47,7 @@ Para completar este tutorial, asegúrese de lo siguiente:
 - Se ha instalado Microsoft Excel
 - Se ha creado una base de datos y un servidor de SQL Azure: vea [Creación de una base de datos de Azure SQL Database en Azure Portal](sql-database-get-started-portal.md), [Creación de una sola base de datos de Azure SQL Database con la CLI de Azure](sql-database-get-started-cli.md) y [Creación de una sola base de datos de Azure SQL Database con PowerShell](sql-database-get-started-powershell.md). 
 
-## <a name="log-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
+## <a name="log-in-to-the-azure-portal"></a>Iniciar sesión en Azure Portal
 
 Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
@@ -184,10 +184,10 @@ Auditoría de Azure SQL Database realiza un seguimiento de eventos de bases de d
    > Use la misma cuenta de almacenamiento para todas las bases de datos auditadas con el fin de obtener el máximo partido de las plantillas de informes de auditorías.
    > 
 
-5. Haga clic en **Guardar**.
+5. Haga clic en **Save**(Guardar).
 
 > [!IMPORTANT]
-> Si quiere personalizar los eventos auditados, puede hacerlo mediante PowerShell o la API de REST (consulte la [auditoría de base de datos SQL](sql-database-auditing.md) para más información).
+> Si quiere personalizar los eventos auditados, puede hacerlo mediante PowerShell o la API REST (consulte la [auditoría de SQL Database](sql-database-auditing.md) para más información).
 >
 
 ## <a name="enable-sql-database-threat-detection"></a>Habilitación de la detección de amenazas de SQL Database
@@ -216,7 +216,7 @@ Por ejemplo, Detección de amenazas detecta determinadas actividades anómalas e
 
     ![Registros de auditoría](./media/sql-database-threat-detection-get-started/5_td_audit_records.png)
 
-7. Haga clic en los registros de auditoría para ver más detalles sobre las actividades sospechosas en la base de datos, como instrucción SQL, motivo del error e IP de cliente.
+7. Haga clic en los registros de auditoría para ver más información sobre las actividades sospechosas en la base de datos, como la instrucción SQL, el motivo del error y la dirección IP del cliente.
 
     ![Detalles del registro](./media/sql-database-security-tutorial/6_td_audit_record_details.png)
 

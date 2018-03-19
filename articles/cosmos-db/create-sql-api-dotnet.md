@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB: Compilar una aplicación web con .NET y SQL API | Microsoft Docs"
-description: "En este tema se presenta un código de ejemplo de .NET que se puede usar para conectarse a SQL API de Azure Cosmos DB y realizar consultas."
+title: "Azure Cosmos DB: Compilación de una aplicación web con .NET y SQL API | Microsoft Docs"
+description: "En este tema se presenta un código de ejemplo de .NET que se puede usar para conectarse a SQL API de Azure Cosmos DB y realizar consultas"
 services: cosmos-db
 documentationcenter: 
 author: mimig1
@@ -15,13 +15,13 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 12/15/2017
 ms.author: mimig
-ms.openlocfilehash: 9541fa7331a5a6a5a5405244dd79eb8a92d96386
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: b5ab66371b47bdd0f3bd7a4c9e86e419efebe902
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="azure-cosmos-db-build-a-sql-api-web-app-with-net-and-the-azure-portal"></a>Azure Cosmos DB: Compilar una aplicación web de SQL API con .NET y Azure Portal
+# <a name="azure-cosmos-db-build-a-sql-api-web-app-with-net-and-the-azure-portal"></a>Azure Cosmos DB: Compilación de una aplicación web de SQL API con .NET y Azure Portal
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)] 
 
@@ -97,19 +97,19 @@ Ahora vamos a empezar a trabajar con el código. Vamos a clonar una aplicación 
 
 Vamos a revisar rápidamente lo que sucede en la aplicación. Abra el archivo DocumentDBRepository.cs y observe que estas líneas de código crean los recursos de Azure Cosmos DB. 
 
-* DocumentClient se inicializa en la línea 78.
+* DocumentClient se inicializa en la línea 76.
 
     ```csharp
     client = new DocumentClient(new Uri(ConfigurationManager.AppSettings["endpoint"]), ConfigurationManager.AppSettings["authKey"]);
     ```
 
-* Se crea una nueva base de datos en la línea 93.
+* Se crea una nueva base de datos en la línea 91.
 
     ```csharp
     await client.CreateDatabaseAsync(new Database { Id = DatabaseId });
     ```
 
-* Se crea una nueva colección en la línea 112.
+* Se crea una nueva colección en la línea 110.
 
     ```csharp
     await client.CreateDocumentCollectionAsync(
@@ -117,10 +117,9 @@ Vamos a revisar rápidamente lo que sucede en la aplicación. Abra el archivo Do
         new DocumentCollection { Id = CollectionId },
         new DocumentCollection
             {
-               Id = CollectionId,
-               PartitionKey = new PartitionKeyDefinition() { Paths = new Collection<string>() { "/category" } }
+               Id = CollectionId
             },
-        new RequestOptions { OfferThroughput = 1000 });
+        new RequestOptions { OfferThroughput = 400 });
     ```
 
 ## <a name="update-your-connection-string"></a>Actualización de la cadena de conexión
@@ -167,7 +166,7 @@ Si no va a seguir usando esta aplicación, siga estos pasos para eliminar todos 
 1. En el menú de la izquierda de Azure Portal, haga clic en **Grupos de recursos** y en el nombre del recurso que creó. 
 2. En la página del grupo de recursos, haga clic en **Eliminar**, escriba en el cuadro de texto el nombre del recurso que quiere eliminar y haga clic en **Eliminar**.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En esta guía de inicio rápido, ha aprendido a crear una cuenta de Azure Cosmos DB, crear una colección mediante el Explorador de datos y ejecutar una aplicación web. Ahora puede importar datos adicionales en la cuenta de Cosmos DB. 
 

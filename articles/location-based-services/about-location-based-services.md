@@ -3,23 +3,27 @@ title: "Introducción a Azure Location Based Services | Microsoft Docs"
 description: "Una introducción a Azure Location Based Services (versión preliminar)"
 services: location-based-services
 keywords: 
-author: dsk-2015
-ms.author: dkshir
-ms.date: 02/05/2017
+author: kgremban
+ms.author: kgremban
+ms.date: 02/05/2018
 ms.topic: overview
 ms.service: location-based-services
 documentationcenter: 
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 9e6236f7d69556d7636962c98886d9f9508445ac
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 91df49aa3f522ea765698a1d64ed2686606f71f3
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="an-introduction-to-azure-location-based-services-preview"></a>Una introducción a Azure Location Based Services (versión preliminar)
 Azure Location Based Services es una cartera de servicios geoespaciales que incluyen API de servicio para mapas, búsqueda, rutas, tráfico y zonas horarias. La cartera de servicios compatibles con Azure OneAPI le permite usar herramientas de desarrollador conocidas para desarrollar y escalar rápidamente soluciones que integran la información de ubicación en las soluciones de Azure. Azure Location Based Services proporciona a desarrolladores de todos los sectores unas poderosas funcionalidades geoespaciales, integradas con unos nuevos datos de mapas que son imprescindibles para proporcionar contexto geográfico a aplicaciones web y móviles. Azure Location Based Services es un conjunto de API de REST compatible con Azure One API, que viene acompañado de un control JavaScript basado en web que hace que el desarrollo sea sencillo, flexible y portátil entre varios medios. 
+
+En el siguiente vídeo se presenta Azure Location Based Services.
+
+<iframe src="https://channel9.msdn.com/Shows/Azure-Friday/Azure-Location-Based-Services/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
 
 Azure Location Based Services consta de cinco servicios principales que refuerzan las aplicaciones de Azure que requieren un contexto geográfico. Cada uno de los servicios se explica a continuación con más detalle.
 
@@ -65,6 +69,16 @@ Azure Location Based Services se crea para la movilidad y puede potenciar las ap
 
 Azure Location Based Services usa un esquema de autenticación basado en claves, donde el acceso a los servicios se realiza mediante la navegación a [Azure Portal](http://portal.azure.com) y la creación de una cuenta de Azure Location Based Services. Su cuenta incluye dos claves que se generan previamente de manera automática. Comience a integrar estas funcionalidades de ubicación directamente en sus aplicaciones mediante el uso de una de sus claves en las solicitudes al servicio Azure Location Based Services.
 
+## <a name="unsupported-regions"></a>Regiones no admitidas
+Nuestra API no está disponible actualmente en los siguientes países. Compruebe la dirección IP actual y asegúrese de que la ubicación de la dirección IP no está en uno de los siguientes países no admitidos.
+
+* Argentina
+* China
+* India
+* Marruecos
+* Pakistán
+* Corea del Sur
+
 ## <a name="relationship-with-bing-maps"></a>Relación con Mapas de Bing
 El servicio Azure Location Based Services descrito en este documento es distinto de los que Mapas de Bing proporciona.  Aunque comparten gran parte de la funcionalidad, los dos servicios son diferentes y no están relacionados.  No hay ningún efecto en la oferta de productos de mapas de Bing o el mapa de ruta con la disponibilidad de este nuevo servicio dentro de Azure, que serán administrados por separado.
 
@@ -82,7 +96,7 @@ El objetivo de Microsoft es permitir elegir a la comunidad de desarrolladores co
 
 Suscríbase a una [cuenta de Azure Location Based Services hoy mismo](http://aka.ms/azurelbsportal).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Ahora ya tiene una visión de conjunto de Azure Location Based Services (versión preliminar). El paso siguiente consiste en probar una aplicación sencilla que muestre el servicio Location Based Services, así como crear un escenario de un extremo a otro en la aplicación web.
 

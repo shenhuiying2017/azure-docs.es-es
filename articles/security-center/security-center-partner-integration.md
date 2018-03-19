@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 03/08/2018
 ms.author: yurid
-ms.openlocfilehash: 42cbc442d03cdca04d380d05d9e904355476099e
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 48648c2e84d2a2e4de01f04495fb08df603c6017
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integración de soluciones de seguridad en Azure Security Center
 Este documento le ayuda a administrar las soluciones de seguridad que ya está conectadas a Azure Security Center y a agregar otras nuevas.
@@ -44,10 +44,10 @@ La experiencia de integración de Endpoint Protection puede variar según la sol
 | Windows Defender (Microsoft Antimalware)                  | Windows Server 2016                   | No, se integra en el sistema operativo.           | Sí                       |
 | System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2, 2012, 2008 R2 | Mediante extensión                | Sí                       |
 | Trend Micro: todas las versiones         | Familia de Windows Server                 | Mediante extensión                | Sí                       |
-| Symantec v12.1.1100+                     | Familia de Windows Server                 | No                           | Sí                        |
-| MacAfee                           | Familia de Windows Server                 | No                           | No                        |
-| Kaspersky                         | Familia de Windows Server                 | No                           | No                        |
-| Sophos                            | Familia de Windows Server                 | No                           | No                        |
+| Symantec v12.1.1100+                     | Familia de Windows Server                 | Sin                            | Sí                        |
+| MacAfee                           | Familia de Windows Server                 | Sin                            | Sin                         |
+| Kaspersky                         | Familia de Windows Server                 | Sin                            | Sin                         |
+| Sophos                            | Familia de Windows Server                 | Sin                            | Sin                         |
 
 
 
@@ -63,7 +63,15 @@ Las soluciones de seguridad de Azure que se implementan desde Security Center se
 
 ## <a name="manage-integrated-azure-security-solutions-and-other-data-sources"></a>Administración de soluciones de seguridad de Azure integradas y otros orígenes de datos
 
-Después de la implementación, puede ver información acerca del mantenimiento de la seguridad integrada de Azure y realizar tareas de administración básicas. También puede conectar otros tipos de orígenes de datos de seguridad, como las alertas y los registros de firewall de Azure Active Directory Identity Protection en Common Event Format (CEF). En el panel de Security Center, seleccione Soluciones de seguridad.
+1. Inicie sesión en el [Azure Portal](https://azure.microsoft.com/features/azure-portal/).
+
+2. En el **menú de Microsoft Azure**, seleccione **Security Center**. Se abre **Security Center: Información general**.
+
+  ![Introducción a Security Center](./media/security-center-partner-integration/overview.png)
+
+3. En **Información general**, seleccione **Soluciones de seguridad**.
+
+En **Soluciones de seguridad**, puede ver información acerca del mantenimiento de las soluciones de seguridad integrada de Azure y realizar tareas de administración básicas. También puede conectar otros tipos de orígenes de datos de seguridad, como las alertas y los registros de firewall de Azure Active Directory Identity Protection en Common Event Format (CEF).
 
 ### <a name="connected-solutions"></a>Soluciones conectadas
 
@@ -71,13 +79,22 @@ La sección **Soluciones conectadas** incluye las soluciones de seguridad que es
 
 ![Soluciones conectadas](./media/security-center-partner-integration/security-center-partner-integration-fig4.png)
 
+Para más información, consulte [Administración de las soluciones conectadas de asociados con Azure Security Center](security-center-partner-solutions.md).
+
 ### <a name="discovered-solutions"></a>Soluciones detectadas
 
-La sección **Soluciones detectadas** muestra todas las soluciones que se agregaron mediante Azure. También muestra todas las soluciones que sugiere Security Center que se conecten a él.
+Security Center detecta automáticamente las soluciones de seguridad que se ejecutan en Azure, pero que no están conectadas a Security Center y las muestra en la sección **Soluciones detectadas**. Aquí se incluyen tanto soluciones de Azure, como [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection), como soluciones de asociados.
+
+> [!NOTE]
+> La característica de soluciones detectadas está disponible en el nivel Estándar de Security Center. Para más información sobre los planes de tarifa de Security Center, vea [Precios](security-center-pricing.md).
+>
+>
+
+Seleccione **Conectar** en una solución para integrarla con Security Center y recibir alertas de seguridad.
 
 ![Soluciones detectadas](./media/security-center-partner-integration/security-center-partner-integration-fig5.png)
 
-Security Center detecta automáticamente otras soluciones de seguridad que se ejecutan en Azure. Aquí se incluyen tanto soluciones de Azure, como [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection), como soluciones de asociados que se ejecutan en Azure. Para integrar estas soluciones con Security Center, seleccione **CONNECT**.
+Security Center también detecta las soluciones implementadas en la suscripción que pueden reenviar registros de Common Event Format (CEF). Aprenda a [conectar una solución de seguridad](quick-security-solutions.md) que use registros de CEF a Security Center.
 
 ### <a name="add-data-sources"></a>Agregar orígenes de datos
 
@@ -90,7 +107,6 @@ La sección **Agregar orígenes de datos** incluye otros orígenes de datos disp
 
 En este documento, ha aprendido a integrar soluciones de asociados en Security Center. Para más información sobre Security Center, consulte los siguientes artículos:
 
-* [Guía de planeamiento y operaciones de Security Center](security-center-planning-and-operations-guide.md)
 * [Connecting Microsoft Advanced Threat Analytics to Azure Security Center](security-center-ata-integration.md) (Conexión de Microsoft Advanced Threat Analytics con Azure Security Center)
 * [Conexión de Azure Active Directory Identity Protection con Azure Security Center](security-center-aadip-integration.md)
 * [Supervisión del estado de seguridad en Security Center](security-center-monitoring.md). Aprenda a supervisar el estado de los recursos de Azure.

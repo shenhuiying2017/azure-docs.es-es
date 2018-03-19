@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/27/2018
+ms.date: 03/08/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6b5c16e5b4136acc06c4ace4b16e8eb0e3522d24
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 07f62775c9286250d33635febe01dbad4362df12
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Preparar servidores de VMware locales para la recuperación ante desastres en Azure
 
@@ -86,7 +86,7 @@ Asegúrese de que la máquina virtual cumple los requisitos de Azure resumidos e
 **Nombre de la máquina virtual** | Entre 1 y 63 caracteres.<br/><br/> Restringido a letras, números y guiones. El nombre de la VM debe empezar y terminar con una letra o un número.
 **Tipo de máquina virtual** | Generación 1: Linux o Windows<br/><br/>Generación 2: solo Windows
 
-La máquina virtual también debe ejecutar un sistema operativo admitido. Vea la [matriz de compatibilidad de Site Recovery](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions) para obtener una lista completa de las versiones compatibles.
+La máquina virtual también debe ejecutar un sistema operativo admitido. Para obtener una lista completa de las versiones compatibles, vea la [matriz de compatibilidad de VMware y del servidor físico](vmware-physical-azure-support-matrix.md#replicated-machines).
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Preparación para la conexión a las máquinas virtuales de Azure después de la conmutación por error
 
@@ -106,7 +106,7 @@ Para conectarse a máquinas virtuales Linux mediante SSH después de la conmutac
 2. En la máquina virtual de Azure después de la conmutación por error, permita las conexiones entrantes al puerto SSH para las reglas del grupo de seguridad de red de la máquina virtual conmutada por error y para la subred de Azure a la que esta se conecta.
    [Agregue una dirección IP pública](site-recovery-monitoring-and-troubleshooting.md) para la máquina virtual. Puede comprobar los **Diagnósticos de arranque** para ver una captura de pantalla de la máquina virtual.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Configurar la recuperación ante desastres en Azure para máquinas virtuales de VMware](vmware-azure-tutorial.md)

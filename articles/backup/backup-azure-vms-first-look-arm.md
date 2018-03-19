@@ -16,11 +16,11 @@ ms.topic: hero-article
 ms.date: 01/05/2018
 ms.author: markgal;jimpark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6cd6e9ba575a0efe6e612a2185076d5a6c189525
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 3a450e3432a629a4fae9627c0e2df58102ad3387
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vaults"></a>Copia de seguridad de máquinas virtuales de Azure en almacenes de Recovery Services
 
@@ -34,7 +34,7 @@ Este tutorial le guiará por los pasos necesarios para crear un almacén de Serv
 * Máquinas virtuales cifradas mediante Azure Disk Encryption
 * Copia de seguridad coherente con la aplicación de máquinas virtuales Windows mediante VSS y máquinas virtuales Linux con scripts personalizados previos a la instantánea y posteriores a la instantánea
 
-Para más información sobre la protección de máquinas virtuales de Premium Storage, consulte el artículo sobre la [copia de seguridad y la restauración de máquinas virtuales de Premium Storage](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup). Para más información sobre la compatibilidad con máquinas virtuales de disco administrado, consulte el artículo sobre la [copia de seguridad y la restauración de máquinas virtuales en discos administrados](backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). Para más información sobre el marco previo y posterior al script para copias de seguridad de máquinas virtuales Linux, consulte [Copia de seguridad coherente con la aplicación de máquinas virtuales Linux con scripts previos y posteriores] (https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
+Para más información sobre la protección de máquinas virtuales de Premium Storage, consulte el artículo sobre la [copia de seguridad y la restauración de máquinas virtuales de Premium Storage](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup). Para más información sobre la compatibilidad con máquinas virtuales de disco administrado, consulte el artículo sobre la [copia de seguridad y la restauración de máquinas virtuales en discos administrados](backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). Para más información acerca de los marcos previo y posterior al script para copias de seguridad de máquinas virtuales Linux, consulte [Copias de seguridad coherentes con la aplicación de las máquinas virtuales Linux de Azure](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
 
 Para más información sobre lo que puede hacer una copia de seguridad y sobre lo que no, consulte [aquí](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm)
 
