@@ -1,5 +1,5 @@
 # Información general
-## [Primeros pasos](get-started.md)
+## [Introducción](get-started.md)
 ## [Certificaciones](sap-certifications.md)
 # SAP HANA en Azure (instancias grandes)
 ## [Introducción y arquitectura](hana-overview-architecture.md)
@@ -14,6 +14,8 @@
 ## [Instalación de instancia individual de SAP HANA](hana-get-started.md)
 ## [Guía de implementación de S/4 HANA o BW/4 HANA SAP CAL](cal-s4h.md)
 ## [SAP HANA en la guía de operaciones de Azure](hana-vm-operations.md)
+### Procedimientos
+#### [Acelerador de escritura de Azure para implementaciones de SAP](how-to-enable-write-accelerator.md)
 ## Disponibilidad de SAP HANA en Azure Virtual Machines
 ### [Introducción a la disponibilidad de SAP HANA en Azure](sap-hana-availability-overview.md)
 ### [Disponibilidad de SAP HANA en Azure dentro de una región de Azure](sap-hana-availability-one-region.md)

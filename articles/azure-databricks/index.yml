@@ -13,11 +13,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 11/15/2017
   ms.author: nitinme
-  ms.openlocfilehash: cc51070b4ff41107700585160cff8bbe41cc5d7d
-  ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+  ms.openlocfilehash: c94a3e7ecaf89612238b80ed83474af792c3efc4
+  ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 03/05/2018
+  ms.lasthandoff: 03/16/2018
 abstract:
   description: "Aprenda a usar Azure Databricks mediante el inicio rápido y los demás vínculos que aparecen aquí. Azure Databricks es una plataforma de análisis basada en Apache Spark optimizada para la plataforma de servicios en la nube de Microsoft Azure. Diseñada por los fundadores de Apache Spark, Databricks está integrado con Azure para proporcionar una configuración con un solo clic, flujos de trabajo optimizados y un área de trabajo interactiva que permite la colaboración entre científicos de datos, ingenieros de datos y analistas empresariales."
   aside:
@@ -48,7 +48,7 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: "<a href=\"https://docs.azuredatabricks.net/user-guide/getting-started.html\" target=\"_blank\">Introducción a Azure Databricks</a>"
+    - html: <a href="/azure/azure-databricks/databricks-stream-from-eventhubs">Streaming de datos de Event Hubs mediante Azure Databricks</a>
     - html: "<a href=\"https://go.microsoft.com/fwlink/?linkid=864083\" target=\"_blank\">Importación de datos de Azure Storage</a>"
     - hmtl: <a href="https://go.microsoft.com/fwlink/?linkid=864084" target="_blank">Import data from Azure Data Lake Store</a>
     - html: <a href="https://docs.azuredatabricks.net/user-guide/notebooks/index.html" target="_blank">Uso de cuadernos</a>

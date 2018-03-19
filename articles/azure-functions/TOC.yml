@@ -21,7 +21,7 @@
       href: functions-create-first-azure-function-azure-cli-linux.md
     - name: Desencadenadores
       items:
-        - name: Blob Storage
+        - name: Almacenamiento de blobs
           href: functions-create-storage-blob-triggered-function.md
         - name: Azure Cosmos DB
           href: functions-create-cosmos-db-triggered-function.md
@@ -179,11 +179,13 @@
           href: durable-functions-counter.md
         - name: Interacción humana
           href: durable-functions-phone-verification.md
+        - name: Pruebas unitarias
+          href: durable-functions-unit-testing.md
 - name: Referencia
   items:
     - name: Enlaces
       items:
-        - name: Blob Storage
+        - name: Almacenamiento de blobs
           href: functions-bindings-storage-blob.md
         - name: Azure Cosmos DB
           href: functions-bindings-cosmosdb.md
