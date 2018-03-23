@@ -1,13 +1,13 @@
 ---
-title: "Creación, modificación o eliminación de una tabla de rutas de Azure | Microsoft Azure"
-description: "Obtenga información sobre cómo crear, modificar o eliminar una tabla de rutas."
+title: Creación, modificación o eliminación de una tabla de rutas de Azure | Microsoft Azure
+description: Obtenga información sobre cómo crear, modificar o eliminar una tabla de rutas.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 7edc73f337a72c24fd24d94468ee590b75dfa7df
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 7630fd82cf62f1fcb0df80cec5b5e0030da81a85
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Creación, modificación o eliminación de una tabla de rutas
 
-Azure enruta automáticamente el tráfico entre redes locales, las redes virtuales y las subredes de Azure. Si desea cambiar algún enrutamiento predeterminado de Azure, debe crear una tabla de rutas. Si no está familiarizado con el enrutamiento de Azure, le recomendamos leer [Enrutamiento del tráfico de redes virtuales](virtual-networks-udr-overview.md) y completar el tutorial [Creación de una ruta definida por el usuario - Azure Portal](create-user-defined-route-portal.md) antes de completar las tareas que aparecen este artículo.
+Azure enruta automáticamente el tráfico entre redes locales, las redes virtuales y las subredes de Azure. Si desea cambiar algún enrutamiento predeterminado de Azure, debe crear una tabla de rutas. Si no está familiarizado con el enrutamiento de Azure, le recomendamos leer [Enrutamiento del tráfico de redes virtuales](virtual-networks-udr-overview.md) y completar el tutorial [Creación de una ruta definida por el usuario - Azure Portal](tutorial-create-route-table-portal.md) antes de completar las tareas que aparecen este artículo.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -31,14 +31,14 @@ Complete las tareas siguientes antes de seguir los pasos de las secciones de est
 
 - Si todavía no tiene una cuenta de Azure, regístrese para obtener una [cuenta de evaluación gratuita](https://azure.microsoft.com/free).
 - Si usa el portal, abra https://portal.azure.com e inicie sesión con la cuenta de Azure.
-- Si usa comandos de PowerShell para completar las tareas de este artículo, ejecute los comandos que se encuentran en [Azure Cloud Shell](https://shell.azure.com/powershell) o ejecute PowerShell en el equipo. Azure Cloud Shell es un shell interactivo gratuito que puede usar para ejecutar los pasos de este artículo. Tiene las herramientas comunes de Azure preinstaladas y configuradas para usarlas en la cuenta. Para realizar este tutorial es necesaria la versión 5.2.0 del módulo de Azure PowerShell o cualquier versión posterior. Ejecute `Get-Module -ListAvailable AzureRM` para buscar la versión instalada. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Login-AzureRmAccount` para crear una conexión con Azure.
+- Si usa comandos de PowerShell para completar las tareas de este artículo, ejecute los comandos que se encuentran en [Azure Cloud Shell](https://shell.azure.com/powershell) o ejecute PowerShell en el equipo. Azure Cloud Shell es un shell interactivo gratuito que puede usar para ejecutar los pasos de este artículo. Tiene las herramientas comunes de Azure preinstaladas y configuradas para usarlas en la cuenta. Para realizar este tutorial es necesaria la versión 5.2.0 del módulo de Azure PowerShell, o cualquier versión posterior. Ejecute `Get-Module -ListAvailable AzureRM` para buscar la versión instalada. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Login-AzureRmAccount` para crear una conexión con Azure.
 - Si usa la interfaz de la línea de comandos (CLI) de Azure para completar las tareas de este artículo, ejecute los comandos que se encuentran en [Azure Cloud Shell](https://shell.azure.com/bash) o ejecute la CLI en el equipo. Para realizar este tutorial es necesaria la versión 2.0.26 o superior de la CLI de Azure. Ejecute `az --version` para buscar la versión instalada. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0](/cli/azure/install-azure-cli). Si ejecuta de forma local la CLI de Azure, también debe ejecutar `az login` para crear una conexión con Azure.
 
 ## <a name="create-a-route-table"></a>Creación de una tabla de rutas
 
 Existe un límite para la cantidad de tablas de rutas que puede crear por suscripción y ubicación de Azure. Para más información, consulte el artículo acerca de los [límites de Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-1. En la esquina superior izquierda del portal, seleccione **+ Nuevo**.
+1. En la esquina superior izquierda del portal, seleccione **+ Crear un recurso**.
 2. Seleccione **Redes** y, luego, **Tabla de rutas**.
 3. Escriba un **nombre** para la tabla de rutas, seleccione la **suscripción**, cree un **grupo de recursos** nuevo o seleccione uno existe, seleccione una **ubicación** y, luego, seleccione **Crear**. La opción **Disable BGP route propagation** (Deshabilitar la propagación de rutas BGP) evita que las rutas locales se propaguen a una red virtual de Azure a través de BGP. Si la red virtual no está conectada a una puerta de enlace de red de Azure (VPN o ExpressRoute), deje la opción *Disabled* (Deshabilitada). 
 

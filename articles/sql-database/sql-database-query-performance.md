@@ -1,27 +1,21 @@
 ---
-title: "Información de rendimiento de consultas para Azure SQL Database | Microsoft Docs"
-description: "La supervisión del rendimiento de las consultas identifica las consultas que más CPU consumen en una base de datos SQL de Azure."
+title: Información de rendimiento de consultas para Azure SQL Database | Microsoft Docs
+description: La supervisión del rendimiento de las consultas identifica las consultas que más CPU consumen en Azure SQL Database.
 services: sql-database
-documentationcenter: 
 author: stevestein
-manager: jhubbard
-editor: monicar
-ms.assetid: c2f580b2-3835-453f-89f5-140e02dd2ea7
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: On Demand
 ms.date: 07/05/2017
 ms.author: sstein
-ms.openlocfilehash: 015f3255d0ff9691168899df1e983e70f35215b1
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 18d03ffcd586a809b37cbc1ca9a7843c25c7758d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="azure-sql-database-query-performance-insight"></a>Query Performance Insight de Base de datos SQL de Azure
+# <a name="azure-sql-database-query-performance-insight"></a>Query Performance Insight de Azure SQL Database
 La administración y ajuste del rendimiento de las bases de datos relacionales son tareas difíciles que requieren una gran inversión de tiempo y muchos conocimientos. Información de rendimiento de consultas permite dedicar menos tiempo a la solución de problemas de rendimiento de bases de datos, ya que proporciona:
 
 * Información más detallada sobre el consumo de recursos (DTU) de las bases de datos. 
@@ -31,7 +25,7 @@ La administración y ajuste del rendimiento de las bases de datos relacionales s
 
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 * Información de rendimiento de consultas requiere que el [Almacén de consultas](https://msdn.microsoft.com/library/dn817826.aspx) esté activo en la base de datos. Si Almacén de consultas no está en ejecución, el portal le pedirá que lo active.
 
 ## <a name="permissions"></a>Permisos
@@ -53,7 +47,7 @@ Query Performance Insight es fácil de usar:
     ![panel de rendimiento](./media/sql-database-query-performance/performance.png)
 
 > [!NOTE]
-> Para proporcionar información de rendimiento de consultas, es preciso que el Almacén de consultas para Base de datos SQL capture un par de horas de datos. Si la base de datos no tiene actividad o Almacén de consultas no estuvo activo durante un período determinado, los gráficos estará vacíos al mostrar dicho período. Puede habilitar el almacén de consulta en cualquier momento si no se está ejecutando.   
+> Para proporcionar información de rendimiento de consultas, es preciso que el Almacén de consultas para SQL Database capture un par de horas de datos. Si la base de datos no tiene actividad o Almacén de consultas no estuvo activo durante un período determinado, los gráficos estará vacíos al mostrar dicho período. Puede habilitar el almacén de consulta en cualquier momento si no se está ejecutando.   
 > 
 > 
 
@@ -86,7 +80,7 @@ En el [portal](http://portal.azure.com) , realice estas acciones:
    * Número de consultas.
    * Función de agregación.
      
-     ![Configuración](./media/sql-database-query-performance/custom-tab.png)
+     ![configuración](./media/sql-database-query-performance/custom-tab.png)
 
 ## <a name="viewing-individual-query-details"></a>Visualización de los detalles de las consultas individuales
 Para ver los detalles de una consulta:

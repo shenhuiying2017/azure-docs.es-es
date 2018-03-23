@@ -1,9 +1,9 @@
 ---
-title: "Autenticación de paso a través de Azure AD: inicio rápido | Microsoft Docs"
-description: "En este artículo se describe cómo empezar a usar la autenticación de paso a través de Azure Active Directory (Azure AD)."
+title: 'Autenticación de paso a través de Azure AD: inicio rápido | Microsoft Docs'
+description: En este artículo se describe cómo empezar a usar la autenticación de paso a través de Azure Active Directory (Azure AD).
 services: active-directory
-keywords: "Autenticación de paso a través de Azure AD Connect, instalación de Active Directory, componentes necesarios para Azure AD, SSO, inicio de sesión único"
-documentationcenter: 
+keywords: Autenticación de paso a través de Azure AD Connect, instalación de Active Directory, componentes necesarios para Azure AD, SSO, inicio de sesión único
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 03/07/2018
 ms.author: billmath
-ms.openlocfilehash: 1da7c064030501b5c6547b65c091b1a50da93899
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b592eb8ca43e5bf3eebe2b0c47d8f17dbec7b238
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Autenticación de paso a través de Azure Active Directory: inicio rápido
 
@@ -116,20 +116,38 @@ En esta fase, los usuarios de todos los dominios administrados del inquilino pue
 
 ## <a name="step-5-ensure-high-availability"></a>Paso 5: Garantía de alta disponibilidad
 
-Si tiene previsto implementar la autenticación de paso a través en un entorno de producción, debe instalar un agente de autenticación independiente. Instale este segundo agente de autenticación en un servidor _distinto_ al que ejecuta Azure AD Connect y el primer agente de autenticación. Esta configuración proporciona alta disponibilidad para las solicitudes de inicio de sesión. Siga estas instrucciones para implementar un agente de autenticación independiente:
+Si tiene previsto implementar la autenticación de paso a través en un entorno de producción, debe instalar al menos un agente de autenticación independiente más. Instale los agentes de autenticación en servidores _distintos_ que el servidor en que se ejecuta Azure AD Connect. Esta configuración proporciona alta disponibilidad para las solicitudes de inicio de sesión.
 
-1. Descargue la última versión del agente de autenticación (versión 1.5.193.0 o posterior). Inicie sesión en el [Centro de administración de Azure Active Directory](https://aad.portal.azure.com) con las credenciales de administrador global del inquilino.
+Siga estas instrucciones para descargar el software de agente de autenticación:
+
+1. Para descargar la versión más reciente del agente de autenticación (versión 1.5.193.0 o posterior), inicie sesión en el [Centro de administración de Azure Active Directory](https://aad.portal.azure.com) con las credenciales de administrador global del inquilino.
 2. Seleccione **Azure Active Directory** en el panel izquierdo.
 3. Seleccione **Azure AD Connect**, **Autenticación de paso a través** y **Descargar agente**.
 4. Seleccione el botón **Aceptar las condiciones y descargar**.
-5. Instale la última versión del agente de autenticación mediante la ejecución del archivo ejecutable descargado en el paso anterior. Proporcione las credenciales de administrador global del inquilino cuando se le solicite.
 
 ![Centro de administración de Azure Active Directory: botón Descargar agente de autenticación](./media/active-directory-aadconnect-pass-through-authentication/pta9.png)
 
 ![Centro de administración de Azure Active Directory: panel Descargar agente](./media/active-directory-aadconnect-pass-through-authentication/pta10.png)
 
 >[!NOTE]
->También puede descargar el [agente de autenticación de Azure Active Directory](https://aka.ms/getauthagent). Asegúrese de que revisa y acepta las [Condiciones del servicio](https://aka.ms/authagenteula) del agente de autenticación _antes_ de instalarlo.
+>También puede descargar directamente el software del agente de autenticación desde [aquí](https://aka.ms/getauthagent). Revise y acepte las [Condiciones del servicio](https://aka.ms/authagenteula) del agente de autenticación _antes_ de instalarlo.
+
+Hay dos formas de implementar un agente de autenticación independiente:
+
+En primer lugar, puede hacerlo de manera interactiva si ejecuta el archivo ejecutable del agente de autenticación que descargó y proporciona las credenciales de administrador global del inquilino cuando se le solicite hacerlo.
+
+En segundo lugar, puede crear y ejecutar un script de implementación desatendida. Esto resulta útil cuando desea implementar varios agentes de autenticación a la vez o instalar agentes de autenticación en servidores Windows que no tienen habilitada la interfaz de usuario o a los que no puede acceder sin Escritorio remoto. Estas son las instrucciones para usar este enfoque:
+
+1. Ejecute el comando siguiente para instalar un agente de autenticación: `AADConnectAuthAgentSetup.exe REGISTERCONNECTOR="false" /q`.
+2. Puede registrar el agente de autenticación con nuestro servicio mediante Windows PowerShell. Cree un objeto de credenciales de PowerShell `$cred` que contenga un nombre de usuario y una contraseña de administrador global para el inquilino. Ejecute el comando siguiente, reemplazando *\<username\>* y *\<password\>* por los valores correspondientes:
+   
+        $User = "<username>"
+        $PlainPassword = '<password>'
+        $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force
+        $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $User, $SecurePassword
+3. Vaya a **C:\Archivos de programa\Microsoft Azure AD Connect Authentication Agent** y ejecute el script siguiente con el objeto `$cred` que creó:
+   
+        RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature PassthroughAuthentication
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Bloqueo inteligente](active-directory-aadconnect-pass-through-authentication-smart-lockout.md): obtenga información sobre cómo configurar la funcionalidad de bloqueo inteligente en el inquilino para proteger las cuentas de usuario.

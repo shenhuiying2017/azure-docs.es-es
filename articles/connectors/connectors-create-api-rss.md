@@ -1,11 +1,11 @@
 ---
 title: Conector de RSS en Azure Logic Apps | Microsoft Docs
-description: "Cree aplicaciones lógicas con el Servicio de aplicaciones de Azure. El conector RSS permite a los usuarios publicar y recuperar elementos de fuente. También permite a los usuarios desencadenar operaciones cuando se publica un nuevo elemento en la fuente."
+description: Cree aplicaciones lógicas con el Servicio de aplicaciones de Azure. El conector RSS permite a los usuarios publicar y recuperar elementos de fuente. También permite a los usuarios desencadenar operaciones cuando se publica un nuevo elemento en la fuente.
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: MandiOhlinger
+author: ecfan
 manager: anneta
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: a10a6277-ed29-4e68-a881-ccdad6fd0ad8
 ms.service: logic-apps
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: fca2b9983e70b754e3b4cb736023c47c598bedfc
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 493ee8a961e5d5a57c6276868a55b524dec28018
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-rss-connector"></a>Introducción al conector RSS
 RSS es un formato de distribución web popular que se usa para publicar contenido de frecuente actualización, como entradas de blog y titulares de noticias.  Muchos editores de contenido ofrecen una fuente RSS para permitir que los usuarios se suscriban a ella.  Use el conector RSS para recuperar la información de la fuente y desencadenar flujos cuando se publiquen nuevos elementos en una fuente RSS.

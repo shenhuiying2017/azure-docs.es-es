@@ -1,26 +1,19 @@
 ---
-title: "Protección de la base de datos de Azure SQL | Microsoft Docs"
-description: "Conozca las técnicas y características para proteger su base de datos de Azure SQL."
+title: Protección de la base de datos de Azure SQL | Microsoft Docs
+description: Conozca las técnicas y características para proteger su base de datos de Azure SQL.
 services: sql-database
-documentationcenter: 
 author: DRediske
-manager: jhubbard
-editor: 
-tags: 
-ms.assetid: 
+manager: craigg
 ms.service: sql-database
 ms.custom: mvc,security
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: On Demand
 ms.date: 06/28/2017
 ms.author: daredis
-ms.openlocfilehash: 678f3ae09a57cbbbb486d256f81f0f58563b482c
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 99b719c302bb02e96e4bfa0ea4588862e9f304e2
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="secure-your-azure-sql-database"></a>Protección de Azure SQL Database
 

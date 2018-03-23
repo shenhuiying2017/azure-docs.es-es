@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Configuración de Workday para el aprovisionamiento automático de usuarios con Azure Active Directory | Microsoft Docs"
+title: 'Tutorial: Configuración de Workday para el aprovisionamiento automático de usuarios con Azure Active Directory | Microsoft Docs'
 description: Aprenda a usar Workday como origen de datos de identidad para Active Directory y Azure Active Directory.
 services: active-directory
 author: asmalser-msft
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: 2db9e60fe2807b1aa8ed7cab7eed6f7db8059a89
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 825bf3f6a3ea07cb229f00c81ad699d792ac53f9
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configuración de Workday para el aprovisionamiento automático de usuarios
 
@@ -768,12 +768,27 @@ Para ello, debe usar [Workday Studio](https://community.workday.com/studio-downl
 
 * Se ha resuelto un problema anterior en el que los registros de auditoría no aparecían en los inquilinos de Azure AD ubicados en la Unión Europea. Sin embargo, se requiere la configuración adicional del agente para inquilinos de Azure AD en la Unión Europea. Para más información, consulte [Parte 3: configuración del agente de sincronización local](#Part 3: Configure the on-premises synchronization agent).
 
+## <a name="gdpr-compliance"></a>Cumplimiento del GDPR
 
-## <a name="additional-resources"></a>Recursos adicionales
-* [Tutorial: configuración del inicio de sesión único entre Workday y Azure Active Directory](active-directory-saas-workday-tutorial.md)
-* [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+El [Reglamento general de protección de datos (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) es una ley de privacidad y protección de datos de la Unión Europea (UE). El RGPD impone reglas sobre las empresas, agencias gubernamentales, entidades sin ánimo de lucro y otras organizaciones que ofrecen bienes y servicios a personas de la UE o que recopilan y analizan datos vinculados a residentes en la UE. 
+
+El servicio de aprovisionamiento de Azure AD cumple con el RGPD, además de ser compatible con el resto de características y servicios de Microsoft. Para más información sobre el GDPR de Microsoft, vea las [condiciones del servicio](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31).
+
+Sin embargo, dado que la solución de aprovisionamiento Workday para Active Directory requiere la instalación de un agente de sincronización en un servidor unido a un dominio, hay algunos eventos que se deben supervisar a efectos de conformidad con el GDPR.
+ 
+El agente crea registros en el **registro de eventos de Windows**, que puede contener información de identificación personal.
+
+Se puede cumplir con el GDPR de dos formas:
+
+1. Previa solicitud, en cuyo caso se extraen los datos de una persona y se eliminan de los registros de eventos de Windows. 
+2. Mantener el período de retención de los registros de eventos de Windows del proceso de AADSyncAgent durante menos de 48 horas.
+
+Para obtener información sobre cómo configurar la retención de datos de los registros de eventos de Windows, vea la [configuración de los registros de eventos](https://technet.microsoft.com/en-us/library/cc952132.aspx). Para obtener información general sobre el registro de eventos de Windows, vea [este artículo](https://msdn.microsoft.com/en-us/library/windows/desktop/aa385772.aspx).
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Aprenda a revisar los registros y a obtener informes sobre la actividad de aprovisionamiento](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting)
+* [Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Workday](active-directory-saas-workday-tutorial.md)
+* [Aprenda a integrar otras aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
+

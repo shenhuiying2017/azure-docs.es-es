@@ -1,11 +1,11 @@
 ---
-title: "Conector SQL genérico | Microsoft Docs"
-description: "En este artículo se describe cómo configurar el conector de SQL genérico de Microsoft."
+title: Conector SQL genérico | Microsoft Docs
+description: En este artículo se describe cómo configurar el conector de SQL genérico de Microsoft.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: bhu
-editor: 
+editor: ''
 ms.assetid: fd8ccef3-6605-47ba-9219-e0c74ffc0ec9
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2017
 ms.author: billmath
-ms.openlocfilehash: 66e3559c244a76101be7b7d944a48cd6dd99bd4c
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 5ac8aff7e302a255efb86606416131ecf8088137
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="generic-sql-connector-technical-reference"></a>Referencia técnica del conector de SQL genérico
 En este artículo se describe el conector de SQL genérico. El artículo se aplica a los siguientes productos:
@@ -152,7 +152,7 @@ A partir de la actualización de marzo de 2017, ahora hay una opción para "*". 
 ![globalparameters3](./media/active-directory-aadconnectsync-connector-genericsql/any-option.png)
 
 >[!IMPORTANT]
- A partir de mayo de 2017 el carácter "*" también conocido como **cualquier opción** ha cambiado para admitir los flujos de importación y exportación. Si desea usar esta opción, la tabla o vista multivalor debe tener un atributo que contenga el tipo de objeto.
+ A partir de mayo de 2017 el carácter "\*" también conocido como **cualquier opción** ha cambiado para admitir los flujos de importación y exportación. Si desea usar esta opción, la tabla o vista multivalor debe tener un atributo que contenga el tipo de objeto.
 
 ![](./media/active-directory-aadconnectsync-connector-genericsql/any-02.png)
 

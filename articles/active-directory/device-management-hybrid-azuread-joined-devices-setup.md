@@ -1,11 +1,11 @@
 ---
-title: "Configuración de dispositivos híbridos unidos a Azure Active Directory | Microsoft Docs"
-description: "Aprenda a configurar dispositivos híbridos unidos a Azure Active Directory."
+title: Configuración de dispositivos híbridos unidos a Azure Active Directory | Microsoft Docs
+description: Aprenda a configurar dispositivos híbridos unidos a Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 203e36b198186db63b7e902db296adeaa9ffb4ee
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 188f02aa69d7b39bc5bc4873b437825107a7ae4e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Configuración de dispositivos híbridos unidos a Azure Active Directory
 
@@ -34,7 +34,7 @@ Antes de empezar a configurar dispositivos híbridos unidos a un dominio de Acti
 
 Si está confiando en la [Herramienta de preparación del sistema (Sysprep)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc721940(v=ws.10)), asegúrese de crear imágenes desde una instalación de Windows que no se haya registrado aún con Azure AD.
 
-Todos los dispositivos unidos a un dominio en que se ejecuten la Actualización de aniversario de Windows 10 y Windows Server 2016 se registran automáticamente en Azure AD cuando el dispositivo se reinicie o el usuario inicie sesión una vez finalizados los pasos de configuración mencionados a continuación. Si no se prefiere este comportamiento de registro automático o si se desea un lanzamiento controlado, siga primero las instrucciones de la sección Control de implementación y lanzamiento a continuación para habilitar o deshabilitar de forma selectiva el lanzamiento automático antes de seguir los otros pasos de configuración.  
+Todos los dispositivos unidos a un dominio en que se ejecuten la Actualización de aniversario de Windows 10 y Windows Server 2016 se registran automáticamente en Azure AD cuando el dispositivo se reinicie o el usuario inicie sesión una vez finalizados los pasos de configuración mencionados a continuación. **Si no se prefiere este comportamiento de registro automático o si se desea un lanzamiento controlado**, siga primero las instrucciones de la sección "Paso 4: Control de implementación y lanzamiento" a continuación para habilitar o deshabilitar de forma selectiva el lanzamiento automático antes de seguir los otros pasos de configuración.  
 
 Para mejorar la legibilidad de las descripciones, en este tema se utiliza el término siguiente: 
 
@@ -542,7 +542,7 @@ Cuando se hayan completado los pasos necesarios, los dispositivos unidos a un do
 
 ### <a name="remarks"></a>Comentarios
 
-- Para controlar el lanzamiento del registro automático de los equipos con Windows 10 y Windows Server 2016 unidos a un dominio, se puede usar un objeto de directiva de grupo.
+- Para controlar el lanzamiento del registro automático de los equipos con Windows 10 y Windows Server 2016 unidos a un dominio, se puede usar un objeto de directiva de grupo. **Si no desea que estos dispositivos se registren automáticamente con Azure AD o desea controlar el registro**, primero debe implementar una directiva de grupo que deshabilite el registro automático en todos estos dispositivos antes de empezar con los pasos de configuración. Una vez que configure todo y cuando esté listo para probar, debe implementar una directiva de grupo que deshabilite el registro automático solo en los dispositivos de prueba y, luego, en todos los dispositivos que usted elija.
 
 - La actualización de noviembre de 2015 de Windows 10 se une automáticamente en Azure AD **solo** si se establece el objeto de directiva de grupo del lanzamiento.
 

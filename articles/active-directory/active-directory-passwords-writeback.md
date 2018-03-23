@@ -1,26 +1,26 @@
 ---
-title: "SSPR de Azure AD con escritura diferida de contraseñas | Microsoft Docs"
-description: "Use Azure AD y Azure AD Connect para realizar la escritura diferida de contraseñas en un directorio local."
+title: SSPR de Azure AD con escritura diferida de contraseñas | Microsoft Docs
+description: Use Azure AD y Azure AD Connect para realizar la escritura diferida de contraseñas en un directorio local.
 services: active-directory
-keywords: "Administración de contraseñas de Active Directory, administración de contraseñas, autoservicio de restablecimiento de contraseña de Azure AD"
-documentationcenter: 
+keywords: Administración de contraseñas de Active Directory, administración de contraseñas, autoservicio de restablecimiento de contraseña de Azure AD
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: b4a14d3c79f93988eeac1525da09cf70dc2de634
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: bcb7074a6d590a08ad683c8746156245bc60c5e8
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="password-writeback-overview"></a>Información general sobre la escritura diferida de contraseñas
 
@@ -31,6 +31,7 @@ La escritura diferida de contraseñas ofrece las siguientes características:
 * **Proporciona comentarios con retraso cero**: la escritura diferida de contraseñas es una operación sincrónica. Si la contraseña de un usuario no cumple la directiva o no se puede restablecer o modificar por algún motivo, a dicho usuario se le envía una notificación inmediatamente.
 * **Admite el restablecimiento de contraseñas de usuarios que usan Servicios de federación de Active Directory (AD FS) u otras tecnologías de federación**: con la escritura diferida de contraseñas, siempre que las cuentas de usuario federadas estén sincronizadas en el inquilino de Azure AD, se podrán administrar las contraseñas de instancias locales de Active Directory desde la nube.
 * **Admite el restablecimiento de contraseñas de usuarios que usan la**  [sincronización de hash de contraseñas](./connect/active-directory-aadconnectsync-implement-password-synchronization.md): cuando el servicio de restablecimiento de contraseñas detecta que una cuenta de usuario sincronizada está habilitada para la sincronización de hash de contraseñas, se restablece la contraseña local y de la nube de la cuenta al mismo tiempo.
+* **Admite restablecimientos de contraseñas para usuarios que usan la autenticación de paso a través**: con la escritura diferida de contraseñas, las cuentas de autenticación de paso a través pueden administrar sus contraseñas de Active Directory locales desde la nube, siempre y cuando dichas cuentas estén sincronizadas en el inquilino de Azure AD.
 * **Admite la modificación de contraseñas desde el panel de acceso y Office 365**: si los usuarios con sincronización de contraseñas o federados modifican las contraseñas expiradas o no expiradas, se escriben tales contraseñas en diferido en el entorno local de Active Directory.
 * [Admite la escritura diferida de contraseñas si un administrador las restablece desde Azure Portal](https://portal.azure.com): cada vez que un administrador restablece una contraseña de usuario en **Azure Portal**, si ese usuario se federa o se sincroniza con contraseña, también se establece la contraseña que el administrador seleccione en el entorno local de Active Directory. Esta funcionalidad no se admite en el portal de administración de Office.
 * **Aplica las directivas de contraseña de la instancia local de Active Directory**: cuando un usuario restablece su contraseña, se garantiza que cumpla la directiva de la instancia local de Active Directory antes de enviarla a ese directorio. En esta revisión se incluye la comprobación del historial, la complejidad, la antigüedad, los filtros de contraseñas y otras restricciones de contraseña que ha definido en el entorno local de Active Directory.
@@ -167,10 +168,10 @@ Las contraseñas se escriben en diferido en todas las situaciones siguientes:
 Las contraseñas *no* se escriben en diferido en ninguna de las situaciones siguientes:
 
 * **Operaciones de usuario final no admitidas**
-  * Cualquier usuario final que restablezca su propia contraseña mediante PowerShell v1, v2 o la API Graph de Azure AD
+  * Cualquier usuario final que restablezca su propia contraseña mediante PowerShell v1, v2 o Graph API de Azure AD
 * **Operaciones de administrador no admitidas**
   * Cualquier restablecimiento de contraseña del usuario final iniciado por el administrador desde el [Portal de administración de Office](https://portal.office.com)
-  * Cualquier restablecimiento de contraseña del usuario final que inicie el administrador desde PowerShell v1, v2 o la API Graph de Azure AD
+  * Cualquier restablecimiento de contraseña del usuario final que inicie el administrador desde PowerShell v1, v2 o Graph API de Azure AD
 
 Aunque estamos trabajando para quitar estas limitaciones, todavía no hay una fecha concreta para ello.
 
@@ -217,7 +218,7 @@ La escritura diferida de contraseñas es un servicio de bajo consumo de ancho de
 
 El tamaño de cada uno de los mensajes que se ha descrito anteriormente suele ser inferior a 1 KB. Incluso bajo cargas extremas, el propio servicio de escritura diferida de contraseñas solo usa como máximo unos kilobits por segundo del ancho de banda. Puesto que cada mensaje se envía en tiempo real solo cuando lo requiere una operación de actualización de contraseña, y dado que el tamaño del mensaje es tan pequeño, el uso de ancho de banda de la funcionalidad de escritura diferida es demasiado pequeño para tener ningún impacto cuantificable real.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [¿Cómo se realiza un lanzamiento correcto de SSPR?](active-directory-passwords-best-practices.md)
 * [Restablecimiento o modificación de la contraseña](active-directory-passwords-update-your-own-password.md).

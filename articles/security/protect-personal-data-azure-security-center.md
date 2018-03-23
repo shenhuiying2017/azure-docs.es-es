@@ -1,29 +1,29 @@
 ---
-title: "Protección de datos personales con Azure Security Center | Microsoft Docs"
-description: "protección de datos personales mediante Azure Security Center"
+title: Protección de datos personales con Azure Security Center | Microsoft Docs
+description: use security center para proteger los datos personales. Se puede usar en los esfuerzos para cumplir el Reglamento general de protección de datos (RGPD).
 services: security
 documentationcenter: na
 author: Barclayn
 manager: MBaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2017
+ms.date: 03/06/2018
 ms.author: barclayn
-ms.custom: 
-ms.openlocfilehash: 3a941389713a4d3dbffbbfe8a717409927d85c6d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: ''
+ms.openlocfilehash: 118752a030a1c300306aa3e05571bb9b624a2c20
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="protect-personal-data-from-breaches-and-attacks-azure-security-center"></a>Protección de datos personales frente a infracciones de seguridad y ataques: Azure Security Center
 
-En este artículo se le enseñará a usar Azure Security Center para proteger datos personales frente a infracciones de seguridad y ataques.
+En este artículo se le enseñará a usar Azure Security Center para proteger datos personales frente a infracciones de seguridad y ataques. La información que se incluye aquí le ayudará en los esfuerzos para cumplir con el Reglamento general de protección de datos (RGPD).
 
 ## <a name="scenario"></a>Escenario 
 

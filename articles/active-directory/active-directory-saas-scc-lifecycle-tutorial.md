@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integración de Azure Active Directory con SCC LifeCycle | Microsoft Docs"
-description: "Aprenda cómo usar SCC LifeCycle con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc."
+title: 'Tutorial: Integración de Azure Active Directory con SCC LifeCycle | Microsoft Docs'
+description: Aprenda cómo usar SCC LifeCycle con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc.
 services: active-directory
 author: jeevansd
 documentationcenter: na
@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 01/03/2018
 ms.author: jeedes
 ms.openlocfilehash: 943698311d10b479879fd92d2482d827650e2b0c
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scc-lifecycle"></a>Tutorial: Integración de Azure Active Directory con SCC LifeCycle
 El objetivo de este tutorial es mostrar la integración de Azure y SCC LifeCycle.  
@@ -75,7 +75,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 2. En la página **¿Cómo desea que los usuarios inicien sesión en SCC LifeCycle?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y haga clic en **Siguiente**.
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-scc-lifecycle-tutorial/IC794123.png "Configurar inicio de sesión único")
-3. En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión** de, escriba la dirección URL utilizada por los usuarios para iniciar sesión en su aplicación de SCC LifeCycle con el patrón "*https://bs1.scc.com/lc7/welcome/customer/PICTtest.aspx*" y haga clic en **Siguiente**.
+3. En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL que usan los usuarios para iniciar sesión en su aplicación de SCC LifeCycle con el patrón "*https://bs1.scc.com/lc7/welcome/customer/PICTtest.aspx*" y haga clic en **Siguiente**.
    
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-scc-lifecycle-tutorial/IC794124.png "Configurar dirección URL de la aplicación")
 4. En la página **Configuración de inicio de sesión único en SCC LifeCycle**, haga clic en **Descargar metadatos** y guarde el archivo de metadatos localmente en el equipo.

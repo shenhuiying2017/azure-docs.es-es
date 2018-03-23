@@ -1,9 +1,9 @@
 ---
-title: "Inicio de sesión único de conexión directa de Azure AD Connect: Guía de inicio rápido | Microsoft Docs"
-description: "En este artículo se describe cómo empezar a trabajar con el inicio de sesión único de conexión directa de Azure Active Directory."
+title: 'Inicio de sesión único de conexión directa de Azure AD Connect: Guía de inicio rápido | Microsoft Docs'
+description: En este artículo se describe cómo empezar a trabajar con el inicio de sesión único de conexión directa de Azure Active Directory.
 services: active-directory
-keywords: "qué es Azure AD Connect, instalar Active Directory, componentes necesarios para Azure AD, SSO, inicio de sesión único"
-documentationcenter: 
+keywords: qué es Azure AD Connect, instalar Active Directory, componentes necesarios para Azure AD, SSO, inicio de sesión único
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/23/2017
 ms.author: billmath
 ms.openlocfilehash: 58ca992f9fcf9a03d917f0dc250a292c4d5f49e5
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Inicio de sesión único de conexión directa de Azure Active Directory: Guía de inicio rápido
 
@@ -101,7 +101,7 @@ De forma predeterminada, el explorador calcula automáticamente la zona correcta
 
     El resultado se parecerá al siguiente:
 
-    Value: https://autologon.microsoftazuread-sso.com
+    Valor: https://autologon.microsoftazuread-sso.com
   
     Data 1
 
@@ -138,7 +138,7 @@ Asegúrese de que la máquina que ejecuta Mac OS se ha unido a Azure AD. Para ob
 
 #### <a name="google-chrome-all-platforms"></a>Google Chrome (todas las plataformas)
 
-Si ha reemplazado la configuración de las directivas [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) o [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) en su entorno, asegúrese de agregar también a estas directivas la dirección URL de Azure AD (https://autologon.microsoftazuread-sso.com).
+Si reemplazó la configuración de las directivas [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) o [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) en su entorno, asegúrese de agregar también a estas directivas una dirección URL de Azure AD (https://autologon.microsoftazuread-sso.com)).
 
 #### <a name="google-chrome-mac-os-only"></a>Google Chrome (solo Mac OS)
 
@@ -159,11 +159,11 @@ Para probar la característica con un usuario específico, asegúrese de que se 
   - Ha [implantado la característica](##step-3-roll-out-the-feature) para este usuario mediante la directiva de grupo.
 
 Para probar el escenario en el que el usuario escribe solo su nombre de usuario, pero no la contraseña:
-   - Inicie sesión en https://myapps.microsoft.com/ en una nueva sesión privada del explorador.
+   - Inicie sesión en https://myapps.microsoft.com/ es una sesión de explorador privada nueva.
 
 Para probar el escenario en el que el usuario no tiene que escribir ni su nombre de usuario ni su contraseña, realice alguno de estos pasos: 
-   - Inicie sesión en https://myapps.microsoft.com/contoso.onmicrosoft.com en una nueva sesión privada del explorador. Reemplace *contoso* con el nombre de su inquilino.
-   - Inicie sesión en https://myapps.microsoft.com/contoso.com en una nueva sesión privada del explorador. Reemplace *contoso.com* con un dominio comprobado (no un dominio federado) en el inquilino.
+   - Inicie sesión en https://myapps.microsoft.com/contoso.onmicrosoft.com es una sesión de explorador privada nueva. Reemplace *contoso* con el nombre de su inquilino.
+   - Inicie sesión en https://myapps.microsoft.com/contoso.com es una sesión de explorador privada nueva. Reemplace *contoso.com* con un dominio comprobado (no un dominio federado) en el inquilino.
 
 ## <a name="step-5-roll-over-keys"></a>Paso 5: Sustitución de claves
 

@@ -2,23 +2,23 @@
 title: Control de errores y excepciones de Logic Apps en Azure | Microsoft Docs
 description: Patrones para el control de errores y excepciones en Logic Apps.
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: dereklee
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: e50ab2f2-1fdc-4d2a-be40-995a6cc5a0d4
 ms.service: logic-apps
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: logic-apps
 ms.date: 01/31/2018
 ms.author: deli; LADocs
-ms.openlocfilehash: 91819d0fba30dd2ada981435fa13b8ae0a7fcc45
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 2ae4f0ae9782ada23089d364e8a1700144ef5ff7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="handle-errors-and-exceptions-in-logic-apps"></a>Control de errores y excepciones en Logic Apps
 
@@ -280,8 +280,6 @@ Para evaluar los estados de ejecución, puede supervisar los registros y las mé
 
 * [Vea cómo un cliente crea el control de errores con Azure Logic Apps](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
 * [Encuentre más escenarios y ejemplos de Logic Apps](../logic-apps/logic-apps-examples-and-scenarios.md)
-* [Aprenda a crear implementaciones automatizadas para aplicaciones lógicas](../logic-apps/logic-apps-create-deploy-template.md)
-* [Creación e implementación de aplicaciones lógicas con Visual Studio](logic-apps-deploy-from-vs.md)
 
 <!-- References -->
 [retryPolicyMSDN]: https://docs.microsoft.com/rest/api/logic/actions-and-triggers#Anchor_9

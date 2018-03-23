@@ -1,13 +1,13 @@
 ---
 title: IIS Seguro con certificados SSL en Azure | Microsoft Docs
-description: "Aprenda a proteger el servidor web IIS con certificados SSL en una máquina virtual Windows en Azure"
+description: Aprenda a proteger el servidor web IIS con certificados SSL en una máquina virtual Windows en Azure
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: tutorial
@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 02/09/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: ada0703603df5ae5a324d38cda2b23a060a10992
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 3c6823387e2e875e935a5a12345afdbf7e81a0cb
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="secure-iis-web-server-with-ssl-certificates-on-a-windows-virtual-machine-in-azure"></a>Protección de un servidor web IIS con certificados SSL en una máquina virtual de Windows en Azure
 Para proteger los servidores web, se puede utilizar un certificado Capa de sockets seguros (SSL) para cifrar el tráfico web. Estos certificados SSL pueden almacenarse en Azure Key Vault y permiten implementaciones seguras de certificados en máquinas virtuales Windows en Azure. En este tutorial, aprenderá a:
@@ -120,7 +120,7 @@ Para agregar el certificado desde Key Vault a una máquina virtual, obtenga el i
 ```azurepowershell-interactive
 $certURL=(Get-AzureKeyVaultSecret -VaultName $keyvaultName -Name "mycert").id
 
-$vm=Get-AzureRMVM -ResourceGroupName $resourceGroup -Name "myVM"
+$vm=Get-AzureRmVM -ResourceGroupName $resourceGroup -Name "myVM"
 $vaultId=(Get-AzureRmKeyVault -ResourceGroupName $resourceGroup -VaultName $keyVaultName).ResourceId
 $vm = Add-AzureRmVMSecret -VM $vm -SourceVaultId $vaultId -CertificateStore "My" -CertificateUrl $certURL
 
@@ -164,7 +164,7 @@ El sitio web IIS protegido se muestra ahora como en el ejemplo siguiente:
 ![Visualización del sitio IIS seguro en funcionamiento](./media/tutorial-secure-web-server/secured-iis.png)
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este tutorial, protegió un servidor web IIS con un certificado SSL almacenado en Azure Key Vault. Ha aprendido a:
 
 > [!div class="checklist"]

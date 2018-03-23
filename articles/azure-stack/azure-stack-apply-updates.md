@@ -1,11 +1,11 @@
 ---
-title: "Aplicación de actualizaciones en Azure Stack | Microsoft Docs"
-description: "Aprenda a importar e instalar paquetes de actualización de Microsoft para un sistema integrado de Azure Stack."
+title: Aplicación de actualizaciones en Azure Stack | Microsoft Docs
+description: Aprenda a importar e instalar paquetes de actualización de Microsoft para un sistema integrado de Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 449ae53e-b951-401a-b2c9-17fee2f491f1
 ms.service: azure-stack
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: mabrigg
-ms.openlocfilehash: 10e82c13dc2bb8461fb628435484a3a6e1877aa8
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 0f23216c6aced60dc651a0f10179281bc9a29c2c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="apply-updates-in-azure-stack"></a>Aplicación de actualizaciones en Azure Stack
 
@@ -67,7 +67,7 @@ El siguiente procedimiento muestra cómo importar e instalar actualizaciones en 
  
     ![Muestra dónde se carga cada archivo de paquete](media/azure-stack-apply-updates/ApplyUpdates6.png)
 
-8. Repita los pasos 6 y 7 para los archivos *PackageName*.bin y Metadata.xml. 
+8. Repita los pasos 6 y 7 para los archivos *PackageName*.bin y Metadata.xml. No importe el archivo Supplemental Notice.txt si está incluido.
 9. Cuando haya finalizado, puede revisar las notificaciones (el icono de campana de la esquina superior derecha del portal). Las notificaciones deben indicar que la carga se ha completado. 
 10. Vuelva al icono de actualización del panel. El icono debe indicar que hay una actualización disponible. Haga clic en el icono para revisar el paquete de actualización recién agregado.
 11. Para instalar la actualización, seleccione el paquete que está marcado como **Listo** y haga clic con el botón derecho en él y seleccione **Actualizar ahora**, o bien haga clic en la acción **Actualizar ahora** cerca de la parte superior.

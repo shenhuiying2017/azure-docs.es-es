@@ -1,8 +1,8 @@
 ---
-title: "Introducción al catálogo de U-SQL | Microsoft Docs"
-description: "Aprenda a usar el catálogo de U-SQL para compartir código y datos."
+title: Introducción al catálogo de U-SQL | Microsoft Docs
+description: Aprenda a usar el catálogo de U-SQL para compartir código y datos.
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: saveenr
 manager: saveenr
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/09/2017
-ms.author: edmaca
-ms.openlocfilehash: 08364c6c7bea53807844e3b1cc327dc3742e0487
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: saveenr
+ms.openlocfilehash: b39b5250cc042c393216784128ffc4e2f1288f04
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-u-sql-catalog"></a>Introducción al catálogo de U-SQL
 
@@ -176,5 +176,5 @@ OUTPUT @res
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Información general de Análisis de Microsoft Azure Data Lake](data-lake-analytics-overview.md)
-* [Desarrollo de scripts de U-SQL mediante Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
+* [Desarrollo de scripts U-SQL mediante Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 * [Supervisión y solución de problemas de trabajos de Azure Data Lake Analytics con Azure Portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)

@@ -1,13 +1,13 @@
 ---
-title: "SSMS: conexión y consulta de datos en Azure SQL Database | Microsoft Docs"
-description: "Aprenda a conectarse a SQL Database en Azure con SQL Server Management Studio (SSMS). A continuación, ejecute instrucciones de Transact-SQL (T-SQL) para consultar y editar los datos."
-metacanonical: 
-keywords: "conexión a base de datos sql,sql server management studio"
+title: 'SSMS: conexión y consulta de datos en Azure SQL Database | Microsoft Docs'
+description: Aprenda a conectarse a SQL Database en Azure con SQL Server Management Studio (SSMS). A continuación, ejecute instrucciones de Transact-SQL (T-SQL) para consultar y editar los datos.
+metacanonical: ''
+keywords: conexión a base de datos sql,sql server management studio
 services: sql-database
-documentationcenter: 
+documentationcenter: ''
 author: CarlRabeler
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 7cd2a114-c13c-4ace-9088-97bd9d68de12
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
@@ -23,7 +23,7 @@ ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 12/08/2017
 ---
-# <a name="azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data"></a>Azure SQL Database: use SQL Server Management Studio para conectarse a los datos y realizar consultas en ellos
+# <a name="azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data"></a>Azure SQL Database: uso de SQL Server Management Studio para conectarse a los datos y realizar consultas en ellos
 
 [SQL Server Management Studio][ssms-install-latest-84g] (SSMS) es un entorno integrado para administrar cualquier infraestructura de SQL, desde SQL Server hasta SQL Database para Microsoft Windows. Este inicio rápido muestra cómo usar SSMS para conectarse a una base de datos de SQL Azure Database, para después usar las instrucciones Transact-SQL para consultar, insertar, actualizar y eliminar datos en la base de datos. 
 

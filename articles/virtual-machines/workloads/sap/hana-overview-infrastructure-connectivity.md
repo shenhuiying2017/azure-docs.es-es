@@ -1,11 +1,11 @@
 ---
 title: Infraestructura y conectividad con SAP HANA en Azure (Instancias grandes) | Microsoft Docs
-description: "Configuración de la infraestructura de conectividad necesaria para usar SAP HANA en Azure (Instancias grandes)."
+description: Configuración de la infraestructura de conectividad necesaria para usar SAP HANA en Azure (Instancias grandes).
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: RicksterCDN
 manager: timlt
-editor: 
+editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 10/31/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7a44fdbfb973d75c21aa87e9b9d0eea8fb2b3392
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: d94e491d12ac43a4d85a638c79bcd3b24a4bc0ef
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="sap-hana-large-instances-infrastructure-and-connectivity-on-azure"></a>Infraestructura y conectividad con SAP HANA en Azure (instancias grandes) 
 
@@ -75,7 +75,7 @@ Por tanto, observemos más de cerca la creación de la red virtual de Azure para
 >[!Note]
 >La red virtual de Azure para HANA Instancias grandes debe crearse mediante el modelo de implementación de Azure Resource Manager. La solución HANA (Instancias grandes) no admite el antiguo modelo de implementación de Azure, normalmente conocido como modelo de implementación clásica.
 
-La red virtual puede crearse mediante Azure Portal, PowerShell, una plantilla de Azure o la CLI de Azure (vea [Creación de una red virtual (clásica) usando Azure Portal](../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). En el siguiente ejemplo se observa una red virtual creada mediante Azure Portal.
+La red virtual puede crearse mediante Azure Portal, PowerShell, una plantilla de Azure o la CLI de Azure (vea [Creación de una red virtual (clásica) usando Azure Portal](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network)). En el siguiente ejemplo se observa una red virtual creada mediante Azure Portal.
 
 En él se explican las definiciones de una red virtual de Azure en Azure Portal y cómo se relacionan con lo que se indica sobre los distintos intervalos de direcciones IP. Por **espacio de direcciones** se entiende el espacio de direcciones que la red virtual de Azure puede usar. Este espacio de direcciones también es el intervalo de direcciones que usa la red virtual para la propagación de la ruta BGP. Este **espacio de direcciones** puede verse a continuación:
 
@@ -126,7 +126,7 @@ En secciones anteriores ya se han presentado algunos de los intervalos de direcc
 - **Intervalo de direcciones IP de la subred de la puerta de enlace de la red virtual:** dependiendo de las características que se van a utilizar, el tamaño recomendado sería:
    - Puerta de enlace de ExpressRoute de ultrarrendimiento: bloque de direcciones /26: se necesita para la clase de tipo II de SKU
    - Coexistencia con VPN y ExpressRoute mediante una puerta de enlace de ExpressRoute de alto rendimiento (o inferior): bloque de direcciones /27
-   - Resto de situaciones: bloque de direcciones /28. Este intervalo de direcciones debe formar parte de los valores utilizados en los valores de "Espacio de direcciones de la red virtual". Este intervalo de direcciones debe formar parte de los valores utilizados en los valores del espacio de direcciones de la red virtual de Azure que debe enviar a Microsoft. ¿Cómo obtener este intervalo de direcciones IP? El equipo de redes corporativas o el proveedor de servicios deben proporcionar un intervalo de direcciones IP no utilizado actualmente en la red. 
+   - Resto de situaciones: bloque de direcciones /28. Este intervalo de direcciones debe formar parte de los valores utilizados en "Espacio de direcciones de la red virtual". Este intervalo de direcciones debe formar parte de los valores utilizados en los valores del espacio de direcciones de la red virtual de Azure que debe enviar a Microsoft. ¿Cómo obtener este intervalo de direcciones IP? El equipo de redes corporativas o el proveedor de servicios deben proporcionar un intervalo de direcciones IP no utilizado actualmente en la red. 
 
 - **Intervalo de direcciones para conectividad ER-P2P:** es el intervalo de direcciones IP para la conexión ExpressRoute (ER) P2P de SAP HANA (Instancias grandes). Este intervalo de direcciones IP debe ser un intervalo de direcciones IP CIDR /29. Este intervalo no se debe superponer con los intervalos de direcciones locales ni con otros intervalos de direcciones IP de Azure. Este intervalo de direcciones IP se usa para configurar la conectividad ER entre la puerta de enlace ExpressRoute de la red virtual de Azure y los servidores de SAP HANA (Instancias grandes). ¿Cómo obtener este intervalo de direcciones IP? El equipo de redes corporativas o el proveedor de servicios deben proporcionar un intervalo de direcciones IP no utilizado actualmente en la red. **Se debe enviar a Microsoft este intervalo de direcciones IP al solicitar una implementación inicial**
   
@@ -250,7 +250,7 @@ Use Azure Portal, PowerShell o la CLI al agregar más direcciones IP o subredes.
 
 En este caso, se recomienda agregar el nuevo intervalo de direcciones IP como un nuevo intervalo al espacio de direcciones de la red virtual en lugar de generar un nuevo intervalo agregado. En cualquier caso, debe enviar este cambio a Microsoft para permitir la conectividad desde el nuevo intervalo de direcciones IP a las unidades de HANA Instancias grandes del cliente. Puede abrir una solicitud de soporte técnico de Azure para obtener el nuevo espacio de direcciones de red virtual agregado. Después de recibir la confirmación, realice los pasos siguientes.
 
-Para crear una subred adicional desde Azure Portal, consulte el artículo [Creación de una red virtual mediante Azure Portal](../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) y para crearla desde PowerShell, consulte [Creación de una red virtual mediante PowerShell](../../../virtual-network/virtual-networks-create-vnet-arm-ps.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Para crear una subred adicional desde Azure Portal, consulte el artículo [Creación de una red virtual mediante Azure Portal](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network) y para crearla desde PowerShell, consulte [Creación de una red virtual mediante PowerShell](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network).
 
 ## <a name="adding-vnets"></a>Incorporación de redes virtuales
 
@@ -277,15 +277,13 @@ Una vez creado el nuevo circuito y terminada la configuración de administració
 
 Para quitar una subred de red virtual, se puede usar Azure Portal, PowerShell o la CLI. Si el intervalo de direcciones IP de la red virtual de Azure o el espacio de direcciones de la red virtual de Azure fuesen intervalos agregados, no son necesarias acciones con Microsoft. Eso salvo que la red virtual todavía esté propagando el espacio de direcciones de la ruta BGP que incluye la subred eliminada. Si ha definido el intervalo de direcciones IP de la red virtual de Azure o el espacio de direcciones de la red virtual de Azure como varios intervalos de direcciones IP, de los cuales uno está asignado a la subred eliminada, debe eliminarlo del espacio de direcciones de la red virtual y, posteriormente, informar a SAP HANA en Azure Service Management para que lo elimine de los intervalos con los que SAP HANA en Azure (Instancias grandes) tiene permitido comunicarse.
 
-Aunque aún no existe ninguna guía específica en Azure.com sobre cómo quitar subredes, el proceso para hacerlo es el inverso del proceso para agregarlas, que se ha descrito antes. Vea el artículo [Creación de una red virtual (clásica) usando Azure Portal](../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para más información sobre la creación de subredes.
+Para eliminar una subred, consulte [Eliminación de una subred](../../../virtual-network/virtual-network-manage-subnet.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#delete-a-subnet) para más información sobre la creación de subredes.
 
 ## <a name="deleting-a-vnet"></a>Eliminación de una red virtual
 
-Use Azure Portal, PowerShell o la CLI para eliminar una red virtual. SAP HANA en Azure Service Management quita las autorizaciones existentes en el circuito ExpressRoute de SAP HANA en Azure (Instancias grandes) y elimina el intervalo de direcciones IP de la red virtual de Azure o el espacio de direcciones de la red virtual de Azure para la comunicación con HANA Instancias grandes.
+Para eliminar una red virtual, consulte [Eliminación de una red virtual](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#delete-a-virtual-network). SAP HANA en Azure Service Management quita las autorizaciones existentes en el circuito ExpressRoute de SAP HANA en Azure (Instancias grandes) y elimina el intervalo de direcciones IP de la red virtual de Azure o el espacio de direcciones de la red virtual de Azure para la comunicación con HANA Instancias grandes.
 
 Una vez eliminada la red virtual, abra una solicitud de soporte técnico de Azure para proporcionar los intervalos de espacios de direcciones IP que se van a eliminar.
-
-Aunque aún no existe ninguna guía específica en Azure.com sobre cómo quitar redes virtuales, el proceso para hacerlo es el inverso del proceso para agregarlas, que se ha descrito antes. Consulte los artículos [Creación de una red virtual mediante Azure Portal](../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) y [Creación de una red virtual mediante PowerShell](../../../virtual-network/virtual-networks-create-vnet-arm-ps.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para más información sobre la creación de redes virtuales.
 
 Para asegurarse de que se quita todo, elimine los elementos siguientes:
 

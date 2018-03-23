@@ -1,24 +1,24 @@
 ---
-title: "Preguntas más frecuentes sobre Azure Cost Management | Microsoft Docs"
-description: "En este artículo se ofrecen respuestas a algunas de las preguntas frecuentes sobre Azure Cost Management."
+title: Preguntas más frecuentes sobre Azure Cost Management | Microsoft Docs
+description: En este artículo se ofrecen respuestas a algunas de las preguntas frecuentes sobre Azure Cost Management.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 02/14/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
-ms.custom: 
-ms.openlocfilehash: 0d33f434dccae7836ae7774afbdf9b80d4685eb4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.custom: ''
+ms.openlocfilehash: 8920ff082fa1b442aa147068080085c40760e290
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Preguntas más frecuentes sobre Azure Cost Management
 
-En este artículo se tratan algunas preguntas comunes sobre Azure Cost Management (también conocido como Cloudyn). Si tiene preguntas acerca de Cost Management, puede formularlas en [FAQs for Azure Cost Management by Cloudyn](https://social.msdn.microsoft.com/Forums/en-US/231bf072-2c71-4121-8339-ac9d868137b9/faqs-for-azure-cost-management-by-cloudyn?forum=Cloudyn) (Preguntas más frecuentes sobre Azure Cost Management en Cloudyn).
+En este artículo se tratan algunas preguntas comunes sobre Azure Cost Management (también conocido como Cloudyn). Si tiene preguntas acerca de Cost Management, puede formularlas en [FAQs for Azure Cost Management](https://social.msdn.microsoft.com/Forums/en-US/231bf072-2c71-4121-8339-ac9d868137b9/faqs-for-azure-cost-management-by-cloudyn?forum=Cloudyn) (Preguntas frecuentes sobre Azure Cost Management).
 
 ## <a name="how-can-i-resolve-common-indirect-enterprise-setup-problems"></a>¿Cómo se resuelven los problemas de configuración empresariales indirectos comunes?
 

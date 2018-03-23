@@ -1,8 +1,8 @@
 ---
-title: "Aplicaciones con comodín en Azure Active Directory Application Proxy | Microsoft Docs"
-description: "Aprenda a usar aplicaciones con comodín en el proxy de aplicación de Azure Active Directory."
+title: Aplicaciones con comodín en Azure Active Directory Application Proxy | Microsoft Docs
+description: Aprenda a usar aplicaciones con comodín en el proxy de aplicación de Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: d5450da1-9e06-4d08-8146-011c84922ab5
@@ -15,11 +15,11 @@ ms.date: 02/06/2018
 ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 28e43d48b4fa27202d58ee081a60e2fb5bfe9d99
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: f97b2541bb755a9b7ab8e3602dfad90f50ada740
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Aplicaciones con comodín en Azure Active Directory Application Proxy 
 
@@ -70,7 +70,7 @@ Al usar dominios personalizados, debe crear una entrada DNS con un registro CNAM
 
 > `<yourAADTenantId>.tenant.runtime.msappproxy.net`
 
-Para confirmar que ha configurado CNAME correctamente, puede usar [nslookup](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/nslookup) en uno de los puntos de conexión de destino, por ejemplo, `expenses.adventure-works.com`.  La respuesta debe incluir el alias ya mencionado (`<Id.tenant>.runtime.msappproxy.net`).
+Para confirmar que ha configurado CNAME correctamente, puede usar [nslookup](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/nslookup) en uno de los puntos de conexión de destino, por ejemplo, `expenses.adventure-works.com`.  La respuesta debe incluir el alias ya mencionado (`<yourAADTenantId>.tenant.runtime.msappproxy.net`).
 
 
 ## <a name="considerations"></a>Consideraciones
@@ -208,7 +208,7 @@ Dado que `finance.adventure-works.com` es una dirección URL más específica qu
 Si tiene varias aplicaciones financieras publicadas y `finance.adventure-works.com` como dominio comprobado, puede publicar otra aplicación con comodín `*.finance.adventure-works.com`. Dado que esta es más específico que la dirección `*.adventure-works.com` genérica, tiene prioridad si un usuario accede a una aplicación del dominio financiero.
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para más información acerca de:
 

@@ -1,31 +1,25 @@
 ---
-title: "Introducción a Elastic Database Tools - Azure | Microsoft Docs"
-description: "Explicación básica de la característica Elastic Database Tools de Azure SQL Database, incluida una aplicación de ejemplo fácil de ejecutar."
+title: Introducción a Elastic Database Tools - Azure | Microsoft Docs
+description: Explicación básica de la característica Elastic Database Tools de Azure SQL Database, incluida una aplicación de ejemplo fácil de ejecutar.
 services: sql-database
-documentationcenter: 
-manager: jstrauss
+manager: craigg
 author: anumjs
-editor: CarlRabeler
-ms.assetid: b6911f8d-2bae-4d04-9fa8-f79a3db7129d
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: anjangsh
-ms.openlocfilehash: 615e5b0bf299a844ea2d37476fc704c48e17b363
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 28ff3f6eee2316a078badcf29e6780f3844f3a54
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Introducción a Elastic Database Tools
 Este documento es una introducción a la experiencia del desarrollador con la [biblioteca de cliente de Elastic Database](sql-database-elastic-database-client-library.md) que le ayuda a ejecutar una aplicación de ejemplo. La aplicación de ejemplo crea una aplicación particionada sencilla y explora las funcionalidades clave de la característica Elastic Database Tools de Azure SQL Database. Se centra en casos de uso para la [administración de asignación de particiones](sql-database-elastic-scale-shard-map-management.md), el [enrutamiento dependiente de datos](sql-database-elastic-scale-data-dependent-routing.md) y las [consultas a través de particiones múltiples](sql-database-elastic-scale-multishard-querying.md). La biblioteca de cliente está disponible para. NET, así como para Java. 
 
 ## <a name="elastic-database-tools-for-java"></a>Elastic Database Tools para Java
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>requisitos previos
 * Kit para desarrolladores de Java (JDK) versión 1.8 o posterior
 * [Maven](http://maven.apache.org/download.cgi)
 * Un servidor lógico en Azure o una instancia local de SQL Server
@@ -55,7 +49,7 @@ Siga estos pasos para compilar los archivos JAR y empezar a trabajar con el proy
 
     ![Progress-java][5]
     
-¡Enhorabuena! Ha creado y ejecutado correctamente su primera aplicación con particiones mediante Elastic Database Tools en Azure SQL Database. Use Visual Studio o SQL Server Management Studio para conectar con SQL Database y eche un vistazo rápido a las particiones creadas por el ejemplo. Observará nuevas bases de datos de particiones de ejemplo y una base de datos de administrador de mapas de particiones que ha creado el ejemplo. 
+Felicidades. Ha creado y ejecutado correctamente su primera aplicación con particiones mediante Elastic Database Tools en Azure SQL Database. Use Visual Studio o SQL Server Management Studio para conectar con SQL Database y eche un vistazo rápido a las particiones creadas por el ejemplo. Observará nuevas bases de datos de particiones de ejemplo y una base de datos de administrador de mapas de particiones que ha creado el ejemplo. 
 
 Para agregar la biblioteca de cliente a su propio proyecto de Maven, agregue la siguiente dependencia en el archivo POM:
 
@@ -68,7 +62,7 @@ Para agregar la biblioteca de cliente a su propio proyecto de Maven, agregue la 
 ```
 
 ## <a name="elastic-database-tools-for-net"></a>Elastic Database Tools para .NET 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>requisitos previos
 * Visual Studio 2012 o posterior con C#. Descargue una versión gratuita desde [Descargas de Visual Studio](http://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
 * NuGet 2.7 o posterior. Para obtener la versión más reciente, vea [Installing NuGet (Instalación de NuGet)](http://docs.nuget.org/docs/start-here/installing-nuget).
 
@@ -89,7 +83,7 @@ Para descargar y ejecutar el ejemplo, siga estos pasos:
    
     ![Progreso][4]
 
-¡Enhorabuena! Ha creado y ejecutado correctamente su primera aplicación con particiones mediante Elastic Database Tools en SQL Database. Use Visual Studio o SQL Server Management Studio para conectar con SQL Database y eche un vistazo rápido a las particiones creadas por el ejemplo. Observará nuevas bases de datos de particiones de ejemplo y una base de datos de administrador de mapas de particiones que ha creado el ejemplo.
+Felicidades. Ha creado y ejecutado correctamente su primera aplicación con particiones mediante Elastic Database Tools en SQL Database. Use Visual Studio o SQL Server Management Studio para conectar con SQL Database y eche un vistazo rápido a las particiones creadas por el ejemplo. Observará nuevas bases de datos de particiones de ejemplo y una base de datos de administrador de mapas de particiones que ha creado el ejemplo.
 
 > [!IMPORTANT]
 > Se recomienda usar siempre la versión más reciente de Management Studio para poder estar al día de las actualizaciones de Azure y SQL Database. [Actualice SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).

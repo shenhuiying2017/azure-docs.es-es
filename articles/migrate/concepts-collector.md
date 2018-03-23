@@ -1,17 +1,17 @@
 ---
-title: "Aplicación del recopilador de Azure Migrate | Microsoft Docs"
-description: "Proporciona información general sobre la aplicación del recopilador y cómo configurarlo."
+title: Aplicación del recopilador de Azure Migrate | Microsoft Docs
+description: Proporciona información general sobre la aplicación del recopilador y cómo configurarlo.
 author: ruturaj
 ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: fcf6d2bf13af785eae26ff60035a4754f6ec702e
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 49f3d5ba55a9c1abfcd6dcb50058ed7a001a2eec
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="collector-appliance"></a>Aplicación del recopilador
 
@@ -26,6 +26,20 @@ Azure Migrate Collector es una aplicación ligera que se puede utilizar para det
 La aplicación del recopilador es un OVF que se puede descargar desde el proyecto de Azure Migrate. Crea una instancia de una máquina virtual de VMware con 4 núcleos, 8 GB de RAM y un disco de 80 GB. El sistema operativo de la aplicación es Windows Server 2012 R2 (64 bits).
 
 Puede crear el recopilador siguiendo los pasos descritos aquí: [Creación de la VM de recopilador](tutorial-assessment-vmware.md#create-the-collector-vm).
+
+## <a name="collector-communication-diagram"></a>Diagrama de comunicación de recopilador
+
+![Diagrama de comunicación de recopilador](./media/tutorial-assessment-vmware/portdiagram.PNG)
+
+
+| Componente      | Para comunicarse con   | Puerto requerido                            | Motivo                                   |
+| -------------- | --------------------- | ---------------------------------------- | ---------------------------------------- |
+| Recopilador      | Servicio Azure Migrate | TCP 443                                  | El recopilador debe ser capaz de comunicarse con el servicio a través del puerto SSL 443 |
+| Recopilador      | vCenter Server        | 443 predeterminado                             | El recopilador debe ser capaz de comunicarse con el servidor vCenter. Se conecta a vCenter en el puerto 443, de forma predeterminada. Si vCenter escucha en otro puerto, debe estar disponible como puerto de salida en el recopilador. |
+| Recopilador      | RDP|   | TCP 3389 | Para que pueda ejecutar RDP en la máquina del recopilador |
+
+
+
 
 
 ## <a name="collector-pre-requisites"></a>Requisitos previos del recopilador
@@ -158,6 +172,32 @@ En la tabla siguiente se enumeran los contadores de rendimiento que se recopilan
 El recopilador solo detecta los datos de la máquina y los envía al proyecto. El proyecto puede tardar más tiempo antes de que se muestren los datos detectados en el portal y pueda empezar a crear una valoración.
 
 En función del número de máquinas virtuales en el ámbito seleccionado, se tarda hasta 15 minutos en enviar los metadatos estáticos al proyecto. Una vez que los metadatos estáticos estén disponibles en el portal, podrá ver la lista de máquinas en el portal y comenzar a crear grupos. No se puede crear una valoración hasta que finalice el trabajo de recopilación y el proyecto haya procesado los datos. Una vez completado el trabajo de recopilación en el recopilador, puede tardar hasta una hora para que los datos de rendimiento estén disponibles en el portal, en función del número de máquinas virtuales en el ámbito seleccionado.
+
+## <a name="how-to-upgrade-collector"></a>Procedimiento para actualizar el recopilador
+
+Puede actualizar el recopilador con la versión más reciente sin tener que descargar OVA una vez más.
+
+1. Descargue el [paquete de actualización ](https://aka.ms/migrate/col/latestupgrade) más reciente.
+2. Para asegurarse de que la revisión descargada es segura, abra la ventana de comandos del administrador y ejecute el siguiente comando para generar el valor hash para el archivo ZIP. El código hash generado debe coincidir con el hash que se ha mencionado en la versión específica:
+
+    ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
+    
+    (ejemplo de uso C:\>CertUtil - HashFile C\AzureMigrate\CollectorUpdate_release_1.0.9.5.zip SHA256)
+3. Copie el archivo zip en la máquina virtual del recopilador de Azure Migrate (aplicación del recopilador).
+4. Haga clic con el botón derecho en el archivo ZIP y seleccione Extraer todo.
+5. Haga clic con el botón derecho en Setup.ps1, seleccione Ejecutar con PowerShell y siga las instrucciones en pantalla para instalar la actualización.
+
+### <a name="list-of-updates"></a>Lista de actualizaciones
+
+#### <a name="upgrade-to-version-1095"></a>Actualizar a la versión 1.0.9.5
+
+Para actualizar a la versión 1.0.9.5, descargue el [paquete](https://aka.ms/migrate/col/upgrade_9_5)
+
+**Algoritmo** | **Valor del código hash**
+--- | ---
+MD5 | d969ebf3bdacc3952df0310d8891ffdf
+SHA1 | f96cc428eaa49d597eb77e51721dec600af19d53
+SHA256 | 07c03abaac686faca1e82aef8b80e8ad8eca39067f1f80b4038967be1dc86fa1
 
 ## <a name="next-steps"></a>Pasos siguientes
 

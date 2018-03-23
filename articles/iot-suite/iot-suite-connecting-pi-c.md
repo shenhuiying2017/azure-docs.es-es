@@ -1,25 +1,25 @@
 ---
-title: "Aprovisionamiento de Raspberry Pi para la supervisión remota con C en Azure | Microsoft Docs"
-description: "Se describe cómo conectar un dispositivo Raspberry Pi a la solución de supervisión remota preconfigurada del Conjunto de aplicaciones de IoT de Azure mediante una aplicación creada en C."
+title: Aprovisionamiento de Raspberry Pi para la supervisión remota con C en Azure | Microsoft Docs
+description: Se describe cómo conectar un dispositivo Raspberry Pi a la solución de supervisión remota preconfigurada de Azure IoT Suite mediante una aplicación creada en C.
 services: iot-suite
 suite: iot-suite
 documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: fc50a33f-9fb9-42d7-b1b8-eb5cff19335e
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/03/2018
+ms.date: 03/14/2018
 ms.author: dobett
-ms.openlocfilehash: 7cfa6dd93c6db7477e03ff966b2ac8af15de3614
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.openlocfilehash: e3fb95bc5084bb633541f70a5e68cc8d6af83298
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-preconfigured-solution-c"></a>Conexión del dispositivo Raspberry Pi a la solución preconfigurada de supervisión remota (C)
 
@@ -78,7 +78,7 @@ Los pasos siguientes muestran cómo preparar el dispositivo Raspberry Pi para co
     sudo make install
     ```
 
-## <a name="create-a-project"></a>Creación de un proyecto
+## <a name="create-a-project"></a>Crear un proyecto
 
 Complete los pasos siguientes con la conexión **ssh** al dispositivo Raspberry Pi:
 
@@ -102,7 +102,7 @@ Complete los pasos siguientes con la conexión **ssh** al dispositivo Raspberry 
     #include "schemaserializer.h"
     #include "azure_c_shared_utility/threadapi.h"
     #include "azure_c_shared_utility/platform.h"
-    #include "parson.h"
+    #include <string.h>
     ```
 
 [!INCLUDE [iot-suite-connecting-code](../../includes/iot-suite-connecting-code.md)]

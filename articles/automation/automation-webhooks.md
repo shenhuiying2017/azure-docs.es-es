@@ -1,24 +1,18 @@
 ---
-title: Inicio de un runbook de Azure Automation con un webhook | Microsoft Docs
-description: "Un webhook que permite a un cliente iniciar un runbook en Azure Automation desde una llamada HTTP.  Este artículo describe cómo crear un webhook y cómo llamar a uno para que inicie un runbook."
+title: Inicio de un runbook de Azure Automation con un webhook
+description: Un webhook que permite a un cliente iniciar un runbook en Azure Automation desde una llamada HTTP.  Este artículo describe cómo crear un webhook y cómo llamar a uno para que inicie un runbook.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: tysonn
-ms.assetid: 9b20237c-a593-4299-bbdc-35c47ee9e55d
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 02/22/2017
-ms.author: magoedte;bwren;sngun
-ms.openlocfilehash: 03d1617eb64c48b6a90925ae76e1ab3ce0312ff1
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+manager: carmonm
+ms.openlocfilehash: b3e8e489ef4b79a89facb2395543743c427b0310
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Inicio de un runbook de Azure Automation con un webhook
 Un *webhook* le permite iniciar un runbook determinado en Azure Automation a través de una sola solicitud HTTP. Esto permite a los servicios externos, como Visual Studio Team Services, GitHub, Log Analytics de Microsoft Operations Management Suite o aplicaciones personalizadas, iniciar runbooks sin necesidad de implementar una solución completa mediante la API de Azure Automation.  
@@ -262,7 +256,7 @@ El siguiente runbook de ejemplo se desencadena cuando se activa la regla de aler
 
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Para más información sobre las distintas maneras de iniciar un runbook, vea [Inicio de un runbook](automation-starting-a-runbook.md).
 * Para más información sobre cómo ver el estado de un trabajo de runbook, vea [Ejecución de un runbook en Azure Automation](automation-runbook-execution.md).
 * Para más información sobre cómo utilizar Azure Automation para tomar medidas relativas a las alertas de Azure, vea [Escenario de Azure Automation: corrección de las alertas de la máquina virtual de Azure](automation-azure-vm-alert-integration.md).

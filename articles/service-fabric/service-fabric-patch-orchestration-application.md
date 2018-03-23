@@ -1,24 +1,24 @@
 ---
-title: "Aplicación de orquestación de revisiones de Azure Service Fabric | Microsoft Docs"
-description: "Aplicación para automatizar la aplicación de revisiones de sistema operativo en un clúster de Service Fabric."
+title: Aplicación de orquestación de revisiones de Azure Service Fabric | Microsoft Docs
+description: Aplicación para automatizar la aplicación de revisiones de sistema operativo en un clúster de Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: novino
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: de7dacf5-4038-434a-a265-5d0de80a9b1d
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/16/2018
+ms.date: 3/07/2018
 ms.author: nachandr
-ms.openlocfilehash: bb3afdd3afa81664589f738945a63d20013d5291
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 43a0675b1613e7bcf338537c1203de7df9a02fc4
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Revisión del sistema operativo Windows en el clúster de Service Fabric
 
@@ -136,7 +136,9 @@ Es posible que las actualizaciones automáticas de Windows provoquen la pérdida
 
 ## <a name="download-the-app-package"></a>Descargar el paquete de la aplicación
 
-Descargue la aplicación desde el [enlace de descarga](https://go.microsoft.com/fwlink/P/?linkid=849590).
+Se puede descargar la aplicación junto con los scripts de instalación desde el [vínculo de archivo](https://go.microsoft.com/fwlink/?linkid=869566).
+
+Se puede descargar la aplicación en formato de sfpkg desde el [vínculo sfpkg](https://go.microsoft.com/fwlink/?linkid=869567). Esto resulta útil para [la implementación de aplicaciones basada en Azure Resource Manager](service-fabric-application-arm-resource.md).
 
 ## <a name="configure-the-app"></a>Configuración de la aplicación
 
@@ -147,7 +149,7 @@ El comportamiento de la aplicación de orquestación de revisiones puede configu
 |MaxResultsToCache    |long                              | Número máximo de resultados de Windows Update que deben almacenarse en caché. <br>El valor predeterminado es 3000 suponiendo que: <br> - El número de nodos es 20. <br> - El número de actualizaciones en un nodo al mes es cinco. <br> - El número de resultados por cada operación es 10. <br> - Deben almacenarse los resultados de los últimos tres meses. |
 |TaskApprovalPolicy   |Enum <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy indica la directiva que usará Coordinator Service para instalar las actualizaciones de Windows en todos los nodos del clúster de Service Fabric.<br>                         Los valores permitidos son: <br>                                                           <b>NodeWise</b>. Windows Update se instala en un nodo cada vez. <br>                                                           <b>UpgradeDomainWise</b>. Windows Update se instala en un dominio de actualización cada vez. (Como máximo, todos los nodos que pertenecen a un dominio de actualización son aptos para Windows Update).
 |LogsDiskQuotaInMB   |long  <br> (Valor predeterminado: 1024)               |Tamaño máximo de los registros de la aplicación de orquestación de revisiones en MB que se pueden almacenar de forma persistente y local en un nodo.
-| WUQuery               | cadena<br>(Valor predeterminado: "IsInstalled=0")                | Consulta para obtener las actualizaciones de Windows. Para más información, vea [WuQuery](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx).
+| WUQuery               | string<br>(Valor predeterminado: "IsInstalled=0")                | Consulta para obtener las actualizaciones de Windows. Para más información, vea [WuQuery](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx).
 | InstallWindowsOSOnlyUpdates | boolean <br> (Valor predeterminado: True)                 | Esta marca permite instalar actualizaciones del sistema operativo Windows.            |
 | WUOperationTimeOutInMinutes | int <br>(Valor predeterminado: 90)                   | Especifica el tiempo de espera para cualquier operación de Windows Update (buscar, descargar o instalar). Si la operación no se realiza en el tiempo de espera especificado, se anula.       |
 | WURescheduleCount     | int <br> (Valor predeterminado: 5)                  | El número máximo de veces que el servicio vuelve a programar la actualización de Windows en caso de error de la operación de forma persistente.          |
@@ -361,8 +363,12 @@ Un administrador debe intervenir y determinar por qué la aplicación o el clús
 ### <a name="version-111"></a>Versión 1.1.1
 - Se ha corregido un error en SetupEntryPoint de NodeAgentService que impedía la instalación de NodeAgentNTService.
 
-### <a name="version-120-latest"></a>Versión 1.2.0 (más reciente)
+### <a name="version-120"></a>Versión 1.2.0
 
 - Correcciones de errores en el flujo de trabajo de reinicio del sistema.
 - Corrección de errores en la creación de tareas de RM debido a las cuales la comprobación del estado durante la preparación de las tareas de reparación no ocurría según lo previsto.
 - Cambio en el modo de inicio del servicio de Windows POANodeSvc de automático a automático con retraso.
+
+### <a name="version-121-latest"></a>Versión 1.2.1 (la más reciente)
+
+- Corrija los errores en el flujo de trabajo de reducción vertical de clúster. Introdujo la lógica de recolección de elementos no utilizados para las tareas de reparación POA pertenecientes a nodos inexistentes.

@@ -1,11 +1,11 @@
 ---
-title: "Guía de referencia de los iconos del Diseñador de vistas en Azure Log Analytics | Microsoft Docs"
-description: "Mediante el Diseñador de vistas de Log Analytics, puede crear vistas personalizadas en Azure Portal que muestren diversas visualizaciones de datos en el área de trabajo de Log Analytics. Este artículo es una guía de referencia para la configuración de los iconos que están disponibles en las vistas personalizadas."
+title: Guía de referencia de los iconos del Diseñador de vistas en Azure Log Analytics | Microsoft Docs
+description: Mediante el Diseñador de vistas de Log Analytics, puede crear vistas personalizadas en Azure Portal que muestren diversas visualizaciones de datos en el área de trabajo de Log Analytics. Este artículo es una guía de referencia para la configuración de los iconos que están disponibles en las vistas personalizadas.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
-editor: 
+editor: ''
 ms.assetid: 41787c8f-6c13-4520-b0d3-5d3d84fcf142
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: bwren
-ms.openlocfilehash: a14a6bf196c165bdffa0a9d5d343c0430cff7f29
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f341cb9430c7750909c1fc1f50c15f0620e74366
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-log-analytics"></a>Guía de referencia de los iconos del Diseñador de vistas en Log Analytics
 Mediante el Diseñador de vistas de Azure Log Analytics, puede crear vistas personalizadas en Azure Portal que presenten diversas visualizaciones de datos en el área de trabajo de Log Analytics. Este artículo es una guía de referencia para la configuración de los iconos que están disponibles en las vistas personalizadas.
@@ -28,8 +28,6 @@ Para más información acerca del Diseñador de vistas, consulte:
 * [Diseñador de vistas](log-analytics-view-designer.md): proporciona información general del Diseñador de vistas, y procedimientos para crear y editar vistas personalizadas.
 * [Referencia de los elementos de visualización](log-analytics-view-designer-parts.md): proporciona una guía de referencia de la configuración de los elementos de visualización que están disponibles en las vistas personalizadas.
 
-> [!NOTE]
-> Si el área de trabajo se ha actualizado al [nuevo lenguaje de consulta de Log Analytics](log-analytics-log-search-upgrade.md), las consultas de todas las vistas se deben escribir en el [nuevo lenguaje de consulta](https://go.microsoft.com/fwlink/?linkid=856078). Todas las vistas que se crearon antes de actualizar el área de trabajo se convertirán automáticamente.
 
 En la tabla siguiente se describen los iconos disponibles del Diseñador de vistas:  
 
@@ -178,6 +176,6 @@ El icono de **Dos escalas de tiempo** muestra los resultados de dos consultas de
 | Message |Mensaje que se muestra si la consulta de comprobación del flujo de datos no devuelve datos. Si no proporciona ningún mensaje, se muestra el mensaje de estado *Realizando evaluación*. |
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Obtenga información sobre las [búsquedas de registros](log-analytics-log-searches.md) para poder realizar consultas en iconos.
 * Agregue [elementos de visualización](log-analytics-view-designer-parts.md) a la vista personalizada.

@@ -1,9 +1,9 @@
 ---
-title: "Creación, visualización y administración de alertas en la sección Alertas (versión preliminar) de Azure Monitor | Microsoft Docs"
-description: "Use la nueva experiencia de alertas unificadas de Azure para crear, ver y administrar reglas de alertas de métricas y registros desde un solo lugar."
+title: Creación, visualización y administración de alertas en la sección Alertas (versión preliminar) de Azure Monitor | Microsoft Docs
+description: Use la nueva experiencia de alertas unificadas de Azure para crear, ver y administrar reglas de alertas de métricas y registros desde un solo lugar.
 author: msvijayn
 manager: kmadnani1
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 36729da3-e002-4a64-86b2-2513ca2cbb58
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: vinagara
-ms.openlocfilehash: b537bb42d43c4232c100061322e09bf492f2a20f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: b6b6bfee5b9e9036a6d7ff17ff1a8d4de542bbd3
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="create-view-and-manage-alerts-using-azure-monitor---alerts-preview"></a>Creación, visualización y administración de alertas en la sección Alertas (versión preliminar) de Azure Monitor
 
@@ -65,13 +65,13 @@ A continuación, se ofrecen instrucciones detalladas sobre cómo usar Alertas de
 
     > Alertas unificadas (versión preliminar) también admite las alertas de registro de actividad. [Más información](monitoring-activity-log-alerts-new-experience.md).
 
-5. *Alertas de métrica*: asegúrese de que el campo **Tipo de recurso** sea el servicio de plataforma o de supervisión seleccionado (que no sea *Log Analytics*); una vez elegido el **recurso** apropiado, haga clic en el botón *Listo* para volver a Crear alerta. Después, use el botón **Agregar criterios** para elegir la señal específica de la lista de opciones de señal, su servicio de supervisión y el tipo indicado, que están disponibles para el recurso seleccionado anteriormente.
+5. *Alertas de métrica*: asegúrese de que el campo **Tipo de recurso** está seleccionado con el tipo de señal **Métrica**; una vez elegido el **recurso** apropiado, haga clic en el botón *Listo* para volver a Crear alerta. Después, use el botón **Agregar criterios** para elegir la señal específica de la lista de opciones de señal, su servicio de supervisión y el tipo indicado, que están disponibles para el recurso seleccionado anteriormente.
 
     ![Selección de un recurso](./media/monitor-alerts-unified/AlertsPreviewResourceSelection.png)
 
     > [!NOTE]
 
-    > Las nuevas funcionalidades de métricas presentadas para una creación de alertas rápida solo están incluidas en tipos de señal como métricas del servicio de plataforma.
+    >  Todos los recursos compatibles con las[alertas casi en tiempo real](monitoring-near-real-time-metric-alerts.md) se enumeran con el servicio de monitor **Plataforma** y el tipo de señal **Métrica**
 
 6. *Alertas de métrica*: una vez seleccionada la señal, se puede indicar la lógica para la creación de alertas. Como referencia, se muestran los datos de señal históricos con la opción de retocar la ventana de tiempo con **Mostrar historial**, desde las seis últimas horas hasta la última semana. Con la visualización activada, se puede seleccionar la **Lógica de alerta** de entre las opciones mostradas de Condición, Agregación y, por último, Umbral. Como vista previa de la lógica proporcionada, la condición se muestra en la visualización junto con el historial de señales, a fin de indicar cuándo debería haberse desencadenado la alerta. Por último, en la opción **Periodo** elija el tiempo durante el cual la alerta debe buscar la condición especificada y seleccione la **Frecuencia** con que debe ejecutarse la alerta.
 
@@ -81,7 +81,7 @@ A continuación, se ofrecen instrucciones detalladas sobre cómo usar Alertas de
 
     ![Configuración de la lógica de señal de métricas multidimensionales](./media/monitor-alerts-unified/AlertsPreviewCriteriaMultiDim.png)
 
-8. *Alertas de registro*: asegúrese de que la opción **Tipo de recurso** sea un origen de análisis como *Log Analytics* o *Application Insights*; después, una vez elegido el **recurso** apropiado, haga clic en *Listo*. A continuación, use el botón **Agregar criterios** para ver la lista de opciones de señal disponibles para el recurso y, de la lista de señales, la opción **Búsqueda de registros personalizada** para el servicio de supervisión del registro, como *Log Analytics* o *Application Insights*.
+8. *Alertas de registro*: asegúrese de que la opción **Tipo de recurso** sea un origen de análisis como *Log Analytics* o *Application Insights* y el tipo de señal sea **Registro**; después, una vez elegido el **recurso** apropiado, haga clic en *Listo*. A continuación, use el botón **Agregar criterios** para ver la lista de opciones de señal disponibles para el recurso y, de la lista de señales, la opción **Búsqueda de registros personalizada** para el servicio de supervisión del registro, como *Log Analytics* o *Application Insights*.
 
    ![Selección de un recurso: búsqueda de recursos personalizada](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog.png)
 
@@ -121,8 +121,8 @@ Para las **Alertas de registro**, las alertas pueden basarse en lo siguiente:
 
     Para las **alertas de registro**, se encuentra disponible alguna funcionalidad adicional para reemplazar las acciones predeterminadas:
 
-    - **Notificación por correo electrónico**: reemplaza el asunto del correo electrónico enviado mediante el grupo de acciones. No se puede modificar el cuerpo del mensaje de correo.
-    - **Incluir carga de JSON personalizada**: invalida la carga de JSON del webhook que usan los grupos de acciones y, en su lugar, reemplaza la carga predeterminada por una carga personalizada. Para más información sobre los formatos de webhook, consulte [Acciones de webhook para reglas de alertas de registro](monitor-alerts-unified-log-webhook.md).
+    - **Notificación por correo electrónico**: invalida el *asunto del correo electrónico* en el correo electrónico, enviado a través del grupo de acciones, si existen una o más acciones de correo electrónico en dicho grupo de acciones. No se puede modificar el cuerpo del mensaje de correo y este campo **no** es para la dirección de correo electrónico.
+    - **Incluir carga JSON personalizada**: invalida el webhook JSON usado por los grupos de acciones si una o varias acciones de webhook existen en el grupo de acciones mencionado. El usuario puede especificar el formato JSON que se usará para todos los webhooks configurados en el grupo de acciones asociado; para más información sobre los formatos de webhook, consulte [acción webhook para alertas de registro](monitor-alerts-unified-log-webhook.md). La opción Probar webhook se proporciona para comprobar el formato y el procesamiento por parte del destino mediante código JSON de ejemplo y esta opción, solo con fines de **pruebas**.
 
         ![Invalidaciones de acciones para alertas de registro](./media/monitor-alerts-unified/AlertsPreviewOverrideLog.png)
 
@@ -155,7 +155,7 @@ Para las **Alertas de registro**, las alertas pueden basarse en lo siguiente:
 
 6. Mediante el panel superior, los cambios de la alerta pueden ser reflexivos, como: **Guardar** para confirmar los cambios realizados en la alerta, **Descartar** para retroceder sin confirmar los cambios realizados en la alerta y **Deshabilitar** para desactivar la alerta, pero, después, la alerta ya no se ejecuta más ni desencadena ninguna acción. Por último, **Eliminar** para eliminar permanentemente toda la regla de alertas de Azure.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Más información sobre las nuevas [alertas de métrica casi en tiempo real (versión preliminar)](monitoring-near-real-time-metric-alerts.md).
 - Obtenga [información general sobre la colección de métricas](insights-how-to-customize-monitoring.md) para garantizar que el servicio está disponible y que responder adecuadamente.

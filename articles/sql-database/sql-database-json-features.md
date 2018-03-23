@@ -1,42 +1,36 @@
 ---
-title: "Características de JSON en Azure SQL Database | Microsoft Docs"
-description: "Base de datos SQL de Azure permite analizar datos, consultarlos y darles formato en notación de objetos JavaScript (JSON)."
+title: Características de JSON en Azure SQL Database | Microsoft Docs
+description: Azure SQL Database permite analizar datos, consultarlos y darles formato en notación de objetos JavaScript (JSON).
 services: sql-database
-documentationcenter: 
 author: jovanpop-msft
-manager: jhubbard
-editor: 
-ms.assetid: 55860105-2f5f-4b10-87a0-99faa32b5653
+manager: craigg
 ms.service: sql-database
 ms.custom: develop databases
-ms.devlang: NA
 ms.date: 11/15/2016
 ms.author: jovanpop
-ms.workload: On Demand
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.openlocfilehash: 8877b0bb779501df003ce11d66d9625c2f99e9ce
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 353a1cc99f122c773f0a005a20f04391236ad913
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="getting-started-with-json-features-in-azure-sql-database"></a>Introducción a las características de JSON en Base de datos SQL de Azure
-Base de datos SQL de Azure permite analizar y consultar datos representados en formato de notación de objetos JavaScript [(JSON)](http://www.json.org/) , y exportar los datos relacionales como texto JSON.
+# <a name="getting-started-with-json-features-in-azure-sql-database"></a>Introducción a las características de JSON en Azure SQL Database
+Azure SQL Database permite analizar y consultar datos representados en formato de notación de objetos JavaScript [(JSON)](http://www.json.org/) , y exportar los datos relacionales como texto JSON.
 
 JSON es un formato de datos conocido que se usa para intercambiar datos en aplicaciones web y móviles modernas. JSON también se utiliza para almacenar datos semiestructurados en archivos de registro o en bases de datos NoSQL como [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/). Muchos servicios web REST devuelven resultados con formato de texto JSON o aceptan datos con ese formato. La mayoría de los servicios de Azure, como [Azure Search](https://azure.microsoft.com/services/search/), [Azure Storage](https://azure.microsoft.com/services/storage/) y [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/), tienen puntos de conexión REST que devuelven o consumen JSON.
 
-Base de datos SQL de Azure permite trabajar fácilmente con datos JSON e integrar su base de datos con servicios modernos.
+Azure SQL Database permite trabajar fácilmente con datos JSON e integrar su base de datos con servicios modernos.
 
 ## <a name="overview"></a>Información general
-Base de datos SQL de Azure proporciona las siguientes funciones para trabajar con datos JSON:
+Azure SQL Database proporciona las siguientes funciones para trabajar con datos JSON:
 
 ![Funciones JSON](./media/sql-database-json-features/image_1.png)
 
 Si tiene texto JSON, puede extraer datos de JSON o comprobar que el formato JSON sea correcto con las funciones integradas [JSON_VALUE](https://msdn.microsoft.com/library/dn921898.aspx), [JSON_QUERY](https://msdn.microsoft.com/library/dn921884.aspx) y [ISJSON](https://msdn.microsoft.com/library/dn921896.aspx). La función [JSON_MODIFY](https://msdn.microsoft.com/library/dn921892.aspx) le permite actualizar valores dentro del texto JSON. Para consultas y análisis más avanzados, la función [OPENJSON](https://msdn.microsoft.com/library/dn921885.aspx) puede transformar una matriz de objetos JSON en un conjunto de filas. Se puede ejecutar cualquier consulta SQL en el conjunto de resultados devuelto. Por último, hay una cláusula [FOR JSON](https://msdn.microsoft.com/library/dn921882.aspx) que permite dar formato de texto JSON a los datos almacenados en las tablas relacionales.
 
 ## <a name="formatting-relational-data-in-json-format"></a>Aplicación del formato JSON a datos relacionales
-Si tiene un servicio web que toma datos del nivel de base de datos y proporciona una respuesta en formato JSON o marcos JavaScript del lado cliente o bibliotecas que aceptan datos con formato JSON, puede dar formato JSON al contenido de la base de datos directamente en una consulta SQL. Ya no tiene que escribir código de aplicación para dar formato JSON a los resultados de Base de datos SQL de Azure ni incluir una biblioteca de serialización de JSON para convertir los resultados tabulares de la consulta y después serializar los objetos en formato JSON. En su lugar, puede usar la cláusula FOR JSON para dar formato JSON a resultados de consultas SQL en Base de datos SQL de Azure y usarlos directamente en su aplicación.
+Si tiene un servicio web que toma datos del nivel de base de datos y proporciona una respuesta en formato JSON o marcos JavaScript del lado cliente o bibliotecas que aceptan datos con formato JSON, puede dar formato JSON al contenido de la base de datos directamente en una consulta SQL. Ya no tiene que escribir código de aplicación para dar formato JSON a los resultados de Azure SQL Database ni incluir una biblioteca de serialización de JSON para convertir los resultados tabulares de la consulta y después serializar los objetos en formato JSON. En su lugar, puede usar la cláusula FOR JSON para dar formato JSON a resultados de consultas SQL en Azure SQL Database y usarlos directamente en su aplicación.
 
 En el ejemplo siguiente, se aplica el formato JSON a las filas de la tabla Sales.Customers mediante la cláusula FOR JSON:
 
@@ -112,7 +106,7 @@ En lugar de enviar consultas diferentes para obtener los datos del cliente y des
 ## <a name="working-with-json-data"></a>Trabajo con datos JSON
 Si no tiene datos con una estructura estricta, si tiene subobjetos complejos, matrices o datos jerárquicos, o si sus estructuras de datos evolucionan con el tiempo, el formato JSON puede ayudarlo a representar cualquier estructura de datos compleja.
 
-JSON es un formato de texto que se puede usar como cualquier otro tipo de cadena en Base de datos SQL de Azure. Puede enviar o almacenar datos JSON como un tipo NVARCHAR estándar:
+JSON es un formato de texto que se puede usar como cualquier otro tipo de cadena en Azure SQL Database. Puede enviar o almacenar datos JSON como un tipo NVARCHAR estándar:
 
 ```
 CREATE TABLE Products (
@@ -134,7 +128,7 @@ Los datos JSON usados en este ejemplo se representan mediante el tipo NVARCHAR(M
 EXEC InsertProduct 'Toy car', '{"Price":50,"Color":"White","tags":["toy","children","games"]}'
 ```
 
-Cualquier lenguaje del lado cliente o biblioteca que funcione con datos de cadena en Base de datos SQL de Azure también funciona con datos JSON. JSON se puede almacenar en cualquier tabla que admita el tipo NVARCHAR, como una tabla con optimización para memoria o una tabla con versiones del sistema. JSON no introduce ninguna restricción en el código del lado cliente ni en el nivel de base de datos.
+Cualquier lenguaje del lado cliente o biblioteca que funcione con datos de cadena en Azure SQL Database también funciona con datos JSON. JSON se puede almacenar en cualquier tabla que admita el tipo NVARCHAR, como una tabla optimizado para memoria o una tabla con versiones del sistema. JSON no introduce ninguna restricción en el código del lado cliente ni en el nivel de base de datos.
 
 ## <a name="querying-json-data"></a>Consulta de datos JSON
 Si tiene datos con formato JSON almacenados en tablas SQL de Azure, las funciones JSON permiten usarlos en cualquier consulta SQL.
@@ -157,7 +151,7 @@ La función JSON_QUERY es similar a JSON_VALUE. A diferencia de JSON_VALUE, esta
 
 La función JSON_MODIFY permite especificar la ruta de acceso del valor en el texto JSON que debe actualizarse, así como un nuevo valor que sobrescribirá el anterior. De esta forma, puede actualizar fácilmente el texto JSON sin volver a analizar la estructura completa.
 
-Dado que JSON se almacena en texto estándar, no existe ninguna garantía de que los valores almacenados en las columnas de texto tengan el formato correcto. Puede comprobar que el texto almacenado en la columna JSON tenga un formato correcto con las restricciones CHECK estándar de Base de datos SQL de Azure y la función ISJSON:
+Dado que JSON se almacena en texto estándar, no existe ninguna garantía de que los valores almacenados en las columnas de texto tengan el formato correcto. Puede comprobar que el texto almacenado en la columna JSON tenga un formato correcto con las restricciones CHECK estándar de Azure SQL Database y la función ISJSON:
 
 ```
 ALTER TABLE Products
@@ -168,7 +162,7 @@ ALTER TABLE Products
 Si el texto de entrada tiene un formato JSON correcto, la función ISJSON devuelve el valor 1. Con cada inserción o actualización de la columna JSON, esta restricción comprobará que el nuevo valor de texto no tenga un formato JSON incorrecto.
 
 ## <a name="transforming-json-into-tabular-format"></a>Transformación de JSON en formato tabular
-Base de datos SQL de Azure también permite transformar las colecciones JSON en formato tabular y cargar o consultar datos JSON.
+Azure SQL Database también permite transformar las colecciones JSON en formato tabular y cargar o consultar datos JSON.
 
 OPENJSON es una función de valores de tabla que analiza texto JSON, busca una matriz de objetos JSON, itera en los elementos de la matriz y devuelve en el resultado de salida una fila para cada elemento de la matriz.
 

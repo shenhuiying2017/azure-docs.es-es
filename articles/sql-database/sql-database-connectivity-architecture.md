@@ -2,24 +2,18 @@
 title: Arquitectura de conectividad de Azure SQL Database | Microsoft Docs
 description: En este documento se explica la arquitectura de conectividad de Azure SQLDB, desde dentro o desde fuera de Azure.
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: monicar
-ms.assetid: 
+manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: On Demand
 ms.date: 01/24/2018
 ms.author: carlrab
-ms.openlocfilehash: 81f96c223fb5ad2c37bd0679743f14980a5885b0
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 98784b2d1ede5354c965e483b34b5fcb323394aa
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Arquitectura de conectividad de Azure SQL Database 
 
@@ -185,7 +179,7 @@ az resource update --ids $id --set properties.connectionType=Proxy
 
 </pre>
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Para obtener información sobre cómo cambiar la directiva de conexión de Azure SQL Database de un servidor de Azure SQL Database, vea [Creación o actualización de la directiva de conexión de un servidor mediante la API de REST](https://msdn.microsoft.com/library/azure/mt604439.aspx).
 - Para obtener información sobre el comportamiento de conexión de Azure SQL Database para clientes que usan ADO.NET 4.5 o una versión posterior, vea [Puertos más allá de 1433 para ADO.NET 4.5](sql-database-develop-direct-route-ports-adonet-v12.md).

@@ -1,24 +1,24 @@
 ---
-title: "Información sobre los controles de seguridad de Azure Stack | Microsoft Docs"
+title: Información sobre los controles de seguridad de Azure Stack | Microsoft Docs
 description: Como administrador de servicios, conozca los controles de seguridad aplicados a Azure Stack
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: cccac19a-e1bf-4e36-8ac8-2228e8487646
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/06/2018
 ms.author: mabrigg
-ms.openlocfilehash: fa0800f03d823769dcd9f01601689122b0d09ec5
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: c1d92f8f2ed9e8ab504afc65bab861e1f7bb3689
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Posición de seguridad de la infraestructura de Azure Stack
 
@@ -31,8 +31,12 @@ En Azure Stack, hay dos capas de posición de seguridad que coexisten. La primer
 ## <a name="security-approach"></a>Enfoque de seguridad
 Azure Stack se diseñó con una posición de seguridad para defenderse contra las modernas amenazas, y se creó para satisfacer los requisitos de los principales estándares de cumplimiento. Como resultado, la posición de seguridad de Azure Stack se cimienta sobre dos pilares:
 
- - **Supuesto de infracción.** A partir de la suposición de que el sistema ya se ha infringido, céntrese en *detectar y limitar el impacto de las infracciones*, en lugar de intentar únicamente impedir los ataques. 
- - **Protección predeterminada.**  Dado que la infraestructura se ejecuta en hardware y software bien definidos, *habilite, configure y valide características de seguridad* que se deja que implementen los clientes.
+ - **Supuesto de infracción.**  
+A partir de la suposición de que el sistema ya se ha infringido, céntrese en *detectar y limitar el impacto de las infracciones*, en lugar de intentar únicamente impedir los ataques. 
+ - **Protección predeterminada.**  
+Dado que la infraestructura se ejecuta en hardware y software bien definidos, *habilitamos, configuramos y validamos todas las características de seguridad* de forma predeterminada.
+
+
 
 Como Azure Stack se proporciona como un sistema integrado, la posición de seguridad de la infraestructura de Azure Stack la define Microsoft. Al igual que en Azure, los inquilinos son responsables de definir la posición de seguridad de sus cargas de trabajo de inquilino. En este documento se proporciona conocimiento básico sobre la posición de seguridad de la infraestructura de Azure Stack.
 

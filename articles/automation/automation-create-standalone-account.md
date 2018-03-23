@@ -1,24 +1,20 @@
 ---
-title: "Creación de una cuenta independiente de Azure Automation | Microsoft Docs"
-description: "En este artículo se le guía en la creación, la prueba y el uso de la autenticación de la entidad de seguridad en Azure Automation."
+title: Creación de una cuenta independiente de Azure Automation
+description: En este artículo se le guía en la creación, la prueba y el uso de la autenticación de la entidad de seguridad en Azure Automation.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: 
-ms.assetid: 2f783441-15c7-4ea0-ba27-d7daa39b1dd3
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/15/2018
 ms.topic: article
-ms.date: 08/18/2017
-ms.author: magoedte
-ms.openlocfilehash: 4a6946f34babfd63a2b9a12818761c6d6c74bc15
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+manager: carmonm
+ms.devlang: na
+ms.tgt_pltfrm: na
+ms.openlocfilehash: 5ea3d1af6f8bb4a6c0ef45560d8707afc58f61b1
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Creación de una cuenta independiente de Azure Automation
 En este artículo se muestra cómo crear una cuenta de Azure Automation en el portal de Azure. Puede usar la cuenta de Automation del portal para evaluar y obtener información acerca de Automation sin usar soluciones de administración o integración adicionales con Azure Log Analytics en Operations Management Suite (OMS). Puede agregar estas soluciones de administración o realizar la integración con Log Analytics para disfrutar de una supervisión avanzada de los trabajos de runbook en cualquier momento en el futuro. 
@@ -101,7 +97,7 @@ La siguiente tabla resume los recursos de la cuenta de ejecución de Azure clás
 | AzureClassicRunAsConnection |Se crea automáticamente un activo de conexión. El activo realiza la autenticación en Azure, de modo que puede administrar los recursos clásicos de Azure desde los runbooks. |
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Para obtener más información acerca de la creación de gráficos, consulte [Creación gráfica en Azure Automation](automation-graphical-authoring-intro.md).
 * Para empezar a trabajar con runbooks de PowerShell, consulte [Mi primer runbook de PowerShell](automation-first-runbook-textual-powershell.md).
 * Para empezar a trabajar con Runbooks de flujo de trabajo de PowerShell, consulte [Mi primer Runbook de flujo de trabajo de PowerShell](automation-first-runbook-textual.md).

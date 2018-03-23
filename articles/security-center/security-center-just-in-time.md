@@ -1,31 +1,31 @@
 ---
-title: "Acceso a máquina virtual Just-In-Time en Azure Security Center | Microsoft Docs"
-description: "En este documento se explica cómo el acceso a VM Just-In-Time en Azure Security Center ayuda a controlar el acceso a máquinas virtuales de Azure."
+title: Acceso a máquina virtual Just-In-Time en Azure Security Center | Microsoft Docs
+description: En este documento se explica cómo el acceso a VM Just-In-Time en Azure Security Center ayuda a controlar el acceso a máquinas virtuales de Azure.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/26/2018
+ms.date: 03/06/2018
 ms.author: terrylan
-ms.openlocfilehash: a15857f0df5c967031aed00d89e71b3199eed0c4
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: f1ea31d1081bc263cf85cf4dcc3d73d4cc0b842d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="manage-virtual-machine-access-using-just-in-time-preview"></a>Administración del acceso a máquina virtual mediante Just-In-Time (versión preliminar)
+# <a name="manage-virtual-machine-access-using-just-in-time"></a>Administrar el acceso a máquina virtual mediante Just-In-Time
 
 El acceso a máquina virtual Just-In-Time se puede usar para bloquear el tráfico entrante a las máquinas virtuales de Azure. Para ello, se reduce la exposición a ataques al mismo tiempo que se proporciona un acceso sencillo para conectarse a las máquinas virtuales cuando sea necesario.
 
 > [!NOTE]
-> La característica Just-In-Time se encuentra en versión preliminar y está disponible en el nivel estándar de Security Center.  Para obtener más información sobre los planes de tarifa de Security Center, vea [Precios](security-center-pricing.md).
+> La característica Just-In-Time está disponible en el nivel estándar de Security Center.  Para obtener más información sobre los planes de tarifa de Security Center, vea [Precios](security-center-pricing.md).
 >
 >
 
@@ -172,7 +172,7 @@ Consulte la documentación del cmdlet para obtener más información.
 Para obtener acceso a una máquina virtual específica que está protegida con la solución Just-In-Time, debe ejecutar este comando en la sesión de PowerShell: Invoke-ASCJITAccess.
 Consulte la documentación del cmdlet para obtener más información.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este artículo, ha aprendido cómo el acceso a máquina virtual Just-In-Time en Security Center ayuda a controlar el acceso a máquinas virtuales de Azure.
 
 Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
@@ -183,7 +183,7 @@ Para más información sobre el Centro de seguridad, consulte los siguientes rec
 - [Administración y respuesta a las alertas de seguridad](security-center-managing-and-responding-alerts.md): obtenga información sobre cómo administrar y responder a alertas de seguridad.
 - [Supervisión de las soluciones de asociados](security-center-partner-solutions.md): aprenda a supervisar el estado de mantenimiento de las soluciones de asociados.
 - [Preguntas más frecuentes sobre Security Center](security-center-faq.md): encuentre las preguntas más frecuentes sobre el uso del servicio.
-- [Blog de seguridad de Azure](https://blogs.msdn.microsoft.com/azuresecurity/) : encuentre entradas de blog sobre el cumplimiento y la seguridad de Azure.
+- [Blog de seguridad de Azure](https://blogs.msdn.microsoft.com/azuresecurity/) :  encuentre entradas de blog sobre el cumplimiento y la seguridad en Azure.
 
 
 <!--Image references-->

@@ -1,11 +1,11 @@
 ---
-title: "Unidades de solicitud y estimación de rendimiento: Azure Cosmos DB | Microsoft Docs"
-description: "Obtenga información sobre cómo entender, especificar y estimar los requisitos de la unidad de solicitud en Azure Cosmos DB."
+title: 'Unidades de solicitud y estimación de rendimiento: Azure Cosmos DB | Microsoft Docs'
+description: Obtenga información sobre cómo entender, especificar y estimar los requisitos de la unidad de solicitud en Azure Cosmos DB.
 services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: mimig
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: d0a3c310-eb63-4e45-8122-b7724095c32f
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: mimig
-ms.openlocfilehash: d263c4f5ad14f6692a7c8f6e66429b439a52a84a
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 3679aa76d4a6b9fd6335371e1639f1f246867fa5
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unidades de solicitud en Azure Cosmos DB
 Ya disponible: la [calculadora de unidades de solicitud](https://www.documentdb.com/capacityplanner) de Azure Cosmos DB. Obtenga más información en [Estimación de las necesidades de rendimiento](request-units.md#estimating-throughput-needs).
@@ -35,9 +35,9 @@ Para proporcionar un rendimiento predecible, debe reservar el rendimiento en uni
 Después de leer este artículo, podrá responder a las preguntas siguientes:  
 
 * ¿Qué son las unidades de solicitud y los cargos de solicitud?
-* ¿Cómo se puede especificar la capacidad de unidad de solicitud para una colección?
+* ¿Cómo se puede especificar la capacidad de unidad de solicitud para un contenedor?
 * ¿Cómo puedo estimar mis necesidades de unidad de solicitud de la aplicación?
-* ¿Qué ocurre si supero la capacidad de la unidad de solicitud para una colección?
+* ¿Qué ocurre si supero la capacidad de la unidad de solicitud para un contenedor?
 
 Debido a que Azure Cosmos DB es un servicio de base de datos con varios modelos, resulta importante tener en cuenta que, en este artículo, se hace referencia a una colección/documento para una API de documento, a un grafo/nodo para una API de grafo y a una tabla/entidad para una API de tabla. En este artículo se hace referencia al concepto de una colección, un grafo o una tabla como un contenedor, y a un documento, un nodo y una entidad como un elemento.
 
@@ -53,14 +53,14 @@ Se recomienda ver una introducción en el vídeo siguiente, donde Aravind Ramach
 > 
 
 ## <a name="specifying-request-unit-capacity-in-azure-cosmos-db"></a>Especificación de la capacidad de unidad de solicitud en Azure Cosmos DB
-Cuando comienza una nueva colección, tabla o grafo, especifica el número de unidades de solicitud por segundo (RU por segundo) que desea reservar. Según el rendimiento aprovisionado, Azure Cosmos DB asigna las particiones físicas para hospedar la colección y divide y reequilibra los datos entre las particiones a medida que va creciendo.
+Al iniciar un nuevo contenedor, especifique el número de unidades de solicitud por segundo (RU por segundo) que desea reservar. Según el rendimiento aprovisionado, Azure Cosmos DB asigna las particiones físicas para hospedar el contenedor y divide y reequilibra los datos entre las particiones a medida que va creciendo.
 
-Los contenedores de Azure Cosmos DB se pueden crear como fijos o ilimitados. Los contenedores de tamaño fijo tienen un límite máximo de 10 GB y un rendimiento de 10 000 RU/s. Para crear un contenedor ilimitado, debe especificar un rendimiento mínimo de mil RU/s y una [clave de partición](partition-data.md). Como es posible que se tengan que dividir los datos entre varias particiones, es necesario elegir una clave de partición que tenga una cardinalidad alta (de cientos a millones de valores distintos). Al seleccionar una clave de partición con muchos valores distintos, se asegura de que Azure Cosmos DB pueda escalar la colección, la tabla, el grafo y las solicitudes de manera uniforme. 
+Los contenedores de Azure Cosmos DB se pueden crear como fijos o ilimitados. Los contenedores de tamaño fijo tienen un límite máximo de 10 GB y un rendimiento de 10 000 RU/s. Para crear un contenedor ilimitado, debe especificar un rendimiento mínimo de mil RU/s y una [clave de partición](partition-data.md). Como es posible que se tengan que dividir los datos entre varias particiones, es necesario elegir una clave de partición que tenga una cardinalidad alta (de cientos a millones de valores distintos). Al seleccionar una clave de partición con muchos valores distintos, se asegura de que Azure Cosmos DB pueda escalar el contenedor, la tabla, el grafo y las solicitudes de manera uniforme. 
 
 > [!NOTE]
 > Una clave de partición es un límite lógico, no uno físico. Por lo tanto, no es necesario limitar el número de los valores de clave de partición distintos. De hecho, es mejor tener más valores distintos de clave de partición que tener menos, ya que Azure Cosmos DB dispondrá de más opciones de equilibrio de carga.
 
-Este es un fragmento de código para crear una colección con 3000 unidades de solicitud por segundo con el SDK de .NET:
+Este es un fragmento de código para crear un contenedor con 3000 unidades de solicitud por segundo con el SDK de .NET:
 
 ```csharp
 DocumentCollection myCollection = new DocumentCollection();
@@ -75,7 +75,7 @@ await client.CreateDocumentCollectionAsync(
 
 Azure Cosmos DB funciona con un modelo de reserva del rendimiento. Es decir, se le cobrará por la cantidad de rendimiento *reservada*, independientemente de la que *use* activamente. A medida que los patrones de uso, datos y carga de la aplicación cambian, puede escalar y reducir verticalmente de forma sencilla la cantidad de unidades de solicitud reservadas mediante los SDK o con [Azure Portal](https://portal.azure.com).
 
-Cada colección/tabla/grafo está asignada a un recurso `Offer` de Azure Cosmos DB que contiene metadatos sobre el rendimiento aprovisionado. Puede cambiar el rendimiento asignado buscando el recurso de oferta correspondiente para un contenedor y, a continuación, actualizándolo con el nuevo valor de rendimiento. A continuación se muestra un fragmento de código para cambiar el rendimiento de la colección a 5000 unidades de solicitud por segundo mediante el SDK de .NET:
+Cada contenedor está asignado a un recurso `Offer` de Azure Cosmos DB que contiene metadatos sobre el rendimiento aprovisionado. Puede cambiar el rendimiento asignado buscando el recurso de oferta correspondiente para un contenedor y, a continuación, actualizándolo con el nuevo valor de rendimiento. A continuación se muestra un fragmento de código para cambiar el rendimiento del contenedor a 5000 unidades de solicitud por segundo mediante el SDK de .NET:
 
 ```csharp
 // Fetch the resource to be updated
@@ -334,10 +334,10 @@ Con esta información, puede hacer una estimación de los requisitos de RU para 
 | Selección por grupo de alimentos |10 |700 |
 | Selección de los 10 principales |15 |150 en total |
 
-En este caso, se espera un requisito de rendimiento medio de 1,275 RU/s.  Redondeando hasta los 100 más cercanos, se pueden proporciona 1300 RU/s para esta colección de la aplicación.
+En este caso, se espera un requisito de rendimiento medio de 1,275 RU/s.  Redondeando hasta los 100 más cercanos, se pueden proporcionar 1300 RU/s para este contenedor de la aplicación.
 
 ## <a id="RequestRateTooLarge"></a> Superación de los límites de rendimiento reservados en Azure Cosmos DB
-Recuerde que el consumo de la unidad de solicitud se evalúa como frecuencia por segundo si el presupuesto está vacío. Para las aplicaciones que superan la frecuencia de unidad de solicitud aprovisionada para un contenedor, las solicitudes a esa colección se limitarán hasta que la frecuencia caiga por debajo del nivel reservado. Cuando se produce una limitación, el servidor finaliza de forma preventiva la solicitud con RequestRateTooLargeException (código de estado HTTP 429) y devuelve el encabezado x-ms-retry-after-ms que indica la cantidad de tiempo, en milisegundos, que el usuario debe esperar antes de volver a intentar realizar la solicitud.
+Recuerde que el consumo de la unidad de solicitud se evalúa como frecuencia por segundo si el presupuesto está vacío. Para las aplicaciones que superan la frecuencia de unidad de solicitud aprovisionada para un contenedor, las solicitudes a ese contenedor se limitarán hasta que la frecuencia caiga por debajo del nivel reservado. Cuando se produce una limitación, el servidor finaliza de forma preventiva la solicitud con RequestRateTooLargeException (código de estado HTTP 429) y devuelve el encabezado x-ms-retry-after-ms que indica la cantidad de tiempo, en milisegundos, que el usuario debe esperar antes de volver a intentar realizar la solicitud.
 
     HTTP Status 429
     Status Line: RequestRateTooLarge
@@ -348,7 +348,7 @@ Si utiliza las consultas de LINQ y de SDK de cliente para .NET, no tendrá que t
 Si tiene más de un cliente de manera acumulativa funcionando por encima de la tasa de solicitud, el comportamiento de reintento predeterminado puede no ser suficiente y el cliente producirá una DocumentClientException con el código de estado 429 en la aplicación. En casos como este, puede controlar el comportamiento de reintento y la lógica en el error de la aplicación administrando rutinas o mejorando el rendimiento reservado para el contenedor.
 
 ## <a id="RequestRateTooLargeAPIforMongoDB"></a> Superación de los límites de rendimiento reservados en la API de MongoDB
-Las aplicaciones que superan la frecuencia de unidad de solicitud aprovisionada para una colección se limitarán hasta que la frecuencia caiga por debajo del nivel reservado. Cuando se produce una limitación, el back-end finalizará la solicitud de forma preferente con un código de error*16500*: *Demasiadas solicitudes*. De forma predeterminada, la API de MongoDB volverá a intentarlo automáticamente hasta 10 veces antes de devolver un código de error *Demasiadas solicitudes*. Si recibe numerosos códigos de error *Demasiadas solicitudes*, puede plantearse agregar un comportamiento de reintento en las rutinas de control de error de la aplicación o [mejorar el rendimiento reservado de la colección](set-throughput.md).
+Las aplicaciones que superan la frecuencia de unidad de solicitud aprovisionada para un contenedor se limitarán hasta que la frecuencia caiga por debajo del nivel reservado. Cuando se produce una limitación, el back-end finalizará la solicitud de forma preferente con un código de error*16500*: *Demasiadas solicitudes*. De forma predeterminada, la API de MongoDB volverá a intentarlo automáticamente hasta 10 veces antes de devolver un código de error *Demasiadas solicitudes*. Si recibe numerosos códigos de error *Demasiadas solicitudes*, puede plantearse agregar un comportamiento de reintento en las rutinas de control de error de la aplicación o [mejorar el rendimiento reservado del contenedor](set-throughput.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre el rendimiento con bases de datos de Azure Cosmos DB, explore estos recursos:

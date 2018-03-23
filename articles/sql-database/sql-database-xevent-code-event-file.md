@@ -1,44 +1,37 @@
 ---
-title: "Código de archivo de evento de XEvent para SQL Database | Microsoft Docs"
-description: "Brinda PowerShell y Transact-SQL para un ejemplo de código de dos fases que muestra el destino de archivo de evento en un evento extendido en Base de datos SQL de Azure. Almacenamiento de Azure es una parte necesaria en este escenario."
+title: Código de archivo de evento de XEvent para SQL Database | Microsoft Docs
+description: Brinda PowerShell y Transact-SQL para un ejemplo de código de dos fases que muestra el destino de archivo de evento en un evento extendido en Azure SQL Database. Azure Storage es una parte necesaria en este escenario.
 services: sql-database
-documentationcenter: 
 author: MightyPen
-manager: jhubbard
-editor: 
-tags: 
-ms.assetid: bbb10ecc-739f-4159-b844-12b4be161231
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2017
 ms.author: genemi
-ms.openlocfilehash: abf660e3fafd1a5020cdf9a6beb5b73252b72cfc
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 630e0ca84479757d3bb4397aa63ee8a440e69427
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="event-file-target-code-for-extended-events-in-sql-database"></a>Código de destino del archivo de evento para eventos extendidos en Base de datos SQL
+# <a name="event-file-target-code-for-extended-events-in-sql-database"></a>Código de destino del archivo de evento para eventos extendidos en SQL Database
 
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
 
 Desea tener un ejemplo de código completo de una manera eficaz para capturar y notificar información de un evento extendido.
 
-En Microsoft SQL Server, el [destino de archivo de evento](http://msdn.microsoft.com/library/ff878115.aspx) se usa para almacenar las salidas de evento en un archivo del disco duro local. Sin embargo, esos archivos no están disponibles para Base de datos SQL de Azure. En su lugar, usamos el servicio de Almacenamiento de Azure para admitir el destino de archivo de evento.
+En Microsoft SQL Server, el [destino de archivo de evento](http://msdn.microsoft.com/library/ff878115.aspx) se usa para almacenar las salidas de evento en un archivo del disco duro local. Sin embargo, esos archivos no están disponibles para Azure SQL Database. En su lugar, usamos el servicio Azure Storage para admitir el destino de archivo de evento.
 
 En este tema se presenta un ejemplo de código de dos fases:
 
-* PowerShell, para crear un contenedor de Almacenamiento de Azure en la nube.
+* PowerShell, para crear un contenedor de Azure Storage en la nube.
 * Transact-SQL:
   
-  * Para asignar el contenedor de Almacenamiento de Azure a un destino de archivo de evento.
+  * Para asignar el contenedor de Azure Storage a un destino de archivo de evento.
   * Para crear e iniciar la sesión del evento, etc.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 * Una cuenta y una suscripción de Azure. Puede registrarse para obtener una [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Cualquier base de datos donde pueda crear una tabla.
@@ -53,7 +46,7 @@ En este tema se presenta un ejemplo de código de dos fases:
   
   * Los módulos brindan comandos como - **New-AzureStorageAccount**.
 
-## <a name="phase-1-powershell-code-for-azure-storage-container"></a>Fase 1: código de PowerShell para el contenedor de Almacenamiento de Azure
+## <a name="phase-1-powershell-code-for-azure-storage-container"></a>Fase 1: código de PowerShell para el contenedor de Azure Storage
 
 Esta es la fase 1 del ejemplo de código de dos fases.
 
@@ -233,9 +226,9 @@ Now shift to the Transact-SQL portion of the two-part code sample!';
 
 Anote los valores con nombre que el script de PowerShell imprime cuando finaliza. Debe editar esos valores en el script de Transact-SQL que sigue en la fase 2.
 
-## <a name="phase-2-transact-sql-code-that-uses-azure-storage-container"></a>Fase 2: código de Transact-SQL que usa el contenedor de Almacenamiento de Azure
+## <a name="phase-2-transact-sql-code-that-uses-azure-storage-container"></a>Fase 2: código de Transact-SQL que usa el contenedor de Azure Storage
 
-* En la fase 1 de este ejemplo de código, ejecutó un script de PowerShell para crear un contenedor de Almacenamiento de Azure.
+* En la fase 1 de este ejemplo de código, ejecutó un script de PowerShell para crear un contenedor de Azure Storage.
 * A continuación, en la fase 2, el siguiente script de Transact-SQL debe usar el contenedor.
 
 El script comienza con comandos que realizan una limpieza después de una posible ejecución anterior y se puede volver a ejecutar.
@@ -243,7 +236,7 @@ El script comienza con comandos que realizan una limpieza después de una posibl
 El script de PowerShell imprimió algunos valores con nombre cuando finalizó. Debe editar el script de Transact-SQL para que use esos valores. Busque **TODO** en el script de Transact-SQL para ubicar los puntos de edición.
 
 1. Abra SQL Server Management Studio (ssms.exe).
-2. Conéctese a la base de datos de Base de datos SQL de Azure.
+2. Conéctese a la base de datos de Azure SQL Database.
 3. Haga clic para abrir un nuevo panel de consulta.
 4. Pegue el siguiente script de Transact-SQL en el panel de consulta.
 5. Busque cada **TODO** en el script y haga las ediciones correspondientes.
@@ -524,11 +517,11 @@ Suponga que desea ejecutar el ejemplo de Transact-SQL anterior en Microsoft SQL 
 * No necesitaría ningún tipo de instrucción Transact-SQL para **CREATE MASTER KEY** y **CREATE CREDENTIAL**.
 * En la instrucción **CREATE EVENT SESSION**, en su cláusula **ADD TARGET**, reemplazaría el valor Http asignado en **filename=** por una cadena de ruta de acceso completa como **C:\myfile.xel**.
   
-  * No es necesario utilizar ninguna cuenta de Almacenamiento de Azure.
+  * No es necesario utilizar ninguna cuenta de Azure Storage.
 
 ## <a name="more-information"></a>Más información
 
-Si desea obtener más información sobre las cuentas y los contenedores del servicio de Almacenamiento de Azure, consulte:
+Si desea obtener más información sobre las cuentas y los contenedores del servicio Azure Storage, consulte:
 
 * [Uso del almacenamiento de blobs de .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
 * [Asignar nombres y hacer referencia a contenedores, blobs y metadatos](http://msdn.microsoft.com/library/azure/dd135715.aspx)

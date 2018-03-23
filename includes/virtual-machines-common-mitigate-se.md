@@ -1,17 +1,23 @@
 
 
 
-**Última actualización del documento**: 22 de enero a las 15:00 h PST.
+**Última actualización del documento**: 6 de marzo a las 10:00 h PST.
 
 La reciente divulgación de una [nueva clase de vulnerabilidades de CPU](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002), conocidas como ataques de canal lateral de ejecución especulativa, han generado preguntas de los clientes que buscan mayor claridad.  
 
 La infraestructura que ejecuta Azure y aísla las cargas de trabajo de los clientes entre sí está protegida.  Esto significa que otros clientes que utilizan Azure no pueden atacar su aplicación mediante estas vulnerabilidades.
 
 > [!NOTE] 
-> Las [instrucciones actualizadas](https://newsroom.intel.com/news/root-cause-of-reboot-issue-identified-updated-guidance-for-customers-and-partners/) de Intel no afectan a las mitigaciones de Azure que se anunciaron el 3 de enero de 2018. No habrá ninguna actividad de mantenimiento adicional en las máquinas virtuales del cliente como resultado de esta nueva información.
+> A finales de febrero de 2018, Intel Corporation publicó la [Microvision Revision Guidance](https://newsroom.intel.com/wp-content/uploads/sites/11/2018/03/microcode-update-guidance.pdf) actualizada sobre el estado de sus versiones de microcódigo, que mejoran la estabilidad y mitigan las vulnerabilidades recientes reveladas por [ Google Project Zero](https://googleprojectzero.blogspot.com/2018/01/reading-privileged-memory-with-side.html). La actualización de microcódigo de Intel no afecta a las mitigaciones que Azure aplicó el [3 de enero de 2018](https://azure.microsoft.com/en-us/blog/securing-azure-customers-from-cpu-vulnerability/). Microsoft ya aplicó mitigaciones seguras para proteger a los clientes de Azure contra otros inquilinos de Azure.  
 >
-> A medida que vayamos recibiendo las actualizaciones de microcódigo de los proveedores de hardware iremos actualizando estos procedimientos recomendados. Compruebe esta información si quiere obtener la guía actualizada.
+> El microcódigo de Intel trata la variante 2 de Spectre ([CVE-2017-5715](https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2017-5715)) para protegerse contra ataques que solo serían aplicables donde se ejecutaron cargas de trabajo compartidas o de confianza dentro de las VM en Azure. Nuestros ingenieros están probando la estabilidad para minimizar el impacto en el rendimiento del microcódigo, antes de ponerlo a disposición de los clientes de Azure.  Dado que muy pocos clientes ejecutan cargas de trabajo que no son de confianza dentro de sus VM, la mayoría de los clientes no necesitarán habilitar esta funcionalidad una vez publicada. 
 >
+> Esta página se actualizará tan pronto como haya más información disponible.  
+
+
+
+
+
 
 ## <a name="keeping-your-operating-systems-up-to-date"></a>Mantener actualizados los sistemas operativos
 
@@ -43,7 +49,7 @@ A menos que se esté ejecutando código que no es de confianza, no es necesario 
 
 
 ### <a name="windows"></a>Windows 
-Si está usando Windows y hospeda código que no es de confianza, también debe habilitar una característica de Windows llamada ocultación de la dirección virtual del kernel (KVA), que proporciona protección adicional contra las vulnerabilidades frente a ataques de canal lateral de ejecución especulativa. Esta característica está desactivada de forma predeterminada y puede afectar al rendimiento si se habilita. Siga las instrucciones del artículo [KB4072698 de Windows Server](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) para habilitar la protección en el servidor. Si ejecuta Azure Cloud Services, compruebe que está ejecutando WA-GUEST-OS-5.15_201801-01 o WA-GUEST-OS-4.50_201801-01 (disponible a partir del 10 de enero) y habilite la clave de Registro mediante una tarea de inicio.
+Si está usando Windows y hospeda código que no es de confianza, también debe habilitar una característica de Windows llamada ocultación de la dirección virtual del kernel (KVA), que proporciona protección adicional contra las vulnerabilidades frente a ataques de canal lateral de ejecución especulativa. Esta característica está desactivada de forma predeterminada y puede afectar al rendimiento si se habilita. Siga las instrucciones del artículo [KB4072698 de Windows Server](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) para habilitar la protección en el servidor. Si ejecuta Azure Cloud Services, compruebe que está ejecutando WA-GUEST-OS-5.15_201801-01 o WA-GUEST-OS-4.50_201801-01 (disponible a partir del 10 de enero de 2018) y habilite la clave del Registro mediante una tarea de inicio.
 
 
 ### <a name="linux"></a>Linux
@@ -51,6 +57,6 @@ Si está usando Linux y hospeda código que no es de confianza, también debe ac
 
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para más información, consulte [Securing Azure customers from CPU vulnerability](https://azure.microsoft.com/blog/securing-azure-customers-from-cpu-vulnerability/) (Proteger a los clientes de Azure de las vulnerabilidades de CPU).

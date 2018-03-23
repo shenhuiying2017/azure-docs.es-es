@@ -1,25 +1,25 @@
 ---
-title: "Aprovisionamiento de dispositivos Windows para la supervisión remota con C - Azure | Microsoft Docs"
-description: "Se describe cómo conectar un dispositivo a la solución de supervisión remota preconfigurada del Conjunto de IoT de Azure mediante una aplicación creada en C que se ejecuta en Windows."
-services: 
+title: Aprovisionamiento de dispositivos Windows para la supervisión remota con C - Azure | Microsoft Docs
+description: Se describe cómo conectar un dispositivo a la solución de supervisión remota preconfigurada de Azure IoT Suite mediante una aplicación creada en C que se ejecuta en Windows.
+services: ''
 suite: iot-suite
 documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 34e39a58-2434-482c-b3fa-29438a0c05e8
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 03/14/2018
 ms.author: dobett
-ms.openlocfilehash: a6453c8d84b7025f1f510db5e675cde8685c23ed
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 83d0427a3ba8c634699608c38ab22efb1f275e52
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-windows"></a>Conectar el dispositivo a la solución preconfigurada de supervisión remota (Windows)
 
@@ -95,7 +95,7 @@ Agregue la biblioteca JSON de Parson al proyecto **RMDevice** y agregue las inst
     #include "schemaserializer.h"
     #include "azure_c_shared_utility/threadapi.h"
     #include "azure_c_shared_utility/platform.h"
-    #include "parson.h"
+    #include <string.h>
     ```
 
     > [!NOTE]
@@ -117,7 +117,7 @@ Agregue código para invocar la función **remote\_monitoring\_run** y luego com
     }
     ```
 
-1. Elija **Compilar** y, después, **Compilar solución** para compilar la aplicación del dispositivo. Pase por alto la advertencia sobre la función **gmtime**.
+1. Elija **Compilar** y, después, **Compilar solución** para compilar la aplicación del dispositivo.
 
 1. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto **RMDevice**, elija **Depurar** y, después, elija **Iniciar nueva instancia** para ejecutar el ejemplo. La consola muestra mensajes como:
 

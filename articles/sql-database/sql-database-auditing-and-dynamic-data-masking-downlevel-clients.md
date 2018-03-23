@@ -1,25 +1,19 @@
 ---
-title: "Auditoría de tablas, redireccionamiento de TDS y puntos de conexión de IP para Azure SQL Database| Microsoft Docs"
-description: "Obtenga información sobre auditoría, redireccionamiento de TDS y cambios de puntos de conexión IP cuando se implemente la auditoría de tablas en Azure SQL Database."
+title: Auditoría de tablas, redireccionamiento de TDS y puntos de conexión de IP para Azure SQL Database| Microsoft Docs
+description: Obtenga información sobre auditoría, redireccionamiento de TDS y cambios de puntos de conexión IP cuando se implemente la auditoría de tablas en Azure SQL Database.
 services: sql-database
-documentationcenter: 
 author: giladm
-manager: jhubbard
-editor: 
-ms.assetid: 4ef19ed1-e798-43a2-ad99-0e563f93ab53
+manager: craigg
 ms.service: sql-database
 ms.custom: security
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2017
 ms.author: giladm
-ms.openlocfilehash: 42c89f09eee4394fec7d2f33f51ddc5875587530
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 1053869ed26739463ab6035692052d7b6b34bff0
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-table-auditing"></a>SQL Database: compatibilidad con clientes de nivel inferior y cambios de punto de conexión IP para auditoría de tablas
 
@@ -59,11 +53,11 @@ El nuevo punto de conexión de IP de la base de datos dependerá de la región d
 | Australia Oriental |104.210.91.32, 40.126.244.159, 191.239.64.60, 40.126.255.94 |
 | Sudeste de Australia |191.239.184.223, 40.127.85.81, 191.239.161.83, 40.127.81.130 |
 | Sur de Brasil |104.41.44.161, 104.41.62.230, 23.97.99.54, 104.41.59.191 |
-| Central EE. UU.: |104.43.255.70, 40.83.14.7, 23.99.128.244, 40.83.15.176 |
+| Central EE. UU: |104.43.255.70, 40.83.14.7, 23.99.128.244, 40.83.15.176 |
 | EUAP del centro de EE. UU. |52.180.178.16, 52.180.176.190 |
 | Asia oriental |23.99.125.133, 13.75.40.42, 23.97.71.138, 13.94.43.245 |
 | Este de EE. UU. 2 |104.209.141.31, 104.208.238.177, 191.237.131.51, 104.208.235.50 |
-| Este de EE. UU. |23.96.107.223, 104.41.150.122, 23.96.38.170, 104.41.146.44 |
+| Este de EE. UU |23.96.107.223, 104.41.150.122, 23.96.38.170, 104.41.146.44 |
 | EUAP del este de EE. UU. |52.225.190.86, 52.225.191.187 |
 | India Central |104.211.98.219, 104.211.103.71 |
 | Sur de la India |104.211.227.102, 104.211.225.157 |
@@ -75,7 +69,7 @@ El nuevo punto de conexión de IP de la base de datos dependerá de la región d
 | Centro-Sur de EE. UU |191.238.184.128, 40.84.190.84, 23.102.160.153, 40.84.186.66 |
 | Sudeste asiático |104.215.198.156, 13.76.252.200, 23.97.51.109, 13.76.252.113 |
 | Europa occidental |104.40.230.120, 13.80.23.64, 137.117.171.161, 13.80.8.37, 104.47.167.215, 40.118.56.193, 104.40.176.73, 40.118.56.20 |
-| Oeste de EE. UU. |191.236.123.146, 138.91.163.240, 168.62.194.148, 23.99.6.91 |
+| Oeste de EE. UU |191.236.123.146, 138.91.163.240, 168.62.194.148, 23.99.6.91 |
 | Oeste de EE. UU. 2 |13.66.224.156, 13.66.227.8 |
 | Centro occidental de EE.UU. |52.161.29.186, 52.161.27.213 |
 | Centro de Canadá |13.88.248.106, 13.88.248.110 |

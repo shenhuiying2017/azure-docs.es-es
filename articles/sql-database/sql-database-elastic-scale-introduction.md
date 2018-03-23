@@ -1,48 +1,42 @@
 ---
 title: Escalado horizontal con Azure SQL Database | Microsoft Docs
-description: "Los desarrolladores de Software como servicio (SaaS) pueden crear bases de datos elásticas y escalables con facilidad en la nube mediante estas herramientas"
+description: Los desarrolladores de Software como servicio (SaaS) pueden crear bases de datos elásticas y escalables con facilidad en la nube mediante estas herramientas
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: ddove
-editor: 
-ms.assetid: d15a2e3f-5adf-41f0-95fa-4b945448e184
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
-ms.author: ddove
-ms.openlocfilehash: a99607a0a57087c313d1718ff0b77af3637e1fa9
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.author: sstein
+ms.openlocfilehash: 784f244f64464c92f1b04ce0523e8850f66b8383
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="scaling-out-with-azure-sql-database"></a>Escalado horizontal con Base de datos SQL de Azure
-Es muy fácil escalar horizontalmente bases de datos de SQL Azure mediante las herramientas de **Base de datos elástica** . Estas herramientas y características permiten usar los recursos de bases de datos de **Azure SQL Database** con el fin de crear soluciones para cargas de trabajo transaccionales y, especialmente, aplicaciones de software como servicio (SaaS). Las características de Elastic Database se componen de lo siguiente:
+# <a name="scaling-out-with-azure-sql-database"></a>Escalado horizontal con Azure SQL Database
+Es muy fácil escalar horizontalmente bases de datos de SQL Azure mediante las herramientas de **Elastic Database**. Estas herramientas y características permiten usar los recursos de bases de datos de **Azure SQL Database** con el fin de crear soluciones para cargas de trabajo transaccionales y, especialmente, aplicaciones de software como servicio (SaaS). Las características de Elastic Database se componen de lo siguiente:
 
-* [Biblioteca de cliente de base de datos elástica](sql-database-elastic-database-client-library.md): la biblioteca de cliente es una característica que permite crear y mantener bases de datos particionadas.  Consulte [Introducción a las herramientas de base de datos elástica](sql-database-elastic-scale-get-started.md).
-* [Herramienta de división y combinación de Base de datos elástica](sql-database-elastic-scale-overview-split-and-merge.md): mueve datos entre bases de datos particionadas. Es útil para mover datos de una base de datos de varios inquilinos a una de un solo inquilino (o viceversa). Consulte el [tutorial de la herramienta de división y combinación de Base de datos elástica](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
-* [Trabajos de base de datos elástica](sql-database-elastic-jobs-overview.md) (vista previa): use trabajos para administrar un gran número de bases de datos de SQL de Azure. Realice fácilmente operaciones administrativas, como cambios de esquema, administración de credenciales, actualizaciones de datos de referencia, recopilación de datos de rendimiento o de trabajos de recolección de telemetría de inquilinos (cliente).
-* [Consulta de Base de datos elástica](sql-database-elastic-query-overview.md) (vista previa): le permite ejecutar una consulta de Transact-SQL que abarca varias bases de datos. Esto permite la conexión con herramientas de informes, como Excel, PowerBI, Tableau, etc.
-* [Transacciones elásticas](sql-database-elastic-transactions-overview.md): esta característica permite ejecutar transacciones que abarcan varias bases de datos de Base de datos SQL de Azure. Las transacciones de bases de datos elásticas están disponibles para aplicaciones .NET mediante ADO .NET y se integran con la conocida experiencia de programación en la que se emplean las clases [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx).
+* [Biblioteca de cliente de Elastic Database](sql-database-elastic-database-client-library.md): la biblioteca de cliente es una característica que permite crear y mantener bases de datos particionadas.  Consulte [Introducción a las herramientas de Elastic Database](sql-database-elastic-scale-get-started.md).
+* [Herramienta de división y combinación de Elastic Database](sql-database-elastic-scale-overview-split-and-merge.md): mueve datos entre bases de datos particionadas. Es útil para mover datos de una base de datos de varios inquilinos a una de un solo inquilino (o viceversa). Consulte el [tutorial de la herramienta de división y combinación de Base de datos elástica](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
+* [Trabajos de Elastic Database](sql-database-elastic-jobs-overview.md) (versión preliminar): use trabajos para administrar un gran número de instancias de Azure SQL Database. Realice fácilmente operaciones administrativas, como cambios de esquema, administración de credenciales, actualizaciones de datos de referencia, recopilación de datos de rendimiento o de trabajos de recolección de telemetría de inquilinos (cliente).
+* [Consulta de Elastic Database](sql-database-elastic-query-overview.md) (vista previa): le permite ejecutar una consulta de Transact-SQL que abarca varias bases de datos. Esto permite la conexión con herramientas de informes, como Excel, PowerBI, Tableau, etc.
+* [Transacciones elásticas](sql-database-elastic-transactions-overview.md): esta característica permite ejecutar transacciones que abarcan varias bases de datos de Azure SQL Database. Las transacciones de bases de datos elásticas están disponibles para aplicaciones .NET mediante ADO .NET y se integran con la conocida experiencia de programación en la que se emplean las clases [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx).
 
 El siguiente gráfico muestra una arquitectura que incluye las **características de Elastic Database** en relación con una colección de bases de datos.
 
 En este gráfico, los colores de la base de datos representan esquemas. Las bases de datos con el mismo color comparten el mismo esquema.
 
 1. Un conjunto de **bases de datos de SQL de Azure** se hospedan en Azure con la arquitectura de particionamiento.
-2. La **biblioteca de cliente de base de datos elástica** se usa para administrar un conjunto de particiones.
+2. La **biblioteca de cliente de Elastic Database** se usa para administrar un conjunto de particiones.
 3. Un subconjunto de las bases de datos se coloca en un **grupo elástico**. (Consulte [¿Qué es un grupo?](sql-database-elastic-pool.md)).
 4. Un **trabajo de Elastic Database** ejecuta scripts de T-SQL programados o ad-hoc en todas las bases de datos.
 5. La **herramienta de división y combinación** se usa para mover datos de una partición a otra.
-6. La **consulta de base de datos elástica** le permite escribir una consulta que abarque todas las bases de datos del conjunto de particiones.
+6. La **consulta de Elastic Database** le permite escribir una consulta que abarque todas las bases de datos del conjunto de particiones.
 7. Las **transacciones elásticas** le permiten ejecutar transacciones que abarcan varias bases de datos. 
 
-![Herramientas de Base de datos elástica][1]
+![Herramientas de Elastic Database][1]
 
 ## <a name="why-use-the-tools"></a>¿Por qué hay que usar las herramientas?
 Dotar de elasticidad y escalabilidad a las aplicaciones en la nube ha sido sencillo para el almacenamiento de blobs y las máquinas virtuales; basta con sumar o restar unidades, o bien con aumentar la potencia. Pero sigue siendo un desafío para el procesamiento de datos con estado en bases de datos relacionales. Estos son los desafíos que han surgido en estos escenarios:
@@ -63,7 +57,7 @@ Escalar verticalmente es aumentar o disminuir el nivel de rendimiento de una bas
 
 La mayoría de las aplicaciones de bases de datos a escala de la nube usan una combinación de estas dos estrategias. Por ejemplo, una aplicación de software como servicio podría utilizar escalado horizontal para aprovisionar usuarios finales nuevos y escalado vertical para permitir que la base de datos de cada cliente final aumente o disminuya los recursos, según lo requiera la carga de trabajo.
 
-* El escalado horizontal se administra mediante la [biblioteca de cliente de bases de datos elásticas](sql-database-elastic-database-client-library.md).
+* El escalado horizontal se administra mediante la [biblioteca de cliente de Elastic Database](sql-database-elastic-database-client-library.md).
 * El escalado vertical se logra utilizando cmdlets de Azure PowerShell para cambiar el nivel de servicio o colocando bases de datos en un grupo elástico.
 
 ## <a name="sharding"></a>Clave de particionamiento

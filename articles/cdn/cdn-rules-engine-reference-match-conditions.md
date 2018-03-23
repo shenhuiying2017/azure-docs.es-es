@@ -1,11 +1,11 @@
 ---
 title: Condiciones de coincidencia del motor de reglas de la red CDN de Azure | Microsoft Docs
-description: "Documentación de referencia sobre las condiciones de coincidencia del motor de reglas de Azure Content Delivery Network"
+description: Documentación de referencia sobre las condiciones de coincidencia del motor de reglas de Azure Content Delivery Network
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: Lichard
 manager: akucer
-editor: 
+editor: ''
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
 ms.service: cdn
 ms.workload: media
@@ -737,7 +737,7 @@ Información importante:
     
 - Especifique varias rutas de acceso URL mediante la delimitación de cada una con un espacio único.
 
-   Por ejemplo: /marketing/asset.* /sales/*.htm
+   Por ejemplo: /marketing/asset.\* /sales/\*.htm
 
 - Se omiten las cadenas de consulta en la dirección URL.
     
@@ -753,11 +753,11 @@ En las configuraciones de ejemplo de la tabla siguiente se da por supuesto que e
 
 Valor                   | Relativo a    | Resultado 
 ------------------------|----------------|-------
-*/test.html */test.php  | Raíz u origen | Este patrón coincide con solicitudes de recursos llamados "test.html" o "test.php" en cualquier carpeta.
+\*/test.html \*/test.php  | Raíz u origen | Este patrón coincide con solicitudes de recursos llamados "test.html" o "test.php" en cualquier carpeta.
 /80ABCD/origin/text/*   | Raíz           | Este patrón coincide cuando el recurso solicitado cumple los criterios siguientes: <br />- Debe residir en un origen de cliente que se llama "origin". <br />- La ruta de acceso relativa debe comenzar con una carpeta llamada "text". Es decir, el recurso solicitado puede residir en la carpeta "text" o una de sus subcarpetas recursivas.
 */css/* */js/*          | Raíz u origen | Este patrón coincide con todas las direcciones URL de CNAME perimetral o de la red CDN que contengan una carpeta llamada css o js.
 *.jpg *.gif *.png       | Raíz u origen | Este patrón coincide con todas las direcciones URL de CNAME perimetral o de la red CDN que terminen con .jpg, .gif o .png. Una manera alternativa para especificar este patrón es con la [condición de coincidencia Extensión de ruta de acceso URL](#url-path-extension).
-/images/* /media/*      | Origen         | Este patrón coincide con las direcciones URL de CNAME perimetral o de la red CDN cuya ruta de acceso relativa comienza por una carpeta "images" o "media". <br />- Dirección URL de la red CDN: http:\//wpc.0001.&lt;Dominio&gt;/800001/myorigin/images/sales/event1.png<br />- Dirección URL de CNAME perimetral de ejemplo: http:\//cdn.mydomain.com/images/sales/event1.png
+/images/\* /media/\*      | Origen         | Este patrón coincide con las direcciones URL de CNAME perimetral o de la red CDN cuya ruta de acceso relativa comienza por una carpeta "images" o "media". <br />- Dirección URL de la red CDN: http:\//wpc.0001.&lt;Dominio&gt;/800001/myorigin/images/sales/event1.png<br />- Dirección URL de CNAME perimetral de ejemplo: http:\//cdn.mydomain.com/images/sales/event1.png
 
 [Volver arriba](#match-conditions-for-the-azure-cdn-rules-engine)
 

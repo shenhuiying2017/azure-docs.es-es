@@ -1,9 +1,9 @@
 ---
 title: Un experimento sencillo en Machine Learning Studio | Microsoft Docs
-description: "Este tutorial de aprendizaje automático le guiará a través de un sencillo experimento de ciencia de datos. Podremos predecir el precio de un automóvil mediante un algoritmo de regresión."
-keywords: "experimento,regresión lineal,algoritmos de aprendizaje automático,tutorial de aprendizaje automático,técnicas de modelado predictivo,experimento de ciencia de datos"
+description: Este tutorial de aprendizaje automático le guiará a través de un sencillo experimento de ciencia de datos. Podremos predecir el precio de un automóvil mediante un algoritmo de regresión.
+keywords: experimento,regresión lineal,algoritmos de aprendizaje automático,tutorial de aprendizaje automático,técnicas de modelado predictivo,experimento de ciencia de datos
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: garyericson
 manager: jhubbard
 editor: cgronlun
@@ -30,7 +30,7 @@ Le mostraremos cómo usar Studio por primera vez para crear un experimento de ap
 > [!NOTE]
 > En este tutorial se muestran los conceptos básicos de cómo arrastrar y colocar módulos en el experimento, conectarlos, ejecutar el experimento y examinar los resultados. No vamos a explicar el tema general de aprendizaje automático o cómo seleccionar y usar los más de 100 algoritmos integrados y módulos de manipulación de datos incluidos en Studio.
 >
->Si está familiarizado con el aprendizaje automático, la serie de vídeos [Ciencia de datos para principiantes](data-science-for-beginners-the-5-questions-data-science-answers.md) podría ser un buen lugar para comenzar. Esta serie de vídeos es una excelente introducción al aprendizaje automático mediante el uso de conceptos y lenguaje cotidianos.
+>Si es la primera vez que usa el aprendizaje automático, la serie de vídeos [Ciencia de datos para principiantes](data-science-for-beginners-the-5-questions-data-science-answers.md) podría ser un buen lugar para comenzar. Esta serie de vídeos es una excelente introducción al aprendizaje automático mediante el uso de conceptos y lenguaje cotidianos.
 >
 >Si está familiarizado con el aprendizaje automático pero busca información más general sobre Machine Learning Studio y los algoritmos de aprendizaje automático que contiene, aquí se indican algunos buenos recursos:
 >

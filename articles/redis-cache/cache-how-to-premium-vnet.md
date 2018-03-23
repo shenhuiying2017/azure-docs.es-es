@@ -1,11 +1,11 @@
 ---
-title: "Configuración de una red virtual para Azure Redis Cache Premium | Microsoft Docs"
+title: Configuración de una red virtual para Azure Redis Cache Premium | Microsoft Docs
 description: Aprenda a crear y a administrar la compatibilidad con la red virtual para las instancias de la Azure Redis Cache de nivel Premium
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 8b1e43a0-a70e-41e6-8994-0ac246d8bf7f
 ms.service: cache
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: wesmc
-ms.openlocfilehash: 5ed5af627fa8ec8007f095face2cbf115ead4b27
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ba3a7ccc059dd5036753f471b762e27f22a179af
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-redis-cache"></a>Cómo configurar la compatibilidad de red virtual para una instancia de Azure Redis Cache Premium
 Azure Redis Cache tiene diferentes ofertas de caché que proporcionan flexibilidad en la elección del tamaño y las características de la caché, incluidas las características de nivel premium como la agrupación en clústeres, la persistencia y la compatibilidad de red virtual. Una red virtual es una red privada en la nube. Cuando una instancia de Azure Redis Cache se configure con una red virtual, no será posible acceder a ella públicamente, solo se podrá acceder a ella desde máquinas virtuales y aplicaciones de dentro de la red virtual. En este artículo se describe cómo configurar la compatibilidad con red virtual de una instancia de Azure Redis Cache Premium.
@@ -38,7 +38,7 @@ La compatibilidad con Virtual Network se configura en la hoja **Nueva caché en 
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]
 
-Una vez que haya seleccionado un plan de tarifa premium, la integración con una red virtual de Redis se puede configurar seleccionando una red virtual que esté en la misma suscripción y ubicación que la memoria caché. Para usar una nueva red virtual, primero es preciso crearla, para lo que es preciso seguir los pasos de [Creación de una red virtual mediante Azure Portal](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) o [Creación de Virtual Network (clásica) mediante Azure Portal](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) y, luego, volver a la hoja **Nueva caché en Redis** para crear y configurar una memoria caché Premium.
+Una vez que haya seleccionado un plan de tarifa premium, la integración con una red virtual de Redis se puede configurar seleccionando una red virtual que esté en la misma suscripción y ubicación que la memoria caché. Para usar una nueva red virtual, primero es preciso crearla, para lo que es preciso seguir los pasos de [Creación de una red virtual mediante Azure Portal](../virtual-network/manage-virtual-network.md#create-a-virtual-network) o [Creación de Virtual Network (clásica) mediante Azure Portal](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) y, luego, volver a la hoja **Nueva caché en Redis** para crear y configurar una memoria caché Premium.
 
 Para configurar la red virtual de la memoria caché nueva, haga clic en **Virtual Network** en la hoja **Nueva caché en Redis** y seleccione la red virtual deseada en la lista desplegable.
 
@@ -211,7 +211,7 @@ Se puede encontrar información de contexto sobre las rutas definidas por el usu
 
 Para más información sobre ExpressRoute, consulte [Información técnica sobre ExpressRoute](../expressroute/expressroute-introduction.md).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Obtenga información acerca de cómo usar más características de la memoria caché del nivel Premium.
 
 * [Introducción al nivel Premium de Azure Redis Cache](cache-premium-tier-intro.md)

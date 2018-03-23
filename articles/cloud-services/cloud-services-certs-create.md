@@ -1,11 +1,11 @@
 ---
-title: "Cloud Services y certificados de administración | Microsoft Docs"
+title: Cloud Services y certificados de administración | Microsoft Docs
 description: Aprenda a crear y a usar certificados con Microsoft Azure
 services: cloud-services
 documentationcenter: .net
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: fc70d00d-899b-4771-855f-44574dc4bfc6
 ms.service: cloud-services
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: adegeo
-ms.openlocfilehash: 4032a429901c675436cb5e7fb04aa5645925fa30
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 6a1e4f5316cc0321c1409f9e48daeae6ee483bf6
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Introducción a los certificados para Azure Cloud Services
 Los certificados se usan en Azure para los servicios en la nube ([certificados de servicio](#what-are-service-certificates)) y para realizar la autenticación con la API de administración ([certificados de administración](#what-are-management-certificates)). En este tema se proporciona información general de ambos tipos de certificado, cómo [crearlos](#create) y cómo [implementarlos](#deploy) en Azure.
@@ -47,8 +47,6 @@ Los certificados de administración le permiten autenticar con el modelo de impl
 
 ### <a name="limitations"></a>Limitaciones
 Hay un límite de 100 certificados de administración por suscripción. También hay un límite de 100 certificados de administración para todas las suscripciones bajo un identificador de usuario de un administrador de servicio específico. Si ya ha se ha usado el identificador de usuario para el administrador de la cuenta para agregar 100 certificados de administración y se necesitan más certificados, puede agregar un coadministrador para añadir certificados adicionales. 
-
-Antes de agregar más de 100 certificados, vea si puede reutilizar un certificado existente. El uso de coadministradores agrega complejidad potencialmente innecesaria al proceso de administración de certificados.
 
 <a name="create"></a>
 ## <a name="create-a-new-self-signed-certificate"></a>Creación de un nuevo certificado autofirmado

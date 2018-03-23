@@ -1,24 +1,20 @@
 ---
-title: "Edición de runbooks de texto en Azure Automation"
-description: "En este artículo, se proporcionan diferentes procedimientos para trabajar con runbooks de PowerShell y de flujo de trabajo de PowerShell en Azure Automation mediante el editor de texto."
+title: Edición de runbooks de texto en Azure Automation
+description: En este artículo, se proporcionan diferentes procedimientos para trabajar con runbooks de PowerShell y de flujo de trabajo de PowerShell en Azure Automation mediante el editor de texto.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: stevenka
-editor: tysonn
-ms.assetid: 6f5b48fb-6f30-4e99-9e14-9061b5554b08
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
+manager: carmonm
+ms.devlang: na
 ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 02/23/2016
-ms.author: magoedte;bwren
-ms.openlocfilehash: e166700be0ec6b32d40f34bd47f92a7cff1cc7bf
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 4fbb24f068092e4e256119b5e0288360dcef8fe0
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="editing-textual-runbooks-in-azure-automation"></a>Edición de runbooks de texto en Azure Automation
 El editor de texto de Azure Automation sirve para editar [runbooks de PowerShell](automation-runbook-types.md#powershell-runbooks) y [runbooks del flujo de trabajo de PowerShell](automation-runbook-types.md#powershell-workflow-runbooks). Además, incluye las características típicas de otros editores de código, como IntelliSense y codificación en colores, junto con otras características especiales que le ayudarán a acceder a recursos habituales de runbooks.  En este artículo, se proporcionan pasos detallados para realizar diferentes funciones con este editor.
@@ -123,12 +119,10 @@ En los siguientes comandos de ejemplo, se muestra cómo reemplazar el contenido 
     Publish-AzureAutomationRunbook –AutomationAccountName $automationAccountName –Name $runbookName
 
 ## <a name="related-articles"></a>Artículos relacionados
-* 
-            [Creación o importación de un runbook en Azure Automation](automation-creating-importing-runbook.md)
+* [Creación o importación de un runbook en Azure Automation](automation-creating-importing-runbook.md)
 * [Aprendizaje del flujo de trabajo de Windows PowerShell](automation-powershell-workflow.md)
-* 
-            [Creación gráfica en Azure Automation](automation-graphical-authoring-intro.md)
-* [Certificados](automation-certificates.md)
+* [Creación gráfica en Azure Automation](automation-graphical-authoring-intro.md)
+* [Certificates](automation-certificates.md)
 * [Conexiones](automation-connections.md)
 * [Credenciales](automation-credentials.md)
 * [Programaciones](automation-schedules.md)

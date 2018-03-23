@@ -1,11 +1,11 @@
 ---
-title: "Introducción a Service Fabric y los contenedores | Microsoft Docs"
-description: "Información general sobre Service Fabric y el uso de contenedores para implementar aplicaciones de microservicios. Este artículo le proporciona información general de cómo se pueden utilizar los contenedores y las funcionalidades disponibles en Service Fabric."
+title: Introducción a Service Fabric y los contenedores | Microsoft Docs
+description: Información general sobre Service Fabric y el uso de contenedores para implementar aplicaciones de microservicios. Este artículo le proporciona información general de cómo se pueden utilizar los contenedores y las funcionalidades disponibles en Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: msfussell
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: c98b3fcb-c992-4dd9-b67d-2598a9bf8aab
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/20/2017
 ms.author: msfussell
-ms.openlocfilehash: 412107db2dc446eb5a6a433bfb7fc3bc5e760c27
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: f12dc08953372b2dfae773df11cf1f47b42a1b89
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric y contenedores
 > [!NOTE]
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/13/2018
 > 
 
 ## <a name="introduction"></a>Introducción
-Azure Service Fabric es un [orquestador](service-fabric-cluster-resource-manager-introduction.md) de servicios a través de un clúster de máquinas, con años de uso y optimización en servicios de escala masiva de Microsoft. Se pueden desarrollar servicios de muchas maneras, desde el uso de los [modelos de programación de Service Fabric ](service-fabric-choose-framework.md) hasta la implementación de [archivos ejecutables invitados](service-fabric-deploy-existing-app.md). De forma predeterminada Service Fabric permite implementar y activar estos servicios como procesos. Los procesos proporcionan la activación más rápida y el uso de densidad más alto de los recursos del clúster. Service Fabric puede implementar también servicios en imágenes de contenedor. Lo importantes es que puede mezclar servicios en procesos y servicios en contenedores en la misma aplicación.   
+Azure Service Fabric es un [orquestador](service-fabric-cluster-resource-manager-introduction.md) de servicios a través de un clúster de máquinas, con años de uso y optimización en servicios de escala masiva de Microsoft. Se pueden desarrollar servicios de muchas maneras, desde el uso de los [modelos de programación de Service Fabric ](service-fabric-choose-framework.md) hasta la implementación de [archivos ejecutables invitados](service-fabric-guest-executables-introduction.md). De forma predeterminada Service Fabric permite implementar y activar estos servicios como procesos. Los procesos proporcionan la activación más rápida y el uso de densidad más alto de los recursos del clúster. Service Fabric puede implementar también servicios en imágenes de contenedor. Lo importantes es que puede mezclar servicios en procesos y servicios en contenedores en la misma aplicación.   
 
 ## <a name="what-are-containers"></a>¿Qué son los contenedores?
 Los contenedores son componentes encapsulados, que se implementan individualmente y se ejecutan como instancias aisladas en el mismo kernel para aprovechar la virtualización de nivel del sistema operativo. Por tanto, cada aplicación y su entorno en tiempo de ejecución, las dependencias y las bibliotecas del sistema se ejecutan dentro de un contenedor con acceso completo y privado a su propia vista aislada de las construcciones del sistema operativo. Junto con la portabilidad, este grado de aislamiento de seguridad y recursos es la principal ventaja del uso de contenedores con Service Fabric, que de lo contrario ejecutará los servicios en procesos.
@@ -70,9 +70,9 @@ Ejemplos típicos de buena elección de contenedor:
 * **Reducción del impacto de los servicios de los "vecinos ruidosos"**: puede utilizar la capacidad de regulación de los recursos de los contenedores para restringir los recursos que utiliza un servicio en un host. Si hay servicios que consuman un gran número de recursos y afecten al rendimiento de otros (por ejemplo, una consulta de larga ejecución como operación), considere la posibilidad de poner estos servicios en contenedores con regulación de recursos.
 
 ## <a name="service-fabric-support-for-containers"></a>Compatibilidad de los contenedores con Service Fabric
-Service Fabric admite la implementación de contenedores de Docker en Linux y de contenedores de Windows Server en Windows Server 2016, además del modo de aislamiento de Hyper-V. 
+Service Fabric admite la implementación de contenedores de Docker en Linux y de contenedores de Windows Server en Windows Server 2016, además de el modo de aislamiento de Hyper-V. 
 
-En el [modelo de aplicación](service-fabric-application-model.md)de Service Fabric, un contenedor representa un host de la aplicación en el que se colocan varias réplicas de servicio. Service Fabric puede ejecutar cualquier contenedor, y este escenario es similar al [escenario del archivo ejecutable invitado](service-fabric-deploy-existing-app.md), donde se empaqueta una aplicación existente dentro de un contenedor. Este escenario es el caso de uso común de los contenedores, y entre los ejemplos se incluyen la ejecución de una aplicación escrita mediante cualquier lenguaje o plataforma, pero sin usar los modelos de programación integrados de Service Fabric.
+En el [modelo de aplicación](service-fabric-application-model.md)de Service Fabric, un contenedor representa un host de la aplicación en el que se colocan varias réplicas de servicio. Service Fabric puede ejecutar cualquier contenedor, y este escenario es similar al [escenario del archivo ejecutable invitado](service-fabric-guest-executables-introduction.md), donde se empaqueta una aplicación existente dentro de un contenedor. Este escenario es el caso de uso común de los contenedores, y entre los ejemplos se incluyen la ejecución de una aplicación escrita mediante cualquier lenguaje o plataforma, pero sin usar los modelos de programación integrados de Service Fabric.
 
 También puede ejecutar los [servicios de Service Fabric dentro de contenedores](service-fabric-services-inside-containers.md). La compatibilidad con la ejecución de servicios de Service Fabric dentro de contenedores está limitada actualmente, pero se mejorará en próximas versiones.
 
@@ -87,7 +87,7 @@ Service Fabric tiene varias funcionalidades de contenedor que le ayudarán a cre
 * La capacidad de configurar credenciales de seguridad en el contenedor.
 * Selección de diferentes modos de red para contenedores.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este artículo, ha aprendido acerca de los contenedores y que Service Fabric es un orquestador de contenedores y las características compatibles con los contenedores. En los siguientes pasos analizaremos algunos ejemplos de cada una de las características para mostrarle cómo utilizarlas.
 
 [Cree la primera aplicación de contenedor en Service Fabric en Windows](service-fabric-get-started-containers.md)

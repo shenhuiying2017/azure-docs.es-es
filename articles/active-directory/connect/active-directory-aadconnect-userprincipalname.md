@@ -1,6 +1,6 @@
 ---
 title: Rellenado de userPrincipalName de Azure AD
-description: "En el siguiente documento se describe cómo rellenar el atributo UserPrincipalName."
+description: En el siguiente documento se describe cómo rellenar el atributo UserPrincipalName.
 author: billmath
 ms.author: billmath
 ms.date: 02/02/2018

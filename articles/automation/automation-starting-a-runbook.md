@@ -1,31 +1,25 @@
 ---
-title: Iniciar un runbook en Azure Automation | Microsoft Docs
-description: "Resume los distintos métodos que pueden usarse para iniciar un runbook de Azure Automation y proporciona detalles sobre cómo utilizar Azure Portal y Windows PowerShell."
+title: Inicio de un runbook en Azure Automation
+description: Resume los distintos métodos que pueden usarse para iniciar un runbook de Azure Automation y proporciona detalles sobre cómo utilizar el Portal de Azure y Windows PowerShell.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: tysonn
-ms.assetid: 6ee756b4-9200-4eb2-9bda-ec156853803b
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 08/07/2017
-ms.author: magoedte;bwren
-ms.openlocfilehash: c6a18bedec6eca5ff25d205bccecc23ecd342744
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+manager: carmonm
+ms.openlocfilehash: 064ba5f73b53681a824b1416243d10ab0e565c44
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="starting-a-runbook-in-azure-automation"></a>Inicio de un runbook en Azure Automation
 La tabla siguiente le ayuda a determinar el método para iniciar un runbook en Azure Automation que sea más adecuado para su escenario concreto. Este artículo incluye detalles acerca de cómo iniciar un runbook con Azure Portal y Windows PowerShell. En otra documentación a la que puede acceder desde los siguientes vínculos se proporcionan detalles sobre los otros métodos.
 
 | **MÉTODO** | **CARACTERÍSTICAS** |
 | --- | --- |
-| [portal de Azure](#starting-a-runbook-with-the-azure-portal) |<li>Método más sencillo con la interfaz de usuario interactiva.<br> <li>Forma para proporcionar valores de parámetro simples.<br> <li>Seguimiento sencillo del estado del trabajo.<br> <li>Acceso autenticado con inicio de sesión de Azure. |
+| [Azure Portal](#starting-a-runbook-with-the-azure-portal) |<li>Método más sencillo con la interfaz de usuario interactiva.<br> <li>Forma para proporcionar valores de parámetro simples.<br> <li>Seguimiento sencillo del estado del trabajo.<br> <li>Acceso autenticado con inicio de sesión de Azure. |
 | [Windows PowerShell](https://msdn.microsoft.com/library/dn690259.aspx) |<li>Permite llamar desde la línea de comandos con los cmdlets de Windows PowerShell.<br> <li>Puede incluirse en una solución automatizada con varios pasos.<br> <li>La solicitud se autentica con el certificado o el usuario de OAuth principal/servicio principal.<br> <li>Permite proporcionar valores de parámetro simples y complejos.<br> <li>Realizar el seguimiento del estado del trabajo.<br> <li>Responder a la necesidad del cliente para admitir los cmdlets de PowerShell. |
 | [API de Azure Automation](https://msdn.microsoft.com/library/azure/mt662285.aspx) |<li>El método más flexible, pero también más complejo.<br> <li>Permite llamar desde cualquier código personalizado que pueda realizar solicitudes HTTP.<br> <li>La solicitud se autentica con el certificado o el usuario de OAuth principal/servicio principal.<br> <li>Permite proporcionar valores de parámetro simples y complejos. *Si va a llamar a un runbook de Python mediante la API, la carga de JSON se debe serializar.*<br> <li>Realizar el seguimiento del estado del trabajo. |
 | [Webhooks](automation-webhooks.md) |<li>Permite iniciar el runbook desde una única solicitud HTTP.<br> <li>Autenticado con el token de seguridad de la dirección URL.<br> <li>Cliente no puede invalidar los valores de parámetro especificados al crear webhook. El runbook puede definir un único parámetro que se rellena con los detalles de la solicitud HTTP.<br> <li>No tiene capacidad de realizar un seguimiento del estado del trabajo a través de la dirección URL de webhook. |
@@ -180,7 +174,7 @@ Suponiendo que el nombre de usuario de la credencial era *jsmith*, la salida res
 jsmith
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * La arquitectura de runbook de este artículo proporciona información general sobre la administración de recursos en Azure y entornos locales con Hybrid Runbook Worker. Para obtener información sobre cómo ejecutar runbooks de Automation en su centro de datos, consulte [Trabajos híbridos de runbook](automation-hybrid-runbook-worker.md).
 * Para aprender más sobre la creación runbooks modulares para usarse por otros runbooks para funciones específicas o comunes, consulte [Runbooks secundarios](automation-child-runbooks.md).
 

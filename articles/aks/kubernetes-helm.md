@@ -1,6 +1,6 @@
 ---
-title: "Implementación de contenedores con Helm en Kubernetes en Azure"
-description: "Uso de la herramienta de empaquetado de Helm para implementar contenedores en un clúster de Kubernetes en AKS"
+title: Implementación de contenedores con Helm en Kubernetes en Azure
+description: Uso de la herramienta de empaquetado de Helm para implementar contenedores en un clúster de Kubernetes en AKS
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: f0fa4c667074a1acda70371251172acf9ff119e5
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 6a8565c70097b3ac9a419b652a652824adebba88
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="use-helm-with-azure-container-service-aks"></a>Uso de Helm con Azure Container Service (AKS)
 
@@ -59,9 +59,12 @@ helm init
 Salida:
 
 ```
-$HELM_HOME has been configured at /home/user/.helm.
+$HELM_HOME has been configured at /Users/neilpeterson/.helm.
 
 Tiller (the Helm server-side component) has been installed into your Kubernetes Cluster.
+
+Please note: by default, Tiller is deployed with an insecure 'allow unauthenticated users' policy.
+For more information on securing your installation see: https://docs.helm.sh/using_helm/#securing-your-helm-installation
 Happy Helming!
 ```
 
@@ -160,7 +163,7 @@ NAME            REVISION    UPDATED                     STATUS      CHART       
 bilging-ant     1           Thu Oct  5 00:11:11 2017    DEPLOYED    nginx-ingress-0.8.7 default
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre cómo administrar gráficos de Kubernetes, vea la documentación de Helm.
 

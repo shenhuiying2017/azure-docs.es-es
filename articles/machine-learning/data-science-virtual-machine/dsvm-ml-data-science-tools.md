@@ -1,25 +1,25 @@
 ---
-title: "Herramientas de aprendizaje automático y ciencia de datos - Azure | Microsoft Docs"
-description: "Herramientas de aprendizaje automático y ciencia de datos"
-keywords: "herramientas de ciencia de datos, máquina virtual de ciencia de datos, herramientas para la ciencia de datos, ciencia de datos de linux"
+title: Herramientas de aprendizaje automático y ciencia de datos - Azure | Microsoft Docs
+description: Herramientas de aprendizaje automático y ciencia de datos
+keywords: herramientas de ciencia de datos, máquina virtual de ciencia de datos, herramientas para la ciencia de datos, ciencia de datos de linux
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2017
+ms.date: 03/16/2018
 ms.author: gokuma;bradsev
-ms.openlocfilehash: c772fa16b94d09e0fc0450ce86503553c26f8a24
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1897f793b5907a304af0859a1ab321a06d1ce808
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="machine-learning-and-data-science-tools"></a>Herramientas de aprendizaje automático y ciencia de datos
 Data Science Virtual Machine (DSVM) tiene un amplio conjunto de herramientas y bibliotecas para el aprendizaje automático, disponibles en lenguajes conocidos como Python, R o Julia. 
@@ -33,7 +33,7 @@ A continuación se muestran algunas de las herramientas de aprendizaje automáti
 | Ediciones compatibles de DSVM     | Windows, Linux     |
 | Usos típicos      | Biblioteca general de ML      |
 | ¿Cómo se configura/instala en DSVM?      |  Se instala con la compatibilidad de GPU   |
-| ¿Cómo se usa/ejecuta?      | Como biblioteca de Python (2.7 y 3.5), paquete de R y en la herramienta de línea de comandos de ruta de acceso (`C:\dsvm\tools\xgboost\bin\xgboost.exe` para Windows y `/dsvm/tools/xgboost/xgboost` para Linux)    |
+| ¿Cómo se usa o ejecuta?      | Como biblioteca de Python (2.7 y 3.5), paquete de R y en la herramienta de línea de comandos de ruta de acceso (`C:\dsvm\tools\xgboost\bin\xgboost.exe` para Windows y `/dsvm/tools/xgboost/xgboost` para Linux)    |
 | Vínculos a ejemplos      | Se incluyen ejemplos en la máquina virtual, en `/dsvm/tools/xgboost/demo` en Linux y `C:\dsvm\tools\xgboost\demo` en Windows   |
 | Herramientas relacionadas en DSVM      | LightGBM y MXNet   |
 
@@ -46,7 +46,7 @@ A continuación se muestran algunas de las herramientas de aprendizaje automáti
 | Ediciones compatibles de DSVM     | Windows, Linux     |
 | Usos típicos      | Biblioteca general de ML      |
 | ¿Cómo se configura/instala en DSVM?      |  Windows: msi installer; Linux: apt-get |
-| ¿Cómo se usa/ejecuta?      | Como en la herramienta de línea de comandos de ruta de acceso (`C:\Program Files\VowpalWabbit\vw.exe` en Windows y `/usr/bin/vw` en Linux)    |
+| ¿Cómo se usa o ejecuta?      | Como en la herramienta de línea de comandos de ruta de acceso (`C:\Program Files\VowpalWabbit\vw.exe` en Windows y `/usr/bin/vw` en Linux)    |
 | Vínculos a ejemplos      | [Ejemplos de VowPal Wabbit](https://github.com/JohnLangford/vowpal_wabbit/wiki/Examples) |
 | Herramientas relacionadas en DSVM      |LightGBM, MXNet y XGBoost   |
 
@@ -57,7 +57,7 @@ A continuación se muestran algunas de las herramientas de aprendizaje automáti
 | ¿Qué es?   |  Weka es una colección de algoritmos de aprendizaje automático para las tareas de minería de datos. Los algoritmos se pueden aplicar directamente a un conjunto de datos o se pueden llamar desde su propio código de Java. Weka contiene herramientas para el preprocesamiento, la clasificación, la regresión, la agrupación en clústeres, las reglas de asociación y la visualización de datos. |
 | Ediciones compatibles de DSVM     | Windows, Linux     |
 | Usos típicos      | Herramienta general de ML     |
-| ¿Cómo se usa/ejecuta?      | En Windows, busque Weka en el menú Inicio. En Linux, inicie sesión con X2Go y vaya a Aplicaciones -> Desarrollo -> Weka. |
+| ¿Cómo se usa o ejecuta?      | En Windows, busque Weka en el menú Inicio. En Linux, inicie sesión con X2Go y vaya a Aplicaciones -> Desarrollo -> Weka. |
 | Vínculos a ejemplos      | [Ejemplos de Weka](http://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
 | Herramientas relacionadas en DSVM      |LightGBM, Rattle y XGBooost   |
 
@@ -67,7 +67,7 @@ A continuación se muestran algunas de las herramientas de aprendizaje automáti
 | ¿Qué es?   |   Una interfaz gráfica de usuario para la minería de datos con R   |
 | Ediciones compatibles de DSVM     | Windows, Linux     |
 | Usos típicos      | Herramienta general de minería de datos de la IU para R    |
-| ¿Cómo se usa/ejecuta?      | Herramienta de interfaz de usuario. En Windows, inicie un símbolo del sistema, ejecute R y, dentro de R, ejecute `rattle()`. En Linux, conéctese a X2Go, inicie un terminal, ejecute R y, dentro de R, ejecute `rattle()`. |
+| ¿Cómo se usa o ejecuta?      | Herramienta de interfaz de usuario. En Windows, inicie un símbolo del sistema, ejecute R y, dentro de R, ejecute `rattle()`. En Linux, conéctese a X2Go, inicie un terminal, ejecute R y, dentro de R, ejecute `rattle()`. |
 | Vínculos a ejemplos      | [Rattle](https://togaware.com/onepager/) |
 | Herramientas relacionadas en DSVM      |LightGBM, Weka y XGBoost   |
 
@@ -88,7 +88,7 @@ A continuación se muestran algunas de las herramientas de aprendizaje automáti
 | Versiones de DSVM compatibles      | Linux   |
 | Usos típicos      | ML escalable, distribuido y de uso general   |
 | ¿Cómo se configura/instala en DSVM?      | H2O se instala en `/dsvm/tools/h2o`.      |
-| ¿Cómo se usa/ejecuta?      | Conéctese a la máquina virtual con X2Go. Inicie un nuevo terminal y ejecute `java -jar /dsvm/tools/h2o/current/h2o.jar`. Luego, inicie un explorador web y conéctese a `http://localhost:54321`.      |
+| ¿Cómo se usa o ejecuta?      | Conéctese a la máquina virtual con X2Go. Inicie un nuevo terminal y ejecute `java -jar /dsvm/tools/h2o/current/h2o.jar`. Luego, inicie un explorador web y conéctese a `http://localhost:54321`.      |
 | Vínculos a ejemplos      | Hay ejemplos disponibles en la máquina virtual de Jupyter en el directorio `h2o`.      |
 | Herramientas relacionadas en DSVM      | Apache Spark, MXNet, XGBoost, Sparkling Water y Deep Water    |
 

@@ -1,8 +1,8 @@
 ---
 title: Copia o traslado de datos a Azure Storage con AzCopy en Windows| Microsoft Docs
-description: "Use la utilidad AzCopy en Windows para mover o copiar datos hacia o desde contenido de archivos, blobs y tablas. Copie datos a Azure Storage desde archivos locales o copie datos en o entre cuentas de almacenamiento. Migre fácilmente sus datos a Azure Storage."
+description: Use la utilidad AzCopy en Windows para mover o copiar datos hacia o desde contenido de archivos, blobs y tablas. Copie datos a Azure Storage desde archivos locales o copie datos en o entre cuentas de almacenamiento. Migre fácilmente sus datos a Azure Storage.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: seguler
 manager: jahogg
 editor: tysonn
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: seguler
-ms.openlocfilehash: 7d875a1e43908f49424f4e40fe923639cfa02385
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 13e09a3081c9dfa2d88625489a82c687d6722f20
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>Transferencia de datos con AzCopy en Windows
 AzCopy es una utilidad de línea de comandos diseñada para copiar datos a y desde los servicios de Almacenamiento de blobs de Microsoft Azure, File Storage y Table Storage con sencillos comandos diseñados para ofrecer un rendimiento óptimo. Puede copiar datos entre un sistema de archivos y una cuenta de almacenamiento o entre cuentas de almacenamiento.  
@@ -56,7 +56,7 @@ Tenga en cuenta que si la carpeta `C:\myfolder` no existe, AzCopy la crea y desc
 ### <a name="download-a-single-blob-from-the-secondary-region"></a>Descarga de un solo blob desde la región secundaria
 
 ```azcopy
-AzCopy /Source:https://myaccount-secondary.blob.core.windows.net/mynewcontainer /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
+AzCopy /Source:https://myaccount-secondary.blob.core.windows.net/mynewcontainer /Dest:C:\myfolder /SourceKey:key /Pattern:"abc.txt"
 ```
 
 Tenga en cuenta que debe tener almacenamiento con redundancia geográfica con acceso de lectura habilitado para acceder a la región secundaria.
@@ -106,7 +106,7 @@ Después de la operación de descarga, la carpeta `C:\myfolder` incluye los arch
     C:\myfolder\abc1.txt
     C:\myfolder\abc2.txt
 
-El prefijo se aplica al directorio virtual, que forma la primera parte del nombre del blob. En el ejemplo mostrado anteriormente, el directorio virtual no coincide con el prefijo especificado, por lo que no se descarga. Además, si no se especifica la opción `\S`, AzCopy no descarga ningún blob.
+El prefijo se aplica al directorio virtual, que forma la primera parte del nombre del blob. En el ejemplo mostrado anteriormente, el directorio virtual no coincide con el prefijo especificado, por lo que no se descarga. Además, si no se especifica la opción `/S`, AzCopy no descarga ningún blob.
 
 ### <a name="set-the-last-modified-time-of-exported-files-to-be-same-as-the-source-blobs"></a>Establecimiento de la hora de la última modificación de los archivos exportados para que coincida con la de los blobs de origen
 
@@ -616,7 +616,7 @@ A continuación se describen los parámetros para AzCopy. También puede escribi
 
 * Para obtener ayuda detallada sobre la línea de comandos de AzCopy: `AzCopy /?`
 * Para obtener ayuda detallada con algún parámetro de AzCopy: `AzCopy /?:SourceKey`
-* Para obtener ejemplos de línea de comandos: `AzCopy /?:Samples`
+* Para obtener ejemplos de línea de comandos: `AzCopy /?:Sample`
 
 ### <a name="sourcesource"></a>/Source:"source"
 
@@ -967,7 +967,7 @@ Respecto de la propiedad "AzureStorageUseV1MD5":
 
 Los algoritmos compatibles con FIPS están deshabilitados de manera predeterminada en Windows. Puede cambiar esta configuración de directiva en su máquina. En la ventana Ejecutar (Windows+R), escriba secpol.msc para abrir la ventana **Directiva de seguridad local**. En la ventana **Configuración de seguridad**, vaya a **Configuración de seguridad** > **Directivas locales** > **Opciones de seguridad**. Ubique la directiva **System cryptography: Use FIPS-compliant algorithms for encryption, hashing and signing** (Criptografía de sistema: usar algoritmos compatibles con FIPS para cifrado, hash y firma). Haga doble clic en la directiva para ver el valor en la columna **Configuración de seguridad**.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre Azure Storage y AzCopy, consulte los recursos siguientes:
 

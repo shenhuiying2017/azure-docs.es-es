@@ -1,26 +1,20 @@
 ---
-title: "Aprovisionamiento de nuevos inquilinos en una aplicación multiinquilino que usa Azure SQL Database | Microsoft Docs"
-description: "Obtenga información sobre cómo aprovisionar y catalogar nuevos inquilinos en una aplicación SaaS de multiinquilino de Azure SQL Database"
+title: Aprovisionamiento de nuevos inquilinos en una aplicación multiinquilino que usa Azure SQL Database | Microsoft Docs
+description: Obtenga información sobre cómo aprovisionar y catalogar nuevos inquilinos en una aplicación SaaS de multiinquilino de Azure SQL Database
 keywords: tutorial de SQL Database
 services: sql-database
-documentationcenter: 
 author: stevestein
 manager: craigg
-editor: 
-ms.assetid: 
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: sstein
-ms.openlocfilehash: 79b3743054f73914c6755a3c9b102b613b1944f2
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 21f0bca3a16164ead4e0990842a968fd9b95c33f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Aprenda a aprovisionar y registrar nuevos inquilinos en el catálogo
 
@@ -99,8 +93,8 @@ Siga paso a paso la ejecución del script mediante las opciones del menú **Depu
 
 Lo que se indica a continuación no son pasos que se deban seguir de forma explícita, sino una explicación del flujo de trabajo que se debe seguir al depurar el script:
 
-1. **Importe el módulo SubscriptionManagement.psm1** que contiene funciones para iniciar sesión en Azure y seleccionar la suscripción de Azure con la que está trabajando.
 1. **Importe el módulo CatalogAndDatabaseManagement.psm1** que proporciona un catálogo y una abstracción de nivel de inquilino sobre las funciones de [administración de particiones](sql-database-elastic-scale-shard-map-management.md). En este módulo se encapsula gran parte del patrón del catálogo y merece la pena explorarlo.
+1. **Importe el módulo SubscriptionManagement.psm1** que contiene funciones para iniciar sesión en Azure y seleccionar la suscripción de Azure con la que está trabajando.
 1. **Obtenga los detalles de configuración**. Vaya a Get-Configuration (con F11) y vea cómo se especifica la configuración de la aplicación. Los nombres de recursos y otros valores específicos de la aplicación se definen aquí, pero no cambie estos valores hasta que esté familiarizado con los scripts.
 1. **Obtenga el objeto de catálogo**. Vaya a Get-Catalog que crea y devuelve un objeto de catálogo que se usa en el script de nivel superior.  Esta función utiliza las funciones de administración de particiones que se importan desde **AzureShardManagement.psm1**. El objeto de catálogo se compone de los elementos siguientes:
    * $catalogServerFullyQualifiedName se construye con la raíz estándar junto con su nombre de usuario: _catalog-\<usuario\>.database.windows.net_.
@@ -158,7 +152,7 @@ Entre los patrones de aprovisionamiento que no se describen en este tutorial se 
 **Aprovisionamiento automático** En el patrón de aprovisionamiento automático, un servicio de aprovisionamiento aprovisiona servidores, grupos y bases de datos automáticamente según sea necesario (incluido el aprovisionamiento previo de bases de datos en grupos elásticos si se desea). Además, si se retiran y eliminan bases de datos, los huecos que dejan en los grupos elásticos pueden ocuparse aprovisionando el servicio. Este servicio puede ser simple o complejo; por ejemplo, puede controlarse el aprovisionamiento en varias regiones geográficas y configurarse automáticamente la replicación geográfica para la recuperación ante desastres. Con el patrón de aprovisionamiento automático, un script o aplicación cliente envía una solicitud de aprovisionamiento a una cola para que el servicio de aprovisionamiento la procese y, a continuación, sonde el servicio para determinar si se ha completado el procesamiento. Si se utiliza el aprovisionamiento previo, se podrían administrar las solicitudes rápidamente y el servicio aprovisionar una base de datos de reemplazo en segundo plano.
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, ha aprendido cómo:
 

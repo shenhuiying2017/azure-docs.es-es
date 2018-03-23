@@ -1,29 +1,29 @@
 ---
-title: "Protección de datos personales en Microsoft Azure | Microsoft Docs"
-description: "Primer artículo de una serie de artículos que le ayudarán a usar Azure para proteger datos personales"
+title: Protección de datos personales en Microsoft Azure | Microsoft Docs
+description: Este artículo le ayuda a usar Azure para proteger los datos personales y cumplir con el Reglamento general de protección de datos (RGPD).
 services: security
 documentationcenter: na
 author: Barclayn
 manager: MBaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 03/06/2018
 ms.author: barclayn
-ms.custom: 
-ms.openlocfilehash: 4dbdb2dc11bdc515fb3856dd45203868122c7726
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: ''
+ms.openlocfilehash: 741fb17be315faacef6483cbaaa565136622cb45
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="protect-personal-data-in-microsoft-azure"></a>Protección de datos personales en Microsoft Azure
 
-En este artículo se presentan una serie de artículos que le ayudarán a usar servicios y tecnologías de seguridad de Azure para proteger datos personales. Se trata de un requisito clave para muchas iniciativas de gobierno y cumplimiento corporativas y del sector. El escenario, la declaración del problema y los objetivos de la empresa se incluyen aquí.
+En este artículo se presentan una serie de artículos que le ayudarán a usar servicios y tecnologías de seguridad de Azure para proteger datos personales. Se trata de un requisito clave para muchas iniciativas de gobierno y cumplimiento corporativas y del sector. Por ejemplo, puede usar la información que proporciona esta serie de artículos para cumplir el Reglamento general de protección de datos (RGPD). El escenario, la declaración del problema y los objetivos de la empresa se incluyen aquí.
 
 ## <a name="scenario-and-problem-statement"></a>Escenario y declaración del problema
 

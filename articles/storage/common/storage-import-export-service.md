@@ -1,6 +1,6 @@
 ---
 title: Uso de Azure Import/Export para transferir datos a y desde Azure Storage | Microsoft Docs
-description: "Aprenda a crear trabajos de importación y exportación en Azure Portal para transferir datos a y desde Azure Storage."
+description: Aprenda a crear trabajos de importación y exportación en Azure Portal para transferir datos a y desde Azure Storage.
 author: muralikk
 manager: syadav
 services: storage
@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: muralikk
-ms.openlocfilehash: e9fce2530bc4e654304b946cea1715ac8e2ce6fa
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 7eaf4c3c9b390e87dd8494cd6bfb2ea155451608
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Uso del servicio Microsoft Azure Import/Export para transferir datos a Azure Storage
 En este artículo, se proporcionan instrucciones detalladas sobre el uso del servicio Azure Import/Export para transferir de forma segura grandes cantidades de datos a Azure Blob Storage y Azure Files mediante el envío de unidades de disco duro a un centro de datos de Azure. También se puede usar este servicio para transferir datos desde Azure Storage hasta las unidades de disco duro y enviarlas al sitio local. Es posible importar los datos de una sola unidad de disco SATA interna a Azure Blob Storage o Azure Files. 
@@ -294,7 +294,7 @@ En la tabla siguiente se describen los estados de error de la unidad y las medid
 | N/D | Una unidad que no forma parte de ningún trabajo llega al centro de datos como parte de otro trabajo. | La unidad se marcará como unidad adicional y se devolverá al cliente cuando se complete el trabajo asociado al paquete original. |
 
 ### <a name="time-to-process-job"></a>Tiempo para procesar el trabajo
-El tiempo que se tarda en procesar un trabajo de importación o exportación varía en función de determinados factores, como el tiempo de envío, el tipo de trabajo, el tipo y el tamaño de los datos copiados o el tamaño de los discos proporcionados. El servicio Import/Export no tiene un Acuerdo de Nivel de Servicio, pero después de que se reciben los discos se esfuerza por completar la copia en un período de tiempo de entre 7 y 10 días. Puede utilizar la API de REST para realizar un seguimiento más estrecho del progreso del trabajo. Hay un parámetro de porcentaje completado en la operación de lista de trabajos que proporciona una indicación del progreso de la copia. Si necesita una estimación para realizar un trabajo de importación o exportación en el que el tiempo es un factor crítico, póngase en contacto con nosotros.
+El tiempo que se tarda en procesar un trabajo de importación o exportación varía en función de determinados factores, como el tiempo de envío, la carga del centro de datos, el tipo de trabajo, el tipo y el tamaño de los datos copiados y el número de discos de un trabajo. El servicio Import/Export no tiene un Acuerdo de Nivel de Servicio, pero se esfuerza por completar la copia en un período de tiempo de entre siete y diez días después de que se reciben los discos. Además de para el estado publicado en Azure Portal, las API de REST pueden usarse para realizar el seguimiento del progreso del trabajo. El parámetro de porcentaje completo de la llamada API de la operación de enumeración de trabajos proporciona el porcentaje del progreso de copia.
 
 ### <a name="pricing"></a>Precios
 **Cuota de manipulación de unidades**

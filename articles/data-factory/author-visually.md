@@ -1,8 +1,8 @@
 ---
-title: "Creación visual en Azure Data Factory | Microsoft Docs"
-description: "Información acerca de cómo utilizar la creación visual de Azure Data Factory"
+title: Creación visual en Azure Data Factory | Microsoft Docs
+description: Información acerca de cómo utilizar la creación visual de Azure Data Factory
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
 manager: jhubbard
 editor: spelluru
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/9/2018
 ms.author: shlo
-ms.openlocfilehash: 81b97bb6b6abb5431bedd4efec5f807fa577c4e4
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 209afba99ac2b43c252d93c32930908ec1f957f9
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Creación visual de Azure Data Factory
 La experiencia de la interfaz de usuario (UX) de Azure Data Factory le permite crear e implementar visualmente recursos para la factoría de datos sin tener que escribir código. Puede arrastrar y colocar las actividades en un lienzo de canalización, realizar ejecuciones de prueba, depurar de forma iterativa e implementar y supervisar ejecuciones de canalizaciones. Hay dos enfoques a la hora de utilizar la experiencia de la interfaz de usuario para llevar a cabo la creación visual:
@@ -39,6 +39,9 @@ Cuando usa el **lienzo de creación** de UX para crear directamente con el servi
 
 ## <a name="author-with-vsts-git-integration"></a>Creación con la integración de Git de VSTS
 La creación visual con la integración de Git de VSTS admite el control del código fuente y la colaboración para trabajar en canalizaciones de factoría de datos. Puede asociar una factoría de datos con un repositorio de cuentas de Git de VSTS para el control del código fuente, la colaboración, el control de versiones, etc. Una sola cuenta de Git de VSTS puede tener varios repositorios, pero un repositorio de Git de VSTS solo puede asociarse a una factoría de datos. Si no tiene un repositorio o una cuenta de VSTS, siga [estas instrucciones](https://docs.microsoft.com/vsts/accounts/create-account-msa-or-work-student) para crear los recursos.
+
+> [!NOTE]
+> Una canalización de Data Factory no puede acceder a los archivos almacenados en un repositorio Git de VSTS. Como resultado, no se pueden almacenar los archivos que usan las actividades de la canalización de Data Factory como, por ejemplo, los archivos de datos y los de scripts, en un repositorio Git de VSTS.
 
 ### <a name="configure-a-vsts-git-repository-with-azure-data-factory"></a>Configuración de un repositorio de Git de VSTS con Azure Data Factory
 Los usuarios pueden configurar un repositorio GIT de VSTS con una factoría de datos mediante dos métodos.
@@ -109,5 +112,5 @@ Seleccione **Comentarios** para comentar sobre las características o para notif
 
 ![Comentarios](media/monitor-visually/feedback.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre la supervisión y la administración de canalizaciones, consulte el artículo [Supervisión y administración de canalizaciones mediante programación](monitor-programmatically.md).

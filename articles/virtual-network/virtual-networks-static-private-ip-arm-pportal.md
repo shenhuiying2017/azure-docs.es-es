@@ -1,6 +1,6 @@
 ---
-title: "Configuración de direcciones IP privadas para máquinas virtuales (Azure Portal) | Microsoft Docs"
-description: "Obtenga información sobre cómo configurar direcciones IP privadas para máquinas virtuales mediante Azure Portal."
+title: Configuración de direcciones IP privadas para máquinas virtuales (Azure Portal) | Microsoft Docs
+description: Obtenga información sobre cómo configurar direcciones IP privadas para máquinas virtuales mediante Azure Portal.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -16,16 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c2679c7cb75c438402f3ab64c3e14c964cb8a85d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d551758277373995a6f92e1a25a59d170464fe5e
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal"></a>Configuración de direcciones IP privadas para una máquina virtual mediante Azure Portal
 
 > [!div class="op_single_selector"]
-> * [portal de Azure](virtual-networks-static-private-ip-arm-pportal.md)
+> * [Azure Portal](virtual-networks-static-private-ip-arm-pportal.md)
 > * [PowerShell](virtual-networks-static-private-ip-arm-ps.md)
 > * [CLI de Azure](virtual-networks-static-private-ip-arm-cli.md)
 > * [Portal de Azure (clásico)](virtual-networks-static-private-ip-classic-pportal.md)
@@ -41,7 +41,7 @@ Este artículo trata sobre el modelo de implementación del Administrador de rec
 
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
-En los siguientes pasos de ejemplo se presupone que ya se ha creado un entorno simple. Si desea ejecutar los pasos que aparecen en este documento, cree primero el entorno de prueba descrito en [creación de una red virtual](virtual-networks-create-vnet-arm-pportal.md).
+En los siguientes pasos de ejemplo se presupone que ya se ha creado un entorno simple. Si desea ejecutar los pasos que aparecen en este documento, cree primero el entorno de prueba descrito en [Creación de una red virtual](quick-create-portal.md).
 
 ## <a name="how-to-create-a-vm-for-testing-static-private-ip-addresses"></a>Creación de una VM para probar las direcciones IP privadas estáticas
 No se puede establecer una dirección IP privada estática durante la creación de una VM en el modo de implementación del Administrador de recursos mediante el Portal de Azure. En primer lugar debe crear la máquina virtual y luego establecer la IP privada como estática.
@@ -101,7 +101,7 @@ Para quitar la dirección IP privada estática de la máquina virtual creada ant
 
 En el panel **Direcciones IP** que se muestra arriba, haga clic en **Dinámica** en **Asignación** y, después, haga clic en **Guardar**.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Obtenga más información acerca de las [direcciones IP públicas reservadas](virtual-networks-reserved-public-ip.md) .
 * Obtenga información sobre las [direcciones IP públicas a nivel de instancia (ILPIP)](virtual-networks-instance-level-public-ip.md) .
 * Consulte las [API de REST de IP reservada](https://msdn.microsoft.com/library/azure/dn722420.aspx).

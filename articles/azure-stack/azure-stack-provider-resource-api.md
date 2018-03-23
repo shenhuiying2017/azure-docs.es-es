@@ -1,24 +1,24 @@
 ---
 title: API de uso de recursos de proveedor | Microsoft Docs
-description: "Referencia de la API de uso de recursos, que recupera información de uso de Azure Stack"
+description: Referencia de la API de uso de recursos, que recupera información de uso de Azure Stack
 services: azure-stack
-documentationcenter: 
-author: AlfredoPizzirani
-manager: byronr
-editor: 
-ms.assetid: b6055923-b6a6-45f0-8979-225b713150ae
+documentationcenter: ''
+author: mattbriggs
+manager: femila
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
-ms.author: alfredop
-ms.openlocfilehash: 0c45ce3bc93945ed8700464beebabcda07e8d77c
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.date: 02/22/2018
+ms.author: mabrigg
+ms.reviewer: alfredop
+ms.openlocfilehash: 763b0af9c258a70392e8c7ebbb4c107e94fce5b2
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="provider-resource-usage-api"></a>API de uso de recursos de proveedor
 El término *proveedor* se aplica al administrador de servicios y a los proveedores delegados. Los operadores de Azure Stack y los proveedores delegados pueden usar la API de uso del proveedor para ver el uso de sus inquilinos directos. Por ejemplo, como se muestra en el diagrama, P0 puede llamar a la API de proveedores para obtener información del uso directo de P1 y de P2 y P1 puede llamarla para obtener información de uso sobre P3 y P4.
@@ -47,7 +47,7 @@ Esta API de uso es una API de proveedor, por lo que a quien realiza la llamada d
 | *api-version* |Versión del protocolo que se usa para realizar esta solicitud. Este valor se establece en *2015-06-01-preview*. |
 | *continuationToken* |Token recuperado en la última llamada al proveedor de la API de uso. Este token es necesario cuando una respuesta es superior a 1.000 líneas y actúa como un marcador para el progreso. Si el token no está presente, los datos se recuperan desde el principio del día o de la hora, según la especificidad pasada. |
 
-### <a name="response"></a>Respuesta
+### <a name="response"></a>Response
 GET /subscriptions/sub1/providers/Microsoft.Commerce/subscriberUsageAggregates?reportedStartTime=reportedStartTime=2014-05-01T00%3a00%3a00%2b00%3a00&reportedEndTime=2015-06-01T00%3a00%3a00%2b00%3a00&aggregationGranularity=Daily&subscriberId=sub1.1&api-version=1.0
 
 ```json
@@ -88,6 +88,18 @@ meterID1",
 | *instanceData* |Pares de clave y valor de los detalles de la instancia (con un formato nuevo):<br> *resourceUri*: identificador de recurso completo, incluidos los grupos de recursos y el nombre de instancia. <br> *location*: región en la que se ejecutó este servicio. <br> *tags*: etiquetas del recurso especificadas por el usuario. <br> *additionalInfo*: más detalles sobre el recurso que se consumió, por ejemplo, tipo de imagen o versión de sistema operativo. |
 | *quantity* |Cantidad de consumo de recursos que se produjo en este período de tiempo. |
 | *meterId* |Identificador único del recurso que se consumió (también denominado *ResourceID*). |
+
+
+## <a name="retrieve-usage-information"></a>Recuperar información de utilización
+
+Para generar los datos de uso, es preciso tener recursos en ejecución y que utilicen activamente el sistema, por ejemplo, una máquina virtual activa, una cuenta de almacenamiento que contiene algunos datos, etc. Si no está seguro de si tiene algún recurso que se ejecute en Azure Stack Marketplace, implemente una máquina virtual (VM) y compruebe la hoja de supervisión de la máquina virtual para asegurarse de que se está ejecutando. Use los siguientes cmdlets de PowerShell para ver los datos de utilización:
+
+1. [Instale PowerShell para Azure Stack.](azure-stack-powershell-install.md)
+2. [Configure el entorno de PowerShell del usuario de Azure Stack](user/azure-stack-powershell-configure-user.md) o del [operador de Azure Stack](azure-stack-powershell-configure-admin.md) 
+3. Para recuperar los datos de utilización, use el cmdlet [Get-UsageAggregates](/powershell/module/azurerm.usageaggregates/get-usageaggregates) de PowerShell:
+```powershell
+Get-UsageAggregates -ReportedStartTime "<Start time for usage reporting>" -ReportedEndTime "<end time for usage reporting>" -AggregationGranularity <Hourly or Daily>
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Referencia de la API de uso de recursos de inquilino](azure-stack-tenant-resource-usage-api.md)

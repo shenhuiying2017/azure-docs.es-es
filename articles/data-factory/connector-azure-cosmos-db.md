@@ -1,8 +1,8 @@
 ---
 title: Copia de datos con Azure Cosmos DB como origen o destino mediante Data Factory | Microsoft Docs
-description: "Obtenga información sobre cómo copiar datos desde cualquier almacén de datos de origen compatible a Azure Cosmos DB o desde Cosmos DB a cualquier almacén de receptor compatible mediante Data Factory."
+description: Obtenga información sobre cómo copiar datos desde cualquier almacén de datos de origen compatible a Azure Cosmos DB o desde Cosmos DB a cualquier almacén de receptor compatible mediante Data Factory.
 services: data-factory, cosmosdb
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
 manager: jhubbard
 editor: spelluru
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: c791f335bfa9ec6073eb83149068571ceb253f82
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b54aba19ecb92867bc817cbbb921f4e6537ef70c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Copia de datos con Azure Cosmos DB como origen o destino mediante Azure Data Factory
 
@@ -162,7 +162,7 @@ Para copiar datos desde Azure Cosmos DB, establezca el tipo de origen de la acti
 
 ### <a name="azure-cosmos-db-as-sink"></a>Azure Cosmos DB como receptor
 
-Para copiar datos desde Azure Cosmos DB, establezca el tipo de receptor de la actividad de copia en **DocumentDbCollectionSink**. Se admiten las siguientes propiedades en la sección **source** de la actividad de copia:
+Para copiar datos en Azure Cosmos DB, establezca el tipo de receptor de la actividad de copia en **DocumentDbCollectionSink**. Se admiten las siguientes propiedades en la sección **source** de la actividad de copia:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
@@ -214,5 +214,5 @@ Para lograr dicha copia independiente del esquema:
 - En conjuntos de datos de Cosmos DB, no especifique la sección "structure"; en el origen o receptor de Cosmos DB de la actividad de copia, no especifique la propiedad "nestingSeparator".
 - Al realizar operaciones de importación o exportación con archivos JSON, en el conjunto de datos del almacén de archivos correspondiente, especifique el tipo de formato como "JsonFormat" y la configuración "filePattern" correctamente (consulte la sección [JSON format](supported-file-formats-and-compression-codecs.md#json-format) (Formato JSON) para obtener más información) y, luego, no especifique la sección "structure" y omita la configuración de formato restante.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Consulte los [almacenes de datos compatibles](copy-activity-overview.md##supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.

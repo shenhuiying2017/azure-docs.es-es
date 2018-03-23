@@ -1,11 +1,11 @@
 ---
-title: "Certificación de AppSource para Azure Active Directory | Microsoft Docs"
-description: "Información detallada sobre cómo certificar su instancia de AppSource de la aplicación para Azure Active Directory."
+title: Certificación de AppSource para Azure Active Directory | Microsoft Docs
+description: Información detallada sobre cómo certificar su instancia de AppSource de la aplicación para Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: andretms
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 21206407-49f8-4c0b-84d1-c25e17cd4183
 ms.service: active-directory
 ms.devlang: na
@@ -16,10 +16,10 @@ ms.date: 08/03/2017
 ms.author: andret
 ms.custom: aaddev
 ms.openlocfilehash: 5601ad80e271364fec519cf34bcdc2f650f3bb92
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Obtención de AppSource certificado para Azure Active Directory
 [Microsoft AppSource](https://appsource.microsoft.com/) es un destino para que los usuarios empresariales detecten, prueben y administren aplicaciones SaaS de línea de negocio (SaaS independiente y un complemento para productos SaaS de Microsoft existentes).
@@ -35,7 +35,7 @@ Una aplicación que acepta inicios de sesión de usuarios de cualquier compañí
 
 Para habilitar la arquitectura multiempresa en la aplicación:
 - Establezca la propiedad `Multi-Tenanted` como `Yes` en la información de registro de la aplicación de [Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) (de manera predeterminada, las aplicaciones creadas en Azure se configuran como de *inquilino único*).
-- Actualice el código para que envíe solicitudes al punto de conexión "`common`" (actualice el punto de conexión de *https://login.microsoftonline.com/{yourtenant}* a *https://login.microsoftonline.com/common*).
+- Actualice el código para enviar solicitudes al punto de conexión "`common`" (actualice el punto de conexión de *https://login.microsoftonline.com/{yourtenant}* a *https://login.microsoftonline.com/common*)
 - En algunas plataformas, como ASP.NET, también hay que actualizar el código para que acepte varios emisores.
 
 Para más información sobre la arquitectura multiempresa, vea [Inicio de sesión de cualquier usuario de Azure Active Directory (AD) mediante el patrón de aplicación multiempresa](./active-directory-devhowto-multi-tenant-overview.md).

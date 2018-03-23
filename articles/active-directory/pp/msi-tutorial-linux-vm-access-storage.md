@@ -1,8 +1,8 @@
 ---
-title: "Uso de una MSI asignada por el usuario en una máquina virtual Linux para acceder a Azure Storage"
-description: "Tutorial que le guía mediante el proceso para usar una identidad de servicio administrada (MSI) asignada por el usuario con una máquina virtual Linux para acceder a Azure Storage."
+title: Uso de una MSI asignada por el usuario en una máquina virtual Linux para acceder a Azure Storage
+description: Tutorial que le guía mediante el proceso para usar una identidad de servicio administrada (MSI) asignada por el usuario con una máquina virtual Linux para acceder a Azure Storage.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: arluca
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 1d8641fef3a60ffcde6d0a4ac7e30d4e6cd3b169
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 5ae0e4e8149772d79190ee196cdd1c1bef344681
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-a-user-assigned-managed-service-identity-msi-on-a-linux-vm-to-access-azure-storage"></a>Uso de una identidad de servicio administrada (MSI) asignada por el usuario en una máquina virtual Linux para acceder a Azure Storage
 
@@ -167,9 +167,9 @@ Para completar estos pasos, necesitará un cliente SSH. Si usa Windows, puede us
 3. En la ventana del terminal, con CURL, realice una solicitud al punto de conexión local de MSI para obtener un token de acceso para Azure Storage.
 
    En el ejemplo siguiente, se muestra la solicitud CURL para adquirir un token de acceso. Asegúrese de reemplazar `<CLIENT ID>` por la propiedad `clientId` devuelta por el comando `az identity create` en [Creación de una MSI asignada por el usuario](#create-a-user-assigned-msi):
-
+   
    ```bash
-   curl -H Metadata:true "http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fstorage.azure.com/&client_id=<CLIENT ID>"
+   curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fstorage.azure.com/&client_id=<MSI CLIENT ID>" 
    ```
 
    > [!NOTE]
@@ -198,7 +198,7 @@ Para completar estos pasos, necesitará un cliente SSH. Si usa Windows, puede us
    Hello world! :)
    ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Para obtener información general sobre MSI, consulte [Managed Service Identity overview](msi-overview.md) (Introducción a Managed Service Identity).
 - Para aprender a hacer lo que se realiza en este tutorial con una credencial SAS de almacenamiento, consulte [Uso de Managed Service Identity en una máquina virtual Linux para tener acceso a Azure Storage a través de una credencial SAS](msi-tutorial-linux-vm-access-storage-sas.md)

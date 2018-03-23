@@ -1,31 +1,31 @@
 ---
 title: Errores de recursos de Azure no encontrados | Microsoft Docs
-description: "Describe cómo resolver errores cuando no se encuentra un recurso."
+description: Describe cómo resolver errores cuando no se encuentra un recurso.
 services: azure-resource-manager,azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
-editor: 
+editor: ''
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 09/13/2017
+ms.date: 03/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: c76c965c43ca8217faa9488c01975ce09a21daaf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6844c1c2938873b0a74fe66e846dc733a4bd6ff7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="resolve-not-found-errors-for-azure-resources"></a>Resolver errores de recursos de Azure no encontrados
 
-Este artículo describen los errores que pueden producirse cuando no se encuentra un recurso durante la implementación. 
+En este artículo se describen los errores que pueden producirse cuando no se encuentra un recurso durante la implementación.
 
 ## <a name="symptom"></a>Síntoma
 
-Cuando la plantilla incluye el nombre de un recurso que no se puede resolver, recibirá un error similar al siguiente:
+Cuando la plantilla incluye el nombre de un recurso que no se puede resolver, recibe un error similar al siguiente:
 
 ```
 Code=NotFound;
@@ -44,11 +44,9 @@ group {resource group name} was not found.
 
 Resource Manager necesita recuperar las propiedades de un recurso, pero no puede identificar el recurso en su suscripción.
 
-## <a name="solution"></a>Solución
+## <a name="solution-1---set-dependencies"></a>Solución 1: Establecimiento de dependencias
 
-### <a name="solution-1"></a>Solución 1
-
-Si está tratando de implementar el recurso que falta en la plantilla, compruebe si tiene que agregar una dependencia. Cuando es posible, Resource Manager optimiza la implementación mediante la creación de recursos en paralelo. Si un recurso se debe implementar después de otro recurso, debe usar el elemento **dependsOn** en la plantilla para crear una dependencia en el otro recurso. Por ejemplo, al implementar una aplicación web, debe existir el plan de Servicio de aplicaciones. Si no ha especificado que la aplicación web dependa del plan de App Service, Resource Manager creará ambos recursos al mismo tiempo. Recibirá un error que indica que no se encuentra el recurso del plan de App Service, porque aún no existe cuando se trata de establecer una propiedad en la aplicación web. Este error se puede evitar estableciendo la dependencia en la aplicación web.
+Si está tratando de implementar el recurso que falta en la plantilla, compruebe si tiene que agregar una dependencia. Cuando es posible, Resource Manager optimiza la implementación mediante la creación de recursos en paralelo. Si un recurso se debe implementar después de otro, debe usar el elemento **dependsOn** de la plantilla. Por ejemplo, al implementar una aplicación web, debe existir el plan de App Service. Si no ha especificado que la aplicación web dependa del plan de App Service, Resource Manager crea ambos recursos al mismo tiempo. Recibirá un error que indica que no se encuentra el recurso del plan de App Service, porque aún no existe cuando se intenta establecer una propiedad en la aplicación web. Este error se puede evitar estableciendo la dependencia en la aplicación web.
 
 ```json
 {
@@ -61,9 +59,27 @@ Si está tratando de implementar el recurso que falta en la plantilla, compruebe
 }
 ```
 
-Para obtener sugerencias sobre cómo solucionar los errores de dependencia, consulte [Comprobación de la secuencia de implementación](resource-manager-troubleshoot-tips.md#check-deployment-sequence).
+No obstante, desea evitar configurar dependencias que no sean necesarias. Cuando hay dependencias innecesarias, prolonga la duración de la implementación al impedir que los recursos que no son dependientes entre sí se implementen en paralelo. Además, puede crear dependencias circulares que bloqueen la implementación. La función [reference](resource-group-template-functions-resource.md#reference) crea una dependencia implícita del recurso al que hace referencia, cuando este se implementa en la misma plantilla. Por lo tanto, puede tener más dependencias que las especificadas en la propiedad **dependsOn**. La función [resourceId](resource-group-template-functions-resource.md#resourceid) no crea una dependencia implícita ni valida que el recurso existe.
 
-### <a name="solution-2"></a>Solución 2
+Cuando se encuentre con problemas de dependencia, debe comprender mejor el orden de la implementación de recursos. Para ver el orden de las operaciones de implementación:
+
+1. Seleccione el historial de implementaciones para el grupo de recursos.
+
+   ![seleccionar el historial de implementaciones](./media/resource-manager-not-found-errors/select-deployment.png)
+
+2. Seleccione una implementación del historial y seleccione **Eventos**.
+
+   ![seleccionar eventos de implementación](./media/resource-manager-not-found-errors/select-deployment-events.png)
+
+3. Examine la secuencia de eventos para cada recurso. Preste atención para el estado de cada operación. Por ejemplo, la siguiente imagen muestra tres cuentas de almacenamiento que se implementan en paralelo. Tenga en cuenta que las tres cuentas de almacenamiento se inician al mismo tiempo.
+
+   ![implementación paralela](./media/resource-manager-not-found-errors/deployment-events-parallel.png)
+
+   La siguiente imagen muestra tres cuentas de almacenamiento que no se implementan en paralelo. La segunda cuenta de almacenamiento depende de la primera cuenta de almacenamiento y la tercera cuenta de almacenamiento depende de la segunda cuenta de almacenamiento. La primera cuenta de almacenamiento se inicia, se acepta y se completa antes de que se inicie la siguiente.
+
+   ![implementación secuencial](./media/resource-manager-not-found-errors/deployment-events-sequence.png)
+
+## <a name="solution-2---get-resource-from-different-resource-group"></a>Solución 2: Obtención de recursos de otro grupo de recursos
 
 Si el recurso existe en un grupo de recursos diferente al que se va a implementar, utilice la [función resourceId](resource-group-template-functions-resource.md#resourceid) para obtener el nombre completo del recurso.
 
@@ -74,7 +90,7 @@ Si el recurso existe en un grupo de recursos diferente al que se va a implementa
 }
 ```
 
-### <a name="solution-3"></a>Solución 3
+## <a name="solution-3---check-reference-function"></a>Solución 3: Comprobación de la función de referencia
 
 Busque una expresión que incluya la función [reference](resource-group-template-functions-resource.md#reference). Los valores que proporcione varían en función de si el recurso se está en la misma plantilla, grupo de recursos y suscripción. Compruebe que está proporcionando los valores de parámetro necesarios para su escenario. Si el recurso está en otro grupo de recursos, proporcione el identificador de recurso completo. Por ejemplo, para hacer referencia a una cuenta de almacenamiento en otro grupo de recursos, use:
 

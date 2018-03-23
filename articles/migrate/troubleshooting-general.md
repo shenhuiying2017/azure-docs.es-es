@@ -1,16 +1,16 @@
 ---
-title: "Solución de problemas de Azure Migrate | Microsoft Docs"
-description: "Se proporciona información general sobre los problemas conocidos del servicio Azure Migrate, además de sugerencias para solucionar los errores comunes."
+title: Solución de problemas de Azure Migrate | Microsoft Docs
+description: Se proporciona información general sobre los problemas conocidos del servicio Azure Migrate, además de sugerencias para solucionar los errores comunes.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: troubleshooting
 ms.date: 02/21/2018
 ms.author: raynew
-ms.openlocfilehash: 249de45dbd9bedf1b3c2d2a5957acf31d6c0d243
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: e1e7a1a57f780ef477379dfb1ceaead0c8654970
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="troubleshoot-azure-migrate"></a>Solución de problemas de Azure Migrate
 
@@ -126,5 +126,23 @@ Para recopilar el Seguimiento de eventos para Windows, haga lo siguiente:
 7. Cierre las Herramientas de desarrollo.
  
 
+## <a name="vcenter-errors"></a>Errores de vCenter
 
+### <a name="error-unhandledexception-internal-error-occured-systemiofilenotfoundexception"></a>Error UnhandledException Error interno: System.IO.FileNotFoundException
+
+Se trata de un problema que se observa en las versiones del recopilador anteriores a la 1.0.9.5. Si tiene una versión del recopilador 1.0.9.2 o una de las versiones anteriores a la disponibilidad general, como la 1.0.8.59, se encontrará con este problema. Siga este [enlace a los foros para una respuesta más detallada](https://social.msdn.microsoft.com/Forums/azure/en-US/c1f59456-7ba1-45e7-9d96-bae18112fb52/azure-migrate-connect-to-vcenter-server-error?forum=AzureMigrate).
+
+[Actualice el recopilador para corregir el problema](https://aka.ms/migrate/col/checkforupdates).
+
+### <a name="error-unabletoconnecttoserver"></a>Error UnableToConnectToServer
+
+No se puede conectar al servidor de vCenter "Servername.com:9443" debido al error: No hay ningún punto de conexión escuchando en https://Servername.com:9443/sdk que pudiera aceptar el mensaje.
+
+Esto sucede cuando la máquina del recopilador no puede resolver el nombre del servidor de vCenter especificado o el puerto especificado es incorrecto. De forma predeterminada, si no se especifica el puerto, el recopilador intentará conectar con el número de puerto 443.
+
+1. Intente hacer ping a Servername.com desde el equipo del recopilador.
+2. Si se produce un error en el paso 1, intente conectarse al servidor de vCenter a través de la dirección IP.
+3. Identifique el número de puerto correcto para conectarse a vCenter.
+4. Por último, compruebe si el servidor de vCenter está en funcionamiento.
+ 
 

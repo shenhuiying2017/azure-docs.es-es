@@ -1,11 +1,11 @@
 ---
 title: Uso del portal de Azure Stack | Microsoft Docs
-description: "Obtenga información sobre cómo acceder al portal del usuario y usar el mismo en Azure Stack."
+description: Obtenga información sobre cómo acceder al portal del usuario y usar el mismo en Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 5aa00123-5b87-45e0-a671-4165e66bfbc6
 ms.service: azure-stack
 ms.workload: na
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 09/25/2017
 ms.author: mabrigg
 ms.openlocfilehash: 7c34d7a225be63da95f664525b0366ff89b28838
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="using-the-azure-stack-portal"></a>Uso del portal de Azure Stack
 
-*Se aplica a: Sistemas integrados de Azure Stack y Azure Stack Development Kit*
+*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 Como consumidor de servicios de Azure Stack, puede usar el portal de Azure Stack para suscribirse a ofertas públicas y utilizar los servicios que están disponibles a través de dichas ofertas. Si ha utilizado Azure Portal antes, ya está familiarizado con la interfaz de usuario.
 
@@ -31,7 +31,7 @@ Como consumidor de servicios de Azure Stack, puede usar el portal de Azure Stack
 El operador de Azure Stack (un proveedor de servicios o un administrador de su organización), le permitirá conocer la dirección URL correcta para acceder al portal. 
 
 - En un sistema integrado, la dirección URL varía en función de la región y el nombre de dominio externo del operador, y tendrá el formato https://portal.&lt;*región*&gt;.&lt;*FQDN*&gt;.
-- Si usa Azure Stack Development Kit, la dirección del portal es https://portal.local.azurestack.external.
+- Si usa el Kit de desarrollo de Azure Stack, la dirección del portal es https://portal.local.azurestack.external.
 
 ![Captura de pantalla del portal del usuario de Azure Stack](media/azure-stack-use-portal/UserPortal.png)
 
@@ -68,7 +68,7 @@ Si necesita instrucciones sobre cómo usar los servicios disponibles, puede habe
 
 Si necesita ayuda adicional, póngase en contacto con su organización o proveedor de servicios. 
 
-Si usa Azure Stack Development Kit, el [foro de Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) es el único método de soporte técnico.
+Si usa el Kit de desarrollo de Azure Stack, el [foro de Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) es el único método de soporte técnico.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

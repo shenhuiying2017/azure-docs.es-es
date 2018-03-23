@@ -1,25 +1,20 @@
 ---
-title: "Aplicaciones multiinquilino con RLS y herramientas de bases de datos elásticas | Microsoft Docs"
-description: "Use herramientas de bases de datos elásticas con seguridad de nivel de fila para crear una aplicación con una capa de datos altamente escalable."
+title: Aplicaciones multiinquilino con RLS y herramientas de bases de datos elásticas | Microsoft Docs
+description: Use herramientas de bases de datos elásticas con seguridad de nivel de fila para crear una aplicación con una capa de datos altamente escalable.
 metakeywords: azure sql database elastic tools multi tenant row level security rls
 services: sql-database
-documentationcenter: 
-manager: jhubbard
+manager: craigg
 author: tmullaney
-ms.assetid: e72d3cfe-e9be-4326-b776-9c6d96c0a18e
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
-ms.author: thmullan;torsteng
-ms.openlocfilehash: f874800e8647eac6ed94945d79e904df86207b0f
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.author: thmullan
+ms.openlocfilehash: 62213eeeee0b1d93cabc32101ad6fe51bf394080
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Aplicaciones de múltiples inquilinos con herramientas de bases de datos elásticas y seguridad de nivel de fila
 
@@ -39,7 +34,7 @@ El objetivo es usar las API de [enrutamiento dependiente de los datos](sql-datab
 
 ## <a name="download-the-sample-project"></a>Descarga del proyecto de ejemplo
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>requisitos previos
 
 - Uso de Visual Studio (2012 o posterior) 
 - Creación de tres instancias de Azure SQL Database 
@@ -341,7 +336,7 @@ GO
 ```
 
 
-### <a name="maintenance"></a>Mantenimiento
+### <a name="maintenance"></a>Mantenimiento 
 
 - **Agregar particiones nuevas**: ejecute el script T-SQL para habilitar RLS en las nuevas particiones; en caso contrario, no se filtran las consultas en esas particiones.
 - **Agregar tablas nuevas**: cada vez que se cree una tabla, agregue un predicado FILTER y BLOCK a la directiva de seguridad en todas las particiones. De lo contrario, no se filtran las consultas de la nueva tabla. Esta adición se puede automatizar mediante un desencadenador DDL, como se describe en [Apply Row-Level Security automatically to newly created tables (blog)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/05/22/apply-row-level-security-automatically-to-newly-created-tables.aspx)[Aplicación de la seguridad de nivel de fila a las tablas recientemente creadas (blog)].

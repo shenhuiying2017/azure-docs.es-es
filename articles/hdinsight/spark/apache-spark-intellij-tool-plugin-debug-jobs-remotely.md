@@ -1,8 +1,8 @@
 ---
-title: "Kit de herramientas de Azure para IntelliJ: depuración de aplicaciones de forma remota en HDInsight Spark | Microsoft Docs"
-description: "Aprenda a usar las herramientas de HDInsight del Kit de herramientas de Azure para IntelliJ para depurar de forma remota aplicaciones Spark que se ejecutan en clústeres de HDInsight mediante VPN."
+title: 'Kit de herramientas de Azure para IntelliJ: depuración de aplicaciones de forma remota en HDInsight Spark | Microsoft Docs'
+description: Aprenda a usar las herramientas de HDInsight del Kit de herramientas de Azure para IntelliJ para depurar de forma remota aplicaciones Spark que se ejecutan en clústeres de HDInsight mediante VPN.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -60,7 +60,7 @@ Se recomienda crear también un clúster de Apache Spark en Azure HDInsight que 
 2. En la interfaz de usuario de Ambari, seleccione **Hosts**.
 
     ![Selección de Hosts en Ambari](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/ambari-hosts.png)
-3. Se ve una lista de nodos principales, nodos de trabajo y nodos de Zookeeper. Los nodos principales tienen un prefijo **hn***. Seleccione el primer nodo principal.
+3. Se ve una lista de nodos principales, nodos de trabajo y nodos de Zookeeper. Los nodos principales tienen un prefijo **hn**\*. Seleccione el primer nodo principal.
 
     ![Búsqueda del nodo principal en Ambari](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/cluster-headnodes.png)
 4. En el panel **Resumen** de la parte inferior de la página que se abre, copie la **Dirección IP** del nodo principal y el **Nombre de host**.

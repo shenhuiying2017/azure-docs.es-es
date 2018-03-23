@@ -1,25 +1,19 @@
 ---
-title: "Información general sobre la prueba comparativa Azure SQL Database"
-description: "Este tema describe la prueba comparativa Azure SQL Database Benchmark, que se usa para la medición del rendimiento de Azure SQL Database."
+title: Información general sobre la prueba comparativa Azure SQL Database
+description: Este tema describe la prueba comparativa Azure SQL Database Benchmark, que se usa para la medición del rendimiento de Azure SQL Database.
 services: sql-database
-documentationcenter: na
 author: jan-eng
 manager: jhubbard
-editor: monicar
-ms.assetid: e26f8a66-2c12-49d7-8297-45b4d48a5c01
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: On Demand
 ms.date: 06/21/2016
 ms.author: janeng
-ms.openlocfilehash: fb8a5f205ddc143dc47349829048f46f88963d05
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 25685f663d976674ad877bcfa1409ef016dd02ae
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-sql-database-benchmark-overview"></a>Información general sobre la prueba comparativa Azure SQL Database
 ## <a name="overview"></a>Información general
@@ -51,7 +45,7 @@ La base de datos se dimensiona basándose en un “factor de escala”. El facto
 ## <a name="transactions"></a>Transacciones
 La carga de trabajo consta de nueve tipos de transacciones, como se muestra en la tabla siguiente. Cada transacción se diseño para destacar un conjunto determinado de características del sistema en el motor de la base de datos y en el hardware del sistema, con un elevado contraste con respecto a las otras transacciones. Este enfoque facilita la evaluación del impacto de diferentes componentes sobre el rendimiento global. Por ejemplo, la transacción “Lectura intensa” produce un número significativo de operaciones de lectura de disco.
 
-| Tipo de transacción | Descripción |
+| Tipo de transacción | DESCRIPCIÓN |
 | --- | --- |
 | Lectura ligera |SELECT; en memoria; solo lectura |
 | Lectura mediana |SELECT; principalmente en memoria; solo lectura |
@@ -69,9 +63,9 @@ Las transacciones se seleccionan aleatoriamente de una distribución ponderada c
 | Tipo de transacción | % de combinación |
 | --- | --- |
 | Lectura ligera |35 |
-| Lectura mediana |20 | |
+| Lectura mediana |20  |
 | Lectura intensa |5 |
-| Actualización ligera |20 | |
+| Actualización ligera |20  |
 | Actualización intensa |3 |
 | Inserción ligera |3 |
 | Inserción intensa |2 |
@@ -102,7 +96,7 @@ La tabla siguiente muestra el número de usuarios sostenidos realmente para cada
 | --- | --- | --- |
 | Básica |5 |720 MB |
 | Estándar (S0) |10 |1 GB |
-| Estándar (S1) |20 | |2,1 GB |
+| Estándar (S1) |20  |2,1 GB |
 | Estándar (S2) |50 |7,1 GB |
 | Premium (P1) |100 |14 GB |
 | Premium (P2) |200 |28 GB |
@@ -120,7 +114,7 @@ Las métricas clave de la prueba comparativa son rendimiento y tiempo de respues
 | Clase de servicio | Medición del rendimiento | Requisito del tiempo de respuesta |
 | --- | --- | --- |
 | Premium |Transacciones por segundo |Percentil 95 en 0,5 segundos |
-| Standard |Transacciones por minuto |Percentil 90 en 1,0 segundo |
+| Estándar |Transacciones por minuto |Percentil 90 en 1,0 segundo |
 | Básica |Transacciones por hora |Percentil 80 en 2,0 segundos |
 
 ## <a name="conclusion"></a>Conclusión

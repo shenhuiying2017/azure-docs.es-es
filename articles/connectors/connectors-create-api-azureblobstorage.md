@@ -1,11 +1,11 @@
 ---
-title: "Incorporación del conector de Azure Blob Storage en Logic Apps | Microsoft Docs"
-description: "Muestra cómo empezar a trabajar y configurar el conector de Azure Blob Storage en una aplicación lógica"
-services: 
-documentationcenter: 
-author: MandiOhlinger
+title: Incorporación del conector de Azure Blob Storage en Logic Apps | Microsoft Docs
+description: Muestra cómo empezar a trabajar y configurar el conector de Azure Blob Storage en una aplicación lógica
+services: ''
+documentationcenter: ''
+author: ecfan
 manager: anneta
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: b5dc3f75-6bea-420b-b250-183668d2848d
 ms.service: logic-apps
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/02/2017
-ms.author: mandia; ladocs
-ms.openlocfilehash: e12669abd41f09d161fab786af29955da54a1633
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 7aaff2ac78201c4484105c6cacc5f0fef19ca7b5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-the-azure-blob-storage-connector-in-a-logic-app"></a>Uso del conector de Azure Blob Storage en una aplicación lógica
 Use el conector de Azure Blob Storage para cargar, actualizar, obtener y eliminar blobs en la cuenta de almacenamiento, todo dentro de una aplicación lógica.  
@@ -71,6 +71,6 @@ Una acción es una operación que se lleva a cabo mediante el flujo de trabajo d
 
 Vea los desencadenadores y las acciones definidos en Swagger y vea también todos los límites en los [detalles del conector](/connectors/azureblobconnector/). 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Crear una aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Explore los demás conectores disponibles en Logic Apps en nuestra [lista de API](apis-list.md).
 

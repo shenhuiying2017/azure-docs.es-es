@@ -1,13 +1,13 @@
 ---
 title: Desencadenador de Event Grid para Azure Functions
-description: "Comprenda cómo se pueden controlar eventos de Event Grid en Azure Functions."
+description: Comprenda cómo se pueden controlar eventos de Event Grid en Azure Functions.
 services: functions
 documentationcenter: na
 author: tdykstra
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/26/2018
 ms.author: tdykstra
-ms.openlocfilehash: 2a6fe85c2c3d6d4f44dc197db6c28ebbc2b1d431
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: a1ffd9311f6ff171502efe64557463abc49ad636
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Desencadenador de Event Grid para Azure Functions
 
@@ -33,6 +33,16 @@ Si lo prefiere, puede usar un desencadenador HTTP para controlar los eventos de 
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
+## <a name="packages"></a>Paquetes
+
+El desencadenador de Event Grid se proporciona en el paquete NuGet [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid). El código fuente para el paquete está en el repositorio de GitHub [azure-functions-eventgrid-extension](https://github.com/Azure/azure-functions-eventgrid-extension).
+
+El paquete se utiliza para el [desarrollo de la biblioteca de clases de C#](functions-triggers-bindings.md#local-c-development-using-visual-studio-or-vs-code) y el [registro de extensiones de enlace de Functions v2](functions-triggers-bindings.md#local-development-azure-functions-core-tools).
+
+<!--
+If you want to bind to the `Microsoft.Azure.EventGrid.Models.EventGridEvent` type instead of `JObject`, install the [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) package.
+-->
+
 ## <a name="example"></a>Ejemplo
 
 Vea el ejemplo específico del lenguaje de un desencadenador de Event Grid:
@@ -45,24 +55,58 @@ Para ver un ejemplo de un desencadenador HTTP, consulte [Cómo utilizar un desen
 
 ### <a name="c-example"></a>Ejemplo de C#
 
-El ejemplo siguiente muestra una [función de C#](functions-dotnet-class-library.md) que registra algunos de los campos que son comunes a todos los eventos y a todos los datos específicos del evento.
+En el ejemplo siguiente se muestra una [función de C#](functions-dotnet-class-library.md) que se enlaza a `JObject`:
 
 ```cs
-[FunctionName("EventGridTest")]
-public static void EventGridTest([EventGridTrigger] EventGridEvent eventGridEvent, TraceWriter log)
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Azure.WebJobs.Extensions.EventGrid;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+
+namespace Company.Function
 {
-    log.Info("C# Event Grid function processed a request.");
-    log.Info($"Subject: {eventGridEvent.Subject}");
-    log.Info($"Time: {eventGridEvent.EventTime}");
-    log.Info($"Data: {eventGridEvent.Data.ToString()}");
+    public static class EventGridTriggerCSharp
+    {
+        [FunctionName("EventGridTriggerCSharp")]
+        public static void Run([EventGridTrigger]JObject eventGridEvent, TraceWriter log)
+        {
+            log.Info(eventGridEvent.ToString(Formatting.Indented));
+        }
+    }
 }
 ```
 
-El atributo `EventGridTrigger` se define en el paquete NuGet [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid).
+<!--
+The following example shows a [C# function](functions-dotnet-class-library.md) that binds to `EventGridEvent`:
+
+```cs
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Azure.WebJobs.Extensions.EventGrid;
+
+namespace Company.Function
+{
+    public static class EventGridTriggerCSharp
+    {
+        [FunctionName("EventGridTest")]
+            public static void EventGridTest([EventGridTrigger] Microsoft.Azure.EventGrid.Models.EventGridEvent eventGridEvent, TraceWriter log)
+        {
+            log.Info("C# Event Grid function processed a request.");
+            log.Info($"Subject: {eventGridEvent.Subject}");
+            log.Info($"Time: {eventGridEvent.EventTime}");
+            log.Info($"Data: {eventGridEvent.Data.ToString()}");
+        }
+    }
+}
+```
+-->
+
+Para más información, consulte [Paquetes](#packages), [Atributos](#attributes), [Configuración](#configuration) y [Uso](#usage).
 
 ### <a name="c-script-example"></a>Ejemplo de script de C#
 
-En el ejemplo siguiente se muestra un enlace de desencadenador en un archivo *function.json* y una [función de script de C#](functions-reference-csharp.md) que usa el enlace. La función registra algunos de los campos que son comunes a todos los eventos y a todos los datos específicos del evento.
+En el ejemplo siguiente se muestra un enlace de desencadenador en un archivo *function.json* y una [función de script de C#](functions-reference-csharp.md) que usa el enlace.
 
 Estos son los datos de enlace del archivo *function.json*:
 
@@ -79,12 +123,30 @@ Estos son los datos de enlace del archivo *function.json*:
 }
 ```
 
-Este es el código de script de C#:
+Este es el código de script de C# que se enlaza a `JObject`:
+
+```cs
+#r "Newtonsoft.Json"
+
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+
+public static void Run(JObject eventGridEvent, TraceWriter log)
+{
+    log.Info(eventGridEvent.ToString(Formatting.Indented));
+}
+```
+
+<!--
+Here's C# script code that binds to `EventGridEvent`:
 
 ```csharp
 #r "Newtonsoft.Json"
 #r "Microsoft.Azure.WebJobs.Extensions.EventGrid"
+#r "Microsoft.Azure.EventGrid"
+
 using Microsoft.Azure.WebJobs.Extensions.EventGrid;
+Using Microsoft.Azure.EventGrid.Models;
 
 public static void Run(EventGridEvent eventGridEvent, TraceWriter log)
 {
@@ -94,10 +156,13 @@ public static void Run(EventGridEvent eventGridEvent, TraceWriter log)
     log.Info($"Data: {eventGridEvent.Data.ToString()}");
 }
 ```
+-->
+
+Para más información, consulte [Paquetes](#packages), [Atributos](#attributes), [Configuración](#configuration) y [Uso](#usage).
 
 ### <a name="javascript-example"></a>Ejemplo de JavaScript
 
-En el ejemplo siguiente se muestra un enlace de desencadenador en un archivo *function.json* y una [función de JavaScript](functions-reference-node.md) que usa el enlace. La función registra algunos de los campos que son comunes a todos los eventos y a todos los datos específicos del evento.
+En el ejemplo siguiente se muestra un enlace de desencadenador en un archivo *function.json* y una [función de JavaScript](functions-reference-node.md) que usa el enlace.
 
 Estos son los datos de enlace del archivo *function.json*:
 
@@ -128,13 +193,13 @@ module.exports = function (context, eventGridEvent) {
      
 ## <a name="attributes"></a>Atributos
 
-En las [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el atributo [EventGridTrigger](https://github.com/Azure/azure-functions-eventgrid-extension/blob/master/src/EventGridExtension/EventGridTriggerAttribute.cs), que se define en el paquete NuGet [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid).
+En las [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el atributo [EventGridTrigger](https://github.com/Azure/azure-functions-eventgrid-extension/blob/master/src/EventGridExtension/EventGridTriggerAttribute.cs).
 
 A continuación, se muestra un atributo `EventGridTrigger` en una signatura de método:
 
 ```csharp
 [FunctionName("EventGridTest")]
-public static void EventGridTest([EventGridTrigger] EventGridEvent eventGridEvent, TraceWriter log)
+public static void EventGridTest([EventGridTrigger] JObject eventGridEvent, TraceWriter log)
 {
     ...
 }
@@ -154,7 +219,11 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 
 ## <a name="usage"></a>Uso
 
-Para las funciones C# y F #, declare el tipo de entrada del desencadenador para que sea `EventGridEvent` o un tipo personalizado. Para un tipo personalizado, el entorno en tiempo de ejecución de Functions intenta analizar el código JSON del evento para establecer las propiedades del objeto.
+En las funciones de C# y F#, puede usar los tipos de parámetros siguientes para el desencadenador de Event Grid:
+
+* `JObject`
+* `string`
+* `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`: define las propiedades de los campos comunes en todos los tipos de evento. **Este tipo está en desuso**, pero su reemplazo no se publica en NuGet todavía.
 
 Para las funciones de JavaScript, el parámetro denominado por la propiedad `name` de *function.json* tiene una referencia al objeto de evento.
 
@@ -315,7 +384,7 @@ Use una herramienta como [Postman](https://www.getpostman.com/) o [curl](https:/
 * Envíe la dirección URL de la función del desencadenador de Event Grid con el patrón siguiente:
 
 ```
-http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={methodname}
+http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={functionname}
 ``` 
 
 El parámetro `functionName` debe ser el nombre especificado en el atributo `FunctionName`.
@@ -376,7 +445,7 @@ La dirección URL de ngrok no recibe un tratamiento especial por parte de Event 
 Cree una suscripción a Event Grid del tipo que desee probar y asígnele el punto de conexión de ngrok mediante el patrón siguiente:
 
 ```
-https://{subdomain}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={methodname}
+https://{subdomain}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={functionname}
 ``` 
 
 El parámetro `functionName` debe ser el nombre especificado en el atributo `FunctionName`.

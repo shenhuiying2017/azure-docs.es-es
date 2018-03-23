@@ -1,26 +1,21 @@
 ---
-title: "Administración del esquema de Azure SQL Database en una aplicación multiinquilino | Microsoft Docs"
-description: "Administración del esquema para varios inquilinos en una aplicación multiinquilino que usa Azure SQL Database"
+title: Administración del esquema de Azure SQL Database en una aplicación multiinquilino | Microsoft Docs
+description: Administración del esquema para varios inquilinos en una aplicación multiinquilino que usa Azure SQL Database
 keywords: tutorial de SQL Database
 services: sql-database
-documentationcenter: 
 author: MightyPen
 manager: craigg
-editor: 
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2018
 ms.reviewers: billgib
 ms.author: genemi
-ms.openlocfilehash: 0303da917ecb03ca27e0444afb56f49766b70029
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 474b7842c8295be0dd30c2c03b92dc68ce40630d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>Administración de esquema en una aplicación SaaS que usa bases de datos SQL multiinquilino particionadas
 
@@ -167,7 +162,7 @@ Observe los elementos siguientes en el script *OnlineReindex.sql*:
 * [Administración de bases de datos escaladas horizontalmente en la nube](sql-database-elastic-jobs-overview.md)
 * [Creación y administración de bases de datos escaladas horizontalmente](sql-database-elastic-jobs-create-and-manage.md)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, ha aprendido cómo:
 

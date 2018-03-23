@@ -1,32 +1,40 @@
 ---
-title: "Configuración de Azure AD Privileged Identity Management | Microsoft Docs"
-description: "Un tema que explica qué es Privileged Identity Management de Azure AD y cómo usar PIM para mejorar la seguridad de la nube."
+title: Configuración de Azure AD Privileged Identity Management | Microsoft Docs
+description: Un tema que explica qué es Privileged Identity Management de Azure AD y cómo usar PIM para mejorar la seguridad de la nube.
 services: active-directory
-documentationcenter: 
-author: barclayn
+documentationcenter: ''
+author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: c548ed2e-06e3-4eaf-a63d-0f02ee72da25
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
-ms.author: barclayn
+ms.date: 03/07/2018
+ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 94855cf102764532fa0a6718541beffe93230fd1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 827e3521be8918f4de00113fd9eaf4e01679cac5
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>¿Qué es Azure AD Privileged Identity Management?
 
 Con Privileged Identity Management de Azure Active Directory (AD), puede administrar, controlar y supervisar el acceso dentro de su organización. Esto incluye el acceso a los recursos de Azure AD, de los recursos de Azure (versión preliminar) y de otros servicios de Microsoft Online Services, como Office 365 o Microsoft Intune.
 
 > [!NOTE]
-> Privileged Identity Management está disponible en toda la organización cuando ofrece una licencia a los administradores con la edición Premium P2 de Azure Active Directory. Para obtener más información, consulte [Ediciones de Azure Active Directory](active-directory-editions.md).
+> Cuando se habilita Privileged Identity Management para un inquilino, se requiere una licencia de prueba o pago de Azure AD Premium P2 o Enterprise Mobility + Security E5 para cada usuario que interactúa con el servicio o que recibe un beneficio de él. Los ejemplos incluyen los usuarios de un grupo que:
+>
+>- Están asignados al rol Administrador de roles con privilegios. 
+>- Están asignados como aptos para otros roles de directorio que se pueden administrar a través de PIM. 
+>- Tienen la capacidad de aprobar o rechazar solicitudes en PIM. 
+>- Están asignados a un rol de recursos de Azure con asignaciones Just-In-Time o directas (basadas en tiempo).  
+>- Están asignados a una revisión de acceso.
+>
+>Para obtener más información, consulte [Ediciones de Azure Active Directory](active-directory-editions.md).
 
 Las organizaciones buscan reducir el número de personas que tienen acceso a información segura o a recursos, ya que de esta manera se reduce la posibilidad de que usuarios malintencionados obtengan acceso a ellos o de que algún usuario autorizado haga algo involuntariamente que pueda afectar a recursos sensibles.  Sin embargo, los usuarios siguen teniendo la necesidad de llevar a cabo operaciones con privilegios en aplicaciones de Azure AD, Azure, Office 365 o SaaS. Las organizaciones pueden permitir a usuarios con privilegios acceder a los recursos de Azure como Suscripciones y Azure AD. Hay una necesidad de supervisión sobre lo que hacen estos usuarios con sus privilegios de administración. Azure AD Privileged Identity Management ayuda a mitigar el riesgo de unos derechos de acceso excesivos, innecesarios o mal utilizados.
 
@@ -148,7 +156,7 @@ La segunda opción consiste en configurar [revisiones de acceso](active-director
 Un inquilino debe tener una suscripción de prueba o de pago de Azure AD Premium P2 (o EMS E5) en su inquilino antes de usar PIM de Azure AD.  Además, deben asignarse licencias a los administradores del inquilino.  En concreto, deben asignarse licencias a los administradores en roles de Azure AD que se administran a través de PIM de Azure AD, administradores en roles RBAC de Azure que se administran a través de PIM de Azure AD y usuarios sin privilegios de administrador que realizan revisiones de acceso.
 Si su organización no renueva Azure AD Premium P2 o expira el período de prueba, las características de PIM de Azure AD ya no estarán disponibles en el inquilino, se quitarán las asignaciones de roles aptos y los usuarios ya no podrán activar los roles. Encontrará más información en [requisitos de la suscripción de PIM de Azure AD](./privileged-identity-management/subscription-requirements.md)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 

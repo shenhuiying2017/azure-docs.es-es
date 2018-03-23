@@ -1,29 +1,29 @@
 ---
-title: "Protección de datos personales con las características de Azure Network Security | Microsoft Docs"
-description: "Protección de datos personales mediante las características de Azure Network Security"
+title: Protección de datos personales con las características de Azure Network Security | Microsoft Docs
+description: Protección de datos personales mediante las características de Azure Network Security. Se puede usar para cumplir el Reglamento general de protección de datos (RGPD).
 services: security
 documentationcenter: na
 author: Barclayn
 manager: MBaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 03/06/2018
 ms.author: barclayn
-ms.custom: 
-ms.openlocfilehash: 2510a4aed34b6a156cc9a9da6215de5956aac023
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.custom: ''
+ms.openlocfilehash: 54aeb22a501e248105931df341d23e524448155a
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="protect-personal-data-with-network-security-features-azure-application-gateway-and-network-security-groups"></a>Protección de datos personales con las características de seguridad de red: Azure Application Gateway y los grupos de seguridad de red
 
-Este artículo proporciona información y procedimientos que le ayudarán a usar Azure Application Gateway y los grupos de seguridad de red para proteger los datos personales.
+Este artículo proporciona información y procedimientos que le ayudarán a usar Azure Application Gateway y los grupos de seguridad de red para proteger los datos personales. Esta información puede ser útil en los esfuerzos para cumplir el Reglamento general de protección de datos (RGPD).
 
 Un elemento importante de una estrategia de seguridad de varias capas para proteger la privacidad de los datos personales es una defensa contra los ataques de vulnerabilidad comunes como la inyección de código SQL o el scripting entre sitios. Mantener el tráfico de red no deseado fuera de Azure Virtual Network ayuda a protegerse contra posibles riesgos que afectan a los datos confidenciales, y Microsoft Azure proporciona herramientas para ayudar a proteger los datos frente a los atacantes.
 
@@ -131,7 +131,7 @@ Después de unos segundos, verá la nueva regla en el grupo de seguridad de red.
 
 Para más instrucciones sobre cómo crear grupos de seguridad de red en subredes, crear reglas y asociar un grupo de seguridad de red con una subred de front-end y back-end, consulte [Creación de grupos de seguridad de red con Azure Portal](https://docs.microsoft.com/azure/virtual-network/virtual-networks-create-nsg-arm-pportal).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 [Azure Network Security](https://azure.microsoft.com/blog/azure-network-security/)
 

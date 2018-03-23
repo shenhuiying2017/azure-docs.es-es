@@ -1,24 +1,19 @@
 ---
-title: "Informes de bases de datos escaladas horizontalmente en la nube (partición horizontal) | Microsoft Docs"
-description: "Uso de consultas de bases de datos entre bases de datos para informes a través de varias bases de datos."
+title: Informes de bases de datos escaladas horizontalmente en la nube (partición horizontal) | Microsoft Docs
+description: Uso de consultas de bases de datos entre bases de datos para informes a través de varias bases de datos.
 services: sql-database
-documentationcenter: 
 manager: jhubbard
 author: MladjoA
-ms.assetid: c81ef5e3-41e9-4fd2-8631-868f2e168147
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2016
 ms.author: mlandzic
-ms.openlocfilehash: 996ad1d47ece592dcf03a6eb8ed1c1916ceba374
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 29f1291f5c5d6023ca7bcd47fc2c0d9b69fd39fa
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>Informes de bases de datos escaladas horizontalmente en la nube (versión preliminar)
 Puede crear informes de varias bases de datos SQL de Azure desde un único punto de conexión mediante una [consulta elástica](sql-database-elastic-query-overview.md). Las bases de datos deben tener particiones horizontales (también conocidas como "particiones").
@@ -27,13 +22,13 @@ Si tiene una base de datos, consulte [Conversión de bases de datos existentes p
 
 Para comprender los objetos SQL necesarios para realizar consultas, consulte [Informes de bases de datos escaladas horizontalmente en la nube (versión preliminar)](sql-database-elastic-query-horizontal-partitioning.md).
 
-## <a name="prerequisites"></a>Requisitos previos
-Descargue [Introducción al ejemplo de herramientas de base de datos elástica](sql-database-elastic-scale-get-started.md).
+## <a name="prerequisites"></a>requisitos previos
+Descargue [Introducción al ejemplo de herramientas de Elastic Database](sql-database-elastic-scale-get-started.md).
 
 ## <a name="create-a-shard-map-manager-using-the-sample-app"></a>Creación de un administrador de mapas de particiones con la aplicación de ejemplo
 Aquí se creará un administrador de mapas de particiones junto con varias particiones, seguido de la inserción de datos en las particiones. Si resulta que ya dispone de la configuración de particiones con almacenes de datos en ellas, puede omitir los pasos siguientes y pasar a la sección siguiente.
 
-1. Cree y ejecute la aplicación de ejemplo **Introducción a las herramientas de base de datos elástica** . Siga los pasos hasta el paso 7 de la sección [Descarga y ejecución de la aplicación de ejemplo](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app). Al final del paso 7, verá la siguiente línea de comandos:
+1. Cree y ejecute la aplicación de ejemplo **Introducción a las herramientas de Elastic Database**. Siga los pasos hasta el paso 7 de la sección [Descarga y ejecución de la aplicación de ejemplo](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app). Al final del paso 7, verá la siguiente línea de comandos:
 
     ![símbolo del sistema][1]
 2. En la ventana de comandos, escriba "1" y pulse **Entrar**. De esta forma, se creará el administrador de mapas de particiones y se agregarán dos particiones al servidor. A continuación, escriba "3" y pulse **Entrar**; repita la acción cuatro veces. De esta forma, se insertan las filas de datos de ejemplo en sus particiones.
@@ -41,7 +36,7 @@ Aquí se creará un administrador de mapas de particiones junto con varias parti
 
    ![Confirmación de Visual Studio][2]
 
-   En este momento, se admiten las consultas entre bases de datos a través de las bibliotecas de cliente de base de datos elástica. Por ejemplo, use la opción 4 en la ventana de comandos. Los resultados de una consulta de varias particiones son siempre una **UNIÓN DE TODOS** los resultados de todas las particiones.
+   En este momento, se admiten las consultas entre bases de datos a través de las bibliotecas de cliente de Elastic Database. Por ejemplo, use la opción 4 en la ventana de comandos. Los resultados de una consulta de varias particiones son siempre una **UNIÓN DE TODOS** los resultados de todas las particiones.
 
    En la siguiente sección, crearemos un extremo de la base de datos de ejemplo que admite las consultas más completas de los datos entre las particiones.
 
@@ -124,9 +119,9 @@ Todas las filas de la tabla **Clientes** , almacenadas en distintas particiones,
 Ahora puede usar las funciones de visualización de datos decisivas de Excel. Puede usar la cadena de conexión con el nombre de servidor, el nombre de base de datos y las credenciales para conectar su BI y las herramientas de integración de datos a la base de datos de consulta elástica. Asegúrese de que SQL Server se admite como origen de datos para la herramienta. Puede consultar la base de datos de consulta elástica y las tablas externas como cualquier otra base de datos SQL Server y las tablas de SQL Server que quiera conectar con la herramienta.
 
 ### <a name="cost"></a>Coste
-No hay ningún cargo adicional por usar la característica de consulta de base de datos elástica.
+No hay ningún cargo adicional por usar la característica de consulta de Elastic Database.
 
-Para obtener información sobre los precios, consulte [Detalles de precios de Base de datos SQL](https://azure.microsoft.com/pricing/details/sql-database/).
+Para obtener información sobre los precios, consulte [Detalles de precios de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

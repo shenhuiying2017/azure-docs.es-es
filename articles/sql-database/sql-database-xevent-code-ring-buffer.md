@@ -1,28 +1,21 @@
 ---
-title: "Código de búfer en anillo de XEvent para SQL Database | Microsoft Docs"
-description: "Proporciona un ejemplo de código de Transact-SQL más fácil y rápido mediante el uso del destino de Búfer de anillo, en Base de datos SQL de Azure."
+title: Código de búfer en anillo de XEvent para SQL Database | Microsoft Docs
+description: Proporciona un ejemplo de código de Transact-SQL más fácil y rápido mediante el uso del destino de Búfer de anillo, en Azure SQL Database.
 services: sql-database
-documentationcenter: 
 author: MightyPen
-manager: jhubbard
-editor: 
-tags: 
-ms.assetid: 2510fb3f-c8f2-437a-8f49-9d5f6c96e75b
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2017
 ms.author: genemi
-ms.openlocfilehash: 61251eb9b125209ffd15adafdb0bace495e7cadd
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: f553933d5a1435a96421939af8522daf53db1ff3
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>Código de destino de búfer de anillo para eventos extendidos en Base de datos SQL
+# <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>Código de destino de búfer de anillo para eventos extendidos en SQL Database
 
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
 
@@ -44,7 +37,7 @@ En este tema, se presenta un ejemplo de código de Transact-SQL que:
 7. Anula el destino de Búfer de anillo para liberar sus recursos.
 8. Anula la sesión de eventos y la tabla de demostración.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 * Una cuenta y una suscripción de Azure. Puede registrarse para obtener una [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Cualquier base de datos donde pueda crear una tabla.
@@ -58,7 +51,7 @@ En este tema, se presenta un ejemplo de código de Transact-SQL que:
 
 ## <a name="code-sample"></a>Código de ejemplo
 
-Con modificaciones muy pequeñas, el siguiente ejemplo de código de Búfer de anillo se puede ejecutar en Base de datos SQL de Azure o en Microsoft SQL Server. La diferencia es la presencia del nodo "_database" en el nombre de algunas vistas de administración dinámica (DMV), como se usa en la cláusula FROM del paso 5. Por ejemplo:
+Con modificaciones muy pequeñas, el siguiente ejemplo de código de Búfer de anillo se puede ejecutar en Azure SQL Database o en Microsoft SQL Server. La diferencia es la presencia del nodo "_database" en el nombre de algunas vistas de administración dinámica (DMV), como se usa en la cláusula FROM del paso 5. Por ejemplo: 
 
 * sys.dm_xe**_database**_session_targets
 * sys.dm_xe_session_targets
@@ -345,13 +338,13 @@ ALTER EVENT SESSION eventsession_gm_azuresqldb51
 
 ## <a name="more-information"></a>Más información
 
-El tema principal de los eventos extendidos en Base de datos SQL de Azure es:
+El tema principal de los eventos extendidos en Azure SQL Database es:
 
-* [Consideraciones de eventos extendidos en Base de datos SQL](sql-database-xevent-db-diff-from-svr.md), que compara algunos aspectos de los eventos extendidos que son distintos entre Base de datos SQL de Azure y Microsoft SQL Server.
+* [Consideraciones de eventos extendidos en SQL Database](sql-database-xevent-db-diff-from-svr.md), que compara algunos aspectos de los eventos extendidos que son distintos entre Azure SQL Database y Microsoft SQL Server.
 
-Hay otros temas de ejemplo de código para eventos extendidos disponibles en los siguientes vínculos. De todas formas, debe comprobar siempre cualquier ejemplo para ver si está destinado a Microsoft SQL Server frente a Base de datos SQL de Azure. A continuación, puede decidir si es necesario algún pequeño cambio para ejecutar el ejemplo.
+Hay otros temas de ejemplo de código para eventos extendidos disponibles en los siguientes vínculos. De todas formas, debe comprobar siempre cualquier ejemplo para ver si está destinado a Microsoft SQL Server frente a Azure SQL Database. A continuación, puede decidir si es necesario algún pequeño cambio para ejecutar el ejemplo.
 
-* Ejemplo de código para Base de datos SQL de Azure: [Código de destino del archivo de evento para eventos extendidos en Base de datos SQL](sql-database-xevent-code-event-file.md)
+* Ejemplo de código para Azure SQL Database: [Código de destino del archivo de evento para eventos extendidos en SQL Database](sql-database-xevent-code-event-file.md)
 
 <!--
 ('lock_acquired' event.)

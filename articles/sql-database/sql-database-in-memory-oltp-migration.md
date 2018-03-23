@@ -1,25 +1,20 @@
 ---
 title: OLTP en memoria mejora el rendimiento de transacciones SQL | Microsoft Docs
-description: "Adopción de In-Memory OLTP para mejorar el rendimiento transaccional en una Base de datos SQL ya existente."
+description: Adopción de In-Memory OLTP para mejorar el rendimiento transaccional en una Base de datos SQL ya existente.
 services: sql-database
-documentationcenter: 
 author: jodebrui
-manager: jhubbard
-editor: MightyPen
-ms.assetid: c2bf14a0-905b-47b4-afb6-efe9a61147d5
+manager: craigg
+ms.reviewer: MightyPen
 ms.service: sql-database
 ms.custom: develop databases
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/22/2016
 ms.author: jodebrui
-ms.openlocfilehash: 71dd7d36eee210b80ed6a791b52f977a416b6bb7
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 77e73ec1004babb5fce1e293acfade9264cd6945
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database"></a>Use OLTP en memoria para mejorar el rendimiento de las aplicaciones en SQL Database
 [OLTP en memoria](sql-database-in-memory.md) puede utilizarse para mejorar el rendimiento del procesamiento de transacciones, la ingesta de datos y los escenarios de datos transitorios, en instancias [premium](sql-database-service-tiers.md) de Azure SQL Database sin aumentar el plan de tarifa. 
@@ -52,7 +47,7 @@ En SSMS, para generar el informe:
 Para obtener más información, consulte [Determinar si una tabla o un procedimiento almacenado se debe pasar a In-Memory OLTP](http://msdn.microsoft.com/library/dn205133.aspx).
 
 ## <a name="step-3-create-a-comparable-test-database"></a>Paso 3: Crear una base de datos de prueba comparables
-Supongamos que el informe indica que la base de datos tiene una tabla que se beneficiaría de convertirse en una tabla optimizada en memoria. Se recomienda que la pruebe primero para confirmar la indicación.
+Supongamos que el informe indica que la base de datos tiene una tabla que se beneficiaría de convertirse en una tabla optimizada para memoria. Se recomienda que la pruebe primero para confirmar la indicación.
 
 Necesitará una copia de prueba de la base de datos de producción. La base de datos de prueba debe estar en el mismo nivel de servicio que la base de datos de producción.
 
@@ -68,7 +63,7 @@ Para facilitar las pruebas, ajuste la base de datos de prueba de la forma siguie
    ```
 
 ## <a name="step-4-migrate-tables"></a>Paso 4: Migrar tablas
-Debe crear y rellenar una copia optimizada en memoria de la tabla que desea probar. Se puede crear mediante:
+Debe crear y rellenar una copia optimizada para memoria de la tabla que desea probar. Se puede crear mediante:
 
 * El práctico Asistente para optimización de memoria en SSMS.
 * T-SQL manual.
@@ -80,7 +75,7 @@ Para usar esta opción de migración:
 2. En el **Explorador de objetos**, haga clic con el botón derecho en la tabla y después haga clic en **Asistente de optimización de memoria**.
    
    * Se muestra el asistente **Asesor del optimizador de memoria de tablas** .
-3. En el asistente, haga clic en **Validación de migración** (o en el botón **Siguiente**) para ver si la tabla tiene las características no admitidas en las tablas optimizadas en memoria. Para más información, consulte:
+3. En el asistente, haga clic en **Validación de migración** (o en el botón **Siguiente**) para ver si la tabla tiene las características no admitidas en las tablas optimizadas para memoria. Para más información, consulte:
    
    * La *lista de comprobación de optimización de memoria* en [Asesor de optimización de memoria](http://msdn.microsoft.com/library/dn284308.aspx).
    * [Construcciones de transact-SQL no admitidas por In-Memory OLTP](http://msdn.microsoft.com/library/dn246937.aspx).
@@ -98,7 +93,7 @@ Para usar esta opción de migración:
 3. En la ventana de script, agregue WITH (MEMORY_OPTIMIZED = ON) a la instrucción CREATE TABLE.
 4. Si hay un índice CLUSTERD, cámbielo a NONCLUSTERED.
 5. Cambie el nombre de la tabla existente mediante SP_RENAME.
-6. Cree la nueva copia de la tabla optimizada en memoria mediante la ejecución del script CREATE TABLE editado.
+6. Cree la nueva copia de la tabla optimizada para memoria mediante la ejecución del script CREATE TABLE editado.
 7. Copie los datos en la tabla optimizada en memoria mediante INSERT... SELECT * INTO:
 
 ```
@@ -167,7 +162,7 @@ Para minimizar la latencia de red, ejecute la prueba en la misma región geográ
 Considere la posibilidad de supervisar los efectos de rendimiento de las implementaciones In-Memory en producción:
 
 * [Supervisión del almacenamiento In-Memory](sql-database-in-memory-oltp-monitoring.md).
-* [Supervisión de Base de datos SQL de Azure con vistas de administración dinámica](sql-database-monitoring-with-dmvs.md)
+* [Supervisión de Azure SQL Database con vistas de administración dinámica](sql-database-monitoring-with-dmvs.md)
 
 ## <a name="related-links"></a>Vínculos relacionados
 * [In-Memory OLTP (optimización In-Memory)](http://msdn.microsoft.com/library/dn133186.aspx)

@@ -1,12 +1,12 @@
 ---
 title: Uso de servidores proxy en Azure Functions | Microsoft Docs
-description: "Información general sobre cómo usar Azure Functions Proxies"
+description: Información general sobre cómo usar Azure Functions Proxies
 services: functions
-documentationcenter: 
+documentationcenter: ''
 author: alexkarcher-msft
 manager: cfowler
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 75b568c12fd58d5599b6878dedb6c2266b6cb649
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 0e7fe474c3b247baa6550770c661af62e83b3737
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="work-with-azure-functions-proxies"></a>Uso de Azure Functions Proxies
 
@@ -106,7 +106,7 @@ Por ejemplo, en una dirección URL de back-end *https://%ORDER_PROCESSING_HOST%/
 
 ## <a name="debugProxies"></a>Solución de problemas con Proxies
 
-Si añade la marca `"debug":true` a cualquier proxy de su `proxy.json`, se habilitará el registro de depuración. Los registros se almacenan en `D:\home\LogFiles\Application\Proxies\DetailedTrace` y son accesibles mediante herramientas avanzadas (kudu). Las respuestas HTTP también contendrán un encabezado `Proxy-Trace-Location` con una dirección URL para acceder al archivo de registro.
+Si añade la marca `"debug":true` a cualquier proxy de su `proxies.json`, se habilitará el registro de depuración. Los registros se almacenan en `D:\home\LogFiles\Application\Proxies\DetailedTrace` y son accesibles mediante herramientas avanzadas (kudu). Las respuestas HTTP también contendrán un encabezado `Proxy-Trace-Location` con una dirección URL para acceder al archivo de registro.
 
 Puede depurar un proxy del cliente mediante la adición de un encabezado `Proxy-Trace-Enabled` establecido en `true`. De este modo, también se registrará un seguimiento en el sistema de archivos y se devolverá la dirección URL de seguimiento como un encabezado en la respuesta.
 
@@ -114,7 +114,7 @@ Puede depurar un proxy del cliente mediante la adición de un encabezado `Proxy-
 
 Por motivos de seguridad, es posible que no desee que nadie llame a su servicio para generar un seguimiento. Nadie podrá acceder al contenido de seguimiento sin sus credenciales de inicio de sesión, pero la generación del seguimiento consume recursos y revela que está utilizando Function Proxies.
 
-Deshabilite por completo los seguimientos añadiendo `"debug":false` a cualquier proxy determinado en su `proxy.json`.
+Deshabilite por completo los seguimientos añadiendo `"debug":false` a cualquier proxy determinado en su `proxies.json`.
 
 ## <a name="advanced-configuration"></a>Configuración avanzada
 

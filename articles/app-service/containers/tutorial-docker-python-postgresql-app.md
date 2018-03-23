@@ -1,6 +1,6 @@
 ---
-title: "Compilación de una aplicación web Docker Python con PostgreSQL en Azure | Microsoft Docs"
-description: "Aprenda a comenzar a trabajar con una aplicación Docker Python en Azure, con conexión a una base de datos PostgreSQL."
+title: Compilación de una aplicación web Docker Python con PostgreSQL en Azure | Microsoft Docs
+description: Aprenda a comenzar a trabajar con una aplicación Docker Python en Azure, con conexión a una base de datos PostgreSQL.
 services: app-service\web
 documentationcenter: python
 author: berndverst
@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 01/28/2018
 ms.author: beverst;cephalin
 ms.custom: mvc
-ms.openlocfilehash: c77b7c965f43dc9c4f76683aabeb6ff9c9d3a1c9
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 70cdbaa10d5e4ba39d4f378e05ae606a577ade99
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>Compilación de una aplicación web Docker Python con PostgreSQL en Azure
 
@@ -130,7 +130,7 @@ En este paso, creará una base de datos PostgreSQL en Azure. Cuando la aplicaci�
 
 ### <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-no-h.md)] 
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux-no-h.md)] 
 
 ### <a name="create-an-azure-database-for-postgresql-server"></a>Creación de un servidor de Azure Database for PostgreSQL
 
@@ -498,7 +498,7 @@ De forma predeterminada, el portal muestra la página **Información general**. 
 
 ![Página de App Service en Azure Portal](./media/tutorial-docker-python-postgresql-app/app-mgmt.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Vaya al siguiente tutorial para aprender a asignar un nombre DNS personalizado a una aplicación web.
 

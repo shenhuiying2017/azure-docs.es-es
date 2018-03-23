@@ -1,25 +1,20 @@
 ---
-title: "Preguntas más frecuentes sobre la escala elástica de SQL Azure | Microsoft Docs"
-description: "Preguntas más frecuentes sobre el Escalado elástico de Base de datos SQL de Azure."
+title: Preguntas más frecuentes sobre la escala elástica de SQL Azure | Microsoft Docs
+description: Preguntas más frecuentes sobre el Escalado elástico de Azure SQL Database.
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: ddove
-editor: 
-ms.assetid: e60dde9c-bb7b-4f2f-b52c-bdb506d49fcb
+documentationcenter: ''
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
-ms.author: ddove
-ms.openlocfilehash: 4a2f73df00dd706699b20062d443af3bb88b6ef4
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.author: sstein
+ms.openlocfilehash: 575167293d9b4685ecc38303414b69074c366ab2
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="elastic-database-tools-faq"></a>Preguntas frecuentes de herramientas de Base de datos elástica
 #### <a name="if-i-have-a-single-tenant-per-shard-and-no-sharding-key-how-do-i-populate-the-sharding-key-for-the-schema-info"></a>Si tengo un solo inquilino por partición y ninguna clave de particionamiento, ¿cómo relleno la clave de particionamiento para la información de esquema?
@@ -38,7 +33,7 @@ No use credenciales con el formato "Id. de usuario username@servername"; en su l
 No, la creación del Administrador de asignación de particiones (por ejemplo, **[ShardMapManagerFactory.CreateSqlShardMapManager](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager.aspx)**) es una operación única.  La aplicación debe usar la llamada **[ShardMapManagerFactory.TryGetSqlShardMapManager()](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx)** en el momento que se inicie la aplicación.  Solo debería haber una de estas llamadas por dominio de aplicación.
 
 #### <a name="i-have-questions-about-using-elastic-database-tools-how-do-i-get-them-answered"></a>Tengo preguntas acerca del uso de las herramientas de Base de datos elástica, ¿cómo puedo obtener ayuda?
-Póngase en contacto con nosotros a través del [foro de Base de datos SQL de Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted).
+Póngase en contacto con nosotros a través del [foro de Azure SQL Database](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted).
 
 #### <a name="when-i-get-a-database-connection-using-a-sharding-key-i-can-still-query-data-for-other-sharding-keys-on-the-same-shard--is-this-by-design"></a>Al obtener una conexión de base de datos mediante una clave de particionamiento, puedo consultar los datos de otras claves de particionamiento en la misma partición.  ¿Esto es así por defecto?
 Las API de Escalado elástico ofrecen una conexión a la base de datos correcta para su clave de particionamiento, pero no proporcionan filtrado de claves de particionamiento.  Agregue cláusulas **WHERE** a su consulta para restringir el ámbito a la clave de particionamiento proporcionada, si es necesario.
@@ -47,7 +42,7 @@ Las API de Escalado elástico ofrecen una conexión a la base de datos correcta 
 Sí, una partición es una base de datos individual y, por lo tanto, una partición podría ser una edición Premium y otra una edición Standard. Además, la edición de una partición puede escalar verticalmente o reducirse verticalmente varias veces durante la duración de la partición.
 
 #### <a name="does-the-split-merge-tool-provision-or-delete-a-database-during-a-split-or-merge-operation"></a>¿La herramienta de combinación o división aprovisiona (o elimina) una base de datos durante una operación de combinación o división?
-No. En el caso de las operaciones de **división** , la base de datos de destino debe existir con el esquema apropiado y registrarse con el Administrador de asignación de particiones.  En el caso de las operaciones de **combinación** , debe eliminar la partición desde el Administrador de asignación de particiones y, luego, eliminar la base de datos.
+Nº En el caso de las operaciones de **división** , la base de datos de destino debe existir con el esquema apropiado y registrarse con el Administrador de asignación de particiones.  En el caso de las operaciones de **combinación** , debe eliminar la partición desde el Administrador de asignación de particiones y, luego, eliminar la base de datos.
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

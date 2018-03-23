@@ -1,11 +1,12 @@
 ---
 title: Reciclaje de un modelo de Machine Learning | Microsoft Docs
-description: "Obtenga información sobre cómo reciclar un modelo y actualizar el servicio web para utilizar el modelo recién entrenado en Azure Machine Learning."
+description: Obtenga información sobre cómo reciclar un modelo y actualizar el servicio web para utilizar el modelo recién entrenado en Azure Machine Learning.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: raymondl
-editor: 
+documentationcenter: ''
+author: serinakaye
+ms.author: serinak
+manager: mwinkle
+editor: ''
 ms.assetid: d1cb6088-4f7c-4c32-94f2-f7523dad9059
 ms.service: machine-learning
 ms.workload: data-services
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: raymondl
-ms.openlocfilehash: 614517c5b9a54fc11cf0b8f8b6e298b9aec5cf76
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 65c5e86e47528aab36972507b7ee8324040b9beb
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="retrain-a-machine-learning-model"></a>Reciclaje de un modelo de Machine Learning
 Como parte del proceso de operacionalización de modelos de Azure Machine Learning, el modelo se debe entrenar y guardar. Posteriormente, podrá usarlo para crear un servicio web predicativo. A continuación, el servicio web se puede consumir en sitios web, paneles y aplicaciones móviles. 

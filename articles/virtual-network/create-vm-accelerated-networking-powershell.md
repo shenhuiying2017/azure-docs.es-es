@@ -1,12 +1,12 @@
 ---
-title: "Creación de una máquina virtual de Azure con Accelerated Networking | Microsoft Docs"
-description: "Aprenda a crear una máquina virtual Linux con Accelerated Networking."
+title: Creación de una máquina virtual de Azure con Accelerated Networking | Microsoft Docs
+description: Aprenda a crear una máquina virtual Linux con Accelerated Networking.
 services: virtual-network
-documentationcenter: 
+documentationcenter: ''
 author: jdial
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/04/2018
 ms.author: jimdial
-ms.openlocfilehash: f4908963e0650be9b12b745f6868a1ba6ad933e4
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: c0017b8759a1f01b010172be562ed869d1d51a25
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-a-windows-virtual-machine-with-accelerated-networking"></a>Creación de una máquina virtual Windows con Accelerated Networking
 
 > [!IMPORTANT] 
-> Las máquinas virtuales deben crearse con Accelerated Networking habilitado. Esta característica no se puede habilitar en las máquinas virtuales existentes. Puede seguir los pasos siguientes para habilitar Accelerated Networking:
+> Las máquinas virtuales deben crearse con Accelerated Networking habilitado. Esta característica no se puede habilitar en las máquinas virtuales existentes. Realice los pasos siguientes para habilitar las redes aceleradas:
 >   1. Eliminación de la máquina virtual
 >   2. Volver a crear una máquina virtual con Accelerated Networking habilitado
 >
@@ -60,6 +60,8 @@ Cuando se utiliza esta funcionalidad, existen las siguientes limitaciones:
 * **Creación de interfaz de red:** Accelerated Networking solo se puede habilitar para una nueva interfaz de red. No se puede habilitar para una NIC existente.
 * **Creación de máquina virtual:** una NIC con Accelerated Networking habilitado solo se puede asociar a una máquina virtual cuando esta se crea. La NIC no puede asociarse a una máquina virtual existente. Si se agrega la máquina virtual a un conjunto de disponibilidad, todas las máquinas virtuales del conjunto de disponibilidad también deben tener habilitada la red acelerada.
 * **Implementación solo mediante Azure Resource Manager:** las máquinas virtuales (clásicas) no se pueden implementar con Accelerated Networking.
+
+Aunque en este artículo se explica cómo crear una máquina virtual con redes aceleradas mediante Azure PowerShell, también puede [crear una máquina virtual con redes aceleradas mediante Azure Portal](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Al crear una máquina virtual con un sistema operativo y un tamaño de máquina virtual admitidos en el portal, en **Configuración**, seleccione **Habilitado** en **Redes aceleradas**. Una vez creada la máquina virtual, debe seguir las instrucciones que se indican en [Confirmación de que el controlador está instalado en el sistema operativo](#confirm-the-driver-is-installed-in-the-operating-system).
 
 ## <a name="create-a-virtual-network"></a>Crear una red virtual
 

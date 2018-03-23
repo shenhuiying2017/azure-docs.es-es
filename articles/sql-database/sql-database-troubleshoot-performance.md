@@ -1,26 +1,21 @@
 ---
-title: "Optimización de la supervisión y el rendimiento: Azure SQL Database | Microsoft Docs"
-description: "Sugerencias para la optimización del rendimiento de Azure SQL Database a través de la evaluación y la mejora."
+title: 'Optimización de la supervisión y el rendimiento: Azure SQL Database | Microsoft Docs'
+description: Sugerencias para la optimización del rendimiento de Azure SQL Database a través de la evaluación y la mejora.
 services: sql-database
-documentationcenter: 
 author: v-shysun
-manager: felixwu
-editor: 
-keywords: "SQL optimización del rendimiento, base de datos optimización del rendimiento, sugerencias para la optimización del rendimiento de SQL, optimización del rendimiento de Base de datos SQL"
-ms.assetid: eb7b3f66-3b33-4e1b-84fb-424a928a6672
+manager: craigg
+editor: ''
+keywords: SQL optimización del rendimiento, base de datos optimización del rendimiento, sugerencias para la optimización del rendimiento de SQL, optimización del rendimiento de Base de datos SQL
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: article
 ms.date: 11/03/2017
 ms.author: v-shysun
-ms.openlocfilehash: 1791c56f86ee1997177daa95638c4f14068f8115
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 273a80134975fb9aa4d40b132c1403cc27246371
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="monitoring-and-performance-tuning"></a>Optimización de la supervisión y el rendimiento
 
@@ -46,7 +41,7 @@ Consulte el [tema de la guía de rendimiento](sql-database-performance-guidance.
 
 ## <a name="optimize-database-to-improve-performance"></a>Optimización de la base de datos para mejorar el rendimiento
 
-Azure SQL Database le permite identificar las oportunidades para mejorar y optimizar el rendimiento de las consultas sin cambiar los recursos mediante la revisión de [recomendaciones para la optimización del rendimiento](sql-database-advisor.md). Entre los motivos comunes para un rendimiento deficiente de la base de datos se encuentran índices que faltan y consultas mal optimizadas. Puede aplicar estas recomendaciones de optimización para mejorar el rendimiento de la carga de trabajo.
+Azure SQL Database le permite identificar las oportunidades para mejorar y optimizar el rendimiento de las consultas sin cambiar los recursos mediante la revisión de [recomendaciones para la optimización del rendimiento](sql-database-advisor.md). Los motivos comunes por los que se obtiene poco rendimiento de la base de datos son la falta de índices o la poca optimización de las consultas. Puede aplicar estas recomendaciones de optimización para mejorar el rendimiento de la carga de trabajo.
 También puede permitir que Azure SQL Database [optimice el rendimiento de las consultas automáticamente](sql-database-automatic-tuning.md) aplicando todas las recomendaciones identificadas y comprobando que mejoran el rendimiento de la base de datos. Puede usar las siguientes opciones para mejorar el rendimiento de la base de datos:
 
 1. Usar [SQL Database Advisor](sql-database-advisor-portal.md) para ver recomendaciones para crear y quitar índices, parametrizar consultas y solucionar problemas de esquema.

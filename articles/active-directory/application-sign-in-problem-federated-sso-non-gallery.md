@@ -1,11 +1,11 @@
 ---
-title: "Problemas al iniciar sesión en una aplicación que no es de la galería configurada para inicio de sesión único federado | Microsoft Docs"
-description: "Instrucciones para resolver problemas específicos a los que se puede enfrentar al iniciar sesión en una aplicación configurada para el inicio de sesión único federado basado en SAML con Azure AD"
+title: Problemas al iniciar sesión en una aplicación que no es de la galería configurada para inicio de sesión único federado | Microsoft Docs
+description: Instrucciones para resolver problemas específicos a los que se puede enfrentar al iniciar sesión en una aplicación configurada para el inicio de sesión único federado basado en SAML con Azure AD
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: cfd4e478850783983caa3042cbbb2b096a576292
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="problems-signing-in-to-a-non-gallery-application-configured-for-federated-single-sign-on"></a>Problemas al iniciar sesión en una aplicación que no es de la galería configurada para inicio de sesión único federado
 
@@ -63,7 +63,7 @@ Después de actualizar el valor del identificador de Azure AD y de comprobar que
 
 ## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>La dirección de respuesta no coincide con las direcciones de respuesta configuradas para la aplicación. 
 
-*Error AADSTS50011: La dirección de respuesta "https://contoso.com" no coincide con las direcciones de respuesta configuradas para la aplicación* 
+*Error AADSTS50011: La dirección de respuesta "https://contoso.com"no coincide con las direcciones de respuesta configuradas para la aplicación*. 
 
 **Causa posible** 
 
@@ -107,7 +107,7 @@ El usuario no tiene acceso a la aplicación en Azure AD.
 
 Para asignar uno o varios usuarios a una aplicación directamente, siga los pasos siguientes:
 
-1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global**.
+1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global.**
 
 2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Todos los servicios** en la parte superior del menú de navegación izquierdo principal.
 
@@ -237,5 +237,5 @@ Para eliminar y crear un nuevo certificado, siga estos pasos:
 
 Para obtener información sobre cómo personalizar las notificaciones de atributo SAML que se han enviado a su aplicación, vea [Asignación de notificaciones en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Los requisitos del protocolo SAML de inicio de sesión único de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference)

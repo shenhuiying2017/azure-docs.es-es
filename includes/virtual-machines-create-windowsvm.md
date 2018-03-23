@@ -1,3 +1,19 @@
+---
+title: archivo de inclusión
+description: archivo de inclusión
+services: virtual-machines
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: cynthn
+ms.custom: include file
+ms.openlocfilehash: d4075f644ed1ce42479e35544f0e1442488f78eb
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 03/16/2018
+---
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
 2. Desde la esquina superior izquierda, haga clic en **Crear un recurso** > **Proceso** > **Windows Server 2016 Datacenter**.

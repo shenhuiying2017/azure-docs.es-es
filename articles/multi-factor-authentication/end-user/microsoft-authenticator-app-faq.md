@@ -1,8 +1,8 @@
 ---
-title: "Ayuda y soporte técnico para la aplicación Microsoft Authenticator | Microsoft Docs"
-description: "Proporciona una lista de las preguntas y respuestas más frecuentes relacionadas con la aplicación Microsoft Authentication y Azure Multi-Factor Authentication."
+title: Ayuda y soporte técnico para la aplicación Microsoft Authenticator | Microsoft Docs
+description: Proporciona una lista de las preguntas y respuestas más frecuentes relacionadas con la aplicación Microsoft Authentication y Azure Multi-Factor Authentication.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.assetid: f04d5bce-e99e-4f75-82d1-ef6369be3402
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/17/2017
-ms.author: barlan
+ms.date: 03/08/2018
+ms.author: lizross
 ms.reviewer: librown
 ms.custom: end-user
-ms.openlocfilehash: 2c109a53866f9fff8c61a157cf1194fe4dd6e1ac
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: aa3c6bb9196a17ae41c05458533f73f3ec315bd8
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="microsoft-authenticator-app-faq"></a>Preguntas más frecuentes de la aplicación Microsoft Authenticator
 
@@ -28,6 +28,14 @@ En este artículo se proporcionan respuestas a preguntas habituales que recibimo
 La aplicación Microsoft Authenticator reemplaza la aplicación Azure Authenticator y es la aplicación recomendada cuando se utiliza Azure Multi-Factor Authentication. La aplicación Microsoft Authenticator está disponible para [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) y [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071).
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
+
+### <a name="what-data-does-the-authenticator-store-on-my-behalf-and-how-can-i-delete-it"></a>¿Qué datos almacena Authenticator en mi nombre y cómo puedo eliminarlo?
+
+Microsoft Authenticator almacena la información de la cuenta creada al agregar una cuenta. Cuando se usa Authenticator, se crea un registro de diagnóstico para fines de depuración y se almacenan datos útiles para ayudar a Microsoft a diagnosticar cualquier problema imprevisto. Puede acceder a los datos del registro si abre **Ayuda** > **Enviar registros** > **Ver registros**.
+
+Puede eliminar los datos si elimina el icono de la cuenta. De esta forma, se eliminará toda la información de la cuenta que la aplicación utiliza, incluidos los registros. 
+
+Para más información sobre cómo Microsoft usa los datos, visite: https://servicetrust.microsoft.com/ViewPage/PrivacyGettingStarted
 
 ### <a name="what-are-the-codes-in-the-app-for-why-does-the-number-keep-counting-down"></a>¿Para qué sirven los códigos de la aplicación? ¿Por qué el número es regresivo?
 
@@ -100,7 +108,7 @@ No tiene que desbloquear el dispositivo para aprobar solicitudes de comprobació
 
 El icono de candado indica que el dispositivo está registrado en Azure AD y registrado en la cuenta. El registro de dispositivos para iOS tiene lugar durante la inscripción de Microsoft Intune.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 ### <a name="contact-us"></a>Ponerse en contacto con nosotros
 Si no encontró aquí la respuesta a su pregunta, nos gustaría ayudarle. Acceda al [foro de la aplicación Microsoft Authenticator](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) para publicar la pregunta y obtener ayuda de la comunidad, para dejar un comentario en la página.

@@ -1,26 +1,26 @@
 ---
-title: "Azure Virtual Network y máquinas virtuales Linux | Microsoft Docs"
-description: "Tutorial: Administración de Azure Virtual Networks y máquinas virtuales de Linux con la CLI de Azure"
+title: Azure Virtual Network y máquinas virtuales Linux | Microsoft Docs
+description: 'Tutorial: Administración de Azure Virtual Networks y máquinas virtuales de Linux con la CLI de Azure'
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: neilpeterson
+author: iainfoulds
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/10/2017
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: cce0cebc4a31cd78dd7c0c73424e1b674134d360
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: f6172ac465f2de2c29529f8c1a2ef75acf674484
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="manage-azure-virtual-networks-and-linux-virtual-machines-with-the-azure-cli"></a>Administrar Azure Virtual Networks y máquinas virtuales de Linux con la CLI de Azure
 
@@ -291,7 +291,7 @@ La máquina virtual de back-end solo es accesible en los puertos *22* y *3306* d
 az network nsg rule list --resource-group myRGNetwork --nsg-name myBackendNSG --output table
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, ha creado y protegido redes de Azure cuando están relacionadas con máquinas virtuales. Ha aprendido a:
 

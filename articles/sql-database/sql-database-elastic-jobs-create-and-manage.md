@@ -1,32 +1,26 @@
 ---
-title: "Administración de grupos de bases de datos Azure SQL Database | Microsoft Docs"
-description: "Tutorial sobre la creación y administración de un trabajo elástico."
+title: Administración de grupos de bases de datos Azure SQL Database | Microsoft Docs
+description: Tutorial sobre la creación y administración de un trabajo elástico.
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: ddove
-editor: 
-ms.assetid: f858344d-085b-4022-935e-1b5fa20adbac
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
-ms.author: ddove
-ms.openlocfilehash: 9ccd7d78169fa5324808e91724e8e193b56b0290
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.author: sstein
+ms.openlocfilehash: 77204e167d298ad77b2786b5d0a3dab1b557ccfc
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="create-and-manage-scaled-out-azure-sql-databases-using-elastic-jobs-preview"></a>Creación y administración de Bases de datos SQL de Azure escaladas horizontalmente con trabajos elásticos (versión preliminar)
+# <a name="create-and-manage-scaled-out-azure-sql-databases-using-elastic-jobs-preview"></a>Creación y administración de instancias de Azure SQL Database escaladas horizontalmente con trabajos elásticos (versión preliminar)
 
 
-**trabajos de base de datos elástica** simplifican la administración de grupos de bases de datos al ejecutar operaciones administrativas, como cambios de esquemas, administración de credenciales, actualizaciones de datos de referencias, recopilación de datos de rendimiento o recopilación de telemetría del inquilino (cliente). Trabajos de base de datos elástica está actualmente disponible a través del portal de Azure y los cmdlets de PowerShell. Sin embargo, la funcionalidad reducida de Azure Portal se limita a la ejecución transversal en todas las bases de datos de un [grupo elástico (versión preliminar)](sql-database-elastic-pool.md). Para tener acceso a otras características y a la ejecución transversal de scripts en un grupo de bases de datos, que puede incluir una colección de bases de datos personalizada definida por el usuario o un conjunto de particiones (creado con la [biblioteca de cliente de bases de datos elásticas](sql-database-elastic-scale-introduction.md)), consulte [Creación y administración de trabajos mediante PowerShell](sql-database-elastic-jobs-powershell.md). Para obtener más información, vea [Información general sobre Trabajos de base de datos elástica](sql-database-elastic-jobs-overview.md). 
+Los **trabajos de Elastic Database** simplifican la administración de grupos de bases de datos al ejecutar operaciones administrativas, como cambios de esquemas, administración de credenciales, actualizaciones de datos de referencias, recopilación de datos de rendimiento o recopilación de telemetría del inquilino (cliente). Trabajos de Elastic Database está actualmente disponible a través de Azure Portal y los cmdlets de PowerShell. Sin embargo, la funcionalidad reducida de Azure Portal se limita a la ejecución transversal en todas las bases de datos de un [grupo elástico (versión preliminar)](sql-database-elastic-pool.md). Para tener acceso a otras características y a la ejecución transversal de scripts en un grupo de bases de datos, que puede incluir una colección de bases de datos personalizada definida por el usuario o un conjunto de particiones (creado con la [biblioteca de cliente de Elastic Database](sql-database-elastic-scale-introduction.md)), consulte [Creación y administración de trabajos mediante PowerShell](sql-database-elastic-jobs-powershell.md). Para obtener más información, vea [Información general sobre trabajos de Elastic Database](sql-database-elastic-jobs-overview.md). 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 * Una suscripción de Azure. Para obtener una versión de evaluación gratuita, consulte [Versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Un grupo elástico. Consulte [Acerca de los grupos elásticos](sql-database-elastic-pool.md).
 * Instalación de componentes del servicio de trabajo de bases de datos elásticas. Vea [Instalación del servicio de trabajo de bases de datos elásticas](sql-database-elastic-jobs-service-installation.md).

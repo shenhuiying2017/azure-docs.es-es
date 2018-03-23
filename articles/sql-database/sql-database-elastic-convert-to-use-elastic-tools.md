@@ -1,28 +1,22 @@
 ---
-title: "Migración de bases de datos existentes al escalado horizontal | Microsoft Docs"
-description: "Conversión de bases de datos particionadas para usar herramientas para bases de datos elásticas creando un administrador de mapas de particiones"
+title: Migración de bases de datos existentes al escalado horizontal | Microsoft Docs
+description: Conversión de bases de datos particionadas para usar herramientas para bases de datos elásticas creando un administrador de mapas de particiones
 services: sql-database
-documentationcenter: 
-author: ddove
-manager: jhubbard
-editor: 
-ms.assetid: 8c851d8e-8fd5-4327-89c1-9178b20ddd69
+author: stevestein
+manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: Inactive
 ms.date: 10/24/2016
-ms.author: ddove
-ms.openlocfilehash: 356c4223ff3ae844552b7bee40aa3ffc6aad7ea0
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.author: sstein
+ms.openlocfilehash: d82994f3ab925fa3ace0d0dbe1631a01dd1df586
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>Migración de bases de datos existentes al escalado horizontal
-Administre fácilmente sus bases de datos existentes particionadas con escalado horizontal mediante las herramientas de Base de datos SQL de Azure (como la [biblioteca de cliente de Bases de datos elásticas](sql-database-elastic-database-client-library.md)). Primero convierta un conjunto existente de bases de datos para utilizar [Shard Map Manager](sql-database-elastic-scale-shard-map-management.md). 
+Administre fácilmente sus bases de datos existentes particionadas con escalado horizontal mediante las herramientas de Azure SQL Database (como la [biblioteca de cliente de Elastic Database](sql-database-elastic-database-client-library.md)). Primero convierta un conjunto existente de bases de datos para utilizar [Shard Map Manager](sql-database-elastic-scale-shard-map-management.md). 
 
 ## <a name="overview"></a>Información general
 Para migrar una base de datos particionada existente: 
@@ -34,7 +28,7 @@ Para migrar una base de datos particionada existente:
 
 Estas técnicas pueden implementarse mediante la [biblioteca de cliente de .NET Framework](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) o los scripts de PowerShell que se encuentran en [Azure SQL DB - Elastic Database tools scripts](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db) (Azure SQL DB: scripts de herramientas para bases de datos elásticas). Los ejemplos siguientes usan los scripts de PowerShell.
 
-Para más información sobre ShardMapManager, consulte [Administración de mapas de particiones](sql-database-elastic-scale-shard-map-management.md). Si desea más información general de las herramientas para bases de datos elásticas, consulte [Información general de las características de bases de datos elásticas](sql-database-elastic-scale-introduction.md).
+Para más información sobre ShardMapManager, consulte [Administración de mapas de particiones](sql-database-elastic-scale-shard-map-management.md). Si desea más información general de las herramientas para Elastic Database, consulte [Información general de las características de Elastic Database](sql-database-elastic-scale-introduction.md).
 
 ## <a name="prepare-the-shard-map-manager-database"></a>Prepare la base de datos de Shard Map Manager.
 Shard Map Manager es una base de datos especial que contiene los datos para administrar bases de datos con escalado horizontal. Puede utilizar una base de datos existente o crear una nueva. Tenga en cuenta que una base de datos que actúa como Shard Map Manager no debe ser la misma base de datos que la de una partición. El script de PowerShell no crea la base de datos por usted. 
@@ -151,7 +145,7 @@ Información sobre las particiones existentes y las asignaciones asociadas a ell
     Get-Mappings -ShardMap $ShardMap 
 
 ## <a name="summary"></a>Resumen
-Una vez haya completado la configuración, puede empezar a usar la Biblioteca de cliente de Base de datos elástica. También puede usar las características de [enrutamiento dependiente de los datos](sql-database-elastic-scale-data-dependent-routing.md) y [consulta a través de particiones múltiples](sql-database-elastic-scale-multishard-querying.md).
+Una vez haya completado la configuración, puede empezar a usar la biblioteca de cliente de Elastic Database. También puede usar las características de [enrutamiento dependiente de los datos](sql-database-elastic-scale-data-dependent-routing.md) y [consulta a través de particiones múltiples](sql-database-elastic-scale-multishard-querying.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Obtenga los scripts de PowerShell de [Azure SQL DB-Elastic Database tools scripts](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db) (Azure SQL DB: scripts de herramientas de Elastic Database).
@@ -161,7 +155,7 @@ Las herramientas también se encuentran en GitHub: [Azure/elastic-db-tools](http
 Use la herramienta de división y combinación para mover datos a un modelo de varios inquilinos o desde este a un modelo de inquilino único. Consulte el artículo sobre la [herramienta de división y combinación](sql-database-elastic-scale-get-started.md).
 
 ## <a name="additional-resources"></a>Recursos adicionales
-Para obtener información sobre los patrones comunes de la arquitectura de datos de aplicaciones de base de datos de software como servicio (SaaS) multiinquilino, consulte [Modelos de diseño para las aplicaciones SaaS multiinquilino con base de datos SQL de Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+Para obtener información sobre los patrones comunes de la arquitectura de datos de aplicaciones de base de datos de software como servicio (SaaS) multiinquilino, consulte [Modelos de diseño para las aplicaciones SaaS multiinquilino con Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
 ## <a name="questions-and-feature-requests"></a>Preguntas y solicitudes de características
 Si tiene alguna pregunta, utilice el [foro de SQL Database](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted). Para efectuar solicitudes de características, agréguelas en el [foro de comentarios sobre SQL Database](https://feedback.azure.com/forums/217321-sql-database/).

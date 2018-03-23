@@ -1,12 +1,12 @@
 ---
-title: "Azure Active Directory B2C: adición de Twitter como un proveedor de identidades de OAuth1 mediante directivas personalizadas"
+title: 'Azure Active Directory B2C: adición de Twitter como un proveedor de identidades de OAuth1 mediante directivas personalizadas'
 description: Uso de Twitter como proveedor de identidades mediante el protocolo OAuth1
 services: active-directory-b2c
-documentationcenter: 
+documentationcenter: ''
 author: yoelhor
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,17 +15,17 @@ ms.devlang: na
 ms.date: 10/23/2017
 ms.author: yoelh
 ms.openlocfilehash: 629e0bbaa7c62ef5d381085588c6a99c203c41cb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="azure-active-directory-b2c-add-twitter-as-an-oauth1-identity-provider-by-using-custom-policies"></a>Azure Active Directory B2C: adición de Twitter como un proveedor de identidades de OAuth1 mediante directivas personalizadas
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 En este artículo se muestra cómo habilitar el inicio de sesión para los usuarios de una cuenta de Twitter mediante el uso de [directivas personalizadas](active-directory-b2c-overview-custom.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Complete los pasos del artículo [Azure Active Directory B2C: introducción a las directivas personalizadas](active-directory-b2c-get-started-custom.md).
 
 ## <a name="step-1-create-a-twitter-account-application"></a>Paso 1: Creación de una aplicación de la cuenta de Twitter
@@ -41,7 +41,7 @@ Para usar Twitter como proveedor de identidades en Azure Active Directory B2C (A
 
     b. En el cuadro **Website** (Sitio web), pegue **https://login.microsoftonline.com**. 
 
-    c. En el cuadro **Callback URL** (URL de devolución de llamada), pegue **https://login.microsoftonline.com/te/ {tenant}.onmicrosoft.com/oauth2/authresp**. Reemplace {*tenant*} por el nombre de su inquilino (por ejemplo, contosob2c.onmicrosoft.com). Asegúrese de que está utilizando el esquema HTTPS. 
+    c. En el cuadro **Callback URL** (Dirección URL de devolución de llamada), pegue **https://login.microsoftonline.com/te/{tenant}.onmicrosoft.com/oauth2/authresp**. Reemplace {*tenant*} por el nombre de su inquilino (por ejemplo, contosob2c.onmicrosoft.com). Asegúrese de que está utilizando el esquema HTTPS. 
 
     d. En la parte inferior de la página, lea y acepte los términos y, luego, haga clic en **Create your Twitter application** (Crear su aplicación de Twitter).
 
@@ -132,7 +132,7 @@ Para definir Twitter como proveedor de notificaciones, agregue el nodo `<ClaimsP
 
 4. Reemplace el valor de *client_id* por la clave de consumidor de la aplicación de la cuenta de Twitter.
 
-5. Guarde el archivo .
+5. Guarde el archivo.
 
 ## <a name="step-4-register-the-twitter-account-claims-provider-to-your-sign-up-or-sign-in-user-journey"></a>Paso 4: Registro del proveedor de notificaciones de la cuenta de Twitter para el recorrido del usuario de registro o inicio de sesión
 Ha configurado el proveedor de identidades. Sin embargo, aún no está disponible en ninguna de las ventanas de registro o inicio de sesión. Ahora debe agregar el proveedor de identidades de la cuenta de Twitter al recorrido del usuario `SignUpOrSignIn`.

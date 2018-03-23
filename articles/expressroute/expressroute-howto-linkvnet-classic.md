@@ -1,11 +1,11 @@
 ---
-title: "Vinculación de una red virtual a un circuito ExpressRoute mediante PowerShell y Azure clásico | Microsoft Docs"
-description: "Este documento proporciona información general sobre cómo vincular redes virtuales a circuitos ExpressRoute mediante el modelo de implementación clásica y PowerShell."
+title: Vinculación de una red virtual a un circuito ExpressRoute mediante PowerShell y Azure clásico | Microsoft Docs
+description: Este documento proporciona información general sobre cómo vincular redes virtuales a circuitos ExpressRoute mediante el modelo de implementación clásica y PowerShell.
 services: expressroute
 documentationcenter: na
 author: ganesr
 manager: carmonm
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 9b53fd72-9b6b-4844-80b9-4e1d54fd0c17
 ms.service: expressroute
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/28/2017
+ms.date: 03/08/2018
 ms.author: ganesr
-ms.openlocfilehash: 8df8a4c6ff0897c821e13248e0494b17e1a4992d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 2f0fed77a676bc46e8daa9c41efd533dffe72d8b
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-powershell-classic"></a>Conexión de una red virtual a un circuito ExpressRoute mediante PowerShell (clásica)
 > [!div class="op_single_selector"]
-> * [Portal de Azure](expressroute-howto-linkvnet-portal-resource-manager.md)
+> * [Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-linkvnet-arm.md)
 > * [CLI de Azure](howto-linkvnet-cli.md)
 > * [Vídeo: Azure Portal](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
@@ -48,6 +48,8 @@ Este artículo le ayudará a vincular redes virtuales a circuitos ExpressRoute d
    * Debe crear y aprovisionar totalmente una red virtual y una puerta de enlace de red virtual. Siga las instrucciones para [configurar una red virtual en ExpressRoute](expressroute-howto-vnet-portal-classic.md).
 
 Es posible vincular hasta 10 redes virtuales a un circuito ExpressRoute. Todas las redes virtuales deben estar en la misma región geopolítica. Puede vincular un mayor número de redes virtuales en el circuito ExpressRoute, o redes virtuales que se encuentren en otras regiones geopolíticas, si habilitó el complemento premium de ExpressRoute. Consulte las [preguntas más frecuentes](expressroute-faqs.md) para obtener más detalles sobre el complemento premium.
+
+Una red virtual solo se puede vincular a cuatro circuitos ExpressRoute como máximo. Use el procedimiento siguiente para crear un nuevo vínculo a cada circuito de ExpressRoute al que se quiere conectar. Los circuitos ExpressRoute pueden estar en la misma suscripción, en suscripciones diferentes o en una combinación de ambas.
 
 ## <a name="connect-a-virtual-network-in-the-same-subscription-to-a-circuit"></a>Conexión de una red virtual en la misma suscripción a un circuito
 Puede vincular una red virtual a un circuito ExpressRoute mediante el siguiente cmdlet. Asegúrese de que la puerta de enlace de red virtual se crea y está lista para vincular antes de ejecutar el cmdlet.

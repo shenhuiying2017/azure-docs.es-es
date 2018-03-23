@@ -1,11 +1,11 @@
 ---
-title: "Conceptos de diseño de Azure AD Connect | Microsoft Docs"
-description: "En este tema se detallan algunas áreas de diseño de implementación"
+title: Conceptos de diseño de Azure AD Connect | Microsoft Docs
+description: En este tema se detallan algunas áreas de diseño de implementación
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 4114a6c0-f96a-493c-be74-1153666ce6c9
 ms.service: active-directory
 ms.custom: azure-ad-connect
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 510efc4ae6674a3987c2bb5d7cd155ea8c710c83
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 179a669e4c9567950d22ed76a693ec6ab7a2db8d
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: conceptos de diseño
 El propósito de este tema es describir las áreas que se deben tener en cuenta durante el diseño de implementación de Azure AD Connect. Este tema trata de una profundización en determinadas áreas, y estos conceptos se describen también brevemente en otros temas.
@@ -45,7 +45,7 @@ El valor de atributo debe seguir las reglas siguientes:
 * No debe contener caracteres especiales: &#92; ! # $ % & * + / = ? ^ &#96; { } | ~ < > ( ) ' ; : , [ ] " @ _
 * Debe ser único globalmente.
 * Debe ser una cadena, un entero o un número binario.
-* No se debe basar en el nombre del usuario, estos cambios
+* No se debe basar en el nombre del usuario, ya que cambia
 * No debe distinguir mayúsculas y minúsculas; evite valores que pueden variar según el caso
 * Debe asignarse cuando se crea el objeto.
 
@@ -59,7 +59,7 @@ Si tiene varios bosques y no mueve usuarios entre bosques y dominios, **objectGU
 
 Si mueve usuarios entre bosques y dominios, debe buscar un atributo que no cambie o se puede mover con los usuarios durante el movimiento. Un enfoque recomendado es introducir un atributo sintético. Un atributo que pueda contener algo parecido a un GUID sería adecuado. Durante la creación del objeto se crea un nuevo GUID y se marca en el usuario. Puede crear una regla de sincronización en el servidor del motor de sincronización para crear este valor según el **objectGUID** y actualizar el atributo seleccionado en ADDS. Al mover el objeto, asegúrese de copiar también el contenido de este valor.
 
-Otra solución consiste en seleccionar un atributo existente que sepa que no va a cambiar. Uno de los atributos de uso más común es **employeeID**. Si está considerando el uso de un atributo que contenga letras, asegúrese de que no haya ninguna posibilidad de que la distinción de mayúsculas y minúsculas pueda cambiar el valor del atributo. Entre los atributos incorrectos que no deben usarse se incluyen aquellos con el nombre del usuario. En un matrimonio o divorcio se espera que cambie el nombre, lo que no está permitido para este atributo. Este también es uno de los motivos de que atributos como **userPrincipalName**, **mail** y **targetAddress** no se puedan seleccionar en el asistente de instalación de Azure AD Connect. Esos atributos también contienen el carácter "\@\" que no está permitido en sourceAnchor.
+Otra solución consiste en seleccionar un atributo existente que sepa que no va a cambiar. Uno de los atributos de uso más común es **employeeID**. Si está considerando el uso de un atributo que contenga letras, asegúrese de que no haya ninguna posibilidad de que la distinción de mayúsculas y minúsculas pueda cambiar el valor del atributo. Entre los atributos incorrectos que no deben usarse se incluyen aquellos con el nombre del usuario. En un matrimonio o divorcio se espera que cambie el nombre, lo que no está permitido para este atributo. Este también es uno de los motivos de que atributos como **userPrincipalName**, **mail** y **targetAddress** no se puedan seleccionar en el asistente de instalación de Azure AD Connect. Esos atributos también contienen el carácter "@", que no está permitido en sourceAnchor.
 
 ### <a name="changing-the-sourceanchor-attribute"></a>Cambio del atributo sourceAnchor
 No se puede cambiar el valor del atributo sourceAnchor después de que el objeto se ha creado en Azure AD y la identidad se ha sincronizado.
@@ -117,7 +117,7 @@ Cuando se instala Azure AD Connect con el modo Personalizado, el asistente de Az
 
 ![Instalación personalizada: configuración de sourceAnchor](./media/active-directory-aadconnect-design-concepts/consistencyGuid-02.png)
 
-| Configuración | Descripción |
+| Configuración | DESCRIPCIÓN |
 | --- | --- |
 | Let Azure manage the source anchor for me (Dejar que Azure administre automáticamente el delimitador de origen) | Seleccione esta opción si desea que Azure AD elija automáticamente el atributo. Si selecciona esta opción, el asistente de Azure AD Connect aplica la misma [lógica de selección del atributo sourceAnchor usada durante la instalación rápida](#express-installation). De forma parecida a la instalación rápida, el asistente indica qué atributo se ha elegido como atributo sourceAnchor una vez finalizada la instalación personalizada. |
 | Un atributo específico | Seleccione esta opción si desea especificar un atributo existente de AD como atributo sourceAnchor. |

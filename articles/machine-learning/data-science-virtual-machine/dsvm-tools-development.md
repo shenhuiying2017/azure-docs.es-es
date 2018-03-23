@@ -1,13 +1,13 @@
 ---
 title: Herramientas de desarrollo de Data Science Virtual Machine - Azure | Microsoft Docs
 description: Herramientas de desarrollo de Data Science Virtual Machine.
-keywords: "herramientas de ciencia de datos, máquina virtual de ciencia de datos, herramientas para la ciencia de datos, ciencia de datos de linux"
+keywords: herramientas de ciencia de datos, máquina virtual de ciencia de datos, herramientas para la ciencia de datos, ciencia de datos de linux
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: 6aef0fbe44e19b515c2bc10c0e7c38fabac10dae
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 0d7ee9a54c2c11f814ce041c5c7e5bd9f2e605e5
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="development-tools-on-the-data-science-virtual-machine"></a>Herramientas de desarrollo en Data Science Virtual Machine
 
@@ -31,8 +31,8 @@ Data Science Virtual Machine (DSVM) proporciona un entorno productivo para el de
 | ¿Qué es?   | IDE de uso general      |
 | Versiones de DSVM compatibles      | Windows      |
 | Usos típicos      | Desarrollo de software    |
-| ¿Cómo se configura/instala en DSVM?      | Carga de trabajo de ciencia de datos (herramientas de Python y de R), carga de trabajo de Azure (Hadoop y Data Lake), Node.js y herramientas de SQL Server    |
-| ¿Cómo se usa/ejecuta?      | Acceso directo de escritorio (`C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\devenv.exe`)    |
+| ¿Cómo se configura/instala en DSVM?      | Carga de trabajo de ciencia de datos (herramientas de Python y de R), carga de trabajo de Azure (Hadoop y Data Lake), Node.js y herramientas de SQL Server, [Visual Studio Tools para AI](https://github.com/Microsoft/vs-tools-for-ai)    |
+| ¿Cómo se usa o ejecuta?      | Acceso directo de escritorio (`C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\devenv.exe`)    |
 | Herramientas relacionadas en DSVM      |     Visual Studio Code, RStudio y Juno  |
 
 ## <a name="visual-studio-code"></a>Visual Studio Code 

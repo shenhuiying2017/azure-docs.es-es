@@ -1,11 +1,11 @@
 ---
 title: Probar su oferta de VM para Marketplace | Microsoft Docs
-description: "Entienda cómo probar su imagen de VM para Azure Marketplace."
+description: Entienda cómo probar su imagen de VM para Azure Marketplace.
 services: marketplace-publishing
-documentationcenter: 
-author: HannibalSII
-manager: hascipio
-editor: 
+documentationcenter: ''
+author: msmbaldwin
+manager: mbaldwin
+editor: ''
 ms.assetid: 7a41c3c6-625c-4478-b804-e124dee89040
 ms.service: marketplace
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
-ms.author: hascipio
-ms.openlocfilehash: 26f856059b381be91b9cdd1f98a11dc90813c0c5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbaldwin
+ms.openlocfilehash: 7f225f113dd465f79d5d195b59a809fe3be6a1f8
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="test-your-vm-offer-for-the-azure-marketplace-in-staging"></a>Probar su oferta de VM para Azure Marketplace en un entorno de ensayo
 En la etapa de ensayo, se implementa la SKU en un “espacio aislado” privado, donde puede probar y validar su funcionalidad antes de implementarla en Marketplace. La SKU aparece en un entorno de ensayo tal y como lo haría para un cliente que la ha implementado. Su imagen de VM debe estar certificada para trasladarse a un entorno de ensayo.
@@ -59,6 +59,6 @@ En la etapa de ensayo, se implementa la SKU en un “espacio aislado” privado,
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que el estado de su oferta es "de ensayo" y que ha probado su funcionalidad y contenido de marketing, puede continuar con la fase de publicación final, el **Paso 4**: [Implementación de su oferta en Marketplace](marketplace-publishing-push-to-production.md).
 
-## <a name="see-also"></a>Consulte también
-* [Introducción: Publicación de una oferta en Azure Marketplace](marketplace-publishing-getting-started.md)
+## <a name="see-also"></a>Otras referencias
+* [Introducción: cómo publicar una oferta en Azure Marketplace](marketplace-publishing-getting-started.md)
 

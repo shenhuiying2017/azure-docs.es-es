@@ -1,8 +1,8 @@
 ---
-title: "Transformación de datos mediante la actividad de Spark en Azure Data Factory | Microsoft Docs"
-description: "Obtenga información sobre cómo transformar datos mediante la ejecución de programas de Spark desde una canalización de Azure Data Factory mediante la actividad de Spark."
+title: Transformación de datos mediante la actividad de Spark en Azure Data Factory | Microsoft Docs
+description: Obtenga información sobre cómo transformar datos mediante la ejecución de programas de Spark desde una canalización de Azure Data Factory mediante la actividad de Spark.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: shengcmsft
 manager: jhubbard
 editor: spelluru
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: 4aed91696b5853b56ab17d69753d20081c79cdf7
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: e4cc412f9c6e37d6e6c3b030a934d572a7319011
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Transformación de datos mediante la actividad de Spark en Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -71,7 +71,7 @@ En la siguiente tabla se describen las propiedades JSON que se usan en la defini
 | Descripción           | Texto que describe para qué se usa la actividad.  | Sin        |
 | Tipo                  | Para la actividad de Spark, el tipo de actividad es HDInsightSpark. | Sí      |
 | linkedServiceName     | Nombre del servicio vinculado de HDInsight Spark en el que se ejecuta el programa de Spark. Para obtener más información sobre este servicio vinculado, vea el artículo [Compute linked services](compute-linked-services.md) (Servicios vinculados de procesos). | Sí      |
-| SparkJobLinkedService | El servicio vinculado de Azure Storage que contiene los registros, las dependencias y los archivos de trabajos de Spark.  Si no especifica un valor para esta propiedad, se usa el almacenamiento asociado con el clúster de HDInsight. | Sin        |
+| SparkJobLinkedService | El servicio vinculado de Azure Storage que contiene los registros, las dependencias y los archivos de trabajos de Spark.  Si no especifica un valor para esta propiedad, se usa el almacenamiento asociado con el clúster de HDInsight. El valor de esta propiedad solo puede ser un servicio vinculado de Azure Storage. | Sin        |
 | rootPath              | Contenedor de blobs de Azure y la carpeta que contiene el archivo de Spark. El nombre del archivo distingue mayúsculas de minúsculas. Vea la sección sobre la estructura de carpetas (sección siguiente) para obtener más información sobre la estructura de esta carpeta. | Sí      |
 | entryFilePath         | Ruta de acceso relativa a la carpeta raíz del código o el paquete de Spark. | Sí      |
 | className             | Clase principal de Spark o Java de la aplicación.      | Sin        |
@@ -115,7 +115,7 @@ SparkJob2
         script2.py
     logs
 ```
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Vea los siguientes artículos, en los que se explica cómo transformar datos de otras maneras: 
 
 * [Actividad de U-SQL](transform-data-using-data-lake-analytics.md)

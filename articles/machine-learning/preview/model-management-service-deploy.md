@@ -1,20 +1,20 @@
 ---
-title: "Implementación de servicio web de Administración de modelos de Azure Machine Learning| Microsoft Docs"
-description: "En este documento se describen los pasos necesarios para implementar un modelo de aprendizaje automático con Administración de modelos de Azure Machine Learning."
+title: Implementación de servicio web de Administración de modelos de Azure Machine Learning| Microsoft Docs
+description: En este documento se describen los pasos necesarios para implementar un modelo de aprendizaje automático con Administración de modelos de Azure Machine Learning.
 services: machine-learning
-author: raymondl
-ms.author: raymondl, aashishb
+author: aashishb
+ms.author: aashishb
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/03/2018
-ms.openlocfilehash: 9fbdb190e7c745000b358451c1a6e3058cb861fd
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 7b481fb3287b8ee2c22e5f25f8cf1935eed05428
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="deploying-a-machine-learning-model-as-a-web-service"></a>Implementación de un modelo de Machine Learning como un servicio web
 
@@ -64,20 +64,20 @@ A continuación, defina las variables de entrada como una trama de datos de Spar
 
 ```python
 inputs = {"input_array": SampleDefinition(DataTypes.NUMPY, yourinputarray)}
-generate_schema(run_func=run, inputs=inputs, filepath='service_schema.json')
+generate_schema(run_func=run, inputs=inputs, filepath='./outputs/service_schema.json')
 ```
 En el ejemplo siguiente se utiliza una trama de datos de Spark:
 
 ```python
 inputs = {"input_df": SampleDefinition(DataTypes.SPARK, yourinputdataframe)}
-generate_schema(run_func=run, inputs=inputs, filepath='service_schema.json')
+generate_schema(run_func=run, inputs=inputs, filepath='./outputs/service_schema.json')
 ```
 
 En el ejemplo siguiente se utiliza una trama de datos de Pandas:
 
 ```python
 inputs = {"input_df": SampleDefinition(DataTypes.PANDAS, yourinputdataframe)}
-generate_schema(run_func=run, inputs=inputs, filepath='service_schema.json')
+generate_schema(run_func=run, inputs=inputs, filepath='./outputs/service_schema.json')
 ```
 
 ### <a name="3-create-a-scorepy-file"></a>3. Crear un archivo score.py
@@ -136,7 +136,7 @@ az ml model register --model [path to model file] --name [model name]
 El comando siguiente le permiten crear un manifiesto para el modelo,
 
 ```
-az ml manifest create --manifest-name [your new manifest name] -f [path to code file] -r [runtime for the image, e.g. spark-py]
+az ml manifest create --manifest-name [your new manifest name] -f [path to score file] -r [runtime for the image, e.g. spark-py]
 ```
 Puede agregar un modelo previamente registrado al manifiesto mediante el argumento `--model-id` o `-i` en el comando mostrado anteriormente. Se pueden especificar varios modelos con argumentos -i adicionales.
 
@@ -186,5 +186,5 @@ En el ejemplo siguiente se llama a un servicio web Iris de ejemplo:
 az ml service run realtime -i <service id> -d "{\"input_df\": [{\"sepal length\": 3.0, \"sepal width\": 3.6, \"petal width\": 1.3, \"petal length\":0.25}]}"
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Ahora que ha probado el servicio web para que se ejecute localmente, se puede implementar en un clúster para su uso a gran escala. Para más información sobre cómo configurar un clúster para la implementación del servicio web, consulte [Model Management configuration](deployment-setup-configuration.md) (Configuración de Administración de modelos). 

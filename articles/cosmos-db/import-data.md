@@ -1,12 +1,12 @@
 ---
-title: "Herramienta de migración de base de datos para Azure Cosmos DB | Microsoft Docs"
-description: "Obtenga información sobre cómo usar las herramientas de migración de datos de código abierto de Azure Cosmos DB para importar datos a Azure Cosmos DB desde varios orígenes, incluidos archivos MongoDB, SQL Server, Table Storage, Amazon DynamoDB, CSV y JSON. Conversión de CSV a JSON."
-keywords: "csv a json, herramientas de migración de base de datos, convertir csv a json"
+title: Herramienta de migración de base de datos para Azure Cosmos DB | Microsoft Docs
+description: Obtenga información sobre cómo usar las herramientas de migración de datos de código abierto de Azure Cosmos DB para importar datos a Azure Cosmos DB desde varios orígenes, incluidos archivos MongoDB, SQL Server, Table Storage, Amazon DynamoDB, CSV y JSON. Conversión de CSV a JSON.
+keywords: csv a json, herramientas de migración de base de datos, convertir csv a json
 services: cosmos-db
 author: andrewhoh
 manager: jhubbard
 editor: monicar
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: d173581d-782a-445c-98d9-5e3c49b00e25
 ms.service: cosmos-db
 ms.workload: data-services
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 02/27/2018
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: 036683698c49b8acb8a83117ac823c90fef0b2b3
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: cf8b0e6a06f787c5b38622e9343e893d5d7daa12
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB: herramienta de migración de datos
 
@@ -477,7 +477,7 @@ Mediante la opción avanzada Directiva de indexación, puede seleccionar un arch
 La herramienta proporciona las plantillas de directiva siguientes:
 
 * Predeterminada. Esta directiva es mejor cuando se realizan consultas de igualdad en cadenas y se usan consultas ORDER BY, de rango y de igualdad para números. Esta directiva tiene una sobrecarga de almacenamiento de índices menor que la de intervalo.
-* Intervalo. Esta directiva es la mejor si está usando consultas ORDER BY, de intervalo o igualdad tanto en números como en cadenas. Esta directiva tiene una mayor sobrecarga de almacenamiento de índice que la Predeterminada o Hash.
+* Intervalo. Esta directiva es la mejor cuando usa consultas ORDER BY, de intervalo o igualdad tanto en números como en cadenas. Esta directiva tiene una mayor sobrecarga de almacenamiento de índice que la Predeterminada o Hash.
 
 ![Captura de pantalla de opciones avanzadas de política de indexación de Azure Cosmos DB](./media/import-data/indexingpolicy2.png)
 
@@ -549,7 +549,7 @@ A continuación, elija si desea registrar todos los mensajes de error, los crít
    
     ![Captura de pantalla de opción de exportación de JSON de Azure Cosmos DB](./media/import-data/newimport.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, ha llevado a cabo las tareas siguientes:
 

@@ -1,11 +1,11 @@
 ---
-title: "Uso de cloud-init para configurar un archivo de intercambio en una máquina virtual Linux | Microsoft Docs"
-description: "Procedimiento para usar cloud-init con el fin de configurar un archivo de intercambio en una máquina virtual Linux con la CLI de Azure 2.0"
+title: Uso de cloud-init para configurar un archivo de intercambio en una máquina virtual Linux | Microsoft Docs
+description: Procedimiento para usar cloud-init con el fin de configurar un archivo de intercambio en una máquina virtual Linux con la CLI de Azure 2.0
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rickstercdn
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
@@ -14,11 +14,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 7f9defc1f414819cf856fc92f5eb51eafdc67be9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 88a141922f113caf7ad67c89de48f84a821f7ba3
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-cloud-init-to-configure-a-swapfile-on-a-linux-vm"></a>Uso de cloud-init para configurar un archivo de intercambio en una máquina virtual Linux
 Este artículo explica cómo usar [cloud-init](https://cloudinit.readthedocs.io) para configurar el archivo de intercambio en diversas distribuciones de Linux. El archivo de intercambio tradicionalmente se configuró mediante el agente Linux (WALA) en función de qué distribuciones se necesitaban.  Este documento detalla el proceso para crear el archivo de intercambio a petición durante el tiempo de aprovisionamiento mediante cloud-init.  Para obtener más información acerca del funcionamiento nativo de cloud-init en Azure y las distribuciones de Linux compatibles, consulte la [introducción a cloud-init](using-cloud-init.md).
@@ -33,18 +33,18 @@ En el shell actual, cree un archivo denominado *cloud_init_swapfile.txt* y pegue
 ```yaml
 #cloud-config
 disk_setup:
-ephemeral0:
-table_type: gpt
-layout: [66, [33,82]]
-overwrite: True
+  ephemeral0:
+    table_type: gpt
+    layout: [66, [33,82]]
+    overwrite: true
 fs_setup:
-- device: ephemeral0.1
-filesystem: ext4
-- device: ephemeral0.2
-filesystem: swap
+  - device: ephemeral0.1
+    filesystem: ext4
+  - device: ephemeral0.2
+    filesystem: swap
 mounts:
-- ["ephemeral0.1", "/mnt"]
-- ["ephemeral0.2", "none", "swap", "sw", "0", "0"]
+  - ["ephemeral0.1", "/mnt"]
+  - ["ephemeral0.2", "none", "swap", "sw", "0", "0"]
 ```
 
 Antes de implementar esta imagen, debe crear un grupo de recursos con el comando [az group create](/cli/azure/group#az_group_create). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*.
@@ -87,7 +87,7 @@ Filename                Type        Size    Used    Priority
 > [!NOTE] 
 > Si tiene una imagen de Azure existente con un archivo de intercambio configurado y desea cambiar la configuración del archivo de intercambio para incluir nuevas imágenes, debe quitar el archivo de intercambio existente. Consulte el documento sobre cómo personalizar imágenes para aprovisionar mediante cloud-init para obtener más información.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para ejemplos de cloud-init de cambios de configuración adicionales, vea lo siguiente:
  
 - [Incorporación de otro usuario de Linux a una máquina virtual](cloudinit-add-user.md)

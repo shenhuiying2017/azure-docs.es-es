@@ -1,8 +1,8 @@
 ---
-title: "Planeamiento de una implementación de Azure File Sync (versión preliminar) |Microsoft Docs"
-description: "Conozca los aspectos que debe tener en cuenta al planear una implementación de Azure Files."
+title: Planeamiento de una implementación de Azure File Sync (versión preliminar) |Microsoft Docs
+description: Conozca los aspectos que debe tener en cuenta al planear una implementación de Azure Files.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: wmgries
 manager: klaasl
 editor: jgerend
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 8f20e8d4329d815351147f90b598180839ce917a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5f42bee31e3bc1a23c9b0c6de9d6748e23c94713
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planeamiento de una implementación de Azure File Sync (versión preliminar)
 Use Azure File Sync (versión preliminar) para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -49,7 +49,7 @@ El agente de Azure File Sync es un paquete descargable que permite la sincroniza
 Un punto de conexión de servidor representa una ubicación específica en un servidor registrado, como una carpeta en un volumen de servidor. Pueden existir varios puntos de conexión de servidor en el mismo volumen si sus espacios de nombres no se superponen (por ejemplo, `F:\sync1` y `F:\sync2`). Además, puede configurar directivas de niveles de nube de manera individual para cada punto de conexión de servidor. Actualmente, no es posible crear un punto de conexión de servidor para la raíz de un volumen (por ejemplo `F:\` o `C:\myvolume`, si un volumen se monta como un punto de montaje).
 
 > [!Note]  
-> Un punto de conexión de servidor se puede encontrar en el volumen del sistema Windows. Los niveles de nube no se admiten en el volumen del sistema.
+> Solo se admiten volúmenes no extraíbles.  Las unidades asignadas desde un recurso compartido remoto no son compatibles con rutas de acceso de punto de conexión de servidor.  Además, un punto de conexión de servidor puede encontrarse en el volumen del sistema de Windows, aunque los niveles de nube no se admitan en dicho volumen.
 
 Si agrega una ubicación de servidor con un conjunto de archivos existente como punto de conexión de servidor a un grupo de sincronización, esos archivos se combinarán con otros archivos que ya se encuentren en otros puntos de conexión del grupo de sincronización.
 
@@ -92,7 +92,7 @@ Las versiones futuras de Windows Server se agregarán tan pronto como se publiqu
 | Puntos de repetición de análisis | Skipped | |
 | Compresión NTFS | Totalmente compatible | |
 | Archivos dispersos | Totalmente compatible | Los archivos dispersos se sincronizan (no se bloquean), pero lo hacen con la nube como un archivo completo. Si se cambia el contenido del archivo en la nube (o en otro servidor), el archivo ya no estará disperso cuando el cambio se haya descargado. |
-| Flujos de datos alternativos (ADS) | Conservados, pero no sincronizados | |
+| Flujos de datos alternativos (ADS) | Conservados, pero no sincronizados | Por ejemplo, las etiquetas de clasificación creadas por la infraestructura de clasificación de archivos no están sincronizadas. Las etiquetas de clasificación existentes en los archivos en cada uno de los puntos de conexión del servidor se dejan como están. |
 
 > [!Note]  
 > Solo se admiten volúmenes NTFS. No se admiten ReFS, FAT, FAT32 ni otros sistemas de archivos.
@@ -142,7 +142,7 @@ Al igual que sucede con las soluciones antivirus, las soluciones de backup puede
 La compatibilidad con soluciones de cifrado depende de cómo se implementen. Está comprobado que Azure File Sync funciona con:
 
 - Cifrado de BitLocker
-- Azure Rights Management Services (Azure RMS) (y Active Directory RMS heredado)
+- Azure Information Protection, Azure Rights Management Services (Azure RMS) y Active Directory RMS
 
 está comprobado que Azure File Sync no funciona con:
 
@@ -171,7 +171,7 @@ En la versión preliminar, solo se admite la sincronización con recursos compar
 ## <a name="azure-file-sync-agent-update-policy"></a>Directiva de actualización del agente de Azure File Sync
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Planeamiento de una implementación de Azure Files](storage-files-planning.md)
 * [Implementación de Azure Files](storage-files-deployment-guide.md)
 * [Implementación de Azure File Sync](storage-sync-files-deployment-guide.md)

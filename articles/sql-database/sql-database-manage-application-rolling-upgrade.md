@@ -1,25 +1,19 @@
 ---
 title: 'Actualizaciones graduales de aplicaciones: Azure SQL Database | Microsoft Docs'
-description: "Aprenda a usar la replicación geográfica en Base de datos SQL para admitir las actualizaciones en línea de la aplicación en la nube."
+description: Aprenda a usar la replicación geográfica en SQL Database para admitir las actualizaciones en línea de la aplicación en la nube.
 services: sql-database
-documentationcenter: 
 author: anosov1960
-manager: jhubbard
-editor: monicar
-ms.assetid: 58f42859-1e37-463c-a3d8-a3ca2e867148
+manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: Inactive
 ms.date: 07/16/2016
 ms.author: sashan
-ms.openlocfilehash: deb91d55e5b796f7b1b53a99866156fe492e0a24
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 6efc14e5f8fab5baafff50e8eb6844f8decca1c9
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="managing-rolling-upgrades-of-cloud-applications-using-sql-database-active-geo-replication"></a>Administración de actualizaciones graduales de aplicaciones en la nube mediante la replicación geográfica activa de SQL Database
 > [!NOTE]
@@ -45,7 +39,7 @@ Si la aplicación se basa en copias de seguridad automáticas y utiliza la resta
 > Tenga en cuenta los pasos preparatorios no afectarán a la aplicación de la ranura de producción y puede funcionar en modo de acceso completo.
 >  
 
-![Configuración de la replicación geográfica de la Base de datos SQL. Recuperación ante desastres en la nube.](media/sql-database-manage-application-rolling-upgrade/Option1-1.png)
+![Configuración de la replicación geográfica de la SQL Database. Recuperación ante desastres en la nube.](media/sql-database-manage-application-rolling-upgrade/Option1-1.png)
 
 Una vez completados los pasos preparatorios, la aplicación está preparada para la actualización real. En el siguiente diagrama se ilustran los pasos implicados en el proceso de actualización. 
 
@@ -134,7 +128,7 @@ Los dos métodos de actualización que se describen en el artículo difieren en 
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para obtener una descripción general y los escenarios de la continuidad empresarial, consulte [Información general sobre la continuidad empresarial](sql-database-business-continuity.md).
-* Para saber en qué consisten las copias de seguridad automatizadas de Base de datos SQL de Azure, consulte [Información general: copias de seguridad automatizadas de Base de datos SQL](sql-database-automated-backups.md).
+* Para saber en qué consisten las copias de seguridad automatizadas de Azure SQL Database, consulte [Información general: copias de seguridad automatizadas de SQL Database](sql-database-automated-backups.md).
 * Si quiere saber cómo utilizar las copias de seguridad automatizadas para procesos de recuperación, consulte cómo [restaurar una base de datos a partir de las copias de seguridad automatizadas](sql-database-recovery-using-backups.md).
 * Para conocer las opciones de recuperación más rápidas, consulte [Replicación geográfica activa](sql-database-geo-replication-overview.md).
 

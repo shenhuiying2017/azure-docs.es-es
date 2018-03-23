@@ -1,23 +1,20 @@
 ---
-title: "Incorporación de máquinas para administrarlas con DSC de Azure Automation | Microsoft Docs"
-description: "Cómo configurar las máquinas para administrarlas con DSC de Azure Automation"
+title: Incorporación de máquinas para administrarlas con DSC de Azure Automation
+description: Cómo configurar las máquinas para administrarlas con DSC de Azure Automation
 services: automation
-documentationcenter: dev-center-name
-author: georgewallace
-manager: carmonm
-ms.assetid: da13e1f5-2a1c-443b-8e3b-9f0d6f9e4810
 ms.service: automation
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: powershell
-ms.workload: TBD
-ms.date: 12/13/2016
+author: georgewallace
 ms.author: gwallace
-ms.openlocfilehash: ffe08f0f85f07accdce9e3b8fa9524ef3c99c878
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.date: 03/16/2018
+ms.topic: article
+manager: carmonm
+ms.devlang: na
+ms.tgt_pltfrm: na
+ms.openlocfilehash: 512146c5d1aa8be06f7209418711f5a8bbd974a5
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-dsc"></a>Incorporación de máquinas para administrarlas con DSC de Azure Automation
 

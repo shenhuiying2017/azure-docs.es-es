@@ -1,25 +1,19 @@
 ---
-title: "Configuración de la seguridad de Azure SQL Database para recuperación ante desastres | Microsoft Docs"
-description: "Conozca las consideraciones sobre seguridad para configurar y administrar la seguridad después de una restauración de la base de datos o una conmutación por error a un servidor secundario."
+title: Configuración de la seguridad de Azure SQL Database para recuperación ante desastres | Microsoft Docs
+description: Conozca las consideraciones sobre seguridad para configurar y administrar la seguridad después de una restauración de la base de datos o una conmutación por error a un servidor secundario.
 services: sql-database
-documentationcenter: na
 author: anosov1960
-manager: jhubbard
-editor: monicar
-ms.assetid: c7c898c9-69d4-4e16-8b7e-720bbb3353dd
+manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Inactive
 ms.date: 10/13/2016
 ms.author: sashan
-ms.openlocfilehash: 5bdcdba4956a12b54559b8accf822a4f41656045
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 758096692c83ae08c8ef2bce8ec67dd9bc6e878d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>Configuración y administración de la seguridad de Azure SQL Database para la restauración geográfica o la conmutación por error 
 
@@ -97,7 +91,7 @@ El último paso consiste en ir al servidor o los servidores de destino y generar
 > 
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Para obtener más información sobre cómo administrar el acceso a la base de datos y los inicios de sesión, consulte [Seguridad de la Base de datos SQL: administrar la seguridad del inicio de sesión y el acceso a la base de datos](sql-database-manage-logins.md).
+* Para obtener más información sobre cómo administrar el acceso a la base de datos y los inicios de sesión, consulte [Seguridad de la SQL Database: administrar la seguridad del inicio de sesión y el acceso a la base de datos](sql-database-manage-logins.md).
 * Para obtener más información sobre los usuarios de base de datos independiente, consulte [Usuarios de base de datos independiente: hacer que la base de datos sea portátil](https://msdn.microsoft.com/library/ff929188.aspx).
 * Para obtener información sobre cómo usar y configurar la funcionalidad de replicación geográfica activa, consulte [Replicación geográfica activa para Azure SQL Database](sql-database-geo-replication-overview.md).
 * Para obtener información sobre cómo utilizar la funcionalidad de restauración geográfica, consulte [Restauración geográfica](sql-database-recovery-using-backups.md#geo-restore)

@@ -1,31 +1,25 @@
 ---
-title: "Introducción a las tablas temporales de Azure SQL Database | Microsoft Docs"
-description: "Obtenga información sobre cómo empezar a usar las tablas temporales de Base de datos SQL de Azure"
+title: Introducción a las tablas temporales de Azure SQL Database | Microsoft Docs
+description: Obtenga información sobre cómo empezar a usar las tablas temporales de Azure SQL Database
 services: sql-database
-documentationcenter: 
 author: bonova
-manager: jhubbard
-editor: 
-ms.assetid: c8c0f232-0751-4a7f-a36e-67a0b29fa1b8
+manager: craigg
 ms.service: sql-database
 ms.custom: develop databases
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: On Demand
 ms.date: 01/10/2017
 ms.author: bonova
-ms.openlocfilehash: 58f97c142ba0b9282d8988fc1bc037b9c0c69986
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 8e76d78e402d2cdc58ca26767c55c413f83226d9
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Introducción a las tablas temporales de Base de datos SQL de Azure
-Las tablas temporales son una nueva característica de programación de Base de datos SQL de Azure que permiten realizar un seguimiento del historial completo de los cambios en los datos y analizarlo, sin necesidad de codificación personalizada. Las tablas temporales mantienen datos estrechamente relacionados con el contexto de tiempo para que se puedan interpretar los hechos almacenados como válidos solo dentro del período específico. Esta propiedad de las tablas temporales permite un análisis eficaz basado en el tiempo y obtener información detalladas de la evolución de los datos.
+# <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Introducción a las tablas temporales de Azure SQL Database
+Las tablas temporales son una nueva característica de programación de Azure SQL Database que permiten realizar un seguimiento del historial completo de los cambios en los datos y analizarlo, sin necesidad de codificación personalizada. Las tablas temporales mantienen datos estrechamente relacionados con el contexto de tiempo para que se puedan interpretar los hechos almacenados como válidos solo dentro del período específico. Esta propiedad de las tablas temporales permite un análisis eficaz basado en el tiempo y obtener información detalladas de la evolución de los datos.
 
 ## <a name="temporal-scenario"></a>Escenario temporal
-Este artículo muestra los pasos para utilizar tablas temporales en un escenario de aplicación. Suponga que desea realizar un seguimiento de la actividad del usuario en un sitio web nuevo que se está desarrollando desde cero o en un sitio web existente que desea extender con análisis de la actividad del usuario. En este ejemplo simplificado, se supone que el número de páginas web visitadas durante un período de tiempo es un indicador que necesita capturarse y supervisarse en la base de datos del sitio web que se hospeda en Base de datos SQL de Azure. El objetivo del análisis histórico de la actividad del usuario es obtener entradas para rediseñar el sitio web y ofrecer la mejor experiencia para los visitantes.
+Este artículo muestra los pasos para utilizar tablas temporales en un escenario de aplicación. Suponga que desea realizar un seguimiento de la actividad del usuario en un sitio web nuevo que se está desarrollando desde cero o en un sitio web existente que desea extender con análisis de la actividad del usuario. En este ejemplo simplificado, se supone que el número de páginas web visitadas durante un período de tiempo es un indicador que necesita capturarse y supervisarse en la base de datos del sitio web que se hospeda en Azure SQL Database. El objetivo del análisis histórico de la actividad del usuario es obtener entradas para rediseñar el sitio web y ofrecer la mejor experiencia para los visitantes.
 
 El modelo de base de datos para este escenario es muy simple: la métrica de la actividad del usuario se representa con un solo campo de entero, **PageVisited**, y se captura junto con información básica sobre el perfil del usuario. Además, para el análisis basado en el tiempo, se mantendría una serie de filas para cada usuario, donde cada fila representa el número de páginas que un usuario determinado visitó dentro de un período de tiempo específico.
 
@@ -37,7 +31,7 @@ Afortunadamente, no es necesario esforzarse mucho en la aplicación para mantene
 Dependiendo de si inicia un nuevo desarrollo o actualiza una aplicación existente, creará tablas temporales o modificará las existentes agregando atributos temporales. En general, el escenario puede ser una combinación de estas dos opciones. Realice estas acciones utilizando [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) (SSMS), [SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx) (SSDT) o cualquier otra herramienta de desarrollo de Transact-SQL.
 
 > [!IMPORTANT]
-> Le recomendamos usar siempre la versión más reciente de Management Studio para que pueda estar siempre al día de las actualizaciones de Microsoft Azure y Base de datos SQL. [Actualice SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+> Le recomendamos usar siempre la versión más reciente de Management Studio para que pueda estar siempre al día de las actualizaciones de Microsoft Azure y SQL Database. [Actualice SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
 > 
 > 
 
@@ -116,7 +110,7 @@ UPDATE WebsiteUserInfo  SET [PagesVisited] = 5
 WHERE [UserID] = 1;
 ````
 
-Es importante tener en cuenta que la consulta de actualización no necesita saber la hora exacta en la que se produjo la operación real ni cómo se conservarán los datos históricos para futuros análisis. Base de datos SQL de Azure controla ambos aspectos automáticamente. El siguiente diagrama ilustra cómo se generan los datos del historial en cada actualización.
+Es importante tener en cuenta que la consulta de actualización no necesita saber la hora exacta en la que se produjo la operación real ni cómo se conservarán los datos históricos para futuros análisis. Azure SQL Database controla ambos aspectos automáticamente. El siguiente diagrama ilustra cómo se generan los datos del historial en cada actualización.
 
 ![TemporalArchitecture](./media/sql-database-temporal-tables/AzureTemporal5.png)
 
@@ -162,7 +156,7 @@ La visualización de gráficos es especialmente conveniente para consultas tempo
 ![TemporalGraph](./media/sql-database-temporal-tables/AzureTemporal6.png)
 
 ## <a name="evolving-table-schema"></a>Evolución del esquema de tabla
-Normalmente, necesita cambiar el esquema de tabla temporal mientras se está realizando el desarrollo de aplicaciones. Para ello, simplemente ejecute instrucciones ALTER TABLE convencionales y Base de datos SQL de Azure propagará los cambios adecuadamente a la tabla de historial. El siguiente script muestra cómo puede agregar atributos adicionales para el seguimiento:
+Normalmente, necesita cambiar el esquema de tabla temporal mientras se está realizando el desarrollo de aplicaciones. Para ello, simplemente ejecute instrucciones ALTER TABLE convencionales y Azure SQL Database propagará los cambios adecuadamente a la tabla de historial. El siguiente script muestra cómo puede agregar atributos adicionales para el seguimiento:
 
 ````
 /*Add new column for tracking source IP address*/
@@ -189,7 +183,7 @@ ALTER TABLE dbo.WebsiteUserInfo
 También puede usar la versión más reciente de [SSDT](https://msdn.microsoft.com/library/mt204009.aspx) para cambiar el esquema de tabla temporal mientras esté conectado a la base de datos (modo en línea) o como parte del proyecto de base de datos (modo sin conexión).
 
 ## <a name="controlling-retention-of-historical-data"></a>Control de la retención de datos históricos
-Con tablas temporales con versión del sistema, la tabla de historial puede aumentar el tamaño de la base de datos más que las tablas convencionales. Una tabla de historial grande y creciente puede ser un problema debido a los costos de almacenamiento puro y a la imposición de un impuesto de rendimiento sobre las consultas temporales. Por lo tanto, el desarrollo de una directiva de retención de datos para administrar datos en la tabla de historial es un aspecto importante del planeamiento y la administración del ciclo de vida de cada tabla temporal. Con Base de datos SQL de Azure, dispone de los siguientes enfoques para administrar datos históricos en la tabla temporal:
+Con tablas temporales con versión del sistema, la tabla de historial puede aumentar el tamaño de la base de datos más que las tablas convencionales. Una tabla de historial grande y creciente puede ser un problema debido a los costos de almacenamiento puro y a la imposición de un impuesto de rendimiento sobre las consultas temporales. Por lo tanto, el desarrollo de una directiva de retención de datos para administrar datos en la tabla de historial es un aspecto importante del planeamiento y la administración del ciclo de vida de cada tabla temporal. Con Azure SQL Database, dispone de los siguientes enfoques para administrar datos históricos en la tabla temporal:
 
 * [Partición de tabla](https://msdn.microsoft.com/library/mt637341.aspx#Anchor_2)
 * [Script de limpieza personalizado](https://msdn.microsoft.com/library/mt637341.aspx#Anchor_3)

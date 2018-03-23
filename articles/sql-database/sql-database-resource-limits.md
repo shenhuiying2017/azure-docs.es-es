@@ -1,11 +1,11 @@
 ---
-title: "Límites de recursos de Azure SQL Database | Microsoft Docs"
-description: "En esta página se describen algunos límites de recursos comunes para Azure SQL Database."
+title: Límites de recursos de Azure SQL Database | Microsoft Docs
+description: En esta página se describen algunos límites de recursos comunes para Azure SQL Database.
 services: sql-database
 documentationcenter: na
 author: CarlRabeler
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 884e519f-23bb-4b73-a718-00658629646a
 ms.service: sql-database
 ms.custom: DBs & servers
@@ -13,15 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 02/27/2018
+ms.date: 02/28/2018
 ms.author: carlrab
-ms.openlocfilehash: 839705b902b8e1343c1e0bda97a2ec1dc6b47042
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: eea4362e33ff2587758601758db463ffa82382b3
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-sql-database-resource-limits"></a>Límites de recursos de SQL Database
+
+> [!IMPORTANT]
+> Para los límites de recursos con Instancia administrada de Azure SQL Database, consulte [SQL Database Managed Instance](sql-database-managed-instance.md#managed-instance-service-tier) (Instancia administrada de SQL Database).
 
 ## <a name="single-database-storage-sizes-and-performance-levels"></a>Base de datos única: tamaños de almacenamiento y niveles de rendimiento
 
@@ -79,7 +82,6 @@ Para los grupos elásticos de SQL Database, las siguientes tablas muestran los r
 
 > [!NOTE]
 > Los límites de recursos de las bases de datos individuales de los grupos elásticos suelen ser los mismos que para las bases de datos únicas fuera de los grupos basados en DTU y el nivel de servicio. Por ejemplo, el número máximo de trabajadores simultáneos de una base de datos S2 es de 120 trabajadores. Por lo tanto, el número máximo de trabajadores simultáneos de una base de datos de un grupo estándar también es de 120 trabajadores si el número máximo de DTU por base de datos del grupo es de 50 DTU (que es equivalente a S2).
->
 
 [!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
 
@@ -152,7 +154,7 @@ Al encontrar un uso elevado de sesión o de trabajo, las opciones de mitigación
 - Aumentar el nivel de servicio o el nivel de rendimiento de la base de datos o del grupo elástico. Consulte [Base de datos única: cambio de tamaño de almacenamiento](#single-database-change-storage-size), [Base de datos única: cambio de DTU](#single-database-change-dtus), [Grupo elástico: cambio de tamaño de almacenamiento](#elastic-pool-change-storage-size) y [Grupo elástico: cambio de eDTU](#elastic-pool-change-edtus).
 - Optimizar las consultas para reducir el uso de recursos de cada consulta si la causa del mayor uso de trabajo es debida a la contención de los recursos de proceso. Para más información, consulte [Optimización y sugerencias de consultas](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Para más información sobre los niveles de servicio, consulte [Niveles de servicio](sql-database-service-tiers.md).
 - Para más información sobre las bases de datos únicas, consulte [Recursos de bases de datos únicas](sql-database-resource-limits.md).

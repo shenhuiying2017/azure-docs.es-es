@@ -5,7 +5,7 @@ services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 832c7831-d0e9-449b-b39c-9a09ba051531
 ms.service: virtual-network
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
-ms.openlocfilehash: b2c962d5449d18b51cfd84b0e1992695b54d1c48
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: a00b908f9811822f262d2c6113e3ff5fc364b1b4
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-user-defined-routes-udr-using-a-template"></a>Creación de rutas definidas por el usuario (UDR) con una plantilla
 
 > [!div class="op_single_selector"]
-> * [PowerShell](virtual-network-create-udr-arm-ps.md)
-> * [CLI de Azure](virtual-network-create-udr-arm-cli.md)
+> * [PowerShell](tutorial-create-route-table-powershell.md)
+> * [CLI de Azure](tutorial-create-route-table-cli.md)
 > * [Plantilla](virtual-network-create-udr-arm-template.md)
 > * [PowerShell (clásico)](virtual-network-create-udr-classic-ps.md)
 > * [CLI (clásico)](virtual-network-create-udr-classic-cli.md)
@@ -75,7 +75,7 @@ Para asociar las rutas definidas por el usuario a la subred front-end, debe camb
 
 Se hace lo mismo para el grupo de seguridad de red de back-end y la subred back-end en la plantilla.
 
-También debe asegurarse de que la máquina virtual **FW1** tiene la propiedad de reenvío de IP habilitada en la NIC, que se usará para recibir y reenviar paquetes. La sección siguiente muestra la definición de la NIC para FW1 en el archivo azuredeploy-nsg-udr.json, según el escenario anterior.
+También debe asegurarse de que la máquina virtual **FW1** tiene la propiedad de reenvío de IP habilitada en la NIC, que se usará para recibir y reenviar paquetes. La sección siguiente muestra la definición de la NIC para FW1 en el archivo azuredeploy-nsg-udr.json, según el escenario.
 
     "apiVersion": "2015-06-15",
     "type": "Microsoft.Network/networkInterfaces",
@@ -112,7 +112,7 @@ También debe asegurarse de que la máquina virtual **FW1** tiene la propiedad d
     }
 
 ## <a name="deploy-the-template-by-using-click-to-deploy"></a>Implementar la plantilla por medio de un solo clic para implementar
-La plantilla de ejemplo disponible en el repositorio público usa un archivo de parámetros que contiene los valores predeterminados utilizados para generar el escenario descrito anteriormente. Para implementar esta plantilla mediante el método de hacer clic para implementar, siga [esta plantilla](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR), haga clic en **Implementar en Azure**, reemplace los valores de parámetro predeterminados si es necesario y siga las instrucciones del portal.
+La plantilla de ejemplo disponible en el repositorio público usa un archivo de parámetros que contiene los valores predeterminados que se usan para generar el escenario descrito anteriormente. Para implementar esta plantilla mediante el método de hacer clic para implementar, siga [esta plantilla](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR), haga clic en **Implementar en Azure**, reemplace los valores de parámetro predeterminados si es necesario y siga las instrucciones del portal.
 
 1. Si es la primera vez que usa Azure PowerShell, consulte [Cómo instalar y configurar Azure PowerShell](/powershell/azure/overview) y siga las instrucciones hasta el final para iniciar sesión en Azure y seleccionar su suscripción.
 2. Ejecute el comando siguiente para crear un grupo de recursos:
@@ -173,7 +173,7 @@ La plantilla de ejemplo disponible en el repositorio público usa un archivo de 
 
 ## <a name="deploy-the-template-by-using-the-azure-cli"></a>Implementación la plantilla ARM mediante la CLI de Azure
 
-Para implementar la plantilla de ARM mediante la CLI de Azure, complete los siguientes pasos:
+Para implementar la plantilla de Azure Resource Manager mediante la CLI de Azure, complete los siguientes pasos:
 
 1. Si nunca ha usado la CLI de Azure, consulte [Instalación y configuración de la CLI de Azure](../cli-install-nodejs.md) y siga las instrucciones hasta el punto donde deba seleccionar su cuenta y suscripción de Azure.
 2. Ejecute el siguiente comando para cambiar al modo de Resource Manager:
@@ -186,7 +186,7 @@ Para implementar la plantilla de ARM mediante la CLI de Azure, complete los sigu
 
         info:    New mode is arm
 
-3. En el explorador, vaya a **https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json**, copie el contenido del archivo json y péguelo en un archivo nuevo en el equipo. En este escenario, va a copiar los valores siguientes en un archivo denominado **c:\udr\azuredeploy.parameters.json**.
+3. En el explorador, vaya a **https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json**, copie el contenido del archivo json y péguelo en un archivo nuevo en el equipo. En este escenario, copie los valores siguientes a un archivo denominado **c:\udr\azuredeploy.parameters.json**.
 
     ```json
         {
@@ -206,7 +206,7 @@ Para implementar la plantilla de ARM mediante la CLI de Azure, complete los sigu
         }
     ```
 
-4. Ejecute el siguiente comando para implementar la nueva red virtual mediante la plantilla y los archivos de parámetros que descargó y modificó antes:
+4. Ejecute el siguiente comando para implementar la nueva red virtual mediante la plantilla y los archivos de parámetros que descargó y modificó anteriormente:
 
     ```azurecli
     azure group create -n TestRG -l westus --template-uri 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.json' -e 'c:\udr\azuredeploy.parameters.json'

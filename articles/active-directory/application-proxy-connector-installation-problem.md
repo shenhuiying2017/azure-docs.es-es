@@ -1,11 +1,11 @@
 ---
-title: "Problema al instalar el conector de agente del proxy de aplicación | Microsoft Docs"
-description: "Cómo solucionar los problemas que se produzcan al instalar el conector del agente de proxy de aplicación"
+title: Problema al instalar el conector de agente del proxy de aplicación | Microsoft Docs
+description: Cómo solucionar los problemas que se produzcan al instalar el conector del agente de proxy de aplicación
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: 8fbd707b6708661ab0d655afadff2b18694a981e
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Problema al instalar el conector de agente del proxy de aplicación
 
@@ -37,7 +37,7 @@ Cuando se produce un error en la instalación de un conector, la causa principal
 
 **Objetivo:** compruebe que la máquina del conector se pueda conectar al punto de conexión de registro del proxy de aplicación de AAD, así como a la página de inicio de sesión de Microsoft.
 
-1.  Abra un explorador, vaya a la siguiente página web: <https://aadap-portcheck.connectorporttest.msappproxy.net> y verifique que funcione la conectividad con centros de datos en Centro de EE. UU. y Este de EE. UU. con los puertos 80 y 443.
+1.  Abra un explorador, vaya a la página web siguiente: <https://aadap-portcheck.connectorporttest.msappproxy.net> y compruebe que funcione la conectividad con centros de datos en Centro de EE. UU. y Este de EE. UU. con los puertos 80 y 443.
 
 2.  Si alguno de estos puertos no responde correctamente (carece de marca de verificación verde), compruebe que el firewall o el proxy de back-end tengan definida correctamente \*.msappproxy.net con los puertos 80 y 443.
 
@@ -54,7 +54,7 @@ Cuando se produce un error en la instalación de un conector, la causa principal
 
 **Para resolver el problema:**
 
-1.  Compruebe que la máquina sea compatible con TLS 1.2: todas las versiones de Windows posteriores a 2012 R2 deberían admitir TLS 1.2. Si la máquina del conector es de la versión 2012 R2 o una anterior, asegúrese de que los siguientes KB estén instalados en la máquina: <https://support.microsoft.com/help/2973337/sha512-is-disabled-in-windows-when-you-use-tls-1.2>.
+1.  Compruebe que la máquina sea compatible con TLS 1.2: todas las versiones de Windows posteriores a 2012 R2 deberían admitir TLS 1.2. Si la máquina del conector es de la versión 2012 R2 o una anterior, asegúrese de que los siguientes KB estén instalados en la máquina: <https://support.microsoft.com/help/2973337/sha512-is-disabled-in-windows-when-you-use-tls-1.2>
 
 2.  Póngase en contacto con el administrador de la red y pídale que compruebe que el proxy y el firewall de back-end no bloqueen SHA512 para el tráfico saliente.
 
@@ -68,5 +68,5 @@ Conéctese a <https://login.microsoftonline.com> y use las mismas credenciales. 
 
 Seleccione su cuenta de usuario y "Rol del directorio" en el menú resultante. Compruebe que el rol seleccionado sea "Administrador global". Si no puede acceder a alguna de las páginas en estos pasos, no es administrador global.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Descripción de los conectores del Proxy de aplicación de Azure AD](application-proxy-understand-connectors.md)

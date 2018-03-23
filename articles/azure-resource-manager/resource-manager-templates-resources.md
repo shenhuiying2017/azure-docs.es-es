@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/13/2017
 ms.author: tomfitz
-ms.openlocfilehash: 89e4b52e7d306bd495c426bcf775f59d0f30eb55
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: b5438080f71fa8f5c4f03006b75b826f1cfa576a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="resources-section-of-azure-resource-manager-templates"></a>Sección de recursos de plantillas de Azure Resource Manager
 
@@ -140,7 +140,7 @@ En los tipos de recurso a los que tiene acceso mayoritariamente por medio de otr
 }
 ```
 
-## <a name="location"></a>La ubicación
+## <a name="location"></a>Ubicación
 Al implementar una plantilla, debe proporcionar una ubicación para cada recurso. Se admiten diferentes tipos de recursos en diferentes ubicaciones. Para ver una lista de las ubicaciones que están disponibles con su suscripción para un tipo de recurso en particular, use Azure PowerShell o la CLI de Azure. 
 
 En el ejemplo siguiente se usa PowerShell para obtener las ubicaciones para el tipo de recurso `Microsoft.Web\sites`:
@@ -213,7 +213,7 @@ Si tiene que codificar la ubicación en la plantilla, indique el nombre de una d
 ```
 
 ## <a name="tags"></a>Etiquetas
-[!INCLUDE [resource-manager-tag-introduction](../../includes/resource-manager-tag-introduction.md)]
+[!INCLUDE [resource-manager-governance-tags](../../includes/resource-manager-governance-tags.md)]
 
 ### <a name="add-tags-to-your-template"></a>Agregar etiquetas a la plantilla
 
@@ -388,7 +388,7 @@ La información siguiente puede ser útil cuando se trabaja con recursos:
    > 
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Para ver plantillas completas de muchos tipos diferentes de soluciones, consulte [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/).
 * Para obtener información detallada sobre las funciones que se pueden usar dentro de una plantilla, consulte [Funciones de plantilla de Azure Resource Manager](resource-group-template-functions.md).
 * Para combinar varias plantillas en la implementación, consulte [Uso de plantillas vinculadas con Azure Resource Manager](resource-group-linked-templates.md).

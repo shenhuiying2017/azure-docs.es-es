@@ -1,8 +1,8 @@
 ---
-title: "Preguntas más frecuentes - Azure Active Directory Domain Services | Microsoft Docs"
-description: "Preguntas más frecuentes sobre Azure Active Directory Domain Services"
+title: Preguntas más frecuentes - Azure Active Directory Domain Services | Microsoft Docs
+description: Preguntas más frecuentes sobre Azure Active Directory Domain Services
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 03/08/2018
 ms.author: maheshu
-ms.openlocfilehash: 1963931f30808e861445c9555a04f933514239c3
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 1cfd0570315d5a1c6587ade164edf0a837453406
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Azure Active Directory Domain Services: Preguntas más frecuentes (P+F)
 Esta página responde a las preguntas más frecuentes acerca de Azure Active Directory Domain Services. Siga comprobando si hay actualizaciones.
@@ -39,7 +39,7 @@ Actualmente, no. En el futuro Microsoft ofrecerá un mecanismo para migrar un do
 ### <a name="can-i-enable-azure-ad-domain-services-in-an-azure-csp-cloud-solution-provider-subscription"></a>¿Puedo habilitar Azure AD Domain Services en una suscripción de Azure CSP (proveedor de soluciones en la nube)?
 Sí. Consulte cómo habilitar [Azure AD Domain Services en las suscripciones de Azure CSP](active-directory-ds-csp.md).
 
-### <a name="can-i-enable-azure-ad-domain-services-in-a-federated-azure-ad-directory-i-use-adfs-to-authenticate-users-for-access-to-office-365-and-do-not-synchronize-password-hashes-to-azure-ad-can-i-enable-azure-ad-domain-services-for-this-directory"></a>¿Puedo habilitar Azure AD Domain Services en un directorio de Azure AD federado? Uso archivos de definición de aplicación para autenticar a los usuarios para el acceso a Office 365 sin sincronizar los hash de contraseña con Azure AD. ¿Puedo habilitar Azure AD Domain Services para este directorio?
+### <a name="can-i-enable-azure-ad-domain-services-in-a-federated-azure-ad-directory-i-do-not-synchronize-password-hashes-to-azure-ad-can-i-enable-azure-ad-domain-services-for-this-directory"></a>¿Puedo habilitar Azure AD Domain Services en un directorio de Azure AD federado? No sincronizo los valores hash de contraseña con Azure AD. ¿Puedo habilitar Azure AD Domain Services para este directorio?
 Nº Azure AD Domain Services necesita acceso a los hashes de contraseña de las cuentas de usuario para autenticar a los usuarios a través de NTLM o Kerberos. En un directorio federado, los hashes de contraseña no se almacenan en el directorio de Azure AD. Por tanto, Azure AD Domain Services no funciona con estos directorios de Azure AD.
 
 ### <a name="can-i-make-azure-ad-domain-services-available-in-multiple-virtual-networks-within-my-subscription"></a>¿Puedo hacer que Azure AD Domain Services esté disponible en varias redes virtuales dentro de mi suscripción?
@@ -53,6 +53,9 @@ Sí. Consulte [cómo puede habilitar Azure AD Domain Services mediante PowerShel
 
 ### <a name="can-i-add-domain-controllers-to-an-azure-ad-domain-services-managed-domain"></a>¿Puedo agregar controladores de dominio a un dominio administrado de Servicios de dominio de Azure AD?
 Nº El dominio de Servicios de dominio de Azure AD es un dominio administrado. No es necesario aprovisionar, configurar o administrar controladores de dominio para este dominio, Microsoft proporciona estas actividades de administración como un servicio. Por lo tanto, no podrá agregar controladores de dominio adicionales (ni de lectura y escritura ni de solo lectura) para el dominio administrado.
+
+### <a name="can-guest-users-invited-to-my-directory-use-azure-ad-domain-services"></a>¿Pueden los usuarios invitados a mi directorio usar Azure AD Domain Services?
+Nº Los usuarios invitados a su directorio de Azure AD mediante el proceso de invitación [B2B de Azure AD](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md) se sincronizan en el dominio administrado de Azure AD Domain Services. Sin embargo, las contraseñas para estos usuarios no se almacenan en el directorio de Azure AD. Por lo tanto, Azure AD Domain Services no tiene ninguna manera de sincronizar los códigos hash de Kerberos y NTLM para estos usuarios en el dominio administrado. Como resultado, estos usuarios no pueden iniciar sesión en el dominio administrado o unir equipos al dominio administrado.
 
 ## <a name="administration-and-operations"></a>Administración y operaciones
 ### <a name="can-i-connect-to-the-domain-controller-for-my-managed-domain-using-remote-desktop"></a>¿Puedo conectarme al controlador de dominio para mi dominio administrado mediante Escritorio remoto?
@@ -75,6 +78,9 @@ Nº Microsoft administra el esquema del dominio administrado. No se admiten exte
 
 ### <a name="can-i-modify-or-add-dns-records-in-my-managed-domain"></a>¿Puedo modificar o agregar registros DNS en mi dominio administrado?
 Sí. Los miembros del grupo "Administradores de controlador de dominio de AAD" reciben privilegios de "Administrador de DNS" con el fin de modificar los registros DNS en el dominio administrado. Pueden utilizar la consola de administrador de DNS en un equipo que ejecuta Windows Server unido al dominio administrado para administrar DNS. A fin de utilizar la consola de administrador de DNS, instale "Herramientas del servidor DNS", que forma parte de la característica opcional "Herramientas de administración remota del servidor" en el servidor. Hay más información sobre [utilidades para administrar, supervisar y solucionar problemas de DNS](https://technet.microsoft.com/library/cc753579.aspx) disponible en TechNet.
+
+### <a name="what-is-the-password-lifetime-policy-on-a-managed-domain"></a>¿Qué es la directiva de duración de la contraseña en un dominio administrado?
+La duración predeterminada de la contraseña en un dominio administrado de Azure AD Domain Services es de 90 días. Esta duración de la contraseña no está sincronizada con la duración de la contraseña configurada en Azure AD. Por lo tanto, podría darse una situación donde las contraseñas de los usuarios hayan expirado en el dominio administrado, pero sigan siendo válidas en Azure AD. En tales escenarios, los usuarios deben cambiar sus contraseñas en Azure AD y la nueva contraseña se sincronizará con el dominio administrado. Además, los atributos "password-does-not-expire" y "user-must-change-password-at-next-logon" de las cuentas de usuario no se sincronizan con el dominio administrado.
 
 ## <a name="billing-and-availability"></a>Facturación y disponibilidad
 ### <a name="is-azure-ad-domain-services-a-paid-service"></a>¿Azure AD Domain Services es un servicio de pago?

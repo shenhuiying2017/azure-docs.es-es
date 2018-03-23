@@ -1,25 +1,25 @@
 ---
-title: "Referencia para los informes de la autenticación multifactor informes en Azure Portal | Microsoft Docs"
-description: "Información de referencia para los informes de la autenticación multifactor informes en Azure Portal"
+title: Referencia para los informes de la autenticación multifactor informes en Azure Portal | Microsoft Docs
+description: Información de referencia para los informes de la autenticación multifactor informes en Azure Portal
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2018
+ms.date: 03/16/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: cb4ef0e361cb3495a03e5a7ed49d9a84a54dbdc3
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: e92d1383f3179f03194b460e0467314c137fd9e2
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="reference-for-multi-factor-authentication-reporting-in-the-azure-portal"></a>Referencia para los informes de la autenticación multifactor informes en Azure Portal
 
@@ -95,17 +95,9 @@ En esta sección se enumeran los posibles valores de la cadena de estado del res
 
     - satisfecho por notificación en el token 
 
-    - satisfecho por notificación en el token 
-
-    - satisfecho por notificación en el token 
-
-    - satisfecho por notificación en el token 
-
     - satisfecho por notificación de proveedor externo 
 
     - satisfecho por autenticación segura 
-
-    - se omite, ya que el flujo usado fue el flujo de inicio de sesión del agente de Windows 
 
     - se omite, ya que el flujo usado fue el flujo de inicio de sesión del agente de Windows 
 
@@ -172,7 +164,7 @@ Azure Multi-Factor Authentication denegado;
 
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para más información, consulte [Informes de Azure Active Directory](active-directory-reporting-azure-portal.md).
 

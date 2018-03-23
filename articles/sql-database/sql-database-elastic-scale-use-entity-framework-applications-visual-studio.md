@@ -1,28 +1,22 @@
 ---
 title: Uso de la biblioteca de clientes de Elastic Database con Entity Framework | Microsoft Docs
-description: "Uso de la biblioteca de cliente de Base de datos elástica y Entity Framework para la codificación de bases de datos"
+description: Uso de la biblioteca de cliente de Elastic Database y Entity Framework para la codificación de bases de datos
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: torsteng
-editor: 
-ms.assetid: b9c3065b-cb92-41be-aa7f-deba23e7e159
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
-ms.author: torsteng
-ms.openlocfilehash: 1fc61657419f1f4581c5c67639d7bc2e4b0d509f
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.author: sstein
+ms.openlocfilehash: 5f215c6c6f65804785e35ae1b3ec9cce24e2a976
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="elastic-database-client-library-with-entity-framework"></a>Biblioteca de cliente de base de datos elástica con Entity Framework
-Este documento muestra los cambios que es necesario realizar en una aplicación de Entity Framework para su integración con las [herramientas de Base de datos elástica](sql-database-elastic-scale-introduction.md). Se centra en la composición de la [administración de mapas de particiones](sql-database-elastic-scale-shard-map-management.md) y el [enrutamiento dependiente de los datos](sql-database-elastic-scale-data-dependent-routing.md) con el enfoque **Code First** de Entity Framework. El tutorial [Code First – Nueva base de datos](http://msdn.microsoft.com/data/jj193542.aspx) para EF sirve como ejemplo en ejecución en este documento. El código de ejemplo que acompaña a este documento forma parte del conjunto de ejemplos de las herramientas de bases de datos elásticas en los ejemplos de código de Visual Studio.
+# <a name="elastic-database-client-library-with-entity-framework"></a>Biblioteca de cliente de Elastic Database con Entity Framework
+Este documento muestra los cambios que es necesario realizar en una aplicación de Entity Framework para su integración con las [herramientas de Elastic Database](sql-database-elastic-scale-introduction.md). Se centra en la composición de la [administración de mapas de particiones](sql-database-elastic-scale-shard-map-management.md) y el [enrutamiento dependiente de los datos](sql-database-elastic-scale-data-dependent-routing.md) con el enfoque **Code First** de Entity Framework. El tutorial [Code First – Nueva base de datos](http://msdn.microsoft.com/data/jj193542.aspx) para EF sirve como ejemplo en ejecución en este documento. El código de ejemplo que acompaña a este documento forma parte del conjunto de ejemplos de las herramientas de bases de datos elásticas en los ejemplos de código de Visual Studio.
 
 ## <a name="downloading-and-running-the-sample-code"></a>Descarga y ejecución del código de ejemplo
 Para descargar el código de este artículo:
@@ -33,7 +27,7 @@ Para descargar el código de este artículo:
 * En Visual Studio, seleccione Archivo -> Abrir proyecto/solución. 
 * En el cuadro de diálogo **Abrir proyecto**, vaya al ejemplo que descargó y seleccione **EntityFrameworkCodeFirst.sln** para abrir el ejemplo. 
 
-Para ejecutar el ejemplo, debe crear tres bases de datos vacías en Base de datos SQL de Azure:
+Para ejecutar el ejemplo, debe crear tres bases de datos vacías en Azure SQL Database:
 
 * Base de datos de administrador de mapas de particiones
 * Base de datos de partición 1
@@ -52,7 +46,7 @@ Los desarrolladores de Entity Framework se basan en uno de los cuatro flujos de 
 Todos estos métodos se basan en la clase DbContext para administrar de forma transparente las conexiones de base de datos y el esquema de base de datos de una aplicación. Diferentes constructores de la clase base DbContext permiten distintos niveles de control sobre la creación de la conexión, el arranque de base de datos y la creación del esquema. Los problemas surgen principalmente del hecho de que la administración de conexiones de base de datos proporcionada por EF interfiere con la funcionalidad de administración de conexiones de las interfaces de enrutamiento dependientes de datos proporcionadas por la biblioteca de cliente de bases de datos elásticas. 
 
 ## <a name="elastic-database-tools-assumptions"></a>Suposiciones de herramientas de bases de datos elásticas
-Para definiciones de términos, consulte el [Glosario de herramientas de Base de datos elástica](sql-database-elastic-scale-glossary.md).
+Para definiciones de términos, consulte el [Glosario de herramientas de Elastic Database](sql-database-elastic-scale-glossary.md).
 
 Con la biblioteca de cliente de bases de datos elásticas, se definen particiones de los datos de la aplicación, denominadas shardlets. Los shardlets se identifican mediante una clave de particionamiento y se asignan a bases de datos específicas. Una aplicación puede tener tantas bases de datos como sea necesario y distribuir los shardlets para proporcionar suficiente capacidad o rendimiento en función de los requisitos del negocio actuales. La asignación de valores de clave de particionamiento a las bases de datos se almacena en un mapa de particiones que proporcionan las API de cliente de bases de datos elásticas. A esta capacidad la denominamos **Administración de mapas de particiones** o, para abreviar, SMM. El mapa de particiones también funciona como el agente de conexiones de base de datos para las solicitudes que llevan una clave de particionamiento. Esta funcionalidad se conoce como **enrutamiento dependiente de los datos**. 
 
@@ -127,7 +121,7 @@ En el ejemplo de código siguiente se muestra este método. (Este código tambi�
   * El mapa de particiones crea la conexión abierta con la partición que contiene el shardlet para la clave de particionamiento especificada.
   * Esta conexión abierta se transfiere de nuevo al constructor de la clase base DbContext para indicar que se va a usar esta conexión en EF en lugar de dejar que EF cree automáticamente una conexión. De este modo, la API de cliente de bases de datos elásticas etiqueta la conexión para que pueda garantizar la coherencia en las operaciones de administración de mapas de particiones.
 
-Use en el código el nuevo constructor para la subclase DbContext en lugar del constructor predeterminado. Aquí tiene un ejemplo: 
+Use en el código el nuevo constructor para la subclase DbContext en lugar del constructor predeterminado. Este es un ejemplo: 
 
     // Create and save a new blog.
 

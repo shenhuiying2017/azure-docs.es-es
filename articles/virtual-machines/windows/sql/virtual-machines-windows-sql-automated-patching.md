@@ -1,11 +1,11 @@
 ---
-title: "Aplicación de revisión automatizada para VM con SQL Server (Resource Manager) | Microsoft Docs"
-description: "Explica la característica Automated Patching para máquinas virtuales de SQL Server que se ejecutan en Azure mediante Resource Manager."
+title: Aplicación de revisión automatizada para VM con SQL Server (Resource Manager) | Microsoft Docs
+description: Explica la característica Automated Patching para máquinas virtuales de SQL Server que se ejecutan en Azure mediante Resource Manager.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
 manager: craigg
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 58232e92-318f-456b-8f0a-2201a541e08d
 ms.service: virtual-machines-sql
@@ -13,24 +13,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/05/2018
+ms.date: 03/07/2018
 ms.author: jroth
-ms.openlocfilehash: ae722b4da9131d98e6dc3424fcd6b50e77ae672b
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 398e682db6c42bd7f4864113ddf10a6a75e2b65b
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-resource-manager"></a>Automated Patching para SQL Server en Azure Virtual Machines (Resource Manager)
 > [!div class="op_single_selector"]
 > * [Resource Manager](virtual-machines-windows-sql-automated-patching.md)
 > * [Clásico](../sqlclassic/virtual-machines-windows-classic-sql-automated-patching.md)
 
-Aplicación de revisión automatizada establece una ventana de mantenimiento para una máquina virtual de Azure con SQL Server. Actualizaciones automatizadas solo puede instalarse durante esta ventana de mantenimiento. Para SQL Server, esta restricción garantiza que se actualice el sistema y que cualquier reinicio asociado se produzca en el mejor momento posible para la base de datos. Aplicación de revisión automatizada se basa en la [Extensión Agente de IaaS de SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
+Aplicación de revisión automatizada establece una ventana de mantenimiento para una máquina virtual de Azure con SQL Server. Actualizaciones automatizadas solo puede instalarse durante esta ventana de mantenimiento. Para SQL Server, esta restricción garantiza que se actualice el sistema y que cualquier reinicio asociado se produzca en el mejor momento posible para la base de datos. 
 
-[!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
+> [!IMPORTANT]
+> Solo se instalan las actualizaciones de Windows marcadas como **importantes**. Otras actualizaciones de SQL Server, como actualizaciones acumulativas, deben instalarse manualmente. 
 
-Para ver la versión clásica de este artículo, consulte [Automated Patching para SQL Server en Azure Virtual Machines (implementación clásica)](../sqlclassic/virtual-machines-windows-classic-sql-automated-patching.md).
+Aplicación de revisión automatizada se basa en la [Extensión Agente de IaaS de SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
 
 ## <a name="prerequisites"></a>requisitos previos
 Para utilizar Aplicación de revisión automatizada, tenga en cuenta los siguientes requisitos previos:
@@ -65,7 +66,7 @@ En la siguiente tabla se describen las opciones que pueden configurarse para Apl
 | **Programación de mantenimiento** |Cada día, el lunes, el martes, el miércoles, el jueves, el viernes, el sábado, el domingo |La programación para descargar e instalar actualizaciones de Windows, SQL Server y Microsoft para la máquina virtual. |
 | **Hora de inicio de mantenimiento** |0-24 |La hora de inicio local para actualizar la máquina virtual. |
 | **Duración de la ventana de mantenimiento** |30-180 |El número de minutos permitido para completar la descarga y la instalación de actualizaciones. |
-| **Categoría de la revisión** |Importante |La categoría de actualizaciones para descargar e instalar. |
+| **Categoría de la revisión** |Importante | La categoría de las actualizaciones de Windows para descargar e instalar.|
 
 ## <a name="configuration-in-the-portal"></a>Configuración en el Portal
 Puede usar el Portal de Azure para configurar Aplicación de revisión automatizada durante el aprovisionamiento o para las máquinas virtuales existentes.
@@ -100,7 +101,7 @@ Si habilita Aplicación de revisión automatizada por primera vez, Azure configu
 ## <a name="configuration-with-powershell"></a>Configuración con PowerShell
 Después de aprovisionar la máquina virtual de SQL, use PowerShell para configurar Aplicación de revisión automatizada.
 
-En el ejemplo siguiente, se usa PowerShell para configurar Aplicación de revisión automatizada en una máquina virtual de SQL Server existente. El comando **AzureRM.Compute\New-AzureVMSqlServerAutoPatchingConfig** configura una nueva ventana de mantenimiento para actualizaciones automáticas.
+En el ejemplo siguiente, se usa PowerShell para configurar Aplicación de revisión automatizada en una máquina virtual de SQL Server existente. El comando **AzureRM.Compute\New-AzureRmVMSqlServerAutoPatchingConfig** configura una nueva ventana de mantenimiento para actualizaciones automáticas.
 
     $vmname = "vmname"
     $resourcegroupname = "resourcegroupname"
@@ -118,13 +119,13 @@ Según este ejemplo, la siguiente tabla describe el efecto práctico en la máqu
 | **DayOfWeek** |Las revisiones instaladas cada jueves. |
 | **MaintenanceWindowStartingHour** |Inicia las actualizaciones a las 11:00 a.m. |
 | **MaintenanceWindowsDuration** |Las revisiones deben instalarse en un plazo de 120 minutos. Según la hora de inicio, deben haberse completado a las 1:00 p.m. |
-| **PatchCategory** |La única configuración posible para este parámetro es **Importante**. |
+| **PatchCategory** |La única configuración posible para este parámetro es **Importante**. De este modo, se instalan las actualizaciones de Windows marcadas como importantes; no se instala ninguna actualización de SQL Server que no se incluya en esta categoría. |
 
 La instalación y configuración del agente de Iaas de SQL Server puede tardar algunos minutos.
 
-Para deshabilitar Aplicación de revisión automatizada, ejecute el mismo script sin el parámetro **-Enable** en **AzureRM.Compute\New-AzureVMSqlServerAutoPatchingConfig**. La ausencia del parámetro **-Enable** indica al comando que deshabilite la característica.
+Para deshabilitar la aplicación automática de revisiones, ejecute el mismo script sin el parámetro **-Enable** en **AzureRM.Compute\New-AzureRmVMSqlServerAutoPatchingConfig**. La ausencia del parámetro **-Enable** indica al comando que deshabilite la característica.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para más información acerca de otras tareas de automatización disponibles, consulte la [extensión Agente de IaaS de SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
 
 Para más información sobre cómo ejecutar SQL Server en Azure Virtual Machines, consulte [Introducción a SQL Server en Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).

@@ -1,27 +1,20 @@
 ---
 title: 'Azure Portal: consulta de Azure SQL Database mediante el Editor de consultas | Microsoft Docs'
-description: "Aprenda a conectarse a SQL Database en Azure Portal mediante el Editor de consultas de SQL. A continuación, ejecute instrucciones de Transact-SQL (T-SQL) para consultar y editar los datos."
-metacanonical: 
+description: Aprenda a conectarse a SQL Database en Azure Portal mediante el Editor de consultas de SQL. A continuación, ejecute instrucciones de Transact-SQL (T-SQL) para consultar y editar los datos.
 keywords: conectarse a sql database, azure portal, portal, editor de consultas
 services: sql-database
-documentationcenter: 
 author: ayoolubeko
-manager: jhubbard
-editor: 
-ms.assetid: 
+manager: craigg
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 01/10/2018
 ms.author: ayolubek
-ms.openlocfilehash: aa4df1854b15198ede1ee143afeff47b24dc567f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: e5c1a5a991284fcbeac53d2ce35be4e2634514fa
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-portal-use-the-sql-query-editor-to-connect-and-query-data"></a>Azure Portal: Uso del Editor de consultas de SQL para conectarse y consultar datos
 
@@ -164,6 +157,6 @@ Hay algunos aspectos que debe conocer al trabajar con el Editor de consultas mie
 6. Al presionar la tecla F5, se actualizará la página del Editor de consultas y se perderá la consulta en la que se esté trabajando. Utilice el botón Ejecutar de la barra de herramientas para ejecutar consultas.
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Para obtener información acerca de los comandos de Transact-SQL admitidos en las bases de datos de Azure SQL, vea [Diferencias de Transact-SQL en la base de datos SQL](sql-database-transact-sql-information.md).

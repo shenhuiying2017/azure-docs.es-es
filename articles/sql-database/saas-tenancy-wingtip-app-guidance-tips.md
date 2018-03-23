@@ -1,23 +1,20 @@
 ---
-title: "Guía para el ejemplo de aplicación multiinquilino de SQL Database: SaaS de Wingtip | Microsoft Docs"
-description: "Proporciona pasos e instrucciones para instalar y ejecutar la aplicación multiinquilino de ejemplo que utiliza Azure SQL Database, en el ejemplo de SaaS de vale de Wingtip."
+title: 'Guía para el ejemplo de aplicación multiinquilino de SQL Database: SaaS de Wingtip | Microsoft Docs'
+description: Proporciona pasos e instrucciones para instalar y ejecutar la aplicación multiinquilino de ejemplo que utiliza Azure SQL Database, en el ejemplo de SaaS de vale de Wingtip.
 keywords: tutorial de SQL Database
 services: sql-database
 author: MightyPen
 manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2017
 ms.author: genemi
-ms.openlocfilehash: ebf1c4948816746fa02b867d1ea66afc64b882b0
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 0bdb91fc9eb2fa23f8cf1e3f69206a89a93ceaee
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>Instrucciones generales para trabajar con aplicaciones SaaS de ejemplo de vales de Wingtip
 
@@ -35,7 +32,7 @@ Es posible que Windows bloquee el contenido ejecutable (scripts, archivos DLL) c
 3. Haga clic en **Download ZIP** (Descargar archivo ZIP) y guarde el archivo.
 4. Haga clic con el botón derecho en el archivo ZIP y seleccione **Propiedades**. El nombre del archivo ZIP se corresponderá con el nombre de repositorio. (Ejemplo: _WingtipTicketsSaaS-DbPerTenant-master.zip_)
 5. En la pestaña **General**, seleccione **Desbloquear**.
-6. Haga clic en **Aceptar**.
+6. Haga clic en **OK**.
 7. Extraiga los archivos.
 
 Los scripts se encuentran en la carpeta *..\\Learning Modules* (módulos de aprendizaje).

@@ -1,19 +1,19 @@
 ---
-title: "Módulo SQL de Azure IoT Edge | Microsoft Docs"
-description: "Almacene datos en el perímetro con módulos de SQL de Microsoft, con Azure Functions para dar formato a los datos."
+title: Módulo SQL de Azure IoT Edge | Microsoft Docs
+description: Almacene datos en el perímetro con módulos de SQL de Microsoft, con Azure Functions para dar formato a los datos.
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban, ebertrams
 ms.date: 02/21/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 4b66a699e4c58662cadd799cf6aec83b9d34b7e6
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: ce3c3abd00dba23887b5f811af6cab8d2c83323d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="store-data-at-the-edge-with-sql-server-databases"></a>Almacenamiento de datos en el perímetro con bases de datos de SQL Server
 
@@ -48,7 +48,7 @@ Tanto los contenedores de Windows como los de Linux en arquitecturas de procesad
 
 ## <a name="deploy-a-sql-server-container"></a>Implementación de un contenedor de SQL Server
 
-En esta sección, agregará una base de datos MS-SQL al dispositivo IoT Edge simulado. Use la imagen de contenedor de Docker de SQL Server 2017 disponible en [Windows](https://hub.docker.com/r/microsoft/mssql-server-windows-developer/) y [Linux](https://hub.docker.com/r/microsoft/mssql-server-linux/). 
+En esta sección, agregará una base de datos MS-SQL al dispositivo IoT Edge simulado. Use la imagen de contenedor de Docker de SQL Server 2017, disponible como un contenedor [Windows](https://hub.docker.com/r/microsoft/mssql-server-windows-developer/) y como un contenedor [Linux](https://hub.docker.com/r/microsoft/mssql-server-linux/). 
 
 ### <a name="deploy-sql-server-2017"></a>Implementación de SQL Server 2017
 
@@ -100,14 +100,14 @@ En el paso 3, se agregan opciones de creación al contenedor de SQL Server, esta
 
       ```json
       "image": "microsoft/mssql-server-windows-developer",
-      "createOptions": "{\r\n\t"Env": [\r\n\t\t"ACCEPT_EULA=Y",\r\n\t\t"sa_password=Strong!Passw0rd"\r\n\t],\r\n\t"HostConfig": {\r\n\t\t"Mounts": [{\r\n\t\t\t"Target": "C:\\\\mssql",\r\n\t\t\t"Source": "sqlVolume",\r\n\t\t\t"Type": "volume"\r\n\t\t}],\r\n\t\t"PortBindings": {\r\n\t\t\t"1433/tcp": [{\r\n\t\t\t\t"HostPort": "1401"\r\n\t\t\t}]\r\n\t\t}\r\n\t}\r\n}"
+      "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"MSSQL_SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"C:\\\\mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}"
       ```
 
    * Linux:
 
       ```json
       "image": "microsoft/mssql-server-linux:2017-latest",
-      "createOptions": "{\r\n\t"Env": [\r\n\t\t"ACCEPT_EULA=Y",\r\n\t\t"MSSQL_SA_PASSWORD=Strong!Passw0rd"\r\n\t],\r\n\t"HostConfig": {\r\n\t\t"Mounts": [{\r\n\t\t\t"Target": "/var/opt/mssql",\r\n\t\t\t"Source": "sqlVolume",\r\n\t\t\t"Type": "volume"\r\n\t\t}],\r\n\t\t"PortBindings": {\r\n\t\t\t"1433/tcp": [{\r\n\t\t\t\t"HostPort": "1401"\r\n\t\t\t}]\r\n\t\t}\r\n\t}\r\n}"
+      "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"MSSQL_SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"/var/opt/mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}}"
       ```
 
 4. Guarde el archivo. 
@@ -125,31 +125,31 @@ Esta sección le guiará en el proceso de configuración de la base de datos SQL
 
 En una herramienta de línea de comandos, conéctese a la base de datos: 
 
-* Windows
+* Contenedor Windows
    ```cmd
-   Docker exec -it sql cmd
+   docker exec -it sql cmd
    ```
 
-* Linux    
+* Contenedor Linux
    ```bash
-   Docker exec -it sql 'bash'
+   docker exec -it sql bash
    ```
 
 Abra la herramienta de comando SQL: 
 
-* Windows
+* Contenedor Windows
    ```cmd
    sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
    ```
 
-* Linux
+* Contenedor Linux
    ```bash
    /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
    ```
 
 Cree la base de datos: 
 
-* Windows
+* Contenedor Windows
    ```sql
    CREATE DATABASE MeasurementsDB
    ON
@@ -157,7 +157,7 @@ Cree la base de datos:
    GO
    ```
 
-* Linux
+* Contenedor Linux
    ```sql
    CREATE DATABASE MeasurementsDB
    ON
@@ -302,24 +302,24 @@ Una vez que se reinicien los contenedores, los datos recibidos de los sensores d
 
 En una herramienta de línea de comandos, conéctese a la base de datos: 
 
-* Windows
+* Contenedor Windows
    ```cmd
-   Docker exec -it sql cmd
+   docker exec -it sql cmd
    ```
 
-* Linux    
+* Contenedor Linux
    ```bash
-   Docker exec -it sql 'bash'
+   docker exec -it sql bash
    ```
 
 Abra la herramienta de comando SQL: 
 
-* Windows
+* Contenedor Windows
    ```cmd
    sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
    ```
 
-* Linux
+* Contenedor Linux
    ```bash
    /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
    ```
@@ -327,11 +327,11 @@ Abra la herramienta de comando SQL:
 Visualice los datos: 
 
    ```sql
-   Select * FROM MeasurementsDB.dbo.TemperatureMeasurements
+   SELECT * FROM MeasurementsDB.dbo.TemperatureMeasurements
    GO
    ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * Aprenda a [configurar SQL Server 2017 imágenes del contenedor en Docker](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-docker).
 

@@ -1,11 +1,11 @@
 ---
-title: "Azure Backup: Preparación para la copia de seguridad de máquinas virtuales | Microsoft Docs"
-description: "Asegúrese de que el entorno esté preparado para hacer la copia de seguridad de máquinas virtuales en Azure."
+title: 'Azure Backup: Preparación para la copia de seguridad de máquinas virtuales | Microsoft Docs'
+description: Asegúrese de que el entorno esté preparado para hacer la copia de seguridad de máquinas virtuales en Azure.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
+editor: ''
 keywords: copias de seguridad; realizar copia de seguridad
 ms.assetid: e87e8db2-b4d9-40e1-a481-1aa560c03395
 ms.service: backup
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/1/2018
 ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: 62e047d706bdc42abbe44340c87267e59eb84369
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: cd8274ab6b50eee83bc3e41ea543930aa309e790
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Preparación del entorno para la copia de seguridad de máquinas virtuales implementadas según el modelo de Resource Manager
 
@@ -49,12 +49,6 @@ Si estas condiciones ya existen en su entorno, vaya al artículo [Copia de segur
 Antes de preparar el entorno, asegúrese de que conoce estas limitaciones:
 
 * No se admite la copia de seguridad de máquinas virtuales con más de 16 discos de datos.
-* No se admite la copia de seguridad de máquinas virtuales cuyos discos de datos tengan un tamaño superior a 1023 GB.
-
-  > [!NOTE]
-  > Tenemos una versión preliminar privada para admitir las copias de seguridad de las VM con discos de más de 1 TB. Para más información, consulte [Instant recovery point and large disk support for Azure Backup](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a) (Compatibilidad de punto de recuperación instantáneo y discos grandes con Azure Backup).
-  >
-
 * No se admite la copia de seguridad de máquinas virtuales con una dirección IP reservada y sin puntos de conexión definidos.
 * No se admite la copia de seguridad de máquinas virtuales Linux en las que se ha usado el cifrado LUKS (Linux Unified Key Setup).
 * No se recomienda realizar copias de seguridad de máquinas virtuales que contengan la configuración de volúmenes compartidos de clúster (CSV) o de Servidor de archivos de escalabilidad horizontal. Requieren que en una tarea de instantánea haya que implicar todas las máquinas virtuales incluidas en la configuración del clúster. Azure Backup no es compatible con la coherencia entre varias VM. 

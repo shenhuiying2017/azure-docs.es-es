@@ -1,26 +1,20 @@
 ---
-title: "Corrección de un error de conexión de SQL, error transitorio | Microsoft Docs"
-description: "Aprenda a solucionar problemas, diagnosticar y evitar un error de conexión de SQL o un error transitorio en Azure SQL Database."
-keywords: "conexión de sql, cadena de conexión, problemas de conectividad, error transitorio, error de conexión"
+title: Corrección de un error de conexión de SQL, error transitorio | Microsoft Docs
+description: Aprenda a solucionar problemas, diagnosticar y evitar un error de conexión de SQL o un error transitorio en Azure SQL Database.
+keywords: conexión de sql, cadena de conexión, problemas de conectividad, error transitorio, error de conexión
 services: sql-database
-documentationcenter: 
 author: dalechen
-manager: cshepard
-editor: 
-ms.assetid: efb35451-3fed-4264-bf86-72b350f67d50
+manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: article
 ms.date: 11/29/2017
 ms.author: daleche
-ms.openlocfilehash: 7d393cd08ef5c20ef680e4e1ab3aded191abe932
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f6b5f825d7f8111075fe37b5dc29d174928d913e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="troubleshoot-diagnose-and-prevent-sql-connection-errors-and-transient-errors-for-sql-database"></a>Acciones para solucionar problemas, diagnosticar y evitar errores de conexión y errores transitorios en SQL Database
 En este artículo se describe cómo evitar, solucionar, diagnosticar y mitigar los errores de conexión y los errores transitorios que la aplicación cliente encuentra cuando interactúa con Azure SQL Database. Aprenda a configurar la lógica de reintento, generar la cadena de conexión y ajustar otros valores de conexión.
@@ -258,7 +252,7 @@ Enterprise Library 6 (EntLib60) ofrece clases administradas de .NET para ayudar 
 ### <a name="diagnostics-examine-system-logs-for-errors"></a>Diagnóstico: Examinar los registros del sistema en busca de errores
 Presentamos algunas instrucciones SELECT de Transact-SQL que consultan los registros de error y otra información.
 
-| Consulta de un registro | Descripción |
+| Consulta de un registro | DESCRIPCIÓN |
 |:--- |:--- |
 | `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` |La vista [sys.event_log](http://msdn.microsoft.com/library/dn270018.aspx) proporciona información acerca de eventos individuales, que incluye algunos que pueden causar errores transitorios o errores de conectividad.<br/><br/>Idealmente, puede poner en correlación los valores **start_time** o **end_time** con información acerca de cuándo ha tenido problemas su programa cliente.<br/><br/>Tiene que conectarse a la base de datos *maestra* para ejecutar esta consulta. |
 | `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` |La vista [sys.database_connection_stats](http://msdn.microsoft.com/library/dn269986.aspx) ofrece recuentos agregados de los tipos de eventos para realizar diagnósticos adicionales.<br/><br/>Tiene que conectarse a la base de datos *maestra* para ejecutar esta consulta. |

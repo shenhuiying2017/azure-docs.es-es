@@ -1,13 +1,13 @@
 ---
 layout: HubPage
-hide_bc: True
-title: "Documentación de Microsoft Azure"
-description: "Aprenda a compilar y administrar aplicaciones eficaces mediante Microsoft Azure Cloud Services. Obtenga documentación, código de ejemplo, tutoriales, etc."
-ms.openlocfilehash: 85745cf147296e053824a879108c1ea607343f57
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+hide_bc: ''
+title: Documentación de Microsoft Azure
+description: Aprenda a compilar y administrar aplicaciones eficaces mediante Microsoft Azure Cloud Services. Obtenga documentación, código de ejemplo, tutoriales, etc.
+ms.openlocfilehash: 5084e6f9ab8d73e2c8ffefc95a376bc85222320c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -134,6 +134,11 @@ ms.lasthandoff: 12/11/2017
                                                         <span>Python</span>
                                                     </a>
                                                 </div>
+                                                <div class="ico48Link">
+                                                    <a href="/go/azure/">
+                                                        <span>Go</span>
+                                                    </a>
+                                                </div>
                                                 <div>
                                                     <h4>Modelos de aplicaciones</h4>
                                                     <ul class="noBullet">
@@ -179,7 +184,7 @@ ms.lasthandoff: 12/11/2017
                                             <div class="cardText">
                                                 <h3>Herramientas de línea de comandos</h3>
                                                 <div class="ico48Link">
-                                                    <a href="/cli/azure/overview">
+                                                    <a href="/cli/azure">
                                                         <img src="media/index/azure_dev-7.svg" alt="">
                                                         <span>CLI de<br />Azure</span>
                                                     </a>
@@ -316,7 +321,7 @@ ms.lasthandoff: 12/11/2017
                                         <li>
                                             <a href="/azure/redis-cache/">
                                                 <img src="media/index/RedisCache.svg" alt="" />
-                                                <p>Redis Cache</p>
+                                                <p>Caché en Redis</p>
                                             </a>
                                         </li>
                                         <li>
@@ -359,7 +364,7 @@ ms.lasthandoff: 12/11/2017
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>Integración empresarial</h3>
+                                    <h3>Enterprise Integration</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/logic-apps/">
@@ -682,7 +687,7 @@ ms.lasthandoff: 12/11/2017
                                         <li>
                                             <a href="/azure/data-lake-store/">
                                                 <img src="media/index/DataLakeStore.svg" alt="" />
-                                                <p>Data Lake Store</p>
+                                                <p>Almacén de Data Lake</p>
                                             </a>
                                         </li>
                                         <li>
@@ -739,7 +744,7 @@ ms.lasthandoff: 12/11/2017
                                         <li>
                                             <a href="/azure/data-lake-store/">
                                                 <img src="media/index/DataLakeStore.svg" alt="" />
-                                                <p>Data Lake Store</p>
+                                                <p>Almacén de Data Lake</p>
                                             </a>
                                         </li>
                                         <li>
@@ -817,7 +822,7 @@ ms.lasthandoff: 12/11/2017
                                         <li>
                                             <a href="/azure/iot-suite/">
                                                 <img src="media/index/iot-suite.svg" alt="" />
-                                                <p>Conjunto de aplicaciones de IoT de Azure</p>
+                                                <p>Azure IoT Suite</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1020,7 +1025,7 @@ ms.lasthandoff: 12/11/2017
                                         <li>
                                             <a href="/azure/azure-resource-manager/">
                                                 <img src="media/index/AzureDefaultBlack.svg" alt="" />
-                                                <p>Administrador de recursos de Azure</p>
+                                                <p>Azure Resource Manager</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -1431,7 +1436,7 @@ ms.lasthandoff: 12/11/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Data Lake Store</h3>
+                                                    <h3>Almacén de Data Lake</h3>
                                                     <p>Repositorio a hiperescala para cargas de trabajo de análisis de macrodatos</p>
                                                 </div>
                                             </div>
@@ -1902,7 +1907,7 @@ ms.lasthandoff: 12/11/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Redis Cache</h3>
+                                                    <h3>Caché en Redis</h3>
                                                     <p>Acceso a datos de baja latencia y alto rendimiento para compilar aplicaciones rápidas y escalables</p>
                                                 </div>
                                             </div>
@@ -2197,7 +2202,7 @@ ms.lasthandoff: 12/11/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Data Lake Store</h3>
+                                                    <h3>Almacén de Data Lake</h3>
                                                     <p>Repositorio a hiperescala para cargas de trabajo de análisis de macrodatos</p>
                                                 </div>
                                             </div>
@@ -2335,7 +2340,7 @@ ms.lasthandoff: 12/11/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Conjunto de aplicaciones de IoT de Azure</h3>
+                                                    <h3>Azure IoT Suite</h3>
                                                     <p>Capture y analice datos sin explotar para mejorar los resultados empresariales</p>
                                                 </div>
                                             </div>
@@ -3119,7 +3124,7 @@ ms.lasthandoff: 12/11/2017
                                                     <a href="/dotnet/azure/dotnet-sdk-azure-install">Obtenga las bibliotecas de Azure para .NET</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/develop/net/">Introducción</a>
+                                                    <a href="https://azure.microsoft.com/develop/net/">Primeros pasos</a>
                                                 </p>
                                                 <p>
                                                     <a href="/dotnet/azure/?view=azure-dotnet">Referencia de API</a>
@@ -3143,7 +3148,7 @@ ms.lasthandoff: 12/11/2017
                                                     <a href="https://pypi.python.org/pypi/azure">Obtener SDK de Python</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/">Introducción</a>
+                                                    <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/">Primeros pasos</a>
                                                 </p>
                                                 <p>
                                                     <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/">Referencia de API</a>
@@ -3173,7 +3178,7 @@ ms.lasthandoff: 12/11/2017
                                                     <a href="https://www.npmjs.com/package/azure">Obtener SDK de Node.js</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="http://azure.github.io/azure-sdk-for-node/">Introducción</a>
+                                                    <a href="http://azure.github.io/azure-sdk-for-node/">Primeros pasos</a>
                                                 </p>
                                                 <p>
                                                     <a href="http://azure.github.io/azure-sdk-for-node/">Referencia de API</a>
@@ -3203,7 +3208,7 @@ ms.lasthandoff: 12/11/2017
                                                     <a href="/java/azure/java-sdk-azure-install">Obtenga las bibliotecas de Azure para Java</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/develop/java/">Introducción</a>
+                                                    <a href="https://azure.microsoft.com/develop/java/">Primeros pasos</a>
                                                 </p>
                                                 <p>
                                                     <a href="/java/api/">Referencia de API</a>
@@ -3237,6 +3242,29 @@ ms.lasthandoff: 12/11/2017
                                                 </p>
                                                 <p>
                                                     <a href="https://azure.microsoft.com/develop/ruby/">Más información</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardImageOuter">
+                                                <div class="cardImage">
+                                                </div>
+                                            </div>
+                                            <div class="cardText">
+                                                <h3>
+                                                    <a href="/go/azure/">Obtener el SDK para Go</a>
+                                                </h3>
+                                                <p>
+                                                    <a href="/go/azure/azure-sdk-go-qs-vm">Primeros pasos</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://godoc.org/github.com/Azure/azure-sdk-for-go">Referencia</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -3284,7 +3312,7 @@ ms.lasthandoff: 12/11/2017
                                             <div class="cardText">
                                                 <h3>CLI de Azure 2.0 </h3>
                                                 <p>
-                                                    <a href="/cli/azure/overview">Introducción</a>
+                                                    <a href="/cli/azure">Introducción</a>
                                                 </p>
                                                 <p>
                                                     <a href="/cli/azure/install-azure-cli">Descargar CLI de Azure 2.0</a>
@@ -3332,7 +3360,7 @@ ms.lasthandoff: 12/11/2017
                                                 </div>
                                             </div>
                                             <div class="cardText">
-                                                <h3>CLI de Azure </h3>
+                                                <h3>Azure CLI </h3>
                                                 <p>
                                                     <a href="/azure/xplat-cli-install?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Introducción</a>
                                                 </p>

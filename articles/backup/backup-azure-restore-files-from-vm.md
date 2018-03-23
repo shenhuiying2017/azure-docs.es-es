@@ -1,11 +1,11 @@
 ---
-title: "Azure Backup: Recuperación de archivos y carpetas desde una copia de seguridad de máquina virtual de Azure | Microsoft Docs"
-description: "Recuperación de archivos desde un punto de recuperación de máquina virtual de Azure"
+title: 'Azure Backup: Recuperación de archivos y carpetas desde una copia de seguridad de máquina virtual de Azure | Microsoft Docs'
+description: Recuperación de archivos desde un punto de recuperación de máquina virtual de Azure
 services: backup
 documentationcenter: dev-center-name
 author: pvrk
 manager: shivamg
-keywords: "recuperación de elementos; recuperación de archivos desde una copia de seguridad de máquina virtual de Azure; restauración de archivos de máquina virtual de Azure"
+keywords: recuperación de elementos; recuperación de archivos desde una copia de seguridad de máquina virtual de Azure; restauración de archivos de máquina virtual de Azure
 ms.assetid: f1c067a2-4826-4da4-b97a-c5fd6c189a77
 ms.service: backup
 ms.devlang: na
@@ -14,17 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 12/20/2017
 ms.author: pullabhk;markgal
-ms.openlocfilehash: d1ebda145b7e355bd9763025dece742d2a23239b
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 0fce38db010a77ac61145ef63f616e0e466c95e2
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperación de archivos desde una copia de seguridad de máquina virtual de Azure
 
 Azure Backup ofrece la funcionalidad de restauración de [discos y máquinas virtuales de Azure](./backup-azure-arm-restore-vms.md) desde copias de seguridad de máquina virtual de Azure, también conocidos como puntos de restauración. En este artículo se explica cómo recuperar archivos y carpetas desde una copia de seguridad de máquina virtual de Azure. La restauración de archivos y carpetas está disponible unicamente para las máquinas virtuales de Azure implementadas con el modelo de Resource Manager y protegidas en un almacén de Recovery Services.
 
 > [!Note]
+> Esta característica está disponible en las máquinas virtuales de Azure implementadas con el modelo de Resource Manager y protegidas en un almacén de Recovery Services.
 > No se pueden recuperar archivos a partir de una copia de seguridad de máquina virtual cifrada.
 >
 

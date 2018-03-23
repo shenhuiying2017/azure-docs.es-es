@@ -1,11 +1,11 @@
 ---
-title: "Automatizar tareas de administración en máquinas virtuales de SQL (implementación clásica) | Microsoft Docs"
-description: "En este tema se describe cómo administrar la extensión Agente de SQL Server, que automatiza tareas de administración específicas de SQL Server. Entre ellas se incluyen la copia de seguridad automatizada, la aplicación de revisiones automatizada y la integración de Azure Key Vault. En este tema se usa el modelo de implementación clásica."
+title: Automatizar tareas de administración en máquinas virtuales de SQL (implementación clásica) | Microsoft Docs
+description: En este tema se describe cómo administrar la extensión Agente de SQL Server, que automatiza tareas de administración específicas de SQL Server. Entre ellas se incluyen la copia de seguridad automatizada, la aplicación de revisiones automatizada y la integración de Azure Key Vault. En este tema se usa el modelo de implementación clásica.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rothja
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: a9bda2e7-cdba-427c-bc30-77cde4376f3a
 ms.service: virtual-machines-sql
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 07/05/2017
+ms.date: 03/07/2018
 ms.author: jroth
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f48adec11096cfcf7a51aedd316a7b7d3f047568
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3ff9a8b91b0359c57fae5b1a01b5d895ab9a1685
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-classic"></a>Automatizar las tareas de administración en Azure Virtual Machines con la extensión del Agente SQL Server (implementación clásica)
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ La extensión del Agente de IaaS SQL Server es compatible con las siguientes tar
 | Característica de administración | DESCRIPCIÓN |
 | --- | --- |
 | **Automated Backup de SQL** |Automatiza la programación de copias de seguridad de todas las bases de datos para la instancia predeterminada de SQL Server en la máquina virtual. Para obtener más información, consulte [Copia de seguridad automatizada para SQL Server en Azure Virtual Machines (implementación clásica)](../classic/sql-automated-backup.md). |
-| **Aplicación de revisiones automatizada de SQL** |Configura una ventana de mantenimiento durante la cual tienen lugar las actualizaciones de la máquina virtual, de tal forma que puede evitar las actualizaciones durante las horas punta para la carga de trabajo. Para obtener más información, consulte [Automated Patching para SQL Server en Azure Virtual Machines (implementación clásica)](../classic/sql-automated-patching.md). |
+| **Aplicación de revisiones automatizada de SQL** |Configura una ventana de mantenimiento durante la cual tienen lugar actualizaciones importantes de Windows en la máquina virtual, de tal forma que puede evitar las actualizaciones durante las horas punta de la carga de trabajo. Para obtener más información, consulte [Automated Patching para SQL Server en Azure Virtual Machines (implementación clásica)](../classic/sql-automated-patching.md). |
 | **Integración de Azure Key Vault** |Permite instalar y configurar automáticamente Azure Key Vault en la máquina virtual SQL Server. Para obtener más información, consulte [Configuración de la integración de Azure Key Vault para SQL Server en máquinas virtuales de Azure (implementación clásica)](../classic/ps-sql-keyvault.md). |
 
 ## <a name="prerequisites"></a>requisitos previos

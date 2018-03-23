@@ -1,12 +1,12 @@
 ---
-title: "Azure Active Directory B2C: adición de LinkedIn como proveedor de identidades de OAuth2 mediante directivas personalizadas"
-description: "Un artículo con instrucciones para configurar una aplicación de LinkedIn mediante las directivas personalizadas y el protocolo OAuth2"
+title: 'Azure Active Directory B2C: adición de LinkedIn como proveedor de identidades de OAuth2 mediante directivas personalizadas'
+description: Un artículo con instrucciones para configurar una aplicación de LinkedIn mediante las directivas personalizadas y el protocolo OAuth2
 services: active-directory-b2c
-documentationcenter: 
+documentationcenter: ''
 author: yoelhor
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,17 +15,17 @@ ms.devlang: na
 ms.date: 10/23/2017
 ms.author: yoelh
 ms.openlocfilehash: 77e2b9b283e4051370ffb905681135c27512834e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="azure-active-directory-b2c-add-linkedin-as-an-identity-provider-by-using-custom-policies"></a>Azure Active Directory B2C: adición de LinkedIn como proveedor de identidades mediante directivas personalizadas
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 En este artículo se muestra cómo habilitar el inicio de sesión para los usuarios de una cuenta de LinkedIn mediante el uso de [directivas personalizadas](active-directory-b2c-overview-custom.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Complete los pasos del artículo [Azure Active Directory B2C: introducción a las directivas personalizadas](active-directory-b2c-get-started-custom.md).
 
 ## <a name="step-1-create-a-linkedin-account-application"></a>Paso 1: Creación de una aplicación de la cuenta de LinkedIn
@@ -43,7 +43,7 @@ Para usar LinkedIn como proveedor de identidades en Azure Active Directory B2C (
 
     c. Seleccione un **uso de la aplicación**.
 
-    d. En el cuadro **Website URL** (URL del sitio web), pegue **https://login.microsoftonline.com**.
+    d. En el cuadro **Website URL** (Dirección URL de sitio web), pegue **https://login.microsoftonline.com**.
 
     e. Escriba la dirección de **correo electrónico de la empresa** y el número de **teléfono de la empresa**.
 
@@ -53,7 +53,7 @@ Para usar LinkedIn como proveedor de identidades en Azure Active Directory B2C (
 
 3. Seleccione **Authentication** (Autenticación) y, después, anote los valores de **Client ID** (ID del cliente) y **Client Secret** (Secreto del cliente).
 
-4. En el cuadro **Authorized Redirect URLs** (URL de redirección autorizadas), pegue **https://login.microsoftonline.com/te/ {tenant}.onmicrosoft.com/oauth2/authresp**. Reemplace {*tenant*} por el nombre de su inquilino (por ejemplo, contosob2c.onmicrosoft.com). Asegúrese de que está utilizando el esquema HTTPS. 
+4. En el cuadro **Authorized Redirect URLs** (Redirigir las direcciones URL autorizadas), pegue **https://login.microsoftonline.com/te/{tenant}.onmicrosoft.com/oauth2/authresp**. Reemplace {*tenant*} por el nombre de su inquilino (por ejemplo, contosob2c.onmicrosoft.com). Asegúrese de que está utilizando el esquema HTTPS. 
 
     ![Cuenta de LinkedIn: Establecer la redirección de URL autorizadas](media/active-directory-b2c-custom-setup-li-idp/adb2c-ief-setup-li-idp-new-app3.png)
 
@@ -146,7 +146,7 @@ Para definir LinkedIn como proveedor de notificaciones, agregue un nodo `<Claims
 
 4. Reemplace el valor *client_id* el identificador de cliente de la aplicación de LinkedIn.
 
-5. Guarde el archivo .
+5. Guarde el archivo.
 
 ## <a name="step-4-register-the-linkedin-account-claims-provider"></a>Paso 4: Registro del proveedor de notificaciones de la cuenta de LinkedIn
 Ha configurado el proveedor de identidades. Sin embargo, aún no está disponible en ninguna de las ventanas de registro o inicio de sesión. Ahora tiene que agregar el proveedor de identidades de la cuenta de LinkedIn al recorrido del usuario `SignUpOrSignIn`.

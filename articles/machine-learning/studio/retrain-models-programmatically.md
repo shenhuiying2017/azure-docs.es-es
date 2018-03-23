@@ -1,10 +1,11 @@
 ---
-title: "Repetición del entrenamiento de los modelos de Machine Learning mediante programación | Microsoft Docs"
-description: "Obtenga información acerca de cómo volver a entrenar un modelo y actualizar el servicio web mediante programación para utilizar el modelo recién entrenado en Azure Machine Learning."
+title: Repetición del entrenamiento de los modelos de Machine Learning mediante programación | Microsoft Docs
+description: Obtenga información acerca de cómo volver a entrenar un modelo y actualizar el servicio web mediante programación para utilizar el modelo recién entrenado en Azure Machine Learning.
 services: machine-learning
-documentationcenter: 
-author: raymondlaghaeian
-manager: jhubbard
+documentationcenter: ''
+author: serinakaye
+ms.author: serinak
+manager: mwinkle
 editor: cgronlun
 ms.assetid: 7ae4f977-e6bf-4d04-9dde-28a66ce7b664
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: raymondl;garye
-ms.openlocfilehash: d228021564cdfe5c898c67cce0038b3ec36d014b
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: a986d8c500eb994af81ad535568fbbd8364f4244
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="retrain-machine-learning-models-programmatically"></a>Volver a entrenar modelos de Machine Learning mediante programación
 En este tutorial, aprenderá a entrenar mediante programación un servicio web Azure Machine Learning mediante C# y el servicio de ejecución por lotes de Machine Learning.
@@ -167,7 +167,7 @@ Revise los resultados para determinar si el modelo recientemente entrenado funci
 
 Copie *BaseLocation*, *RelativeLocation* y *SasBlobToken* de los resultados de salida, ya que se usarán durante el proceso de reentrenamiento.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Si implementa el servicio web predictivo haciendo clic en **Deploy Web Service [Classic]** (Implementar servicio web [clásico]), consulte [Reentrenamiento de un servicio web clásico](retrain-a-classic-web-service.md).
 
 Si implementó el servicio web predictivo haciendo clic en **Deploy Web Service [Classic]** (Implementar servicio web [clásico]), consulte [Reentrenamiento de un servicio web nuevo mediante los cmdlets de administración de Machine Learning](retrain-new-web-service-using-powershell.md).

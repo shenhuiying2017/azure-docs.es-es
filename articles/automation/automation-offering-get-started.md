@@ -1,24 +1,20 @@
 ---
-title: "Introducción a Azure Automation | Microsoft Docs"
-description: "En este artículo se proporciona una introducción al servicio de Azure Automation. Revisa los detalles de diseño e implementación como preparación para incorporar la oferta de Azure Marketplace."
+title: Introducción a Azure Automation
+description: En este artículo se proporciona una introducción al servicio de Azure Automation. Revisa los detalles de diseño e implementación como preparación para incorporar la oferta de Azure Marketplace.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: 
-ms.assetid: 
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.date: 08/31/2017
-ms.author: magoedte
-ms.openlocfilehash: d6ee5c35ce9866f6106c7b5dbc51599b666c3eb1
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+manager: carmonm
+ms.devlang: na
+ms.tgt_pltfrm: na
+ms.openlocfilehash: dab404178b45828732e137835213046cedaf0d03
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="get-started-with-azure-automation"></a>Introducción a Azure Automation
 
@@ -210,7 +206,7 @@ Después de que se incorpore la oferta, puede realizar las tareas siguientes:
 * Implemente un rol [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md).
 * Empiece a trabajar con [Log Analytics](https://docs.microsoft.com/azure/log-analytics) para recopilar datos generados por recursos en su entorno de nube o local.   
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Compruebe que la nueva cuenta de Automation puede autenticarse en recursos de Azure. Para más información, consulte [Comprobación de la autenticación con la cuenta de ejecución de Azure Automation](automation-verify-runas-authentication.md).
 * Aprenda cómo comenzar a crear runbooks y otras consideraciones relacionadas antes de empezar a crear. Para más información, consulte [Tipos de runbooks de Automation](automation-runbook-types.md).
 

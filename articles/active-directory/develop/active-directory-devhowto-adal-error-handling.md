@@ -1,8 +1,8 @@
 ---
-title: "Prácticas recomendadas de control de errores para los clientes de la Biblioteca de autenticación de Azure Active Directory (ADAL)"
+title: Prácticas recomendadas de control de errores para los clientes de la Biblioteca de autenticación de Azure Active Directory (ADAL)
 description: Proporciona instrucciones y procedimientos recomendados de control de errores para las aplicaciones cliente de ADAL.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: danieldobalian
 manager: mtillman
 ms.author: bryanla
@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/11/2017
-ms.custom: 
-ms.openlocfilehash: 275ab65569a1861f046c8ee77914e0859d41d5f7
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.date: 02/27/2017
+ms.custom: ''
+ms.openlocfilehash: 2b4c945f5707c158c76c8edbd233d1a8b034111f
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Prácticas recomendadas de control de errores para los clientes de la Biblioteca de autenticación de Azure Active Directory (ADAL)
 
@@ -479,6 +479,9 @@ Hemos creado un [ejemplo completo](https://github.com/Azure-Samples/active-direc
 
 ## <a name="error-and-logging-reference"></a>Referencia de errores y registro
 
+### <a name="logging-personal-identifiable-information-pii--organizational-identifiable-information-oii"></a>Registro de información de identificación personal (PII) e información de identificación organizativa (OII)
+De forma predeterminada, el registro de ADAL no captura ni registrar información de identificación personal (PII) ni información de identificación organizativa (OII). La biblioteca permite a los desarrolladores de aplicaciones activar esto mediante un establecedor en la clase de registrador. Al activar PII o OII, la aplicación tiene la responsabilidad de controlar los datos confidenciales y cumplir con los requisitos normativos de forma segura.
+
 ### <a name="net"></a>.NET
 
 #### <a name="adal-library-errors"></a>Errores de la biblioteca ADAL
@@ -487,7 +490,7 @@ Para explorar los errores específicos de ADAL, el código fuente en el [reposit
 
 #### <a name="guidance-for-error-logging-code"></a>Instrucciones para el código de registro de errores
 
-El registro de ADAL .NET cambia según la plataforma en la que se esté trabajando. Consulte la [documentación de registro](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet#diagnostics) para obtener código sobre cómo habilitar el registro.
+El registro de ADAL .NET cambia según la plataforma en la que se esté trabajando. Consulte [wiki de registro](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Logging-in-ADAL.Net) para obtener código sobre cómo habilitar el registro.
 
 ### <a name="android"></a>Android
 
@@ -497,14 +500,9 @@ Para explorar los errores específicos de ADAL, el código fuente en el [reposit
 
 #### <a name="operating-system-errors"></a>Errores del sistema operativo
 
-Los errores en el sistema operativo Android se muestran mediante una instancia de AuthenticationException en ADAL, pueden identificarse como "SERVER_INVALID_REQUEST" y pueden ser más detallados mediante sus descripciones. Los dos mensajes más corrientes que una aplicación puede optar por mostrar en la interfaz de usuario son:
+Los errores en el sistema operativo Android se muestran mediante una instancia de AuthenticationException en ADAL, pueden identificarse como "SERVER_INVALID_REQUEST" y pueden ser más detallados mediante sus descripciones. 
 
-- Errores de SSL 
-  - [End user is using Chrome 53](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki/SSL-Certificate-Validation-Issue) (El usuario final está usando Chrome 53).
-  - [Cert Chain has a cert marked as extra download (user needs to contact IT Admin)](https://vkbexternal.partners.extranet.microsoft.com/VKBWebService/ViewContent.aspx?scid=KB;EN-US;3203929) [La cadena de certificados tiene un certificado marcado como descarga adicional (el usuario debe ponerse en contacto con el administrador de TI)].
-  - Root CA is not trusted by the device (El dispositivo no confía en la CA raíz). Contact IT Admin (Póngase en contacto con el administrador de TI). 
-- Errores relacionados con la red 
-  - [Network issue potentially related to SSL Cert Validation](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki/SSL-Certificate-Validation-Issue) (Error en la red posiblemente relacionado con la validación del certificado SSL), puede realizar un único reintento.
+Para obtener una lista completa de los errores habituales y qué pasos debe realizar cuando su aplicación o los usuarios finales se encuentran con ellos, consulte [wiki de Android de ADAL](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki). 
 
 #### <a name="guidance-for-error-logging-code"></a>Instrucciones para el código de registro de errores
 
@@ -521,6 +519,15 @@ Logger.getInstance().setExternalLogger(new ILogger() {
 
 // 2. Set the log level
 Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
+
+// By default, the `Logger` does not capture any PII or OII
+
+// PII or OII will be logged
+Logger.getInstance().setEnablePII(true);
+
+// To STOP logging PII or OII, use the following setter
+Logger.getInstance().setEnablePII(false);
+
 
 // 3. Send logs to logcat.
 adb logcat > "C:\logmsg\logfile.txt";

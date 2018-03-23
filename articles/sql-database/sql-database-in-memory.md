@@ -1,11 +1,11 @@
 ---
-title: "Tecnologías en memoria de Azure SQL Database | Microsoft Docs"
-description: "Las tecnologías en memoria de Azure SQL Database mejoran notablemente el rendimiento de las cargas de trabajo transaccionales y de análisis."
+title: Tecnologías en memoria de Azure SQL Database | Microsoft Docs
+description: Las tecnologías en memoria de Azure SQL Database mejoran notablemente el rendimiento de las cargas de trabajo transaccionales y de análisis.
 services: sql-database
-documentationCenter: 
+documentationCenter: ''
 author: jodebrui
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 250ef341-90e5-492f-b075-b4750d237c05
 ms.service: sql-database
 ms.custom: develop databases
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: jodebrui
-ms.openlocfilehash: 23b313a473b93ba0eab7fc4cf97a5d26bfa31505
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 98b4a0b4bcb271a68880359b1bb04655cae8d003
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Optimización del rendimiento mediante las tecnologías en memoria de SQL Database
 
@@ -164,7 +164,7 @@ Si desea ver una demostración más simple, pero más atractiva visualmente, del
 
 3. Copie el [script Transact-SQL de In-Memory OLTP](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_oltp_sample.sql) en el Portapapeles. El script T-SQL crea los objetos en memoria necesarios en la base de datos de ejemplo AdventureWorksLT que se creó en el paso 1.
 
-4. Pegue el script T-SQL en SSMS.exe y, luego, ejecútelo. Es crucial la instrucción CREATE TABLE de la cláusula `MEMORY_OPTIMIZED = ON`. Por ejemplo:
+4. Pegue el script T-SQL en SSMS.exe y, luego, ejecútelo. Es crucial la instrucción CREATE TABLE de la cláusula `MEMORY_OPTIMIZED = ON`. Por ejemplo: 
 
 
 ```
@@ -526,7 +526,7 @@ En una base de datos con el plan de tarifa P2, puede esperar un rendimiento nuev
 
 #### <a name="tools"></a>Herramientas
 
-- [Portal de Azure](https://portal.azure.com/)
+- [Azure Portal](https://portal.azure.com/)
 
 - [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
 

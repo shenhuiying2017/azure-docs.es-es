@@ -1,8 +1,8 @@
 ---
-title: "Solución de problemas de Azure File Sync (versión preliminar) | Microsoft Docs"
-description: "Solución de problemas comunes con Azure File Sync."
+title: Solución de problemas de Azure File Sync (versión preliminar) | Microsoft Docs
+description: Solución de problemas comunes con Azure File Sync.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: wmgries
 manager: klaasl
 editor: jgerend
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 5558a69756075dd83f890d5e9e00c9944d841591
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 4f022bf227c8d460d014ea9bbc5dc426f0ada511
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Solución de problemas de Azure File Sync (versión preliminar)
 Use Azure File Sync (versión preliminar) para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -51,7 +51,7 @@ Si la instalación produce error, revise el archivo installer.log para determina
 Para resolverlo, transfiera el rol PDC a otro controlador de dominio que ejecute Windows Server 2012R2 o una versión más reciente y, luego, instale el agente de sincronización.
 
 <a id="agent-installation-websitename-failure"></a>**Error de instalación del agente: "El agente de sincronización de Azure Storage finalizó antes de tiempo"**  
-Este problema puede producirse si se cambia el nombre predeterminado del sitio web de IIS. Para solucionar este problema, cambie el nombre del sitio web predeterminado de IIS por "Default Web Site" y vuelva a intentar la instalación. El problema se solucionará en una actualización futura del agente. 
+Este problema puede producirse con el agente de la versión 1.x si se cambia el nombre predeterminado del sitio web de IIS. Para evitar este problema, use nuestro agente 2.0.11+.
 
 <a id="server-registration-missing"></a>**El servidor no aparece en los servidores registrados de Azure Portal**  
 Si un servidor no aparece en los **servidores registrados** de un servicio de sincronización de almacenamiento:

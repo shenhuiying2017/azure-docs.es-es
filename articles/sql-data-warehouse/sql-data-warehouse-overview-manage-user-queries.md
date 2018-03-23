@@ -1,30 +1,29 @@
 ---
-title: "Supervisión de las consultas de usuario en Azure SQL Data Warehouse | Microsoft Docs"
-description: "Información general de las consideraciones, prácticas recomendadas y tareas para supervisar las consultas de usuario en Almacenamiento de datos SQL de Azure."
+title: Supervisión de las consultas de usuario en Azure SQL Data Warehouse | Microsoft Docs
+description: Información general de las consideraciones, prácticas recomendadas y tareas para supervisar las consultas de usuario en Azure SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
 author: sqlmojo
 manager: jhubbard
-editor: 
-ms.assetid: 1d0960db-5dcf-4a08-b1dc-6c5d3d5a616d
+editor: ''
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 10/31/2016
+ms.date: 03/15/2018
 ms.author: joeyong;barbkess
-ms.openlocfilehash: 65509a65c2b34553822cc02d7a7fa5a614adc57f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 23b5edd559fd4b97554df4547d5ac16742d00a9f
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
-# <a name="monitor-user-queries-in-azure-sql-data-warehouse"></a>Supervisión de las consultas de usuario en Almacenamiento de datos SQL de Azure
-Información general de las consideraciones, prácticas recomendadas y tareas para supervisar las consultas de usuario en Almacenamiento de datos SQL.
+# <a name="monitor-user-queries-in-azure-sql-data-warehouse"></a>Supervisión de las consultas de usuario en Azure SQL Data Warehouse
+Información general de las consideraciones, prácticas recomendadas y tareas para supervisar las consultas de usuario en SQL Data Warehouse.
 
-| Categoría | Tarea o consideración | Description |
+| Categoría | Tarea o consideración | DESCRIPCIÓN |
 |:--- |:--- |:--- |
 | Rendimiento lento |Buscar una consulta de usuario de larga ejecución |[Buscar consultas de ejecución prolongada][Find long-running queries] |
 | Simultaneidad |Asignar recursos simultáneos a consultas de usuario |[Administración de simultaneidad y cargas de trabajo][Concurrency and workload management] |
@@ -36,7 +35,7 @@ Para obtener más sugerencias de administración, vaya a la [información genera
 
 <!--Article references-->
 [Find long-running queries]: sql-data-warehouse-manage-monitor.md
-[Concurrency and workload management]: sql-data-warehouse-develop-concurrency.md
+[Concurrency and workload management]: resource-classes-for-workload-management.md
 [Management overview]: sql-data-warehouse-overview-manage.md
 
 <!--MSDN references-->

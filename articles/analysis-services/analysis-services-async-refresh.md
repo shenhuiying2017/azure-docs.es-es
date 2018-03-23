@@ -1,25 +1,25 @@
 ---
-title: "Actualización asincrónica de modelos de Azure Analysis Services | Microsoft Docs"
-description: "Obtenga información sobre cómo escribir el código de actualización asincrónica mediante el uso de la API de REST."
+title: Actualización asincrónica de modelos de Azure Analysis Services | Microsoft Docs
+description: Obtenga información sobre cómo escribir el código de actualización asincrónica mediante el uso de la API de REST.
 services: analysis-services
-documentationcenter: 
+documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: analysis-services
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/14/2018
+ms.date: 03/05/2018
 ms.author: owend
-ms.openlocfilehash: 1f31c05554db16d604a9825ef9b1317a0f281456
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 4c317736af30b4181fa975713258a41b42ed0da3
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Actualización asincrónica con la API de REST
 Mediante el uso de cualquier lenguaje de programación que admita llamadas REST, puede realizar operaciones de actualización de datos asincrónicas en los modelos tabulares de Azure Analysis Services. Esto incluye la sincronización de réplicas de solo lectura para la escalabilidad horizontal de consultas. 
@@ -67,8 +67,11 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refres
 Todas las llamadas deben autenticarse con un token de Azure Active Directory (OAuth 2) válido en el encabezado de autorización y deben cumplir los siguientes requisitos:
 
 - El token debe ser un token de usuario o una entidad de servicio de aplicación.
-- El usuario o la aplicación deben tener permisos suficientes en el servidor o el modelo para realizar la llamada solicitada. El nivel de permiso lo determinan los roles dentro del modelo o del grupo de administradores del servidor.
 - El token debe tener la audiencia correcta establecida en `https://*.asazure.windows.net`.
+- El usuario o la aplicación deben tener permisos suficientes en el servidor o el modelo para realizar la llamada solicitada. El nivel de permiso lo determinan los roles dentro del modelo o del grupo de administradores del servidor.
+
+    > [!IMPORTANT]
+    > Actualmente, se requieren permisos del rol **administrador del servidor**.
 
 ## <a name="post-refreshes"></a>POST /refreshes
 

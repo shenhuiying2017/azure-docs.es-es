@@ -1,11 +1,11 @@
 ---
-title: "Uso de Managed Service Identity (MSI) en una máquina virtual Windows para acceder a Azure Data Lake Store"
-description: "En este tutorial se muestra cómo usar Managed Service Identity (MSI) en una máquina virtual Windows para acceder a Azure Data Lake Store."
+title: Uso de Managed Service Identity (MSI) en una máquina virtual Windows para acceder a Azure Data Lake Store
+description: En este tutorial se muestra cómo usar Managed Service Identity (MSI) en una máquina virtual Windows para acceder a Azure Data Lake Store.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -15,10 +15,10 @@ ms.date: 12/15/2017
 ms.author: skwan
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 742b76e17b7ad00a70b0d18895c0b59ebe044d47
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>Uso de Managed Service Identity (MSI) en una máquina virtual Windows para acceder a Azure Data Lake Store
 
@@ -46,7 +46,7 @@ Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azur
 En este tutorial, se crea una nueva máquina virtual Windows.  También puede habilitar MSI en una máquina virtual existente.
 
 1. Haga clic en **Crear un recurso** en la esquina superior izquierda de Azure Portal.
-2. Seleccione **Compute**y, después, seleccione **Windows Server 2016 Datacenter**. 
+2. Seleccione **Compute** y, después, seleccione **Windows Server 2016 Datacenter**. 
 3. Escriba la información de la máquina virtual. El **nombre de usuario** y la **contraseña** creados aquí son las credenciales que se usan para iniciar sesión en la máquina virtual.
 4. Elija la **suscripción** adecuada de la máquina virtual en la lista desplegable.
 5. Para seleccionar un nuevo **grupo de recursos** en el que crear la máquina virtual, elija **Crear nuevo**. Cuando haya terminado, haga clic en **Aceptar**.

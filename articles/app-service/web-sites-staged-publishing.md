@@ -1,8 +1,8 @@
 ---
-title: "Configuración de entornos de ensayo para aplicaciones web en Azure App Service | Microsoft Docs"
-description: "Aprenda a utilizar la publicación de ensayo para aplicaciones web en Azure App Service."
+title: Configuración de entornos de ensayo para aplicaciones web en Azure App Service | Microsoft Docs
+description: Aprenda a utilizar la publicación de ensayo para aplicaciones web en Azure App Service.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 writer: cephalin
 manager: erikre
@@ -15,31 +15,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: 55c023e8f6b41c17e85ba441f862a7682b2f2599
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 18f6ef3997ba60f588040f641ebe9e9aca8d091a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configuración de entornos de ensayo en Azure App Service
 <a name="Overview"></a>
 
-Al implementar la aplicación web, la aplicación web en Linux, el back-end móvil y la aplicación de API en [App Service](http://go.microsoft.com/fwlink/?LinkId=529714), puede implementar en una ranura de implementación independiente en lugar de en la ranura de producción predeterminada al ejecutar en el modo del plan de App Service **Estándar** o **Premium**. Las ranuras de implementación son realmente aplicaciones activas con sus propios nombres de host. Los elementos de contenido y configuraciones de aplicaciones se pueden intercambiar entre dos ranuras de implementación, incluida la ranura de producción. La implementación de la aplicación en un espacio de implementación ofrece las ventajas siguientes:
+Al implementar la aplicación web, la aplicación web en Linux, el back-end móvil y la aplicación API en [App Service](http://go.microsoft.com/fwlink/?LinkId=529714), puede implementarlas en una ranura de implementación independiente en lugar de en la ranura de producción predeterminada si realiza la ejecución en el nivel de plan **Estándar** o **Premium** de App Service. Las ranuras de implementación son realmente aplicaciones activas con sus propios nombres de host. Los elementos de contenido y configuraciones de aplicaciones se pueden intercambiar entre dos ranuras de implementación, incluida la ranura de producción. La implementación de la aplicación en un espacio de implementación ofrece las ventajas siguientes:
 
 * Puede validar los cambios en la aplicación en una ranura de implementación de ensayo antes de intercambiarla con la ranura de producción.
 * La implementación de una aplicación en una ranura en primer lugar y su intercambio con la de la producción garantiza que todas las instancias de la ranura estén activas antes de colocarse en producción. Esto elimina tiempos de inactividad a la hora de implementar la aplicación. El redireccionamiento del tráfico es impecable y no se anulan las solicitudes como consecuencia de las operaciones de intercambio. Este flujo de trabajo completo puede automatizarse mediante la configuración de [Intercambio automático](#Auto-Swap) .
 * Después del intercambio, la ranura con la aplicación de ensayo anterior ahora ocupa la aplicación de producción anterior. Si los cambios intercambiados en el espacio de producción no son los esperados, puede realizar el mismo intercambio inmediatamente para volver a obtener el "último sitio en buen estado".
 
-Cada modo del plan de App Service admite un número distinto de espacios de implementación. Para averiguar el número de ranuras compatibles con el modo de la aplicación, consulte [Precios de App Service](https://azure.microsoft.com/pricing/details/app-service/).
+Cada nivel del plan de App Service admite un número distinto de ranuras de implementación. Para averiguar el número de ranuras que admite su nivel de la aplicación, consulte [Precios de App Service](https://azure.microsoft.com/pricing/details/app-service/).
 
-* Cuando la aplicación tiene varias ranuras, no puede cambiar el modo.
+* Cuando la aplicación tiene varias ranuras, no puede cambiar el nivel.
 * El escalado no está disponible para los espacios que no son de producción.
-* No se admite la administración de recursos vinculados en los espacios que no sean de producción. Solo en el [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715) puede evitar este impacto potencial en un espacio de producción si mueve temporalmente el espacio de no producción a un modo del plan de App Service diferente. Tenga en cuenta que el espacio de no producción debe compartir una vez más el mismo modo con el espacio de producción antes de que pueda intercambiar los dos espacios.
+* No se admite la administración de recursos vinculados en los espacios que no sean de producción. Solo en [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715), puede evitar este posible impacto sobre la ranura de producción si se mueve temporalmente la ranura que no es de producción a un nivel diferente del plan de App Service. Tenga en cuenta que la ranura que no es de producción debe compartir una vez más el mismo nivel con la ranura de producción antes de que se puedan intercambiar las dos ranuras.
 
 <a name="Add"></a>
 
 ## <a name="add-a-deployment-slot"></a>Incorporación de una ranura de implementación
-La aplicación debe estar ejecutándose en el modo **Estándar** o **Premium** para que pueda habilitar varias ranuras de implementación.
+La aplicación se debe estar ejecutando en el nivel **Estándar** o **Premium** para permitir varias ranuras de implementación.
 
 1. En [Azure Portal](https://portal.azure.com/), abra la [hoja de recursos](../azure-resource-manager/resource-group-portal.md#manage-resources) de la aplicación.
 2. Elija la opción **Ranuras de implementación** y, a continuación, haga clic en **Agregar ranura**.
@@ -47,7 +47,7 @@ La aplicación debe estar ejecutándose en el modo **Estándar** o **Premium** p
     ![Agregar una nueva ranura de implementación][QGAddNewDeploymentSlot]
    
    > [!NOTE]
-   > Si la aplicación ya no está en el modo **Estándar** o **Premium**, recibirá un mensaje que indica los modos compatibles para habilitar la publicación de ensayo. Llegados a este punto, tiene la opción de seleccionar **Actualizar** e ir a la pestaña **Escala** de la aplicación antes de continuar.
+   > Si la aplicación ya no está en el nivel **Estándar** o **Premium**, recibirá un mensaje que indica los niveles compatibles para habilitar la publicación de ensayo. Llegados a este punto, tiene la opción de seleccionar **Actualizar** e ir a la pestaña **Escala** de la aplicación antes de continuar.
    > 
    > 
 3. En la hoja **Agregar una ranura**, asigne un nombre a la ranura y seleccione si la configuración de la aplicación se debe clonar de otra ranura de implementación existente. Haga clic en la marca de verificación para continuar.

@@ -1,11 +1,11 @@
 ---
-title: "Información sobre cómo utilizar el conector de Salesforce en Logic Apps | Microsoft Docs"
-description: "Cree aplicaciones lógicas con el Servicio de aplicaciones de Azure. El conector de Salesforce proporciona una API para trabajar con objetos de Salesforce."
+title: Información sobre cómo utilizar el conector de Salesforce en Logic Apps | Microsoft Docs
+description: Cree aplicaciones lógicas con el Servicio de aplicaciones de Azure. El conector de Salesforce proporciona una API para trabajar con objetos de Salesforce.
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: MandiOhlinger
+author: ecfan
 manager: anneta
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: 54fe5af8-7d2a-4da8-94e7-15d029e029bf
 ms.service: logic-apps
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/05/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: 2bb865924191418c12b9fea37edfbfb282f334eb
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 6ab7c6cf9a0ef86956e3b3d58c5da96c38deaa49
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-salesforce-connector"></a>Introducción al conector de Salesforce
 El conector de Salesforce proporciona una API para trabajar con objetos de Salesforce.
@@ -57,6 +57,6 @@ Una acción es una operación que se lleva a cabo mediante el flujo de trabajo d
 
 Vea los desencadenadores y las acciones definidos en Swagger y vea también todos los límites en los [detalles del conector](/connectors/salesforce/). 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Creación de una aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 

@@ -1,25 +1,20 @@
 ---
-title: "Aplicación Wingtips: Azure SQL Database | Microsoft Docs"
-description: "Conozca los modelos de arrendamiento de base de datos y la aplicación de SaaS de ejemplo, Wingtips, para Azure SQL Database en el entorno de nube."
+title: 'Aplicación Wingtips: Azure SQL Database | Microsoft Docs'
+description: Conozca los modelos de arrendamiento de base de datos y la aplicación de SaaS de ejemplo, Wingtips, para Azure SQL Database en el entorno de nube.
 keywords: tutorial de SQL Database
 services: sql-database
-documentationcenter: 
 author: billgib
 manager: craigg
-editor: MightyPen
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Active
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/17/2017
 ms.author: billgib
-ms.openlocfilehash: 3f1a8bf6a0f05308f643f24dd4db7400c49b9e14
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: bb69a03333ed9dcdba1456d053c0080be5ba4d10
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="the-wingtip-tickets-saas-application"></a>Aplicación SaaS Wingtip Tickets
 
@@ -53,7 +48,7 @@ Este patrón también permite un modelo *híbrido* en el que puede optimizar el 
 
 Consulte los [tutoriales][docs-tutorials-for-wingtip-mt] y el código en GitHub  [.../Microsoft/WingtipTicketsSaaS-MultiTenantDb][github-code-for-wingtip-mt].
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 #### <a name="conceptual-descriptions"></a>Descripciones de conceptos
 

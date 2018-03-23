@@ -1,7 +1,7 @@
 ---
-title: "Conexión de HDInsight a la red local: Azure HDInsight | Microsoft Docs"
-description: "Obtenga información sobre cómo crear un clúster de HDInsight en una instancia de Azure Virtual Network y conectarlo a la red local. Obtenga información sobre cómo usar un servidor DNS personalizado para configurar la resolución de nombres entre HDInsight y la red local."
-documentationcenter: 
+title: 'Conexión de HDInsight a la red local: Azure HDInsight | Microsoft Docs'
+description: Obtenga información sobre cómo crear un clúster de HDInsight en una instancia de Azure Virtual Network y conectarlo a la red local. Obtenga información sobre cómo usar un servidor DNS personalizado para configurar la resolución de nombres entre HDInsight y la red local.
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/23/2018
 ms.author: larryfr
-ms.openlocfilehash: 03214f25858ae340908a1d1b7f3ff7f62d545dc9
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 9470e052b4f57e52fa140b53fa7c32d199c58e1e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="connect-hdinsight-to-your-on-premise-network"></a>Conexión de HDInsight a la red local
 
@@ -273,13 +273,13 @@ Puede usar grupos de seguridad de red (NSG) o rutas definidas por el usuario (UD
 
 > [!WARNING]
 > HDInsight requiere acceso de entrada desde direcciones IP específicas en la nube de Azure y acceso de salida sin restricciones. Cuando use NSG o UDR para controlar el tráfico, debe realizar los pasos siguientes:
->
-> 1. Encuentre las direcciones IP de la ubicación que contiene la red virtual. Para obtener una lista de las direcciones IP requeridas por ubicación, consulte [Direcciones IP requeridas](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip).
->
-> 2. Permitir el tráfico de entrada proveniente de las direcciones IP.
->
->    * __NSG__: permita el tráfico de __entrada__ en el puerto __443__ desde __Internet__.
->    * __UDR__: establezca el tipo __Próximo salto__ de la ruta en __Internet__.
+
+1. Encuentre las direcciones IP de la ubicación que contiene la red virtual. Para obtener una lista de las direcciones IP requeridas por ubicación, consulte [Direcciones IP requeridas](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip).
+
+2. Para las direcciones IP identificadas en el paso 1, permita el tráfico entrante desde ellas.
+
+   * Si utiliza __NSG__: permita el tráfico __entrante__ en el puerto __443__ para las direcciones IP.
+   * Si utiliza __UDR__: establezca el tipo __Próximo salto__ de la ruta en __Internet__ para las direcciones IP.
 
 Para un ejemplo de cómo usar Azure PowerShell o la CLI de Azure para crear NSG, consulte el documento [Extensión de HDInsight con redes virtuales de Azure](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-nsg).
 
@@ -332,7 +332,7 @@ Para conectarse directamente a HDInsight a través de la red virtual, use los pa
     >
     > Por ejemplo, Ambari solo está activo en un nodo principal a la vez. Si intenta acceder a Ambari en un nodo principal y se devuelve un error 404, es porque se ejecuta en el otro nodo principal.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * Para más información sobre cómo usar HDInsight en una máquina virtual, consulte [Extensión de HDInsight con Azure Virtual Network](./hdinsight-extend-hadoop-virtual-network.md).
 

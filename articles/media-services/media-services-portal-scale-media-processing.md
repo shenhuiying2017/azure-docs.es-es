@@ -1,11 +1,11 @@
 ---
 title: Escalado del procesamiento de medios mediante Azure Portal | Microsoft Docs
-description: "Este tutorial lo guiará a través de los pasos de escalado de procesamiento de medios con Azure Portal."
+description: Este tutorial lo guiará a través de los pasos de escalado de procesamiento de medios con Azure Portal.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: e500f733-68aa-450c-b212-cf717c0d15da
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/04/2017
 ms.author: juliako
-ms.openlocfilehash: d2312803a4471e207d3696ca8350a86e3c4761e6
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: f65ba489d70a3844169780c4680fcc43b3064b54
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="change-the-reserved-unit-type"></a>Cambio del tipo de unidad reservada
 > [!div class="op_single_selector"]
@@ -54,11 +54,10 @@ Para cambiar el tipo de unidad reservada y el número de unidades reservadas, ha
 1. En [Azure Portal](https://portal.azure.com/), seleccione la cuenta de Azure Media Services.
 2. En la ventana **Configuración**, seleccione **Unidades reservadas de medios**.
    
-    Para cambiar el número de unidades reservadas para el tipo de unidad reservada seleccionada, use el control deslizante **Unidades reservadas de medios** .
+    Para cambiar el número de unidades reservadas para el tipo de unidad reservada seleccionada, use el control deslizante **Unidades reservadas de medios** que se encuentra en la parte superior de la pantalla.
    
-    Para cambiar el **TIPO DE UNIDAD RESERVADA**, haga clic en S1, S2 o S3.
+    Para cambiar el valor de **RESERVED UNIT TYPE**, haga clic en la barra **Velocidad de las unidades de procesamiento reservadas**. Luego, seleccione el plan de tarifa que necesita: S1, S2 o S3.
    
-    ![Página de procesadores](./media/media-services-portal-scale-media-processing/media-services-scale-media-processing.png)
 3. Presione el botón GUARDAR para guardar los cambios.
    
     Las nuevas unidades reservadas se asignan en cuanto presiona GUARDAR.

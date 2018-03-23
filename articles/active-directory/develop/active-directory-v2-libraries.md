@@ -1,11 +1,11 @@
 ---
-title: "Bibliotecas de autenticación de Azure Active Directory v2.0 | Microsoft Docs"
-description: "Las bibliotecas de cliente y de middleware de servidor compatibles, junto con vínculos dlibrary/source/samples relacionados, para el punto de conexión Azure Active Directory v2.0."
+title: Bibliotecas de autenticación de Azure Active Directory v2.0 | Microsoft Docs
+description: Las bibliotecas de cliente y de middleware de servidor compatibles, junto con vínculos dlibrary/source/samples relacionados, para el punto de conexión Azure Active Directory v2.0.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: dstrockis
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 19cec615-e51f-4141-9f8c-aaf38ff9f746
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 08/22/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: a1e2c4db54ca81325751ed85b26b904174e94078
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 60abada0a6683ee5cc8118c37336fe67cd51b2f0
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-active-directory-v20-authentication-libraries"></a>Bibliotecas de autenticación de Azure Active Directory v2.0
 El [punto de conexión de Azure Active Directory (Azure AD) v2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-compare) admite los protocolos OAuth 2.0 y OpenID Connect 1.0 estándar del sector. Puede utilizar diversas bibliotecas de Microsoft y otras organizaciones con el punto de conexión de v2.0.
@@ -27,9 +27,9 @@ El [punto de conexión de Azure Active Directory (Azure AD) v2.0](https://docs.m
 Al compilar una aplicación que utiliza el punto de conexión v2.0, se recomienda usar bibliotecas que hayan escrito expertos en los dominios del protocolo que sigan una metodología de ciclo de vida de desarrollo de seguridad (SDL), como [a la que sigue Microsoft][Microsoft-SDL]. Si decide codificar manualmente los protocolos, se recomienda seguir la metodología SDL y observar detenidamente las consideraciones de seguridad de las especificaciones de los estándares de cada protocolo.
 
 > [!NOTE]
-> ¿Busca las bibliotecas de Azure AD v1.0 (ADAL)? Revise la [Guía de la biblioteca ADAL](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries). 
-> 
-> 
+> ¿Busca las bibliotecas de Azure AD v1.0 (ADAL)? Revise la [Guía de la biblioteca ADAL](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries).
+>
+>
 
 ## <a name="types-of-libraries"></a>Tipos de bibliotecas
 El punto de conexión de Azure AD v2.0 funciona con dos tipos de bibliotecas:
@@ -78,13 +78,8 @@ Para obtener una lista de bibliotecas que funcionan con el punto de conexión v2
 | Android |[OIDCAndroidLib](https://github.com/kalemontes/OIDCAndroidLib/wiki) |0.2.1 |[OIDCAndroidLib](https://github.com/kalemontes/OIDCAndroidLib) |[Ejemplo de aplicación nativa](active-directory-v2-devquickstarts-android.md) |
 | iOS |[NXOAuth2Client](https://github.com/nxtbgthng/OAuth2Client) |1.2.8 |[NXOAuth2Client](https://github.com/nxtbgthng/OAuth2Client) |[Ejemplo de aplicación nativa](active-directory-v2-devquickstarts-ios.md) |
 | JavaScript |[Hello.js](https://adodson.com/hello.js/) |1.13.5 |[Hello.js](https://github.com/MrSwitch/hello.js) |[SPA](https://github.com/Azure-Samples/active-directory-javascript-graphapi-web-v2) |
-
-## <a name="compatible-server-middleware-libraries"></a>Bibliotecas de middleware de servidores compatibles
-| Plataforma | Nombre de la biblioteca | Versión probada | Código fuente | Muestra |
-|:---:|:---:|:---:|:---:|:---:|
 | Java | [Scribejava Scribe Java](https://github.com/scribejava/scribejava) | [Versión 3.2.0](https://github.com/scribejava/scribejava/releases/tag/scribejava-3.2.0) | [ScribeJava](https://github.com/scribejava/scribejava/archive/scribejava-3.2.0.zip) | |
 | PHP | [PHP League oauth2-cliente](https://github.com/thephpleague/oauth2-client) | [Versión 1.4.2](https://github.com/thephpleague/oauth2-client/releases/tag/1.4.2) | [oauth2-client](https://github.com/thephpleague/oauth2-client/archive/1.4.2.zip) | |
-| Python-Flask |[Matraz OAuthlib](https://github.com/lepture/flask-oauthlib) |0.9.3 |[Matraz OAuthlib](https://github.com/lepture/flask-oauthlib) |[Aplicación web](https://github.com/Azure-Samples/active-directory-python-flask-graphapi-web-v2) |
 | Ruby |[OmniAuth](https://github.com/omniauth/omniauth/wiki) |omniauth:1.3.1</br>omniauth-oauth2:1.4.0 |[OmniAuth](https://github.com/omniauth/omniauth)</br>[OmniAuth OAuth2](https://github.com/intridea/omniauth-oauth2) |  |
 
 ## <a name="related-content"></a>Contenido relacionado

@@ -1,8 +1,8 @@
 ---
-title: "Habilitación de Application Insights Profiler para aplicaciones que se hospedan en recursos de Azure Cloud Services | Microsoft Docs"
+title: Habilitación de Application Insights Profiler para aplicaciones que se hospedan en recursos de Azure Cloud Services | Microsoft Docs
 description: Aprenda a configurar Application Insights Profiler en aplicaciones que se ejecutan en Azure Cloud Services.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: ramach-msft
 manager: carmonm
 ms.service: application-insights
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: ramach
-ms.openlocfilehash: 278d8241ddd67b6df64b7280d4a17c6d3152f223
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: a24695f7bbb5fb0546e27c934319a60a3418b9e1
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="enable-application-insights-profiler-for-azure-vms-service-fabric-and-azure-cloud-services"></a>Habilitación de Application Insights Profiler en máquinas virtuales de Azure, Service Fabric y Azure Cloud Services
 
@@ -46,8 +46,7 @@ Para habilitar completamente Profiler, debe cambiar la configuración en tres ub
 
    ![Ubicación de la clave de instrumentación](./media/enable-profiler-compute/CopyAIKey.png)
 
-3. Para finalizar la configuración de la instancia de Application Insights para Profiler, realice el procedimiento que se describe en [Habilitación de Profiler](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-profiler).  
-    No es necesario vincular las aplicaciones web, porque los pasos son específicos del recurso de servicios de aplicación. Asegúrese de que Profiler esté habilitado en el panel **Configure Profiler** (Configurar Profiler).
+3. Para finalizar la configuración de la instancia de Application Insights para Profiler, realice el procedimiento que se describe en Habilitación de Profiler. No es necesario vincular las aplicaciones web, porque los pasos son específicos del recurso de servicios de aplicación. Asegúrese de que Profiler esté habilitado en el panel **Configure Profiler** (Configurar Profiler).
 
 
 ## <a name="set-up-the-application-source-code"></a>Configuración del código fuente de la aplicación
@@ -157,6 +156,8 @@ Para configurar el entorno, haga lo siguiente:
 
       Para obtener información acerca de cómo agregar la extensión de Diagnostics a una plantilla de implementación, consulte [Uso de la supervisión y el diagnóstico con una máquina virtual Windows y plantillas de Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-diagnostics-template?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
+> [!TIP]
+> Para Virtual Machines, una alternativa a los pasos basados en JSON anteriores es navegar en Azure Portal a **Virtual Machines** > **Configuración de diagnóstico** > **Receptores** > establecer el envío de datos de diagnóstico a Application Insights en **Habilitado** y seleccione una cuenta de Application Insights o una ikey específica.
 
 ### <a name="azure-cloud-services"></a>Azure Cloud Services
 
@@ -196,7 +197,7 @@ Para configurar el entorno, haga lo siguiente:
 
 1. Implemente la definición de implementación de entorno modificada.  
 
-   Para aplicar las modificaciones, se realiza una implementación de plantilla completa o una publicación de Cloud Services mediante cmdlets de PowerShell o Visual Studio.  
+   Para aplicar las modificaciones, usualmente se realiza una implementación de plantilla completa o una publicación basada en Cloud Services mediante cmdlets de PowerShell o Visual Studio.  
 
    El siguiente es un enfoque alternativo para las máquinas virtuales existentes que solo afecta a su extensión de Azure Diagnostics:  
 

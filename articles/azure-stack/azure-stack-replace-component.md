@@ -1,11 +1,11 @@
 ---
-title: "Sustitución de un componente de hardware en un nodo de unidad de escalado de Azure Stack | Microsoft Docs"
-description: "Obtenga información sobre cómo reemplazar un componente de hardware en un sistema integrado de Azure Stack."
+title: Sustitución de un componente de hardware en un nodo de unidad de escalado de Azure Stack | Microsoft Docs
+description: Obtenga información sobre cómo reemplazar un componente de hardware en un sistema integrado de Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: c6e036bf-8c80-48b5-b2d2-aa7390c1b7c9
 ms.service: azure-stack
 ms.workload: na
@@ -44,7 +44,7 @@ En el diagrama de flujo siguiente se muestra el proceso general de FRU para reem
 
 *Es posible que esta acción no sea necesaria en función de la condición física del hardware.
 
-**Si el fabricante del hardware OEM realiza el reemplazo de componentes y actualiza el firmware, podría variar en función del contrato de soporte técnico.
+\*\*Si el fabricante del hardware OEM realiza el reemplazo de componentes y actualiza el firmware, podría variar en función del contrato de soporte técnico.
 
 ## <a name="review-alert-information"></a>Revisión de la información de las alertas
 

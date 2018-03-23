@@ -1,11 +1,11 @@
 ---
 title: Aprovisionamiento de StorSimple Virtual Array en VMware | Microsoft Docs
-description: "En este segundo tutorial de la serie de implementación de matrices virtuales de StorSimple, se trata el aprovisionamiento de un dispositivo virtual en VMware."
+description: En este segundo tutorial de la serie de implementación de matrices virtuales de StorSimple, se trata el aprovisionamiento de un dispositivo virtual en VMware.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 0425b2a9-d36f-433d-8131-ee0cacef95f8
 ms.service: storsimple
 ms.devlang: NA
@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/14/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 495ef6a93ee06423495269306ad06e76dda13e10
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: be737550aa1cff22bc413ee8ce243f8d8588f6a5
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>Implementar una matriz virtual de StorSimple: Aprovisionamiento en VMware
 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/vmware4.png)
@@ -98,7 +98,7 @@ Realice los pasos siguientes para aprovisionar un dispositivo virtual en el hipe
 7. Aparece la ventana **Datastore Browser** (Explorador del almacén de datos).
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image6.png)
-8. En la barra de herramientas, haga clic en el icono ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image7.png) para crear una nueva carpeta. Especifique el nombre de la carpeta y tome nota. Utilizará este nombre de carpeta más adelante al crear una máquina virtual (práctica recomendada). Haga clic en **Aceptar**.
+8. En la barra de herramientas, haga clic en el icono ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image7.png) para crear una nueva carpeta. Especifique el nombre de la carpeta y tome nota. Utilizará este nombre de carpeta más adelante al crear una máquina virtual (práctica recomendada). Haga clic en **OK**.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image8.png)
 9. La nueva carpeta aparece en el panel izquierdo del **Datastore Browser**(Explorador del almacén de datos).
@@ -119,7 +119,7 @@ Realice los pasos siguientes para aprovisionar un dispositivo virtual en el hipe
 14. Vuelva a la ventana de cliente de vSphere. Con el servidor ESXi seleccionado, haga clic con el botón secundario y seleccione **Nueva máquina virtual**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image15.png)
-15. Aparece una ventana **Crear nueva máquina virtual** . En la página **Configuration** (Configuración), seleccione la opción **Custom** (Personalizado). Haga clic en **Siguiente**.
+15. Aparece una ventana **Crear nueva máquina virtual** . En la página **Configuration** (Configuración), seleccione la opción **Custom** (Personalizado). Haga clic en **Next**.
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image16.png)
 16. En la página **Nombre y ubicación** , especifique el nombre de la máquina virtual. Este nombre debe coincidir con el nombre de carpeta (práctica recomendada) que especificó anteriormente en el paso 8.
 
@@ -127,16 +127,16 @@ Realice los pasos siguientes para aprovisionar un dispositivo virtual en el hipe
 17. En la página **Almacenamiento** , seleccione un almacén de datos que desee utilizar para aprovisionar la máquina virtual.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image18.png)
-18. En la página **Virtual Machine Version** (Versión de la máquina virtual), seleccione **Virtual Machine Version: 8** (Versión de la máquina virtual: 8). Se admiten todas las versiones de la 8 a la 11.
+18. En la página **Virtual Machine Version** (Versión de la máquina virtual), seleccione **Virtual Machine Version: 8** (Versión de la máquina virtual: 8).
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image19.png)
 19. En la página **Guest Operating System** (Sistema operativo invitado), seleccione **Windows** como **Guest Operating System** (Sistema operativo invitado). Para **Version** (Versión), en la lista desplegable, seleccione **Microsoft Windows Server 2012 (64 bits)**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image20.png)
-20. En la página **CPU**, ajuste **Number of virtual sockets** (Número de sockets virtuales) y **Number of cores per virtual socket** (Número de núcleos por socket virtual) para que **Total number of cores** (Número total de núcleos) sea de 4 (o más). Haga clic en **Siguiente**.
+20. En la página **CPU**, ajuste **Number of virtual sockets** (Número de sockets virtuales) y **Number of cores per virtual socket** (Número de núcleos por socket virtual) para que **Total number of cores** (Número total de núcleos) sea de 4 (o más). Haga clic en **Next**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image21.png)
-21. En la página **Memoria** , especifique 8 GB (o más) de RAM. Haga clic en **Siguiente**.
+21. En la página **Memoria** , especifique 8 GB (o más) de RAM. Haga clic en **Next**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image22.png)
 22. En la página **Red** , especifique el número de interfaces de red. El requisito mínimo es una interfaz de red.
@@ -145,10 +145,10 @@ Realice los pasos siguientes para aprovisionar un dispositivo virtual en el hipe
 23. En la página **SCSI Controller** (Controlador SCSI), acepte el valor predeterminado **LSI Logic SAS**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image24.png)
-24. En la página **Selecta a Disk** (Seleccionar un disco), elija **Use an existing virtual disk** (Utilizar un disco virtual existente). Haga clic en **Siguiente**.
+24. En la página **Selecta a Disk** (Seleccionar un disco), elija **Use an existing virtual disk** (Utilizar un disco virtual existente). Haga clic en **Next**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image25.png)
-25. En la página **Select Existing Disk** (Seleccionar disco existente), en **Disk File Path** (Ruta de acceso de archivo de disco), haga clic en **Browse** (Examinar). Se abrirá un cuadro de diálogo **Examinar almacenes de datos** . Desplácese hasta la ubicación en la que cargó el VMDK. Ahora ve solo un archivo en el almacén de datos, ya que se han combinado los dos archivos que cargó al principio. Seleccione el archivo y haga clic en **Aceptar**. Haga clic en **Siguiente**.
+25. En la página **Select Existing Disk** (Seleccionar disco existente), en **Disk File Path** (Ruta de acceso de archivo de disco), haga clic en **Browse** (Examinar). Se abrirá un cuadro de diálogo **Examinar almacenes de datos** . Desplácese hasta la ubicación en la que cargó el VMDK. Ahora ve solo un archivo en el almacén de datos, ya que se han combinado los dos archivos que cargó al principio. Seleccione el archivo y haga clic en **Aceptar**. Haga clic en **Next**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image26.png)
 26. En la página **Advanced Options** (Opciones avanzadas), acepte el valor predeterminado y haga clic en **Next** (Siguiente).
@@ -163,10 +163,10 @@ Realice los pasos siguientes para aprovisionar un dispositivo virtual en el hipe
 29. Verá una ventana **Agregar hardware**. En la página **Device Type** (Tipo de dispositivo), en **Choose the type of device you wish to add** (Elegir el tipo de dispositivo que desea agregar), seleccione **Hard Disk** (Unidad de disco duro) y haga clic en **Next** (Siguiente).
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image30.png)
-30. En la página **Select a Disk** (Seleccionar un disco), elija **Create a new virtual disk** (Crear un nuevo disco virtual). Haga clic en **Siguiente**.
+30. En la página **Select a Disk** (Seleccionar un disco), elija **Create a new virtual disk** (Crear un nuevo disco virtual). Haga clic en **Next**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image31.png)
-31. En la página **Create a Disk** (Crear un disco), cambie el valor de **Disk Size** (Tamaño de disco) a 500 GB (o más). Aunque el requisito mínimo son 500 GB, siempre puede aprovisionar un disco más grande. Tenga en cuenta que no se puede expandir o reducir el disco una vez aprovisionado. Para obtener más información sobre el tamaño del disco para aprovisionar, revise la sección de ajuste de tamaño en el documento de [procedimientos recomendados](storsimple-ova-best-practices.md). En **Disk Provisioning** (Aprovisionamiento de disco), seleccione **Thin Provision** (Aprovisionamiento fino). Haga clic en **Siguiente**.
+31. En la página **Create a Disk** (Crear un disco), cambie el valor de **Disk Size** (Tamaño de disco) a 500 GB (o más). Aunque el requisito mínimo son 500 GB, siempre puede aprovisionar un disco más grande. Tenga en cuenta que no se puede expandir o reducir el disco una vez aprovisionado. Para obtener más información sobre el tamaño del disco para aprovisionar, revise la sección de ajuste de tamaño en el documento de [procedimientos recomendados](storsimple-ova-best-practices.md). En **Disk Provisioning** (Aprovisionamiento de disco), seleccione **Thin Provision** (Aprovisionamiento fino). Haga clic en **Next**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image32.png)
 32. En la página **Opciones avanzadas** , acepte el valor predeterminado.

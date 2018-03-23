@@ -1,6 +1,6 @@
 ---
 title: Aplicaciones administradas de Azure en Marketplace | Microsoft Docs
-description: "En este artículo se describen las aplicaciones administradas de Azure que están disponibles a través de Marketplace."
+description: En este artículo se describen las aplicaciones administradas de Azure que están disponibles a través de Marketplace.
 services: azure-resource-manager
 author: tfitzmac
 manager: timlt
@@ -8,13 +8,13 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 01/18/2018
+ms.date: 03/15/2018
 ms.author: tomfitz
-ms.openlocfilehash: fccc2dbb7623f4ceb0d3decc7037f75a05858910
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 61815098a4935983f19b3dcea6e001230aee4771
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Aplicaciones administradas de Azure en Marketplace
 
@@ -42,7 +42,7 @@ Para convertirse en publicador en Azure Marketplace, debe:
 
 1. Crear un identificador de Microsoft: cree su cuenta Microsoft con una dirección de correo electrónico que corresponda al dominio de su empresa, no a un solo individuo. Esta dirección de correo electrónico se usa tanto para el Centro de desarrolladores de Microsoft como para Cloud Partner Portal. Para más información, consulte la [guía para publicadores de Azure Marketplace](https://aka.ms/sellerguide).
 1. Enviar el [formulario de nominación para Azure Marketplace](https://aka.ms/ampnomination): en **Solution that you intend to publish?** (Solución que intenta publicar), seleccione **Managed Application** (Aplicación administrada). Una vez que se envía el formulario, el equipo de incorporación de Marketplace revisa la aplicación y valida la solicitud. El proceso de aprobación puede tardar entre uno y tres días. Una vez que se aprueba la nominación, recibe un código promocional para eximirse de la tarifa de registro del centro para desarrolladores. Si **no** completa el formulario de nominación de Marketplace, se le pedirá pagar una tarifa de registro de 99 $.
-1. Registrarse en el [Centro de desarrolladores](https://developer.microsoft.com): Microsoft valida que la organización es una entidad legal válida con un número de identificación fiscal correspondiente al país en que está registrada. El proceso de aprobación puede tardar entre cinco y diez días. Para evitar la tarifa de registro, use el código promocional que recibió por correo electrónico del proceso de nominación. Para más información, consulte la [guía para publicadores de Azure Marketplace](https://aka.ms/sellerguide).
+1. Registrarse en el [Centro de desarrolladores](http://dev.windows.com/registration?accountprogram=azure): Microsoft valida que la organización es una entidad legal válida con un número de identificación fiscal correspondiente al país en que está registrada. El proceso de aprobación puede tardar entre cinco y diez días. Para evitar la tarifa de registro, use el código promocional que recibió por correo electrónico del proceso de nominación. Para más información, consulte la [guía para publicadores de Azure Marketplace](https://aka.ms/sellerguide).
 1. Iniciar sesión en [Cloud Partner Portal](https://cloudpartner.azure.com): en el perfil del publicador, asocie la cuenta del Centro de desarrolladores con el perfil del publicador de Marketplace. Para más información, consulte la [guía para publicadores de Azure Marketplace](https://aka.ms/sellerguide).
 
 ## <a name="create-a-new-azure-application-offer"></a>Creación de una nueva oferta de aplicación de Azure
@@ -174,7 +174,7 @@ Rellene el formulario **Soporte técnico** con los contactos de soporte técnico
 
 Después de rellenar todas las secciones, seleccione **Publicar** para comenzar el proceso que hace que la oferta esté a disposición de los clientes.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * Para una introducción a las aplicaciones administradas, consulte [Introducción a las aplicaciones administradas](overview.md).
 * Para información sobre cómo publicar una aplicación administrada del catálogo de servicios, consulte [Creación y publicación de una aplicación administrada del catálogo de servicios](publish-service-catalog-app.md).

@@ -1,6 +1,6 @@
 ---
-title: "Ejecución de una prueba de validación en Azure Stack | Microsoft Docs"
-description: "Cómo recopilar archivos de registro de diagnósticos en Azure Stack"
+title: Ejecución de una prueba de validación en Azure Stack | Microsoft Docs
+description: Cómo recopilar archivos de registro de diagnósticos en Azure Stack
 services: azure-stack
 author: mattbriggs
 manager: femila
@@ -11,17 +11,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 02/26/2018
 ms.author: mabrigg
-ms.openlocfilehash: 53ef19628b40c4a008143c867c9e7867ac91854d
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 4f86397d4db5a0e67b294befd92087166d6b8109
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="run-a-validation-test-for-azure-stack"></a>Ejecución de una prueba de validación para Azure Stack
 
-*Se aplica a: sistemas integrados de Azure Stack y kit de desarrollo de Azure Stack*
+*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
  
 Puede validar el estado de Azure Stack. Si hay algún problema, póngase en contacto con el Soporte de servicio al cliente de Microsoft. Soporte le pedirá que ejecute Test-AzureStack desde el nodo de administración. La prueba de validación permite aislar el error. A continuación, Soporte puede analizar los registros detallados, centrarse en el área donde se produjo el error y trabajar con usted para resolver el problema.
 
@@ -64,7 +64,7 @@ Valida el estado de Azure Stack. El cmdlet notifica el estado del hardware y el 
 | ServiceAdminCredentials | PSCredential    | Sin        | FALSE   |
 | DoNotDeployTenantVm     | SwitchParameter | Sin        | FALSE   |
 | AdminCredential         | PSCredential    | Sin        | N/D      |
-| StorageConnectionString | string          | Sin        | N/D      |
+<!-- | StorageConnectionString | string          | Sin        | N/D      | no se admite en 1802 -->
 | Enumerar                    | SwitchParameter | Sin        | FALSE   |
 | Ignorar                  | string          | Sin        | N/D      |
 | Include                 | string          | Sin        | N/D      |
@@ -167,7 +167,7 @@ En la tabla siguiente se resumen las pruebas de validación ejecutadas por Test-
 | Eventos críticos de la unidad de escalado de Azure Stack (últimas 8 horas)                                                                             |
 | Resumen de los discos físicos de los servicios de almacenamiento de Azure Stack                                                                               |
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
  - Para más información sobre las herramientas de diagnóstico de Azure Stack y el registro de problemas, consulte [Herramientas de diagnóstico de Azure Stack](azure-stack-diagnostics.md).
  - Para más información sobre la solución de problemas, consulte [Solución de problemas de Microsoft Azure Stack](azure-stack-troubleshooting.md)

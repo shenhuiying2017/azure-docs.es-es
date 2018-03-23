@@ -8,11 +8,12 @@ ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 8683b3aec569f210529c1188cbbf514f7956b340
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.custom: data-sync
+ms.openlocfilehash: 423614227b16ad6cfa6dadfab1c5f2b93c5bbe62
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="monitor-sql-data-sync-preview-with-oms-log-analytics"></a>Supervisar SQL Data Sync (versión preliminar) con Log Analytics de OMS 
 
@@ -188,7 +189,7 @@ Descargue los códigos de ejemplo descritos en este artículo de las siguientes 
 
 -   [DataSyncLogOMSView](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre SQL Data Sync, consulte:
 
 -   [Sincronización de datos entre varias bases de datos locales y de la nube con SQL Data Sync](sql-database-sync-data.md)

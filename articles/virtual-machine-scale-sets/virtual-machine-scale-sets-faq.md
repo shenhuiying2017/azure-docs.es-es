@@ -1,11 +1,11 @@
 ---
-title: "Preguntas frecuentes sobre los conjuntos de escalado de máquinas virtuales de Azure | Microsoft Docs"
-description: "Obtenga respuestas a preguntas frecuentes sobre los conjuntos de escalado de máquinas virtuales."
+title: Preguntas frecuentes sobre los conjuntos de escalado de máquinas virtuales de Azure | Microsoft Docs
+description: Obtenga respuestas a preguntas frecuentes sobre los conjuntos de escalado de máquinas virtuales.
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
 ms.service: virtual-machine-scale-sets
@@ -17,16 +17,16 @@ ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
 ms.openlocfilehash: 52be84b73e70a02c43ef71917dc272060d82b42d
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Preguntas frecuentes sobre los conjuntos de escalado de máquinas virtuales de Azure
 
 Obtenga respuestas a preguntas frecuentes sobre los conjuntos de escalado de máquinas virtuales en Azure.
 
-## <a name="autoscale"></a>Autoscale
+## <a name="autoscale"></a>Escalado automático
 
 ### <a name="what-are-best-practices-for-azure-autoscale"></a>¿Cuáles son los procedimientos recomendados para el escalado automático de Azure?
 

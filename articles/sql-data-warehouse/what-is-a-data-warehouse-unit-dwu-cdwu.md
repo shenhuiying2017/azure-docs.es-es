@@ -1,25 +1,24 @@
 ---
-title: "¿Qué son las Unidades de almacenamiento de datos (DWU y cDWU) en Azure SQL Data Warehouse? | Microsoft Docs"
+title: ¿Qué son las Unidades de almacenamiento de datos (DWU y cDWU) en Azure SQL Data Warehouse? | Microsoft Docs
 description: Funcionalidades de escalado horizontal del rendimiento en Azure SQL Data Warehouse. Realice el escalado horizontal ajustando las DWU o cDWU, o pause y reanude los recursos de proceso para ahorrar costos.
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: jhubbard
-editor: 
-ms.assetid: e13a82b0-abfe-429f-ac3c-f2b6789a70c6
+editor: ''
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 11/10/2017
+ms.date: 03/15/2018
 ms.author: jrj;barbkess
-ms.openlocfilehash: 02998c48dcab5d3ed191b168665c9e47bbfbd232
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: f634bdde2c71f7563df11f686d7ce217311df81d
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Unidades de almacenamiento de datos (DWU) y Unidades de almacenamiento de datos de proceso (cDWU)
 En este artículo se explica que son las Unidades de almacenamiento de datos (DWU) y las Unidades de almacenamiento de datos de proceso (cDWU) en Azure SQL Data Warehouse. Se incluyen recomendaciones acerca de cómo elegir el número ideal de unidades de almacenamiento de datos y cómo cambiar su número. 
@@ -81,7 +80,7 @@ Para ver la configuración actual de DWU:
 
 1. Abra el Explorador de objetos de SQL Server en Visual Studio.
 2. Conéctese a la base de datos maestra asociada al servidor lógico de SQL Database.
-3. Seleccione en la vista de administración dinámica sys.database_service_objectives. Aquí tiene un ejemplo: 
+3. Seleccione en la vista de administración dinámica sys.database_service_objectives. Este es un ejemplo: 
 
 ```sql
 SELECT  db.name [Database]
@@ -101,7 +100,7 @@ Para cambiar DWU o cDWU:
 
 2. En **Escalar**, mueva el control deslizante izquierdo o derecho para cambiar el valor de DWU.
 
-3. Haga clic en **Guardar**. Aparece un mensaje de confirmación. Haga clic en **Sí** para confirmar o **No** para cancelar.
+3. Haga clic en **Save**(Guardar). Aparece un mensaje de confirmación. Haga clic en **Sí** para confirmar o **No** para cancelar.
 
 ### <a name="powershell"></a>PowerShell
 Para cambiar DWU o cDWU, use el cmdlet de PowerShell [Set-AzureRmSqlDatabase][Set-AzureRmSqlDatabase]. En el ejemplo siguiente se establece el objetivo de nivel de servicio en DW1000 para la base de datos MySQLDW que se hospeda en el servidor MyServer.
@@ -201,7 +200,7 @@ Consulte los artículos siguientes para comprender mejor algunos conceptos funda
 [Check database state with PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#check-database-state
 [Check database state with REST APIs]: ./sql-data-warehouse-manage-compute-rest-api.md#check-database-state
 
-[Workload and concurrency management]: ./sql-data-warehouse-develop-concurrency.md
+[Workload and concurrency management]: ./resource-classes-for-workload-management.md
 [Table design overview]: ./sql-data-warehouse-tables-overview.md
 [Table distribution]: ./sql-data-warehouse-tables-distribute.md
 [Table indexing]: ./sql-data-warehouse-tables-index.md

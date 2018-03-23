@@ -1,6 +1,6 @@
 ---
-title: "Control de máquinas virtuales de Azure con la CLI de Azure | Microsoft Docs"
-description: "Tutorial: administración de máquinas virtuales de Azure aplicando RBAC, directivas, bloqueos y etiquetas con la CLI de Azure"
+title: Control de máquinas virtuales de Azure con la CLI de Azure | Microsoft Docs
+description: 'Tutorial: administración de máquinas virtuales de Azure aplicando RBAC, directivas, bloqueos y etiquetas con la CLI de Azure'
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: tfitzmac
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 86ac3ec390c7aa9bc24a90ef2ee582f97f8b5407
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: ac6f7b0d32479e9e7e9945f83dc63a5847cba6a4
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="virtual-machine-governance-with-azure-cli"></a>Control de máquinas virtuales con la CLI de Azure
 
-[!include[Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
+[!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -29,9 +29,9 @@ Para instalar y usar la CLI de Azure localmente, vea [Instalación de la CLI de 
 
 ## <a name="understand-scope"></a>Descripción del ámbito
 
-[!include[Resource Manager governance scope](../../../includes/resource-manager-governance-scope.md)]
+[!INCLUDE [Resource Manager governance scope](../../../includes/resource-manager-governance-scope.md)]
 
-En este tutorial, aplica toda la configuración de administración a un grupo de recursos para que pueda quitar fácilmente esos valores cuando haya finalizado.
+En este tutorial, se aplica toda la configuración de administración a un grupo de recursos para poder quitar fácilmente esas opciones al finalizar.
 
 Vamos a crear el grupo de recursos.
 
@@ -43,7 +43,7 @@ Actualmente, el grupo de recursos está vacío.
 
 ## <a name="role-based-access-control"></a>Control de acceso basado en rol
 
-Desea asegurarse de que los usuarios de su organización tienen el nivel adecuado de acceso a estos recursos. No desea conceder acceso ilimitado a los usuarios, pero también es necesario que se asegure de que pueden realizar su trabajo. [Control de acceso basado en rol](../../active-directory/role-based-access-control-what-is.md) le permite administrar los usuarios con permiso para completar acciones específicas en un ámbito.
+Desea asegurarse de que los usuarios de una organización tengan el nivel adecuado de acceso a estos recursos. No desea conceder acceso ilimitado a los usuarios, pero también es necesario garantizar que puedan realizar su trabajo. [El control de acceso basado en rol](../../active-directory/role-based-access-control-what-is.md) le permite administrar los usuarios con permiso para completar acciones específicas en un ámbito.
 
 Para crear y quitar las asignaciones de rol, los usuarios deben tener acceso a `Microsoft.Authorization/roleAssignments/*`. Esta acción se concede mediante los roles Propietario o Administrador de acceso de usuario.
 
@@ -71,7 +71,7 @@ Por lo general, repetirá el proceso para *Colaborador de la red* y *Colaborador
 
 ## <a name="azure-policies"></a>Directivas de Azure
 
-[!include[Resource Manager governance policy](../../../includes/resource-manager-governance-policy.md)]
+[!INCLUDE [Resource Manager governance policy](../../../includes/resource-manager-governance-policy.md)]
 
 ### <a name="apply-policies"></a>Aplicación de directivas
 
@@ -83,9 +83,9 @@ az policy definition list --query "[].[displayName, policyType, name]" --output 
 
 Ve las definiciones de directiva existentes. El tipo de directiva es **BuiltIn** o **Custom**. Examine las definiciones para buscar las que describan una condición que quiera asignar. En este artículo, puede asignar directivas que:
 
-* Limitan las ubicaciones para todos los recursos.
-* Limitan las SKU para máquinas virtuales.
-* Realizan auditorías de máquinas virtuales que no usan discos administrados.
+* Limite las ubicaciones para todos los recursos.
+* Limite las SKU para las máquinas virtuales.
+* Realice auditorías de las máquinas virtuales que no usen discos administrados.
 
 En el siguiente ejemplo, recupera tres definiciones de directivas en función del nombre para mostrar. Puede usar el comando [az policy assignment create](/cli/azure/policy/assignment#az_policy_assignment_create) para asignar esas definiciones al grupo de recursos. En algunas directivas, puede proporcionar valores de los parámetros para especificar los valores permitidos.
 
@@ -145,7 +145,7 @@ Una vez finalizada la implementación, puede aplicar más opciones de configurac
 
 ## <a name="lock-resources"></a>Bloqueo de recursos
 
-Los [bloqueos de recursos](../../azure-resource-manager/resource-group-lock-resources.md) impiden que los usuarios de su organización eliminen o modifiquen de forma accidental recursos críticos. A diferencia del control de acceso basado en rol, los bloqueos de recursos aplican una restricción a todos los usuarios y roles. Puede establecer el bloqueo de nivel en *CanNotDelete* o *ReadOnly*.
+Los [bloqueos de recursos](../../azure-resource-manager/resource-group-lock-resources.md) impiden que los usuarios de una organización eliminen o modifiquen de forma accidental recursos críticos. A diferencia del control de acceso basado en rol, los bloqueos de recursos aplican una restricción a todos los usuarios y roles. Puede establecer el bloqueo de nivel en *CanNotDelete* o *ReadOnly*.
 
 Para crear o eliminar bloqueos de administración, debe tener acceso a las acciones `Microsoft.Authorization/locks/*`. Entre los roles integrados, solamente se conceden esas acciones al **propietario** y al **administrador de acceso de usuarios**.
 
@@ -179,7 +179,7 @@ Verá un error en el que se indica que la operación de eliminación no se puede
 
 Se aplican [etiquetas](../../azure-resource-manager/resource-group-using-tags.md) a los recursos de Azure para organizarlos de forma lógica por categorías. Cada etiqueta consta de un nombre y un valor. Por ejemplo, puede aplicar el nombre "Environment" y el valor "Production" a todos los recursos en producción.
 
-[!include[Resource Manager governance tags CLI](../../../includes/resource-manager-governance-tags-cli.md)]
+[!INCLUDE [Resource Manager governance tags CLI](../../../includes/resource-manager-governance-tags-cli.md)]
 
 Para aplicar etiquetas a una máquina virtual, use el comando [az resource tag](/cli/azure/resource#az_resource_tag). No se retiene ninguna etiqueta existente del recurso.
 
@@ -206,7 +206,7 @@ az vm stop --ids $(az resource list --tag Environment=Test --query "[?type=='Mic
 
 ### <a name="view-costs-by-tag-values"></a>Visualización de los costos por valores de etiqueta
 
-[!include[Resource Manager governance tags billing](../../../includes/resource-manager-governance-tags-billing.md)]
+[!INCLUDE [Resource Manager governance tags billing](../../../includes/resource-manager-governance-tags-billing.md)]
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -231,7 +231,7 @@ az group delete --name myResourceGroup
 ```
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, ha creado una imagen de máquina virtual personalizada. Ha aprendido a:
 

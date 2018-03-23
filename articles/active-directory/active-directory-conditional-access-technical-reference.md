@@ -1,8 +1,8 @@
 ---
-title: "Referencia de configuración del acceso condicional de Azure Active Directory | Microsoft Docs"
-description: "Obtenga una visión general de la configuración admitida en una directiva de acceso condicional de Azure Active Directory."
+title: Referencia de configuración del acceso condicional de Azure Active Directory | Microsoft Docs
+description: Obtenga una visión general de la configuración admitida en una directiva de acceso condicional de Azure Active Directory.
 services: active-directory.
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: 56a5bade-7dcc-4dcf-8092-a7d4bf5df3c1
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/08/2018
+ms.date: 03/07/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: fd82d77e79f05a67f8e818095753b8dc22ccf314
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ba93e1b597bb6bdb752563f2873b8e0c5f7a8181
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Referencia de configuración del acceso condicional de Azure Active Directory
 
@@ -136,9 +136,19 @@ Esta configuración funciona con todos los exploradores. Sin embargo, para satis
 | macOS                  | Chrome, Safari                      | ![Comprobar][1] |
 
 
-> [!NOTE]
-> Para obtener soporte de Chrome, debe usar la versión 1703 de Windows 10 Creators Update o una versión posterior.<br>
-> Puede instalar [esta extensión](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
+
+#### <a name="chrome-support"></a>Compatibilidad con Chrome
+
+Para la compatibilidad con Chrome en **Windows 10 Creators Update (versión 1703)** o posterior, instale [esta extensión](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
+
+Para la compatibilidad con Chrome en **Windows 8.1 y 7**, cree la siguiente clave del Registro:
+
+|    |    |
+|--- | ---|
+|Ruta de acceso | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
+|NOMBRE | 1 |
+|type | REG_SZ (String) |
+|Datos | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}}|
 
 Estos exploradores admiten la autenticación de dispositivo, lo que permite identificar y validar el dispositivo con respecto a una directiva. Se produce un error en la comprobación del dispositivo si el explorador se ejecuta en modo privado. 
 
@@ -183,6 +193,10 @@ En la directiva de acceso condicional, puede requerir que un intento de acceso a
 Esta configuración se aplica a las aplicaciones cliente siguientes:
 
 
+- Explorador administrado de Microsoft Intune
+- Microsoft Power BI
+- Microsoft Invoicing
+- Microsoft Launcher
 - Microsoft Azure Information Protection
 - Microsoft Excel
 - Microsoft Kaizala 
@@ -213,7 +227,7 @@ Esta configuración se aplica a las aplicaciones cliente siguientes:
     - Sustituye la opción **Aplicaciones móviles y clientes de escritorio** de la [condición de aplicaciones cliente](#supported-mobile-apps-and-desktop-clients) si está seleccionada.
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Para ver una introducción al acceso condicional, consulte [Acceso condicional en Azure Active Directory](active-directory-conditional-access-azure-portal.md).
 - Si está listo para configurar las directivas de acceso condicional de su entorno, consulte [Procedimientos recomendados para el acceso condicional en Azure Active Directory](active-directory-conditional-access-best-practices.md).

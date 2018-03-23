@@ -1,6 +1,6 @@
 ---
 title: Preguntas frecuentes acerca de Azure Virtual Network | Microsoft Docs
-description: "Las respuestas para las preguntas más frecuentes acerca de las redes virtuales de Microsoft Azure."
+description: Las respuestas para las preguntas más frecuentes acerca de las redes virtuales de Microsoft Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: jdial
-ms.openlocfilehash: 8800dc59306c349daba8f4d9703e0c713eed06ec
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: a5b4bac9e0d8bc10defaff251557129a70d8a022
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Preguntas más frecuentes (P+F) acerca de Azure Virtual Network
 
@@ -57,7 +57,7 @@ Para crear o configurar una red virtual se pueden usar las siguientes herramient
 Cualquier intervalo de direcciones IP definido en [RFC 1918](http://tools.ietf.org/html/rfc1918). Por ejemplo, 10.0.0.0/16.
 
 ### <a name="can-i-have-public-ip-addresses-in-my-vnets"></a>¿Puedo tener direcciones IP públicas en mis redes virtuales?
-Sí. Para más información sobre los intervalos de direcciones IP públicas, consulte [Creación de una red virtual](virtual-network-manage-network.md#create-a-virtual-network). Las direcciones IP públicas no son accesibles directamente desde Internet.
+Sí. Para más información sobre los intervalos de direcciones IP públicas, consulte [Creación de una red virtual](manage-virtual-network.md#create-a-virtual-network). Las direcciones IP públicas no son accesibles directamente desde Internet.
 
 ### <a name="is-there-a-limit-to-the-number-of-subnets-in-my-vnet"></a>¿Existe algún límite en el número de subredes de que puede tener una red virtual?
 Sí. Para más información, consulte los [límites de Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Los espacios de direcciones de las subredes no pueden superponerse entre sí.
@@ -218,6 +218,6 @@ Sí. Puede usar las API REST para redes virtuales en los modelos de implementaci
 
 ### <a name="is-there-tooling-support-for-vnets"></a>¿Hay compatibilidad con las herramientas para redes virtuales?
 Sí. Más información acerca del uso de:
-- Azure Portal para implementar redes virtuales a través de los modelos de implementación con [Azure Resource Manager](virtual-networks-create-vnet-arm-pportal.md) y [clásica](virtual-networks-create-vnet-classic-pportal.md).
+- Azure Portal para implementar redes virtuales a través de los modelos de implementación con [Azure Resource Manager](manage-virtual-network.md#create-a-virtual-network) y [clásica](virtual-networks-create-vnet-classic-pportal.md).
 - PowerShell para administrar redes virtuales que se implementan a través de los modelos de implementación con [Resource Manager](/powershell/module/azurerm.network) y [clásica](/powershell/module/azure/?view=azuresmps-3.7.0).
 - La interfaz de la línea de comandos (CLI) de Azure para implementar y administrar redes virtuales implementadas mediante los modelos de implementación de [Resource Manager](/cli/azure/network/vnet) y [clásica](../virtual-machines/azure-cli-arm-commands.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-commands-to-manage-network-resources).  

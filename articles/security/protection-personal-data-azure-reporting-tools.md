@@ -1,29 +1,28 @@
 ---
-title: "Documentación de protección de datos personales con herramientas de informes de Azure | Microsoft Docs"
-description: "cómo usar servicios de informes de Azure y tecnologías para ayudar a proteger la privacidad de los datos personales."
+title: Documentación de protección de datos personales con herramientas de informes de Azure | Microsoft Docs
+description: Use los servicios de informes de Azure para proteger la privacidad de los datos personales en las iniciativas para cumplir el Reglamento general de protección de datos (RGPD).
 services: security
 documentationcenter: na
 author: barclayn
 manager: MBaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2017
+ms.date: 03/06/2018
 ms.author: barclayn
-ms.openlocfilehash: 397161cf2eaea9712fec352a45f5fc49e8da486c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 2c677a1dea001c6a414304fbaa683c3787b355b1
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="document-protection-of-personal-data-with-azure-reporting-tools"></a>Documentación de protección de datos personales con herramientas de informes de Azure
 
-En este artículo se explicará cómo usar servicios de informes de Azure y tecnologías para ayudar a proteger la privacidad de los datos personales.
-
+En este artículo se explicará cómo usar servicios de informes de Azure y tecnologías para ayudar a proteger la privacidad de los datos personales. Esta información se puede utilizar para cumplir los reglamentos gubernamentales o del sector, como el Reglamento general de protección de datos (RGPD).
 ## <a name="scenario"></a>Escenario
 
 Una gran empresa de cruceros, con sede en Estados Unidos, se encuentra en proceso de expansión de sus operaciones para ofrecer itinerarios en los mares Mediterráneo, Adriático y Báltico, así como en las Islas Británicas. Para contribuir a esos esfuerzos, ha adquirido varias líneas de cruceros más pequeñas establecidas en Italia, Alemania, Dinamarca y Reino Unido.

@@ -1,32 +1,27 @@
 ---
-title: "Recuperación ante desastres de SQL Database | Microsoft Docs"
-description: "Obtenga información sobre cómo recuperar una base de datos tras un error o una interrupción de un centro de datos regional con las funcionalidades de replicación geográfica activa y restauración geográfica de Azure SQL Database."
+title: Recuperación ante desastres de SQL Database | Microsoft Docs
+description: Obtenga información sobre cómo recuperar una base de datos tras un error o una interrupción de un centro de datos regional con las funcionalidades de replicación geográfica activa y restauración geográfica de Azure SQL Database.
 services: sql-database
-documentationcenter: 
 author: anosov1960
 manager: jhubbard
-editor: monicar
-ms.assetid: 4800960e-3f9d-40ce-9e55-fb7f2784c067
 ms.service: sql-database
 ms.custom: business continuity
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: On Demand
-ms.date: 12/13/2017
+ms.date: 03/05/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 224c0b9f12595ec6cdc65e3d397fb62dba504d06
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: e9ec0a0a602965561b77619123588db57c59993c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Restauración de una instancia de Azure SQL Database o una conmutación por error en una secundaria
 Azure SQL Database ofrece las siguientes capacidades para recuperarse de un corte en el suministro eléctrico:
 
 * [Replicación geográfica activa y grupos de conmutación por error](sql-database-geo-replication-overview.md)
 * [Restauración geográfica](sql-database-recovery-using-backups.md#point-in-time-restore)
+* [Bases de datos con redundancia de zona](sql-database-high-availability.md)
 
 Para obtener información sobre los escenarios de continuidad empresarial y sus características, consulte el artículo sobre [continuidad empresarial](sql-database-business-continuity.md).
 
@@ -36,7 +31,7 @@ Para obtener información sobre los escenarios de continuidad empresarial y sus 
 ### <a name="prepare-for-the-event-of-an-outage"></a>Preparación ante interrupciones
 Para que el proceso de recuperación pueda realizarse sin problemas en otra región de datos mediante los grupos de conmutación por error o las copias de seguridad con redundancia geográfica, debe preparar un servidor en otra interrupción de un centro de datos para convertirlo en el nuevo servidor principal si lo considera necesario. También hay que contar con pasos bien definidos que se hayan documentado y probado para garantizar que la recuperación se lleve a cabo correctamente. Estos son algunos de los pasos correspondientes a la fase de preparación:
 
-* Identificar el servidor lógico en otra región para convertirse en el nuevo servidor principal. Para la restauración geográfica, normalmente suele ser un servidor de la [región asociada](../best-practices-availability-paired-regions.md) a aquella en donde se encuentre la base de datos. Esto eliminará el costo de tráfico adicional durante las operaciones de restauración geográfica.
+* Identificar el servidor lógico en otra región para convertirse en el nuevo servidor principal. Para la restauración geográfica, normalmente suele ser un servidor de la [región asociada](../best-practices-availability-paired-regions.md) a aquella en donde se encuentre la base de datos. Esto elimina el costo de tráfico adicional durante las operaciones de restauración geográfica.
 * Identificar y, de manera opcional, definir las reglas de firewall de nivel de servidor que deben estar activas para que los usuarios accedan la nueva base de datos principal.
 * Determinar cómo va a redirigir a los usuarios al nuevo servidor principal; por ejemplo, cambiar las cadenas de conexión o las entradas DNS.
 * Identificar y, de manera opcional, crear los inicios de sesión que deben estar presentes en la base de datos maestra del nuevo servidor principal, así como asegurarse de que tienen los permisos adecuados en la base de datos maestra, si procede. Para obtener más información, consulte [Administración de la seguridad de Azure SQL Database después de la recuperación ante desastres](sql-database-geo-replication-security-config.md)
@@ -58,10 +53,10 @@ En función de la tolerancia de la aplicación al tiempo de inactividad y de la 
 Use la opción [Get Recoverable Database](https://msdn.microsoft.com/library/dn800985.aspx) (Obtener base de datos recuperable) (*LastAvailableBackupDate*) para obtener el último punto de restauración de replicación geográfica.
 
 ## <a name="wait-for-service-recovery"></a>Espera para la recuperación del servicio
-Los equipos de Azure trabajan diligentemente para restaurar la disponibilidad del servicio lo antes posible, pero dependiendo de la causa principal pueden tardar horas, o incluso días.  Si la aplicación puede tolerar un tiempo de inactividad considerable, puede esperar hasta que se complete la recuperación. En este caso, no se requieren acciones por su parte. El estado actual del servicio se puede ver en el [panel de estado de los servicios de Azure](https://azure.microsoft.com/status/). Después de la recuperación de la región se restaurará la disponibilidad de su aplicación.
+Los equipos de Azure trabajan diligentemente para restaurar la disponibilidad del servicio lo antes posible, pero dependiendo de la causa principal pueden tardar horas, o incluso días.  Si la aplicación puede tolerar un tiempo de inactividad considerable, puede esperar hasta que se complete la recuperación. En este caso, no se requieren acciones por su parte. El estado actual del servicio se puede ver en el [panel de estado de los servicios de Azure](https://azure.microsoft.com/status/). Después de la recuperación de la región se restaura la disponibilidad de su aplicación.
 
 ## <a name="fail-over-to-geo-replicated-secondary-server-in-the-failover-group"></a>Conmutación por error en el servidor secundario de una replicación geográfica en el grupo de conmutación por error
-Si el tiempo de inactividad de la aplicación da lugar a responsabilidades civiles, le recomendamos que utilice grupos de conmutación por error. Esto permitirá que la aplicación restaure rápidamente la disponibilidad en una región diferente en caso de interrupción. Aprenda a [configurar los grupos de conmutación por error](sql-database-geo-replication-portal.md).
+Si el tiempo de inactividad de la aplicación da lugar a responsabilidades civiles, le recomendamos que use grupos de conmutación por error. Esto permite que la aplicación restaure rápidamente la disponibilidad en una región diferente en caso de interrupción. Aprenda a [configurar los grupos de conmutación por error](sql-database-geo-replication-portal.md).
 
 Para restaurar la disponibilidad de las bases de datos, es preciso iniciar la conmutación por error en el servidor secundario mediante uno de los métodos admitidos.
 
@@ -77,7 +72,7 @@ Si el tiempo de inactividad de la aplicación no da lugar a responsabilidades ci
 Si se usa la restauración geográfica para recuperarse tras una interrupción, hay que asegurarse de que la conectividad con las bases de datos nuevas está configurada correctamente para que se pueda reanudar el funcionamiento normal de la aplicación. Esta es una lista de comprobación de las tareas necesarias para que la producción de la base de datos recuperada esté lista.
 
 ### <a name="update-connection-strings"></a>Actualización de cadenas de conexión
-Dado que la base de datos recuperada residirá en otro servidor, es preciso que actualice la cadena de conexión de la aplicación para que apunte a dicho servidor.
+Dado que la base de datos recuperada reside en otro servidor, es preciso que actualice la cadena de conexión de la aplicación para que apunte a dicho servidor.
 
 Para obtener más información sobre cómo cambiar las cadenas de conexión, consulte el lenguaje de desarrollo adecuado para la [biblioteca de conexiones](sql-database-libraries.md).
 

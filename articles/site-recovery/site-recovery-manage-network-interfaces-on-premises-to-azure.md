@@ -1,26 +1,20 @@
 ---
-title: Administrar interfaces de red en Azure Site Recovery de escenarios locales a Azure | Microsoft Docs
-description: "Describe cómo administrar las interfaces de red de escenarios locales a Azure con Azure Site Recovery"
+title: Administración de interfaces de red en Azure Site Recovery para la replicación de local a Azure | Microsoft Docs
+description: Describe cómo administrar las interfaces de red para la replicación de local a Azure con Azure Site Recovery
 services: site-recovery
-documentationcenter: 
 author: mayanknayar
 manager: rochakm
-editor: 
-ms.assetid: 
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/05/2018
 ms.author: manayar
-ms.openlocfilehash: ab8582d9c32cf13bd7b21a59031af8fde58effbf
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: a0d42608dc689e5f084f4ec91858531feeac8033
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
-# <a name="manage-virtual-machine-network-interfaces-for-on-premises-to-azure-scenarios"></a>Administrar interfaces de red de máquinas virtuales de escenarios locales a Azure
+# <a name="manage-virtual-machine-network-interfaces-for-on-premises-to-azure-replication"></a>Administración de interfaces de red de máquina virtual para la replicación de local a Azure
 
 Una máquina virtual (VM) en Azure debe tener al menos una interfaz de red conectada. Puede tener tantas interfaces de red conectadas como admita el tamaño de la máquina virtual.
 
@@ -74,5 +68,5 @@ Puede modificar la subred y la dirección IP de las interfaces de red de un elem
 
 6. Seleccione **Guardar** para guardar todos los cambios.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
   [Obtenga más información](../virtual-network/virtual-network-network-interface-vm.md) sobre las interfaces de red para máquinas virtuales de Azure.

@@ -1,23 +1,21 @@
 ---
-title: Paso de un objeto JSON a un runbook de Azure Automation | Microsoft Docs
-description: "Procedimiento para pasar parámetros a un runbook como un objeto JSON"
+title: Paso de un objeto JSON a un runbook de Azure Automation
+description: Procedimiento para pasar parámetros a un runbook como un objeto JSON
 services: automation
-documentationcenter: dev-center-name
-author: georgewallace
-manager: carmonm
-keywords: powershell, runbook, json, azure automation
 ms.service: automation
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: powershell
-ms.workload: TBD
-ms.date: 06/15/2017
+author: georgewallace
 ms.author: gwallace
-ms.openlocfilehash: 5390ba34a25713aed84d6e778335e30f27c2b1f8
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.date: 03/16/2018
+ms.topic: article
+manager: carmonm
+ms.devlang: na
+ms.tgt_pltfrm: na
+keywords: powershell, runbook, json, azure automation
+ms.openlocfilehash: c5ceced9f37cb76c8c760a7f2d1c680f98e704c3
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="pass-a-json-object-to-an-azure-automation-runbook"></a>Paso de un objeto JSON a un runbook de Azure Automation
 
@@ -28,12 +26,11 @@ Para hacerlo, debe convertir el archivo JSON en una cadena y luego convertir est
 En este ejemplo, se creará un script de PowerShell que llamará a [Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx) para iniciar un runbook de PowerShell, pasando el contenido del archivo JSON al runbook.
 El runbook de PowerShell inicia una máquina virtual de Azure y se obtienen los parámetros de la máquina virtual desde el archivo JSON que se pasó.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Para completar este tutorial, necesitará lo siguiente:
 
 * Suscripción de Azure. Si aún no tiene ninguna, puede [activar las ventajas de la suscripción a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o <a href="/pricing/free-account/" target="_blank">[registrarse para obtener una cuenta gratis](https://azure.microsoft.com/free/).
-* 
-            [Cuenta de Automation](automation-sec-configure-azure-runas-account.md) para contener el Runbook y autenticarse en recursos de Azure.  Esta cuenta debe tener permiso para iniciar y detener la máquina virtual.
+* [Cuenta de Automation](automation-sec-configure-azure-runas-account.md) para contener el Runbook y autenticarse en recursos de Azure.  Esta cuenta debe tener permiso para iniciar y detener la máquina virtual.
 * Una máquina virtual de Azure. Detendremos e iniciaremos esta máquina, por lo que no debería ser una máquina virtual de producción.
 * Azure Powershell instalado en una máquina local. Consulte [Instalación y configuración de Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.1.0) para información sobre cómo obtener Azure PowerShell.
 

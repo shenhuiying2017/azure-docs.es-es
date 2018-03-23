@@ -1,8 +1,8 @@
 ---
-title: "Traslado de recursos de Azure a una nueva suscripción o grupo de recursos | Microsoft Docs"
-description: "Use Azure Resource Manager para trasladar recursos a un nuevo grupo de recursos o a una nueva suscripción."
+title: Traslado de recursos de Azure a una nueva suscripción o grupo de recursos | Microsoft Docs
+description: Use Azure Resource Manager para trasladar recursos a un nuevo grupo de recursos o a una nueva suscripción.
 services: azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6a1d56a270ae0c44db18f26091cc3c550a37e420
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: c4bf3871b4636ce769dd8d84a637b88d4a00db97
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción
 
@@ -99,7 +99,7 @@ Póngase en contacto con [soporte técnico](https://portal.azure.com/#blade/Micr
 * Traslade los recursos a una nueva cuenta de Azure (e inquilino de Azure Active Directory) y si necesita ayuda consulte las instrucciones de la sección anterior.
 * Trasladar recursos clásicos, pero que tienen problemas con las limitaciones.
 
-## <a name="services-that-enable-move"></a>Servicios que permiten el traslado
+## <a name="services-that-can-be-moved"></a>Servicios que se pueden mover
 
 Los servicios que permiten el traslado a un nuevo grupo de recursos y a una nueva suscripción son:
 
@@ -149,7 +149,7 @@ Los servicios que permiten el traslado a un nuevo grupo de recursos y a una nuev
 * Redes virtuales; vea [Limitaciones de las redes virtuales](#virtual-networks-limitations).
 * VPN Gateway
 
-## <a name="services-that-do-not-enable-move"></a>Servicios que no permiten el traslado
+## <a name="services-that-cannot-be-moved"></a>Recursos que no se pueden mover
 
 Los servicios que actualmente no permiten trasladar un recurso son:
 
@@ -307,7 +307,7 @@ Por ejemplo, suponga que ha configurado la replicación de las máquinas locales
 Procedimiento para mover una máquina virtual inscrita en **Azure Backup** entre grupos de recursos:
  1. Detenga temporalmente la copia de seguridad y conserve los datos de esta
  2. Traslade la máquina virtual al grupo de recursos de destino
- 3. Vuelva a protegerla en el mismo almacén o en otro nuevo. Los usuarios pueden restaurar desde los puntos de restauración disponibles creados antes de la operación de traslado.
+ 3. Vuelva a protegerla en el mismo almacén o en otro nuevo. Los usuarios pueden restaurar los puntos de restauración disponibles creados antes de la operación de traslado.
 Aunque el usuario traslade la máquina virtual de la que se ha realizado la copia de seguridad entre suscripciones, los pasos 1 y 2 serán los mismos. En el paso 3, el usuario necesita proteger la máquina virtual en un nuevo almacén presente o en uno creado en la suscripción de destino. El almacén de Recovery Services no admite copias de seguridad entre suscripciones.
 
 ## <a name="hdinsight-limitations"></a>Limitaciones de HDInsight

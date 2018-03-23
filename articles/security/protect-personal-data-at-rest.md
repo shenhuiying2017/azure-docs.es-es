@@ -1,32 +1,31 @@
 ---
 title: Datos personales de Azure Protect en reposo con cifrado | Microsoft Docs
-description: "Este artículo forma parte de una serie que ayuda a usar Azure para proteger datos personales."
+description: Este artículo se puede usar para cumplir con los requisitos gubernamentales o del sector, como el Reglamento general de protección de datos (RGPD).
 services: security
 documentationcenter: na
 author: Barclayn
 manager: MBaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/31/2017
+ms.date: 03/06/2018
 ms.author: barclayn
-ms.custom: 
-ms.openlocfilehash: 31e41f9befd9319115e5d147b473756486100c6e
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.custom: ''
+ms.openlocfilehash: 37da3d91df4be871d6647b6290768ea4999a5010
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-encryption-technologies-protect-personal-data-at-rest-with-encryption"></a>Tecnologías de cifrado de Azure: protección de datos personales en reposo con cifrado
 
 Este artículo le ayudará a entender y usar las tecnologías de cifrado de Azure para proteger datos en reposo.
 
-El cifrado de datos en reposo es un procedimiento recomendado fundamental para proteger datos confidenciales o personales y para cumplir los requisitos de cumplimiento normativo y privacidad de los datos.
-El cifrado en reposo está diseñado para evitar que el atacante obtenga acceso a los datos sin cifrar asegurándose de que los datos se cifran en el disco.
+El cifrado de datos en reposo es un procedimiento recomendado fundamental para proteger datos confidenciales o personales y para cumplir los requisitos de cumplimiento normativo y privacidad de los datos. El cifrado en reposo está diseñado para evitar que el atacante obtenga acceso a los datos sin cifrar asegurándose de que los datos se cifran en el disco. La información contenida en este artículo se puede usar para cumplir el Reglamento general de protección de datos (RGPD).
 
 ## <a name="scenario"></a>Escenario 
 

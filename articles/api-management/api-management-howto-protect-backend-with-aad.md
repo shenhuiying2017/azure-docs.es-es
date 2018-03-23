@@ -1,11 +1,11 @@
 ---
-title: "Protección de un back-end de API web con Azure Active Directory API Management | Microsoft Docs"
-description: "Obtenga información sobre cómo proteger un back-end de API web con Azure Active Directory y la administración de API"
+title: Protección de un back-end de API web con Azure Active Directory API Management | Microsoft Docs
+description: Obtenga información sobre cómo proteger un back-end de API web con Azure Active Directory y la administración de API
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 2a5be24aba8a675290045b282cc64dda4b7c594e
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: b7fc48412799aea0c4bba971102b4912dbb18e05
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Cómo proteger un back-end de API web con Azure Active Directory y la administración de API
 
@@ -179,7 +179,7 @@ Las API se configuran desde el portal para editores de API al que se accede a tr
 
 ![Portal del publicador][api-management-management-console]
 
-Las operaciones se puede [agregar a las API manualmente](api-management-howto-add-operations.md)o se pueden importar. En este vídeo, las operaciones se importan en formato Swagger empezando en 6:40.
+Las operaciones se puede [agregar a las API manualmente](api-management-howto-add-operations.md)o se pueden importar.
 
 Cree un archivo denominado `calcapi.json` con el siguiente contenido y guárdelo en el equipo. Asegúrese de que el atributo `host` señala a su back-end de API web. En este ejemplo, se usa `"host": "apimaaddemo.azurewebsites.net"`.
 

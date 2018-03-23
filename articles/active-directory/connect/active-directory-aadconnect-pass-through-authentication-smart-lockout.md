@@ -1,9 +1,9 @@
 ---
-title: "Azure AD Connect: Autenticación de paso a través - Bloqueo inteligente | Microsoft Docs"
-description: "En este artículo se describe cómo la autenticación de paso a través de Azure Active Directory (Azure AD) protege las cuentas locales de ataques por fuerza bruta de contraseñas en la nube."
+title: 'Azure AD Connect: Autenticación de paso a través - Bloqueo inteligente | Microsoft Docs'
+description: En este artículo se describe cómo la autenticación de paso a través de Azure Active Directory (Azure AD) protege las cuentas locales de ataques por fuerza bruta de contraseñas en la nube.
 services: active-directory
-keywords: "Autenticación de paso a través de Azure AD Connect, instalación de Active Directory, componentes necesarios para Azure AD, SSO, inicio de sesión único"
-documentationcenter: 
+keywords: Autenticación de paso a través de Azure AD Connect, instalación de Active Directory, componentes necesarios para Azure AD, SSO, inicio de sesión único
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -12,19 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 03/07/2018
 ms.author: billmath
-ms.openlocfilehash: fc46fe1d68538757ba5a8c5aa1acb4b51f8a171b
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 9477d47824213d7ea15bcf6c6b615a220bae2e48
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-smart-lockout"></a>Autenticación de paso a través de Azure Active Directory: Bloqueo inteligente
 
 ## <a name="overview"></a>Información general
 
-Azure Active Directory (Azure AD) protege frente a los ataques de contraseña por fuerza bruta e impide que se bloquee a los usuarios legítimos de sus aplicaciones de Office 365 y SaaS. Esta capacidad, denominada *Bloqueo inteligente*, se admite cuando se usa la autenticación de paso a través como método de inicio de sesión. El bloqueo inteligente está habilitado de forma predeterminada para todos los inquilinos y protege continuamente las cuentas de usuario.
+Azure Active Directory (Azure AD) protege frente a los ataques de contraseña por fuerza bruta e impide que se bloquee a los usuarios legítimos de sus aplicaciones de Office 365 y SaaS. Esta capacidad, denominada *Bloqueo inteligente*, se admite cuando se usa la autenticación de paso a través como método de inicio de sesión. El bloqueo inteligente está habilitado de manera predeterminada para todos los inquilinos, no solo para los inquilinos que usan la autenticación de paso a través, y protege continuamente las cuentas de usuario.
 
 Además, realiza un seguimiento de los intentos de inicio de sesión fallidos. Después de un determinado *umbral de bloqueo*, se inicia una *duración de bloqueo*. El bloqueo inteligente rechaza los intentos de inicio de sesión del atacante durante la duración del bloqueo. Si el ataque continúa, los errores de inicio de sesión que se produzcan tras finalizar la duración del bloqueo generan una duración del bloqueo más larga.
 
@@ -57,10 +57,10 @@ Siga las instrucciones siguientes para comprobar las directivas de bloqueo de cu
 
 ![Directivas de bloqueo de cuenta de Active Directory](./media/active-directory-aadconnect-pass-through-authentication/pta5.png)
 
-## <a name="use-the-graph-api-to-manage-your-tenants-smart-lockout-values-requires-a-premium-license"></a>Uso de la API Graph para administrar los valores de bloqueo inteligente del inquilino (requiere una licencia Premium)
+## <a name="use-the-graph-api-to-manage-your-tenants-smart-lockout-values-requires-a-premium-license"></a>Uso de Graph API para administrar los valores de bloqueo inteligente del inquilino (requiere una licencia Premium)
 
 >[!IMPORTANT]
->La modificación de los valores de umbral y duración de bloqueo de Azure AD mediante la API Graph es una característica de Azure AD Premium P2. También debe ser administrador global en su inquilino.
+>La modificación de los valores de umbral y duración de bloqueo de Azure AD mediante Graph API es una característica de Azure AD Premium P2. También debe ser administrador global en su inquilino.
 
 Puede usar el [Probador de Graph](https://developer.microsoft.com/graph/graph-explorer) para leer, establecer y actualizar los valores de bloqueo inteligente de Azure AD. También puede realizar estas operaciones mediante programación.
 
@@ -70,7 +70,7 @@ Siga estos pasos para ver los valores de bloqueo inteligente de su inquilino:
 
 1. Inicie sesión en el Probador de Graph como administrador global del inquilino. Si se le solicita, conceda acceso para los permisos solicitados.
 2. Haga clic en **Modificar permisos** y seleccione el permiso **Directory.ReadWrite.All**.
-3. Configure la solicitud de la API Graph de este modo: establezca la versión en **BETA**, el tipo de solicitud en **GET** y la dirección URL en `https://graph.microsoft.com/beta/<your-tenant-domain>/settings`.
+3. Configure la solicitud de Graph API de este modo: establezca la versión en **BETA**, el tipo de solicitud en **GET** y la dirección URL en `https://graph.microsoft.com/beta/<your-tenant-domain>/settings`.
 4. Haga clic en **Ejecutar consulta** para ver los valores de bloqueo inteligente del inquilino. Si no ha establecido los valores del inquilino antes, verá un conjunto vacío.
 
 ### <a name="set-smart-lockout-values"></a>Establecer valores de bloqueo de inteligente
@@ -79,7 +79,7 @@ Siga estos pasos para establecer los valores de bloqueo inteligente del inquilin
 
 1. Inicie sesión en el Probador de Graph como administrador global del inquilino. Si se le solicita, conceda acceso para los permisos solicitados.
 2. Haga clic en **Modificar permisos** y seleccione el permiso **Directory.ReadWrite.All**.
-3. Configure la solicitud de la API Graph de este modo: establezca la versión en **BETA**, el tipo de solicitud en **POST** y la dirección URL en `https://graph.microsoft.com/beta/<your-tenant-domain>/settings`.
+3. Configure la solicitud de Graph API de este modo: establezca la versión en **BETA**, el tipo de solicitud en **POST** y la dirección URL en `https://graph.microsoft.com/beta/<your-tenant-domain>/settings`.
 4. Copie y pegue la siguiente solicitud JSON en el campo **Cuerpo de la solicitud**.
 5. Haga clic en **Ejecutar consulta** para establecer los valores de bloqueo inteligente del inquilino.
 
@@ -119,7 +119,7 @@ Siga estos pasos para actualizar los valores de bloqueo inteligente del inquilin
 1. Inicie sesión en el Probador de Graph como administrador global del inquilino. Si se le solicita, conceda acceso para los permisos solicitados.
 2. Haga clic en **Modificar permisos** y seleccione el permiso **Directory.ReadWrite.All**.
 3. [Siga estos pasos para ver los valores de bloqueo inteligente de su inquilino](#view-smart-lockout-values). Copie el valor `id` (GUID) del elemento con **displayName** como **PasswordRuleSettings**.
-4. Configure la solicitud de la API Graph de este modo: establezca la versión en **BETA**, el tipo de solicitud en **PATCH** y la dirección URL en `https://graph.microsoft.com/beta/<your-tenant-domain>/settings/<id>`. Use el GUID del paso 3 para `<id>`.
+4. Configure la solicitud de Graph API de este modo: establezca la versión en **BETA**, el tipo de solicitud en **PATCH** y la dirección URL en `https://graph.microsoft.com/beta/<your-tenant-domain>/settings/<id>`. Use el GUID del paso 3 para `<id>`.
 5. Copie y pegue la siguiente solicitud JSON en el campo **Cuerpo de la solicitud**. Cambie los valores de bloqueo inteligente según corresponda.
 6. Haga clic en **Ejecutar consulta** para actualizar los valores de bloqueo inteligente del inquilino.
 
@@ -148,5 +148,5 @@ Siga estos pasos para actualizar los valores de bloqueo inteligente del inquilin
 
 Compruebe que haya actualizado correctamente los valores de bloqueo inteligente del inquilino mediante los pasos que se describen en [Ver los valores de Bloqueo inteligente](#view-smart-lockout-values).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): use el foro de Azure Active Directory para solicitar nuevas características.

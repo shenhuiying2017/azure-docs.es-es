@@ -1,11 +1,11 @@
 ---
-title: "Creación de vistas para analizar datos en Azure Log Analytics | Microsoft Docs"
-description: "Con el uso del Diseñador de vistas en Log Analytics se pueden crear vistas personalizadas que se muestran en Azure Portal y que contienen diferentes visualizaciones de datos en el área de trabajo de Log Analytics. En este artículo encontrará información general del Diseñador de vistas, y procedimientos para crear y editar vistas personalizadas."
+title: Creación de vistas para analizar datos en Azure Log Analytics | Microsoft Docs
+description: Con el uso del Diseñador de vistas en Log Analytics se pueden crear vistas personalizadas que se muestran en Azure Portal y que contienen diferentes visualizaciones de datos en el área de trabajo de Log Analytics. En este artículo encontrará información general del Diseñador de vistas, y procedimientos para crear y editar vistas personalizadas.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
-editor: 
+editor: ''
 ms.assetid: ce41dc30-e568-43c1-97fa-81e5997c946a
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: bwren
-ms.openlocfilehash: 08d0e557f03f771901c9ac92fb080e74e5966452
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d63d47c39054230307416e24ed1c8295fbf68d93
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-custom-views-by-using-view-designer-in-log-analytics"></a>Creación de vistas personalizadas mediante el uso del Diseñador de vistas en Log Analytics
 Con el uso del Diseñador de vistas en [Azure Log Analytics](log-analytics-overview.md), puede crear una variedad de vistas personalizadas en Azure Portal que pueden ayudarle a visualizar datos en el área de trabajo de Log Analytics. Este artículo presenta una información general sobre Diseñador de vistas y los procedimientos para crear y editar vistas personalizadas.
@@ -28,8 +28,6 @@ Para más información acerca del Diseñador de vistas, consulte:
 * [Referencia de los iconos](log-analytics-view-designer-tiles.md): proporciona una guía de referencia de la configuración de cada uno de los iconos disponibles en las vistas personalizadas.
 * [Referencia de los elementos de visualización](log-analytics-view-designer-parts.md): proporciona una guía de referencia de la configuración de los elementos de visualización que están disponibles en las vistas personalizadas.
 
->[!NOTE]
-> Si el área de trabajo se ha actualizado al [nuevo lenguaje de consulta de Log Analytics](log-analytics-log-search-upgrade.md), las consultas de todas las vistas se tienen que escribir en el [nuevo lenguaje de consulta](https://go.microsoft.com/fwlink/?linkid=856078). Todas las vistas que se crearon antes de actualizar el área de trabajo se convertirán automáticamente.
 
 ## <a name="concepts"></a>Conceptos
 Las vistas aparecen en la página de **información general** del área de trabajo de Log Analytics en Azure Portal. Los iconos de cada vista personalizada se mostrarán en orden alfabético, y los iconos de las soluciones se instalan en la misma área de trabajo.
@@ -107,6 +105,6 @@ Las opciones para trabajar con vistas en modo de edición se describen en la tab
 | Clon       | Crea una vista nueva y la abre en el Diseñador de vistas. La vista nueva tiene el mismo nombre que la original con la palabra *Copy* agregada al final. |
 | Publicar     | Exporte la vista a un archivo JSON que se pueda insertar en una [solución de administración](../operations-management-suite/operations-management-suite-solutions-resources-views.md). El nombre de archivo es el mismo que el nombre de la vista, pero con una extensión *json*. Se crea un segundo archivo con la extensión *resjson* que incluye los valores para los recursos que están definidos en el archivo JSON.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Agregue [iconos](log-analytics-view-designer-tiles.md) a la vista personalizada.
 * Agregue [elementos de visualización](log-analytics-view-designer-parts.md) a la vista personalizada.

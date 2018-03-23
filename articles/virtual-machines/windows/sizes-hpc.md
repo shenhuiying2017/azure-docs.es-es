@@ -1,25 +1,25 @@
 ---
-title: "Tamaños de las máquinas virtuales Windows en Azure | Microsoft Docs"
-description: "Enumera los tamaños diferentes disponibles para las máquinas virtuales de informática de alto rendimiento Windows en Azure. Se proporciona información sobre el número de unidades vCPU, discos de datos y NIC, así como sobre el rendimiento de almacenamiento y el ancho de banda de red para los tamaños de esta serie."
+title: Tamaños de las máquinas virtuales Windows en Azure | Microsoft Docs
+description: Enumera los tamaños diferentes disponibles para las máquinas virtuales de informática de alto rendimiento Windows en Azure. Se proporciona información sobre el número de unidades vCPU, discos de datos y NIC, así como sobre el rendimiento de almacenamiento y el ancho de banda de red para los tamaños de esta serie.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: jonbeck7
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager,azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/21/2018
+ms.date: 03/15/2018
 ms.author: jonbeck
-ms.openlocfilehash: dfeb6b0cbd74ff5a5b11b730c6413df189096ab8
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 6f2c72689811d26f95a64fdf5f473606f3ea3f7d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="high-performance-compute-vm-sizes"></a>Tamaños de máquina virtual de informática de alto rendimiento
 
@@ -29,16 +29,8 @@ ms.lasthandoff: 02/22/2018
 
 [!INCLUDE [virtual-machines-common-a8-a9-a10-a11-specs](../../../includes/virtual-machines-common-a8-a9-a10-a11-specs.md)]
 
-## <a name="rdma-capable-instances"></a>Instancias compatibles con RDMA
-Un subconjunto de las instancias de proceso intensivo (H16r, H16mr, A8 y A9) incluye una interfaz de red para la conectividad de acceso directo a memoria remota (RDMA). Esta interfaz se añade a la interfaz de red estándar de Azure disponible para otros tamaños de máquina virtual. 
-  
-Esta interfaz permite que las instancias compatibles con RDMA se comuniquen través de una red InfiniBand, funcionando a velocidades FDR para máquinas virtuales H16r y H16mr y QDR para máquinas virtuales A8 y A9. Estas funcionalidades RDMA pueden mejorar la escalabilidad y el rendimiento de las aplicaciones de la Interfaz de paso de mensajes (MPI).
-
-Estos son los requisitos para máquinas virtuales Windows compatibles con RDMA para acceder a la red RDMA de Azure: 
 
 * **Sistema operativo**: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
-
-* **Conjunto de disponibilidad o servicio en la nube**: implemente las máquinas virtuales compatibles con RDMA en el mismo conjunto de disponibilidad (si utiliza el modelo de implementación de Azure Resource Manager) o en el mismo servicio en la nube (si utiliza el modelo de implementación clásica). Si utiliza Azure Batch, las máquinas virtuales compatibles con RDMA deben ser del mismo grupo.
 
 * **MPI** : Microsoft MPI (MS-MPI) 2012 R2 o versiones posteriores, MPI Intel Library 5.x.
 
@@ -64,7 +56,6 @@ Estos son los requisitos para máquinas virtuales Windows compatibles con RDMA p
 
 
 
-
 ## <a name="other-sizes"></a>Otros tamaños
 - [Uso general](sizes-general.md)
 - [Proceso optimizado](sizes-compute.md)
@@ -72,7 +63,7 @@ Estos son los requisitos para máquinas virtuales Windows compatibles con RDMA p
 - [Almacenamiento optimizado](../virtual-machines-windows-sizes-storage.md)
 - [GPU optimizada](sizes-gpu.md)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Para ver listas de comprobación para usar instancias de proceso intensivo con HPC Pack en Windows Server, consulte [Configuración de un clúster de Windows RDMA con HPC Pack para ejecutar aplicaciones MPI](classic/hpcpack-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 

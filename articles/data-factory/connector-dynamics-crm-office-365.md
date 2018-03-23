@@ -1,8 +1,8 @@
 ---
 title: Copia de datos desde y hacia Dynamics CRM o Dynamics 365 mediante Azure Data Factory | Microsoft Docs
-description: "Aprenda a copiar datos desde Microsoft Dynamics CRM o Microsoft Dynamics 365, a almacenes de datos receptores compatibles, o bien desde almacenes de datos de origen compatibles a Dynamics CRM o Dynamics 365 a través de una actividad de copia en una canalización de Azure Data Factory."
+description: Aprenda a copiar datos desde Microsoft Dynamics CRM o Microsoft Dynamics 365, a almacenes de datos receptores compatibles, o bien desde almacenes de datos de origen compatibles a Dynamics CRM o Dynamics 365 a través de una actividad de copia en una canalización de Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
 manager: jhubbard
 editor: spelluru
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: b00c594f87a3126bd3f1548cd904adffcb214031
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: dc0b01e23ebb2695fd0365f054b3cacd2573f3c6
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="copy-data-from-and-to-dynamics-365-or-dynamics-crm-by-using-azure-data-factory"></a>Copia de datos desde y hacia Dynamics 365 o Dynamics CRM mediante Azure Data Factory
 
@@ -185,7 +185,7 @@ Para copiar datos desde y hacia Dynamics, establezca la propiedad type del conju
                 "type": "Datetime"
             }
         ],
-        "typePoperties": {
+        "typeProperties": {
             "entityName": "account"
         },
         "linkedServiceName": {

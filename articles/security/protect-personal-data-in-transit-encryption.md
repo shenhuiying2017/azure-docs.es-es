@@ -1,31 +1,29 @@
 ---
-title: "Protección de datos personales en tránsito con cifrado en Azure | Microsoft Docs"
-description: Uso de cifrado en Azure para proteger datos personales
+title: Protección de datos personales en tránsito con cifrado en Azure | Microsoft Docs
+description: La información sobre el cifrado de Azure para proteger los datos personales puede ser útil en los esfuerzos de cumplir el Reglamento general de protección de datos (RGPD).
 services: security
 documentationcenter: na
 author: Barclayn
 manager: MBaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 03/06/2018
 ms.author: barclayn
-ms.custom: 
-ms.openlocfilehash: 461ddfda796bfe6639e27f6c4cd53e82b4e397d1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: ''
+ms.openlocfilehash: 6975358d40206a497a53de16731d16ef374db905
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-encryption-technologies-protect-personal-data-in-transit-with-encryption"></a>Tecnologías de cifrado de Azure: protección de datos personales en tránsito con cifrado
 
-Este artículo le ayudará a entender y usar las tecnologías de cifrado de Azure para proteger datos en tránsito. 
-
-La protección de la privacidad de los datos personales mientras circulan por la red constituye una parte fundamental de una estrategia de seguridad de defensa en profundidad de varias capas. El cifrado en tránsito se ha diseñado para impedir que un atacante que intercepte transmisiones pueda ver o usar los datos.
+Este artículo le ayudará a entender y usar las tecnologías de cifrado de Azure para proteger datos en tránsito. La protección de la privacidad de los datos personales mientras circulan por la red constituye una parte fundamental de una estrategia de seguridad de defensa en profundidad de varias capas. El cifrado en tránsito se ha diseñado para impedir que un atacante que intercepte transmisiones pueda ver o usar los datos. La información contenida en este artículo puede ser útil en los esfuerzos de una organización de cumplir el Reglamento general de protección de datos (RGPD).
 
 ## <a name="scenario"></a>Escenario
 
@@ -173,7 +171,7 @@ Microsoft recomienda que siempre use protocolos SSL/TLS para intercambiar datos 
 
 ### <a name="encryption-by-default"></a>Cifrado de forma predeterminada
 
-Microsoft usa el cifrado para proteger datos en tránsito entre los clientes y Azure Cloud Services. Si interactúa con el Almacenamiento de Azure a través del Portal de Azure, todas las transacciones se realizan a través de HTTPS.
+Microsoft usa el cifrado para proteger datos en tránsito entre los clientes y Azure Cloud Services. Si interactúa con Azure Storage a través de Azure Portal, todas las transacciones se realizan a través de HTTPS.
 
 [Seguridad de la capa de transporte](https://en.wikipedia.org/wiki/Transport_Layer_Security) (TLS) es el protocolo que los centros de datos de Microsoft intentarán negociar con aquellos sistemas cliente conectados a Servicios en la nube de Microsoft. TLS proporciona una autenticación sólida, privacidad de mensajes e integridad (lo que permite la detección de la manipulación, interceptación y falsificación de mensajes), interoperabilidad, flexibilidad de algoritmo y facilidad de implementación y uso.
 

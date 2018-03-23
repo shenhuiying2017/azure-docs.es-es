@@ -1,26 +1,19 @@
 ---
-title: "Obtención de valores para la autenticación de aplicaciones: Azure SQL Database | Microsoft Docs"
-description: "Cree una entidad de servicio para tener acceso a SQL Database desde el código."
+title: 'Obtención de valores para la autenticación de aplicaciones: Azure SQL Database | Microsoft Docs'
+description: Cree una entidad de servicio para tener acceso a SQL Database desde el código.
 services: sql-database
-documentationcenter: 
 author: stevestein
 manager: jhubbard
-editor: 
-tags: 
-ms.assetid: b43e43bb-6660-49e6-b069-abde97eb5770
 ms.service: sql-database
 ms.custom: develop apps
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Inactive
 ms.date: 09/30/2016
 ms.author: sstein
-ms.openlocfilehash: e76144bcb65da992c6d723d7333b4db8aa1ca488
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: e907edc98228ecab645e63f5e38094e3a04812de
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-the-required-values-for-authenticating-an-application-to-access-sql-database-from-code"></a>Obtención de los valores necesarios para autenticar una aplicación para obtener acceso a SQL Database desde el código
 Para crear y administrar SQL Database desde el código debe registrar la aplicación en el dominio de Azure Active Directory (AAD) en la suscripción donde se han creado los recursos de Azure.
@@ -71,7 +64,7 @@ El siguiente script de PowerShell crea la aplicación de Active Directory (AD) y
 
 
 
-## <a name="see-also"></a>Consulte también
+## <a name="see-also"></a>Otras referencias
 * [Creación de una Base de datos SQL con C#](sql-database-get-started-csharp.md)
-* [Conexión a Base de datos SQL mediante autenticación de Azure Active Directory](sql-database-aad-authentication.md)
+* [Conexión a SQL Database mediante autenticación de Azure Active Directory](sql-database-aad-authentication.md)
 

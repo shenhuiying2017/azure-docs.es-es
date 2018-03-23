@@ -1,12 +1,12 @@
 ---
-title: "Introducción a Azure Load Balancer Standard | Microsoft Docs"
-description: "Introducción a las características de Azure Load Balancer Standard"
+title: Introducción a Azure Load Balancer Standard | Microsoft Docs
+description: Introducción a las características de Azure Load Balancer Standard
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2018
 ms.author: kumud
-ms.openlocfilehash: ddbfb415f062396f022f0f58cb975f6e3a5f1807
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 7e4fa38145ac21aaca8efa37250cc32ef1b1655c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-load-balancer-standard-overview-preview"></a>Introducción a Azure Load Balancer estándar (versión preliminar)
 
@@ -327,7 +327,7 @@ Las SKU no son mutables. Siga los pasos de esta sección para cambiar de una SKU
 
 ## <a name="region-availability"></a>Disponibilidad en regiones
 
-Load Balancer estándar está disponible actualmente en todas las regiones de la nube pública.
+Load Balancer estándar está disponible actualmente en todas las regiones de la nube pública, excepto Oeste de EE. UU.
 
 >[!IMPORTANT]
 > Durante un breve período de tiempo, el acceso a regiones no incluidas en el lanzamiento inicial (Este de EE. UU. 2, Centro de EE. UU., Europa del Norte, Centro Occidental de EE. UU., Europa Occidental, Sudeste Asiático) requerirá el registro de características de suscripción adicionales (AllowLBPreviewWave2 y AllowLBPreviewWave3).  [Siga los pasos que se indican a continuación](#additionalpreviewregions). Ejecute todas las características, incluso si ya se registró en AllowLBPreview.
@@ -467,6 +467,7 @@ Las siguientes limitaciones se aplican al periodo de versión preliminar y está
 - [Las alertas de Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-alerts.md) no son compatibles en estos momentos.
 - El portal aún no es compatible con las regiones de versión preliminar ampliadas.  Para solucionar el problema, use herramientas cliente, como, por ejemplo, plantillas, la CLI 2.0 de Azure o PowerShell.
 - No es posible mover las operaciones de suscripción.
+- No está disponible en Oeste de EE. UU.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

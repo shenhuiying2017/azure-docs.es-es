@@ -1,24 +1,24 @@
 ---
-title: "Configuración de directivas de entrega de recursos con el SDK de .NET | Microsoft Docs"
-description: "En este tema se muestra cómo configurar distintas directivas de entrega de recursos con .NET SDK de Azure Media Services."
+title: Configuración de directivas de entrega de recursos con el SDK de .NET | Microsoft Docs
+description: En este tema se muestra cómo configurar distintas directivas de entrega de recursos con .NET SDK de Azure Media Services.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Mingfeiy
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 3ec46f58-6cbb-4d49-bac6-1fd01a5a456b
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/13/2017
-ms.author: juliako;mingfeiy
-ms.openlocfilehash: 515467fefe9b318900ed64979d950b0ab783fd4a
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.date: 03/05/2018
+ms.author: juliako
+ms.openlocfilehash: 8fe78d2d8cef1ee5484bcdcd83b00afe8e5b30ce
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="configure-asset-delivery-policies-with-net-sdk"></a>Configuración de directivas de entrega de recursos con el SDK de .NET
 [!INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
@@ -32,7 +32,6 @@ En este artículo se explica por qué y cómo crear y configurar directivas de e
 >Cuando se crea una cuenta de AMS, se agrega un punto de conexión de streaming **predeterminado** a la cuenta en estado **Stopped** (Detenido). Para iniciar la transmisión del contenido y aprovechar el empaquetado dinámico y el cifrado dinámico, el punto de conexión de streaming desde el que va a transmitir el contenido debe estar en estado **Running** (En ejecución). 
 >
 >Además, para poder usar el empaquetado dinámico y el cifrado dinámico, el recurso debe contener un conjunto de archivos MP4 de velocidad de bits adaptable o archivos Smooth Streaming de velocidad de bits adaptable.
-
 
 Puede aplicar diferentes directivas al mismo recurso. Por ejemplo, puede aplicar cifrado PlayReady a Smooth Streaming y cifrado de sobre AES a MPEG DASH y HLS. Se bloqueará la transmisión para todos los protocolos que no estén definidos en una directiva de entrega (por ejemplo, si agrega una sola directiva que solo especifica HLS como el protocolo). La excepción se produce en el caso de que no haya definido ninguna directiva de entrega de recursos. En tal caso, todos los protocolos estarán habilitados sin cifrar.
 
@@ -54,9 +53,8 @@ MPEG DASH
 
 {nombre de extremo de streaming-nombre de cuenta de servicios multimedia}.streaming.mediaservices.windows.net/{Id. de localizador}/{nombre de archivo}.ism/Manifest(formato=mpd-time-csf)
 
-
 ## <a name="considerations"></a>Consideraciones
-* No puede eliminar una entidad AssetDeliveryPolicy asociada a un activo mientras hay un localizador OnDemand (transmisión) para ese activo. Se recomienda quitar la directiva del activo antes de eliminar la directiva.
+* Antes de eliminar AssetDeliveryPolicy, debe eliminar todos los localizadores de streaming asociados con el recurso. Posteriormente, puede crear localizadores de streaming nuevos si así lo desea, con una AssetDeliveryPolicy nueva.
 * No se puede crear un localizador de transmisión en un activo cifrado de almacenamiento cuando no se establece ninguna directiva de entrega de activos.  Si el activo no está cifrado para almacenamiento, el sistema le permitirá crear un localizador y transmitir el activo sin cifrar, sin una directiva de entrega de activos.
 * Puede tener varias directivas de entrega de activos asociadas a un único activo, pero solo se puede especificar una forma de controlar un AssetDeliveryProtocol determinado,  es decir, si intenta vincular dos directivas de entrega que especifican el protocolo AssetDeliveryProtocol.SmoothStreaming que producirá un error porque el sistema no sabe cuál quiere que aplique cuando un cliente realiza una solicitud de Smooth Streaming.
 * Si tiene un activo con un localizador de transmisión existente, no puede vincular una nueva directiva al activo (puede desvincular una directiva existente del activo o actualizar una directiva de entrega asociada al activo).  Primero debe quitar el localizador de transmisión, ajustar las directivas y volver a crear el localizador de transmisión.  Puede usar el mismo locatorId al volver a crear el localizador de transmisión, pero debe asegurarse de que no causará problemas para los clientes ya que se puede almacenar en caché el contenido por el origen o una red CDN de nivel inferior.

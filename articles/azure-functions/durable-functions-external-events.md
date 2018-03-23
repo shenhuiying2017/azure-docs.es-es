@@ -1,12 +1,12 @@
 ---
 title: 'Control de eventos externos con Durable Functions: Azure'
-description: "Aprenda a controlar eventos externos en la extensión Durable Functions para Azure Functions."
+description: Aprenda a controlar eventos externos en la extensión Durable Functions para Azure Functions.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 1f581be0abaff542285abc0d4c2f4bffe7281d20
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 5ffbe6a7d74f0be2193d711d304f19e62ab08741
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="handling-external-events-in-durable-functions-azure-functions"></a>Control de eventos externos con Durable Functions (Azure Functions)
 
@@ -122,13 +122,13 @@ Internamente, `RaiseEventAsync` pone en cola un mensaje que recoge la función d
 > [!WARNING]
 > Si no hay ninguna instancia de orquestación con el *identificador de instancia* especificado o si la instancia no está esperando el *nombre de evento* especificado, se descarta el mensaje de evento. Para más información acerca de este comportamiento, consulte el [problema de GitHub](https://github.com/Azure/azure-functions-durable-extension/issues/29).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Más información acerca de cómo configurar orquestaciones infinitas](durable-functions-eternal-orchestrations.md)
 
 > [!div class="nextstepaction"]
-> [Ejecutar un ejemplo que espera eventos externos](durable-functions-counter.md)
+> [Ejecutar un ejemplo que espera eventos externos](durable-functions-phone-verification.md)
 
 > [!div class="nextstepaction"]
 > [Ejecutar un ejemplo que espera interacción humana](durable-functions-phone-verification.md)

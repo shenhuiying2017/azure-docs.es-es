@@ -1,31 +1,26 @@
 ---
-title: "Actualización a la última biblioteca de cliente de base de datos elástica | Microsoft Docs"
-description: "Use Nuget para actualizar la biblioteca de cliente de base de datos elástica."
+title: Actualización a la última biblioteca de cliente de base de datos elástica | Microsoft Docs
+description: Use Nuget para actualizar la biblioteca de cliente de base de datos elástica.
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: ddove
-ms.assetid: 0a546510-76e7-465e-9271-f15ff0cfa959
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
-ms.author: ddove
-ms.openlocfilehash: 62609f2488a01d9b406c6b730c53ecc9f9b6ea1b
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.author: sstein
+ms.openlocfilehash: 54ddde10935fa5add07aaf0c514cf48c6115678e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="upgrade-an-app-to-use-the-latest-elastic-database-client-library"></a>Actualización de una aplicación para usar la biblioteca de cliente de base de datos elástica más reciente
-Las nuevas versiones de la [biblioteca de cliente de base de datos elástica](sql-database-elastic-database-client-library.md) están disponibles a través de NuGet y de la interfaz del Administrador de paquetes NuGet en Visual Studio. Las actualizaciones contienen correcciones de errores y compatibilidad para nuevas capacidades de la biblioteca de clientes.
+Las nuevas versiones de la [biblioteca de cliente de Elastic Database](sql-database-elastic-database-client-library.md) están disponibles a través de NuGet y de la interfaz del Administrador de paquetes NuGet en Visual Studio. Las actualizaciones contienen correcciones de errores y compatibilidad para nuevas capacidades de la biblioteca de clientes.
 
 **Para obtener la última versión** : vaya a [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
 
-Vuelve a generar la aplicación con la nueva biblioteca, así como cambiar los metadatos de administrador de asignación de particiones existentes almacenados en sus bases de datos SQL de Azure para admitir nuevas características.
+Vuelve a generar la aplicación con la nueva biblioteca, así como cambiar los metadatos de administrador de asignación de particiones existentes almacenados en sus instancias de Azure SQL Database para admitir nuevas características.
 
 Al realizar estos pasos de actualización en orden se asegura de que las versiones anteriores de la biblioteca de cliente ya no está presentes en el entorno cuando se actualizan los objetos de metadatos, lo que significa que no se crearán objetos de metadatos de la antigua versión después de la actualización.   
 
@@ -42,7 +37,7 @@ Al realizar estos pasos de actualización en orden se asegura de que las version
 
 **3. Actualice el servicio de división y combinación.** Si usa la herramienta de división y combinación de la base de datos elástica para reorganizar datos particionados, [descargue e implemente la versión más reciente de la herramienta](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/). Encontrará pasos detallados para la actualización del servicio [aquí](sql-database-elastic-scale-overview-split-and-merge.md). 
 
-**4. Actualice las bases de datos de Shard Map Manager**. Actualice los metadatos compatibles con sus asignaciones de partición en la base de datos SQL de Azure.  Hay dos maneras de hacerlo, mediante PowerShell o C#. Ambas opciones se muestran a continuación.
+**4. Actualice las bases de datos de Shard Map Manager**. Actualice los metadatos compatibles con sus asignaciones de partición en Azure SQL Database.  Hay dos maneras de hacerlo, mediante PowerShell o C#. Ambas opciones se muestran a continuación.
 
 ***Opción 1: actualizar los metadatos mediante PowerShell***
 

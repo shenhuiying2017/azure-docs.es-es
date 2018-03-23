@@ -1,11 +1,11 @@
 ---
-title: "Migración de un almacenamiento de datos de Azure existente a Premium Storage | Microsoft Docs"
+title: Migración de un almacenamiento de datos de Azure existente a Premium Storage | Microsoft Docs
 description: Instrucciones para migrar un almacenamiento de datos existente a Premium Storage
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
 manager: barbkess
-editor: 
+editor: ''
 ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: migrate
-ms.date: 11/29/2016
+ms.date: 03/15/2018
 ms.author: elbutter;barbkess
-ms.openlocfilehash: 751f553c277cec579327771beb2f3256664452b1
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 3b43bc17b7f9cf80a9520c5c573be3a48d82e4e7
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="migrate-your-data-warehouse-to-premium-storage"></a>Migración del almacenamiento de datos a Premium Storage
 Azure SQL Data Warehouse ha introducido recientemente [Premium Storage para poder predecir el rendimiento de manera más eficaz][premium storage for greater performance predictability]. El almacenamiento de datos existente en el almacenamiento estándar se puede migrar a Premium Storage. Puede aprovechar las ventajas de la migración automática, o si desea controlar cuándo realizar la migración (que implica cierto tiempo de inactividad), puede realizar la migración manualmente.
@@ -31,13 +31,13 @@ Si creó un almacenamiento de datos antes de las fechas siguientes, significa qu
 
 | **Región** | **Almacenamiento de datos creado antes de esta fecha** |
 |:--- |:--- |
-| Australia Oriental |Premium Storage no está disponible todavía |
+| Australia Oriental |1 de enero de 2018 |
 | Este de China |1 de noviembre de 2016 |
 | Norte de China |1 de noviembre de 2016 |
 | Centro de Alemania |1 de noviembre de 2016 |
 | Noreste de Alemania |1 de noviembre de 2016 |
-| India occidental |Premium Storage no está disponible todavía |
-| Oeste de Japón |Premium Storage no está disponible todavía |
+| India occidental |1 de febrero de 2018 |
+| Oeste de Japón |1 de febrero de 2018 |
 | Centro-Norte de EE. UU |10 de noviembre de 2016 |
 
 ## <a name="automatic-migration-details"></a>Información de la migración automática
@@ -69,14 +69,14 @@ Las migraciones automáticas se llevan a cabo desde las 18:00 a las 6:00 (hora l
 
 | **Región** | **Fecha de inicio estimada** | **Fecha de finalización estimada** |
 |:--- |:--- |:--- |
-| Australia Oriental |Sin determinar |Sin determinar |
-| Este de China |9 de enero de 2017 |13 de enero de 2017 |
-| Norte de China |9 de enero de 2017 |13 de enero de 2017 |
-| Centro de Alemania |9 de enero de 2017 |13 de enero de 2017 |
-| Noreste de Alemania |9 de enero de 2017 |13 de enero de 2017 |
-| India occidental |Sin determinar |Sin determinar |
-| Oeste de Japón |Sin determinar |Sin determinar |
-| Centro-Norte de EE. UU |9 de enero de 2017 |13 de enero de 2017 |
+| Australia Oriental |19 de marzo de 2018 |20 de marzo de 2018 |
+| Este de China |Ya migrado |Ya migrado |
+| Norte de China |Ya migrado |Ya migrado |
+| Centro de Alemania |Ya migrado |Ya migrado |
+| Noreste de Alemania |Ya migrado |Ya migrado |
+| India occidental |19 de marzo de 2018 |20 de marzo de 2018 |
+| Oeste de Japón |19 de marzo de 2018 |20 de marzo de 2018 |
+| Centro-Norte de EE. UU |Ya migrado |Ya migrado |
 
 ## <a name="self-migration-to-premium-storage"></a>Migración manual a Premium Storage
 Si desea controlar cuándo se producen los tiempos de inactividad, puede realizar los pasos siguientes para migrar un almacenamiento de datos existente del almacenamiento estándar a Premium Storage. Si elige esta opción, debe completar la migración manual antes de que comience la migración automática en dicha región. Esto garantiza que se evite que cualquier riesgo de la migración automática cause algún conflicto (vea la [programación de la migración automática][automatic migration schedule]).
@@ -84,11 +84,14 @@ Si desea controlar cuándo se producen los tiempos de inactividad, puede realiza
 ### <a name="self-migration-instructions"></a>Instrucciones de migración manual
 Para migrar el almacenamiento de datos manualmente, utilice las características de copia de seguridad y restauración. Se espera que el componente de restauración de la migración dure una hora aproximadamente por cada terabyte de almacenamiento en cada almacenamiento de datos. Si desea conservar el mismo nombre cuando se complete la migración, siga estos [pasos para cambiar el nombre durante la migración][steps to rename during migration].
 
-1. [Detenga][Pause] el almacenamiento de datos. Esto realiza una copia de seguridad automática.
+1. [Detenga][Pause] el almacenamiento de datos. 
 2. Lleve a cabo la [restauración][Restore] a partir de la instantánea más reciente.
 3. Elimine el almacenamiento de datos existente del almacenamiento estándar. **Si no puede realizar este paso, se le cobrará por los dos almacenamientos de datos.**
 
 > [!NOTE]
+>
+> Al restaurar el almacén de datos, compruebe que el punto de restauración más reciente disponible se produce después de que el almacenamiento de datos estaba en pausa.
+>
 > La configuración siguiente no se transmite como parte de la migración:
 >
 > * Se debe volver a habilitar la auditoría en el nivel de base de datos.
@@ -105,60 +108,13 @@ Para este ejemplo, imagine que su almacenamiento de datos del almacenamiento est
    ```
    ALTER DATABASE CurrentDatabasename MODIFY NAME = NewDatabaseName;
    ```
-2. [Detenga][Pause] "MyDW_BeforeMigration". Esto realiza una copia de seguridad automática.
+2. [Detenga][Pause] "MyDW_BeforeMigration". 
 3. Realice una [restauración][Restore] a partir de la instantánea más reciente de una nueva base de datos con el nombre que solía tener (por ejemplo: "MiAD").
 4. Elimine "MyDW_BeforeMigration". **Si no puede realizar este paso, se le cobrará por los dos almacenamientos de datos.**
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Con la migración a Premium Storage, también se aumenta la cantidad de archivos de blob de base de datos en la arquitectura subyacente del almacenamiento de datos. Para maximizar las ventajas en el rendimiento que implica este cambio, recompile los índices de almacén de columnas en clúster con el script siguiente. El script funciona forzando algunos de los datos existentes a los blobs adicionales. Si no realiza ninguna acción, los datos se redistribuirán naturalmente con el tiempo a medida que carga más datos en las tablas.
-
-**Requisitos previos:**
-
-- El almacenamiento de datos se debe ejecutar con 1000 unidades de almacenamiento de datos o más (vea el [escalado de la potencia de proceso][scale compute power]).
-- El usuario que ejecuta el script debe tener el [rol mediumrc][mediumrc role] o superior. Para agregar un usuario a este rol, ejecute lo siguiente: ````EXEC sp_addrolemember 'xlargerc', 'MyUser'````
-
-````sql
--------------------------------------------------------------------------------
--- Step 1: Create table to control index rebuild
--- Run as user in mediumrc or higher
---------------------------------------------------------------------------------
-create table sql_statements
-WITH (distribution = round_robin)
-as select
-    'alter index all on ' + s.name + '.' + t.NAME + ' rebuild;' as statement,
-    row_number() over (order by s.name, t.name) as sequence
-from
-    sys.schemas s
-    inner join sys.tables t
-        on s.schema_id = t.schema_id
-where
-    is_external = 0
-;
-go
-
---------------------------------------------------------------------------------
--- Step 2: Execute index rebuilds. If script fails, the below can be re-run to restart where last left off.
--- Run as user in mediumrc or higher
---------------------------------------------------------------------------------
-
-declare @nbr_statements int = (select count(*) from sql_statements)
-declare @i int = 1
-while(@i <= @nbr_statements)
-begin
-      declare @statement nvarchar(1000)= (select statement from sql_statements where sequence = @i)
-      print cast(getdate() as nvarchar(1000)) + ' Executing... ' + @statement
-      exec (@statement)
-      delete from sql_statements where sequence = @i
-      set @i += 1
-end;
-go
--------------------------------------------------------------------------------
--- Step 3: Clean up table created in Step 1
---------------------------------------------------------------------------------
-drop table sql_statements;
-go
-````
 
 Si tiene problemas con el almacenamiento de datos, [cree una incidencia de soporte técnico][create a support ticket] e indique que la posible causa es la "migración a Premium Storage".
 
@@ -174,7 +130,7 @@ Si tiene problemas con el almacenamiento de datos, [cree una incidencia de sopor
 [Restore]: sql-data-warehouse-restore-database-portal.md
 [steps to rename during migration]: #optional-steps-to-rename-during-migration
 [scale compute power]: quickstart-scale-compute-portal.md
-[mediumrc role]: sql-data-warehouse-develop-concurrency.md
+[mediumrc role]: resource-classes-for-workload-management.md
 
 <!--MSDN references-->
 

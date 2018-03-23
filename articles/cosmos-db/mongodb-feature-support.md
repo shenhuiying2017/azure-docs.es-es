@@ -1,11 +1,11 @@
 ---
-title: "Compatibilidad de la característica Cosmos DB con MongoDB | Microsoft Docs"
-description: "Obtenga información acerca de la compatibilidad de la característica que proporciona la API de Azure Cosmos DB MongoDB con MongoDB 3.4."
+title: Compatibilidad de la característica Cosmos DB con MongoDB | Microsoft Docs
+description: Obtenga información acerca de la compatibilidad de la característica que proporciona la API de Azure Cosmos DB MongoDB con MongoDB 3.4.
 services: cosmos-db
 author: alekseys
 manager: jhubbard
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: 29b6547c-3201-44b6-9e0b-e6f56e473e24
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: alekseys
-ms.openlocfilehash: e955aa1c3985e540246d964b4dce88d15fb85949
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 9f1b6359d9fb58ad66b4d314f2bb14da34b98613
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="mongodb-api-support-for-mongodb-features-and-syntax"></a>Compatibilidad de la API de MongoDB con la sintaxis y las características de MongoDB
 
@@ -235,7 +235,7 @@ $regex | ``` { "Volcano Name": { $regex: "^Rain"} } ```|  | -
 
 En las consultas de $regex, las expresiones ancladas a la izquierda permiten la búsqueda de índice. Sin embargo, si utiliza el modificador 'i' (no distingue mayúsculas y minúsculas) y el modificador 'm' modificador (multilínea), se realiza el examen de colección de todas las expresiones.
 Cuando es necesario incluir '$' o '|', es mejor crear dos (o más) consultas regex. Por ejemplo, dada la siguiente consulta original: ```find({x:{$regex: /^abc$/})```, tiene que modificarse de la siguiente forma: ```find({x:{$regex: /^abc/, x:{$regex:/^abc$/}})```.
-La primera parte utilizará el índice para restringir la búsqueda a esos documentos que empiezan por ^ abc y la segunda parte buscará coincidencias con los datos exactos. El operador de barra '|' actúa como una función "or": la consulta ```find({x:{$regex: /^abc|^def/})``` coincide con los documentos con los que el campo 'x' tiene un valor que comienza por "abc" o "def". Para utilizar el índice, se recomienda dividir la consulta en dos consultas distintas combinadas mediante el operador $or: ```find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })```.
+La primera parte utilizará el índice para restringir la búsqueda a esos documentos que empiezan por ^ abc y la segunda parte buscará coincidencias con los datos exactos. El operador de barra '|' actúa como una función "or": la consulta ```find({x:{$regex: /^abc|^def/})``` coincide con los documentos con los que el campo "x" tiene un valor que comienza por "abc" o "def". Para utilizar el índice, se recomienda dividir la consulta en dos consultas distintas combinadas mediante el operador $or: ```find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })```.
 
 ### <a name="update-operators"></a>Operadores de actualización
 
@@ -323,7 +323,7 @@ Azure Cosmos DB admite la replicación automática y nativa en las capas más in
 
 Azure Cosmos DB admite el particionamiento de servidor automático. no es compatible con comandos de particionamiento manual.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Obtenga información acerca de cómo [usar Studio 3T](mongodb-mongochef.md) con una API para la base de datos de MongoDB.
 - Obtenga información acerca de cómo [usar Robo 3T](mongodb-robomongo.md) con una API para la base de datos de MongoDB.

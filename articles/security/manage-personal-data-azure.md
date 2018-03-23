@@ -1,28 +1,28 @@
 ---
-title: "Administración de datos personales en Microsoft Azure | Microsoft Docs"
-description: "Guía sobre cómo corregir, actualizar, eliminar y exportar datos personales en Azure Active Directory y Azure SQL Database"
+title: Administración de datos personales en Microsoft Azure | Microsoft Docs
+description: cómo corregir, actualizar, eliminar y exportar datos personales que le ayuden a cumplir con el Reglamento general de protección de datos (RGPD) en Azure Active Directory y Azure SQL Database
 services: security
 documentationcenter: na
 author: barclayn
 manager: MBaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 03/06/2018
 ms.author: barclayn
-ms.openlocfilehash: 51dca8955745b40a9126b142ea15e707fe58bc72
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 41c0cc4eb3697aa79abeabddc98a84598ce4ea50
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="manage-personal-data-in-microsoft-azure"></a>Administración de datos personales en Microsoft Azure
 
-En este artículo se ofrece una guía sobre cómo corregir, actualizar, eliminar y exportar datos personales en Azure Active Directory y Azure SQL Database.
+En este artículo se explica cómo corregir, actualizar, eliminar y exportar datos personales para cumplir con el Reglamento general de protección de datos (RGPD) en Azure Active Directory y Azure SQL Database.
 
 ## <a name="scenario"></a>Escenario
 

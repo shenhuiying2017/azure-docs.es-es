@@ -1,9 +1,9 @@
 ---
-title: "Alertas de registro en Azure Monitor: Alertas (versión preliminar) | Microsoft Docs"
-description: "Desencadenamiento de correos electrónicos y notificaciones, y llamadas a direcciones URL de sitios web (webhooks) o a la automatización cuando se cumplen las condiciones de consulta compleja especificadas para Alertas de Azure (versión preliminar)."
+title: 'Alertas de registro en Azure Monitor: Alertas (versión preliminar) | Microsoft Docs'
+description: Desencadenamiento de correos electrónicos y notificaciones, y llamadas a direcciones URL de sitios web (webhooks) o a la automatización cuando se cumplen las condiciones de consulta compleja especificadas para Alertas de Azure (versión preliminar).
 author: msvijayn
 manager: kmadnani1
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: f7457655-ced6-4102-a9dd-7ddf2265c0e2
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: vinagara
-ms.openlocfilehash: 438776e7f0885dbdb0d66ccdd18d854e14beb299
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 0cee8bf77e0facc12159b823152b8859ce5cedd8
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="log-alerts-in-azure-monitor---alerts-preview"></a>Alertas de registro en Azure Monitor: Alertas (versión preliminar)
-En este artículo se proporcionan detalles sobre cómo funcionan las reglas de alertas de consultas de Analytics en Alertas de Azure (versión preliminar) y se describen las diferencias entre los distintos tipos de reglas de alertas de registro.
+En este artículo se proporcionan detalles sobre cómo funcionan las reglas de alertas de consultas de Analytics en Alertas de Azure (versión preliminar) y se describen las diferencias entre los distintos tipos de reglas de alertas de registro. Para detalles de las alertas de métrica mediante los registros, consulte las [alertas de métricas casi en tiempo real](monitoring-near-real-time-metric-alerts.md)
 
 Actualmente, Alertas de Azure (versión preliminar) admite las alertas de registro en consultas de [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) y [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events).
 
@@ -40,7 +40,7 @@ Entonces, cuando [cree una alerta de registro en Alertas (versión preliminar)](
 
 ## <a name="log-alert-rules"></a>Reglas de alertas de registro
 
-Las alertas creadas por Alertas de Azure (versión preliminar) ejecutan automáticamente consultas de registros a intervalos regulares.  Si los resultados de la consulta de registros coinciden con determinados criterios, se crea un registro de alertas. Luego, la regla puede ejecutar automáticamente una o varias acciones para avisarle de manera proactiva de la alerta o invocar otro proceso, como enviar datos a una aplicación externa mediante [json based webhook](monitor-alerts-unified-log-webhook.md) con [Grupos de acciones](monitoring-action-groups.md). Diferentes tipos de reglas de alerta usan una lógica distinta para realizar este análisis.
+Las alertas creadas por Alertas de Azure (versión preliminar) para ejecutar automáticamente consultas de registros a intervalos regulares.  Si los resultados de la consulta de registros coinciden con determinados criterios, se crea un registro de alertas. Luego, la regla puede ejecutar automáticamente una o varias acciones para avisarle de manera proactiva de la alerta o invocar otro proceso, como enviar datos a una aplicación externa mediante [json based webhook](monitor-alerts-unified-log-webhook.md) con [Grupos de acciones](monitoring-action-groups.md). Diferentes tipos de reglas de alerta usan una lógica distinta para realizar este análisis.
 
 Las reglas de alerta se definen mediante los siguientes detalles:
 
@@ -96,7 +96,7 @@ Las reglas de alertas para **unidades métricas** crean una alerta para cada obj
 
 **Intervalo**: define el intervalo de tiempo durante el cual se agregan los datos.  Por ejemplo, si especifica **cinco minutos**, se crearía un registro para cada instancia del campo de grupo que se agrega a intervalos de cinco minutos en la ventana de tiempo especificada para la alerta.
 > [!NOTE]
-> La función Bin se debe usar en la consulta. Además, si se generan intervalos de tiempo distintos para la ventana de tiempo por el uso de la función Bin, la alerta usará en su lugar la función bin_at para asegurarse de que hay un punto fijo
+> La función Bin se debe usar en la consulta. Como bin() puede generar intervalos de tiempo distintos, - Alert usará la función bin_at en su lugar con un tiempo adecuado en el entorno de tiempo de ejecución para garantizar resultados con un punto fijo
 
 **Umbral**: el umbral de las reglas de alertas para unidades métricas se define por un valor agregado y un número de infracciones.  Si cualquier punto de datos de la búsqueda de registros supera este valor, se considera una infracción.  Si el número de infracciones para cualquier objeto de los resultados supera el valor especificado, se crea una alerta para ese objeto.
 
@@ -116,7 +116,7 @@ La consulta crearía un valor medio para cada equipo a intervalos de cinco minut
 En este ejemplo, se crearán alertas independientes para srv02 y srv03 porque han incumplido el umbral del 90 % 3 veces en la ventana de tiempo.  Si se cambiara **Desencadenar alerta según:** a **Consecutivo**, entonces se crearía una alerta solo para srv03, ya que incumplió el umbral para tres ejemplos consecutivos.
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Conocer las [acciones de webhook para alertas de registro](monitor-alerts-unified-log-webhook.md)
 * [Obtenga información general sobre Alertas de Azure (versión preliminar)](monitoring-overview-unified-alerts.md).
 * Obtenga información sobre cómo [utilizar Alertas de Azure (versión preliminar)](monitor-alerts-unified-usage.md).

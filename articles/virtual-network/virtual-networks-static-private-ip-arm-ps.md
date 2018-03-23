@@ -1,6 +1,6 @@
 ---
-title: "Configuración de direcciones IP privadas para máquinas virtuales (Azure PowerShell) | Microsoft Docs"
-description: "Obtenga información sobre cómo configurar direcciones IP privadas para máquinas virtuales mediante PowerShell."
+title: Configuración de direcciones IP privadas para máquinas virtuales (Azure PowerShell) | Microsoft Docs
+description: Obtenga información sobre cómo configurar direcciones IP privadas para máquinas virtuales mediante PowerShell.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2810190897c44c944912ef3325b1f40479aa3078
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8727318c9dff79b795b473caf7b778272134726c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-powershell"></a>Configuración de direcciones IP privadas para una máquina virtual mediante PowerShell
 
@@ -32,7 +32,7 @@ Azure cuenta con dos modelos de implementación: Azure Resource Manager y el cl�
 
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
-En los siguientes comandos de PowerShell de ejemplo se presupone que ya se ha creado un entorno simple según el escenario anterior. Si desea ejecutar los comandos que aparecen en este documento, cree primero el entorno de prueba descrito en [creación de una red virtual](virtual-networks-create-vnet-arm-ps.md).
+En los siguientes comandos de PowerShell de ejemplo se presupone que ya se ha creado un entorno simple según el escenario anterior. Si desea ejecutar los comandos que aparecen en este documento, cree primero el entorno de prueba descrito en [Creación de una red virtual](quick-create-powershell.md).
 
 ## <a name="create-a-vm-with-a-static-private-ip-address"></a>Creación de una máquina virtual con una dirección IP privada estática
 Para crear una máquina virtual denominada *DNS01* en la subred *FrontEnd* de una red virtual denominada *TestVNet* con una dirección IP privada estática de *192.168.1.101*, siga estos pasos:

@@ -1,11 +1,11 @@
 ---
-title: "Creación de una aplicación web de Java en Azure App Service en Linux"
-description: "Implementación de su primera aplicación Hola mundo de Java en Azure App Service en Linux en cuestión de minutos."
+title: Creación de una aplicación web de Java en Azure App Service en Linux
+description: Implementación de su primera aplicación Hola mundo de Java en Azure App Service en Linux en cuestión de minutos.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: msangapu
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.service: app-service-web
 ms.workload: web
@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 03/07/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: 46c97ae5bd6f53857f0b7df12462102a03e8e857
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 2c37151c09c7b180993056532c07ff081f576b83
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="preview-create-a-java-web-app-in-app-service-on-linux"></a>Versión preliminar: Creación de una aplicación web de Java en App Service en Linux
 
@@ -50,19 +50,7 @@ Para completar esta guía de inicio rápido:
 
 [!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
 
-
-## <a name="create-a-resource-group"></a>Crear un grupo de recursos
-
-En Cloud Shell, cree un grupo de recursos con el comando [`az group create`](/cli/azure/group?view=azure-cli-latest#az_group_create). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *Europa Occidental*. Para ver todas las ubicaciones admitidas de App Service, ejecute el comando [`az appservice list-locations`](/cli/azure/appservice?view=azure-cli-latest#az_appservice_list_locations).
-
-```azurecli-interactive
-az group create --name myResourceGroup --location "West US"
-```
-
-Generalmente se crean el grupo de recursos y los recursos en una región cercana. 
-
-Cuando finaliza el comando, una salida de JSON muestra las propiedades del grupo de recursos.
-
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux.md)]
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
@@ -228,5 +216,5 @@ El código de ejemplo de Java se está ejecutando en una aplicación web con una
 Para más información acerca del uso de Java con Azure, consulte los siguientes vínculos:
 
 * [Azure para desarrolladores de Java](https://docs.microsoft.com/java/azure/)
-* [Implementación de una aplicación web Hola mundo en un contenedor Linux en la nube con el kit de herramientas de Azure para IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-hello-world-web-app-linux)
+* [Implementación de una aplicación web Hola mundo en un contenedor Linux en la nube mediante el Kit de herramientas de Azure para IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-hello-world-web-app-linux)
 * [Herramientas de Java para Visual Studio Team Services](https://java.visualstudio.com/)

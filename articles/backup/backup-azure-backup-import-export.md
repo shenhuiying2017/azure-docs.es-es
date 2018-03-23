@@ -1,11 +1,11 @@
 ---
-title: "Azure Backup: copia de seguridad sin conexión o propagación inicial mediante el servicio Azure Import/Export | Microsoft Docs"
-description: "Descubra cómo Azure Backup permite enviar datos fuera de la red mediante el servicio Azure Import/Export. Este artículo explica la propagación sin conexión de los datos de copia de seguridad iniciales mediante el servicio de Azure Import/Export."
+title: 'Azure Backup: copia de seguridad sin conexión o propagación inicial mediante el servicio Azure Import/Export | Microsoft Docs'
+description: Descubra cómo Azure Backup permite enviar datos fuera de la red mediante el servicio Azure Import/Export. Este artículo explica la propagación sin conexión de los datos de copia de seguridad iniciales mediante el servicio de Azure Import/Export.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: saurabhsensharma
 manager: shivamg
-editor: 
+editor: ''
 ms.assetid: ada19c12-3e60-457b-8a6e-cf21b9553b97
 ms.service: backup
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 2/6/2018
 ms.author: saurse;nkolli;trinadhk
-ms.openlocfilehash: 306c4c7498601cf3ab7e918ba6ce6bfef173236a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7af2623a25f73f6d9062d476309ecd53da542f70
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Flujo de trabajo de copia de seguridad sin conexión en Azure Backup
 El servicio Azure Backup presenta varias eficiencias integradas para ahorrar costos de almacenamiento y red durante las copias de seguridad iniciales 'completas' de datos en Azure. Las copias de seguridad iniciales completas transfieren grandes cantidades de datos y requieren un mayor ancho de banda de red en comparación con las copias de seguridad sucesivas que solo transfieren los cambios diferenciales e incrementales. Azure Backup permite comprimir las copias de seguridad iniciales. A través del proceso de propagación sin conexión, Azure Backup puede usar discos para cargar los datos comprimidos iniciales de copia de seguridad sin conexión en Azure.  
@@ -46,6 +46,8 @@ La copia de seguridad sin conexión es compatible con todos los modelos de imple
 
    > [!NOTE]
    > No se admite la copia de seguridad sin conexión para copias de seguridad de estado del sistema realizadas mediante el agente de Azure Backup. 
+
+[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
 ## <a name="prerequisites"></a>requisitos previos
 Asegúrese de que se cumplen los siguientes requisitos previos antes de iniciar el flujo de trabajo de copia de seguridad sin conexión:
@@ -211,6 +213,6 @@ Una vez completado el trabajo de importación, los datos de la copia de segurida
 
 En la siguiente copia de seguridad programada, Azure Backup realiza la copia de seguridad incremental sobre la copia de seguridad inicial.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Si tiene dudas acerca del flujo de trabajo de Azure Import/Export, consulte [Uso del servicio Microsoft Azure Import/Export para transferir datos a Blob Storage](../storage/common/storage-import-export-service.md).
 * Vea las [Preguntas más frecuentes](backup-azure-backup-faq.md) sobre la copia de seguridad sin conexión de Azure si tiene alguna pregunta sobre el flujo de trabajo.

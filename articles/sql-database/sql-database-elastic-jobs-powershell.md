@@ -1,30 +1,25 @@
 ---
-title: "Creación y administración de trabajos elásticos mediante PowerShell | Microsoft Docs"
+title: Creación y administración de trabajos elásticos mediante PowerShell | Microsoft Docs
 description: PowerShell usada para administrar grupos de Azure SQL Database
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: ddove
-ms.assetid: 737d8d13-5632-4e18-9cb0-4d3b8a19e495
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
-ms.author: ddove
-ms.openlocfilehash: 357937aad5eb13ca87267629eb542cc43119dc0a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: sstein
+ms.openlocfilehash: 17e4176129da747925596c66ca9df936a3828c2d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>Creación y administración de trabajos elásticos de SQL Database mediante PowerShell (versión preliminar)
 
 Las API de PowerShell para **Trabajos de Elastic Database** permiten definir el grupo de bases de datos en las que se ejecutarán los scripts. Este artículo muestra cómo crear y administrar **trabajos de Elastic Database** mediante cmdlets de PowerShell. Consulte [Información general sobre trabajos elásticos](sql-database-elastic-jobs-overview.md). 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 * Una suscripción de Azure. Para obtener una prueba gratuita, vea [Prueba gratuita de un mes](https://azure.microsoft.com/pricing/free-trial/).
 * Un conjunto de bases de datos creadas con las herramientas de Elastic Database. Consulte [Introducción a las herramientas de Elastic Database](sql-database-elastic-scale-get-started.md).
 * Azure PowerShell. Para obtener información detallada, vea [Instalación y configuración de Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
@@ -43,7 +38,7 @@ En la tabla siguiente se enumeran todos los tipos de objetos de **Trabajos de El
 <table style="width:100%">
   <tr>
     <th>Tipo de objeto</th>
-    <th>Description</th>
+    <th>DESCRIPCIÓN</th>
     <th>API de PowerShell relacionadas</th>
   </tr>
   <tr>

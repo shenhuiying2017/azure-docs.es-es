@@ -1,11 +1,11 @@
 ---
 title: SDK de dispositivo IoT de Azure para C - IoTHubClient | Microsoft Docs
-description: "Describe cómo usar la biblioteca IoTHubClient del SDK de dispositivo Azure IoT para C con el fin de crear aplicaciones para dispositivos que se comunican con un centro de IoT Hub."
+description: Describe cómo usar la biblioteca IoTHubClient del SDK de dispositivo Azure IoT para C con el fin de crear aplicaciones para dispositivos que se comunican con un centro de IoT Hub.
 services: iot-hub
-documentationcenter: 
-author: olivierbloch
+documentationcenter: ''
+author: yzhong94
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 828cf2bf-999d-4b8a-8a28-c7c901629600
 ms.service: iot-hub
 ms.devlang: cpp
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2017
-ms.author: obloch
-ms.openlocfilehash: 8428857bcd444f99ba2c0f6b31ff662d5596b591
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.author: yizhon
+ms.openlocfilehash: 6efd2980ce4dde99d934b3fe174d341fb68fac03
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-iothubclient"></a>SDK de dispositivo IoT de Microsoft Azure para C: más información sobre IoTHubClient
 En el [primer el artículo](iot-hub-device-sdk-c-intro.md) de esta serie se presentaba el **SDK de dispositivo IoT de Azure**. En este artículo se explicaba que hay dos capas de arquitectura en el SDK. En la base está la biblioteca de **IoTHubClient** que administra directamente la comunicación con IoT Hub. Y está también la biblioteca del **serializador** , que se basa en él para proporcionar servicios de serialización. En este artículo le proporcionamos detalles adicionales sobre la biblioteca **IoTHubClient** .

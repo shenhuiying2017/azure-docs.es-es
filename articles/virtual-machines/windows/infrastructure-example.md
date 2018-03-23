@@ -1,11 +1,11 @@
 ---
 title: Tutorial de la infraestructura de Azure de ejemplo | Microsoft Docs
-description: "Obtenga información sobre las directrices clave de diseño e implementación para implementar una infraestructura de ejemplo en Azure."
-documentationcenter: 
+description: Obtenga información sobre las directrices clave de diseño e implementación para implementar una infraestructura de ejemplo en Azure.
+documentationcenter: ''
 services: virtual-machines-windows
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 7032b586-e4e5-4954-952f-fdfc03fc1980
 ms.service: virtual-machines-windows
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 12/15/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9c3f47739f28e0b0b2a24fcea61b055071cba7d5
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: c532657951d6d0241a5d8d25a56bb237ad481567
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-windows-vms"></a>Tutorial de la infraestructura de Azure de ejemplo para máquinas virtuales Windows
 Este artículo le guía a través de la creación de una infraestructura de aplicación de ejemplo. Detallaremos el diseño de una infraestructura para una tienda en línea sencilla que reúna todas las directrices y decisiones relacionadas con las convenciones de nomenclatura, los conjuntos de disponibilidad, las redes virtuales, los equilibradores de carga y, de hecho, la implementación de sus máquinas virtuales (VM).
@@ -61,7 +61,7 @@ Todo lo anterior seguirá estas convenciones de nomenclatura:
 Adventure Works Cycles usa la suscripción Enterprise, denominada Adventure Works Enterprise Subscription, para proporcionar la facturación de esta carga de trabajo de TI.
 
 ## <a name="storage"></a>Storage
-Adventure Works Cycles determina que deben usar Azure Managed Disks. Al crear máquinas virtuales, se utilizan ambos niveles de almacenamiento disponible:
+Adventure Works Cycles determina que deben usar Azure Managed Disks. Al crear VM, se utilizan ambos niveles de almacenamiento disponibles:
 
 * **Almacenamiento estándar** de los servidores web, los servidores de aplicaciones y los controladores de dominio y sus discos de datos.
 * **Premium Storage** de máquinas virtuales de SQL Server y sus discos de datos.

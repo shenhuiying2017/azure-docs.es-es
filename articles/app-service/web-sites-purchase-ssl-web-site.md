@@ -1,6 +1,6 @@
 ---
-title: "Compra y configuración de un certificado SSL para Azure App Service | Microsoft Docs"
-description: "Aprenda a comprar un certificado de App Service y a enlazarlo a esta aplicación"
+title: Compra y configuración de un certificado SSL para Azure App Service | Microsoft Docs
+description: Aprenda a comprar un certificado de App Service y a enlazarlo a esta aplicación
 services: app-service
 documentationcenter: .net
 author: cephalin
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/01/2017
 ms.author: apurvajo;cephalin
 ms.openlocfilehash: 6c0125bf0bd22912a21372b5a7da6846e924e6cd
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Compra y configuración de un certificado SSL para Azure App Service
 
@@ -26,7 +26,7 @@ Este tutorial muestra cómo proteger su aplicación web comprando un certificado
 
 ## <a name="step-1---log-in-to-azure"></a>Paso 1: Inicio de sesión en Azure
 
-Inicie sesión en Azure Portal: http://portal.azure.com.
+Inicie sesión en Azure Portal en http://portal.azure.com
 
 ## <a name="step-2---place-an-ssl-certificate-order"></a>Paso 2: Realización de un pedido de certificado SSL
 
@@ -122,7 +122,7 @@ Llegados a este punto, debería ser capaz de visitar su aplicación con `HTTPS:/
 
 ## <a name="step-6---management-tasks"></a>Paso 6: Tareas de administración
 
-### <a name="azure-cli"></a>CLI de Azure
+### <a name="azure-cli"></a>Azure CLI
 
 [!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom SSL certificate to a web app")] 
 

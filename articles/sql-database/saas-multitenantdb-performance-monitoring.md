@@ -1,26 +1,20 @@
 ---
-title: "Supervisión del rendimiento de una base de datos Azure SQL Database multiinquilino y con particiones en una aplicación SaaS multiinquilino | Microsoft Docs"
-description: "Supervisión y administración del rendimiento de una base de datos Azure SQL Database multiinquilino y con particiones en una aplicación SaaS multiinquilino"
+title: Supervisión del rendimiento de una base de datos Azure SQL Database multiinquilino y con particiones en una aplicación SaaS multiinquilino | Microsoft Docs
+description: Supervisión y administración del rendimiento de una base de datos Azure SQL Database multiinquilino y con particiones en una aplicación SaaS multiinquilino
 keywords: tutorial de SQL Database
 services: sql-database
-documentationcenter: 
 author: stevestein
 manager: craigg
-editor: 
-ms.assetid: 
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: sstein
-ms.openlocfilehash: 3e97f0635a856256dd08c29d33d8058be9c8d8b4
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 53d8c099d68fd7eb3f00fb4d1be7ec54404521ff
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Supervisión y administración del rendimiento de una base de datos Azure SQL Database multiinquilino y con particiones en una aplicación SaaS multiinquilino
 
@@ -37,10 +31,10 @@ En este tutorial, aprenderá a:
 > * Escalar verticalmente la base de datos en respuesta al aumento de la carga de esta
 > * Aprovisionar un inquilino en una base de datos de un único inquilino
 
-Para completar este tutorial, asegúrese de cumplir los siguientes requisitos previos:
+Para completar este tutorial, asegúrese de cumplir estos requisitos previos:
 
 * La aplicación SaaS de base de datos multiinquilino Wingtip Tickets está implementada. Para implementarla en menos de cinco minutos, consulte el artículo sobre la [implementación y exploración de la aplicación SaaS de base de datos multiinquilino Wingtip Tickets](saas-multitenantdb-get-started-deploy.md)
-* Azure PowerShell está instalado. Para más información, consulte [Introducción a Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+* Azure PowerShell está instalado. Para más información, consulte [Introducción a Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 
 ## <a name="introduction-to-saas-performance-management-patterns"></a>Introducción a los patrones de administración del rendimiento de SaaS
 
@@ -151,7 +145,7 @@ Vuelva a **tenants1** > **Introducción** para ver los gráficos de supervisión
 
 Las bases de datos permanecen en línea y están totalmente disponibles durante el proceso. El código de la aplicación debe escribirse para siempre reintente recuperar las conexiones interrumpidas, por lo tanto, se volverá a conectar a la base de datos.
 
-## <a name="provision-a-new-tenant-in-its-own-database"></a>Aprovisionar a un nuevo inquilino en su propia base de datos 
+## <a name="provision-a-new-tenant-in-its-own-database"></a>Aprovisionamiento de un inquilino nuevo en su propia base de datos 
 
 El modelo multiinquilino con particiones le permite elegir entre aprovisionar un nuevo inquilino en una base de datos multiinquilino junto con otros inquilinos o aprovisionar el inquilino en su propia base de datos. Gracias al aprovisionamiento de un inquilino en su propia base de datos, este se beneficia del aislamiento inherente de la base de datos independiente, lo que le permite administrar el rendimiento de ese inquilino de forma independiente al de otros, restaurar ese inquilino de forma independiente al de otros, etc. Por ejemplo, puede decidir colocar los clientes de versiones de evaluación gratuita o los clientes habituales en una base de datos multiinquilino, y los clientes Premium en bases de datos individuales.  Aunque se creen bases de datos aisladas de un solo inquilino, se podrán seguir administrando de forma colectiva en un grupo elástico para optimizar el costo de los recursos.
 

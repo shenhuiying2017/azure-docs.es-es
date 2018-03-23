@@ -1,11 +1,11 @@
 ---
-title: "Automatización del aprovisionamiento de aplicaciones con SCIM en Azure Active Directory | Microsoft Docs"
-description: "Azure Active Directory puede aprovisionar automáticamente los usuarios y grupos a cualquier aplicación o almacén de identidades proporcionado por un servicio web con la interfaz definida en la especificación del protocolo SCIM"
+title: Automatización del aprovisionamiento de aplicaciones con SCIM en Azure Active Directory | Microsoft Docs
+description: Azure Active Directory puede aprovisionar automáticamente los usuarios y grupos a cualquier aplicación o almacén de identidades proporcionado por un servicio web con la interfaz definida en la especificación del protocolo SCIM
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: asmalser-msft
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 4d86f3dc-e2d3-4bde-81a3-4a0e092551c0
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 12/12/2017
 ms.author: asmalser
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
-ms.openlocfilehash: 17732ae616339020f11bc8973dc57b6d0fff4884
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 3b7f2f104046313e7d60cea4ef296f265d204aec
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="using-system-for-cross-domain-identity-management-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Uso de System for Cross-Domain Identity Management para aprovisionar automáticamente a los usuarios y grupos de Azure Active Directory para aplicaciones
 
@@ -685,7 +685,7 @@ La siguiente ilustración muestra los mensajes que Azure Active Directory enviar
 ## <a name="group-provisioning-and-de-provisioning"></a>Aprovisionamiento y cancelación del aprovisionamiento de grupos
 La siguiente ilustración muestra los mensajes que Azure AD envía a un servicio SCIM para administrar el ciclo de vida de un grupo en otro almacén de identidades.  Esos mensajes se diferencian de los mensajes que pertenecen a los usuarios de tres maneras: 
 
-* El esquema de un recurso de grupo se identifica como http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  
+* El esquema de un recurso del grupo se identifica como `http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group`.  
 * Las solicitudes para recuperar grupos estipulan que el atributo members se excluya de cualquier recurso proporcionado en respuesta a la solicitud.  
 * Las solicitudes para determinar si un atributo de referencia tiene un valor determinado son solicitudes sobre el atributo members.  
 

@@ -1,31 +1,24 @@
 ---
-title: "Supervisión de Azure SQL Database con vistas de administración dinámica | Microsoft Docs"
-description: "Obtenga información sobre cómo detectar y diagnosticar problemas comunes de rendimiento con vistas de administración dinámica para supervisar Base de datos SQL de Microsoft Azure."
+title: Supervisión de Azure SQL Database con vistas de administración dinámica | Microsoft Docs
+description: Obtenga información sobre cómo detectar y diagnosticar problemas comunes de rendimiento con vistas de administración dinámica para supervisar Microsoft Azure SQL Database.
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: 
-tags: 
-ms.assetid: d08f505f-3c62-47d4-bab7-35c9a834b79b
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: On Demand
 ms.date: 01/10/2017
 ms.author: carlrab
-ms.openlocfilehash: 298adcad78163e82a926abb684a172d56b4a33dd
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 8185e2748f4aeec4343fa649d8b54958cdcb262a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="monitoring-azure-sql-database-using-dynamic-management-views"></a>Supervisión de Base de datos SQL de Azure con vistas de administración dinámica
-Base de datos de SQL de Microsoft Azure habilita un subconjunto de vistas de administración dinámica para diagnosticar problemas de rendimiento, que pueden deberse a consultas bloqueadas o de ejecución prolongada, cuellos de botella de recursos, planes de consulta deficientes, etc. En este tema se ofrece información sobre cómo encontrar problemas comunes de rendimiento con vistas de administración dinámica.
+# <a name="monitoring-azure-sql-database-using-dynamic-management-views"></a>Supervisar Azure SQL Database con vistas de administración dinámica
+Microsoft Azure SQL Database habilita un subconjunto de vistas de administración dinámica para diagnosticar problemas de rendimiento, que pueden deberse a consultas bloqueadas o de ejecución prolongada, cuellos de botella de recursos, planes de consulta deficientes, etc. En este tema se ofrece información sobre cómo encontrar problemas comunes de rendimiento con vistas de administración dinámica.
 
-Base de datos SQL admite parcialmente tres categorías de vistas de administración dinámica:
+SQL Database admite parcialmente tres categorías de vistas de administración dinámica:
 
 * Vistas de administración dinámica relacionadas con bases de datos.
 * Vistas de administración dinámica relacionadas con ejecuciones.
@@ -34,12 +27,12 @@ Base de datos SQL admite parcialmente tres categorías de vistas de administraci
 Para obtener información detallada sobre las vistas de administración dinámica, vea [Vistas y funciones de administración dinámica (Transact-SQL)](https://msdn.microsoft.com/library/ms188754.aspx) en los libros en pantalla de SQL Server.
 
 ## <a name="permissions"></a>Permisos
-En Base de datos SQL, para realizar consultas en una vista de administración dinámica se requiere disponer de permisos **VIEW DATABASE STATE** . El permiso **VIEW DATABASE STATE** devuelve información sobre todos los objetos de la base de datos actual.
+En SQL Database, para realizar consultas en una vista de administración dinámica se requiere disponer de permisos **VIEW DATABASE STATE** . El permiso **VIEW DATABASE STATE** devuelve información sobre todos los objetos de la base de datos actual.
 Para conceder el permiso **VIEW DATABASE STATE** a un usuario de base de datos en concreto, ejecute la consulta siguiente:
 
 ```GRANT VIEW DATABASE STATE TO database_user; ```
 
-En una instancia de SQL Server local, las vistas de administración dinámica devuelven la información de estado del servidor. En Base de datos SQL, devuelven información relativa únicamente a la base de datos lógica actual.
+En una instancia de SQL Server local, las vistas de administración dinámica devuelven la información de estado del servidor. En SQL Database, devuelven información relativa únicamente a la base de datos lógica actual.
 
 ## <a name="calculating-database-size"></a>Calculando tamaño de la base de datos
 La siguiente consulta devuelve el tamaño de la base de datos en megabytes:
@@ -108,7 +101,7 @@ ORDER BY 2 DESC;
 ```
 
 ### <a name="monitoring-blocked-queries"></a>Supervisión de consultas bloqueadas
-Las consultas lentas o de larga ejecución pueden contribuir al consumo excesivo de recursos y ser la consecuencia de consultas bloqueadas. La causa del bloqueo puede ser un diseño deficiente de las aplicaciones, los planes de consulta incorrectos, la falta de índices útiles, etc. Puede usar la vista sys.dm_tran_locks para obtener información sobre la actividad de bloqueo actual en el servidor de Base de datos SQL de Azure. Para obtener un ejemplo de código, consulte [sys.dm_tran_locks (Transact-SQL)](https://msdn.microsoft.com/library/ms190345.aspx) en los Libros en pantalla de SQL Server.
+Las consultas lentas o de larga ejecución pueden contribuir al consumo excesivo de recursos y ser la consecuencia de consultas bloqueadas. La causa del bloqueo puede ser un diseño deficiente de las aplicaciones, los planes de consulta incorrectos, la falta de índices útiles, etc. Puede usar la vista sys.dm_tran_locks para obtener información sobre la actividad de bloqueo actual en el servidor de Azure SQL Database. Para obtener un ejemplo de código, consulte [sys.dm_tran_locks (Transact-SQL)](https://msdn.microsoft.com/library/ms190345.aspx) en los Libros en pantalla de SQL Server.
 
 ### <a name="monitoring-query-plans"></a>Supervisión de planes de consulta
 Un plan de consulta ineficaz también puede aumentar el consumo de CPU. En el ejemplo siguiente, se usa la vista [sys.dm_exec_query_stats](https://msdn.microsoft.com/library/ms189741.aspx) para determinar qué consulta emplea la mayor cantidad acumulativa de CPU.
@@ -133,6 +126,6 @@ FROM
 ORDER BY highest_cpu_queries.total_worker_time DESC;
 ```
 
-## <a name="see-also"></a>Consulte también
-[Introducción a Base de datos SQL](sql-database-technical-overview.md)
+## <a name="see-also"></a>Otras referencias
+[Introducción a SQL Database](sql-database-technical-overview.md)
 

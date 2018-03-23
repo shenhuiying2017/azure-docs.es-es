@@ -1,29 +1,29 @@
 ---
-title: "Detección, identificación y clasificación de datos personales en Microsoft Azure | Microsoft Docs"
-description: "Obtenga información sobre cómo buscar, clasificar, detectar e identificar datos"
+title: Detección, identificación y clasificación de datos personales en Microsoft Azure | Microsoft Docs
+description: la búsqueda, clasificación, detección e identificación de datos en Azure le puede ayudar a cumplir el Reglamento general de protección de datos (RGPD)
 services: security
 documentationcenter: na
 author: barclayn
 manager: MBaldwin
 editor: TShinder
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 03/06/2018
 ms.author: barclayn
-ms.custom: 
-ms.openlocfilehash: 011fe26c297ff991af1282c1ff3914031a99f1e4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.custom: ''
+ms.openlocfilehash: 21308faf5d3efd3908eccab4f37acb0cfccdcb8e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="discover-identify-and-classify-personal-data-in-microsoft-azure"></a>Detección, identificación y clasificación de datos personales en Microsoft Azure
 
-En este artículo se proporcionan indicaciones sobre cómo detectar, identificar y clasificar los datos personales en varios servicios, incluido Azure Data Catalog, Azure Active Directory, SQL Database, Power Query para clústeres de Hadoop en Azure HDInsight, Azure Information Protection, Azure Search y consultas SQL para Azure Cosmos DB.
+En este artículo se proporcionan indicaciones sobre cómo detectar, identificar y clasificar los datos personales en varios servicios, incluido Azure Data Catalog, Azure Active Directory, SQL Database, Power Query para clústeres de Hadoop en Azure HDInsight, Azure Information Protection, Azure Search y consultas SQL para Azure Cosmos DB. Estas herramientas y procesos se pueden usar para cumplir el Reglamento general de protección de datos (RGPD)
 
 ## <a name="scenario-problem-statement-and-goal"></a>Escenario, declaración del problema y objetivo
 
@@ -114,7 +114,7 @@ Para obtener información sobre cómo crear la base de datos de este modo, consu
 >[!Note]
 Los administradores de Windows suelen usar PowerShell, pero algunos de ellos prefieren la CLI de Azure.
 
-### <a name="how-do-i-search-for-personal-data-in-sql-database-in-the-azure-portal"></a>¿Cómo busco datos personales en la base de datos SQL en Azure Portal?**
+### <a name="how-do-i-search-for-personal-data-in-sql-database-in-the-azure-portal"></a>¿Cómo busco datos personales en la base de datos SQL en Azure Portal?
 
 Puede usar la herramienta integrada del editor de consultas en Azure Portal para buscar datos personales. Inicie sesión en la herramienta con las credenciales y la contraseña de administrador de SQL Server y después escriba una consulta.
 
@@ -187,7 +187,7 @@ Para obtener instrucciones más detalladas sobre cómo crear consultas SQL, visi
 
 Si no está familiarizado con Azure Cosmos DB y quiere obtener información sobre cómo crear una base de datos, agregar una colección y agregar datos, visite el tutorial de inicio rápido [Azure Cosmos DB: Compilar una aplicación web de API de SQL](../cosmos-db/create-sql-api-dotnet.md). Si quiere hacer esto en un lenguaje que no sea .NET (como Java o Python), elija el lenguaje que quiera cuando esté en el sitio.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/?v=16.50)
 

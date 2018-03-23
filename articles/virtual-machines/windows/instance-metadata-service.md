@@ -1,11 +1,11 @@
 ---
 title: Servicio de metadatos de instancia de Azure | Microsoft Docs
-description: "Interfaz RESTful para obtener información sobre proceso, red y próximos eventos de mantenimiento de la máquina virtual Windows."
+description: Interfaz RESTful para obtener información sobre proceso, red y próximos eventos de mantenimiento de la máquina virtual Windows.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: harijayms
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: f0a706a5a7724788d62479d1570fffac07ce6d54
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 8b9e79a2be26cf279abe0d29db1738b695622e9f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Servicio de metadatos de instancia de Azure
 
@@ -32,14 +32,14 @@ El servicio de metadatos de instancia de Azure es un punto de conexión REST al 
 > Este servicio está **disponible con carácter general** en todas las regiones de Azure.  Recibe actualizaciones periódicas para exponer información nueva sobre instancias de máquina virtual. En esta página se reflejan las [categorías de datos](#instance-metadata-data-categories) actualizadas disponibles.
 
 ## <a name="service-availability"></a>Disponibilidad del servicio
-El servicio está disponible con carácter general en todas las regiones de Azure. Puede que no todas las versiones de API estén disponibles en todas las regiones de Azure.
+El servicio está disponible con carácter general en las regiones de Azure. Puede que no todas las versiones de API estén disponibles en todas las regiones de Azure.
 
 Regiones                                        | ¿Disponibilidad?                                 | Versiones compatibles
 -----------------------------------------------|-----------------------------------------------|-----------------
-[Todas las regiones globales de Azure disponibles con carácter general](https://azure.microsoft.com/regions/)     | Disponibilidad general   | 2017-04-02, 2017-08-01
-[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Disponibilidad general | 2017-04-02
-[Azure en China](https://www.azure.cn/)                                                           | Disponibilidad general | 2017-04-02
-[Azure Alemania](https://azure.microsoft.com/overview/clouds/germany/)                    | Disponibilidad general | 2017-04-02
+[Todas las regiones globales de Azure disponibles con carácter general](https://azure.microsoft.com/regions/)     | Disponibilidad general   | 2017-04-02, 2017-08-01, 2017-12-01 (esta versión no está disponible en las regiones de Reino Unido)
+[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Disponibilidad general | 2017-04-02,2017-08-01
+[Azure en China](https://www.azure.cn/)                                                           | Disponibilidad general | 2017-04-02,2017-08-01
+[Azure Alemania](https://azure.microsoft.com/overview/clouds/germany/)                    | Disponibilidad general | 2017-04-02,2017-08-01
 
 Esta tabla se actualiza cuando hay actualizaciones del servicio o hay nuevas versiones compatibles disponibles
 
@@ -48,7 +48,7 @@ Para probar el servicio de metadatos de instancia, cree una máquina virtual des
 ## <a name="usage"></a>Uso
 
 ### <a name="versioning"></a>Control de versiones
-El servicio de metadatos de instancia tiene versiones. Las versiones son obligatorias y la versión actual de Global Azure es la `2017-08-01`. Las versiones compatibles actuales son (2017-04-02, 2017-08-01)
+El servicio de metadatos de instancia tiene versiones. Las versiones son obligatorias y la versión actual de Global Azure es la `2017-12-01`. Las versiones admitidas actuales son (2017-04-02, 2017-08-01 y 2017-12-01)
 
 > [!NOTE] 
 > Las versiones preliminares de eventos programados compatibles {más reciente} como la versión de api. Este formato ya no es compatible y dejará de utilizarse en el futuro.
@@ -157,7 +157,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interfac
 **Solicitud**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-12-01"
 ```
 
 **Respuesta**
@@ -182,7 +182,9 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
     "tags": "",
     "version": "16.04.201708030",
     "vmId": "13f56399-bd52-4150-9748-7190aae1ff21",
-    "vmSize": "Standard_D1"
+    "vmScaleSetName": "",
+    "vmSize": "Standard_D1",
+    "zone": "1"
   },
   "network": {
     "interface": [
@@ -296,13 +298,15 @@ subscriptionId | Suscripción de Azure para la máquina virtual | 2017-08-01
 etiquetas | [Etiquetas](../../azure-resource-manager/resource-group-using-tags.md) para su máquina virtual  | 2017-08-01
 resourceGroupName | [Grupo de recursos](../../azure-resource-manager/resource-group-overview.md) para su máquina virtual | 2017-08-01
 placementGroupId | [Grupo de selección de ubicación](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) de su conjunto de escalado de máquina virtual | 2017-08-01
+vmScaleSetName | [Nombre del conjunto de escalado de máquinas virtuales] (../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) del conjunto de escalado de máquinas virtuales | 2017-12-01
+zona | [Zona de disponibilidad](../../availability-zones/az-overview.md) de la máquina virtual | 2017-12-01 
 ipv4/privateIpAddress | Dirección IPv4 local de la máquina virtual | 2017-04-02
 ipv4/publicIpAddress | Dirección IPv4 pública de la máquina virtual | 2017-04-02
 subnet/address | Dirección de subred de la máquina virtual | 2017-04-02 
 subnet/prefix | Prefijo de la subred, ejemplo, 24 | 2017-04-02 
 ipv6/ipAddress | Dirección IPv6 local de la máquina virtual | 2017-04-02 
 macAddress | Dirección de MAC de la VM | 2017-04-02 
-scheduledevents | Consulte [Scheduled Events](scheduled-events.md). | 2017-03-01
+scheduledevents | Consulte [Scheduled Events](scheduled-events.md). | 2017-08-01
 
 ## <a name="example-scenarios-for-usage"></a>Escenarios de ejemplo de uso  
 
@@ -325,6 +329,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api
 ### <a name="placement-of-containers-data-partitions-based-faultupdate-domain"></a>Ubicación de los contenedores y el dominio de error/actualización basado en particiones de datos 
 
 Para ciertos escenarios, la ubicación de las distintas réplicas de datos es de máxima importancia. Por ejemplo, para [la ubicación de réplicas de HDFS](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html#Replica_Placement:_The_First_Baby_Steps) o la ubicación de contenedores a través de un [orquestador](https://kubernetes.io/docs/user-guide/node-selection/) se debe saber en qué `platformFaultDomain` y `platformUpdateDomain` se ejecuta la máquina virtual.
+También puede aprovechar las [zonas de disponibilidad](../../availability-zones/az-overview.md) para las instancias para tomar estas decisiones.
 Puede consultar directamente estos datos a través del servicio de metadatos de instancia.
 
 **Solicitud**
@@ -409,6 +414,6 @@ Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
 
    ![Soporte técnico de metadatos de instancia](./media/instance-metadata-service/InstanceMetadata-support.png)
     
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Más información sobre los [eventos programados](scheduled-events.md).

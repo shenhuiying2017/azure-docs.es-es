@@ -1,8 +1,8 @@
 ---
 title: Procesamiento de conjuntos de datos a gran escala mediante Data Factory y Batch | Microsoft Docs
-description: "Se describe cómo procesar grandes cantidades de datos en una canalización de Azure Data Factory mediante la funcionalidad de procesamiento paralelo de Azure Batch."
+description: Se describe cómo procesar grandes cantidades de datos en una canalización de Azure Data Factory mediante la funcionalidad de procesamiento paralelo de Azure Batch.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
 manager: jhubbard
 editor: monicar
@@ -808,7 +808,7 @@ En este paso, creará una canalización con la actividad personalizada que creó
 #### <a name="step-5-test-the-pipeline"></a>Paso 5: Prueba de la canalización
 En este paso, probará la canalización colocando archivos en las carpetas de entrada. Empiece por probar la canalización con un archivo por cada carpeta de entrada.
 
-1. En la hoja **Data Factory **de Azure Portal, seleccione** Diagrama**.
+1. En la hoja **Data Factory** de Azure Portal, seleccione **Diagrama**.
 
    ![Diagrama](./media/data-factory-data-processing-using-batch/image10.png)
 

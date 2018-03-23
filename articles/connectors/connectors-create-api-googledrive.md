@@ -1,12 +1,12 @@
 ---
-title: "Incorporación del conector de Google Drive a Logic Apps | Microsoft Docs"
-description: "Información general del conector de Google Drive con parámetros de la API de REST"
-services: 
-suite: 
-documentationcenter: 
-author: MandiOhlinger
+title: Incorporación del conector de Google Drive a Logic Apps | Microsoft Docs
+description: Información general del conector de Google Drive con parámetros de la API de REST
+services: ''
+suite: ''
+documentationcenter: ''
+author: ecfan
 manager: anneta
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: b2bcebc5-02d2-435b-b0da-ef53bc51c4b6
 ms.service: multiple
@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/07/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: 05d6efa3f48c9b0b8c21badd96a0e13a63542b30
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 9cea2ea13b93e798912e4feea012f6bd64b90cac
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-google-drive-connector"></a>Introducción al conector de Google Drive
 Conéctese a Google Drive para crear archivos, obtener filas, etc. Con Google Drive, puede: 

@@ -1,24 +1,24 @@
 ---
-title: "Recopilación de datos del entorno con Azure Log Analytics | Microsoft Docs"
-description: "En este tema se le ayudará a comprender cómo recopilar datos y supervisar equipos hospedados localmente o en entornos de nube con Log Analytics."
+title: Recopilación de datos del entorno con Azure Log Analytics | Microsoft Docs
+description: En este tema se le ayudará a comprender cómo recopilar datos y supervisar equipos hospedados localmente o en entornos de nube con Log Analytics.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2018
+ms.date: 03/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 85fde471f0d99b976e319d552c6a031d63854cf4
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 9346e9a9ad310a21c6d6ce388b76ce491041289c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="collect-data-from-computers-in-your-environment-with-log-analytics"></a>Recopilar datos de equipos en su entorno con Log Analytics
 
@@ -77,14 +77,14 @@ Las distribuciones Linux siguientes son compatibles oficialmente.  Aunque tambi�
 * SUSE Linux Enterprise Server 11 y 12 (x86/x64)
 
 #### <a name="network-configuration"></a>Network configuration (Configuración de red)
-A continuación se muestra la información de configuración de proxy y firewall requerida para que el agente de Linux se comunique con Log Analytics. El tráfico es saliente desde la red al servicio Log Analytics. 
+A continuación se muestra la información de configuración de proxy y firewall requerida para que el agente de Linux se comunique con Log Analytics.  
 
-|Recurso del agente| Puertos |  
-|------|---------|  
-|*.ods.opinsights.azure.com | Puerto 443|   
-|* .oms.opinsights.azure.com | Puerto 443|   
-|* .blob.core.windows.net | Puerto 443|   
-|* .azure-automation.net | Puerto 443|  
+|Recurso del agente| Puertos | Dirección |  
+|------|---------|--------|  
+|* .ods.opinsights.azure.com | Puerto 443 | Entrada y salida|  
+|* .oms.opinsights.azure.com | Puerto 443 | Entrada y salida|  
+|* .blob.core.windows.net | Puerto 443 | Entrada y salida|  
+|* .azure-automation.net | Puerto 443 | Entrada y salida|  
 
 El agente de Linux admite la comunicación a través de un servidor proxy o la puerta de enlace de OMS para el servicio Log Analytics mediante el protocolo HTTPS.  Se admite la autenticación anónima y básica (nombre de usuario/contraseña).  El servidor proxy se puede especificar durante la instalación o al modificar el archivo de configuración proxy.conf después de la instalación.  
 
@@ -117,10 +117,10 @@ Conectar los equipos locales directamente con Log Analytics puede realizarse med
 |Equipo con Linux| [Instalación manual](log-analytics-quick-collect-linux-computer.md)|Instale al agente para Linux llamando a un script contenedor hospedado en GitHub. | 
 | System Center Operations Manager|[Integrar Operations Manager con Log Analytics](log-analytics-om-agents.md) | Configurar la integración entre Operations Manager y Log Analytics para reenviar datos procedentes de equipos Linux y Windows que informan a un grupo de administración.|  
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * Revise los [orígenes de datos](log-analytics-data-sources.md) para saber qué orígenes de datos hay disponibles para recopilar datos de su sistema Windows o Linux. 
 
-* Obtenga información acerca de las [búsquedas de registros](log-analytics-log-searches.md) para analizar los datos recopilados de soluciones y orígenes de datos. 
+* Obtenga información acerca de las [búsquedas de registros](log-analytics-log-searches.md) para analizar los datos recopilados de las soluciones y los orígenes de datos. 
 
 * Obtenga información sobre las [soluciones](log-analytics-add-solutions.md) que agregan funcionalidad a Log Analytics y que también recopilan datos en el repositorio de OMS.

@@ -1,11 +1,11 @@
 ---
-title: "Creación y uso de un par de claves SSH para máquinas virtuales Linux en Azure | Microsoft Docs"
-description: "Creación y uso de un par de claves SSH pública y privada para máquinas virtuales Linux en Azure para mejorar la seguridad del proceso de autenticación."
+title: Creación y uso de un par de claves SSH para máquinas virtuales Linux en Azure | Microsoft Docs
+description: Creación y uso de un par de claves SSH pública y privada para máquinas virtuales Linux en Azure para mejorar la seguridad del proceso de autenticación.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 34ae9482-da3e-4b2d-9d0d-9d672aa42498
 ms.service: virtual-machines-linux
@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: a37bfa01343527a60193d893c7913e4e9c50d210
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ecd3a01ee5591cb09140edb1b1290ff2d4510200
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-create-and-use-an-ssh-public-and-private-key-pair-for-linux-vms-in-azure"></a>Creación y uso de un par de claves SSH pública y privada para máquinas virtuales Linux en Azure
 Con un par de claves de shell seguro (SSH), puede crear máquinas virtuales en Azure que usen claves SSH para autenticación, lo que elimina la necesidad de usar contraseñas para iniciar sesión. En este artículo se muestra cómo generar y usar rápidamente un par de archivos de clave pública y privada en formato RSA versión 2 del protocolo SSH para máquinas virtuales Linux. Puede seguir estos pasos con Azure Cloud Shell, un host macOS o Linux, o el subsistema de Windows para Linux. Para pasos más detallados y ejemplos adicionales, consulte los [pasos detallados para crear pares de claves SSH y certificados](create-ssh-keys-detailed.md).
 
 ## <a name="create-an-ssh-key-pair"></a>Creación de un par de claves SSH
-Use el comando `ssh-keygen` para crear los archivos de clave SSH pública y privada que se crean de forma predeterminada en el directorio `~/.ssh`. Puede especificar una ubicación diferente y una frase de contraseña adicional (una contraseña para acceder al archivo de clave privada) cuando se le solicite. Ejecute el siguiente comando desde un shell de Bash y responda a los mensajes con su propia información.
+Use el comando `ssh-keygen` para crear archivos de clave SSH pública y privada que se crean de manera predeterminada en el directorio `~/.ssh`. Puede especificar una ubicación distinta y una frase de contraseña adicional (una contraseña para acceder al archivo de clave privada) cuando se le solicite. Si existe un par de claves SSH en la ubicación actual, se sobrescribirán.
 
 ```bash
 ssh-keygen -t rsa -b 2048
@@ -48,7 +48,7 @@ ssh azureuser@myvm.westus.cloudapp.azure.com
 
 Si proporcionó una frase de contraseña cuando creó el par de claves, escríbala cuando se le solicite durante el proceso de inicio de sesión. (El servidor se agrega a la carpeta `~/.ssh/known_hosts` y no se le pedirá que se conecte de nuevo hasta que la clave pública de la máquina virtual de Azure cambie o se quite el nombre del servidor de `~/.ssh/known_hosts`).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Las máquinas virtuales creadas con claves SSH están configuradas de forma predeterminada con las contraseñas deshabilitadas, a fin de evitar los intentos de adivinarlas por fuerza bruta que resultan bastante más caros y más complejos. En este tema se describe cómo crear un par de claves SSH simple para uso rápido. Si necesita más ayuda para crear el par de claves SSH o requiere más certificados, consulte los [pasos detallados para crear pares de claves SSH y certificados](create-ssh-keys-detailed.md).
 

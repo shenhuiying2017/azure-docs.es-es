@@ -2,33 +2,27 @@
 title: Contadores de rendimiento para Shard Map Manager
 description: Clase ShardMapManager y contadores de rendimiento de enrutamiento dependiente de los datos
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: ddove
-editor: 
-ms.assetid: b090aba0-2e30-454c-96b3-dffa281f539a
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2016
-ms.author: ddove
-ms.openlocfilehash: 4a7a2e0b4f2be852c61fc3ccdd4dea2034b80918
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.author: sstein
+ms.openlocfilehash: 11f19348e91f11d73d885f5d9bb70245c709fab9
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="performance-counters-for-shard-map-manager"></a>Contadores de rendimiento para Shard Map Manager
 Puede capturar el rendimiento de una instancia de [Shard Map Manager](sql-database-elastic-scale-shard-map-management.md), en especial cuando se utiliza el [enrutamiento dependiente de los datos](sql-database-elastic-scale-data-dependent-routing.md). Los contadores se crean con métodos de la clase Microsoft.Azure.SqlDatabase.ElasticScale.Client.  
 
-Los contadores se utilizan para supervisar el rendimiento de operaciones de [enrutamiento dependiente de los datos](sql-database-elastic-scale-data-dependent-routing.md) . Dichos contadores son accesibles en el Monitor de rendimiento, en la categoría "Base de datos elástica: Administración de particiones".
+Los contadores se utilizan para supervisar el rendimiento de operaciones de [enrutamiento dependiente de los datos](sql-database-elastic-scale-data-dependent-routing.md) . Dichos contadores son accesibles en el Monitor de rendimiento, en la categoría "Elastic Database: Administración de particiones".
 
 **Para obtener la versión más reciente:** vaya a [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). Consulte también [Actualización de una aplicación para usar la biblioteca de cliente de base de datos elástica más reciente](sql-database-elastic-scale-upgrade-client-library.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 * Para crear la categoría y los contadores de rendimiento, el usuario debe formar parte del grupo **Administradores** local en el equipo que hospeda la aplicación.  
 * Para crear una instancia de contador de rendimiento y actualizar los contadores, el usuario debe ser miembro del grupo **Administradores** o del grupo **Usuarios del monitor de sistema**. 
 
@@ -57,12 +51,12 @@ Los siguientes eventos desencadenan la creación de los contadores de rendimient
 
 Los contadores de rendimiento se actualizarán con todas las operaciones de caché realizadas en el mapa de particiones y las asignaciones. La eliminación correcta del mapa de particiones mediante DeleteShardMap() da lugar a la eliminación de la instancia de contadores de rendimiento.  
 
-## <a name="best-practices"></a>Prácticas recomendadas
+## <a name="best-practices"></a>Procedimientos recomendados
 * La creación de la categoría y los contadores de rendimiento debe realizarse una sola vez antes de la creación del objeto ShardMapManager. Cada ejecución del comando CreatePerformanceCategoryAndCounters() borra los contadores anteriores (se pierden los datos notificados por todas las instancias) y crea otros nuevos.  
 * Las instancias de contadores de rendimiento se crean por proceso. Cualquier bloqueo de la aplicación o eliminación de un mapa de particiones de la caché da lugar a la eliminación de las instancias de contadores de rendimiento.  
 
 ### <a name="see-also"></a>Consulte también 
-[Información general de las características de bases de datos elásticas](sql-database-elastic-scale-introduction.md)  
+[Información general de las características de Elastic Database](sql-database-elastic-scale-introduction.md)  
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

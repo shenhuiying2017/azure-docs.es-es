@@ -1,26 +1,20 @@
 ---
-title: "Diseño de soluciones de recuperación ante desastres: Azure SQL Database | Microsoft Docs"
-description: "Aprenda a diseñar la solución de nube para recuperación ante desastres eligiendo el modelo correcto de conmutación por error."
+title: 'Diseño de soluciones de recuperación ante desastres: Azure SQL Database | Microsoft Docs'
+description: Aprenda a diseñar la solución de nube para recuperación ante desastres eligiendo el modelo correcto de conmutación por error.
 services: sql-database
-documentationcenter: 
 author: anosov1960
-manager: jhubbard
-editor: monicar
-ms.assetid: 2db99057-0c79-4fb0-a7f1-d1c057ec787f
+manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.date: 12/13/2017
+ms.date: 03/05/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.workload: Inactive
-ms.openlocfilehash: 9d12fb8a7dbd3bb763e42fd0981d7ef18b57248b
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 6ec202237a0b3fb1b7f0b7158c0aa454b4d65770
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>Estrategias de recuperación ante desastres para aplicaciones que usan grupos elásticos de SQL Database
 A lo largo de los años, hemos aprendido que los servicios en la nube no son infalibles y que los incidentes catastróficos ocurren. SQL Database proporciona una serie de funcionalidades para proporcionar la continuidad del negocio de la aplicación cuando se producen estos incidentes. Los [grupos elásticos](sql-database-elastic-pool.md) y las bases de datos únicas admiten el mismo tipo de funcionalidades de recuperación ante desastres. En este artículo se describen varias estrategias de recuperación ante desastres para grupos elásticos que sacan partido a esas características de continuidad de negocio de SQL Database.
@@ -30,6 +24,9 @@ En este artículo se usa el modelo de aplicaciones de ISV de SaaS canónico sigu
 <i>Una aplicación web moderna basada en la nube aprovisiona una instancia de SQL Database para cada usuario final. El ISV tiene muchos clientes y, por tanto, utiliza muchas bases de datos, conocidas como bases de datos de inquilino. Dado que las bases de datos de inquilino normalmente tienen patrones de actividad impredecibles, el ISV usa un grupo elástico para que el costo de la base de datos sea muy predecible durante prolongados períodos. El grupo elástico también simplifica la administración del rendimiento cuando aumenta la actividad del usuario. Además de las bases de datos de inquilino, la aplicación también utiliza varias bases de datos para administrar los perfiles de usuario, la seguridad o la recopilación de los patrones de uso, entre otros. La disponibilidad de los inquilinos individuales no afecta a la disponibilidad de la aplicación como conjunto. Sin embargo, la disponibilidad y el rendimiento de las bases de datos de administración son fundamentales para el funcionamiento de la aplicación y, si las bases de datos de administración están sin conexión, pasará lo mismo con toda la aplicación.</i>  
 
 En este artículo se describen las estrategias de recuperación ante desastres que abarcan una variedad de escenarios que va desde las aplicaciones de inicio sensibles al costo a aquellas con requisitos estrictos de disponibilidad.
+
+> [!NOTE]
+> Si usa grupos y bases de datos premium, puede hacerlos resistentes a las interrupciones regionales mediante su conversión en una configuración de implementación con redundancia de zona (actualmente en versión preliminar). Vea [Alta disponibilidad y Azure SQL Database](sql-database-high-availability.md).
 
 ## <a name="scenario-1-cost-sensitive-startup"></a>Escenario 1. Inicio sensible al costo
 <i>Acabo de crear una empresa y me preocupan sobremanera los costos.  Quiero simplificar la implementación y administración de la aplicación y puedo tener un Acuerdo de Nivel de Servicio limitado para clientes individuales. Sin embargo, quiero garantizar que nunca se quede sin conexión toda la aplicación.</i>

@@ -2,7 +2,7 @@
 title: 'Azure AD Domain Services: directrices de redes | Microsoft Docs'
 description: Consideraciones de red de Azure Active Directory Domain Services
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2017
+ms.date: 03/08/2018
 ms.author: maheshu
-ms.openlocfilehash: a6f0089f13de10ba8bc1f9a656a2d21f9c559047
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: eee7905db4faedef3217118e8d491e2cb019fa30
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Consideraciones de red de Azure AD Domain Services
 ## <a name="how-to-select-an-azure-virtual-network"></a>Selección de una instancia de Azure Virtual Network
@@ -53,6 +53,7 @@ Las siguientes directrices le ayudan a seleccionar una red virtual para usarla c
 * No aplique los NSG a la subred dedicada para el dominio administrado. Si debe aplicarlos a la subred dedicada, asegúrese de **no bloquear los puertos necesarios para mantener y administrar el dominio**.
 * No restrinja en exceso el número de direcciones IP disponibles dentro de la subred dedicada para el dominio administrado. Esta restricción impide que el servicio ponga dos controladores de dominio a disposición del dominio administrado.
 * **No habilite Azure AD Domain Services en la subred de la puerta de enlace** de la red virtual.
+* No bloquee el acceso de salida desde la subred en la que está habilitado el dominio administrado.
 
 > [!WARNING]
 > Al asociar un NSG a una subred en la que Azure AD Domain Services está habilitado, puede interrumpir la capacidad de Microsoft para mantener y administrar el dominio. Además, se interrumpe la sincronización entre el inquilino de Azure AD y el dominio administrado. **El SLA no es pertinente para aquellas implementaciones en las que se ha aplicado un NSG que impide que Azure AD Domain Services actualice y administre el dominio.**
@@ -89,6 +90,8 @@ Los siguientes puertos son necesarios para que Azure AD Domain Services mantenga
 * Se usa para habilitar el acceso mediante LDAP seguro al dominio administrado a través de Internet.
 * Es opcional abrir este puerto mediante el grupo de seguridad de red. Abra el puerto solo si tiene habilitado el acceso mediante LDAP seguro a través de Internet.
 * Puede restringir el acceso de entrada a este puerto para las direcciones IP de origen desde las que espera conectarse a través de LDAP seguro.
+
+**Acceso de salida**: los servicios de dominio de AAD necesitan acceso de salida a otros diversos servicios de Azure con el fin de administrar el dominio administrado, realizar una copia de seguridad de él y administrarlo. No bloquee el acceso de salida desde la subred dedicada en la que está habilitado el dominio administrado.
 
 
 ## <a name="network-security-groups"></a>Grupos de seguridad de red

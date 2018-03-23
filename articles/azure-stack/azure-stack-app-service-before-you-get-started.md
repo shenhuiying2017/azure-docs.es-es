@@ -2,27 +2,32 @@
 title: Antes de implementar App Service en Azure Stack | Microsoft Docs
 description: Pasos necesarios para implementar App Service en Azure Stack
 services: azure-stack
-documentationcenter: 
-author: brenduns
-manager: femila
-editor: 
-ms.assetid: 
+documentationcenter: ''
+author: apwestgarth
+manager: stefsch
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2018
-ms.author: brenduns
-ms.reviewer: anwestg
-ms.openlocfilehash: 27f0255c023382a14368915b0d19a49d133154d8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.date: 03/09/2018
+ms.author: anwestg
+ms.openlocfilehash: 3261a312cde9ebdf41f6dadb82c14d108715f8f7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Antes de empezar a trabajar con App Service en Azure Stack
+
 *Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
+
+> [!IMPORTANT]
+> Aplique la actualización 1802 al sistema integrado de Azure Stack o implemente el kit de desarrollo de Azure Stack más reciente antes de implementar Azure App Service.
+>
+>
 
 Antes de implementar Azure App Service en Azure Stack, debe completar los requisitos previos de este artículo.
 
@@ -40,14 +45,22 @@ Antes de implementar Azure App Service en Azure Stack, debe completar los requis
    - Módulos
      - GraphAPI.psm1
 
-## <a name="prepare-for-high-availability"></a>Preparación para lograr alta disponibilidad
+## <a name="high-availability"></a>Alta disponibilidad
 
-Azure App Service en Azure Stack no puede ofrecer alta disponibilidad actualmente porque Azure Stack solo implementa cargas de trabajo en un dominio de error individual.
+Con la versión 1802 de Azure Stack, que agregó compatibilidad con los dominios de error, las nuevas implementaciones de Azure App Service en Azure Stack se distribuirán entre los dominios de error y proporcionarán tolerancia a errores.  Para las implementaciones existentes de Azure App Service en Azure Stack realizadas antes del lanzamiento de la actualización 1802, vea la documentación (azure-stack-app-service-fault-domain-update.md) para obtener información sobre cómo reequilibrar la implementación.
 
-Para preparar Azure App Service en Azure Stack para que proporcione alta disponibilidad, implemente el servidor de archivos y la instancia de SQL Server necesarios en una configuración de alta disponibilidad. Si Azure Stack admite varios dominios de error, se proporcionará una guía acerca de cómo habilitar Azure App Service en Azure Stack en una configuración de alta disponibilidad.
-
+Además, para que Azure App Service en Azure Stack proporcione alta disponibilidad, implemente el servidor de archivos y la instancia de SQL Server necesarios en una configuración de alta disponibilidad. 
 
 ## <a name="get-certificates"></a>Obtención de certificados
+
+### <a name="azure-resource-manager-root-certificate-for-azure-stack"></a>Certificado raíz de Azure Resource Manager para Azure Stack
+
+En una sesión de PowerShell que se ejecuta como azurestack\CloudAdmin en un equipo que puede alcanzar el punto de conexión con privilegios en el sistema integrado de Azure Stack o en el host del Kit de desarrollo de Azure Stack, ejecute el script Get-AzureStackRootCert.ps1 desde la carpeta de la que extrajo los scripts de la aplicación auxiliar. El script crea un certificado raíz en la misma carpeta que el script de creación de certificados que App Service necesita.
+
+| Parámetro Get-AzureStackRootCert.ps1 | Obligatorio u opcional | Valor predeterminado | DESCRIPCIÓN |
+| --- | --- | --- | --- |
+| PrivilegedEndpoint | Obligatorio | AzS-ERCS01 | Punto de conexión con privilegios |
+| CloudAdminCredential | Obligatorio | AzureStack\CloudAdmin | Credenciales de cuenta de dominio para administradores de nube de Azure Stack |
 
 ### <a name="certificates-required-for-the-azure-stack-development-kit"></a>Certificados necesarios para el Kit de desarrollo de Azure Stack
 
@@ -56,9 +69,9 @@ Este primer script funciona con la entidad de certificación de Azure Stack para
 | Nombre de archivo | Uso |
 | --- | --- |
 | _.appservice.local.azurestack.external.pfx | Certificado SSL predeterminado de App Service |
-| Api.appservice.local.azurestack.external.pfx | Certificado SSL de API de App Service |
+| api.appservice.local.azurestack.external.pfx | Certificado SSL de API de App Service |
 | ftp.appservice.local.azurestack.external.pfx | Certificado SSL del publicador de App Service |
-| Sso.appservice.local.azurestack.external.pfx | Certificado de aplicación de identidad de App Service |
+| sso.appservice.local.azurestack.external.pfx | Certificado de aplicación de identidad de App Service |
 
 Ejecute el script en el host del kit de desarrollo de Azure Stack y asegúrese de que está ejecutando PowerShell como azurestack\CloudAdmin:
 
@@ -74,18 +87,19 @@ Ejecute el script en el host del kit de desarrollo de Azure Stack y asegúrese d
 
 ### <a name="certificates-required-for-a-production-deployment-of-azure-app-service-on-azure-stack"></a>Certificados necesarios para una implementación de producción de Azure App Service en Azure Stack
 
-Para que funcione el proveedor de recursos de producción, debe proporcionar los siguientes cuatro certificados.
+Para que funcione el proveedor de recursos de producción, debe proporcionar los siguientes cuatro certificados:
 
 #### <a name="default-domain-certificate"></a>Certificado de dominio predeterminado
 
 El certificado de dominio predeterminado se coloca en el rol de Front-End. Las aplicaciones del usuario lo utilizan para solicitudes de dominio comodín o predeterminado para Azure App Service. El certificado también se utiliza para operaciones de control de código fuente (Kudu).
 
-El certificado debe estar en formato .pfx y debe ser un certificado comodín con dos firmantes. Esto permite que el dominio predeterminado y el punto de conexión de SCM para las operaciones de control de código fuente se realicen mediante un certificado.
+El certificado debe estar en formato .pfx y debe ser un certificado comodín con tres firmantes. Esto permite que el dominio predeterminado y el punto de conexión de SCM para las operaciones de control de código fuente se realicen mediante un certificado.
 
 | Formato | Ejemplo |
 | --- | --- |
 | \*.appservice.\<region\>.\<DomainName\>.\<extension\> | \*.appservice.redmond.azurestack.external |
-| \*.scm.appservice.<region>.<DomainName>.<extension> | \*.appservice.scm.redmond.azurestack.external |
+| \*.scm.appservice.<region>.<DomainName>.<extension> | \*.scm.appservice.redmond.azurestack.external |
+| \*.sso.appservice.<region>.<DomainName>.<extension> | \*.sso.appservice.redmond.azurestack.external |
 
 #### <a name="api-certificate"></a>Certificado de API
 
@@ -101,11 +115,12 @@ El certificado para el rol de publicador protege el tráfico FTPS de los propiet
 
 | Formato | Ejemplo |
 | --- | --- |
-| ftp.appservice.\<region\>.\<DomainName\>.\<extension\> | api.appservice.redmond.azurestack.external |
+| ftp.appservice.\<region\>.\<DomainName\>.\<extension\> | ftp.appservice.redmond.azurestack.external |
 
 #### <a name="identity-certificate"></a>Certificado de identidad
 
 El certificado para la aplicación de identidad permite:
+
 - La integración entre Azure Active Directory (Azure AD) o el directorio de Active Directory Federation Services (AD FS), Azure Stack y App Service para admitir la integración con el proveedor de recursos de proceso.
 - Escenarios de inicio de sesión único para herramientas de desarrollo avanzadas de Azure App Service en Azure Stack.
 
@@ -115,15 +130,19 @@ El certificado de identidad debe contener un firmante que coincida con el siguie
 | --- | --- |
 | sso.appservice.\<region\>.\<DomainName\>.\<extension\> | sso.appservice.redmond.azurestack.external |
 
-### <a name="azure-resource-manager-root-certificate-for-azure-stack"></a>Certificado raíz de Azure Resource Manager para Azure Stack
+## <a name="virtual-network"></a>Virtual Network
 
-En una sesión de PowerShell que se ejecuta como azurestack\CloudAdmin, ejecute el script Get-AzureStackRootCert.ps1 desde la carpeta donde extrajo los scripts de la aplicación auxiliar. El script crea cuatro certificados en la misma carpeta que el script de creación de certificados que App Service necesita.
+Azure App Service en Azure Stack permite implementar el proveedor de recursos en una red virtual existente, o bien App Service crea uno como parte de la implementación.  El uso de una red virtual existente permite utilizar IP internas para conectarse al servidor de archivos y al servidor SQL Server que Azure App Service necesita en Azure Stack.  La red virtual debe configurarse con el intervalo de direcciones y las subredes siguientes antes de instalar Azure App Service en Azure Stack:
 
-| Parámetro Get-AzureStackRootCert.ps1 | Obligatorio u opcional | Valor predeterminado | DESCRIPCIÓN |
-| --- | --- | --- | --- |
-| PrivelegedEndpoint | Obligatorio | AzS-ERCS01 | Punto de conexión con privilegios |
-| CloudAdminCredential | Obligatorio | AzureStack\CloudAdmin | Credenciales de cuenta de dominio para administradores de nube de Azure Stack |
+Virtual Network - /16
 
+Subredes
+
+* ControllersSubnet /24
+* ManagementServersSubnet /24
+* FrontEndsSubnet /24
+* PublishersSubnet /24
+* WorkersSubnet /21
 
 ## <a name="prepare-the-file-server"></a>Preparación del servidor de archivos
 
@@ -131,8 +150,11 @@ Azure App Service necesita utilizar un servidor de archivos. Para las implementa
 
 Para su uso solo con las implementaciones del kit de desarrollo de Azure Stack, puede usar la [plantilla de implementación de Azure Resource Manager de ejemplo](https://aka.ms/appsvconmasdkfstemplate) para implementar un servidor de archivos de nodo único configurado. El servidor de archivos de nodo único estará en un grupo de trabajo.
 
-### <a name="provision-groups-and-accounts-in-active-directory"></a>Aprovisionar grupos y cuentas en Active Directory
+>[!IMPORTANT]
+> Si decide implementar App Service en una instancia de Virtual Network, el servidor de archivos debe implementarse en una subred independiente de App Service.
+>
 
+### <a name="provision-groups-and-accounts-in-active-directory"></a>Aprovisionar grupos y cuentas en Active Directory
 
 1. Crear los siguientes grupos de seguridad global de Active Directory:
    - FileShareOwners
@@ -216,6 +238,7 @@ net localgroup Administrators FileShareOwners /add
 Ejecute los comandos siguientes en un símbolo del sistema con privilegios elevados en el servidor de archivos o en el nodo del clúster de conmutación por error, que es el propietario actual del recurso del clúster. Reemplace los valores en cursiva por valores específicos de su entorno.
 
 #### <a name="active-directory"></a>Active Directory
+
 ```DOS
 set DOMAIN=<DOMAIN>
 set WEBSITES_FOLDER=C:\WebSites
@@ -228,6 +251,7 @@ icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 ```
 
 #### <a name="workgroup"></a>Grupo de trabajo
+
 ```DOS
 set WEBSITES_FOLDER=C:\WebSites
 icacls %WEBSITES_FOLDER% /reset
@@ -250,15 +274,21 @@ La instancia de SQL Server para Azure App Service en Azure Stack debe ser accesi
 
 Para cualquiera de los roles de SQL Server, puede utilizar una instancia predeterminada o una instancia con nombre. Si usa una instancia con nombre, asegúrese de iniciar manualmente el servicio SQL Server Browser y abrir el puerto 1434.
 
+>[!IMPORTANT]
+> Si decide implementar App Service en una instancia de Virtual Network, SQL Server debe implementarse en una subred independiente de App Service y del servidor de archivos.
+>
+
 ## <a name="create-an-azure-active-directory-application"></a>Creación de una aplicación de Azure Active Directory
 
 Configuración de una entidad de servicio de Azure AD para admitir lo siguiente:
-- Integración del conjunto de escalado de máquinas virtuales en los niveles de trabajo
-- Inicio de sesión único para las herramientas avanzadas del desarrollador y el portal de Azure Functions
+
+- Integración del conjunto de escalado de máquinas virtuales en los niveles de trabajo.
+- Inicio de sesión único para las herramientas avanzadas del desarrollador y el portal de Azure Functions.
 
 Estos pasos se aplican solo a entornos de Azure Stack protegidos con Azure AD.
 
 Los administradores deben configurar SSO para:
+
 - Habilitar las herramientas avanzadas de desarrollador en App Service (Kudu).
 - Habilitar el uso de la experiencia del portal de Azure Functions.
 
@@ -276,7 +306,8 @@ Siga estos pasos:
 10. Seleccione **Registros de aplicaciones**.
 11. Busque el identificador de la aplicación devuelto como parte del paso 7. Se muestra una aplicación de App Service.
 12. Seleccione **Aplicación** en la lista.
-13. Seleccione **Permisos necesarios** > **Conceder permisos** > **Sí**.
+13. Haga clic en **Configuración**.
+14. Seleccione **Permisos necesarios** > **Conceder permisos** > **Sí**.
 
 | Parámetro Create-AADIdentityApp.ps1 | Obligatorio u opcional | Valor predeterminado | DESCRIPCIÓN |
 | --- | --- | --- | --- |
@@ -290,10 +321,12 @@ Siga estos pasos:
 ## <a name="create-an-active-directory-federation-services-application"></a>Creación de una aplicación de Servicios de federación de Active Directory
 
 Para entornos de Azure Stack protegidos por AD FS, debe configurar una entidad de servicio de AD FS para admitir lo siguiente:
-- Integración del conjunto de escalado de máquinas virtuales en los niveles de trabajo
-- Inicio de sesión único para las herramientas avanzadas del desarrollador y el portal de Azure Functions
+
+- Integración del conjunto de escalado de máquinas virtuales en los niveles de trabajo.
+- Inicio de sesión único para las herramientas avanzadas del desarrollador y el portal de Azure Functions.
 
 Los administradores deben configurar SSO para:
+
 - Configurar una entidad de servicio para la integración del conjunto de escalado de máquinas virtuales en los niveles de trabajo.
 - Habilitar las herramientas avanzadas de desarrollador en App Service (Kudu).
 - Habilitar el uso de la experiencia del portal de Azure Functions.
@@ -303,9 +336,9 @@ Siga estos pasos:
 1. Abra una instancia de PowerShell como azurestack\AzureStackAdmin.
 2. Vaya a la ubicación de los scripts descargados y extraídos en el [paso de requisitos previos](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts).
 3. [Instale PowerShell para Azure Stack](azure-stack-powershell-install.md).
-4.  Ejecute el script **Create-ADFSIdentityApp.ps1**.
-5.  En la ventana **Credencial**, escriba la cuenta y la contraseña de administrador de la nube de AD FS. Seleccione **Aceptar**.
-6.  Proporcione la ruta de acceso del archivo y la contraseña del [certificado creado anteriormente](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack). El certificado creado para este paso de forma predeterminada es **sso.appservice.local.azurestack.external.pfx**.
+4. Ejecute el script **Create-ADFSIdentityApp.ps1**.
+5. En la ventana **Credencial**, escriba la cuenta y la contraseña de administrador de la nube de AD FS. Seleccione **Aceptar**.
+6. Proporcione la ruta de acceso del archivo y la contraseña del [certificado creado anteriormente](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack). El certificado creado para este paso de forma predeterminada es **sso.appservice.local.azurestack.external.pfx**.
 
 | Parámetro Create-ADFSIdentityApp.ps1 | Obligatorio u opcional | Valor predeterminado | DESCRIPCIÓN |
 | --- | --- | --- | --- |
@@ -315,7 +348,6 @@ Siga estos pasos:
 | CertificateFilePath | Obligatorio | Null | Ruta de acceso al archivo PFX del certificado de la aplicación de identidad. |
 | CertificatePassword | Obligatorio | Null | Contraseña que ayuda a proteger la clave privada del certificado. |
 
-
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 [Instale el proveedor de recursos de App Service](azure-stack-app-service-deploy.md)

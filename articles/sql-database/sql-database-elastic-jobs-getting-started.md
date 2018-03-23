@@ -1,24 +1,19 @@
 ---
-title: "Introducción a trabajos de base de datos elástica | Microsoft Docs"
+title: Introducción a trabajos de base de datos elástica | Microsoft Docs
 description: Utilice los trabajos de Elastic Database para ejecutar scripts de T-SQL que abarcan varias bases de datos.
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: ddove
-ms.assetid: 2540de0e-2235-4cdd-9b6a-b841adba00e5
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
-ms.author: ddove
-ms.openlocfilehash: c5fe5256d4a8b8479f5e4aff95ec03fc1ba1018a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: sstein
+ms.openlocfilehash: 5d55ae225ca1b550bbf70314e2f48fc0161ad107
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>Introducción a trabajos de Elastic Database
 Trabajos de Elastic Database (versión preliminar) para Azure SQL Database permite ejecutar de forma confiable scripts de T-SQL que abarcan varias bases de datos al tiempo que realizan reintentos automáticos y ofrecen garantías de finalización futura. Para más información sobre la característica de trabajo de Elastic Database, vea [Trabajos elásticos](sql-database-elastic-jobs-overview.md).
@@ -461,7 +456,7 @@ Quite un desencadenador de trabajo para detener un trabajo que se ejecute según
 
 Todas las filas de la tabla **Clientes** , almacenadas en distintas particiones, completan la hoja de Excel.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Ahora puede usar las funciones de datos de Excel. Use la cadena de conexión con el nombre de servidor, el nombre de base de datos y las credenciales para conectar su BI y las herramientas de integración de datos a la base de datos de consulta elástica. Asegúrese de que SQL Server se admite como origen de datos para la herramienta. Consulte la base de datos de consulta elástica y las tablas externas como cualquier otra base de datos SQL Server y las tablas de SQL Server que quiera conectar con la herramienta.
 
 ### <a name="cost"></a>Coste

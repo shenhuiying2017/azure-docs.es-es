@@ -1,11 +1,11 @@
 ---
-title: "Servicios web Azure Machine Learning: Implementación y consumo | Microsoft Docs"
+title: 'Servicios web Azure Machine Learning: Implementación y consumo | Microsoft Docs'
 description: Recursos para implementar y consumir servicios web.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: raymondl
-editor: 
+documentationcenter: ''
+author: aashishb
+manager: hjerez
+editor: ''
 ms.assetid: 47635376-d1f4-4ea4-a6af-bd1f99f69a69
 ms.service: machine-learning
 ms.workload: data-services
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: raymondl
-ms.openlocfilehash: 88a61467a79a424670d49e662315cab59ab52d13
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: aashishb
+ms.openlocfilehash: 7eecfe4a80499fbba0533f0d410dd920db61e62c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-machine-learning-web-services-deployment-and-consumption"></a>Servicios web Azure Machine Learning: Implementación y consumo
 Puede usar Azure Machine Learning para implementar flujos de trabajo y modelos de aprendizaje automático como servicios web. Estos servicios web pueden usarse después para llamar a los modelos de aprendizaje automático de las aplicaciones a través de Internet para que realicen predicciones en tiempo real o en modo por lotes. Como estos servicios web son RESTFul, se los puede llamar desde diversos lenguajes de programación y plataformas como .NET y Java, y aplicaciones como Excel.
@@ -49,7 +49,7 @@ El proveedor de recursos de Azure Machine Learning para servicios web permite la
 ### <a name="with-powershell-cmdlets"></a>Con cmdlets de PowerShell
 El proveedor de recursos de Azure Machine Learning para servicios web permite la implementación y administración de servicios web mediante los cmdlets de PowerShell.
 
-Para usar los cmdlets, primero debe iniciar sesión en su cuenta de Azure desde el entorno de PowerShell mediante el cmdlet [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) . Si no sabe cómo llamar a los comandos de PowerShell basados en Resource Manager, consulte [Uso de Azure PowerShell con Azure Resource Manager](../../azure-resource-manager/powershell-azure-resource-manager.md#log-in-to-your-azure-account).
+Para usar los cmdlets, primero debe iniciar sesión en su cuenta de Azure desde el entorno de PowerShell mediante el cmdlet [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) . Si no sabe cómo llamar a los comandos de PowerShell basados en Resource Manager, consulte [Uso de Azure PowerShell con Azure Resource Manager](../../azure-resource-manager/powershell-azure-resource-manager.md).
 
 Para exportar el experimento predictivo, use este [código de ejemplo](https://github.com/ritwik20/AzureML-WebServices). Después de crear el archivo .exe a partir del código, escriba:
 

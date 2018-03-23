@@ -1,8 +1,8 @@
 ---
-title: "Profundización en la predicción del estado de vehículo y los hábitos de conducción: Azure | Microsoft Docs"
-description: "Aproveche las posibilidades de Cortana Intelligence para obtener información en tiempo real y predictiva del estado de los vehículos y los hábitos de conducción."
+title: 'Profundización en la predicción del estado de vehículo y los hábitos de conducción: Azure | Microsoft Docs'
+description: Aproveche las posibilidades de Cortana Intelligence para obtener información en tiempo real y predictiva del estado de los vehículos y los hábitos de conducción.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/24/2017
+ms.date: 03/14/2018
 ms.author: bradsev
-ms.openlocfilehash: a21316ef6ab05918f07a09243b5ce04950ecd9dc
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 370ab807ef85240238c51d1693796c26981edb15
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="vehicle-telemetry-analytics-solution-playbook-deep-dive-into-the-solution"></a>Cuaderno de estrategias de la solución Vehicle Telemetry Analytics: profundización en la solución
 Este menú vincula a las secciones de este cuaderno de estrategias: 
@@ -40,7 +40,7 @@ Se incluye un simulador telemático del vehículo como parte de esta solución, 
 
 Este conjunto de datos con formato JSON contiene el esquema siguiente.
 
-| Columna | Description | Valores |
+| Columna | DESCRIPCIÓN | Valores |
 | --- | --- | --- |
 | VIN |Número de chasis generado aleatoriamente |Se obtiene de una lista maestra de 10 000 números de chasis generados aleatoriamente |
 | Outside temperature |La temperatura exterior del entorno en el que se está conduciendo el vehículo  |Número generado aleatoriamente de 0 a 100 |
@@ -669,8 +669,7 @@ Este documento contiene un desglose detallado de la solución de análisis de te
 
 * [Solución de simulador telemático de vehículo de Visual Studio](http://go.microsoft.com/fwlink/?LinkId=717075) 
 * [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)
-* 
-            [Azure Data Factory](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
+* [Azure Data Factory](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
 * [SDK de Azure Event Hubs para la ingesta de flujos](../../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 * [Funcionalidades de movimiento de datos de Azure Data Factory](../../data-factory/v1/data-factory-data-movement-activities.md)
 * [Actividad .NET en Azure Data Factory](../../data-factory/v1/data-factory-use-custom-activities.md)

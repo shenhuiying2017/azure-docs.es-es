@@ -1,25 +1,19 @@
 ---
-title: "Restauración de una base de datos Azure SQL Database a partir de una copia de seguridad | Microsoft Docs"
-description: "Obtenga información acerca de la restauración a un momento dado, que le permite revertir Azure SQL Database a un momento dado anterior (hasta 35 días)."
+title: Restauración de una base de datos Azure SQL Database a partir de una copia de seguridad | Microsoft Docs
+description: Obtenga información acerca de la restauración a un momento dado, que le permite revertir Azure SQL Database a un momento dado anterior (hasta 35 días).
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: monicar
-ms.assetid: fd1d334d-a035-4a55-9446-d1cf750d9cf7
+manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: Active
 ms.date: 02/13/2018
 ms.author: carlrab
-ms.openlocfilehash: 81b61d59e63924e4af5befe4cbd638be98b385e6
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d2cc2e44c13750b654e2d6acf39d4f6a80cac98a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Recuperación de una Base de datos SQL de Azure mediante copias de seguridad automatizadas
 SQL Database proporciona estas opciones para la recuperación de bases de datos mediante [copias de seguridad automatizadas de la base de datos](sql-database-automated-backups.md) y [copias de seguridad en retención a largo plazo](sql-database-long-term-retention.md). Puede restaurar de una copia de seguridad de base de datos a:
@@ -152,7 +146,7 @@ Como se dijo anteriormente, además de Azure Portal, la recuperación de una bas
 ## <a name="summary"></a>Resumen
 Las copias de seguridad automáticas protegen las bases de datos de los errores de usuario y de aplicación, la eliminación accidental de la base de datos y las interrupciones prolongadas. Esta funcionalidad integrada está disponible para todos los niveles de servicio y niveles de rendimiento. 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Para obtener una descripción general y los escenarios de la continuidad empresarial, consulte [Información general sobre la continuidad empresarial](sql-database-business-continuity.md).
 * Para saber en qué consisten las copias de seguridad automatizadas de Azure SQL Database, consulte [Información general: copias de seguridad automatizadas de SQL Database](sql-database-automated-backups.md).
 * Para más información sobre la retención de copia de seguridad a largo plazo, consulte sobre la [retención de copia de seguridad a largo plazo](sql-database-long-term-retention.md).

@@ -1,18 +1,20 @@
 ---
-title: Uso de una alerta para desencadenar un runbook de Azure Automation | Microsoft Docs
+title: Uso de una alerta para desencadenar un runbook de Azure Automation
 description: Aprenda a desencadenar un runbook para que se ejecute cuando se genere una alerta de Azure.
 services: automation
-keywords: 
+ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/11/2018
+ms.date: 03/15/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 9ea51a85110bb8169dce0a445549e2590c51207e
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.devlang: na
+ms.tgt_pltfrm: na
+ms.openlocfilehash: e1fc357e654aa60b94944a93118431b944898bff
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Uso de una alerta para desencadenar un runbook de Azure Automation
 
@@ -224,7 +226,7 @@ Para crear una alerta clásica:
 1. En la página **Configurar Runbook**, para **Origen de runbook**, seleccione **Usuario**. Elija la cuenta de automatización y luego seleccione el runbook **AzureVmInResponsetoVMAlert Stop**. Seleccione **Aceptar**.
 1. Para guardar la regla de alerta, haga clic en **Aceptar**.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * Para más información sobre cómo iniciar un runbook de Automation mediante webhooks, consulte [Inicio de un runbook de Azure Automation con un webhook](automation-webhooks.md).
 * Para más información acerca de diferentes maneras de iniciar un Runbook, consulte [Inicio de un runbook en Automatización de Azure](automation-starting-a-runbook.md).

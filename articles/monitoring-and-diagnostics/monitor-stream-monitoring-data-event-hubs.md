@@ -1,9 +1,9 @@
 ---
-title: "Flujo de datos de supervisión de Azure a Event Hubs | Microsoft Docs"
-description: "Aprenda sobre el flujo de todos los datos de supervisión de Azure a un centro de eventos para que una herramienta de un asociado de Administración de eventos e información de seguridad o de análisis puedan disponer de ellos."
+title: Flujo de datos de supervisión de Azure a Event Hubs | Microsoft Docs
+description: Aprenda sobre el flujo de todos los datos de supervisión de Azure a un centro de eventos para que una herramienta de un asociado de Administración de eventos e información de seguridad o de análisis puedan disponer de ellos.
 author: johnkemnetz
 manager: robb
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.service: monitoring-and-diagnostics
@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/13/2018
+ms.date: 3/05/2018
 ms.author: johnkem
-ms.openlocfilehash: d449be98cd59756e2bafc584e0501b8c83c594eb
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 1b1c50f106be8848fb1f32deefa6cb9acb7a298a
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Flujo de datos de supervisión de Azure a un centro de eventos para que lo consuma una herramienta externa
 
@@ -36,7 +36,18 @@ En el entorno de Azure hay varios "niveles" de datos de supervisión, cuyo méto
 
 Pueden enviarse datos desde cualquier nivel a un centro de eventos, donde pueden extraerse en una herramienta asociada. En las secciones siguientes se describe cómo configurar los datos de cada nivel para el flujo de datos a un centro de eventos. En los pasos se presupone que ya tiene recursos en ese nivel que desea supervisar.
 
-Antes de empezar, debe [crear un espacio de nombres de Event Hubs y un centro de eventos](../event-hubs/event-hubs-create.md). Estos centro de eventos y espacio de nombres son el destino de todos los datos de supervisión.
+## <a name="set-up-an-event-hubs-namespace"></a>Configuración de un espacio de nombres de Event Hubs
+
+Antes de empezar, debe [crear un espacio de nombres de Event Hubs y un centro de eventos](../event-hubs/event-hubs-create.md). Estos centro de eventos y espacio de nombres son el destino de todos los datos de supervisión. Un espacio de nombres de Event Hubs es una agrupación lógica de centros de eventos que comparten la misma directiva de acceso, al igual que una cuenta de almacenamiento tiene blobs individuales dentro de esa cuenta de almacenamiento. Tenga en cuenta algunos detalles sobre el espacio de nombres de los centros de eventos y los propios centros de eventos que crea:
+* Se recomienda usar un espacio de nombres de Event Hubs estándar.
+* Normalmente, solo se necesita una unidad de rendimiento. Si necesita escalar verticalmente a medida que el uso del registro aumenta, siempre puede aumentar manualmente el número de unidades de rendimiento para el espacio de nombres más adelante o habilitar la inflación automática.
+* El número de unidades de rendimiento permite aumentar la escala de rendimiento para los centros de eventos. El número de particiones permite paralelizar el consumo entre muchos consumidores. Una sola partición puede hacer hasta 20 MBps o aproximadamente 20 000 mensajes por segundo. Dependiendo de la herramienta que consume los datos, puede o no puede admitir el consumo de varias particiones. Si no está seguro del número de particiones que se va a establecer, se recomienda empezar con cuatro particiones.
+* Se recomienda establecer la retención de mensajes en el centro de eventos a 7 días. Si la herramienta de consumo deja de funcionar durante más de un día, esto garantiza que dicha herramienta puede continuar donde se quedó (para los eventos de hasta 7 días de antigüedad).
+* Se recomienda utilizar el grupo de consumidores predeterminado para el centro de eventos. No es necesario para crear otros grupos de consumidores o usar un grupo de consumidores independientes a menos que piense disponer de dos herramientas diferentes que consuman los mismos datos del mismo centro de eventos.
+* Para el registro de actividad de Azure, se elige un espacio de nombres de Event Hubs y Azure Monitor crea un centro de eventos dentro de ese espacio de nombres denominado "insights-logs-operationallogs". Para otros tipos de registro, puede elegir un centro de eventos existente (lo que permite reutilizar el mismo centro de eventos insights-logs-operationallogs) o hacer que Azure Monitor cree un centro de eventos por categoría de registro.
+* Por lo general, los puertos 5671 y 5672 deben estar abiertos en la máquina que consume datos del centro de eventos.
+
+Consulte también [Preguntas frecuentes sobre Event Hubs](../event-hubs/event-hubs-faq.md).
 
 ## <a name="how-do-i-set-up-azure-platform-monitoring-data-to-be-streamed-to-an-event-hub"></a>¿Cómo configuro los datos de supervisión de la plataforma Azure para el flujo a un centro de eventos?
 

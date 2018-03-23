@@ -1,19 +1,19 @@
 ---
-title: "Configuración de la entrada con un clúster de Azure Container Service (AKS)"
-description: "Instale y configure un controlador de entrada NGINX en un clúster de Azure Container Service (AKS)."
+title: Configuración de la entrada con un clúster de Azure Container Service (AKS)
+description: Instale y configure un controlador de entrada NGINX en un clúster de Azure Container Service (AKS).
 services: container-service
 author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: article
-ms.date: 2/21/2018
+ms.date: 03/03/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: c25a0171bd412050a7c94e9b077436cd1ebe893b
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 908910b44a9de28f184906dd4e904e651fe034ce
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="https-ingress-on-azure-container-service-aks"></a>Entrada HTTPS en Azure Container Service (AKS)
 
@@ -24,6 +24,14 @@ Este documento le guiará con la implementación de ejemplo del [controlador de 
 ## <a name="install-an-ingress-controller"></a>Instalación de un controlador de entrada
 
 Instale el controlador de entrada NGINX con Helm. Consulte la [documentación][nginx-ingress] del controlador de entrada NGINX para información de implementación detallada. 
+
+Actualice el repositorio de gráficos.
+
+```console
+helm repo update
+```
+
+Instale el controlador de entrada NGINX.
 
 ```
 helm install stable/nginx-ingress
@@ -128,7 +136,7 @@ metadata:
   name: hello-world-ingress
   annotations:
     kubernetes.io/tls-acme: "true"
-    ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   tls:
   - hosts:

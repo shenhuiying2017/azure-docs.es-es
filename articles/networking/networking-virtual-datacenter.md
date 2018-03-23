@@ -1,5 +1,5 @@
 ---
-title: Centro de datos virtual de Microsoft Azure | Microsoft Docs
+title: 'Centro de datos virtual de Microsoft Azure: una perspectiva de red | Microsoft Docs'
 description: Aprenda a crear su centro de datos virtual en Azure
 services: networking
 author: tracsman
@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: jonor
-ms.openlocfilehash: 7dcc6b77bde8b8a7b485525105c1a07c53301f8e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c4693d91fe81ce55c6faa6610ea19219ac5cfcb5
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/12/2018
 ---
-# <a name="microsoft-azure-virtual-data-center"></a>Centro de datos virtual de Microsoft Azure
+# <a name="microsoft-azure-virtual-datacenter-a-network-perspective"></a>Centro de datos virtual de Microsoft Azure: una perspectiva de red
 **Microsoft Azure**: muévase más rápido, ahorre dinero, integre aplicaciones locales y datos
 
 ## <a name="overview"></a>Información general
@@ -188,7 +188,7 @@ Aunque el uso de NAT en los enrutadores locales perimetrales o en entornos de Az
 Los componentes de infraestructura contienen la siguiente funcionalidad:
 
 -   [**Servicios de identidad y directorio**][AAD]. El acceso a cada tipo de recurso en Azure se controla mediante una identidad que se almacena en un servicio de directorio. El servicio de directorio almacena no solo la lista de usuarios, sino también los derechos de acceso a los recursos en una suscripción de Azure específica. Estos servicios pueden existir solo en la nube, o se pueden sincronizar con la identidad local almacenada en Active Directory.
--   [**Red virtual**][VPN]. Las redes virtuales son uno de los componentes principales de un centro de datos virtual y le permiten crear un límite de aislamiento de tráfico en la plataforma de Azure. Una red virtual se compone de uno o varios segmentos de red virtual, cada uno con un prefijo de red IP específico (una subred). La red virtual define un área de perímetro interno en el que las máquinas virtuales de IaaS y los servicios de PaaS pueden establecer comunicaciones privadas. Las máquinas virtuales (y los servicios de PaaS) de una red virtual no pueden comunicar directamente con máquinas virtuales (y servicios de PaaS) de una red virtual diferente, incluso si ambas redes virtuales se han creado en la misma suscripción y por el mismo cliente. El aislamiento consiste en una propiedad fundamental que garantiza que las máquinas virtuales del cliente y la comunicación sigan siendo privadas en una red virtual.
+-   [**Virtual Network**][VPN]. Las redes virtuales son uno de los componentes principales de un centro de datos virtual y le permiten crear un límite de aislamiento de tráfico en la plataforma de Azure. Una red virtual se compone de uno o varios segmentos de red virtual, cada uno con un prefijo de red IP específico (una subred). La red virtual define un área de perímetro interno en el que las máquinas virtuales de IaaS y los servicios de PaaS pueden establecer comunicaciones privadas. Las máquinas virtuales (y los servicios de PaaS) de una red virtual no pueden comunicar directamente con máquinas virtuales (y servicios de PaaS) de una red virtual diferente, incluso si ambas redes virtuales se han creado en la misma suscripción y por el mismo cliente. El aislamiento consiste en una propiedad fundamental que garantiza que las máquinas virtuales del cliente y la comunicación sigan siendo privadas en una red virtual.
 -   [**UDR**][UDR]. El tráfico en una red virtual se enruta de forma predeterminada en función de la tabla de enrutamiento del sistema. Una ruta definida por el usuario (UDR) es una tabla de enrutamiento personalizada que los administradores de red pueden asociar a una o varias subredes para sobrescribir el comportamiento de la tabla de enrutamiento del sistema y definir una ruta de comunicación en una red virtual. La presencia de una UDR garantiza que el tráfico de salida del radio transita a través de máquinas virtuales personalizadas específicas o aplicaciones virtuales de red y equilibradores de carga presentes en el concentrador y los radios.
 -   [**NSG**][NSG]. Un grupo de seguridad de red (NSG) es una lista de reglas de seguridad que actúa como filtro de tráfico en direcciones IP de origen y destino, protocolos y puertos IP de origen y destino. El NSG se puede aplicar a una subred, una tarjeta NIC virtual asociada a una máquina virtual de Azure, o ambos. Los NSG son fundamentales para implementar un control de flujo correcto en el concentrador y los radios. El nivel de seguridad permitido por el NSG está una función de los puertos que abra y su finalidad. Los clientes deben aplicar filtros adicionales en cada máquina virtual con firewalls basados en host, como IPtables o el Firewall de Windows.
 -   **DNS**. La resolución de nombres de recursos en las redes virtuales de un centro de datos virtual se proporciona mediante DNS. El ámbito de resolución de nombres del servicio DNS predeterminado se limita a la red virtual. Por lo general, se debe implementar un servicio DNS personalizado en el concentrador como parte de los servicios comunes, aunque los principales consumidores de servicios DNS residen en los radios. Si es necesario, los clientes pueden crear una estructura de DNS jerárquica con delegación de zonas DNS a los radios.
@@ -319,7 +319,7 @@ No hay ninguna receta mágica para validar una aplicación distribuida entre dos
 #### <a name="mechanism-to-divert-traffic-between-dc"></a>Mecanismo para desviar el tráfico entre centros de datos
 Una técnica eficaz para desviar el tráfico entrante en un centro de datos a otro se basa en DNS. [Azure Traffic Manager][TM] utiliza el mecanismo de sistema de nombres de dominio (DNS) para dirigir el tráfico del usuario final hacia el punto de conexión público más adecuado en un centro de datos específico. Mediante sondeos, Traffic Manager comprueba periódicamente el estado del servicio de los puntos de conexión públicos en centros de datos virtuales diferentes y, en caso de error en esos puntos de conexión, enruta automáticamente al centro de datos virtual secundario.
 
-Traffic Manager funciona en puntos de conexión públicos de Azure y puede utilizarse, por ejemplo, para controlar y desviar el tráfico a las aplicaciones web y máquinas virtuales de Azure en el centro de datos virtual adecuado. Traffic Manager es resistente incluso al enfrentarse un error de una región de Azure completa y puede controlar la distribución del tráfico de usuario hacia puntos de conexión de servicio en centros de datos virtuales diferentes en función de varios criterios (por ejemplo, error de un servicio en un centro de datos virtual específico o seleccionar el centro de datos virtual con la menor latencia de red para el cliente).
+Traffic Manager funciona en puntos de conexión públicos de Azure y puede utilizarse, por ejemplo, para controlar y desviar el tráfico a Web Apps y Azure Virtual Machines en el centro de datos virtual adecuado. Traffic Manager es resistente incluso al enfrentarse un error de una región de Azure completa y puede controlar la distribución del tráfico de usuario hacia puntos de conexión de servicio en centros de datos virtuales diferentes en función de varios criterios (por ejemplo, error de un servicio en un centro de datos virtual específico o seleccionar el centro de datos virtual con la menor latencia de red para el cliente).
 
 ### <a name="conclusion"></a>Conclusión
 El centro de datos virtual es un enfoque para la migración del centro de datos a la nube que utiliza una combinación de características y funcionalidades para crear una arquitectura escalable de Azure que maximiza el uso de recursos en la nube, se reducen los costos y se simplifica la regulación de sistema. El concepto de centro de datos virtual se basa en una topología de concentrador y radios que proporciona servicios compartidos comunes en el concentrador y permite aplicaciones y cargas de trabajo específicas en los radios. El centro de datos virtual coincide con la estructura de roles de la empresa, donde diferentes departamentos (TI Central, DevOps, operaciones y mantenimiento) funcionan conjuntamente, cada uno con una lista específica de roles y tareas. El centro de datos virtual cumple los requisitos de una migración "levantar y mover", pero también proporciona muchas ventajas para las implementaciones nativas en la nube.

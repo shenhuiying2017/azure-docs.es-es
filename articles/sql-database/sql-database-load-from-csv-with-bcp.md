@@ -1,34 +1,28 @@
 ---
 title: Carga de datos desde un archivo .csv en Azure SQL Database (bcp) | Microsoft Docs
-description: "Para un tamaño de datos pequeño, utiliza bcp para importar datos en Base de datos SQL de Azure."
+description: Para un tamaño de datos pequeño, utiliza bcp para importar datos en Azure SQL Database.
 services: sql-database
-documentationcenter: NA
 author: CarlRabeler
-manager: jhubbard
-editor: 
-ms.assetid: 875f9b8d-f1a1-4895-b717-f45570fb7f80
+manager: craigg
 ms.service: sql-database
 ms.custom: load & move data
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: On Demand
 ms.date: 01/10/2017
 ms.author: carlrab
-ms.openlocfilehash: 2f00a740b3cc59c4e7b3b378c06cfa8cb05e8380
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: c9bc6d2de6647d0ec047a600a52d14ad24ccbae9
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="load-data-from-csv-into-azure-sql-database-flat-files"></a>Carga de datos desde CSV en Azure SQL Database (archivos planos)
-Puede utilizar la herramienta de línea de comandos bcp para importar datos desde un archivo CSV en Base de datos SQL de Azure.
+Puede utilizar la herramienta de línea de comandos bcp para importar datos desde un archivo CSV en Azure SQL Database.
 
 ## <a name="before-you-begin"></a>Antes de empezar
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>requisitos previos
 Para completar los pasos de este artículo, necesitará lo siguiente:
 
-* Un servidor lógico de Base de datos SQL de Azure y una base de datos
+* Un servidor lógico de Azure SQL Database y una base de datos
 * La utilidad de línea de comandos bcp instalada
 * La utilidad de línea de comandos sqlcmd instalada
 

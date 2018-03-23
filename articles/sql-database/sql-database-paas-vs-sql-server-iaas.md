@@ -1,26 +1,20 @@
 ---
-title: "Base de datos (PaaS) SQL y  SQL Server en la nube en máquinas virtuales (IaaS) | Microsoft Docs"
-description: "Obtenga información acerca de qué opción de SQL Server en la nube se ajusta a su aplicación: Base de datos (PaaS) SQL de Azure o SQL Server en la nube en Azure Virtual Machines."
+title: Base de datos (PaaS) SQL y  SQL Server en la nube en máquinas virtuales (IaaS) | Microsoft Docs
+description: 'Obtenga información acerca de qué opción de SQL Server en la nube se ajusta a su aplicación: Base de datos (PaaS) SQL de Azure o SQL Server en la nube en Azure Virtual Machines.'
 services: sql-database, virtual-machines
 keywords: Nube de SQL Server, SQL Server en la nube, base de datos de PaaS, DBaaS
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: cjgronlund
-ms.assetid: 7467f422-b77d-4b60-9cb5-0f1ec17ec565
+manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.workload: Active
-ms.tgt_pltfrm: vm-windows-sql-server
-ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: 4a0fbb2a1f468493e5b22b12518be42fdd9d5ce6
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: a7fde828c7a88f440cf69e3a4b26bb6c75cdaafb
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>Selección de una opción de SQL Server en la nube: Base de datos (PaaS) SQL de Azure o SQL Server en máquinas virtuales de Azure (IaaS)
 Azure proporciona dos opciones para el hospedaje de las cargas de trabajo de SQL Server en Microsoft Azure:
@@ -140,7 +134,7 @@ Elija **SQL Server en Máquinas virtuales de Azure** si:
 * Tiene aplicaciones locales existentes que desea migrar o extender a la nube, o si desea crear aplicaciones empresariales de más de 4 TB. Este enfoque ofrece ventajas tales como un 100 % de compatibilidad con SQL, capacidad para bases de datos grandes, control completo sobre SQL Server y Windows, y tunelización segura a las instancias locales. Este enfoque minimiza los costos de desarrollo y modificaciones de las aplicaciones existentes.
 * Ya dispone de recursos de TI existentes, y podría contar con aplicación de revisiones, copias de seguridad y alta disponibilidad de la base de datos. Tenga en cuenta que algunas características automatizadas simplifican considerablemente estas operaciones. 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Consulte [cómo comenzar por primera vez con Azure SQL Database](sql-database-get-started-portal.md).
 * Consulte [Precio de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
 * Consulte [Aprovisionamiento de una máquina virtual de SQL Server en Azure](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md) para una introducción a SQL Server en máquinas virtuales de Azure.

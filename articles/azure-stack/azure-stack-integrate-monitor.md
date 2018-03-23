@@ -1,11 +1,11 @@
 ---
-title: "Integrar una solución de supervisión externa con Azure Stack | Microsoft Docs"
-description: "Obtenga información acerca de cómo integrar Azure Stack con una solución de supervisión externa en el centro de datos."
+title: Integrar una solución de supervisión externa con Azure Stack | Microsoft Docs
+description: Obtenga información acerca de cómo integrar Azure Stack con una solución de supervisión externa en el centro de datos.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 856738a7-1510-442a-88a8-d316c67c757c
 ms.service: azure-stack
 ms.workload: na
@@ -16,10 +16,10 @@ ms.date: 02/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.openlocfilehash: 3435ada40afb9f1c6e57be64d1b9086d0cdaefd9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Integrar una solución de supervisión externa con Azure Stack
 
@@ -519,6 +519,6 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 Para obtener información acerca de la supervisión de estado de mantenimiento integrada, consulte [Supervisar el estado y las alertas en Azure Stack](azure-stack-monitor-health.md).
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 [Integración de seguridad](azure-stack-integrate-security.md)

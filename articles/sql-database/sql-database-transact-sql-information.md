@@ -1,26 +1,19 @@
 ---
-title: "Resolución de diferencias de T-SQL de migración a Azure SQL Database | Microsoft Docs"
+title: Resolución de diferencias de T-SQL de migración a Azure SQL Database | Microsoft Docs
 description: Instrucciones de Transact-SQL que no son totalmente compatibles con Azure SQL Database
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: 
-tags: 
-ms.assetid: c05abd9e-28a7-4c97-9bdf-bc60d08fc92e
+manager: craigg
 ms.service: sql-database
 ms.custom: migrate
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: On Demand
 ms.date: 10/23/2017
 ms.author: carlrab
-ms.openlocfilehash: f311c0d139d5ec35cbd85a34bd5a5e991bccba3a
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: acc2c2556763650e0a0aff93fd247d882cb37852
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Resolución de diferencias de Transact-SQL durante la migración a SQL Database   
 Cuando se [migra la base de datos](sql-database-cloud-migrate.md) de SQL Server a Azure SQL Server, es posible que descubra que la base de datos requiere cierta reingeniería antes de que se pueda migrar el servidor SQL Server. En este artículo se proporcionan instrucciones para ayudarle a realizar esta reingeniería y entender las razones subyacentes por las que es necesaria. Para detectar incompatibilidades, utilice el [Asistente para migración de datos (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
@@ -84,7 +77,7 @@ La referencia de Transact-SQL incluye artículos relacionados con las versiones 
 
 En algunos casos, la línea general de un artículo se puede usar en un producto, pero existen diferencias poco significativas entre los productos. Las diferencias se indican en los puntos medios del artículo según corresponda. En algunos casos, la línea general de un artículo se puede usar en un producto, pero existen diferencias poco significativas entre los productos. Las diferencias se indican en los puntos medios del artículo según corresponda. Por ejemplo, el artículo CREATE TRIGGER está disponible en SQL Database. No obstante, la opción **ALL SERVER** para desencadenadores de nivel de servidor indica que no se pueden usar desencadenadores de nivel de servidor en SQL Database. Use desencadenadores de nivel de base de datos en su lugar.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener una lista de las funciones compatibles y no compatibles con SQL Database, vea [Características de Azure SQL Database](sql-database-features.md). La lista de esta página complementa ese artículo de instrucciones y características, y se centra en las instrucciones de Transact-SQL.
 

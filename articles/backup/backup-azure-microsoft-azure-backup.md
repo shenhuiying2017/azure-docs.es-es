@@ -2,10 +2,10 @@
 title: Uso de Azure Backup Server para realizar copias de seguridad de cargas de trabajo en Azure | Microsoft Docs
 description: Use Azure Backup Server para proteger cargas de trabajo o realizar una copia de seguridad de ellas en Azure Portal.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: PVRK
 manager: shivamg
-editor: 
+editor: ''
 keywords: servidor de copia de seguridad de Azure; proteger cargas de trabajo; copias de seguridad de cargas de trabajo
 ms.assetid: e7fb1907-9dc1-4ca1-8c61-50423d86540c
 ms.service: backup
@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/20/2017
+ms.date: 3/5/2018
 ms.author: masaran;trinadhk;pullabhk;markgal;adigan
-ms.openlocfilehash: addb4312ce1eb57ce86afae449eb3d31d0037418
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: c33cea62dac1c06dd1cb4031897af8c822e61661
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="preparing-to-back-up-workloads-using-azure-backup-server"></a>Preparación para la copia de seguridad de cargas de trabajo en Azure Backup Server
 > [!div class="op_single_selector"]
@@ -44,11 +44,11 @@ También puede proteger las cargas de trabajo de Infraestructura como servicio (
 
 Azure Backup Server hereda gran parte de la funcionalidad de copia de seguridad de las cargas de trabajo de Data Protection Manager (DPM). Este artículo incluye vínculos a documentación de DPM para explicar algunas de las funcionalidades compartidas. Si bien, Azure Backup Server comparte gran parte de la misma funcionalidad que DPM. Azure Backup Server no realiza copias de seguridad en cinta, ni se integra con System Center.
 
-## <a name="1-choose-an-installation-platform"></a>1. Elección de una plataforma de instalación
+## <a name="choose-an-installation-platform"></a>Elección de una plataforma de instalación
 El primer paso para que funcione Azure Backup Server es configurar un equipo con Windows Server. El servidor puede estar en Azure o en el entorno local.
 
 ### <a name="using-a-server-in-azure"></a>Uso de un servidor en Azure
-Al elegir un servidor para ejecutar Azure Backup Server, se recomienda comenzar con una imagen de la galería de Windows Server 2012 R2 Datacenter. En el artículo [Creación de la primera máquina virtual de Windows en el Portal de Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), se proporciona un tutorial de introducción a la máquina virtual recomendada en Azure, incluso si nunca ha usado Azure antes. Los requisitos mínimos recomendados para la máquina virtual (VM) servidor deben ser: A2 estándar con dos núcleos y 3,5 GB de RAM.
+Al elegir un servidor para ejecutar Azure Backup Server, se recomienda comenzar con una imagen de la galería de Windows Server 2012 R2 Datacenter o Windows Server 2016 Datacenter. En el artículo [Creación de la primera máquina virtual de Windows en el Portal de Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), se proporciona un tutorial de introducción a la máquina virtual recomendada en Azure, incluso si nunca ha usado Azure antes. Los requisitos mínimos recomendados para la máquina virtual (VM) servidor deben ser: A2 estándar con dos núcleos y 3,5 GB de RAM.
 
 La protección de cargas de trabajo con Azure Backup Server tiene muchos matices. El artículo [Instalación de DPM como una máquina virtual de Azure](https://technet.microsoft.com/library/jj852163.aspx)le ayudará a comprender estos matices. Lea este artículo completamente antes de implementar la máquina.
 
@@ -75,7 +75,7 @@ Puede desduplicar el almacenamiento de DPM con la desduplicación de Windows Ser
 
 Siempre una Azure Backup Server a un dominio. Si piensa mover el servidor a un dominio diferente, se recomienda unir el servidor al nuevo dominio antes de instalar Azure Backup Server. *No se permite*mover una máquina de Azure Backup Server existente a un dominio nuevo después de la implementación.
 
-## <a name="2-recovery-services-vault"></a>2. Almacén de Recovery Services
+## <a name="recovery-services-vault"></a>Almacén de Recovery Services
 Tanto si envía datos de copia de seguridad a Azure como si los mantiene localmente, el software debe estar conectado a Azure. Más concretamente, la máquina de Azure Backup Server debe estar registrada en un almacén de Servicios de recuperación.
 
 Para crear un almacén de Servicios de recuperación:
@@ -112,7 +112,7 @@ Para editar la configuración de replicación de almacenamiento:
 
     Tras elegir la opción de almacenamiento del almacén, está listo para asociar la máquina virtual con el almacén. Para comenzar la asociación, es preciso detectar y registrar las máquinas virtuales de Azure.
 
-## <a name="3-software-package"></a>3. Paquete de software
+## <a name="software-package"></a>Paquete de software
 ### <a name="downloading-the-software-package"></a>Descarga del paquete de software
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 2. Si ya tiene abierto un almacén de Recovery Services, vaya al paso 3. Si no tiene abierto un almacén de Recovery Services pero está en Azure Portal, en el menú del centro, haga clic en **Examinar**.
@@ -227,11 +227,11 @@ Cuando el paso de instalación haya finalizado, se habrán creado también los i
 La primera copia de seguridad se mantiene en el almacenamiento conectado a la máquina de Azure Backup Server. Para obtener más información acerca de los discos, consulte [Configuración de bloques de almacenamiento y almacenamiento en disco](https://technet.microsoft.com/library/hh758075.aspx).
 
 > [!NOTE]
-> Debe agregar el almacenamiento de copia de seguridad incluso si tiene pensado enviar los datos a Azure. En la arquitectura actual de Azure Backup Server, el almacén de Azure Backup contiene la *segunda* copia de los datos, mientras que el almacenamiento local contiene la primera (y obligatoria) copia de seguridad.
+> Debe agregar el almacenamiento de copia de seguridad incluso si tiene pensado enviar los datos a Azure. En la arquitectura de Azure Backup Server actual, el almacén de Azure Backup contiene la *segunda* copia de los datos, mientras que el almacenamiento local contiene la primera (y obligatoria) copia de seguridad.
 >
 >
 
-## <a name="4-network-connectivity"></a>4. Conectividad de red
+## <a name="network-connectivity"></a>Conectividad de red
 Azure Backup Server requiere conectividad al servicio Azure Backup para que el producto funcione correctamente. Para validar si la máquina tiene conectividad a Azure, use el cmdlet ```Get-DPMCloudConnection``` en la consola de PowerShell de Azure Backup Server. Si la salida del cmdlet es TRUE, entonces existe conectividad, de lo contrario, no hay conectividad.
 
 Además, la suscripción de Azure debe encontrarse en un estado correcto. Para averiguar el estado de la suscripción y administrarla, inicie sesión en el [portal de suscripción](https://account.windowsazure.com/Subscriptions).
@@ -241,11 +241,11 @@ Una vez que conozca el estado de la conectividad y suscripción de Azure, puede 
 | Estado de conectividad | Suscripción de Azure | Copia de seguridad en Azure | Copia de seguridad en disco | Restauración desde Azure | Restauración desde disco |
 | --- | --- | --- | --- | --- | --- |
 | Conectado |Active |Permitida |Permitida |Permitida |Permitida |
-| Conectado |Expirada |Detenido |Detenido |Permitida |Permitida |
-| Conectado |Desaprovisionada |Detenido |Detenido |Detenida y puntos de recuperación de Azure eliminados |Detenido |
-| Pérdida de conectividad > 15 días |Active |Detenido |Detenido |Permitida |Permitida |
-| Pérdida de conectividad > 15 días |Expirada |Detenido |Detenido |Permitida |Permitida |
-| Pérdida de conectividad > 15 días |Desaprovisionada |Detenido |Detenido |Detenida y puntos de recuperación de Azure eliminados |Detenido |
+| Conectado |Expirada |Stopped |Stopped |Permitida |Permitida |
+| Conectado |Desaprovisionada |Stopped |Stopped |Detenida y puntos de recuperación de Azure eliminados |Stopped |
+| Pérdida de conectividad > 15 días |Active |Stopped |Stopped |Permitida |Permitida |
+| Pérdida de conectividad > 15 días |Expirada |Stopped |Stopped |Permitida |Permitida |
+| Pérdida de conectividad > 15 días |Desaprovisionada |Stopped |Stopped |Detenida y puntos de recuperación de Azure eliminados |Stopped |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Recuperación de una pérdida de conectividad
 Si tiene un firewall o un proxy que impide el acceso a Azure, deberá permitir primero las siguientes direcciones de dominio en el perfil del firewall/proxy:
@@ -268,7 +268,7 @@ Es posible llevar una suscripción de Azure desde un estado *Expirado* o *Desapr
 Si el servidor de Microsoft Azure Backup produce un error durante la fase de instalación (o copia de seguridad o restauración), consulte este [documento de códigos de error](https://support.microsoft.com/kb/3041338) para más información.
 También puede consultar [Azure Backup - Preguntas más frecuentes](backup-azure-backup-faq.md)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre la [preparación del entorno para DPM](https://technet.microsoft.com/library/hh758176.aspx) , visite el sitio de Microsoft TechNet. También contiene información sobre las configuraciones admitidas en las que se puede implementar y usar Azure Backup Server.
 
 Puede usar estos artículos para mejorar la comprensión sobre la protección de cargas de trabajo mediante el servidor Microsoft Azure Backup Server.

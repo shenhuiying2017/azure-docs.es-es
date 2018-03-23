@@ -1,25 +1,19 @@
 ---
-title: "Azure SQL Database: ajuste automático | Microsoft Docs"
-description: "Azure SQL Database analiza una consulta SQL y se adapta automáticamente a la carga de trabajo del usuario."
+title: 'Azure SQL Database: ajuste automático | Microsoft Docs'
+description: Azure SQL Database analiza una consulta SQL y se adapta automáticamente a la carga de trabajo del usuario.
 services: sql-database
-documentationcenter: 
 author: jovanpop-msft
-manager: drasumic
-editor: danimir
-ms.assetid: 
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: On Demand
 ms.date: 11/09/2017
 ms.author: jovanpop
-ms.openlocfilehash: dcea2c34ab26349c6f937c582bfe35d7a42f24a6
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 917dd48d57b70b328f40f518d3fb472badfda08a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Ajuste automático en Azure SQL Database
 
@@ -75,7 +69,7 @@ Azure SQL Database identifica recomendaciones de **CREATE INDEX**, **DROP INDEX*
 
 Las opciones de ajuste automático pueden activarse o desactivarse de forma independiente por base de datos. También se pueden configurar en el servidor lógico y aplicarse en cada base de datos que herede la configuración del servidor. Se recomienda configurar las opciones de ajuste automático en el servidor de forma que se herede la configuración en las bases de datos del servidor, ya que este método simplifica la administración de las opciones de ajuste automático en un gran número de bases de datos.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Para habilitar la característica de ajuste automático en Azure SQL Database para administrar la carga de trabajo, vea [Habilitación del ajuste automático](sql-database-automatic-tuning-enable.md).
 - Para revisar manualmente y aplicar las recomendaciones de ajuste automático, vea [Búsqueda y aplicación de recomendaciones de rendimiento](sql-database-advisor-portal.md).

@@ -2,24 +2,18 @@
 title: Una sola base de datos de Azure SQL Database | Microsoft Docs
 description: Administre el nivel de servicio, el nivel de rendimiento y la cantidad de almacenamiento para una sola base de datos SQL de Azure.
 services: sql-database
-documentationcenter: na
 author: CarlRabeler
-manager: jhubbard
-editor: 
-ms.assetid: 
+manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: On Demand
 ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: 2c179c3b0704a6e88d718ba9f102e71c0ee1d6ef
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 167a72ae55052b8ac1dfe8f032f136a9bf8bcedf
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="manage-resources-for-a-single-database-in-azure-sql-database"></a>Administración de recursos para una sola base de datos en Azure SQL Database
 
@@ -113,7 +107,7 @@ Para establecer o cambiar los niveles de servicio, los niveles de rendimiento y 
 
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Más información acerca de los niveles de servicio, los niveles de rendimiento y la cantidad de almacenamiento, en [Niveles de servicio](sql-database-service-tiers.md).
 - Más información sobre grupos elásticos en [este artículo](sql-database-elastic-pool.md).

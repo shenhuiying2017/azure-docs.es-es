@@ -1,7 +1,7 @@
 ---
-title: "Uso de módulos de Terraform para crear un clúster de VM en Azure"
-description: "Aprenda a usar módulos de Terraform para crear un clúster de máquinas virtuales Windows en Azure"
-keywords: "terraform, devops, máquina virtual, redes, módulos"
+title: Uso de módulos de Terraform para crear un clúster de VM en Azure
+description: Aprenda a usar módulos de Terraform para crear un clúster de máquinas virtuales Windows en Azure
+keywords: terraform, devops, máquina virtual, redes, módulos
 author: rloutlaw
 ms.service: virtual-machines-linux
 ms.topic: article
@@ -9,11 +9,11 @@ ms.workload: infrastructure
 ms.date: 10/19/2017
 ms.custom: devops
 ms.author: routlaw
-ms.openlocfilehash: 7b402ebfd6c8e1ef6b7d3969a05191467f5864f4
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: e33aef252413eeb243b03543f171d5f1e2385b48
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-vm-cluster-with-terraform-using-the-module-registry"></a>Creación de un clúster de VM con Terraform mediante el registro de módulos
 
@@ -101,7 +101,7 @@ Ejecute `terraform apply` para aprovisionar las VM en Azure.
 
 ![Terraform Apply](media/terraform-create-vm-cluster-with-infrastructure/terraform-apply.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Examinar la lista de [módulos Terraform de Azure](https://registry.terraform.io/modules/Azure)
 - Crear un [conjunto de escalado de máquinas virtuales con Terraform](terraform-create-vm-scaleset-network-disks-hcl.md)

@@ -9,18 +9,17 @@ ms.service: sql-database
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: mireks
-ms.workload: Inactive
-ms.openlocfilehash: b1c569e414de292b59e0915483d45bf011edb1a6
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: f32928805275c9d797c8cb15bb731fe172d5903f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="conditional-access-mfa-with-azure-sql-database-and-data-warehouse"></a>Acceso condicional (MFA) con Azure SQL Database y Data Warehouse  
 
 Tanto SQL Database como SQL Data Warehouse admiten Acceso condicional de Microsoft. Los pasos siguientes muestran cómo configurar SQL Database para aplicar una directiva de Acceso condicional.  
 
-## <a name="prerequisites"></a>Requisitos previos  
+## <a name="prerequisites"></a>requisitos previos  
 - Debe configurar SQL Database o SQL Data Warehouse para que admitan la autenticación de Azure Active Directory. Para ver pasos concretos, consulte [Configuración y administración de la autenticación de Azure Active Directory con SQL Database o SQL Data Warehouse](sql-database-aad-authentication-configure.md).  
 - Cuando se habilita la autenticación multifactor, debe conectarse con una herramienta admitida, como la versión más reciente de SSMS. Para más información, consulte [Configuración de Multi-Factor Authentication de Azure SQL Database para SQL Server Management Studio](sql-database-ssms-mfa-authentication-configure.md).  
 
@@ -46,6 +45,6 @@ Tanto SQL Database como SQL Data Warehouse admiten Acceso condicional de Microso
 La aplicación seleccionada (Azure SQL Database) que permite conectarse a Azure SQL DB/DW con Azure AD Premium ahora aplica la directiva de Acceso condicional seleccionada, **Requerir autenticación multifactor**.  
 Si tiene preguntas sobre Azure SQL Database y Data Warehouse con respecto a la autenticación multifactor, póngase en contacto con MFAforSQLDB@microsoft.com.  
 
-## <a name="next-steps"></a>pasos siguientes  
+## <a name="next-steps"></a>Pasos siguientes  
 
 Para ver un tutorial, consulte [Protección de Azure SQL Database](sql-database-security-tutorial.md).

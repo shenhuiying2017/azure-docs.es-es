@@ -1,26 +1,20 @@
 ---
-title: "Maniobras de recuperación ante desastres de SQL Database | Microsoft Docs"
-description: "Obtenga información de instrucciones y procedimientos recomendados para usar Azure SQL Database en la recuperación ante desastres."
+title: Maniobras de recuperación ante desastres de SQL Database | Microsoft Docs
+description: Obtenga información de instrucciones y procedimientos recomendados para usar Azure SQL Database en la recuperación ante desastres.
 services: sql-database
-documentationcenter: 
 author: anosov1960
-manager: jhubbard
-editor: monicar
-ms.assetid: b44a269c-fe2a-404f-b013-290030860bd1
+manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.date: 10/20/2016
-ms.workload: Inactive
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 73c2cbe978c980cbe1269b34cdb9f5ff86113e61
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: 10a3891c51d20a26b946847d47bb712d97fa3c51
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="performing-disaster-recovery-drill"></a>Obtención de detalles de la recuperación ante desastres
 Se recomienda validar periódicamente el flujo de trabajo de preparación de la aplicación para la recuperación. Comprobar el comportamiento de la aplicación y las implicaciones de las pérdidas de datos o de las interrupciones que conlleva la conmutación por error es una buena práctica de ingeniería. También es un requisito de la mayoría de estándares del sector como parte de la certificación de continuidad del negocio.
@@ -60,7 +54,7 @@ Para simular una interrupción puede deshabilitar la aplicación web o la máqui
 #### <a name="validation"></a>Validación
 Complete la obtención de detalles mediante la comprobación de la integridad de la aplicación posterior a la recuperación (incluida la conectividad, la comprobación de funciones básicas u otras validaciones necesarias para los procedimientos estándar de validación de aplicaciones).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Para obtener información sobre los escenarios de continuidad empresarial, consulte el artículo sobre los [escenarios de continuidad](sql-database-business-continuity.md).
 * Para obtener información sobre las copias de seguridad automatizadas de Azure SQL Database, consulte [Copias de seguridad automatizadas de SQL Database](sql-database-automated-backups.md)
 * Si quiere saber cómo utilizar las copias de seguridad automatizadas para procesos de recuperación, consulte [Recover an Azure SQL database using automated database backups](sql-database-recovery-using-backups.md)(Recuperación de una base de datos SQL de Azure mediante copias de seguridad de base de datos automatizadas).

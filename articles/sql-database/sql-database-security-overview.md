@@ -1,12 +1,12 @@
 ---
-title: "Introducción a la seguridad de Azure SQL Database | Microsoft Docs"
+title: Introducción a la seguridad de Azure SQL Database | Microsoft Docs
 description: Aprenda sobre la seguridad de SQL Database y SQL Server, incluidas las diferencias entre la nube y SQL Server local.
 services: sql-database
-documentationcenter: 
+documentationcenter: ''
 author: giladm
 manager: shaik
 ms.reviewer: carlrab
-editor: 
+editor: ''
 ms.assetid: a012bb85-7fb4-4fde-a2fc-cf426c0a56bb
 ms.service: sql-database
 ms.custom: security
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: NA
 ms.workload: On Demand
 ms.date: 01/29/2018
 ms.author: giladm
-ms.openlocfilehash: cf105dbc366b96dbb49484bffce9b81960cf41f4
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 41051944af863c4c50595ea843e2adf3513b3a12
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="securing-your-sql-database"></a>Protección de SQL Database
 
@@ -87,7 +87,7 @@ Detección de amenazas complementa la auditoría, ya que proporciona una capa ad
 ## <a name="compliance"></a>Cumplimiento normativo
 Además de las anteriores características y funcionalidades que pueden ayudar a la aplicación a cumplir distintos requisitos de seguridad, Azure SQL Database también participa en las auditorías regulares y ha obtenido la certificación de una serie de normas de cumplimiento. Para más información, consulte el [Centro de confianza de Microsoft Azure](https://azure.microsoft.com/support/trust-center/), donde podrá encontrar la lista más reciente de [certificaciones de cumplimiento de SQL Database](https://azure.microsoft.com/support/trust-center/services/).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Para obtener información acerca del uso de las características de control de acceso en SQL Database, consulte [Control de acceso](sql-database-control-access.md).
 - Para más información sobre la auditoría de bases de datos, consulte [SQL Database auditing](sql-database-auditing.md) (Auditoría de SQL Database).

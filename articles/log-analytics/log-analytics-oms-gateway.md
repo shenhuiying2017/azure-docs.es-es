@@ -1,11 +1,11 @@
 ---
-title: "Conexión de equipos mediante OMS Gateway | Microsoft Docs"
+title: Conexión de equipos mediante OMS Gateway | Microsoft Docs
 description: Conecte los dispositivos y los equipos supervisados por Operations Manager con OMS Gateway para enviar datos al servicio de Azure Automation y Log Analytics cuando no tienen acceso a Internet.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: ae9a1623-d2ba-41d3-bd97-36e65d3ca119
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: magoedte
-ms.openlocfilehash: daf3cc236ef04ae27731e023d35cfe2aa82fc70a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 10422af5a57fc4da77958f15af5b2db61c023e40
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="connect-computers-without-internet-access-using-the-oms-gateway"></a>Conexión de equipos sin acceso a Internet mediante OMS Gateway
 Este documento describe cómo configurar la comunicación con Azure Automation y Log Analytics usando OMS Gateway cuando equipos que están directamente conectados o están supervisados por Operations Manager no tienen acceso a Internet.  OMS Gateway, que es un proxy de reenvío de HTTP que admite la tunelización de HTTP con el comando HTTP CONNECT, puede recopilar datos y enviarlos a Azure Automation y Log Analytics en su nombre.  
@@ -312,5 +312,5 @@ Para solicitar asistencia, haga clic en el signo de interrogación en la esquina
 
 ![Nueva solicitud de soporte](./media/log-analytics-oms-gateway/support.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Agregue orígenes de datos](log-analytics-data-sources.md) para recopilar datos de los orígenes conectados y almacénelos en el área de trabajo de Log Analytics.

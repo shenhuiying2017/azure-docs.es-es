@@ -1,11 +1,11 @@
 ---
-title: "Conexión de redes virtuales clásicas a redes virtuales de Azure Resource Manager: portal | Microsoft Docs"
-description: "Creación de una conexión VPN entre redes virtuales clásicas y redes de Resource Manager mediante VPN Gateway y el portal"
+title: 'Conexión de redes virtuales clásicas a redes virtuales de Azure Resource Manager: portal | Microsoft Docs'
+description: Creación de una conexión VPN entre redes virtuales clásicas y redes de Resource Manager mediante VPN Gateway y el portal
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 5a90498c-4520-4bd3-a833-ad85924ecaf9
 ms.service: vpn-gateway
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/13/2018
 ms.author: cherylmc
-ms.openlocfilehash: 40a380a04088e948a7e81625963a5915980764c3
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 90a3c51fa9acbcd9701d4c2b135688ef5148bbf8
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Conexión de redes virtuales a partir de diferentes modelos de implementación con el portal
 
@@ -149,7 +149,7 @@ En esta sección se crea la puerta de enlace de red virtual y la puerta de enlac
 * Intervalo de direcciones = 192.168.1.0/24 <br>
 
 
-Si no tiene una red virtual de Resource Manager y ejecuta estos pasos como ejercicio, puede crear una red virtual con [este artículo](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) y los valores de ejemplo.
+Si no tiene una red virtual de Resource Manager y va a ejecutar estos pasos como ejercicio, cree una red virtual con los pasos que se indican en [Creación de una red virtual](../virtual-network/quick-create-portal.md) y use los valores de ejemplo.
 
 ### <a name="2-create-a-gateway-subnet"></a>2. Creación de una subred de puerta de enlace
 

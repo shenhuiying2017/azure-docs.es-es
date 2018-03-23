@@ -1,26 +1,26 @@
 ---
-title: "Preguntas más frecuentes acerca de la colaboración B2B de Azure Active Directory | Microsoft Docs"
-description: "Vea las respuestas a las preguntas más frecuentes acerca de la colaboración B2B de Azure Active Directory."
+title: Preguntas más frecuentes acerca de la colaboración B2B de Azure Active Directory | Microsoft Docs
+description: Vea las respuestas a las preguntas más frecuentes acerca de la colaboración B2B de Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: twooley
 manager: mtillman
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 01/08/2018
+ms.date: 03/06/2018
 ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: 21511b37eba2cd2e87d8720f3e9cfe453b50d88c
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 409bb14635afbfc6d31efd853837677c74851b41
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Preguntas más frecuentes acerca de la colaboración B2B de Azure Active Directory
 
@@ -84,8 +84,8 @@ Sí. Estos son los detalles importantes para el autoservicio de restablecimiento
 ### <a name="is-password-reset-available-for-guest-users-in-a-just-in-time-jit-or-viral-tenant-who-accepted-invitations-with-a-work-or-school-email-address-but-who-didnt-have-a-pre-existing-azure-ad-account"></a>¿Está disponible el restablecimiento de contraseña para los usuarios invitados en un inquilino Just-In-Time (JIT) o "viral" que ha aceptado invitaciones con una dirección de correo electrónico laboral o académica, pero que no tiene una cuenta existente de Azure AD?
 Sí. Se puede enviar un correo electrónico de restablecimiento de contraseña que permite que un usuario restablezca su contraseña en el inquilino JIT.
 
-### <a name="does-microsoft-dynamics-crm-provide-online-support-for-azure-ad-b2b-collaboration"></a>¿Proporciona Microsoft Dynamics CRM compatibilidad en línea con la colaboración B2B de Azure AD?
-En la actualidad, Microsoft Dynamics CRM no proporciona compatibilidad en línea con la colaboración B2B de Azure AD. Sin embargo, planeamos que sea compatible en el futuro.
+### <a name="does-microsoft-dynamics-365-provide-online-support-for-azure-ad-b2b-collaboration"></a>¿Proporciona Microsoft Dynamics 365 compatibilidad en línea con la colaboración B2B de Azure AD?
+Sí, Dynamics 365 (en línea) proporciona compatibilidad con la colaboración B2B de Azure AD. Para más información, consulte el artículo de Dynamics 365 [Invitar a usuarios con colaboración B2B de Azure Active Directory](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/admin/invite-users-azure-active-directory-b2b-collaboration).
 
 ### <a name="what-is-the-lifetime-of-an-initial-password-for-a-newly-created-b2b-collaboration-user"></a>¿Cuál es la duración de una contraseña inicial para un usuario de colaboración B2B recién creado?
 Azure AD tiene un conjunto fijo de requisitos de bloqueo de cuentas, seguridad de la contraseña y caracteres que se aplican igualmente a todas las cuentas de usuario en la nube de Azure AD. Las cuentas de usuario de nube son cuentas que no se federan con otro proveedor de identidades, como 

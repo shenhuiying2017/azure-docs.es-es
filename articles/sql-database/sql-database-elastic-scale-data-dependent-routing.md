@@ -1,25 +1,19 @@
 ---
 title: Enrutamiento dependiente de los datos con Azure SQL Database | Microsoft Docs
-description: "Cómo usar la clase ShardMapManager en aplicaciones .NET para el enrutamiento dependiente de los datos, una característica de las bases de datos con particiones en Azure SQL Database"
+description: Cómo usar la clase ShardMapManager en aplicaciones .NET para el enrutamiento dependiente de los datos, una característica de las bases de datos con particiones en Azure SQL Database
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: torsteng
-editor: 
-ms.assetid: cad09e15-5561-4448-aa18-b38f54cda004
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
-ms.author: ddove
-ms.openlocfilehash: 2add03568f1d111010cdfb49d850d33cdab8e21b
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.author: sstein
+ms.openlocfilehash: 5685c1e1c502b5f3700fb1c4487778d38ff19d1e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="data-dependent-routing"></a>Enrutamiento dependiente de los datos
 **Enrutamiento dependiente de los datos** es la posibilidad de utilizar los datos de una consulta para enrutar la solicitud a una base de datos adecuada. Se trata de un patrón fundamental cuando se trabaja con bases de datos particionadas. El contexto de solicitud también puede utilizarse para enrutar la solicitud, en especial si la clave de particionamiento no forma parte de la consulta. Cada consulta o transacción específica en una aplicación que usa enrutamiento dependiente de los datos tiene restringido el acceso a una base de datos única por solicitud. En las herramientas elásticas de Azure SQL Database, este enrutamiento se efectúa con la clase **ShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx)).

@@ -1,8 +1,8 @@
 ---
-title: "Creación de Integration Runtime autohospedado en Azure Data Factory | Microsoft Docs"
-description: "Aprenda a crear un entorno Integration Runtime autohospedado en Azure Data Factory, lo que permite a las factorías de datos tener acceso a almacenes de datos en una red privada."
+title: Creación de Integration Runtime autohospedado en Azure Data Factory | Microsoft Docs
+description: Aprenda a crear un entorno Integration Runtime autohospedado en Azure Data Factory, lo que permite a las factorías de datos tener acceso a almacenes de datos en una red privada.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: nabhishek
 manager: jhubbard
 editor: monicar
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 92f773d3bbabe763d342366f0d56a77621829487
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 3f1b55f2752821de447e6c03bcbf79f01d9f8264
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Creación y configuración de una instancia de Integration Runtime autohospedado
 Integration Runtime es la infraestructura de proceso que usa Azure Data Factory para proporcionar capacidades de integración de datos en distintos entornos de red. Para obtener más información acerca del tiempo de ejecución de integración, consulte [Integration Runtime Overview](concepts-integration-runtime.md) (Información general de Integration Runtime).
@@ -65,6 +65,7 @@ A continuación se muestra el flujo de datos de alto nivel y el resumen de los p
 - El entorno Integration Runtime autohospedado debe usarse para admitir la integración de datos dentro de Azure Virtual Network.
 - Considere el origen de datos como uno de tipo local (que está detrás de un firewall), aunque utilice **ExpressRoute**. Use el entorno Integration Runtime autohospedado para establecer la conectividad entre el servicio y el origen de datos.
 - Debe utilizar el entorno Integration Runtime autohospedado incluso si el almacén de datos está en la nube en una **máquina virtual IaaS de Azure**.
+- Las tareas pueden generar error en una instancia de Integration Runtime (autohospedado) instalada en un equipo Windows Server en el que está habilitado el cifrado compatible con FIPS. Para solucionar este problema, deshabilite el cifrado compatible con FIPS en el servidor. Para deshabilitar el cifrado compatible con FIPS, cambie el valor del Registro siguiente de 1 (habilitado) a 0 (deshabilitado): `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled`.
 
 ## <a name="prerequisites"></a>requisitos previos
 
@@ -256,5 +257,5 @@ msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
 Si decide no abrir el puerto 8060 en la máquina del entorno Integration Runtime autohospedado, use otros mecanismos que no sean la aplicación de **Configuración de credenciales** para configurar las credenciales del almacén de datos. Por ejemplo, puede usar el cmdlet de PowerShell New-AzureRmDataFactoryV2LinkedServiceEncryptCredential. Consulte la sección Configuración de credenciales y seguridad para obtener más información sobre cómo configurar las credenciales del almacén de datos.
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Vea el tutorial siguiente para obtener instrucciones detalladas: [Tutorial: copy on-premises data to cloud](tutorial-hybrid-copy-powershell.md) (Tutorial: copia de datos locales en la nube).

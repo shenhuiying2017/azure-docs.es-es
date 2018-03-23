@@ -1,11 +1,11 @@
 ---
-title: "Simultaneidad y administración de cargas de trabajo en SQL Data Warehouse | Microsoft Docs"
-description: "Obtenga información sobre la simultaneidad y la administración de cargas de trabajo en Almacenamiento de datos SQL de Azure para el desarrollo de soluciones."
+title: Simultaneidad y administración de cargas de trabajo en SQL Data Warehouse | Microsoft Docs
+description: Obtenga información sobre la simultaneidad y la administración de cargas de trabajo en Azure SQL Data Warehouse para el desarrollo de soluciones.
 services: sql-data-warehouse
 documentationcenter: NA
 author: sqlmojo
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: ef170f39-ae24-4b04-af76-53bb4c4d16d3
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -16,20 +16,20 @@ ms.custom: performance
 ms.date: 08/23/2017
 ms.author: joeyong;barbkess;kavithaj
 ms.openlocfilehash: eaf2d43286dbaa52ada1430fbb7ce1e37f41c0d4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="concurrency-and-workload-management-in-sql-data-warehouse"></a>Simultaneidad y administración de cargas de trabajo en Almacenamiento de datos SQL
-Para proporcionar un rendimiento predecible a escala, Almacenamiento de datos SQL de Microsoft Azure le permite controlar los niveles de simultaneidad y las asignaciones de recursos, como la asignación de prioridades de CPU y memoria. En este artículo se presentan los conceptos de simultaneidad y administración de cargas de trabajo, y se explica cómo se han implementado ambas características y cómo puede controlarlas en su almacenamiento de datos. La administración de cargas de trabajo de Almacenamiento de datos SQL está diseñada para admitir entornos de varios usuarios. No está diseñada para cargas de trabajo de multiinquilino.
+# <a name="concurrency-and-workload-management-in-sql-data-warehouse"></a>Simultaneidad y administración de cargas de trabajo en SQL Data Warehouse
+Para proporcionar un rendimiento predecible a escala, Microsoft Azure SQL Data Warehouse le permite controlar los niveles de simultaneidad y las asignaciones de recursos, como la asignación de prioridades de CPU y memoria. En este artículo se presentan los conceptos de simultaneidad y administración de cargas de trabajo, y se explica cómo se han implementado ambas características y cómo puede controlarlas en su almacenamiento de datos. La administración de cargas de trabajo de SQL Data Warehouse está diseñada para admitir entornos de varios usuarios. No está diseñada para cargas de trabajo de multiinquilino.
 
 ## <a name="concurrency-limits"></a>Límites de simultaneidad
-Almacenamiento de datos SQL permite hasta 1.024 conexiones simultáneas. Todas las 1.024 conexiones pueden enviar consultas al mismo tiempo. Sin embargo, para optimizar el rendimiento, Almacenamiento de datos SQL puede poner en cola algunas consultas para asegurarse de que cada una de ellas tiene garantizado un mínimo de memoria. Durante el tiempo de ejecución de las consultas, estas se empiezan a poner en cola. Al iniciar una cola con las consultas cuando se alcanzan los límites de simultaneidad, Almacenamiento de datos SQL puede aumentar el rendimiento total, asegurándose de que las consultas activas obtienen el acceso a los recursos de la memoria que tanto necesitan.  
+SQL Data Warehouse permite hasta 1.024 conexiones simultáneas. Todas las 1.024 conexiones pueden enviar consultas al mismo tiempo. Sin embargo, para optimizar el rendimiento, SQL Data Warehouse puede poner en cola algunas consultas para asegurarse de que cada una de ellas tiene garantizado un mínimo de memoria. Durante el tiempo de ejecución de las consultas, estas se empiezan a poner en cola. Al iniciar una cola con las consultas cuando se alcanzan los límites de simultaneidad, SQL Data Warehouse puede aumentar el rendimiento total, asegurándose de que las consultas activas obtienen el acceso a los recursos de la memoria que tanto necesitan.  
 
 Los límites de simultaneidad se rigen por dos conceptos: *consultas simultáneas* y *espacios de simultaneidad*. Para que una consulta se ejecute, lo ha de hacer tanto dentro de su límite de simultaneidad como dentro de la asignación de espacio de simultaneidad.
 
-* Las consultas simultáneas son consultas que se ejecutan al mismo tiempo. Almacenamiento de datos SQL admite hasta 32 consultas simultáneas en los tamaños de DWU más grandes.
+* Las consultas simultáneas son consultas que se ejecutan al mismo tiempo. SQL Data Warehouse admite hasta 32 consultas simultáneas en los tamaños de DWU más grandes.
 * Los espacios de simultaneidad se asignan según DWU. Cada 100 DWU proporciona 4 espacios de simultaneidad. Por ejemplo, un DW100 asigna 4 espacios de simultaneidad y DW1000 asigna 40. Cada consulta consume uno o más espacios de simultaneidad, en función de la [clase de recursos](#resource-classes) de la consulta. Las consultas que se ejecutan en la clase de recurso smallrc consumen una ranura de simultaneidad. Las consultas que se ejecutan en una clase de recurso superior consumen más intervalos de simultaneidad.
 
 La tabla siguiente describe los límites de consultas simultáneas y espacios de simultaneidad en los distintos tamaños de DWU.
@@ -41,7 +41,7 @@ La tabla siguiente describe los límites de consultas simultáneas y espacios de
 | DW200 |8 |8 |
 | DW300 |12 |12 |
 | DW400 |16 |16 |
-| DW500 |20 | |20 | |
+| DW500 |20  |20  |
 | DW600 |24 |24 |
 | DW1000 |32 |40 |
 | DW1200 |32 |48 |
@@ -126,7 +126,7 @@ La tabla siguiente presenta un esquema de la memoria asignada a cada distribuci�
 | DW3000 |100 |200 |400 |800 |1600 |3.200 |6.400 |6.400 |
 | DW6000 |100 |200 |400 |800 |1600 |3.200 |6.400 |12.800 |
 
-A partir de la tabla anterior, puede ver que una consulta que se ejecuta en DW2000 en la clase de recurso **xlargerc**, tendría acceso a 6 400 MB de memoria en cada una de las 60 bases de datos distribuidas.  En Almacenamiento de datos SQL, existe 60 distribuciones. Por lo tanto, para calcular la asignación de memoria total para una consulta en una clase de recurso dada, los valores anteriores se deben multiplicar por 60.
+A partir de la tabla anterior, puede ver que una consulta que se ejecuta en DW2000 en la clase de recurso **xlargerc**, tendría acceso a 6 400 MB de memoria en cada una de las 60 bases de datos distribuidas.  En SQL Data Warehouse, existe 60 distribuciones. Por lo tanto, para calcular la asignación de memoria total para una consulta en una clase de recurso dada, los valores anteriores se deben multiplicar por 60.
 
 ### <a name="memory-allocations-system-wide-gb"></a>Asignaciones de memoria en todo el sistema (GB)
 | DWU | smallrc | mediumrc | largerc | xlargerc |
@@ -149,7 +149,7 @@ Por esta tabla de asignaciones de memoria de todo el sistema, puede ver que a un
 El mismo cálculo se aplica a las clases de recursos estáticos.
  
 ## <a name="concurrency-slot-consumption"></a>Consumo de ranuras de simultaneidad  
-Almacenamiento de datos SQL concederá más memoria a las consultas que se ejecutan en clases de recursos superiores. La memoria es un recurso fijo.  Por lo tanto, cuanta más memoria asignada por consulta, menos consultas simultáneas se pueden ejecutar. En la tabla siguiente se reiteran todos los conceptos anteriores en una vista única donde se muestra el número de intervalos de simultaneidad disponibles por DWU, así como los espacios que consume cada clase de recurso.  
+SQL Data Warehouse concederá más memoria a las consultas que se ejecutan en clases de recursos superiores. La memoria es un recurso fijo.  Por lo tanto, cuanta más memoria asignada por consulta, menos consultas simultáneas se pueden ejecutar. En la tabla siguiente se reiteran todos los conceptos anteriores en una vista única donde se muestra el número de intervalos de simultaneidad disponibles por DWU, así como los espacios que consume cada clase de recurso.  
 
 ### <a name="allocation-and-consumption-of-concurrency-slots-for-dynamic-resource-classes"></a>Asignación y consumo de espacios de simultaneidad para las clases de recursos dinámicos  
 | DWU | N.º máximo de consultas simultáneas | Espacios de simultaneidad asignados | Ranuras utilizadas por smallrc | Ranuras utilizadas por mediumrc | Ranuras utilizadas por largerc | Ranuras utilizadas por xlargerc |
@@ -158,7 +158,7 @@ Almacenamiento de datos SQL concederá más memoria a las consultas que se ejecu
 | DW200 |8 |8 |1 |2 |4 |8 |
 | DW300 |12 |12 |1 |2 |4 |8 |
 | DW400 |16 |16 |1 |4 |8 |16 |
-| DW500 |20 | |20 | |1 |4 |8 |16 |
+| DW500 |20  |20  |1 |4 |8 |16 |
 | DW600 |24 |24 |1 |4 |8 |16 |
 | DW1000 |32 |40 |1 |8 |16 |32 |
 | DW1200 |32 |48 |1 |8 |16 |32 |
@@ -174,7 +174,7 @@ Almacenamiento de datos SQL concederá más memoria a las consultas que se ejecu
 | DW200 |8 |8 |1 |2 |4 |8 |8 |8 |8 |8 |
 | DW300 |12 |12 |1 |2 |4 |8 |8 |8 |8 |8 |
 | DW400 |16 |16 |1 |2 |4 |8 |16 |16 |16 |16 |
-| DW500 | 20 || 20 || 1| 2| 4| 8| 16| 16| 16| 16|
+| DW500 | 20 | 20 | 1| 2| 4| 8| 16| 16| 16| 16|
 | DW600 | 24| 24| 1| 2| 4| 8| 16| 16| 16| 16|
 | DW1000 | 32| 40| 1| 2| 4| 8| 16| 32| 32| 32|
 | DW1200 | 32| 48| 1| 2| 4| 8| 16| 32| 32| 32|
@@ -554,7 +554,7 @@ GO
 ```
 
 ## <a name="query-importance"></a>Importancia de las consultas
-Almacenamiento de datos SQL implementa las clases de recursos mediante el uso de grupos de cargas de trabajo. Hay un total de ocho grupos de cargas de trabajo que controlan el comportamiento de las clases de recursos en los distintos tamaños de DWU. Para cualquier DWU, Almacenamiento de datos SQL solo usa cuatro de los ocho grupos de cargas de trabajo. Esto tiene sentido porque cada grupo de cargas de trabajo está asignado a una de las cuatro clases de recursos: smallrc, mediumrc, largerc o xlargerc. La importancia de comprender los grupos de cargas de trabajo es que algunos de estos grupos se establecen con un nivel de *importancia*más alto. El nivel de importancia se usa para la programación de la CPU. Las consultas que se ejecutan con importancia alta obtendrán tres veces más ciclos de CPU que aquellas con importancia media. Por lo tanto, las asignaciones de espacio de simultaneidad también determinan la prioridad en la CPU. Si una consulta utiliza 16 o más espacios, se ejecuta con importancia alta.
+SQL Data Warehouse implementa las clases de recursos mediante el uso de grupos de cargas de trabajo. Hay un total de ocho grupos de cargas de trabajo que controlan el comportamiento de las clases de recursos en los distintos tamaños de DWU. Para cualquier DWU, SQL Data Warehouse solo usa cuatro de los ocho grupos de cargas de trabajo. Esto tiene sentido porque cada grupo de cargas de trabajo está asignado a una de las cuatro clases de recursos: smallrc, mediumrc, largerc o xlargerc. La importancia de comprender los grupos de cargas de trabajo es que algunos de estos grupos se establecen con un nivel de *importancia*más alto. El nivel de importancia se usa para la programación de la CPU. Las consultas que se ejecutan con importancia alta obtendrán tres veces más ciclos de CPU que aquellas con importancia media. Por lo tanto, las asignaciones de espacio de simultaneidad también determinan la prioridad en la CPU. Si una consulta utiliza 16 o más espacios, se ejecuta con importancia alta.
 
 La tabla siguiente muestra las asignaciones de importancia para cada grupo de cargas de trabajo.
 
@@ -691,7 +691,7 @@ Removed as these two are not confirmed / supported under SQLDW
     ```
    
    > [!NOTE]
-   > Es una buena idea crear un usuario en la base de datos maestra para los usuarios de Almacenamiento de datos SQL de Azure. La creación de un usuario en la base de datos maestra posibilita el inicio de sesión mediante herramientas como SSMS sin especificar un nombre de base de datos.  También permite el uso del Explorador de objetos para ver todas las bases de datos en un servidor SQL Server.  Para obtener más información sobre cómo crear y administrar usuarios, consulte [Proteger una base de datos en SQL Data Warehouse][Secure a database in SQL Data Warehouse].
+   > Es una buena idea crear un usuario en la base de datos maestra para los usuarios de Azure SQL Data Warehouse. La creación de un usuario en la base de datos maestra posibilita el inicio de sesión mediante herramientas como SSMS sin especificar un nombre de base de datos.  También permite el uso del Explorador de objetos para ver todas las bases de datos en un servidor SQL Server.  Para obtener más información sobre cómo crear y administrar usuarios, consulte [Proteger una base de datos en SQL Data Warehouse][Secure a database in SQL Data Warehouse].
    > 
    > 
 2. **Cree un usuario de SQL Data Warehouse**: abra una conexión con la base de datos de **SQL Data Warehouse** y ejecute el comando siguiente.
@@ -753,7 +753,7 @@ JOIN    sys.database_principals AS m            ON rm.member_principal_id    = m
 WHERE    r.name IN ('mediumrc','largerc', 'xlargerc');
 ```
 
-Almacenamiento de datos SQL tiene los siguientes tipos de espera:
+SQL Data Warehouse tiene los siguientes tipos de espera:
 
 * **LocalQueriesConcurrencyResourceType**: se refiere a las consultas que residen fuera del marco del espacio de simultaneidad. Las funciones del sistema y las consultas DMV como `SELECT @@VERSION` son ejemplos de consultas locales.
 * **UserConcurrencyResourceType**: se refiere a las consultas que residen dentro del marco del espacio de simultaneidad. Las consultas en tablas de usuario final representan ejemplos que usarían este tipo de recurso.

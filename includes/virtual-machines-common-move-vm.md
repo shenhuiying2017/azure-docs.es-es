@@ -1,5 +1,19 @@
-
-
+---
+title: archivo de inclusión
+description: archivo de inclusión
+services: virtual-machines
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: cynthn
+ms.custom: include file
+ms.openlocfilehash: 7b5bc37be660ea3958bf224d2911c5c2d4577524
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 03/16/2018
+---
 ## <a name="use-the-portal-to-move-a-vm-to-a-different-subscription"></a>Uso del portal para mover una máquina virtual a otra suscripción
 Puede mover una máquina virtual y sus recursos asociados a otra suscripción mediante el portal.
 

@@ -1,33 +1,26 @@
 ---
-title: "VS Code: conexión con Azure SQL Database y consulta de datos | Microsoft Docs"
-description: "Aprenda a conectarse a SQL Database en Azure con Visual Studio Code. A continuación, ejecute instrucciones de Transact-SQL (T-SQL) para consultar y editar los datos."
-metacanonical: 
-keywords: "conexión a sql database"
+title: 'VS Code: conexión con Azure SQL Database y consulta de datos | Microsoft Docs'
+description: Aprenda a conectarse a SQL Database en Azure con Visual Studio Code. A continuación, ejecute instrucciones de Transact-SQL (T-SQL) para consultar y editar los datos.
+keywords: conexión a sql database
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: 
-ms.assetid: 676bd799-a571-4bb8-848b-fb1720007866
+manager: craigg
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 06/22/2017
 ms.author: carlrab
-ms.openlocfilehash: c52ac86ad5f3ad97a2e6dca38a84444b45bd73e5
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 689b54704b46f852f62f7d97496c7c04649f2ff1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-sql-database-use-visual-studio-code-to-connect-and-query-data"></a>Azure SQL Database: uso de Visual Studio Code para conectar y consultar datos
 
 [Visual Studio Code](https://code.visualstudio.com/docs) es un editor de código gráfico para Linux, Mac OS y Windows que admite extensiones, incluidas la [extensión mssql](https://aka.ms/mssql-marketplace) para realizar consultas en Microsoft SQL Server, Azure SQL Database y SQL Data Warehouse. Esta guía de inicio rápido muestra cómo usar Visual Studio Code para conectarse a una base de datos de SQL Azure Database y después usar las instrucciones Transact-SQL para consultar, insertar, actualizar y eliminar datos en la base de datos.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 En esta guía de inicio rápido se utilizan como punto de partida los recursos creados en una de las siguientes guías:
 
@@ -92,7 +85,7 @@ Use Visual Studio Code para establecer una conexión con el servidor de Azure SQ
 
 4. Siga las indicaciones para especificar las propiedades de conexión para el nuevo perfil de conexión. Después de especificar cada valor, presione **ENTRAR** para continuar. 
 
-   | Configuración       | Valor sugerido | Descripción |
+   | Configuración       | Valor sugerido | DESCRIPCIÓN |
    | ------------ | ------------------ | ------------------------------------------------- | 
    | **Nombre de servidor | Nombre completo del servidor | Dicho nombre debe parecerse al siguiente: **mynewserver20170313.database.windows.net**. |
    | **Nombre de la base de datos** | mySampleDatabase | El nombre de la base de datos con la que se realizará la conexión. |

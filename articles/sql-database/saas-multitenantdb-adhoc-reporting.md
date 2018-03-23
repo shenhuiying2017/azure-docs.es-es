@@ -1,26 +1,23 @@
 ---
-title: "Ejecución de consultas de notificaciones ad hoc entre varias bases de datos Azure SQL Database | Microsoft Docs"
-description: "Ejecute consultas de notificaciones ad hoc entre varias bases de datos SQL en un ejemplo de aplicación multiinquilino."
+title: Ejecución de consultas de notificaciones ad hoc entre varias bases de datos Azure SQL Database | Microsoft Docs
+description: Ejecute consultas de notificaciones ad hoc entre varias bases de datos SQL en un ejemplo de aplicación multiinquilino.
 keywords: tutorial de SQL Database
 services: sql-database
-documentationcenter: 
 author: stevestein
 manager: craigg
-editor: 
-ms.assetid: 
 ms.service: sql-database
 ms.custom: scale out apps
 ms.workload: Inactive
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: ''
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: AyoOlubeko
-ms.openlocfilehash: c0ed3eb344ea8ec7e2d3e86125d60c8cc28f723d
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: d33b95cf4dc05f4eb9f79509cda56e8ab51b7701
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>Ejecución de consultas de análisis ad hoc entre varias bases de datos Azure SQL Database
 
@@ -35,10 +32,10 @@ En este tutorial, obtendrá información:
 > * Acerca de cómo ejecutar consultas distribuidas en todas las bases de datos de inquilinos
 
 
-Para completar este tutorial, asegúrese de cumplir los siguientes requisitos previos:
+Para completar este tutorial, asegúrese de cumplir estos requisitos previos:
 
 * La aplicación SaaS de base de datos multiinquilino Wingtip Tickets está implementada. Para implementarla en menos de cinco minutos, consulte el artículo sobre la [implementación y exploración de la aplicación SaaS de base de datos multiinquilino Wingtip Tickets](saas-multitenantdb-get-started-deploy.md)
-* Azure PowerShell está instalado. Para más información, consulte [Introducción a Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+* Azure PowerShell está instalado. Para más información, consulte [Introducción a Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 * SQL Server Management Studio (SSMS) está instalado. Para descargar e instalar SSMS, consulte [Descarga de SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
 
@@ -154,7 +151,7 @@ En este tutorial, ha aprendido cómo:
 > * Ejecutar consultas distribuidas en todas las bases de datos de inquilinos
 > * Implementar una base de datos de notificaciones ad hoc y agregarle el esquema para ejecutar consultas distribuidas.
 
-Ahora pruebe el [tutorial sobre el análisis de inquilinos](saas-multitenantdb-tenant-analytics.md) para explorar la extracción de datos en una base de datos de análisis independiente para llevar a cabo un procesamiento de análisis más complejo.
+Ahora pruebe el [tutorial de análisis de inquilinos](saas-multitenantdb-tenant-analytics.md) para explorar la extracción de datos en una base de datos de análisis independiente para llevar a cabo un procesamiento de análisis más complejo.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

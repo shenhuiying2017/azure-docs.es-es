@@ -1,25 +1,19 @@
 ---
-title: "Vídeo indexado, aplicación SQL SaaS de Azure | Microsoft Docs"
-description: "En este artículo se indexan diversos puntos en nuestro vídeo de 81 minutos sobre el diseño de aplicaciones de inquilinos de base de datos de SaaS, de la conferencia de Ignite celebrada el 11 de octubre de 2017. Puede avanzar directamente a la parte que le interese. Se describen al menos 3 patrones. Se describen las características de Azure que simplifican el desarrollo y la administración."
-ms.custom: 
+title: Vídeo indexado, aplicación SQL SaaS de Azure | Microsoft Docs
+description: En este artículo se indexan diversos puntos en nuestro vídeo de 81 minutos sobre el diseño de aplicaciones de inquilinos de base de datos de SaaS, de la conferencia de Ignite celebrada el 11 de octubre de 2017. Puede avanzar directamente a la parte que le interese. Se describen al menos 3 patrones. Se describen las características de Azure que simplifican el desarrollo y la administración.
+services: sql-database
 ms.date: 12/06/2017
-ms.prod: 
 ms.service: sql-database
 ms.reviewer: billgib
-ms.suite: 
-ms.technology:
-- database-engine
-ms.tgt_pltfrm: 
 ms.topic: article
 author: MightyPen
 ms.author: genemi
 manager: craigg
-ms.workload: Inactive
-ms.openlocfilehash: 5e8d5467e676ee178b77c02e387bdfd2c54e6071
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0d9182abda03aef3ffe35e10114fa045d8b0ca74
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="video-indexed-and-annotated-for-mulit-tenant-saas-app-using-azure-sql-database"></a>Vídeo indexado y anotado para la aplicación SaaS multiinquilinos mediante Azure SQL Database
 

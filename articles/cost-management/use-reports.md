@@ -1,20 +1,20 @@
 ---
 title: Uso de los informes de Cost Management en Azure Cost Management | Microsoft Docs
-description: "En este artículo se describe cómo usar diversos informes de Cost Management en el portal de Cloudyn."
+description: En este artículo se describe cómo usar diversos informes de Cost Management en el portal de Cloudyn.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
-ms.custom: 
-ms.openlocfilehash: 0a4f6a5940ccffe897a5609b837ddaeea98d87aa
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.custom: ''
+ms.openlocfilehash: 8078591b1e2ad120190a23dd29800bd0f1ae33ea
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="use-cost-management-reports"></a>Uso de los informes de Cost Management
 
@@ -152,7 +152,7 @@ Use el informe de costo a lo largo del tiempo para:
 3. Agregue grupos.
 4. Elija un modelo de costos creado anteriormente.
 5. Seleccione los costos reales o amortizados.
-6. Elija si desea aplicar reglas de asignación para consultar la vista de datos de facturación sin formato o recalcular el costo mediante la vista de Cloudyn.
+6. Elija si desea aplicar reglas de asignación para consultar la vista de datos de facturación sin formato o la vista para recalcular el costo.
 
 Este es un ejemplo del informe.
 
@@ -160,6 +160,6 @@ Este es un ejemplo del informe.
 
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Si aún no ha completado el primer tutorial de Cost Management, léalo en [Revisión del uso y los costos](tutorial-review-usage.md).

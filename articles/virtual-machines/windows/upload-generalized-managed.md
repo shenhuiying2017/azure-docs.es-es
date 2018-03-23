@@ -1,13 +1,13 @@
 ---
-title: "Creación de una VM de Azure administrada a partir de un VHD local generalizado | Microsoft Docs"
-description: "Cargue un VHD generalizado en Azure y úselo para crear máquinas virtuales nuevas en el modelo de implementación de Resource Manager."
+title: Creación de una VM de Azure administrada a partir de un VHD local generalizado | Microsoft Docs
+description: Cargue un VHD generalizado en Azure y úselo para crear máquinas virtuales nuevas en el modelo de implementación de Resource Manager.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: cynthn
-ms.openlocfilehash: d802ba16ecb4e32e2adb7be3a8e99c72a1625841
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e78ecf6bd281bd5d30f59413789eb1e6fc7b5bc
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>Carga de un VHD generalizado y su uso para crear máquinas virtuales nuevas en Azure
 
@@ -54,14 +54,14 @@ Asegúrese de que los roles de servidor que se ejecutan en la máquina sean comp
 2. Abra una ventana del símbolo del sistema como administrador. Cambie el directorio a **%windir%\system32\sysprep** y, después, ejecute `sysprep.exe`.
 3. En **Herramienta de preparación del sistema**, seleccione **Iniciar la Configuración rápida (OOBE)** y asegúrese de que la casilla **Generalizar** está activada.
 4. En **Opciones de apagado**, seleccione **Apagar**.
-5. Haga clic en **Aceptar**.
+5. Haga clic en **OK**.
    
     ![Iniciar Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
 6. Cuando Sysprep finaliza, apaga la máquina virtual. No reinicie la VM.
 
 
 
-## <a name="log-in-to-azure"></a>Inicie sesión en Azure.
+## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
 Si todavía no la ha instalado la versión 1.4 de PowerShell u otra superior, consulte [Cómo instalar y configurar Azure PowerShell](/powershell/azure/overview).
 
 1. Abra Azure PowerShell e inicie sesión en la cuenta de Azure. Se abrirá una ventana emergente para que escriba sus credenciales de cuenta de Azure.
@@ -158,11 +158,17 @@ Guarde la ruta de acceso del **URI de destino** para usarla más adelante si va 
 También puede cargar un VHD en la cuenta de almacenamiento mediante uno de los siguientes medios:
 
 - [AzCopy](http://aka.ms/downloadazcopy)
-- [API de tipo Copy Blob de Almacenamiento Azure](https://msdn.microsoft.com/library/azure/dd894037.aspx)
+- [API de tipo Copy Blob de Azure Storage](https://msdn.microsoft.com/library/azure/dd894037.aspx)
 - [Blobs de carga de Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/)
-- [Referencia de la API de REST de servicios de importación y exportación de almacenamiento](https://msdn.microsoft.com/library/dn529096.aspx)
+- [Referencia de la API de REST del servicio Import/Export de Storage](https://msdn.microsoft.com/library/dn529096.aspx)
 -   Se recomienda utilizar el servicio Import/Export si se calcula que el tiempo de carga va a ser superior a siete días. Puede usar [DataTransferSpeedCalculator](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/blob/master/DataTransferSpeedCalculator.html) para calcular el tiempo a partir del tamaño de los datos y la unidad de transferencia. 
     Import/Export se puede usar para realizar copias en una cuenta de almacenamiento estándar. Para copiar desde el almacenamiento estándar a una cuenta de Almacenamiento premium, use una herramienta como AzCopy.
+
+> [!IMPORTANT]
+> Si usa AzCopy cargando su VHD en Azure, asegúrese de que ha establecido [/BlobType:page](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy#blobtypeblock--page--append) antes de ejecutar el script de carga. Si el destino es un blob y esta opción no se especifica, AzCopy, de forma predeterminada, creará un blob en bloques.
+> 
+> 
+
 
 
 ## <a name="create-a-managed-image-from-the-uploaded-vhd"></a>Creación de una imagen administrada desde el VHD cargado 

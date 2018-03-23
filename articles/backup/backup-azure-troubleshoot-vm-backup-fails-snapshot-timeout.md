@@ -1,12 +1,12 @@
 ---
-title: "Solución del error de Azure Backup: no está disponible el estado del agente invitado | Documentos de Microsoft"
-description: "Síntomas, causas y soluciones de errores de Azure Backup relacionados con el agente, la extensión y los discos."
+title: 'Solución del error de Azure Backup: no está disponible el estado del agente invitado | Documentos de Microsoft'
+description: Síntomas, causas y soluciones de errores de Azure Backup relacionados con el agente, la extensión y los discos.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: 
-keywords: "Azure Backup; Agente de máquina virtual; Conectividad de red;"
+editor: ''
+keywords: Azure Backup; Agente de máquina virtual; Conectividad de red;
 ms.assetid: 4b02ffa4-c48e-45f6-8363-73d536be4639
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
-ms.openlocfilehash: c205023b025a477ee05ddcbfc536573f31426167
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: a18718aba3ef7f70caa541c6eb56311082d02bed
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solución de errores de Azure Backup: problemas con el agente o la extensión
 
@@ -30,9 +30,6 @@ En este artículo se proporcionan los pasos de solución de problemas que pueden
 ## <a name="vm-agent-unable-to-communicate-with-azure-backup"></a>El agente de máquina virtual no se puede comunicar con Azure Backup
 
 Mensaje de error: "El agente de máquina virtual no se puede comunicar con Azure Backup"
-
-> [!NOTE]
-> Si se produce este error en las copias de seguridad de máquinas virtuales Linux a partir del 4 de enero de 2018, ejecute el siguiente comando en la máquina virtual y, luego reintente las copias de seguridad: `sudo rm -f /var/lib/waagent/*.[0-9]*.xml`
 
 Después de registrar y programar una máquina virtual para el servicio Backup, dicho servicio se comunica con el agente de la máquina virtual para sacar una instantánea de un momento dado e inicia el trabajo. Cualquiera de las condiciones siguientes puede impedir que la instantánea se desencadene. Cuando una instantánea no se desencadena, se puede producir un error en la copia de seguridad. Realice los pasos de solución de problemas siguientes en el orden indicado y, a continuación, vuelva a intentar la operación:
 
@@ -58,9 +55,8 @@ Mensaje de error: "Error en la operación de extensión VMSnapshot".
 Después de registrar y programar una máquina virtual para el servicio de Azure Backup, Backup inicia el trabajo al comunicarse con la extensión de copia de seguridad de la máquina virtual para sacar una instantánea de un momento dado. Cualquiera de las condiciones siguientes puede impedir que la instantánea se desencadene. Si la instantánea no se desencadena, se podría producir un error en la copia de seguridad. Realice los pasos de solución de problemas siguientes en el orden indicado y, a continuación, vuelva a intentar la operación:  
 **Causa 1: [No se puede recuperar el estado de las instantáneas o no se pueden tomar instantáneas](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 **Causa 2: [La extensión de la copia de seguridad no se puede actualizar ni cargar](#the-backup-extension-fails-to-update-or-load)**  
-**Causa 3: [La máquina virtual no tiene acceso a Internet](#the-vm-has-no-internet-access)**  
-**Causa 4: [El agente está instalado en la máquina virtual, pero no responde (en máquinas virtuales Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
-**Causa 5: [El agente instalado en la máquina virtual está obsoleto (en máquinas virtuales Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**
+**Causa 3: [El agente está instalado en la máquina virtual, pero no responde (en máquinas virtuales Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
+**Causa 4: [El agente instalado en la máquina virtual está obsoleto (en máquinas virtuales Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**
 
 ## <a name="backup-fails-because-the-vm-agent-is-unresponsive"></a>Se produce un error en la copia de seguridad porque el agente de máquina virtual no responde
 
@@ -168,7 +164,7 @@ La mayoría de los errores relacionados con el agente o la extensión de máquin
 Si se requiere el registro detallado para waagent, siga estos pasos:
 
 1. En el archivo /etc/waagent.conf, localice la línea siguiente: **Enable verbose logging (y|n)** (Habilitar registro detallado [s/n]).
-2. Cambie el valor de **Logs.Verbose** de *n* a  *y* .
+2. Cambie el valor de **Logs.Verbose** de *n* a *y*.
 3. Guarde el cambio y, a continuación, reinicie waagent siguiendo los pasos descritos anteriormente en esta sección.
 
 ###  <a name="the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>No se puede recuperar el estado de las instantáneas o no se pueden tomar instantáneas
@@ -179,7 +175,6 @@ Las siguientes condiciones podrían hacer que la tarea de instantáneas no se re
 
 | Causa | Solución |
 | --- | --- |
-| La máquina virtual tiene una copia de seguridad de SQL Server configurada. | De forma predeterminada, la copia de seguridad de máquina virtual ejecuta una copia de seguridad completa de Servicio de instantáneas de volumen (VSS) en máquinas virtuales Windows. En máquinas virtuales que ejecutan servidores basados en SQL Server y en las que está configurada la copia de seguridad de SQL Server, se pueden producir retrasos en la ejecución de instantáneas.<br><br>Si experimenta un error de copia de seguridad debido a problemas de instantáneas, establezca la siguiente clave del Registro:<br><br>**[HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT] "USEVSSCOPYBACKUP"="TRUE"** |
 | El estado de la máquina virtual no se notifica correctamente porque la máquina virtual está apagada en el Protocolo de escritorio remoto (RDP). | Si ha apagado la máquina virtual en RDP, compruebe el portal para determinar si ese estado de la máquina virtual es correcto. Si no es así, apague la máquina virtual en el portal mediante la opción **Apagar** en el panel de la máquina virtual. |
 | La máquina virtual no puede obtener la dirección de host o de tejido de DHCP. | DHCP debe estar habilitado dentro del invitado para que la copia de seguridad de la máquina virtual de IaaS funcione. Si la máquina virtual no puede obtener la dirección de host o de tejido de la respuesta 245 de DHCP, no podrá descargar ni ejecutar ninguna extensión. Si necesita una dirección IP privada estática, configúrela mediante la plataforma. La opción DHCP dentro de la máquina virtual debe continuar habilitada. Para más información, consulte [Establecimiento de una dirección IP privada interna estática](../virtual-network/virtual-networks-reserved-private-ip.md). |
 
@@ -188,12 +183,7 @@ Si no se pueden cargar las extensiones, no se puede realizar la copia de segurid
 
 #### <a name="solution"></a>Solución
 
-**Para invitados de Windows:** compruebe que el servicio iaasvmprovider está habilitado y tiene un tipo de inicio *automático*. Si el servicio no está configurado de esa forma, habilítelo para determinar si se realiza correctamente la siguiente copia de seguridad.
-
-**Para invitados de Linux:** compruebe que la versión más reciente de VMSnapshot para Linux (extensión utilizada por Backup) es 1.0.91.0.<br>
-
-
-Si la extensión de copia de seguridad sigue sin poderse actualizar o cargar, desinstálela para forzar que se vuelva a cargar. El siguiente intento de copia de seguridad vuelve a cargar la extensión.
+Desinstale la extensión para obligar a la extensión VMSnapshot a cargarse de nuevo. El siguiente intento de copia de seguridad vuelve a cargar la extensión.
 
 Para desinstalar la extensión, siga estos pasos:
 

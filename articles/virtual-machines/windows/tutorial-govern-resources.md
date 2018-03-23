@@ -1,6 +1,6 @@
 ---
-title: "Control de máquinas virtuales de Azure con Azure PowerShell | Microsoft Docs"
-description: "Tutorial: Administración de máquinas virtuales de Azure aplicando RBAC, directivas, bloqueos y etiquetas con Azure PowerShell"
+title: Control de máquinas virtuales de Azure con Azure PowerShell | Microsoft Docs
+description: 'Tutorial: Administración de máquinas virtuales de Azure aplicando RBAC, directivas, bloqueos y etiquetas con Azure PowerShell'
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: tfitzmac
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9952660dc177b542d8477dc85c62d76d16e8c54e
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 9fbe9318e52f8299c3ef46f73c3be177de6d4a0c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="virtual-machine-governance-with-azure-powershell"></a>Control de máquinas virtuales con Azure PowerShell
 
-[!include[Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
+[!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
@@ -29,7 +29,7 @@ Si decide instalar y usar PowerShell de forma local, consulte el [módulo sobre 
 
 ## <a name="understand-scope"></a>Descripción del ámbito
 
-[!include[Resource Manager governance scope](../../../includes/resource-manager-governance-scope.md)]
+[!INCLUDE [Resource Manager governance scope](../../../includes/resource-manager-governance-scope.md)]
 
 En este tutorial, se aplica toda la configuración de administración a un grupo de recursos para poder quitar fácilmente esas opciones al finalizar.
 
@@ -76,7 +76,7 @@ Por lo general, repetirá el proceso para *Colaborador de la red* y *Colaborador
 
 ## <a name="azure-policies"></a>Directivas de Azure
 
-[!include[Resource Manager governance policy](../../../includes/resource-manager-governance-policy.md)]
+[!INCLUDE [Resource Manager governance policy](../../../includes/resource-manager-governance-policy.md)]
 
 ### <a name="apply-policies"></a>Aplicación de directivas
 
@@ -176,7 +176,7 @@ Verá un error en el que se indica que la operación de eliminación no se puede
 
 Se aplican [etiquetas](../../azure-resource-manager/resource-group-using-tags.md) a los recursos de Azure para organizarlos de forma lógica por categorías. Cada etiqueta consta de un nombre y un valor. Por ejemplo, puede aplicar el nombre "Environment" y el valor "Production" a todos los recursos en producción.
 
-[!include[Resource Manager governance tags Powershell](../../../includes/resource-manager-governance-tags-powershell.md)]
+[!INCLUDE [Resource Manager governance tags Powershell](../../../includes/resource-manager-governance-tags-powershell.md)]
 
 Para aplicar etiquetas a una máquina virtual, use el comando [Set-AzureRmResource](/powershell/module/azurerm.resources/set-azurermresource):
 
@@ -206,7 +206,7 @@ Find-AzureRmResource -TagName Environment -TagValue Test | Where-Object {$_.Reso
 
 ### <a name="view-costs-by-tag-values"></a>Visualización de los costos por valores de etiqueta
 
-[!include[Resource Manager governance tags billing](../../../includes/resource-manager-governance-tags-billing.md)]
+[!INCLUDE [Resource Manager governance tags billing](../../../includes/resource-manager-governance-tags-billing.md)]
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -229,7 +229,7 @@ Cuando ya no se necesiten, puede usar el comando [Remove-AzureRmResourceGroup](/
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, ha creado una imagen de máquina virtual personalizada. Ha aprendido a:
 

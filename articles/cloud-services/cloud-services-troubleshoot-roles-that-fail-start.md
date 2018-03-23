@@ -1,11 +1,11 @@
 ---
-title: "Solución de problemas de roles que no se inician| Microsoft Docs"
-description: "A continuación, se indican algunas causas habituales por las que un rol de servicio en la nube puede no iniciarse. También se proporcionan soluciones a estos problemas."
+title: Solución de problemas de roles que no se inician| Microsoft Docs
+description: A continuación, se indican algunas causas habituales por las que un rol de servicio en la nube puede no iniciarse. También se proporcionan soluciones a estos problemas.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: simonxjx
 manager: felixwu
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 674b2faf-26d7-4f54-99ea-a9e02ef0eb2f
 ms.service: cloud-services
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/03/2017
 ms.author: v-six
-ms.openlocfilehash: d24a55fd3b93760035f852a24537c1cec9e4bab2
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 36966151b616a14e429807feb63df93503e7b249
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Solución de problemas de roles de servicios en la nube que no se inician
 Presentamos algunos problemas y soluciones comunes relacionados con los roles de Azure Cloud Services que no se inician.
@@ -53,7 +53,7 @@ Para ver más errores completos sin usar Escritorio remoto:
     ```xml
     <customErrors mode="Off" />
     ```
-4. Guarde el archivo .
+4. Guarde el archivo.
 5. Vuelva a empaquetar e implementar el servicio.
 
 Una vez que se vuelva a implementar el servicio, verá un mensaje de error con el nombre del ensamblado o DLL que faltan.
@@ -62,7 +62,7 @@ Una vez que se vuelva a implementar el servicio, verá un mensaje de error con e
 Puede usar Escritorio remoto para acceder al rol y ver información más completa sobre los errores de forma remota. Use los pasos siguientes para ver los errores desde Escritorio remoto:
 
 1. Asegúrese de que está instalado el SDK 1.3 de Azure, o una versión posterior.
-2. Durante la implementación de la solución con Visual Studio, elija "Configurar conexiones a Escritorio remoto". Para más información sobre cómo configurar la conexión a Escritorio remoto, consulte [Uso de Escritorio remoto con los roles de Azure](../vs-azure-tools-remote-desktop-roles.md).
+2. Durante la implementación de la solución con Visual Studio, habilite Escritorio remoto. Para más información, vea [Habilitación de la conexión a Escritorio remoto para un rol de Azure Cloud Services mediante Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md).
 3. En el Portal de Microsoft Azure clásico, cuando la instancia muestre el estado **Listo**, establezca una conexión remota a la instancia. Para más información sobre cómo usar Escritorio remoto con Cloud Services, consulte [Acceso remoto en instancias de rol](cloud-services-role-enable-remote-desktop-new-portal.md#remote-into-role-instances).
 5. Inicie sesión en la máquina virtual con las credenciales especificadas en la configuración de Escritorio remoto.
 6. Abra el símbolo del sistema.
@@ -77,7 +77,7 @@ Si navega al sitio web, se devolverán mensajes de error más explícitos:
 * Descripción: Se produjo una excepción no controlada durante la ejecución de la solicitud web actual. Revise el seguimiento de la pila para obtener más información acerca del error y en donde se originó en el código.
 * Detalles de la excepción: System.IO.FIleNotFoundException: No se puede cargar el archivo o ensamblado ‘Microsoft.WindowsAzure.StorageClient, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf856ad364e35’ ni una de sus dependencias. El sistema no encuentra el archivo especificado.
 
-Por ejemplo:
+Por ejemplo: 
 
 ![Error explícito del servidor en la aplicación '/'](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503389.png)
 

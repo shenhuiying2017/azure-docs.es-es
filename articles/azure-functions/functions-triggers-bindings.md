@@ -1,13 +1,13 @@
 ---
 title: Desencadenadores y enlaces en Azure Functions
-description: "Obtenga información sobre cómo usar desencadenadores y enlaces en Azure Functions para conectar la ejecución del código a los eventos en línea y servicios basados en la nube."
+description: Obtenga información sobre cómo usar desencadenadores y enlaces en Azure Functions para conectar la ejecución del código a los eventos en línea y servicios basados en la nube.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
-keywords: "Azure funciones, funciones, procesamiento de eventos, webhooks, proceso dinámico, arquitectura sin servidor"
+editor: ''
+tags: ''
+keywords: Azure funciones, funciones, procesamiento de eventos, webhooks, proceso dinámico, arquitectura sin servidor
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/07/2018
 ms.author: glenga
-ms.openlocfilehash: f43132beb0abae3d4bdf0f538de1b437e6099822
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 559cfee1a8116703371a5641cf4534b7ad6f7578
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Conceptos básicos sobre los enlaces y desencadenadores de Azure Functions
 
@@ -643,7 +643,7 @@ El esquema del archivo*function.json* está disponible en [http://json.schemasto
 
 Para obtener vínculos a todos los temas de error relevantes para los diversos servicios compatibles con Functions, vea la sección [Códigos de error de enlace](functions-bindings-error-pages.md#binding-error-codes) del tema introductorio [Control de errores en Azure Functions](functions-bindings-error-pages.md).  
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener más información sobre un tipo de enlace concreto, consulte estos artículos:
 

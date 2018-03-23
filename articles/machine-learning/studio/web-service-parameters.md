@@ -1,10 +1,11 @@
 ---
-title: "Uso de parámetros de servicio web Machine Learning | Microsoft Docs"
-description: "Cómo utilizar parámetros de servicio web de Aprendizaje automático de Azure para modificar el comportamiento de su modelo cuando se tiene acceso al servicio web."
+title: Uso de parámetros de servicio web Machine Learning | Microsoft Docs
+description: Cómo utilizar parámetros de servicio web de Azure Machine Learning para modificar el comportamiento de su modelo cuando se tiene acceso al servicio web.
 services: machine-learning
-documentationcenter: 
-author: raymondlaghaeian
-manager: jhubbard
+documentationcenter: ''
+author: aashishb
+ms.author: aashishb
+manager: hjerez
 editor: cgronlun
 ms.assetid: c49187db-b976-4731-89d6-11a0bf653db1
 ms.service: machine-learning
@@ -13,15 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2017
-ms.author: raymondl;garye
-ms.openlocfilehash: 715ea008b84c1a503661394da14e8af167327941
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 41b35b8160c777c8598a30e2d775d997e06438f0
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
-# <a name="use-azure-machine-learning-web-service-parameters"></a>Usar parámetros de servicio web de Aprendizaje automático de Azure
-Se crea un servicio web de Aprendizaje automático de Azure mediante la publicación de un experimento que contiene módulos con parámetros configurables. En algunos casos, puede que desee cambiar el comportamiento del módulo mientras se está ejecutando el servicio web. Los *parámetros del servicio web* le permiten realizar esta tarea. 
+# <a name="use-azure-machine-learning-web-service-parameters"></a>Usar parámetros de servicio web de Azure Machine Learning
+Se crea un servicio web de Azure Machine Learning mediante la publicación de un experimento que contiene módulos con parámetros configurables. En algunos casos, puede que desee cambiar el comportamiento del módulo mientras se está ejecutando el servicio web. Los *parámetros del servicio web* le permiten realizar esta tarea. 
 
 Un ejemplo común es la configuración del módulo [Importar datos][reader] para que el usuario del servicio web publicado pueda especificar un origen de datos diferente al obtener acceso al servicio web. También puede configurar el módulo [Exportar datos][writer] para que se pueda especificar un destino diferente. Algunos otros ejemplos incluyen cambiar el número de bits del [hash de características][feature-hashing] o el número de características deseadas para el módulo [Selección de características basada en filtros][filter-based-feature-selection]. 
 
@@ -49,7 +49,7 @@ Por ejemplo, supongamos que tenemos un experimento con un módulo [Exportar dato
 1. En Machine Learning Studio, haga clic en el módulo [Exportar datos][writer] para seleccionarlo. Sus propiedades se muestran en el panel Propiedades a la derecha del lienzo del experimento.
 2. Especifique el tipo de almacenamiento:
    
-   * En **Especifique el destino de los datos**, seleccione Almacenamiento de blobs de Azure.
+   * En **Especifique el destino de los datos**, seleccione Azure Blob Storage.
    * En **Especifique el tipo de autenticación**, seleccione "Cuenta".
    * Escriba la información de cuenta para el almacenamiento de blobs de Azure. 
      <p />

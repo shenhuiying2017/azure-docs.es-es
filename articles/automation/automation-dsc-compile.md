@@ -1,6 +1,6 @@
 ---
-title: "Compilación de configuraciones en DSC de Azure Automation | Microsoft Docs"
-description: "En este artículo se describe cómo compilar configuraciones de configuración de estado deseado (DSC) para Azure Automation."
+title: Compilación de configuraciones en DSC de Azure Automation | Microsoft Docs
+description: En este artículo se describe cómo compilar configuraciones de configuración de estado deseado (DSC) para Azure Automation.
 services: automation
 documentationcenter: na
 author: georgewallace
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 03/02/2018
 ms.author: magoedte; gwallace
-ms.openlocfilehash: b267f64a836851e1142475568556eebf74adf2dd
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 3ba9200023b71e6f1e69ee4c54d5c90efe1bc954
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="compiling-configurations-in-azure-automation-dsc"></a>Compilación de configuraciones en DSC de Azure Automation
 
@@ -249,6 +249,7 @@ En el ejemplo siguiente se muestra una configuración de DSC que usa un recurso 
 ```powershell
 Configuration CredentialSample
 {
+    Import-DscResource -ModuleName PSDesiredStateConfiguration
     $Cred = Get-AutomationPSCredential "SomeCredentialAsset"
 
     Node $AllNodes.NodeName
@@ -283,6 +284,9 @@ $ConfigData = @{
 
 Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "CredentialSample" -ConfigurationData $ConfigData
 ```
+
+> [!NOTE]
+> Cuando se completa la compilación, puede recibir un error que indica: **The "Microsoft.PowerShell.Management" module was not imported because the "Microsoft.PowerShell.Management" snap-in was already imported.** ("El módulo "Microsoft.PowerShell.Management" no se importó porque el complemento "Microsoft.PowerShell.Management" ya se había importado"). Esta advertencia se puede omitir sin ningún riesgo.
 
 ## <a name="importing-node-configurations"></a>Importación de configuraciones de nodo
 

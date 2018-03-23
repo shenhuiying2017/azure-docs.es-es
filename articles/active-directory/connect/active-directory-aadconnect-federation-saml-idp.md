@@ -1,6 +1,6 @@
 ---
-title: "Azure AD Connect: uso de un proveedor de identidades de SAML 2.0 para el inicio de sesión único | Microsoft Docs"
-description: "En este tema se describe el uso de un IdP compatible con SAML 2.0 para el inicio de sesión único."
+title: 'Azure AD Connect: uso de un proveedor de identidades de SAML 2.0 para el inicio de sesión único | Microsoft Docs'
+description: En este tema se describe el uso de un IdP compatible con SAML 2.0 para el inicio de sesión único.
 services: active-directory
 author: billmath
 manager: mtillman
@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 ms.openlocfilehash: 46c65e0efdc91b70c5d0d2afdf83d7205efc8057
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2018
+ms.lasthandoff: 03/13/2018
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Uso de un proveedor de identidades (IdP) de SAML 2.0 para el inicio de sesión único
 
@@ -45,8 +45,8 @@ Este tema contiene los requisitos detallados sobre el protocolo y el formato de 
 
 Se recomienda que se asegure de que sus mensajes de salida del proveedor de identidades de SAML 2.0 sean lo más parecidos posibles a los seguimientos de ejemplo proporcionados. Además, cuando sea posible, use valores de atributo específicos de los metadatos de Azure AD suministrados. Cuando esté satisfecho con los mensajes de salida, puede probar con el Analizador de conectividad de Microsoft, como se describe a continuación.
 
-Los metadatos de Azure AD se pueden descargar de esta dirección URL: [https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml](http://https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml).
-Para los clientes de China que usan la instancia de Office 365 específica de China, se debe usar el siguiente punto de conexión de federación: [https://nexus.partner.microsoftonline-p.cn/federationmetadata/saml20/federationmetadata.xml](https://nexus.partner.microsoftonline-p.cn/federationmetadata/saml20/federationmetadata.xml).
+Los metadatos de Azure AD se pueden descargar desde esta dirección URL: [https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml](http://https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml).
+Para los clientes en China que usan la instancia de Office 365 específica para China, se debe usar el punto de conexión de federación siguiente: [https://nexus.partner.microsoftonline-p.cn/federationmetadata/saml20/federationmetadata.xml](https://nexus.partner.microsoftonline-p.cn/federationmetadata/saml20/federationmetadata.xml).
 
 ## <a name="saml-protocol-requirements"></a>Requisitos del protocolo SAML
 En esta sección se detalla como se unen los pares de mensajes de solicitud y respuesta para ayudarle a dar formato a los mensajes correctamente.
@@ -162,7 +162,7 @@ Deberá habilitar la comunicación entre el proveedor de identidades de SAML 2.0
 ## <a name="install-windows-powershell-for-sign-on-with-saml-20-identity-provider"></a>Instalación de Windows PowerShell para el inicio de sesión con el proveedor de identidades de SAML 2.0
 Después de que ha configurado el proveedor de identidades de SAML 2.0 para su uso con el inicio de sesión de Azure AD, el siguiente paso consiste en descargar e instalar el Módulo Azure Active Directory para Windows PowerShell. Una vez instalado, usará estos cmdlets para configurar los dominios de Azure AD como dominios federados.
 
-El Módulo Azure Active Directory para Windows PowerShell es una descarga para administrar los datos de la organización en Azure AD. Este módulo instala un conjunto de cmdlets en Windows PowerShell; esos cmdlets se ejecutan para configurar el acceso de inicio de sesión único a Azure AD y, a su vez, a todos los servicios en la nube que están suscritos a él. Para obtener instrucciones sobre cómo descargar e instalar los cmdlets, consulte [http://technet.microsoft.com/library/jj151815.aspx](http://technet.microsoft.com/library/jj151815.aspx).
+El Módulo Azure Active Directory para Windows PowerShell es una descarga para administrar los datos de la organización en Azure AD. Este módulo instala un conjunto de cmdlets en Windows PowerShell; esos cmdlets se ejecutan para configurar el acceso de inicio de sesión único a Azure AD y, a su vez, a todos los servicios en la nube que están suscritos a él. Para instrucciones sobre cómo descargar e instalar los cmdlets, consulte [http://technet.microsoft.com/library/jj151815.aspx](http://technet.microsoft.com/library/jj151815.aspx)
 
 ## <a name="set-up-a-trust-between-your-saml-identity-provider-and-azure-ad"></a>Configuración de una relación de confianza entre el proveedor de identidades de SAML y Azure AD
 Antes de configurar la federación en un dominio de Azure AD, debe tener configurado un dominio personalizado. No se puede federar el dominio predeterminado proporcionado por Microsoft. El dominio predeterminado de Microsoft finaliza con "onmicrosoft.com".
@@ -185,7 +185,7 @@ En el procedimiento siguiente se explica cómo convertir un dominio estándar ex
 Para más información sobre "Set-MsolDomainAuthentication", consulte: [http://technet.microsoft.com/library/dn194112.aspx](http://technet.microsoft.com/library/dn194112.aspx).
 
 >[!NOTE]
->Debe ejecutar "$ecpUrl = “https://WS2012R2-0.contoso.com/PAOS“” solo si ha configurado una extensión ECP para el proveedor de identidades. Los clientes de Exchange Online, excepto Outlook Web Application (OWA), dependen de un punto de conexión activo basado en POST. Si el STS de SAML 2.0 implementa un punto de conexión activo de forma similar a ECP de Shibboleth, es posible que estos clientes enriquecidos puedan interactuar con el servicio Exchange Online.
+>Debe ejecutar "$ecpUrl = "https://WS2012R2-0.contoso.com/PAOS"" solo si configura una extensión ECP para el proveedor de identidades. Los clientes de Exchange Online, excepto Outlook Web Application (OWA), dependen de un punto de conexión activo basado en POST. Si el STS de SAML 2.0 implementa un punto de conexión activo de forma similar a ECP de Shibboleth, es posible que estos clientes enriquecidos puedan interactuar con el servicio Exchange Online.
 
 Una vez configurada la federación, puede cambiar de nuevo a "no federado" (o "administrado"); sin embargo, este cambio tarda hasta dos horas en realizarse y requiere la asignación de nuevas contraseñas aleatorias para el inicio de sesión basado en la nube de cada usuario. Volver a cambiar a "administrado" puede ser necesario en algunos escenarios para restablecer un error de la configuración. Para más información sobre la conversión de dominios, consulte: [http://msdn.microsoft.com/library/windowsazure/dn194122.aspx](http://msdn.microsoft.com/library/windowsazure/dn194122.aspx).
 
@@ -210,7 +210,7 @@ Este procedimiento muestra cómo agregar un único usuario a Azure AD.
         -LicenseAssignment "samlp2test:ENTERPRISEPACK" 
         -UsageLocation "US" `. 
 
-Para más información sobre "New-MsolUser", consulte [http://technet.microsoft.com/library/dn194096.aspx](http://technet.microsoft.com/library/dn194096.aspx).
+Para más información sobre "New-MsolUser", consulte [http://technet.microsoft.com/library/dn194096.aspx](http://technet.microsoft.com/library/dn194096.aspx)
 
 >[!NOTE]
 >El valor "UserPrinciplName" debe coincidir con el valor que se enviará para "IDPEmail" en la notificación de SAML 2.0, y el valor "ImmutableID" debe coincidir con el valor enviado en la aserción "NameID".
@@ -242,7 +242,7 @@ Microsoft ha proporcionado una herramienta que puede usar para comprobar el prov
 
 
 
-1. Descargue el Analizador de conectividad de [https://testconnectivity.microsoft.com/?tabid=Client](https://testconnectivity.microsoft.com/?tabid=Client).
+1. Descargue el Analizador de conectividad en [https://testconnectivity.microsoft.com/?tabid=Client](https://testconnectivity.microsoft.com/?tabid=Client).
 2.  Haga clic en Instalar ahora para empezar a descargar e instalar la herramienta.
 3.  Seleccione “I can’t set up federation with Office 365, Azure, or other services that use Azure Active Directory” (No se puede configurar la federación con Office 365, Azure u otros servicios que usan Azure Active Directory).
 4.  Una vez que haya descargado la herramienta y esté en funcionamiento, verá la ventana de diagnóstico de conectividad. La herramienta le lleva por los pasos para probar la conexión de federación.

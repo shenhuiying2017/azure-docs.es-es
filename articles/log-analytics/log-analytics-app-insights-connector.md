@@ -1,11 +1,11 @@
 ---
-title: "Visualización de datos de aplicación de Azure Application Insights | Microsoft Docs"
-description: "Puede usar la solución Application Insights Connector para diagnosticar problemas de rendimiento y comprender lo que los usuarios hacen con su aplicación cuando se supervisa mediante Application Insights."
+title: Visualización de datos de aplicación de Azure Application Insights | Microsoft Docs
+description: Puede usar la solución Application Insights Connector para diagnosticar problemas de rendimiento y comprender lo que los usuarios hacen con su aplicación cuando se supervisa mediante Application Insights.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 49280cad-3526-43e1-a365-c6a3bf66db52
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: magoedte
-ms.openlocfilehash: bf3259909a84e1e1f5325ff4e39d5c10f1abc831
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 1556e91710990351d6723325789201afa99b1943
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Solución de administración de Application Insights Connector (versión preliminar)
 
@@ -64,7 +64,7 @@ Aproximadamente en 30 minutos, los datos quedan disponibles y el icono de Applic
 Otros puntos que se deben considerar:
 
 - Solo puede vincular aplicaciones de Application Insights a un área de trabajo de Log Analytics.
-- Solo puede vincular [recursos estándar o premium de Application Insights](https://azure.microsoft.com/pricing/details/application-insights) a Log Analytics. Sin embargo, puede usar el nivel Gratis de Log Analytics.
+- Solo puede vincular [recursos del nivel Básico o Enterprise de Application Insights ](https://azure.microsoft.com/pricing/details/application-insights) a Log Analytics. Sin embargo, puede usar el nivel Gratis de Log Analytics.
 
 ## <a name="management-packs"></a>Módulos de administración
 
@@ -261,6 +261,6 @@ Se crea un registro con un *tipo* de *ApplicationInsights* para cada tipo de dat
 
 Esta solución no tiene un conjunto de búsquedas de registros de ejemplo que aparezca en el panel. Sin embargo, las consultas de búsquedas de registros de ejemplo con descripciones sí se muestran en la sección [Visualización de la información de Application Insights Connector](#view-application-insights-connector-information).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Use [Búsqueda de registros](log-analytics-log-searches.md) para ver información detallada de las aplicaciones de Application Insights.

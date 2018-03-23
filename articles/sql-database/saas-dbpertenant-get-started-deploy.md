@@ -1,26 +1,20 @@
 ---
-title: "Tutorial de la aplicación de SaaS de base de datos por inquilino: Azure SQL Database | Microsoft Docs"
-description: "Implemente y descubra la aplicación SaaS Wingtip Tickets multiinquilino, en la que se muestra el patrón de base de datos por inquilino y otros modelos SaaS con Azure SQL Database."
+title: 'Tutorial de la aplicación de SaaS de base de datos por inquilino: Azure SQL Database | Microsoft Docs'
+description: Implemente y descubra la aplicación SaaS Wingtip Tickets multiinquilino, en la que se muestra el patrón de base de datos por inquilino y otros modelos SaaS con Azure SQL Database.
 keywords: tutorial de SQL Database
 services: sql-database
-documentationcenter: 
 author: MightyPen
 manager: craigg
-editor: 
-ms.assetid: 
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: genemi
-ms.openlocfilehash: cbe8a04abbf2dada7cc43e57e823c3a41bf83fe7
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 8aa4c8691093779bd8febee80fca88efad93dc00
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="deploy-and-explore-a-multi-tenant-saas-application-that-uses-the-database-per-tenant-pattern-with-azure-sql-database"></a>Implementación y exploración de una aplicación SaaS multiinquilino que usa el patrón de base de datos por inquilino con Azure SQL Database
 
@@ -53,7 +47,7 @@ Para completar este tutorial, asegúrese de cumplir estos requisitos previos:
 #### <a name="plan-the-names"></a>Planeamiento de los nombres
 
 En los pasos de esta sección, proporciona un valor de *usuario* que se utiliza para garantizar que los nombres de recursos sean globalmente únicos, y un nombre para el *grupo de recursos* que contiene todos los recursos creados mediante una implementación de la aplicación. Para una persona llamada *Ann Finley*, sugerimos:
-- *Usuario:* **af1**  *(sus iniciales más una cifra. Use un valor diferente (por ejemplo, af2) si implementa la aplicación una segunda vez).*
+- *Usuario:* **af1**  *(sus iniciales más un dígito. Use un valor diferente (por ejemplo, af2) si implementa la aplicación una segunda vez).*
 - *Grupo de recursos:* **wingtip-dpt-af1** *(wingtip dpt indica que esta es la aplicación de base de datos por inquilino. Anexar el nombre de usuario af1 correlaciona el nombre del grupo de recursos con los nombres del recurso que contiene).*
 
 Elija los nombres ahora y escríbalos. 
@@ -265,7 +259,7 @@ Para más información consulte el [tutorial de supervisión del rendimiento](sa
 - Para obtener información acerca de aplicaciones SaaS multiempresa, consulte [*Modelos de diseño para las aplicaciones SaaS multiempresa y Azure SQL Database*](saas-tenancy-app-design-patterns.md)
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial ha obtenido información:
 

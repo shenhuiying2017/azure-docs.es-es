@@ -1,11 +1,11 @@
 ---
-title: "Requisitos previos técnicos para la creación de una imagen de máquina virtual para Azure Marketplace | Microsoft Docs"
-description: "Entienda los requisitos para crear e implementar una imagen de máquina virtual en Azure Marketplace para que otros usuarios la compren."
+title: Requisitos previos técnicos para la creación de una imagen de máquina virtual para Azure Marketplace | Microsoft Docs
+description: Entienda los requisitos para crear e implementar una imagen de máquina virtual en Azure Marketplace para que otros usuarios la compren.
 services: marketplace-publishing
-documentationcenter: 
-author: HannibalSII
-manager: hascipio
-editor: 
+documentationcenter: ''
+author: msmbaldwin
+manager: mbaldwin
+editor: ''
 ms.assetid: 63c16966-0304-4b17-a715-368a0a5ccb2c
 ms.service: marketplace
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
-ms.author: hascipio; v-divte
-ms.openlocfilehash: af3e2ad623d8d7bfafe676411f9ae3fbee78aab8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbaldwin
+ms.openlocfilehash: cf1f061c28dd0c106823d34ad39aac5e577c8b41
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="technical-prerequisites-for-creating-a-virtual-machine-image-for-the-azure-marketplace"></a>Requisitos previos técnicos para la creación de una imagen de máquina virtual para Azure Marketplace
 Lea el proceso minuciosamente antes de empezar y comprenda dónde y por qué se realiza cada paso. Tanto como sea posible, debe preparar la información de su compañía y otros datos, descargar las herramientas necesarias o crear componentes técnicos antes de comenzar el proceso de creación de la oferta. Estos elementos deben estar claros tras la revisión de este artículo.  
@@ -27,7 +27,7 @@ Lea el proceso minuciosamente antes de empezar y comprenda dónde y por qué se 
 Debe tener listos los elementos siguientes antes de comenzar el proceso:
 
 * Dependiendo de su sistema operativo objetivo, instale los [cmdlets de Azure PowerShell](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/WindowsAzurePowershellGet.3f.3f.3fnew.appids) o la [herramienta de la interfaz de la línea de comandos de Linux](https://go.microsoft.com/fwlink/?LinkId=253472&clcid=0x409) desde la página de [descargas de Azure](https://azure.microsoft.com/downloads/).
-* Instale el Explorador de almacenamiento de Azure desde CodePlex.
+* Instale el Explorador de Azure Storage desde CodePlex.
 * Descargue e instale la herramienta Certification Test Tool for Azure Certified:
   * [http://go.microsoft.com/fwlink/?LinkID=526913](http://go.microsoft.com/fwlink/?LinkID=526913). Necesita un equipo basado en Windows para ejecutar la herramienta de certificación. Si no tiene un equipo basado en Windows disponible, puede ejecutar la herramienta con una VM basada en Windows en Azure.
 

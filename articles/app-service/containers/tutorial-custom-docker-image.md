@@ -1,12 +1,12 @@
 ---
 title: Uso de una imagen personalizada de Docker para Web App for Containers | Microsoft Docs
 description: Uso de una imagen personalizada de Docker para Web App for Containers.
-keywords: "azure app service, aplicación web, linux, docker, contenedor"
+keywords: azure app service, aplicación web, linux, docker, contenedor
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: SyntaxC4
 manager: SyntaxC4
-editor: 
+editor: ''
 ms.assetid: b97bd4e6-dff0-4976-ac20-d5c109a559a8
 ms.service: app-service
 ms.workload: na
@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: b7f05f02249f86e6bee7f89c6ecf8016ede9c4fb
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: acfe066d9ad4882bcff85b7fd51dc7d3b2278235
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>Uso de una imagen personalizada de Docker para Web App for Containers
 
@@ -193,7 +193,7 @@ Puede hospedar aplicaciones Linux nativas en la nube con Azure Web Apps. Para cr
 
 ### <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-no-h.md)] 
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux-no-h.md)] 
 
 ### <a name="create-a-linux-app-service-plan"></a>Creación de un plan de App Service de Linux
 
@@ -552,7 +552,7 @@ El comando revela una salida similar a la cadena JSON siguiente, lo que muestra 
 
 [!INCLUDE [Clean-up section](../../../includes/cli-script-clean-up.md)]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Compilación de una aplicación web Docker Python con PostgreSQL en Azure](tutorial-docker-python-postgresql-app.md)

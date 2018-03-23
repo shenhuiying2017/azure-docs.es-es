@@ -1,13 +1,13 @@
 ---
 title: Enlaces de Azure Cosmos DB para Functions
-description: "Descubra cómo utilizar desencadenadores y enlaces de almacenamiento de Azure Cosmos DB en Azure Functions."
+description: Descubra cómo utilizar desencadenadores y enlaces de almacenamiento de Azure Cosmos DB en Azure Functions.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
-keywords: "azure functions, funciones, procesamiento de eventos, proceso dinámico, arquitectura sin servidor"
+editor: ''
+tags: ''
+keywords: azure functions, funciones, procesamiento de eventos, proceso dinámico, arquitectura sin servidor
 ms.service: functions; cosmos-db
 ms.devlang: multiple
 ms.topic: reference
@@ -15,15 +15,18 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 1a57d26e0f1188a2dea29beba52fde090aa82ca8
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 5d90b2cd977522eab267c8c86a35e47bc61248a8
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions"></a>Enlaces de Azure Cosmos DB para Azure Functions
 
 En este artículo se explica cómo trabajar con enlaces de [Azure Cosmos DB](..\cosmos-db\serverless-computing-database.md) en Azure Functions. Azure Functions enlaces de desencadenador, de entrada y de salida para Azure Cosmos DB.
+
+> [!NOTE]
+> Este enlace se llamaba originalmente DocumentDB. En la versión 1.x de Functions, solo se cambió el nombre del desencadenador a Cosmos DB; el enlace de entrada, el enlace de salida y el paquete NuGet conservan el nombre DocumentDB. En la [versión 2.x de Functions](functions-versions.md), también se cambió el nombre de los enlaces y del paquete a Cosmos DB. En este artículo se usan los nombres de la 1.x.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -127,7 +130,7 @@ Este es el código de JavaScript:
 
 ## <a name="trigger---attributes"></a>Desencadenador: atributos
 
-Para [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el atributo [CosmosDBTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/Trigger/CosmosDBTriggerAttribute.cs), que se define en el paquete NuGet [Microsoft.Azure.WebJobs.Extensions.CosmosDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB).
+Para [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el atributo [CosmosDBTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.DocumentDB/Trigger/CosmosDBTriggerAttribute.cs), que se define en el paquete NuGet [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
 
 El constructor del atributo toma el nombre de la base de datos y el nombre de la colección. Para información sobre esos valores y otras propiedades que puede configurar, consulte [Desencadenador: configuración](#trigger---configuration). A continuación, se muestra un ejemplo del atributo `CosmosDBTrigger` en una signatura de método:
 
@@ -207,7 +210,7 @@ En primer lugar, los valores `Id` y `Maker` para una instancia `CarReview` se pa
             [FunctionName("SingleEntry")]
             public static void Run(
                 [QueueTrigger("car-reviews", Connection = "StorageConnectionString")] CarReview carReview,
-                [CosmosDB("cars", "car-reviews", PartitionKey = "{maker}", Id= "{id}", ConnectionStringSetting = "CarReviewsConnectionString")] CarReview document,
+                [DocumentDB("cars", "car-reviews", PartitionKey = "{maker}", Id= "{id}", ConnectionStringSetting = "CarReviewsConnectionString")] CarReview document,
                 TraceWriter log)
             {
                 log.Info( $"Selected Review - {document?.Review}"); 
@@ -318,7 +321,7 @@ Estos son los datos de enlace del archivo *function.json*:
 
 ```json
 {
-    "name": "inputDocument",
+    "name": "inputDocumentIn",
     "type": "documentDB",
     "databaseName": "MyDatabase",
     "collectionName": "MyCollection",
@@ -326,6 +329,16 @@ Estos son los datos de enlace del archivo *function.json*:
     "partitionKey": "{queueTrigger_payload_property}",
     "connection": "MyAccount_COSMOSDB",     
     "direction": "in"
+},
+{
+    "name": "inputDocumentOut",
+    "type": "documentDB",
+    "databaseName": "MyDatabase",
+    "collectionName": "MyCollection",
+    "createIfNotExists": false,
+    "partitionKey": "{queueTrigger_payload_property}",
+    "connection": "MyAccount_COSMOSDB",
+    "direction": "out"
 }
 ```
 En la sección de [configuración](#input---configuration) se explican estas propiedades.
@@ -363,7 +376,7 @@ En el ejemplo siguiente se muestra una [función de C#](functions-dotnet-class-l
     [FunctionName("CosmosDBSample")]
     public static HttpResponseMessage Run(
         [HttpTrigger(AuthorizationLevel.Anonymous, "get")] HttpRequestMessage req,
-        [CosmosDB("test", "test", ConnectionStringSetting = "CosmosDB", SqlQuery = "SELECT top 2 * FROM c order by c._ts desc")] IEnumerable<object> documents)
+        [DocumentDB("test", "test", ConnectionStringSetting = "CosmosDB", SqlQuery = "SELECT top 2 * FROM c order by c._ts desc")] IEnumerable<object> documents)
     {
         return req.CreateResponse(HttpStatusCode.OK, documents);
     }
@@ -445,13 +458,13 @@ Este es el código de JavaScript:
 
 ## <a name="input---attributes"></a>Entrada: atributos
 
-Para [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el atributo [CosmosDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs), que se define en el paquete NuGet [Microsoft.Azure.WebJobs.Extensions.CosmosDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB).
+Para [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el atributo [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs), que se define en el paquete NuGet [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
 
 El constructor del atributo toma el nombre de la base de datos y el nombre de la colección. Para información sobre esos valores y otras propiedades que puede configurar, consulte [la sección de configuración siguiente](#input---configuration). 
 
 ## <a name="input---configuration"></a>Entrada: configuración
 
-En la siguiente tabla se explican las propiedades de configuración de enlace que establece en el archivo *function.json* y el atributo `CosmosDB`.
+En la siguiente tabla se explican las propiedades de configuración de enlace que establece en el archivo *function.json* y el atributo `DocumentDB`.
 
 |Propiedad de function.json | Propiedad de atributo |DESCRIPCIÓN|
 |---------|---------|----------------------|
@@ -460,7 +473,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |**name**     || Nombre del parámetro de enlace que representa al documento en la función.  |
 |**databaseName** |**DatabaseName** |Base de datos que contiene el documento.        |
 |**collectionName** |**CollectionName** | Nombre de la colección que contiene el documento. |
-|**id**    | **Id** | Identificador del documento que se va a recuperar. Esta propiedad admite parámetros de enlaces. Para más información, vea [Enlace a propiedades de entrada personalizadas en una expresión de enlace](functions-triggers-bindings.md#bind-to-custom-input-properties). No establezca las propiedades **id** y **sqlQuery** a la vez. Si no establece alguna de ellas, se recupera toda la colección. |
+|**id**    | **Id** | Identificador del documento que se va a recuperar. Esta propiedad es compatible con [expresiones de enlace](functions-triggers-bindings.md#binding-expressions-and-patterns). No establezca las propiedades **id** y **sqlQuery** a la vez. Si no establece alguna de ellas, se recupera toda la colección. |
 |**sqlQuery**  |**SqlQuery**  | Consulta SQL de Azure Cosmos DB que se usa para recuperar varios documentos. La propiedad es compatible con los enlaces en tiempo de ejecución, como en este ejemplo: `SELECT * FROM c where c.departmentId = {departmentId}`. No establezca las propiedades **id** y **sqlQuery** a la vez. Si no establece alguna de ellas, se recupera toda la colección.|
 |**conexión**     |**ConnectionStringSetting**|Nombre de la configuración de aplicación que contiene la cadena de conexión de Azure Cosmos DB.        |
 |**partitionKey**|**PartitionKey**|Especifica el valor de la clave de partición para la búsqueda. Puede incluir parámetros de enlace.|
@@ -500,7 +513,7 @@ En el ejemplo siguiente se muestra una [función de C#](functions-dotnet-class-l
     [FunctionName("QueueToDocDB")]        
     public static void Run(
         [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] string myQueueItem,
-        [CosmosDB("ToDoList", "Items", Id = "id", ConnectionStringSetting = "myCosmosDB")] out dynamic document)
+        [DocumentDB("ToDoList", "Items", Id = "id", ConnectionStringSetting = "myCosmosDB")] out dynamic document)
     {
         document = new { Text = myQueueItem, id = Guid.NewGuid() };
     }
@@ -705,7 +718,7 @@ Este es el código de JavaScript:
 
 ## <a name="output---attributes"></a>Salida: atributos
 
-Para [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el atributo [CosmosDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs), que se define en el paquete NuGet [Microsoft.Azure.WebJobs.Extensions.CosmosDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB).
+Para [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el atributo [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs), que se define en el paquete NuGet [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
 
 El constructor del atributo toma el nombre de la base de datos y el nombre de la colección. Para información sobre esos valores y otras propiedades que puede configurar, consulte [Salida: configuración](#output---configuration). A continuación, se muestra un ejemplo del atributo `CosmosDB` en una signatura de método:
 
@@ -713,7 +726,7 @@ El constructor del atributo toma el nombre de la base de datos y el nombre de la
     [FunctionName("QueueToDocDB")]        
     public static void Run(
         [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] string myQueueItem,
-        [CosmosDB("ToDoList", "Items", Id = "id", ConnectionStringSetting = "myCosmosDB")] out dynamic document)
+        [DocumentDB("ToDoList", "Items", Id = "id", ConnectionStringSetting = "myCosmosDB")] out dynamic document)
     {
         ...
     }
@@ -752,7 +765,7 @@ De forma predeterminada, cuando se escribe en el parámetro de salida de la func
 |---|---|
 | CosmosDB | [Códigos de error de CosmosDB](https://docs.microsoft.com/en-us/rest/api/documentdb/http-status-codes-for-documentdb) |
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Ir a una guía de inicio rápido que use un desencadenador de Cosmos DB](functions-create-cosmos-db-triggered-function.md)

@@ -1,11 +1,11 @@
 ---
-title: "Configuración de una puerta de enlace de VPN para las conexiones de Azure entre locales | Microsoft Docs"
-description: "Obtenga información sobre la configuración de VPN Gateway para las puertas de enlace de red virtual de Azure."
+title: Configuración de una puerta de enlace de VPN para las conexiones de Azure entre locales | Microsoft Docs
+description: Obtenga información sobre la configuración de VPN Gateway para las puertas de enlace de red virtual de Azure.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: ae665bc5-0089-45d0-a0d5-bc0ab4e79899
 ms.service: vpn-gateway
@@ -13,19 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/12/2017
+ms.date: 03/05/2018
 ms.author: cherylmc
-ms.openlocfilehash: d265c72cfc02710afb630f3b8258602c936d1ebc
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: e4f02e2b001b6821e732cead660aa0b758f1133e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="about-vpn-gateway-configuration-settings"></a>Acerca de la configuración de la puerta de enlace de VPN
+# <a name="about-vpn-gateway-configuration-settings"></a>Acerca de la configuración de VPN Gateway
 
 Una puerta de enlace de VPN es un tipo de puerta de enlace de red virtual que envía tráfico cifrado entre la red virtual y la ubicación local a través de una conexión pública. También puede utilizar una puerta de enlace de VPN para enviar tráfico entre redes virtuales a través de la red troncal de Azure.
 
 Una conexión de puerta de enlace de VPN se basa en la configuración de varios recursos, cada uno de los cuales contiene valores configurables. Las secciones de este artículo tratan los recursos y la configuración relacionados con una puerta de enlace de VPN para una red virtual creada en el modelo de implementación de Resource Manager. Puede encontrar las descripciones y los diagramas de topología de cada solución de conexión en el artículo [Acerca de VPN Gateway](vpn-gateway-about-vpngateways.md).
+
+>[!NOTE]
+> Los valores de este artículo se aplican a las puertas de enlace de red virtual que usan -GatewayType "Vpn". Este es el motivo por el que se denominan puertas de enlace VPN. Para los valores que se aplican a -GatewayType "ExpressRoute", consulte [Acerca de las puertas de enlace de red virtual para ExpressRoute](../expressroute/expressroute-about-virtual-network-gateways.md). Los valores para las puertas de enlace de ExpressRoute no son los mismos valores que se usan para las puertas de enlace VPN.
+>
+>
 
 ## <a name="gwtype"></a>Tipos de puerta de enlace
 
@@ -52,7 +57,7 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 ### <a name="configure-the-gateway-sku"></a>Configuración de la SKU de puerta de enlace
 
-#### <a name="azure-portal"></a>Portal de Azure
+#### <a name="azure-portal"></a>Azure Portal
 
 Si usa Azure Portal para crear una puerta de enlace de red virtual de Resource Manager, puede seleccionar la SKU de la puerta de enlace con el menú desplegable. Las opciones que se presentan corresponden con el tipo de puerta de enlace y tipo de VPN que seleccione.
 
@@ -152,7 +157,7 @@ Para más información sobre los recursos técnicos y los requisitos de sintaxis
 | **Clásico** | **Resource Manager** |
 | --- | --- |
 | [PowerShell](/powershell/module/azure#networking) |[PowerShell](/powershell/module/azurerm.network#vpn) |
-| [API DE REST](https://msdn.microsoft.com/library/jj154113) |[API de REST](/rest/api/network/virtualnetworkgateways) |
+| [API de REST](https://msdn.microsoft.com/library/jj154113) |[API de REST](/rest/api/network/virtualnetworkgateways) |
 | No compatible | [CLI de Azure](/cli/azure/network/vnet-gateway)|
 
 ## <a name="next-steps"></a>Pasos siguientes

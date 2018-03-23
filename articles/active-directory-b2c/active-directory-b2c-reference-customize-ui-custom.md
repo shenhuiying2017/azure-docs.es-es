@@ -1,12 +1,12 @@
 ---
-title: "Referencia de Azure Active Directory B2C: personalización de la IU de un recorrido de usuario con directivas personalizadas | Microsoft Docs"
+title: 'Referencia de Azure Active Directory B2C: personalización de la IU de un recorrido de usuario con directivas personalizadas | Microsoft Docs'
 description: Un tema acerca de las directivas personalizadas de Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: 
+documentationcenter: ''
 author: rojasja
 manager: mtillman
 editor: rojasja
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,10 +15,10 @@ ms.devlang: na
 ms.date: 04/25/2017
 ms.author: joroja
 ms.openlocfilehash: 40245c25a7f80db27a25a0d34eb20f1057fc5e02
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Personalización de la IU de un recorrido de usuario con directivas personalizadas
 
@@ -170,5 +170,5 @@ En la tabla siguiente se describe el conjunto de identificadores de definición 
 | *api.selfasserted.profileupdate* | **Página de actualización de perfil**. Esta página contiene un formulario que el usuario puede usar para actualizar su perfil. Esta página es similar a la página anterior de registro en una cuenta social, excepto por los campos de entrada de contraseña. |
 | *api.signuporsignin* | **Página de inicio de sesión o registro unificada**.  Esta página controla tanto la suscripción como el inicio de sesión de los usuarios, que pueden usar proveedores de identidades de empresa, proveedores de identidades sociales, como Facebook o Google+, o cuentas locales.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Referencia: Understand how custom policies work with the Identity Experience Framework in B2C](active-directory-b2c-reference-custom-policies-understanding-contents.md) (Funcionamiento de las directivas personalizadas con el marco de experiencia de identidad en B2C)

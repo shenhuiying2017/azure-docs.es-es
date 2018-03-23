@@ -1,12 +1,12 @@
 ---
 title: 'Orquestaciones infinitas en Durable Functions: Azure'
-description: "Aprenda a implementar orquestaciones infinitas mediante la extensión Durable Functions para Azure Functions."
+description: Aprenda a implementar orquestaciones infinitas mediante la extensión Durable Functions para Azure Functions.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 8560921734e5037182955d8fe9605cc9831bf1b4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: cb4115b98091f55a0324ea795ffcc83cb29223a4
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>Orquestaciones infinitas en Durable Functions (Azure Functions)
 
@@ -90,10 +90,7 @@ Si en algún momento fuera necesario completar una función de orquestador, lo �
 
 Si una función de orquestador está en un bucle infinito y debe detenerse, use el método [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_) para detenerla. Para más información, consulte el artículo sobre la [administración de instancias](durable-functions-instance-management.md).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Más información acerca de cómo implementar orquestaciones singleton](durable-functions-singletons.md)
-
-> [!div class="nextstepaction"]
-> [Ejecutar una orquestación infinita de ejemplo](durable-functions-counter.md)

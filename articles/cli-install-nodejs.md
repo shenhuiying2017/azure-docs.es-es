@@ -1,9 +1,9 @@
 ---
-title: "Instalación de la CLI de Azure 1.0 | Microsoft Docs"
-description: "Instalación de la CLI de Azure 1.0 para Mac, Linux y Windows con el objetivo de comenzar a utilizar los servicios de Azure"
-editor: 
+title: Instalación de la CLI de Azure 1.0 | Microsoft Docs
+description: Instalación de la CLI de Azure 1.0 para Mac, Linux y Windows con el objetivo de comenzar a utilizar los servicios de Azure
+editor: ''
 manager: timlt
-documentationcenter: 
+documentationcenter: ''
 author: squillace
 services: virtual-machines-linux,virtual-network,storage,azure-resource-manager
 tags: azure-resource-manager,azure-service-management
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: rasquill
-ms.openlocfilehash: 67aa5bb122b277e998119506bb2a574d6b4fde5e
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: a1ca71a81f4fa6dd36b9ed3a2b16fcca0e29601c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="install-the-azure-cli-10"></a>Instalación de la CLI de Azure 1.0
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/21/2017
 
 > [!IMPORTANT]
 > En este tema se describe cómo instalar la CLI de Azure 1.0. Esta CLI está en desuso y solo debe usarse para la compatibilidad del modelo Azure Service Management (ASM) con recursos "clásicos".
-> Para las implementaciones de Azure Resource Manager (ARM), utilice la [CLI de Azure 2.0](/cli/azure/overview).
+> Para las implementaciones de Azure Resource Manager, use la [CLI de Azure 2.0](/cli/azure).
 
 Instale rápidamente la interfaz de la línea de comandos de Azure (CLI de Azure 1.0) para utilizar un conjunto de comandos de código abierto basados en shell para crear y administrar recursos en Microsoft Azure. Tiene varias opciones para instalar estas herramientas multiplataforma en su equipo:
 

@@ -1,24 +1,18 @@
 ---
-title: "Planeamiento de una implementación de Azure Files | Microsoft Docs"
-description: "Conozca los puntos que debe tener en cuenta al planear una implementación de Azure Files."
+title: Planeamiento de una implementación de Azure Files | Microsoft Docs
+description: Conozca los puntos que debe tener en cuenta al planear una implementación de Azure Files.
 services: storage
-documentationcenter: 
 author: wmgries
-manager: klaasl
-editor: jgerend
-ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2017
+ms.date: 03/06/2018
 ms.author: wgries
-ms.openlocfilehash: 590bc459a71b8691741f7f33d2d70b0ba4474591
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 017dd79e2d15fdd98ea020c686857d282bad244e
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planeamiento de una implementación de Azure Files
 [Azure Files](storage-files-introduction.md) ofrece recursos compartidos de archivos en la nube totalmente administrados a los que se puede acceder mediante el protocolo SMB estándar. Dado que Azure Files está totalmente administrado, su implementación en escenarios de producción resulta mucho más sencilla que la implementación y administración de un servidor de archivos o un dispositivo NAS. En este artículo se tratan las cuestiones que deben tenerse en cuenta al implementar un recurso compartido de Azure Files para su uso en producción dentro de la organización.
@@ -63,7 +57,7 @@ Azure Files tiene varias opciones integradas para garantizar la seguridad de los
     * Los clientes que admiten el cifrado SMB 3.0 envían y reciben datos a través de un canal cifrado.
     * Los clientes que no admiten SMB 3.0, pueden comunicarse dentro de centros de datos a través de SMB 2.1 o SMB 3.0 sin cifrado. Tenga en cuenta que no se permite a los clientes comunicarse entre centros de datos a través de SMB 2.1 o SMB 3.0 sin cifrado.
     * Los clientes pueden comunicarse a través de REST de archivo con HTTP o HTTPS.
-* Cifrado en reposo ([Azure Storage Service Encryption](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)): estamos a punto de habilitar el proceso de habilitación de Storage Service Encryption (SSE) en la plataforma de Azure Storage subyacente. Esto significa que el cifrado se habilitará de forma predeterminada para todas las cuentas de almacenamiento. Si va a crear una nueva cuenta de almacenamiento en una región con el cifrado en reposo de forma predeterminada, no tiene que hacer nada. Los datos en reposo se cifran con claves completamente administradas. En el cifrado en reposo no se aumentan los costos de almacenamiento ni se reduce el rendimiento. 
+* Cifrado en reposo ([Cifrado del servicio Azure Storage](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)): la característica Cifrado del servicio Storage (SSE) está habilitada de forma predeterminada para todas las cuentas de almacenamiento. Los datos en reposo se cifran con claves completamente administradas. En el cifrado en reposo no se aumentan los costos de almacenamiento ni se reduce el rendimiento. 
 * Requisito opcional de datos cifrados en tránsito: cuando está seleccionado, Azure Files rechaza el acceso a los datos a través de canales sin cifrar. En concreto, solo se permiten HTTPS y SMB 3.0 con conexiones de cifrado. 
 
     > [!Important]  
@@ -98,7 +92,7 @@ Existen muchas opciones sencillas para la transferencia masiva de datos desde un
 * **[Robocopy](https://technet.microsoft.com/library/cc733145.aspx)**: Robocopy es una herramienta de copia conocida que se incluye con Windows y Windows Server. Robocopy puede usarse para transferir datos a Azure Files al montar el recurso compartido de archivos localmente y luego usar la ubicación montada como destino en el comando de Robocopy.
 * **[AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#upload-files-to-an-azure-file-share)**: AzCopy es una utilidad de línea de comandos diseñada para copiar datos en y desde Azure Files, así como Azure Blob Storage, mediante sencillos comandos con un rendimiento óptimo. AzCopy está disponible para Windows y Linux.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Planeamiento de una implementación de Azure File Sync](storage-sync-files-planning.md)
 * [Implementación de Azure Files](storage-files-deployment-guide.md)
 * [Implementación de Azure File Sync](storage-sync-files-deployment-guide.md)

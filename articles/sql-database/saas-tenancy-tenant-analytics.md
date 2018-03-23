@@ -1,25 +1,21 @@
 ---
-title: "Ejecución de análisis entre inquilinos mediante datos extraídos | Microsoft Docs"
-description: "Consultas de análisis entre inquilinos mediante datos extraídos de varias bases de datos de Azure SQL Database."
+title: Ejecución de análisis entre inquilinos mediante datos extraídos | Microsoft Docs
+description: Consultas de análisis entre inquilinos mediante datos extraídos de varias bases de datos de Azure SQL Database.
 keywords: tutorial de SQL Database
 services: sql-database
-documentationcenter: 
 author: stevestein
-manager: jhubbard
-editor: MightyPen
+manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: article
 ms.date: 11/08/2017
-ms.author: anjangsh; billgib; genemi
-ms.openlocfilehash: 62f09a7ff353783b0f54202554d126bf59ee941a
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.author: sstein
+ms.reviewer: anjangsh; billgib; genemi
+ms.openlocfilehash: ff57bd054f3ff28662d3fd2eb46dca02e74af69b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="cross-tenant-analytics-using-extracted-data"></a>Análisis entre inquilinos mediante datos extraídos
 
@@ -227,7 +223,7 @@ Anteriormente, profundizó en sus análisis para detectar que las ventas de entr
 
 Ha observado las tendencias de los datos de inquilino de la aplicación de WingTip. Puede contemplar otras formas en que la aplicación puede informar de las decisiones empresariales a los proveedores de aplicaciones SaaS. De esta forma, los proveedores pueden satisfacer mejor las necesidades de sus inquilinos. Se espera que este tutorial le haya proporcionado todas las herramientas necesarias para realizar análisis de datos de inquilino para permitir que las empresas tomen decisiones basadas en datos.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial aprendió lo siguiente:
 

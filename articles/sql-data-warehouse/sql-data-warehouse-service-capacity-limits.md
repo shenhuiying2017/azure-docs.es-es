@@ -1,11 +1,11 @@
 ---
-title: "Límites de capacidad de SQL Data Warehouse | Microsoft Docs"
-description: "Valores máximos para las conexiones, bases de datos, tablas y consultas de SQL Data Warehouse."
+title: Límites de capacidad de SQL Data Warehouse | Microsoft Docs
+description: Valores máximos para las conexiones, bases de datos, tablas y consultas de SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
 author: kevinvngo
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: e1eac122-baee-4200-a2ed-f38bfa0f67ce
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: reference
-ms.date: 12/14/2017
+ms.date: 03/15/2018
 ms.author: kevin;barbkess
-ms.openlocfilehash: 3a8edb3806f981ebb6f8c1ca6c994ae198df2ec2
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: b1ff33f80a8dd0a0861a5c39731c9f59689db101
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>Límites de capacidad de SQL Data Warehouse
 Las siguientes tablas contienen los valores máximos permitidos para los distintos componentes de Azure SQL Data Warehouse.
@@ -88,7 +88,7 @@ Las siguientes tablas contienen los valores máximos permitidos para los distint
 | sys.dm_pdw_os_event_logs |10.000 |
 | sys.dm_pdw_sql_requests |Las 1000 solicitudes SQL más recientes que se almacenan en sys.dm_pdw_exec_requests. |
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información de referencia, vea [Información general de referencia de SQL Data Warehouse][SQL Data Warehouse reference overview].
 
 <!--Image references-->
@@ -96,7 +96,7 @@ Para obtener más información de referencia, vea [Información general de refer
 <!--Article references-->
 [Data Warehouse Units (DWU)]: ./sql-data-warehouse-overview-what-is.md
 [SQL Data Warehouse reference overview]: ./sql-data-warehouse-overview-reference.md
-[Workload management]: ./sql-data-warehouse-develop-concurrency.md
+[Workload management]: ./resource-classes-for-workload-management.md
 [Tempdb]: ./sql-data-warehouse-tables-temporary.md
 [data type]: ./sql-data-warehouse-tables-data-types.md
 [creating a support ticket]: /sql-data-warehouse-get-started-create-support-ticket.md

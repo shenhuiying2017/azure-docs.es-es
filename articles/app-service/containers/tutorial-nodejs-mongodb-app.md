@@ -1,11 +1,11 @@
 ---
-title: "Compilación de una aplicación web Node.js y MongoDB en Azure App Service en Linux | Microsoft Docs"
-description: "Aprenda a empezar a trabajar con una aplicación Node.js en Azure App Service en Linux, con conexión a una base de datos Cosmos DB con una cadena de conexión de MongoDB."
+title: Compilación de una aplicación web Node.js y MongoDB en Azure App Service en Linux | Microsoft Docs
+description: Aprenda a empezar a trabajar con una aplicación Node.js en Azure App Service en Linux, con conexión a una base de datos Cosmos DB con una cadena de conexión de MongoDB.
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
 manager: syntaxc4
-editor: 
+editor: ''
 ms.assetid: 0b4d7d0e-e984-49a1-a57a-3c0caa955f0e
 ms.service: app-service-web
 ms.workload: web
@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 10/10/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: f497e9427885ab1d2e827e9fa1dd3c468aa39239
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ee7f37f83d6b3503df1af61509f6f85ca19bc13e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure-app-service-on-linux"></a>Compilación de una aplicación web Node.js y MongoDB en Azure App Service en Linux
 
@@ -126,7 +126,7 @@ Para MongoDB, en este tutorial se usa [Azure Cosmos DB](/azure/documentdb/). Cos
 
 ### <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-no-h.md)]
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux-no-h.md)]
 
 ### <a name="create-a-cosmos-db-account"></a>Creación de una cuenta de Cosmos DB
 
@@ -252,7 +252,7 @@ En este paso, implementará la aplicación Node.js conectada a MongoDB en Azure 
 
 ### <a name="create-a-web-app"></a>Creación de una aplicación web
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-nodejs-no-h.md)] 
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-nodejs-linux-no-h.md)] 
 
 ### <a name="configure-an-environment-variable"></a>Configuración de una variable de entorno
 
@@ -468,7 +468,7 @@ De forma predeterminada, el portal muestra la página **Información general**. 
 
 <a name="next"></a>
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 ¿Qué ha aprendido?
 

@@ -1,13 +1,13 @@
 ---
 title: Enlaces de Azure Table Storage para Azure Functions
-description: "Descubra cómo usar los enlaces de Azure Table Storage en Azure Functions."
+description: Descubra cómo usar los enlaces de Azure Table Storage en Azure Functions.
 services: functions
 documentationcenter: na
 author: tdykstra
 manager: cfowler
-editor: 
-tags: 
-keywords: "azure functions, funciones, procesamiento de eventos, proceso dinámico, arquitectura sin servidor"
+editor: ''
+tags: ''
+keywords: azure functions, funciones, procesamiento de eventos, proceso dinámico, arquitectura sin servidor
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tdykstra
-ms.openlocfilehash: c132baad4d26fe481fa022329da32815b6994ad7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7f82083cd18f762d1037da2ccf43e9d0c220fe09
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Enlaces de Azure Table Storage para Azure Functions
 
@@ -89,7 +89,7 @@ public class TableStorage
     {
         foreach (MyPoco poco in pocos)
         {
-            log.Info($"PK={poco.PartitionKey}, RK={poco.RowKey}, Text={poco.Text}";
+            log.Info($"PK={poco.PartitionKey}, RK={poco.RowKey}, Text={poco.Text}");
         }
     }
 }
@@ -373,9 +373,7 @@ El enlace de entrada de Table Storage admite los siguientes escenarios:
   Obtenga acceso a los datos de la tabla mediante un parámetro de método `IQueryable<T> <paramName>`. En script de C#, `paramName` es el valor especificado en la propiedad `name` de *function.json*. `T` debe ser un tipo que implementa `ITableEntity` o deriva de `TableEntity`. Puede usar métodos `IQueryable` para realizar cualquier operación de filtrado necesaria. Las propiedades `partitionKey`, `rowKey`, `filter` y `take` no se utilizan en este escenario.  
 
 > [!NOTE]
-> `IQueryable` no funciona en .NET Core, por lo que no funciona en el [tiempo de ejecución de Functions v2](functions-versions.md).
-
-  Una alternativa consiste en usar un parámetro del método `CloudTable paramName` para leer la tabla mediante Azure Storage SDK.
+> `IQueryable` no es compatible con el [entorno de tiempo de ejecución de Functions v2](functions-versions.md). Una alternativa consiste en [usar un parámetro del método CloudTable](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable) para leer la tabla mediante Azure Storage SDK.
 
 * **Leer una o varias filas en JavaScript**
 
@@ -643,7 +641,7 @@ El enlace de salida de Table Storage admite los siguientes escenarios:
 | Blob, tabla, cola | [Códigos de error de almacenamiento](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
 | Blob, tabla, cola | [Solución de problemas](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Más información sobre desencadenadores y enlaces de Azure Functions](functions-triggers-bindings.md)

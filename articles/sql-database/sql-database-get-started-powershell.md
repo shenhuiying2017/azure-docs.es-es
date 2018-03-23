@@ -1,26 +1,21 @@
 ---
-title: "Azure PowerShell: Creación de una instancia de SQL Database | Microsoft Docs"
-description: "Aprenda a crear un servidor lógico de SQL Database, una regla de firewall de nivel de servidor y bases de datos en Azure Portal."
-keywords: "tutorial de base de datos SQL, creación de una base de datos SQL"
+title: 'Azure PowerShell: Creación de una instancia de SQL Database | Microsoft Docs'
+description: Aprenda a crear un servidor lógico de SQL Database, una regla de firewall de nivel de servidor y bases de datos en Azure Portal.
+keywords: tutorial de sql database, creación de una base de datos sql
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: 
-ms.assetid: 
+manager: craigg
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
-ms.workload: On Demand
-ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: quickstart
 ms.date: 04/17/2017
 ms.author: carlrab
-ms.openlocfilehash: 68f7ea0f5255602629a0b0960726c30dd508a655
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 6946ab259b6b3f7f911e047731d51f026742fa52
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-single-azure-sql-database-using-powershell"></a>Creación de una sola instancia de Azure SQL Database con PowerShell
 
@@ -30,7 +25,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 
 Para realizar este tutorial es necesaria la versión 4.0 del módulo de Azure PowerShell, o cualquier versión posterior. Ejecute ` Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps) (Instalación y configuración de Azure PowerShell). 
 
-## <a name="log-in-to-azure"></a>Inicie sesión en Azure.
+## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
 
 Inicie sesión en la suscripción de Azure con el comando [Add-AzureRmAccount](/powershell/module/azurerm.profile/add-azurermaccount) y siga las instrucciones de la pantalla.
 
@@ -120,7 +115,7 @@ Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 Ahora que tiene una base de datos, puede conectarse y realizar consultas con las herramientas que desee. Para más información, seleccione una de las herramientas siguientes:
 
 - [SQL Server Management Studio](sql-database-connect-query-ssms.md)
-- [código de Visual Studio](sql-database-connect-query-vscode.md)
+- [Visual Studio Code](sql-database-connect-query-vscode.md)
 - [.NET](sql-database-connect-query-dotnet.md)
 - [PHP](sql-database-connect-query-php.md)
 - [Node.js](sql-database-connect-query-nodejs.md)

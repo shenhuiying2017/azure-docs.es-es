@@ -1,11 +1,11 @@
 ---
-title: "Configuración de aplicaciones web en Azure App Service"
-description: "Cómo configurar una aplicación web en Azure App Service"
+title: Configuración de aplicaciones web en Azure App Service
+description: Cómo configurar una aplicación web en Azure App Service
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.service: app-service
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: 3f735b8742f22110b4de264bfb5661651a899afb
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 58c27c0872978c3a6a4c47be37e6fa6078309286
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Configuración de aplicaciones web en Azure App Service
 
@@ -129,12 +129,12 @@ El nombre de usuario de FTP completo es "app\nombreusuario", donde *app* es el n
 
 ## <a name="other-configuration-tasks"></a>Otras tareas de configuración
 ### <a name="ssl"></a>SSL
-En modo básico o estándar puede cargar certificados SSL para un dominio personalizado. Para más información, consulte [Habilitación de HTTPS para una aplicación web]. 
+En modo básico o estándar puede cargar certificados SSL para un dominio personalizado. Para más información, consulte [Habilitación de HTTPS para una aplicación web](app-service-web-tutorial-custom-ssl.md). 
 
 Para ver los certificados cargados, haga clic en **Toda la configuración** > **Dominios personalizados y SSL**.
 
 ### <a name="domain-names"></a>Nombres de dominio
-Agregue nombres de dominio personalizados para su aplicación web. Para más información, consulte [Configuración de un nombre de dominio personalizado para una aplicación web en Azure App Service].
+Agregue nombres de dominio personalizados para su aplicación web. Para más información, consulte [Configuración de un nombre de dominio personalizado para una aplicación web en Azure App Service](app-service-web-tutorial-custom-domain.md).
 
 Para ver los nombres de dominios, haga clic en **Toda la configuración** > **Dominios personalizados y SSL**.
 
@@ -154,7 +154,7 @@ Para obtener más información, consulte [Supervisión de estado de extremo web]
 > 
 > 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Configuración de un nombre de dominio personalizado en Azure App Service]
 * [Habilitación de HTTPS para una aplicación en Azure App Service]
 * [Escalación de una aplicación web en Azure App Service]

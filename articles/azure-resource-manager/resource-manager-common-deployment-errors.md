@@ -1,25 +1,25 @@
 ---
-title: "Solución de errores comunes de implementación de Azure | Microsoft Docs"
-description: "Describe cómo solucionar errores comunes al implementar recursos en Azure con Azure Resource Manager."
+title: Solución de errores comunes de implementación de Azure | Microsoft Docs
+description: Describe cómo solucionar errores comunes al implementar recursos en Azure con Azure Resource Manager.
 services: azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 tags: top-support-issue
 author: tfitzmac
 manager: timlt
 editor: tysonn
-keywords: "error de implementación, implementación de Azure, implementar en Azure"
+keywords: error de implementación, implementación de Azure, implementar en Azure
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: support-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/20/2017
+ms.date: 03/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: ca7e3cb541948e6cc0b8d077616f3611e3ab2477
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 2cf31b32e02923aa573d5586b8ca24bf30b7d97b
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Solución de errores comunes de implementación de Azure con Azure Resource Manager
 
@@ -37,6 +37,7 @@ En este artículo se describen algunos errores comunes de implementación de Azu
 | BadRequest | Envió valores de implementación que no coinciden con los que Resource Manager esperaba. Compruebe el mensaje de estado interno para obtener ayuda para solucionar el problema. | [Referencia de plantillas](/azure/templates/) y [ubicaciones admitidas](resource-manager-templates-resources.md#location) |
 | Conflicto | Se solicita una operación no permitida con el estado actual del recurso. Por ejemplo, solo se permite el cambio de tamaño del disco al crear una VM o al desasignar la VM. | |
 | DeploymentActive | Espere a que la implementación simultánea de este grupo de recursos finalice. | |
+| DeploymentFailed | El error DeploymentFailed es un error general que no proporciona la información necesaria para resolverlo. Mire en los detalles del error si hay un código de error que proporcione más información. | [Búsqueda de códigos de error](#find-error-code) |
 | DnsRecordInUse | El nombre del registro de DNS debe ser único. Proporcione un nombre diferente o modifique el registro existente. | |
 | ImageNotFound | Compruebe la configuración de la imagen de máquina virtual. |  |
 | InUseSubnetCannotBeDeleted | Este error puede aparecer al intentar actualizar un recurso, pero la solicitud se procesa mediante la eliminación y creación del recurso. Asegúrese de especificar todos los valores sin cambios. | [Actualización de recursos](/azure/architecture/building-blocks/extending-templates/update-resource) |
@@ -44,7 +45,7 @@ En este artículo se describen algunos errores comunes de implementación de Azu
 | InvalidContentLink | Probablemente ha tratado de agregar un vínculo a una plantilla anidada que no está disponible. Compruebe el URI proporcionado para la plantilla anidada. Si la plantilla se encuentra en una cuenta de almacenamiento, asegúrese de que puede accederse al URI. Debe transmitir un token SAS. | [Plantillas vinculadas](resource-group-linked-templates.md) |
 | InvalidParameter | Uno de los valores proporcionados para un recurso no coincide con el valor esperado. Este error puede deberse a muchas condiciones diferentes. Por ejemplo, una contraseña puede ser insuficiente o un nombre de blob puede ser incorrecto. Compruebe el mensaje de error para determinar qué valor debe corregirse. | |
 | InvalidRequestContent | Los valores de implementación incluyen valores que no se esperan o faltan los valores requeridos. Confirme los valores para el tipo de recurso. | [Referencia de plantilla](/azure/templates/) |
-| InvalidRequestFormat | Habilite el registro de depuración cuando se ejecute la implementación y verifique el contenido de la solicitud. | [Registro de depuración](resource-manager-troubleshoot-tips.md#enable-debug-logging) |
+| InvalidRequestFormat | Habilite el registro de depuración cuando se ejecute la implementación y verifique el contenido de la solicitud. | [Registro de depuración](#enable-debug-logging) |
 | InvalidResourceNamespace | Compruebe el espacio de nombres del recurso especificado en la propiedad **type**. | [Referencia de plantilla](/azure/templates/) |
 | InvalidResourceReference | El recurso aún no existe o se hace referencia a él de forma incorrecta. Compruebe si tiene que agregar una dependencia. Compruebe que el uso de la función **reference** incluye los parámetros necesarios para su escenario. | [Resolución de dependencias](resource-manager-not-found-errors.md) |
 | InvalidResourceType | Compruebe el tipo de recurso especificado en la propiedad **type**. | [Referencia de plantilla](/azure/templates/) |
@@ -75,8 +76,125 @@ En este artículo se describen algunos errores comunes de implementación de Azu
 
 ## <a name="find-error-code"></a>Búsqueda de códigos de error
 
-Si se produce un error durante la implementación, Resource Manager devuelve un código de error. Puede ver el mensaje de error a través del portal, PowerShell o la CLI de Azure. El mensaje de error externo puede ser demasiado general para solucionar problemas. Busque el mensaje interno que contiene información detallada sobre el error. Para más información, vea [Determinación del código de error](resource-manager-troubleshoot-tips.md#determine-error-code).
+Hay dos tipos de errores que puede recibir:
 
-## <a name="next-steps"></a>pasos siguientes
+* Errores de validación
+* Errores de implementación
+
+Los errores de validación que provienen de escenarios que se pueden determinar antes de la implementación incluyen los errores de sintaxis en la plantilla o tratar de implementar los recursos que superarían las cuotas de suscripción. Errores de implementación que provengan de condiciones que se producen durante el proceso de implementación. Incluyen intentar acceder a un recurso que se está implementando en paralelo.
+
+Los dos tipos de errores devuelven un código de error que utiliza para solucionar problemas de implementación. Ambos aparecen en el [registro de actividad](resource-group-audit.md). Sin embargo, los errores de validación no aparecen en el historial de implementación porque la implementación nunca se inicia.
+
+### <a name="validation-errors"></a>Errores de validación
+
+Al implementar a través del portal, verá un error de validación después de enviar sus valores.
+
+![vista del error de validación en el portal](./media/resource-manager-common-deployment-errors/validation-error.png)
+
+Seleccione el mensaje para más detalles. En la siguiente imagen, verá un error **InvalidTemplateDeployment** y un mensaje que indica que una directiva está bloqueando la implementación.
+
+![vista de los detalles de validación](./media/resource-manager-common-deployment-errors/validation-details.png)
+
+### <a name="deployment-errors"></a>Errores de implementación
+
+Cuando la operación pasa la validación, pero se produce un error durante la implementación, verá el error en las notificaciones. Seleccione la notificación.
+
+![notificación de error](./media/resource-manager-common-deployment-errors/notification.png)
+
+Verá más detalles acerca de la implementación. Seleccione la opción para más información sobre el error.
+
+![error de implementación](./media/resource-manager-common-deployment-errors/deployment-failed.png)
+
+Verá el mensaje de error y los códigos de error. Observe que hay dos códigos de error. El primero (**DeploymentFailed**) es un error general que no proporciona la información que necesita para resolverlo. El segundo código de error (**StorageAccountNotFound**) proporciona los detalles que necesita. 
+
+![detalles del error](./media/resource-manager-common-deployment-errors/error-details.png)
+
+## <a name="enable-debug-logging"></a>Habilitación del registro de depuración
+
+En ocasiones necesitará más información sobre la solicitud y respuesta para descubrir qué ha salido mal. Mediante el uso de PowerShell o la CLI de Azure, puede solicitar que se registre información adicional durante la implementación.
+
+- PowerShell
+
+   En PowerShell, establezca el parámetro **DeploymentDebugLogLevel** en Todos, ResponseContent o RequestContent.
+
+  ```powershell
+  New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile c:\Azure\Templates\storage.json -DeploymentDebugLogLevel All
+  ```
+
+   Examine el contenido de la solicitud con el siguiente cmdlet:
+
+  ```powershell
+  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName storageonly -ResourceGroupName startgroup).Properties.request | ConvertTo-Json
+  ```
+
+   O bien, la respuesta de contenido con:
+
+  ```powershell
+  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName storageonly -ResourceGroupName startgroup).Properties.response | ConvertTo-Json
+  ```
+
+   Esta información puede ayudarlo a determinar si un valor en la plantilla se está estableciendo de forma incorrecta.
+
+- Azure CLI
+
+   Examine las operaciones de implementación con el siguiente comando:
+
+  ```azurecli
+  az group deployment operation list --resource-group ExampleGroup --name vmlinux
+  ```
+
+- Plantilla anidada
+
+   Para registrar la información de depuración de una plantilla anidada, use el elemento **debugSetting**.
+
+  ```json
+  {
+      "apiVersion": "2016-09-01",
+      "name": "nestedTemplate",
+      "type": "Microsoft.Resources/deployments",
+      "properties": {
+          "mode": "Incremental",
+          "templateLink": {
+              "uri": "{template-uri}",
+              "contentVersion": "1.0.0.0"
+          },
+          "debugSetting": {
+             "detailLevel": "requestContent, responseContent"
+          }
+      }
+  }
+  ```
+
+## <a name="create-a-troubleshooting-template"></a>Creación de una plantilla de solución de problemas
+
+En algunos casos, la manera más fácil de solucionar problemas de plantillas es comprobando sus elementos. Puede crear una plantilla simplificada que le permita centrarse en lo que crea que está provocando el error. Por ejemplo, supongamos que se recibe un error al hacer referencia a un recurso. En lugar de trabajar directamente con una plantilla de toda, cree una plantilla que devuelva la parte que pueda estar causando el problema. Esto puede ayudarlo a determinar si está pasando los parámetros correctos con las funciones de plantilla correctamente y obteniendo el recurso esperado.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageName": {
+        "type": "string"
+    },
+    "storageResourceGroup": {
+        "type": "string"
+    }
+  },
+  "variables": {},
+  "resources": [],
+  "outputs": {
+    "exampleOutput": {
+        "value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageName')), '2016-05-01')]",
+        "type" : "object"
+    }
+  }
+}
+```
+
+Supongamos que se están produciendo errores de implementación que cree que están relacionados con dependencias establecidas incorrectamente. Pruebe la plantilla dividiéndola en plantillas simplificadas. En primer lugar, cree una plantilla que implemente solo un único recurso (por ejemplo, un servidor SQL Server). Cuando esté seguro de que tiene dicho recurso definido correctamente, agregue un recurso que dependa de él (por ejemplo, SQL Database). Cuando esos dos recursos se definan correctamente, agregue otros recursos dependientes (por ejemplo, las directivas de auditoría). Entre cada implementación de prueba, elimine el grupo de recursos para asegurarse de que se prueban adecuadamente las dependencias.
+
+
+## <a name="next-steps"></a>Pasos siguientes
 * Para más información sobre las acciones de auditoría, consulte [Operaciones de auditoría con Resource Manager](resource-group-audit.md).
 * Si desea conocer más detalles sobre las acciones que permiten determinar los errores durante la implementación, consulte [Visualización de operaciones de implementación con el Portal de Azure](resource-manager-deployment-operations.md).

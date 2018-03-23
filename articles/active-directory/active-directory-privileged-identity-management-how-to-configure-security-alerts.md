@@ -1,11 +1,11 @@
 ---
-title: "Configuración de alertas de seguridad | Microsoft Docs"
-description: "Aprenda cómo configurar alertas de seguridad para la extensión de Privileged Identity Management de Azure."
+title: Configuración de alertas de seguridad | Microsoft Docs
+description: Aprenda cómo configurar alertas de seguridad para la extensión de Privileged Identity Management de Azure.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 4e0c911a-36c6-42a0-8f79-a01c03d2d04f
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 06/06/2017
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 52a03624b8e3841f559caef564712ff74a614365
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8037942cb3700f8e46d3be24b5fed04004333335
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-configure-security-alerts-in-azure-ad-privileged-identity-management"></a>Configuración de alertas de seguridad en Privileged Identity Management de Azure AD
 ## <a name="security-alerts"></a>Alertas de seguridad
@@ -27,13 +27,18 @@ Privileged Identity Management (PIM) de Azure genera alertas cuando existen acti
 
 ![Alertas de seguridad del panel de PIM: captura de pantalla][1]
 
-| Alerta | Desencadenador | Recomendación |
-| --- | --- | --- |
-| **Se están asignando roles fuera de PIM** |Se ha asignado a un administrador a un rol de forma permanente, fuera de la interfaz de PIM. |Revise la nueva asignación de roles. Puesto que otros servicios solo pueden asignar administradores permanentes, cámbiela por una asignación apta en caso necesario. |
-| **Se están activando roles con demasiada frecuencia** |Había demasiadas reactivaciones del mismo rol en el tiempo permitido en la configuración. |Póngase en contacto con el usuario para ver por qué activó el rol tantas veces. Puede que el límite de tiempo sea demasiado corto para que complete sus tareas, o quizá utilice scripts para activar automáticamente un rol. |
-| **No se necesita la autenticación multifactor para la activación de los roles** |Hay roles sin MFA habilitado en la configuración. |MFA se requiere para los roles con los privilegios más elevados, pero se recomienda encarecidamente habilitar MFA para la activación de todos los roles. |
-| **Los administradores no están usando sus roles con privilegios** |Hay administradores aptos que no han activado sus roles recientemente. |Inicie una revisión de acceso para determinar los usuarios que ya no necesitan acceso. |
-| **Demasiados administradores globales** |Hay más administradores globales de lo que se recomienda. |Si tiene un gran número de administradores globales, es probable que los usuarios estén obteniendo más permisos de los que necesitan. Mueva usuarios a roles con menos privilegios, o establezca algunos de ellos como aptos para el rol en lugar de asignarlos de forma permanente. |
+| Alerta | Severity | Desencadenador | Recomendación |
+| --- | --- | --- | --- |
+| **Se están asignando roles fuera de PIM** |Alto |Se asignó a un usuario un rol con privilegios de manera permanente, fuera de la interfaz de PIM. |Revise los usuarios de la lista y cancele la asignación de los roles con privilegios asignados fuera de PIM. |
+| **Se están activando roles con demasiada frecuencia** |Mediano |Había demasiadas reactivaciones del mismo rol en el tiempo permitido en la configuración. |Póngase en contacto con el usuario para ver por qué activó el rol tantas veces. Puede que el límite de tiempo sea demasiado corto para que complete sus tareas, o quizá utilice scripts para activar automáticamente un rol. Asegúrese de que la duración de la activación para su rol dure lo suficiente para que ejecuten sus tareas. |
+| **No se necesita la autenticación multifactor para la activación de los roles** |Mediano |Hay roles sin MFA habilitado en la configuración. |MFA se requiere para los roles con los privilegios más elevados, pero se recomienda encarecidamente habilitar MFA para la activación de todos los roles. |
+| **Los usuarios no están usando sus roles con privilegios** |Bajo |Hay administradores aptos que no han activado sus roles recientemente. |Inicie una revisión de acceso para determinar los usuarios que ya no necesitan acceso. |
+| **Demasiados administradores globales** |Bajo |Hay más administradores globales de lo que se recomienda. |Si tiene un gran número de administradores globales, es probable que los usuarios estén obteniendo más permisos de los que necesitan. Mueva usuarios a roles con menos privilegios, o establezca algunos de ellos como aptos para el rol en lugar de asignarlos de forma permanente. |
+
+### <a name="severity"></a>Severity
+* **Alta**: requiere acción inmediata debido a la infracción de una directiva. 
+* **Media**: no requiere acción inmediata, pero indica una posible infracción de una directiva.
+* **Baja**: no requiere acción inmediata pero sugiere un cambio de directiva preferible.
 
 ## <a name="configure-security-alert-settings"></a>Configuración de alertas de seguridad
 Puede personalizar algunas de las alertas de seguridad de PIM para que funcionen con su entorno sus objetivos de entorno y seguridad. Siga estos pasos para llegar a la hoja de configuración:

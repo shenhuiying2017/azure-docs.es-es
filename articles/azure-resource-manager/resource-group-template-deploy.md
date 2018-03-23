@@ -1,5 +1,5 @@
 ---
-title: "Implementación de recursos con la plantilla y PowerShell | Microsoft Docs"
+title: Implementación de recursos con la plantilla y PowerShell | Microsoft Docs
 description: Use Azure Resource Manager y Azure PowerShell para implementar recursos en Azure. Los recursos se definen en una plantilla de Resource Manager.
 services: azure-resource-manager
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2017
 ms.author: tomfitz
-ms.openlocfilehash: 464308da13be6a33ce80871f8753f999e34d8c83
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 3378c13934a5a0743aa40ebb19940f1afa71fc71
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell
 
@@ -84,6 +84,8 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup -Temp
 ## <a name="deploy-to-more-than-one-resource-group-or-subscription"></a>Implementación en varios grupos de recursos o suscripciones
 
 Por lo general, todos los recursos de la plantilla se implementan en un único grupo de recursos. Sin embargo, existen escenarios en los que desea implementar un conjunto de recursos juntos pero colocarlos en distintos grupos de recursos o suscripciones. Cada implementación solo puede realizarse en cinco grupos de recursos. Para más información, consulte [Implementación de recursos de Azure en varias suscripciones y grupos de recursos](resource-manager-cross-resource-group-deployment.md).
+
+<a id="parameter-file" />
 
 ## <a name="parameter-files"></a>Archivos de parámetros
 
@@ -214,7 +216,7 @@ La plantilla siguiente se usa para los ejemplos de este artículo. Cópiela y gu
 }
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Los ejemplos de este artículo implementan recursos en un grupo de recursos de su suscripción predeterminada. Para usar una suscripción diferente, consulte [Administración de varias suscripciones de Azure](/powershell/azure/manage-subscriptions-azureps).
 * Para obtener un script de ejemplo completo que implementa una plantilla, vea [Resource Manager template deployment script](resource-manager-samples-powershell-deploy.md) (Script de implementación de plantilla de Resource Manager).
 * Para entender cómo definir parámetros en la plantilla, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](resource-group-authoring-templates.md).

@@ -1,12 +1,12 @@
 ---
 title: Uso del agente de Azure Backup para realizar copias de seguridad de archivos y carpetas | Microsoft Docs
-description: "Use el agente de Microsoft Azure Backup para realizar copias de seguridad de archivos y carpetas de Windows en Azure. Cree un almacén de Recovery Services, instale el agente de Backup, defina la directiva de copia de seguridad y ejecute la copia de seguridad inicial de los archivos y las carpetas."
+description: Use el agente de Microsoft Azure Backup para realizar copias de seguridad de archivos y carpetas de Windows en Azure. Cree un almacén de Recovery Services, instale el agente de Backup, defina la directiva de copia de seguridad y ejecute la copia de seguridad inicial de los archivos y las carpetas.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
-keywords: "almacén de copia de seguridad; copia de seguridad de un equipo de Windows Server; ventanas de copia de seguridad;"
+editor: ''
+keywords: almacén de copia de seguridad; copia de seguridad de un equipo de Windows Server; ventanas de copia de seguridad;
 ms.assetid: 7f5b1943-b3c1-4ddb-8fb7-3560533c68d5
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/5/2018
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: 0adb2565299a2cd613068539736d4272d59a2397
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 88a588322d88f817937cf06e25b5b25a147f03d0
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>Copia de seguridad desde Windows Server o un cliente de Windows en Azure mediante el modelo de implementación de Resource Manager
 En este artículo se explica cómo realizar una copia de seguridad de los archivos y carpetas de Windows Server (o del cliente de Windows) en Azure con Azure Backup usando el modelo de implementación de Resource Manager.
@@ -144,6 +144,9 @@ Ahora que ha creado un almacén, prepare la infraestructura para realizar una co
 
   ![finalizó la descarga de las credenciales de almacén](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
 
+
+[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
+
 ## <a name="install-and-register-the-agent"></a>Instalación y registro del agente
 
 > [!NOTE]
@@ -254,7 +257,7 @@ Una vez que finalice la copia de seguridad inicial, el estado **Trabajo completa
 ## <a name="questions"></a>¿Tiene preguntas?
 Si tiene alguna pregunta o hay alguna característica que le gustaría que se incluyera, [envíenos sus comentarios](http://aka.ms/azurebackup_feedback).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre la copia de seguridad de máquinas virtuales u otras cargas de trabajo, consulte:
 
 * Ahora que ha realizado una copia de seguridad de los archivos y las carpetas, puede [administrar los almacenes y servidores](backup-azure-manage-windows-server.md).

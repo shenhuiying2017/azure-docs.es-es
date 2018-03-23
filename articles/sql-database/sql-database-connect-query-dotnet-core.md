@@ -1,31 +1,26 @@
 ---
 title: Uso de .NET Core para consultar Azure SQL Database | Microsoft Docs
-description: "En este tema se muestra cómo usar .NET Core para crear un programa que se conecta a una instancia de Azure SQL Database y realiza consultas mediante instrucciones Transact-SQL."
+description: En este tema se muestra cómo usar .NET Core para crear un programa que se conecta a una instancia de Azure SQL Database y realiza consultas mediante instrucciones Transact-SQL.
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: 
-ms.assetid: 
+manager: craigg
 ms.service: sql-database
 ms.custom: mvc,develop apps
-ms.workload: On Demand
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 07/07/2017
 ms.author: carlrab
-ms.openlocfilehash: 1d2a22500c322a63b134e29e5f7509df271eafb9
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 4d858606b0c645069602fba80cdba3d13582170d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-net-core-c-to-query-an-azure-sql-database"></a>Uso de .NET Core (C#) para consultar una instancia de Azure SQL Database
 
 Este tutorial de inicio rápido muestra cómo usar [.NET Core](https://www.microsoft.com/net/) en Windows, Linux o macOS para crear un programa de C# que se conecta a una instancia de Azure SQL Database y utiliza instrucciones Transact-SQL para consultar los datos.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para completar este tutorial, asegúrese de que dispone de lo siguiente:
 

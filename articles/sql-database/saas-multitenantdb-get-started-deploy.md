@@ -1,25 +1,21 @@
 ---
-title: "Implementación de una aplicación SaaS de base de datos multiinquilino con particiones que usa Azure SQL Database | Microsoft Docs"
-description: "Implemente y explore la aplicación de base de datos multiinquilino SaaS Wingtip Tickets con particiones que muestra los patrones de SaaS con Azure SQL Database."
+title: Implementación de una aplicación SaaS de base de datos multiinquilino con particiones que usa Azure SQL Database | Microsoft Docs
+description: Implemente y explore la aplicación de base de datos multiinquilino SaaS Wingtip Tickets con particiones que muestra los patrones de SaaS con Azure SQL Database.
 keywords: tutorial de SQL Database
 services: sql-database
-documentationcenter: 
 author: MightyPen
 manager: craigg
-editor: billgib;anjangsh
 ms.service: sql-database
 ms.custom: scale out apps
 ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: genemi
-ms.openlocfilehash: 3bbfdccd020f5efc7510d9688ea38f5e1af4ebde
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 82983c8926bdf3c7256c529448e5b4f3b2c2381c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Implementación y exploración de una aplicación multiinquilino con particiones que usa Azure SQL Database
 
@@ -254,7 +250,7 @@ Las cargas de trabajo generadas por el script generador de carga solo tienen fin
     - [Los grupos elásticos pueden ayudarle a administrar y escalar varias instancias de Azure SQL Database](sql-database-elastic-pool.md)
     - [Escalado horizontal con Azure SQL Database](sql-database-elastic-scale-introduction.md)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial ha obtenido información:
 

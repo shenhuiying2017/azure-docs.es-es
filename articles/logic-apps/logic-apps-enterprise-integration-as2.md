@@ -1,11 +1,11 @@
 ---
-title: "Mensajes AS2 para la integración empresarial B2B: Azure Logic Apps | Microsoft Docs"
-description: "Intercambio de mensajes AS2 para la integración empresarial B2B con Azure Logic Apps"
+title: 'Mensajes AS2 para la integración empresarial B2B: Azure Logic Apps | Microsoft Docs'
+description: Intercambio de mensajes AS2 para la integración empresarial B2B con Azure Logic Apps
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: MandiOhlinger
+author: divyaswarnkar
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: c9b7e1a9-4791-474c-855f-988bd7bf4b7f
 ms.service: logic-apps
 ms.workload: integration
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
-ms.author: LADocs; mandia
-ms.openlocfilehash: 8c6dbc507cd1b79fe9424071bc3eb8bf24331a16
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.author: LADocs; divswa
+ms.openlocfilehash: acc66f2cc88734b5c15fb9f4ace8339908418463
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="exchange-as2-messages-for-enterprise-integration-with-logic-apps"></a>Intercambio de mensajes AS2 para la integración empresarial con las aplicaciones lógicas
 
@@ -40,7 +40,7 @@ Cuando haya [creado una cuenta de integración](../logic-apps/logic-apps-enterpr
 
 1.  Inicie sesión en [Azure Portal](http://portal.azure.com "Azure Portal").  
 
-2. En el menú principal de Azure, seleccione **Todos los servicios**. En el cuadro de búsqueda, especifique "integración" y seleccione **Cuentas de integración**.
+2. En el menú principal de Azure, seleccione **Todos los servicios**. En el cuadro de búsqueda, escriba "integración" y, después, seleccione **Cuentas de integración**.
 
    ![Búsqueda de la cuenta de integración](./media/logic-apps-enterprise-integration-as2/overview-1.png)
 
@@ -176,5 +176,5 @@ Ahora el contrato está preparado para controlar los mensajes salientes que cump
 ## <a name="view-the-swagger"></a>Visualización de Swagger
 Vea los [detalles de Swagger](/connectors/as2/). 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Más información sobre Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Información sobre Enterprise Integration Pack")  

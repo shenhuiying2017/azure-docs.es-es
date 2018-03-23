@@ -1,25 +1,20 @@
 ---
-title: "Conexión a SQL Database mediante C y C++ | Microsoft Docs"
-description: "Usar el código de ejemplo de este inicio rápido para crear una aplicación moderna con C++ y respaldada por una base de datos relacional eficaz en la nube con Azure SQL Database."
+title: Conexión a SQL Database mediante C y C++ | Microsoft Docs
+description: Usar el código de ejemplo de este inicio rápido para crear una aplicación moderna con C++ y respaldada por una base de datos relacional eficaz en la nube con Azure SQL Database.
 services: sql-database
-documentationcenter: 
 author: edmacauley
-manager: jhubbard
-editor: 
-ms.assetid: 07d9e0b1-3234-4f17-a252-a7559160a9db
+manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
-ms.workload: On Demand
-ms.tgt_pltfrm: na
 ms.devlang: cpp
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: edmacauley
-ms.openlocfilehash: 7c78f90c14c1915c760720948d6d7ae99ceb6f1d
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 659b413b2686a50a0681e7307b51188e6e6d0859
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>Conexión a SQL Database mediante C y C++
 Este artículo está destinado a los desarrolladores de C y C++ que intentan conectarse a Azure SQL DB. Está dividido en secciones para que puede ir a la sección que más le interese. 
@@ -75,7 +70,7 @@ Como alternativa, podría crear un archivo DSN mediante el asistente que se inic
 
 ![Create DSN File](./media/sql-database-develop-cplusplus-simple/datasource.png)
 
-¡Enhorabuena! Ya se ha conectado correctamente a Azure SQL con C++ y ODBC en Windows. Puede seguir leyendo para hacer lo mismo en la plataforma Linux. 
+Felicidades. Ya se ha conectado correctamente a Azure SQL con C++ y ODBC en Windows. Puede seguir leyendo para hacer lo mismo en la plataforma Linux. 
 
 ## <a id="Linux"></a>Paso 5: Conexión desde una aplicación de C o C++ de Linux
 En caso de que aún no conozca la noticia, Visual Studio permite ahora desarrollar la aplicación de C++ de Linux. Puede leer acerca de este nuevo escenario en el blog [Visual C++ for Linux Development](https://blogs.msdn.microsoft.com/vcblog/2016/03/30/visual-c-for-linux-development/) (Visual C++ para el desarrollo de aplicaciones para Linux). Para la compilación para Linux, se necesitará un equipo remoto en el que se ejecute la distribución de Linux. Si no dispone de ninguno, puede configurar uno rápidamente mediante [Azure Virtual Machines de Linux](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
@@ -119,7 +114,7 @@ Si la conexión se realizó correctamente, ahora debería ver el nombre de la ba
 
 ![Linux Console Window Output](./media/sql-database-develop-cplusplus-simple/linuxconsolewindow.png)
 
-¡Enhorabuena! Ha completado correctamente el tutorial y ya puede conectarse a Azure SQL DB desde C++ en plataformas Windows y Linux.
+Felicidades. Ha completado correctamente el tutorial y ya puede conectarse a Azure SQL DB desde C++ en plataformas Windows y Linux.
 
 ## <a id="GetSolution"></a>Obtención de la solución completa del tutorial de C o C++
 Puede encontrar la solución GetStarted que contiene todos los ejemplos de este artículo en github:
@@ -128,10 +123,10 @@ Puede encontrar la solución GetStarted que contiene todos los ejemplos de este 
 * [Ejemplo de Linux de C++ de ODBC](https://github.com/Microsoft/VCSamples/tree/master/VC2015Samples/ODBC%20database%20sample%20%28linux%29): descargue el ejemplo de ODBC de C++ de Linux para conectarse a Azure SQL.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Consulte [Información general de desarrollo de Base de datos SQL](sql-database-develop-overview.md)
+* Consulte [Información general de desarrollo de SQL Database](sql-database-develop-overview.md)
 * Más información en [ODBC API Reference](https://docs.microsoft.com/sql/odbc/reference/syntax/odbc-api-reference/) (Referencia de la API de ODBC).
 
 ## <a name="additional-resources"></a>Recursos adicionales
-* [Modelos de diseño para las aplicaciones SaaS multiinquilino con base de datos SQL de Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md)
-* Descubra todas las [funcionalidades de Base de datos SQL](https://azure.microsoft.com/services/sql-database/)
+* [Modelos de diseño para las aplicaciones SaaS multiinquilino con Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md)
+* Descubra todas las [funcionalidades de SQL Database](https://azure.microsoft.com/services/sql-database/)
 

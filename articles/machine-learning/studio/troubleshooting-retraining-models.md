@@ -1,11 +1,11 @@
 ---
-title: "Solución de problemas de reciclaje de un servicio web clásico Azure Machine Learning | Microsoft Docs"
+title: Solución de problemas de reciclaje de un servicio web clásico Azure Machine Learning | Microsoft Docs
 description: Identifique y corrija los problemas comunes que se encuentran al volver a entrenar el modelo para un servicio web Azure Machine Learning.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: garyericson
-manager: raymondl
-editor: 
+manager: hjerez
+editor: ''
 ms.assetid: 75cac53c-185c-437d-863a-5d66d871921e
 ms.service: machine-learning
 ms.workload: data-services
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 011/01/2017
 ms.author: garye
-ms.openlocfilehash: 1e5327ad135d9bc8881354679dc3f1b8a472cad3
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 486f66e3d864a172ba301d017c12406ebafc4824
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="troubleshooting-the-retraining-of-an-azure-machine-learning-classic-web-service"></a>Solución de problemas del reentrenamiento de un servicio web clásico de Azure Machine Learning
 ## <a name="retraining-overview"></a>Información general sobre reentrenamiento

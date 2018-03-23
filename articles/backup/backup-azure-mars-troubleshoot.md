@@ -1,11 +1,11 @@
 ---
-title: "Solución de problemas del Agente de Azure Backup | Microsoft Docs"
-description: "Solución de problemas de instalación y registro del Agente de Azure Backup"
+title: Solución de problemas del Agente de Azure Backup | Microsoft Docs
+description: Solución de problemas de instalación y registro del Agente de Azure Backup
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: saurabhsensharma
 manager: shreeshd
-editor: 
+editor: ''
 ms.assetid: 778c6ccf-3e57-4103-a022-367cc60c411a
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -14,15 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/4/2017
 ms.author: saurse;markgal;
-ms.openlocfilehash: 52a32d61dd69110ace560fd1e52389140f322678
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: f7f4ac328c4e35f52bcc9708faf96d06189dd9ac
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="troubleshoot-azure-backup-agent-configuration-and-registration-issues"></a>Solución de problemas de configuración y registro del Agente de Azure Backup
 ## <a name="recommended-steps"></a>Pasos recomendados
 Consulte las acciones recomendadas en las tablas siguientes para resolver los errores que pueden surgir durante la configuración o el registro del Agente de Azure Backup.
+
+[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
 ## <a name="invalid-vault-credentials-provided-the-file-is-either-corrupted-or-does-not-have-the-latest-credentials-associated-with-recovery-service"></a>Se han proporcionado credenciales de almacén no válidas. El archivo está dañado o no tiene asociadas las credenciales más recientes para el servicio de recuperación.
 | Detalles del error | Causas posibles | Acciones recomendadas |
@@ -50,6 +52,6 @@ Consulte las acciones recomendadas en las tablas siguientes para resolver los er
 ## <a name="need-help-contact-support"></a>¿Necesita ayuda? Ponerse en contacto con soporte técnico
 Si sigue necesitando ayuda, [póngase en contacto con el servicio de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema rápidamente.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Más detalles sobre la [creación de copias de seguridad de Windows Server con el Agente de Azure Backup](tutorial-backup-windows-server-to-azure.md).
 * Si necesita restaurar una copia de seguridad, use este artículo: [Restaurar archivos en una máquina de Windows Server o del Cliente de Windows](backup-azure-restore-windows-server.md).

@@ -1,6 +1,6 @@
 ---
-title: "Introducción a Azure Table Storage mediante Python | Microsoft Docs"
-description: "Almacene datos estructurados en la nube con el Almacenamiento de tablas de Azure, un almacén de datos NoSQL."
+title: Introducción a Azure Table Storage mediante Python | Microsoft Docs
+description: Almacene datos estructurados en la nube con el Almacenamiento de tablas de Azure, un almacén de datos NoSQL.
 services: cosmos-db
 documentationcenter: python
 author: mimig1
@@ -14,11 +14,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: mimig
-ms.openlocfilehash: 2c8c7dc6d3bdb6ba34818d7e36739297cffbe2d2
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 455479c9eb77093dd5611263fe5bdcf699b9d026
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="get-started-with-azure-table-storage-using-python"></a>Introducción a Azure Table Storage mediante Python
 
@@ -42,7 +42,7 @@ Se recomienda que consulte la [referencia de la API del SDK de Azure Cosmos DB p
 Necesitará lo siguiente para completar este tutorial correctamente:
 
 - [Python](https://www.python.org/downloads/) 2.7, 3.3, 3.4, 3.5 o 3.6
-- [SDK de Table de Azure Cosmos DB 1.01 para Python](https://pypi.python.org/pypi/azure-cosmosdb-table/). Este SDK se conecta con Azure Table Storage y con Table API de Azure Cosmos DB.
+- [SDK de Table de Azure Cosmos DB para Python](https://pypi.python.org/pypi/azure-cosmosdb-table/). Este SDK se conecta con Azure Table Storage y con Table API de Azure Cosmos DB.
 - [Cuenta de Azure Storage](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account#create-a-storage-account) o [Cuenta de Azure Cosmos DB](https://azure.microsoft.com/en-us/try/cosmosdb/)
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
@@ -230,7 +230,7 @@ Si ya no necesita una tabla ni ninguna de las entidades dentro de ella, llame al
 table_service.delete_table('tasktable')
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Preguntas más frecuentes sobre desarrollo con Table API](https://docs.microsoft.com/en-us/azure/cosmos-db/faq#develop-with-the-table-api)
 * [Referencia de la API del SDK de Azure Cosmos DB para Python](https://azure.github.io/azure-cosmosdb-python/)

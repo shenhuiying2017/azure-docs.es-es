@@ -1,11 +1,11 @@
 ---
-title: "Comunicación de servicio con ASP.NET Core | Microsoft Docs"
+title: Comunicación de servicio con ASP.NET Core | Microsoft Docs
 description: Aprenda a usar ASP.NET Core en Reliable Services con y sin estado.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 8aa4668d-cbb6-4225-bd2d-ab5925a868f2
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -24,7 +24,7 @@ ms.lasthandoff: 02/01/2018
 
 ASP.NET Core es un nuevo marco de código abierto multiplataforma para crear aplicaciones conectadas a Internet modernas y basadas en la nube, como aplicaciones web, aplicaciones de IoT y back-ends móviles. 
 
-Este artículo es una guía en profundidad sobre cómo hospedar servicios de ASP.NET Core en Reliable Services de Service Fabric mediante el conjunto de paquetes NuGet **Microsoft.ServiceFabric.AspNetCore.***.
+Este artículo es una guía en profundidad sobre cómo hospedar servicios de ASP.NET Core en Reliable Services de Service Fabric mediante el conjunto de paquetes NuGet **Microsoft.ServiceFabric.AspNetCore.*** .
 
 Para ver un tutorial introductorio sobre ASP.NET Core en Service Fabric e instrucciones para configurar el entorno de desarrollo, consulte [Creación de una aplicación .NET](service-fabric-tutorial-create-dotnet-app.md).
 

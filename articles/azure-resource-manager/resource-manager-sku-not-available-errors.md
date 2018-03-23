@@ -1,23 +1,23 @@
 ---
 title: Errores de no disponibilidad de la SKU de Azure| Microsoft Docs
-description: "Describe cómo solucionar problemas de la no disponibilidad de la SKU durante la implementación."
+description: Describe cómo solucionar problemas de la no disponibilidad de la SKU durante la implementación.
 services: azure-resource-manager,azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
-editor: 
+editor: ''
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 09/13/2017
+ms.date: 03/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: a6cccfa5097847429d3e402e3d522addc14b8c31
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: b0cbd3c232e5df831031cc8e436f8dbb24b0e72c
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="resolve-errors-for-sku-not-available"></a>Resolución de los errores de no disponibilidad de la SKU
 
@@ -37,13 +37,9 @@ for subscription '<subscriptionID>'. Please try another tier or deploy to a diff
 
 Recibirá este error si la SKU del recurso que ha seleccionado (como, por ejemplo, el tamaño de máquina virtual) no está disponible para la ubicación seleccionada.
 
-## <a name="solution"></a>Solución
+## <a name="solution-1---powershell"></a>Solución 1: PowerShell
 
-Para resolver este problema, debe determinar qué SKU están disponibles en una región. Puede usar PowerShell, el portal o una operación REST para buscar las SKU disponibles.
-
-### <a name="solution-1"></a>Solución 1
-
-Use el comando [Get AzureRmComputeResourceSku](/powershell/module/azurerm.compute/get-azurermcomputeresourcesku) de PowerShell. Filtre los resultados por ubicación. Debe tener la versión más reciente de PowerShell para que funcione este comando.
+Para determinar qué SKU están disponibles en una región, use el comando [Get AzureRmComputeResourceSku](/powershell/module/azurerm.compute/get-azurermcomputeresourcesku). Filtre los resultados por ubicación. Debe tener la versión más reciente de PowerShell para que funcione este comando.
 
 ```powershell
 Get-AzureRmComputeResourceSku | where {$_.Locations -icontains "southcentralus"}
@@ -61,9 +57,9 @@ virtualMachines      Standard_A1 southcentralus
 virtualMachines      Standard_A2 southcentralus
 ```
 
-### <a name="solution-2"></a>Solución 2
+## <a name="solution-2---azure-cli"></a>Solución 2: CLI de Azure
 
-En la CLI de Azure, use el comando `az vm list-skus`. Después, puede usar `grep` o una utilidad similar para filtrar la salida.
+Para determinar qué SKU están disponibles en una región, use el comando `az vm list-skus`. Después, puede usar `grep` o una utilidad similar para filtrar la salida.
 
 ```bash
 $ az vm list-skus --output table
@@ -79,15 +75,15 @@ availabilitySets  centralus           Classic                 MaximumPlatformFau
 availabilitySets  centralus           Aligned                 MaximumPlatformFaultDomainCount=3
 ```
 
-### <a name="solution-3"></a>Solución 3
+## <a name="solution-3---azure-portal"></a>Solución 3: Azure Portal
 
-Use el [portal](https://portal.azure.com). Inicie sesión en el portal y agregue un nuevo recurso a través de la interfaz. A medida que establezca los valores, verá las SKU disponibles para ese recurso. No tiene que completar la implementación.
+Para determinar qué SKU están disponibles en una región, use el [portal](https://portal.azure.com). Inicie sesión en el portal y agregue un nuevo recurso a través de la interfaz. A medida que establezca los valores, verá las SKU disponibles para ese recurso. No tiene que completar la implementación.
 
 ![SKU disponibles](./media/resource-manager-sku-not-available-errors/view-sku.png)
 
-### <a name="solution-4"></a>Solución 4
+## <a name="solution-4---rest"></a>Solución 4: REST
 
-Utilice la API de REST para máquinas virtuales. Envíe la solicitud siguiente:
+Para determinar qué SKU están disponibles en una región, use la API REST para máquinas virtuales. Envíe la solicitud siguiente:
 
 ```HTTP 
 GET

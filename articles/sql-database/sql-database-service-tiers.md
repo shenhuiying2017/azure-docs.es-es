@@ -1,30 +1,26 @@
 ---
 title: Servicio Azure SQL Database | Microsoft Docs
-description: "Obtenga información acerca de los niveles de servicio para las bases de datos de grupo y únicas a fin de proporcionar niveles de rendimiento y tamaños de almacenamiento."
-keywords: 
+description: Obtenga información acerca de los niveles de servicio para las bases de datos de grupo y únicas a fin de proporcionar niveles de rendimiento y tamaños de almacenamiento.
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: 
-ms.assetid: f5c5c596-cd1e-451f-92a7-b70d4916e974
+manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Active
-ms.date: 02/26/2018
+ms.date: 03/15/2018
 ms.author: carlrab
-ms.openlocfilehash: b36af32d900f9426424dd08c43946e7dcb5b39b9
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 6153616de763eee1b20fff40d38816eca8b455de
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="what-are-azure-sql-database-service-tiers"></a>¿Qué son los niveles de servicio de Azure SQL Database?
 
-[Azure SQL Database](sql-database-technical-overview.md) ofrece los niveles de servicio **Básico**, **Estándar** y **Premium** tanto para [bases de datos únicas](sql-database-single-database-resources.md) como para [grupos de bases de datos elásticas](sql-database-elastic-pool.md). Los niveles de servicio se diferencian sobre todo en un rango de opciones relativas al nivel de rendimiento y al tamaño de almacenamiento, así como de precio.  Todos los niveles de servicio proporcionan flexibilidad para cambiar el tamaño de almacenamiento y el nivel de rendimiento.  Las bases de datos únicas y los grupos elásticos se facturan por horas en función de nivel de servicio, el nivel de rendimiento y el tamaño de almacenamiento.   
+[Azure SQL Database](sql-database-technical-overview.md) ofrece los niveles de servicio **Básico**, **Estándar** y **Premium** tanto para [bases de datos únicas](sql-database-single-database-resources.md) como para [grupos de bases de datos elásticas](sql-database-elastic-pool.md). SQL Database ofrece un nivel de servicio de uso general para [Instancia administrada de Azure SQL Database](sql-database-managed-instance.md#managed-instance-service-tier). Los niveles de servicio se diferencian sobre todo en un rango de opciones relativas al nivel de rendimiento y al tamaño de almacenamiento, así como de precio.  Todos los niveles de servicio proporcionan flexibilidad para cambiar el tamaño de almacenamiento y el nivel de rendimiento.  Las bases de datos únicas y los grupos elásticos se facturan por horas en función de nivel de servicio, el nivel de rendimiento y el tamaño de almacenamiento.   
+
+> [!IMPORTANT]
+> La Instancia administrada de SQL Database, actualmente en versión preliminar pública, ofrece un único nivel de servicio de uso general. Para más información, consulte [Instancia administrada de Azure SQL Database](sql-database-managed-instance.md). El resto de este artículo no se aplica a Instancia administrada.
 
 ## <a name="choosing-a-service-tier"></a>Selección de un nivel de servicio
 
@@ -72,7 +68,7 @@ Los niveles de rendimiento se expresan como unidades de transmisión de datos (D
 Para más información sobre las opciones específicas de niveles de rendimiento y de tamaño de almacenamiento disponibles, consulte [Límites de recursos de SQL Database](sql-database-resource-limits.md).
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Más información sobre [recursos de bases de datos únicas](sql-database-single-database-resources.md).
 - Más información sobre grupos elásticos en [este artículo](sql-database-elastic-pool.md).

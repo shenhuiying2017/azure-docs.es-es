@@ -2,23 +2,23 @@
 title: Atributos sincronizados por Azure AD Connect | Microsoft Docs
 description: Enumera los atributos que se sincronizan con Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: c2bb36e0-5205-454c-b9b6-f4990bcedf51
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 03/05/2018
 ms.author: billmath
-ms.openlocfilehash: 1d935b73e1087d5ad858bdbee9af68dd1cf5cd1e
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: d3c1c080c1198fd75916a119d4bb08c8db50a05d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect Sync: atributos sincronizados con Azure Active Directory
 En este tema se enumeran los atributos que se sincronizan mediante la sincronización de Azure AD Connect.  
@@ -421,17 +421,17 @@ Estos atributos de **User** se incluyen además de las otras aplicaciones que ha
 ## <a name="exchange-hybrid-writeback"></a>Reescritura híbrida de Exchange
 Estos atributos se reescriben desde Azure AD en Active Directory local cuando se elige habilitar la **implementación híbrida de Exchange**. Dependiendo de la versión de Exchange, puede que se sincronicen menos atributos.
 
-| Nombre del atributo | Usuario | Contacto | Grupo | Comentario |
-| --- |:---:|:---:|:---:| --- |
-| msDS-ExternalDirectoryObjectID |X | | |Se deriva de cloudAnchor en Azure AD. Este atributo es nuevo en Exchange 2016 y en AD de Windows Server 2016. |
-| msExchArchiveStatus |X | | |Archivo en línea: permite a los clientes archivar el correo electrónico. |
-| msExchBlockedSendersHash |X | | |Filtrado: reescribe los datos de remitentes seguros y bloqueados en línea y el filtrado de local de los clientes. |
-| msExchSafeRecipientsHash |X | | |Filtrado: reescribe los datos de remitentes seguros y bloqueados en línea y el filtrado de local de los clientes. |
-| msExchSafeSendersHash |X | | |Filtrado: reescribe los datos de remitentes seguros y bloqueados en línea y el filtrado de local de los clientes. |
-| msExchUCVoiceMailSettings |X | | |Habilitar mensajería unificada (UM) - correo de voz en línea: usado para la integración de Microsoft Lync Server para indicar a Lync Server local que el usuario tiene el correo de voz en los servicios en línea. |
-| msExchUserHoldPolicies |X | | |Retención por juicio: permite que los servicios en la nube determinen qué usuarios están bajo retención por juicio. |
-| proxyAddresses |X |X |X |Solo se inserta la dirección x500 de Exchange Online. |
-| publicDelegates |X | | |Permite conceder derechos SendOnBehalfTo a un buzón de Exchange Online para los usuarios con buzones de Exchange locales. Requiere la compilación 1.1.552.0 de Azure AD Connect o versiones posteriores. |
+| Nombre de atributo (UI de Connect) |Nombre de atributo (AD local) | Usuario | Contacto | Grupo | Comentario |
+| --- |:---:|:---:|:---:| --- |---|
+| msDS-ExternalDirectoryObjectID| ms-DS-External-Directory-Object-Id |X | | |Se deriva de cloudAnchor en Azure AD. Este atributo es nuevo en Exchange 2016 y en AD de Windows Server 2016. |
+| msExchArchiveStatus| ms-Exch-ArchiveStatus |X | | |Archivo en línea: permite a los clientes archivar el correo electrónico. |
+| msExchBlockedSendersHash| ms-Exch-BlockedSendersHash |X | | |Filtrado: reescribe los datos de remitentes seguros y bloqueados en línea y el filtrado de local de los clientes. |
+| msExchSafeRecipientsHash| ms-Exch-SafeRecipientsHash  |X | | |Filtrado: reescribe los datos de remitentes seguros y bloqueados en línea y el filtrado de local de los clientes. |
+| msExchSafeSendersHash| ms-Exch-SafeSendersHash  |X | | |Filtrado: reescribe los datos de remitentes seguros y bloqueados en línea y el filtrado de local de los clientes. |
+| msExchUCVoiceMailSettings| ms-Exch-UCVoiceMailSettings |X | | |Habilitar mensajería unificada (UM) - correo de voz en línea: usado para la integración de Microsoft Lync Server para indicar a Lync Server local que el usuario tiene el correo de voz en los servicios en línea. |
+| msExchUserHoldPolicies| ms-Exc-hUserHoldPolicies |X | | |Retención por juicio: permite que los servicios en la nube determinen qué usuarios están bajo retención por juicio. |
+| proxyAddresses| proxyAddresses |X |X |X |Solo se inserta la dirección x500 de Exchange Online. |
+| publicDelegates| ms-Exch-Public-Delegates  |X | | |Permite conceder derechos SendOnBehalfTo a un buzón de Exchange Online para los usuarios con buzones de Exchange locales. Requiere la compilación 1.1.552.0 de Azure AD Connect o versiones posteriores. |
 
 ## <a name="exchange-mail-public-folder"></a>Carpeta pública de correo de Exchange
 Estos atributos se sincronizan desde Active Directory local en Azure AD cuando se elige habilitar la **carpeta pública de correo de Exchange**.
@@ -469,7 +469,7 @@ Los objetos de dispositivo se crean en Active Directory. Pueden ser dispositivos
 * Cuando se usa un identificador alternativo, el atributo local userPrincipalName se sincronizará con el de Azure AD onPremisesUserPrincipalName. El atributo de identificador alternativo, por ejemplo, mail, se sincronizará con el de Azure AD userPrincipalName.
 * En la lista anterior, el tipo de objeto **User** también se aplica al tipo de objeto **iNetOrgPerson**.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre la configuración de la [Sincronización de Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).

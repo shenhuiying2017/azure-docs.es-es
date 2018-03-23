@@ -1,8 +1,8 @@
 ---
 title: Ciencia de los datos con Data Science Virtual Machine de Linux en Azure | Microsoft Docs
-description: "Procedimiento para realizar varias tareas comunes de ciencia de los datos con la máquina virtual de Linux Data Science."
+description: Procedimiento para realizar varias tareas comunes de ciencia de los datos con la máquina virtual de Linux Data Science.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 03/16/2018
 ms.author: bradsev;paulsh
-ms.openlocfilehash: 650b11d66f3ca32266b9842af77c909e125b4e4d
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 9b8a9b9bba242fd7c86dc285a77317a5821948df
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Ciencia de datos con una instancia de Data Science Virtual Machine de Linux en Azure
 En este tutorial se muestra cómo realizar varias tareas comunes de ciencia de los datos con la máquina virtual de Linux Data Science. Linux Data Science Virtual Machine (DSVM) es una imagen de máquina virtual disponible en Azure que viene preinstalada con una colección de herramientas usadas normalmente en el análisis de los datos y el aprendizaje automático. Los componentes de software principales se detallan en el tema [Aprovisionamiento de Linux Data Science Virtual Machine](linux-dsvm-intro.md) . La imagen de máquina virtual permite comenzar a trabajar fácilmente con la ciencia de los datos en cuestión de minutos, sin tener que instalar ni configurar cada una de las herramientas de forma individual. Puede escalar la máquina virtual verticalmente de manera fácil, si es necesario, y detenerla cuando no la use. Así que este recurso es tanto elástico como rentable.
@@ -27,13 +27,13 @@ En las tareas de ciencias de los datos que se demuestran en este tutorial se sig
 
 En este tutorial analizamos el conjunto de datos [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) . Se trata de un conjunto de correos electrónicos macados como es correo no deseado o no es correo no deseado, y también contiene algunas estadísticas sobre el contenido de los correos electrónicos. Las estadísticas incluidas se describen en la siguiente sección.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Antes de poder usar una máquina virtual de Linux Data Science, debe tener lo siguiente:
 
 * Una **suscripción de Azure**. Si ya tiene una, consulte [Cree su cuenta gratuita de Azure hoy mismo](https://azure.microsoft.com/free/).
 * Una [**máquina virtual de ciencia de los datos de Linux**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm). Para más información sobre el aprovisionamiento de esta máquina virtual, consulte [Aprovisionamiento de Linux Data Science Virtual Machine](linux-dsvm-intro.md).
 * [X2Go](http://wiki.x2go.org/doku.php) instalado en su equipo y abierta una sesión de XFCE. Para más información sobre la instalación y la configuración de un **cliente X2Go**, consulte [Instalación y configuración del cliente X2Go](linux-dsvm-intro.md#installing-and-configuring-x2go-client).
-* Para una experiencia más fluida de desplazamiento, active o desactive la marca gfx.xrender.enabled en about:config en el explorador FireFox de las máquinas virtuales. [Consulte más información aquí.](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). Considere también la posibilidad de alternar *mousewheel.enable_pixel_scrolling* en False. [Consulte las instrucciones aquí.](https://support.mozilla.org/en-US/questions/981140)
+* Para una experiencia más fluida de desplazamiento, active o desactive la marca gfx.xrender.enabled en about:config en el explorador FireFox de las máquinas virtuales. [Consulte más información aquí](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). Considere también la posibilidad de alternar *mousewheel.enable_pixel_scrolling* en False. [Consulte las instrucciones aquí.](https://support.mozilla.org/en-US/questions/981140)
 * Una **cuenta de AzureML**. Si aún no tiene una, suscríbase en la [página principal de AzureML](https://studio.azureml.net/). Hay un nivel de uso gratuito para ayudarle a comenzar.
 
 ## <a name="download-the-spambase-dataset"></a>Descarga del conjunto de datos spambase
@@ -407,7 +407,7 @@ Una de las características interesantes de Rattle es la posibilidad de ejecutar
 Cuando haya terminado de crear modelos, seleccione la pestaña **Log** (Registrar) para ver el código R ejecutado por Rattle durante la sesión. Puede seleccionar el botón **Export** (Exportar) para guardarlo.
 
 > [!NOTE]
-> Hay un error en la versión actual de Rattle. Para modificar el script o usarlo para repetir los pasos más adelante, debe insertar un carácter # delante de *Export this log ... * (Exportar este registro) en el texto del registro.
+> Hay un error en la versión actual de Rattle. Para modificar el script o usarlo para repetir los pasos más adelante, debe insertar un carácter # delante de *Export this log ...* (Exportar este registro) en el texto del registro.
 >
 >
 
@@ -477,7 +477,7 @@ Para configurar la conexión al servidor local:
 * Asígnele el nombre *Spam database* (Base de datos de correo no deseado) y elija **PostgreSQL** en la lista desplegable **Driver** (Controlador).
 * Establezca la dirección URL en *jdbc:postgresql://localhost/spam*.
 * Escriba su *nombre de usuario* y *contraseña*.
-* Haga clic en **Aceptar**.
+* Haga clic en **OK**.
 * Para abrir la ventana **Connection** (Conexión), haga doble clic en el alias ***Spam database*** (Base de datos de correo no deseado).
 * Seleccione **Conectar**.
 
@@ -500,7 +500,7 @@ La mayoría de los correos electrónicos en los que aparece *3d* con frecuencia 
 Si quisiera realizar aprendizaje automático con datos almacenados en una base de datos de PostgreSQL, podría usar [MADlib](http://madlib.incubator.apache.org/).
 
 ## <a name="sql-server-data-warehouse"></a>SQL Server Data Warehouse
-Almacenamiento de datos SQL de Azure es una base de datos de escalado horizontal y basada en la nube capaz de procesar volúmenes masivos de datos (tanto relacionales como no relacionales). Para más información, consulte [¿Qué es Azure SQL Data Warehouse?](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
+Azure SQL Data Warehouse es una base de datos de escalado horizontal y basada en la nube capaz de procesar volúmenes masivos de datos (tanto relacionales como no relacionales). Para más información, consulte [¿Qué es Azure SQL Data Warehouse?](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
 
 Para conectarse al almacén de datos y crear la tabla, ejecute el siguiente comando desde un símbolo del sistema:
 

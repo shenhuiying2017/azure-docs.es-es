@@ -1,29 +1,36 @@
 ---
-title: "Administración eficaz de costos de SQL Server en máquinas virtuales de Azure | Microsoft Docs"
-description: "Se proporcionan procedimientos recomendados para elegir el modelo de fijación de precios adecuado de máquinas virtuales de SQL Server."
+title: Administración eficaz de costos de SQL Server en máquinas virtuales de Azure | Microsoft Docs
+description: Se proporcionan procedimientos recomendados para elegir el modelo de fijación de precios adecuado de máquinas virtuales de SQL Server.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 10/17/2017
+ms.date: 02/20/2018
 ms.author: jroth
-ms.openlocfilehash: fe04aa382a3e829b201dbe92442f841fb29fff15
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3103ca2c659e40fd945b597ed4671fe96daf1905
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Orientación de precios de SQL Server para máquinas virtuales de Azure
 
-En este artículo se proporcionan orientaciones sobre precios de máquinas virtuales de SQL Server en Azure. Hay varias opciones que afectan al costo, y es importante elegir la imagen correcta que equilibra los costes con los requisitos empresariales.
+En este artículo se proporcionan orientaciones sobre precios de [máquinas virtuales de SQL Server](virtual-machines-windows-sql-server-iaas-overview.md) en Azure. Hay varias opciones que afectan al costo, y es importante elegir la imagen correcta que equilibra los costes con los requisitos empresariales.
+
+> [!TIP]
+> Si solo necesita averiguar una estimación de costos para una combinación específica de la edición de SQL Server y el tamaño de máquina virtual, consulte la [página de precios](https://azure.microsoft.com/pricing/details/virtual-machines/windows). Seleccione el sistema operativo y edición de SQL Server en la lista **OS/Software** (SO o software).
+>
+> ![Interfaz de usuario en la página de precios de VM](./media/virtual-machines-windows-sql-server-pricing-guidance/virtual-machines-pricing-ui.png)
+>
+> O bien, use la [calculadora de precios](https://azure.microsoft.com/pricing/#explore-cost) para agregar y configurar una máquina virtual. 
 
 ## <a name="free-licensed-sql-server-editions"></a>Ediciones de SQL Server con licencia gratuita
 
@@ -56,7 +63,7 @@ Tiene dos opciones para pagar licencias de SQL Server para estas ediciones: *pag
 
 ### <a name="pay-per-usage"></a>Pago por uso
 
-**Pago por uso de la licencia de SQL Server**: el costo por minuto de ejecución de la máquina virtual de Azure incluye el costo de la licencia de SQL Server. Puede ver el precio de las diferentes ediciones de SQL Server (Web, Standard y Enterprise) en la [página de precios de máquinas virtuales de Azure](https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-standard). El costo es el mismo para todas las versiones de SQL Server (2012 SP3 a 2017). Al igual que con las licencias de SQL Server en general, el costo de las licencias por minuto depende del número de núcleos de la máquina virtual.
+**Pago por uso de la licencia de SQL Server**: el costo por minuto de ejecución de la máquina virtual de Azure incluye el costo de la licencia de SQL Server. Puede ver el precio de las diferentes ediciones de SQL Server (Web, Standard y Enterprise) en la [página de precios de máquinas virtuales de Azure](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). El costo es el mismo para todas las versiones de SQL Server (2012 SP3 a 2017). Al igual que con las licencias de SQL Server en general, el costo de las licencias por minuto depende del número de núcleos de la máquina virtual.
 
 Se recomienda pagar las licencias por uso de SQL Server en los siguientes casos:
 
@@ -143,10 +150,10 @@ Para otros flujos de trabajo, considere la posibilidad de parar y reiniciar auto
 > [!IMPORTANT]
 > Apagar la máquina virtual y desasignarla es la única manera de evitar cargos. Incurre en cargos por uso si solo detiene o usa opciones de energía para parar la máquina virtual.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para consultar una guía de precios general de Azure, vea [Prevención de costos inesperados con la administración de costos y facturación de Azure](../../../billing/billing-getting-started.md).
 
-Para conocer los últimos precios de Virtual Machines, incluido SQL Server, vea la [página de precios de máquinas virtuales de Azure](https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-standard).
+Para conocer los últimos precios de Virtual Machines, incluido SQL Server, vea la [página de precios de máquinas virtuales de Azure](https://azure.microsoft.com/pricing/details/virtual-machines/windows/).
 
 Más información acerca de las máquinas virtuales de SQL Server para [SQL Server en máquinas virtuales de Azure](virtual-machines-windows-sql-server-iaas-overview.md) y [SQL Server en máquinas virtuales de Linux](../../linux/sql/sql-server-linux-virtual-machines-overview.md).

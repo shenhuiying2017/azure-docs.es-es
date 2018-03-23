@@ -52,6 +52,7 @@ sql-database-single-database-resources.md
 | N.º máximo de sesiones simultáneas | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
 |||||||
 
+
 > [!IMPORTANT]
 > \* Los tamaños de almacenamiento mayores que la cantidad de almacenamiento incluida están en su versión preliminar y pueden generar costos adicionales. Para obtener información detallada, vea [Precios de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/). 
 >
@@ -59,3 +60,4 @@ sql-database-single-database-resources.md
 > 
 >\*\* La cantidad máx. de DTU por base de datos a partir de 200 DTU en Estándar está en versión preliminar.
 >
+

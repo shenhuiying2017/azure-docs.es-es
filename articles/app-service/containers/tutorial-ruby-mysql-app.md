@@ -1,8 +1,8 @@
 ---
-title: "Compilación de una aplicación web Ruby y MySQL en Azure App Service en Linux | Microsoft Docs"
-description: "Obtenga información sobre cómo empezar a trabajar con una aplicación Ruby en Azure, con conexión a una base de datos MySQL en Azure."
+title: Compilación de una aplicación web Ruby y MySQL en Azure App Service en Linux | Microsoft Docs
+description: Obtenga información sobre cómo empezar a trabajar con una aplicación Ruby en Azure, con conexión a una base de datos MySQL en Azure.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
 ms.service: app-service-web
@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 12/21/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 951e66e47cf8fbe9d2cdf1606a8d63054bcada13
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 73839127c23eca29e3a20ab4d68668dfb7c6a375
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="build-a-ruby-and-mysql-web-app-in-azure-app-service-on-linux"></a>Compilación de una aplicación web Ruby y MySQL en Azure App Service en Linux
 
@@ -132,7 +132,7 @@ En este paso, creará una base de datos MySQL en [Azure Database for MySQL (vers
 
 ### <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-no-h.md)] 
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux-no-h.md)] 
 
 ### <a name="create-a-mysql-server"></a>Creación de un servidor MySQL
 
@@ -312,37 +312,7 @@ En este paso se implementará la aplicación Rails conectada a MySQL en Azure Ap
 
 ### <a name="create-a-web-app"></a>Creación de una aplicación web
 
-En Cloud Shell, cree una aplicación web en el plan de App Service `myAppServicePlan` con el comando [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). 
-
-En el siguiente ejemplo, reemplace `<app_name>` por un nombre único global de aplicación (los caracteres válidos son `a-z`, `0-9` y `-`). El entorno de tiempo de ejecución está establecido en `RUBY|2.3`, lo que implementa la [imagen predeterminada de Ruby](https://hub.docker.com/r/appsvc/ruby/). Para ver todos los entornos en tiempo de ejecución admitidos, ejecute [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_list_runtimes). 
-
-```azurecli-interactive
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "RUBY|2.3" --deployment-local-git
-```
-
-Cuando se haya creado la aplicación web, la CLI de Azure mostrará información similar a la del ejemplo siguiente:
-
-```json
-Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git'
-{
-  "availabilityState": "Normal",
-  "clientAffinityEnabled": true,
-  "clientCertEnabled": false,
-  "cloningInfo": null,
-  "containerSize": 0,
-  "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "<app_name>.azurewebsites.net",
-  "deploymentLocalGitUrl": "https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git",
-  "enabled": true,
-  < JSON data removed for brevity. >
-}
-```
-
-Ha creado una nueva aplicación web vacía, con la implementación de Git habilitada.
-
-> [!NOTE]
-> La dirección URL del repositorio de Git remoto se muestra en la propiedad `deploymentLocalGitUrl`, con el formato `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git`. Guarde esta dirección URL porque la necesitará más adelante.
->
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-ruby-linux-no-h.md)] 
 
 ### <a name="configure-database-settings"></a>Configuración de la base de datos
 
@@ -540,7 +510,7 @@ El menú izquierdo proporciona varias páginas para configurar la aplicación.
 
 <a name="next"></a>
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial aprendió lo siguiente:
 

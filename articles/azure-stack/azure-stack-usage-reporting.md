@@ -1,24 +1,24 @@
 ---
 title: Notificar los datos de uso de Azure Stack a Azure | Microsoft Docs
-description: "Aprenda cómo configurar datos de uso de informes en Azure Stack."
+description: Aprenda cómo configurar datos de uso de informes en Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
-ms.assetid: 2A397C83-1A6C-4290-B0EF-FDC34EE290CD
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
-ms.author: mabrigg;AlfredoPizzirani
-ms.openlocfilehash: 451e8c604e48d9cfc42284f2413fa5ed4fea03bc
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.date: 02/22/2018
+ms.author: mabrigg
+ms.reviewer: alfredop
+ms.openlocfilehash: 29d53f63bf3d551823ca27df04f0e385a92cdec7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="report-azure-stack-usage-data-to-azure"></a>Notificar los datos de uso de Azure Stack a Azure 
 
@@ -27,7 +27,7 @@ Los datos de uso, también denominados datos de consumo, representan la cantidad
 Los sistemas de varios nodos de Azure Stack que usan el modelo de facturación basado en el consumo deben notificar datos de uso a Azure para la facturación.  Los operadores de Azure Stack deben configurar su instancia de Azure Stack para informar de los datos de uso a Azure.
 
 > [!NOTE]
-> Los informes de datos de uso son obligatorios para los usuarios de varios nodos de Azure Stack con una licencia de modelo de pago por uso. Es opcional para los clientes con una licencia de modelo de capacidad (vea la [página Cómo comprar Azure Stack](https://azure.microsoft.com/overview/azure-stack/how-to-buy/ to learn more about pricing in Azure Stack)). Para los usuarios de Azure Stack Development Kit, los operadores de Azure Stack pueden notificar los datos de uso y probar la característica. Sin embargo, no se cobrará a los usuarios por el uso. 
+> Los informes de datos de uso son obligatorios para los usuarios de varios nodos de Azure Stack con una licencia de modelo de pago por uso. Es opcional para los clientes con una licencia de modelo de capacidad (vea la [página Cómo comprar Azure Stack](https://azure.microsoft.com/overview/azure-stack/how-to-buy/ to learn more about pricing in Azure Stack)). Para los usuarios del Kit de desarrollo de Azure Stack, los operadores de Azure Stack pueden notificar los datos de uso y probar la característica. Sin embargo, no se cobrará a los usuarios por el uso. 
 
 
 ![flujo de facturación](media/azure-stack-usage-reporting/billing-flow.png)
@@ -68,15 +68,15 @@ Si ha registrado Azure Stack con cualquier otro tipo de suscripción, por ejempl
 
    ![flujo de facturación](media/azure-stack-usage-reporting/pricing-details.png)
 
-Para Azure Stack Development Kit, los recursos de Azure Stack tampoco se cobran; el precio se muestra como 0,00 USD. Cuando varios nodos de Azure Stack comienzan a estar disponibles con carácter general, puede ver el costo real para cada uno de estos recursos.
+Para el Kit de desarrollo de Azure Stack, los recursos de Azure Stack tampoco se cobran; el precio se muestra como 0,00 USD. Cuando varios nodos de Azure Stack comienzan a estar disponibles con carácter general, puede ver el costo real para cada uno de estos recursos.
 
 ## <a name="which-azure-stack-deployments-are-charged"></a>¿Qué implementaciones de Azure Stack se cobran?
 
-El uso de recursos es gratuito para Azure Stack Development Kit. Para los sistemas de varios nodos de Azure Stack, se cobran las máquinas virtuales de carga de trabajo, los servicios de almacenamiento y App Services.
+El uso de recursos es gratuito para el Kit de desarrollo de Azure Stack. Para los sistemas de varios nodos de Azure Stack, se cobran las máquinas virtuales de carga de trabajo, los servicios de almacenamiento y App Services.
 
 ## <a name="are-users-charged-for-the-infrastructure-vms"></a>¿Se les cobrará a los usuarios la infraestructura de las máquinas virtuales?
 
-No. Los datos de uso de algunas máquinas virtuales del proveedor de recursos de Azure Stack se notifican a Azure, pero no se cobran las máquinas virtuales que se crearan durante la implementación para habilitar la infraestructura de Azure Stack.  
+Nº Los datos de uso de algunas máquinas virtuales del proveedor de recursos de Azure Stack se notifican a Azure, pero no se cobran las máquinas virtuales que se crearan durante la implementación para habilitar la infraestructura de Azure Stack.  
 
 Solo se cobra a los usuarios las máquinas virtuales que se ejecuten en suscripciones de inquilinos. Todas las cargas de trabajo se deben implementar con suscripciones de inquilino a fin de cumplir los términos de licencia de Azure Stack.
 
@@ -89,11 +89,11 @@ La suscripción que se proporciona cuando [se registra Azure Stack con Azure](az
 
 ## <a name="what-types-of-subscriptions-are-supported-for-usage-data-reporting"></a>¿Qué tipos de suscripciones se admiten para informar de los datos de uso?
 
-En Azure Stack de varios nodos, se admiten suscripciones de Contrato Enterprise (EA) y CSP. En Azure Stack Development Kit, las suscripciones Enterprise Agreement (EA), pago por uso, CSP y MSDN admiten la notificación de datos de uso.
+En Azure Stack de varios nodos, se admiten suscripciones de Contrato Enterprise (EA) y CSP. En el Kit de desarrollo de Azure Stack, las suscripciones Enterprise Agreement (EA), pago por uso, CSP y MSDN admiten la notificación de datos de uso.
 
 ## <a name="does-usage-data-reporting-work-in-sovereign-clouds"></a>¿El informe de datos de uso funciona en las nubes soberanas?
 
-En Azure Stack Development Kit, los informes de datos de uso requieren suscripciones creadas en el sistema global de Azure. No se pueden registrar las suscripciones creadas en una de las nubes soberanas (nubes del Azure Government, Azure Germany y Azure China) con Azure, por lo que no admiten informes de datos de uso.
+En el Kit de desarrollo de Azure Stack, los informes de datos de uso requieren suscripciones creadas en el sistema global de Azure. No se pueden registrar las suscripciones creadas en una de las nubes soberanas (nubes del Azure Government, Azure Germany y Azure China) con Azure, por lo que no admiten informes de datos de uso.
 
 ## <a name="how-can-users-identify-azure-stack-usage-data-in-the-azure-billing-portal"></a>¿Cómo pueden identificar los usuarios los datos de uso de Azure Stack en el portal de facturación de Azure?
 
@@ -108,3 +108,4 @@ Siempre hay un retraso entre los datos de uso notificados por las API de uso de 
 * [API de uso de proveedor](azure-stack-provider-resource-api.md)  
 * [API de uso de inquilino](azure-stack-tenant-resource-usage-api.md)
 * [Preguntas más frecuentes sobre uso](azure-stack-usage-related-faq.md)
+* [Administración del uso y la facturación como un proveedor de servicios en la nube](azure-stack-add-manage-billing-as-a-csp.md)

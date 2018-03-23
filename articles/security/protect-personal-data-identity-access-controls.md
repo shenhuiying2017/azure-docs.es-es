@@ -1,29 +1,29 @@
 ---
-title: "Protección de datos personales con controles de identidad y acceso de Azure | Microsoft Docs"
-description: Uso de controles de identidad y acceso de Azure para ayudar a proteger sus datos personales
+title: Protección de datos personales con controles de identidad y acceso de Azure | Microsoft Docs
+description: Los controles de identidad y acceso de Azure ayudan a proteger los datos personales y pueden resultar útiles para cumplir el Reglamento general de protección de datos (RGPD).
 services: security
 documentationcenter: na
 author: Barclayn
 manager: MBaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/13/2017
+ms.date: 03/06/2018
 ms.author: barclayn
-ms.custom: 
-ms.openlocfilehash: e6de9526a1a72cfc81caca51207e000f8b3673cc
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.custom: ''
+ms.openlocfilehash: fd3beb57cda4993f922fb935263b0e962b38da6a
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-and-multi-factor-authentication-protect-personal-data-with-identity-and-access-controls"></a>Azure Active Directory y Multi-Factor Authentication: protección de datos personales con controles de identidad y acceso
 
-En este artículo se proporcionan información y procedimientos que puede usar para proteger datos personales mediante servicios y características de seguridad de Azure Active Directory y Multi-Factor Authentication.
+En este artículo se proporcionan información y procedimientos que puede usar para proteger datos personales mediante servicios y características de seguridad de Azure Active Directory y Multi-Factor Authentication. La información contenida en este artículo puede ser útil en los esfuerzos para cumplir el Reglamento general de protección de datos (RGPD).
 
 ## <a name="scenario"></a>Escenario
 

@@ -1,6 +1,6 @@
 ---
-title: "Guía de aprovisionamiento de máquinas virtuales Windows con SQL Server en Azure Portal | Microsoft Docs"
-description: "En esta guía de procedimientos se describen las opciones para crear máquinas virtuales de Windows SQL Server 2017 en Azure Portal."
+title: Guía de aprovisionamiento de máquinas virtuales Windows con SQL Server en Azure Portal | Microsoft Docs
+description: En esta guía de procedimientos se describen las opciones para crear máquinas virtuales de Windows SQL Server 2017 en Azure Portal.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -14,17 +14,20 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 02/15/2018
 ms.author: jroth
-ms.openlocfilehash: 23a1f008e2c51325b7e9c7676847d55d7ccb7d44
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7e55227773820af26435100b11dfefce058e7e78
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Aprovisionamiento de una máquina virtual Windows con SQL Server en Azure Portal
 
 En esta guía se proporcionan detalles sobre las distintas opciones disponibles cuando se crea una máquina virtual Windows con SQL Server en Azure Portal. En este artículo se describen más opciones de configuración que en la [guía de inicio rápido de VM con SQL Server](quickstart-sql-vm-create-portal.md), que trata más bien de una tarea de aprovisionamiento posible. 
 
 Use esta guía para crear su propia VM con SQL Server. O bien úsela como referencia para las opciones disponibles en Azure Portal.
+
+> [!TIP]
+> Si tiene alguna pregunta sobre las máquinas virtuales de SQL Server, consulte las [Preguntas más frecuentes](virtual-machines-windows-sql-server-iaas-faq.md).
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 

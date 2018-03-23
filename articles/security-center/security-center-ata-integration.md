@@ -1,24 +1,24 @@
 ---
-title: "Conexión de Microsoft Advanced Threat Analytics con Azure Security Center | Microsoft Docs"
-description: "Obtenga información acerca de cómo integrar Azure Security Center con Microsoft Advanced Threat Analytics."
+title: Conexión de Microsoft Advanced Threat Analytics con Azure Security Center | Microsoft Docs
+description: Obtenga información acerca de cómo integrar Azure Security Center con Microsoft Advanced Threat Analytics.
 services: security-center
 documentationcenter: na
 author: YuriDio
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 5d80bf91-16c3-40b3-82fc-e0805e6708db
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/13/2017
+ms.date: 03/05/2018
 ms.author: yurid
-ms.openlocfilehash: e1b9e598af3b55c1d9591e5c1e529a80ae3319ca
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 02e14315018f6586644eb560894785e6b6eb022e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="connecting-microsoft-advanced-threat-analytics-to-azure-security-center"></a>Conexión de Microsoft Advanced Threat Analytics con Azure Security Center
 Este documento le ayuda a configurar la integración entre Microsoft Advanced Threat Analytics y Azure Security Center.
@@ -39,7 +39,7 @@ Si damos por hecho que ya tiene instalado de forma local ATA y en correcto funci
 
     ![Notificaciones](./media/security-center-ata-integration/security-center-ata-integration-fig2.png)
 
-5. Haga clic en **Guardar**.
+5. Haga clic en **Save**(Guardar).
 6. Abra el panel **Security Center**.
 7. En el panel izquierdo, haga clic en **Soluciones de seguridad**.
 8. En **Advanced Threat Analytics**, haga clic en **Agregar**.
@@ -61,7 +61,7 @@ Si damos por hecho que ya tiene instalado de forma local ATA y en correcto funci
 12. Instale el agente en el Centro de ATA. Durante la instalación, asegúrese de seleccionar la opción **Conectar el agente a Azure Log Analytics (OMS)** y proporcione el  *de área de trabajo* y *clave principal* cuando se solicite.
 
 
-Una vez que termine la instalación, se completa la integración y podrá ver las alertas nuevas que se envían desde ATA a Security Center en **Alertas de seguridad** y **Buscar**. La solución aparece en la página **Soluciones de seguridad**, en **Soluciones conectadas**. 
+Una vez que finaliza la instalación, se completa la integración y podrá ver las alertas nuevas que se envían desde ATA a Security Center en el resultado de la **búsqueda**. La solución aparece en la página **Soluciones de seguridad**, en **Soluciones conectadas**. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este documento ha aprendido a conectar Microsoft ATA con Security Center. Para más información sobre Security Center, consulte los siguientes artículos:
@@ -69,7 +69,7 @@ En este documento ha aprendido a conectar Microsoft ATA con Security Center. Par
 * [Conexión de Azure Active Directory Identity Protection con Azure Security Center](security-center-aadip-integration.md)
 * [Establecimiento de directivas de seguridad en Azure Security Center](security-center-policies.md) : aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
 * [Administración de recomendaciones de seguridad en Azure Security Center](security-center-recommendations.md) : recomendaciones que lo ayudan a proteger los recursos de Azure.
-* [Supervisión del estado de seguridad en Azure Security Center](security-center-monitoring.md) : obtenga información sobre cómo supervisar el estado de los recursos de Azure.
+* [Supervisión del estado de seguridad en Azure Security Center](security-center-monitoring.md) : obtenga más información sobre cómo supervisar el estado de sus recursos en Azure.
 * [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md) : obtenga información sobre cómo administrar y responder a alertas de seguridad.
 * [Supervisión de las soluciones de asociados con Azure Security Center](security-center-partner-solutions.md) : aprenda a supervisar el estado de mantenimiento de las soluciones de asociados.
 - [Seguridad de datos de Azure Security Center](security-center-data-security.md): aprenda cómo se administran y protegen los datos en Security Center.

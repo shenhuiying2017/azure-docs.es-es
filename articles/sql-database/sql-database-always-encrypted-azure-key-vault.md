@@ -1,25 +1,20 @@
 ---
 title: 'Always Encrypted: SQL Database: Azure Key Vault | Microsoft Docs'
-description: "En este artículo se muestra cómo proteger los datos confidenciales de una base de datos SQL con cifrado de datos mediante el asistente de Always Encrypted en SQL Server Management Studio."
+description: En este artículo se muestra cómo proteger los datos confidenciales de una base de datos SQL con cifrado de datos mediante el asistente de Always Encrypted en SQL Server Management Studio.
 keywords: cifrado de datos, clave de cifrado, cifrado en la nube
 services: sql-database
-documentationcenter: 
 author: stevestein
 manager: craigg
-ms.assetid: 6ca16644-5969-497b-a413-d28c3b835c9b
 ms.service: sql-database
 ms.custom: security
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: sstein
-ms.openlocfilehash: ca4566ced525f0cb732afc15d96d9ef73fd8cff5
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3525355a7f997a5dcc54d14f216d0d647aef8407
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-azure-key-vault"></a>Always Encrypted: protección de datos confidenciales en SQL Database y almacenamiento de las claves de cifrado en Azure Key Vault
 
@@ -615,7 +610,7 @@ Par usar SSMS para obtener acceso a los datos de texto no cifrado, puede agregar
     ![Nueva aplicación de consola](./media/sql-database-always-encrypted-azure-key-vault/ssms-plaintext.png)
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Después de crear una base de datos que usa Always Encrypted, es posible que quiera hacer lo siguiente:
 
 * [Rotar y limpiar las claves](https://msdn.microsoft.com/library/mt607048.aspx).

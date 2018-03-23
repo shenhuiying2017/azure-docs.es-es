@@ -1,26 +1,26 @@
 ---
 title: Referencia para desarrolladores de JavaScript para Azure Functions | Microsoft Docs
-description: "Obtenga información sobre cómo desarrollar funciones con JavaScript."
+description: Obtenga información sobre cómo desarrollar funciones con JavaScript.
 services: functions
 documentationcenter: na
 author: tdykstra
 manager: cfowler
-editor: 
-tags: 
-keywords: "Azure funciones, funciones, procesamiento de eventos, webhooks, proceso dinámico, arquitectura sin servidor"
+editor: ''
+tags: ''
+keywords: Azure funciones, funciones, procesamiento de eventos, webhooks, proceso dinámico, arquitectura sin servidor
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.service: functions
 ms.devlang: nodejs
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/25/2017
+ms.date: 03/04/2018
 ms.author: tdykstra
-ms.openlocfilehash: f613e480f6699b323c18402f01873e565768f10f
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 0a436a929696f759cdbe9807faa2a15902b7ce6d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guía para el desarrollador de JavaScript para Azure Functions
 [!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
@@ -116,7 +116,7 @@ context.log(message)
 Permite escribir en los registros de la consola de streaming en el nivel de seguimiento predeterminado. Hay métodos de registro adicionales disponibles en `context.log` que permiten escribir en el registro de la consola en otros niveles de seguimiento:
 
 
-| Método                 | Descripción                                |
+| Método                 | DESCRIPCIÓN                                |
 | ---------------------- | ------------------------------------------ |
 | **error(_message_)**   | Escribe en el registro de nivel de error o inferior.   |
 | **warn(_message_)**    | Escribe en el registro de nivel de advertencia o inferior. |
@@ -206,7 +206,7 @@ Los desencadenadores HTTP y de webhook trigger y los enlaces de salida HTTP usan
 
 El objeto `request` tiene las siguientes propiedades:
 
-| Propiedad      | Descripción                                                    |
+| Propiedad      | DESCRIPCIÓN                                                    |
 | ------------- | -------------------------------------------------------------- |
 | _body_        | Objeto que contiene el cuerpo de la solicitud.               |
 | _headers_     | Objeto que contiene los encabezados de la solicitud.                   |
@@ -221,7 +221,7 @@ El objeto `request` tiene las siguientes propiedades:
 
 El objeto `response` tiene las siguientes propiedades:
 
-| Propiedad  | Descripción                                               |
+| Propiedad  | DESCRIPCIÓN                                               |
 | --------- | --------------------------------------------------------- |
 | _body_    | Objeto que contiene el cuerpo de la respuesta.         |
 | _headers_ | Objeto que contiene los encabezados de la respuesta.             |
@@ -265,7 +265,15 @@ Cuando se trabaja con desencadenadores HTTP, hay tres maneras de acceder a los o
     ```  
 
 ## <a name="node-version-and-package-management"></a>Versión de Node y administración de paquetes
-Actualmente, la versión de Node está bloqueada en `6.5.0`. Estamos investigando para agregar compatibilidad con más versiones y hacerlo configurable.
+
+En la tabla siguiente se muestra la versión de Node.js que se usa en cada versión principal del entorno de tiempo de ejecución de Functions:
+
+| Versión de Functions | Versión de Node.js | 
+|---|---|
+| 1.x | 6.11.2 (bloqueado por el entorno de tiempo de ejecución) |
+| 2.x  |>=8.4.0 con LTS 8.9.4 actual recomendado. Establezca la versión con la [configuración de aplicación](functions-how-to-use-azure-function-app-settings.md#settings) WEBSITE_DEFAULT_NODE_VERSION.|
+
+Puede ver la versión actual que el entorno de tiempo de ejecución usa mediante la impresión de `process.version` desde cualquier función.
 
 Los pasos siguientes le permiten incluir paquetes en Function App: 
 
@@ -328,7 +336,6 @@ Como no hay compatibilidad directa con la compilación automática de TypeScript
 Para obtener más información, consulte los siguientes recursos:
 
 * [Procedimientos recomendados para Azure Functions](functions-best-practices.md)
-* 
-            [Referencia para desarrolladores de Azure Functions](functions-reference.md)
+* [Referencia para desarrolladores de Azure Functions](functions-reference.md)
 * [Enlaces y desencadenadores de Azure Functions](functions-triggers-bindings.md)
 

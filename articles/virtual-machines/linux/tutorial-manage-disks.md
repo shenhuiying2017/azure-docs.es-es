@@ -1,26 +1,26 @@
 ---
-title: "Administración de discos de Azure con la CLI de Azure | Microsoft Docs"
-description: "Tutorial: Administración de discos de Azure con la CLI de Azure"
+title: Administración de discos de Azure con la CLI de Azure | Microsoft Docs
+description: 'Tutorial: Administración de discos de Azure con la CLI de Azure'
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: neilpeterson
+author: iainfoulds
 manager: timlt
 editor: tysonn
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/02/2017
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 87b410fdcd5901499e809f8d2b9a7b8788134cfc
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 2a8a6e7da89f864c1bb63bf5b26b297653ff4a94
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="manage-azure-disks-with-the-azure-cli"></a>Administración de discos de Azure con la CLI de Azure
 
@@ -185,10 +185,10 @@ El resultado muestra el UUID de la unidad, en este caso `/dev/sdc1`.
 /dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="ext4"
 ```
 
-Agregue una línea similar a la siguiente al archivo */etc/fstab*. Tenga en cuenta también que las barreras de escritura puede deshabilitarse mediante *barrier=0*; esta configuración puede mejorar el rendimiento del disco. 
+Agregue una línea similar a la siguiente al archivo */etc/fstab*.
 
 ```bash
-UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive  ext4    defaults,nofail,barrier=0   1  2
+UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive  ext4    defaults,nofail   1  2
 ```
 
 Ahora que se ha configurado el disco, cierre la sesión de SSH.
@@ -283,7 +283,7 @@ Use el comando [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk#
 az vm disk attach –g myResourceGroupDisk –-vm-name myVM –-disk $datadisk
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, ha aprendido sobre temas relacionados con los discos de máquina virtual; por ejemplo:
 

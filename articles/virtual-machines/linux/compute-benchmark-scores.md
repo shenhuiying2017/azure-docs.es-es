@@ -1,11 +1,11 @@
 ---
-title: "Puntuaciones de pruebas comparativas de proceso para máquinas virtuales Linux | Microsoft Docs"
-description: "Comparación de puntuaciones de pruebas comparativas de proceso de CoreMark para máquinas virtuales de Azure con Linux"
+title: Puntuaciones de pruebas comparativas de proceso para máquinas virtuales Linux | Microsoft Docs
+description: Comparación de puntuaciones de pruebas comparativas de proceso de CoreMark para máquinas virtuales de Azure con Linux
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 93e812c1-79dd-40c5-b97b-aa79f5cd7d76
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
-ms.author: cynthn
-ms.openlocfilehash: 3c7b34652ea4c9340b9fe7f6ada3f9992642aeac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: cynthn;davberg
+ms.openlocfilehash: 1d3db66c54769a3efc91a4e909d9c53fc2650743
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="compute-benchmark-scores-for-linux-vms"></a>Puntuaciones de pruebas comparativas de proceso para máquinas virtuales Linux
 Las siguientes puntuaciones de pruebas comparativas CoreMark muestran el rendimiento de proceso para la alineación de máquinas virtuales de alto rendimiento de Azure con Ubuntu. Las puntuaciones de pruebas comparativas de proceso también están disponibles para las [máquinas virtuales de Windows](../windows/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -44,7 +44,7 @@ Las siguientes puntuaciones de pruebas comparativas CoreMark muestran el rendimi
 | Standard_D12_v2 |4 |1 |Intel Xeon E5-2673 v3 a 2,4 GHz |131 |55 673 |1418 |
 | Standard_D13_v2 |8 |1 |Intel Xeon E5-2673 v3 a 2,4 GHz |140 |107 986 |3089 |
 | Standard_D14_v2 |16 |2 |Intel Xeon E5-2673 v3 a 2,4 GHz |140 |208 186 |8839 |
-| Standard_D15_v2 |20 | |2 |Intel Xeon E5-2673 v3 a 2,4 GHz |28 |268 560 |4667 |
+| Standard_D15_v2 |20  |2 |Intel Xeon E5-2673 v3 a 2,4 GHz |28 |268 560 |4667 |
 
 ## <a name="f-series"></a>Serie F
 | Tamaño | vCPU | Nodos NUMA | CPU | Ejecuciones | Iteraciones/seg. | StdDev |

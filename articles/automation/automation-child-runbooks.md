@@ -1,24 +1,20 @@
 ---
-title: Runbooks secundarios en Azure Automation | Microsoft Docs
-description: "Describe los diferentes métodos para iniciar un runbook en Azure Automation desde otro runbook y compartir información entre ellos."
+title: Runbooks secundarios en Azure Automation
+description: Describe los diferentes métodos para iniciar un runbook en Azure Automation desde otro runbook y compartir información entre ellos.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: tysonn
-ms.assetid: 919887b9-43e2-4c16-883c-f81807fe37db
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/15/2018
 ms.topic: article
+manager: carmonm
+ms.devlang: na
 ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 02/02/2017
-ms.author: magoedte;bwren
-ms.openlocfilehash: 5c18444b5a2767ccdd9a61a3bc9218fa4c0aac04
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: e8fe3b0023d2cdb9061b5a2c15c3b2c7095c128e
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Runbooks secundarios en Azure Automation
 Un procedimiento recomendado en Azure Automation es escribir runbooks que sean reutilizables y modulares con una función independiente que puedan usar otros runbooks. Con frecuencia, un runbook primario llamará a uno o varios runbooks secundarios para realizar la funcionalidad necesaria. Existen dos maneras de llamar a un runbook secundario y cada una tiene varias diferencias que debería conocer para poder determinar cuál de ellas es mejor para los diferentes escenarios.
@@ -83,7 +79,7 @@ En la siguiente tabla se resumen las diferencias entre los dos métodos para lla
 | Cuenta de Automation |El runbook primario solo puede usar el runbook secundario en la misma cuenta de automatización. |El runbook primario puede usar el runbook secundario desde cualquier cuenta de automatización de la misma suscripción de Azure, e incluso de otra suscripción si tiene una conexión a ella. |
 | Publicación |El runbook secundario debe publicarse antes de publicar el runbook primario. |El runbook secundario debe publicarse en cualquier momento antes de iniciar el runbook primario. |
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Inicio de un runbook en Azure Automation](automation-starting-a-runbook.md)
 * [Salidas de runbook y mensajes en Azure Automation](automation-runbook-output-and-messages.md)
 

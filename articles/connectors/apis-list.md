@@ -1,11 +1,11 @@
 ---
 title: Conectores de Azure Logic Apps | Microsoft Docs
-description: "Elija entre todos los conectores de Microsoft disponibles para compilar y crear aplicaciones lógicas"
+description: Elija entre todos los conectores de Microsoft disponibles para compilar y crear aplicaciones lógicas
 services: logic-apps
-documentationcenter: 
-author: MandiOhlinger
+documentationcenter: ''
+author: ecfan
 manager: anneta
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: f1f1fd50-b7f9-4d13-824a-39678619aa7a
 ms.service: logic-apps
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/21/2017
-ms.author: mandia; ladocs
-ms.openlocfilehash: ec532ce0871d11fea222050bb08ec73afe5f2be3
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: estfan; ladocs
+ms.openlocfilehash: f140f1a3d751b5d83b139edde931a6193334b6ee
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="connectors-list"></a>Lista de conectores
 Para obtener los desencadenadores y las acciones definidas por la descripción de Swagger de cada conector, así como los límites de cada uno, consulte los [detalles del conector](/connectors/).
@@ -142,7 +142,7 @@ Para ayudar a mejorar Azure Logic Apps y los conectores, vote las ideas que enco
 
 ¿Falta un tema sobre conectores o algún dato que considere importante? Si es así, puede ayudarnos. Agréguelo a nuestros temas existentes o escriba el suyo propio. Nuestra documentación es de código abierto y se hospeda en GitHub. Para comenzar, vaya a nuestro [repositorio de GitHub](https://github.com/Microsoft/azure-docs). 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Creación de API personalizadas para las aplicaciones lógicas](../logic-apps/logic-apps-create-api-app.md)
 * [Supervisar las aplicaciones lógicas](../logic-apps/logic-apps-monitor-your-logic-apps.md)

@@ -1,25 +1,20 @@
 ---
-title: "Configuración de seguridad de división y combinación | Microsoft Docs"
-description: "Configure certificados x409 para el cifrado con el servicio de división y combinación para escala elástica."
+title: Configuración de seguridad de división y combinación | Microsoft Docs
+description: Configure certificados x409 para el cifrado con el servicio de división y combinación para escala elástica.
 metakeywords: Elastic Database certificates security
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: torsteng
-ms.assetid: f9e89c57-61a0-484f-b787-82dae2349cb6
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2016
-ms.author: torsteng
-ms.openlocfilehash: 98f046a943c1fe33b421b3ab6830d78e6c4304a0
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.author: sstein
+ms.openlocfilehash: c07ba1e74daace546bae4f4209842312136914a3
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="split-merge-security-configuration"></a>Configuración de seguridad de división y combinación
 Para usar el servicio de división y combinación, debe configurar correctamente la seguridad. El servicio forma parte de la característica de Escalado elástico de Microsoft Azure SQL Database. Para obtener más información, vea el [Tutorial del servicio de división y combinación de Escalado elástico](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
@@ -391,7 +386,7 @@ Siga estos pasos:
 4. Haga clic en **Agregar**.
 5. Elija la ubicación del almacén de certificados.
 6. Haga clic en **Finalizar**
-7. Haga clic en **Aceptar**.
+7. Haga clic en **OK**.
 8. Expanda **Certificados**.
 9. Expanda el nodo del almacén de certificados.
 10. Expanda el nodo secundario Certificado.
@@ -400,18 +395,18 @@ Siga estos pasos:
 ## <a name="export-certificate"></a>Exportación de certificado
 En el **asistente para exportar certificados**:
 
-1. Haga clic en **Siguiente**.
+1. Haga clic en **Next**.
 2. Seleccione **Sí** y **Exportar la clave privada**.
-3. Haga clic en **Siguiente**.
+3. Haga clic en **Next**.
 4. Seleccione el formato deseado del archivo de salida.
 5. Marque las opciones deseadas.
 6. Marque **Contraseña**.
 7. Escriba una contraseña segura y confírmela.
-8. Haga clic en **Siguiente**.
+8. Haga clic en **Next**.
 9. Escriba o busque un nombre de archivo donde almacenar el certificado (use una extensión .PFX).
 10. Haga clic en **Siguiente**.
 11. Haga clic en **Finalizar**
-12. Haga clic en **Aceptar**.
+12. Haga clic en **OK**.
 
 ## <a name="import-certificate"></a>Importación de certificado
 En el asistente para importar certificados:
@@ -420,7 +415,7 @@ En el asistente para importar certificados:
    
    * Seleccione **Usuario actual** , si solo los procesos en ejecución bajo el usuario actual tendrán acceso al servicio
    * Seleccione **Máquina local** , si otros procesos de este equipo tendrán acceso al servicio
-2. Haga clic en **Siguiente**.
+2. Haga clic en **Next**.
 3. Si se importa desde un archivo, confirme la ruta del archivo.
 4. Si se importa un archivo .PFX:
    1. Escriba la contraseña para proteger la clave privada

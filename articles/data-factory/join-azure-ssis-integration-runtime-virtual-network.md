@@ -1,8 +1,8 @@
 ---
-title: "Unión de una instancia de Integration Runtime para la integración de SSIS en Azure a una red virtual | Microsoft Docs"
+title: Unión de una instancia de Integration Runtime para la integración de SSIS en Azure a una red virtual | Microsoft Docs
 description: Aprenda a unir Integration Runtime de-SSIS de Azure a una red virtual de Azure.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: douglaslMS
 manager: jhubbard
 editor: monicar
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: douglasl
-ms.openlocfilehash: 3a5b68729d587e1365c42125108e610705965c86
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 4f1100b7e4fa2250baf282b53ef83c5f1aaa1c0e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Unión de una instancia de Integration Runtime de SSIS de Azure a una red virtual
 Una su instancia de Integration Runtime para la integración de SSIS en Azure a una red virtual de Azure en los siguientes escenarios: 
@@ -176,7 +176,9 @@ Antes de poder unir una instancia de Integration Runtime para la integración de
 # Register to the Azure Batch resource provider
 if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
 {
-    $BatchObjectId = (Get-AzureRmADServicePrincipal -ServicePrincipalName "MicrosoftAzureBatch").Id
+    $BatchApplicationId = "ddbf3205-c6bd-46ae-8127-60eb93363864"
+    $BatchObjectId = (Get-AzureRmADServicePrincipal -ServicePrincipalName $BatchApplicationId).Id
+
     Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
     while(!(Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Batch").RegistrationState.Contains("Registered"))
     {
@@ -211,6 +213,11 @@ $AzureSSISName = "<Specify Azure-SSIS IR name>"
 $VnetId = "<Name of your Azure virtual network>"
 $SubnetName = "<Name of the subnet in the virtual network>"
 ```
+
+#### <a name="guidelines-for-selecting-a-subnet"></a>Directrices para seleccionar una subred
+-   No seleccione GatewaySubnet para implementar una instancia de Azure-SSIS Integration Runtime, porque está dedicada para las puertas de enlace de red virtual.
+-   Asegúrese de que la subred que selecciona tenga suficiente espacio de direcciones disponible para usar Azure-SSIS IR. Deje al menos 2 * número de nodo de IR en direcciones IP disponibles. Azure reserva algunas direcciones IP dentro de cada subred y estas direcciones no se pueden usar. La primera y la última dirección IP de las subredes están reservadas para la conformidad con el protocolo, junto con otras tres direcciones usadas para los servicios de Azure. Para más información, consulte [¿Hay alguna restricción en el uso de direcciones IP dentro de estas subredes?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
+
 
 ### <a name="stop-the-azure-ssis-ir"></a>Detener la instancia de Integration Runtime de SSIS de Azure
 Detenga la instancia de Integration Runtime para la integración de SSIS en Azure antes de unirla a una red virtual. Este comando libera todos sus nodos y detiene la facturación:
@@ -265,7 +272,23 @@ Start-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupNa
 ```
 Este comando tarda entre 20 y 30 minutos en finalizar.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="use-azure-expressroute-with-the-azure-ssis-ir"></a>Uso de Azure ExpressRoute con Azure-SSIS IR
+
+Puede conectar un circuito de [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) a su infraestructura de red virtual para ampliar la red local a Azure. 
+
+Una configuración común consiste en usar la tunelización forzada (anunciar una ruta BGP, 0.0.0.0/0 a la red virtual) que fuerza al tráfico saliente de Internet desde el flujo de la red virtual al dispositivo de red local para la inspección y el registro. Este flujo de tráfico interrumpe la conectividad entre Azure-SSIS IR en la red virtual con los servicios dependientes de Azure Data Factory. La solución es establecer una, o varias, [rutas definidas por el usuario (UDR)](../virtual-network/virtual-networks-udr-overview.md) en la subred que contiene Azure-SSIS IR. Una ruta definida por el usuario define las rutas de subred específica que se respetan en lugar de la ruta BGP.
+
+Si es posible, use la siguiente configuración:
+-   La configuración de ExpressRoute anuncia 0.0.0.0/0 y, de manera predeterminada, fuerza la tunelización de todo el tráfico saliente a local.
+-   La ruta definida por el usuario aplicada a la subred que contiene Azure-SSIS IR define la ruta 0.0.0.0/0 con el tipo de salto próximo a “Internet”.
+- 
+El efecto combinado de estos pasos es que la ruta definida por el usuario a nivel de subred tiene prioridad sobre la tunelización forzada de ExpressRoute, lo que garantiza el acceso saliente a Internet desde Azure-SSIS IR.
+
+Si le preocupa perder la capacidad de inspeccionar el tráfico saliente de Internet de esa subred, también puede agregar una regla de NSG en la subred para restringir los destinos de salida para las [direcciones IP del centro de datos de Azure](https://www.microsoft.com/download/details.aspx?id=41653).
+
+Vea [este script de PowerShell](https://gallery.technet.microsoft.com/scriptcenter/Adds-Azure-Datacenter-IP-dbeebe0c) para un ejemplo. Tendrá que ejecutar el script cada semana para mantener actualizada la lista de direcciones IP de centro de datos de Azure.
+
+## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre el tiempo de ejecución de integración de SSIS en Azure, consulte los temas siguientes: 
 
 - [Integration Runtime de SSIS de Azure](concepts-integration-runtime.md#azure-ssis-integration-runtime). En este artículo se proporciona información conceptual sobre los entornos de ejecución de integración en general, incluida la instancia de Integration Runtime para la integración de SSIS en Azure. 

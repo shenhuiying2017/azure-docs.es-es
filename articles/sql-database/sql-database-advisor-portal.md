@@ -1,8 +1,8 @@
 ---
-title: "Aplicación de recomendaciones de rendimiento: Azure SQL Database | Microsoft Docs"
+title: 'Aplicación de recomendaciones de rendimiento: Azure SQL Database | Microsoft Docs'
 description: Use Azure Portal para buscar recomendaciones de rendimiento que pueden optimizar el rendimiento de su instancia de Azure SQL Database.
 services: sql-database
-documentationcenter: 
+documentationcenter: ''
 author: stevestein
 manager: jhubbard
 editor: monicar
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 07/05/2017
 ms.author: sstein
-ms.openlocfilehash: fe76be59d6ee09049ed8c1343d1a91e42646c262
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 32071522bbe069e68bdaed181f64b814eb70b84c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Búsqueda y aplicación de recomendaciones de rendimiento
 
@@ -52,7 +52,7 @@ Las recomendaciones se ordenan en las siguientes categorías, según su impacto 
 > Azure SQL Database necesita supervisar actividades durante al menos un día para identificar algunas recomendaciones. Azure SQL Database puede optimizar con patrones de consultas coherentes con más facilidad que en el caso de ráfagas irregulares de actividad. Si no hay recomendaciones disponibles, la página **Recomendaciones de rendimiento** proporciona un mensaje explicativo.
 > 
 
-También puede ver el estado de las operaciones históricas. Seleccione una recomendación o estado para ver sus detalles.
+También puede ver el estado de las operaciones históricas. Seleccione una recomendación o estado para ver más información.
 
 Este es un ejemplo de la recomendación "Crear índice" de Azure Portal.
 
@@ -130,7 +130,7 @@ Puede que una recomendación no se aplique de manera inmediata. El portal propor
 | En reversión |La recomendación se aplicó, pero se ha considerado que no tuvo rendimiento y se está revirtiendo automáticamente. |
 | Reverted |La recomendación se revirtió. |
 
-Haga clic en una recomendación en proceso de la lista para ver más detalles:
+Haga clic en una recomendación en proceso de la lista para ver más información:
 
 ![Índices recomendados](./media/sql-database-advisor-portal/operations.png)
 
@@ -150,7 +150,7 @@ Una vez implementadas correctamente las recomendaciones (actualmente, solo recom
 ## <a name="summary"></a>Resumen
 Azure SQL Database ofrece recomendaciones para mejorar el rendimiento de la base de datos SQL. Al proporcionar scripts T-SQL, consigue ayuda útil para optimizar la base de datos y, en última instancia, para mejorar el rendimiento de las consultas.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Supervise las recomendaciones y siga aplicándolas para refinar el rendimiento. Las cargas de trabajo de bases de datos son dinámicas y cambian con frecuencia. Azure SQL Database sigue supervisando y ofreciendo recomendaciones que pueden mejorar el rendimiento de la base de datos. 
 
 * Consulte [Ajuste automático](sql-database-automatic-tuning.md) para más información sobre el ajuste automático en Azure SQL Database.

@@ -1,24 +1,19 @@
 ---
-title: "Eliminación del almacén de Site Recovery"
-description: "Aprenda a eliminar un almacén de Azure Site Recovery, en función del escenario de Site Recovery."
+title: Eliminación del almacén de Site Recovery
+description: Aprenda a eliminar un almacén de Azure Site Recovery, en función del escenario de Site Recovery.
 service: site-recovery
-documentationcenter: 
 author: rajani-janaki-ram
 manager: rochakm
-editor: 
-ms.assetid: 
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 02/22/2018
+ms.date: 03/05/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: 4cb5c387319b9659b16f0c98dc38cb79d72987e2
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 89ab1e7c8b2fa0f4014ecfa0e677b398e601e6fa
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="delete-a-site-recovery-vault"></a>Eliminación del almacén de Site Recovery
 Las dependencias pueden evitar la eliminación de un almacén de Azure Site Recovery. Las acciones que debe llevar a cabo varían según el escenario de Site Recovery: VMware a Azure, Hyper-V (con y sin System Center Virtual Machine Manager) a Azure y Azure Backup. Para eliminar un almacén de Azure Backup, consulte el artículo sobre la [eliminación de un almacén de Azure Backup](../backup/backup-azure-delete-vault.md).
@@ -32,11 +27,11 @@ Para eliminar el almacén, siga los pasos recomendados para su escenario.
 
 1. Siga los pasos descritos en el artículo sobre la [deshabilitación de la protección para VMware](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) para eliminar todas las máquinas virtuales protegidas.
 
-2. Siga los pasos descritos en [Eliminación de una directiva de aplicación](site-recovery-setup-replication-settings-vmware.md##delete-a-replication-policy) para eliminar todas las directivas de replicación.
+2. Siga los pasos descritos en [Eliminación de una directiva de aplicación](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) para eliminar todas las directivas de replicación.
 
-3. Siga los pasos descritos en el artículo de [eliminación de vCenter](site-recovery-vmware-to-azure-manage-vCenter.md##delete-a-vcenter-in-azure-site-recovery) para eliminar las referencias a vCenter.
+3. Siga los pasos descritos en el artículo de [eliminación de un servidor vCenter](vmware-azure-manage-vcenter.md#delete-a-vcenter-server) para eliminar las referencias a vCenter.
 
-4. Siga los pasos descritos en el artículo de [retirada de un servidor de configuración](site-recovery-vmware-to-azure-manage-configuration-server.md##delete-or-unregister-a-configuration-server) para eliminar el servidor de configuración.
+4. Siga los pasos descritos en el artículo de [retirada de un servidor de configuración](vmware-azure-manage-configuration-server.md#delete-or-unregister-a-configuration-server) para eliminar el servidor de configuración.
 
 5. Elimine el almacén.
 

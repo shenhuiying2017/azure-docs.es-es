@@ -2,34 +2,29 @@
 title: Uso de Recovery Manager para solucionar problemas de mapas de particiones | Microsoft Docs
 description: Uso de la clase RecoveryManager para solucionar problemas con los mapas de particiones
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: ddove
-ms.assetid: 45520ca3-6903-4b39-88ba-1d41b22da9fe
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2016
-ms.author: ddove
-ms.openlocfilehash: 967a64fa41a9f9ff16ce173b76231052b22cda99
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.author: sstein
+ms.openlocfilehash: 45dc16c7bf54f34c89f2e9208a7cee06de03c0da
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="using-the-recoverymanager-class-to-fix-shard-map-problems"></a>Uso de la clase RecoveryManager para solucionar problemas de mapas de particiones
 La clase [RecoveryManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.aspx) proporciona a las aplicaciones ADO.Net la capacidad de detectar y corregir fácilmente las incoherencias entre el mapa de particiones global y el mapa de particiones local en un entorno de base de datos con particiones. 
 
 Los mapas de particiones global y local realizan un seguimiento de la asignación de cada base de datos en un entorno con particiones. En ocasiones, se produce una interrupción entre el GSM y el LSM. En ese caso, utilice la clase RecoveryManager para detectar y reparar la interrupción.
 
-La clase RecoveryManager forma parte de la [biblioteca de cliente de Base de datos elástica](sql-database-elastic-database-client-library.md). 
+La clase RecoveryManager forma parte de la [biblioteca de cliente de Elastic Database](sql-database-elastic-database-client-library.md). 
 
 ![Mapa de particiones][1]
 
-Para definiciones de términos, consulte el [Glosario de herramientas de base de datos elástica](sql-database-elastic-scale-glossary.md). Para comprender cómo se usa **ShardMapManager** para administrar los datos en una solución con particiones, consulte [Administración de mapas de particiones](sql-database-elastic-scale-shard-map-management.md).
+Para definiciones de términos, consulte el [Glosario de herramientas de Elastic Database](sql-database-elastic-scale-glossary.md). Para comprender cómo se usa **ShardMapManager** para administrar los datos en una solución con particiones, consulte [Administración de mapas de particiones](sql-database-elastic-scale-shard-map-management.md).
 
 ## <a name="why-use-the-recovery-manager"></a>¿Por qué usar el Administrador de recuperación?
 En un entorno de base de datos particionada, hay un inquilino por base de datos y muchas bases de datos por servidor. También puede haber muchos servidores en el entorno. Cada base de datos se asigna en el mapa de particiones, de forma que las llamadas se puedan enrutar al servidor y a la base de datos correctos. Se realiza un seguimiento de las bases de datos según una **clave de particionamiento** y se asigna un **intervalo de valores de clave** a cada partición. Por ejemplo, una clave de particionamiento puede representar los nombres de los clientes de "D" a "F". La asignación de todas las particiones (es decir, de las bases de datos) y sus intervalos de asignación se encuentran en el **mapa de particiones global (GSM)**. Cada base de datos también contiene un mapa de los intervalos contenidos en la partición, lo que se conoce como **mapa de particiones local (LSM)**. Cuando una aplicación se conecta a una partición, la asignación se almacena en caché con la aplicación para una rápida recuperación. El mapa de particiones local se usa para validar los datos almacenados en caché. 
@@ -42,7 +37,7 @@ Puede que GSM y LSM no estén sincronizados por los motivos siguientes:
 
 Para obtener más información sobre las herramientas de Elastic Database de Azure SQL Database, la replicación y restauración geográficas, consulte lo siguiente: 
 
-* [Información general: continuidad del negocio en la nube y recuperación ante desastres con la Base de datos SQL](sql-database-business-continuity.md) 
+* [Información general: continuidad del negocio en la nube y recuperación ante desastres con la SQL Database](sql-database-business-continuity.md) 
 * [Introducción a las herramientas de base de datos elástica](sql-database-elastic-scale-get-started.md)  
 * [Administración de ShardMap](sql-database-elastic-scale-shard-map-management.md)
 
@@ -125,8 +120,8 @@ En este ejemplo se agrega una partición al mapa de particiones que se restauró
 ## <a name="updating-shard-locations-after-a-geo-failover-restore-of-the-shards"></a>Actualización de las ubicaciones de partición después de una conmutación de error geográfica (restauración) de las particiones
 Si se produce una conmutación por error geográfica, a la base de datos secundaria se le da permiso de escritura y se convierte en la nueva base de datos principal. El nombre del servidor y, posiblemente de la base de datos (según la configuración), puede ser diferente de la réplica principal original. Por lo tanto, deben corregirse las entradas de asignación para la partición en el mapa de particiones local y global. De igual forma, si la base de datos se restaura en una ubicación o nombre diferente o a un momento anterior en el tiempo, podría provocar inconsistencias en los mapas de particiones. El administrador de mapas de particiones controla la distribución de las conexiones abiertas a la base de datos correcta. La distribución se basa en los datos del mapa de particiones y en el valor de la clave de particionamiento, que es el destino de la solicitud de la aplicación. Después de una conmutación por error geográfica, esta información debe actualizarse con el nombre preciso del servidor, el nombre de la base de datos y la asignación de particiones de la base de datos recuperada. 
 
-## <a name="best-practices"></a>Prácticas recomendadas
-La conmutación por error geográfica y la recuperación son operaciones administradas normalmente por un administrador de nube de la aplicación mediante el uso intencional de una de las características de continuidad del negocio de Base de datos SQL de Azure. La planeación de la continuidad de negocio requiere procesos, procedimientos y medidas para garantizar que las operaciones empresariales puedan continuar sin interrupción. Deben usarse los métodos disponibles como parte de la clase RecoveryManager dentro de este flujo de trabajo para garantizar que los mapas de particiones local y global se actualizan según la acción de recuperación realizada. Existen cinco pasos básicos para asegurar correctamente que los mapas de particiones local y global reflejan la información precisa después de un evento de conmutación por error. El código de la aplicación para ejecutar estos pasos se puede integrar en el flujo de trabajo y en las herramientas existentes. 
+## <a name="best-practices"></a>Procedimientos recomendados
+La conmutación por error geográfica y la recuperación son operaciones administradas normalmente por un administrador de nube de la aplicación mediante el uso intencional de una de las características de continuidad del negocio de Azure SQL Database. La planeación de la continuidad de negocio requiere procesos, procedimientos y medidas para garantizar que las operaciones empresariales puedan continuar sin interrupción. Deben usarse los métodos disponibles como parte de la clase RecoveryManager dentro de este flujo de trabajo para garantizar que los mapas de particiones local y global se actualizan según la acción de recuperación realizada. Existen cinco pasos básicos para asegurar correctamente que los mapas de particiones local y global reflejan la información precisa después de un evento de conmutación por error. El código de la aplicación para ejecutar estos pasos se puede integrar en el flujo de trabajo y en las herramientas existentes. 
 
 1. Recupere RecoveryManager de ShardMapManager. 
 2. Desasocie la partición anterior del mapa de particiones.

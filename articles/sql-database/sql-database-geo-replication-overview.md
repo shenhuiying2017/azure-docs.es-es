@@ -1,25 +1,19 @@
 ---
-title: "Grupos de conmutación por error y replicación geográfica activa: Azure SQL Database | Microsoft Docs"
-description: "Use los grupos de conmutación por error automática con la replicación geográfica activa y habilite la conmutación por error automática por si se produce una interrupción del servicio."
+title: 'Grupos de conmutación por error y replicación geográfica activa: Azure SQL Database | Microsoft Docs'
+description: Use los grupos de conmutación por error automática con la replicación geográfica activa y habilite la conmutación por error automática por si se produce una interrupción del servicio.
 services: sql-database
-documentationcenter: na
 author: anosov1960
-manager: jhubbard
-editor: monicar
-ms.assetid: 2a29f657-82fb-4283-9a83-e14a144bfd93
+manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Active
 ms.date: 10/11/2017
 ms.author: sashan
-ms.openlocfilehash: 7d731865ae8da9e1ae9e9f11eef814b86fc10c64
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 45ddc4070e2162715eefab21841d75f1fa2a29e5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="overview-failover-groups-and-active-geo-replication"></a>Introducción: grupos de conmutación por error y replicación geográfica activa
 La replicación geográfica activa le permite configurar hasta cuatro bases de datos secundarias legibles en las mismas ubicaciones de centros de datos (regiones) o en otras. Las bases de datos secundarias están disponibles para la consulta y para la conmutación por error si hay una interrupción del centro de datos o de imposibilidad para conectarse a la base de datos principal. La aplicación del usuario debe iniciar manualmente la conmutación por error. Después de la conmutación por error, el nuevo elemento principal tiene un punto de conexión diferente. 
@@ -190,7 +184,7 @@ Como se dijo antes, los grupos de conmutación por error automática (en versió
 | [Actualizar grupo de conmutación por error](/rest/api/sql/failovergroups/update) | Actualiza un grupo de conmutación por error. |
 |  | |
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Para los scripts de ejemplo, vea:
    - [Configuración y conmutación por error de una base de datos única mediante la replicación geográfica activa](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
    - [Configuración y conmutación por error de una base de datos agrupada mediante la replicación geográfica activa](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)

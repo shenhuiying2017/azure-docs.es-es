@@ -1,11 +1,11 @@
 ---
-title: "Creación de una aplicación web de PHP e implementación en App Service en Linux | Microsoft Docs"
-description: "Implementación de su primera aplicación Hola mundo de PHP en App Service en Linux en cuestión de minutos."
+title: Creación de una aplicación web de PHP e implementación en App Service en Linux | Microsoft Docs
+description: Implementación de su primera aplicación Hola mundo de PHP en App Service en Linux en cuestión de minutos.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: syntaxc4
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
 ms.service: app-service-web
 ms.workload: web
@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 4d74d9c39a5ea22abf496666304249418079cc0d
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: a39e4ec68af70b7d189ac450f880a12b5397e4c4
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-php-web-app-in-app-service-on-linux"></a>Creación de una aplicación web de PHP en App Service en Linux
 
@@ -53,7 +53,7 @@ cd php-docs-hello-world
 
 ## <a name="run-the-app-locally"></a>Ejecución de la aplicación de forma local
 
-Ejecute la aplicación localmente abriendo una ventana de terminal y utilizando el comando `php` para iniciar el servidor web de PHP integrado.
+Ejecute la aplicación localmente. Para ello, abra una ventana de terminal y use el comando `php` para iniciar el servidor web de PHP integrado.
 
 ```bash
 php -S localhost:8080
@@ -71,13 +71,13 @@ En la ventana de terminal, presione **Ctrl + C** para salir del servidor web.
 
 [!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group.md)]
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux.md)]
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
 ## <a name="create-a-web-app"></a>Creación de una aplicación web
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-php-no-h.md)] 
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-php-linux-no-h.md)] 
 
 Vaya al sitio para ver la aplicación web recién creada con una imagen integrada. Reemplace _&lt;app name>_ por el nombre de la aplicación web.
 
@@ -165,7 +165,7 @@ El menú izquierdo proporciona distintas páginas para configurar la aplicación
 
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
 > [PHP con MySQL](tutorial-php-mysql-app.md)

@@ -1,26 +1,19 @@
 ---
-title: "Almacenamiento de copias de seguridad de Azure SQL Database durante diez años como máximo | Microsoft Docs"
-description: "Obtenga información acerca de cómo Azure SQL Database admite almacenar copias de seguridad durante diez años como máximo."
-keywords: 
+title: Almacenamiento de copias de seguridad de Azure SQL Database durante diez años como máximo | Microsoft Docs
+description: Obtenga información acerca de cómo Azure SQL Database admite almacenar copias de seguridad durante diez años como máximo.
 services: sql-database
-documentationcenter: 
 author: anosov1960
-manager: jhubbard
-editor: 
-ms.assetid: 66fdb8b8-5903-4d3a-802e-af08d204566e
+manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: On Demand
 ms.date: 12/22/2016
 ms.author: sashan
-ms.openlocfilehash: e44c92c3f37b3f1e3397d1c8cdb8c8f6d0f9942e
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 2f31e89fce2746e57d6a670aef949d0d534af4c1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Almacenamiento de copias de seguridad de Azure SQL Database durante diez años como máximo
 Muchas aplicaciones tienen finalidades normativas, de conformidad u otras de carácter empresarial que requieren que se conserven copias de seguridad de las bases de datos más allá de entre los 7 y 35 días proporcionados por las [copias de seguridad automáticas](sql-database-automated-backups.md) de Azure SQL Database. Al usar la función de retención de copias de seguridad a largo plazo, puede almacenar las copias de seguridad de las bases de datos SQL en un almacén de Azure Recovery Services hasta diez años. Puede almacenar hasta 1000 bases de datos por almacén. Puede después seleccionar cualquier copia de seguridad del almacén para restaurarla como una base de datos nueva.

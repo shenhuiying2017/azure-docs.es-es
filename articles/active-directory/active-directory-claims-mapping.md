@@ -1,6 +1,6 @@
 ---
-title: "Asignación de notificaciones en Azure Active Directory (versión preliminar pública) | Microsoft Docs"
-description: "En esta página se describe la asignación de notificaciones de Azure Active Directory."
+title: Asignación de notificaciones en Azure Active Directory (versión preliminar pública) | Microsoft Docs
+description: En esta página se describe la asignación de notificaciones de Azure Active Directory.
 services: active-directory
 author: billmath
 manager: mtillman
@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: billmath
-ms.openlocfilehash: 1bc669dfa5a41e38b35751af62560ff650575a08
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: b0dae074734b13046fb0d90e178e05f81399b5c6
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="claims-mapping-in-azure-active-directory-public-preview"></a>Asignación de notificaciones en Azure Active Directory (versión preliminar pública)
 
@@ -30,7 +30,7 @@ Los administradores de inquilinos usan esta característica para personalizar la
 - Elegir o cambiar el origen de los datos emitidos en notificaciones concretas.
 
 >[!NOTE]
->Esta funcionalidad se encuentra actualmente en versión preliminar pública. Debe estar preparado para deshacer o eliminar los cambios. La característica está disponible en cualquier suscripción de Azure Active Directory (Azure AD) durante el período de versión preliminar pública. Pero cuando ya esté disponible con carácter general, algunos aspectos de ella podrían requerir una suscripción Premium de Azure Active Directory.
+>Esta funcionalidad se encuentra actualmente en versión preliminar pública. Debe estar preparado para deshacer o eliminar los cambios. La característica está disponible en cualquier suscripción de Azure Active Directory (Azure AD) durante el período de versión preliminar pública. Pero cuando ya esté disponible con carácter general, algunos aspectos de ella podrían requerir una suscripción Premium de Azure Active Directory. Esta característica admite la configuración de directivas de asignación de notificaciones para los protocolos WS-Fed, SAML, OAuth y OpenID Connect.
 
 ## <a name="claims-mapping-policy-type"></a>Tipo de directiva de asignación de notificaciones
 En Azure AD, un objeto de **directiva** representa un conjunto de reglas que se exigen en algunas o todas las aplicaciones de una organización. Cada tipo de directiva tiene una estructura única con un conjunto de propiedades que luego se aplican a los objetos a los que están asignadas.
@@ -175,7 +175,7 @@ Las notificaciones restringidas no se pueden modificar mediante una directiva. N
 |unique_name|
 |upn|
 |user_setting_sync_url|
-|Nombre de usuario|
+|nombre de usuario|
 |uti|
 |ver|
 |verified_primary_email|
@@ -356,7 +356,7 @@ En función del método elegido, se espera un conjunto de entradas y salidas. Es
 |TransformationMethod|Entrada prevista|Salida prevista|DESCRIPCIÓN|
 |-----|-----|-----|-----|
 |Unión|string1, string2, separator|outputClaim|Se combinan las cadenas de entrada mediante un separador entre ellas. Por ejemplo: string1:"foo@bar.com" , string2:"sandbox" , separator:"." da como resultado outputClaim:"foo@bar.com.sandbox"|
-|ExtractMailPrefix|mail|outputClaim|Extrae la parte local de una dirección de correo electrónico. Por ejemplo: mail:"foo@bar.com" da como resultado outputClaim:"foo". Si no hay ningún signo "\@\" presente, la cadena de entrada original se devuelve tal y como está.|
+|ExtractMailPrefix|mail|outputClaim|Extrae la parte local de una dirección de correo electrónico. Por ejemplo: mail:"foo@bar.com" da como resultado outputClaim:"foo". Si no hay ningún signo "@" presente, la cadena de entrada original se devuelve tal y como está.|
 
 **InputClaims:** Use un elemento InputClaims para pasar los datos de una entrada de esquema de notificación a una transformación. Tiene dos atributos: **ClaimTypeReferenceId** y **TransformationClaimType**.
 
@@ -419,7 +419,7 @@ Las directivas de asignación de notificaciones solo se pueden asignar a objetos
 
 En Azure AD hay muchos escenarios posibles en los que se pueden personalizar las notificaciones emitidas en tokens para entidades de servicio concretas. En esta sección se abordan algunos escenarios comunes que pueden ayudarle a entender cómo usar el tipo de directiva de asignación de notificaciones.
 
-#### <a name="prerequisites"></a>Requisitos previos
+#### <a name="prerequisites"></a>requisitos previos
 En los ejemplos siguientes, va a crear, actualizar, vincular y eliminar directivas de entidades de servicio. Si no está familiarizado con Azure AD, se recomienda que aprenda a obtener un inquilino de Azure AD antes de continuar con estos ejemplos. 
 
 Para comenzar, realice uno de los pasos siguientes:

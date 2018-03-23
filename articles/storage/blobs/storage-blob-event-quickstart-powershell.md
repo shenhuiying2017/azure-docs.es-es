@@ -1,18 +1,18 @@
 ---
-title: "Enrutamiento de eventos de Azure Blob Storage a un punto de conexión web personalizado - Powershell | Microsoft Docs"
+title: Enrutamiento de eventos de Azure Blob Storage a un punto de conexión web personalizado - Powershell | Microsoft Docs
 description: Utilice Azure Event Grid para suscribirse a los eventos de Blob Storage.
 services: storage,event-grid
-keywords: 
+keywords: ''
 author: david-stanford
 ms.author: dastanfo
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 329a79511b810159244b5530a49a5916440d2046
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 374a24448eb1bf366e26bb55fdf09e470b030c89
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-powershell"></a>Enrutamiento de eventos de Blob Storage a un punto de conexión web personalizado con PowerShell
 
@@ -31,7 +31,7 @@ Al completar los pasos descritos en este artículo, verá que los datos del even
 
 Para este artículo es necesario ejecutar la versión más reciente de Azure PowerShell. Si necesita instalarlas o actualizarlas, vea [Install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps) (Instalación y configuración de Azure PowerShell).
 
-## <a name="log-in-to-azure"></a>Inicie sesión en Azure.
+## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
 
 Inicie sesión en la suscripción de Azure con el comando `Login-AzureRmAccount` y siga las instrucciones de la pantalla para autenticarse.
 
@@ -63,9 +63,9 @@ New-AzureRmResourceGroup -Name $resourceGroup -Location $location
 
 ## <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
 
-Para utilizar eventos de Blob Storage, necesita una [cuenta de Blob Storage](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) o una [cuenta de almacenamiento de uso general v2](../common/storage-account-options.md#general-purpose-v2). Las cuentas de **uso general v2 (GPv2)** son cuentas de almacenamiento que admiten todas las características de todos los servicios de almacenamiento como, por ejemplo, Blobs, Files, Queues y Tables. Una **cuenta de Blob Storage** es una cuenta de almacenamiento especializada para almacenar los datos no estructurados como blobs (objetos) en Azure Storage. Las cuentas de Blob Storage son similares a las cuentas de almacenamiento de uso general y comparten las excelentes características de rendimiento, escalabilidad, disponibilidad y durabilidad que se usan en la actualidad, incluida la coherencia total de la API con blobs en bloques y blobs en anexos. Para las aplicaciones que requieren solo Almacenamiento de blobs en bloque o en anexos, se recomienda utilizar cuentas de Almacenamiento de blobs.  
+Para utilizar eventos de Blob Storage, necesita una [cuenta de Blob Storage](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) o una [cuenta de almacenamiento de uso general v2](../common/storage-account-options.md#general-purpose-v2). Las cuentas de **uso general v2 (GPv2)**  son cuentas de almacenamiento que admiten todas las características de todos los servicios de almacenamiento, como Blob, Files, Queue y Table. Una **cuenta de Blob Storage** es una cuenta de almacenamiento especializada para almacenar los datos no estructurados como blobs (objetos) en Azure Storage. Las cuentas de Blob Storage son similares a las cuentas de almacenamiento de uso general y comparten las excelentes características de rendimiento, escalabilidad, disponibilidad y durabilidad que se usan en la actualidad, incluida la coherencia total de la API con blobs en bloques y blobs en anexos. Para las aplicaciones que requieren solo Almacenamiento de blobs en bloque o en anexos, se recomienda utilizar cuentas de Almacenamiento de blobs.  
 
-Cree una cuenta de Blob Storage con la replicación de LRS mediante [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount). A continuación, recupere el contexto de la cuenta de almacenamiento que define la cuenta de almacenamiento que se usará. Cuando actúa en una cuenta de almacenamiento, hace referencia al contexto en lugar de proporcionar varias veces las credenciales. En este ejemplo, se crea una cuenta de almacenamiento denominada **gridstorage** con almacenamiento con redundancia local (LRS) y cifrado de blob (habilitados de forma predeterminada). 
+Cree una cuenta de Blob Storage con la replicación de LRS mediante [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount). A continuación, recupere el contexto de la cuenta de almacenamiento que define la cuenta de almacenamiento que se usará. Cuando actúa en una cuenta de almacenamiento, hace referencia al contexto en lugar de proporcionar varias veces las credenciales. En este ejemplo, se crea una cuenta de almacenamiento denominada **gridstorage** con almacenamiento con redundancia local (LRS). 
 
 > [!NOTE]
 > Los nombres de cuenta de almacenamiento están en un espacio de nombres global, por lo que necesita anexar algunos caracteres aleatorios al nombre que se proporciona en este script.
@@ -151,7 +151,7 @@ Si planea seguir trabajando con esta cuenta de almacenamiento y suscripción de 
 Remove-AzureRmResourceGroup -Name $resourceGroup
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Ahora que sabe cómo crear suscripciones a temas y eventos, obtenga más información acerca de los eventos de Blob Storage y lo que Event Grid puede ayudarle a hacer:
 

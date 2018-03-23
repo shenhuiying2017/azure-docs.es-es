@@ -1,9 +1,9 @@
 ---
-title: "Azure AD Connect: inicio de sesión único de conexión directa | Microsoft Docs"
-description: "En este tema se describe el inicio de sesión único de conexión directa de Azure Active Directory (Azure AD) y cómo permite proporcionar un verdadero inicio de sesión único a los usuarios de equipos de escritorio corporativos dentro de la red de la empresa."
+title: 'Azure AD Connect: inicio de sesión único de conexión directa | Microsoft Docs'
+description: En este tema se describe el inicio de sesión único de conexión directa de Azure Active Directory (Azure AD) y cómo permite proporcionar un verdadero inicio de sesión único a los usuarios de equipos de escritorio corporativos dentro de la red de la empresa.
 services: active-directory
-keywords: "qué es Azure AD Connect, instalar Active Directory, componentes necesarios para Azure AD, SSO, inicio de sesión único"
-documentationcenter: 
+keywords: qué es Azure AD Connect, instalar Active Directory, componentes necesarios para Azure AD, SSO, inicio de sesión único
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 03/07/2018
 ms.author: billmath
-ms.openlocfilehash: b71a2f19fee370ab1d732becd1c3b644505e2233
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 14018db3cbe34c9eca9048ceaf376ff3a06a4353
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Inicio de sesión único de conexión directa de Azure Active Directory
 
@@ -51,6 +51,8 @@ SSO de conexión directa se puede combinar con los métodos de inicio de sesión
 - El nombre de usuario de inicio de sesión puede ser el predeterminado local (`userPrincipalName`) u otro atributo `Alternate ID`) configurado en Azure AD Connect. Ambos casos de uso funcionan porque SSO de conexión directa usa la notificación `securityIdentifier` en el vale Kerberos para buscar el objeto de usuario correspondiente en Azure AD.
 - SSO de conexión directa es una característica oportunista. Si, por algún motivo, genera un error, la experiencia de inicio de sesión del usuario se revierte a su comportamiento habitual; es decir, el usuario deberá escribir su contraseña en la página de inicio de sesión.
 - Si una aplicación envía un parámetro `domain_hint` (OpenID Connect) o `whr` (SAML) que identifica el inquilino, o bien el parámetro `login_hint` que identifica el usuario, en la solicitud de inicio de sesión de Azure AD, los usuarios inician sesión automáticamente sin que tengan que escribir nombres de usuario ni contraseñas.
+- Se admite el cierre de sesión. Esto permite que los usuarios elijan otra cuenta de Azure AD con la cual iniciar sesión, en lugar de iniciar sesión automáticamente con SSO de conexión directa.
+- Los clientes Office 365 (16.0.8730.xxxx y versiones superiores) se admiten con un flujo no interactivo.
 - Puede habilitarse a través de Azure AD Connect.
 - Es una característica gratuita y no es necesario usar ninguna versión de pago de Azure AD para usarla.
 - Se admite en clientes basados en el explorador web y en clientes de Office que admiten la [autenticación moderna](https://aka.ms/modernauthga) en plataformas con la funcionalidad de autenticación de Kerberos:
@@ -68,7 +70,7 @@ SSO de conexión directa se puede combinar con los métodos de inicio de sesión
 >[!NOTE]
 >En el caso de Windows 10, la recomendación es usar [Azure AD Join](../active-directory-azureadjoin-overview.md) para que la experiencia de inicio de sesión único con Azure AD sea óptima.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - [**Inicio rápido**](active-directory-aadconnect-sso-quick-start.md): desarrollo y ejecución de SSO de conexión directa de Azure AD.
 - [**Profundización técnica**](active-directory-aadconnect-sso-how-it-works.md): descripción del funcionamiento de esta característica.

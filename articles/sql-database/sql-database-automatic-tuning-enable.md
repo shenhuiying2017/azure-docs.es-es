@@ -1,25 +1,19 @@
 ---
-title: "Habilitación del ajuste automático para Azure SQL Database | Microsoft Docs"
-description: "Puede habilitar fácilmente el ajuste automático en Azure SQL Database."
+title: Habilitación del ajuste automático para Azure SQL Database | Microsoft Docs
+description: Puede habilitar fácilmente el ajuste automático en Azure SQL Database.
 services: sql-database
-documentationcenter: 
 author: veljko-msft
 manager: drasumic
-editor: vvasic
-ms.assetid: 
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Inactive
 ms.date: 09/19/2016
-ms.author: veljko-msft
-ms.openlocfilehash: b599273874a4b5a3bbcb78284d69b4c8d02b5f2c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: vvasic
+ms.openlocfilehash: cfee95f5978073277a5351b976156cafefb87c16
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="enable-automatic-tuning"></a>Habilitación del ajuste automático
 
@@ -82,7 +76,7 @@ Si establece la opción de ajuste individual en ON, invalidará todas las config
 ## <a name="disabled-by-the-system"></a>Deshabilitado por el sistema
 El ajuste automático supervisa todas las acciones que realiza en la base de datos y, en algunos casos, determina que no funciona correctamente en la base de datos. En esta situación, el sistema deshabilitará la opción de ajuste. En la mayoría de los casos, esto sucede porque el Almacén de consultas no está habilitado o se encuentra en estado de solo lectura en una base de datos específica.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Para aprender más sobre el ajuste automático y cómo puede ayudarle a mejorar su rendimiento, lea el [artículo sobre este tema](sql-database-automatic-tuning.md).
 * Consulte [Recomendaciones de rendimiento](sql-database-advisor.md) para ver información general sobre las recomendaciones de rendimiento de Azure SQL Database.
 * Consulte [Query Performance Insight](sql-database-query-performance.md) para más información sobre el impacto en el rendimiento de las principales consultas.

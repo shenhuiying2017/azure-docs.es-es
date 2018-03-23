@@ -1,11 +1,11 @@
 ---
-title: "Información general de creación e implementación de una oferta en Marketplace | Microsoft Docs"
-description: "Conozca los pasos necesarios para convertirse en un desarrollador de Microsoft aprobado y crear e implementar una imagen de máquina virtual, una plantilla, un servicio de datos o un servicio de desarrolladores en Azure Marketplace."
+title: Información general de creación e implementación de una oferta en Marketplace | Microsoft Docs
+description: Conozca los pasos necesarios para convertirse en un desarrollador de Microsoft aprobado y crear e implementar una imagen de máquina virtual, una plantilla, un servicio de datos o un servicio de desarrolladores en Azure Marketplace.
 services: marketplace-publishing
-documentationcenter: 
-author: HannibalSII
-manager: hascipio
-editor: 
+documentationcenter: ''
+author: msmbaldwin
+manager: mbaldwin
+editor: ''
 ms.assetid: 5343bd26-c6e4-4589-85b7-4a2c00bba8ab
 ms.service: marketplace
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2017
-ms.author: hascipio
-ms.openlocfilehash: 82580fbab68eab28a2027cd277213f1fb2a76e07
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.author: mbaldwin
+ms.openlocfilehash: 02df78de48c8466f3488ef5f8346e1852b4e3ded
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 > [!NOTE]
 > Esta documentación no está actualizada y no es precisa. En su lugar, vaya a la [Guía para vendedores de Azure Marketplace](https://docs.microsoft.com/azure/marketplace/seller-guide/cloud-partner-portal-seller-guide) para obtener instrucciones acerca de cómo publicar ofertas en Azure Marketplace.

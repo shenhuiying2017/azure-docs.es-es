@@ -1,13 +1,13 @@
 ---
-title: "Configuración de Network Performance Monitor para circuitos Azure ExpressRoute | Microsoft Docs"
-description: "Configure la supervisión de red basada en la nube de circuitos Azure ExpressRoute."
+title: Configuración de Network Performance Monitor para circuitos Azure ExpressRoute | Microsoft Docs
+description: Configure la supervisión de red basada en la nube de circuitos Azure ExpressRoute.
 documentationcenter: na
 services: expressroute
 author: ajaycode
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: agummadi
-ms.openlocfilehash: 4f3edb6879ff256b1b50a1437fe349084fe7de41
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 36cd2f106c39f1a6bdcb6ee33b96209974a06336
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Configuración de Network Performance Monitor para ExpressRoute
 
@@ -102,10 +102,7 @@ Cree un área de trabajo en la suscripción que tiene las redes virtuales vincul
 
 1. Vaya a la pestaña **Configuración común** de la página **Configuración de Monitor de rendimiento de red** del recurso. Haga clic en el agente que se corresponda con el procesador de su servidor en la sección **Instalar los agentes de OMS** y descargue el archivo de instalación.
 
-  >[!NOTE]
-  >El agente debe instalarse en Windows Server (2008 SP1 o posterior). No se admite la supervisión de circuitos ExpressRoute mediante el sistema operativo de escritorio Windows y el sistema operativo Linux. 
-  >
-  >
+ 
 2. Después, copie los valores de **Id. de área de trabajo** y **Clave principal** en el Bloc de notas.
 3. En la sección **Configuración de los agentes de OMS para la supervisión mediante el protocolo TCP**, descargue el script de Powershell. El script de PowerShell le ayuda a abrir el puerto de firewall pertinente para las transacciones TCP.
 
@@ -114,6 +111,16 @@ Cree un área de trabajo en la suscripción que tiene las redes virtuales vincul
 ### <a name="installagent"></a>2.2: Instalación de un agente de supervisión en cada servidor de supervisión (en cada red virtual que quiera supervisar)
 
 Le recomendamos que instale al menos dos agentes en cada lado de la conexión de ExpressRoute (por ejemplo, en el entorno local y en las redes virtuales de Azure) para obtener redundancia. Use los pasos siguientes para instalar agentes:
+  
+  >[!NOTE]
+  >El agente debe instalarse en Windows Server (2008 SP1 o posterior). No se admite la supervisión de circuitos ExpressRoute mediante el sistema operativo de escritorio Windows y el sistema operativo Linux. 
+  >
+  >
+  
+  >[!NOTE]
+  >Los agentes de SCOM no pueden detectar de forma coherente si están hospedados en Azure.  No se recomienda usar agentes de SCOM en redes virtuales de Azure para supervisar ExpressRoute.
+  >
+  >
 
 1. Ejecute **el programa de instalación** para instalar el agente en cada servidor que va a utilizar para la supervisión de ExpressRoute. El servidor que se usa para la supervisión puede ser una máquina virtual o encontrase en un entorno local y debe tener acceso a Internet. Debe instalar al menos un agente local y uno en cada segmento de red que desea supervisar en Azure.
 2. En la página **principal**, haga clic en **Siguiente**.

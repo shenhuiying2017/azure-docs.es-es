@@ -1,24 +1,19 @@
 ---
 title: Desplazamiento de datos entre bases de datos en la nube escaladas horizontalmente | Microsoft Docs
-description: "Explica cómo manipular las particiones y mover los datos a través de un servicio autohospedado mediante las API de bases de datos elásticas."
+description: Explica cómo manipular las particiones y mover los datos a través de un servicio autohospedado mediante las API de bases de datos elásticas.
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: ddove
-ms.assetid: 204fd902-0397-4185-985a-dea3ed7c7d9f
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
-ms.author: ddove
-ms.openlocfilehash: 328989c4fc1f9a404d4c048eb148a95e9105bdf5
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.author: sstein
+ms.openlocfilehash: 9e2b231ad2e9fc5ab07532daef44da9870cef4ae
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Moving data between scaled-out cloud databases (Mover datos entre bases de datos en la nube escaladas horizontalmente)
 Si es desarrollador de Software como servicio y su aplicación experimenta de pronto una demanda enorme, es necesario adaptarse al crecimiento. De este modo, agrega más bases de datos (particiones). ¿Cómo redistribuye los datos en las nuevas bases de datos sin interrumpir la integridad de los datos? Use la **herramienta de división y combinación** para mover datos desde bases de datos limitadas a las nuevas bases de datos.  
@@ -37,7 +32,7 @@ La herramienta de división y combinación se ejecuta como servicio web de Azure
 4. [Administración de mapas de particiones.](sql-database-elastic-scale-shard-map-management.md)
 5. [Migrate existing databases to scale-out](sql-database-elastic-convert-to-use-elastic-tools.md)
 6. [Elastic database tools](sql-database-elastic-scale-introduction.md)
-7. [Glosario de las herramientas de bases de datos elásticas](sql-database-elastic-scale-glossary.md)
+7. [Glosario de las herramientas de Elastic Database](sql-database-elastic-scale-glossary.md)
 
 ## <a name="why-use-the-split-merge-tool"></a>¿Por qué usar la herramienta de división y combinación?
 **Flexibilidad**
@@ -61,7 +56,7 @@ Con varios inquilinos por base de datos, la asignación de shardlets a particion
 
 El servicio División y combinación es un servicio hospedado por el cliente. Debe implementar y hospedar el servicio en su suscripción a Microsoft Azure. El paquete que descarga de NuGet contiene una plantilla de configuración que se debe completar con la información correspondiente a la implementación específica. Consulte el [tutorial de División y combinación](sql-database-elastic-scale-configure-deploy-split-and-merge.md) para obtener más detalles. Dado que el servicio se ejecuta en su suscripción de Azure, es posible controlar y configurar la mayoría de los aspectos de seguridad del servicio. La plantilla predeterminada incluye las opciones para configurar SSL, autenticación de cliente basada en certificados, cifrado para credenciales almacenadas, protección ante denegación de servicio y restricciones de IP. Puede encontrar más información sobre los aspectos de seguridad en el siguiente documento [Configuración de seguridad de división y combinación](sql-database-elastic-scale-split-merge-security-configuration.md).
 
-El servicio implementado de manera predeterminada se ejecuta con un rol de trabajo y un rol web. Cada uno de ellos usa el tamaño A1 de máquina virtual en Servicios en la nube de Azure. A pesar de que no puede modificar esta configuración cuando implementa el paquete, sí puede cambiarla después de una implementación exitosa en el servicio en la nube que está en ejecución (a través del portal de Azure). Tenga en cuenta que el rol de trabajo, por razones técnicas, no se debe configurar para más de una instancia. 
+El servicio implementado de manera predeterminada se ejecuta con un rol de trabajo y un rol web. Cada uno de ellos usa el tamaño A1 de máquina virtual en Azure Cloud Services. A pesar de que no puede modificar esta configuración cuando implementa el paquete, sí puede cambiarla después de una implementación exitosa en el servicio en la nube que está en ejecución (a través del portal de Azure). Tenga en cuenta que el rol de trabajo, por razones técnicas, no se debe configurar para más de una instancia. 
 
 **Integración de mapas de particiones**
 
@@ -117,7 +112,7 @@ Si hay errores, el servicio División y combinación reanuda las operaciones des
 El paquete del servicio División y combinación incluye un rol de trabajo y un rol web. El rol web se usa para enviar solicitudes de división y combinación de manera interactiva. Los componentes principales de la interfaz de usuario son los siguientes:
 
 * Tipo de operación: el tipo de operación es un botón de radio que controla la clase de operación que realiza el servicio para esta solicitud. Puede elegir entre los escenarios de división, combinación y movimiento. También puede cancelar una operación anteriormente enviada. Puede usar las solicitudes de división, combinación y movimiento para los mapas de particiones de intervalo. Los mapas de particiones de lista solo admiten operaciones de movimiento.
-* Mapa de particiones: la sección siguiente de parámetros de solicitud abarca información acerca del mapa de particiones y de la base de datos que hospeda el mapa de particiones. En concreto, debe proporcionar el nombre del servidor de Base de datos SQL de Azure y la base de datos que hospeda el mapa de particiones, las credenciales para conectarse a la base de datos del mapa de particiones y, finalmente, el nombre del mapa de particiones. Actualmente, la operación solo acepta un conjunto de credenciales. Estas credenciales deben tener permisos suficientes para realizar cambios en el mapa de particiones, así como también en los datos de usuario en las particiones.
+* Mapa de particiones: la sección siguiente de parámetros de solicitud abarca información acerca del mapa de particiones y de la base de datos que hospeda el mapa de particiones. En concreto, debe proporcionar el nombre del servidor de Azure SQL Database y la base de datos que hospeda el mapa de particiones, las credenciales para conectarse a la base de datos del mapa de particiones y, finalmente, el nombre del mapa de particiones. Actualmente, la operación solo acepta un conjunto de credenciales. Estas credenciales deben tener permisos suficientes para realizar cambios en el mapa de particiones, así como también en los datos de usuario en las particiones.
 * Intervalo de origen (División y combinación): una operación de división y combinación procesa un intervalo con su clave superior e inferior. Para especificar una operación con un valor de clave superior desvinculado, active la casilla “La clave superior es máxima" y deje en blanco el campo de clave superior. Los valores de clave de intervalo que especifique no tienen que coincidir de manera precisa con una asignación y su límites en el mapa de particiones. Si no especifica ningún límite de intervalo, todo el servicio deducirá el intervalo más próximo automáticamente. Puede usar el script de PowerShell GetMappings.ps1 para recuperar las asignaciones actuales de un mapa de partición determinado.
 * Comportamiento de origen de división (división): en el caso de las operaciones de división, defina el punto en el que dividir el intervalo de origen. Para ello, proporcione la clave de particionamiento donde desee que se produzca la partición. Utilice el botón de radio para especificar si desea mover la parte inferior del intervalo (excluyendo la clave de división) o si desea mover la parte superior (incluida la clave de división).
 * Shardlet de origen (desplazamiento): las operaciones de desplazamiento son diferentes a las operaciones de división o combinación, puesto que no requieren un intervalo para describir el origen. Un origen para el desplazamiento simplemente se identifica con el valor de la clave de particionamiento que planea mover.
@@ -150,7 +145,7 @@ El servicio División y combinación proporciona la tabla **RequestStatus** en l
 * **Details**: un valor XML que proporciona un informe de progreso más detallado. El informe de progreso se actualiza periódicamente a medida que los conjuntos de filas se copian desde el origen al destino. En caso de errores o excepciones, esta columna también incluye información más detallada sobre el error.
 
 ### <a name="azure-diagnostics"></a>Diagnóstico de Azure
-El servicio División y combinación usa Diagnósticos de Azure basado en el SDK de Azure 2.5 para supervisión y diagnóstico. Para controlar la configuración de diagnóstico, consulte la información explicada aquí: [Habilitación de diagnósticos en Servicios en la nube y Máquinas virtuales de Azure](../cloud-services/cloud-services-dotnet-diagnostics.md). El paquete de descarga incluye dos configuraciones de diagnóstico: una para el rol web y otra para rol de trabajo. Estas configuraciones de diagnóstico para el servicio siguen la guía que aparece en [Fundamentos de servicios en la nube en Microsoft Azure](https://code.msdn.microsoft.com/windowsazure/Cloud-Service-Fundamentals-4ca72649). Incluye las definiciones para registrar los contadores de rendimiento, registros IIS, registros de eventos de Windows y registros de eventos de la aplicación de división y combinación. 
+El servicio División y combinación usa Diagnósticos de Azure basado en el SDK de Azure 2.5 para supervisión y diagnóstico. Para controlar la configuración de diagnóstico, consulte la información explicada aquí: [Habilitación de diagnósticos en Azure Cloud Services y Azure Virtual Machines](../cloud-services/cloud-services-dotnet-diagnostics.md). El paquete de descarga incluye dos configuraciones de diagnóstico: una para el rol web y otra para rol de trabajo. Estas configuraciones de diagnóstico para el servicio siguen la guía que aparece en [Fundamentos de servicios en la nube en Microsoft Azure](https://code.msdn.microsoft.com/windowsazure/Cloud-Service-Fundamentals-4ca72649). Incluye las definiciones para registrar los contadores de rendimiento, registros IIS, registros de eventos de Windows y registros de eventos de la aplicación de división y combinación. 
 
 ## <a name="deploy-diagnostics"></a>Implementar diagnósticos
 Para habilitar la supervisión y el diagnóstico mediante el uso de la configuración de diagnóstico para el rol web y el rol de trabajo proporcionado por el paquete NuGet, ejecute los siguientes comandos con Azure PowerShell: 
@@ -175,10 +170,10 @@ Para habilitar la supervisión y el diagnóstico mediante el uso de la configura
 
     Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Production -Role "SplitMergeWorker" 
 
-Puede encontrar más información sobre cómo configurar e implementar los ajustes de diagnóstico aquí: [Habilitación de diagnósticos en Servicios en la nube y Máquinas virtuales de Azure](../cloud-services/cloud-services-dotnet-diagnostics.md). 
+Puede encontrar más información sobre cómo configurar e implementar los ajustes de diagnóstico aquí: [Habilitación de diagnósticos en Azure Cloud Services ](../cloud-services/cloud-services-dotnet-diagnostics.md). 
 
 ## <a name="retrieve-diagnostics"></a>Recuperar diagnósticos
-Se puede tener acceso fácilmente a los diagnósticos desde el Explorador de servidores de Visual Studio en la parte de Azure del árbol del Explorador de servidores. Abra una instancia de Visual Studio y, en la barra de menú, haga clic en Ver y en Explorador de servidores. Haga clic en el icono de Azure para conectarse a su suscripción a Azure. Luego vaya a Azure -> Almacenamiento -> <your storage account> -> Tablas -> WADLogsTable. Para obtener más información, consulte [Exploración de recursos de almacenamiento con el Explorador de servidores](http://msdn.microsoft.com/library/azure/ff683677.aspx). 
+Se puede tener acceso fácilmente a los diagnósticos desde el Explorador de servidores de Visual Studio en la parte de Azure del árbol del Explorador de servidores. Abra una instancia de Visual Studio y, en la barra de menú, haga clic en Ver y en Explorador de servidores. Haga clic en el icono de Azure para conectarse a su suscripción a Azure. Luego vaya a Azure -> Storage -> <your storage account> -> Tablas -> WADLogsTable. Para obtener más información, consulte [Exploración de recursos de almacenamiento con el Explorador de servidores](http://msdn.microsoft.com/library/azure/ff683677.aspx). 
 
 ![WADLogsTable][2]
 
@@ -187,7 +182,7 @@ WADLogsTable resaltado en la figura anterior contiene los eventos detallados del
 ![Configuración][3]
 
 ## <a name="performance"></a>Rendimiento
-En general, se espera un mejor rendimiento de los niveles de servicio más altos y con mayor rendimiento de Base de datos SQL de Azure. Las asignaciones de memoria, CPU y E/S para los niveles de servicio más altos benefician las operaciones de copia y eliminación masiva que el servicio División y combinación usa. Por ese motivo, aumente el nivel de servicio para esas bases de datos durante un período definido y limitado.
+En general, se espera un mejor rendimiento de los niveles de servicio más altos y con mayor rendimiento de Azure SQL Database. Las asignaciones de memoria, CPU y E/S para los niveles de servicio más altos benefician las operaciones de copia y eliminación masiva que el servicio División y combinación usa. Por ese motivo, aumente el nivel de servicio para esas bases de datos durante un período definido y limitado.
 
 El servicio también realiza consultas de validación como parte de su funcionamiento normal. Estas consultas de validación comprueban la presencia inesperada de datos en el intervalo de destino y se aseguran de que cualquier operación de división/combinación/desplazamiento comience desde un estado coherente. Estas consultas realizando todo el trabajo sobre los intervalos de clave de particionamiento definidos por el ámbito de la operación y el tamaño de lote que se proporcionan como parte de la definición de la solicitud. Estas consultas tienen un mejor rendimiento cuando existe un índice que tiene la clave de particionamiento como la columna inicial. 
 

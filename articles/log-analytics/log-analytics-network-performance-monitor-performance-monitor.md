@@ -1,11 +1,11 @@
 ---
-title: "Característica Monitor de rendimiento en la solución Network Performance Monitor en Azure Log Analytics | Microsoft Docs"
-description: "La función Monitor de rendimiento en Network Performance Monitor le ayuda a supervisar la conectividad de la red en varios puntos de su red, como implementaciones en la nube y ubicaciones locales, varios centros de datos y sucursales y aplicaciones o microservicios multiinquilino críticos."
+title: Característica Monitor de rendimiento en la solución Network Performance Monitor en Azure Log Analytics | Microsoft Docs
+description: La función Monitor de rendimiento en Network Performance Monitor le ayuda a supervisar la conectividad de la red en varios puntos de su red, como implementaciones en la nube y ubicaciones locales, varios centros de datos y sucursales y aplicaciones o microservicios multiinquilino críticos.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: abshamsft
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
 ms.service: log-analytics
 ms.workload: na
@@ -111,7 +111,7 @@ Ahora que se ha familiarizado con el Monitor de rendimiento, veamos una investig
 
 En el panel de la solución, se puede observar que hay un evento de estado: un vínculo de red con un estado incorrecto. Decide investigar el problema y hace clic en el icono **Vínculos de red que se están supervisando**.
 
-En la página de exploración en profundidad, observa que el vínculo de red **DMZ2 DMZ1** está en mal estado. Hace clic en el vínculo **View subnet links**** (Ver los vínculos de subred) para este vínculo de red. 
+En la página de exploración en profundidad, observa que el vínculo de red **DMZ2 DMZ1** está en mal estado. Hace clic en el vínculo **View subnet links** (Ver los vínculos de subred) para este vínculo de red. 
 
 
 En la página de exploración en profundidad se muestran todos los vínculos de subred del vínculo de red **DMZ2-DMZ1**. Observará que, en el caso de ambos vínculos de subred, la latencia ha superado el umbral, lo que ha hecho que el vínculo de red esté incorrecto. También puede ver las tendencias de latencia de ambos vínculos de subred. Puede utilizar la opción para seleccionar el tiempo del gráfico a fin de centrarse en el intervalo de tiempo pertinente. Puede ver la hora del día en la que la latencia ha alcanzado su punto máximo. Después, puede buscar en los registros este periodo para investigar el problema. Haga clic en **Ver vínculos de nodo** para profundizar aún más. 

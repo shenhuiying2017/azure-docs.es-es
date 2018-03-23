@@ -1,26 +1,20 @@
 ---
-title: "Replicación de una aplicación web basada en IIS de capas múltiples con Azure Site Recovery | Microsoft Docs"
-description: "Aprenda cómo replicar las máquinas virtuales de una granja de servidores web de IIS con Azure Site Recovery."
+title: Replicación de una aplicación web basada en IIS de capas múltiples con Azure Site Recovery | Microsoft Docs
+description: Aprenda cómo replicar las máquinas virtuales de una granja de servidores web de IIS con Azure Site Recovery.
 services: site-recovery
-documentationcenter: 
 author: nsoneji
 manager: gauravd
-editor: 
-ms.assetid: 
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 03/05/2018
 ms.author: nisoneji
-ms.openlocfilehash: a4a8ea14fecac73b187c9c7d3f9ca318bb2671c5
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 1ed0184ac76b5fb3e607458559327da5e8fe90c5
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="replicate-a-multi-tier-iis-based-web-application-by-using-site-recovery"></a>Replicación de una aplicación web basada en IIS de capas múltiples con Azure Site Recovery
+# <a name="replicate-a-multi-tier-iis-based-web-application"></a>Replicación de una aplicación web basada en IIS de capas múltiples
 
 El software de las aplicaciones es el motor que mantiene la productividad del negocio. En una organización, puede haber diversas aplicaciones web con diferentes propósitos. Algunas aplicaciones, como las que se usan para el procesamiento de nóminas, aplicaciones financieras y sitios web orientado al cliente, pueden resultar fundamentales para una organización. Para evitar la pérdida de productividad, es importante que la organización tenga estas aplicaciones continuamente en funcionamiento. Más importante aún, tener estas aplicaciones disponibles sistemáticamente puede ayudar a impedir que se perjudique la marca o la imagen de la organización.
 
@@ -36,7 +30,7 @@ En este artículo se describe cómo proteger una aplicación web basada en Inter
 
 Antes de comenzar, asegúrese de que sabe cómo realizar las tareas siguientes:
 
-* [Replicar una máquina virtual en Azure](site-recovery-vmware-to-azure.md)
+* [Replicar una máquina virtual en Azure](vmware-azure-tutorial.md)
 * [Diseñar una red de recuperación](site-recovery-network-design.md)
 * [Realizar una conmutación por error de prueba en Azure](site-recovery-test-failover-to-azure.md)
 * [Realizar una conmutación por error en Azure](site-recovery-failover.md)
@@ -75,7 +69,7 @@ Azure|N/D|Sí
 
 Para iniciar la replicación de todas las máquinas virtuales de la granja de servidores web IIS en Azure, siga las instrucciones de [Conmutación por error de prueba a Azure en Site Recovery](site-recovery-test-failover-to-azure.md).
 
-Si usa una dirección IP estática, puede especificar la dirección IP que quiere que se utilice con la máquina virtual. Para establecer la dirección IP, vaya a la **configuración de proceso y red** > [**IP DE DESTINO**](./site-recovery-replicate-vmware-to-azure.md#view-and-manage-vm-properties).
+Si usa una dirección IP estática, puede especificar la dirección IP que quiere que se utilice con la máquina virtual. Para establecer la dirección IP, vaya a la **configuración de proceso y red** > **IP DE DESTINO**.
 
 ![Captura de pantalla que muestra cómo establecer la dirección IP de destino en el panel de red y proceso de Site Recovery](./media/site-recovery-active-directory/dns-target-ip.png)
 
@@ -164,5 +158,5 @@ Para más información, consulte [Conmutación por error de prueba a Azure en Si
 
 Para más información, consulte [Conmutación por error en Site Recovery](site-recovery-failover.md).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Aprenda más sobre la [replicación de otras aplicaciones](site-recovery-workload.md) mediante Site Recovery.

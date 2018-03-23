@@ -1,35 +1,29 @@
 ---
-title: "Instalación de trabajos de base de datos elástica | Microsoft Docs"
-description: "Pasos de instalación de la característica de trabajo elástico."
+title: Instalación de trabajos de base de datos elástica | Microsoft Docs
+description: Pasos de instalación de la característica de trabajo elástico.
 services: sql-database
-documentationcenter: 
-manager: jhubbard
+manager: craigg
 author: ddove
-editor: 
-ms.assetid: cbe0aa2b-17e3-4b6f-a16f-6ebc1f5a66af
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
-ms.author: ddove
-ms.openlocfilehash: ef5a8931eeda0f7ddc485632acaf2d76b71dccde
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.author: sstein
+ms.openlocfilehash: 7e5258e0ccb88c8e2f3fe3277f69444ae5424cd0
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Información general sobre la instalación de trabajos de Elastic Database
 Los [**trabajos de Elastic Database**](sql-database-elastic-jobs-overview.md) se pueden instalar a través de PowerShell o del Azure Portal. Obtendrá acceso para crear y administrar trabajos mediante la API de PowerShell solo si instala el paquete de PowerShell. Además, en este momento, las API de PowerShell proporcionan mucha más funcionalidad que el portal en este momento.
 
 Si ya instaló los **trabajos de Elastic Database** a través del Portal a partir de un **grupo elástico** existente, la última versión preliminar de PowerShell incluye scripts para actualizar la instalación existente. Es muy recomendable actualizar la instalación a los componentes más recientes de los **trabajos de Elastic Database** para aprovechar la nueva funcionalidad expuesta a través de las API de PowerShell.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 * Una suscripción de Azure. Para obtener una versión de evaluación gratuita, consulte [Versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Azure PowerShell. Instale la versión más reciente mediante el [Instalador de plataforma web](http://go.microsoft.com/fwlink/p/?linkid=320376). Para obtener información detallada, vea [Instalación y configuración de Azure PowerShell](/powershell/azure/overview).
-* [utilidad de línea de comandos NuGet](https://nuget.org/nuget.exe) sirve para instalar el paquete de trabajos de Elastic Database. Para obtener más información, consulte http://docs.nuget.org/docs/start-here/installing-nuget.
+* [utilidad de línea de comandos NuGet](https://nuget.org/nuget.exe) sirve para instalar el paquete de trabajos de Elastic Database. Para más información, consulte http://docs.nuget.org/docs/start-here/installing-nuget.
 
 ## <a name="download-and-import-the-elastic-database-jobs-powershell-package"></a>Descarga e importación del paquete de PowerShell de trabajos de Elastic Database
 1. Inicie la ventana de comandos de Microsoft Azure PowerShell y navegue al directorio donde descargó la utilidad de línea de comandos NuGet (nuget.exe).
@@ -63,8 +57,8 @@ Los parámetros proporcionados en esta invocación de ejemplo pueden modificarse
 
 <table style="width:100%">
   <tr>
-    <th>Parámetro</th>
-    <th>Description</th>
+    <th>.</th>
+    <th>DESCRIPCIÓN</th>
   </tr>
 
 <tr>
@@ -124,8 +118,8 @@ Para actualizar el tamaño de máquina virtual de una instalación, ejecute el s
 
 <table style="width:100%">
   <tr>
-  <th>Parámetro</th>
-  <th>Description</th>
+  <th>.</th>
+  <th>DESCRIPCIÓN</th>
 </tr>
 
   <tr>

@@ -1,11 +1,11 @@
 ---
-title: "Consideraciones de planeación de capacidad del clúster de Service Fabric | Microsoft Docs"
-description: "Consideraciones de planeación de capacidad del clúster de Service Fabric Tipos de nodos, operaciones, durabilidad y niveles de confiabilidad"
+title: Consideraciones de planeación de capacidad del clúster de Service Fabric | Microsoft Docs
+description: Consideraciones de planeación de capacidad del clúster de Service Fabric Tipos de nodos, operaciones, durabilidad y niveles de confiabilidad
 services: service-fabric
 documentationcenter: .net
 author: ChackDan
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 4c584f4a-cb1f-400c-b61f-1f797f11c982
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2018
 ms.author: chackdan
-ms.openlocfilehash: 8e2fceaf7e8a0d6c177d3122bd07de5b8c11f295
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: ad5f396cd71eb0136fe683bbccb9360291be2d59
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Consideraciones de planeación de capacidad del clúster de Service Fabric
 En cualquier implementación de producción, la planeación de capacidad es un paso importante. Estos son algunos de los elementos que se deben tener en cuenta como parte de ese proceso.
@@ -88,10 +88,11 @@ Puede elegir el nivel de durabilidad de todos los tipos de nodos. Puede elegir q
  
 1. Las implementaciones tanto en el conjunto de escalado de máquinas virtuales como en otros recursos de Azure relacionados se pueden retrasar, pueden agotar el tiempo de espera o se pueden bloquear completamente por problemas en el clúster o en el nivel de infraestructura. 
 2. Aumenta el número de [eventos de los ciclos de vida de las réplicas](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle ) (p. ej. intercambios principales) debidos a las desactivaciones automáticas de nodos durante las operaciones en la infraestructura de Azure.
+3. Deja los nodos fuera de servicio durante los períodos de tiempo en los que tienen lugar las actualizaciones de software de la plataforma de Azure o las actividades de mantenimiento de hardware. Durante estas actividades, puede ver los nodos con un estado que indica que se están deshabilitando o que están deshabilitados. Esto reduce la capacidad del clúster temporalmente, pero no debería afectar a la disponibilidad de dicho clúster o de las aplicaciones.
 
 ### <a name="recommendations-on-when-to-use-silver-or-gold-durability-levels"></a>Recomendaciones acerca de cuándo usar los niveles de durabilidad Silver o Gold
 
-Utilice las durabilidades Silver o Gold para todos los tipos de nodo que hospedan servicios con estado que espera reducir horizontalmente (reducir el número de instancias de máquina virtual) con frecuencia, y prefiere que las operaciones de implementación se retrasen en favor de la simplificación de estas operaciones de reducción horizontal. Los escenarios de escalabilidad horizontal (adición de instancias de máquinas virtuales) no se tienen en cuenta al elegir el nivel de durabilidad, solo se tiene en cuenta la reducción horizontal.
+Utilice las durabilidades Silver o Gold para todos los tipos de nodo que hospedan servicios con estado que espera reducir horizontalmente (reducir el número de instancias de máquina virtual) con frecuencia, y preferiría que las operaciones de implementación se retrasasen y la capacidad se redujera en favor de la simplificación de estas operaciones de reducción horizontal. Los escenarios de escalabilidad horizontal (adición de instancias de máquinas virtuales) no se tienen en cuenta al elegir el nivel de durabilidad, solo se tiene en cuenta la reducción horizontal.
 
 ### <a name="changing-durability-levels"></a>Cambio de los niveles de durabilidad
 - Los tipos de nodo con niveles de durabilidad plata u oro no se pueden cambiar a bronce.
@@ -107,7 +108,7 @@ Utilice las durabilidades Silver o Gold para todos los tipos de nodo que hospeda
 
 
 > [!WARNING]
-> No se recomienda cambiar el tamaño de la SKU de VM en los conjuntos de escalado de máquinas virtuales de Microsoft Azure que no ejecutan, como mínimo, la durabilidad Silver. Modificar el tamaño de la SKU de VM constituye una operación de infraestructura local de destrucción de datos. Sin la posibilidad de retrasar o supervisar este cambio, es posible que la operación pueda provocar una pérdida de datos en los servicios con estado, o bien causar otros problemas de funcionamiento imprevistos, incluso en las cargas de trabajo sin estado. 
+> No se recomienda cambiar el tamaño de la SKU de máquina virtual en los conjuntos de escalado de máquinas virtuales que no ejecutan, como mínimo, la durabilidad Silver. Modificar el tamaño de la SKU de VM constituye una operación de infraestructura local de destrucción de datos. Sin la posibilidad de retrasar o supervisar este cambio, es posible que la operación pueda provocar una pérdida de datos en los servicios con estado, o bien causar otros problemas de funcionamiento imprevistos, incluso en las cargas de trabajo sin estado. 
 > 
     
 3. Mantenga un mínimo de cinco nodos en todos los conjuntos de escalado de máquinas virtuales que tiene los niveles de durabilidad Gold o Silver habilitados
@@ -214,7 +215,7 @@ Para cargas de trabajo de producción
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Después de finalizar la planeación de capacidad y configurar un clúster, puede consultar lo siguiente:
 
 * [Seguridad de los clústeres de Service Fabric](service-fabric-cluster-security.md)

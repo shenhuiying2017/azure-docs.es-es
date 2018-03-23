@@ -1,6 +1,6 @@
 ---
 title: Recursos, API y SDK para los procesadores de fuente de cambios .NET para Azure Cosmos DB | Microsoft Docs
-description: "Aprenda todo lo necesario sobre el SDK y la API para los procesadores de fuente de cambios como, por ejemplo, fechas de lanzamiento, fechas de retirada y cambios realizados de una versión a otra del SDK para los procesadores de fuente de cambios de .NET."
+description: Aprenda todo lo necesario sobre el SDK y la API para los procesadores de fuente de cambios como, por ejemplo, fechas de lanzamiento, fechas de retirada y cambios realizados de una versión a otra del SDK para los procesadores de fuente de cambios de .NET.
 services: cosmos-db
 documentationcenter: .net
 author: ealsur
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 03/07/2018
 ms.author: maquaran
-ms.openlocfilehash: 962ad3aca82e34fa22da925a274a1e82e2086e03
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 7e53cf67bc6e03a5f45de5ad4e23ff91624874f4
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>SDK para los procesadores de fuente de cambios de .NET: descarga y notas de la versión
 > [!div class="op_single_selector"]
@@ -39,10 +39,15 @@ ms.lasthandoff: 03/02/2018
 |---|---|
 |**Descarga del SDK**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
 |**Documentación de la API**|[Documentación de referencia de la API de biblioteca de procesadores de fuente de cambios](/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet)|
-|**Primeros pasos**|[Primeros pasos con el SDL para los procesadores de fuente de cambios de .NET](change-feed.md)|
+|**Introducción**|[Primeros pasos con el SDL para los procesadores de fuente de cambios de .NET](change-feed.md)|
 |**Plataforma admitida actualmente**| [Microsoft .NET 4.5 Framework](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 
 ## <a name="release-notes"></a>Notas de la versión
+
+### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
+* Mejoras de estabilidad.
+* Compatibilidad con puntos de control manuales.
+* Compatible con el [SDK de .NET para SQL](sql-api-sdk-dotnet.md), versiones 1.21 y posteriores.
 
 ### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
 * Agrega compatibilidad con .NET Standard 2.0. El paquete admite ahora los monikers de plataforma `netstandard2.0` y `net451`.
@@ -72,6 +77,7 @@ El servicio rechazará cualquier solicitud realizada a Cosmos DB mediante un SDK
 
 | Versión | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
+| [1.3.0](#1.3.0) |7 de marzo de 2018 |--- |
 | [1.2.0](#1.2.0) |31 de octubre de 2017 |--- |
 | [1.1.1](#1.1.1) |29 de agosto de 2017 |--- |
 | [1.1.0](#1.1.0) |13 de agosto de 2017 |--- |

@@ -2,10 +2,10 @@
 title: Vigencia de tokens configurable en Azure Active Directory | Microsoft Docs
 description: Aprenda a establecer la vigencia de los tokens emitidos por Azure AD.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 06f5b317-053e-44c3-aaaa-cf07d8692735
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 07/20/2017
 ms.author: billmath
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: eaf9e7088c8c88140ea690c13ff7e0c7026b8f86
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 568bf5f0a4cf3eb77b528af2550d9729dcc59878
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Vigencia de tokens configurables de Azure Active Directory (versión preliminar pública)
 Puede especificar la vigencia de un token emitido por Azure Active Directory (Azure AD). La vigencia de los tokens se puede configurar para todas las aplicaciones de una organización, para una aplicación multiinquilino (multiorganización) o para una entidad de servicio específica de una organización.
@@ -34,6 +34,11 @@ En Azure AD, un objeto de directiva representa un conjunto de reglas que se exig
 
 Puede designar una directiva como la directiva predeterminada para su organización. La directiva se aplicará a cualquier aplicación que resida dentro de esa organización, siempre y cuando no se haya reemplazado por una directiva con una prioridad más alta. También puede asignar una directiva a aplicaciones específicas. El orden de prioridad varía según el tipo de directiva.
 
+> [!NOTE]
+> La directiva de duración del token configurable no es compatible con SharePoint Online.  Incluso si tiene la capacidad de crear esta directiva a través de PowerShell, SharePoint Online no reconocerá esta directiva. Consulte el [blog de SharePoint Online](https://techcommunity.microsoft.com/t5/SharePoint-Blog/Introducing-Idle-Session-Timeout-in-SharePoint-and-OneDrive/ba-p/119208) para más información sobre cómo configurar los tiempos de expiración de sesiones inactivas.
+>* La duración predeterminada para el token de acceso de SharePoint Online es de 1 hora. 
+>* El tiempo de inactividad máximo predeterminado del token de actualización de SharePoint Online es de 90 días.
+>
 
 ## <a name="token-types"></a>Tipos de token
 

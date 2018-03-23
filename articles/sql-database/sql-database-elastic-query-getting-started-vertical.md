@@ -1,33 +1,28 @@
 ---
-title: "Introducción a las consultas entre bases de datos (particiones verticales) | Microsoft Docs"
-description: "cómo usar la consulta de base de datos elástica con bases de datos con particiones verticales"
+title: Introducción a las consultas entre bases de datos (particiones verticales) | Microsoft Docs
+description: cómo usar la consulta de base de datos elástica con bases de datos con particiones verticales
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: torsteng
-ms.assetid: e5b44b10-c432-4f96-b20e-08615ff4d5dd
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2016
-ms.author: torsteng
-ms.openlocfilehash: ca715c0ef41ccb4aed2924898d7729bed659b0ca
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.author: sstein
+ms.openlocfilehash: 0731ddfea83d287c88118cf4b48e86427d8f520f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-cross-database-queries-vertical-partitioning-preview"></a>Introducción a las consultas entre bases de datos (particiones verticales) (versión preliminar)
-La consulta de base de datos elástica (vista previa) para Base de datos SQL de Azure le permite ejecutar consultas T-SQL que distribuyen varias bases de datos con un único punto de conexión. Este tema se aplica a [bases de datos con particiones verticales](sql-database-elastic-query-vertical-partitioning.md).  
+La consulta de base de datos elástica (vista previa) para Azure SQL Database le permite ejecutar consultas T-SQL que distribuyen varias bases de datos con un único punto de conexión. Este tema se aplica a [bases de datos con particiones verticales](sql-database-elastic-query-vertical-partitioning.md).  
 
-Una vez completado, sabrá: cómo configurar y usar una Base de datos SQL de Azure para realizar consultas que distribuyan múltiples bases de datos relacionadas. 
+Una vez completado, sabrá: cómo configurar y usar una instancia de Azure SQL Database para realizar consultas que distribuyan múltiples bases de datos relacionadas. 
 
 Para más información sobre la característica de consulta de bases de datos elásticas, vaya a [Información general sobre la consulta de bases de datos elásticas de Azure SQL Database](sql-database-elastic-query-overview.md). 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Se debe poseer el permiso ALTER ANY EXTERNAL DATA SOURCE. Este permiso está incluido en el permiso ALTER DATABASE. Se necesitan permisos ALTER ANY EXTERNAL DATA SOURCE para hacer referencia al origen de datos subyacente.
 
@@ -100,9 +95,9 @@ Una vez que haya definido su origen de datos externo y las tablas externas, pued
     ON CustomerInformation.CustomerID = OrderInformation.CustomerID 
 
 ## <a name="cost"></a>Coste
-En la actualidad, la característica de consulta de base de datos elástica se incluye en el coste de la base de datos SQL de Azure.  
+En la actualidad, la característica de consulta de base de datos elástica se incluye en el costo de Azure SQL Database.  
 
-Para obtener información de precios, vea [Precio de Base de datos SQL](https://azure.microsoft.com/pricing/details/sql-database). 
+Para obtener información de precios, vea [Precios de SQL Database](https://azure.microsoft.com/pricing/details/sql-database). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

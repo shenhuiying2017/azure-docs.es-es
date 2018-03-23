@@ -1,25 +1,25 @@
 ---
 title: Azure Active Directory para desarrolladores | Microsoft Docs
-description: "Una lista de todas las guías y artículos de referencia de la guía del desarrollador de Azure Active Directory."
+description: Una lista de todas las guías y artículos de referencia de la guía del desarrollador de Azure Active Directory.
 services: active-directory
 documentationcenter: dev-center-name
 author: bryanla
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 5c872c89-ef04-4f4c-98de-bc0c7460c7c2
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/19/2017
+ms.date: 03/08/2018
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: b6190f64633034bb5fc28a1caf7ffa6c09215ef1
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ccad1f12e4f99074763f116596b4467e822d9f35
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="articles-in-the-azure-ad-developer-guide"></a>Artículos de la guía del desarrollador de Azure AD
 A continuación se muestra una lista de todos los temas que se tratan en la guía del desarrollador de Azure Active Directory.
@@ -37,12 +37,13 @@ En estos artículos se describen conceptos y características específicos de Az
 | [SSO para dispositivos móviles y de escritorio](active-directory-sso-android.md)                                                                         | Cómo hacer que el inicio de sesión único funcione en aplicaciones nativas |
 | [Azure AD B2B](../active-directory-b2b-what-is-azure-ad-b2b.md)                                                                 | Cómo invitar a usuarios externos al inquilino de Azure AD |
 | [Aprovisionamiento de usuarios con SCIM 2.0](../active-directory-scim-provisioning.md)                                                     | Cómo usar el protocolo SCIM para sincronizar usuarios desde inquilinos de Azure AD |
-| [API Graph de Azure AD](active-directory-graph-api.md)                                                                             | Cómo consultar el usuario, el grupo y otros datos mediante las API de REST de Microsoft |
+| [Graph API de Azure AD](active-directory-graph-api.md)                                                                             | Cómo consultar el usuario, el grupo y otros datos mediante las API de REST de Microsoft |
 | [Certificación de AppSource](active-directory-devhowto-appsource-certified.md)                                                     | Cómo publicar una aplicación en Microsoft AppSource |
 | [Galería de aplicaciones de Azure AD](active-directory-app-gallery-listing.md)                                                                 |Cómo publicar una aplicación en la galería de aplicaciones de Azure AD|
 | [Panel de vendedores de Office 365](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)               | Cómo publicar una aplicación en el panel de vendedores de O365 |
 | [Servicios conectados de Visual Studio](vs-active-directory-dotnet-getting-started.md)                                               | Cómo usar la integración de Azure AD con proyectos de MVC en Visual Studio |
 | [Windows Server ADFS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers) | Cómo integrarse con la implementación local de Active Directory mediante ADFS |
+| [Procedimientos recomendados para el control de errores de ADAL](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-adal-error-handling) | Cómo crear el control de errores resistente y habilitar el registro |
 
 ## <a name="reference"></a>Referencia
 Estos artículos proporcionan información básica sobre las API de REST y de la biblioteca de autenticación, los protocolos, los errores, los ejemplos de código y los puntos de conexión.

@@ -1,18 +1,18 @@
 ---
-title: "Reprotección de máquina virtuales de Azure conmutadas por recuperación en la región principal de Azure con Azure Site Recovery | Microsoft Docs"
-description: "Se describe cómo reproteger las máquinas virtuales de Azure en una región secundaria, después de la conmutación por error desde una región principal, con Azure Site Recovery."
+title: Reprotección de máquina virtuales de Azure conmutadas por recuperación en la región principal de Azure con Azure Site Recovery | Microsoft Docs
+description: Se describe cómo reproteger las máquinas virtuales de Azure en una región secundaria, después de la conmutación por error desde una región principal, con Azure Site Recovery.
 services: site-recovery
 author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 03/05/2018
 ms.author: rajanaki
-ms.openlocfilehash: d24376c57c468a562fc6d6dd52b4e9b01b53c3da
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 47056c85c6cb66a7fa28d623a4472b827d970dab
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Reprotección de máquinas virtuales de Azure conmutadas por error en la región principal
 
@@ -25,11 +25,11 @@ ms.lasthandoff: 02/13/2018
 
 Al [conmutar por error](site-recovery-failover.md) las máquinas virtuales de Azure desde una región a otra con [Azure Site Recovery](site-recovery-overview.md), las máquinas virtuales se inician en la región secundaria, con un estado desprotegido. Si conmuta por recuperación las máquinas virtuales en la región principal, necesita hacer lo siguiente:
 
-- Vuelva a proteger las máquinas virtuales en la región secundaria, para que empiecen a replicarse en la región principal. 
+- Vuelva a proteger las máquinas virtuales en la región secundaria, para que empiecen a replicarse en la región primaria. 
 - Una vez completada la reprotección y después de que las máquinas virtuales se estén replicando, puede realizar una conmutación por error de ellas desde la región secundaria a la principal.
 
 > [!WARNING]
-> Si [migró](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration) las máquinas de la región principal a la secundaria, movió la máquina virtual a otro grupo de recursos o eliminó la máquina virtual de Azure, puede reproteger la máquina virtual o realizar una conmutación por recuperación de ella.
+> Si [migró](migrate-overview.md#what-do-we-mean-by-migration) las máquinas de la región principal a la secundaria, movió la máquina virtual a otro grupo de recursos o eliminó la máquina virtual de Azure, puede reproteger la máquina virtual o realizar una conmutación por recuperación de ella.
 
 
 ## <a name="prerequisites"></a>requisitos previos
@@ -81,7 +81,7 @@ Cuando se desencadena un trabajo de reprotección y la máquina virtual de desti
 7. Una vez que finaliza el trabajo de reprotección, comienza la replicación diferencial y se crea un punto de recuperación según la directiva de replicación.
 8. Si el trabajo de reprotección se completa satisfactoriamente, la máquina virtual adopta un estado protegido.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Una vez protegida la máquina virtual, se puede iniciar una conmutación por error. La conmutación por error apaga la máquina virtual en la región secundaria y se crea y arranca la máquina virtual en la región principal, con un breve tiempo de inactividad. Se recomienda elegir una hora según corresponda y ejecutar una prueba de conmutación por error, pero iniciar una conmutación por error completa al sitio principal. [Más información](site-recovery-failover.md) sobre la conmutación por error
 

@@ -1,26 +1,20 @@
 ---
-title: "Conexión de Excel a SQL Database | Microsoft Docs"
-description: "Más información acerca de cómo conectar Microsoft Excel a Base de datos SQL de Azure en la nube. Importación de datos en Excel para la generación de informes y la exploración de datos."
+title: Conexión de Excel a SQL Database | Microsoft Docs
+description: Más información acerca de cómo conectar Microsoft Excel a Base de datos SQL de Azure en la nube. Importación de datos en Excel para la generación de informes y la exploración de datos.
 services: sql-database
 keywords: conectar excel a sql, importar datos en excel
-documentationcenter: 
 author: joseidz
 manager: jhubbard
-editor: 
-ms.assetid: 906924bc-2707-48d3-bac6-397976a0409d
 ms.service: sql-database
 ms.custom: develop apps
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2017
-ms.author: jhubbard
-ms.openlocfilehash: 34ff5c479cfcf1e861a82205eef93dfee01cb4a2
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.author: craigg
+ms.openlocfilehash: 64896e87bf049c3ccd58f060ac27f35787d4ce4a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="connect-excel-to-an-azure-sql-database-and-create-a-report"></a>Conexión de Excel a una Base de datos SQL de Azure y creación de un informe
 
@@ -43,7 +37,7 @@ También necesitará una copia de Excel. Este artículo usa [Microsoft Excel 201
    ![Especificación de las credenciales del nombre del servidor y de inicio de sesión](./media/sql-database-connect-excel/connect-to-server.png)
    
    > [!TIP]
-   > Dependiendo de su entorno de red, es posible que no pueda conectarse o que pierda la conexión si el servidor de Base de datos SQL no permite el tráfico de la dirección IP del cliente. Vaya al [Portal de Azure](https://portal.azure.com/), haga clic en Servidores SQL Server, haga clic en su servidor, haga clic en Firewall en Configuración y agregue la dirección IP de cliente. Consulte [Configuración del firewall](sql-database-configure-firewall-settings.md) para obtener más detalles.
+   > Dependiendo de su entorno de red, es posible que no pueda conectarse o que pierda la conexión si el servidor de SQL Database no permite el tráfico de la dirección IP del cliente. Vaya al [Portal de Azure](https://portal.azure.com/), haga clic en Servidores SQL Server, haga clic en su servidor, haga clic en Firewall en Configuración y agregue la dirección IP de cliente. Consulte [Configuración del firewall](sql-database-configure-firewall-settings.md) para obtener más detalles.
    > 
    > 
 5. En el cuadro de diálogo **Seleccionar base de datos y tabla**, seleccione en la lista la base de datos con la que desea trabajar y, después, haga clic en las tablas o vistas con las que desea trabajar (hemos elegido **vGetAllCategories**) y, finalmente, haga clic en **Siguiente**.
@@ -76,7 +70,7 @@ Ahora que ha establecido la conexión y ha creado el archivo con la información
 > 
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Consulte [Conexión a la Base de datos SQL con SQL Server Management Studio y realización de una consulta de T-SQL de ejemplo](sql-database-connect-query-ssms.md) para obtener más información sobre consultas y análisis avanzados.
+* Consulte [Conexión a la SQL Database con SQL Server Management Studio y realización de una consulta de T-SQL de ejemplo](sql-database-connect-query-ssms.md) para obtener más información sobre consultas y análisis avanzados.
 * Más información sobre las ventajas de los [grupos elásticos](sql-database-elastic-pool.md).
-* Más información en [Crear una aplicación ASP.NET MVC con la autenticación y Base de datos SQL e implementar al Servicio de aplicaciones de Azure](../app-service/app-service-web-tutorial-dotnet-sqldatabase.md).
+* Más información en [Crear una aplicación ASP.NET MVC con la autenticación y SQL Database e implementar al Servicio de aplicaciones de Azure](../app-service/app-service-web-tutorial-dotnet-sqldatabase.md).
 

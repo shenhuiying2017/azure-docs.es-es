@@ -1,28 +1,28 @@
 ---
 title: Identidad de servicio administrada en App Service y Azure Functions | Microsoft Docs
-description: "Guía de configuración y referencia conceptual para la compatibilidad de la identidad de servicio administrada en Azure App Service y Azure Functions"
+description: Guía de configuración y referencia conceptual para la compatibilidad de la identidad de servicio administrada en Azure App Service y Azure Functions
 services: app-service
 author: mattchenderson
 manager: cfowler
-editor: 
+editor: ''
 ms.service: app-service
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 09/13/2017
 ms.author: mahender
-ms.openlocfilehash: 736a82d282e5769fb403c66ffd5d44107c6d3218
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 09e848abaf09811ff3f2b8ad009cd23dedb6645d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>Uso de la identidad del servicio administrada (versión preliminar pública) en App Service y Azure Functions
 
 > [!NOTE] 
 > La identidad de servicio administrada para App Service y Azure Functions se encuentra actualmente en versión preliminar.
 
-En este tema se muestra cómo crear una identidad de aplicación administrada para las aplicaciones de App Service y Azure Functions y cómo usarla para tener acceso a otros recursos. Una identidad de servicio administrada de Azure Active Directory permite a la aplicación tener acceso fácilmente a otros recursos protegidos de AAD, como Azure Key Vault. La identidad está administrada por la plataforma Azure y no requiere que aprovisione o rote los secretos. Para obtener más información acerca de la identidad de servicio administrada, vea [Managed Service Identity (MSI) for Azure resources ](../active-directory/msi-overview.md) (Identidad de servicio administrada para recursos de Azure).
+En este tema se muestra cómo crear una identidad de aplicación administrada para las aplicaciones de App Service y Azure Functions y cómo usarla para tener acceso a otros recursos. Una identidad de servicio administrada de Azure Active Directory permite a la aplicación tener acceso fácilmente a otros recursos protegidos de AAD, como Azure Key Vault. La identidad está administrada por la plataforma Azure y no requiere que aprovisione o rote los secretos. Para obtener más información acerca de la identidad de servicio administrada, vea [Managed Service Identity (MSI) for Azure resources ](../active-directory/managed-service-identity/overview.md) (Identidad de servicio administrada para recursos de Azure).
 
 ## <a name="creating-an-app-with-an-identity"></a>Creación de una aplicación con una identidad
 
@@ -126,7 +126,7 @@ Donde `<TENANTID>` y `<PRINCIPALID>` se reemplazan por GUID. La propiedad tenant
 Una aplicación puede utilizar su identidad para obtener tokens para otros recursos protegidos por AAD, como Azure Key Vault. Estos tokens representan a la aplicación que accede al recurso, y no a un usuario específico de la aplicación. 
 
 > [!IMPORTANT]
-> Es posible que tenga que configurar el recurso de destino para permitir el acceso desde la aplicación. Por ejemplo, si se solicita un token a Key Vault, debe asegurarse de que ha agregado una directiva de acceso que incluya la identidad de la aplicación. De lo contrario, las llamadas a Key Vault se rechazarán, incluso si incluyen el token. Para obtener más información acerca de los recursos que admiten tokens de la identidad de servicio administrada, consulte [Azure services that support Azure AD authentication](../active-directory/pp/msi-overview.md#which-azure-services-support-managed-service-identity) (Servicios de Azure que admiten la autenticación de Azure AD).
+> Es posible que tenga que configurar el recurso de destino para permitir el acceso desde la aplicación. Por ejemplo, si se solicita un token a Key Vault, debe asegurarse de que ha agregado una directiva de acceso que incluya la identidad de la aplicación. De lo contrario, las llamadas a Key Vault se rechazarán, incluso si incluyen el token. Para obtener más información acerca de los recursos que admiten tokens de la identidad de servicio administrada, consulte [Azure services that support Azure AD authentication](../active-directory/managed-service-identity/overview.md#which-azure-services-support-managed-service-identity) (Servicios de Azure que admiten la autenticación de Azure AD).
 
 Hay un protocolo de REST sencillo para obtener un token en App Service y Azure Functions. Para las aplicaciones de .NET, la biblioteca Microsoft.Azure.Services.AppAuthentication proporciona una abstracción sobre este protocolo y admite una experiencia de desarrollo local.
 

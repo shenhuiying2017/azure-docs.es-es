@@ -1,9 +1,9 @@
 ---
-title: "Hue con Hadoop en clústeres de HDInsight basados en Linux : Azure | Microsoft Docs"
-description: "Aprenda a instalar Hue en clústeres de HDInsight Linux y a usar tunelización para enrutar las solicitudes a Hue. Use Hue para examinar el almacenamiento y ejecutar Pig o Hive."
+title: 'Hue con Hadoop en clústeres de HDInsight basados en Linux : Azure | Microsoft Docs'
+description: Aprenda a instalar Hue en clústeres de HDInsight Linux y a usar tunelización para enrutar las solicitudes a Hue. Use Hue para examinar el almacenamiento y ejecutar Pig o Hive.
 keywords: matiz hadoop
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 12/11/2017
 ms.author: nitinme
 ms.openlocfilehash: 5cef5e72af8a8b7c007b688b029f875e89d163ae
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>Instalación y uso de Hue en clústeres de Hadoop para HDInsight
 
@@ -40,15 +40,15 @@ Hue es un conjunto de aplicaciones web que se usan para interactuar con un clús
 * Explorador web
 
 > [!WARNING]
-> Los componentes proporcionados con HDInsight son totalmente compatibles. Además, el soporte técnico de Microsoft le ayudará a aislar y resolver problemas relacionados con estos componentes.
+> Los componentes ofrecidos con HDInsight son totalmente compatibles. Además, el soporte técnico de Microsoft le ayudará a aislar y resolver problemas relacionados con estos componentes.
 >
-> Los componentes personalizados reciben soporte técnico comercialmente razonable para ayudarle a solucionar el problema. Esto podría resolver el problema o pedirle que forme parte de los canales disponibles para las tecnologías de código abierto donde se encuentra la más amplia experiencia para esa tecnología. Por ejemplo, hay diversos sitios de la comunidad que se pueden usar, como el [foro de MSDN para HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Los proyectos de Apache también tienen sitios de proyecto en [http://apache.org](http://apache.org) (por ejemplo, [Hadoop](http://hadoop.apache.org/)).
+> Los componentes personalizados reciben soporte técnico comercialmente razonable para ayudarle a solucionar el problema. Esto podría resolver el problema o pedirle que forme parte de los canales disponibles para las tecnologías de código abierto donde se encuentra la más amplia experiencia para esa tecnología. Por ejemplo, hay diversos sitios de la comunidad que se pueden usar, como el [foro de MSDN para HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Los proyectos de Apache también tienen sitios de proyecto en [http://apache.org](http://apache.org), por ejemplo: [Hadoop](http://hadoop.apache.org/).
 >
 >
 
 ## <a name="install-hue-using-script-actions"></a>Instalación de Hue mediante acciones de script
 
-El script para instalar Hue en un clúster de HDInsight basado en Linux se encuentra disponible en https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh. Puede usar este script para instalar Hue en clústeres con Azure Storage Blob (WASB) o Azure Data Lake Store como almacenamiento predeterminado.
+El script para instalar Hue en un clúster de HDInsight basado en Linux está disponible en https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh. Puede usar este script para instalar Hue en clústeres con Azure Storage Blob (WASB) o Azure Data Lake Store como almacenamiento predeterminado.
 
 En esta sección se proporcionan instrucciones sobre cómo usar el script durante el aprovisionamiento del clúster mediante Azure Portal.
 

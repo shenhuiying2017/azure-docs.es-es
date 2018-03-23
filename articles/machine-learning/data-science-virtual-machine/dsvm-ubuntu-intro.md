@@ -1,8 +1,8 @@
 ---
 title: Aprovisionamiento de Data Science Virtual Machine para Linux (Ubuntu) en Azure | Microsoft Docs
-description: "Configure y cree una instancia de Data Science Virtual Machine para Linux (Ubuntu) en Azure para realizar análisis y aprendizaje automático."
+description: Configure y cree una instancia de Data Science Virtual Machine para Linux (Ubuntu) en Azure para realizar análisis y aprendizaje automático.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2017
+ms.date: 03/16/2018
 ms.author: bradsev
-ms.openlocfilehash: 557eab702175b1741cdcde62045947f2c031fbcc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 721b18845a3b839d59c7eb0a04646635fa8d9fe7
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Aprovisionamiento de Data Science Virtual Machine para Linux (Ubuntu)
 
@@ -54,7 +54,7 @@ Data Science Virtual Machine para Linux también contiene herramientas conocidas
   * [Rattle](http://rattle.togaware.com/): herramienta gráfica que facilita comenzar a trabajar con análisis de datos y aprendizaje automático
   * [LightGBM](https://github.com/Microsoft/LightGBM): entorno de potenciación de gradientes rápido, distribuido y de alto rendimiento
 * Azure SDK en Java, Python, node.js, Ruby, PHP
-* Bibliotecas en R y Python para usarlas en Aprendizaje automático de Azure y en otros servicios de Azure
+* Bibliotecas en R y Python para usarlas en Azure Machine Learning y en otros servicios de Azure
 * Editores y herramientas de desarrollo (RStudio, PyCharm, IntelliJ, Emacs, vim)
 
 
@@ -73,7 +73,7 @@ No hay ningún cargo de software para esta imagen de VM de ciencia de datos. Sol
 ## <a name="other-versions-of-the-data-science-virtual-machine"></a>Otras versiones de Data Science Virtual Machine
 También hay una imagen de [CentOS](linux-dsvm-intro.md) disponible, con la mayoría de las mismas herramientas que la imagen de Ubuntu. También hay una imagen de [Windows](provision-vm.md) disponible.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Antes de que pueda crear una instancia de Data Science Virtual Machine para Linux, debe tener una suscripción a Azure. Para obtener una, consulte [Obtención de una evaluación gratuita de Azure](https://azure.microsoft.com/free/).
 
 ## <a name="create-your-data-science-virtual-machine-for-linux"></a>Creación de la instancia de Data Science Virtual Machine para Linux
@@ -212,10 +212,10 @@ Python 3.5 se instalará en */anaconda/envs/py35/bin*.
 
 Después, para invocar la sesión interactiva de Python, escriba **python** en el shell. Si se encuentra en una interfaz gráfica o tiene la configuración de reenvío de X11, puede escribir **pycharm** para iniciar el IDE de PyCharm Python.
 
-Para instalar bibliotecas adicionales de Python, debe ejecutar el comando ```conda``` o ````pip```` en sudo y proporcionar la ruta de acceso completa del administrador de paquetes de Python (conda o pip) para instalar en el entorno correcto de Python. Por ejemplo:
+Para instalar bibliotecas adicionales de Python, debe ejecutar el comando ```conda``` o ````pip```` en sudo y proporcionar la ruta de acceso completa del administrador de paquetes de Python (conda o pip) para instalar en el entorno correcto de Python. Por ejemplo: 
 
-    sudo /anaconda/bin/pip install <package> #for Python 2.7 environment
-    sudo /anaconda/envs/py35/bin/pip install <package> # for Python 3.5 environment
+    sudo /anaconda/bin/pip install -n <package> #for Python 2.7 environment
+    sudo /anaconda/envs/py35/bin/pip install -n <package> # for Python 3.5 environment
 
 
 ### <a name="jupyter-notebook"></a>Jupyter Notebook
@@ -302,7 +302,7 @@ Hay bibliotecas disponibles en Python y en R para acceder a bases de datos.
 En la VM se instalan las siguientes herramientas de Azure:
 
 * **Interfaz de la línea de comandos de Azure**: la CLI de Azure permite crear y administrar recursos de Azure mediante comandos de shell. Para invocar las herramientas de Azure, escriba **azure help**. Para obtener más información, consulte la [página de documentación de la CLI de Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
-* **Explorador de almacenamiento de Microsoft Azure**: explorador de Almacenamiento de Microsoft Azure es una herramienta gráfica que se usa para examinar los objetos que haya almacenado en la cuenta de Almacenamiento de Azure y cargar o descargar datos con los blobs de Azure como origen y destino. Puede acceder al Explorador de almacenamiento desde el icono de acceso directo del escritorio. Puede invocarlo desde el símbolo del sistema del shell escribiendo **StorageExplorer**. Tiene que haber iniciado sesión desde un cliente X2Go o tener la configuración de reenvío de X11.
+* **Explorador de Microsoft Azure Storage**: explorador de Microsoft Azure Storage es una herramienta gráfica que se usa para examinar los objetos que haya almacenado en la cuenta de Azure Storage y cargar o descargar datos con los blobs de Azure como origen y destino. Puede acceder al Explorador de Storage desde el icono de acceso directo del escritorio. Puede invocarlo desde el símbolo del sistema del shell escribiendo **StorageExplorer**. Tiene que haber iniciado sesión desde un cliente X2Go o tener la configuración de reenvío de X11.
 * **Bibliotecas de Azure**: a continuación, figuran algunas de las bibliotecas preinstaladas.
   
   * **Python**: las bibliotecas relacionadas con Azure en Python que están instaladas son **azure**, **azureml**, **pydocumentdb** y **pyodbc**. Las tres primeras bibliotecas permiten acceder a los servicios de Azure Storage, a Azure Machine Learning y a Azure Cosmos DB (una base de datos NoSQL en Azure). La cuarta biblioteca, pyodbc (junto con el controlador ODBC de Microsoft para SQL Server), permite el acceso a SQL Server, Azure SQL Database y Azure SQL Data Warehouse desde Python mediante una interfaz ODBC. Escriba **pip list** para ver todas las bibliotecas enumeradas. Asegúrese de ejecutar este comando en los entornos de Python 2.7 y 3.5.
@@ -326,7 +326,7 @@ Para obtener información sobre cómo implementar modelos en R y en Python en Az
 > 
 
 ### <a name="machine-learning-tools"></a>Herramientas de aprendizaje automático
-La máquina virtual incluye algunas herramientas o algoritmos de aprendizaje automático que se han precompilado y preinstalado de forma local. Entre ellos se incluyen los siguientes:
+La máquina virtual incluye algunas herramientas o algoritmos de aprendizaje automático que se han precompilado y preinstalado de forma local. Entre ellas se incluyen las siguientes:
 
 * **Vowpal Wabbit**: algoritmo de aprendizaje rápido en línea
 * **xgboost**: herramienta que proporciona los algoritmos de árbol ampliados y optimizados

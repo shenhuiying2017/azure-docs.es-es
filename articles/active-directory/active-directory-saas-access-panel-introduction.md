@@ -1,8 +1,8 @@
 ---
-title: "¿Qué es el panel de acceso de Azure Active Directory? | Microsoft Docs"
-description: "Aprenda a usar las variaciones del panel de acceso (explorador web, aplicación Android, y aplicación iPhone y iPad) para tener acceso a las aplicaciones SaaS."
+title: ¿Qué es el panel de acceso de Azure Active Directory? | Microsoft Docs
+description: Aprenda a usar las variaciones del panel de acceso (explorador web, aplicación Android, y aplicación iPhone y iPad) para tener acceso a las aplicaciones SaaS.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: c0252d01-7e6e-4f79-a70e-600479577dfd
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 03/06/2018
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c9069cb0b46ddc1155c64bd63a7fcd8a685abbad
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: c9b647e8f731995537a8797ab28248a1c42b6460
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="what-is-the-access-panel"></a>¿Qué es el panel de acceso?
 
@@ -67,6 +67,9 @@ Después de la autenticación, los usuarios pueden interactuar con las aplicacio
 ## <a name="web-browser-requirements"></a>Requisitos del explorador web
 
 Como mínimo, el panel de acceso requiere un explorador que admita JavaScript y que tenga CSS habilitado. Para iniciar sesión en las aplicaciones con el inicio de sesión único (SSO) basado en contraseña, debe instalar una extensión del panel de acceso en el explorador. Esta extensión se descarga automáticamente cuando un usuario selecciona una aplicación que está configurada para SSO basado en contraseña.
+
+El instalador es específico para la arquitectura. Si hace clic en el vínculo de descarga, solo obtiene el instalador para la arquitectura del SO en la que se ejecuta actualmente. Si es administrador de implementación de una aplicación, asegúrese de visitar el vínculo de descarga desde un dispositivo de 64 bits y de 32 bits para obtener ambos instaladores.
+
 
 La extensión del panel de acceso está actualmente disponible para:
 - **Edge**: en Windows 10 Anniversary Edition, o cualquier versión posterior. 
@@ -197,7 +200,7 @@ Para configurar SSO en una aplicación, Azure Portal cuenta con una tercera opci
 Por ejemplo, si una aplicación está configurada de modo que puede autenticar usuarios con AD FS 2.0, el administrador puede usar la opción Inicio de sesión único existente para crear un vínculo en el panel de acceso. Cuando los usuarios tienen acceso al vínculo, se autentican mediante AD FS 2.0 o cualquier solución SSO existente que brinde la aplicación.
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Para ver una lista de todos los temas relacionados con la administración de aplicaciones, consulte el [índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md).
  

@@ -1,6 +1,6 @@
 ---
-title: "Solución de problemas de Azure SQL Data Sync (versión preliminar) | Microsoft Docs"
-description: "Aprenda a solucionar problemas comunes con Azure SQL Data Sync (versión preliminar)."
+title: Solución de problemas de Azure SQL Data Sync (versión preliminar) | Microsoft Docs
+description: Aprenda a solucionar problemas comunes con Azure SQL Data Sync (versión preliminar).
 services: sql-database
 ms.date: 11/13/2017
 ms.topic: article
@@ -8,11 +8,11 @@ ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 50cabbaa584671e52c1ea7efbd2ad990b8438272
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: c174f5120ba2e5bf8018cce0f0e34c1fc3f8eb3f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync-preview"></a>Solución de problemas de SQL Data Sync (versión preliminar)
 
@@ -135,7 +135,7 @@ También puede activar el registro para todas las instalaciones realizadas por W
 
 Al intentar utilizar el agente cliente, recibe los siguientes mensajes:
 
-"Error de sincronización con la excepción 'Se ha producido un error al intentar deserializar el parámetro www.microsoft.com/.../05:GetBatchInfoResult'. Consulte InnerException para obtener más información".
+"Error de sincronización con la excepción 'Se ha producido un error al intentar deserializar el parámetro www.microsoft.com/.../05:GetBatchInfoResult'. Consulte InnerException para más información".
 
 "Mensaje de excepción interna: 'Microsoft.Synchronization.ChangeBatch' es un tipo de colección no válido porque no tiene ningún constructor predeterminado".
 
@@ -436,9 +436,9 @@ No puede eliminar un grupo de sincronización durante los tres minutos posterior
 Si restaura una base de datos perdida o dañada desde una copia de seguridad, puede que los datos de los grupos de sincronización a los que pertenece la base de datos no coincidan.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener más información acerca de SQL Data Sync (versión preliminar), vea:
+Para obtener más información sobre SQL Data Sync (versión preliminar), vea:
 
--   [Sincronización de datos entre varias bases de datos locales y de la nube con SQL Data Sync de Azure (versión preliminar)](sql-database-sync-data.md)  
+-   [Sincronización de datos entre varias bases de datos locales y de la nube con SQL Data Sync (versión preliminar)](sql-database-sync-data.md)  
 -   [Configuración de Azure SQL Data Sync (versión preliminar)](sql-database-get-started-sql-data-sync.md)  
 -   [Procedimientos recomendados para SQL Data Sync de Azure (versión preliminar)](sql-database-best-practices-data-sync.md)  
 -   [Supervisar SQL Data Sync de Azure con Log Analytics de OMS](sql-database-sync-monitor-oms.md)  
@@ -447,7 +447,7 @@ Para obtener más información acerca de SQL Data Sync (versión preliminar), ve
     -   [Uso de PowerShell para realizar la sincronización entre Azure SQL Database y una base de datos de SQL Server local](scripts/sql-database-sync-data-between-azure-onprem.md)  
 -   [Descarga de la documentación de la API de REST de SQL Data Sync (versión preliminar)](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
 
-Para obtener más información acerca de SQL Database, vea:
+Para obtener más información sobre SQL Database, vea:
 
 -   [Información general de SQL Database](sql-database-technical-overview.md)
 -   [Administración del ciclo de vida de las aplicaciones](https://msdn.microsoft.com/library/jj907294.aspx)

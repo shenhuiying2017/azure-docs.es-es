@@ -1,28 +1,28 @@
 ---
 title: Registro de Azure para sistemas integrados en Azure Stack | Microsoft Docs
-description: "Describe el proceso de registro de Azure para implementaciones de varios nodos con conexión a Azure en Azure Stack."
+description: Describe el proceso de registro de Azure para implementaciones de varios nodos con conexión a Azure en Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/27/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: d5b77bb43c48bd286708ca96699b20be0f761baa
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 27bd44f936e19890526c0834e14084647dcec086
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="register-azure-stack-with-azure"></a>Registro de Azure Stack con Azure
-Puede registrar Azure Stack en Azure para descargar elementos de Marketplace de Azure y configurar informes de datos comerciales para Microsoft. Después de registrar Azure Stack, se informa del uso para el comercio de Azure. Puede verlo en la suscripción que usó para el registro.
+Puede registrar Azure Stack en Azure para descargar elementos de Marketplace de Azure y configurar informes de datos comerciales para Microsoft. Después de registrar Azure Stack, se informa del uso al sistema de comercio de Azure. Puede verlo en la suscripción que usó para el registro.
 
 > [!IMPORTANT]
 > Si elige el modelo de facturación de pago por uso, el registro es obligatorio. De lo contrario, infringirá los términos de la licencia de la implementación de Azure Stack, ya que no hay otra forma de informar acerca del uso.
@@ -54,6 +54,7 @@ El repositorio de GitHub de las herramientas de Azure Stack contiene módulos de
 cd \
 
 # Download the tools archive.
+  [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
   invoke-webrequest `
   https://github.com/Azure/AzureStack-Tools/archive/master.zip `
   -OutFile master.zip
@@ -212,6 +213,6 @@ $registrationToken = "*Your copied registration token*"
 UnRegister-AzsEnvironment -RegistrationToken $registrationToken
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 [Integración de supervisión externa](azure-stack-integrate-monitor.md)

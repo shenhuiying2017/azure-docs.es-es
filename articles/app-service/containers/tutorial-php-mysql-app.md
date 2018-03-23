@@ -1,8 +1,8 @@
 ---
-title: "Compilación de una aplicación web PHP y MySQL en Azure App Service en Linux | Microsoft Docs"
-description: "Aprenda a comenzar a trabajar con una aplicación PHP en Azure, con conexión a una base de datos MySQL en Azure."
+title: Compilación de una aplicación web PHP y MySQL en Azure App Service en Linux | Microsoft Docs
+description: Aprenda a comenzar a trabajar con una aplicación PHP en Azure, con conexión a una base de datos MySQL en Azure.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
 ms.service: app-service-web
@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 11/28/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 7c3107d7385413d15445a8b3a3cd2476973ab632
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 5d1e1e448ce4cf6f1b6f617a68eb4d89333c180d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure-app-service-on-linux"></a>Compilación de una aplicación web PHP y MySQL en Azure App Service en Linux
 
@@ -155,7 +155,7 @@ En este paso, creará una base de datos MySQL en [Azure Database for MySQL (vers
 
 ### <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-no-h.md)] 
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux-no-h.md)] 
 
 ### <a name="create-a-mysql-server"></a>Creación de un servidor MySQL
 
@@ -334,7 +334,7 @@ La aplicación Laravel se inicia en el directorio _/public_. La imagen de Docker
 
 ### <a name="create-a-web-app"></a>Creación de una aplicación web
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-php-no-h.md)] 
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-php-linux-no-h.md)] 
 
 ### <a name="configure-database-settings"></a>Configuración de la base de datos
 
@@ -586,7 +586,7 @@ El menú izquierdo proporciona varias páginas para configurar la aplicación.
 
 <a name="next"></a>
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial aprendió lo siguiente:
 

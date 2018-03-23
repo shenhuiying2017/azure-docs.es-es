@@ -1,8 +1,8 @@
 ---
 title: Procedimientos recomendados para el uso de Azure Data Lake Store | Microsoft Docs
-description: "Más información sobre los procedimientos recomendados de ingesta de datos, seguridad de datos y rendimiento relacionados con el uso de Azure Data Lake Store"
+description: Más información sobre los procedimientos recomendados de ingesta de datos, seguridad de datos y rendimiento relacionados con el uso de Azure Data Lake Store
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: sachinsbigdata
 manager: jhubbard
 editor: cgronlun
@@ -28,7 +28,7 @@ Azure Data Lake Store ofrece controles de acceso de POSIX y una auditoría detal
 
 Suponga que tiene una carpeta con 100 000 objetos secundarios. Si tomamos el límite inferior de 30 objetos procesados por segundo, actualizar el permiso para toda la carpeta podría llevar una hora. Hay disponible más información sobre las listas de control de acceso de Data Lake Store en [Control de acceso en Azure Data Lake Store](data-lake-store-access-control.md). Para conseguir un rendimiento mejorado a la hora de asignar las listas de control de acceso de forma recursiva, puede usar la herramienta de línea de comandos de Azure Data Lake Store. Esta herramienta crea varios subprocesos y una lógica de navegación recursiva que permite aplicar rápidamente las listas de control de acceso a millones de archivos. La herramienta está disponible para Linux y Windows, y la [documentación](https://github.com/Azure/data-lake-adlstool) y las [descargas](http://aka.ms/adlstool-download) de esta herramienta se encuentran en GitHub.
 
-### <a name="use-security-groups-versus-individual-users"></a>	Uso de grupos de seguridad frente a usuarios individuales 
+### <a name="use-security-groups-versus-individual-users"></a>Uso de grupos de seguridad frente a usuarios individuales 
 
 Cuando se trabaja con macrodatos en Data Lake Store, lo más probable es que se use una entidad de servicio para permitir que servicios como Azure HDInsight puedan trabajar con los datos. Sin embargo, puede haber casos en que los usuarios individuales también necesiten acceder a los datos. En estos casos, debe usar grupos de seguridad de Azure Active Directory en lugar de asignar usuarios individuales a carpetas y archivos. Una vez que se asignan permisos a un grupo de seguridad, agregar o quitar usuarios del grupo no requiere ninguna actualización en Data Lake Store. 
 

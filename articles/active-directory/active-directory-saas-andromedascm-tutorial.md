@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integración de Azure Active Directory con Andromeda SCM | Microsoft Docs"
-description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Andromeda SCM."
+title: 'Tutorial: Integración de Azure Active Directory con Andromeda | Microsoft Docs'
+description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Andromeda.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,32 +12,32 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 03/07/2018
 ms.author: jeedes
-ms.openlocfilehash: 72b66eec34995c334c6d65a1d03637fe21b9dc80
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 7e2a140ba6dc4825283801ed4f3435136b307153
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="tutorial-azure-active-directory-integration-with-andromeda-scm"></a>Tutorial: Integración de Azure Active Directory con Andromeda SCM
+# <a name="tutorial-azure-active-directory-integration-with-andromeda"></a>Tutorial: Integración de Azure Active Directory con Andromeda
 
-En este tutorial, aprenderá a integrar Andromeda SCM con Azure Active Directory (Azure AD).
+En este tutorial, aprenderá a integrar Andromeda con Azure Active Directory (Azure AD).
 
-La integración de Andromeda SCM con Azure AD proporciona las siguientes ventajas:
+La integración de Andromeda con Azure AD proporciona las siguientes ventajas:
 
-- Puede controlar en Azure AD quién tiene acceso a Andromeda SCM.
-- Puede permitir que los usuarios inicien sesión automáticamente en Andromeda SCM (inicio de sesión único) con sus cuentas de Azure AD.
+- Puede controlar en Azure AD quién tiene acceso a Andromeda.
+- Puede permitir que los usuarios inicien sesión automáticamente en Andromeda (inicio de sesión único) con sus cuentas de Azure AD.
 - Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
 Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>requisitos previos
 
-Para configurar la integración de Azure AD con Andromeda SCM, se necesitan los siguientes elementos:
+Para configurar la integración de Azure AD con Andromeda, se necesitan los siguientes elementos:
 
 - Una suscripción de Azure AD
-- Una suscripción que permita el inicio de sesión único en Andromeda SCM
+- Una suscripción que permita el inicio de sesión único en Andromeda
 
 > [!NOTE]
 > Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
@@ -50,13 +50,13 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 ## <a name="scenario-description"></a>Descripción del escenario
 En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
-1. Agregar Andromeda SCM desde la galería
+1. Adición de Andromeda desde la galería
 2. Configuración y comprobación del inicio de sesión único de Azure AD
 
-## <a name="adding-andromeda-scm-from-the-gallery"></a>Adición de Andromeda SCM desde la galería
-Para configurar la integración de Andromeda SCM en Azure AD, será preciso que agregue Andromeda SCM desde la galería a la lista de aplicaciones SaaS administradas.
+## <a name="adding-andromeda-from-the-gallery"></a>Adición de Andromeda desde la galería
+Para configurar la integración de Andromeda en Azure AD, será preciso que agregue Andromeda desde la galería a la lista de aplicaciones SaaS administradas.
 
-**Para agregar Andromeda SCM desde la galería, realice los pasos siguientes:**
+**Para agregar Andromeda desde la galería, realice los pasos siguientes:**
 
 1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
 
@@ -70,31 +70,31 @@ Para configurar la integración de Andromeda SCM en Azure AD, será preciso que 
 
     ![Botón Nueva aplicación][3]
 
-4. En el cuadro de búsqueda, escriba **Andromeda SCM**, seleccione **Andromeda SCM** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **Andromeda**, seleccione **Andromeda** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
-    ![Andromeda SCM en la lista de resultados](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_addfromgallery.png)
+    ![Andromeda en la lista de resultados](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-En esta sección, configurará y probará el inicio de sesión único de Azure AD con Andromeda SCM con un usuario de prueba llamado "Britta Simon".
+En esta sección, configurará y probará el inicio de sesión único de Azure AD con Andromeda con un usuario de prueba llamado "Britta Simon".
 
-Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de Andromeda SCM para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Andromeda SCM.
+Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de Andromeda para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Andromeda.
 
-Para configurar y probar el inicio de sesión único de Azure AD con Andromeda SCM, es preciso completar los siguientes bloques de creación:
+Para configurar y probar el inicio de sesión único de Azure AD con Andromeda, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
 2. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-3. **[Creación de un usuario de prueba de Andromeda SCM](#create-an-andromeda-scm-test-user)**: para tener un homólogo de Britta Simon en Andromeda SCM que esté vinculado a la representación del usuario en Azure AD.
+3. **[Creación de un usuario de prueba de Andromeda](#create-an-andromeda-test-user)**: para tener un homólogo de Britta Simon en Andromeda que esté vinculado a la representación del usuario en Azure AD.
 4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
 5. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
-En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal y lo configurará en la aplicación Andromeda SCM.
+En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal y lo configurará en la aplicación Andromeda.
 
-**Para configurar el inicio de sesión único de Azure AD con Andromeda SCM, realice los pasos siguientes:**
+**Para configurar el inicio de sesión único de Azure AD con Andromeda, realice los pasos siguientes:**
 
-1. En la página de integración de la aplicación **Andromeda SCM** de Azure Portal, haga clic en **Inicio de sesión único**.
+1. En la página de integración de aplicaciones **Andromeda** de Azure Portal, haga clic en **Inicio de sesión único**.
 
     ![Vínculo Configurar inicio de sesión único][4]
 
@@ -102,24 +102,24 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
  
     ![Cuadro de diálogo Inicio de sesión único](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_samlbase.png)
 
-3. En la sección **Dominio y direcciones URL de Andromeda SCM**, realice los siguientes pasos si quiere configurar la aplicación en el modo iniciado por **IDP**:
+3. En la sección **Dominio y direcciones URL de Andromeda**, realice los siguientes pasos si quiere configurar la aplicación en el modo iniciado por **IDP**:
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de Andromeda SCM](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_url.png)
+    ![Información de dominio y direcciones URL de inicio de sesión único de Andromeda](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_url.png)
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<tenantURL>`
+    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<tenantURL>.ngcxpress.com/`
 
-    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<tenantURL>`.
+    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<tenantURL>.ngcxpress.com/SAMLConsumer.aspx`.
 
 4. Active **Mostrar configuración avanzada de URL** y siga estos pasos si desea configurar la aplicación en el modo iniciado por **SP**:
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de Andromeda SCM](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_url1.png)
+    ![Información de dominio y direcciones URL de inicio de sesión único de Andromeda](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_url1.png)
 
-    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<tenantURL>/SAMLLogon.aspx`.
+    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<tenantURL>.ngcxpress.com/SAMLLogon.aspx`.
      
     > [!NOTE] 
     > El valor anterior no es real. El valor se actualizará con la dirección URL de inicio de sesión, la dirección URL de respuesta y el identificador reales, que se explican más adelante en el tutorial.
 
-5. La aplicación Andromeda SCM espera las aserciones de SAML en un formato específico. Configure las siguientes notificaciones para esta aplicación. Puede administrar los valores de estos atributos en la sección **Atributos de usuario** de la página de integración de aplicaciones. La siguiente captura de pantalla le muestra un ejemplo de esto.
+5. La aplicación Andromeda espera las aserciones de SAML en un formato específico. Configure las siguientes notificaciones para esta aplicación. Puede administrar los valores de estos atributos en la sección **Atributos de usuario** de la página de integración de aplicaciones. La siguiente captura de pantalla le muestra un ejemplo de esto.
     
     ![Configurar el atributo de inicio de sesión único](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_attribute.png)
 
@@ -129,10 +129,10 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 6. En la sección **Atributos de usuario** del cuadro de diálogo **Inicio de sesión único**, configure el atributo token de SAML como muestra la imagen y siga estos pasos:
     
     | Nombre del atributo | Valor de atributo |
-    | ------------------- | -------------------- |    
-    | role        | DEMO |
-    | Tipo        | DEFAULT |
-    | company       | COMP02    |
+    | -------------- | -------------------- |    
+    | role        | Rol específico de la aplicación |
+    | Tipo        | Tipo de aplicación |
+    | company       | CompanyName    |
 
     > [!NOTE]
     > Estos valores no son reales. Se facilitan solo con fines de demostración, por lo que debe usar los roles de su organización.
@@ -159,31 +159,31 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Botón Configurar inicio de sesión único](./media/active-directory-saas-andromedascm-tutorial/tutorial_general_400.png)
     
-9. En la sección **Configuración de Andromeda SCM**, haga clic en **Configurar Andromeda SCM** para abrir la ventana **Configurar inicio de sesión**. Copie la **dirección URL de servicio de inicio de sesión único de SAML** de la sección **Referencia rápida**.
+9. En la sección **Configuración de Andromeda**, haga clic en **Configurar Andromeda** para abrir la ventana **Configurar inicio de sesión**. Copie la **dirección URL de servicio de inicio de sesión único de SAML** de la sección **Referencia rápida**.
 
-    ![Configuración de Andromeda SCM](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_configure.png)
+    ![Configuración de Andromeda](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_configure.png)
 
-10. Inicie sesión como administrador en el sitio de la empresa Andromeda SCM.
+10. Inicie sesión como administrador en el sitio de la empresa Andromeda.
 
 11. En la parte superior de la barra de menús, haga clic en **Admin** (Administrador) y vaya a **Administration** (Administración).
 
-    ![Administrador de Andromeda SCM](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_admin.png)
+    ![Administración de Andromeda](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_admin.png)
 
 12. En el lado izquierdo de la barra de herramientas, en la sección **Interfaces** (Interfaces), haga clic en **SAML Configuration** (Configuración de SAML).
 
-    ![SAML en Andromeda SCM](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_saml.png)
+    ![SAML de Andromeda](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_saml.png)
 
 13. En la página **SAML Configuration** (Configuración de SAML), realice los siguientes pasos:
 
-    ![Configuración de Andromeda SCM](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_config.png)
+    ![Configuración de Andromeda](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_config.png)
 
     a. Marque **Enable SSO with SAML** (Habilitar SSO con SAML).
 
-    b. En la sección **Andromeda Information** (Información de Andromeda), copie el valor **SP Identity** (Identidad de SP) y péguelo en el cuadro de texto **Identificador** de la sección **Dominio y direcciones URL de Andromeda SCM**.
+    b. En la sección **Andromeda Information** (Información de Andromeda), copie el valor **SP Identity** (Identidad de SP) y péguelo en el cuadro de texto **Identificador** de la sección **Dominio y direcciones URL de Andromeda**.
 
-    c. Copie el valor de **Consumer URL** (Dirección URL de consumidor) y péguelo en el cuadro de texto **URL de respuesta** de la sección **Dominio y direcciones URL de Andromeda SCM**.
+    c. Copie el valor de **Consumer URL** (Dirección URL de consumidor) y péguelo en el cuadro de texto **Reply URL** (URL de respuesta) de la sección **Andromeda Domain and URLs** (Dominio y direcciones URL de Andromeda).
 
-    d. Copie el valor de **Logon URL** (Dirección URL de inicio de sesión) y péguelo en el cuadro de texto **URL de inicio de sesión** de la sección **Dominio y direcciones URL de Andromeda SCM**.
+    d. Copie el valor de **Logon URL** (Dirección URL de registro) y péguelo en el cuadro de texto **Sign-on URL** (Dirección URL de inicio de sesión) de la sección **Andromeda Domain and URLs** (Dominio y direcciones URL de Andromeda).
 
     e. En la sección **SAML Identity Provider** (Proveedor de identidades SAML), escriba el nombre del proveedor de identidades.
 
@@ -193,7 +193,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     
     h. Asigne los siguientes atributos con su respectivo valor para facilitar el inicio de sesión único desde Azure AD. El atributo **User ID** (Id. de usuario) es necesario para iniciar sesión. Para el aprovisionamiento, es necesario proporcionar los valores **Email** (Correo electrónico), **Company** (Compañía), **UserType** (Tipo de usuario) y **Role** (Rol). En esta sección, se define la asignación de atributos (nombre y valores) que se corresponden con los que se establecen en Azure Portal.
 
-    ![Asignación de atributos de Andromeda SCM](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_attbmap.png)
+    ![Asignación de atributos de Andromeda](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_attbmap.png)
 
     i. Haga clic en **Save**(Guardar).
 
@@ -232,28 +232,28 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     d. Haga clic en **Create**(Crear).
  
-### <a name="create-an-andromeda-scm-test-user"></a>Creación de un usuario de prueba de Andromeda SCM
+### <a name="create-an-andromeda-test-user"></a>Creación de un usuario de prueba de Andromeda
 
-El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon en Andromeda SCM. Andromeda SCM admite el aprovisionamiento Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Durante un intento de acceder a Andromeda SCM se crea un usuario, en caso de que no exista.
+El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon en Andromeda. Andromeda admite el aprovisionamiento Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Durante un intento de acceder a Andromeda, se crea un usuario, en caso de que no exista.
 
 >[!Note]
->Si necesita crear manualmente un usuario, es preciso que se ponga contacto con el [equipo de soporte técnico de Andromeda SCM](https://www.ngcsoftware.com/support/).
+>Si necesita crear manualmente un usuario, es preciso que se ponga contacto con el [equipo de soporte técnico de Andromeda](https://www.ngcsoftware.com/support/).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
-En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Andromeda SCM.
+En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Andromeda.
 
 ![Asignación de rol de usuario][200] 
 
-**Para asignar el usuario Britta Simon a Andromeda SCM, realice los pasos siguientes:**
+**Para asignar el usuario Britta Simon a Andromeda, realice los pasos siguientes:**
 
 1. En Azure Portal, abra la vista de aplicaciones, navegue a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego haga clic en **Todas las aplicaciones**.
 
     ![Asignar usuario][201] 
 
-2. En la lista de aplicaciones, seleccione **Andromeda SCM**.
+2. En la lista de aplicaciones, seleccione **Andromeda**.
 
-    ![Vínculo a Andromeda SCM en la lista de aplicaciones](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_app.png)  
+    ![Vínculo a Andromeda en la lista de aplicaciones](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_app.png)  
 
 3. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
 
@@ -273,7 +273,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de Andromeda SCM en el panel de acceso, debería iniciar sesión automáticamente en su aplicación Andromeda SCM.
+Al hacer clic en el icono de Andromeda en el panel de acceso, debería iniciar sesión automáticamente en su aplicación Andromeda.
 Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
@@ -296,4 +296,3 @@ Para más información sobre el Panel de acceso, consulte [Introducción al Pane
 [201]: ./media/active-directory-saas-andromedascm-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-andromedascm-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-andromedascm-tutorial/tutorial_general_203.png
-

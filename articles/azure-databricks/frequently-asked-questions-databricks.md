@@ -1,8 +1,8 @@
 ---
 title: 'Azure Databricks: Preguntas comunes y ayuda | Microsoft Docs'
-description: "Obtenga respuestas a las preguntas comunes e información para solucionar problemas acerca de Azure Databricks."
+description: Obtenga respuestas a las preguntas comunes e información para solucionar problemas acerca de Azure Databricks.
 services: azure-databricks
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: cgronlun
 editor: cgronlun
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/22/2018
 ms.author: nitinme
 ms.openlocfilehash: 5da6ffc346cc0e7f0f83bf4a4c33600b668a17ca
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>Preguntas más frecuentes sobre Azure Databricks
 
@@ -121,7 +121,7 @@ Azure Databricks está integrado con Azure AD. Esto le permite establecer permis
 
 Inicie sesión en Azure Portal como administrador global. En Azure Active Directory, vaya a la pestaña **Configuración de usuario** y asegúrese de que la opción **Los usuarios pueden permitir que las aplicaciones accedan a los datos de la compañía en su nombre** está establecida en **Sí**.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - [Quickstart: Get started with Azure Databricks](quickstart-create-databricks-workspace-portal.md) (Inicio rápido: Introducción a Azure Databricks)
 - [¿Qué es Azure Databricks?](what-is-azure-databricks.md)

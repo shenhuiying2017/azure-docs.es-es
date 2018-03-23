@@ -1,24 +1,24 @@
 ---
-title: "¿Qué cargas de trabajo se pueden proteger con Azure Site Recovery? | Microsoft Docs"
-description: "Describe las cargas de trabajo que pueden protegerse mediante la recuperación ante desastres con el servicio Azure Site Recovery."
+title: ¿Qué cargas de trabajo se pueden proteger con Azure Site Recovery? | Microsoft Docs
+description: Describe las cargas de trabajo que pueden protegerse mediante la recuperación ante desastres con el servicio Azure Site Recovery.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: rayne-wiselman
 manager: cfreeman
-editor: 
+editor: ''
 ms.assetid: 4953948f-26c0-4699-8fe7-59d3bfc1d3da
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 12/15/2017
+ms.date: 3/16/2018
 ms.author: raynew
-ms.openlocfilehash: 03d311f84a4b9bc5f3a4c3c488ee7c84b1ef49ad
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 3b138546ffb1cb6d5bec0aaf2bb11510ab399933
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>¿Qué cargas de trabajo se pueden proteger con Azure Site Recovery?
 
@@ -161,6 +161,6 @@ Aquí encontrará [más información](https://azure.microsoft.com/pricing/licens
 
 [Más información](site-recovery-citrix-xenapp-and-xendesktop.md) acerca de la protección de las implementaciones de Citrix XenApp y XenDesktop. También puede consultar las [notas del producto de Citrix](https://aka.ms/citrix-xenapp-xendesktop-with-asr), donde se detallan.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 [Introducción](azure-to-azure-quickstart.md) a la replicación de máquinas virtuales de Azure.

@@ -1,31 +1,28 @@
 ---
-title: "Diseño de un servicio de alta disponibilidad con Azure SQL Database | Microsoft Docs"
-description: "Obtenga información sobre el diseño de aplicaciones para servicios de alta disponibilidad con Azure SQL Database."
-keywords: "recuperación ante desastres en la nube, soluciones de recuperación ante desastres, copia de seguridad de datos de aplicación, planificación de continuidad del negocio"
+title: Diseño de un servicio de alta disponibilidad con Azure SQL Database | Microsoft Docs
+description: Obtenga información sobre el diseño de aplicaciones para servicios de alta disponibilidad con Azure SQL Database.
+keywords: recuperación ante desastres en la nube, soluciones de recuperación ante desastres, copia de seguridad de datos de aplicación, planificación de continuidad del negocio
 services: sql-database
-documentationcenter: 
 author: anosov1960
-manager: jhubbard
-editor: monicar
-ms.assetid: e8a346ac-dd08-41e7-9685-46cebca04582
+manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.date: 12/13/2017
-ms.workload: On Demand
+ms.date: 03/07/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 3d6ad95c1ca316b2e7c3f722315d2ddec03a3716
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: c596006e33c2c4f0228c14a65f58e82bcf300727
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="designing-highly-available-services-using-azure-sql-database"></a>Diseño de servicios de alta disponibilidad con Azure SQL Database
 
 Al compilar e implementar servicios de alta disponibilidad en Azure SQL Database, use los [grupos de conmutación por error y la replicación geográfica activa](sql-database-geo-replication-overview.md) para proporcionar resistencia frente a interrupciones regionales y errores muy graves. También permite una recuperación rápida a las bases de datos secundarias. Este artículo se centra en los patrones comunes de aplicación y analiza las ventajas y desventajas de cada opción. Para saber cómo utilizar la replicación geográfica activa con los grupos elásticos, consulte [Estrategias de recuperación ante desastres para aplicaciones que usan el grupo elástico de Base de datos SQL](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+
+> [!NOTE]
+> Si usa grupos y bases de datos premium, puede hacerlos resistentes a las interrupciones regionales mediante su conversión en una configuración de implementación con redundancia de zona (actualmente en versión preliminar). Vea [Alta disponibilidad y Azure SQL Database](sql-database-high-availability.md).  
 
 ## <a name="scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime"></a>Escenario 1: Utilizar dos regiones de Azure para la continuidad empresarial con un tiempo de inactividad mínimo
 En este escenario, las aplicaciones tienen las siguientes características: 
@@ -47,8 +44,7 @@ El diagrama siguiente muestra esta configuración antes de una interrupción:
 Después de una interrupción en la región primaria, el servicio SQL Database detectará que no se puede acceder a la base de datos principal y desencadenará una conmutación por error a la región secundaria en función de los parámetros de la directiva de conmutación por error automática (1). Dependiendo de su Acuerdo de Nivel de Servicio de aplicación, puede configurar un período de gracia que controle el tiempo entre la detección de la interrupción y la propia conmutación por error. Es posible que el Traffic Manager inicie la conmutación por error de punto de conexión antes de que el grupo de conmutación por error active la conmutación por error de la base de datos. En ese caso, la aplicación web no se puede volver a conectar de inmediato a la base de datos. Sin embargo, las reconexiones se realizarán de forma correcta automáticamente tan pronto como se complete conmutación por error de la base de datos. Cuando se restaure la región errónea y vuelva a estar conectada, se volverá a conectar automáticamente con la primaria anterior como una nueva secundaria. El diagrama siguiente muestra la configuración después de la conmutación por error.
  
 > [!NOTE]
-> Durante la reconexión se pierden todas las transacciones confirmadas después de la conmutación por error. Una vez completada la conmutación por error, la aplicación de la región B puede volver a conectarse y reiniciar el procesamiento que solicita el usuario. La aplicación web y la base de datos principal se encuentran ahora en la región B y permanecen colocadas. 
-n>
+> Durante la reconexión se pierden todas las transacciones confirmadas después de la conmutación por error. Una vez completada la conmutación por error, la aplicación de la región B puede volver a conectarse y reiniciar el procesamiento que solicita el usuario. La aplicación web y la base de datos principal se encuentran ahora en la región B y permanecen colocadas. n>
 
 ![Escenario 1. Configuración después de la conmutación por error](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario1-b.png)
 

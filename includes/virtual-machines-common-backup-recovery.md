@@ -1,4 +1,19 @@
-
+---
+title: archivo de inclusión
+description: archivo de inclusión
+services: virtual-machines
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: cynthn
+ms.custom: include file
+ms.openlocfilehash: 3dfc72ff0347a93c6c6dce0e7ec763dd8241c55b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 03/16/2018
+---
 ## <a name="azure-backup"></a>Azure Backup
 
 Para realizar copias de seguridad de máquinas virtuales de Azure que ejecutan cargas de trabajo de producción, use Azure Backup. Azure Backup admite las copias de seguridad coherentes con la aplicación para máquinas virtuales Windows y Linux. Azure Backup crea puntos de recuperación que se almacenan en almacenes de recuperación con redundancia geográfica. Cuando se realiza una restauración desde un punto de recuperación, se puede restaurar toda una máquina virtual o solo determinados archivos. 
@@ -27,5 +42,5 @@ Para más información sobre la creación de instantáneas, consulte:
 
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Puede probar Azure Backup siguiendo el tutorial "Copia de seguridad de máquinas virtuales Windows" para [Linux](../articles/virtual-machines/linux/tutorial-backup-vms.md) o [Windows](../articles/virtual-machines/windows/tutorial-backup-vms.md).

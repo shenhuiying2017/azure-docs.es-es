@@ -1,27 +1,21 @@
 ---
 title: Aprovisionamiento en Azure SaaS multiinquilino | Microsoft Docs
-description: "Obtenga información sobre cómo aprovisionar y catalogar nuevos inquilinos en una aplicación SaaS de multiinquilino de Azure SQL Database"
+description: Obtenga información sobre cómo aprovisionar y catalogar nuevos inquilinos en una aplicación SaaS de multiinquilino de Azure SQL Database
 keywords: tutorial de SQL Database
 services: sql-database
-documentationcenter: 
 author: MightyPen
 manager: craigg
-editor: MightyPen
 ms.reviewer: billgib;andrela;genemi
-ms.assetid: 
 ms.service: sql-database
 ms.custom: saas apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2017
 ms.author: billgib
-ms.openlocfilehash: 42bbb6131aa71520410b22af4d74e99a63fe81cf
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: fb2f2bcbbc8b7f0b0012c4e7baf4a274671d4af0
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>Aprovisionamiento y catalogación de nuevos inquilinos en una aplicación SaaS con una base de datos SQL de Azure multiinquilino con particiones
 
@@ -272,7 +266,7 @@ Este tipo de servicio automatizado puede ser simple o complejo. Por ejemplo, la 
 - [Cómo depurar scripts en ISE de Windows PowerShell](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise)
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, ha aprendido cómo:
 

@@ -1,12 +1,12 @@
 ---
-title: "Supervisión del rendimiento de base de datos en Azure SQL Database | Microsoft Docs"
-description: "Conozca las opciones para la supervisión de la base de datos con herramientas de Azure y vistas de administración dinámica."
-keywords: "supervisión de base de datos, rendimiento de base de datos"
+title: Supervisión del rendimiento de base de datos en Azure SQL Database | Microsoft Docs
+description: Conozca las opciones para la supervisión de la base de datos con herramientas de Azure y vistas de administración dinámica.
+keywords: supervisión de base de datos, rendimiento de base de datos
 services: sql-database
-documentationcenter: 
+documentationcenter: ''
 author: CarlRabeler
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: a2e47475-c955-4a8d-a65c-cbef9a6d9b9f
 ms.service: sql-database
 ms.custom: monitor & tune
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 09/20/2017
 ms.author: carlrab
-ms.openlocfilehash: 2286843317230b8167b315b1e8e413e7571da4fe
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: f6b370db3363180017c6561d7bd3a6d6b40d03ab
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="monitoring-database-performance-in-azure-sql-database"></a>Supervisión de rendimiento de bases de datos con Azure SQL Database
 La supervisión del rendimiento de una base de datos SQL en Azure comienza con la supervisión del uso de recursos, en relación con el nivel de rendimiento elegido para la base de datos. La supervisión le ayudará a determinar si la base de datos tiene un exceso de capacidad o si tiene problemas porque se ha alcanzado el número máximo de recursos y, después, a decidir si es el momento de ajustar el nivel de rendimiento y el [nivel de servicio](sql-database-service-tiers.md) de la base de datos. Puede supervisar la base de datos mediante herramientas gráficas en el [Azure Portal](https://portal.azure.com) o mediante las [vistas de administración dinámicas](https://msdn.microsoft.com/library/ms188754.aspx) de SQL.
@@ -37,7 +37,7 @@ En el [Portal de Azure](https://portal.azure.com/), puede supervisar la utilizac
 * Porcentaje de E/S de datos
 * Porcentaje de tamaño de base de datos
 
-Una vez agregadas estas métricas, podrá verlas en el gráfico **Supervisión**; si desea ver más detalles, podrá hacerlo en la ventana **Métrica**. Las cuatro métricas muestran el porcentaje de uso medio, en relación con la **DTU** de la base de datos. Consulte el artículo de [niveles de servicio](sql-database-service-tiers.md) para más información sobre las unidades de transmisión estándar (DTU).
+Una vez agregadas estas métricas, podrá verlas en el gráfico **Supervisión** con más información en la ventana **Métrica**. Las cuatro métricas muestran el porcentaje de uso medio, en relación con la **DTU** de la base de datos. Consulte el artículo de [niveles de servicio](sql-database-service-tiers.md) para más información sobre las unidades de transmisión estándar (DTU).
 
 ![Supervisión del nivel de servicio del rendimiento de la base de datos.](./media/sql-database-single-database-monitoring/sqldb_service_tier_monitoring.png)
 
@@ -212,7 +212,7 @@ Nuevamente, estas consultas devuelven un número puntual. Si recopila varias mue
 
 Para el análisis de SQL Database, puede obtener estadísticas históricas sobre las sesiones consultando la vista [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) y revisando la columna **active_session_count**. 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Ajuste los índices de la base de datos automáticamente y consulte los planes de ejecución de la consulta mediante [Azure SQL Database Automatic Tuning](sql-database-automatic-tuning.md).
 - Supervise el rendimiento de la base de datos automáticamente mediante [Intelligent Insights de Azure SQL](sql-database-intelligent-insights.md). Esta característica proporciona información de diagnóstico y análisis de la causa principal de los problemas de rendimiento.

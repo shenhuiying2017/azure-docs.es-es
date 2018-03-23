@@ -1,11 +1,11 @@
 ---
-title: "Capacidad de prueba: comunicación del servicio | Microsoft Docs"
-description: "La comunicación entre servicios es un punto crítico de integración de una aplicación de Service Fabric. En este artículo se describen las consideraciones de diseño y las técnicas de prueba."
+title: 'Capacidad de prueba: comunicación del servicio | Microsoft Docs'
+description: La comunicación entre servicios es un punto crítico de integración de una aplicación de Service Fabric. En este artículo se describen las consideraciones de diseño y las técnicas de prueba.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 017557df-fb59-4e4a-a65d-2732f29255b8
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 4c6b53673dd4c79ce435c1593e7d08c7dd4a1cb0
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: c87b5d82b6eef2b1d28a3280cc2fa07c28084f90
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="service-fabric-testability-scenarios-service-communication"></a>Escenarios de capacidad de prueba de Service Fabric: comunicación del servicio
 Los microservicios y los estilos de arquitectura orientados a servicios emergen naturalmente en Service Fabric de Azure. En estos tipos de arquitecturas distribuidas, las aplicaciones de microservicio divididas en componentes suelen constar de varios servicios que necesitan comunicarse entre sí. Incluso en los casos más simples, por lo general dispone al menos de un servicio web sin estado y de un servicio de almacenamiento de datos con estado que necesitan comunicarse.
@@ -67,7 +67,7 @@ Mediante las herramientas de capacidad de prueba de Service Fabric, es posible c
    
     ```powershell
    
-    PS > Restart-ServiceFabricNode -NodeName Node_1
+    PS > Stop-ServiceFabricNode -NodeName Node_1
    
     ```
 

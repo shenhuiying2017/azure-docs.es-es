@@ -1,24 +1,20 @@
 ---
 title: Informes de bases de datos escaladas horizontalmente en la nube | Microsoft Docs
-description: "Configuración de las consultas elásticas en particiones horizontales"
+description: Configuración de las consultas elásticas en particiones horizontales
 services: sql-database
-documentationcenter: 
-manager: jhubbard
+documentationcenter: ''
+manager: craigg
 author: MladjoA
-ms.assetid: f86eccb8-6323-4ba7-8559-8a7c039049f3
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2016
 ms.author: mlandzic
-ms.openlocfilehash: 41accea2e94fc763d0dcbba709829ec07453da78
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: ec47a10fcfcb3ef52810ba2b3da9599b65db375a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="reporting-across-scaled-out-cloud-databases-preview"></a>Informes de bases de datos escaladas horizontalmente en la nube (vista previa)
 ![Consultas entre particiones][1]
@@ -29,7 +25,7 @@ Para un inicio rápido, consulte [Informes de bases de datos escaladas horizonta
 
 Para bases de datos no particionadas, consulte [Consulta de bases de datos elásticas para consultas entre bases de datos (particionamiento vertical)](sql-database-elastic-query-vertical-partitioning.md). 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 * Cree un mapa de particiones con una biblioteca de cliente de bases de datos elásticas. Consulte [Administración de asignaciones particionadas](sql-database-elastic-scale-shard-map-management.md). También puede usar la aplicación de ejemplo en [Introducción a las herramientas de base de datos elástica](sql-database-elastic-scale-get-started.md).
 * También puede consultar [Migración de bases de datos existentes a bases de datos de escalado horizontal](sql-database-elastic-convert-to-use-elastic-tools.md).
 * El usuario debe poseer el permiso ALTER ANY EXTERNAL DATA SOURCE. Este permiso está incluido en el permiso ALTER DATABASE.
@@ -185,7 +181,7 @@ Ejemplo:
 ## <a name="connectivity-for-tools"></a>Conectividad para herramientas
 Use cadenas de conexión de SQL Server normales para conectar su aplicación, sus herramientas de integración de datos o de BI a bases de datos con sus definiciones de tablas externas. Asegúrese de que SQL Server se admite como origen de datos para la herramienta. A continuación, haga referencia a la base de datos de consulta elástica como cualquier otra base de datos de SQL Server conectada a la herramienta y use las tablas externas desde su herramienta o aplicación como si fueran tablas locales. 
 
-## <a name="best-practices"></a>Prácticas recomendadas
+## <a name="best-practices"></a>Procedimientos recomendados
 * Asegúrese de que se ha concedido acceso a la base de datos de puntos de conexión de consulta elástica para la base de datos del mapa de particiones y todas las particiones a través de los firewalls de la base de datos SQL.  
 * Valide o aplique la distribución de datos definida por la tabla externa. Si la distribución de datos real es diferente de la distribución especificada en la definición de tabla, las consultas pueden arrojar resultados inesperados. 
 * La consulta elástica actualmente no realiza la eliminación de particiones cuando los predicados de la clave de particiones permitirían excluir de forma segura determinadas bases de datos remotas del procesamiento.

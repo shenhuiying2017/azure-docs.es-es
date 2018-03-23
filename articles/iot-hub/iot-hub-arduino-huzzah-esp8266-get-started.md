@@ -1,12 +1,12 @@
 ---
-title: "ESP8266 en la nube: conexión de Feather HUZZAH ESP8266 a Azure IoT Hub | Microsoft Docs"
-description: "Con este tutorial aprenderá a configurar y conectar Adafruit Feather HUZZAH ESP8266 a Azure IoT Hub para que envíe datos a la plataforma en la nube de Azure."
+title: 'ESP8266 en la nube: conexión de Feather HUZZAH ESP8266 a Azure IoT Hub | Microsoft Docs'
+description: Con este tutorial aprenderá a configurar y conectar Adafruit Feather HUZZAH ESP8266 a Azure IoT Hub para que envíe datos a la plataforma en la nube de Azure.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: shizn
 manager: timlt
-tags: 
-keywords: 
+tags: ''
+keywords: ''
 ms.assetid: c505aacf-89a8-40ed-a853-493b75bec524
 ms.service: iot-hub
 ms.devlang: arduino
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2017
 ms.author: xshi
-ms.openlocfilehash: 6a450579c848fe6030a328ddf410f139baae2324
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e8f0397797d8f4c3349afcdfb02de071a6593c72
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="connect-adafruit-feather-huzzah-esp8266-to-azure-iot-hub-in-the-cloud"></a>Conexión de Adafruit Feather HUZZAH ESP8266 a Azure IoT Hub en la nube
 
@@ -60,7 +60,10 @@ También necesitará lo siguiente para el entorno de desarrollo:
 * Un equipo PC o Mac que ejecute Windows o Ubuntu.
 * Red inalámbrica a la que se conectará HUZZAH ESP8266.
 * Conexión a Internet para descargar la herramienta de configuración.
-* [IDE de Arduino](https://www.arduino.cc/en/main/software) versión 1.6.8 o posterior. Las versiones anteriores no funcionan con la biblioteca de AzureIoT.
+* [Extensión de Visual Studio Code para Arduino](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-arduino).
+
+> [!Note]
+> La extensión de Visual Studio Code para Arduino debe usar la versión 1.6.8 o posterior del IDE de Arduino. Las versiones anteriores no funcionan con la biblioteca de AzureIoT.
 
 Los elementos siguientes son opcionales en caso de que no tenga un sensor. También tiene la opción de usar una simulación de datos del sensor.
 
@@ -77,7 +80,7 @@ En esta sección se conectan los sensores a la placa. Luego se conecta el dispos
 
 Use la placa de pruebas y los cables de puente para realizar la conexión del modo siguiente. Si no dispone de un sensor, omita esta sección porque en su lugar puede usar una simulación de datos del sensor.
 
-![Referencia de conexiones](media/iot-hub-arduino-huzzah-esp8266-get-started/15_connections_on_breadboard.png)
+![Referencia de conexiones](media/iot-hub-arduino-huzzah-esp8266-get-started/17_connections_on_breadboard.png)
 
 
 En las patillas del sensor, use el siguiente cableado:
@@ -149,33 +152,41 @@ La aplicación de ejemplo se hospeda en GitHub. Clone el repositorio de ejemplos
    git clone https://github.com/Azure-Samples/iot-hub-feather-huzzah-client-app.git
    ```
 
-Instale el paquete de Feather HUZZAH ESP8266 en el IDE de Arduino:
+Instale el paquete de Feather HUZZAH ESP8266 en Visual Studio Code:
 
 1. Abra la carpeta donde se almacena la aplicación de ejemplo.
-1. Abra el archivo app.ino en la carpeta de la aplicación en el IDE de Arduino.
+1. Abra el archivo app.ino en la carpeta de la aplicación en Visual Studio Code.
 
-   ![Abrir la aplicación de ejemplo en el IDE de Arduino](media/iot-hub-arduino-huzzah-esp8266-get-started/10_arduino-ide-open-sample-app.png)
+   ![Apertura de la aplicación de ejemplo en Visual Studio Code](media/iot-hub-arduino-huzzah-esp8266-get-started/10_vscode-open-sample-app.png)
 
-1. En Arduino IDE, haga clic en **File** >  (Archivo) **Preferences** (Preferencias).
-1. En el cuadro de diálogo **Preferences** (Preferencias), haga clic en el icono junto al cuadro de diálogo **Additional Boards Manager URLs** (URL adicionales del gestor de placas).
-1. En la ventana emergente, escriba la dirección URL siguiente y, a continuación, haga clic en **OK** (Aceptar).
+1. En Visual Studio Code, escriba `F1`.
+1. Escriba **Arduino** y seleccione **Arduino: Board Manager** (Arduino: administrador de placas).
+1. En la pestaña **Arduino Board Manager** (Administrador de placas de Arduino), haga clic en **Additional URLs** (Direcciones URL adicionales).
 
-   `http://arduino.esp8266.com/stable/package_esp8266com_index.json`
+   ![Administrador de placas de Arduino de VS Code](media/iot-hub-arduino-huzzah-esp8266-get-started/11_vscode-arduino-board-manager.png)
 
-   ![Apuntar a una url de paquete en el IDE de Arduino](media/iot-hub-arduino-huzzah-esp8266-get-started/11_arduino-ide-package-url.png)
+1. En la ventana **User Settings** (Configuración del usuario), copie y pegue lo siguiente al final del archivo.
 
-1. En el cuadro de diálogo **Preference** (Preferencias), haga clic en **OK** (Aceptar).
-1. Haga clic en **Tools** (Herramientas)  > **Board** (Placa)  > **Boards Manager** (Administrador de placas) y busque esp8266.
+   `"arduino.additionalUrls": "http://arduino.esp8266.com/stable/package_esp8266com_index.json"`
+
+   ![Configuración de la dirección URL del paquete de Arduino en VS Code](media/iot-hub-arduino-huzzah-esp8266-get-started/12_vscode-package-url.png)
+
+1. Guarde el archivo y cierre la pestaña **User Settings** (Configuración del usuario).
+1. Haga clic en **Refresh Package Indexes** (Actualizar índices de paquete). Cuando finalice la actualización, busque **esp8266**.
+1. Haga clic en el botón **Install** (Instalar) para esp8266.
 
    El administrador de placas indica que está instalado ESP8266 con la versión 2.2.0 o posterior.
 
-   ![Se instala el paquete esp8266](media/iot-hub-arduino-huzzah-esp8266-get-started/12_arduino-ide-esp8266-installed.png)
+   ![Se instala el paquete esp8266](media/iot-hub-arduino-huzzah-esp8266-get-started/13_vscode-esp8266-installed.png)
 
-1. Haga clic en **Tools** >  (Herramientas) **Board** >  (Placa) **Adafruit HUZZAH ESP8266**.
+1. Escriba `F1`, luego **Arduino** y seleccione **Arduino: Board Config** (Arduino: configuración de placas).
+1. Haga clic en el cuadro de **Selected Board:** (Placa seleccionada:) y escriba **esp8266**. Luego, seleccione **Adafruit HUZZAH ESP8266 (esp8266)**.
+
+   ![Selección de la placa esp8266](media/iot-hub-arduino-huzzah-esp8266-get-started/14_vscode-select-esp8266.png)
 
 ### <a name="install-necessary-libraries"></a>Instalación de las bibliotecas necesarias
 
-1. En Arduino IDE, haga clic en **Sketch** >  (Boceto) **Include Library** >  (Incluir biblioteca) **Manage Libraries** (Administrar bibliotecas).
+1. En Visual Studio Code, escriba `F1`, **Arduino** y seleccione **Arduino: Library Manager** (Arduino: administrador de bibliotecas).
 1. Busque los nombres de biblioteca siguientes uno a uno. Para cada biblioteca que encuentre, haga clic en **Install** (Instalar).
    * `AzureIoTHub`
    * `AzureIoTUtility`
@@ -193,20 +204,20 @@ La aplicación de ejemplo puede simular datos de humedad y temperatura en caso d
    ```c
    define SIMULATED_DATA true
    ```
-   ![Configurar la aplicación de ejemplo para usar datos simulados](media/iot-hub-arduino-huzzah-esp8266-get-started/13_arduino-ide-configure-app-use-simulated-data.png)
+   ![Configurar la aplicación de ejemplo para usar datos simulados](media/iot-hub-arduino-huzzah-esp8266-get-started/15_vscode-configure-app-use-simulated-data.png)
 
-1. Guarde el archivo como `Control-s`.
+1. Guarde el archivo.
 
 ### <a name="deploy-the-sample-application-to-feather-huzzah-esp8266"></a>Implementación de la aplicación de ejemplo en Feather HUZZAH ESP8266
 
-1. En Arduino IDE, haga clic en **Tool** >  (Herramienta) **Port** (Puerto) y haga clic en el puerto serie de Feather HUZZAH ESP8266.
-1. Haga clic en **Sketch** >  (Boceto) **Upload** (Cargar) para compilar e implementar la aplicación de ejemplo en Feather HUZZAH ESP8266.
+1. En Visual Studio Code, haga clic en **<Select Serial Port>** en la barra de estado y, luego, en el puerto serie para Feather HUZZAH ESP8266.
+1. Escriba `F1`, **Arduino** y seleccione **Arduino: Upload** (Arduino: cargar) para compilar e implementar la aplicación de ejemplo en Feather HUZZAH ESP8266.
 
 ### <a name="enter-your-credentials"></a>Escriba sus credenciales.
 
 Cuando la carga finalice correctamente, siga estos pasos para escribir las credenciales:
 
-1. En Arduino IDE, haga clic en **Tools** >  (Herramientas) **Serial Monitor** (Monitor serie).
+1. Abra el IDE de Arduino, haga clic en **Tools** > **Serial Monitor** (Herramientas > Monitor serie).
 1. En la ventana del monitor serie, observe las dos listas desplegables de la esquina inferior derecha.
 1. Seleccione **No line ending** (Sin final de línea) para la lista desplegable de la izquierda.
 1. Seleccione **115200 baud** (115200 baudios) para la lista desplegable derecha.
@@ -222,7 +233,7 @@ Cuando la carga finalice correctamente, siga estos pasos para escribir las crede
 
 Si ve la siguiente salida de la ventana del monitor serie y el LED parpadeando en Feather HUZZAH ESP8266, la aplicación de ejemplo se ejecuta correctamente.
 
-![Salida final en el IDE de Arduino](media/iot-hub-arduino-huzzah-esp8266-get-started/14_arduino-ide-final-output.png)
+![Salida final en el IDE de Arduino](media/iot-hub-arduino-huzzah-esp8266-get-started/16_arduino-ide-final-output.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

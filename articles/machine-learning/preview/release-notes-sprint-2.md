@@ -1,20 +1,20 @@
 ---
-title: "Notas de la versión de Azure Machine Learning Workbench sprint 2 de diciembre de 2017"
-description: "En este documento se detallan las actualizaciones de la versión de sprint 2 de Azure Machine Learning."
+title: Notas de la versión de Azure Machine Learning Workbench sprint 2 de diciembre de 2017
+description: En este documento se detallan las actualizaciones de la versión de sprint 2 de Azure Machine Learning.
 services: machine-learning
-author: raymondlaghaeian
-ms.author: raymondl
+author: hning86
+ms.author: haining
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/04/2017
-ms.openlocfilehash: 630e6e22bb41c777a043a7e6580239e254db9f1f
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: cb620040f8c82fd2015f93963d99739d38ec6db3
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="sprint-2---december-2017"></a>Sprint 2: diciembre de 2017 
 
