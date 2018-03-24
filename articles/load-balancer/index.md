@@ -1,24 +1,24 @@
 ---
-title: "Documentación sobre Azure Load Balancer: tutoriales y referencia de API | Microsoft Docs"
-description: "Aprenda a usar Load Balancer para mejorar el rendimiento de red de las aplicaciones. Administre el tráfico de las máquinas virtuales y recursos en la nube y en redes virtuales entre locales."
+title: 'Documentación sobre Azure Load Balancer: tutoriales y referencia de API | Microsoft Docs'
+description: Aprenda a usar Load Balancer para mejorar el rendimiento de red de las aplicaciones. Administre el tráfico de las máquinas virtuales y recursos en la nube y en redes virtuales entre locales.
 services: load-balancer
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: load-balancer
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 169ca89ccd80e5a70f3e9ab07b3c34358c154be7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4642b0108343b417dc09bbc5978b6a18a58d39a9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="load-balancer-documentation"></a>Documentación de Load Balancer
+# <a name="load-balancer-documentation"></a>Documentación de Load Balancer
 
 Aprenda a configurar Load Balancer para proporcionar una alta disponibilidad y un elevado rendimiento de red para sus aplicaciones. La documentación le muestra cómo equilibrar la carga hacia y desde máquinas virtuales y recursos en la nube y en redes virtuales entre locales.
 

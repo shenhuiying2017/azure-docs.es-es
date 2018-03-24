@@ -1,24 +1,24 @@
 ---
-title: "Documentación sobre Azure Data Catalog: tutoriales y referencia de API | Microsoft Docs"
-description: "Aprenda a configurar un catálogo de datos donde su organización pueda encontrar, comprender y consumir orígenes de datos. Tutoriales, referencia de API y otra documentación."
+title: 'Documentación sobre Azure Data Catalog: tutoriales y referencia de API | Microsoft Docs'
+description: Aprenda a configurar un catálogo de datos donde su organización pueda encontrar, comprender y consumir orígenes de datos. Tutoriales, referencia de API y otra documentación.
 services: data-catalog
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: data-catalog
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 05/25/2017
 ms.author: carolz
-ms.openlocfilehash: c901562753be86613ac4ca4dec1e727d1383e626
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7ec21b9b55015c247cef3f216dbb14f4ddc30e8d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="data-catalog-documentation"></a>Documentación de Data Catalog
+# <a name="data-catalog-documentation"></a>Documentación de Data Catalog
 
 Aprenda a usar Data Catalog para ayudar a su organización y al equipo a detectar, comprender y consumir los orígenes de datos. Tutoriales, referencia de la API de REST y otra documentación le muestran cómo planear y configurar el repositorio de datos en el que los consumidores puedan detectar los orígenes de datos disponibles y adquirir los conocimientos aportados por expertos en la materia.
 
@@ -71,7 +71,7 @@ Aprenda a usar Data Catalog para ayudar a su organización y al equipo a detecta
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/datacatalog/">API DE REST</a></p>
+                        <p><a href="/rest/api/datacatalog/">API de REST</a></p>
                         <p><a href="/rest/api/datacatalog/data-catalog-search-syntax-reference">Búsqueda de referencia de sintaxis</a></p>
                     </div>
                 </div>

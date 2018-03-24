@@ -6,8 +6,6 @@
       href: apache-domain-joined-introduction.md
     - name: Planeamiento de clústeres unidos a un dominio
       href: apache-domain-joined-architecture.md
-    - name: Configuración de un entorno de espacio aislado unido a un dominio
-      href: apache-domain-joined-configure.md
     - name: Configuración de clústeres unidos a un dominio mediante Azure AD DS
       href: apache-domain-joined-configure-using-azure-adds.md
     - name: Sincronización de usuarios de Azure AD con un clúster de HDInsight

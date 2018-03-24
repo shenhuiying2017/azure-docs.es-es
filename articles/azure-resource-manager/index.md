@@ -1,24 +1,24 @@
 ---
-title: "Documentación sobre Azure Resource Manager: tutoriales y referencia de API | Microsoft Docs"
-description: "Aprenda a usar Resource Manager para implementar y administrar recursos de solución en grupo y para crear plantillas para la implementación de recursos de forma uniforme y repetible."
+title: 'Documentación sobre Azure Resource Manager: tutoriales y referencia de API | Microsoft Docs'
+description: Aprenda a usar Resource Manager para implementar y administrar recursos de solución en grupo y para crear plantillas para la implementación de recursos de forma uniforme y repetible.
 services: azure-resource-manager
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: ab6725298c9e9c496d2e20b4e68ff72af1432bb2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 471ed43d5eec54a138262b7c4c89802020683fdc
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="azure-resource-manager-documentation"></a>Documentación de Azure Resource Manager
+# <a name="azure-resource-manager-documentation"></a>Documentación de Azure Resource Manager
 
 Aprenda a usar Resource Manager para implementar, supervisar y administrar recursos de solución en grupo. En los tutoriales, las referencias de API y otra documentación, se muestra cómo configurar grupos de recursos y crear plantillas para la implementación uniforme y repetible.
 
@@ -156,7 +156,7 @@ Aprenda a usar Resource Manager para implementar, supervisar y administrar recur
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/resources/">API DE REST</a></p>
+                        <p><a href="/rest/api/resources/">API de REST</a></p>
                     </div>
                 </div>
             </div>

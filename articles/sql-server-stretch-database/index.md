@@ -1,24 +1,24 @@
 ---
-title: "Documentación sobre Azure SQL Server Stretch Database: tutoriales| Microsoft Docs"
-description: "Aprenda a usar SQL Server Stretch Database para migrar datos inactivos de forma segura a Azure sin cambiar las consultas o aplicaciones. Tutoriales y otra documentación."
+title: 'Documentación sobre Azure SQL Server Stretch Database: tutoriales| Microsoft Docs'
+description: Aprenda a usar SQL Server Stretch Database para migrar datos inactivos de forma segura a Azure sin cambiar las consultas o aplicaciones. Tutoriales y otra documentación.
 services: sql-server-stretch-database
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: sql-server-stretch-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: cbdd210f2fe46228daa8c138815826df2b3b0fd7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d40cd906abbee8b1d33f9e67c1940918ba4acb28
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="sql-server-stretch-database-documentation"></a>Documentación de SQL Server Stretch Database
+# <a name="sql-server-stretch-database-documentation"></a>Documentación de SQL Server Stretch Database
 
 Aprenda a usar SQL Server Stretch Database para migrar datos inactivos de forma transparente y segura a la nube de Azure. Tanto los tutoriales como el resto de la documentación le ayudan a configurar una disponibilidad rentable para las bases de datos con datos que se usan con poca frecuencia sin requerir cambios en las consultas o aplicaciones existentes.
 

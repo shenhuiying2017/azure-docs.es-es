@@ -1,24 +1,24 @@
 ---
-title: "Documentación sobre Azure Redis Cache: tutoriales y referencia de API | Microsoft Docs"
-description: "Aprenda a usar Azure Redis Cache, un agente de mensajería y memoria caché de datos segura que proporciona a las aplicaciones un acceso rápido a los datos. Tutoriales, referencias de API y mucho más."
+title: 'Documentación sobre Azure Redis Cache: tutoriales y referencia de API | Microsoft Docs'
+description: Aprenda a usar Azure Redis Cache, un agente de mensajería y memoria caché de datos segura que proporciona a las aplicaciones un acceso rápido a los datos. Tutoriales, referencias de API y mucho más.
 services: redis-cache
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: redis-cache
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 6528d900ba3641189f8000db8d2535c9b215d148
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8b772df55f8862330da9e557b9bf2ed11b9e2347
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="redis-cache-documentation"></a>Documentación de Redis Cache
+# <a name="redis-cache-documentation"></a>Documentación de Redis Cache
 
 Aprenda a usar Azure Redis Cache, un agente de mensajería y memoria caché de datos segura que proporciona a las aplicaciones un acceso de alto rendimiento y baja latencia a los datos. Los tutoriales, las referencias de API y otra documentación muestran cómo usar Redis Cache desde cualquier aplicación en Azure.
 

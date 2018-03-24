@@ -1,24 +1,24 @@
 ---
-title: "Documentación sobre Azure HDInsight: tutoriales y referencia de API | Microsoft Docs"
-description: "Conozca Hadoop en HDInsight. En la documentación, se muestra cómo usar Hadoop, Spark, HBase, R-Server y mucho más para procesar macrodatos, analizarlos y obtener información a partir de ellos."
+title: 'Documentación sobre Azure HDInsight: tutoriales y referencia de API | Microsoft Docs'
+description: Conozca Hadoop en HDInsight. En la documentación, se muestra cómo usar Hadoop, Spark, HBase, R-Server y mucho más para procesar macrodatos, analizarlos y obtener información a partir de ellos.
 services: hdinsight
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 12/05/2017
 ms.author: carolz
-ms.openlocfilehash: 12fbfada95f9356b1d32c0edd3346a57c6ffa26f
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 6d00f3194f7cf02d9c0218ed768f3c3350efdd16
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="azure-hdinsight-documentation"></a>Documentación de Azure HDInsight
+# <a name="azure-hdinsight-documentation"></a>Documentación de Azure HDInsight
 
 Aprenda a usar Azure HDInsight para analizar datos de streaming o históricos. En los tutoriales y otra documentación, se muestra cómo crear clústeres, cómo procesar y analizar macrodatos, y cómo desarrollar soluciones con las plataformas de código abierto más conocidas como Hadoop, Spark, Hive, LLAP, Kafka, Storm, R y otras. 
 
@@ -267,7 +267,7 @@ Azure HDInsight es un servicio de análisis, de código abierto, espectro comple
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/hdinsight/">API DE REST</a></p>
+                        <p><a href="/rest/api/hdinsight/">API de REST</a></p>
                         <p><a href="/rest/api/hdinsightspark/">API de REST (Spark)</a></p>
                     </div>
                 </div>
