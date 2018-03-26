@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Documentación sobre Azure Container Instances"
+title: Documentación sobre Azure Container Instances
 metadata:
-  title: "Documentación sobre Azure Container Instances: tutoriales | Microsoft Docs"
-  description: "Azure Container Instances ofrece la forma más rápida y sencilla de ejecutar un contenedor en Azure, sin tener que aprovisionar ninguna máquina virtual y sin necesidad de adoptar un servicio de nivel superior."
+  title: 'Documentación sobre Azure Container Instances: tutoriales | Microsoft Docs'
+  description: Azure Container Instances ofrece la forma más rápida y sencilla de ejecutar un contenedor en Azure, sin tener que aprovisionar ninguna máquina virtual y sin necesidad de adoptar un servicio de nivel superior.
   services: container-instances
   author: czeumault
   manager: carolz
@@ -13,23 +13,23 @@ metadata:
   ms.topic: landing-page
   ms.date: 07/26/2017
   ms.author: carolz
-  ms.openlocfilehash: 251ce769ce9d43d7706cd7ba5d0c0f47cde36d3f
-  ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+  ms.openlocfilehash: 77bf10c4cdb0acf2ef324b14de0d3ae153543bdc
+  ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 01/24/2018
+  ms.lasthandoff: 03/23/2018
 abstract:
-  description: "Azure Container Instances ofrece la forma más rápida y sencilla de ejecutar un contenedor en Azure, sin tener que aprovisionar ninguna máquina virtual y sin necesidad de adoptar un servicio de nivel superior. Si necesita una solución de orquestación de contenedores completa, consulte la <a href=\"/azure/container-service/kubernetes/\">documentación sobre Kubernetes en Azure Container Service</a>. Aprenda a crear y administrar instancias de contenedores con nuestros inicios rápidos, tutoriales y ejemplos."
+  description: Azure Container Instances ofrece la forma más rápida y sencilla de ejecutar un contenedor en Azure, sin tener que aprovisionar ninguna máquina virtual y sin necesidad de adoptar un servicio de nivel superior. Aprenda a crear y administrar instancias de contenedores con nuestros inicios rápidos, tutoriales y ejemplos.<p>Si necesita una solución de orquestación de contenedores completa, consulte la <a href="/azure/aks/">documentación de Azure Container Service (AKS)</a>.</p>
 sections:
-- title: "Inicios rápidos en 5 minutos"
+- title: Inicios rápidos en 5 minutos
   items:
   - type: paragraph
-    text: "Aprenda a implementar imágenes de contenedores con Azure Container Instances."
+    text: Aprenda a implementar imágenes de contenedores con Azure Container Instances.
   - type: list
     style: icon48
     items:
     - image:
-        src: /azure/virtual-machines/linux/media/index/cli.svg
+        src: https://docs.microsoft.com/media/common/i_cligeneric.svg
       text: Azure CLI
       href: /azure/container-instances/container-instances-quickstart
     - image:
@@ -37,26 +37,26 @@ sections:
       text: Azure Portal
       href: /azure/container-instances/container-instances-quickstart-portal
     - image:
-        src: /azure/virtual-machines/linux/media/index/logo_powershell.svg
+        src: https://docs.microsoft.com/media/logos/logo_powershell.svg
       text: Azure PowerShell
       href: /azure/container-instances/container-instances-quickstart-powershell
 - title: Tutoriales detallados
   items:
   - type: paragraph
-    text: "Aprenda a empaquetar código en una imagen de contenedor y a ejecutarlo en Azure Container Instance."
+    text: Aprenda a empaquetar código en una imagen de contenedor y a ejecutarlo en Azure Container Instance.
   - type: list
     style: ordered
     items:
-    - html: "<a href=\"/azure/container-instances/container-instances-tutorial-prepare-app\">Empaquetado de una aplicación en una imagen de contenedor</a>"
-    - html: "<a href=\"/azure/container-instances/container-instances-tutorial-prepare-acr\">Creación de una instancia de Azure Container Registry y carga de la imagen de contenedor</a>"
-    - html: "<a href=\"/azure/container-instances/container-instances-tutorial-deploy-app\">Implementación de la imagen de contenedor en Azure Container Instance</a>"
+    - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Empaquetado de una aplicación en una imagen de contenedor</a>
+    - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-acr">Creación de una instancia de Azure Container Registry y carga de la imagen de contenedor</a>
+    - html: <a href="/azure/container-instances/container-instances-tutorial-deploy-app">Implementación de la imagen de contenedor en Azure Container Instance</a>
 - title: Referencia
   items:
   - type: list
     style: cards
     className: cardsD
     items:
-    - title: "Línea de comandos"
+    - title: Línea de comandos
       html: <p><a href="/cli/azure/container">CLI de Azure</a></p><p><a href="/powershell/module/azurerm.containerinstance#container_instances">PowerShell</a></p>
     - title: Idiomas
       html: <p><a href="/dotnet/api/overview/azure/containerinstances">.NET</a></p><p><a href="/python/api/overview/azure/containerinstance">Python</a></p><p><a href="/java/api/overview/azure/containerinstance">Java</a></p><p><a href="/javascript/api/overview/azure/containerinstance">Node.js</a></p>

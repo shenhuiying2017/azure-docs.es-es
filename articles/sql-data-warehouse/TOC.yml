@@ -1,0 +1,241 @@
+- name: Documentación de SQL Data Warehouse
+  href: index.md
+- name: Información general
+  items:
+    - name: Acerca de SQL Data Warehouse
+      href: sql-data-warehouse-overview-what-is.md
+    - name: Hoja de referencia rápida
+      href: cheat-sheet.md
+- name: Guías de inicio rápido
+  expanded: true
+  items:
+    - name: 'Creación y conexión: portal'
+      href: create-data-warehouse-portal.md
+    - name: Pausa y reanudación de proceso
+      items:
+        - name: Portal
+          href: pause-and-resume-compute-portal.md
+        - name: PowerShell
+          href: pause-and-resume-compute-powershell.md
+    - name: Escalado de proceso
+      items:
+        - name: Portal
+          href: quickstart-scale-compute-portal.md
+        - name: PowerShell
+          href: quickstart-scale-compute-powershell.md
+        - name: T-SQL
+          href: quickstart-scale-compute-tsql.md
+- name: Tutoriales
+  items:
+    - name: 1 - Carga de WideWorldImporters
+      href: load-data-wideworldimportersdw.md
+- name: Conceptos
+  items:
+    - name: Características de servicio
+      items:
+        - name: Arquitectura MPP
+          href: massively-parallel-processing-mpp-architecture.md
+        - name: Niveles de rendimiento
+          href: performance-tiers.md
+        - name: Unidades de almacenamiento de datos
+          href: what-is-a-data-warehouse-unit-dwu-cdwu.md
+        - name: 'Escalabilidad horizontal, pausa, reanudación'
+          href: sql-data-warehouse-manage-compute-overview.md
+        - name: Copias de seguridad de almacenamiento de datos
+          href: sql-data-warehouse-backups.md
+        - name: Auditoría
+          href: sql-data-warehouse-auditing-overview.md
+        - name: Límites de capacidad
+          href: sql-data-warehouse-service-capacity-limits.md
+        - name: Preguntas más frecuentes
+          href: sql-data-warehouse-overview-faq.md
+    - name: Seguridad
+      items:
+        - name: Información general
+          href: sql-data-warehouse-overview-manage-security.md
+        - name: Autenticación
+          href: sql-data-warehouse-authentication.md
+    - name: Migración a SQL Data Warehouse
+      items:
+        - name: Información general
+          href: sql-data-warehouse-overview-migrate.md
+        - name: Migración del esquema
+          href: sql-data-warehouse-migrate-schema.md
+        - name: Migración del código
+          href: sql-data-warehouse-migrate-code.md
+        - name: Migración de los datos
+          href: sql-data-warehouse-migrate-data.md
+    - name: Carga y movimiento de datos
+      items:
+        - name: Información general
+          href: design-elt-data-loading.md
+        - name: Procedimientos recomendados
+          href: guidance-for-loading-data.md
+    - name: Integrate
+      items:
+        - name: Información general
+          href: sql-data-warehouse-overview-integrate.md
+        - name: Consulta elástica de SQL Database
+          href: how-to-use-elastic-query-with-sql-data-warehouse.md
+    - name: Rendimiento de consultas
+      items:
+        - name: Clases de recursos
+          href: resource-classes-for-workload-management.md
+        - name: Compresión de almacén de columnas
+          href: sql-data-warehouse-memory-optimizations-for-columnstore-compression.md
+    - name: Supervisión
+      href: sql-data-warehouse-manage-monitor.md
+    - name: Desarrollo de almacenamiento de datos
+      items:
+        - name: Información general
+          href: sql-data-warehouse-overview-develop.md
+        - name: Componentes de almacenamiento de datos
+          href: sql-data-warehouse-overview-workload.md
+        - name: Tablas
+          items:
+            - name: Información general
+              href: sql-data-warehouse-tables-overview.md
+            - name: CTAS
+              href: sql-data-warehouse-develop-ctas.md
+            - name: Tipos de datos
+              href: sql-data-warehouse-tables-data-types.md
+            - name: Tablas distribuidas
+              href: sql-data-warehouse-tables-distribute.md
+            - name: Índices
+              href: sql-data-warehouse-tables-index.md
+            - name: Identidad
+              href: sql-data-warehouse-tables-identity.md
+            - name: Particiones
+              href: sql-data-warehouse-tables-partition.md
+            - name: Tablas replicadas
+              href: design-guidance-for-replicated-tables.md
+            - name: Estadísticas
+              href: sql-data-warehouse-tables-statistics.md
+            - name: Temporal
+              href: sql-data-warehouse-tables-temporary.md
+        - name: Consultas
+          items:
+            - name: SQL dinámico
+              href: sql-data-warehouse-develop-dynamic-sql.md
+            - name: Opciones de Agrupar por
+              href: sql-data-warehouse-develop-group-by-options.md
+            - name: Etiquetas
+              href: sql-data-warehouse-develop-label.md
+        - name: Elementos del lenguaje T-SQL
+          items:
+            - name: Bucles
+              href: sql-data-warehouse-develop-loops.md
+            - name: Procedimientos almacenados
+              href: sql-data-warehouse-develop-stored-procedures.md
+            - name: Transacciones
+              href: sql-data-warehouse-develop-transactions.md
+            - name: Procedimientos recomendados relacionados con las transacciones
+              href: sql-data-warehouse-develop-best-practices-transactions.md
+            - name: Esquemas definidos por el usuario
+              href: sql-data-warehouse-develop-user-defined-schemas.md
+            - name: Asignación de variables
+              href: sql-data-warehouse-develop-variable-assignment.md
+            - name: Vistas
+              href: sql-data-warehouse-develop-views.md
+    - name: Solución de problemas
+      href: sql-data-warehouse-troubleshoot.md
+- name: Guías de procedimientos
+  items:
+    - name: Características de servicio
+      items:
+        - name: 'Restauración de un almacenamiento de datos: portal'
+          href: sql-data-warehouse-restore-database-portal.md
+        - name: 'Restauración de un almacenamiento de datos: PowerShell'
+          href: sql-data-warehouse-restore-database-powershell.md
+        - name: 'Restauración de un almacenamiento de datos: REST API'
+          href: sql-data-warehouse-restore-database-rest-api.md
+    - name: Seguridad
+      items:
+        - name: 'Habilitación de cifrado: portal'
+          href: sql-data-warehouse-encryption-tde.md
+        - name: 'Habilitación de cifrado: T-SQL'
+          href: sql-data-warehouse-encryption-tde-tsql.md
+        - name: Detección de amenazas
+          href: sql-data-warehouse-security-threat-detection.md
+    - name: Carga y movimiento de datos
+      items:
+        - name: Datos de taxi de Nueva York
+          href: load-data-from-azure-blob-storage-using-polybase.md
+        - name: Datos públicos de Contoso
+          href: sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
+        - name: Almacén de Azure Data Lake
+          href: sql-data-warehouse-load-from-azure-data-lake-store.md
+        - name: Azure Databricks
+          href: /azure/azure-databricks/databricks-extract-load-sql-data-warehouse?toc=/azure/sql-data-warehouse/toc.json
+        - name: BCP
+          href: sql-data-warehouse-load-with-bcp.md
+        - name: Data Factory
+          href: sql-data-warehouse-load-with-data-factory.md
+        - name: AzCopy
+          href: sql-data-warehouse-load-from-sql-server-with-polybase.md
+        - name: RedGate
+          href: sql-data-warehouse-load-with-redgate.md
+        - name: SSIS
+          href: sql-data-warehouse-load-from-sql-server-with-integration-services.md
+    - name: Integrate
+      items:
+        - name: Configuración de consulta elástica de SQL Database
+          href: tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md
+        - name: Adición de un trabajo de Azure Stream Analytics
+          href: sql-data-warehouse-integrate-azure-stream-analytics.md
+        - name: Uso de Machine Learning
+          href: sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md
+        - name: Visualización con Power BI
+          href: sql-data-warehouse-get-started-visualize-with-power-bi.md
+    - name: Supervisión y ajuste
+      items:
+        - name: Análisis de la carga de trabajo
+          href: analyze-your-workload.md
+    - name: Escalado horizontal
+      items:
+        - name: Automatización de niveles de proceso
+          href: manage-compute-with-azure-functions.md
+- name: Referencia
+  items:
+    - name: T-SQL
+      items:
+        - name: Referencia completa
+          href: 'https://docs.microsoft.com/sql/t-sql/language-reference/'
+        - name: Elementos del lenguaje SQL Data Warehouse
+          href: sql-data-warehouse-reference-tsql-language-elements.md
+        - name: Instrucciones de SQL Data Warehouse
+          href: sql-data-warehouse-reference-tsql-statements.md
+    - name: Vistas de sistema
+      href: sql-data-warehouse-reference-tsql-system-views.md
+    - name: Cmdlets de PowerShell
+      href: sql-data-warehouse-reference-powershell-cmdlets.md
+    - name: API de REST
+      href: sql-data-warehouse-manage-compute-rest-api.md
+- name: Recursos
+  items:
+    - name: Azure Roadmap
+      href: 'https://azure.microsoft.com/roadmap/?category=databases'
+    - name: Foro
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSQLDataWarehouse'
+    - name: Precios
+      href: 'https://azure.microsoft.com/pricing/details/sql-data-warehouse/'
+    - name: Calculadora de precios
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Solicitudes de características
+      href: 'https://feedback.azure.com/forums/307516-sql-data-warehouse/'
+    - name: Actualizaciones del servicio
+      href: 'https://azure.microsoft.com/updates/?product=sql-data-warehouse'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-sqldw/'
+    - name: Soporte técnico
+      href: sql-data-warehouse-get-started-create-support-ticket.md
+    - name: Vídeos
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse'
+    - name: Asociados
+      items:
+        - name: Business intelligence
+          href: sql-data-warehouse-partner-business-intelligence.md
+        - name: Integración de datos
+          href: sql-data-warehouse-partner-data-integration.md
+        - name: Administración de datos
+          href: sql-data-warehouse-partner-data-management.md

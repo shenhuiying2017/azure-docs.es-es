@@ -1,0 +1,193 @@
+- name: Documentación de Batch
+  href: index.yml
+- name: Información general
+  items:
+    - name: ¿Qué es Azure Batch?
+      href: batch-technical-overview.md
+- name: Guías de inicio rápido
+  expanded: true
+  items:
+    - name: 'Ejecución de un trabajo de Batch: CLI'
+      href: quick-create-cli.md
+    - name: 'Ejecución de un trabajo de Batch: Portal'
+      href: quick-create-portal.md
+    - name: 'Ejecución de un trabajo de Batch: .NET'
+      href: quick-run-dotnet.md
+    - name: 'Ejecución de un trabajo de Batch: Python'
+      href: quick-run-python.md
+- name: Tutoriales
+  items:
+    - name: 'Procesamiento de archivos en paralelo: .NET'
+      href: tutorial-parallel-dotnet.md
+    - name: 'Procesamiento de archivos en paralelo: Python'
+      href: tutorial-parallel-python.md
+    - name: Representación de escenas con Arnold
+      href: tutorial-rendering-cli.md
+    - name: Simulación de R en paralelo
+      href: tutorial-r-doazureparallel.md
+- name: Ejemplos
+  items:
+    - name: Ejemplos de código
+      items:
+        - name: Ejemplos de código de Azure
+          href: 'https://azure.microsoft.com/resources/samples/?service=batch'
+        - name: Repositorio de ejemplos de Batch
+          href: 'https://github.com/Azure/azure-batch-samples'
+    - name: Azure CLI
+      href: cli-samples.md
+- name: Conceptos
+  items:
+    - name: Características del desarrollador
+      href: batch-api-basics.md
+    - name: API y herramientas
+      href: batch-apis-tools.md
+    - name: Cuotas y límites
+      href: batch-quota-limit.md
+- name: Guías de procedimientos
+  items:
+    - name: Administración de cuentas de Batch
+      items:
+        - name: Administración de cuentas de Batch con el portal
+          href: batch-account-create-portal.md
+        - name: Administración de cuentas de Batch con Batch Management .NET
+          href: batch-management-dotnet.md
+    - name: Autenticación mediante Azure Active Directory
+      items:
+        - name: Azure AD con el servicio Batch
+          href: batch-aad-auth.md
+        - name: Azure AD con administración de Batch
+          href: batch-aad-auth-management.md
+    - name: Creación de paquetes de aplicación
+      href: batch-application-packages.md
+    - name: Creación y administración de grupos
+      items:
+        - name: Escalado automático de nodos de proceso
+          href: batch-automatic-scaling.md
+        - name: Elección de un tamaño de máquina virtual para nodos de proceso
+          href: batch-pool-vm-sizes.md
+        - name: Configuración de acceso a nodos de proceso
+          href: pool-endpoint-configuration.md
+        - name: Creación de un grupo con una imagen personalizada
+          href: batch-custom-images.md
+        - name: Creación de un grupo en una red virtual
+          href: batch-virtual-network.md
+        - name: Uso de máquinas virtuales de procesos intensivos
+          href: batch-pool-compute-intensive-sizes.md
+        - name: Uso de nodos de proceso Linux
+          href: batch-linux-nodes.md
+        - name: Uso de máquinas virtuales de prioridad baja
+          href: batch-low-pri-vms.md
+    - name: Administración de trabajos y tareas
+      items:
+        - name: Tareas de preparación y finalización de trabajos
+          href: batch-job-prep-release.md
+        - name: Tareas simultáneas en los nodos
+          href: batch-parallel-node-tasks.md
+        - name: Recuento de tareas por estado
+          href: batch-get-task-counts.md
+        - name: Dependencias de las tareas
+          href: batch-task-dependencies.md
+        - name: Cuentas de usuario para ejecutar tareas
+          href: batch-user-accounts.md
+        - name: Ejecución de trabajos de Batch sin código
+          href: batch-cli-templates.md
+    - name: Trabajo persistente y resultado de la tarea
+      href: batch-task-output.md
+      items:
+        - name: Conservar la salida con Batch API
+          href: batch-task-output-files.md
+        - name: Conservar la salida con la biblioteca de convenciones de archivo
+          href: batch-task-output-file-conventions.md
+    - name: Ejecución de cargas de trabajo
+      items:
+        - name: Trabajos de MPI
+          href: batch-mpi.md
+        - name: Cargas de trabajo de contenedor
+          href: batch-docker-container-workloads.md
+        - name: Representación
+          href: batch-rendering-service.md
+        - name: Procesamiento de datos con Batch y Data Factory
+          href: ../data-factory/v1/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json
+    - name: Supervisión de recursos
+      items:
+        - name: Registro de diagnósticos
+          href: batch-diagnostics.md
+        - name: Consultas de listas eficaces
+          href: batch-efficient-list-queries.md
+    - name: Uso de herramientas de desarrollo
+      items:
+        - name: Uso de .NET de Batch
+          href: batch-dotnet-get-started.md
+        - name: Uso de Python de Batch
+          href: batch-python-tutorial.md
+        - name: Uso de Node.js de Batch
+          href: batch-nodejs-get-started.md
+        - name: Uso de cmdlets de PowerShell
+          href: batch-powershell-cmdlets-get-started.md
+        - name: Uso de CLI de Azure
+          href: batch-cli-get-started.md
+- name: Referencia
+  items:
+    - name: Azure CLI
+      href: /cli/azure/batch
+    - name: Azure PowerShell
+      href: /powershell/module/azurerm.batch
+    - name: .NET
+      href: /dotnet/api/overview/azure/batch
+    - name: Java
+      href: /java/api/overview/azure/batch
+    - name: Node.js
+      href: /javascript/api/overview/azure/batch
+    - name: Python
+      href: /python/api/overview/azure/batch
+    - name: REST
+      items:
+        - name: Servicio Batch
+          href: /rest/api/batchservice
+        - name: Administración de Batch
+          href: /rest/api/batchmanagement/
+    - name: Análisis por lotes
+      href: batch-analytics.md
+      items:
+        - name: Evento de creación del grupo
+          href: batch-pool-create-event.md
+        - name: Evento de inicio de eliminación del grupo
+          href: batch-pool-delete-start-event.md
+        - name: Evento de finalización de eliminación del grupo
+          href: batch-pool-delete-complete-event.md
+        - name: Evento de inicio de cambio de tamaño de grupo
+          href: batch-pool-resize-start-event.md
+        - name: Evento de finalización de cambio de tamaño del grupo
+          href: batch-pool-resize-complete-event.md
+        - name: Evento de inicio de tarea
+          href: batch-task-start-event.md
+        - name: Evento de tarea completada
+          href: batch-task-complete-event.md
+        - name: Evento de error en tareas
+          href: batch-task-fail-event.md
+    - name: Variables de entorno de nodo de proceso de Batch
+      href: batch-compute-node-environment-variables.md
+- name: Recursos
+  items:
+    - name: Azure Roadmap
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Foro de Batch
+      href: 'https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch'
+    - name: Batch Shipyard
+      href: 'https://github.com/Azure/batch-shipyard'
+    - name: Blog
+      href: 'https://blogs.technet.microsoft.com/windowshpc/'
+    - name: Soluciones de HPC en Azure
+      href: ../virtual-machines/linux/high-performance-computing.md?toc=%2fazure%2fbatch%2ftoc.json
+    - name: Precios
+      href: 'https://azure.microsoft.com/pricing/details/batch/'
+    - name: Calculadora de precios
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Plantilla de Resource Manager
+      href: /azure/templates/microsoft.batch/batchaccounts
+    - name: Actualizaciones del servicio
+      href: 'https://azure.microsoft.com/updates/?product=batch&updatetype=&platform='
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-batch'
+    - name: Vídeos
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=batch'

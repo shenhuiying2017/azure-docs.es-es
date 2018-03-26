@@ -1,0 +1,223 @@
+- name: Documentación de Azure API Management
+  href: index.yml
+- name: Información general
+  items:
+    - name: Acerca de API Management
+      href: api-management-key-concepts.md
+- name: Guías de inicio rápido
+  expanded: true
+  items:
+    - name: 'Creación de una instancia: Portal'
+      href: get-started-create-service-instance.md
+    - name: 'Creación de una instancia: PowerShell'
+      href: powershell-create-service-instance.md
+- name: Tutoriales
+  items:
+    - name: 1 - Importación de la primera API
+      href: import-and-publish.md
+    - name: 2 - Creación y publicación de un producto
+      href: api-management-howto-add-products.md
+    - name: 3 - Simulación de respuestas de API
+      href: mock-api-responses.md
+    - name: 4 - Protección de una API
+      href: transform-api.md
+    - name: 5 - Supervisión de API publicadas
+      href: api-management-howto-use-azure-monitor.md
+    - name: 6 - Depuración de API
+      href: api-management-howto-api-inspector.md
+    - name: 7 - Incorporación de revisiones
+      href: api-management-get-started-revise-api.md
+    - name: 8 - Incorporación de varias versiones
+      href: api-management-get-started-publish-versions.md
+    - name: 9 - Personalización del portal para desarrolladores
+      href: api-management-customize-styles.md
+- name: Ejemplos
+  items:
+    - name: Directivas
+      href: policy-samples.md
+    - name: Azure PowerShell
+      href: powershell-samples.md
+- name: Conceptos
+  items:
+    - name: Terminología
+      href: api-management-terminology.md
+    - name: Directivas
+      items:
+        - name: Información general
+          href: api-management-howto-policies.md
+        - name: Índice de referencia de directiva
+          href: api-management-policies.md
+    - name: Administrar mediante automatización
+      href: automation-manage-api-management.md
+    - name: Control de errores
+      href: api-management-error-handling-policies.md
+    - name: Restricciones a la importación de API
+      href: api-management-api-import-restrictions.md
+- name: Guías de procedimientos
+  items:
+    - name: 'Definición de API '
+      items:
+        - name: Adición manual de una API
+          href: add-api-manually.md
+        - name: Importación de una especificación OpenAPI
+          href: import-api-from-oas.md
+        - name: Importación de una API de SOAP
+          href: import-soap-api.md
+        - name: Importación de API de SOAP y conversión en REST
+          href: restify-soap-api.md
+        - name: Importación de una aplicación de API
+          href: import-api-app-as-api.md
+        - name: Importación de una instancia de Function App
+          href: import-function-app-as-api.md
+        - name: Importación de una aplicación lógica
+          href: import-logic-app-as-api.md
+        - name: Importación de una aplicación de Service Fabric
+          href: ../service-fabric/service-fabric-tutorial-deploy-api-management.md
+        - name: Edición de una API
+          href: edit-api.md
+    - name: Aprovisionamiento y escalado
+      items:
+        - name: Actualización y escalado
+          href: upgrade-and-scale.md
+        - name: Configuración de un dominio personalizado
+          href: configure-custom-domain.md
+    - name: Memoria caché
+      items:
+        - name: Agregar almacenamiento en caché para mejorar el rendimiento
+          href: api-management-howto-cache.md
+    - name: Proteger el back-end
+      items:
+        - name: Protección de una API con Azure AD
+          href: api-management-howto-protect-backend-with-aad.md
+        - name: Conexión a una red virtual
+          href: api-management-using-with-vnet.md
+        - name: Conexión a una red virtual interna
+          href: api-management-using-with-internal-vnet.md
+        - name: Integración de Application Gateway en una red virtual interna
+          href: api-management-howto-integrate-internal-vnet-appgateway.md
+        - name: Autenticación mutua de certificados
+          href: api-management-howto-mutual-certificates.md
+    - name: Personalizar la experiencia para desarrolladores
+      items:
+        - name: Modificación del diseño y contenido de una página
+          href: api-management-modify-content-layout.md
+        - name: Personalización de páginas del sistema mediante plantillas
+          href: api-management-developer-portal-templates.md
+        - name: Autenticación con Azure AD
+          href: api-management-howto-aad.md
+        - name: Autenticación con Azure AD B2C
+          href: api-management-howto-aad-b2c.md
+        - name: Autenticación delegada
+          href: api-management-howto-setup-delegation.md
+        - name: Plantillas y notificaciones de correo electrónico
+          href: api-management-howto-configure-notifications.md
+        - name: Habilitar OAuth en la consola
+          href: api-management-howto-oauth2.md
+    - name: Definición de directivas
+      items:
+        - name: Establecimiento o edición de directivas
+          href: set-edit-policies.md
+        - name: Expresiones de directiva
+          href: api-management-policy-expressions.md
+        - name: Almacenamiento en caché personalizado
+          href: api-management-sample-cache-by-key.md
+        - name: Supervisión avanzada
+          href: api-management-log-to-eventhub-sample.md
+        - name: Limitación de solicitudes avanzada
+          href: api-management-sample-flexible-throttling.md
+        - name: Usar servicios externos
+          href: api-management-sample-send-request.md
+        - name: Administrar secretos mediante propiedades
+          href: api-management-howto-properties.md
+        - name: Protección de API mediante la autenticación de certificado de cliente
+          href: api-management-howto-mutual-certificates-for-clients.md
+        - name: Directivas de restricción de acceso
+          href: api-management-access-restriction-policies.md
+        - name: Directivas avanzadas
+          href: api-management-advanced-policies.md
+        - name: Directivas de autenticación
+          href: api-management-authentication-policies.md
+        - name: Directivas de almacenamiento en caché
+          href: api-management-caching-policies.md
+        - name: Directivas entre dominios
+          href: api-management-cross-domain-policies.md
+        - name: Directivas de transformación
+          href: api-management-transformation-policies.md
+    - name: Referencia de plantilla
+      items:
+        - name: Plantillas
+          href: api-management-developer-portal-templates-reference.md
+        - name: API existentes
+          href: api-management-api-templates.md
+        - name: Productos
+          href: api-management-product-templates.md
+        - name: APLICACIONES
+          href: api-management-application-templates.md
+        - name: Issues
+          href: api-management-issue-templates.md
+        - name: Perfil de usuario
+          href: api-management-user-profile-templates.md
+        - name: Páginas
+          href: api-management-page-templates.md
+        - name: Recursos de plantilla
+          href: api-management-template-resources.md
+    - name: Referencia de modelo de datos
+      href: api-management-template-data-model-reference.md
+    - name: Controles de página
+      href: api-management-page-controls.md
+    - name: Administración en producción
+      items:
+        - name: Administrar grupos
+          href: api-management-howto-create-groups.md
+        - name: Implementación en varias regiones de Azure
+          href: api-management-howto-deploy-multi-region.md
+        - name: Registro de eventos en Azure Event Hubs
+          href: api-management-howto-log-event-hubs.md
+        - name: Configuración de DR mediante copia de seguridad y restauración
+          href: api-management-howto-disaster-recovery-backup-restore.md
+        - name: Administrar cuentas de usuario
+          href: api-management-howto-create-or-invite-developers.md
+        - name: Configurar mediante Git
+          href: api-management-configuration-repository-git.md
+        - name: Uso del control de acceso basado en rol
+          href: api-management-role-based-access-control.md
+        - name: Uso de la identidad de servicio administrada
+          href: api-management-howto-use-managed-service-identity.md
+        - name: Integración con Service Fabric
+          items:
+            - name: Información general
+              href: ../service-fabric/service-fabric-api-management-overview.md
+            - name: Tutorial
+              href: ../service-fabric/service-fabric-tutorial-deploy-api-management.md
+- name: Referencia
+  items:
+    - name: Azure PowerShell
+      href: /powershell/azure/overview
+    - name: REST
+      href: /rest/api/apimanagement/
+    - name: REST (original)
+      href: /rest/api/apimanagement/ApiManagementREST/api-management-REST
+- name: Recursos
+  items:
+    - name: Preguntas más frecuentes
+      href: api-management-faq.md
+    - name: Disponibilidad regional
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Guía de diseño de una API
+      href: 'https://docs.microsoft.com/azure/architecture/best-practices/api-design?toc=%2Fazure%2Fapi-management%2Ftoc.json'
+    - name: Guía de implementación de API
+      href: 'https://docs.microsoft.com/azure/architecture/best-practices/api-implementation?toc=%2Fazure%2Fapi-management%2Ftoc.json'
+    - name: Foro de MSDN
+      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureapimgmt'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-api-management'
+    - name: Vídeos
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=api-management'
+    - name: Roadmap
+      href: 'http://aka.ms/apimroadmap'
+    - name: Plantilla de solución de Power BI para API Management
+      href: 'http://aka.ms/apimpbi'
+    - name: Blog
+      href: 'http://aka.ms/apimblog'
+    - name: Solicitudes de características
+      href: 'http://aka.ms/apimwish'

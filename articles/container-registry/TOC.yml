@@ -33,6 +33,8 @@
   items:
     - name: SKU de Container Registry
       href: container-registry-skus.md
+    - name: Almacenamiento de imágenes
+      href: container-registry-storage.md
     - name: Replicación geográfica (versión preliminar)
       href: container-registry-geo-replication.md
     - name: Procedimientos recomendados del registro

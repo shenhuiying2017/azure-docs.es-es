@@ -91,7 +91,8 @@
 #### [Complejidad de la contraseña](active-directory-b2c-reference-password-complexity-custom.md).
 #### [Cambio de contraseña](active-directory-b2c-reference-password-change-custom.md)
 #### [Habilitación de Mantener la sesión iniciada](active-directory-b2c-reference-kmsi-custom.md)
-### solución de problemas
+### Solución de problemas y registros de eventos
+#### [Creación de eventos personalizados con Application Insights](active-directory-b2c-custom-guide-eventlogger-appins.md)
 #### [Recopilación de registros con Application Insights](active-directory-b2c-troubleshoot-custom.md)
 ## Referencia
 ### [Notas de la versión](active-directory-b2c-developer-notes-custom.md)

@@ -103,6 +103,8 @@
               href: hyper-v-vmm-architecture.md
     - name: Recuperación ante desastres para aplicaciones
       href: site-recovery-workload.md
+    - name: Acerca de los planes de recuperación
+      href: recovery-plan-overview.md
     - name: Información sobre la migración
       href: migrate-overview.md
     - name: Acerca del control de acceso basado en rol con Site Recovery
@@ -273,6 +275,12 @@
           items:
             - name: Ejecución de un simulacro de recuperación ante desastresen Azure
               href: site-recovery-test-failover-to-azure.md
+            - name: Configuración de planes de recuperación
+              href: site-recovery-create-recovery-plans.md
+            - name: Adición de scripts de VMM a los planes de recuperación
+              href: hyper-v-vmm-recovery-script.md
+            - name: Adición de runbooks de Azure a los planes de recuperación
+              href: site-recovery-runbook-automation.md
             - name: Ejecutar una conmutación por error en Azure.
               href: site-recovery-failover.md
             - name: Conmutación por recuperación de Azure a Hyper-V

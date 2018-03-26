@@ -131,6 +131,8 @@
   items:
     - name: Documentación del operador de Azure Stack
       href: /azure/azure-stack/
+    - name: Documentación de ASDK
+      href: /azure/azure-stack/asdk/
 - name: Recursos
   items:
     - name: Mapa de ruta de Azure Stack
