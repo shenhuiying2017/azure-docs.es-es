@@ -1,12 +1,28 @@
+---
+title: archivo de inclusión
+description: archivo de inclusión
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: 6efec75884857d93f2e128104136bf59a1114594
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 03/23/2018
+---
 En la tabla siguiente se muestran los tipos de puerta de enlace y el rendimiento agregado estimado por SKU de puerta de enlace. Esta tabla se aplica a los modelos de implementación tanto clásico como Resource Manager. 
 
 Los precios difieren entre las SKU de puerta de enlace. Para obtener más información, vea [Precios de VPN Gateway](https://azure.microsoft.com/pricing/details/vpn-gateway).
 
 Tenga en cuenta que la SKU de la puerta de enlace de UltraPerformance no se representa en esta tabla. Para obtener información acerca de la SKU de UltraPerformance, consulte la documentación de [ExpressRoute](../articles/expressroute/expressroute-about-virtual-network-gateways.md).
 
-|  | **Rendimiento de puerta de enlace VPN (1)** | **Túneles IPsec máx. de puerta de enlace VPN (2)** | **Rendimiento de puerta de enlace de ExpressRoute** | **Puerta de enlace de VPN y ExpressRoute coexisten** |
+|  | **Rendimiento de VPN Gateway (1)** | **Túneles IPsec máx. de VPN Gateway (2)** | **Rendimiento de puerta de enlace de ExpressRoute** | **VPN Gateway y ExpressRoute coexisten** |
 | --- | --- | --- | --- | --- |
-| **SKU básica (3)(5)(6)** |100 Mbps |10 |500 Mbps (6) |No |
+| **SKU básica (3)(5)(6)** |100 Mbps |10 |500 Mbps (6) |Sin  |
 | **SKU estándar (4)(5)** |100 Mbps |10 |1000 Mbps |Sí |
 | **SKU de alto rendimiento (4)** |200 Mbps |30 |2000 Mbps |Sí |
 
