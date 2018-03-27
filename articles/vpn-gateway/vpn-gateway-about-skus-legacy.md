@@ -1,25 +1,25 @@
 ---
 title: SKU de puerta de enlace de red virtual de Azure heredada | Microsoft Docs
-description: SKU de puerta de enlace de red virtual antigua
+description: 'Cómo trabajar con las SKU antiguas de puerta de enlace de red virtual: Básica, Estándar y HighPerformance.'
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: 
+manager: jpconnock
+editor: ''
 tags: azure-resource-manager,azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/31/2017
+ms.date: 03/20/2018
 ms.author: cherylmc
-ms.openlocfilehash: d5127c7fa512bad49817fa4c8edf3a16ca2f7d60
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 4feecb9c1e91e1bc6c66a610c092e7bf894886e5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="working-with-virtual-network-gateway-skus-legacy-skus"></a>Trabajo con SKU de puerta de enlace de red virtual (SKU antiguas)
 
@@ -37,36 +37,30 @@ Este artículo contiene información sobre las SKU de puerta de enlace de red vi
 
 [!INCLUDE [Table requirements for old SKUs](../../includes/vpn-gateway-table-requirements-legacy-sku-include.md)]
 
-## <a name="resize"></a>Cambio de tamaño de una puerta de enlace (cambio de SKU de puerta de enlace)
+## <a name="resize"></a>Cambio del tamaño de una puerta de enlace
 
-Puede cambiar el tamaño de una SKU de puerta de enlace dentro de la misma familia de la SKU. Por ejemplo, si tiene una SKU Estándar, puede cambiar a una SKU HighPerformance. No se puede cambiar el tamaño de las puertas de enlace de VPN entre las familias de SKU antiguas y las nuevas. Por ejemplo, no se puede pasar de una SKU Estándar a una SKU VpnGw2.
+Puede cambiar el tamaño de la puerta de enlace a una SKU de puerta de enlace dentro de la misma familia de la SKU. Por ejemplo, si tiene una SKU Estándar, puede cambiar a una SKU HighPerformance. Sin embargo, no se puede cambiar el tamaño de las puertas de enlace de VPN entre las familias de SKU antiguas y las nuevas. Por ejemplo, no se puede pasar de una SKU Estándar a una SKU VpnGw2, o de una SKU Básica a VpnGw1.
 
->[!IMPORTANT]
->Cuando cambie el tamaño de una puerta de enlace, experimentará entre 20 y 30 minutos de inactividad en esa puerta de enlace mientras cambia de tamaño.
->
->
-
-Para cambiar el tamaño de una SKU de puerta de enlace del modelo de implementación clásica, use el siguiente comando:
+Para cambiar el tamaño de una puerta de enlace para el modelo de implementación clásica, use el siguiente comando:
 
 ```powershell
 Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerformance
 ```
 
-Para cambiar el tamaño de una SKU de puerta de enlace del modelo de implementación de Resource Manager, use el siguiente comando:
+Para cambiar el tamaño de una puerta de enlace para el modelo de implementación de Resource Manager mediante PowerShell, use el siguiente comando:
 
 ```powershell
 $gw = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 Resize-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerformance
 ```
+También puede cambiar el tamaño de una puerta de enlace en Azure Portal.
 
-## <a name="migrate"></a>Migración a las nuevas SKU de puerta de enlace
+## <a name="change"></a>Cambio a las nuevas SKU de puerta de enlace
 
-Si está trabajando con el modelo de implementación de Resource Manager, puede migrar a las nuevas SKU de puerta de enlace. Si está trabajando con el modelo de implementación clásica, no puede migrar a las nuevas SKU, sino que debe seguir usando las SKU heredadas.
-
-[!INCLUDE [Migrate SKU](../../includes/vpn-gateway-migrate-legacy-sku-include.md)]
+[!INCLUDE [Change to the new SKUs](../../includes/vpn-gateway-gwsku-change-legacy-sku-include.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información acerca de las nuevas SKU de puerta de enlace, consulte [SKU de puerta de enlace](vpn-gateway-about-vpngateways.md#gwsku).
 
-Para más información sobre los valores de configuración, vea [Acerca de la configuración de la puerta de enlace de VPN](vpn-gateway-about-vpn-gateway-settings.md).
+Para más información sobre los valores de configuración, vea [Acerca de la configuración de VPN Gateway](vpn-gateway-about-vpn-gateway-settings.md).
