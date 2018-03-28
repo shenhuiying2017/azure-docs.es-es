@@ -1,24 +1,21 @@
 ---
-title: "Azure Portal: Creación de una Instancia administrada de SQL Database | Microsoft Docs"
+title: 'Azure Portal: Creación de una Instancia administrada de SQL Database | Microsoft Docs'
 description: Cree una Instancia administrada de Azure SQL Database en una red virtual y utilice SSMS para restaurar la copia de seguridad de la base de datos de Wide World Importers.
-keywords: "tutorial de sql database, creación de una instancia administrada de sql database"
+keywords: tutorial de sql database, creación de una instancia administrada de sql database
 services: sql-database
 author: bonova
 ms.reviewer: carlrab, srbozovi
 ms.service: sql-database
 ms.custom: managed instance
-ms.workload: Active
-ms.tgt_pltfrm: portal
-ms.devlang: 
 ms.topic: tutorial
-ms.date: 03/07/2018
+ms.date: 03/14/2018
 ms.author: bonova
-manager: cguyer
-ms.openlocfilehash: 0d6261392dfdab0d48cb0c524d1fcf416c85d72c
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+manager: craigg
+ms.openlocfilehash: 774a761465cfd886b85378a35dd43ac656a7ee48
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-an-azure-sql-database-managed-instance-in-the-azure-portal"></a>Creación de una Instancia administrada de Azure SQL Database en Azure Portal
 
@@ -26,6 +23,9 @@ En este tutorial se muestra cómo crear una Instancia administrada de Azure SQL 
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
+> [!IMPORTANT]
+> Para una lista de las regiones en las que está actualmente disponible Instancia administrada, consulte [Migrate your databases to a fully managed service with Azure SQL Database Managed Instance](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/) (Migración de las bases de datos a un servicio completamente administrado con Instancia administrada de Azure SQL Database).
+ 
 ## <a name="log-in-to-the-azure-portal"></a>Iniciar sesión en Azure Portal
 
 Inicie sesión en [Azure Portal](https://portal.azure.com/#create/Microsoft.SQLManagedInstance).
@@ -74,7 +74,7 @@ En los pasos siguientes se muestra cómo crear una nueva red virtual de [Azure R
    |**Puntos de conexión de servicio**|Disabled|Permite habilitar uno o varios puntos de conexión de servicio para esta subred.|
    ||||
 
-   ![formulario de creación de red virtual](./media/sql-database-managed-instance-tutorial/virtual-network-create-form.png)
+   ![formulario de creación de una red virtual](./media/sql-database-managed-instance-tutorial/virtual-network-create-form.png)
 
 4. Haga clic en **Create**(Crear).
 
@@ -133,11 +133,11 @@ En los siguientes pasos se muestra cómo configurar la nueva tabla de rutas en l
 
 11. Haga clic en **Tabla de rutas** y seleccione **myMI_route_table**.
 
-    ![establecer tabla de rutas](./media/sql-database-managed-instance-tutorial/set-route-table.png)
+    ![establecimiento de la tabla de rutas](./media/sql-database-managed-instance-tutorial/set-route-table.png)
 
 12. Haga clic en **Guardar**
 
-    ![establecer tabla de rutas: guardar](./media/sql-database-managed-instance-tutorial/set-route-table-save.png)
+    ![establecimiento de la tabla de rutas: guardar](./media/sql-database-managed-instance-tutorial/set-route-table-save.png)
 
 ## <a name="create-a-managed-instance"></a>Creación de una instancia administrada
 
@@ -299,7 +299,7 @@ Después de conectarse, puede ver las bases de datos del sistema y de los usuari
 
 Utilice los pasos siguientes para descargar el archivo de copia de seguridad Wide World Importers: estándar.
 
-Con Internet Explorer, escriba https://github.com/Microsoft/sql-server-samples/releases/download/wide-world-importers-v1.0/WideWorldImporters-Standard.bak en el cuadro de direcciones URL y, cuando se le pida, haga clic en **Guardar** para guardar este archivo en la carpeta **Descargas**.
+Mediante Internet Explorer, escriba https://github.com/Microsoft/sql-server-samples/releases/download/wide-world-importers-v1.0/WideWorldImporters-Standard.bak en el cuadro de direcciones URL y, cuando se le solicite, haga clic en **Guardar** para guardar el archivo en la carpeta **Descargas**.
 
 ## <a name="create-azure-storage-account-and-upload-backup-file"></a>Creación de cuenta de almacenamiento de Azure y carga del archivo de copia de seguridad
 

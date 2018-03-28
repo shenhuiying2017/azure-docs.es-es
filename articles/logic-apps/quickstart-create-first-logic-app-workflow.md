@@ -1,12 +1,12 @@
 ---
-title: "Creación del primer flujo de trabajo automatizado: Azure Logic Apps | Microsoft Docs"
-description: "Esta guía de inicio rápido muestra cómo automatizar su primer flujo de trabajo con Azure Logic Apps para escenarios de integración de sistemas y Enterprise Application Integration (EAI) que integran sistemas y servicios en la nube"
+title: 'Creación del primer flujo de trabajo automatizado: Azure Logic Apps | Microsoft Docs'
+description: Esta guía de inicio rápido muestra cómo automatizar su primer flujo de trabajo con Azure Logic Apps para escenarios de integración de sistemas y Enterprise Application Integration (EAI) que integran sistemas y servicios en la nube
 author: ecfan
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-keywords: "flujos de trabajo, servicios en la nube, integración de sistemas, Enterprise Application Integration, EAI"
-documentationcenter: 
+keywords: flujos de trabajo, servicios en la nube, integración de sistemas, Enterprise Application Integration, EAI
+documentationcenter: ''
 ms.assetid: ce3582b5-9c58-4637-9379-75ff99878dcd
 ms.service: logic-apps
 ms.workload: na
@@ -16,11 +16,11 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 1/12/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: d382144c202b2b7f5623f2cca2a82c384387e8ca
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: ccd00fbb3c5dc0f78a31adcaed31bbe6e4a6e785
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="quickstart-build-your-first-logic-app-workflow---azure-portal"></a>Inicio rápido: Creación del primer flujo de trabajo de aplicación lógica - Azure Portal
 
@@ -60,6 +60,8 @@ Inicie sesión en <a href="https://portal.azure.com" target="_blank">Azure Porta
    ![Selección de la plantilla de aplicación lógica en blanco](./media/quickstart-create-first-logic-app-workflow/choose-logic-app-template.png)
 
 A continuación, añada un [desencadenador](../logic-apps/logic-apps-overview.md#logic-app-concepts) que se active cuando aparezca un nuevo elemento en la fuente RSS. Cada aplicación lógica debe comenzar con un desencadenador, que se activa cuando sucede un evento específico o cuando se cumple una condición determinada. Cada vez que el desencadenador se activa, el motor de Logic Apps crea una instancia de aplicación lógica que inicia y ejecuta el flujo de trabajo.
+
+<a name="add-rss-trigger"></a>
 
 ## <a name="check-rss-feed-with-a-trigger"></a>Comprobación de la fuente RSS con un desencadenador
 
@@ -144,7 +146,7 @@ Ahora, añada una [acción](../logic-apps/logic-apps-overview.md#logic-app-conce
       ![Incorporación del contenido del cuerpo del correo electrónico](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-body.png)
 
       | Configuración | DESCRIPCIÓN | 
-      | ----- | ----------- | 
+      | ------- | ----------- | 
       | **Título de fuente** | Título del elemento | 
       | **Fuente publicada el** | Fecha y hora de publicación del elemento | 
       | **Vínculo de fuente principal** | Dirección URL del elemento | 
@@ -156,15 +158,16 @@ A continuación, pruebe la aplicación lógica.
 
 ## <a name="run-your-logic-app"></a>Ejecución de la aplicación lógica
 
-Para iniciar manualmente la aplicación lógica, en la barra de la barra de herramientas del diseñador, elija **Ejecutar**. También puede esperar a que la aplicación lógica se ejecute en la programación especificada (cada minuto). Si la fuente RSS tiene nuevos elementos, la aplicación lógica envía un correo electrónico para cada uno de ellos. No obstante, si la fuente no tiene elementos nuevos, la aplicación lógica omite el paso de activar el desencadenador y espera al siguiente intervalo para volver a realizar la comprobación. 
+Para iniciar manualmente la aplicación lógica, en la barra de la barra de herramientas del diseñador, elija **Ejecutar**. También puede esperar a que la aplicación lógica compruebe la fuente RSS basada en la programación especificada (cada minuto). Si la fuente RSS tiene nuevos elementos, la aplicación lógica envía un correo electrónico para cada uno de ellos. En caso contrario, la aplicación lógica espera hasta el siguiente intervalo antes de volver a comprobar. 
 
-Por ejemplo, este es un correo electrónico de ejemplo que envía esta aplicación lógica:
+Por ejemplo, este es un correo electrónico de ejemplo que envía esta aplicación lógica. Si no obtiene los mensajes de correo electrónico, compruebe la carpeta de correo electrónico no deseado.
 
 ![Envío de correo electrónico por un elemento nuevo en la fuente RSS](./media/quickstart-create-first-logic-app-workflow/monitor-rss-feed-email.png)
 
-Si no recibe ningún correo electrónico, compruebe la carpeta de correo electrónico no deseado. El filtro de correo electrónico no deseado podría redirigir esta clase de correo. 
+Técnicamente, cuando el desencadenador comprueba la fuente RSS y encuentra nuevos elementos, el desencadenador se activa y el motor de Logic Apps crea una instancia de flujo de trabajo de la aplicación lógica que ejecuta las acciones en el flujo de trabajo.
+Si el desencadenador no encuentra nuevos elementos, no se activa y "omite" crear instancias de flujo de trabajo.
 
-Enhorabuena, acaba de crear y ejecutar su primera aplicación lógica.
+¡Enhorabuena, acaba de compilar y ejecutar correctamente su primera aplicación lógica con Azure Portal!
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -177,7 +180,7 @@ Cuando ya no lo necesite, elimine el grupo de recursos que contiene la aplicaci�
 * Si tiene alguna duda, visite el [foro de Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Para enviar ideas sobre características o votar sobre ellas, visite el [sitio de comentarios de los usuarios de Logic Apps](http://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En esta guía de inicio rápido, ha creado su primera aplicación lógica que comprueba si hay actualizaciones de RSS según la programación especificada (cada minuto) y realiza una acción (envía un correo electrónico) cuando hay actualizaciones. Para más información, continúe con este tutorial para crear flujos de trabajo basados en programación más avanzados:
 

@@ -1,25 +1,25 @@
 ---
-title: "Introducción a Apache Kafka en Azure HDInsight | Microsoft Docs"
-description: "Obtenga información acerca de cómo crear un clúster de Apache Kafka en Azure HDInsight. Obtenga información acerca de cómo crear temas, suscriptores y consumidores."
+title: Introducción a Apache Kafka en Azure HDInsight | Microsoft Docs
+description: Obtenga información acerca de cómo crear un clúster de Apache Kafka en Azure HDInsight. Obtenga información acerca de cómo crear temas, suscriptores y consumidores.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 43585abf-bec1-4322-adde-6db21de98d7f
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: 
+ms.devlang: ''
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/20/2018
 ms.author: larryfr
-ms.openlocfilehash: e00ab06a26d60dd5beca11362df58f35812491d9
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 27e6472480dac104de799ebf0e7579a7987f6c4c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="start-with-apache-kafka-on-hdinsight"></a>Inicio de Apache Kafka en HDInsight
 
@@ -39,7 +39,16 @@ Siga estos pasos para crear un clúster de Kafka en HDInsight:
 
     * **Nombre del clúster**: nombre del clúster de HDInsight. Este nombre debe ser único.
     * **Suscripción**: seleccione la suscripción que vaya a usar.
-    * **Nombre de usuario de inicio de sesión del clúster** y **contraseña de inicio de sesión de clúster**: inicio de sesión de acceso al clúster a través de HTTPS. Use estas credenciales para acceder a servicios como la interfaz de usuario de Ambari Web o la API de REST.
+    * **Tipo de clúster**: seleccione esta entrada y luego establezca los siguientes valores de **Configuración de clúster**:
+
+        * **Tipo de clúster**: Kafka
+        * **Versión**: Kafka 0.10.0 (HDI 3.6)
+
+        Use el botón **Seleccionar** para guardar la configuración.
+
+        ![Seleccionar el tipo de clúster](./media/apache-kafka-get-started/set-hdinsight-cluster-type.png)
+
+    * **Nombre de usuario de inicio de sesión del clúster** y **contraseña de inicio de sesión de clúster**: inicio de sesión de acceso al clúster a través de HTTPS. Use estas credenciales para acceder a servicios como la interfaz de usuario de Ambari Web o la API REST.
     * **Nombre de usuario de Secure Shell (SSH)**: inicio de sesión para acceder al clúster a través de SSH. De forma predeterminada, la contraseña es la misma que la de inicio de sesión en el clúster.
     * **Grupo de recursos**: en el que se va a crear el clúster.
     * **Ubicación**: región de Azure donde se va crear el clúster.
@@ -49,24 +58,15 @@ Siga estos pasos para crear un clúster de Kafka en HDInsight:
    
  ![Seleccione la suscripción.](./media/apache-kafka-get-started/hdinsight-basic-configuration.png)
 
-3. Seleccione **Tipo de clúster** y establezca los siguientes valores de **Configuración de clúster**:
-   
-    * **Tipo de clúster**: Kafka
-    * **Versión**: Kafka 0.10.0 (HDI 3.6)
+3. Use el botón __Siguiente__ para finalizar la configuración básica.
 
-    Por último, use el botón **Seleccionar** para guardar la configuración.
-     
- ![Seleccionar el tipo de clúster](./media/apache-kafka-get-started/set-hdinsight-cluster-type.png)
-
-4. Después de seleccionar el tipo de clúster, use el botón __Seleccionar__ para establecer el tipo de clúster. A continuación, use el botón __Siguiente__ para finalizar la configuración básica.
-
-5. Desde **Storage**, seleccione o cree una cuenta de Storage. Para seguir los pasos de este documento, deje los demás campos con los valores predeterminados. Use el botón __Siguiente__ para guardar la configuración de almacenamiento.
+4. Desde **Storage**, seleccione o cree una cuenta de Storage. Para seguir los pasos de este documento, deje los demás campos con los valores predeterminados. Use el botón __Siguiente__ para guardar la configuración de almacenamiento.
 
     ![Configuración de la cuenta de almacenamiento de HDInsight](./media/apache-kafka-get-started/set-hdinsight-storage-account.png)
 
-6. En __Aplicaciones (opcional)__, seleccione __Siguiente__ para continuar. Para este ejemplo no se requieren aplicaciones.
+5. En __Aplicaciones (opcional)__, seleccione __Siguiente__ para continuar. Para este ejemplo no se requieren aplicaciones.
 
-7. En __Tamaño del clúster__, seleccione __Siguiente__ para continuar.
+6. En __Tamaño del clúster__, seleccione __Siguiente__ para continuar.
 
     > [!WARNING]
     > Para garantizar la disponibilidad de Kafka en HDInsight, el clúster debe contener al menos tres nodos de trabajo. Para más información, consulte la sección [Alta disponibilidad de los datos](#data-high-availability).
@@ -76,9 +76,9 @@ Siga estos pasos para crear un clúster de Kafka en HDInsight:
     > [!IMPORTANT]
     > Los **discos por entrada de nodo de trabajo** configuran la escalabilidad de Kafka en HDInsight. Kafka en HDInsight utiliza el disco local de las máquinas virtuales del clúster. Como Kafka tiene muchas E/S, [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md) se utiliza para proporcionar alto rendimiento y mayor espacio de almacenamiento por nodo. El tipo de disco administrado puede ser __Estándar__ (HDD) o __Premium__ (SSD). Los discos Premium se utilizan con máquinas virtuales de las series DS y GS. Todos los otros tipos de máquina virtual usan discos estándar.
 
-8. En __Configuración avanzada__, seleccione __Siguiente__ para continuar.
+7. En __Configuración avanzada__, seleccione __Siguiente__ para continuar.
 
-9. En **Resumen**, revise la configuración para el clúster. Use los vínculos __Edit__ (Editar) para cambiar cualquier configuración incorrecta. Por último, use el botón __Crear__ para crear el clúster.
+8. En **Resumen**, revise la configuración para el clúster. Use los vínculos __Edit__ (Editar) para cambiar cualquier configuración incorrecta. Por último, use el botón __Crear__ para crear el clúster.
    
     ![Resumen de configuración del clúster](./media/apache-kafka-get-started/hdinsight-configuration-summary.png)
    
@@ -233,7 +233,7 @@ Para garantizar la máxima disponibilidad de los datos de Kafka, es preciso reeq
 
 Si experimenta problemas con la creación de clústeres de HDInsight, consulte los [requisitos de control de acceso](../hdinsight-administer-use-portal-linux.md#create-clusters).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este documento, ha aprendido los conceptos básicos de trabajar con Apache Kafka en HDInsight. Para más información sobre cómo trabajar con Kafka:
 

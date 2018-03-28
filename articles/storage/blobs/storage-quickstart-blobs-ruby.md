@@ -1,19 +1,19 @@
 ---
-title: "Inicio rápido de Azure: Carga, descarga y enumeración de blobs en Azure Storage mediante Ruby | Microsoft Docs"
-description: "En esta guía de inicio rápido, puede crear una cuenta de almacenamiento y un contenedor. Después, puede usar la biblioteca de clientes de almacenamiento para Ruby a fin de cargar un blob en Azure Storage, descargar un blob o enumerar los blobs de un contenedor."
+title: 'Inicio rápido de Azure: Carga, descarga y enumeración de blobs en Azure Storage mediante Ruby | Microsoft Docs'
+description: En esta guía de inicio rápido, puede crear una cuenta de almacenamiento y un contenedor. Después, puede usar la biblioteca de clientes de almacenamiento para Ruby a fin de cargar un blob en Azure Storage, descargar un blob o enumerar los blobs de un contenedor.
 services: storage
 author: tamram
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/22/2018
+ms.date: 03/15/2018
 ms.author: seguler
-ms.openlocfilehash: df885849e879317be6379767a09dd30a93687902
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: fa92875fe859e7d1364267d6157f7a706d9eb8df
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-ruby"></a>Inicio rápido: Carga, descarga y enumeración de blobs mediante Ruby
 
@@ -177,8 +177,14 @@ blob_client.delete_container(container_name)
 File.delete(full_path_to_file)
 File.delete(full_path_to_file2)    
 ```
+## <a name="resources-for-developing-ruby-applications-with-blobs"></a>Recursos para el desarrollo de aplicaciones Ruby con blobs
 
-## <a name="next-steps"></a>pasos siguientes
+Consulte estos recursos adicionales para el desarrollo de Ruby con Blob Storage:
+
+- Consulte e instale el [código fuente de la biblioteca de cliente de Ruby](https://github.com/Azure/azure-storage-ruby) para Azure Storage en GitHub.
+- Explore los [ejemplos de Blob Storage](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=ruby&term=blob) escritos mediante la biblioteca de cliente de Ruby.
+
+## <a name="next-steps"></a>Pasos siguientes
  
 En este tutorial de inicio rápido aprendió a transferir archivos entre un disco local y Azure Blob Storage mediante Ruby. Para más información sobre cómo trabajar con Blob Storage, continúe con los procedimientos de Blob Storage.
 

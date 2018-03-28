@@ -1,8 +1,8 @@
 ---
 title: Copia de datos mediante la herramienta Copy Data de Azure | Microsoft Docs
-description: "Cree una factoría de datos de Azure y, luego, use la herramienta Copy Data para copiar los datos de una carpeta de una instancia de Azure Blob Storage a otra carpeta."
+description: Cree una factoría de datos de Azure y, luego, use la herramienta Copy Data para copiar los datos de una ubicación de Azure Blob Storage a otra.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
 manager: jhubbard
 editor: spelluru
@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.topic: hero-article
 ms.date: 01/16/2018
 ms.author: jingwang
-ms.openlocfilehash: aa9cdba4f4e891d5321eb8af6349d8b141faee03
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: d09422f31a2dda5e14fb891fa07f65fdcceb72c1
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="use-the-copy-data-tool-to-copy-data"></a>Uso de la herramienta Copy Data para copiar datos 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
@@ -87,7 +87,7 @@ En esta guía de inicio rápido, usará Azure Portal para crear una factoría de
 
    c. Seleccione **Choose**(Elegir). Puede hacer doble clic **emp.txt** para omitir este paso.
 
-   d. Seleccione **Siguiente**. 
+   d. Seleccione **Next** (Siguiente). 
 
    ![Página de elección del archivo o la carpeta de entrada](./media/quickstart-create-data-factory-copy-data-tool/choose-input-file-folder.png)
 6. En la página **File format settings** (Configuración de formato de archivo), observe que la herramienta detecta automáticamente los delimitadores de columna y fila, y seleccione **Next** (Siguiente). También puede obtener una vista previa de los datos y ver el esquema de los datos de entrada en esta página. 
@@ -105,7 +105,7 @@ En esta guía de inicio rápido, usará Azure Portal para crear una factoría de
 
    b. Escriba **emp.txt** como nombre de archivo.
 
-   c. Seleccione **Siguiente**. 
+   c. Seleccione **Next** (Siguiente). 
 
    ![Página de elección del archivo o la carpeta de salida](./media/quickstart-create-data-factory-copy-data-tool/choose-output-file-folder.png) 
 10. En la página **File format settings** (Configuración de formato de archivo), seleccione **Next** (Siguiente). 
@@ -134,5 +134,5 @@ En esta guía de inicio rápido, usará Azure Portal para crear una factoría de
 
     ![Pestaña Edit (Editar)](./media/quickstart-create-data-factory-copy-data-tool/edit-tab.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 La canalización de este ejemplo copia los datos de una ubicación a otra en una instancia de Azure Blob Storage. Para más información sobre el uso de Data Factory en otros escenarios, consulte los siguientes [tutoriales](tutorial-copy-data-portal.md). 

@@ -1,6 +1,6 @@
 ---
-title: "Guía de inicio rápido de Azure: transferencia de objetos hacia Azure Blob Storage, y desde él, mediante PHP | Microsoft Docs"
-description: "Aprendizaje rápido para transferir objetos hacia Azure Blob Storage, y desde él, mediante PHP"
+title: 'Guía de inicio rápido de Azure: transferencia de objetos hacia Azure Blob Storage, y desde él, mediante PHP | Microsoft Docs'
+description: Aprendizaje rápido para transferir objetos hacia Azure Blob Storage, y desde él, mediante PHP
 services: storage
 author: roygara
 manager: jeconnoc
@@ -8,13 +8,13 @@ ms.service: storage
 ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: quickstart
-ms.date: 03/09/2018
+ms.date: 03/15/2018
 ms.author: rogarana
-ms.openlocfilehash: 474c03921369035cd7334fdddd9806f8f90b7d58
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 4adad6fe3da16653bbd654a3e93e14f9e68b7c90
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/17/2018
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-php"></a>Transferencia de objetos hacia Azure Blob Storage, y desde él, mediante PHP
 En esta guía de inicio rápido, aprenderá a usar PHP para cargar, descargar y enumerar blobs en bloques en un contenedor en Azure Blob Storage. 
@@ -23,7 +23,7 @@ En esta guía de inicio rápido, aprenderá a usar PHP para cargar, descargar y 
 
 Para completar esta guía de inicio rápido: 
 * Instale [PHP](http://php.net/downloads.php).
-* Instale [el SDK de Azure para PHP](https://github.com/Azure/azure-storage-php).
+* Instalación del [SDK de Azure Storage para PHP](https://github.com/Azure/azure-storage-php)
 
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
@@ -196,6 +196,13 @@ Si ya no necesita los blobs cargados en esta guía de inicio rápido, puede elim
     echo "<br />";
     unlink($fileToUpload);   
 ```
+
+## <a name="resources-for-developing-php-applications-with-blobs"></a>Recursos para el desarrollo de aplicaciones PHP con blobs
+
+Consulte estos recursos adicionales para el desarrollo de PHP con Blob Storage:
+
+- Consulte, descargue e instale el [código fuente de la biblioteca de cliente de PHP](https://github.com/Azure/azure-storage-php) para Azure Storage en GitHub.
+- Explore los [ejemplos de Blob Storage](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=php&term=blob) escritos mediante la biblioteca de cliente de PHP.
 
 ## <a name="next-steps"></a>Pasos siguientes
  

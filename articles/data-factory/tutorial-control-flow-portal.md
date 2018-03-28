@@ -1,8 +1,8 @@
 ---
-title: "Bifurcación de la canalización de Azure Data Factory | Microsoft Docs"
-description: "Obtenga información sobre cómo controlar el flujo de datos en Azure Data Factory mediante la bifurcación y el encadenamiento de actividades."
+title: Bifurcación de la canalización de Azure Data Factory | Microsoft Docs
+description: Obtenga información sobre cómo controlar el flujo de datos en Azure Data Factory mediante la bifurcación y el encadenamiento de actividades.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
 manager: jhubbard
 editor: spelluru
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: 2b1e3fa7fa57d92dbc3a33af20ed258d674e1625
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 00b377b8ed7454c64d146a2de1867eca8ab1fb67
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Actividades de bifurcación y encadenamiento en una canalización de Data Factory
 En este tutorial, creará una canalización de Data Factory que muestra algunas de las características del flujo de control. Esta canalización realiza una copia simple de un contenedor en Azure Blob Storage a otro contenedor de la misma cuenta de almacenamiento. Si la actividad de copia se realiza correctamente, la canalización envía los detalles de la operación de copia correcta (por ejemplo, la cantidad de datos escritos) en un correo electrónico de operación correcta. Si se produce un error en la actividad de copia, la canalización envía los detalles del error de copia (por ejemplo, el mensaje de error) en un correo electrónico de operación incorrecta. A lo largo del tutorial, verá cómo pasar parámetros.
@@ -309,7 +309,7 @@ En este paso se crea una canalización con una actividad de copia y dos activida
 3. En la ventana **Pipeline Run** (Ejecución de canalización), lleve a cabo los pasos siguientes: 
 
     1. Escriba **adftutorial/dummy/input** como parámetro **sourceBlobContainer**. Asegúrese de que la carpeta ficticia no existe en el contenedor adftutorial. 
-    2. Escriba **adftutorial/dummy/inputt** como parámetro **sinkBlobContainer**. 
+    2. Escriba **adftutorial/dummy/output** en el parámetro **sinkBlobContainer**. 
     3. Escriba una **dirección de correo electrónico** en **receiver**. 
     4. Haga clic en **Finalizar**
 
@@ -328,7 +328,7 @@ En este paso se crea una canalización con una actividad de copia y dos activida
 
     ![Error de ejecución de la actividad](./media/tutorial-control-flow-portal/activity-run-error.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este tutorial, realizó los pasos siguientes: 
 
 > [!div class="checklist"]

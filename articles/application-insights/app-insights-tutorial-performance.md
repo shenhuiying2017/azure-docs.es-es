@@ -1,8 +1,8 @@
 ---
-title: "Diagnóstico de problemas de rendimiento mediante Azure Application Insights | Microsoft Docs"
-description: "Tutorial para buscar y diagnosticar problemas de rendimiento en un aplicación mediante Azure Application Insights."
+title: Diagnóstico de problemas de rendimiento mediante Azure Application Insights | Microsoft Docs
+description: Tutorial para buscar y diagnosticar problemas de rendimiento en un aplicación mediante Azure Application Insights.
 services: application-insights
-keywords: 
+keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/18/2017
@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 26f5acf369dd80d7877ab760806e0e08a49cfe6d
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 8489992303425cc00c15994b55ade958d77549e4
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Búsqueda y diagnóstico de problemas de rendimiento con Azure Application Insights
 
@@ -37,11 +37,11 @@ Para completar este tutorial:
 - Implemente una aplicación de .NET en Azure y [habilite el SDK de Application Insights](app-insights-asp-net.md).
 - [Habilite el generador de perfiles de Application Insights](app-insights-profiler.md#installation) de la aplicación.
 
-## <a name="log-in-to-azure"></a>Inicie sesión en Azure.
-Inicie sesión en Azure Portal desde [https://portal.azure.com](https://portal.azure.com).
+## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
+Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="identify-slow-server-operations"></a>Identificación de operaciones lentas del servidor
-Application Insights recopila datos de rendimiento de las distintas operaciones en la aplicación.  Mediante la identificación de las operaciones que más tardan en completarse, es posible diagnosticar problemas potenciales o enfocar mejor el desarrollo en curso para mejorar el rendimiento general de la aplicación.
+Application Insights recopila datos de rendimiento de las distintas operaciones en la aplicación. Mediante la identificación de las operaciones que más tardan en completarse, es posible diagnosticar problemas potenciales o enfocar mejor el desarrollo en curso para mejorar el rendimiento general de la aplicación.
 
 1. Seleccione **Application Insights** y, a continuación, seleccione la suscripción.  
 1. Para abrir el panel **Rendimiento**, seleccione **Rendimiento** en el menú **Investigar** o haga clic en el grafo **Tiempo de respuesta del servidor**.
@@ -128,7 +128,7 @@ Al igual que los datos recopilados relativos al rendimiento del servidor, Applic
     ![Smart Diagnostics](media/app-insights-tutorial-performance/client-smart-diagnostics.png)
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Ahora que ha aprendido a identificar las excepciones en tiempo de ejecución, pase al siguiente tutorial, donde aprenderá a crear alertas en respuesta a errores.
 
 > [!div class="nextstepaction"]

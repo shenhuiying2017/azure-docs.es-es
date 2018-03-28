@@ -1,6 +1,6 @@
 ---
-title: "Creación y uso de un equilibrador de carga interno con una instancia de Azure App Service Environment"
-description: "Obtener detalles sobre cómo crear y usar una instancia de Azure App Service Environment aislado de Internet"
+title: Creación y uso de un equilibrador de carga interno con una instancia de Azure App Service Environment
+description: Obtener detalles sobre cómo crear y usar una instancia de Azure App Service Environment aislado de Internet
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -14,11 +14,11 @@ ms.topic: quickstart
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 7480c1f71a64e31b65cc76f28734df6f424a6b3f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0d08d140ab338d8c742277835fdfb4316862f07b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Creación y uso de un equilibrador de carga interno con una instancia de App Service Environment #
 
@@ -139,7 +139,7 @@ Convierta/guarde el certificado SSL como un archivo .pfx. El archivo .pfx debe i
 
 Si desea crear un certificado autofirmado, puede usar los comandos de PowerShell aquí. Asegúrese de usar el nombre de dominio del ASE con un ILB en lugar de *internal.contoso.com*: 
 
-    $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "\*.internal-contoso.com","\*.scm.internal-contoso.com"
+    $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
     
     $certThumbprint = "cert:\localMachine\my\" +$certificate.Thumbprint
     $password = ConvertTo-SecureString -String "CHANGETHISPASSWORD" -Force -AsPlainText
@@ -174,9 +174,9 @@ Para cargar sus propios certificados y probar el acceso:
 
     b. Para probar la publicación de la implementación web o tener acceso a la consola avanzada, cree un registro para _mytestapp.scm.ilbase.com_.
 
-7. Utilice un explorador en esa máquina virtual y vaya a http://mytestapp.ilbase.com (o vaya allí donde el nombre de la aplicación web esté con su dominio).
+7. Use un explorador en esa máquina virtual y vaya a http://mytestapp.ilbase.com. (o vaya allí donde el nombre de la aplicación web esté con su dominio).
 
-8. Utilice un explorador en esa máquina virtual y vaya a https://mytestapp.ilbase.com. Si utiliza un certificado autofirmado, acepte el aviso de seguridad.
+8. Use un explorador en esa máquina virtual y vaya a https://mytestapp.ilbase.com. Si utiliza un certificado autofirmado, acepte el aviso de seguridad.
 
     La dirección IP del ILB se incluye en **Direcciones IP**. Esta lista también incluye las direcciones IP utilizadas por la dirección VIP externa y para el tráfico de administración de entrada.
 

@@ -1,6 +1,6 @@
 ---
-title: "Tutorial de preparación de los datos para la clasificación de Iris en Azure Machine Learning Services (versión preliminar) | Microsoft Docs"
-description: "A lo largo de este tutorial se muestra cómo puede aprovechar al máximo Azure Machine Learning Services (versión preliminar). Esta es la primera parte y describe la preparación de los datos."
+title: Tutorial de preparación de los datos para la clasificación de Iris en Azure Machine Learning Services (versión preliminar) | Microsoft Docs
+description: A lo largo de este tutorial se muestra cómo puede aprovechar al máximo Azure Machine Learning Services (versión preliminar). Esta es la primera parte y describe la preparación de los datos.
 services: machine-learning
 author: hning86
 ms.author: haining, j-martens
@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/7/2018
-ms.openlocfilehash: caddfff329d0e8f4c4007386b377ea56a51249a5
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 16aa3e88217094c259a0dccbe3c52431682ea2e7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="tutorial-classify-iris-part-1---preparing-the-data"></a>Tutorial: Clasificación de iris, parte 1: preparación de los datos
+# <a name="tutorial-1-classify-iris---preparing-the-data"></a>Tutorial 1: Clasificación de Iris: preparación de los datos
 
 El servicio Azure Machine Learning (versión preliminar) es una solución integrada de análisis avanzado y ciencia de datos de un extremo a otro para que los científicos de datos profesionales preparen datos, desarrollen experimentos e implementar modelos a escala de la nube.
 
