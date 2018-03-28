@@ -1,22 +1,22 @@
 ---
-title: "Configuración de Device Provisioning con una plantilla de Azure Resource Manager | Microsoft Docs"
-description: "Guía de inicio rápido de Azure: configuración del servicio Azure IoT Hub Device Provisioning con una plantilla"
+title: Configuración de Device Provisioning con una plantilla de Azure Resource Manager | Microsoft Docs
+description: 'Guía de inicio rápido de Azure: configuración del servicio Azure IoT Hub Device Provisioning con una plantilla'
 services: iot-dps
-keywords: 
+keywords: ''
 author: JimacoMS2
 ms.author: v-jamebr
 ms.date: 02/26/2018
 ms.topic: hero-article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 827be2be6915b0f0c9892e73b8f0a293a9659b6e
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 389691bddf1a7d6cab0845ca0a0cf1bde1152507
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>Configuración del servicio IoT Hub Device Provisioning con una plantilla de Azure Resource Manager
 
@@ -340,9 +340,9 @@ Ejecute el comando siguiente para eliminar un grupo de recursos y todos sus recu
 az group delete --name {your resource group name}
 ```
 
-También puede eliminar grupos de recursos y recursos individuales mediante Azure Portal, PowerShell, las API REST o con los SDK admitidos por la plataforma publicados para Azure Resource Manager o IoT Hub, y el servicio Device Provisioning.
+También puede eliminar grupos de recursos y recursos individuales mediante Azure Portal, PowerShell, las API REST o con los SDK admitidos por la plataforma publicados para Azure Resource Manager o el servicio IoT Hub Device Provisioning.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En esta guía de inicio rápido, ha implementado un centro de IoT y una instancia del servicio Device Provisioning, y ha vinculado los dos recursos. Para aprender a usar esta configuración para aprovisionar un dispositivo simulado, siga la guía de inicio rápido que permite crear un dispositivo simulado.
 

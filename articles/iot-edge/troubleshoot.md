@@ -1,8 +1,8 @@
 ---
-title: "Solución de problemas en Azure IoT Edge | Microsoft Docs"
-description: "Resolución de problemas habituales y adquisición de conocimientos sobre solución de problemas para Azure IoT Edge"
+title: Solución de problemas en Azure IoT Edge | Microsoft Docs
+description: Resolución de problemas habituales y adquisición de conocimientos sobre solución de problemas para Azure IoT Edge
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
@@ -10,11 +10,11 @@ ms.date: 12/15/2017
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 7b9f9f8295aac0920ae4726289c535aae12c4482
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4d6dd0d46d909acfbfc04a23be74a571953ce660
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Problemas habituales y soluciones para Azure IoT Edge
 
@@ -30,10 +30,16 @@ Si detecta un problema, consiga más información sobre el estado del dispositiv
    docker logs <container name>
    ```
 
-* Vea los mensajes que se envían mediante el centro de Edge y recopile información sobre las actualizaciones de las propiedades del dispositivo con los registros detallados procedentes de los contenedores del entorno de ejecución. Puede que desee agregar la opción "--auto-cert-gen-force-no-passwords" si está siguiendo los artículos de la guía de inicio rápido.
+* Vea los mensajes que se envían mediante el centro de Edge y recopile información sobre las actualizaciones de las propiedades del dispositivo con los registros detallados procedentes de los contenedores del entorno de ejecución.
 
    ```cmd
    iotedgectl setup --connection-string "{device connection string}" --runtime-log-level debug
+   ```
+   
+* Vea registros detallados de los comandos de iotedgectl:
+
+   ```cmd
+   iotedgectl --verbose DEBUG <command>
    ```
 
 * Si experimenta problemas de conectividad, inspeccione las variables del entorno del dispositivo perimetral, como la cadena de conexión del dispositivo:

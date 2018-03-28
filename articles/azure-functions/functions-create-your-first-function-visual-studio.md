@@ -1,12 +1,12 @@
 ---
-title: "Creación de la primera función en Azure mediante Visual Studio | Microsoft Docs"
-description: "Cree y publique una función simple desencadenada por HTTP en Azure mediante Herramientas de Azure Functions para Visual Studio."
+title: Creación de la primera función en Azure mediante Visual Studio | Microsoft Docs
+description: Cree y publique una función simple desencadenada por HTTP en Azure mediante Herramientas de Azure Functions para Visual Studio.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 keywords: azure functions, funciones, procesamiento de eventos, proceso, arquitectura sin servidor
 ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.service: functions
@@ -14,14 +14,14 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/17/2018
+ms.date: 03/13/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: fa17a021526a728c6fabc9607b1d00f5521cbb21
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 9b43ec7106c70b7d9b326208043d2fe874fb7e20
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Creación de la primera función mediante Visual Studio
 
@@ -37,11 +37,13 @@ Este tema incluye [un vídeo](#watch-the-video) que muestra los mismos pasos bá
 
 Para completar este tutorial:
 
-* Instale [Visual Studio 2017 15.4](https://www.visualstudio.com/vs/) o una versión posterior, que incluya la carga de trabajo de **desarrollo de Azure**.
+* Instale [Visual Studio 2017 versión 15.5](https://www.visualstudio.com/vs/) o una versión posterior, que incluya la carga de trabajo de **desarrollo de Azure**.
 
     ![Instalar Visual Studio 2017 con la cargas de trabajo Desarrollo de Azure](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
 
-* Asegúrese de que ha actualizado a la versión más reciente de Azure Functions y herramientas de WebJobs. Para realizar esto, vaya a **Actualizaciones** > **Visual Studio Marketplace**, **Extensiones y actualizaciones**.
+    Si ya ha instalado Visual Studio, asegúrese de que ha instalado las actualizaciones pendientes. 
+
+* Si instaló la carga de trabajo de desarrollo de Azure con Visual Studio 2017 15.4 o versiones anteriores, también deberá [actualizar las herramientas de Azure Functions](functions-develop-vs.md#check-your-tools-version). 
     
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 
@@ -95,7 +97,7 @@ Debe tener una aplicación de función en la suscripción de Azure para poder pu
 
 > [!VIDEO https://www.youtube-nocookie.com/embed/DrhG-Rdm80k]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Ha usado Visual Studio para crear y publicar una aplicación de función en C# con una función simple desencadenada por HTTP. 
 

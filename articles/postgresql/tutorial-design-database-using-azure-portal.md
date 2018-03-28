@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Diseño de la primera base de datos de Azure Database for PostgreSQL con Azure Portal"
-description: "En este tutorial se muestra cómo diseñar la primera base de datos de Azure Database for PostgreSQL con Azure Portal."
+title: 'Tutorial: Diseño de una instancia de Azure Database for PostgreSQL con Azure Portal'
+description: En este tutorial se muestra cómo diseñar la primera base de datos de Azure Database for PostgreSQL con Azure Portal.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -10,13 +10,13 @@ ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 02/28/2018
-ms.openlocfilehash: df8f308b17879d7fd22d033fb535b59bd8a85086
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 9f4d886bbbf2b9111d736e291e420b822de9766a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="tutorial-design-your-first-azure-database-for-postgresql-using-the-azure-portal"></a>Tutorial: Diseño de la primera base de datos de Azure Database for PostgreSQL con Azure Portal
+# <a name="tutorial-design-an-azure-database-for-postgresql-using-the-azure-portal"></a>Tutorial: Diseño de una instancia de Azure Database for PostgreSQL con Azure Portal
 
 Azure Database for PostgreSQL es un servicio administrado que le permite ejecutar, administrar y escalar bases de datos de PostgreSQL de alta disponibilidad en la nube. Con Azure Portal puede administrar fácilmente el servidor y diseñar una base de datos.
 

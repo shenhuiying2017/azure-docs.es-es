@@ -1,26 +1,26 @@
 ---
-title: "Inicio rápido de Azure: creación de máquinas virtuales con el Portal | Microsoft Docs"
-description: "Inicio rápido de Azure: creación de máquinas virtuales con el Portal"
+title: 'Inicio rápido de Azure: creación de máquinas virtuales con el Portal | Microsoft Docs'
+description: 'Inicio rápido de Azure: creación de máquinas virtuales con el Portal'
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: neilpeterson
+author: iainfoulds
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/11/2017
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: a9a2e2ace4c4b6867e5d8b318c5d80a9df124ecc
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d4bd596257b7430a03ec81a0f378286fda8cbace
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-the-azure-portal"></a>Creación de máquinas virtuales Linux con Azure Portal
 
@@ -40,11 +40,11 @@ ssh-keygen -t rsa -b 2048
 
 Puede encontrar información más detallada sobre este proceso [aquí](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys)
 
-## <a name="log-in-to-azure"></a>Inicie sesión en Azure. 
+## <a name="log-in-to-azure"></a>Inicio de sesión en Azure 
 
-Inicie sesión en Azure Portal: http://portal.azure.com/.
+Inicie sesión en Azure Portal en http://portal.azure.com.
 
-## <a name="create-virtual-machine"></a>Create virtual machine
+## <a name="create-virtual-machine"></a>Crear máquina virtual
 
 1. Haga clic en **Crear un recurso** en la esquina superior izquierda de Azure Portal.
 
@@ -118,7 +118,7 @@ Con NGINX instalado y el puerto 80 abierto para la máquina virtual, se puede ac
 
 Cuando ya no los necesite, elimine el grupo de recursos, la máquina virtual y todos los recursos relacionados. Para ello, seleccione el grupo de recursos de la máquina virtual y haga clic en **Eliminar**.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En esta guía de inicio rápido, ha implementado una máquina virtual simple y una regla de grupo de seguridad de red, y ha instalado un servidor web. Para más información acerca de las máquinas virtuales de Azure, continúe con el tutorial de máquinas virtuales Linux.
 

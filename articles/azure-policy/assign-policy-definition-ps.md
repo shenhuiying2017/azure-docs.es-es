@@ -1,104 +1,121 @@
 ---
-title: "Uso de PowerShell para crear una asignación de directiva para identificar recursos no compatibles en el entorno de Azure | Microsoft Docs"
-description: "Use PowerShell para crear una asignación de Azure Policy para identificar recursos no compatibles."
+title: 'Inicio rápido: Uso de PowerShell para crear una asignación de directiva e identificar recursos no compatibles en el entorno de Azure | Microsoft Docs'
+description: En esta guía de inicio rápido, se usa PowerShell para crear una asignación de Azure Policy para identificar recursos no compatibles.
 services: azure-policy
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 1/17/2018
+ms.date: 3/14/2018
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 67c779b96dab088d810d22ad3053ade106aec56a
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 9f7d32d3d1208b6fe6075f7dacdd6d350aee03e2
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment-using-powershell"></a>Creación de una asignación de directiva para identificar recursos no compatibles en el entorno de Azure usando PowerShell
+# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-the-azure-rm-powershell-module"></a>Inicio rápido: Creación de una asignación de directiva para identificar recursos no compatibles con el módulo Azure RM PowerShell
 
-El primer paso para entender el cumplimiento en Azure es identificar el estado de sus recursos. Este inicio rápido lo guiará por el proceso de creación de una asignación de directiva para identificar máquinas virtuales que no están usando discos administrados.
+El primer paso para entender el cumplimiento en Azure es identificar el estado de sus recursos. En esta guía de inicio rápido, se crea una asignación de directiva para identificar máquinas virtuales que no usan discos administrados. Cuando haya finalizado, podrá identificar máquinas virtuales que *no cumplan* con la asignación de directiva.
 
-Al finalizar este proceso, habrá identificado correctamente máquinas virtuales que no utilizan discos administrados. No *son compatibles* con la asignación de directiva.
-
-PowerShell se usa para crear y administrar recursos de Azure desde la línea de comandos o en scripts. En esta guía se explica detalladamente cómo usar PowerShell para crear una asignación de directiva para identificar recursos no compatibles en el entorno de Azure.
-
-Esta guía requiere la versión 4.0 del módulo de Azure PowerShell, o cualquier versión posterior. Ejecute  `Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps) (Instalación y configuración de Azure PowerShell).
-
-Antes de empezar, asegúrese de tener instalada la versión más reciente de PowerShell. Consulte el artículo de [instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs) para información detallada.
+El módulo AzureRM PowerShell se usa para crear y administrar recursos de Azure desde la línea de comandos o en scripts. Esta guía explica cómo usar AzureRM para crear una asignación de directiva. La directiva identifica recursos no compatibles en el entorno de Azure.
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
+## <a name="prerequisites"></a>requisitos previos
+
+- Antes de empezar, asegúrese de tener instalada la versión más reciente de PowerShell. Consulte el artículo de [instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs) para información detallada.
+- Actualice el módulo AzureRM de PowerShell a la versión más reciente. Si necesita instalarla o actualizarla, consulte [Install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps) (Instalación y configuración de Azure PowerShell).
 
 ## <a name="create-a-policy-assignment"></a>Creación de una asignación de directiva
 
-En esta guía de inicio rápido se crea una asignación de directiva y se le asigna la definición de *Auditoría de máquinas virtuales sin discos administrados*. Esta definición de directiva identifica los recursos que no son compatibles con las condiciones establecidas en la definición de directiva.
+En esta guía de inicio rápido se crea una asignación de directiva y se le asigna la definición de *Auditoría de máquinas virtuales sin discos administrados*. Esta definición de directiva identifica los recursos que no cumplen las condiciones establecidas en la definición de directiva.
 
-Siga los pasos siguientes para crear una nueva asignación de directiva.
-
-1. Para garantizar que la suscripción funciona con él, registre el proveedor de recursos de Policy Insights. Para registrar un proveedor de recursos, debe tener permiso para realizar la operación de registro para este. Esta operación está incluida en los roles Colaborador y Propietario.
-
-    Para registrar el proveedor de recursos, ejecute el siguiente comando:
-
-    ```
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.PolicyInsights
-```
-
-    No se puede anular el registro de un proveedor de recursos si dispone de tipos de recursos de ese proveedor de recursos en la suscripción.
-
-    Para más detalles sobre el registro y la visualización de los proveedores de recursos, consulte [Tipos y proveedores de recursos](../azure-resource-manager/resource-manager-supported-services.md).
-
-2. Después de registrar el proveedor de recursos, ejecute el siguiente comando para ver todas las definiciones de directiva y encontrar la que desea asignar:
-
-    ```powershell
-$definition = Get-AzureRmPolicyDefinition
-```
-
-    Azure Policy viene ya con definiciones de directiva integradas para usarlas. Encontrará definiciones de directiva integradas como:
-
-    - Enforce tag and its value (Forzar una etiqueta y su valor)
-    - Apply tag and its value (Aplicar una etiqueta y su valor)
-    - Require SQL Server Version 12.0 (Requerir SQL Server 12.0)
-
-3. A continuación asigne la definición cd directiva al ámbito deseado usando el cmdlet `New-AzureRmPolicyAssignment`.
-
-Para este tutorial se usa la siguiente información para el comando:
-
-- **Nombre** para mostrar para la asignación de directiva. En este caso se usa la Auditoría de máquinas virtuales sin discos administrados.
-- **Directiva**: definición de la directiva, según la opción utilizada para crear la asignación. En este caso, es la definición de la directiva: *Auditoría de máquinas virtuales sin discos administrados*.
-- Un **ámbito**: un ámbito determina en qué recursos o agrupación de recursos se aplica la asignación de directiva. Puede abarcar desde una suscripción hasta grupos de recursos. En este ejemplo se va a asignar la definición de directiva al grupo de recursos **FabrikamOMS**.
-- **$definition**: tiene que proporcionar el identificador de recurso de la definición de directiva; en este caso, el identificador para la definición de directiva *Auditoría de máquinas virtuales sin discos administrados*.
+Ejecute los comandos siguientes para crear una nueva asignación de directiva:
 
 ```powershell
-$rg = Get-AzureRmResourceGroup -Name "FabrikamOMS"
-$definition = Get-AzureRmPolicyDefinition -Id /providers/Microsoft.Authorization/policyDefinitions/e5662a6-4747-49cd-b67b-bf8b01975c4c
-New-AzureRMPolicyAssignment -Name Audit Virtual Machines without Managed Disks Assignment -Scope $rg.ResourceId -PolicyDefinition $definition
+$rg = Get-AzureRmResourceGroup -Name "<resourceGroupName>"
+
+$definition = Get-AzureRmPolicyDefinition -Name "Audit Virtual Machines without Managed Disks"
+
+New-AzureRMPolicyAssignment -Name Audit Virtual Machines without Managed Disks Assignment -Scope $rg.ResourceId -PolicyDefinition $definition -Sku @{Name='A1';Tier='Standard'}
+
 ```
+
+Los comandos anteriores usan la siguiente información:
+
+- **Name**: nombre para mostrar para la asignación de directiva. En este caso, se usa la *auditoría de máquinas virtuales sin discos administrados*.
+- **Definition**: definición de la directiva, según la opción utilizada para crear la asignación. En este caso, es la definición de la directiva: *Auditoría de máquinas virtuales sin discos administrados*.
+- **Scope**: un ámbito determina en qué recursos o agrupación de recursos se aplica la asignación de directiva. Puede abarcar desde una suscripción hasta grupos de recursos. Asegúrese de sustituir &lt;scope&gt; por el nombre del grupo de recursos.
+- **SKU**: este comando crea una asignación de directiva con el nivel estándar. El nivel estándar permite lograr la administración a escala, la evaluación del cumplimiento y la corrección. En este momento, el nivel estándar es gratuito. Más adelante, supondrá un costo. Cuando el precio varíe, se anunciará y se proporcionarán más detalles en [Precios de Azure Policy](https://azure.microsoft.com/pricing/details/azure-policy).
+
 
 Ahora ya está listo para identificar los recursos no compatibles para saber el estado de cumplimiento de su entorno.
 
 ## <a name="identify-non-compliant-resources"></a>Identificación de recursos no compatibles
 
-1. Vuelva a la página de aterrizaje de Azure Policy.
-2. Seleccione **Compliance** (Cumplimiento) en el panel izquierdo y busque la **Policy Assignment** (Asignación de directiva) que creó.
+Utilice la siguiente información para identificar los recursos que no son compatibles con la asignación de directiva que ha creado. Ejecute los comandos siguientes:
 
-   ![Cumplimiento de directivas](media/assign-policy-definition/policy-compliance.png)
+```powershell
+$policyAssignment = Get-AzureRmPolicyAssignment | where {$_.properties.displayName -eq "Audit Virtual Machines without Managed Disks"}
+```
 
-   Si hay algún recurso existente incompatible con esta nueva asignación, aparecerá en la pestaña **Recursos no compatibles**.
+```powershell
+$policyAssignment.PolicyAssignmentId
+```
+
+Para obtener más información acerca de la asignación de identificadores de directiva, consulte [Get-AzureRMPolicyAssignment](/powershell/module/azurerm.resources/get-azurermpolicyassignment).
+
+A continuación, ejecute el siguiente comando para obtener los identificadores de los recursos no compatibles que se copian en un archivo JSON:
+
+```powershell
+armclient post "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2017-12-12-preview&$filter=IsCompliant eq false and PolicyAssignmentId eq '<policyAssignmentID>'&$apply=groupby((ResourceId))" > <json file to direct the output with the resource IDs into>
+```
+Los resultados deben tener una apariencia similar al ejemplo siguiente:
+
+
+```
+{
+"@odata.context":"https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest",
+"@odata.count": 3,
+"value": [
+{
+    "@odata.id": null,
+    "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
+      "ResourceId": "/subscriptions/<subscriptionId>/resourcegroups/<rgname>/providers/microsoft.compute/virtualmachines/<virtualmachineId>"
+    },
+    {
+      "@odata.id": null,
+      "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
+      "ResourceId": "/subscriptions/<subscriptionId>/resourcegroups/<rgname>/providers/microsoft.compute/virtualmachines/<virtualmachine2Id>"
+         },
+{
+      "@odata.id": null,
+      "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
+      "ResourceId": "/subscriptions/<subscriptionName>/resourcegroups/<rgname>/providers/microsoft.compute/virtualmachines/<virtualmachine3ID>"
+         }
+
+]
+}
+```
+
+Son comparables a lo que normalmente vería en **Recursos no compatibles**, en la vista de Azure Portal.
+
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Otras guías de esta colección se basan en esta guía de inicio rápido. Si tiene previsto seguir trabajando con los tutoriales siguientes, no elimine los recursos creados en esta guía de inicio rápido. Si no tiene previsto continuar, elimine la asignación que creó mediante la ejecución de este comando:
+Las siguientes guías de esta colección se basan en esta guía de inicio rápido. Si tiene previsto seguir trabajando con otros tutoriales, no elimine los recursos creados en esta guía de inicio rápido. Si no piensa continuar, puede ejecutar este comando para eliminar la asignación que creó:
 
 ```powershell
-Remove-AzureRmPolicyAssignment -Name “Audit Virtual Machines without Managed Disks Assignment” -Scope /subscriptions/ bc75htn-a0fhsi-349b-56gh-4fghti-f84852/resourceGroups/FabrikamOMS
+Remove-AzureRmPolicyAssignment -Name "Audit Virtual Machines without Managed Disks Assignment" -Scope /subscriptions/<subscriptionID>/<resourceGroupName>
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este inicio rápido, se asigna una definición de directiva para identificar los recursos incompatibles en el entorno de Azure.
 
-Para más información sobre la asignación de directivas para garantizar que los **futuros** recursos creados sean compatibles, continúe con el tutorial para:
+Para obtener más información sobre la asignación de directivas y asegurarse de que los recursos creados en el **futuro** sean compatibles, continúe con el tutorial para:
 
 > [!div class="nextstepaction"]
 > [Crear y administrar directivas](./create-manage-policy.md)

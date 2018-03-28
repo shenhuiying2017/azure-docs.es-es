@@ -1,25 +1,18 @@
 ---
-title: "Administración de las actualizaciones y revisiones para las máquinas virtuales Windows de Azure | Microsoft Docs"
-description: "En este artículo se proporciona una introducción sobre cómo utilizar Azure Automation y Update Management para administrar las actualizaciones y revisiones para las máquinas virtuales Windows de Azure."
+title: Administración de actualizaciones y revisiones para las máquinas virtuales Windows de Azure
+description: En este artículo se proporciona una introducción sobre cómo utilizar Azure Automation y Update Management para administrar las actualizaciones y revisiones para las máquinas virtuales Windows de Azure.
 services: automation
-documentationcenter: 
 author: zjalexander
-manager: jwhit
-editor: 
-ms.assetid: 
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/28/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: 614b5bd7a2663c3b61f511dcc6b6a49218ac439a
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: bded1621dc56a6e621408e567ce39a3107bec7c9
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="manage-windows-updates-with-azure-automation"></a>Administración de las actualizaciones de Windows con Azure Automation
 
@@ -44,9 +37,9 @@ Para completar este tutorial, necesita:
 * Una [cuenta de Automation](automation-offering-get-started.md) para contener los runbooks de monitor y de acción y la tarea de monitor.
 * Una [máquina virtual](../virtual-machines/windows/quick-create-portal.md) para incorporar.
 
-## <a name="log-in-to-azure"></a>Inicie sesión en Azure.
+## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
 
-Inicie sesión en Azure Portal: http://portal.azure.com/.
+Inicie sesión en Azure Portal en http://portal.azure.com.
 
 ## <a name="enable-update-management"></a>Habilitar la administración de actualizaciones
 
@@ -65,7 +58,7 @@ Para llevar a cabo alguna acción adicional en máquinas virtuales que requieran
 El proceso de validación también comprueba si la máquina virtual se aprovisiona con Microsoft Monitoring Agent (MMA) y un trabajo de runbook híbrido de Automation.
 Este agente se usa para comunicarse con la máquina virtual y obtener información sobre el estado de actualización.
 
-Para habilitar la solución, elija el área de trabajo de Log Analytics y la cuenta de Automation que use y haga clic en **Habilitar**. La solución tarda hasta 15 minutos en habilitarse.
+Para habilitar la solución, elija el área de trabajo de Log Analytics y la cuenta de Automation y haga clic en **Habilitar**. La solución tarda hasta 15 minutos en habilitarse.
 
 Si se detecta que falta alguno de los siguientes requisitos previos durante la incorporación, estos se agregarán automáticamente:
 

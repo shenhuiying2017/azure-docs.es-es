@@ -1,20 +1,20 @@
 ---
-title: "Introducción a Azure Policy | Microsoft Docs"
+title: Introducción a Azure Policy | Microsoft Docs
 description: Azure Policy es un servicio de Azure que se usa para crear, asignar y administrar las definiciones de directivas en el entorno de Azure.
 services: azure-policy
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders; nini
-ms.date: 01/17/2018
+ms.date: 03/14/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: bb6f08e8e6252233c51c47c63ca0aec4636247dd
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 72b3e46e4755d50589eeefeeb0478ab9af49e97b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="what-is-azure-policy"></a>¿Qué es Azure Policy?
 
@@ -30,6 +30,9 @@ Para usar las directivas, debe autenticarse a través de RBAC. En concreto, la c
 
 - El permiso `Microsoft.Authorization/policydefinitions/write` para definir una directiva.
 - El permiso `Microsoft.Authorization/policyassignments/write` para asignar una directiva.
+- El permiso `Microsoft.Authorization/policySetDefinitions/write` para definir una iniciativa.
+- El permiso `Microsoft.Authorization/policyassignments/write` para asignar una iniciativa.
+
 
 Estos permisos no se incluyen en el rol **Colaborador**.
 
@@ -96,7 +99,7 @@ Por ejemplo, tome un escenario con una definición de iniciativa, **initiativeC*
 | Directiva | nombre del parámetro |tipo del parámetro  |Nota: |
 |---|---|---|---|
 | policyA | allowedLocations | array  |Este parámetro espera una lista de cadenas para un valor, porque el tipo de parámetro está definido como una matriz |
-| policyB | allowedSingleLocation |cadena |Este parámetro espera una palabra para un valor, porque el tipo de parámetro se definió como una cadena |
+| policyB | allowedSingleLocation |string |Este parámetro espera una palabra para un valor, porque el tipo de parámetro se definió como una cadena |
 
 En este escenario, tiene tres opciones en el momento de definir los parámetros de iniciativa para **initiativeC**:
 
@@ -118,7 +121,7 @@ Cuando cree y administre asignaciones y definiciones de directiva, se recomienda
 
    Tenga en cuenta que, una vez que crea una asignación de iniciativa desde una definición de iniciativa, cualquier definición de directiva nueva que se agregue a la definición de iniciativa se implementa automáticamente en las asignaciones de iniciativa bajo esa definición de iniciativa. Sin embargo, si se introduce un parámetro nuevo en la definición de directiva nueva, debe actualizar la definición de iniciativa y las asignaciones mediante la edición de la definición o la asignación de la iniciativa.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Ahora que tiene información general sobre Azure Policy y algunos de los conceptos clave que estamos presentando, sugerimos seguir estos pasos:
 

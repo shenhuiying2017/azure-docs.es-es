@@ -1,11 +1,11 @@
 ---
-title: "Adición de una suscripción de Azure existente al directorio de Azure AD | Microsoft Docs"
-description: "Adición de una suscripción existente al directorio de Azure AD"
+title: Adición de una suscripción de Azure existente al directorio de Azure AD | Microsoft Docs
+description: Adición de una suscripción existente al directorio de Azure AD
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: bc4773c2-bc4a-4d21-9264-2267065f0aea
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 12/12/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: e063e6a46b6b99c4bbe749347e6887a930adb882
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 2b9ed5b3374c98740923790dac90cb1eb2f065d8
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Asociación o adición de una suscripción de Azure a Azure Active Directory
 
@@ -34,6 +34,7 @@ Todos los usuarios tienen un único directorio de inicio que los autentica, pero
 
 * Debe iniciar sesión con la cuenta que tenga acceso de propietario de RBAC a la suscripción.
 * Debe iniciar sesión con una cuenta que exista tanto en el directorio actual con el que está asociado la suscripción como en el directorio al que desea agregarla. Para más información sobre cómo obtener acceso a otro directorio, consulte [¿Cómo agregan los administradores de Azure Active Directory usuarios de colaboración B2B](active-directory-b2b-admin-add-users.md)
+* Esta característica no está disponible para las suscripciones de Microsoft Imagine (MS-AZR-0144P) y CSP (MS-AZR-0145P, MS-AZR-0146P, MS-AZR-159P).
 
 ## <a name="to-associate-an-existing-subscription-to-your-azure-ad-directory"></a>Asociación de una suscripción existente al directorio de Azure AD
 
@@ -55,7 +56,7 @@ Todos los usuarios tienen un único directorio de inicio que los autentica, pero
 
 El cambio del directorio de suscripción es una operación de nivel de servicio. La propiedad de facturación de suscripción no se ve afectada y el Administrador de cuenta todavía puede cambiar el Administrador de servicios mediante el [Centro de cuentas](https://account.azure.com/subscriptions). Si desea eliminar el directorio original, debe transferir la propiedad de facturación de suscripción a un nuevo administrador de cuenta. Para más información acerca de cómo transferir la propiedad de facturación, vea [Transferencia de la propiedad de una suscripción de Azure a otra cuenta](../billing/billing-subscription-transfer.md). 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * Para más información acerca de cómo crear un nuevo directorio de Azure AD de forma gratuita, vea [Obtención de un inquilino de Azure Active Directory](develop/active-directory-howto-tenant.md)
 * Para más información acerca de cómo transferir la propiedad de facturación de una suscripción de Azure, vea [Transferencia de la propiedad de una suscripción de Azure a otra cuenta](../billing/billing-subscription-transfer.md)

@@ -1,19 +1,19 @@
 ---
-title: "Inicio rápido de Azure: Carga, descarga y enumeración de blobs en Azure Storage mediante Java | Microsoft Docs"
-description: "En esta guía de inicio rápido, puede crear una cuenta de almacenamiento y un contenedor. Después, puede usar la biblioteca de clientes de almacenamiento para Java a fin de cargar un blob en Azure Storage, descargar un blob o enumerar los blobs de un contenedor."
+title: 'Inicio rápido de Azure: Carga, descarga y enumeración de blobs en Azure Storage mediante Java | Microsoft Docs'
+description: En esta guía de inicio rápido, puede crear una cuenta de almacenamiento y un contenedor. Después, puede usar la biblioteca de clientes de almacenamiento para Java a fin de cargar un blob en Azure Storage, descargar un blob o enumerar los blobs de un contenedor.
 services: storage
 author: roygara
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/22/2018
+ms.date: 03/15/2018
 ms.author: rogarana
-ms.openlocfilehash: cde366e75e4111a911be67795a2ad4dfa73778ea
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 44e5f921ca9303e680c76d439ab7503ea3c39680
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-java"></a>Inicio rápido: Carga, descarga y enumeración de blobs mediante Java
 
@@ -203,7 +203,20 @@ if(sourceFile != null)
 sourceFile.deleteOnExit();
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="resources-for-developing-java-applications-with-blobs"></a>Recursos para el desarrollo de aplicaciones Java con blobs
+
+Consulte estos recursos adicionales para el desarrollo de Java con Blob Storage:
+
+### <a name="binaries-and-source-code"></a>Archivos binarios y código fuente
+
+- Consulte e instale el [código fuente de la biblioteca de cliente de Java](https://github.com/Azure/azure-storage-java) para Azure Storage en GitHub.
+
+### <a name="client-library-reference-and-samples"></a>Referencia a la biblioteca de clientes y ejemplos
+
+- Para más información acerca de la biblioteca de cliente, consulte la [referencia de la API de Java](https://docs.microsoft.com/en-us/java/api/overview/azure/storage).
+- Explore los [ejemplos de Blob Storage](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=java&term=blob) escritos mediante la biblioteca de cliente de Java.
+
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial de inicio rápido aprendió a transferir archivos entre un disco local y Azure Blob Storage mediante Java. Para más información sobre cómo trabajar con Blob Storage, continúe con los procedimientos de Blob Storage.
 

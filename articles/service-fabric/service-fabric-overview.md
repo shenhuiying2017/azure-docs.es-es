@@ -1,6 +1,6 @@
 ---
-title: "Información general de Service Fabric en Azure | Microsoft Docs"
-description: "Información general de Service Fabric donde las aplicaciones se componen de muchos microservicios para ofrecer escala y resiliencia. Service Fabric es una plataforma de sistemas distribuidos que se usa para crear aplicaciones escalables, confiables y fáciles de administrar para la nube."
+title: Información general de Service Fabric en Azure | Microsoft Docs
+description: Información general de Service Fabric donde las aplicaciones se componen de muchos microservicios para ofrecer escala y resiliencia. Service Fabric es una plataforma de sistemas distribuidos que se usa para crear aplicaciones escalables, confiables y fáciles de administrar para la nube.
 services: service-fabric
 documentationcenter: .net
 author: msfussell
@@ -15,18 +15,17 @@ ms.workload: NA
 ms.date: 09/20/2017
 ms.author: msfussell
 ms.custom: mvc
-ms.openlocfilehash: aab15e6981e4f5f3c69ea6a85995fd2db69ff8b8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d5bd75dfff87e73fa4104901c1c0ac0989b1e3bb
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="overview-of-azure-service-fabric"></a>Información general de Azure Service Fabric
 Azure Service Fabric es una plataforma de sistemas distribuidos que facilita el empaquetado, la implementación y la administración de microservicios y contenedores escalables y confiables. Service Fabric también aborda los desafíos importantes en el desarrollo y la administración de aplicaciones nativas en la nube. Los desarrolladores y administradores pueden evitar problemas complejos de infraestructura y centrarse en su lugar en las cargas de trabajo más exigentes y críticas que son escalables, confiables y fáciles de administrar. Service Fabric representa la plataforma de próxima generación para crear y administrar estas aplicaciones de clase empresarial, escala de nube y nivel 1 que se ejecutan en contenedores.
 
-En este breve vídeo se presentan Service Fabric y los microservicios: <center><a target="_blank" href="https://aka.ms/servicefabricvideo">  
-<img src="./media/service-fabric-overview/OverviewVid.png" WIDTH="360" HEIGHT="244">  
-</a></center>
+En este breve vídeo se presentan Service Fabric y los microservicios:
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Service-Fabric/player]
 
 ## <a name="applications-composed-of-microservices"></a>Aplicaciones compuestas por microservicios 
 Service Fabric le permite compilar y administrar aplicaciones escalables y confiables compuestas por microservicios que se ejecutan con una densidad alta en un grupo compartido de máquinas, denominado clúster. Ofrece un sofisticado y ligero sistema en tiempo de ejecución para crear microservicios con y sin estado, distribuidos y escalables que se ejecutan en contenedores. También ofrece una completa funcionalidad de administración de aplicaciones para aprovisionar, implementar, supervisar, actualizar/aplicar revisiones y eliminar aplicaciones implementadas, incluidos los servicios en contenedor.
@@ -42,7 +41,7 @@ Service Fabric ofrece funciones completas de administración del ciclo de vida y
 Para más información sobre el enfoque de los microservicios, lea [¿Por qué usar un enfoque de microservicios para crear aplicaciones?](service-fabric-overview-microservices.md)
 
 ## <a name="container-deployment-and-orchestration"></a>Organización e implementación de contenedores
-Service Fabric es el [orquestador de contenedores](service-fabric-cluster-resource-manager-introduction.md) de Microsoft que implementa microservicios en un clúster de máquinas. Se pueden desarrollar microservicios de muchas maneras, desde usando los [modelos de programación de Service Fabric](service-fabric-choose-framework.md) o [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) hasta implementando [cualquier código que prefiera](service-fabric-deploy-existing-app.md). Lo importantes es que puede mezclar ambos servicios en procesos y servicios en contenedores en la misma aplicación. Si simplemente quiere [implementar y administrar contenedores](service-fabric-containers-overview.md), Service Fabric es la elección perfecta como orquestador de contenedores.
+Service Fabric es el [orquestador de contenedores](service-fabric-cluster-resource-manager-introduction.md) de Microsoft que implementa microservicios en un clúster de máquinas. Se pueden desarrollar microservicios de muchas maneras, desde usando los [modelos de programación de Service Fabric](service-fabric-choose-framework.md) o [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) hasta implementando [cualquier código que prefiera](service-fabric-guest-executables-introduction.md). Lo importantes es que puede mezclar ambos servicios en procesos y servicios en contenedores en la misma aplicación. Si simplemente quiere [implementar y administrar contenedores](service-fabric-containers-overview.md), Service Fabric es la elección perfecta como orquestador de contenedores.
 
 ## <a name="any-os-any-cloud"></a>Cualquier sistema operativo, cualquier nube
 Service Fabric se ejecuta en todas partes. Puede crear clústeres de Service Fabric en muchos entornos, incluido Azure o en entornos locales, en Windows Server o en Linux. Incluso puede crear clústeres en otras nubes públicas. Además, el entorno de desarrollo del SDK es **idéntico** al de producción; no se usa ningún emulador. En otras palabras, lo que se ejecuta en el clúster de desarrollo local, se implementa en los clústeres de otros entornos.
@@ -86,7 +85,7 @@ Usando Service Fabric, puede:
 * Observar al equilibrador de recursos orquestar la redistribución de aplicaciones en todo el clúster. Service Fabric se recupera de los errores y optimiza la distribución de la carga según los recursos disponibles.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Para obtener más información:
   * [¿Por qué usar un enfoque de microservicios para crear aplicaciones?](service-fabric-overview-microservices.md)
   * [Información general sobre la terminología](service-fabric-technical-overview.md)

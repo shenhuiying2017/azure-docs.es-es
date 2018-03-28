@@ -1,25 +1,25 @@
 ---
-title: "Azure Cosmos DB: Compilar una aplicación de consola con Java y la API MongoDB | Microsoft Docs"
-description: "En este tema se presenta un ejemplo de código de Java que se puede usar para conectarse a la API MongoDB de Azure Cosmos DB y realizar consultas."
+title: 'Azure Cosmos DB: Compilar una aplicación de consola con Java y la API MongoDB | Microsoft Docs'
+description: En este tema se presenta un ejemplo de código de Java que se puede usar para conectarse a la API MongoDB de Azure Cosmos DB y realizar consultas.
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: mimig1
 manager: jhubbard
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/10/2017
 ms.author: mimig
-ms.openlocfilehash: 81bf338d3be18905fd04e07a53284432b5feb491
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 199ea35d7df405ebc148185094a6865a1c373941
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-java-and-the-azure-portal"></a>Azure Cosmos DB: Compilar una aplicación de consola de la API MongoDB con Java y Azure Portal
 
@@ -27,7 +27,7 @@ Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribu
 
 En esta guía de inicio rápido se muestra cómo crear una cuenta, una base de datos de documentos y una colección de Azure Cosmos DB mediante Azure Portal. Después, compilará e implementará una aplicación de consola compilada en el [controlador Java de MongoDB](https://docs.mongodb.com/ecosystem/drivers/java/). 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Antes de ejecutar este ejemplo, debe cumplir los siguientes requisitos previos:
 * JDK 1.7+ (ejecute `apt-get install default-jdk` si no tiene JDK)
@@ -40,7 +40,7 @@ Antes de ejecutar este ejemplo, debe cumplir los siguientes requisitos previos:
 
 [!INCLUDE [mongodb-create-dbaccount](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
 
-## <a name="add-a-collection"></a>Agregar una colección
+## <a name="add-a-collection"></a>Incorporación de una colección
 
 Asígnele un nombre a la base de datos nueva (**db**) y a la nueva colección (**coll**).
 
@@ -58,11 +58,11 @@ Ahora vamos a clonar una aplicación de API MongoDB desde GitHub, establecer la 
     git clone https://github.com/Azure-Samples/azure-cosmos-db-mongodb-java-getting-started.git
     ```
 
-3. Después, abra el archivo de solución en Visual Studio. 
+3. A continuación, abra el código en su editor favorito. 
 
 ## <a name="review-the-code"></a>Revisión del código
 
-Vamos a revisar rápidamente lo que sucede en la aplicación. Abra el archivo `Program.cs` y observe que estas líneas de código crean los recursos de Azure Cosmos DB. 
+Vamos a revisar rápidamente lo que sucede en la aplicación. Abra el archivo `Program.java` y observe que estas líneas de código crean los recursos de Azure Cosmos DB. 
 
 * Se inicializa DocumentClient.
 
@@ -94,7 +94,7 @@ Vamos a revisar rápidamente lo que sucede en la aplicación. Abra el archivo `P
     System.out.println(queryResult.toJson());       
     ```
 
-## <a name="update-your-connection-string"></a>Actualizar la cadena de conexión
+## <a name="update-your-connection-string"></a>Actualización de la cadena de conexión
 
 Ahora vuelva a Azure Portal para obtener la información de la cadena de conexión y cópiela en la aplicación.
 
@@ -110,7 +110,7 @@ Ahora vuelva a Azure Portal para obtener la información de la cadena de conexi�
 
 Ahora puede usar [Robomongo](mongodb-robomongo.md) / [Studio 3T](mongodb-mongochef.md) para consultar, modificar y trabajar con estos nuevos datos.
 
-## <a name="review-slas-in-the-azure-portal"></a>Revisar los SLA en Azure Portal
+## <a name="review-slas-in-the-azure-portal"></a>Revisión de los SLA en Azure Portal
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 

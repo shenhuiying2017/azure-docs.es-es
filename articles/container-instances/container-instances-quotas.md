@@ -8,11 +8,11 @@ ms.service: container-instances
 ms.topic: overview
 ms.date: 02/27/2018
 ms.author: marsma
-ms.openlocfilehash: 008b07402cb0b937174488982cac64811baa5d5d
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 28177e17a15c5e3b92b9af52e05fa2f8e95db95f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="quotas-and-region-availability-for-azure-container-instances"></a>Disponibilidad de cuotas y regiones en Azure Container Instances
 
@@ -29,9 +29,9 @@ Azure Container Instances está disponible en las siguientes regiones con los l�
 | Ubicación | SO | CPU | Memoria (GB) |
 | -------- | -- | :---: | :-----------: |
 | Europa occidental, Oeste de EE. UU., Este de EE. UU.  | Linux | 4 | 14 |
-| Sudeste asiático  | Linux | 1 | 1.5 |
+| Oeste de EE.UU. 2, Sudeste Asiático | Linux | 2 | 7 |
 | Europa occidental, Oeste de EE. UU., Este de EE. UU.  | Windows | 4 | 14 |
-| Sudeste asiático  | Windows | 2 | 3,5 |
+| Oeste de EE.UU. 2, Sudeste Asiático | Windows | 2 | 3,5 |
 
 Las instancias de contenedor creadas dentro de estos límites de recursos están sujetas a disponibilidad dentro de la región de implementación. Cuando una región está sometida a mucha carga, puede experimentar un error al implementar instancias. Para mitigar este tipo de error de implementación, intente implementar las instancias con una configuración inferior de memoria y de CPU, o intente realizar la implementación en un momento posterior.
 

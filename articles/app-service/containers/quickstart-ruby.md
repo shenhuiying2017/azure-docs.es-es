@@ -1,12 +1,12 @@
 ---
-title: "Creación de una aplicación de Ruby e implementación en App Service en Linux | Microsoft Docs"
+title: Creación de una aplicación de Ruby e implementación en App Service en Linux | Microsoft Docs
 description: Aprenda a crear aplicaciones de Ruby con App Service en Linux.
 keywords: azure app service, linux, oss, ruby
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: SyntaxC4
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 6d00c73c-13cb-446f-8926-923db4101afa
 ms.service: app-service
 ms.workload: na
@@ -16,11 +16,11 @@ ms.topic: quickstart
 ms.date: 10/10/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: db3086724c22e485e2a9a69c36a990fc5b8016a9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 6668f02bb7ac9588e1bb11b3848d0a3e25cbed67
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-ruby-app-in-app-service-on-linux"></a>Creación de una aplicación de Ruby en App Service en Linux
 
@@ -58,7 +58,7 @@ Mediante el explorador web, vaya a `http://localhost:3000` para probar la aplica
 
 ## <a name="modify-app-to-display-welcome-message"></a>Modificación de la aplicación para mostrar el mensaje de bienvenida
 
-Modifique la aplicación para que aparezca en ella un mensaje de bienvenida. En primer lugar, debe configurar una ruta mediante la modificación del archivo *~/workspace/ruby-docs-hello-world/config/routes.rb* para que incluya una ruta denominada `hello`.
+Modifique la aplicación para que aparezca en ella un mensaje de bienvenida. En primer lugar, debe configurar una ruta modificando el archivo *~/workspace/ruby-docs-hello-world/config/routes.rb* para que incluya una ruta denominada `hello`.
 
   ```ruby
   Rails.application.routes.draw do
@@ -88,37 +88,23 @@ La aplicación ya está configurada. Mediante el explorador web, vaya a `http://
 
 [!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
 
-## <a name="create-a-ruby-web-app-on-azure"></a>Creación de una aplicación web de Ruby en Azure
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux.md)]
 
-Un grupo de recursos debe contener los recursos necesarios para la aplicación web. Para crear un grupo de recursos, use el comando [`az group create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create).
+[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
-```azurecli-interactive
-az group create --location westeurope --name myResourceGroup
-```
+## <a name="create-a-web-app"></a>Creación de una aplicación web
 
-Use el comando [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) para crear un plan de App Service para su aplicación web.
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-ruby-linux-no-h.md)] 
 
-```azurecli-interactive
-az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --is-linux
-```
-
-A continuación, emita el comando [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) para crear la aplicación web que usa el plan de App Service recién creado. Tenga en cuenta que el tiempo de ejecución se establece en `ruby|2.3`. No olvide reemplazar `<app name>` por un nombre de aplicación único.
-
-```azurecli-interactive
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> \
---runtime "ruby|2.3" --deployment-local-git
-```
-
-El resultado del comando revela información acerca de la aplicación web recién creada, así como la dirección URL de la implementación. El archivo debe tener un aspecto similar al ejemplo siguiente. Copie la dirección URL para su uso posterior en este tutorial.
+Vaya al sitio para ver la aplicación web recién creada con una imagen integrada. Reemplace _&lt;app name>_ por el nombre de la aplicación web.
 
 ```bash
-https://<deployment user name>@<app name>.scm.azurewebsites.net/<app name>.git
+http://<app_name>.azurewebsites.net
 ```
 
-Una vez creada la aplicación web, podrá verse la página **Información general**. Vaya a esta. Se muestra la siguiente página de presentación:
+Este es el aspecto que debería tener su nueva aplicación web:
 
 ![Página de presentación](./media/quickstart-ruby/splash-page.png)
-
 
 ## <a name="deploy-your-application"></a>Implementación de aplicación
 
@@ -167,7 +153,7 @@ http://<app name>.azurewebsites.net
 
 [!INCLUDE [Clean-up section](../../../includes/cli-script-clean-up.md)]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Ruby on Rails con MySQL](tutorial-ruby-mysql-app.md)

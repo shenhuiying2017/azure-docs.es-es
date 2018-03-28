@@ -1,6 +1,6 @@
 ---
-title: "Conexión a Azure Database for MySQL desde Python"
-description: "En este tutorial rápido se proporcionan varios ejemplos de código de Python que se pueden usar para conectarse a Azure Database for MySQL y consultar datos en este servicio."
+title: Conexión a Azure Database for MySQL desde Python
+description: En este tutorial rápido se proporcionan varios ejemplos de código de Python que se pueden usar para conectarse a Azure Database for MySQL y consultar datos en este servicio.
 services: mysql
 author: jasonwhowell
 ms.author: jasonh
@@ -11,11 +11,11 @@ ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: 4003c1258fcc0a6d04c4ae8d234eba4d0224b8a0
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 08725493f9d050da762a6527363b77af6eeed6e6
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-database-for-mysql-use-python-to-connect-and-query-data"></a>Azure Database for MySQL: uso de Python para conectarse y consultar datos
 En este tutorial rápido se muestra cómo usar [Python](https://python.org) para conectarse a una instancia de Azure Database for MySQL. Se emplean instrucciones SQL para consultar, insertar, actualizar y eliminar datos de la base de datos en las plataformas Mac OS, Ubuntu Linux y Windows. En este tema se da por hecho que está familiarizado con el desarrollo mediante Python y que nunca ha usado Azure Database for MySQL.
@@ -37,7 +37,7 @@ Instale [Python](https://www.python.org/downloads/) y el [conector de MySQL para
 1. En Linux (Ubuntu), Python se instala normalmente como parte de la instalación predeterminada.
 2. Para comprobar la instalación de Python, inicie el shell de Bash. Ejecute el comando `python -V` mediante el modificador V mayúscula para ver el número de versión.
 3. Para comprobar la instalación de PIP, ejecute el comando `pip show pip -V` para ver el número de versión. 
-4. PIP puede estar incluido en algunas versiones de Python. Si PIP no está instalado, puede instalar el paquete [PIP] (https://pip.pypa.io/en/stable/installing/) mediante la ejecución de comando `sudo apt-get install python-pip`.
+4. PIP puede estar incluido en algunas versiones de Python. Si PIP no está instalado, puede instalar el paquete de [PIP](https://pip.pypa.io/en/stable/installing/) ejecutando el comando `sudo apt-get install python-pip`.
 5. Actualice PIP a la versión más reciente mediante la ejecución del comando `pip install -U pip`.
 6. Instale el conector de MySQL para Python y sus dependencias mediante el comando PIP:
 
@@ -264,6 +264,6 @@ else:
   print("Done.")
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 > [!div class="nextstepaction"]
 > [Migración de una base de datos mediante exportación e importación](./concepts-migrate-import-export.md)

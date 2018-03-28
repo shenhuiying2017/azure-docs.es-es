@@ -1,6 +1,6 @@
 ---
-title: "Configuración de Azure App Service Environment para que use tunelización forzada"
-description: "Habilitación de la instancia de App Service Environment para que funcione cuando se realiza la tunelización forzada del tráfico saliente"
+title: Configuración de Azure App Service Environment para que use tunelización forzada
+description: Habilitación de App Service Environment para que funcione cuando se realiza la tunelización forzada del tráfico saliente
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -11,22 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 11/10/2017
+ms.date: 3/6/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 4caaf0df3f1dd4b2cb9b76283a6beed897531c1c
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 92073cd29f29c1ddf5863e23c4a12dfdf8e21598
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>Configuración de App Service Environment con tunelización forzada
 
-Azure App Service Environment es una implementación de Azure App Service en una instancia del cliente de Azure Virtual Network. Muchos clientes configuran sus redes virtuales como extensiones de sus redes locales con redes privadas virtuales o con conexiones de Azure ExpressRoute. Debido a las directivas corporativas u otras restricciones de seguridad, configuran las rutas para enviar todo el tráfico saliente local para poder salir a internet. Se conoce como tunelización forzada al cambio del enrutamiento de la red virtual para que el tráfico saliente de esta fluya a través de la conexión ExpressRoute o VPN a un entorno local. 
+App Service Environment (ASE) es una implementación de Azure App Service en Azure Virtual Network de un cliente. Muchos clientes configuran sus redes virtuales de Azure como extensiones de sus redes locales con redes privadas virtuales o con conexiones de Azure ExpressRoute. La tunelización forzada se produce al redirigir el tráfico de Internet a una VPN o a una aplicación virtual en su lugar. Esto se suele hacer como parte de los requisitos de seguridad para inspeccionar y auditar todo el tráfico saliente. 
 
-La tunelización forzada puede ocasionar problemas en una instancia de App Service Environment. App Service Environment cuenta con varias dependencias externas, que se enumeran en el documento de [arquitectura de red de App Service Environment][network]. De forma predeterminada, App Service Environment requiere que todas las comunicaciones salientes pasen por la dirección VIP que se aprovisiona con él.
+ASE cuenta con varias dependencias externas, que se describen en el documento de [arquitectura de red de App Service Environment][network]. Normalmente todo el tráfico de dependencias saliente de ASE debe pasar a través de la dirección VIP que se aprovisiona con el ASE. Si cambia la ruta para el tráfico hacia o desde el ASE sin seguir esta información, su ASE dejará de funcionar.
 
-Las rutas constituyen un aspecto crucial del concepto de tunelización forzada y de cómo tratar con ella. En una instancia de Azure Virtual Network, el enrutamiento se realiza según la coincidencia de prefijo más larga (LPM). Si hay más de una ruta con la misma coincidencia LPM, se selecciona una ruta en función de su origen en el orden siguiente:
+En una instancia de Azure Virtual Network, el enrutamiento se realiza según la coincidencia de prefijo más larga (LPM). Si hay más de una ruta con la misma coincidencia LPM, se selecciona una ruta en función de su origen en el orden siguiente:
 
 * Ruta definida por el usuario (UDR)
 * Ruta BGP (cuando se utiliza ExpressRoute)
@@ -34,80 +34,105 @@ Las rutas constituyen un aspecto crucial del concepto de tunelización forzada y
 
 Para más información sobre el enrutamiento en una red virtual, lea [Rutas definidas por el usuario y reenvío IP][routes]. 
 
-Si quiere que App Service Environment funcione en una red virtual con tunelización forzada, tiene dos opciones:
+Si desea enrutar el tráfico saliente del ASE a algún otro lugar que no sea directamente a Internet, tiene las siguientes opciones:
 
-* Permitir que App Service Environment tenga acceso directo a Internet
-* Cambiar el punto de conexión de salida de App Service Environment
+* Habilitar el ASE para que tenga acceso directo a internet
+* Configurar la subred del ASE para usar puntos de conexión de servicio a Azure SQL y Azure Storage
+* Agregar sus propias direcciones IP al firewall de Azure SQL de ASE
 
 ## <a name="enable-your-app-service-environment-to-have-direct-internet-access"></a>Permitir que App Service Environment tenga acceso directo a Internet
 
-Para que App Service Environment funcione mientras la red virtual está configurada con una conexión ExpressRoute, puede:
+Para hacer que el ASE vaya directamente a internet, incluso si la red virtual de Azure se configura con ExpressRoute, haga lo siguiente:
 
-* Configurar ExpressRoute para anunciar 0.0.0.0/0. De forma predeterminada, obliga a dirigir todo el tráfico saliente tráfico local.
-* Crear un UDR. Aplíquelo a la subred que contiene la instancia de App Service Environment, con un prefijo de dirección de 0.0.0.0/0 y un tipo de próximo salto de Internet.
+* Configurar ExpressRoute para anunciar 0.0.0.0/0. De forma predeterminada, enruta todo el tráfico saliente en local.
+* Crear una UDR con el prefijo de direcciones 0.0.0.0/0 y un tipo de próximo salto de Internet y aplicarlo a la subred de ASE.
 
-Si realiza estos dos cambios, el tráfico destinado a Internet que se origina en la subred de App Service Environment no se fuerza hacia la conexión ExpressRoute y App Service Environment funcionará.
+Si realiza estos dos cambios, el tráfico destinado a Internet que se origina en la subred de App Service Environment no se fuerza hacia la conexión ExpressRoute.
 
 > [!IMPORTANT]
 > Las rutas definidas en una UDR tienen que ser lo suficientemente específicas para que tengan prioridad sobre cualquier otra ruta anunciada por la configuración de ExpressRoute. En el ejemplo anterior se utiliza el intervalo de direcciones amplio 0.0.0.0/0. Puede reemplazarse accidentalmente por los anuncios de ruta con intervalos de direcciones más específicos.
 >
-> Las instancias de App Service Environment no son compatibles con las configuraciones de ExpressRoute que anuncian rutas entre la ruta de acceso de emparejamiento público y la ruta de acceso de emparejamiento privado. Las configuraciones de ExpressRoute con el emparejamiento público configurado reciben anuncios de ruta de Microsoft. Los anuncios contienen un gran conjunto de intervalos de direcciones IP de Microsoft Azure. Si los intervalos de direcciones se anuncian en la ruta de acceso de emparejamiento privado, se fuerza la tunelización de todos los paquetes de red salientes de la subred de App Service Environment a la infraestructura de red local de un cliente. Actualmente, este flujo de red no es compatible de forma predeterminada con las instancias de App Service Environment. Una solución a este problema es dejar de anunciar las rutas entre la ruta de acceso de emparejamiento público y la de emparejamiento privado. Otra solución consiste en permitir que App Service Environment funcione en una configuración de tunelización forzada.
+> Las instancias de App Service Environment no son compatibles con las configuraciones de ExpressRoute que anuncian rutas entre la ruta de acceso de emparejamiento público y la ruta de acceso de emparejamiento privado. Las configuraciones de ExpressRoute con el emparejamiento público configurado reciben anuncios de ruta de Microsoft. Los anuncios contienen un gran conjunto de intervalos de direcciones de Microsoft Azure. Si los intervalos de direcciones se anuncian en la ruta de acceso de emparejamiento privado, se enrutan todos los paquetes de red salientes de la subred de App Service Environment a la infraestructura de red local de un cliente. Este flujo de red no se admite de forma predeterminada con las instancias de App Service Environment. Una solución a este problema es dejar de anunciar las rutas entre la ruta de acceso de emparejamiento público y la de emparejamiento privado. Otra solución consiste en permitir que App Service Environment funcione en una configuración de tunelización forzada.
 
-## <a name="change-the-egress-endpoint-for-your-app-service-environment"></a>Cambio del punto de conexión de salida de App Service Environment ##
+![Acceso directo a Internet][1]
 
-En esta sección se describe cómo habilitar una instancia de App Service Environment en una configuración de tunelización forzada mediante la modificación del punto de conexión de salida que se usa en App Service Environment. Si se fuerza la tunelización del tráfico saliente de App Service Environment a una red local, debe permitir que el tráfico se origine en direcciones IP distintas a la dirección IP privada de App Service Environment.
+## <a name="configure-your-ase-with-service-endpoints"></a>Configuración del ASE con puntos de conexión de servicio
 
-Una instancia de App Service Environment no solo tiene dependencias externas, sino que también escucha el tráfico entrante y responde a dicho tráfico. Las respuestas no se pueden enviar desde otra dirección, dado que se interrumpe TCP. Se necesitan tres pasos para cambiar el punto de conexión de salida de App Service Environment:
+Para enrutar todo el tráfico saliente desde el ASE, excepto el que va a SQL Azure y a Azure Storage, siga estos pasos:
 
-1. Establecer una tabla de rutas para asegurarse de que el tráfico de administración entrante pueda regresar desde la misma dirección IP
+1. Cree una tabla de rutas y asígnela a la subred de ASE. Busque las direcciones para la región en [Direcciones de administración de App Service Environment][management]. Cree rutas para dichas direcciones con el próximo salto de Internet. Esto es necesario porque el tráfico de administración entrante de App Service Environment debe responderse desde la misma dirección a la que se envió.   
 
-2. Agregar las direcciones IP que se vayan a usar para la salida al firewall de App Service Environment
+2. Habilitación de puntos de conexión de servicio a Azure SQL y Azure Storage con la subred de ASE
 
-3. Establecer las rutas al tráfico saliente desde App Service Environment a un túnel
+Los puntos de conexión de servicio le permiten restringir el acceso de los servicios multiinquilino a un conjunto de subredes y redes virtuales de Azure. Puede leer más acerca de los puntos de conexión de servicio en la documentación de los [puntos de conexión de servicio de Azure Virtual Network][serviceendpoints]. 
 
-   ![Flujo de red en túnel forzado][1]
+Cuando se habilitan puntos de conexión de servicio en un recurso, hay rutas que se crean con prioridad más alta que las demás. Si usa puntos de conexión de servicio con una ASE con túnel forzado, el tráfico de administración de Azure SQL y de Azure Storage no se enruta a través de tunelización forzada. El resto del tráfico de dependencia de ASE se enruta con tunelización forzada y no se puede perder o el ASE no funcionaría correctamente.
 
-Puede configurar App Service Environment con diferentes direcciones de salida después de que ya esté configurado y operativo, o se puede configurar durante la implementación.
+Cuando los puntos de conexión de servicio se habilitan en una subred con una instancia de Azure SQL, todas las instancias de Azure SQL conectadas desde esa subred deben tener habilitados también los puntos de conexión de servicio. Si desea acceder a varias instancias de Azure SQL desde la misma subred, debe habilitar los puntos de conexión de servicio en todas ellas y no solo en una.  Azure Storage no se comporta igual que Azure SQL.  Cuando se habilitan los puntos de conexión de servicio con Azure Storage, se bloquea el acceso a ese recurso desde la subred, pero aún se puede tener acceso a otras cuentas de Azure Storage incluso si no tienen habilitados los puntos de conexión de servicio.  
 
-### <a name="change-the-egress-address-after-the-app-service-environment-is-operational"></a>Cambio de la dirección de salida después de que App Service Environment está operativo ###
-1. Obtenga las direcciones IP que desea utilizar como direcciones IP de salida para App Service Environment. Si va a realizar una tunelización forzada, estas direcciones proceden de los dispositivos NAT o de las direcciones IP de puerta de enlace. Si quiere enrutar el tráfico de salida de App Service Environment a través de una NVA, la dirección de salida sería la dirección IP pública de la NVA.
+Si configura la tunelización forzada con un dispositivo de filtro de red, recuerde que el ASE tiene varias dependencias además de Azure SQL y Azure Storage. Debe tener en cuenta que el tráfico o el ASE no funcionarán correctamente.
 
-2. Establezca las direcciones de salida en la información de configuración de App Service Environment. Vaya a resource.azure.com y, luego, a Subscription/<subscription id>/resourceGroups/<ase resource group>/providers/Microsoft.Web/hostingEnvironments/<ase name>. A continuación, puede ver el archivo JSON que describe su instancia de App Service Environment. Asegúrese de que, en la parte superior, indica **lectura/escritura**. Seleccione **Editar**. Desplácese hasta la parte inferior y cambie el valor **userWhitelistedIpRanges** de **null** a algo parecido a lo siguiente. Use las direcciones que desea establecer como el intervalo de direcciones de salida. 
+![Túnel forzado con puntos de conexión de servicio][2]
+
+## <a name="add-your-own-ips-to-the-ase-azure-sql-firewall"></a>Agregar sus propias direcciones IP al firewall de Azure SQL de ASE ##
+
+Para enrutar a través del túnel todo el tráfico saliente desde el ASE, excepto el que va a Azure Storage, siga los pasos siguientes:
+
+1. Cree una tabla de rutas y asígnela a la subred de ASE. Busque las direcciones para la región en [Direcciones de administración de App Service Environment][management]. Cree rutas para dichas direcciones con el próximo salto de Internet. Esto es necesario porque el tráfico de administración entrante de App Service Environment debe responderse desde la misma dirección a la que se envió. 
+
+2. Habilite puntos de conexión de servicio con Azure Storage y la subred de ASE
+
+3. Obtenga las direcciones que se usarán para todo el tráfico saliente desde App Service Environment a Internet. Si va a enrutar el tráfico de forma local, estas direcciones son las direcciones IP de la puerta de enlace o los dispositivos NAT. Si quiere enrutar el tráfico de salida de App Service Environment a través de una NVA, la dirección de salida sería la dirección IP pública de la NVA.
+
+4. _Para establecer las direcciones de salida en una instancia existente de App Service Environment:_ Vaya a resource.azure.com y a Subscription/<subscription id>/resourceGroups/<ase resource group>/providers/Microsoft.Web/hostingEnvironments/<ase name>. A continuación, puede ver el archivo JSON que describe su instancia de App Service Environment. Asegúrese de que, en la parte superior, indica **lectura/escritura**. Seleccione **Editar**. Desplácese hasta la parte inferior. Cambie el valor de **userWhitelistedIpRanges** de **null** a algo como lo siguiente. Use las direcciones que desea establecer como el intervalo de direcciones de salida. 
 
         "userWhitelistedIpRanges": ["11.22.33.44/32", "55.66.77.0/24"] 
 
    Seleccione **PUT** en la parte superior. Esta opción desencadena una operación de escalado en App Service Environment y ajusta el firewall.
- 
-3. Cree o edite una tabla de rutas y rellene las reglas para permitir el acceso a o desde las direcciones de administración que se asignan a la ubicación de su instancia de App Service Environment. Para encontrar las direcciones de administración, consulte [Direcciones de administración de App Service Environment][management].
 
-4. Ajuste las rutas que se aplican a la subred de App Service Environment con una tabla de rutas o con rutas de BGP. 
+_Para crear su ASE con las direcciones de salida_: siga las instrucciones que se proporcionan en [Creación de una instancia de App Service Environment con una plantilla][template] y use la plantilla adecuada.  Modifique la sección "resources" en el archivo azuredeploy.json, pero no el bloque "properties" e incluya una línea para **userWhitelistedIpRanges** con sus valores.
 
-Si App Service Environment deja de responder desde el portal, hay un problema con los cambios. El problema podría ser que la lista de direcciones de salida esté incompleta o que el tráfico se haya perdido o bloqueado. 
+    "resources": [
+      {
+        "apiVersion": "2015-08-01",
+        "type": "Microsoft.Web/hostingEnvironments",
+        "name": "[parameters('aseName')]",
+        "kind": "ASEV2",
+        "location": "[parameters('aseLocation')]",
+        "properties": {
+          "name": "[parameters('aseName')]",
+          "location": "[parameters('aseLocation')]",
+          "ipSslAddressCount": 0,
+          "internalLoadBalancingMode": "[parameters('internalLoadBalancingMode')]",
+          "dnsSuffix" : "[parameters('dnsSuffix')]",
+          "virtualNetwork": {
+            "Id": "[parameters('existingVnetResourceId')]",
+            "Subnet": "[parameters('subnetName')]"
+          },
+        "userWhitelistedIpRanges":  ["11.22.33.44/32", "55.66.77.0/30"]
+        }
+      }
+    ]
 
-### <a name="create-a-new-app-service-environment-with-a-different-egress-address"></a>Creación de una nueva instancia de App Service Environment con una dirección de salida diferente ###
+Estos cambios envían el tráfico a Azure Storage directamente desde el ASE y permiten el acceso a Azure SQL desde direcciones adicionales que no sean la dirección VIP del ASE.
 
-Si la red virtual ya está configurada para forzar la tunelización de todo el tráfico, debe realizar pasos adicionales para crear su instancia de App Service Environment de modo que pueda mostrarse correctamente. Durante la creación de App Service Environment, deberá habilitar el uso de otro punto de conexión de salida. Para ello, debe crear la instancia de App Service Environment con una plantilla que especifique las direcciones de salida permitidas.
+   ![Túnel forzado con lista de permitidos de SQL][3]
 
-1. Obtenga las direcciones IP que se usarán como direcciones de salida para App Service Environment.
+## <a name="preventing-issues"></a>Prevención de problemas ##
 
-2. Cree previamente la subred que se va a usar con App Service Environment. La necesitará para que pueda establecer rutas y también porque lo requiere la plantilla.
+Si la comunicación entre el ASE y sus dependencias se interrumpe, el ASE no funcionará bien.  Si permanece así demasiado tiempo, se suspenderá. Para anular su suspensión, siga las instrucciones que aparecen en el portal del ASE.
 
-3. Cree una tabla de rutas con las direcciones IP de administración que se asignan a la ubicación de App Service Environment. Asígnela a su instancia de App Service Environment.
-
-4. Siga las instrucciones que se indican en [Creación de una instancia de App Service Environment con una plantilla][template]. Descargue la plantilla adecuada.
-
-5. Edite la sección "resources" del archivo azuredeploy.json. Incluya una línea para **userWhitelistedIpRanges** con sus valores, como:
-
-       "userWhitelistedIpRanges":  ["11.22.33.44/32", "55.66.77.0/30"]
-
-Si esta sección está configurada correctamente, App Service Environment debe iniciarse sin problemas. 
+Además de interrumpir simplemente la comunicación, puede afectar de forma desfavorable al ASE introduciendo demasiada latencia. Esto puede suceder si el ASE está demasiado lejos de la red local.  Por ejemplo, si hay que atravesar un océano o un continente para llegar a la red local. También se puede introducir latencia debido a restricciones en el ancho de banda saliente o a la congestión de la intranet.
 
 
 <!--IMAGES-->
-[1]: ./media/forced-tunnel-support/forced-tunnel-flow.png
+[1]: ./media/forced-tunnel-support/asedependencies.png
+[2]: ./media/forced-tunnel-support/forcedtunnelserviceendpoint.png
+[3]: ./media/forced-tunnel-support/forcedtunnelexceptstorage.png
 
 <!--Links-->
 [management]: ./management-addresses.md
 [network]: ./network-info.md
 [routes]: ../../virtual-network/virtual-networks-udr-overview.md
 [template]: ./create-from-template.md
+[serviceendpoints]: ../../virtual-network/virtual-network-service-endpoints-overview.md

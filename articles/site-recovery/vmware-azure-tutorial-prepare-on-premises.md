@@ -1,19 +1,19 @@
 ---
-title: "Preparar servidores de VMware locales para la recuperación ante desastres de máquinas virtuales de VMware en Azure | Microsoft Docs"
-description: "Obtenga información sobre cómo preparar servidores de VMware locales para la recuperación ante desastres en Azure mediante el servicio Azure Site Recovery."
+title: Preparar servidores de VMware locales para la recuperación ante desastres de máquinas virtuales de VMware en Azure | Microsoft Docs
+description: Obtenga información sobre cómo preparar servidores de VMware locales para la recuperación ante desastres en Azure mediante el servicio Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/08/2018
+ms.date: 03/15/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 07f62775c9286250d33635febe01dbad4362df12
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 6898f725d1d3cbf3f8d9d90faeafc13fbc8cb201
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Preparar servidores de VMware locales para la recuperación ante desastres en Azure
 
@@ -59,34 +59,16 @@ Mobility Service debe instalarse en la máquina que quiera replicar. Site Recove
 3. Para instalar en máquinas virtuales Linux, prepare una cuenta raíz en el servidor Linux de origen.
 
 
-## <a name="check-vmware-server-requirements"></a>Comprobación de los requisitos del servidor de VMware
+## <a name="check-vmware-requirements"></a>Comprobación de los requisitos de VMware
 
-Asegúrese de que los servidores VMware cumplen los requisitos siguientes.
+Asegúrese de que los servidores y las máquinas virtuales de VMware cumplen los requisitos.
 
-**Componente** | **Requisito**
---- | ---
-**Servidor vCenter** | vCenter 6.5, 6.0 o 5.5
-**Host de vSphere** | vSphere 6.5, 6.0 y 5.5
+1. [Compruebe](vmware-physical-azure-support-matrix.md#on-premises-virtualization-servers) los requisitos del servidor de VMware.
+2. Para Linux, [compruebe](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage) los requisitos de almacenamiento y el sistema de archivos. 
+3. Compruebe la compatibilidad de [red](vmware-physical-azure-support-matrix.md#network) y [almacenamiento](vmware-physical-azure-support-matrix.md#storage) local. 
+4. Compruebe lo que es compatible para [redes Azure](vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), [almacenamiento](vmware-physical-azure-support-matrix.md#azure-storage), y [proceso](vmware-physical-azure-support-matrix.md#azure-compute), después de la conmutación por error.
+5. Las máquinas virtuales locales que replique en Azure tienen que cumplir los [requisitos de máquina virtual de Azure](vmware-physical-azure-support-matrix.md#azure-vm-requirements).
 
-## <a name="check-vmware-vm-requirements"></a>Comprobación de los requisitos de las máquinas virtuales de VMware
-
-Asegúrese de que la máquina virtual cumple los requisitos de Azure resumidos en la tabla siguiente.
-
-**Requisito de la máquina virtual** | **Detalles**
---- | ---
-**Tamaño del disco del sistema operativo** | Hasta 2048 GB
-**Número de discos del sistema operativo** | 1
-**Número de discos de datos** | 64 o menos
-**Tamaño de VHD del disco de datos** | Hasta 4095 GB
-**Adaptadores de red** | Se admiten varios adaptadores
-**VHD compartido** | No compatible
-**Disco FC** | No compatible
-**Formato de disco duro** | VHD o VHDX<br/><br/> Aunque VHDX no se admite en Azure en este momento, Site Recovery convierte automáticamente VHDX en VHD cuando se conmuta por error en Azure. Cuando se realiza la conmutación por recuperación en el entorno local, las máquinas virtuales siguen usando el formato VHDX.
-**BitLocker** | No compatible. Deshabilítelo antes de habilitar la replicación para una máquina virtual.
-**Nombre de la máquina virtual** | Entre 1 y 63 caracteres.<br/><br/> Restringido a letras, números y guiones. El nombre de la VM debe empezar y terminar con una letra o un número.
-**Tipo de máquina virtual** | Generación 1: Linux o Windows<br/><br/>Generación 2: solo Windows
-
-La máquina virtual también debe ejecutar un sistema operativo admitido. Para obtener una lista completa de las versiones compatibles, vea la [matriz de compatibilidad de VMware y del servidor físico](vmware-physical-azure-support-matrix.md#replicated-machines).
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Preparación para la conexión a las máquinas virtuales de Azure después de la conmutación por error
 

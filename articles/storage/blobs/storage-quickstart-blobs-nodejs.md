@@ -1,194 +1,293 @@
 ---
-title: "Inicio rápido de Azure: Carga, descarga y enumeración de blobs en Azure Storage mediante Node.js | Microsoft Docs"
-description: "En esta guía de inicio rápido, puede crear una cuenta de almacenamiento y un contenedor. Después, puede usar la biblioteca de clientes de almacenamiento para Node.js a fin de cargar un blob en Azure Storage, descargar un blob o enumerar los blobs de un contenedor."
+title: 'Inicio rápido de Azure: Carga, descarga y enumeración de blobs en Azure Storage mediante Node.js | Microsoft Docs'
+description: En esta guía de inicio rápido, puede crear una cuenta de almacenamiento y un contenedor. Después, puede usar la biblioteca de clientes de almacenamiento para Node.js a fin de cargar un blob en Azure Storage, descargar un blob o enumerar los blobs de un contenedor.
 services: storage
 author: craigshoemaker
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/22/2018
+ms.date: 03/15/2018
 ms.author: cshoe
-ms.openlocfilehash: ad0d4a2242aef99e0307f732175e0c50010580ce
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 28f9936c297b6f641810e0c7783f4d84be108286
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-nodejs"></a>Inicio rápido: Carga, descarga y enumeración de blobs mediante Node.js
 
-En este tutorial de inicio rápido, aprenderá a usar Node.js para cargar, descargar y enumerar blobs en bloques en un contenedor en Azure Blob Storage.
+En esta guía de inicio rápido, aprenderá a usar Node.js para cargar, descargar y enumerar blobs en bloques en un contenedor con Azure Blob Storage.
 
-## <a name="prerequisites"></a>requisitos previos
-
-Para completar esta guía de inicio rápido:
-
-* Instalar [Node.js](https://nodejs.org/en/)
-
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+Para completar esta guía de inicio rápido, necesitará una [suscripción de Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 [!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
 
 ## <a name="download-the-sample-application"></a>Descarga de la aplicación de ejemplo
 
-La [aplicación de ejemplo](https://github.com/Azure-Samples/storage-blobs-node-quickstart.git) utilizada en este tutorial de inicio rápido es una aplicación de consola básica. 
-
-Use [git](https://git-scm.com/) para descargar una copia de la aplicación en su entorno de desarrollo.
+La [aplicación de ejemplo](https://github.com/Azure-Samples/storage-blobs-node-quickstart.git) utilizada en esta guía de inicio rápido es una sencilla aplicación de consola de Node.js. Para comenzar, clone el repositorio en el equipo con el comando siguiente:
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-blobs-node-quickstart.git
 ```
 
-Este comando clona el repositorio en la carpeta git local. Para abrir la aplicación, busque la carpeta storage-blobs-node-quickstart, ábrala y haga doble clic en el archivo index.js.
+Para abrir la aplicación, busque la carpeta *storage-blobs-node-quickstart* y ábrala en el entorno de edición de código de su elección.
 
 ## <a name="configure-your-storage-connection-string"></a>Configuración de la cadena de conexión de almacenamiento.
 
-En la aplicación, debe proporcionar la cadena de conexión para la cuenta de almacenamiento. Abra el archivo `index.js` y busque la variable `connectionString`. Reemplace su valor con todo el valor de la cadena de conexión por la que guardó en Azure Portal. La cadena de conexión de almacenamiento debe tener un aspecto similar al siguiente:
-
-```javascript
-// Create a blob client for interacting with the blob service from connection string
-// How to create a storage connection string - http://msdn.microsoft.com/library/azure/ee758697.aspx
-var connectionString = '<Your connection string here>';
-var blobService = storage.createBlobService(connectionString);
-```
+Antes de ejecutar la aplicación, debe proporcionar la cadena de conexión de la cuenta de almacenamiento. El repositorio de ejemplo incluye un archivo llamado *.env.example*. Puede cambiar el nombre de este archivo quitando la extensión *.example*, lo que resulta en un archivo llamado *.env*. Dentro del archivo *.env*, agregue el valor de la cadena de conexión después de la clave *AZURE_STORAGE_CONNECTION_STRING*.
 
 ## <a name="install-required-packages"></a>Instalación de los paquetes requeridos
 
-En el directorio de la aplicación, ejecute `npm install` para instalar los paquetes requeridos incluidos en el archivo `package.json`.
+En el directorio de la aplicación, ejecute *npm install* para instalar los paquetes necesarios para la aplicación.
 
-```javascript
+```bash
 npm install
 ```
 
 ## <a name="run-the-sample"></a>Ejecución del ejemplo
+Ahora que las dependencias están instaladas, puede ejecutar el ejemplo pasando comandos al script. Por ejemplo, para crear un contenedor de blobs ejecute el siguiente comando:
 
-En este ejemplo se crea un archivo de prueba en MyDocuments, se carga a Blob Storage, se enumeran los blobs del contenedor y luego se descarga el archivo con un nombre nuevo para poder comparar los archivos antiguos y nuevos.
-
-Ejecute el ejemplo; para ello, escriba `node index.js`. La salida siguiente es de un sistema de Windows.  Si usa Linux, se puede prever una salida similar con las rutas de acceso de archivo apropiadas.
-
-```
-Azure Storage Node.js Client Library Blobs Quick Start
-
-1. Creating a container with public access: quickstartcontainer-79a3eea0-bec9-11e7-9a36-614cd00ca63d
-
-2. Creating a file in ~/Documents folder to test the upload and download
-
-   Local File: C:\Users\admin\Documents\HelloWorld-79a3c790-bec9-11e7-9a36-614cd00ca63d.txt
-
-3. Uploading BlockBlob: quickstartblob-HelloWorld-79a3c790-bec9-11e7-9a36-614cd00ca63d.txt
-
-   Uploaded Blob URL: https://mystorageaccount.blob.core.windows.net/quickstartcontainer-79a3eea0-bec9-11e7-9a36-614cd00ca63d/quickstartblob-HelloWorld-79a3c790-bec9-11e7-9a36-614cd00ca63d.txt
-
-4. Listing blobs in container
-
-   - quickstartblob-HelloWorld-79a3c790-bec9-11e7-9a36-614cd00ca63d.txt (type: BlockBlob)
-
-
-5. Downloading blob
-
-   Downloaded File: C:\Users\admin\Documents\HelloWorld-79a3c790-bec9-11e7-9a36-614cd00ca63d_DOWNLOADED.txt
-
-Sample finished running. When you hit <ENTER> key, the temporary files will be deleted and the sample application will exit.
+```bash
+node index.js --command createContainer
 ```
 
-Antes de continuar, compruebe los dos archivos en Mis documentos. Puede abrirlos y ver que son idénticas.
+Entre los comandos disponibles se incluyen:
 
-También puede usar una herramienta como [Explorador de Azure Storage](http://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para ver los archivos de Blob Storage. El Explorador de Azure Storage es una herramienta gratuita multiplataforma que permite acceder a la información de la cuenta de almacenamiento.
+| Get-Help | DESCRIPCIÓN |
+|---------|---------|
+|*createContainer* | Crea un contenedor llamado *test-container* (se realiza correctamente aunque ya exista el contenedor) |
+|*upload*          | Carga el archivo *example.txt* en el contenedor *test-container* |
+|*download*        | Descarga el contenido del blob *example* en *example.downloaded.txt* |
+|*delete*          | Elimina el blob *example* |
+|*list*            | Enumera el contenido del contenedor *test-container* en la consola |
 
-Después de haber comprobado los archivos, presione cualquier tecla para finalizar la demostración y eliminar los archivos de prueba. Ahora que sabe lo que hace el ejemplo, abra el archivo index.js para examinar el código. 
 
-## <a name="understand-the-sample-code"></a>Descripción del código de ejemplo
-
-A continuación, explicaremos el código de ejemplo para ayudarle a comprender saber cómo funciona.
-
-### <a name="get-references-to-the-storage-objects"></a>Obtención de referencias a los objetos de almacenamiento
-
-Lo primero que hay que hacer es crear las referencias al objeto **BlobService** usado para acceder a Blob Storage y administrarlo. Estos objetos dependen unos de otros: cada uno es utilizado por el siguiente de la lista.
-
-* Cree una instancia del objeto [BlobService](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService__ctor), que apunte a la instancia de Blob service de la cuenta de almacenamiento.
-
-* Cree un contenedor y luego establezca permisos en el contenedor para que los blobs sean públicos y se pueda acceder a ellos con tan solo una dirección URL. El contenedor se inicia con **quickstartcontainer-**.
-
-En este ejemplo se utiliza [createContainerCreateIfNotExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createContainerIfNotExists) porque se quiere crear un contenedor cada vez que se ejecuta el ejemplo. En un entorno de producción donde se usa el mismo contenedor en toda una aplicación, lo más recomendable es llamar solamente a CreateIfNotExists una vez. O bien se puede crear el contenedor con antelación para que no necesite crearlo en el código.
+## <a name="understanding-the-sample-code"></a>Descripción del código de ejemplo
+Este ejemplo de código usa algunos módulos para interactuar con el sistema de archivos y la línea de comandos. 
 
 ```javascript
-// Create a container for organizing blobs within the storage account.
-console.log('1. Creating a Container with Public Access:', blockBlobContainerName, '\n');
-blobService.createContainerIfNotExists(blockBlobContainerName, { 'publicAccessLevel': 'blob' }, function (error) {
-    if (error) return callback(error);
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').load();
+}
+const path = require('path');
+const args = require('yargs').argv;
+const storage = require('azure-storage');
 ```
 
-### <a name="upload-blobs-to-the-container"></a>Carga de blobs al contenedor
+El propósito de los módulos es el siguiente: 
 
-Blob Storage admite blobs en bloques, blobs en anexos y blobs en páginas. Los blobs en bloques son los que se usan con más frecuencia. Son ideales para almacenar texto y datos binarios, que es por lo que se usan en esta guía de inicio rápido.
+- *dotenv* carga las variables de entorno definidas en un archivo llamado *.env* en el contexto de ejecución actual
+- *path* es necesario para determinar la ruta de acceso absoluta del archivo que se va a cargar en Blob Storage
+- *yargs* expone una interfaz sencilla para acceder a los argumentos de la línea de comandos
+- *azure-storage* es el módulo del [SDK de Azure Storage](/nodejs/api/azure-storage) para Node.js
 
-Para cargar un archivo en un blob, use el método [createBlockBlobFromLocalFile](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_createBlockBlobFromLocalFile). Esta operación crea el blob si todavía no existe o lo sobrescribe si ya existe.
-
-El código de ejemplo crea un archivo local que se usará para la carga y descarga, almacenando el archivo que se va a cargar como **localPath** y el nombre del blob en **localFileToUpload**. En el ejemplo siguiente se carga el archivo al contenedor que empieza por **quickstartcontainer-**.
+A continuación, se inicializan diversas variables:
 
 ```javascript
-console.log('2. Creating a file in ~/Documents folder to test the upload and download\n');
-console.log('   Local File:', LOCAL_FILE_PATH, '\n');
-fs.writeFileSync(LOCAL_FILE_PATH, 'Greetings from Microsoft!');
-
-console.log('3. Uploading BlockBlob:', BLOCK_BLOB_NAME, '\n');
-blobService.createBlockBlobFromLocalFile(CONTAINER_NAME, BLOCK_BLOB_NAME, LOCAL_FILE_PATH, function (error) {
-handleError(error);
-console.log('   Uploaded Blob URL:', blobService.getUrl(CONTAINER_NAME, BLOCK_BLOB_NAME), '\n');
+const blobService = storage.createBlobService();
+const containerName = 'test-container';
+const sourceFilePath = path.resolve('./example.txt');
+const blobName = path.basename(sourceFilePath, path.extname(sourceFilePath));
 ```
 
-Existen varios métodos de carga que puede usar con Blob Storage. Por ejemplo, si tiene una secuencia de memoria, puede utilizar el método [createBlockBlobFromStream](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_createBlockBlobFromStream) en lugar de [createBlockBlobFromLocalFile](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_createBlockBlobFromLocalFile).
+Las variables se establecen en los siguientes valores:
+
+- *blobService* se establece en una nueva instancia de Azure Blob Service
+- *containerName* se establece en el nombre del contenedor
+- *sourceFilePath* se establece en la ruta de acceso absoluta del archivo que se va a cargar
+- *blobName* se crea tomando el nombre de archivo y eliminando la extensión de nombre archivo
+
+En la implementación siguiente, cada una de las funciones de *blobService* se encapsula en una *Promesa*, lo que permite el acceso a la función *asincrónica* de JavaScript y al operador *await* para ajustarse a la naturaleza de devolución de llamada de la [API de Azure Storage](/nodejs/api/azure-storage/blobservice). Cuando se devuelve una respuesta correcta para cada función, la promesa resuelve con los datos pertinentes junto con un mensaje específico para la acción.
+
+### <a name="create-a-blob-container"></a>Creación de un contenedor de blobs
+
+La función *createContainer* llama a [createContainerIfNotExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createContainerIfNotExists) y establece el nivel de acceso adecuado para el blob.
+
+```javascript
+const createContainer = () => {
+    return new Promise((resolve, reject) => {
+        blobService.createContainerIfNotExists(containerName, { publicAccessLevel: 'blob' }, err => {
+            if(err) {
+                reject(err);
+            } else {
+                resolve({ message: `Container '${containerName}' created` });
+            }
+        });
+    });
+};
+```
+
+El segundo parámetro (*options*) de **createContainerIfNotExists** acepta un valor para [publicAccessLevel](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createContainerIfNotExists). El valor *blob* para *publicAccessLevel* especifica que los datos del blob en cuestión se exponen al público. Esta configuración es opuesta al nivel de acceso *container*, que otorga la capacidad de enumerar el contenido del contenedor.
+
+El uso de **createContainerIfNotExists** permite a la aplicación ejecutar el comando *createContainer* varias veces sin devolver errores cuando el contenedor ya existe. En un entorno de producción, a menudo solo se llama a **createContainerIfNotExists** una vez, ya que se usa el mismo contenedor a lo largo de la aplicación. En estos casos, puede crear el contenedor con antelación a través del portal o mediante la CLI de Azure.
+
+### <a name="upload-a-blob-to-the-container"></a>Carga de un blob en el contenedor
+
+La función *upload* utiliza la función [createBlockBlobFromLocalFile](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromLocalFile) para cargar y escribir o sobrescribir un archivo desde el sistema de archivos a Blob Storage. 
+
+```javascript
+const upload = () => {
+    return new Promise((resolve, reject) => {
+        blobService.createBlockBlobFromLocalFile(containerName, blobName, sourceFilePath, err => {
+            if(err) {
+                reject(err);
+            } else {
+                resolve({ message: `Upload of '${blobName}' complete` });
+            }
+        });
+    });
+};
+```
+En el contexto de la aplicación de ejemplo, el archivo llamado *example.txt* se carga en un blob llamado *example* dentro de un contenedor llamado *test-container*. Otros métodos disponibles para cargar contenido en blobs incluyen trabajar con [texto](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromText) y [secuencias](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromStream).
+
+Para comprobar que el archivo se ha cargado en Blob Storage, puede usar el [Explorador de Azure Storage](https://azure.microsoft.com/en-us/features/storage-explorer/) para ver los datos de la cuenta.
 
 ### <a name="list-the-blobs-in-a-container"></a>Enumerar los blobs de un contenedor
 
-Después, obtenga una lista de archivos del contenedor mediante [listBlobsSegmented](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_listBlobsSegmented). El código siguiente recupera la lista de blobs, luego los recorre y se muestran los URI de los blobs encontrados. Puede copiar el URI desde la ventana de comandos y pegarlo en un explorador para ver el archivo.
-
-Si tiene hasta 5000 blobs en el contenedor, todos los nombres de blob se recuperan en una llamada a [listBlobsSegmented](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_listBlobsSegmented). Si tiene más de 5000 blobs en el contenedor, el servicio recupera la lista en conjuntos de 5000 hasta que todos los nombres de blob se hayan recuperado. Por tanto, la primera vez que se llama a esta API, devuelve los primeros 5000 nombres de blob y un token de continuación. La segunda vez, se proporciona el token, y el servicio recupera el siguiente conjunto de nombres de blob, y así sucesivamente hasta que el token de continuación es null, lo que indica que se han recuperado todos los nombres de blob.
+La función *list* llama al método [listBlobsSegmented](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromText) para devolver una lista de los metadatos de los blobs del contenedor. 
 
 ```javascript
-console.log('4. Listing blobs in container\n');
-blobService.listBlobsSegmented(CONTAINER_NAME, null, function (error, data) {
-    handleError(error);
+const list = () => {
+    return new Promise((resolve, reject) => {
+        blobService.listBlobsSegmented(containerName, null, (err, data) => {
+            if(err) {
+                reject(err);
+            } else {
+                resolve({ message: `Items in container '${containerName}':`, data: data });
+            }
+        });
+    });
+};
+```
 
-    for (var i = 0; i < data.entries.length; i++) {
-    console.log(util.format('   - %s (type: %s)'), data.entries[i].name, data.entries[i].blobType);
+Al llamar a *listBlobsSegmented*, devuelve los metadatos de los blobs como una matriz de instancias de [BlobResult](/nodejs/api/azure-storage/blobresult). Los resultados se devuelven en lotes de un incremento de 5 000 (segmentos). Si hay más de 5 000 blobs en un contenedor, los resultados incluyen un valor para **continuationToken**. Para enumerar los segmentos posteriores del contenedor de blobs, puede pasar el token de continuación a **listBlobSegmented** como segundo argumento.
+
+### <a name="download-a-blob-from-the-container"></a>Descarga de un blob del contenedor
+
+La función *download* utiliza [getBlobToLocalFile](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_getBlobToLocalFile) para descargar el contenido del blob en la ruta de acceso absoluta del archivo especificada.
+
+```javascript
+const download = () => {
+    const dowloadFilePath = sourceFilePath.replace('.txt', '.downloaded.txt');
+    return new Promise((resolve, reject) => {
+        blobService.getBlobToLocalFile(containerName, blobName, dowloadFilePath, err => {
+            if(err) {
+                reject(err);
+            } else {
+                resolve({ message: `Download of '${blobName}' complete` });
+            }
+        });
+    });
+};
+```
+La implementación que se muestra a continuación cambia la ruta de acceso del archivo de origen para anexar *.downloaded.txt* al nombre de archivo. En contextos del mundo real, puede cambiar la ubicación, así como el nombre de archivo cuando se selecciona un destino de descarga.
+
+### <a name="delete-blobs-in-the-container"></a>Eliminación de blobs del contenedor
+
+La función *deleteBlock* (cuyo alias es el comando de la consola *delete*) llama a la función [deleteBlobIfExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_deleteBlobIfExists). Como su nombre indica, esta función no devuelve un error si el blob ya se ha eliminado.
+
+```javascript
+const deleteBlock = () => {
+    return new Promise((resolve, reject) => {
+        blobService.deleteBlobIfExists(containerName, blobName, err => {
+            if(err) {
+                reject(err);
+            } else {
+                resolve({ message: `Block blob '${blobName}' deleted` });
+            }
+        });
+    });
+};
+```
+
+### <a name="upload-and-list"></a>Carga y enumeración
+
+Una de las ventajas de usar promesas es que es posible encadenar comandos. La función **uploadAndList** muestra lo fácil que es mostrar el contenido de un blob directamente después de cargar un archivo.
+
+```javascript
+const uploadAndList = () => {
+    return _module.upload().then(_module.list);
+};
+```
+
+### <a name="calling-code"></a>Llamadas al código
+
+Para exponer las funciones implementadas en la línea de comandos, cada una de las funciones se asigna a un literal de objeto.
+
+```javascript
+const _module = {
+    "createContainer": createContainer,
+    "upload": upload,
+    "download": download,
+    "delete": deleteBlock,
+    "list": list,
+    "uploadAndList": uploadAndList
+};
+```
+
+Con *_module* ahora en su lugar, cada uno de los comandos está disponible desde la línea de comandos.
+
+```javascript
+const commandExists = () => exists = !!_module[args.command];
+```
+
+Si un comando dado no existe, se representan las propiedades de *_module* en la consola como texto de ayuda para el usuario. 
+
+La función *executeCommand* es una función *asincrónica* que llama al comando especificado mediante el operador *await* y registra los mensajes de datos en la consola.
+
+```javascript
+const executeCommand = async () => {
+    const response = await _module[args.command]();
+
+    console.log(response.message);
+
+    if (response.data) {
+        response.data.entries.forEach(entry => {
+            console.log('Name:', entry.name, ' Type:', entry.blobType)
+        });
     }
-    console.log('\n');
+};
 ```
 
-### <a name="download-blobs"></a>Descargar blobs
-
-Descargue blobs en el disco local con el método [getBlobToLocalFile](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_getBlobToLocalFile).
-
-El código siguiente descarga el blob cargado en una sección anterior, agregando el sufijo "_DOWNLOADED" al nombre de blob para que pueda ver ambos archivos en el disco local. 
+Por último, la ejecución del código llama primero a *commandExists* para comprobar que se pasa al script un comando conocido. Si se selecciona un comando existente, se ejecuta dicho comando y los errores se registran en la consola.
 
 ```javascript
-console.log('5. Downloading blob\n');
-blobService.getBlobToLocalFile(CONTAINER_NAME, BLOCK_BLOB_NAME, DOWNLOADED_FILE_PATH, function (error) {
-handleError(error);
-console.log('   Downloaded File:', DOWNLOADED_FILE_PATH, '\n');
+try {
+    const cmd = args.command;
+
+    console.log(`Executing '${cmd}'...`);
+
+    if (commandExists()) {
+        executeCommand();
+    } else {
+        console.log(`The '${cmd}' command does not exist. Try one of these:`);
+        Object.keys(_module).forEach(key => console.log(` - ${key}`));
+    }
+} catch (e) {
+    console.log(e);
+}
 ```
 
-### <a name="clean-up-resources"></a>Limpieza de recursos
+## <a name="clean-up-resources"></a>Limpieza de recursos
+Si no planea usar los datos o las cuentas creadas en este artículo, puede que desee eliminarlos para evitar una facturación no deseada. Para eliminar el blob y los contenedores, puede usar los métodos [deleteBlobIfExists](/nodejs/api/azure-storage/blobservice?view=azure-node-latest#deleteBlobIfExists_container__blob__options__callback_) y [deleteContainerIfExists](/nodejs/api/azure-storage/blobservice?view=azure-node-latest#deleteContainerIfExists_container__options__callback_). También puede eliminar la cuenta de almacenamiento [a través del portal](../common/storage-create-storage-account.md).
 
-Si ya no necesita los blobs cargados en este tutorial de inicio rápido, puede eliminar todo el contenedor mediante [deleteBlobIfExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_deleteBlobIfExists) y [deleteContainerIfExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_deleteContainerIfExists). Elimine también los archivos creados si ya no son necesarios. De esto se ocupa la aplicación al presionar la tecla ENTRAR para salir de la aplicación.
+## <a name="resources-for-developing-nodejs-applications-with-blobs"></a>Recursos para el desarrollo de aplicaciones Node.js con blobs
 
-```javascript
-console.log('6. Deleting block Blob\n');
-    blobService.deleteBlobIfExists(CONTAINER_NAME, BLOCK_BLOB_NAME, function (error) {
-        handleError(error);
+Consulte estos recursos adicionales para el desarrollo de Node.js con Blob Storage:
 
-    console.log('7. Deleting container\n');
-    blobService.deleteContainerIfExists(CONTAINER_NAME, function (error) {
-        handleError(error);
-            
-        fs.unlinkSync(LOCAL_FILE_PATH);
-        fs.unlinkSync(DOWNLOADED_FILE_PATH);
-```
+### <a name="binaries-and-source-code"></a>Archivos binarios y código fuente
 
-## <a name="next-steps"></a>pasos siguientes
+- Consulte e instale el [código fuente de la biblioteca de cliente de Node.js](https://github.com/Azure/azure-storage-node) para Azure Storage en GitHub.
 
-En este tutorial de inicio rápido aprendió a transferir archivos entre un disco local y Azure Blob Storage mediante Node.js. Para más información sobre cómo trabajar con Blob Storage, continúe con los procedimientos de Blob Storage.
+### <a name="client-library-reference-and-samples"></a>Referencia a la biblioteca de clientes y ejemplos
+
+- Para más información acerca de la biblioteca de cliente de Node.js, consulte la [referencia de la API de Node.js](https://docs.microsoft.com/en-us/javascript/api/overview/azure/storage).
+- Explore los [ejemplos de Blob Storage](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=nodejs&term=blob) escritos mediante la biblioteca de cliente de Node.js.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Esta guía de inicio rápido muestra cómo cargar un archivo entre un disco local y Azure Blob Storage mediante Node.js. Para más información sobre cómo trabajar con Blob Storage, continúe con los procedimientos de Blob Storage.
 
 > [!div class="nextstepaction"]
 > [Procedimientos de las operaciones de Blob Storage](storage-nodejs-how-to-use-blob-storage.md)

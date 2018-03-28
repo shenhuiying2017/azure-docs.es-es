@@ -1,28 +1,28 @@
 ---
-title: "Azure Cosmos DB: ¿cómo realizar consultas mediante la API para MongoDB? | Microsoft Docs"
+title: 'Azure Cosmos DB: ¿cómo realizar consultas mediante la API para MongoDB? | Microsoft Docs'
 description: Aprenda a realizar consultas con la API de MongoDB para Azure Cosmos DB
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: mimig1
 manager: jhubbard
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.workload: 
-ms.date: 05/10/2017
+ms.workload: ''
+ms.date: 03/16/2018
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: 1818476a95ddf373701ad93860b02ea4c2ad761d
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 7c51a2a1cace89305b971d5fb0f56c360cbf93cb
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/17/2018
 ---
-# <a name="azure-cosmos-db-how-to-query-with-api-for-mongodb"></a>Azure Cosmos DB: ¿cómo realizar consultas con la API para MongoDB?
+# <a name="tutorial-query-azure-cosmos-db-by-using-the-mongodb-api"></a>Tutorial: Consulta de Azure Cosmos DB mediante MongoDB API
 
 La [API para MongoDB](mongodb-introduction.md) de Azure Cosmos DB admite las [consultas de shell de MongoDB](https://docs.mongodb.com/manual/tutorial/query-documents/). 
 
@@ -119,7 +119,7 @@ La consulta siguiente devuelve todos los elementos secundarios de la familia.
 
 **Consultar**
     
-    db.familes.find( { id: “WakefieldFamily” }, { children: true } )
+    db.families.find( { id: “WakefieldFamily” }, { children: true } )
 
 **Resultados**
 
@@ -302,7 +302,7 @@ La consulta siguiente devuelve todas las familias en las que el valor de tamaño
 
 No se devolverá ningún resultado, ya que no tenemos más de dos elementos secundarios. Solo si el parámetro es 2, esta consulta se realizará correctamente y devolverá el documento completo.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, ha hecho lo siguiente:
 
