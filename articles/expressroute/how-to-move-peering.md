@@ -1,25 +1,25 @@
 ---
-title: "Cambiar un emparejamiento público en Azure ExpressRoute a emparejamiento de Microsoft | Microsoft Docs"
-description: "En este artículo se detallan los pasos para cambiar un emparejamiento público a emparejamiento de Microsoft en ExpressRoute."
+title: Cambiar un emparejamiento público en Azure ExpressRoute a emparejamiento de Microsoft | Microsoft Docs
+description: En este artículo se detallan los pasos para cambiar un emparejamiento público a emparejamiento de Microsoft en ExpressRoute.
 services: expressroute
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/09/2017
+ms.date: 03/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: 4fd0f1cbba36957ae5ecc1b7436d1f1734a3ef79
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 02d7c3f587a4cbfb11fc3b6863f75ca30b4d6c51
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="move-a-public-peering-to-microsoft-peering"></a>Cambiar un emparejamiento público a emparejamiento de Microsoft
 
@@ -50,7 +50,7 @@ Si no ha creado el emparejamiento de Microsoft, use cualquiera de los siguientes
 
 Compruebe que el emparejamiento de Microsoft está habilitado y que los prefijos públicos anunciados están en estado configurado.
 
-  * [Portal de Azure](expressroute-howto-routing-portal-resource-manager.md#getmsft)
+  * [Azure Portal](expressroute-howto-routing-portal-resource-manager.md#getmsft)
   * [Azure PowerShell](expressroute-howto-routing-arm.md#getmsft)
   * [CLI de Azure](howto-routing-cli.md#getmsft)
 
@@ -73,6 +73,10 @@ Tras constatar que el emparejamiento de Microsoft está configurado y que los pr
   * [Eliminación del emparejamiento público de Azure con Azure Portal](expressroute-howto-routing-portal-resource-manager.md#deletepublic)
   * [Eliminación del emparejamiento público de Azure con Azure PowerShell](expressroute-howto-routing-arm.md#deletepublic)
   * [Eliminación del emparejamiento público de Azure con la CLI](howto-routing-cli.md#deletepublic)
+  
+## <a name="view"></a>5. Visualización de emparejamientos
+  
+Puede ver una lista de todos los circuitos y emparejamientos de ExpressRoute en Azure Portal. Para obtener más información, consulte [Visualización de detalles del emparejamiento de Microsoft](expressroute-howto-routing-portal-resource-manager.md#getmsft).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

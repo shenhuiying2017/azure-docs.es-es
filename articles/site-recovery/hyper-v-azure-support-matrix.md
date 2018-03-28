@@ -1,6 +1,6 @@
 ---
-title: "Matriz de compatibilidad para la replicación de Hyper-V en Azure | Microsoft Docs"
-description: "Se resumen los requisitos y componentes compatibles para la replicación de Hyper-V en Azure con Azure Site Recovery"
+title: Matriz de compatibilidad para la replicación de Hyper-V en Azure | Microsoft Docs
+description: Se resumen los requisitos y componentes compatibles para la replicación de Hyper-V en Azure con Azure Site Recovery
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -8,32 +8,32 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: raynew
-ms.openlocfilehash: 81983b9287a6b8073724f0cd973929f4b4677d4a
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 9078b56ae9c5582aa21201c168974eb6cc7a4ed6
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="support-matrix-for-hyper-v-replication-to-azure"></a>Matriz de compatibilidad para la replicación de Hyper-V en Azure
 
 
-En este artículo se resumen los ajustes y los componentes compatibles para la recuperación ante desastres de máquinas virtuales de Hyper-V locales en Azure mediante el servicio [Azure Site Recovery](site-recovery-overview.md).
+En este artículo se resumen los ajustes y los componentes compatibles para la recuperación ante desastres de máquinas virtuales de Hyper-V locales en Azure mediante [Azure Site Recovery](site-recovery-overview.md).
 
 
 ## <a name="supported-scenarios"></a>Escenarios admitidos
 
 **Escenario** | **Detalles**
 --- | --- 
-**Hyper-V con VMM** | Ahora puede realizar la recuperación ante desastres en Azure de las máquinas virtuales que se ejecutan en los hosts de Hyper-V administrados en el tejido de System Center Virtual Machine Manager (VMM)<br/><br/> Puede implementar este escenario en Azure Portal o mediante PowerShell.<br/><br/> Cuando VMM administra los hosts de Hyper-V, también puede realizar la recuperación ante desastres en un sitio local secundario. Lea [este artículo](tutorial-vmm-to-vmm.md) para más información sobre este escenario.
-**Hyper-V sin VMM** | Ahora puede realizar la recuperación ante desastres en Azure de las máquinas virtuales que se ejecutan en los hosts de Hyper-V no administrados por VMM.<br/><br/> Puede implementar este escenario en Azure Portal o mediante PowerShell. 
+Hyper-V con Virtual Machine Manager | Ahora puede realizar la recuperación ante desastres en Azure de las máquinas virtuales que se ejecutan en los hosts de Hyper-V administrados en el tejido de System Center Virtual Machine Manager.<br/><br/> Puede implementar este escenario en Azure Portal o mediante PowerShell.<br/><br/> Cuando Virtual Machine Manager administra los hosts de Hyper-V, también puede realizar la recuperación ante desastres en un sitio local secundario. Lea [este tutorial](tutorial-vmm-to-vmm.md) para más información sobre este escenario.
+Hyper-V sin Virtual Machine Manager | Ahora puede realizar la recuperación ante desastres en Azure de las máquinas virtuales que se ejecutan en los hosts de Hyper-V no administrados por Virtual Machine Manager.<br/><br/> Puede implementar este escenario en Azure Portal o mediante PowerShell. 
 
 
 ## <a name="on-premises-servers"></a>Servidores locales
 
 **Servidor** | **Requisitos** | **Detalles**
 --- | --- | ---
-**Hyper-V (que se ejecuta sin VMM)** | Windows Server 2016 y Windows Server 2012 R2 con las actualizaciones más recientes. | Cuando se configura un sitio de Hyper-V en Site Recovery, no se admite la combinación de hosts que se ejecutan en Windows Server 2016 y 2012 R2.<br/><br/> En el caso de las máquinas virtuales en un host que ejecuta Windows Server 2016, no se admite la recuperación en una ubicación alternativa.
-**Hyper-V (que se ejecuta con VMM)** | VMM 2016, VMM 2012 R2 | Si se usa VMM, los hosts de Windows Server 2016 se deben administrar en VM 2016.<br/><br/> No se admite actualmente una nube de VMM que combine hosts de Hyper-V en ejecución en Windows Server 2016 y 2012 R2.<br/><br/> No se admiten los entornos que incluyan una actualización de un servidor existente de VMM 2012 R2 a 2016.
+Hyper-V en ejecución sin Virtual Machine Manager | Windows Server 2016 y Windows Server 2012 R2 con las últimas actualizaciones | Cuando se configura un sitio de Hyper-V en Site Recovery, no se admite la combinación de hosts que se ejecutan en Windows Server 2016 y 2012 R2.<br/><br/> En el caso de las máquinas virtuales en un host que ejecuta Windows Server 2016, no se admite la recuperación en una ubicación alternativa.
+Hyper-V en ejecución con Virtual Machine Manager | Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | Si se usa Virtual Machine Manager, los hosts de Windows Server 2016 deben administrarse en Virtual Machine Manager 2016.<br/><br/> No se admite actualmente una nube de Virtual Machine Manager que combine hosts de Hyper-V en ejecución en Windows Server 2016 y 2012 R2.<br/><br/> No se admiten los entornos que incluyan una actualización de un servidor existente de Virtual Machine Manager 2012 R2 a 2016.
 
 
 ## <a name="replicated-vms"></a>Máquinas virtuales replicadas
@@ -51,9 +51,9 @@ Sistema operativo invitado | Cualquier sistema operativo invitado [compatible co
 
 ## <a name="hyper-v-network-configuration"></a>Configuración de la red de Hyper-V
 
-**Componente** | **Hyper-V con VMM** | **Hyper-V sin VMM**
+**Componente** | **Hyper-V con Virtual Machine Manager** | **Hyper-V sin Virtual Machine Manager**
 --- | --- | ---
-Red de host: formación de equipos NIC | Sí
+Red de host: formación de equipos de adaptador de red | Sí
 Red de host: VLAN | Sí
 Red de host: IPv4 | Sí
 Red de host: IPv6 | Sin 
@@ -68,22 +68,22 @@ Red de máquina virtual invitada: varios NIC | Sí
 
 ## <a name="azure-vm-network-configuration-after-failover"></a>Configuración de la red de máquina virtual de Azure (después de la conmutación por error)
 
-**Componente** | **Hyper-V con VMM** | **Hyper-V sin VMM**
+**Componente** | **Hyper-V con Virtual Machine Manager** | **Hyper-V sin Virtual Machine Manager**
 --- | --- | ---
-ExpressRoute | Sí | Sí
+Azure ExpressRoute | Sí | Sí
 ILB | Sí | Sí
 ELB | Sí | Sí
-Traffic Manager | Sí | Sí
+Administrador de tráfico de Azure | Sí | Sí
 Varias NIC | Sí | Sí
 IP reservada | Sí | Sí
 IPv4 | Sí | Sí
 Conservar la dirección IP de origen | Sí | Sí
-Puntos de conexión de servicio de red virtual<br/><br/> (Redes virtuales y firewalls de Azure Storage) | Sin  | Sin 
+Puntos de conexión del servicio Azure Virtual Network<br/><br/> (Redes virtuales y firewalls de Azure Storage) | Sin  | Sin 
 
 
 ## <a name="hyper-v-host-storage"></a>Almacenamiento de host de Hyper-V
 
-**Storage** | **Hyper-V con VMM** | Hyper-V sin VMM
+**Storage** | **Hyper-V con Virtual Machine Manager** | **Hyper-V sin Virtual Machine Manager**
 --- | --- | --- | ---
 NFS | N/D | N/D
 SMB 3.0 | Sí | Sí
@@ -92,7 +92,7 @@ Varias rutas (MPIO). Probado con:<br></br> Microsoft DSM, EMC PowerPath 5.7 SP4<
 
 ## <a name="hyper-v-vm-guest-storage"></a>Almacenamiento de invitado de máquina virtual de Hyper-V
 
-**Storage** | **Hyper-V con VMM** | Hyper-V sin VMM
+**Storage** | **Hyper-V con Virtual Machine Manager** | **Hyper-V sin Virtual Machine Manager**
 --- | --- | ---
 VMDK | N/D | N/D
 VHD/VHDX | Sí | Sí
@@ -106,35 +106,35 @@ RDM | N/D | N/D
 Disco > 1 TB | Sí, hasta 4095 GB | Sí, hasta 4095 GB
 Disco: sector físico y lógico de 4 K | No compatible: Gen 1/Gen 2 | No compatible: Gen 1/Gen 2
 Disco: sector lógico de 4 K y sector físico de 512 bytes | Sí |  Sí
-Volumen con disco en bandas > 1 TB<br/><br/> Administración de volúmenes lógicos (LVM) | Sí | Sí
+Volumen con disco seccionado > 1 TB<br/><br/> Administración de volúmenes lógicos (LVM) | Sí | Sí
 Espacios de almacenamiento | Sí | Sí
 Agregar/quitar disco en caliente | Sin  | Sin 
 Excluir el disco | Sí | Sí
 Varias rutas (MPIO) | Sí | Sí
 
-## <a name="azure-storage"></a>Almacenamiento de Azure
+## <a name="azure-storage"></a>Azure Storage
 
-**Componente** | **Hyper-V con VMM** | **Hyper-V without VMM**
+**Componente** | **Hyper-V con Virtual Machine Manager** | **Hyper-V sin Virtual Machine Manager**
 --- | --- | ---
-LRS | Sí | Sí
-GRS | Sí | Sí
-RA-GRS | Sí | Sí
+Almacenamiento con redundancia local | Sí | Sí
+Almacenamiento con redundancia geográfica | Sí | Sí
+Almacenamiento con redundancia geográfica con acceso de lectura | Sí | Sí
 Almacenamiento de acceso esporádico | Sin  | Sin 
 Almacenamiento de acceso frecuente| Sin  | Sin 
 Blobs en bloques | Sin  | Sin 
 Cifrado en reposo (SSE)| Sí | Sí
 Premium Storage | Sí | Sí
 Servicio Import/Export | Sin  | Sin 
-Puntos de conexión de servicio de VNET (VNET y firewalls de Azure Storage), en el destino para almacenar en caché la cuenta de almacenamiento que se usa para los datos de replicación | Sin  | Sin 
+Puntos de conexión de servicio de Azure Virtual Network (redes virtuales y firewalls de Azure Storage), en el destino para almacenar en caché la cuenta de almacenamiento que se usa para los datos de replicación | Sin  | Sin 
 
 
 ## <a name="azure-compute-features"></a>Características de proceso de Azure
 
-**Característica** | **Hyper-V con VMM** | **Hyper-V sin VMM**
+**Característica** | **Hyper-V con Virtual Machine Manager** | **Hyper-V sin Virtual Machine Manager**
 --- | --- | ---
 Conjuntos de disponibilidad | Sí | Sí
 CONCENTRADOR | Sí | Sí  
-Discos administrados | Sí, para la conmutación por error<br/><br/> No se admite la conmutación por recuperación de los discos administrados | Sí, para la conmutación por error<br/><br/> No se admite la conmutación por recuperación de los discos administrados
+Discos administrados | Sí, para la conmutación por error.<br/><br/> No se admite la conmutación por recuperación de los discos administrados. | Sí, para la conmutación por error.<br/><br/> No se admite la conmutación por recuperación de los discos administrados.
 
 ## <a name="azure-vm-requirements"></a>Requisitos de VM de Azure
 
@@ -142,23 +142,23 @@ Las máquinas virtuales locales que se replican en Azure deben cumplir con los r
 
 **Componente** | **Requisitos** | **Detalles**
 --- | --- | ---
-**Sistema operativo invitado** | Site Recovery es compatible con todos los sistemas operativos [admitidos por Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).  | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
-**Arquitectura del sistema operativo invitado** | 64 bits | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
-**Tamaño del disco del sistema operativo** | Hasta 2048 GB para máquinas virtuales de generación 1.<br/><br/> Hasta 300 GB para máquinas virtuales de generación 2.  | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
-**Número de discos del sistema operativo** | 1 | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
-**Número de discos de datos** | 16 o menos  | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
-**Tamaño de VHD del disco de datos** | Hasta 4095 GB | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
-**Adaptadores de red** | Se admiten varios adaptadores |
-**VHD compartido** | No compatible | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
-**Disco FC** | No compatible | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
-**Formato de disco duro** | VHD  <br/><br/> VHDX | Site Recovery convierte automáticamente VHDX en VHD cuando se conmuta por error en Azure. Cuando se realiza la conmutación por recuperación en local, las máquinas virtuales siguen usando el formato VHDX.
-**BitLocker** | No compatible | Debe deshabilitar BitLocker antes de habilitar la replicación para una máquina virtual.
-**Nombre de la máquina virtual** | Entre 1 y 63 caracteres. Restringido a letras, números y guiones. El nombre de la VM debe empezar y terminar con una letra o un número. | Actualice el valor de las propiedades de la máquina virtual en Site Recovery.
-**Tipo de máquina virtual** | Generación 1<br/><br/> Generación 2 - Windows | Las VM de generación 2 con un tipo de disco de SO básico, que incluye uno o dos volúmenes de datos con el formato VHDX y menos de 300 GB de espacio en disco, son compatibles.<br></br>No se admiten las VM Linux de generación 2. [Más información](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)|
+Sistema operativo invitado | Site Recovery es compatible con todos los sistemas operativos [admitidos por Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).  | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
+Arquitectura del sistema operativo invitado | 64 bits | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
+Tamaño del disco del sistema operativo | Hasta 2048 GB para máquinas virtuales de generación 1.<br/><br/> Hasta 300 GB para máquinas virtuales de generación 2.  | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
+Número de discos del sistema operativo | 1 | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
+Número de discos de datos | 16 o menos  | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
+Tamaño de VHD del disco de datos | Hasta 4095 GB | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
+Adaptadores de red | Se admiten varios adaptadores |
+VHD compartido | No compatible | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
+Disco FC | No compatible | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
+Formato de disco duro | VHD  <br/><br/> VHDX | Site Recovery convierte automáticamente VHDX en VHD cuando se conmuta por error en Azure. Cuando se realiza la conmutación por recuperación en el entorno local, las máquinas virtuales siguen usando el formato VHDX.
+BitLocker | No compatible | Debe deshabilitar BitLocker antes de habilitar la replicación para una máquina virtual.
+Nombre de la máquina virtual | Entre 1 y 63 caracteres. Restringido a letras, números y guiones. El nombre de la VM debe empezar y terminar con una letra o un número. | Actualice el valor de las propiedades de la máquina virtual en Site Recovery.
+Tipo de máquina virtual | Generación 1<br/><br/> Generación 2: Windows | Las VM de generación 2 con un tipo de disco de SO básico, que incluye uno o dos volúmenes de datos con el formato VHDX y menos de 300 GB de espacio en disco, son compatibles.<br></br>No se admiten las VM Linux de generación 2. [Más información](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).|
 
 ## <a name="recovery-services-vault-actions"></a>Acciones del almacén de Recovery Services
 
-**Acción** |  **Hyper-V con VMM** | **Hyper-V sin VMM**
+**Acción** |  **Hyper-V con Virtual Machine Manager** | **Hyper-V sin Virtual Machine Manager**
 --- | --- | --- 
 Mover el almacén entre grupos de recursos<br/><br/> Entre las suscripciones | Sin  | Sin  
 Mover el almacenamiento, la red y las máquinas virtuales de Azure entre grupos de recursos<br/><br/> Entre las suscripciones | Sin  | Sin  
@@ -170,8 +170,8 @@ Para garantizar que la implementación sea compatible con la configuración que 
 
 **Name** | **Descripción** | **Detalles**
 --- | --- | --- | --- | ---
-**Proveedor de Azure Site Recovery** | Coordina las comunicaciones entre los servidores locales y Azure <br/><br/> Hyper-V con VMM: instalado en servidores VMM<br/><br/> Hyper-V sin VMM: instalado en hosts de Hyper-V| Versión más reciente: 5.1.2700.1 (disponible en el portal)<br/><br/> [Características y correcciones más recientes](https://aka.ms/latest_asr_updates)
-**Agente de Microsoft Azure Recovery Services (MARS)** | Coordina la replicación entre máquinas virtuales de Hyper-V y Azure<br/><br/> Se instala en servidores de Hyper-V locales (con o sin VMM) | Agente más reciente disponible en el portal
+Proveedor de Azure Site Recovery | Coordina las comunicaciones entre los servidores locales y Azure <br/><br/> Hyper-V con Virtual Machine Manager: instalado en servidores de Virtual Machine Manager<br/><br/> Hyper-V sin Virtual Machine Manager: instalado en hosts de Hyper-V| Última versión: 5.1.2700.1 (disponible en Azure Portal)<br/><br/> [Características y correcciones más recientes](https://aka.ms/latest_asr_updates)
+Agente de Microsoft Azure Recovery Services | Coordina la replicación entre máquinas virtuales de Hyper-V y Azure<br/><br/> Se instala en servidores de Hyper-V locales (con o sin Virtual Machine Manager) | Agente más reciente disponible en el portal
 
 
 

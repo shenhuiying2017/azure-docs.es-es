@@ -1,13 +1,13 @@
 ---
 title: Enlaces de Azure Blob Storage para Azure Functions
-description: "Descubra cómo utilizar desencadenadores y enlaces de Azure Blob Storage en Azure Functions."
+description: Descubra cómo utilizar desencadenadores y enlaces de Azure Blob Storage en Azure Functions.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
-keywords: "azure functions, funciones, procesamiento de eventos, proceso dinámico, arquitectura sin servidor"
+editor: ''
+tags: ''
+keywords: azure functions, funciones, procesamiento de eventos, proceso dinámico, arquitectura sin servidor
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: glenga
-ms.openlocfilehash: 6ef2719a100ff65d69caa8d05ccfee23851adbcb
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 221a049ae37cc6934d04e90b6b8035e2a020e811
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Enlaces de Azure Blob Storage para Azure Functions
 
@@ -33,6 +33,12 @@ En este artículo se explica cómo trabajar con enlaces de Azure Blob Storage en
 
 > [!NOTE]
 > Las [cuentas de almacenamiento de solo blob](../storage/common/storage-create-storage-account.md#blob-storage-accounts) no se admiten para desencadenadores de blobs. Los desencadenadores de Blob Storage necesitan una cuenta de almacenamiento de uso general. Para los enlaces de entrada y salida puede usar cuentas de almacenamiento de solo blob.
+
+## <a name="packages"></a>Paquetes
+
+Los enlaces de Blob Storage se proporcionan en el paquete NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs). El código fuente del paquete se encuentra en el repositorio [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/master/src) de GitHub.
+
+[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
 ## <a name="trigger"></a>Desencadenador
 
@@ -152,7 +158,7 @@ module.exports = function(context) {
 
 Para [bibliotecas de clases de C#](functions-dotnet-class-library.md), utilice los siguientes atributos para configurar un desencadenador de blob:
 
-* [BlobTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobTriggerAttribute.cs), definido en el paquete NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
+* [BlobTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobTriggerAttribute.cs)
 
   El constructor del atributo toma una cadena de ruta de acceso que indica al contenedor que inspeccione y, opcionalmente, un [patrón de nombre de blob](#trigger---blob-name-patterns). Este es un ejemplo:
 
@@ -180,7 +186,7 @@ Para [bibliotecas de clases de C#](functions-dotnet-class-library.md), utilice l
 
   Para un ejemplo completo, consulte [Desencadenador: ejemplo de C#](#trigger---c-example).
 
-* [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), definido en el paquete NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
+* [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)
 
   Proporciona otra manera de especificar la cuenta de almacenamiento que se debe usar. El constructor toma el nombre de una configuración de aplicación que contiene una cadena de conexión de almacenamiento. El atributo se puede aplicar en el nivel de clase, método o parámetro. En el ejemplo siguiente se muestran el nivel de clase y de método:
 
@@ -472,7 +478,7 @@ module.exports = function(context) {
 
 ## <a name="input---attributes"></a>Entrada: atributos
 
-Para [bibliotecas de clases de C#](functions-dotnet-class-library.md), utilice [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs), que se define en el paquete NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+En las [bibliotecas de clase C#](functions-dotnet-class-library.md), use [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs).
 
 El constructor del atributo toma la ruta de acceso al blob y un parámetro `FileAccess` que indica lectura o escritura, tal como se muestra en el ejemplo siguiente:
 
@@ -684,7 +690,7 @@ module.exports = function(context) {
 
 ## <a name="output---attributes"></a>Salida: atributos
 
-Para [bibliotecas de clases de C#](functions-dotnet-class-library.md), utilice [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs), que se define en el paquete NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+En las [bibliotecas de clase C#](functions-dotnet-class-library.md), use [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs).
 
 El constructor del atributo toma la ruta de acceso al blob y un parámetro `FileAccess` que indica lectura o escritura, tal como se muestra en el ejemplo siguiente:
 

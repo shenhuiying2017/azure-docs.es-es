@@ -1,84 +1,90 @@
 ---
-title: "Introducción a Azure AD en proyectos de MVC de Visual Studio | Microsoft Docs"
-description: "Cómo empezar a usar Azure Active Directory en los proyectos de MVC después de crear un Azure AD usando los servicios conectados de Visual Studio o de conectarse a él"
+title: Introducción a Azure AD en proyectos Visual Studio .NET MVC | Microsoft Docs
+description: Cómo empezar a usar Azure Active Directory en proyectos .NET MVC después de crear una instancia de Azure AD mediante los servicios conectados de Visual Studio, o de establecer una conexión con ella
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: kraigb
-manager: mtillman
-editor: 
+manager: ghogen
+editor: ''
 ms.assetid: 1c8b6a58-5144-4965-a905-625b9ee7b22b
 ms.service: active-directory
 ms.workload: web
 ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
-ms.date: 03/01/2017
+ms.date: 03/12/2018
 ms.author: kraigb
 ms.custom: aaddev
-ms.openlocfilehash: efe12842cf0dd5ac865d95902f53e68affcbe54f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 07fa4655d9e7ad74cae33391d55c7c9be1d446a6
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="getting-started-with-azure-active-directory-and-visual-studio-connected-services-mvc-projects"></a>Introducción a Azure Active Directory y servicios conectados de Visual Studio (proyectos de MVC)
+# <a name="getting-started-with-azure-active-directory-aspnet-mvc-projects"></a>Introducción a Azure Active Directory (proyectos ASP.NET MVC)
+
 > [!div class="op_single_selector"]
-> * [Introducción](vs-active-directory-dotnet-getting-started.md)
-> * [¿Qué ha ocurrido?](vs-active-directory-dotnet-what-happened.md)
-> 
-> 
+> - [Introducción](vs-active-directory-dotnet-getting-started.md)
+> - [¿Qué ha ocurrido?](vs-active-directory-dotnet-what-happened.md)
+
+En este artículo se proporcionan instrucciones adicionales después de haber agregado Active Directory a un proyecto ASP.NET MVC mediante el comando **Proyecto > Servicios conectados** de Visual Studio. Si aún no ha agregado el servicio al proyecto, puede hacerlo en cualquier momento.
+
+Para ver los cambios realizados en el proyecto al agregar el servicio conectado, consulte [¿Qué le ha ocurrido a mi proyecto MVC?](vs-active-directory-dotnet-what-happened.md)
 
 ## <a name="requiring-authentication-to-access-controllers"></a>Requerimiento de autenticación para obtener acceso a los controladores
-Todos los controladores de su proyecto cuentan ahora con el atributo **Authorize** . Este atributo requerirá que el usuario se autentique antes de tener acceso a estos controladores. Para permitir el acceso anónimo al controlador, quite este atributo del controlador. Si desea establecer los permisos a un nivel más detallado, aplique el atributo a cada método que requiere autorización en vez de aplicarlo a la clase del controlador.
+
+Todos los controladores de su proyecto cuentan ahora con el atributo `[Authorize]`. Este atributo requerirá que el usuario se autentique antes de tener acceso a estos controladores. Para permitir el acceso anónimo al controlador, quite este atributo del controlador. Si desea establecer los permisos a un nivel más detallado, aplique el atributo a cada método que requiere autorización en vez de aplicarlo a la clase del controlador.
 
 ## <a name="adding-signin--signout-controls"></a>Incorporación de controles SignIn / SignOut
-Para agregar controles SignIn/SignOut a su vista, puede usar la vista parcial **_LoginPartial.cshtml** para agregar esta función a alguna de sus vistas. Aquí se presenta un ejemplo de la función agregada a la vista estándar **_Layout.cshtml**. Observe el último elemento de la sección div con la clase navbar-collapse:
 
-<pre>
-    &lt;!DOCTYPE html&gt; 
-     &lt;html&gt; 
-     &lt;head&gt; 
-         &lt;meta charset="utf-8" /&gt; 
-        &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt; 
-        &lt;title&gt;@ViewBag.Title - My ASP.NET Application&lt;/title&gt; 
-        @Styles.Render("~/Content/css") 
-        @Scripts.Render("~/bundles/modernizr") 
-    &lt;/head&gt; 
-    &lt;body&gt; 
-        &lt;div class="navbar navbar-inverse navbar-fixed-top"&gt; 
-            &lt;div class="container"&gt; 
-                &lt;div class="navbar-header"&gt; 
-                    &lt;button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"&gt; 
-                        &lt;span class="icon-bar"&gt;&lt;/span&gt; 
-                        &lt;span class="icon-bar"&gt;&lt;/span&gt; 
-                        &lt;span class="icon-bar"&gt;&lt;/span&gt; 
-                    &lt;/button&gt; 
-                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" }) 
-                &lt;/div&gt; 
-                &lt;div class="navbar-collapse collapse"&gt; 
-                    &lt;ul class="nav navbar-nav"&gt; 
-                        &lt;li&gt;@Html.ActionLink("Home", "Index", "Home")&lt;/li&gt; 
-                        &lt;li&gt;@Html.ActionLink("About", "About", "Home")&lt;/li&gt; 
-                        &lt;li&gt;@Html.ActionLink("Contact", "Contact", "Home")&lt;/li&gt; 
-                    &lt;/ul&gt; 
-                    <span style="background-color:yellow">@Html.Partial("_LoginPartial")</span> 
-                &lt;/div&gt; 
-            &lt;/div&gt; 
-        &lt;/div&gt; 
-        &lt;div class="container body-content"&gt; 
-            @RenderBody() 
-            &lt;hr /&gt; 
-            &lt;footer&gt; 
-                &lt;p&gt;&amp;copy; @DateTime.Now.Year - My ASP.NET Application&lt;/p&gt; 
-            &lt;/footer&gt; 
-        &lt;/div&gt; 
-        @Scripts.Render("~/bundles/jquery") 
-        @Scripts.Render("~/bundles/bootstrap") 
-        @RenderSection("scripts", required: false) 
-    &lt;/body&gt; 
-    &lt;/html&gt;
-</pre>
+Para agregar los controles SignIn/SignOut a su vista, puede usar la vista parcial `_LoginPartial.cshtml` para agregar la funcionalidad a una de sus vistas. Este es un ejemplo de la funcionalidad agregada a la vista estándar `_Layout.cshtml`. Observe el último elemento de la sección div con la clase navbar-collapse:
+
+```html
+<!DOCTYPE html>
+ <html>
+ <head>
+     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody() 
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
-- [Más información acerca de Azure Active Directory](https://azure.microsoft.com/services/active-directory/) 
 
+- [Escenarios de autenticación para Azure Active Directory](active-directory-authentication-scenarios.md)
+- [Adición de inicio de sesión con Microsoft a una aplicación web ASP.NET](guidedsetups/active-directory-aspnetwebapp-v1.md)

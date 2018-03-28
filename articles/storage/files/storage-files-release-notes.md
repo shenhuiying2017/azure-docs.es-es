@@ -1,24 +1,18 @@
 ---
-title: "Notas de la versión del agente de Azure File Sync (versión preliminar) | Microsoft Docs"
-description: "Notas de la versión del agente de Azure File Sync (versión preliminar)"
+title: Notas de la versión del agente de Azure File Sync (versión preliminar) | Microsoft Docs
+description: Notas de la versión del agente de Azure File Sync (versión preliminar)
 services: storage
-documentationcenter: 
 author: wmgries
-manager: klaasl
-editor: tamram
-ms.assetid: 
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: get-started-article
-ms.date: 10/08/2017
+ms.topic: article
+ms.date: 03/12/2018
 ms.author: wgries
-ms.openlocfilehash: fabfb02a199744c63c3a2191589fd450cfdd0304
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b42287580078b4391ddbc5b8ff2835131c64236d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent-preview"></a>Notas de la versión del agente de Azure File Sync (versión preliminar)
 Azure File Sync le permite centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Las instalaciones de Windows Server se transforman en una memoria caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a los datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -28,14 +22,25 @@ En este artículo se tratan las notas de la versión de las versiones compatible
 ## <a name="supported-versions"></a>Versiones compatibles
 Las siguientes versiones son compatibles con Azure File Sync:
 
-| Versión | Fecha de lanzamiento | Fecha de finalización del soporte técnico |
-|---------|--------------|------------------|
-| 2.1.0.0 | 28 de febrero de 2018 | Versión actual |
-| 2.0.11.0 | 8 de febrero de 2018 | Versión actual |
-| 1.1.0.0 | 26 de septiembre de 2017 | 30 de julio de 2018 |
+| Hito | Número de versión del agente | Fecha de lanzamiento | Status |
+|----|----------------------|--------------|------------------|
+| Paquete acumulativo de actualizaciones de marzo | 2.2.0.0 | 12 de marzo de 2018 | Compatible (versión recomendada) |
+| Paquete acumulativo de actualizaciones de febrero | 2.1.0.0 | 28 de febrero de 2018 | Compatible |
+| Actualización 1 | 2.0.11.0 | 8 de febrero de 2018 | Compatible |
+| Paquete acumulativo de actualizaciones de enero | 1.4.0.0 | 8 de enero de 2018 | Compatible hasta el 8 de mayo de 2018<sup>1</sup> |
+| Paquete acumulativo de actualizaciones de noviembre | 1.3.0.0 | 30 de noviembre de 2017 | Compatible hasta el 8 de mayo de 2018<sup>1</sup> |
+| Paquete acumulativo de actualizaciones de octubre | 1.2.0.0 | 31 de octubre de 2017 | Compatible hasta el 8 de mayo de 2018<sup>1</sup> |
+| Versión preliminar inicial | 1.1.0.0 | 26 de septiembre de 2017 | Compatible hasta el 8 de mayo de 2018<sup>1</sup> |
+
+\[1\]: Las versiones del agente de Azure File Sync durante la versión preliminar no cumplen de forma intencionada con la directiva de actualización. La directiva de actualización se ejecutará a partir de la primera versión del agente después de declarar la disponibilidad general de Azure File Sync.
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Directiva de actualización del agente de Azure File Sync
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-2200"></a>Versión del agente 2.2.0.0
+Las notas siguientes son para la versión 2.2.0.0 del agente de Azure File Sync publicada 12 de marzo de 2018.  Estas notas son adicionales a las notas de la versión enumeradas para las versiones 2.1.0.0 y 2.0.11.0.
+
+La instalación de v2.1.0.0 para algunos clientes puede producir un error por el hecho de que FileSyncSvc no se detenga. Esta actualización corrige ese problema.
 
 ## <a name="agent-version-2100"></a>Versión del agente 2.1.0.0
 Las notas siguientes son para la versión 2.1.0.0 del agente de Azure File Sync publicada el 28 de febrero de 2018. Estas notas son adicionales a las notas de la versión enumeradas para la versión 2.0.11.0.

@@ -1,25 +1,25 @@
 ---
-title: "Consideraciones de integración de red para sistemas integrados de Azure Stack | Microsoft Docs"
-description: "Obtenga información acerca de lo que puede hacer para planear la integración de red del centro de datos con Azure Stack de varios nodos."
+title: Consideraciones de integración de red para sistemas integrados de Azure Stack | Microsoft Docs
+description: Obtenga información acerca de lo que puede hacer para planear la integración de red del centro de datos con Azure Stack de varios nodos.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 03/12/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: a198ff5fe7135e17301025d6a712236b76be0ede
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 04cfe3c4ac6011b9c3d31b7d4ac3c018c350d67b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="network-connectivity"></a>Conectividad de red
 En este artículo se ofrece información sobre la infraestructura de red de Azure Stack que le ayudará decidir cuál es la mejor forma de integrar Azure Stack en su entorno de red existente. 
@@ -55,6 +55,8 @@ La infraestructura de red de Azure Stack consta de varias redes lógicas que est
 ### <a name="bmc-network"></a>Red de BMC
 Esta red está dedicada a conectar todos los controladores de administración de la placa base (también conocidos como procesadores de servicio, por ejemplo, iDRAC, iLO, iBMC, etc.) a la red de administración. Si está presente, el host del ciclo de vida del hardware (HLH) se ubica en esta red y puede proporcionar software específico del OEM para el mantenimiento o la supervisión del hardware. 
 
+El HLH también hospeda la máquina virtual de implementación (DVM). La DVM se utiliza durante la implementación de Azure Stack y se quita cuando esta finaliza. La DVM requiere acceso a Internet en escenarios de implementación conectados para probar, validar y obtener acceso a varios componentes. Estos componentes pueden estar dentro y fuera de la red corporativa; por ejemplo, NTP, DNS y Azure. Para obtener más información acerca de los requisitos de conectividad, consulte la [sección de NAT en la integración con el firewall de Azure Stack](azure-stack-firewall.md#network-address-translation). 
+
 ### <a name="private-network"></a>Red privada
 Esta red /24 (254 direcciones IP de host) es particular de la región de Azure Stack (no se expande más allá de los dispositivos de conmutación de borde de la región Azure Stack) y se divide en dos subredes:
 
@@ -84,5 +86,5 @@ Para que los servicios de Azure Stack (como los portales, Azure Resource Manager
  
 En una implementación en la que un proxy transparente establece un vínculo superior a un servidor proxy tradicional, debe permitir puertos y direcciones URL concretos para la comunicación [entrante](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-protocols-inbound) y [saliente](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-urls-outbound). Estos incluyen puertos y direcciones URL de identidad, distribución de Marketplace, revisión y actualización, registro y datos de uso.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Conectividad de borde](azure-stack-border-connectivity.md)

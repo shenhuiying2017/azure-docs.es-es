@@ -9,11 +9,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: nisoneji
-ms.openlocfilehash: b7292514e72476f38e9a0572b201be8468f0030a
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4d54ecb3f92754fa6575ec17ec5572b6fb9abb88
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="install-a-linux-master-target-server"></a>Instalación de un servidor de destino maestro Linux
 Después de conmutar por error las máquinas virtuales a Azure, puede conmutarlas por recuperación en el sitio local. Para ello, debe volver a proteger la máquina virtual de Azure en el sitio local. Para realizar este proceso, necesitará un servidor de destino maestro local que reciba el tráfico. 
@@ -41,7 +41,7 @@ Publique cualquier comentario o pregunta que tenga al final del artículo, o bie
 
 Cree el destino maestro conforme a las siguientes directrices de ajuste de tamaño:
 - **RAM**: 6 GB o más
-- **Tamaño del disco del sistema operativo**: 100 GB o más (para instalar CentOS6.6)
+- **Tamaño del disco del sistema operativo**: 100 GB o más (para instalar el sistema operativo)
 - **Tamaño adicional de disco para la unidad de retención**: 1 TB
 - **Núcleos de CPU**: 4 núcleos o más
 
@@ -112,24 +112,31 @@ Coloque una imagen ISO de 64 bits mínima de Ubuntu 16.04.2 en la unidad de DVD 
 
 1.  Seleccione **Sí** para escribir los cambios en el disco y, luego, seleccione **Entrar**.
 
-1.  En la selección de configuración del proxy, seleccione la opción predeterminada, seleccione **Continue** (Continuar) y, luego, seleccione **Entrar**.
+    ![Selección de la opción predeterminada](./media/vmware-azure-install-linux-master-target/image16-ubuntu.png)
 
-     ![Selección de la opción predeterminada](./media/vmware-azure-install-linux-master-target/image17.png)
+1.  En la selección de configuración del proxy, seleccione la opción predeterminada, seleccione **Continue** (Continuar) y, luego, seleccione **Entrar**.
+     
+     ![Selección de forma de administrar las actualizaciones](./media/vmware-azure-install-linux-master-target/image17-ubuntu.png)
 
 1.  Seleccione la opción **No automatic updates** (No aplicar actualizaciones de forma automática) en las opciones de administración de las actualizaciones de su sistema y, luego, seleccione **Entrar**.
 
-     ![Selección de forma de administrar las actualizaciones](./media/vmware-azure-install-linux-master-target/image18.png)
+     ![Selección de forma de administrar las actualizaciones](./media/vmware-azure-install-linux-master-target/image18-ubuntu.png)
 
     > [!WARNING]
     > Dado que el servidor de destino maestro de Azure Site Recovery exige una versión muy concreta de Ubuntu, tiene que asegurarse de que las actualizaciones del kernel se deshabiliten para la máquina virtual. Si están habilitadas, las actualizaciones normales hacen que el servidor de destino maestro no funcione correctamente. Asegúrese de seleccionar la opción **No automatic updates** (Sin actualizaciones automáticas).
 
 1.  Seleccione las opciones predeterminadas. Si quiere usar OpenSSH para la conexión SSH, seleccione la opción **OpenSSH server** (Servidor de OpenSSH) y luego **Continue** (Continuar).
 
-    ![Selección de software](./media/vmware-azure-install-linux-master-target/image19.png)
+    ![Selección de software](./media/vmware-azure-install-linux-master-target/image19-ubuntu.png)
 
 1. En la selección de instalación del cargador de arranque GRUB, seleccione **Yes** (Sí) y, luego, seleccione **ENTRAR**.
+     
+    ![Instalador de arranque de GRUB](./media/vmware-azure-install-linux-master-target/image20.png)
+
 
 1. Seleccione el dispositivo adecuado para la instalación del cargador de arranque (preferiblemente **/dev/sda**) y, luego, seleccione **Entrar**.
+     
+    ![Seleccione el dispositivo adecuado.](./media/vmware-azure-install-linux-master-target/image21.png)
 
 1. Seleccione **Continue** (Continuar) y, luego, seleccione **Entrar** para finalizar la instalación.
 
@@ -154,7 +161,7 @@ Para obtener el identificador de cada disco duro SCSI de una máquina virtual Li
 
 4. En el panel izquierdo, seleccione **Opciones avanzadas** > **General** y luego el botón **Parámetros de configuración** de la parte inferior derecha de la pantalla.
 
-    ![Pestaña de opciones](./media/vmware-azure-install-linux-master-target/image20.png)
+    ![Abrir parámetros de configuración](./media/vmware-azure-install-linux-master-target/image24-ubuntu.png) 
 
     La opción **Configuration Parameters** (Parámetros de configuración) no está disponible cuando la máquina está en ejecución. Para activar esta pestaña, apague la máquina virtual.
 
@@ -168,7 +175,7 @@ Para obtener el identificador de cada disco duro SCSI de una máquina virtual Li
 
     - En la columna de nombre, agregue **disk.EnableUUID** y luego establezca el valor en **TRUE**.
 
-    ![Comprobación de si el disk.EnableUUID existe](./media/vmware-azure-install-linux-master-target/image21.png)
+    ![Comprobación de si el disk.EnableUUID existe](./media/vmware-azure-install-linux-master-target/image25.png)
 
 #### <a name="disable-kernel-upgrades"></a>Deshabilitación de actualizaciones de kernel
 
@@ -244,7 +251,7 @@ Use los pasos siguientes para crear un disco de retención:
     
     `mkfs.ext4 /dev/mapper/<Retention disk's multipath id>`
     
-    ![Creación de un sistema de archivos en la unidad](./media/vmware-azure-install-linux-master-target/media/image23.png)
+    ![Creación de un sistema de archivos en la unidad](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 
 4. Después de crear el sistema de archivos, monte el disco de retención.
 
@@ -252,7 +259,6 @@ Use los pasos siguientes para crear un disco de retención:
     mkdir /mnt/retention
     mount /dev/mapper/<Retention disk's multipath id> /mnt/retention
     ```
-    ![Montaje del disco de retención](./media/vmware-azure-install-linux-master-target/image24.png)
 
 5. Cree la entrada **fstab** para montar la unidad de retención cada vez que se inicie el sistema.
     

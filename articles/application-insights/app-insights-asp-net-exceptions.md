@@ -1,6 +1,6 @@
 ---
-title: "Diagnóstico de errores y excepciones en aplicaciones web con Azure Application Insights | Microsoft Docs"
-description: "Capture las excepciones de las aplicaciones ASP.NET junto con la telemetría de solicitudes."
+title: Diagnóstico de errores y excepciones en aplicaciones web con Azure Application Insights | Microsoft Docs
+description: Capture las excepciones de las aplicaciones ASP.NET junto con la telemetría de solicitudes.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: mbullwin
-ms.openlocfilehash: d6a0b945bad36842142d16a4840c9c3d69e1564e
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: ee04fc3338dec7893f9f33322bd6b9af932199e7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnóstico de excepciones en aplicaciones web con Application Insights
 Las excepciones en la aplicación web en directo se notifican mediante [Application Insights](app-insights-overview.md). Puede correlacionar las solicitudes con error con excepciones y otros eventos en el cliente y en el servidor, de modo que pueda diagnosticar rápidamente las causas.
@@ -113,8 +113,7 @@ Puede:
 ## <a name="reporting-exceptions-explicitly"></a>Notificación de excepciones explícitamente
 La manera más sencilla consiste en insertar una llamada a TrackException() en un controlador de excepciones.
 
-JavaScript
-
+```javascript
     try
     { ...
     }
@@ -124,9 +123,9 @@ JavaScript
         {Game: currentGame.Name,
          State: currentGame.State.ToString()});
     }
+```
 
-C#
-
+```csharp
     var telemetry = new TelemetryClient();
     ...
     try
@@ -144,9 +143,9 @@ C#
        // Send the exception telemetry:
        telemetry.TrackException(ex, properties, measurements);
     }
+```
 
-VB
-
+```VB
     Dim telemetry = New TelemetryClient
     ...
     Try
@@ -162,6 +161,7 @@ VB
       ' Send the exception telemetry:
       telemetry.TrackException(ex, properties, measurements)
     End Try
+```
 
 Los parámetros de las propiedades y las medidas son opcionales, pero son útiles para [filtrar y agregar información](app-insights-diagnostic-search.md) adicional. Por ejemplo, si tiene una aplicación que se puede ejecutar varios juegos, podría buscar todos los informes de excepción relacionados con un juego en particular. Puede agregar tantos elementos como desee para cada diccionario.
 
@@ -175,8 +175,7 @@ Para los formularios web, el módulo HTTP podrá recopilar las excepciones cuand
 
 Pero si tiene redireccionamientos activos, agregue las siguientes líneas a la función Application_Error en Global.asax.cs. (Agregue un archivo Global.asax si aún no tiene uno.)
 
-*C#*
-
+```csharp
     void Application_Error(object sender, EventArgs e)
     {
       if (HttpContext.Current.IsCustomErrorEnabled && Server.GetLastError  () != null)
@@ -186,11 +185,28 @@ Pero si tiene redireccionamientos activos, agregue las siguientes líneas a la f
          ai.TrackException(Server.GetLastError());
       }
     }
-
+```
 
 ## <a name="mvc"></a>MVC
+A partir del SDK web de Application Insights versión 2.6 (beta3 y posterior), Application Insights recopila excepciones no controladas producidas automáticamente en los métodos de controladores MVC 5+. Si anteriormente ha agregado un controlador personalizado para realizar el seguimiento de tales excepciones (como se describe en los ejemplos siguientes), puede quitarlo para impedir el seguimiento de excepciones por duplicado.
+
+Hay un número de casos que los filtros de excepciones no pueden procesar. Por ejemplo: 
+
+* Excepciones iniciadas por constructores del controlador.
+* Excepciones iniciadas por controladores de mensajes.
+* Excepciones iniciadas durante el enrutamiento.
+* Excepciones iniciadas durante la serialización del contenido de respuesta.
+* Excepción que se produce durante el inicio de la aplicación.
+* Excepción que se produce en tareas en segundo plano.
+
+Es necesario seguir realizando el seguimiento de todas las excepciones *controladas* por la aplicación manualmente. Las excepciones no controladas que se originan en los controladores dan lugar normalmente a respuestas 500 "Error interno del servidor". Si dicha respuesta se creó manualmente como resultado de una excepción controlada (o sin ninguna excepción en absoluto), se realiza su seguimiento en la telemetría de la solicitud correspondiente `ResultCode` 500; sin embargo, el SDK de Application Insights no puede realizar el seguimiento de la excepción correspondiente.
+
+### <a name="prior-versions-support"></a>Compatibilidad con versiones anteriores
+Si usa MVC 4 (y anterior) del SDK web de Application Insights 2.5 (y anterior), consulte los siguientes ejemplos para realizar el seguimiento de las excepciones.
+
 Si la configuración de [CustomErrors](https://msdn.microsoft.com/library/h0hfz6fc.aspx) es `Off`, entonces habrá excepciones disponibles para que las recopile el [módulo HTTP](https://msdn.microsoft.com/library/ms178468.aspx). Sin embargo, si es `RemoteOnly` (valor predeterminado), o `On`, la excepción se desactivará y no estará disponible para que Application Insights la recopile automáticamente. Para corregir este problema, invalide la [clase System.Web.Mvc.HandleErrorAttribute](http://msdn.microsoft.com/library/system.web.mvc.handleerrorattribute.aspx) y aplique la clase invalidada como se muestra a continuación para las diferentes versiones de MVC ([origen de github](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions/blob/master/MVC2App/Controllers/AiHandleErrorAttribute.cs)):
 
+```csharp
     using System;
     using System.Web.Mvc;
     using Microsoft.ApplicationInsights;
@@ -215,22 +231,26 @@ Si la configuración de [CustomErrors](https://msdn.microsoft.com/library/h0hfz6
         }
       }
     }
+```
 
 #### <a name="mvc-2"></a>MVC 2
 Sustituya el atributo HandleError por el nuevo atributo en los controladores.
 
+```csharp
     namespace MVC2App.Controllers
     {
        [AiHandleError]
        public class HomeController : Controller
        {
     ...
+```
 
 [Ejemplo](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions)
 
 #### <a name="mvc-3"></a>MVC 3
 Registrar `AiHandleErrorAttribute` como filtro global de Global.asax.cs:
 
+```csharp
     public class MyMvcApplication : System.Web.HttpApplication
     {
       public static void RegisterGlobalFilters(GlobalFilterCollection filters)
@@ -238,12 +258,14 @@ Registrar `AiHandleErrorAttribute` como filtro global de Global.asax.cs:
          filters.Add(new AiHandleErrorAttribute());
       }
      ...
+```
 
 [Ejemplo](https://github.com/AppInsightsSamples/Mvc3UnhandledExceptionTelemetry)
 
 #### <a name="mvc-4-mvc5"></a>MVC 4, MVC5
 Registrar AiHandleErrorAttribute como filtro global en FilterConfig.cs:
 
+```csharp
     public class FilterConfig
     {
       public static void RegisterGlobalFilters(GlobalFilterCollection filters)
@@ -252,12 +274,31 @@ Registrar AiHandleErrorAttribute como filtro global en FilterConfig.cs:
         filters.Add(new AiHandleErrorAttribute());
       }
     }
+```
 
 [Ejemplo](https://github.com/AppInsightsSamples/Mvc5UnhandledExceptionTelemetry)
 
-## <a name="web-api-1x"></a>Web API 1.x
+## <a name="web-api"></a>API Web
+A partir del SDK web de Application Insights versión 2.6 (beta3 y posterior), Application Insights recopila excepciones no controladas producidas automáticamente en los métodos de controladores para WebAPI 2+. Si anteriormente ha agregado un controlador personalizado para realizar el seguimiento de tales excepciones (como se describe en los ejemplos siguientes), puede quitarlo para impedir el seguimiento de excepciones por duplicado.
+
+Hay un número de casos que los filtros de excepciones no pueden procesar. Por ejemplo: 
+
+* Excepciones iniciadas por constructores del controlador.
+* Excepciones iniciadas por controladores de mensajes.
+* Excepciones iniciadas durante el enrutamiento.
+* Excepciones iniciadas durante la serialización del contenido de respuesta.
+* Excepción que se produce durante el inicio de la aplicación.
+* Excepción que se produce en tareas en segundo plano.
+
+Es necesario seguir realizando el seguimiento de todas las excepciones *controladas* por la aplicación manualmente. Las excepciones no controladas que se originan en los controladores dan lugar normalmente a respuestas 500 "Error interno del servidor". Si dicha respuesta se creó manualmente como resultado de una excepción controlada (o sin ninguna excepción en absoluto), se realiza su seguimiento en la telemetría de la solicitud correspondiente `ResultCode` 500; sin embargo, el SDK de Application Insights no puede realizar el seguimiento de la excepción correspondiente.
+
+### <a name="prior-versions-support"></a>Compatibilidad con versiones anteriores
+Si usa WebAPI 1 (y anterior) del SDK web de Application Insights 2.5 (y anterior), consulte los siguientes ejemplos para realizar el seguimiento de las excepciones.
+
+#### <a name="web-api-1x"></a>Web API 1.x
 Invalidar System.Web.Http.Filters.ExceptionFilterAttribute:
 
+```csharp
     using System.Web.Http.Filters;
     using Microsoft.ApplicationInsights;
 
@@ -276,9 +317,11 @@ Invalidar System.Web.Http.Filters.ExceptionFilterAttribute:
         }
       }
     }
+```
 
 Podría agregar este atributo invalidado a controladores específicos o agregarlo a la configuración de filtros globales en la clase WebApiConfig:
 
+```csharp
     using System.Web.Http;
     using WebApi1.x.App_Start;
 
@@ -298,19 +341,14 @@ Podría agregar este atributo invalidado a controladores específicos o agregarl
         }
       }
     }
+```
 
 [Ejemplo](https://github.com/AppInsightsSamples/WebApi_1.x_UnhandledExceptions)
 
-Hay un número de casos que los filtros de excepciones no pueden procesar. Por ejemplo: 
-
-* Excepciones iniciadas por constructores del controlador.
-* Excepciones iniciadas por controladores de mensajes.
-* Excepciones iniciadas durante el enrutamiento.
-* Excepciones iniciadas durante la serialización del contenido de respuesta.
-
-## <a name="web-api-2x"></a>Web API 2.x
+#### <a name="web-api-2x"></a>Web API 2.x
 Agregue una implementación de IExceptionLogger:
 
+```csharp
     using System.Web.Http.ExceptionHandling;
     using Microsoft.ApplicationInsights;
 
@@ -329,9 +367,11 @@ Agregue una implementación de IExceptionLogger:
         }
       }
     }
+```
 
 Agregue lo siguiente a los servicios en WebApiConfig:
 
+```csharp
     using System.Web.Http;
     using System.Web.Http.ExceptionHandling;
     using ProductsAppPureWebAPI.App_Start;
@@ -355,7 +395,8 @@ Agregue lo siguiente a los servicios en WebApiConfig:
             config.Services.Add(typeof(IExceptionLogger), new AiExceptionLogger());
         }
       }
-  }
+     }
+```
 
 [Ejemplo](https://github.com/AppInsightsSamples/WebApi_2.x_UnhandledExceptions)
 
@@ -367,6 +408,7 @@ Como alternativa, puede:
 ## <a name="wcf"></a>WCF
 Agregue una clase que extienda el atributo y que implemente IErrorHandler y IServiceBehavior.
 
+```csharp
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -416,7 +458,7 @@ Agregue una clase que extienda el atributo y que implemente IErrorHandler y ISer
       }
     }
 
-Agregue el atributo a las implementaciones de servicio:
+Add the attribute to the service implementations:
 
     namespace WcfService4
     {
@@ -424,6 +466,7 @@ Agregue el atributo a las implementaciones de servicio:
         public class Service1 : IService1
         {
          ...
+```
 
 [Ejemplo](https://github.com/AppInsightsSamples/WCFUnhandledExceptions)
 
@@ -440,7 +483,7 @@ Esto es diferente del recuento de "Excepciones" calculado por el portal de Appli
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player] 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Supervisar REST, SQL y otras llamadas a las dependencias](app-insights-asp-net-dependencies.md)
 * [Supervisar los tiempos de carga de página, las excepciones del explorador y las llamadas AJAX](app-insights-javascript.md)
 * [Supervisar los contadores de rendimiento](app-insights-performance-counters.md)

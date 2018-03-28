@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integración de Azure Active Directory con Microsoft Azure Active Directory single sign-on for JIRA | Microsoft Docs"
-description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Microsoft Azure Active Directory single sign-on for JIRA."
+title: 'Tutorial: Integración de Azure Active Directory con Microsoft Azure Active Directory single sign-on for JIRA | Microsoft Docs'
+description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Microsoft Azure Active Directory single sign-on for JIRA.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2018
+ms.date: 02/08/2018
 ms.author: jeedes
-ms.openlocfilehash: 710aa59fb3cc69cb1f5a20389eca13b1be93d223
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: ceb36b78b72c45e9af59724d1f1c79789ef24b24
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-microsoft-azure-active-directory-single-sign-on-for-jira"></a>Tutorial: Integración de Azure Active Directory con Microsoft Azure Active Directory single sign-on for JIRA
 
@@ -61,6 +61,7 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 
 *   Núcleo y software de JIRA: de la 6.0 a la 7.2.0
 *   JIRA Service Desk versiones de 3.0 a 3.2
+*   JIRA también admite 5.2. Para obtener más detalles, haga clic en [Microsoft Azure Active Directory single sign-on for JIRA 5.2](./active-directory-saas-jira52microsoft-tutorial.md) (Inicio de sesión único de Microsoft Azure Active Directory para JIRA 5.2).
 
 ## <a name="scenario-description"></a>Descripción del escenario
 En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
@@ -160,7 +161,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     
     ![Configurar inicio de sesión único](.\media\active-directory-saas-msaadssojira-tutorial\addon1.png)
 
-8. Descargue el complemento del [Centro de descarga de Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=56506). Cargue manualmente el complemento proporcionado por Microsoft mediante el menú **Cargar complemento**.
+8. Descargue el complemento del [Centro de descarga de Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=56506). Cargue manualmente el complemento proporcionado por Microsoft mediante el menú **Cargar complemento**. La descarga del complemento está contemplada en el [Acuerdo de servicio de Microsoft](https://www.microsoft.com/en-us/servicesagreement/).
 
     ![Configurar inicio de sesión único](.\media\active-directory-saas-msaadssojira-tutorial\addon12.png)
 
@@ -195,6 +196,9 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     h. Active **Habilitar cierre de sesión único** si quiere que se cierre la sesión de Azure AD cuando un usuario cierra la sesión de JIRA. 
 
     i. Haga clic en el botón **Save** (Guardar) para guardar la configuración.
+
+    > [!NOTE]
+    > Para obtener más información sobre la instalación y la solución de problemas, visite [MS JIRA SSO Connector Admin Guide](ms-confluence-jira-plugin-adminguide.md) (Guía de administración del conector SSO de MS JIRA), que contiene una sección de [preguntas frecuentes](ms-confluence-jira-plugin-faq.md) para ayudarle.
 
 > [!TIP]
 > Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)

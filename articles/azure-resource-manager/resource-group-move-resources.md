@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/15/2018
 ms.author: tomfitz
-ms.openlocfilehash: c4bf3871b4636ce769dd8d84a637b88d4a00db97
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 4709ee707aa67c8de531b2b3e0b58dbed5c2667b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción
 
@@ -123,7 +123,7 @@ Los servicios que permiten el traslado a un nuevo grupo de recursos y a una nuev
 * Clústeres de HDInsight: consulte [Limitaciones de HDInsight](#hdinsight-limitations).
 * IoT Hubs
 * Key Vault
-* Equilibradores de carga
+* Equilibradores de carga (consulte las [limitaciones del equilibrador de carga](#lb-limitations)).
 * Logic Apps
 * Machine Learning
 * Media Services
@@ -132,6 +132,7 @@ Los servicios que permiten el traslado a un nuevo grupo de recursos y a una nuev
 * Operational Insights
 * Operations Management
 * Power BI
+* IP pública (consulte las [limitaciones de las direcciones IP públicas](#pip-limitations)).
 * Caché en Redis
 * Scheduler
 * Search
@@ -161,8 +162,10 @@ Los servicios que actualmente no permiten trasladar un recurso son:
 * ExpressRoute
 * DevTest Labs: el traslado al nuevo grupo de recursos en la misma suscripción está habilitado pero no el traslado de suscripción cruzado.
 * Dynamics LCS
+* Equilibradores de carga (consulte las [limitaciones del equilibrador de carga](#lb-limitations)).
 * Aplicaciones administradas
 * Managed Disks; vea [Limitaciones de Virtual Machines](#virtual-machines-limitations).
+* IP pública (consulte las [limitaciones de las direcciones IP públicas](#pip-limitations)).
 * Almacén de Recovery Services: no mueva tampoco los recursos de Compute, Network y Storage asociados con el almacén de Recovery Services, vea [Limitaciones de Recovery Services](#recovery-services-limitations).
 * Seguridad
 * Administrador de dispositivos de StorSimple
@@ -320,6 +323,16 @@ Al mover un clúster de HDInsight a una nueva suscripción, mueva primero otros 
 
 No puede mover varios recursos de Search ubicados en regiones diferentes a la vez.
 Si se da el caso, deberá moverlos por separado.
+
+## <a name="lb-limitations"></a> Limitaciones del equilibrador de carga
+
+El equilibrador de carga de SKU básica se puede mover.
+En cambio, el equilibrador de carga de SKU estándar no se puede mover.
+
+## <a name="pip-limitations"></a> Limitaciones de direcciones IP públicas
+
+Las direcciones IP de SKU básica se pueden mover.
+En cambio, las direcciones IP públicas de SKU estándar no se pueden mover.
 
 ## <a name="use-portal"></a>Mediante el portal
 

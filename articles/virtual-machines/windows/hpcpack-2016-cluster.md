@@ -1,11 +1,11 @@
 ---
-title: "Clúster de HPC Pack 2016 en Azure | Microsoft Docs"
-description: "Aprenda a implementar un clúster de HPC Pack 2016 en Azure."
+title: Clúster de HPC Pack 2016 en Azure | Microsoft Docs
+description: Aprenda a implementar un clúster de HPC Pack 2016 en Azure.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 3dde6a68-e4a6-4054-8b67-d6a90fdc5e3f
 ms.service: virtual-machines-windows
@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
-ms.date: 12/15/2016
+ms.date: 03/09/2018
 ms.author: danlep
-ms.openlocfilehash: 88d1f4e29f38ba1a6bef57c2da43bee205575eee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c26dd85d896445e19efb9906d953fd535fc1fb5c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="deploy-an-hpc-pack-2016-cluster-in-azure"></a>Implementación de un clúster de HPC Pack 2016 en Azure
 
-Siga los pasos de este artículo para implementar un clúster de [Microsoft HPC Pack 2016](https://technet.microsoft.com/library/cc514029) en máquinas virtuales de Azure. HPC Pack es la solución HPC gratuita de Microsoft que se basa en las tecnologías de Microsoft Azure y Windows Server, y admite cargas de trabajo HPC.
+Siga los pasos de este artículo para implementar un clúster de [Microsoft HPC Pack 2016 Update 1](https://technet.microsoft.com/library/cc514029) en máquinas virtuales de Azure. HPC Pack es la solución HPC gratuita de Microsoft que se basa en las tecnologías de Microsoft Azure y Windows Server, y admite cargas de trabajo HPC.
 
-Use una de las [plantillas de Azure Resource Manager](https://github.com/MsHpcPack/HPCPack2016) para implementar el clúster de HPC Pack 2016. Existen varias opciones de topología de clúster con distintos números de nodos principales, y con nodos de proceso Linux o Windows.
+Use una de las [plantillas de Azure Resource Manager](https://github.com/MsHpcPack/HPCPack2016) para implementar el clúster de HPC Pack 2016. Existen varias opciones de topología de clúster con distintos números y tipos de nodos principales de clúster y con nodos de ejecución.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 ### <a name="pfx-certificate"></a>Certificado PFX
 
@@ -37,7 +37,7 @@ Un clúster de Microsoft HPC Pack 2016 requiere un certificado de intercambio de
 * El uso de la clave incluye firma digital y cifrado de claves.
 * La clave mejorada incluye autenticación de cliente y autenticación de servidor.
 
-Si aún no cuenta con un certificado que cumpla estos requisitos, puede solicitarlo a una entidad de certificación. Como alternativa, puede usar los siguientes comandos para generar el certificado autofirmado, en función del sistema operativo en el que se ejecute el comando, y exportar el certificado con formato PFX con una clave privada.
+Si aún no cuenta con un certificado que cumpla estos requisitos, puede solicitarlo a una entidad de certificación. Como alternativa, use los siguientes comandos para generar el certificado autofirmado en función del sistema operativo en el que se ejecuta el comando. Luego, exporte el certificado como un archivo con formato PFX protegido por contraseña con una clave privada.
 
 * **Para Windows 10 o Windows Server 2016**, ejecute el cmdlet de PowerShell integrado **New-SelfSignedCertificate** como sigue:
 
@@ -52,11 +52,13 @@ Si aún no cuenta con un certificado que cumpla estos requisitos, puede solicita
     New-SelfSignedCertificateEx -Subject "CN=HPC Pack 2016 Communication" -KeySpec Exchange -KeyUsage "DigitalSignature,KeyEncipherment" -EnhancedKeyUsage "Server Authentication","Client Authentication" -StoreLocation CurrentUser -Exportable -NotAfter (Get-Date).AddYears(5)
     ```
 
+Una vez que el certificado se crea en el almacén de usuario actual, use el complemento de certificados para exportar el certificado como un archivo PFX protegido por contraseña con una clave privada. También puede exportar el certificado con el cmdlet [Export-Pfxcertificate](/powershell/module/pkiclient/export-pfxcertificate?view=win10-ps) de PowerShell.
+
 ### <a name="upload-certificate-to-an-azure-key-vault"></a>Carga del certificado en una instancia de Azure Key Vault
 
-Antes de implementar el clúster HPC, cargue el certificado en un [almacén de claves de Azure](../../key-vault/index.md) como un secreto y registre la siguiente información para usarla durante la implementación: **nombre del almacén**, **grupo de recursos del almacén**, **dirección URL de certificado** y **huella digital del certificado**.
+Antes de implementar el clúster HPC, cargue el certificado PFX en un [almacén de claves de Azure](../../key-vault/index.md) como un secreto y registre la siguiente información para usarla durante la implementación: **nombre del almacén**, **grupo de recursos del almacén**, **dirección URL de certificado** y **huella digital del certificado**.
 
-A continuación se muestra un ejemplo de un script de PowerShell para cargar el certificado. Para más información sobre cómo cargar un certificado en un almacén de claves de Azure, consulte [Introducción a Azure Key Vault](../../key-vault/key-vault-get-started.md).
+A continuación, aparece un script de PowerShell de ejemplo para cargar el certificado, crear el almacén de claves y generar la información requerida. Para más información sobre cómo cargar un certificado en un almacén de claves de Azure, consulte [Introducción a Azure Key Vault](../../key-vault/key-vault-get-started.md).
 
 ```powershell
 #Give the following values
@@ -108,12 +110,11 @@ $hpcSecret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $SecretName -Se
 
 ## <a name="supported-topologies"></a>Topologías admitidas
 
-Elija una de las [plantillas de Azure Resource Manager](https://github.com/MsHpcPack/HPCPack2016) para implementar el clúster de HPC Pack 2016. Las siguientes son arquitecturas de alto nivel de tres topologçias de clúster admitidas. Las topologías de alta disponibilidad incluyen varios nodos principales de clúster.
+Elija una de las [plantillas de Azure Resource Manager](https://github.com/MsHpcPack/HPCPack2016) para implementar el clúster de HPC Pack 2016. Las siguientes son arquitecturas de alto nivel de tres topologías de clúster de ejemplo. Las topologías de alta disponibilidad incluyen varios nodos principales de clúster.
 
 1. Clúster de alta disponibilidad con dominio de Active Directory
 
     ![Clúster de alta disponibilidad en dominio de AD](./media/hpcpack-2016-cluster/haad.png)
-
 
 
 2. Clúster de alta disponibilidad sin dominio de Active Directory
@@ -131,7 +132,7 @@ Para crear el clúster, elija una plantilla y haga clic en **Implementar en Azur
 
 ### <a name="step-1-select-the-subscription-location-and-resource-group"></a>Paso 1: Selección de la suscripción, la ubicación y el grupo de recursos
 
-La **suscripción** y la **ubicación** deben ser las mismas que ha especificado al cargar el certificado PFX (consulte los requisitos previos). Le recomendamos que cree un **grupo de recursos** para la implementación.
+La **suscripción** y la **ubicación** deben ser las mismas que ha especificado al cargar el certificado PFX (consulte los requisitos previos). Le recomendamos que cree un **grupo de recursos** distinto para la implementación.
 
 ### <a name="step-2-specify-the-parameter-settings"></a>Paso 2: Especificación de la configuración de parámetros
 
@@ -139,19 +140,21 @@ Escriba o modifique los valores de los parámetros de plantilla. Haga clic en el
 
 Especifique los valores que registró en los requisitos previos para los siguientes parámetros: **Nombre de almacén**, **Vault resource group** (Grupo de recursos de almacén), **Dirección URL del certificado**, y **Huella digital del certificado**.
 
-### <a name="step-3-review-legal-terms-and-create"></a>Paso 3: Revisión de los términos legales y creación
-Haga clic en **Revisar los términos legales** para revisar los términos. Si los acepta, haga clic en **Comprar** y luego en **Crear** para iniciar la implementación.
+### <a name="step-3-review-terms-and-create"></a>Paso 3. Revisión de los términos legales y creación
+Revise los términos y condiciones asociados con la plantilla. Si está de acuerdo, haga clic en **Comprar** para iniciar la implementación.
+
+En función de la topología de clúster, la implementación puede tardar 30 minutos o más en completarse.
 
 ## <a name="connect-to-the-cluster"></a>Conexión al clúster
 1. Después de implementar el clúster de HPC Pack, vaya al [portal de Azure](https://portal.azure.com). Haga clic en **Grupos de recursos** y busque el grupo de recursos en el que se implementó el clúster. Puede encontrar las máquinas virtuales de nodo principal.
 
     ![Nodos principales del clúster en el portal](./media/hpcpack-2016-cluster/clusterhns.png)
 
-2. Haga clic en un nodo principal (en un clúster de alta disponibilidad, haga clic en cualquiera de los nodos principales). En **Essentials** (Información básica), puede encontrar la dirección IP pública o el nombre DNS completo del clúster.
+2. Haga clic en un nodo principal (en un clúster de alta disponibilidad, haga clic en cualquiera de los nodos principales). En **Overview** (Información general), puede encontrar la dirección IP pública o el nombre DNS completo del clúster.
 
     ![Configuración de la conexión del clúster](./media/hpcpack-2016-cluster/clusterconnect.png)
 
-3. Haga clic en **Conectar** para iniciar sesión en cualquiera de los nodos principales con el nombre de usuario de administrador especificado mediante Escritorio remoto . Si el clúster implementado está en un dominio de Active Directory, el nombre de usuario tiene el formato <privateDomainName>\<adminUsername > (por ejemplo, hpc.local\hpcadmin).
+3. Haga clic en **Conectar** para iniciar sesión en cualquiera de los nodos principales con el nombre de usuario de administrador especificado mediante Escritorio remoto . Si el clúster implementado está en un dominio de Active Directory, el nombre de usuario tiene el formato \<NombreDominioPrivado>\\\<NombredeusuariodeAdministrador> (por ejemplo, hpc.local\hpcadmin).
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Envíe los trabajos al clúster. Consulte [Envío de trabajos a un clúster de HPC Pack en Azure](hpcpack-cluster-submit-jobs.md) y [Manage an HPC Pack 2016 cluster in Azure using Azure Active Directory](hpcpack-cluster-active-directory.md) (Administración de un clúster de HPC Pack 2016 en Azure mediante Azure Active Directory).

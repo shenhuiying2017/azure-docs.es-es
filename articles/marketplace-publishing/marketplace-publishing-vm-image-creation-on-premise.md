@@ -1,11 +1,11 @@
 ---
-title: "Creación de una imagen de máquina virtual de forma local para Azure Marketplace | Microsoft Docs"
-description: "Entienda y ejecute los pasos para crear una imagen de máquina virtual de forma local e impleméntela en Azure Marketplace para que otros usuarios la compren."
+title: Creación de una imagen de máquina virtual de forma local para Azure Marketplace | Microsoft Docs
+description: Entienda y ejecute los pasos para crear una imagen de máquina virtual de forma local e impleméntela en Azure Marketplace para que otros usuarios la compren.
 services: marketplace-publishing
-documentationcenter: 
-author: HannibalSII
-manager: hascipio
-editor: 
+documentationcenter: ''
+author: msmbaldwin
+manager: mbaldwin
+editor: ''
 ms.assetid: 26dfbd5a-8685-4b19-987e-c20ca60540ec
 ms.service: marketplace
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
-ms.author: hascipio; v-divte
-ms.openlocfilehash: 77771f1e690bdfb59d42989a34068634f35f845d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: mbaldwin
+ms.openlocfilehash: 6b927ce6032092ce258eeebca49da0571439dbfb
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="develop-an-on-premises-virtual-machine-image-for-the-azure-marketplace"></a>Desarrollo de una imagen de máquina virtual de forma local para Azure Marketplace
 Se recomienda encarecidamente que desarrolle discos duros virtuales de Azure (VHD) directamente en la nube mediante el uso del Protocolo de escritorio remoto. Sin embargo, si es necesario, es posible descargar un disco duro virtual y desarrollarlo mediante infraestructura local.  

@@ -1,6 +1,6 @@
 ---
-title: "Introducción conceptual a la Administración de modelos de Azure Machine Learning | Microsoft Docs"
-description: "En este documento se explican los conceptos de Administración de modelos para Azure Machine Learning."
+title: Introducción conceptual a la Administración de modelos de Azure Machine Learning | Microsoft Docs
+description: En este documento se explican los conceptos de Administración de modelos para Azure Machine Learning.
 services: machine-learning
 author: nk773
 ms.author: padou
@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 931dfae740996325cc62071a861e81ef5f67548b
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 89f95753248f74c7f6cb9ca1f680a01b07dd43d1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-machine-learning-model-management"></a>Administración de modelos de Azure Machine Learning
 
@@ -99,29 +99,29 @@ El flujo de trabajo completo que describe estos conceptos se captura en la ilust
 ![](media/model-management-overview/modelmanagementworkflow.png)
 
 ## <a name="frequently-asked-questions-faq"></a>Preguntas más frecuentes 
-- ¿Qué tipos de datos se admiten? ¿Se pueden pasar matrices de NumPy directamente como entrada al servicio web?
+- **¿Qué tipos de datos se admiten? ¿Se pueden pasar matrices de NumPy directamente como entrada al servicio web?**
 
    Si va a proporcionar el archivo de esquema que se creó mediante el SDK generate_schema, puede pasar NumPy o Pandas DF. También puede pasar cualquier entrada serializable de JSON. Puede pasar una imagen como cadena codificada binaria.
 
-- ¿Admite el servicio web varias entradas o analiza diferentes entradas? 
+- **¿Admite el servicio web varias entradas o analiza diferentes entradas?
 
    Sí, puede empaquetar varias entradas en una solicitud de JSON como un diccionario. Cada entrada se corresponde a una clave única del diccionario.
 
-- ¿Se ha activado la llamada por una solicitud a la web de servicio, una llamada de bloqueo o una llamada asincrónica?
+- **¿Se ha activado la llamada por una solicitud a la web de servicio, una llamada de bloqueo o una llamada asincrónica?**
 
    Si el servicio se creó mediante la opción en tiempo real como parte de la CLI o API, en este caso es debido a una llamada sincrónica o de bloqueo. Se espera que sea muy rápida. Aunque puede llamarla en el cliente mediante la biblioteca HTTP asincrónica para evitar bloquear el subproceso de cliente.
 
-- ¿Cuántas solicitudes puede controlar al mismo tiempo el servicio web?
+- **¿Cuántas solicitudes puede controlar al mismo tiempo el servicio web?**
 
    Depende de la escala del clúster y del servicio web. Puede escalar horizontalmente su servicio multiplicando las réplicas por 100 y, después, administrar muchas solicitudes simultáneamente. También puede configurar el número máximo de solicitudes simultáneas por réplica para aumentar el rendimiento de servicio.
 
-- ¿Cuántas solicitudes puede poner en cola el servicio web?
+- **¿Cuántas solicitudes puede poner en cola el servicio web?**
 
    Es configurable. De forma predeterminada, se establece en ~10 por réplica, pero se puede aumentar o disminuir en función de los requisitos de la aplicación. Por lo general, si se aumenta el número de solicitudes en cola, se aumenta el rendimiento del servicio pero empeora las latencias en los percentiles más altos. Para mantener la coherencia de las latencias, establezca la puesta en cola en un valor bajo (1-5) y aumente el número de réplicas para controlar el rendimiento. También puede activar el escalado automático para que el número de réplicas se ajuste automáticamente en función de la carga. 
 
-- ¿Se puede usar la misma máquina o clúster en varios puntos de conexión del servicio web?
+- **¿Se puede usar la misma máquina o clúster en varios puntos de conexión del servicio web?**
 
    Totalmente. Puede multiplicar por 100 los servicios o puntos de conexión y ejecutarlos en el mismo clúster. 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para obtener una introducción a Administración de modelos, consulte [Configuring Model Management](deployment-setup-configuration.md) (Configuración de Administración de modelos).

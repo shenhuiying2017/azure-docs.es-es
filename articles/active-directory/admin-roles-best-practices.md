@@ -11,11 +11,11 @@ ms.service: active-directory
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: 0231dc8336bb2442099984947897e5005767a8f5
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 166171dc8d8d694ef253ed6809c53b54577535e2
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Protección del acceso con privilegios para las implementaciones híbridas y en la nube en Azure AD
 
@@ -118,7 +118,7 @@ Evalúe las cuentas que están asignadas al rol de administrador global o que so
 
 #### <a name="turn-on-multi-factor-authentication-and-register-all-other-highly-privileged-single-user-non-federated-admin-accounts"></a>Activación de la autenticación multifactor y registro de las restantes cuentas de administrador no federadas de usuario único con privilegios elevados 
 
-Requiera Azure Multi-Factor Authentication (MFA) en el inicio de sesión a todos los usuarios individuales a los que se haya asignado permanentemente uno o varios de los roles de administrador de Azure AD: Administrador global, Administrador de rol con privilegios, Administrador de Exchange Online y Administrador de SharePoint Online. Utilice la guía para habilitar [Multi-Factor Authentication (MFA) en sus cuentas de administrador](../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md) y asegúrese de que todos los usuarios se han registrado en [https://aka.ms/mfasetup](https://aka.ms/mfasetup). Puede encontrar más información en los pasos 2 y 3 de [Protección del acceso a datos y servicios de Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
+Requiera Azure Multi-Factor Authentication (MFA) en el inicio de sesión a todos los usuarios individuales a los que se haya asignado permanentemente uno o varios de los roles de administrador de Azure AD: Administrador global, Administrador de rol con privilegios, Administrador de Exchange Online y Administrador de SharePoint Online. Use la guía para habilitar [Multi-Factor Authentication (MFA) en sus cuentas de administrador](../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md) y asegúrese de que todos esos usuarios se hayan registrado en [https://aka.ms/mfasetuphttps://aka.ms/mfasetup](https://aka.ms/mfasetup). Puede encontrar más información en los pasos 2 y 3 de [Protección del acceso a datos y servicios de Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
 
 ## <a name="stage-2-mitigate-the-most-frequently-used-attack-techniques"></a>Fase 2: mitigar las técnicas de ataque que se usan con más frecuencia
 
@@ -176,9 +176,9 @@ Azure AD Identity Protection es una herramienta de supervisión y generación de
 
 #### <a name="obtain-your-office-365-secure-score-if-using-office-365"></a>Obtenga su Puntuación segura de Office 365 (si usa Office 365)
 
-Puntuación segura detecta los servicios de Office 365 que usa (como OneDrive, SharePoint y Exchange), examina la configuración y las actividades y las compara con una base de referencia establecida por Microsoft. Obtendrá una puntuación que se basa en su grado de realización de los procedimientos de seguridad recomendados. Cualquiera que tenga permisos de administrador (administrador global o un rol de administrador personalizado) en una suscripción a Office 365 Business Premium o Enterprise puede acceder a la Puntuación segura en [https://securescore.office.com](https://securescore.office.com/).
+Puntuación segura detecta los servicios de Office 365 que usa (como OneDrive, SharePoint y Exchange), examina la configuración y las actividades y las compara con una base de referencia establecida por Microsoft. Obtendrá una puntuación que se basa en su grado de realización de los procedimientos de seguridad recomendados. Cualquiera que tenga permisos de administrador (administrador global o un rol de administrador personalizado) en una suscripción de Office 365 Business Premium o Enterprise puede acceder a la Puntuación segura en [https://securescore.office.com](https://securescore.office.com/).
 
-#### <a name="review-the-office-365-security-and-compliance-guidance-if-using-office365"></a>Consulte la guía de seguridad y cumplimiento de Office 365 (si usa Office 365)
+#### <a name="review-the-office-365-security-and-compliance-guidance-if-using-office-365"></a>Consulte la guía de seguridad y cumplimiento de Office 365 (si usa Office 365).
 
 El [plan de seguridad y cumplimiento](https://support.office.com/article/Plan-for-security-and-compliance-in-Office-365-dc4f704c-6fcc-4cab-9a02-95a824e4fb57) describe tanto el método para que un cliente de Office 365 lo configure como la forma de sacar provecho de otras funcionalidades de EMS. Luego, lea los pasos 3-6 de [Protección del acceso a datos y servicios de Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e) y la guía para [supervisar la seguridad y el cumplimiento en Office 365](https://support.office.com/article/Monitor-security-and-compliance-in-Office-365-b62f1722-fd39-44eb-8361-da61d21509b6).
 
@@ -201,7 +201,7 @@ Si su inquilino de Azure Active Directory está sincronizado con la instancia lo
 
 Utilice Enterprise Portal y Azure Portal para identificar las suscripciones de la organización que hospedan aplicaciones de producción. 
 
-#### <a name="remove-microsoft-ccounts-from-admin-roles"></a>Quite cuentas Microsoft de roles de administrador
+#### <a name="remove-microsoft-accounts-from-admin-roles"></a>Eliminación de cuentas de Microsoft de roles de administrador
 
 Las cuentas Microsoft de otros programas, como Xbox, Live y Outlook no deben usarse como cuentas de administrador para las suscripciones de la organización. Quite el estado de administrador de todas las cuentas de Microsoft y sustitúyalas por cuentas profesionales o educativas de Active Directory (por ejemplo, chris@contoso.com).
 
@@ -227,7 +227,7 @@ La fase 3 se basa en las mitigaciones de riesgos de la fase 2 y está diseñada 
 
 #### <a name="complete-an-access-review-of-users-in-administrator-roles"></a>Complete una revisión de acceso de los usuarios en roles de administrador
 
-Un mayor número de usuarios corporativos obtienen acceso con privilegios mediante servicios en la nube, lo que puede llevar a una plataforma cada vez menos administrada. Aquí se incluyen los usuarios que se convierten en administradores globales de Office 365, los administradores de suscripciones de Azure y los usuarios que tienen acceso de administrador en las máquinas virtuales o a través de aplicaciones SaaS. En su lugar, en las organizaciones todos los empleados, especialmente los administradores, deberían realizar sus transacciones empresariales diarias como usuarios sin privilegios y solo asumir derechos de administrador cuando sea necesario. Dado que es posible que el número de usuarios con roles de administrador haya crecido desde la adopción inicial, realice revisiones de los accesos para identificar y confirmar todos los usuarios que pueden activar los privilegios de administrador. 
+Un mayor número de usuarios corporativos obtienen acceso con privilegios mediante servicios en la nube, lo que puede llevar a una plataforma cada vez menos administrada. Aquí se incluyen los usuarios que se convierten en administradores globales de Office 365, los administradores de suscripciones de Azure y los usuarios que tienen acceso de administrador a las máquinas virtuales o a través de aplicaciones SaaS. En su lugar, en las organizaciones todos los empleados, especialmente los administradores, deberían realizar sus transacciones empresariales diarias como usuarios sin privilegios y solo asumir derechos de administrador cuando sea necesario. Dado que es posible que el número de usuarios con roles de administrador haya crecido desde la adopción inicial, realice revisiones de los accesos para identificar y confirmar todos los usuarios que pueden activar los privilegios de administrador. 
 
 Haga lo siguiente:
 
@@ -319,7 +319,6 @@ Para asegurarse de que el acceso de los usuarios también se protege en las apli
 
 El agente de SIEM de Cloud App Security integra Cloud App Security en el servidor de SIEM para habilitar la supervisión centralizada de las actividades y alertas de Office 365. Se ejecuta en el servidor y extrae las alertas y actividades de Cloud App Security y las transmite por secuencias al servidor de SIEM. Para más información, consulte [Integración de SIEM](https://docs.microsoft.com/cloud-app-security/siem).
 
-
 ## <a name="stage-4-continue-building-defenses-to-a-more-proactive-security-posture"></a>Fase 4: seguir creando defensas para tener una postura proactiva con respecto a la seguridad
 
 
@@ -357,7 +356,7 @@ Si utiliza Office 365.
 Para mejorar su plan, Microsoft recomienda validar periódicamente que funciona según lo esperado:
 
 * Recorra la hoja de ruta existente para ver lo que falta
-* En función del análisis post mortem, revisar los procedimientos recomendados existentes o defina otros nuevos
+* En función del análisis post mortem, revise los procedimientos recomendados existentes o defina otros nuevos.
 * Asegúrese de que tanto el plan de respuesta ante incidentes actualizado como los procedimientos recomendados se distribuyen por toda la organización
 
 
@@ -438,16 +437,16 @@ Para más información acerca de la forma en que Microsoft Office 365 controla l
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Centro de confianza de Microsoft para la seguridad de los productos](https://www.microsoft.com/trustcenter/security): características de seguridad de los productos y servicios en la nube de Microsoft
+* [Centro de confianza de Microsoft para la seguridad de los productos](https://www.microsoft.com/en-us/trustcenter/security): características de seguridad de los productos y servicios en la nube de Microsoft
 
-* [Centro de confianza de Microsoft - Cumplimiento normativo](https://www.microsoft.com/trustcenter/compliance/complianceofferings): conjunto completo de ofertas de cumplimiento de normas para los servicios en la nube de Microsoft
+* [Centro de confianza de Microsoft - Cumplimiento normativo](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings): conjunto completo de ofertas de cumplimiento de normas para los servicios en la nube de Microsoft
 
-* [Guía para realizar una evaluación del riesgo](https://www.microsoft.com/trustcenter/guidance/risk-assessment): administre la seguridad y los requisitos de cumplimiento de los servicios en la nube de Microsoft
+* [Guía para realizar una evaluación del riesgo](https://www.microsoft.com/en-us/trustcenter/guidance/risk-assessment): administre la seguridad y los requisitos de cumplimiento de los servicios en la nube de Microsoft
 
 ### <a name="other-ms-online-services"></a>Otros servicios en línea de Microsoft 
 
-* [Seguridad de Microsoft Intune](https://www.microsoft.com/trustcenter/security/intune-security): Intune proporciona funcionalidades de administración de dispositivos móviles, aplicaciones móviles y PC desde la nube.
+* [Seguridad de Microsoft Intune](https://www.microsoft.com/en-us/trustcenter/security/intune-security): Intune proporciona funcionalidades de administración de dispositivos móviles, aplicaciones móviles y PC desde la nube.
 
-* [Seguridad de Microsoft Dynamics 365](https://www.microsoft.com/trustcenter/security/dynamics365-security): Dynamics 365 es la solución en la nube de Microsoft que unifica la administración de relaciones con clientes (CRM) y las funcionalidades de planificación de recursos empresariales (ERP).
+* [Seguridad de Microsoft Dynamics 365](https://www.microsoft.com/en-us/trustcenter/security/dynamics365-security): Dynamics 365 es la solución en la nube de Microsoft que unifica la administración de relaciones con clientes (CRM) y las funcionalidades de planificación de recursos empresariales (ERP).
 
  

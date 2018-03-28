@@ -1,19 +1,19 @@
 ---
-title: "Módulo C# de Azure IoT Edge | Microsoft Docs"
-description: "Crear un módulo IoT Edge con código de C# e implementarlo en un dispositivo perimetral"
+title: Módulo C# de Azure IoT Edge | Microsoft Docs
+description: Crear un módulo IoT Edge con código de C# e implementarlo en un dispositivo perimetral
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
-ms.author: v-jamebr
-ms.date: 11/15/2017
+ms.author: kgremban
+ms.date: 03/14/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: fd46bb662af72ece799bb545d06d76f9e54ee62c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 605f0cfe34e4fda14030bb38686095882846c7c0
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="develop-and-deploy-a-c-iot-edge-module-to-your-simulated-device---preview"></a>Desarrollar e implementar un módulo IoT Edge C# en su dispositivo simulado: versión preliminar
 
@@ -48,7 +48,7 @@ Puede usar cualquier registro compatible con Docker para este tutorial. Dos serv
 3. Seleccione **Crear**.
 4. Una vez creado el registro de contenedor, desplácese hasta él y seleccione **Claves de acceso**. 
 5. Cambie **Usuario administrador** a **Habilitar**.
-6. Copie los valores de **Servidor de inicio de sesión**, **Nombre de usuario** y **Contraseña**. Los usará más adelante en el tutorial. 
+6. Copie los valores de **Servidor de inicio de sesión**, **Nombre de usuario** y **Contraseña**. Usará estos valores más adelante en este tutorial al publicar la imagen de Docker en el registro y al agregar las credenciales del registro al tiempo de ejecución de Edge. 
 
 ## <a name="create-an-iot-edge-module-project"></a>Crear un proyecto de módulo IoT Edge
 En los siguientes pasos puede ver cómo crear un módulo IoT Edge basado en .NET Core 2.0 mediante Visual Studio Code y la extensión de Azure IoT Edge.
@@ -227,15 +227,14 @@ En los siguientes pasos puede ver cómo crear un módulo IoT Edge basado en .NET
 2. Haga clic con el botón derecho en el archivo **Dockerfile** y haga clic en **Build IoT Edge module Docker image** (Generar imagen de Docker del módulo de IoT Edge). 
 3. En la ventana **Seleccionar carpeta**, vaya a `./bin/Debug/netcoreapp2.0/publish` o especifíquelo. Haga clic en **Seleccionar carpeta como EXE_DIR**.
 4. En el cuadro de texto emergente de la parte superior de la ventana de VS Code, escriba el nombre de la imagen. Por ejemplo: `<your container registry address>/filtermodule:latest`. La dirección del registro de contenedor es la misma del servidor de inicio de sesión que ha copiado en el registro. Debe tener este formato: `<your container registry name>.azurecr.io`.
-5. Inicie sesión en Docker escribiendo el comando siguiente en el terminal integrado de VS Code: 
+5. Inicie sesión en Docker con el nombre de usuario, la contraseña y el servidor de inicio de sesión que ha copiado del Azure Container Registry al crearlo. Escriba el siguiente comando en el terminal integrado de VS Code: 
      
    ```csh/sh
-   docker login -u <username> -p <password> <Login server>
+   docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
-        
-   Utilice el nombre de usuario, la contraseña y el servidor de inicio de sesión que ha copiado del Azure Container Registry al crearlo.
 
-3. Inserte la imagen en el repositorio de Docker. Seleccione **Ver** > **Paleta de comandos** y busque el comando de menú **Edge: Push IoT Edge module Docker image** (Edge: insertar la imagen de Docker del módulo de IoT Edge). Escriba el nombre de la imagen en el cuadro de texto emergente de la parte superior de la ventana de VS Code. Use el mismo nombre de imagen que utilizó en el paso 4.
+6. Inserte la imagen en el registro de contenedor. Seleccione **Ver** > **Paleta de comandos** y busque el comando de menú **Edge: Push IoT Edge module Docker image** (Edge: insertar la imagen de Docker del módulo de IoT Edge). Escriba el nombre de la imagen en el cuadro de texto emergente de la parte superior de la ventana de VS Code. Use el mismo nombre de imagen que utilizó en el paso 4.
+7. Para ver la imagen en Azure Portal, navegue hasta la instancia de Azure Container Registry y seleccione **Repositorios**. Debería aparecer **filtermodule**.
 
 ## <a name="add-registry-credentials-to-edge-runtime"></a>Agregar las credenciales del Registro al runtime de Edge
 Agregue las credenciales del Registro al runtime de Edge en el equipo en que ejecuta el dispositivo de Edge. Estas credenciales proporcionan acceso al runtime para extraer el contenedor. 
@@ -306,7 +305,7 @@ Para supervisar los mensajes del dispositivo a la nube enviados al centro de IoT
 1. Para supervisar los datos que llegan a IoT Hub, seleccione **Ver** > **Paleta de comandos** y busque el comando de menú **IoT: Start monitoring D2C message** (IoT: iniciar la supervisión del mensaje de D2C). 
 2. Para dejar de supervisar datos, use el comando de menú **IoT: Start monitoring D2C message** (IoT: detener la supervisión del mensaje de D2C). 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, creó un módulo IoT Edge que contiene código para filtrar datos sin procesar generados por el dispositivo IoT Edge. Puede continuar con cualquiera de los siguientes tutoriales para obtener información sobre otras formas en que Azure IoT Edge puede ayudarle a transformar datos en perspectivas empresariales en el límite.
 

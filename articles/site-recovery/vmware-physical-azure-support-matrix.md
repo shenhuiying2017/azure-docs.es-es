@@ -6,13 +6,13 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 03/15/2018
 ms.author: raynew
-ms.openlocfilehash: 413234204175b9361cd2a837e0b318bf5220f58f
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: c4fb466443e2f29fb79c3707ce142895f140f9a7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Matriz de compatibilidad para la replicación de VMware y servidores físicos en Azure
 
@@ -22,15 +22,15 @@ En este artículo se resumen los ajustes y los componentes admitidos para la rec
 
 **Escenario** | **Detalles**
 --- | ---
-**Máquinas virtuales de VMware** | Puede realizar el proceso de recuperación ante desastres en Azure para máquinas virtuales de VMware locales. Puede implementar este escenario en Azure Portal o mediante PowerShell.
-**Servidores físicos** | Puede realizar el proceso de recuperación ante desastres en Azure para servidores físicos de Windows o Linux locales. Puede implementar este escenario en Azure Portal.
+Máquinas virtuales de VMware | Puede realizar el proceso de recuperación ante desastres en Azure para máquinas virtuales de VMware locales. Puede implementar este escenario en Azure Portal o mediante PowerShell.
+Servidores físicos | Puede realizar el proceso de recuperación ante desastres en Azure para servidores físicos de Windows o Linux locales. Puede implementar este escenario en Azure Portal.
 
-## <a name="on-premises-virtualizationhost-servers"></a>Servidores de virtualización y de host locales
+## <a name="on-premises-virtualization-servers"></a>Servidores de virtualización locales
 
 **Servidor** | **Requisitos** | **Detalles**
 --- | --- | ---
-**VMware** | vCenter Server 6.5, 6.0 o 5.5, o vSphere 6.5, 6.0 o 5.5 | Se recomienda usar vCenter Server.
-**Servidores físicos** | N/D
+VMware | vCenter Server 6.5, 6.0 o 5.5, o vSphere 6.5, 6.0 o 5.5 | Se recomienda usar vCenter Server.
+Física | N/D
 
 
 ## <a name="replicated-machines"></a>Máquinas replicadas
@@ -39,7 +39,7 @@ En la tabla siguiente se resume la compatibilidad de replicación de las máquin
 
 **Componente** | **Detalles**
 --- | ---
-Configuración del equipo | Las máquinas que se replican en Azure deben cumplir con los [requisitos de Azure](#failed-over-azure-vm-requirements).
+Configuración del equipo | Las máquinas que se replican en Azure deben cumplir con los [requisitos de Azure](#azure-vm-requirements).
 Sistema operativo Windows | Windows Server 2016 de 64 bits (Server Core, Server con Experiencia de escritorio), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 con al menos SP1. No se admite Windows 2016 Nano Server.
 Sistema operativo Linux | Red Hat Enterprise Linux 5.2 a 5.11, 6.1 a 6.9 y 7.0 a 7.4 <br/><br/>CentOS 5.2 a 5.11, 6.1 a 6.9 y 7.0 a 7.4 <br/><br/>Servidor Ubuntu 14.04 LTS[ (versiones de kernel admitidas)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Servidor Ubuntu 16.04 LTS[ (versiones de kernel admitidas)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Debian 7/Debian 8<br/><br/>Oracle Enterprise Linux 6.4, 6.5 que ejecuten el kernel compatible de Red Hat o Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/>SUSE Linux Enterprise Server 11 SP3, SUSE Linux Enterprise Server 11 SP4 <br/><br/>No se admite la actualización de máquinas replicadas de SP3 a SP4. Para actualizar, deshabilite la replicación y habilítela de nuevo después de la actualización.
 
@@ -68,13 +68,13 @@ Sistema operativo Linux | Red Hat Enterprise Linux 5.2 a 5.11, 6.1 a 6.9 y 7.0 a
 
 **Componente** | **Compatible**
 --- | ---
-Sistemas de archivos | ext3, ext4, ReiserFS (solo Suse Linux Enterprise Server), XFS
-Administrador de volúmenes | LVM2
-Software de múltiples rutas | Mapeador de dispositivo
+Sistemas de archivos | ext3, ext4, ReiserFS (solo Suse Linux Enterprise Server), XFS.
+Administrador de volúmenes | LVM2.
+Software de múltiples rutas | Mapeador de dispositivo.
 Dispositivos de almacenamiento paravirtualizados | No se admiten dispositivos que se hayan exportado con controladores paravirtualizados.
 Dispositivos de E/S de bloque multicola | No compatible.
 Servidores físicos con controlador de almacenamiento HP CCISS | No compatible.
-Directorios | Todos estos directorios (si se configuran como sistemas de archivos o particiones independientes) deben ubicarse en el mismo disco de sistema operativo del servidor de origen: /(root), /boot, /usr, /usr/local, /var, /etc.</br></br> /boot debe estar en una partición de disco y no estar en un volumen LVM<br/><br/>
+Directorios | Todos estos directorios (si se configuran como sistemas de archivos o particiones independientes) deben ubicarse en el mismo disco de sistema operativo del servidor de origen: /(root), /boot, /usr, /usr/local, /var, /etc.</br></br> /boot debe estar en una partición de disco y no estar en un volumen LVM.<br/><br/>
 Espacio en disco necesario| 2 GB en la partición /root <br/><br/> 250 MB en la carpeta de instalación
 XFSv5 | Las características de XFSv5 en sistemas de archivos XFS, como la suma de comprobación de metadatos, se admiten a partir de la versión 9.10 de Mobility Service. Puede usar la utilidad xfs_info para comprobar el superbloque XFS de la partición. Si ftype está establecido en 1, entonces se usan las características de XFSv5.
 
@@ -85,15 +85,15 @@ XFSv5 | Las características de XFSv5 en sistemas de archivos XFS, como la suma 
 **Componente** | **Compatible**
 --- | ---
 Formación de equipos de adaptador de red de la red de host | Se admite en máquinas virtuales de VMware. <br/><br/>No se admite en la replicación de máquinas físicas.
-VLAN de la red de host | Sí
-IPv4 de la red de host | Sí
-IPv6 de la red de host | Sin 
-Formación de equipos de adaptador de red de la red de invitado o de servidor | Sin 
-IPv4 de la red de invitado o de servidor | Sí
-IPv6 de la red de invitado o de servidor | Sin 
-IP estática de la red de invitado o de servidor (Windows) | Sí
-IP estática de la red de invitado o de servidor (Linux) | Sí <br/><br/>Las máquinas virtuales se configuran para usar DHCP en la conmutación por recuperación.  
-Varios adaptadores de red de la red de invitado o de servidor | Sí
+VLAN de la red de host | Sí.
+IPv4 de la red de host | Sí.
+IPv6 de la red de host | Nº
+Formación de equipos de adaptador de red de la red de invitado o de servidor | Nº
+IPv4 de la red de invitado o de servidor | Sí.
+IPv6 de la red de invitado o de servidor | Nº
+IP estática de la red de invitado o de servidor (Windows) | Sí.
+IP estática de la red de invitado o de servidor (Linux) | Sí. <br/><br/>Las máquinas virtuales se configuran para usar DHCP en la conmutación por recuperación.
+Varios adaptadores de red de la red de invitado o de servidor | Sí.
 
 
 ## <a name="azure-vm-network-after-failover"></a>Red de máquinas virtuales de Azure (después de la conmutación por error)
@@ -113,7 +113,7 @@ Puntos de conexión del servicio Azure Virtual Network<br/><br/> (Redes virtuale
 ## <a name="storage"></a>Storage
 **Componente** | **Compatible**
 --- | ---
-NFS de host | Sí para VMware<br/><br/> No para servidores físicos.
+NFS de host | Sí para VMware<br/><br/> No para servidores físicos
 SAN de host (ISCSI) | Sí
 Varias rutas de host (MPIO) | Sí, probado con DSM de Microsoft, EMC PowerPath 5.7 SP4, EMC PowerPath DSM para CLARiiON.
 VMDK de invitado/servidor | Sí
@@ -124,9 +124,9 @@ NFS de invitado/servidor | Sin
 SMB 3.0 de invitado/servidor | Sin 
 RDM de invitado/servidor | Sí<br/><br/> N/D para servidores físicos
 Disco de invitado/servidor > 1 TB | Sí<br/><br/>Hasta 4095 GB
-Disco de invitado/servidor con tamaño de sector físico de 4K y lógico de 4K | Sí <
+Disco de invitado/servidor con tamaño de sector físico de 4K y lógico de 4K | Sí
 Disco de invitado/servidor con tamaño de sector físico de 512 bytes y lógico de 4K | Sí
-Volumen de invitado/servidor con disco en bandas > 4 TB <br><br/>Administración de volúmenes lógicos (LVM) | Sí
+Volumen de invitado/servidor con disco seccionado > 4 TB <br><br/>Administración de volúmenes lógicos (LVM)| Sí
 Invitado/servidor: espacios de almacenamiento | Sin 
 Invitado/servidor: adición/eliminación de disco en caliente | Sin 
 Invitado/servidor: disco de exclusión | Sí
@@ -140,17 +140,17 @@ Varias rutas (MPIO) de invitado/servidor | N/D
 > - Requiere la versión de Mobility Service 9.13 o una posterior.
 > - No se admite para servidores físicos.
 
-## <a name="azure-storage"></a>Azure Storage
+## <a name="azure-storage"></a>Almacenamiento de Azure
 
 **Componente** | **Compatible**
 --- | ---
-LRS | Sí
-GRS | Sí
-RA-GRS | Sí
+Almacenamiento con redundancia local | Sí
+Almacenamiento con redundancia geográfica | Sí
+Almacenamiento con redundancia geográfica con acceso de lectura | Sí
 Almacenamiento de acceso esporádico | Sin 
 Almacenamiento de acceso frecuente| Sin 
 Blobs en bloques | Sin 
-Cifrado en reposo (SSE)| Sí
+Cifrado en reposo (Cifrado del servicio Storage)| Sí
 Premium Storage | Sí
 Servicio Import/Export | Sin 
 Puntos de conexión del servicio Virtual Network<br/><br/> Redes virtuales y firewalls de Azure Storage configurados en la cuenta de almacenamiento o la cuenta de almacenamiento en caché de destino (se usa para almacenar datos de replicación) | Sin 
@@ -161,7 +161,7 @@ Cuentas de almacenamiento de uso general v2 (niveles de acceso frecuente y espor
 **Característica** | **Compatible**
 --- | ---
 Conjuntos de disponibilidad | Sí
-CONCENTRADOR | Sí   
+CONCENTRADOR | Sí
 Discos administrados | Sí
 
 ## <a name="azure-vm-requirements"></a>Requisitos de VM de Azure
@@ -170,20 +170,18 @@ Las máquinas virtuales locales que se replican en Azure deben cumplir con los r
 
 **Componente** | **Requisitos** | **Detalles**
 --- | --- | ---
-**Sistema operativo invitado** | Comprobar los [sistemas operativos compatibles](#replicated machines). | Se produce un error en la comprobación si no es compatible. 
-**Arquitectura del sistema operativo invitado** | 64 bits | Se produce un error en la comprobación si no es compatible. 
-**Tamaño del disco del sistema operativo** | Hasta 2048 GB | Se produce un error en la comprobación si no es compatible. 
-**Número de discos del sistema operativo** | 1 | Se produce un error en la comprobación si no es compatible.  
-**Número de discos de datos** | 64 o menos | Se produce un error en la comprobación si no es compatible.  
-**Tamaño de VHD del disco de datos** | Hasta 4095 GB | Se produce un error en la comprobación si no es compatible. 
-**Adaptadores de red** | Se admiten varios adaptadores. | 
-**VHD compartido** | No compatible. | Se produce un error en la comprobación si no es compatible. 
-**Disco FC** | No compatible. | Se produce un error en la comprobación si no es compatible. 
-**Formato de disco duro** | VHD  <br/><br/> VHDX | VHDX no se admite en Azure en este momento, pero Site Recovery convierte automáticamente VHDX en VHD después de la conmutación por error. Cuando se realiza la conmutación por recuperación en el entorno local, las máquinas virtuales siguen usando el formato VHDX.
-**BitLocker** | No compatible | Debe deshabilitar BitLocker antes de habilitar la replicación de una máquina. | 
-**Nombre de la máquina virtual** | Entre 1 y 63 caracteres<br/><br/> Restringido a letras, números y guiones.<br/><br/> El nombre de la máquina debe empezar y terminar con una letra o un número. |  Actualice el valor de las propiedades de la máquina en Site Recovery.
-**Tipo de máquina virtual** | Generación 1 y Generación 2 (solo Windows) |  Las máquinas virtuales de Generación 2 deben tener un disco de sistema operativo básico (incluido o dos volúmenes de datos con el formato VHDX) y menos de 300 GB de espacio en disco 
-No se admiten las VM Linux de generación 2. 
+Sistema operativo invitado | Comprobar los [sistemas operativos compatibles](#replicated machines). | Se produce un error en la comprobación si no es compatible. 
+Arquitectura del sistema operativo invitado | 64 bits | Se produce un error en la comprobación si no es compatible. 
+Tamaño del disco del sistema operativo | Hasta 2048 GB | Se produce un error en la comprobación si no es compatible. 
+Número de discos del sistema operativo | 1 | Se produce un error en la comprobación si no es compatible.  
+Número de discos de datos | 64 o menos | Se produce un error en la comprobación si no es compatible.  
+Tamaño de VHD del disco de datos | Hasta 4095 GB | Se produce un error en la comprobación si no es compatible. 
+Adaptadores de red | Se admiten varios adaptadores. | 
+VHD compartido | No compatible. | Se produce un error en la comprobación si no es compatible. 
+Disco FC | No compatible. | Se produce un error en la comprobación si no es compatible. 
+BitLocker | No compatible. | Debe deshabilitar BitLocker antes de habilitar la replicación de una máquina. | 
+Nombre de la máquina virtual | Entre 1 y 63 caracteres.<br/><br/> Restringido a letras, números y guiones.<br/><br/> El nombre de la máquina debe empezar y terminar con una letra o un número. |  Actualice el valor de las propiedades de la máquina en Site Recovery.
+
 
 ## <a name="vault-tasks"></a>Tareas de almacén
 
@@ -197,8 +195,8 @@ Mover el almacenamiento, la red y las máquinas virtuales de Azure entre grupos 
 
 **Name** | **Descripción** | **La versión más reciente** | **Detalles**
 --- | --- | --- | --- | ---
-**Instalación unificada de Azure Site Recovery** | Coordina las comunicaciones entre servidores de VMware locales y Azure  <br/><br/> Se instala en servidores de VMware locales | 9.12.4653.1 (disponible en el portal) | [Características y correcciones más recientes](https://aka.ms/latest_asr_updates)
-**Mobility Service** | Coordina la replicación entre servidores de VMware locales o servidores físicos y el sitio secundario o Azure<br/><br/> Se instala en cada máquina virtual de VMware o servidor físico que se va a replicar | 9.12.4653.1 (disponible en el portal) | [Características y correcciones más recientes](https://aka.ms/latest_asr_updates)
+Instalación unificada de Azure Site Recovery | Coordina las comunicaciones entre servidores de VMware locales y Azure  <br/><br/> Se instala en servidores de VMware locales | 9.12.4653.1 (disponible en el portal) | [Características y correcciones más recientes](https://aka.ms/latest_asr_updates)
+Mobility Service | Coordina la replicación entre servidores de VMware locales o servidores físicos y el sitio secundario o Azure<br/><br/> Se instala en cada máquina virtual de VMware o servidor físico que se va a replicar | 9.12.4653.1 (disponible en el portal) | [Características y correcciones más recientes](https://aka.ms/latest_asr_updates)
 
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -1,6 +1,6 @@
 ---
-title: "Creación de una entidad de servicio de Azure Stack | Microsoft Docs"
-description: "Describe cómo crear una nueva entidad de servicio que puede usarse con el control de acceso basado en roles en Azure Resource Manager para administrar el acceso a los recursos."
+title: Creación de una entidad de servicio de Azure Stack | Microsoft Docs
+description: Describe cómo crear una nueva entidad de servicio que puede usarse con el control de acceso basado en roles en Azure Resource Manager para administrar el acceso a los recursos.
 services: azure-resource-manager
 documentationcenter: na
 author: mattbriggs
@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/25/2018
+ms.date: 03/15/2018
 ms.author: mabrigg
-ms.openlocfilehash: 64c424ee7045ae20b3fba6433166039580387d76
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 7b7028a92b93f29af10c5e4bc9ab4f671ca23961
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Proporcionar a las aplicaciones acceso a Azure Stack
 
@@ -51,14 +51,14 @@ En esta sección, creará una aplicación (entidad de servicio) en Azure AD que 
 Creó una entidad de servicio para la aplicación.
 
 ### <a name="get-credentials"></a>Obtener credenciales
-Al iniciar sesión mediante programación, deberá usar el identificador de la aplicación y una clave de autenticación. Para obtener estos valores, use los pasos siguientes:
+Al iniciar sesión mediante programación, deberá usar el identificador de la aplicación y, para una aplicación web o API, una clave de autenticación. Para obtener estos valores, use los pasos siguientes:
 
 1. En **App registrations** (Registros de aplicaciones), en Active Directory, seleccione su aplicación.
 
 2. Copie el **id. de aplicación** y almacénelo en el código de la aplicación. Las aplicaciones de la sección de [aplicaciones de ejemplo](#sample-applications) hacen referencia a este valor como el identificador de cliente.
 
      ![ID. DE CLIENTE](./media/azure-stack-create-service-principal/image12.png)
-3. Para generar una clave de autenticación, seleccione **Claves**.
+3. Para generar una clave de autenticación para una aplicación web o API, seleccione **Configuración** > **Claves**. 
 
 4. Proporcione una descripción de la clave y una duración. Cuando haya terminado, seleccione **Guardar**.
 

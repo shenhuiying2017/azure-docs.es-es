@@ -6,25 +6,22 @@ documentationcenter: storage
 author: robinsh
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 03/14/2018
 ms.author: robinsh
-ms.openlocfilehash: 15a4ed2370598cb98565c48b4563bee3a4445827
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: c09809e9cf513dbb9420f675bbf431c176f740bd
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>Operaciones en Azure Table Storage con Azure PowerShell 
-
->[!NOTE]
->La API de tabla de Azure Cosmos DB proporciona características premium de almacenamiento de tablas, como la distribución privada global, lecturas y escrituras de latencia baja, la indexación secundaria automática y el rendimiento dedicado. En la mayoría de los casos, los comandos de PowerShell de este artículo son válidos tanto para la API de tabla de Azure Cosmos DB como para Azure Table Storage, pero los de este artículo son específicos de Azure Table Storage. Si utiliza la API de tabla de Azure Cosmos DB, consulte el artículo sobre las [operaciones de API de tabla de Azure Cosmos DB con Azure PowerShell](table-powershell.md).
->
+[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 
 Azure Table Storage es un almacén de datos NoSQL que puede utilizar para almacenar y consultar conjuntos grandes de datos estructurados y no relacionales. Los componentes principales del servicio son tablas, entidades y propiedades. Una tabla es una colección de entidades. Una entidad es un conjunto de propiedades. Cada entidad puede tener hasta 252 propiedades, las cuales son todas pares nombre-valor. En este artículo supondremos que ya está familiarizado con los conceptos del servicio Azure Table Storage. Para más información, consulte [Introducción al modelo de datos de Table Service](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model) e [Introducción a Azure Table Storage mediante .NET](table-storage-how-to-use-dotnet.md).
 
@@ -38,7 +35,7 @@ En este artículo de instrucciones se describen las operaciones de Azure Table S
 > * Eliminar entidades de tabla
 > * Eliminación de una tabla
 
-En este artículo de instrucciones se muestra cómo crear una nueva cuenta de almacenamiento en un nuevo grupo de recursos, de modo que pueda eliminarla fácilmente cuando haya terminado. Si prefiere utilizar una cuenta de almacenamiento existente, puede hacerlo.
+En este artículo de instrucciones se muestra cómo crear una nueva cuenta de Azure Storage en un nuevo grupo de recursos, de modo que pueda eliminarla fácilmente cuando haya terminado. Si prefiere utilizar una cuenta de almacenamiento existente, puede hacerlo.
 
 Los ejemplos requieren la versión 4.4.0 o posterior del módulo de Azure PowerShell. En una ventana de PowerShell, ejecute `Get-Module -ListAvailable AzureRM` para buscar la versión. Si no aparece nada o necesita una actualización, vea [Install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps) (Instalar y configurar Azure PowerShell). 
 
@@ -105,7 +102,7 @@ New-AzureStorageTable –Name $tableName –Context $ctx
 Recupere una lista de tablas de la cuenta de almacenamiento mediante [Get-AzureStorageTable](/powershell/module/azure.storage/Get-AzureStorageTable).
 
 ```powershell
-$storageTable = Get-AzureStorageTable –Context $ctx | select Name
+Get-AzureStorageTable –Context $ctx | select Name
 ```
 
 ## <a name="retrieve-a-reference-to-a-specific-table"></a>Recuperación de una referencia a una tabla específica
@@ -137,7 +134,7 @@ Si ha creado un nuevo grupo de recursos y una cuenta de almacenamiento al princi
 Remove-AzureRmResourceGroup -Name $resourceGroup
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este artículo de instrucciones ha aprendido a realizar operaciones habituales de Azure Table Storage con PowerShell, por ejemplo: 
 

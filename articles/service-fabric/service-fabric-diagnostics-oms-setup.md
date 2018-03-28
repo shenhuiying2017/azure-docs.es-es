@@ -1,12 +1,12 @@
 ---
-title: "Azure Service Fabric: configuración de la supervisión con Log Analytics de OMS | Microsoft Docs"
-description: "Aprenda cómo configurar Operations Management Suite para visualizar y analizar los eventos con el fin de supervisar los clústeres de Azure Service Fabric."
+title: 'Azure Service Fabric: configuración de la supervisión con Log Analytics de OMS | Microsoft Docs'
+description: Aprenda cómo configurar Operations Management Suite para visualizar y analizar los eventos con el fin de supervisar los clústeres de Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/17/2017
 ms.author: dekapur
-ms.openlocfilehash: 288c7482058cd9f824b6001bb9ad36d1a5e0f8bf
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 98ac32b011744ce388762322edd538b467f93494
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="set-up-operations-management-suite-log-analytics-for-a-cluster"></a>Configuración de Operations Management Suite Log Analytics para un clúster
 
@@ -48,7 +48,7 @@ Si usa Windows, continúe con los siguientes pasos para conectar OMS a la cuenta
 >[!NOTE]
 >La habilitación de esta experiencia para clústeres de Linux aún no está disponible. 
 
-### <a name="add-the-oms-agent-to-your-cluster"></a>Adición del Agente de OMS a un clúster 
+### <a name="connect-the-oms-workspace-to-your-cluster"></a>Conexión del área de trabajo de OMS al clúster 
 
 1. El área de trabajo debe conectarse a los datos de diagnóstico que proceden del clúster. Vaya al grupo de recursos donde creó la solución Service Fabric Analytics. Seleccione **ServiceFabric\<nameOfOMSWorkspace\>** y vaya a su página de información general. Desde allí, puede cambiar la configuración de la solución, la configuración del área de trabajo y acceder al portal de OMS.
 
@@ -219,7 +219,7 @@ Cuando haya terminado, siga los pasos descritos en la sección anterior para con
 
 También puede agregar otras soluciones o realizar otras modificaciones al área de trabajo de OMS mediante PowerShell. Para más información, consulte [Administración de Log Analytics mediante PowerShell](../log-analytics/log-analytics-powershell-workspace-configuration.md).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Implemente el Agente de OMS](service-fabric-diagnostics-oms-agent.md) en los nodos para recopilar los contadores de rendimiento y recopilar estadísticas de Docker y registros para los contenedores
 * Familiarícese con las funciones de [búsqueda de registros y consulta](../log-analytics/log-analytics-log-searches.md) que se ofrecen como parte de Log Analytics
 * [Uso del Diseñador de vistas para crear vistas personalizadas en Log Analytics](../log-analytics/log-analytics-view-designer.md)

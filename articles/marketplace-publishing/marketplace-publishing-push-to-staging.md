@@ -1,11 +1,11 @@
 ---
-title: "Preparación y prueba de la oferta para su implementación en Azure Marketplace | Microsoft Docs"
-description: "Se ofrecen instrucciones detalladas sobre cómo proporcionar contenido de marketing, configurar planes de precios y probar la oferta antes de implementarla en Azure Marketplace."
+title: Preparación y prueba de la oferta para su implementación en Azure Marketplace | Microsoft Docs
+description: Se ofrecen instrucciones detalladas sobre cómo proporcionar contenido de marketing, configurar planes de precios y probar la oferta antes de implementarla en Azure Marketplace.
 services: marketplace-publishing
-documentationcenter: 
-author: HannibalSII
-manager: hascipio
-editor: 
+documentationcenter: ''
+author: msmbaldwin
+manager: mbaldwin
+editor: ''
 ms.assetid: 3ccd2448-895b-477e-adf6-ab655a21d2fa
 ms.service: marketplace
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/17/2016
-ms.author: hascipio
-ms.openlocfilehash: 7db86716cdf8f9eb921c3c1813970acae7a3016b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbaldwin
+ms.openlocfilehash: 5bec9ac89487a824b9de9209547f0b96fa5fe678
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="complete-the-offer-creation-with-marketing-content"></a>Finalización de la creación de ofertas con contenido de marketing
 En este paso del proceso de publicación, deberá proporcionar determinados contenidos de marketing y los detalles acerca de la oferta o SKU en Azure Marketplace. Por ejemplo, proporcionará una descripción de su producto, logotipos de empresa, planes de precios, detalles de los planes y otra información necesaria para insertar su oferta o SKU en el entorno de ensayo. Esta información se usa como contenido de marketing en nuestro Portal de Azure. Comenzará este proceso en el [portal de publicación][link-pubportal].
@@ -103,7 +103,7 @@ En la pestaña **Legal** , proporcione un vínculo a sus directivas o términos 
 
 ![dibujo](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-legal-01.png)
 
-**Nota** : Para las ofertas de máquinas virtuales, cuando una oferta o SKU se almacene provisionalmente en el Portal de Azure, no podrá cambiar los campos que se indican a continuación:
+**Nota** : Para las ofertas de máquinas virtuales, cuando una oferta o SKU se almacene provisionalmente en Azure Portal, no podrá cambiar los campos que se indican a continuación:
 
 * **Offer Identifier** (Identificador de oferta): Portal de publicación -&gt; Máquinas virtuales -&gt; Select your Offer (Seleccionar oferta) -&gt; pestaña Imágenes de VM -&gt; Offer Identifier (Identificador de oferta)
 * **SKU Identifier** (Identificador de SKU): Portal de publicación -&gt; Máquinas virtuales -&gt; Select your Offer (Seleccionar oferta) -&gt; pestaña SKUs (SKU) -&gt; Offer Identifier (Identificador de oferta)
@@ -122,7 +122,7 @@ Para las ofertas de máquinas virtuales, cuando una oferta o SKU se muestre en A
 
 ## <a name="step-2-set-your-prices"></a>Paso 2: Establecimiento de precios
 ### <a name="pricing-models"></a>Modelos de precios
-| Modelo de precios | Descripción |
+| Modelo de precios | DESCRIPCIÓN |
 | --- | --- |
 | Base |Tarifa plana mensual que se paga en el momento de la compra; por ejemplo, 10 $/mes |
 | Consumo (también conocido como "medidor de uso") |Pago por uso, que define el publicador de la oferta. No se puede definir el superávit por puesto, por usuario, etc., ya que no existe un concepto de fracción de usuario ni la posibilidad de prorratear. El asociado informa del uso cada hora. El cliente paga al final del ciclo de facturación mensual en lugar de hacerlo por adelantado como en los planes mensuales. |
@@ -139,7 +139,7 @@ Para las ofertas de máquinas virtuales, cuando una oferta o SKU se muestre en A
 
 |  | Solo base | Solo consumo | Base y consumo |
 | --- | --- | --- | --- |
-| Imagen de máquina virtual |No |Sí |No |
+| Imagen de máquina virtual |Sin  |Sí |Sin  |
 | Servicio de desarrolladores |Sí |Sí |Sí |
 
 ### <a name="21-set-your-vm-prices"></a>2.1. Establecimiento de los precios de máquina virtual
@@ -261,10 +261,10 @@ A continuación, se muestra una descripción detallada de cómo se utiliza la in
 
 *Detalles de precios de la descripción de la oferta en el sitio web de Azure Marketplace*
 
-### <a name="azure-portal"></a>Portal de Azure
+### <a name="azure-portal"></a>Azure Portal
 ![dibujo](media/marketplace-publishing-push-to-staging/azureportal-galleryblade-01.png)
 
-*Lista de ofertas en el Portal de Azure*
+*Lista de ofertas en Azure Portal*
 
 ![dibujo](media/marketplace-publishing-push-to-staging/azureportal-galleryblade-02.png)
 
@@ -276,8 +276,8 @@ Ahora que el contenido de Marketplace está cargado, avanzamos a la prueba de la
 * [Prueba de la oferta de máquina virtual en el entorno de ensayo](marketplace-publishing-vm-image-test-in-staging.md)
 * [Prueba de la oferta de plantilla de solución en el entorno de ensayo](marketplace-publishing-solution-template-test-in-staging.md)
 
-## <a name="see-also"></a>Consulte también
-* [Introducción: Publicación de una oferta en Azure Marketplace](marketplace-publishing-getting-started.md)
+## <a name="see-also"></a>Otras referencias
+* [Introducción: cómo publicar una oferta en Azure Marketplace](marketplace-publishing-getting-started.md)
 
 [img-map-acom]:media/marketplace-publishing-push-to-staging/pubportal-mapping-acom.jpg
 [img-map-portal]:media/marketplace-publishing-push-to-staging/pubportal-mapping-azure-portal.jpg

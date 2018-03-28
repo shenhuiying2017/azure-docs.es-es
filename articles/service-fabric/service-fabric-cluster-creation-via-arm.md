@@ -1,6 +1,6 @@
 ---
-title: "Creación de un clúster de Azure Service Fabric a partir de una plantilla | Microsoft Docs"
-description: "En este artículo se describe cómo configurar un clúster seguro de Service Fabric en Azure mediante Azure Resource Manager, Azure Key Vault y Azure Active Directory (Azure AD) para la autenticación de clientes."
+title: Creación de un clúster de Azure Service Fabric a partir de una plantilla | Microsoft Docs
+description: En este artículo se describe cómo configurar un clúster seguro de Service Fabric en Azure mediante Azure Resource Manager, Azure Key Vault y Azure Active Directory (Azure AD) para la autenticación de clientes.
 services: service-fabric
 documentationcenter: .net
 author: chackdan
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
 ms.author: chackdan
-ms.openlocfilehash: 6675603bf741b1a668ba387c8304d2e2b7ab4e12
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: e8e5513df5ab412857403382e1940da27c85274a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-service-fabric-cluster-by-using-azure-resource-manager"></a>Creación de un clúster de Service Fabric con Azure Resource Manager 
 > [!div class="op_single_selector"]
 > * [Administrador de recursos de Azure](service-fabric-cluster-creation-via-arm.md)
-> * [portal de Azure](service-fabric-cluster-creation-via-portal.md)
+> * [Azure Portal](service-fabric-cluster-creation-via-portal.md)
 >
 >
 
@@ -117,7 +117,7 @@ Use el siguiente comando para crear un clúster rápidamente, con solo los pará
 
 La plantilla que se usa está disponible en las [plantillas de ejemplo de Azure Service Fabric: plantilla de Windows](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) y [plantilla de Ubuntu](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure).
 
-Los comandos siguientes sirven para la creación de clústeres de Windows y Linux, solo es necesario especificar el sistema operativo correspondiente. Los comandos de PowerShell y de la CLI también generan el certificado en la carpeta de salida de certificados especificada. El comando toma también otros parámetros, como la SKU de máquina virtual.
+Los comandos siguientes sirven para la creación de clústeres de Windows y Linux, solo es necesario especificar el sistema operativo correspondiente. Los comandos de PowerShell y de la CLI también generan el certificado en la carpeta de salida de certificados especificada; no obstante, asegúrese de que dicha carpeta de certificados ya está creada. El comando toma también otros parámetros, como la SKU de máquina virtual.
 
 ```Powershell
 
@@ -126,13 +126,13 @@ $resourceGroupName="mycluster"
 $vaultName="myvault"
 $vaultResourceGroupName="myvaultrg"
 $CertSubjectName="mycluster.westus.cloudapp.azure.com"
-$certPassword="Password!1" | ConvertTo-SecureString -AsPlainText -Force 
-$vmpassword="Password!4321" | ConvertTo-SecureString -AsPlainText -Force
+$certPassword="Password123!@#" | ConvertTo-SecureString -AsPlainText -Force 
+$vmpassword="Password4321!@#" | ConvertTo-SecureString -AsPlainText -Force
 $vmuser="myadmin"
 $os="WindowsServer2016DatacenterwithContainers"
 $certOutputFolder="c:\certificates"
 
-New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -Location $resourceGroupLocation -CertificateOutputFolder $certOutputFolder -CertificatePassword $certpassword -CertificateSubjectName $CertSubjectName -OS $os -VmPassword $vmpassword -VmUserName $vmuser 
+New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -Location $resourceGroupLocation -CertificateOutputFolder $certOutputFolder -CertificatePassword $certpassword -CertificateSubjectName $CertSubjectName -OS $os -VmPassword $vmpassword -VmUserName $vmuser –Location $resourceGroupLocation
 
 ```
 
@@ -178,7 +178,7 @@ Si ya tiene una plantilla personalizada, asegúrese de comprobar doblemente que 
 ```
 
 
-```Powershell
+```PowerShell
 
 
 $resourceGroupLocation="westus"
@@ -226,7 +226,8 @@ Si es un certificado firmado por una entidad de certificación que terminará us
 #### <a name="use-the-default-5-node-1-nodetype-template-that-ships-in-the-module"></a>Uso de la plantilla predeterminada 5 Node 1 nodetype que se incluye con el módulo
 La plantilla que se usa está disponible en las [plantillas de Azure: plantilla de Windows](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) y [plantilla de Ubuntu](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure).
 
-```Powershell
+```PowerShell
+
 $resourceGroupLocation="westus"
 $resourceGroupName="mylinux"
 $vaultName="myvault"
@@ -279,7 +280,7 @@ Si ya tiene una plantilla personalizada, asegúrese de comprobar doblemente que 
 ```
 
 
-```Powershell
+```PowerShell
 
 $resourceGroupLocation="westus"
 $resourceGroupName="mylinux"
@@ -292,7 +293,7 @@ $templateFilePath="c:\mytemplates\mytemplate.json"
 $certificateFile="C:\MyCertificates\chackonewcertificate3.pem"
 
 
-New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -Location $resourceGroupLocation -TemplateFile $templateFilePath -ParameterFile $parameterFilePath -KeyVaultResouceGroupName $vaultResourceGroupName -KeyVaultName $vaultName -CertificateFile $certificateFile -CertificatePassword #certPassword
+New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -Location $resourceGroupLocation -TemplateFile $templateFilePath -ParameterFile $parameterFilePath -KeyVaultResouceGroupName $vaultResourceGroupName -KeyVaultName $vaultName -CertificateFile $certificateFile -CertificatePassword $certPassword
 
 ```
 
@@ -314,34 +315,34 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
     --template-file $templateFilePath --parameter-file $parametersFilePath 
 ```
 
-#### <a name="use-a-pointer-to-the-secret-you-already-have-uploaded-into-the-keyvault"></a>Uso de un puntero al secreto que ya se ha cargado en el almacén de claves
+#### <a name="use-a-pointer-to-the-secret-you-already-have-uploaded-into-the-key-vault"></a>Uso de un puntero al secreto que ya se ha cargado en el almacén de claves
 
 Para usar un almacén de claves existente, _debe estar habilitado para la implementación_, de forma que el proveedor de recursos de proceso pueda recibir de él certificados e instalarlos en nodos de clúster:
 
-```powershell
+```PowerShell
 
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -EnabledForDeployment
 
 
 $parameterFilePath="c:\mytemplates\mytemplate.json"
 $templateFilePath="c:\mytemplates\mytemplateparm.json"
-$secertId="https://test1.vault.azure.net:443/secrets/testcertificate4/55ec7c4dc61a462bbc645ffc9b4b225f"
+$secretID="https://test1.vault.azure.net:443/secrets/testcertificate4/55ec7c4dc61a462bbc645ffc9b4b225f"
 
 
-New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroup -SecretIdentifier $secretID -TemplateFile $templateFile -ParameterFile $templateParmfile 
+New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroup -SecretIdentifier $secretId -TemplateFile $templateFilePath -ParameterFile $parameterFilePath 
 
 ```
 Este es el comando equivalente de la CLI para hacer lo mismo. Cambie los valores de las instrucciones declare por los valores adecuados.
 
-```cli
-
+```CLI
+declare $resourceGroupName = "testRG"
 declare $parameterFilePath="c:\mytemplates\mytemplate.json"
 declare $templateFilePath="c:\mytemplates\mytemplateparm.json"
 declare $secertId="https://test1.vault.azure.net:443/secrets/testcertificate4/55ec7c4dc61a462bbc645ffc9b4b225f"
 
 
 az sf cluster create --resource-group $resourceGroupName --location $resourceGroupLocation  \
-    --secret-identifieraz $secretID  \
+    --secret-identifier az $secretID  \
     --template-file $templateFilePath --parameter-file $parametersFilePath 
 
 ```
@@ -522,7 +523,7 @@ Para agregar la configuración de Azure AD a una plantilla de Resource Manager d
 ```
 
 ### <a name="populate-the-parameter-file-with-the-values"></a>Rellene el archivo de parámetros con los valores.
-Por último, use los valores de salida del almacén de claves y los comandos de PowerShell de Azure AD para rellenar el archivo de parámetros:
+Por último, utilice los valores de salida del almacén de claves y los comandos de PowerShell de Azure AD para rellenar el archivo de parámetros:
 
 Si tiene previsto usar los módulos de PowerShell de RM de Service Fabric, no es necesario rellenar la información de certificado del clúster; si quiere que el sistema genere el certificado autofirmado para la seguridad del clúster, basta con mantener sus valores nulos. 
 
@@ -544,7 +545,7 @@ Si tiene previsto usar los módulos de PowerShell de RM de Service Fabric, no es
 
 Si va a usar certificados de aplicación o usa un clúster existente que ha cargado en el almacén de claves, debe obtener esta información y rellenarla. 
 
-Los módulos de RM no tiene la capacidad de generar automáticamente la configuración de Azure AD. Por ello, si tiene previsto usar Azure AD para el acceso de cliente, debe rellenarla.
+Los módulos de RM no tienen la capacidad de generar automáticamente la configuración de Azure AD. Por ello, si tiene previsto usar Azure AD para el acceso de cliente, debe rellenarla.
 
 ```json
 {
@@ -587,13 +588,13 @@ Los módulos de RM no tiene la capacidad de generar automáticamente la configur
 ### <a name="test-your-template"></a>Prueba de la plantilla  
 Use el siguiente comando de PowerShell para probar la plantilla de Resource Manager con un archivo de parámetros:
 
-```powershell
+```PowerShell
 Test-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json
 ```
 
 Si se encuentra con problemas y recibe mensajes cifrados, use "-Depurar" como opción.
 
-```powershell
+```PowerShell
 Test-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json -Debug
 ```
 
@@ -605,7 +606,7 @@ En el diagrama siguiente se ilustra el lugar que ocupa el almacén de claves y l
 
 Ahora puede implementar el clúster siguiendo los pasos descritos anteriormente en el documento, o, si tiene rellenados los valores del archivo de parámetros, ahora está listo para crear el clúster mediante la [implementación directa de la plantilla de recursos de Azure][resource-group-template-deploy].
 
-```powershell
+```PowerShell
 New-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json
 ```
 
@@ -677,7 +678,7 @@ Seleccione "Registros de aplicaciones" en la página de AAD, seleccione la aplic
 ### <a name="connect-the-cluster-by-using-azure-ad-authentication-via-powershell"></a>Conexión del clúster mediante la autenticación de Azure AD a través de PowerShell
 Para conectar el clúster de Service Fabric, use el siguiente ejemplo de comando de PowerShell:
 
-```powershell
+```PowerShell
 Connect-ServiceFabricCluster -ConnectionEndpoint <endpoint> -KeepAliveIntervalInSec 10 -AzureActiveDirectory -ServerCertThumbprint <thumbprint>
 ```
 
@@ -689,7 +690,7 @@ Sí. Pero recuerde agregar la dirección URL de Service Fabric Explorer a la apl
 ### <a name="why-do-i-still-need-a-server-certificate-while-azure-ad-is-enabled"></a>¿Por qué todavía necesito el certificado de servidor con Azure AD habilitado?
 FabricClient y FabricGateway realizan una autenticación mutua. Durante la autenticación de Azure AD, la integración de Azure AD proporciona la identidad del cliente al servidor y el certificado de servidor se utiliza para comprobar la identidad del servidor. Para más información sobre cómo funciona el certificado en Service Fabric, consulte [Certificados X.509 y Service Fabric][x509-certificates-and-service-fabric].
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este punto, tiene un clúster seguro con autenticación de Azure Active Directory que proporciona autenticación de administración. Después, [conéctese al clúster](service-fabric-connect-to-secure-cluster.md) y aprenda a [administrar secretos de aplicación](service-fabric-application-secret-management.md).
 
 

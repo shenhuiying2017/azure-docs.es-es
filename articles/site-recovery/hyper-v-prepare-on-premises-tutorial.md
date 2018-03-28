@@ -1,18 +1,18 @@
 ---
-title: "Preparación del servidor de Hyper-V local para la recuperación ante desastres de máquinas virtuales de Hyper-V en Azure | Microsoft Docs"
-description: "Obtenga información sobre cómo preparar las máquinas virtuales de Hyper-V locales no administradas por System Center VMM para la recuperación ante desastres en Azure con el servicio Azure Site Recovery."
+title: Preparación del servidor de Hyper-V local para la recuperación ante desastres de máquinas virtuales de Hyper-V en Azure | Microsoft Docs
+description: Obtenga información sobre cómo preparar las máquinas virtuales de Hyper-V locales no administradas por System Center VMM para la recuperación ante desastres en Azure con el servicio Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 03/15/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 9524ffde4a588d3ac029bc8a3df91726082e157d
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 1290a186ca8e83b09f53b286e80c5ce75f08d88c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>Preparación de servidores de Hyper-V locales para la recuperación ante desastres en Azure
 
@@ -28,25 +28,16 @@ Este es el segundo tutorial de la serie. Asegúrese de que [ha configurado los c
 
 
 
-## <a name="review-server-requirements"></a>Revisión de los requisitos del servidor
+## <a name="review-requirements-and-prerequisites"></a>Revisión de requisitos y requisitos previos
 
-Asegúrese de que los hosts de Hyper-V cumplan con los requisitos siguientes. Si administra hosts en las nubes de System Center Virtual Machine Manager (VMM), compruebe los requisitos de VMM.
+Asegúrese de que los hosts y las máquinas virtuales de VMware cumplen los requisitos.
 
+1. [Verifique](hyper-v-azure-support-matrix.md#on-premises-servers) los requisitos del servidor local.
+2. [Compruebe los requisitos](hyper-v-azure-support-matrix.md#replicated-vms) de las máquinas virtuales de Hyper-V que desea replicar en Azure.
+3. Compruebe las [redes](hyper-v-azure-support-matrix.md#hyper-v-network-configuration) del host de Hyper-V, así como la compatibilidad del [almacenamiento](hyper-v-azure-support-matrix.md#hyper-v-host-storage) invitado y de host en los hosts de Hyper-V locales.
+4. Compruebe lo que es compatible para [redes Azure](hyper-v-azure-support-matrix.md#azure-vm-network-configuration-after-failover), [almacenamiento](hyper-v-azure-support-matrix.md#azure-storage), y [proceso](hyper-v-azure-support-matrix.md#azure-compute-features), después de la conmutación por error.
+5. Las máquinas virtuales locales que replique en Azure tienen que cumplir los [requisitos de máquina virtual de Azure](hyper-v-azure-support-matrix.md#azure-vm-requirements).
 
-**Componente** | **Hyper-V administrado por VMM** | **Hyper-V sin VMM**
---- | --- | ---
-**Sistema operativo host de Hyper-V** | Windows Server 2016, 2012 R2 | N/D
-**VMM** | VMM 2012, VMM 2012 R2 | N/D
-
-
-## <a name="review-hyper-v-vm-requirements"></a>Revisión de los requisitos de la máquina virtual de Hyper-V
-
-Asegúrese de que la máquina virtual cumple con los requisitos que aparecen resumidos en la tabla.
-
-**Requisito de la máquina virtual** | **Detalles**
---- | ---
-**Sistema operativo invitado** | Cualquier sistema operativo invitado [compatible con Azure](https://technet.microsoft.com/library/cc794868.aspx).
-**Requisitos de Azure** | Las máquinas virtuales de Hyper-V locales deben cumplir con los requisitos de la máquina virtual de Azure (site-recovery-support-matrix-to-azure.md).
 
 ## <a name="prepare-vmm-optional"></a>Preparación de VMM (opcional)
 
@@ -82,15 +73,16 @@ Para preparar VMM para la asignación de red, siga estos pasos:
 
 Durante una conmutación por error, es posible que quiera conectarse a la red local replicada.
 
-Para conectarse a máquinas virtuales Windows mediante RDP después de la conmutación por error, haga lo siguiente:
+Para conectarse a máquinas virtuales Windows mediante RDP después de la conmutación por error, conceda permisos de acceso como se indica a continuación:
 
 1. Para obtener acceso a través de Internet, habilite RDP en la máquina virtual local antes de la conmutación por error. Asegúrese de que se hayan agregado las reglas de TCP y UDP para el perfil **Público**, y que RDP se permite en **Firewall de Windows** > **Aplicaciones permitidas** para todos los perfiles.
 2. Para obtener acceso a través de VPN de sitio a sitio, habilite RDP en la máquina local. RDP debe permitirse en **Firewall de Windows** -> **Aplicaciones y características permitidas** para redes de **dominio y privadas**.
    Compruebe que la directiva SAN del sistema operativo está establecida en **OnlineAll**. [Más información](https://support.microsoft.com/kb/3031135). No debe haber actualizaciones de Windows pendientes en la máquina virtual cuando se desencadene una conmutación por error. Si hay, no podrá iniciar sesión en la máquina virtual hasta que se complete la actualización.
 3. En la máquina virtual de Microsoft Azure después de la conmutación por error, compruebe los **Diagnósticos de arranque** para ver una captura de pantalla de la máquina virtual. Si no puede conectarse, compruebe que se está ejecutando la máquina virtual y revise estas [sugerencias de solución de problemas](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
+Después de la conmutación por error, puede acceder a las máquinas virtuales de Azure con la misma dirección IP replicada en la máquina virtual local, o bien con una dirección IP distinta. [Obtenga más información](concepts-on-premises-to-azure-networking.md) sobre la configuración de las direcciones IP para la conmutación por error.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Configuración de la recuperación ante desastres en Azure para máquinas virtuales de Hyper-V](tutorial-hyper-v-to-azure.md)

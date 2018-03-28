@@ -9,17 +9,17 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/09/2018
 ms.author: rajanaki
-ms.openlocfilehash: 6dcecce78de3caaefb40cb3fe4853d5d550163b4
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 480c3524ad4fb8a8c6ea02f09b8d27f254da9b08
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="troubleshoot-failback-from-azure-to-vmware"></a>Solución de problemas en la conmutación por recuperación de Azure en VMware
 
-En este artículo se explica cómo solucionar los problemas que se puede encontrar al realizar una conmutación por recuperación de las máquinas virtuales de Azure en la infraestructura local de WMware, después de una conmutación por error en Azure mediante [Azure Site Recovery](site-recovery-overview.md).
+En este artículo se explica cómo solucionar los problemas que se puede encontrar al realizar una conmutación por recuperación de las máquinas virtuales de Azure en la infraestructura local de VMware, después de una conmutación por error en Azure mediante [Azure Site Recovery](site-recovery-overview.md).
 
-La conmutación por recuperación implica básicamente dos pasos principales. Después de la recuperación por error, debe volver a proteger las máquinas virtuales de Azure en las ubicaciones locales, para que puedan comenzar la replicación. El segundo paso es ejecutar una conmutación por error desde Azure, para luego ejecutar una conmutación por recuperación en su sitio local.
+La conmutación por recuperación implica básicamente dos pasos principales. En primer lugar, después de la recuperación por error, debe volver a proteger las máquinas virtuales de Azure en las ubicaciones locales para que puedan comenzar la replicación. El segundo paso es ejecutar una conmutación por error desde Azure, para luego ejecutar una conmutación por recuperación en su sitio local.
 
 ## <a name="troubleshoot-reprotection-errors"></a>Solución de errores de reprotección
 
@@ -31,32 +31,36 @@ En esta sección se detallan los errores más habituales de reprotección y cóm
 
 Este error se produce cuando:
 
-1. La máquina virtual de Azure no puede llegar al servidor de configuración local. La máquina virtual no se puede detectar ni registrar en el servidor de configuración.
-2. El servicio de aplicación InMage Scout no se ejecuta en la máquina virtual de Azure después de la conmutación por error. El servicio es necesario para las comunicaciones con el servidor de configuración local.
+* La máquina virtual de Azure no puede llegar al servidor de configuración local. La máquina virtual no se puede detectar ni registrar en el servidor de configuración.
+* El servicio de aplicación InMage Scout no se ejecuta en la máquina virtual de Azure después de la conmutación por error. El servicio es necesario para las comunicaciones con el servidor de configuración local.
 
 Para resolver este problema:
 
-1. Compruebe que la red de VM de Azure permite que la máquina virtual de Azure se comunique con el servidor de configuración local. Para ello, configure una VPN de sitio a sitio en el centro de datos local o una conexión de ExpressRoute con pares privados en la red virtual de la máquina virtual de Azure.
-2. Si la máquina virtual puede comunicarse con el servidor de configuración local, inicie sesión en la máquina virtual y compruebe el servicio de aplicación InMage Scout. Si ve que no se está ejecutando, inicie el servicio manualmente y compruebe que el tipo de inicio del servicio se ha establecido en automático.
+* Compruebe que la red de VM de Azure permite que la máquina virtual de Azure se comunique con el servidor de configuración local. Puede configurar una VPN de sitio a sitio en el centro de datos local o una conexión de Azure ExpressRoute con pares privados en la red virtual de la máquina virtual de Azure.
+* Si la máquina virtual puede comunicarse con el servidor de configuración local, inicie sesión en la máquina virtual. A continuación, compruebe el servicio de aplicación de InMage Scout. Si ve que no se está ejecutando, inicie el servicio manualmente. Compruebe que el tipo de inicio del servicio está configurado en **Automático**.
 
 ### <a name="error-code-78052"></a>Código de error 78052
 
 **No se pudo finalizar la protección de la máquina virtual.**
 
-Esto puede suceder si ya hay una máquina virtual con el mismo nombre en el servidor de destino maestro en el que se está realizando la conmutación por recuperación.
+Este problema puede suceder si ya hay una máquina virtual con el mismo nombre en el servidor de destino maestro en el que se está realizando la conmutación por recuperación.
 
-Para resolver este problema, haga lo siguiente:
-1. Seleccione otro servidor de destino maestro de un host diferente, con el fin de que la reprotección cree la máquina en otro host, donde los nombres no entren en conflicto.
-2. También puede mover el servidor de destino maestro con vMotion a un host diferente en el que los nombres no entren en conflicto. Si la máquina virtual existente es una máquina aislada, cámbiele el nombre para que se pueda crear la nueva máquina virtual en el mismo host ESXi.
+Para resolver este problema:
+
+* Seleccione otro servidor de destino maestro de un host diferente, con el fin de que la reprotección cree la máquina en otro host, donde los nombres no entren en conflicto.
+* También puede usar vMotion para mover el destino maestro a otro host en el que no se produzca la colisión de nombres. Si la máquina virtual existente es una máquina aislada, cámbiele el nombre para que se pueda crear la nueva máquina virtual en el mismo host ESXi.
+
 
 ### <a name="error-code-78093"></a>Código de error 78093
 
 **La VM no se está ejecutando, no responde o no está accesible.**
 
-Para volver a proteger una máquina virtual conmutada por error, se debe estar ejecutando la máquina virtual de Azure. Esto es para que Mobility Service se registre con el servidor de configuración local y puede empezar a realizar la replicación mediante la comunicación con el servidor de procesos. Si el equipo está en una red incorrecta o no se ejecuta (bloqueado o apagado), el servidor de configuración no puede acceder a Mobility Service de la máquina virtual para iniciar la reprotección.
+Para resolver este problema:
 
-1. Puede reiniciar la máquina virtual para que pueda comenzar la comunicación con el entorno local.
-2. Reinicie el trabajo de reprotección después de iniciar la máquina virtual de Azure
+Para volver a proteger una máquina virtual que ha conmutado por error, la máquina virtual de Azure debe estar en ejecución para que Mobility Service se registre con el servidor de configuración local y pueda empezar a realizar la replicación mediante la comunicación con el servidor de procesos. Si el equipo está en una red incorrecta o no se ejecuta (bloqueado o apagado), el servidor de configuración no puede acceder a Mobility Service de la máquina virtual para iniciar la reprotección.
+
+* Puede reiniciar la máquina virtual para que pueda comenzar la comunicación con el entorno local.
+* Reinicie el trabajo de reprotección después de iniciar la máquina virtual de Azure.
 
 ### <a name="error-code-8061"></a>Código de error 8061
 
@@ -71,9 +75,11 @@ En esta sección se describen los errores habituales que pueden surgir durante u
 
 ### <a name="error-code-8038"></a>Código de error 8038
 
-**No se pudo iniciar la máquina virtual local debido al error**
+**No se pudo iniciar la máquina virtual local debido al error.**
 
-Esto sucede cuando la máquina virtual local se inicia en un host que no tiene suficiente memoria aprovisionada. Para resolver este problema:
+Este problema sucede cuando la máquina virtual local se inicia en un host que no tiene suficiente memoria aprovisionada. 
 
-1. Aprovisione más memoria en el host ESXi.
-2. Además, puede mover la máquina virtual con vMotion a otro host ESXi que tenga memoria suficiente para iniciar la máquina virtual.
+Para resolver este problema:
+
+* Aprovisione más memoria en el host ESXi.
+* Además, puede mover la máquina virtual con vMotion a otro host ESXi que tenga memoria suficiente para iniciar la máquina virtual.

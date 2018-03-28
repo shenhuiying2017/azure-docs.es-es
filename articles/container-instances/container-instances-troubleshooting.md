@@ -1,27 +1,88 @@
 ---
-title: "Solución de problemas de Azure Container Instances"
-description: "Obtenga información acerca de la solución de problemas relacionados con Azure Container Instances"
+title: Solución de problemas de Azure Container Instances
+description: Obtenga información acerca de la solución de problemas relacionados con Azure Container Instances
 services: container-instances
 author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 01/02/2018
+ms.date: 03/14/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 561729e5e495500222ccec5b4b536a3152cb25e3
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: a527939d6bc73e3dee5701bc53ef8312e68d2953
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="troubleshoot-deployment-issues-with-azure-container-instances"></a>Solución de problemas en las implementaciones en Azure Container Instances
 
 Este artículo muestra cómo solucionar problemas al implementar contenedores en Azure Container Instances. También describe algunos de los problemas comunes con los que podría encontrarse.
 
+## <a name="view-logs-and-stream-output"></a>Visualización de registros y transmisión de resultado
+
+Cuando haya un contenedor que se comporte de manera inadecuada, empiece por ver sus registros con [az container logs][az-container-logs] y transmitir su salida estándar y error estándar con [az container attach][az-container-attach].
+
+### <a name="view-logs"></a>Ver registros
+
+Para ver los registros desde el código de la aplicación dentro de un contenedor, puede utilizar el comando [az container logs][az-container-logs].
+
+El siguiente es el registro de salida del contenedor de ejemplo basado en tareas de [Ejecución de tareas en contenedores en Azure Container Instances](container-instances-restart-policy.md), después de haberle transmitido una dirección URL no válida para que la procese:
+
+```console
+$ az container logs --resource-group myResourceGroup --name mycontainer
+Traceback (most recent call last):
+  File "wordcount.py", line 11, in <module>
+    urllib.request.urlretrieve (sys.argv[1], "foo.txt")
+  File "/usr/local/lib/python3.6/urllib/request.py", line 248, in urlretrieve
+    with contextlib.closing(urlopen(url, data)) as fp:
+  File "/usr/local/lib/python3.6/urllib/request.py", line 223, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 532, in open
+    response = meth(req, response)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 642, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 570, in error
+    return self._call_chain(*args)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 504, in _call_chain
+    result = func(*args)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 650, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 404: Not Found
+```
+
+### <a name="attach-output-streams"></a>Flujos de salida como adjuntos
+
+El comando[az container attach][az-container-attach] proporciona información de diagnóstico durante el inicio del contenedor. Una vez que el contenedor se ha iniciado, transmite STDOUT y STDERR a la consola local.
+
+Por ejemplo, este es el resultado del contenedor basado en tareas de [Ejecución de tareas en contenedores en Azure Container Instances](container-instances-restart-policy.md) después de haber proporcionado una dirección URL válida de un archivo de texto grande para procesar:
+
+```console
+$ az container attach --resource-group myResourceGroup --name mycontainer
+Container 'mycontainer' is in state 'Unknown'...
+Container 'mycontainer' is in state 'Waiting'...
+Container 'mycontainer' is in state 'Running'...
+(count: 1) (last timestamp: 2018-03-09 23:21:33+00:00) pulling image "microsoft/aci-wordcount:latest"
+(count: 1) (last timestamp: 2018-03-09 23:21:49+00:00) Successfully pulled image "microsoft/aci-wordcount:latest"
+(count: 1) (last timestamp: 2018-03-09 23:21:49+00:00) Created container with id e495ad3e411f0570e1fd37c1e73b0e0962f185aa8a7c982ebd410ad63d238618
+(count: 1) (last timestamp: 2018-03-09 23:21:49+00:00) Started container with id e495ad3e411f0570e1fd37c1e73b0e0962f185aa8a7c982ebd410ad63d238618
+
+Start streaming logs:
+[('the', 22979),
+ ('I', 20003),
+ ('and', 18373),
+ ('to', 15651),
+ ('of', 15558),
+ ('a', 12500),
+ ('you', 11818),
+ ('my', 10651),
+ ('in', 9707),
+ ('is', 8195)]
+```
+
 ## <a name="get-diagnostic-events"></a>Obtención de eventos de diagnóstico
 
-Para ver los registros desde el código de la aplicación dentro de un contenedor, puede utilizar el comando [az container logs][az-container-logs]. Pero si el contenedor no se implementa correctamente, debe revisar la información de diagnóstico proporcionada por el proveedor de recursos de Azure Container Instances. Para ver los eventos del contenedor, ejecute el comando [az container show][az-container-show]:
+Si el contenedor no se implementa correctamente, debe revisar la información de diagnóstico proporcionada por el proveedor de recursos de Azure Container Instances. Para ver los eventos del contenedor, ejecute el comando [az container show][az-container-show]:
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name mycontainer
@@ -90,11 +151,17 @@ La salida incluye las propiedades básicas del contenedor, junto con los eventos
 
 ## <a name="common-deployment-issues"></a>Problemas comunes de implementación
 
-Hay algunos problemas comunes relacionados con la mayoría de los errores de implementación.
+En las siguientes secciones se describen los problemas comunes responsables de la mayoría de errores relacionados con la implementación de contenedores:
+
+* [Versión de imagen no compatible](#image-version-not-supported)
+* [No se puede extraer la imagen](#unable-to-pull-image)
+* [El contenedor continuamente se cierra y se reinicia](#container-continually-exits-and-restarts)
+* [El contenedor tarda mucho tiempo en iniciar](#container-takes-a-long-time-to-start)
+* [Error de recurso no disponible](#resource-not-available-error)
 
 ## <a name="image-version-not-supported"></a>Versión de imagen no compatible
 
-Si se especifica una imagen que Azure Container Instances no admite, se devolverá un error como `ImageVersionNotSupported`. El valor del error mostrará `The version of image '{0}' is not supported.`. Este error actualmente se aplica a las imágenes de Windows 1709 para mitigar el uso de una imagen de Windows LTS. Se está trabajando para la compatibilidad con las imágenes de Windows 1709.
+Si se especifica una imagen que Azure Container Instances no admite, se devuelve un error `ImageVersionNotSupported`. El valor del error es `The version of image '{0}' is not supported.`, y se aplica actualmente a las imágenes de Windows 1709. Para mitigar este problema, utilice una imagen de Windows LTS. Se está trabajando para la compatibilidad con las imágenes de Windows 1709.
 
 ## <a name="unable-to-pull-image"></a>No se puede extraer la imagen
 
@@ -180,24 +247,39 @@ La API de Container Instances incluye una propiedad `restartCount`. Para comprob
 
 ## <a name="container-takes-a-long-time-to-start"></a>El contenedor tarda mucho tiempo en iniciar
 
+Los dos factores principales que contribuyen al tiempo de inicio del contenedor en Azure Container Instances son:
+
+* [Tamaño de las imágenes](#image-size)
+* [Ubicación de las imágenes](#image-location)
+
+Las imágenes de Windows tienen [consideraciones adicionales](#use-recent-windows-images).
+
+### <a name="image-size"></a>Tamaño de las imágenes
+
 Si el contenedor tarda mucho tiempo en iniciar, pero al final se realiza correctamente, comience por mirar el tamaño de la imagen del contenedor. Como Azure Container Instances extrae la imagen del contenedor a petición, el tiempo de inicio que experimenta está directamente relacionado con su tamaño.
 
-Puede ver el tamaño de la imagen del contenedor mediante la CLI de Docker:
+Puede ver el tamaño de la imagen del contenedor mediante el comando `docker images` en la CLI de Docker:
 
-```bash
-docker images
-```
-
-Salida:
-
-```bash
-REPOSITORY                             TAG                 IMAGE ID            CREATED             SIZE
-microsoft/aci-helloworld               latest              7f78509b568e        13 days ago         68.1MB
+```console
+$ docker images
+REPOSITORY                  TAG       IMAGE ID        CREATED        SIZE
+microsoft/aci-helloworld    latest    7f78509b568e    13 days ago    68.1MB
 ```
 
 La clave para mantener tamaños de imagen pequeños es asegurarse de que la imagen final no contiene nada que no sea necesario en tiempo de ejecución. Una manera de hacerlo es con [compilaciones en varias etapas][docker-multi-stage-builds]. Las compilaciones en varias etapas hacen más sencillo asegurarse de que la imagen final contiene solo los artefactos necesarios para la aplicación y no los del contenido extra que se requiere en tiempo de compilación.
 
-La otra forma de reducir el impacto de la extracción de la imagen en el tiempo de inicio del contenedor es hospedar la imagen del contenedor con Azure Container Registry en la misma región en la que va a utilizar Azure Container Instances. Esto reduce la ruta de acceso de red que debe recorrer la imagen del contenedor, lo que reduce significativamente el tiempo de descarga.
+### <a name="image-location"></a>Ubicación de las imágenes
+
+Otra forma de reducir el impacto de la extracción de la imagen en el tiempo de inicio del contenedor es hospedar la imagen del contenedor con [Azure Container Registry](/azure/container-registry/) en la misma región en la que van a implementar las instancias de contenedor. Esto reduce la ruta de acceso de red que debe recorrer la imagen del contenedor, lo que reduce significativamente el tiempo de descarga.
+
+### <a name="use-recent-windows-images"></a>Uso de imágenes de Windows recientes
+
+Azure Container Instances usa un mecanismo de almacenamiento en caché para acelerar el tiempo de inicio del contenedor para las imágenes basadas en determinadas imágenes de Windows.
+
+Para garantizar el menor tiempo de inicio de contenedor de Windows, utilice una de las **tres versiones más recientes** de las siguientes **dos imágenes** como imagen base:
+
+* [Windows Server 2016][docker-hub-windows-core] (solo LTS)
+* [Windows Server 2016 Nano Server][docker-hub-windows-nano]
 
 ## <a name="resource-not-available-error"></a>Error de recurso no disponible
 
@@ -214,7 +296,10 @@ Este error indica que, debido a una carga elevada en la región en la que está 
 
 <!-- LINKS - External -->
 [docker-multi-stage-builds]: https://docs.docker.com/engine/userguide/eng-image/multistage-build/
+[docker-hub-windows-core]: https://hub.docker.com/r/microsoft/windowsservercore/
+[docker-hub-windows-nano]: https://hub.docker.com/r/microsoft/nanoserver/
 
 <!-- LINKS - Internal -->
+[az-container-attach]: /cli/azure/container#az_container_attach
 [az-container-logs]: /cli/azure/container#az_container_logs
 [az-container-show]: /cli/azure/container#az_container_show

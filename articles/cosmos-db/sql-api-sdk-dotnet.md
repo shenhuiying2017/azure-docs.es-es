@@ -1,6 +1,6 @@
 ---
 title: API, SDK y recursos de .NET para SQL de Azure Cosmos DB | Microsoft Docs
-description: "Obtenga toda la información sobre la API y el SDK de .NET para SQL, incluidas la fechas de lanzamiento, fechas de retirada y cambios realizados entre las versiones del SDK para .NET de Azure Cosmos DB."
+description: Obtenga toda la información sobre la API y el SDK de .NET para SQL, incluidas la fechas de lanzamiento, fechas de retirada y cambios realizados entre las versiones del SDK para .NET de Azure Cosmos DB.
 services: cosmos-db
 documentationcenter: .net
 author: rnagpal
@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 03/09/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 825b2657cc6aa7b4e116f44020767beff911b1fc
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 5dd2fb353246120f58840914e8a4e5527d7a4486
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>API de SQL para el SDK de .NET para Azure Cosmos DB: descarga y notas de la versión
 > [!div class="op_single_selector"]
@@ -54,6 +54,11 @@ ms.lasthandoff: 03/12/2018
 </table></br>
 
 ## <a name="release-notes"></a>Notas de la versión
+### <a name="a-name12111211"></a><a name="1.21.1"/>1.21.1
+
+* Se ha corregido KeyNotFoundException para el orden de particiones cruzadas por consultas en casos excepcionales.
+* Se ha corregido el error, donde no se ha respetado el atributo JsonPropery de la cláusula select para consultas LINQ.
+
 ### <a name="a-name12021202"></a><a name="1.20.2"/>1.20.2
 
 * Se ha corregido el error que se producía en ciertas condiciones de carrera, que daba como resultado errores intermitentes "Microsoft.Azure.Documents.NotFoundException: la sesión de lectura no está disponible para el token de sesión de entrada" cuando se utilizaba el nivel de coherencia de sesión.
@@ -290,6 +295,8 @@ El servicio rechaza cualquier solicitud realizada a Azure Cosmos DB mediante un 
 
 | Versión | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
+| [1.21.1](#1.20.1) |9 de marzo de 2018 |--- |
+| [1.20.2](#1.20.1) |21 de febrero de 2018 |--- |
 | [1.20.1](#1.20.1) |5 de febrero de 2018 |--- |
 | [1.19.1](#1.19.1) |16 de noviembre de 2017 |--- |
 | [1.19.0](#1.19.0) |10 de noviembre de 2017 |--- |

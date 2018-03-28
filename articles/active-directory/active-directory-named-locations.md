@@ -1,8 +1,8 @@
 ---
-title: Ubicaciones con nombre en Azure Active Directory | Microsoft Docs
-description: "Más información acerca de las ubicaciones con nombre y cómo configurarlas."
+title: Configuración de ubicaciones con nombre en Azure Active Directory | Microsoft Docs
+description: Aprenda a configurar ubicaciones con nombre.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: f56e042a-78d5-4ea3-be33-94004f2a0fc3
@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2018
+ms.date: 03/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: b6f80cde24edcbec68309ba033d4da16ee97b731
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 3b7bd6f4bea111815f647af09ebaa868696b25bc
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="named-locations-in-azure-active-directory"></a>Ubicaciones con nombre en Azure Active Directory
+# <a name="configure-named-locations-in-azure-active-directory"></a>Configuración de ubicaciones con nombre en Azure Active Directory
 
 Con las ubicaciones con nombre, puede etiquetar intervalos de direcciones IP de confianza en su organización. Azure Active Directory usa las ubicaciones con nombre en el contexto de:
 
@@ -89,22 +89,14 @@ Puede tener acceso a la página de configuración de la ubicación con nombre en
 
 
 
-## <a name="what-you-should-know"></a>Qué debería saber
+## <a name="next-steps"></a>Pasos siguientes
 
-**Actualizaciones masivas**: al crear o actualizar ubicaciones con nombre, en el caso de las actualizaciones masivas, puede cargar o descargar un archivo CSV con los intervalos de IP. Una carga permite agregar los intervalos IP del archivo a la lista en lugar de sobrescribir la lista.
+Para más información, consulte:
 
-![Los vínculos de carga y descarga](./media/active-directory-named-locations/09.png)
+- [Acceso condicional en Azure Active Directory](active-directory-conditional-access-azure-portal.md).
 
+- [Condiciones de ubicación del acceso condicional de Azure Active Directory](active-directory-conditional-access-locations.md)
 
-**Limitaciones:** puede definir un máximo de 60 ubicaciones con nombre con un intervalo de IP asignado a cada una de ellas. Si tiene una sola ubicación con nombre configurada, puede definir hasta 500 intervalos IP para ella.
+- [Eventos de riesgo de Azure Active Directory](active-directory-reporting-risk-events.md).
 
-
-## <a name="next-steps"></a>pasos siguientes
-
-Para más información sobre:
-
-- **Eventos de riesgo**, consulte los [eventos de riesgo de Azure Active Directory](active-directory-reporting-risk-events.md).
-
-- **Acceso condicional**, consulte [Acceso condicional en Azure Active Directory](active-directory-conditional-access-azure-portal.md).
-
-- **Informes de inicios de sesión poco seguros**, consulte [Informe de inicios de sesión poco seguros del portal de Azure Active Directory](active-directory-reporting-security-risky-sign-ins.md).  
+- [Informe de inicios de sesión poco seguros del portal de Azure Active Directory](active-directory-reporting-security-risky-sign-ins.md).  

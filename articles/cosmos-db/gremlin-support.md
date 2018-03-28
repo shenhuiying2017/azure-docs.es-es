@@ -1,28 +1,28 @@
 ---
 title: Compatibilidad de Azure Cosmos DB con Gremlin | Microsoft Docs
-description: "Más información sobre el lenguaje Gremlin de Apache TinkerPop y sobre las características y pasos que están disponibles en Azure Cosmos DB"
+description: Más información sobre el lenguaje Gremlin de Apache TinkerPop y sobre las características y pasos que están disponibles en Azure Cosmos DB
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: luisbosquez
 manager: jhubbard
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 6016ccba-0fb9-4218-892e-8f32a1bcc590
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: 
+ms.workload: ''
 ms.date: 01/02/2018
 ms.author: lbosq
-ms.openlocfilehash: 59d926f54c8dfc2991929f2eb42b20056e3a09c3
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: b32838dfaf83ea3acfb7125322bb99124370bd8e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Compatibilidad de Azure Cosmos DB con grafos Gremlin
-Azure Cosmos DB admite el lenguaje de recorrido de grafos de [Apache Tinkerpop](http://tinkerpop.apache.org), [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), que es una API Graph para crear entidades de grafo y realizar operaciones de consulta de grafos. Puede usar el lenguaje Gremlin para crear entidades de grafo (vértices y aristas), modificar las propiedades de las entidades, realizar consultas y recorridos, y eliminar entidades. 
+Azure Cosmos DB admite el lenguaje de recorrido de grafos de [Apache Tinkerpop](http://tinkerpop.apache.org), [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), que es una instancia de Graph API para crear entidades de grafo y realizar operaciones de consulta de grafos. Puede usar el lenguaje Gremlin para crear entidades de grafo (vértices y aristas), modificar las propiedades de las entidades, realizar consultas y recorridos, y eliminar entidades. 
 
 Azure Cosmos DB aporta características empresariales a las bases de datos de grafos, Esto incluye distribución global, escalado independiente del almacenamiento y el rendimiento, latencias predecibles inferiores a 10 milisegundos, indexación automática, SLA y disponibilidad de lectura para cuentas de base de datos que abarcan dos o más regiones de Azure. Dado que Azure Cosmos DB admite TinkerPop/Gremlin, puede migrar fácilmente aplicaciones escritas con otra base de datos de grafos sin tener que hacer cambios en el código. Además, gracias a la compatibilidad con Gremlin, Azure Cosmos DB se integra perfectamente entornos de análisis habilitados para TinkerPop, tales como [Apache Spark GraphX](http://spark.apache.org/graphx/). 
 
@@ -84,7 +84,7 @@ En la tabla siguiente se enumeran las características de TinkerPop implementada
 | Características de variables | Admite valores Boolean, Integer, Byte, Double, Float, Integer, Long, String. | Admite tipos primitivos; es compatible con tipos complejos mediante el modelo de datos. |
 | Características de vértices | Admite RemoveVertices, MetaProperties, AddVertices, MultiProperties, StringIds, UserSuppliedIds, AddProperty, RemoveProperty.  | Permite crear, modificar y eliminar vértices. |
 | Características de propiedades de vértices | StringIds, UserSuppliedIds, AddProperty, RemoveProperty, BooleanValues, ByteValues, DoubleValues, FloatValues, IntegerValues, LongValues, StringValues | Permite crear, modificar y eliminar propiedades de vértices. |
-| Características de aristas | AddEges, RemoveEdges, StringIds, UserSuppliedIds, AddProperty, RemoveProperty | Permite crear, modificar y eliminar aristas. |
+| Características de aristas | AddEdges, RemoveEdges, StringIds, UserSuppliedIds, AddProperty, RemoveProperty | Permite crear, modificar y eliminar aristas. |
 | Características de propiedades de aristas | Properties, BooleanValues, ByteValues, DoubleValues, FloatValues, IntegerValues, LongValues, StringValues | Permite crear, modificar y eliminar propiedades de aristas. |
 
 ## <a name="gremlin-wire-format-graphson"></a>Formato de alambre de Gremlin: GraphSON

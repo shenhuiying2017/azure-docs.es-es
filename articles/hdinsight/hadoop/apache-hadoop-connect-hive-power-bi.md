@@ -3,32 +3,39 @@ title: Visualizar macrodatos con Power BI en Azure HDInsight | Microsoft Docs
 description: Aprenda a usar Microsoft Power BI para visualizar datos de Hive procesados por Azure HDInsight.
 keywords: hdinsight,hadoop,hive,consulta interactiva,hive interactivo,LLAP,odbc
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive,
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/03/2018
+ms.date: 03/14/2018
 ms.author: jgao
-ms.openlocfilehash: 8b4347fde274d0d7520ef3acbd081fdb83d7dc7d
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.openlocfilehash: e543fba4c382501024bd33bed3853e7806d081ae
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="visualize-hive-data-with-microsoft-power-bi-using-odbc-in-azure-hdinsight"></a>Visualización de datos de Hive con Microsoft Power BI mediante ODBC en Azure HDInsight
 
-Aprenda a conectar Microsoft Power BI a Azure HDInsight mediante ODBC y a visualizar los datos de Hive. En este tutorial se cargan los datos de una tabla de Hive (hivesampletable) en Power BI. La tabla de Hive contiene algunos datos de uso de teléfonos móviles. Luego se trazan los datos de uso en un mapamundi:
+Aprenda a conectar Microsoft Power BI a Azure HDInsight mediante ODBC y a visualizar los datos de Hive. 
+
+>[!IMPORTANT]
+> Puede aprovechar el controlador ODBC de Hive para importar a través del conector ODBC genérico en Power BI Desktop. Sin embargo, no se recomienda para las cargas de trabajo de BI dada la naturaleza no interactiva del motor de consulta de Hive. El [conector de HDInsight Interactive Query](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md) y el [conector de HDInsight Spark ](https://docs.microsoft.com/power-bi/spark-on-hdinsight-with-direct-connect) son mejores soluciones para su rendimiento.
+
+En este tutorial se cargan los datos de una tabla de Hive (hivesampletable) en Power BI. La tabla de Hive contiene algunos datos de uso de teléfonos móviles. Luego se trazan los datos de uso en un mapamundi:
 
 ![Informe de mapa de Power BI en HDInsight](./media/apache-hadoop-connect-hive-power-bi/hdinsight-power-bi-visualization.png)
 
 La información también se aplica al nuevo tipo de clúster de [consulta interactiva](../interactive-query/apache-interactive-query-get-started.md). Para saber cómo conectarse a HDInsight Interactive Query mediante DirectQuery, consulte [Visualización de datos de Interactive Query Hive con Power BI mediante DirectQuery en Azure HDInsight](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md).
+
+
 
 ## <a name="prerequisites"></a>requisitos previos
 Antes de seguir los pasos de este artículo, debe disponer de los siguientes elementos:
@@ -62,7 +69,7 @@ Continúe a partir del último procedimiento.
 2. En el panel Campos, seleccione **country** y **devicemake**. Puede ver los datos trazados en el mapa.
 3. Expanda el mapa.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este artículo ha aprendido a visualizar datos de HDInsight mediante Power BI.  Para obtener más información, consulte los artículos siguientes:
 
 * [Use Zeppelin para ejecutar consultas de Hive en Azure HDInsight](./../hdinsight-connect-hive-zeppelin.md).

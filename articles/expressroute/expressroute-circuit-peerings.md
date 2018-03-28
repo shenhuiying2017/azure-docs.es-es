@@ -1,24 +1,24 @@
 ---
 title: Circuitos y dominios de enrutamiento de Azure ExpressRoute | Microsoft Docs
-description: "Esta página proporciona información general sobre los circuitos ExpressRoute y los dominios de enrutamiento."
+description: Esta página proporciona información general sobre los circuitos ExpressRoute y los dominios de enrutamiento.
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 6f0c5d8e-cc60-4a04-8641-2c211bda93d9
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/30/2017
+ms.date: 03/01/2018
 ms.author: ganesr,cherylmc
-ms.openlocfilehash: c8f3c0e87a052b327e9949acd3e7db1d28c1eb46
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 943305c78a17031d647bf2fa0977d10c51213ef5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="expressroute-circuits-and-routing-domains"></a>Circuitos ExpressRoute y dominios de enrutamiento
  Para conectar su infraestructura local a Microsoft a través de un proveedor de conectividad, debe solicitar un *circuito ExpressRoute* . En la ilustración siguiente se muestra una representación lógica de conectividad entre la WAN y Microsoft.
@@ -60,12 +60,12 @@ La conectividad siempre se inicia desde la WAN a los servicios de Microsoft Azur
 
 Puede definir filtros de ruta personalizados dentro de la red para usar solo las rutas que necesita. Consulte la página [Enrutamiento](expressroute-routing.md) para obtener información detallada sobre la configuración de enrutamiento. 
 
-Revise la [página de P+F](expressroute-faqs.md) para obtener más información sobre los servicios compatibles a través del dominio de enrutamiento de emparejamiento público. 
+Para obtener más información sobre los servicios compatibles a través del dominio de enrutamiento de emparejamiento público, consulte las [preguntas frecuentes](expressroute-faqs.md).
 
 ### <a name="microsoft-peering"></a>Emparejamiento de Microsoft
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
-La conectividad con los demás servicios en línea de Microsoft (Office 365, Dynamics 365 y servicios de PaaS de Azure) se lleva a cabo a través del emparejamiento de Microsoft. Permitimos la conectividad bidireccional entre la WAN y los servicios en la nube de Microsoft mediante el dominio de enrutamiento de emparejamiento de Microsoft. Solo debe conectarse a los servicios en la nube de Microsoft mediante direcciones IP públicas que pertenezcan a usted o a su proveedor de conectividad, y debe cumplir todas las reglas definidas. Para obtener más información, consulte la página [Requisitos previos de ExpressRoute](expressroute-prerequisites.md) .
+La conectividad con los servicios en línea de Microsoft (Office 365, Dynamics 365 y servicios de PaaS de Azure) se lleva a cabo a través del emparejamiento de Microsoft. Permitimos la conectividad bidireccional entre la WAN y los servicios en la nube de Microsoft mediante el dominio de enrutamiento de emparejamiento de Microsoft. Solo debe conectarse a los servicios en la nube de Microsoft mediante direcciones IP públicas que pertenezcan a usted o a su proveedor de conectividad, y debe cumplir todas las reglas definidas. Para más información, consulte la página [Requisitos previos de ExpressRoute](expressroute-prerequisites.md).
 
 Para obtener más información sobre los servicios admitidos, los costos y los datos de configuración, consulte la [página de P+F](expressroute-faqs.md) . Para obtener información sobre la lista de proveedores de conectividad que ofrecen soporte técnico de emparejamiento de Microsoft, consulte la página [Ubicaciones de ExpressRoute](expressroute-locations.md) .
 

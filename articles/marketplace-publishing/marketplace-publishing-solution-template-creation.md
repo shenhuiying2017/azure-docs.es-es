@@ -1,11 +1,11 @@
 ---
-title: "Guía para crear una plantilla de solución en Marketplace | Microsoft Docs"
-description: "Se ofrecen instrucciones detalladas sobre cómo crear, certificar e implementar una plantilla de solución de imagen de varias máquinas virtuales para la venta en Azure Marketplace."
+title: Guía para crear una plantilla de solución en Marketplace | Microsoft Docs
+description: Se ofrecen instrucciones detalladas sobre cómo crear, certificar e implementar una plantilla de solución de imagen de varias máquinas virtuales para la venta en Azure Marketplace.
 services: marketplace-publishing
-documentationcenter: 
-author: HannibalSII
-manager: hascipio
-editor: 
+documentationcenter: ''
+author: msmbaldwin
+manager: mbaldwin
+editor: ''
 ms.assetid: e14e05f2-2385-4ce0-b351-0747cb74ba19
 ms.service: marketplace
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2016
-ms.author: hascipio; v-divte
-ms.openlocfilehash: 675316b97e821a81ca4946d57a76d7bce978361b
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.author: mbaldwin
+ms.openlocfilehash: 83e69701aa5e8c11354e7551d66f3fdd18289000
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="guide-to-create-a-solution-template-for-azure-marketplace"></a>Guía para crear una plantilla de solución en Azure Marketplace
 Después de completar el paso 1, [Creación y registro de cuentas][link-acct-creation], le guiamos en la creación de una plantilla de solución compatible con Azure en [Requisitos previos técnicos para crear una plantilla de solución](marketplace-publishing-solution-template-creation-prerequisites.md). Ahora le guiaremos a través de los pasos para crear una plantilla de solución de varias máquinas virtuales en el [Portal de publicación][link-pubportal] de Azure Marketplace.

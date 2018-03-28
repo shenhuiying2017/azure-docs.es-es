@@ -493,7 +493,7 @@ Para definir un conjunto de datos de Azure Blob, establezca el **tipo** del conj
 Para más información, consulte el artículo [Conector de Azure Blob](data-factory-azure-blob-connector.md#dataset-properties).
 
 ### <a name="blobsource-in-copy-activity"></a>BlobSource en la actividad de copia
-Si va a copiar datos desde Azure Blob Storage, establezca el **tipo de origen** de la actividad de copia en **BlobSource** y especifique las siguientes propiedades en la sección **origen **:
+Si va a copiar datos desde Azure Blob Storage, establezca el **tipo de origen** de la actividad de copia en **BlobSource** y especifique las siguientes propiedades en la sección **origen** :
 
 | Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio |
 | --- | --- | --- | --- |

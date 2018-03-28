@@ -1,6 +1,6 @@
 ---
-title: "Habilitación del registro de diagnóstico para aplicaciones web en Azure App Service"
-description: "Obtenga información acerca de cómo habilitar el registro de diagnóstico y agregar la instrumentación a su aplicación, así como la manera de acceder a la información registrada por Azure."
+title: Habilitación del registro de diagnóstico para aplicaciones web en Azure App Service
+description: Obtenga información acerca de cómo habilitar el registro de diagnóstico y agregar la instrumentación a su aplicación, así como la manera de acceder a la información registrada por Azure.
 services: app-service
 documentationcenter: .net
 author: cephalin
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: a5ac6c02e28c19346abae9e5ea3dba9af4022dde
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: e82bbff908ea5499765edc71e52caa573c816a62
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Habilitación del registro de diagnóstico para aplicaciones web en Azure App Service
 ## <a name="overview"></a>Información general
@@ -38,8 +38,8 @@ Puede habilitar o deshabilitar los siguientes tipos de registros:
 * **Seguimiento de solicitudes con error** : registra información detallada acerca de solicitudes con error, incluido un seguimiento de los componentes de IIS usados para procesar la solicitud y el tiempo dedicado a cada componente. Puede resultar útil si trata de aumentar el rendimiento del sitio o de aislar lo que causa la devolución de un error HTTP específico.
 * **Registro del servidor web** : registra todas las transacciones HTTP con el [formato de archivo de registro extendido de W3C](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Resulta útil al determinar las métricas totales del sitio, como el número de solicitudes tramitadas o que proceden de una dirección IP específica.
 
-### <a name="application-diagnostics"></a>diagnósticos de la aplicación
-El diagnóstico de aplicaciones le permite capturar información generada por una aplicación web. Las aplicaciones de ASP.NET pueden usar la clase [System.Diagnostics.Trace](http://msdn.microsoft.com/library/36hhw2t6.aspx) para registrar información en el registro de diagnóstico de la aplicación. Por ejemplo:
+### <a name="application-diagnostics"></a>Diagnósticos de aplicaciones
+El diagnóstico de aplicaciones le permite capturar información generada por una aplicación web. Las aplicaciones de ASP.NET pueden usar la clase [System.Diagnostics.Trace](http://msdn.microsoft.com/library/36hhw2t6.aspx) para registrar información en el registro de diagnóstico de la aplicación. Por ejemplo: 
 
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
@@ -97,7 +97,7 @@ La estructura de directorios en que se almacenan los registros es la siguiente:
 * **Seguimientos de solicitudes con error** : /LogFiles/W3SVC#########/. Esta carpeta contiene un archivo XSL y uno o varios archivos XML. Asegúrese de descargar el archivo XSL en el mismo directorio de los archivos XML, porque el archivo XSL proporciona funcionalidad para dar formato y filtrar los contenidos de los archivos XML cuando se visualizan en Internet Explorer.
 * **Registros detallados de errores** : /LogFiles/DetailedErrors/. Esta carpeta contiene uno o varios archivos .htm con información amplia de todos los errores HTTP que se han producido.
 * **Registros de servidor web** : /LogFiles/http/RawLogs. Esta carpeta contiene uno o varios archivos de texto a los que se le aplica el [formato de archivo de registro extendido W3C](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx).
-* **Registros de implementaciones** : /LogFiles/Git. Esta carpeta contiene registros generados por los procesos de implementación internos usados por las aplicaciones web de Azure, además de los registros de las implementaciones Git.
+* **Registros de implementaciones** : /LogFiles/Git. Esta carpeta contiene registros generados por los procesos de implementación internos usados por las aplicaciones web de Azure, además de los registros de las implementaciones Git. También puede encontrar registros de implementación en D:\home\site\deployments.
 
 ### <a name="ftp"></a>FTP
 
@@ -159,11 +159,11 @@ Para transmitir información de registro, inicie una nueva instancia de Azure Po
 
 Este comando establecerá conexión con la aplicación web especificada por el parámetro **-Name** y comenzará a transmitir información a la ventana de PowerShell a medida que se produzcan los eventos de registro en la aplicación web. Toda la información escrita en archivos terminados en .txt, .log o .htm almacenados en el directorio /LogFiles (d:/home/logfiles) se transmite a la consola local.
 
-Para filtrar eventos específicos, como errores, use el parámetro **-Message** . Por ejemplo:
+Para filtrar eventos específicos, como errores, use el parámetro **-Message** . Por ejemplo: 
 
     Get-AzureWebSiteLog -Name webappname -Tail -Message Error
 
-Para filtrar tipos de registros específicos, como HTTP, use el parámetro **-Path** . Por ejemplo:
+Para filtrar tipos de registros específicos, como HTTP, use el parámetro **-Path** . Por ejemplo: 
 
     Get-AzureWebSiteLog -Name webappname -Tail -Path http
 
@@ -181,11 +181,11 @@ Para transmitir información de registro, abra una nueva sesión del símbolo de
 
 Este comando establece conexión con la aplicación web denominada "webappname" y comenzará a transmitir información a la ventana a medida que se produzcan los eventos de registro en la aplicación web. Toda la información escrita en archivos terminados en .txt, .log o .htm almacenados en el directorio /LogFiles (d:/home/logfiles) se transmite a la consola local.
 
-Para filtrar eventos específicos, como errores, use el parámetro **--Filter** . Por ejemplo:
+Para filtrar eventos específicos, como errores, use el parámetro **--Filter** . Por ejemplo: 
 
     az webapp log tail --name webappname --resource-group myResourceGroup --filter Error
 
-Para filtrar tipos de registros específicos, como HTTP, use el parámetro **--Path** . Por ejemplo:
+Para filtrar tipos de registros específicos, como HTTP, use el parámetro **--Path** . Por ejemplo: 
 
     az webapp log tail --name webappname --resource-group myResourceGroup --path http
 

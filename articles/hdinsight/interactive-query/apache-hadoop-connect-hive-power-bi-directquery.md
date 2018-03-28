@@ -1,26 +1,26 @@
 ---
-title: "Visualización de datos de Interactive Query Hive con Power BI en Azure HDInsight | Microsoft Docs"
+title: Visualización de datos de Interactive Query Hive con Power BI en Azure HDInsight | Microsoft Docs
 description: Aprenda a usar Microsoft Power BI para visualizar datos de Interactive Query Hive procesados por Azure HDInsight.
 keywords: hdinsight,hadoop,hive,consulta interactiva,hive interactivo,LLAP,directquery
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive,
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2017
+ms.date: 03/14/2018
 ms.author: jgao
-ms.openlocfilehash: 290e600b7be4a6f9fb57afa50bb771e42e6a0624
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.openlocfilehash: c74e02ea32a5aacf1a5208c0e194a25b0b6bcb48
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="visualize-interactive-query-hive-data-with-microsoft-power-bi-using-direct-query-in-azure-hdinsight"></a>Visualización de datos de Interactive Query Hive con Power BI mediante DirectQuery en Azure HDInsight
 
@@ -28,7 +28,7 @@ Aprenda a conectar Microsoft Power BI a clústeres de Interactive Query de Azure
 
 ![Informe de mapa de Power BI en HDInsight](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-visualization.png)
 
-Para obtener información sobre la conexión a Hive mediante ODBC, consulte [Visualización de datos de Hive con Microsoft Power BI mediante ODBC en Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md). 
+Puede aprovechar el [controlador ODBC de Hive](../hadoop/apache-hadoop-connect-hive-power-bi.md) para importar a través del conector ODBC genérico en Power BI Desktop. Sin embargo, no se recomienda para las cargas de trabajo de BI dada la naturaleza no interactiva del motor de consulta de Hive. El [conector de HDInsight Interactive Query](./apache-hadoop-connect-hive-power-bi-directquery.md) y el [conector de HDInsight Spark ](https://docs.microsoft.com/power-bi/spark-on-hdinsight-with-direct-connect) son mejores soluciones para su rendimiento.
 
 ## <a name="prerequisites"></a>requisitos previos
 Antes de seguir los pasos de este artículo, debe disponer de los siguientes elementos:
@@ -70,7 +70,7 @@ Continúe a partir del último procedimiento.
 2. En el panel Campos, seleccione **country** y **devicemake**. Puede ver los datos trazados en el mapa.
 3. Expanda el mapa.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este artículo ha aprendido a visualizar datos de HDInsight mediante Power BI.  Para obtener más información, consulte los artículos siguientes:
 
 * [Visualización de datos de Hive con Microsoft Power BI mediante ODBC en Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md). 

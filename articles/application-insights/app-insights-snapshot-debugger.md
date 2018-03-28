@@ -1,8 +1,8 @@
 ---
-title: "Depurador de instantáneas de Azure Application Insights para aplicaciones de .NET | Microsoft Docs"
-description: "Depuración de las instantáneas que se recopilan automáticamente cuando se producen excepciones en aplicaciones de producción de .NET"
+title: Depurador de instantáneas de Azure Application Insights para aplicaciones de .NET | Microsoft Docs
+description: Depuración de las instantáneas que se recopilan automáticamente cuando se producen excepciones en aplicaciones de producción de .NET
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: pharring
 manager: carmonm
 ms.service: application-insights
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 8d6f2347e06e58ec2b506aa9eaf716b3f71f3a77
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 5a2b3dbce1d969eaa9937ad866fd055ae72e6529
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Depurar instantáneas cuando se producen excepciones en aplicaciones de .NET
 
@@ -60,10 +60,20 @@ Se admiten los siguientes entornos:
         <MaximumSnapshotsRequired>3</MaximumSnapshotsRequired>
         <!-- The maximum number of problems that we can be tracking at any time. -->
         <MaximumCollectionPlanSize>50</MaximumCollectionPlanSize>
+        <!-- How often we reconnect to the stamp. The default value is 15 minutes.-->
+        <ReconnectInterval>00:15:00</ReconnectInterval>
         <!-- How often to reset problem counters. -->
-        <ProblemCounterResetInterval>06:00:00</ProblemCounterResetInterval>
+        <ProblemCounterResetInterval>24:00:00</ProblemCounterResetInterval>
+        <!-- The maximum number of snapshots allowed in ten minutes.The default value is 1. -->
+        <SnapshotsPerTenMinutesLimit>1</SnapshotsPerTenMinutesLimit>
         <!-- The maximum number of snapshots allowed per day. -->
-        <SnapshotsPerDayLimit>50</SnapshotsPerDayLimit>
+        <SnapshotsPerDayLimit>30</SnapshotsPerDayLimit>
+        <!-- Whether or not to collect snapshot in low IO priority thread. The default value is true. -->
+        <SnapshotInLowPriorityThread>true</SnapshotInLowPriorityThread>
+        <!-- Agree to send anonymous data to Microsoft to make this product better. -->
+        <ProvideAnonymousTelemetry>true</ProvideAnonymousTelemetry>
+        <!-- The limit on the number of failed requests to request snapshots before the telemetry processor is disabled. -->
+        <FailedRequestLimit>3</FailedRequestLimit>
         </Add>
     </TelemetryProcessors>
     ```
@@ -128,7 +138,17 @@ Se admiten los siguientes entornos:
        "InstrumentationKey": "<your instrumentation key>"
      },
      "SnapshotCollectorConfiguration": {
-       "IsEnabledInDeveloperMode": true
+       "IsEnabledInDeveloperMode": true,
+       "ThresholdForSnapshotting": 5,
+       "MaximumSnapshotsRequired": 3,
+       "MaximumCollectionPlanSize": 50,
+       "ReconnectInterval": "00:15:00",
+       "ProblemCounterResetInterval":"24:00:00",
+       "SnapshotsPerTenMinutesLimit": 1,
+       "SnapshotsPerDayLimit": 30,
+       "SnapshotInLowPriorityThread": true,
+       "ProvideAnonymousTelemetry": true,
+       "FailedRequestLimit": 3
      }
    }
    ```
@@ -226,7 +246,7 @@ Asegúrese de que está usando la clave de instrumentación correcta en la aplic
 
 ### <a name="check-the-uploader-logs"></a>Comprobar los registros de usuario de carga
 
-Después de crear una instantánea, se crea un archivo de minivolcado (.dmp) en el disco. Un proceso de usuario de carga independiente toma ese archivo de minivolcado y lo carga, junto con los archivos PDB asociados, al almacenamiento del depurador de instantáneas de Application Insights. Después de cargar correctamente el minivolcado, se elimina del disco. Los archivos de registro para el usuario de carga del minivolcado se conservan en disco. En un entorno de App Service, puede encontrar estos registros en `D:\Home\LogFiles\Uploader_*.log`. Use el sitio de administración de Kudu para App Service para buscar estos archivos de registro.
+Después de crear una instantánea, se crea un archivo de minivolcado (.dmp) en el disco. Un proceso de usuario de carga independiente toma ese archivo de minivolcado y lo carga, junto con los archivos PDB asociados, al almacenamiento del depurador de instantáneas de Application Insights. Después de cargar correctamente el minivolcado, se elimina del disco. Los archivos de registro del proceso de usuario de carga se conservan en el disco. En un entorno de App Service, puede encontrar estos registros en `D:\Home\LogFiles`. Use el sitio de administración de Kudu para App Service para buscar estos archivos de registro.
 
 1. Abra la aplicación App Service en Azure Portal.
 
@@ -235,25 +255,36 @@ Después de crear una instantánea, se crea un archivo de minivolcado (.dmp) en 
 4. En el cuadro de lista desplegable **Consola de depuración**, seleccione **CMD**.
 5. Haga clic en **LogFiles**.
 
-Debería ver al menos un archivo con un nombre que comienza con `Uploader_` y una extensión `.log`. Haga clic en el icono adecuado para descargar los archivos de registro o abrirlos en un explorador.
-El nombre de archivo incluye el nombre del equipo. Si la instancia de App Service se hospeda en más de un equipo, hay archivos de registro independientes para cada equipo. Cuando el usuario de carga detecta un nuevo archivo de minivolcado, se registra en el archivo de registro. Este es un ejemplo de carga correcta:
+Debería ver al menos un archivo con un nombre que comienza con `Uploader_` o `SnapshotUploader_` y una extensión `.log`. Haga clic en el icono adecuado para descargar los archivos de registro o abrirlos en un explorador.
+El nombre de archivo incluye un sufijo único que identifica la instancia de App Service. Si la instancia de App Service se hospeda en más de un equipo, hay archivos de registro independientes para cada equipo. Cuando el usuario de carga detecta un nuevo archivo de minivolcado, se registra en el archivo de registro. Este es un ejemplo de una instantánea y una carga correctas:
 
 ```
-MinidumpUploader.exe Information: 0 : Dump available 139e411a23934dc0b9ea08a626db16c5.dmp
-    DateTime=2017-05-25T14:25:08.0349846Z
-MinidumpUploader.exe Information: 0 : Uploading D:\local\Temp\Dumps\c12a605e73c44346a984e00000000000\139e411a23934dc0b9ea08a626db16c5.dmp, 329.12 MB
-    DateTime=2017-05-25T14:25:16.0145444Z
-MinidumpUploader.exe Information: 0 : Upload successful.
-    DateTime=2017-05-25T14:25:42.9164120Z
-MinidumpUploader.exe Information: 0 : Extracting PDB info from D:\local\Temp\Dumps\c12a605e73c44346a984e00000000000\139e411a23934dc0b9ea08a626db16c5.dmp.
-    DateTime=2017-05-25T14:25:42.9164120Z
-MinidumpUploader.exe Information: 0 : Matched 2 PDB(s) with local files.
-    DateTime=2017-05-25T14:25:44.2310982Z
-MinidumpUploader.exe Information: 0 : Stamp does not want any of our matched PDBs.
-    DateTime=2017-05-25T14:25:44.5435948Z
-MinidumpUploader.exe Information: 0 : Deleted D:\local\Temp\Dumps\c12a605e73c44346a984e00000000000\139e411a23934dc0b9ea08a626db16c5.dmp
-    DateTime=2017-05-25T14:25:44.6095821Z
+SnapshotUploader.exe Information: 0 : Received Fork request ID 139e411a23934dc0b9ea08a626db16c5 from process 6368 (Low pri)
+    DateTime=2018-03-09T01:42:41.8571711Z
+SnapshotUploader.exe Information: 0 : Creating minidump from Fork request ID 139e411a23934dc0b9ea08a626db16c5 from process 6368 (Low pri)
+    DateTime=2018-03-09T01:42:41.8571711Z
+SnapshotUploader.exe Information: 0 : Dump placeholder file created: 139e411a23934dc0b9ea08a626db16c5.dm_
+    DateTime=2018-03-09T01:42:41.8728496Z
+SnapshotUploader.exe Information: 0 : Dump available 139e411a23934dc0b9ea08a626db16c5.dmp
+    DateTime=2018-03-09T01:42:45.7525022Z
+SnapshotUploader.exe Information: 0 : Successfully wrote minidump to D:\local\Temp\Dumps\c12a605e73c44346a984e00000000000\139e411a23934dc0b9ea08a626db16c5.dmp
+    DateTime=2018-03-09T01:42:45.7681360Z
+SnapshotUploader.exe Information: 0 : Uploading D:\local\Temp\Dumps\c12a605e73c44346a984e00000000000\139e411a23934dc0b9ea08a626db16c5.dmp, 214.42 MB (uncompressed)
+    DateTime=2018-03-09T01:42:45.7681360Z
+SnapshotUploader.exe Information: 0 : Upload successful. Compressed size 86.56 MB
+    DateTime=2018-03-09T01:42:59.6184651Z
+SnapshotUploader.exe Information: 0 : Extracting PDB info from D:\local\Temp\Dumps\c12a605e73c44346a984e00000000000\139e411a23934dc0b9ea08a626db16c5.dmp.
+    DateTime=2018-03-09T01:42:59.6184651Z
+SnapshotUploader.exe Information: 0 : Matched 2 PDB(s) with local files.
+    DateTime=2018-03-09T01:42:59.6809606Z
+SnapshotUploader.exe Information: 0 : Stamp does not want any of our matched PDBs.
+    DateTime=2018-03-09T01:42:59.8059929Z
+SnapshotUploader.exe Information: 0 : Deleted D:\local\Temp\Dumps\c12a605e73c44346a984e00000000000\139e411a23934dc0b9ea08a626db16c5.dmp
+    DateTime=2018-03-09T01:42:59.8530649Z
 ```
+
+> [!NOTE]
+> El ejemplo anterior es de la versión 1.2.0 del paquete Nuget Microsoft.ApplicationInsights.SnapshotCollector. En versiones anteriores, el proceso de usuario de carga se llama `MinidumpUploader.exe` y el registro está menos detallado.
 
 En el ejemplo anterior, la clave de instrumentación es `c12a605e73c44346a984e00000000000`. Este valor debe coincidir con la clave de instrumentación de la aplicación.
 El minivolcado está asociado a una instantánea con el identificador `139e411a23934dc0b9ea08a626db16c5`. Puede usar este identificador más adelante para buscar la telemetría de excepciones asociada en Application Insights Analytics.
@@ -261,16 +292,14 @@ El minivolcado está asociado a una instantánea con el identificador `139e411a2
 El usuario de carga busca nuevos archivos PDB una vez cada 15 minutos. Este es un ejemplo:
 
 ```
-MinidumpUploader.exe Information: 0 : PDB rescan requested.
-    DateTime=2017-05-25T15:11:38.8003886Z
-MinidumpUploader.exe Information: 0 : Scanning D:\home\site\wwwroot\ for local PDBs.
-    DateTime=2017-05-25T15:11:38.8003886Z
-MinidumpUploader.exe Information: 0 : Scanning D:\local\Temporary ASP.NET Files\root\a6554c94\e3ad6f22\assembly\dl3\81d5008b\00b93cc8_dec5d201 for local PDBs.
-    DateTime=2017-05-25T15:11:38.8160276Z
-MinidumpUploader.exe Information: 0 : Local PDB scan complete. Found 2 PDB(s).
-    DateTime=2017-05-25T15:11:38.8316450Z
-MinidumpUploader.exe Information: 0 : Deleted PDB scan marker D:\local\Temp\Dumps\c12a605e73c44346a984e00000000000\.pdbscan.
-    DateTime=2017-05-25T15:11:38.8316450Z
+SnapshotUploader.exe Information: 0 : PDB rescan requested.
+    DateTime=2018-03-09T01:47:19.4457768Z
+SnapshotUploader.exe Information: 0 : Scanning D:\home\site\wwwroot for local PDBs.
+    DateTime=2018-03-09T01:47:19.4457768Z
+SnapshotUploader.exe Information: 0 : Local PDB scan complete. Found 2 PDB(s).
+    DateTime=2018-03-09T01:47:19.4614027Z
+SnapshotUploader.exe Information: 0 : Deleted PDB scan marker : D:\local\Temp\Dumps\c12a605e73c44346a984e00000000000\6368.pdbscan
+    DateTime=2018-03-09T01:47:19.4614027Z
 ```
 
 Para las aplicaciones que _no_ están hospedadas en App Service, los registros de usuario de carga están en la misma carpeta que los minivolcados: `%TEMP%\Dumps\<ikey>` (donde `<ikey>` es la clave de instrumentación).
@@ -284,31 +313,48 @@ Por ejemplo, si la aplicación usa 1 GB de espacio de trabajo total, debe asegur
 Siga estos pasos para configurar el rol del servicio en la nube con un recurso local dedicado para las instantáneas.
 
 1. Agregue un nuevo recurso local a su servicio en la nube editando el archivo de definición (.csdf) del servicio en la nube. En el ejemplo siguiente se define un recurso llamado `SnapshotStore` con un tamaño de 5 GB.
-```xml
+   ```xml
    <LocalResources>
      <LocalStorage name="SnapshotStore" cleanOnRoleRecycle="false" sizeInMB="5120" />
    </LocalResources>
-```
+   ```
 
-2. Modifique el método `OnStart` del rol para agregar una variable de entorno que apunte al recurso local `SnapshotStore`.
-```csharp
+2. Modifique el código de inicio del rol para agregar una variable de entorno que apunte al recurso local `SnapshotStore`. En roles de trabajo, el código se debe agregar al método `OnStart` del rol:
+   ```csharp
    public override bool OnStart()
    {
        Environment.SetEnvironmentVariable("SNAPSHOTSTORE", RoleEnvironment.GetLocalResource("SnapshotStore").RootPath);
        return base.OnStart();
    }
-```
+   ```
+   En roles web (ASP.NET), el código se debe agregar al método `Application_Start` de la aplicación web:
+   ```csharp
+   using Microsoft.WindowsAzure.ServiceRuntime;
+   using System;
+
+   namespace MyWebRoleApp
+   {
+       public class MyMvcApplication : System.Web.HttpApplication
+       {
+          protected void Application_Start()
+          {
+             Environment.SetEnvironmentVariable("SNAPSHOTSTORE", RoleEnvironment.GetLocalResource("SnapshotStore").RootPath);
+             // TODO: The rest of your application startup code
+          }
+       }
+   }
+   ```
 
 3. Actualice el archivo ApplicationInsights.config del rol para reemplazar la ubicación de la carpeta temporal utilizada por `SnapshotCollector`
-```xml
-  <TelemetryProcessors>
+   ```xml
+   <TelemetryProcessors>
     <Add Type="Microsoft.ApplicationInsights.SnapshotCollector.SnapshotCollectorTelemetryProcessor, Microsoft.ApplicationInsights.SnapshotCollector">
       <!-- Use the SnapshotStore local resource for snapshots -->
       <TempFolder>%SNAPSHOTSTORE%</TempFolder>
       <!-- Other SnapshotCollector configuration options -->
     </Add>
-  </TelemetryProcessors>
-```
+   </TelemetryProcessors>
+   ```
 
 ### <a name="use-application-insights-search-to-find-exceptions-with-snapshots"></a>Usar la búsqueda de Application Insights para buscar excepciones con instantáneas
 
@@ -330,7 +376,7 @@ Para buscar un identificador de instantánea específico en los registros de usu
 
 Si sigue sin ver una excepción con ese identificador de instantánea, significa que la excepción de telemetría no se ha notificado a Application Insights. Esta situación puede ocurrir si se bloqueó la aplicación después de que tomó la instantánea, pero antes de notificar la telemetría de excepción. En este caso, compruebe los registros de App Service en `Diagnose and solve problems` para ver si hay reinicios inesperados o excepciones no controladas.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Establezca puntos de ajuste en el código](https://docs.microsoft.com/visualstudio/debugger/debug-live-azure-applications) para obtener instantáneas sin tener que esperar una excepción.
 * En el artículo sobre cómo [diagnosticar excepciones en aplicaciones web](app-insights-asp-net-exceptions.md) se explica cómo hacer más visibles las excepciones en Application Insights. 

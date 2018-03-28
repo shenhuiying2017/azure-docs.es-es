@@ -1,24 +1,24 @@
 ---
 title: Crecimiento del negocio mediante Azure Marketplace
-description: "Guía paso a paso y listas de comprobación de publicación para nuevos anunciantes en Azure Marketplace"
+description: Guía paso a paso y listas de comprobación de publicación para nuevos anunciantes en Azure Marketplace
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: 
+documentationcenter: ''
 author: ellacroi
 manager: msmbaldwin
-editor: 
+editor: ''
 ms.assetid: e8d228c8-f9e8-4a80-9319-7b94d41c43a6
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.workload: ''
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: 51cc413d61e4951f28e9247efcee934af23572e5
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 85baba61d5603539641f45f7ab1d722ca98514ad
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="grow-your-business-by-using-the-azure-marketplace"></a>Crecimiento del negocio mediante Azure Marketplace
 
@@ -129,7 +129,8 @@ Para maximizar el impacto de estas actividades, se recomienda que tenga un plan 
 >[!NOTE]
 >El catálogo de asociado comercial (catálogo de OCP) es una de las ventajas de los miembros de Microsoft Partner Network. 
 
-![Ventajas GTM de Marketplace](./media/marketplace-publishers-guide/marketplace-gtm-promotion.png)
+[Ventajas GTM de Marketplace](./media/marketplace-publishers-guide/marketplace-gtm-current-march-8.png)
+
 
 Para obtener recursos de ayuda, visite [Microsoft Go To Market](https://www.microsoftgotomarket.com). Allí, puede encontrar plantillas, contenido web, cursos y herramientas para promocionar su negocio.
 

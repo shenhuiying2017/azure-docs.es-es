@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integración de Azure Active Directory con lr | Microsoft Docs"
-description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory e lr."
+title: 'Tutorial: Integración de Azure Active Directory con LoginRadius | Microsoft Docs'
+description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y LoginRadius.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,32 +12,32 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 03/13/2018
 ms.author: jeedes
-ms.openlocfilehash: f7728c37db286b130a79db1353ee40825e8a4336
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 22f937a2ae9a2c715ce0866c2db0ac17769f0399
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="tutorial-azure-active-directory-integration-with-lr"></a>Tutorial: Integración de Azure Active Directory con lr
+# <a name="tutorial-azure-active-directory-integration-with-loginradius"></a>Tutorial: Integración de Azure Active Directory con LoginRadius
 
-En este tutorial, aprenderá a integrar lr con Azure Active Directory (Azure AD).
+En este tutorial, aprenderá a integrar LoginRadius con Azure Active Directory (Azure AD).
 
-La integración de lr con Azure AD le proporciona las siguientes ventajas:
+La integración de LoginRadius con Azure AD proporciona las siguientes ventajas:
 
-- En Azure AD se puede controlar quién tiene acceso a lr.
-- Puede permitir que los usuarios inicien sesión automáticamente en lr (inicio de sesión único) con sus cuentas de Azure AD.
+- Puede controlar en Azure AD quién tiene acceso a LoginRadius.
+- Puede permitir que los usuarios inicien sesión automáticamente en LoginRadius (inicio de sesión único) con sus cuentas de Azure AD.
 - Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
 Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>requisitos previos
 
-Para configurar la integración de Azure AD con lr, se necesitan los siguientes elementos:
+Para configurar la integración de Azure AD con LoginRadius, se necesitan los siguientes elementos:
 
 - Una suscripción de Azure AD
-- Una suscripción habilitada para el inicio de sesión único en lr
+- Una suscripción habilitada para el inicio de sesión único en LoginRadius.
 
 > [!NOTE]
 > Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
@@ -50,13 +50,13 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 ## <a name="scenario-description"></a>Descripción del escenario
 En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
-1. Adición de lr desde la galería
+1. Adición de LoginRadius desde la galería
 2. Configuración y comprobación del inicio de sesión único de Azure AD
 
-## <a name="adding-lr-from-the-gallery"></a>Adición de lr desde la galería
-Para configurar la integración de lr en Azure AD, es preciso agregar lr desde la galería a la lista de aplicaciones SaaS administradas.
+## <a name="adding-loginradius-from-the-gallery"></a>Adición de LoginRadius desde la galería
+Para configurar la integración de LoginRadius con Azure AD, será preciso que agregue LoginRadius desde la galería a la lista de aplicaciones SaaS administradas.
 
-**Para agregar lr desde la galería, siga estos pasos:**
+**Para agregar LoginRadius desde la galería, realice los pasos siguientes:**
 
 1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
 
@@ -70,58 +70,58 @@ Para configurar la integración de lr en Azure AD, es preciso agregar lr desde l
 
     ![Botón Nueva aplicación][3]
 
-4. En el cuadro de búsqueda, escriba **lr**, seleccione **lr** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **LoginRadius**, seleccione **LoginRadius** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
-    ![lr en la lista de resultados](./media/active-directory-saas-lr-tutorial/tutorial_lr_addfromgallery.png)
+    ![LoginRadius en la lista de resultados](./media/active-directory-saas-lr-tutorial/tutorial_LoginRadius_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con lr con un usuario de prueba llamado "Britta Simon".
+En esta sección, configurará y probará el inicio de sesión único de Azure AD con LoginRadius con un usuario de prueba llamado "Britta Simon".
 
-Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de lr para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de lr.
+Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de LoginRadius para un usuario de Azure AD. Es decir, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de LoginRadius.
 
-Para configurar y probar el inicio de sesión único de Azure AD con lr, es preciso completar los siguientes bloques de creación:
+Para configurar y probar el inicio de sesión único de Azure AD con LoginRadius, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
 2. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-3. **[Creación de un usuario de prueba en lr](#create-a-lr-test-user)**: para tener un homólogo de Britta Simon en lr que esté vinculado a la representación del usuario en Azure AD.
+3. **[Creación de un usuario de prueba de LoginRadius](#create-a-loginradius-test-user)**: para tener un homólogo de Britta Simon en LoginRadius que esté vinculado a la representación de ella en Azure AD.
 4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
 5. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
-En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal y lo configurará en su aplicación lr.
+En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal y configurará el inicio de sesión único en la aplicación LoginRadius.
 
-**Para configurar el inicio de sesión único de Azure AD con lr, siga estos pasos:**
+**Para configurar el inicio de sesión único de Azure AD con LoginRadius, realice los pasos siguientes:**
 
-1. En Azure Portal, en la página de integración de la aplicación **lr**, haga clic en **Inicio de sesión único**.
+1. En la página de integración de la aplicación **LoginRadius** de Azure Portal, haga clic en **Inicio de sesión único**.
 
     ![Vínculo Configurar inicio de sesión único][4]
 
 2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
  
-    ![Cuadro de diálogo Inicio de sesión único](./media/active-directory-saas-lr-tutorial/tutorial_lr_samlbase.png)
+    ![Cuadro de diálogo Inicio de sesión único](./media/active-directory-saas-lr-tutorial/tutorial_LoginRadius_samlbase.png)
 
-3. En la sección **Dominio y direcciones URL de lr**, siga estos pasos:
+3. En la sección **LoginRadius Domain and URLs** (Dominio y direcciones URL de LoginRadius), lleve a cabo los pasos siguientes:
 
-    ![Información de inicio de sesión único de Dominio y direcciones URL de lr](./media/active-directory-saas-lr-tutorial/tutorial_lr_url.png)
+    ![Información de dominio y direcciones URL de inicio de sesión único de LoginRadius](./media/active-directory-saas-lr-tutorial/tutorial_LoginRadius_url.png)
 
     a.  En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL: `https://secure.loginradius.com/login`
 
-    b. En el cuadro de texto **Identificador**, escriba una dirección URL como: `https://lr.hub.loginradius.com/`
+    b. En el cuadro de texto **Identificador**, escriba una dirección URL como: `https://LoginRadius.hub.loginradius.com/`
      
     > [!NOTE] 
-    > Abra la página URL de inicio de sesión. Haga clic en la pestaña **Inicio de sesión único** y escriba el **nombre del complemento** que le ha indicado el [equipo de soporte técnico de lr](mailto:support@loginradius.com) y, después, haga clic en el botón **Iniciar sesión** y pasará a la página de Azure AD para iniciar sesión. 
+    > Abra la página URL de inicio de sesión. Haga clic en la pestaña **Inicio de sesión único** y escriba el **nombre del complemento** que le ha indicado el [equipo de soporte técnico de LoginRadius](mailto:support@loginradius.com) y, después, haga clic en el botón **Iniciar sesión** y pasará a la página de Azure AD para iniciar sesión. 
 
 5. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo de metadatos en el equipo.
 
-    ![Vínculo de descarga del certificado](./media/active-directory-saas-lr-tutorial/tutorial_lr_certificate.png) 
+    ![Vínculo de descarga del certificado](./media/active-directory-saas-lr-tutorial/tutorial_LoginRadius_certificate.png) 
 
 6. Haga clic en el botón **Guardar** .
 
     ![Botón Configurar inicio de sesión único](./media/active-directory-saas-lr-tutorial/tutorial_general_400.png)
     
-7. Para configurar el inicio de sesión único en **lr**, necesita enviar el archivo **XML de metadatos** descargado al [equipo de soporte técnico de lr](mailto:support@loginradius.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+7. Para configurar el inicio de sesión único en el lado de **LoginRadius**, es preciso enviar el archivo **XML de metadatos** descargado al [equipo de soporte técnico de LoginRadius](mailto:support@loginradius.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 > [!TIP]
 > Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -158,25 +158,25 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     d. Haga clic en **Create**(Crear).
  
-### <a name="create-a-lr-test-user"></a>Creación de un usuario de prueba en lr
+### <a name="create-a-loginradius-test-user"></a>Creación de un usuario de prueba de LoginRadius
 
-En esta sección, creará un usuario llamado Britta Simon en lr. Trabaje con el [equipo de soporte técnico de lr](mailto:support@loginradius.com) para agregar los usuarios a la plataforma de lr. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único. 
+En esta sección, creará un usuario llamado Britta Simon en LoginRadius. Trabaje con el [equipo de soporte técnico de LoginRadius](mailto:support@loginradius.com) para agregar los usuarios a la plataforma de LoginRadius. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
-En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a lr.
+En esta sección, permitirá que Britta Simon use el inicio de sesión único de Azure concediéndole acceso a LoginRadius.
 
 ![Asignación de rol de usuario][200] 
 
-**Para asignar el usuario Britta Simon a lr, siga estos pasos:**
+**Para asignar a Britta Simon a LoginRadius, realice los pasos siguientes:**
 
 1. En Azure Portal, abra la vista de aplicaciones, navegue a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego haga clic en **Todas las aplicaciones**.
 
     ![Asignar usuario][201] 
 
-2. En la lista de aplicaciones, seleccione **lr**.
+2. En la lista de aplicaciones, seleccione **LoginRadius**.
 
-    ![Vínculo a lr en la lista de aplicaciones](./media/active-directory-saas-lr-tutorial/tutorial_lr_app.png)  
+    ![El vínculo de LoginRadius en la lista de aplicaciones](./media/active-directory-saas-lr-tutorial/tutorial_LoginRadius_app.png)  
 
 3. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
 
@@ -196,7 +196,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de lr en el panel de acceso, debería iniciar sesión automáticamente en su aplicación lr.
+Al hacer clic en el icono de LoginRadius en el Panel de acceso, debería iniciar sesión automáticamente en su aplicación LoginRadius.
 Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales

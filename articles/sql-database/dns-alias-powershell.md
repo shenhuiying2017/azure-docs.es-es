@@ -1,26 +1,21 @@
 ---
 title: PowerShell con alias DNS en Azure SQL | Microsoft Docs
-description: "Los cmdlets de PowerShell como New-AzureRMSqlServerDNSAlias le permiten redirigir las nuevas conexiones de cliente a otro servidor de Azure SQL Database, sin tener que tocar la configuración de cliente."
+description: Los cmdlets de PowerShell como New-AzureRMSqlServerDNSAlias le permiten redirigir las nuevas conexiones de cliente a otro servidor de Azure SQL Database, sin tener que tocar la configuración de cliente.
 keywords: dns sql database
 services: sql-database
-documentationcenter: 
 author: MightyPen
 manager: craigg
-editor: 
 ms.service: sql-database
-ms.custom: 
-ms.workload: 
-ms.tgt_pltfrm: 
 ms.devlang: PowerShell
 ms.topic: article
 ms.date: 02/05/2018
 ms.reviewer: genemi;amagarwa;maboja
 ms.author: dmalik
-ms.openlocfilehash: ec638d7b48b443cda5755e3077c6304b0c5ad78e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 2aae669364c3de2e9b00ffe8e28b1521d3a781e8
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="powershell-for-dns-alias-to-azure-sql-database"></a>PowerShell con alias DNS para Azure SQL Database
 
@@ -166,7 +161,7 @@ gm-rg-dns-2       gm-sqldb-dns-2     unique-alias-name-food
 >> 
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener una explicación completa de la característica de alias DNS para SQL Database, consulte [Alias DNS para Azure SQL Database][dns-alias-overview-37v].
 

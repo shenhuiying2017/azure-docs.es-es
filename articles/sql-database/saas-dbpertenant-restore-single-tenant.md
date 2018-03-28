@@ -1,26 +1,21 @@
 ---
-title: "Restauración de una base de datos SQL de Azure en una aplicación SaaS multiinquilino | Microsoft Docs"
-description: "Obtenga información sobre cómo restaurar una base de datos SQL Database de inquilino único después de la eliminación accidental de datos"
+title: Restauración de una base de datos SQL de Azure en una aplicación SaaS multiinquilino | Microsoft Docs
+description: Obtenga información sobre cómo restaurar una base de datos SQL Database de inquilino único después de la eliminación accidental de datos
 keywords: tutorial de SQL Database
 services: sql-database
-documentationcenter: 
 author: stevestein
 manager: craigg
-editor: 
-ms.assetid: 
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
-ms.author: billgib;sstein
-ms.openlocfilehash: 46471073f88247510f45d6c4152afa43be6e1aaa
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.author: sstein
+ms.reviewer: billgib
+ms.openlocfilehash: 7ae8bcb6172d9f9d56c531e149635434057fc2af
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="restore-a-single-tenant-with-a-database-per-tenant-saas-application"></a>Restauración de un solo inquilino con una aplicación SaaS de base de datos por inquilino
 
@@ -132,7 +127,7 @@ La base de datos se restauró correctamente a un momento dado antes de que se el
 
 Tenga en cuenta que una vez que restaure la base de datos, tardará entre 10 y 15 minutos antes de que la primera copia de seguridad completa esté disponible para volver a realizar la restauración. 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial aprendió lo siguiente:
 

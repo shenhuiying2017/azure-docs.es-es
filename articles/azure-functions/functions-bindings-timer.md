@@ -1,13 +1,13 @@
 ---
 title: Desencadenador de temporizador para Azure Functions
-description: "Descubra cómo utilizar desencadenadores de temporizador en Azure Functions."
+description: Descubra cómo utilizar desencadenadores de temporizador en Azure Functions.
 services: functions
 documentationcenter: na
 author: tdykstra
 manager: cfowler
-editor: 
-tags: 
-keywords: "azure functions, funciones, procesamiento de eventos, proceso dinámico, arquitectura sin servidor"
+editor: ''
+tags: ''
+keywords: azure functions, funciones, procesamiento de eventos, proceso dinámico, arquitectura sin servidor
 ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
 ms.service: functions
 ms.devlang: multiple
@@ -16,18 +16,24 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/27/2017
 ms.author: tdykstra
-ms.custom: 
-ms.openlocfilehash: eeb8833470b2ba003ba74b1db57bbd2bbbb7f65d
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.custom: ''
+ms.openlocfilehash: bd1a2643d9faf65d664c786169c38f01767fb7e5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Desencadenador de temporizador para Azure Functions 
 
 En este artículo se explica cómo usar desencadenadores de temporizador en Azure Functions. Con un desencadenador de temporizador puede ejecutar una función de forma programada. 
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+## <a name="packages"></a>Paquetes
+
+El desencadenador en temporizador se proporciona en el paquete NuGet [Microsoft.Azure.WebJobs.Extensions.EventGrid](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions). El código fuente del paquete está en el repositorio [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/) de GitHub.
+
+[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
 ## <a name="example"></a>Ejemplo
 
@@ -136,7 +142,7 @@ module.exports = function (context, myTimer) {
 
 ## <a name="attributes"></a>Atributos
 
-En las [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el atributo [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs), que se define en el paquete NuGet [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions).
+En las [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el atributo [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs).
 
 El constructor del atributo toma una expresión CRON, tal como se muestra en el ejemplo siguiente:
 
@@ -251,7 +257,7 @@ Cuando se invoca una función de desencadenador de temporizador, se pasa a esta 
 
 El desencadenador de temporizador admite varias instancias de escalado horizontal. Una sola instancia de una función de temporizador determinada se ejecuta en todas las instancias.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Ir a una guía de inicio rápido que use un desencadenador de temporizador](functions-create-scheduled-function.md)

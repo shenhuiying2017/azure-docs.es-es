@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/12/2018
 ms.author: billmath
-ms.openlocfilehash: 6e81ea9f98733b1b7e0c9bf7466ac844a37b6046
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b383a081141d2fde90cfc574ec4b9ffb16940158
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Solución de problemas de inicio de sesión único de conexión directa de Azure Active Directory
 
@@ -34,8 +34,9 @@ Este artículo sirve de ayuda para encontrar información sobre cómo solucionar
 - SSO de conexión directa no funciona en modo de exploración privada en Firefox.
 - El inicio de sesión único de conexión directa no funciona en Internet Explorer cuando está activado el modo de protección mejorada.
 - El inicio de sesión único de conexión directa no funciona en exploradores móviles en iOS y Android.
+- Si un usuario forma parte de demasiados grupos de Active Directory, es probable que el valor de Kerberos del usuario sea demasiado largo para procesarse, lo que hará que se produzca un error en el inicio de sesión único de conexión directa. Las solicitudes HTTPS de Azure AD pueden tener encabezados con un tamaño máximo de 16 KB; los vales de Kerberos deben ser mucho más pequeños que ese número para albergar otros artefactos de Azure AD, como las cookies. Nuestra recomendación es reducir la pertenencia a grupos del usuario y volver a intentarlo.
 - Si va a sincronizar treinta bosques de Active Directory o más, no se puede habilitar el inicio de sesión único de conexión directa mediante Azure AD Connect. Como alternativa, también puede [habilitar manualmente](#manual-reset-of-azure-ad-seamless-sso) la característica en su inquilino.
-- Al agregar la dirección URL del servicio de Azure AD (https://autologon.microsoftazuread-sso.com) a la zona de sitios de confianza en lugar de la zona de la intranet local, *se impide que los usuarios inicien sesión*.
+- Agregar la dirección URL del servicio de Azure AD (https://autologon.microsoftazuread-sso.com) a la zona de sitios de confianza en lugar de a la zona de intranet local *impide que los usuarios inicien sesión*.
 - Deshabilitar el uso del tipo de cifrado **RC4_HMAC_MD5** para Kerberos en la configuración de Active Directory interrumpirá el SSO de conexión directa. En la herramienta Editor de administración de directivas de grupo, asegúrese de que el valor de directiva para **RC4_HMAC_MD5** en **Configuración de equipo -> Configuración de Windows -> Configuración de seguridad -> Directivas locales -> Opciones de seguridad -> "Seguridad de red: configurar tipos de cifrado permitidos para Kerberos"** esté habilitado.
 
 ## <a name="check-status-of-feature"></a>Comprobación del estado de la característica
@@ -75,7 +76,7 @@ Use la siguiente lista de comprobación para solucionar problemas de SSO de cone
 
 - Asegúrese de que la característica SSO de conexión directa está habilitada en Azure AD Connect. Si no puede habilitarla (por ejemplo, debido a que hay un puerto bloqueado), asegúrese de que cumple todos los [requisitos previos](active-directory-aadconnect-sso-quick-start.md#step-1-check-the-prerequisites).
 - Si ha habilitado tanto [Azure AD Join](../active-directory-azureadjoin-overview.md) como SSO de conexión directa en el inquilino, asegúrese de que el problema no está relacionado con Azure AD Join. SSO de Azure AD Join tiene prioridad sobre SSO de conexión directa, si el dispositivo está tanto registrado con Azure AD como unido a un dominio. Con SSO de Azure AD Join, el usuario ve un icono de inicio de sesión que dice "Conectado a Windows".
-- Asegúrese de que la dirección URL de Azure AD (https://autologon.microsoftazuread-sso.com) forma parte de la configuración de la zona de intranet del usuario.
+- Asegúrese de que la dirección URL de Azure AD (https://autologon.microsoftazuread-sso.com) forma parte de la configuración de zonas de intranet del usuario.
 - Asegúrese de que el dispositivo corporativo se ha unido al dominio de Active Directory.
 - Asegúrese de que el usuario ha iniciado sesión en el dispositivo a través de una cuenta de dominio de Active Directory.
 - Asegúrese de que la cuenta del usuario provenga de un bosque de Active Directory donde esté configurado SSO de conexión directa.

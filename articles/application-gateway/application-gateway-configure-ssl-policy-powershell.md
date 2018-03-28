@@ -1,6 +1,6 @@
 ---
-title: "Configuración de la directiva SSL en Azure Application Gateway mediante PowerShell | Microsoft Docs"
-description: "Esta página proporciona instrucciones para configurar la directiva SSL en Azure Application Gateway"
+title: Configuración de la directiva SSL en Azure Application Gateway mediante PowerShell | Microsoft Docs
+description: Esta página proporciona instrucciones para configurar la directiva SSL en Azure Application Gateway
 documentationcenter: na
 services: application-gateway
 author: davidmu1
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/19/2017
 ms.author: davidmu
-ms.openlocfilehash: 407b62042d3f0d5c68234c4faeaa139c5e21b3a6
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: fa192ca1ee0dc5ee7190b6c63b64297c7406291d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="configure-ssl-policy-versions-and-cipher-suites-on-application-gateway"></a>Configurar versiones de directivas SSL y conjuntos de cifrado en Application Gateway
 
@@ -75,7 +75,7 @@ AvailableProtocols:
 
 ## <a name="list-pre-defined-ssl-policies"></a>Listado de directivas SSL predefinidas
 
-Application Gateway incluye 3 directivas predefinidas que se pueden utilizar. El cmdlet `Get-AzureRmApplicationGatewaySslPredefinedPolicy` permite recuperar estas directivas. Cada directiva tiene diferentes versiones de protocolo y conjuntos de cifrado habilitados. Estas directivas predefinidas se pueden utilizar para configurar rápidamente una directiva SSL en Application Gateway. De forma predeterminada se selecciona **AppGwSslPolicy20170401** si no se ha definido ninguna directiva SSL específica.
+Application Gateway incluye 3 directivas predefinidas que se pueden utilizar. El cmdlet `Get-AzureRmApplicationGatewaySslPredefinedPolicy` permite recuperar estas directivas. Cada directiva tiene diferentes versiones de protocolo y conjuntos de cifrado habilitados. Estas directivas predefinidas se pueden utilizar para configurar rápidamente una directiva SSL en Application Gateway. De forma predeterminada, se selecciona **AppGwSslPolicy20150501** si no se ha definido ninguna directiva SSL específica.
 
 A continuación se muestra un ejemplo de la ejecución de `Get-AzureRmApplicationGatewaySslPredefinedPolicy`.
 

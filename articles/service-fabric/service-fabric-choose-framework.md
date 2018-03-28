@@ -1,9 +1,9 @@
 ---
-title: "Introducción al modelo de programación de Service Fabric | Microsoft Docs"
-description: "Service Fabric ofrece dos marcos para la creación de servicios: el marco de actores y el marco de servicios. Ofrecen distintas ventajas e inconvenientes en simplicidad y control."
+title: Introducción al modelo de programación de Service Fabric | Microsoft Docs
+description: 'Service Fabric ofrece dos marcos para la creación de servicios: el marco de actores y el marco de servicios. Ofrecen distintas ventajas e inconvenientes en simplicidad y control.'
 services: service-fabric
 documentationcenter: .net
-author: seanmck
+author: vturecek
 manager: timlt
 editor: vturecek
 ms.assetid: 974b2614-014e-4587-a947-28fcef28b382
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: a68db62f87bca5c641db310823588df6fb74f75e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 6c4503b3e05f7d78f64a161f620b1fbd6cd38ab1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="service-fabric-programming-model-overview"></a>Información general del modelo de programación de Service Fabric
-Service Fabric ofrece varias maneras de escribir y administrar los servicios. Los servicios pueden optar por usar las API de Service Fabric para sacar el máximo provecho de los marcos de aplicaciones y las características de la plataforma. Los servicios también pueden ser cualquier programa ejecutable compilado escrito en cualquier lenguaje o código que se ejecute en un contenedor hospedado simplemente en un clúster de Service Fabric.
+Service Fabric ofrece varias maneras de escribir y administrar los servicios. Los servicios pueden optar por usar las API de Service Fabric para sacar el máximo provecho de los marcos de aplicaciones y las características de la plataforma. Los servicios también pueden ser cualquier programa ejecutable compilado escrito en cualquier lenguaje o código que se ejecute en un contenedor hospedado en un clúster de Service Fabric.
 
 ## <a name="guest-executables"></a>Ejecutables de invitado
-Un [ejecutable de invitado](service-fabric-deploy-existing-app.md) es un ejecutable arbitrario y existente (escrito en cualquier lenguaje) que se pueda ejecutar como un servicio en la aplicación. Los ejecutables de invitado no llaman directamente a las API del SDK de Service Fabric. Sin embargo, todavía se beneficiarán de las características que ofrece la plataforma, como la detección de servicio y la creación de informes de carga y de estado personalizada mediante la llamada a API de REST expuestas por Service Fabric. También tienen soporte técnico completo de ciclo de vida de aplicación.
+Un [ejecutable de invitado](service-fabric-guest-executables-introduction.md) es un ejecutable arbitrario y existente (escrito en cualquier lenguaje) que se pueda ejecutar como un servicio en la aplicación. Los ejecutables de invitado no llaman directamente a las API del SDK de Service Fabric. Sin embargo, todavía se beneficiarán de las características que ofrece la plataforma, como la detección de servicio y la creación de informes de carga y de estado personalizada mediante la llamada a API de REST expuestas por Service Fabric. También tienen soporte técnico completo de ciclo de vida de aplicación.
 
 Introducción a los archivos ejecutables de invitado mediante la implementación de la primera [aplicación ejecutable de invitado](service-fabric-deploy-existing-app.md).
 
@@ -50,14 +50,14 @@ ASP.NET Core es un nuevo marco de código abierto multiplataforma para crear apl
 ## <a name="reliable-actors"></a>Reliable Actors
 Basado en Reliable Services, el marco de Reliable Actor es un marco de aplicación que implementa el diseño de Virtual Actor, basado en el patrón de diseño del actor. El marco de Reliable Actor usa unidades independientes del proceso y el estado con la ejecución de subproceso único denominadas actores. El marco de Reliable Actor proporciona comunicaciones integradas para actores y las configuraciones de escalado horizontal y persistencia de estado establecidas previamente.
 
-Como Reliable Actors es en sí mismo un marco de aplicación basado en Reliable Services, está totalmente integrado con la plataforma Service Fabric y se beneficia del conjunto completo de características que ofrece la plataforma.
+Dado que Reliable Actors es un marco de aplicación basado en Reliable Services, está totalmente integrado con la plataforma Service Fabric y se beneficia del conjunto completo de características que ofrece la plataforma.
 
 [Aprenda más sobre Reliable Actors](service-fabric-reliable-actors-introduction.md) o comience por [escribir el primer servicio de Reliable Actor](service-fabric-reliable-actors-get-started.md).
 
 
 [Crear un servicio de front-end mediante ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Información general sobre Service Fabric y contenedores](service-fabric-containers-overview.md)
 
 [Información general sobre Reliable Services](service-fabric-reliable-services-introduction.md)

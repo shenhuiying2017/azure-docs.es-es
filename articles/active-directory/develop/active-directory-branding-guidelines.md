@@ -1,11 +1,11 @@
 ---
-title: "Directrices de personalización de marca para aplicaciones | Microsoft Docs"
-description: "Una guía completa sobre recursos orientados al desarrollador para Azure Active Directory"
+title: Directrices de personalización de marca para aplicaciones | Microsoft Docs
+description: Una guía completa sobre recursos orientados al desarrollador para Azure Active Directory
 services: active-directory
 documentationcenter: dev-center-name
 author: skwan
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 72f4e464-1352-4a49-a18f-c37f58e7d5c4
 ms.service: active-directory
 ms.devlang: na
@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: skwan
 ms.custom: aaddev
-ms.openlocfilehash: 51adb13e15312130841c065f5678209508457559
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e5ce970913d767dbf6b13381cf18c1f7b05d252f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="branding-guidelines-for-applications"></a>Directrices de personalización de marca para aplicaciones
-En este tema, se describen las directrices de personalización de marca que hay que usar al desarrollar aplicaciones con Azure Active Directory (Azure AD). Gracias a ellas, podrá dirigir a los clientes cuando estos quieran usar su cuenta profesional o educativa (administrada en Azure AD), o su cuenta personal, para suscribirse a la aplicación o iniciar sesión en ella.
+En este artículo se describen las directrices de personalización de marca que hay que usar al desarrollar aplicaciones con Azure Active Directory (Azure AD). Gracias a ellas, podrá dirigir a los clientes cuando estos quieran usar su cuenta profesional o educativa (administrada en Azure AD), o su cuenta personal, para suscribirse a la aplicación o iniciar sesión en ella.
 
 ## <a name="personal-accounts-vs-work-or-school-accounts-from-microsoft"></a>Cuentas personales frente a cuentas profesionales o educativas de Microsoft
 Microsoft administra dos tipos de cuentas de usuario:
@@ -51,21 +51,21 @@ La aplicación puede presentar rutas diferentes para la suscripción y el inicio
 ## <a name="visual-guidance-for-app-acquisition"></a>Guía visual para la adquisición de la aplicación
 El vínculo "Obtener la aplicación" debe redirigir al usuario a la página de concesión de acceso (autorización) de Azure AD, para permitir que el administrador de una organización pueda autorizar a su aplicación para que tenga acceso a los datos de la organización que hospeda Microsoft. En el artículo [Integración de aplicaciones con Azure Active Directory](active-directory-integrating-applications.md) se tratan los detalles sobre cómo solicitar acceso.
 
-Después de que los administradores den su consentimiento para la aplicación, pueden optar por agregarla a la experiencia del iniciador de aplicaciones de Office 365 de los usuarios (accesible desde el botón tipo "gofre" y desde [https://portal.office.com/myapps](https://portal.office.com/myapps)). Si desea anunciar esta capacidad, puede utilizar términos como "Agregue esta aplicación a su organización" y mostrar un botón como este:
+Después de que los administradores den su consentimiento a la aplicación, pueden optar por agregarla a la experiencia del iniciador de aplicaciones de Office 365 de los usuarios (accesible desde el botón tipo "gofre" y desde [https://portal.office.com/myapps](https://portal.office.com/myapps)). Si desea anunciar esta capacidad, puede utilizar términos como "Agregue esta aplicación a su organización" y mostrar un botón como este:
 
 ![Tipos de aplicaciones y escenarios](./media/active-directory-branding-guidelines/add-to-my-org.png)
 
-Sin embargo, se recomienda que escriba un texto explicativo en lugar de confiar en los botones. Por ejemplo:
+Sin embargo, se recomienda que escriba un texto explicativo en lugar de confiar en los botones. Por ejemplo: 
 
-> *Si ya usa Office 365 u otro servicio de negocio de Microsoft, solo tiene que conceder acceso a &lt;nombre_su_aplicación&gt; para que acceda a los datos de su organización. De esta forma, los usuarios podrán acceder a <nombre_su_aplicación> con sus cuentas profesionales.*
+> *Si ya usa Office 365 u otro servicio de negocio de Microsoft, puede conceder acceso a <nombre_su_aplicación> para acceder a los datos de su organización. De esta forma, los usuarios podrán acceder a <nombre_su_aplicación> con sus cuentas profesionales.*
 > 
 > 
 
 ## <a name="visual-guidance-for-sign-in"></a>Guía visual para el inicio de sesión
-La aplicación debe mostrar un botón de inicio de sesión que redirige a los usuarios al extremo de inicio de sesión que corresponda al protocolo que se utiliza para la integración con Azure AD. La siguiente sección proporciona detalles sobre el aspecto que debería tener ese botón.
+La aplicación debe mostrar un botón de inicio de sesión que redirige a los usuarios al punto de conexión de inicio de sesión que corresponda al protocolo que se utiliza para la integración con Azure AD. La siguiente sección proporciona detalles sobre el aspecto que debería tener ese botón.
 
 ### <a name="pictogram-and-sign-in-with-microsoft"></a>Pictograma e Iniciar sesión en Microsoft
-Se trata de la asociación del logotipo de Microsoft y el término "Iniciar sesión en Microsoft" que distingue exclusivamente a Azure AD de otros proveedores de identidades que pueden ser compatibles con su aplicación. Si no tiene suficiente espacio para Iniciar sesión en Microsoft, puede acortarlo a Iniciar sesión.
+Se trata de la asociación del logotipo de Microsoft y el término "Iniciar sesión en Microsoft" que distingue exclusivamente a Azure AD de otros proveedores de identidades que pueden ser compatibles con su aplicación. Si no tiene suficiente espacio para Iniciar sesión en Microsoft, puede acortarlo a "Iniciar sesión".
 
 ![Tipos de aplicaciones y escenarios](./media/active-directory-branding-guidelines/sign-in-with-microsoft-light.png)
 
@@ -77,14 +77,16 @@ También puede utilizar una combinación de colores oscuros para los botones.
 
 ![Tipos de aplicaciones y escenarios](./media/active-directory-branding-guidelines/sign-in-dark.png)
 
+Para descargar estas imágenes para su uso en la aplicación, haga clic con el botón derecho en la que quiere usar y guárdela en su equipo. 
+
 ## <a name="branding-dos-and-donts"></a>Personalización de marca: qué se debe hacer y qué no
 **USE** la cuenta profesional o educativa en combinación con el botón Iniciar sesión en Microsoft para proporcionar una explicación adicional que ayude a los usuarios finales a saber si pueden utilizarla. **NO USE** otros términos como "cuenta empresarial", "cuenta de negocio" o "cuenta corporativa".
 
-**No:** no use “Office 365 ID” ni “Azure ID”. Office 365 es también el nombre de un producto para consumidores de Microsoft que no usa Azure AD para la autenticación.
+**NO USE** "Office 365 ID" ni "Azure ID". Office 365 es también el nombre de un producto para consumidores de Microsoft que no usa Azure AD para la autenticación.
 
 **No:** no modifique el logotipo de Microsoft.
 
-**No:** no exponga a los usuarios finales a las marcas Azure ni Active Directory. Sin embargo, es correcto usar estos términos con los desarrolladores, profesionales de TI y administradores.
+**NO EXPONGA** a los usuarios finales a las marcas Azure o Active Directory. Sin embargo, es correcto usar estos términos con los desarrolladores, profesionales de TI y administradores.
 
 ## <a name="navigation-dos-and-donts"></a>Navegación: qué se debe hacer y qué no
 **Sí:** proporcione a los usuarios una manera de cerrar la sesión y cambiar a otra cuenta de usuario. La mayoría de los usuarios tiene una sola cuenta personal de Microsoft, Facebook, Google o Twitter, pero pueden estar asociados con varias organizaciones. Próximamente se admitirá el inicio de sesión simultáneo para varios usuarios.

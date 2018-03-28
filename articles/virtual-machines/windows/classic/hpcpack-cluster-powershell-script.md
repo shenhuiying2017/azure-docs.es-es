@@ -1,11 +1,11 @@
 ---
-title: "Script de PowerShell para implementar un clúster de Windows HPC | Microsoft Docs"
-description: "Ejecución de un script de PowerShell para implementar un clúster de HPC Pack 2012 R2 de Windows completo en máquinas virtuales de Azure"
+title: Script de PowerShell para implementar un clúster de Windows HPC | Microsoft Docs
+description: Ejecución de un script de PowerShell para implementar un clúster de HPC Pack 2012 R2 de Windows completo en máquinas virtuales de Azure
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management,hpc-pack
 ms.assetid: 286b2be8-2533-40df-b02a-26156b1f1133
 ms.service: virtual-machines-windows
@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 12/29/2016
 ms.author: danlep
-ms.openlocfilehash: 85b125ab19671b61d2541af6378c95feb88bf952
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 82aa2942a6a4fe6a3ac1c3ec2c0710e39f4282b1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-windows-high-performance-computing-hpc-cluster-with-the-hpc-pack-iaas-deployment-script"></a>Creación de un clúster de proceso de alto rendimiento (HPC) de Windows con el script de implementación de HPC Pack IaaS
-Ejecute el script de PowerShell de implementación de HPC Pack IaaS para implementar un clúster de HPC Pack 2012 R2 completo para cargas de trabajo Windows en máquinas virtuales de Azure. El clúster consta de un nodo principal unido a Active Directory en el que se ejecuta Windows Server y Microsoft HPC Pack, y los recursos de cálculo de Windows adicionales que especifique. Si desea implementar un clúster de HPC Pack en Azure para cargas de trabajo de Linux, consulte [Creación de un clúster de informática de alto rendimiento (HPC) en máquinas virtuales de Linux con el script de implementación de HPC Pack IaaS](../../linux/classic/hpcpack-cluster-powershell-script.md). También puede usar una plantilla del Administrador de recursos de Azure para implementar un clúster de HPC Pack. Para ver ejemplos, consulte [Create an HPC cluster](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/) (Creación de un clúster de HPC) y [Create an HPC cluster with a custom compute node image](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-custom-image/) (Creación de un clúster de HPC con una imagen de nodo de proceso personalizado).
+Ejecute el script de PowerShell de implementación de HPC Pack IaaS para implementar un clúster de HPC Pack 2012 R2 completo para cargas de trabajo Windows en máquinas virtuales de Azure. El clúster consta de un nodo principal unido a Active Directory en el que se ejecuta Windows Server y Microsoft HPC Pack, y los recursos de cálculo de Windows adicionales que especifique. Si desea implementar un clúster de HPC Pack en Azure para cargas de trabajo de Linux, consulte [Creación de un clúster de informática de alto rendimiento (HPC) en máquinas virtuales de Linux con el script de implementación de HPC Pack IaaS](../../linux/classic/hpcpack-cluster-powershell-script.md). 
 
 > [!IMPORTANT] 
-> El script de PowerShell que se describe en este artículo crea un clúster de Microsoft HPC Pack 2012 R2 en Azure mediante el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos.
-> Además, el script que se describe en este artículo no es compatible con HPC Pack 2016.
+> El script de PowerShell que se describe en este artículo crea un clúster de Microsoft HPC Pack 2012 R2 en Azure mediante el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo de Resource Manager.
+> Además, el script que se describe en este artículo no es compatible con HPC Pack 2016. Para obtener más información sobre las plantillas de Resource Manager para HPC Pack 2012 R2 y HPC Pack 2016, vea las [opciones de implementación de un clúster de HPC Pack en Azure](../hpcpack-cluster-options.md).
 
 [!INCLUDE [virtual-machines-common-classic-hpcpack-cluster-powershell-script](../../../../includes/virtual-machines-common-classic-hpcpack-cluster-powershell-script.md)]
 
@@ -256,7 +256,7 @@ El archivo de configuración siguiente implementa un clúster de HPC Pack en un 
 </IaaSClusterConfig>
 ```
 
-## <a name="troubleshooting"></a>Solución de problemas
+## <a name="troubleshooting"></a>solución de problemas
 * **Error "La red virtual no existe"**: si ejecuta el script para implementar varios clústeres en Azure simultáneamente con una única suscripción, puede producirse un error de "La red virtual *Nombre de\_red virtual* no existe" en una implementación o varias.
   Si se produce este error, vuelva a ejecutar el script para la implementación en la que ocurrió el error.
 * **Problemas de acceso a Internet desde la red virtual de Azure** : si crea un clúster con un nuevo controlador de dominio mediante el script de implementación o promueve manualmente una máquina virtual del nodo principal a un controlador de dominio, puede experimentar problemas al conectar las máquinas virtuales a Internet. Este problema puede ocurrir si se configura automáticamente un servidor de reenviador DNS en el controlador de dominio y este servidor de reenviador DNS no se resuelve correctamente.

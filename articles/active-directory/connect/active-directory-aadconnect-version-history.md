@@ -1,11 +1,11 @@
 ---
 title: 'Azure AD Connect: historial de versiones | Microsoft Docs'
-description: "En este artículo se muestran todas las versiones de Azure AD Connect y Sincronización de Azure AD"
+description: En este artículo se muestran todas las versiones de Azure AD Connect y Sincronización de Azure AD
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/16/2018
 ms.author: billmath
-ms.openlocfilehash: 81d08d3d3d08e9cc96b39cbdf2d639e939fdf3d4
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 0c6a0c43eb7d0187120c3264f1f439af66d73978
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: historial de versiones
 El equipo de Azure Active Directory (Azure AD) actualiza periódicamente Azure AD Connect con nuevas características y funcionalidades. No todas las adiciones son aplicables a todas las audiencias.
@@ -36,8 +36,19 @@ Permisos necesarios | Para más información sobre los permisos necesarios para 
 
 Descarga | [Descargar Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
+## <a name="117500"></a>1.1.750.0
+Estado: publicado para clientes exclusivos Esta versión se distribuye actualmente en una sección pequeña y aleatoria de los inquilinos de AADConnect que tenga habilitada la actualización automática. Expandiremos este grupo de inquilinos en las próximas semanas hasta que el 100 % de nuestros clientes con actualización automática hayan recibido esta versión. Después de eso, publicaremos la compilación para descarga general en el enlace de descarga anterior.
+>[!NOTE]
+>Cuando se haya completado la actualización a esta nueva versión, se desencadenará automáticamente una sincronización completa y una importación completa para el conector de Azure AD y una sincronización completa para el conector de AD. Puesto que esta acción puede tardar algún tiempo en función del tamaño del entorno de Azure AD Connect, asegúrese de que ha seguido los pasos necesarios para admitir esto o aplace la actualización hasta que haya encontrado un momento adecuado para hacerlo.
+
+### <a name="azure-ad-connect"></a>Azure AD Connect
+#### <a name="fixed-issues"></a>Problemas corregidos
+
+* Set-ADSyncAutoUpgrade cmdlet bloqueaba anteriormente la actualización automática si el estado de esta se configuraba en Suspendido. Ahora ha cambiado para que no bloquee la actualización automática de futuras compilaciones.
+
 ## <a name="117490"></a>1.1.749.0
-Estado: publicado para clientes exclusivos Esta versión se distribuye actualmente en una sección pequeña y aleatoria de los inquilinos de AADConnect que tenga habilitada la actualización automática. Expandiremos este grupo de inquilinos en las próximas semanas hasta que el 100 % de nuestros clientes con actualización automática hayan recibido esta versión. Después de eso, publicaremos la compilación para descarga general en el enlace de descarga anterior, actualmente planeada para mediados de marzo de 2018.
+Estado: publicado para clientes exclusivos
+
 >[!NOTE]
 >Cuando se haya completado la actualización a esta nueva versión, se desencadenará automáticamente una sincronización completa y una importación completa para el conector de Azure AD y una sincronización completa para el conector de AD. Puesto que esta acción puede tardar algún tiempo en función del tamaño del entorno de Azure AD Connect, asegúrese de que ha seguido los pasos necesarios para admitir esto o aplace la actualización hasta que haya encontrado un momento adecuado para hacerlo.
 
@@ -49,11 +60,11 @@ Estado: publicado para clientes exclusivos Esta versión se distribuye actualmen
 
 * Se ha corregido un error para recuperarse del tiempo de espera de la conexión de SQL.
 
-* Se ha corregido un error que provocaba que los certificados con caracteres comodín de SAN generaran un error al realizar una comprobación de requisitos previos.
+* Se corrigió un error que provocaba que los certificados con caracteres comodín de SAN generaran un error al realizar una comprobación de requisitos previos.
 
 * Se ha corregido un error que provocaba que miiserver.exe se bloqueara durante una exportación del conector de Azure AD.
 
-* Se ha corregido un error cuyo intento de contraseña incorrecta se registró en el controlador de dominio al ejecutar el asistente de Azure AD Connect para cambiar la configuración.
+* Se corrigió un error cuyo intento de contraseña incorrecta se registró en el controlador de dominio al ejecutar el asistente de Azure AD Connect para cambiar la configuración.
 
 
 #### <a name="new-features-and-improvements"></a>Nuevas características y mejoras
@@ -223,7 +234,7 @@ Estado: 19 de octubre de 2017
 
 ### <a name="azure-ad-connect-sync"></a>Azure AD Connect Sync
 >[!NOTE]
-> Nota: El servicio de sincronización tiene una interfaz WMI que le permite desarrollar su propio programador personalizado. Esta interfaz está ahora en desuso y se eliminará en futuras versiones de Azure AD Connect que se suministren después del 30 de junio de 2018. Los clientes que deseen personalizar la programación de sincronización deben utilizar el programador integrado (https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-scheduler).
+> Nota: El servicio de sincronización tiene una interfaz WMI que le permite desarrollar su propio programador personalizado. Esta interfaz está ahora en desuso y se eliminará en futuras versiones de Azure AD Connect que se suministren después del 30 de junio de 2018. Los clientes que deseen personalizar la programación de sincronización deben utilizar el [programador integrado (https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-scheduler).
 
 #### <a name="fixed-issues"></a>Problemas corregidos
 * Cuando el asistente de Azure AD Connect crea la cuenta de AD Connector necesaria para sincronizar los cambios de la instancia local de Active Directory, no asigna correctamente a la cuenta el permiso necesario para leer objetos PublicFolder. Este problema afecta a la instalación rápida y a la instalación personalizada. Este cambio corrige el problema.

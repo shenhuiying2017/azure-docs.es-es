@@ -1,13 +1,13 @@
 ---
 title: Enlace de Twilio de Azure Functions
-description: "Entender cómo usar enlaces de Twilio con Azure Functions."
+description: Entender cómo usar enlaces de Twilio con Azure Functions.
 services: functions
 documentationcenter: na
 author: wesmc7777
 manager: cfowler
-editor: 
-tags: 
-keywords: "azure functions, funciones, procesamiento de eventos, proceso dinámico, arquitectura sin servidor"
+editor: ''
+tags: ''
+keywords: azure functions, funciones, procesamiento de eventos, proceso dinámico, arquitectura sin servidor
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
@@ -16,17 +16,23 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: wesmc
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 52a45f1b67e3194739fe97daad56de2d3515dee3
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: ff31f8b265452b6864e36323e770f808f87de019
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Enlace de Twilio para Azure Functions
 
 En este artículo se explica cómo enviar mensajes de texto mediante los enlaces de [Twilio](https://www.twilio.com/) en Azure Functions. Azure Functions admite los enlaces de salida para Twilio.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+## <a name="packages"></a>Paquetes
+
+Los enlaces de Twilio se proporcionan en el paquete NuGet [Microsoft.Azure.WebJobs.Extensions.Twilio](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio). El código fuente del paquete se encuentra en el repositorio [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/) de GitHub.
+
+[!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="example"></a>Ejemplo
 
@@ -195,7 +201,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="attributes"></a>Atributos
 
-Para las [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el atributo [TwilioSms](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs), que se define en el paquete NuGet [Microsoft.Azure.WebJobs.Extensions.Twilio](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio).
+En las [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el atributo [TwilioSms](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs).
 
 Para información sobre las propiedades de atributo que puede configurar, consulte [Configuración](#configuration). A continuación, se muestra un ejemplo del atributo `TwilioSms` en una signatura de método:
 
@@ -232,7 +238,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Más información sobre desencadenadores y enlaces de Azure Functions](functions-triggers-bindings.md)

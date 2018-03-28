@@ -1,24 +1,24 @@
 ---
-title: "Conexión de equipos Windows a Azure Log Analytics | Microsoft Docs"
-description: "En este artículo se describe la manera de conectar equipos Windows hospedados en otras nubes o de forma local en Log Analytics mediante Microsoft Monitoring Agent (MMA)."
+title: Conexión de equipos Windows a Azure Log Analytics | Microsoft Docs
+description: En este artículo se describe la manera de conectar equipos Windows hospedados en otras nubes o de forma local en Log Analytics mediante Microsoft Monitoring Agent (MMA).
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 03/12/2018
 ms.author: magoedte
-ms.openlocfilehash: 3bb023cfd94c7b87550d692101d30f922de80bf9
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 778810001952daf9ac63a7f1f880b05234549965
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Conexión de equipos Windows al servicio Log Analytics de Azure
 
@@ -63,7 +63,7 @@ Los siguientes pasos permiten la instalación y configuración de Log Analytics 
 Una vez completado el proceso, el **Agente de administración de Microsoft** aparece en el **Panel de control**. Para confirmar que está informando a Log Analytics, revise [Comprobar la conectividad del agente con Log Analytics](#verify-agent-connectivity-to-log-analytics). 
 
 ## <a name="install-the-agent-using-the-command-line"></a>Instalación del agente a través de la línea de comandos
-El archivo descargado del agente es un paquete de instalación independiente creado con IExpress.  El programa de instalación del agente y los archivos auxiliares se encuentran en el paquete y deben extraerse para realizar la instalación correctamente mediante la línea de comandos que se muestra en los ejemplos siguientes.    
+El archivo descargado del agente es un paquete de instalación independiente.  El programa de instalación del agente y los archivos auxiliares se encuentran en el paquete y deben extraerse para realizar la instalación correctamente mediante la línea de comandos que se muestra en los ejemplos siguientes.    
 
 >[!NOTE]
 >Si desea actualizar a un agente, debe utilizar la API de scripting de Log Analytics. Si quiere obtener más información, consulte [Administrar y mantener el agente de Log Analytics para Windows y Linux](log-analytics-agent-manage.md).
@@ -72,6 +72,7 @@ En la tabla siguiente se resaltan los parámetros de Log Analytics específicos 
 
 |Opciones específicas de MMA                   |Notas         |
 |---------------------------------------|--------------|
+| NOAPM=1                               | Parámetro opcional. Instala al agente sin la supervisión de rendimiento de aplicaciones .NET.|   
 |ADD_OPINSIGHTS_WORKSPACE               | 1 = Configurar el agente para informar a un área de trabajo                |
 |OPINSIGHTS_WORKSPACE_ID                | Id. de área de trabajo (guid) para el área de trabajo que se agregará                    |
 |OPINSIGHTS_WORKSPACE_KEY               | Clave del área de trabajo que se usa para autenticar inicialmente con el área de trabajo |
@@ -80,7 +81,7 @@ En la tabla siguiente se resaltan los parámetros de Log Analytics específicos 
 |OPINSIGHTS_PROXY_USERNAME               | Nombre de usuario para acceder a un proxy autenticado |
 |OPINSIGHTS_PROXY_PASSWORD               | Contraseña para acceder a un proxy autenticado |
 
-1. Para extraer los archivos de instalación del agente, desde un símbolo del sistema con privilegios elevados ejecute `extract MMASetup-<platform>.exe` y se le solicitará la ruta en la que extraer los archivos.  Como alternativa, puede especificar la ruta de acceso pasando los argumentos `extract MMASetup-<platform>.exe /c:<Path> /t:<Path>`.  Para obtener más información acerca de los modificadores de la línea de comandos compatibles con IExpress, consulte [Command-line switches for IExpress](https://support.microsoft.com/help/197147/command-line-switches-for-iexpress-software-update-packages) (Modificadores de la línea de comandos para IExpress) y, después, actualice el ejemplo para adaptarlo a sus necesidades.
+1. Para extraer los archivos de instalación del agente, desde un símbolo del sistema con privilegios elevados ejecute `MMASetup-<platform>.exe /c` y se le solicitará la ruta en la que extraer los archivos.  Como alternativa, puede especificar la ruta de acceso pasando los argumentos `MMASetup-<platform>.exe /c /t:<Path>`.  
 2. Para instalar el agente de forma silenciosa y configurarlo para que informe a un área de trabajo en la nube comercial de Azure, vaya a la carpeta en la que extrajo los archivos de instalación y escriba: 
    
      ```dos
@@ -108,9 +109,9 @@ En el ejemplo siguiente se instala el agente de 64 bits, identificado mediante e
 
 Las versiones de 32 y 64 bits del paquete de agente tienen códigos de producto diferentes y las nuevas versiones publicadas también tienen un valor único.  El código de producto es un GUID, que es la identificación principal de una aplicación o un producto, y se representa mediante la propiedad **ProductCode** de Windows Installer.  El `ProductId value` del script **MMAgent.ps1** tiene que coincidir con el código de producto del paquete de instalador del agente de 32 o 64 bits.
 
-Para recuperar el código de producto del paquete para instalar el agente directamente, puede usar Orca.exe desde la página [Windows SDK Components for Windows Installer Developers](https://msdn.microsoft.com/library/windows/desktop/aa370834%27v=vs.85%28.aspx) (Componentes del SDK de Windows para desarrolladores de Windows Installer), donde encontrará un componente del Kit de desarrollo de software de Windows, o mediante PowerShell y un [script de ejemplo](http://www.scconfigmgr.com/2014/08/22/how-to-get-msi-file-information-with-powershell/) que haya escrito un MVP (profesional más valioso) de Microsoft.
+Para recuperar el código de producto del paquete para instalar el agente directamente, puede usar Orca.exe desde la página [Windows SDK Components for Windows Installer Developers](https://msdn.microsoft.com/library/windows/desktop/aa370834%28v=vs.85%29.aspx) (Componentes del SDK de Windows para desarrolladores de Windows Installer), donde encontrará un componente del Kit de desarrollo de software de Windows, o mediante PowerShell y un [script de ejemplo](http://www.scconfigmgr.com/2014/08/22/how-to-get-msi-file-information-with-powershell/) que haya escrito un MVP (profesional más valioso) de Microsoft.  Para cualquier enfoque, primero debe extraer el archivo **MOMagent.msi** del paquete de instalación MMASetup.  Esto se explicó anteriormente en el primero paso de la sección [Instalación del agente a través de la línea de comandos](#install-the-agent-using-the-command-line).  
 
-1. Importe el módulo de DSC xPSDesiredStateConfiguration desde [http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration](http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration) en Azure Automation.  
+1. Importe el módulo DSC xPSDesiredStateConfiguration de [http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration](http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration) en Azure Automation.  
 2.  En Azure Automation, cree los recursos de variable *OPSINSIGHTS_WS_ID* y *OPSINSIGHTS_WS_KEY*. Establezca *OPSINSIGHTS_WS_ID* en el identificador del área de trabajo de Log Analytics y *OPSINSIGHTS_WS_KEY* en la clave principal del área de trabajo.
 3.  Copie el script y guárdelo como MMAgent.ps1.
 
@@ -174,6 +175,6 @@ También puede realizar una búsqueda de registros simple en Azure Portal.
 
 En los resultados de la búsqueda devueltos, verá los registros de latido del equipo que indican que está conectado y que está creando informes para el servicio.   
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Lea [Administrar y mantener el agente de Log Analytics para Windows y Linux](log-analytics-agent-manage.md) para obtener información acerca de cómo administrar el agente durante su ciclo de vida de implementación en las máquinas.  

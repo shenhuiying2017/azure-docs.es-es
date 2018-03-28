@@ -1,11 +1,11 @@
 ---
 title: Credenciales de certificado en Azure AD | Microsoft Docs
-description: "Este artículo describe el registro y el uso de credenciales de certificados para la autenticación de aplicaciones"
+description: Este artículo describe el registro y el uso de credenciales de certificados para la autenticación de aplicaciones
 services: active-directory
 documentationcenter: .net
 author: navyasric
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 88f0c64a-25f7-4974-aca2-2acadc9acbd8
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/02/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: d05456912324c06a0895cd4cf049b60c9d126904
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 68de6295b84385f54eaadd6d24e8309a32fae9ce
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>Credenciales de certificado para la autenticación de aplicaciones
 
@@ -32,7 +32,7 @@ Para calcular la aserción, es posible que desee utilizar una de las muchas bibl
 #### <a name="header"></a>Encabezado
 
 | . |  Comentario |
-| --- | --- | --- |
+| --- | --- |
 | `alg` | Debe ser **RS256** |
 | `typ` | Debe ser **JWT** |
 | `x5t` | Debe ser la huella digital SHA-1 del certificado X.509 |
@@ -40,7 +40,7 @@ Para calcular la aserción, es posible que desee utilizar una de las muchas bibl
 #### <a name="claims-payload"></a>Notificaciones (carga útil)
 
 | . |  Comentario |
-| --- | --- | --- |
+| --- | --- |
 | `aud` | Público: debe ser **https://login.microsoftonline.com/*tenant_Id*/oauth2/token** |
 | `exp` | Fecha de expiración: la fecha en que el token expira. La hora se representa como el número de segundos desde el 1 de enero de 1970 (1970-01-01T0:0:0Z) UTC hasta el momento en que la validez del token expira.|
 | `iss` | Emisor: debe ser el identificador client_id (identificador de la aplicación del servicio de cliente) |
@@ -49,9 +49,11 @@ Para calcular la aserción, es posible que desee utilizar una de las muchas bibl
 | `sub` | Asunto: al igual que para `iss`, debe ser el identificador client_id (identificador de la aplicación del servicio de cliente) |
 
 #### <a name="signature"></a>Firma
+
 La firma se calcula aplicando el certificado como se describe en la [especificación RFC7519 de JSON Web Token](https://tools.ietf.org/html/rfc7519)
 
 ### <a name="example-of-a-decoded-jwt-assertion"></a>Ejemplo de una aserción de JWT descodificada
+
 ```
 {
   "alg": "RS256",
@@ -73,6 +75,7 @@ La firma se calcula aplicando el certificado como se describe en la [especificac
 ```
 
 ### <a name="example-of-an-encoded-jwt-assertion"></a>Ejemplo de una aserción de JWT codificada
+
 La cadena siguiente es un ejemplo de aserción codificada. Si observa detenidamente, verá tres secciones separadas por puntos (.).
 La primera sección codifica el encabezado, la segunda la carga útil y la última es la firma calculada con los certificados a partir del contenido de las primeras dos secciones.
 ```
@@ -81,14 +84,17 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 ```
 
 ### <a name="register-your-certificate-with-azure-ad"></a>Registro del certificado con Azure AD
+
 Para asociar las credenciales del certificado con la aplicación de cliente en Azure AD, debe editar el manifiesto de la aplicación.
 Si tiene un certificado, debe calcular:
+
 - `$base64Thumbprint`, que es la codificación base64 del hash del certificado
 - `$base64Value`, que es la codificación base64 de los datos sin procesar del certificado
 
-También deberá proporcionar un GUID para identificar la clave en el manifiesto de la aplicación (`$keyId`)
+También debe proporcionar un GUID para identificar la clave en el manifiesto de la aplicación (`$keyId`).
 
 En el registro de aplicación de Azure para la aplicación cliente, abra el manifiesto de aplicación y reemplace la propiedad *keyCredentials* con la información del nuevo certificado usando el siguiente esquema:
+
 ```
 "keyCredentials": [
     {

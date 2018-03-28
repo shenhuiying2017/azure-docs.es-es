@@ -1,6 +1,6 @@
 ---
 title: Funciones de la plantilla de Resource Manager | Microsoft Docs
-description: "Describe las funciones que se van a usar en una plantilla del Administrador de recursos de Azure para recuperar valores, trabajar con cadenas y valores numéricos y recuperar información de implementación."
+description: Describe las funciones que se van a usar en una plantilla del Administrador de recursos de Azure para recuperar valores, trabajar con cadenas y valores numéricos y recuperar información de implementación.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2017
 ms.author: tomfitz
-ms.openlocfilehash: 725f12a6b5dcf4b66109512336e8a617013c5974
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 54580abdca8b6be10576cf74ad23e8ff2665341c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-resource-manager-template-functions"></a>Funciones de la plantilla del Administrador de recursos de Azure
-Este tema describe todas las funciones que puede utilizar en una plantilla de Azure Resource Manager.
+En este artículo se describen todas las funciones que puede utilizar en una plantilla de Azure Resource Manager.
 
 Las funciones se agregan a las plantillas al encerrarlas entre corchetes: `[` y `]`, respectivamente. La expresión se evalúa durante la implementación. Aunque se escribe como un literal de cadena, el resultado de evaluar la expresión puede ser de un tipo diferente de JSON, como una matriz, un objeto o un entero. Al igual que en JavaScript, las llamadas de función tienen el formato `functionName(arg1,arg2,arg3)`. Se hace referencia a las propiedades mediante los operadores dot e [index] .
 
@@ -37,6 +37,7 @@ Las funciones de plantilla y sus parámetros no distinguen mayúsculas de minús
 <a id="empty" />
 <a id="first" />
 <a id="intersection" />
+<a id="json" />
 <a id="last" />
 <a id="length" />
 <a id="min" />
@@ -93,6 +94,21 @@ El Administrador de recursos ofrece las siguientes funciones para obtener valore
 * [parameters](resource-group-template-functions-deployment.md#parameters)
 * [variables](resource-group-template-functions-deployment.md#variables)
 
+<a id="and" />
+<a id="bool" />
+<a id="if" />
+<a id="not" />
+<a id="or" />
+
+## <a name="logical-functions"></a>Funciones lógicas
+Resource Manager ofrece las siguientes funciones para trabajar con condiciones lógicas:
+
+* [and](resource-group-template-functions-logical.md#and)
+* [bool](resource-group-template-functions-logical.md#bool)
+* [if](resource-group-template-functions-logical.md#if)
+* [not](resource-group-template-functions-logical.md#not)
+* [or](resource-group-template-functions-logical.md#or)
+
 <a id="add" />
 <a id="copyindex" />
 <a id="div" />
@@ -103,15 +119,6 @@ El Administrador de recursos ofrece las siguientes funciones para obtener valore
 <a id="mod" />
 <a id="mul" />
 <a id="sub" />
-
-## <a name="logical-functions"></a>Funciones lógicas
-Resource Manager ofrece las siguientes funciones para trabajar con condiciones lógicas:
-
-* [and](resource-group-template-functions-logical.md#and)
-* [bool](resource-group-template-functions-logical.md#bool)
-* [if](resource-group-template-functions-logical.md#if)
-* [not](resource-group-template-functions-logical.md#not)
-* [or](resource-group-template-functions-logical.md#or)
 
 ## <a name="numeric-functions"></a>Funciones numéricas
 El Administrador de recursos ofrece las siguientes funciones para trabajar con números enteros:
@@ -155,6 +162,7 @@ El Administrador de recursos ofrece las siguientes funciones para obtener valore
 <a id="emptystring" />
 <a id="endswith" />
 <a id="firststring" />
+<a id="guid" />
 <a id="indexof" />
 <a id="laststring" />
 <a id="lastindexof" />

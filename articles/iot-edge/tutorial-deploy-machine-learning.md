@@ -6,14 +6,14 @@ keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 03/06/2018
+ms.date: 03/12/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: e2314f589456f604c8c008e10fb8084e0524575d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4201395085dd72eb92b774eaed5980737b2e5de0
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Implementación de Azure Machine Learning como un módulo de IoT Edge (versión preliminar)
 
@@ -41,12 +41,16 @@ En esta sección, descargará los archivos de modelo entrenados y los convertir�
 
 En el equipo que ejecuta Administración del módulo de Azure Machine Learning, descargue y guarde [iot_score.py](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/iot_score.py) y [model.pkl](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/model.pkl) del Kit de herramientas de IoT de Azure Machine Learning en GitHub. Estos archivos definen el modelo de aprendizaje automático entrenado que implementará en su dispositivo IoT Edge. 
 
-Utilice el modelo entrenado para crear un contenedor que puede implementarse en dispositivos IoT Edge.
+Utilice el modelo entrenado para crear un contenedor que puede implementarse en dispositivos IoT Edge. Use el comando siguiente para:
+
+   * Registrar el modelo.
+   * Crear un manifiesto.
+   * Crear una imagen de contenedor de Docker con el nombre *machinelearningmodule*.
+   * Implementar la imagen en el clúster de Azure Container Service (AKS).
 
 ```cmd
 az ml service create realtime --model-file model.pkl -f iot_score.py -n machinelearningmodule -r python
 ```
-El nombre del servicio, *machinelearningmodule*, en este ejemplo, se convierte en el nombre de la imagen de contenedor de Docker.
 
 ### <a name="view-the-container-repository"></a>Ver el repositorio de contenedores
 

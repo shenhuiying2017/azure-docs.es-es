@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/09/2018
 ms.author: anwestg
-ms.openlocfilehash: 3261a312cde9ebdf41f6dadb82c14d108715f8f7
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 5323fe505adfd9b3495dd85ce41d6f141125184b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Antes de empezar a trabajar con App Service en Azure Stack
 
@@ -47,7 +47,7 @@ Antes de implementar Azure App Service en Azure Stack, debe completar los requis
 
 ## <a name="high-availability"></a>Alta disponibilidad
 
-Con la versión 1802 de Azure Stack, que agregó compatibilidad con los dominios de error, las nuevas implementaciones de Azure App Service en Azure Stack se distribuirán entre los dominios de error y proporcionarán tolerancia a errores.  Para las implementaciones existentes de Azure App Service en Azure Stack realizadas antes del lanzamiento de la actualización 1802, vea la documentación (azure-stack-app-service-fault-domain-update.md) para obtener información sobre cómo reequilibrar la implementación.
+Con la versión 1802 de Azure Stack, que agregó compatibilidad con los dominios de error, las nuevas implementaciones de Azure App Service en Azure Stack se distribuirán entre los dominios de error y proporcionarán tolerancia a errores.  Para las implementaciones existentes de Azure App Service en Azure Stack realizadas antes del lanzamiento de la actualización 1802, vea la [documentación](azure-stack-app-service-fault-domain-update.md) para obtener información sobre cómo reequilibrar la implementación.
 
 Además, para que Azure App Service en Azure Stack proporcione alta disponibilidad, implemente el servidor de archivos y la instancia de SQL Server necesarios en una configuración de alta disponibilidad. 
 

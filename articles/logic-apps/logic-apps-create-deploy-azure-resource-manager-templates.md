@@ -1,11 +1,11 @@
 ---
-title: "Creación de aplicaciones lógicas a partir de plantillas de Azure Resource Manager | Microsoft Docs"
-description: "Creación e implementación de flujos de trabajo de aplicaciones lógicas con plantillas de Azure Resource Manager"
+title: Creación de aplicaciones lógicas a partir de plantillas de Azure Resource Manager | Microsoft Docs
+description: Creación e implementación de flujos de trabajo de aplicaciones lógicas con plantillas de Azure Resource Manager
 services: logic-apps
-documentationcenter: 
-author: MandiOhlinger
+documentationcenter: ''
+author: ecfan
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 7574cc7c-e5a1-4b7c-97f6-0cffb1a5d536
 ms.service: logic-apps
 ms.workload: integration
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2017
-ms.author: LADocs; mandia
-ms.openlocfilehash: e30ed8b1b8e2241bbebab1d7c5f337fabf37e1dd
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.author: LADocs; estfan
+ms.openlocfilehash: 9e696f6e4614052456cf2b55123d98d61b8b3b9c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-and-deploy-logic-apps-with-azure-resource-manager-templates"></a>Creación e implementación de aplicaciones lógicas con plantillas de Azure Resource Manager
 
@@ -82,7 +82,7 @@ La plantilla usa valores de parámetro para el nombre de la aplicación lógica 
 
 Estas son las descripciones de los parámetros de la plantilla:
 
-| Parámetro | Descripción | Ejemplo de definición JSON | 
+| . | DESCRIPCIÓN | Ejemplo de definición JSON | 
 | --------- | ----------- | ----------------------- | 
 | `logicAppName` | Define el nombre de la aplicación lógica que la plantilla crea. | "logicAppName": { "type": "string", "metadata": { "description": "myExampleLogicAppName" } } |
 | `testUri` | Define la ubicación para hacer ping para realizar pruebas. | "testUri": { "type": "string", "defaultValue": "http://azure.microsoft.com/status/feed/"} | 
@@ -115,7 +115,7 @@ Con esta acción inicia sesión en Azure Portal, donde puede proporcionar los de
 New-AzureRmResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json -ResourceGroupName ExampleDeployGroup
 ``` 
 
-### <a name="azure-cli"></a>CLI de Azure
+### <a name="azure-cli"></a>Azure CLI
 
 ```
 azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json -g ExampleDeployGroup

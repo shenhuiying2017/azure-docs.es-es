@@ -1,13 +1,13 @@
 ---
-title: "Preguntas frecuentes sobre el autoservicio de restablecimiento de contraseña: Azure Active Directory"
-description: "Preguntas más frecuentes sobre autoservicio de restablecimiento de contraseña de Azure AD"
+title: 'Preguntas frecuentes sobre el autoservicio de restablecimiento de contraseña: Azure Active Directory'
+description: Preguntas más frecuentes sobre autoservicio de restablecimiento de contraseña de Azure AD
 services: active-directory
-keywords: "Administración de contraseñas de Active Directory, administración de contraseñas, autoservicio de restablecimiento de contraseña de Azure AD"
-documentationcenter: 
+keywords: Administración de contraseñas de Active Directory, administración de contraseñas, autoservicio de restablecimiento de contraseña de Azure AD
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: seohack1
-ms.openlocfilehash: 686cc2a94af729e6f872c334a6e5fda947d43725
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: f5236b81c70caee4417777ffadcababebaa84620
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="password-management-frequently-asked-questions"></a>Preguntas más frecuentes sobre la administración de contraseñas
 
@@ -40,12 +40,12 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
 
 * **P: ¿Mis usuarios pueden registrar sus propios datos de restablecimiento de contraseña?**
 
-  > **R:** Sí. Siempre que el restablecimiento de contraseña esté habilitado y que los usuarios cuenten con licencia, pueden ir al portal de registro de restablecimiento de contraseña en https://aka.ms/ssprsetup para registrar la información de autenticación. Los usuarios también pueden registrarse a través del Panel de acceso (http://myapps.microsoft.com). Para ello, deben seleccionar su imagen de perfil y, después, **Perfil** y la opción  **Registrarme para restablecer la contraseña**.
+  > **R:** Sí. Siempre que el restablecimiento de contraseña esté habilitado y los usuarios cuenten con licencia, pueden ir al portal de registro de restablecimiento de contraseña (https://aka.ms/ssprsetup) para registrar su información de autenticación. Los usuarios también pueden registrarse a través del Panel de acceso (http://myapps.microsoft.com). Para ello, deben seleccionar su imagen de perfil y, después, **Perfil** y la opción  **Registrarme para restablecer la contraseña**.
   >
   >
 * **P: Si habilito el restablecimiento de contraseña de un grupo y decido habilitarla para todo el mundo, ¿deben volver a registrarse mis usuarios?**
 
-  > **R**: No. No es necesario que los usuarios cuyos datos de autenticación estén rellenados vuelvan a registrarse.
+  > **R:** No. No es necesario que los usuarios cuyos datos de autenticación estén rellenados vuelvan a registrarse.
   >
   >
 * **P: ¿Puedo definir los datos de restablecimiento de contraseña en nombre de mis usuarios?**
@@ -65,7 +65,7 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
   >
 * **P: ¿Mis usuarios necesitan registrarse antes de poder usar el restablecimiento de contraseña?**
 
-  > **R**: No. Si define información de autenticación suficiente en nombre de sus usuarios, estos no tendrán que registrarse. El restablecimiento de contraseña funciona siempre que tenga los datos con formato correcto almacenados en los campos adecuados del directorio.
+  > **R:** No. Si define información de autenticación suficiente en nombre de sus usuarios, estos no tendrán que registrarse. El restablecimiento de contraseña funciona siempre que tenga los datos con formato correcto almacenados en los campos adecuados del directorio.
   >
   >
 * **P: ¿Puedo sincronizar o definir los campos Teléfono de autenticación, Correo electrónico de autenticación o Teléfono de autenticación alternativo en nombre de mis usuarios?**
@@ -165,7 +165,7 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
   >
 * **P: ¿Puede un usuario registrar la misma pregunta de seguridad más de una vez?**
 
-  > **R**: No. Después de que un usuario registre una pregunta específica, no podrá volver a registrarla.
+  > **R:** No. Después de que un usuario registre una pregunta específica, no podrá volver a registrarla.
   >
   >
 * **P: ¿Es posible establecer un límite mínimo de preguntas de seguridad para registro y restablecimiento?**
@@ -269,7 +269,7 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
   >
 * **P: ¿Para qué tipos de cuentas funciona la escritura diferida de contraseñas?**
 
-  > **R:** La escritura diferida de contraseñas funciona para usuarios federados y usuarios con sincronización de hash de contraseñas.
+  > **R:** La escritura diferida de contraseñas funciona con cuentas de usuario que están sincronizadas entre Active Directory local y Azure AD, lo que incluye hash de contraseña federado sincronizado y usuarios de autenticación de paso a través.
   >
   >
 * **P: ¿La escritura diferida de contraseñas aplica las directivas de contraseñas de mi dominio?**
@@ -283,7 +283,7 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
   >
   >
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [¿Cómo se realiza un lanzamiento correcto de SSPR?](active-directory-passwords-best-practices.md)
 * [Restablecimiento o modificación de la contraseña](active-directory-passwords-update-your-own-password.md)

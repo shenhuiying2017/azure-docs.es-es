@@ -3,18 +3,18 @@ title: 'Detección de amenazas: Instancia administrada de Azure SQL Database| Mi
 description: Detección de amenazas detecta actividades anómalas en la base de datos que indican posibles amenazas de seguridad a la base de datos.
 services: sql-database
 author: rmatchoro
-manager: cguyer
+manager: craigg
 ms.service: sql-database
 ms.custom: security, managed instance
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: ronmat
 ms.reviewer: carlrab
-ms.openlocfilehash: f8c08bc16d622516958b8bd182179d07edfa4891
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 2112a0a3997af478de6b8c80abcf7924a66302f0
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-sql-database-managed-instance-threat-detection"></a>Detección de amenazas de Instancia administrada de Azure SQL Database
 

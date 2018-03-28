@@ -1,6 +1,6 @@
 ---
-title: "Guía de solución de problemas conocidos | Microsoft Docs"
-description: "Lista de problemas conocidos y una guía para ayudar a solucionar problemas"
+title: Guía de solución de problemas conocidos | Microsoft Docs
+description: Lista de problemas conocidos y una guía para ayudar a solucionar problemas
 services: machine-learning
 author: svankam
 ms.author: svankam
@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/12/2018
-ms.openlocfilehash: d1e3a4fd4415afb995f614ac687096f6fb8ece95
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 62207fa20c4660d1e828053ee73953cb68af1b9d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench: Guía de solución de problemas conocidos 
 En este artículo se le ayuda a buscar y corregir los errores que se producen como parte del uso de la aplicación de Azure Machine Learning Workbench. 
@@ -102,7 +102,7 @@ Lamentablemente, esto no tiene solución fácil. Tendrá que realizar los pasos 
    - quite la carpeta `C:\Users\<Username>\AppData\Local\amlworkbench`,
    - quite el script `C:\dsvm\tools\setup\InstallAMLFromLocal.ps1`,
    - quite el acceso directo de escritorio que se inicia el script anterior,
-   - descargue el instalador https://aka.ms/azureml-wb-msi y repita la instalación.
+   - Descargue el instalador https://aka.ms/azureml-wb-msi y vuelva a instalarlo.
 
 ## <a name="stuck-at-checking-experimentation-account-screen-after-logging-in"></a>Bloqueo en la pantalla "Comprobando cuenta de experimentación" después de iniciar sesión
 Después de iniciar sesión, la aplicación Workbench podría bloquearse en una pantalla en blanco con un mensaje que indica "Checking experimentation account" (Comprobando cuenta de experimentación) con una rueda girando. Para resolver este problema, realice los siguientes pasos:
@@ -203,11 +203,14 @@ También puede agregar un disco de datos y configurar el motor de Docker para qu
 O bien, puede expandir el disco del sistema operativo sin tener que tocar la configuración del motor de Docker. Aquí puede ver el procedimiento para [expandir el disco del sistema operativo](https://docs.microsoft.com/azure/virtual-machines/linux/expand-disks).
 
 ```azure-cli
-#Deallocate VM (stopping will not work)
+# Deallocate VM (stopping will not work)
 $ az vm deallocate --resource-group myResourceGroup  --name myVM
 
-# Update Disc Size
-$ az disk update --resource-group myResourceGroup --name myVM --size-gb 250
+# Get VM's Disc Name
+az disk list --resource-group myResourceGroup --query '[*].{Name:name,Gb:diskSizeGb,Tier:accountType}' --output table
+
+# Update Disc Size using above name
+$ az disk update --resource-group myResourceGroup --name myVMdisc --size-gb 250
     
 # Start VM    
 $ az vm start --resource-group myResourceGroup  --name myVM

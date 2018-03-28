@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/29/2017
 ms.author: genli
-ms.openlocfilehash: 8f6f3fc8325fb2587dc09b982efa52fbe663e2a9
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 3e2f8be0f77e220da483dcfb18d6b324d3f203ed
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Extensión de máquina virtual de diagnóstico de rendimiento de Azure para Windows
 
@@ -227,9 +227,7 @@ La herramienta PerfInsights recopila distintos registros, configuraciones y dato
 
 ## <a name="view-and-share-the-results"></a>Visualización y uso compartido de resultados
 
-El resultado de la extensión se almacena en una carpeta. La carpeta se denomina log_collection y puede encontrarse en la unidad Temp (normalmente D:\log_collection) de forma predeterminada. En esta carpeta puede ver los archivos ZIP que contienen los registros de diagnóstico y un informe con resultados y recomendaciones.
-
-También puede encontrar el archivo ZIP en la cuenta de almacenamiento proporcionada durante la instalación. Este archivo se comparte durante 30 días mediante las [firmas de acceso compartido (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). También se crea un archivo de texto con el nombre *zipfilename*_saslink.txt en la carpeta log_collection. Este archivo contiene el vínculo de SAS creado para descargar el archivo ZIP. Cualquier persona que tenga este vínculo puede descargar el archivo ZIP.
+Puede encontrar la salida de la extensión en un archivo ZIP que se cargó en la cuenta de almacenamiento especificada durante la instalación y que se comparte durante 30 días mediante el uso de [Firmas de acceso compartido (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). Este archivo ZIP contiene registros de diagnóstico y un informe con conclusiones y recomendaciones. Puede encontrar un vínculo SAS al archivo ZIP de salida dentro de un archivo de texto denominado *zipfilename*_saslink.txt en la carpeta **C:\Packages\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics\\\<versión>**. Cualquier persona que tenga este vínculo puede descargar el archivo ZIP.
 
 Para ayudar al ingeniero de soporte técnico a trabajar en su incidencia, Microsoft puede usar este vínculo SAS para descargar los datos de diagnóstico.
 
@@ -240,7 +238,7 @@ También puede descargar el archivo ZIP directamente del portal seleccionando la
 ![Captura de pantalla del estado detallado de diagnósticos de rendimiento](media/performance-diagnostics-vm-extension/view-detailed-status.png)
 
 > [!NOTE]
-> Puede que el vínculo SAS que se muestra en el portal no funcione. El motivo puede ser una dirección URL con un formato incorrecto durante las operaciones de codificación y decodificación. Si este es su caso, obtenga el vínculo directamente del archivo *_saslink.txt de la máquina virtual.
+> Puede que el vínculo SAS que se muestra en el portal a veces no funcione. El motivo puede ser una dirección URL con un formato incorrecto durante las operaciones de codificación y decodificación. Si este es su caso, obtenga el vínculo directamente del archivo *_saslink.txt de la máquina virtual.
 
 ## <a name="troubleshoot-and-support"></a>Solución de problemas y asistencia
 
@@ -249,6 +247,6 @@ También puede descargar el archivo ZIP directamente del portal seleccionando la
     Este problema puede omitirse de forma segura siempre que el estado de la extensión indique que la extensión se ha aprovisionado correctamente.
 - Puede solucionar algunos problemas durante la instalación mediante los registros de extensión. El resultado de la ejecución de las extensiones se registra en los archivos que se encuentran en el siguiente directorio:
 
-        C:\Packages\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics
+        C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics\<version>
 
 Si necesita más ayuda con cualquier aspecto de este artículo, puede ponerse en contacto con los expertos de Azure en los [foros de MSDN Azure o Stack Overflow](https://azure.microsoft.com/support/forums/). Como alternativa, puede registrar un incidente de soporte técnico de Azure. Vaya al [sitio de soporte técnico de Azure](https://azure.microsoft.com/support/options/) y seleccione **Obtener soporte técnico**. Para más información sobre el uso del soporte técnico de Azure, lea las [preguntas más frecuentes](https://azure.microsoft.com/support/faq/).

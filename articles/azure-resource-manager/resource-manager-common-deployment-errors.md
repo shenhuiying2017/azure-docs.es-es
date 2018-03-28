@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: 2cf31b32e02923aa573d5586b8ca24bf30b7d97b
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: f251fe11c43dc4b3f29c70f937f5bfcb6af6c44e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Solución de errores comunes de implementación de Azure con Azure Resource Manager
 
@@ -38,6 +38,7 @@ En este artículo se describen algunos errores comunes de implementación de Azu
 | Conflicto | Se solicita una operación no permitida con el estado actual del recurso. Por ejemplo, solo se permite el cambio de tamaño del disco al crear una VM o al desasignar la VM. | |
 | DeploymentActive | Espere a que la implementación simultánea de este grupo de recursos finalice. | |
 | DeploymentFailed | El error DeploymentFailed es un error general que no proporciona la información necesaria para resolverlo. Mire en los detalles del error si hay un código de error que proporcione más información. | [Búsqueda de códigos de error](#find-error-code) |
+| DeploymentQuotaExceeded | Si se alcanza el límite de 800 implementaciones por grupo de recursos, elimine las implementaciones que ya no necesite del historial. Puede eliminar las entradas del historial con una [eliminación de la implementación del grupo az](/cli/azure/group/deployment#az_group_deployment_delete) en CLI de Azure o [Remove-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/remove-azurermresourcegroupdeployment) en PowerShell. Eliminar una entrada del historial de implementaciones no afecta a los recursos de implementación. | |
 | DnsRecordInUse | El nombre del registro de DNS debe ser único. Proporcione un nombre diferente o modifique el registro existente. | |
 | ImageNotFound | Compruebe la configuración de la imagen de máquina virtual. |  |
 | InUseSubnetCannotBeDeleted | Este error puede aparecer al intentar actualizar un recurso, pero la solicitud se procesa mediante la eliminación y creación del recurso. Asegúrese de especificar todos los valores sin cambios. | [Actualización de recursos](/azure/architecture/building-blocks/extending-templates/update-resource) |
@@ -49,10 +50,13 @@ En este artículo se describen algunos errores comunes de implementación de Azu
 | InvalidResourceNamespace | Compruebe el espacio de nombres del recurso especificado en la propiedad **type**. | [Referencia de plantilla](/azure/templates/) |
 | InvalidResourceReference | El recurso aún no existe o se hace referencia a él de forma incorrecta. Compruebe si tiene que agregar una dependencia. Compruebe que el uso de la función **reference** incluye los parámetros necesarios para su escenario. | [Resolución de dependencias](resource-manager-not-found-errors.md) |
 | InvalidResourceType | Compruebe el tipo de recurso especificado en la propiedad **type**. | [Referencia de plantilla](/azure/templates/) |
+| InvalidSubscriptionRegistrationState | Registre la suscripción con el proveedor de recursos. | [Resolución de registros](resource-manager-register-provider-errors.md) |
 | InvalidTemplate | Compruebe la sintaxis de la plantilla en busca de errores. | [Resolución de plantilla no válida](resource-manager-invalid-template-errors.md) |
+| InvalidTemplateCircularDependency | Quite las dependencias innecesarias. | [Resolver dependencias circulares](resource-manager-invalid-template-errors.md#circular-dependency) |
 | LinkedAuthorizationFailed | Compruebe si la cuenta pertenece al mismo inquilino que el grupo de recursos en que está realizando la implementación. | |
 | LinkedInvalidPropertyId | El identificador de un recurso no se resuelve correctamente. Compruebe que ha proporcionado todos los valores necesarios para el identificador del recurso, entre otros, el identificador de la suscripción, el nombre del grupo de recursos, el tipo de recurso, el nombre del recurso principal (si procede) y el nombre del recurso. | |
 | LocationRequired | Proporcione una ubicación para el recurso. | [Establecimiento de la ubicación](resource-manager-templates-resources.md#location) |
+| MismatchingResourceSegments | Asegúrese de que el recurso anidado tiene el número correcto de segmentos de nombre y tipo. | [Resolver los segmentos de recursos](resource-manager-invalid-template-errors.md#incorrect-segment-lengths)
 | MissingRegistrationForLocation | Compruebe el estado de registro del proveedor de recursos y las ubicaciones admitidas. | [Resolución de registros](resource-manager-register-provider-errors.md) |
 | MissingSubscriptionRegistration | Registre la suscripción con el proveedor de recursos. | [Resolución de registros](resource-manager-register-provider-errors.md) |
 | NoRegisteredProviderFound | Compruebe el estado de registro del proveedor de recursos. | [Resolución de registros](resource-manager-register-provider-errors.md) |
@@ -73,6 +77,8 @@ En este artículo se describen algunos errores comunes de implementación de Azu
 | StorageAccountAlreadyTaken | Proporcione un nombre único para la cuenta de almacenamiento. | [Resolución del nombre de la cuenta de almacenamiento](resource-manager-storage-account-name-errors.md) |
 | StorageAccountNotFound | Compruebe la suscripción, el grupo de recursos y el nombre de la cuenta de almacenamiento que pretende utilizar. | |
 | SubnetsNotInSameVnet | Una máquina virtual solo puede tener una red virtual. Al implementar varias NIC, asegúrese de que pertenecen a la misma red virtual. | [Varias NIC](../virtual-machines/windows/multiple-nics.md) |
+| TemplateResourceCircularDependency | Quite las dependencias innecesarias. | [Resolver dependencias circulares](resource-manager-invalid-template-errors.md#circular-dependency) |
+| TooManyTargetResourceGroups | Reduzca el número de grupos de recursos de una sola implementación. | [Implementación en varios grupos de recursos](resource-manager-cross-resource-group-deployment.md) |
 
 ## <a name="find-error-code"></a>Búsqueda de códigos de error
 

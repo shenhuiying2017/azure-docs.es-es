@@ -1,6 +1,6 @@
 ---
-title: "Información general sobre la comunicación de Reliable Services | Microsoft Docs"
-description: "Información general sobre el modelo de comunicación de Reliable Services, incluidos los agentes de escucha de apertura en los servicios, la resolución de puntos de conexión y la comunicación entre servicios."
+title: Información general sobre la comunicación de Reliable Services | Microsoft Docs
+description: Información general sobre el modelo de comunicación de Reliable Services, incluidos los agentes de escucha de apertura en los servicios, la resolución de puntos de conexión y la comunicación entre servicios.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 204280c8b81e5f751f3f0b609e04aba0a1cec381
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: eacb4b7d0e33768e0da6ecd43ce1458a4a3bfaa8
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>Uso de las API de comunicación de Reliable Services
 Azure Service Fabric como una plataforma es completamente independiente de la comunicación entre los servicios. Todos los protocolos y las pilas son aceptables, desde UDP hasta HTTP. El desarrollador del servicio es quien debe elegir cómo deberían comunicarse los servicios. El marco de trabajo de aplicaciones de Reliable Services ofrece pilas de comunicación integradas, además de varias API que puede usar para compilar los componentes de comunicación personalizados.
@@ -54,7 +54,7 @@ Luego puede agregar su implementación del agente de escucha de comunicación de
 Para servicios sin estado:
 
 ```csharp
-class MyStatelessService : StatelessService
+public class MyStatelessService : StatelessService
 {
     protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
     {
@@ -85,7 +85,7 @@ Para servicios con estado:
 ```
 
 ```csharp
-class MyStatefulService : StatefulService
+public class MyStatefulService : StatefulService
 {
     protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
     {
@@ -275,7 +275,7 @@ La biblioteca de fábrica de comunicación implementa un patrón de reintento t�
 El cliente de comunicación solo recibe una dirección y la usa para conectarse a un servicio. El cliente puede utilizar el protocolo que quiera.
 
 ```csharp
-class MyCommunicationClient : ICommunicationClient
+public class MyCommunicationClient : ICommunicationClient
 {
     public ResolvedServiceEndpoint Endpoint { get; set; }
 

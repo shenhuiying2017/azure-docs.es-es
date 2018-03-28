@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integración de Azure Active Directory con Confluence SAML SSO by Microsoft | Microsoft Docs"
-description: "Obtenga información sobre cómo configurar el inicio de sesión único entre Azure Active Directory y Confluence SAML SSO by Microsoft."
+title: 'Tutorial: Integración de Azure Active Directory con Confluence SAML SSO by Microsoft | Microsoft Docs'
+description: Obtenga información sobre cómo configurar el inicio de sesión único entre Azure Active Directory y Confluence SAML SSO by Microsoft.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/08/2018
 ms.author: jeedes
-ms.openlocfilehash: 4151811a74fc0e58f6171e11d77e070f3cb40f95
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5b81ca4f5a9f30b2882d86639ca9386e7bbc09e8
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-confluence-saml-sso-by-microsoft"></a>Tutorial: Integración de Azure Active Directory con Confluence SAML SSO by Microsoft
 
@@ -200,6 +200,8 @@ En esta sección habilitará el inicio de sesión único de Azure AD en Azure Po
 
     i. Haga clic en el botón **Save** (Guardar) para guardar la configuración.
 
+    > [!NOTE]
+    > Para obtener más información sobre la instalación y la solución de problemas, visite [MS Confluence SSO Connector Admin Guide](ms-confluence-jira-plugin-adminguide.md) (Guía de administración del conector SSO de MS Confluence), que contiene una sección de [preguntas frecuentes](ms-confluence-jira-plugin-faq.md) para ayudarle.
 
 > [!TIP]
 > Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)

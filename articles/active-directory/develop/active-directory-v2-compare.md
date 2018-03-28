@@ -1,11 +1,11 @@
 ---
-title: "¿Qué hay de diferente en el punto de conexión de Azure AD v2.0? | Microsoft Docs"
-description: "Una comparación entre el punto de conexión original de Azure AD y el punto de conexión v2.0."
+title: ¿Qué hay de diferente en el punto de conexión de Azure AD v2.0? | Microsoft Docs
+description: Una comparación entre el punto de conexión original de Azure AD y el punto de conexión v2.0.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: dstrockis
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 5060da46-b091-4e25-9fa8-af4ae4359b6c
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 4216c2215f494a81935cd4cdca52427b0cbac143
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 502bfa128422a029878513d6aa4533718bdddbb5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="whats-different-about-the-v20-endpoint"></a>¿Qué hay diferente en el punto de conexión v2.0?
 Si está familiarizado con Azure Active Directory o ha integrado aplicaciones con Azure AD en el pasado, puede que haya algunas diferencias en el punto de conexión v2.0 que no se espera.  Este documento describe esas diferencias para su comprensión.
@@ -54,7 +54,7 @@ Con el punto de conexión v2.0, ahora puede registrar todos los componentes del 
 Nuestro objetivo es que esto dará lugar a una experiencia de desarrollo y administración de aplicaciones más simplificada y que creará una vista más consolidada de un proyecto único en el que podría trabajar.
 
 ## <a name="scopes-not-resources"></a>Ámbitos, no recursos
-En Azure Active Directory, una aplicación puede comportarse como **recurso** o como destinatario de tokens.  Un recurso puede definir varios **ámbitos** o **oAuth2Permissions** que comprende, lo que permite a las aplicaciones cliente solicitar tokens para ese recurso para un conjunto determinado de ámbitos.  Piense en la API de Azure AD Graph como ejemplo de un recurso:
+En Azure Active Directory, una aplicación puede comportarse como **recurso** o como destinatario de tokens.  Un recurso puede definir varios **ámbitos** o **oAuth2Permissions** que comprende, lo que permite a las aplicaciones cliente solicitar tokens para ese recurso para un conjunto determinado de ámbitos.  Piense en Graph API de Azure AD como ejemplo de un recurso:
 
 * Identificador de recursos o `AppID URI`: `https://graph.windows.net/`
 * Ámbitos o `OAuth2Permissions`: `Directory.Read`, `Directory.Write`, etc.  

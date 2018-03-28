@@ -15,17 +15,23 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tdykstra
-ms.openlocfilehash: 7f82083cd18f762d1037da2ccf43e9d0c220fe09
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 8c028bd20518a07a5fb35e36d0819c001eb2a7d5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Enlaces de Azure Table Storage para Azure Functions
 
 En este artículo se explica cómo trabajar con enlaces de Azure Table Storage en Azure Functions. Azure Functions admite enlaces de entrada y salida para Table Storage de Azure.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+## <a name="packages"></a>Paquetes
+
+Los enlaces de Table Storage se proporcionan en el paquete NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs). El código fuente del paquete se encuentra en el repositorio [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/) de GitHub.
+
+[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
 ## <a name="input"></a>Entrada
 
@@ -288,7 +294,7 @@ module.exports = function (context, myQueueItem) {
  
 Para [bibliotecas de clases de C#](functions-dotnet-class-library.md), utilice los siguientes atributos para configurar un enlace de entrada de la tabla:
 
-* [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), definido en el paquete NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+* [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs)
 
   El constructor del atributo toma el nombre de la tabla, la clave de partición y la clave de fila. Se puede usar en un parámetro de salida o en el valor devuelto de la función, como se muestra en el ejemplo siguiente:
 
@@ -318,7 +324,7 @@ Para [bibliotecas de clases de C#](functions-dotnet-class-library.md), utilice l
 
   Para obtener un ejemplo completo, consulte [Entrada: ejemplo de C#](#input---c-example).
 
-* [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), definido en el paquete NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
+* [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)
 
   Proporciona otra manera de especificar la cuenta de almacenamiento que se debe usar. El constructor toma el nombre de una configuración de aplicación que contiene una cadena de conexión de almacenamiento. El atributo se puede aplicar en el nivel de clase, método o parámetro. En el ejemplo siguiente se muestran el nivel de clase y de método:
 
@@ -567,7 +573,7 @@ module.exports = function (context) {
 
 ## <a name="output---attributes"></a>Salida: atributos
 
-Para [bibliotecas de clases de C#](functions-dotnet-class-library.md), utilice [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), que se define en el paquete NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+En las [bibliotecas de clase C#](functions-dotnet-class-library.md), use [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs).
 
 El constructor del atributo toma el nombre de la tabla. Se puede usar en un parámetro `out` o en el valor devuelto de la función, como se muestra en el ejemplo siguiente:
 
@@ -625,7 +631,7 @@ El enlace de salida de Table Storage admite los siguientes escenarios:
 
 * **Escribir una o varias filas en C# o en script de C#**
 
-  En C# y script de C#, obtenga acceso a la entidad de tabla de salida con un parámetro `ICollector<T> paramName` o `ICollectorAsync<T> paramName`. En script de C#, `paramName` es el valor especificado en la propiedad `name` de *function.json*. `T` especifica el esquema de las entidades que quiere agregar. Normalmente, `T` deriva de `TableEntity` o implementa `ITableEntity`, pero no tiene por qué ser así. Los valores de las claves de partición y de fila de *function.json* o del constructor del atributo `Table` no se usan en este escenario.
+  En C# y script de C#, obtenga acceso a la entidad de tabla de salida con un parámetro `ICollector<T> paramName` o `IAsyncCollector<T> paramName`. En script de C#, `paramName` es el valor especificado en la propiedad `name` de *function.json*. `T` especifica el esquema de las entidades que quiere agregar. Normalmente, `T` deriva de `TableEntity` o implementa `ITableEntity`, pero no tiene por qué ser así. Los valores de las claves de partición y de fila de *function.json* o del constructor del atributo `Table` no se usan en este escenario.
 
   Una alternativa consiste en usar un parámetro del método `CloudTable paramName` para escribir en la tabla mediante Azure Storage SDK.
 

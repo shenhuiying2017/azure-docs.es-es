@@ -1,34 +1,36 @@
 ---
-title: "Implementación de recursos de Azure en varios grupos de recursos y suscripciones | Microsoft Docs"
-description: "Muestra cómo tener como destino más de un grupo de recursos y una suscripción de Azure durante la implementación."
+title: Implementación de recursos de Azure en varios grupos de recursos y suscripciones | Microsoft Docs
+description: Muestra cómo tener como destino más de un grupo de recursos y una suscripción de Azure durante la implementación.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
 manager: timlt
-editor: 
+editor: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/06/2018
+ms.date: 03/13/2018
 ms.author: tomfitz
-ms.openlocfilehash: 40b2d04fe829c51a58fb3bec1519a590a12cfdb8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 90cb87b3fe94b7b3b0eba1b261d29a1c8f4348d6
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>Implementación de recursos de Azure en más de un grupo de recursos o una suscripción
 
 Por lo general, todos los recursos de la plantilla se implementan en un único [grupo de recursos](resource-group-overview.md). Sin embargo, existen escenarios en los que desea implementar un conjunto de recursos juntos pero colocarlos en distintos grupos de recursos o suscripciones. Por ejemplo, puede que desee implementar la máquina virtual de copia de seguridad para Azure Site Recovery en un grupo de recursos y una ubicación independientes. Resource Manager permite usar plantillas anidadas para tener como destino grupos de recursos y suscripciones diferentes a los usados para la plantilla principal.
 
 > [!NOTE]
-> Cada implementación solo puede realizarse en cinco grupos de recursos.
+> Cada implementación solo puede realizarse en cinco grupos de recursos. Normalmente, esta limitación significa que puede implementar en un grupo de recursos especificado para la plantilla principal y hasta en cuatro grupos de recursos en implementaciones anidadas o vinculadas. Sin embargo, si la plantilla principal contiene solo plantillas anidadas o vinculadas y no implementa por sí misma ningún recurso, puede incluir hasta cinco grupos de recursos en las implementaciones anidadas o vinculadas.
 
 ## <a name="specify-a-subscription-and-resource-group"></a>Especificación de una suscripción y un grupo de recursos
 
 Para usar como destino un recurso diferente, utilice una plantilla anidada o vinculada. El tipo de recurso `Microsoft.Resources/deployments` proporciona los parámetros para `subscriptionId` y `resourceGroup`. Estas propiedades permiten especificar un grupo de recursos y suscripción diferentes para la implementación anidada. Todos los grupos de recursos deben existir antes de que se ejecute la implementación. Si no se especifica el grupo de recursos o el identificador de la suscripción, se utilizan los de la plantilla primaria.
+
+La cuenta que utilice para implementar la plantilla debe tener permisos para implementar en el identificador de suscripción especificado. Si la suscripción especificada no existe en un inquilino de Azure Active Directory diferente, debe [agregar usuarios invitados de otro directorio](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md).
 
 Para especificar un grupo de recursos y una suscripción diferentes, use:
 
@@ -175,7 +177,7 @@ Las plantillas siguientes muestran varias implementaciones de grupos de recursos
 
 Para implementar dos cuentas de almacenamiento en dos grupos de recursos de la **misma suscripción** con PowerShell use:
 
-```powershell
+```azurepowershell-interactive
 $firstRG = "primarygroup"
 $secondRG = "secondarygroup"
 
@@ -192,7 +194,7 @@ New-AzureRmResourceGroupDeployment `
 
 Para implementar dos cuentas de almacenamiento en **dos suscripciones** con PowerShell, use:
 
-```powershell
+```azurepowershell-interactive
 $firstRG = "primarygroup"
 $secondRG = "secondarygroup"
 
@@ -216,7 +218,7 @@ New-AzureRmResourceGroupDeployment `
 
 Para probar la resolución del **objeto del grupo de recursos** para la plantilla primaria, la plantilla en línea y la plantilla vinculada con PowerShell, use:
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmResourceGroup -Name parentGroup -Location southcentralus
 New-AzureRmResourceGroup -Name inlineGroup -Location southcentralus
 New-AzureRmResourceGroup -Name linkedGroup -Location southcentralus
@@ -224,6 +226,37 @@ New-AzureRmResourceGroup -Name linkedGroup -Location southcentralus
 New-AzureRmResourceGroupDeployment `
   -ResourceGroupName parentGroup `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crossresourcegroupproperties.json
+```
+
+En el ejemplo anterior, tanto **parentRG** como **inlineRG** se resuelven en **parentGroup**. **linkedRG** se resuelve en **linkedGroup**. El resultado del ejemplo anterior es:
+
+```powershell
+ Name             Type                       Value
+ ===============  =========================  ==========
+ parentRG         Object                     {
+                                               "id": "/subscriptions/<subscription-id>/resourceGroups/parentGroup",
+                                               "name": "parentGroup",
+                                               "location": "southcentralus",
+                                               "properties": {
+                                                 "provisioningState": "Succeeded"
+                                               }
+                                             }
+ inlineRG         Object                     {
+                                               "id": "/subscriptions/<subscription-id>/resourceGroups/parentGroup",
+                                               "name": "parentGroup",
+                                               "location": "southcentralus",
+                                               "properties": {
+                                                 "provisioningState": "Succeeded"
+                                               }
+                                             }
+ linkedRG         Object                     {
+                                               "id": "/subscriptions/<subscription-id>/resourceGroups/linkedGroup",
+                                               "name": "linkedGroup",
+                                               "location": "southcentralus",
+                                               "properties": {
+                                                 "provisioningState": "Succeeded"
+                                               }
+                                             }
 ```
 
 ### <a name="azure-cli"></a>Azure CLI
@@ -278,7 +311,49 @@ az group deployment create \
   --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crossresourcegroupproperties.json 
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+En el ejemplo anterior, tanto **parentRG** como **inlineRG** se resuelven en **parentGroup**. **linkedRG** se resuelve en **linkedGroup**. El resultado del ejemplo anterior es:
+
+```azurecli
+...
+"outputs": {
+  "inlineRG": {
+    "type": "Object",
+    "value": {
+      "id": "/subscriptions/<subscription-id>/resourceGroups/parentGroup",
+      "location": "southcentralus",
+      "name": "parentGroup",
+      "properties": {
+        "provisioningState": "Succeeded"
+      }
+    }
+  },
+  "linkedRG": {
+    "type": "Object",
+    "value": {
+      "id": "/subscriptions/<subscription-id>/resourceGroups/linkedGroup",
+      "location": "southcentralus",
+      "name": "linkedGroup",
+      "properties": {
+        "provisioningState": "Succeeded"
+      }
+    }
+  },
+  "parentRG": {
+    "type": "Object",
+    "value": {
+      "id": "/subscriptions/<subscription-id>/resourceGroups/parentGroup",
+      "location": "southcentralus",
+      "name": "parentGroup",
+      "properties": {
+        "provisioningState": "Succeeded"
+      }
+    }
+  }
+},
+...
+```
+
+## <a name="next-steps"></a>Pasos siguientes
 
 * Para entender cómo definir parámetros en la plantilla, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](resource-group-authoring-templates.md).
 * Para obtener sugerencias para resolver los errores de implementación más comunes, consulte [Solución de errores comunes de implementación de Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md).

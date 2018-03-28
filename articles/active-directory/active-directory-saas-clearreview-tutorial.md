@@ -1,10 +1,10 @@
 ---
-title: "Tutorial: Integración de Azure Active Directory con Clear Review | Microsoft Docs"
-description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Clear Review."
+title: 'Tutorial: Integración de Azure Active Directory con Clear Review | Microsoft Docs'
+description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Clear Review.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: 8264159a-11a2-4a8c-8285-4efea0adac8c
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 03/12/2018
 ms.author: jeedes
-ms.openlocfilehash: e999e375d11f5d2a4657b360cf774ae10c28b0e0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1e7bd01c9c0f79a2cf96d7fd38dba57c4a407960
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clear-review"></a>Tutorial: Integración de Azure Active Directory con Clear Review
 
@@ -32,7 +32,7 @@ Integrar Clear Review con Azure AD le proporciona las siguientes ventajas:
 
 Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para configurar la integración de Azure AD con Clear Review, se necesitan los siguientes elementos:
 
@@ -48,7 +48,7 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 - Si no dispone de un entorno de prueba de Azure AD, puede [obtener una versión de prueba durante un mes](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descripción del escenario
-En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. La situación descrita en este tutorial consta de dos bloques de creación principales:
+En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
 1. Incorporación de Clear Review desde la galería
 2. Configuración y comprobación del inicio de sesión único de Azure AD
@@ -84,10 +84,10 @@ Para establecer la relación de vínculo, en Clear Review, asigne el valor del *
 
 Para configurar y probar el inicio de sesión único de Azure AD con Clear Review, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para permitir que los usuarios utilicen esta característica.
-2. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**: para probar el inicio de sesión único de Azure AD con Britta Simon.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
+2. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
 3. **[Creación de un usuario de prueba de Clear Review](#create-a-clear-review-test-user)**: para tener un homólogo de Britta Simon en Clear Review que esté vinculado a la representación del usuario en Azure AD.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**: para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
 5. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
@@ -108,9 +108,9 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información sobre dominio y direcciones URL de inicio de sesión único de Clear Review](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_url.png)
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<customer name>.clearreview.com/sso/metadata`
+    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<customer name>.clearreview.com/sso/metadata/`
 
-    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<customer>.clearreview.com/sso/acs/`.
+    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<customer name>.clearreview.com/sso/acs/`.
 
 4. Active **Mostrar configuración avanzada de URL** y siga estos pasos si desea configurar la aplicación en el modo iniciado por **SP**:
 
@@ -119,33 +119,38 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<customer name>.clearreview.com`
 
     > [!NOTE] 
-    > Estos valores no son reales. Actualice estos valores con el identificador y la URL de respuesta reales. Póngase en contacto con el [equipo de soporte técnico de Clear Review](https://clearreview.com/contact/) para obtener estos valores.
+    > Estos valores no son reales. Actualícelos con la dirección URL de inicio de sesión, el identificador y la dirección URL de respuesta reales. Póngase en contacto con el [equipo de soporte técnico de Clear Review](https://clearreview.com/contact/) para obtener estos valores.
 
-5. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
+5. La aplicación Clear Review espera el valor de identificador de usuario único en la notificación del identificador de nombre. Debe asignar el valor de identificador de usuario a **user.mail**.
+
+    ![Sección de atributos](./media/active-directory-saas-clearreview-tutorial/attribute.png)
+
+
+6. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
 
     ![Vínculo de descarga del certificado](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_certificate.png)
 
-6. Haga clic en el botón **Guardar** .
+7. Haga clic en el botón **Guardar** .
 
-    ![Botón Guardar de Configuración de inicio de sesión único](./media/active-directory-saas-clearreview-tutorial/tutorial_general_400.png)
+    ![Botón Configurar inicio de sesión único](./media/active-directory-saas-clearreview-tutorial/tutorial_general_400.png)
 
-7. En la sección **Configuración de Clear Review**, haga clic en **Configurar Clear Review** para abrir la ventana **Configurar inicio de sesión**. Copie la **URL del servicio de inicio de sesión único de SAML, el identificador de entidad de SAML y la dirección URL de cierre de sesión** de la sección **Referencia rápida**.
+8. En la sección **Configuración de Clear Review**, haga clic en **Configurar Clear Review** para abrir la ventana **Configurar inicio de sesión**. Copie la **dirección URL del servicio de inicio de sesión único de SAML, el identificador de entidad de SAML y la dirección URL de cierre de sesión** de la sección **Referencia rápida**.
 
     ![Configuración de Clear Review](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_configure.png) 
 
-8. Para configurar el inicio de sesión único en el lado de **Clear Review** lateral, abra el portal de **Clear Review** con credenciales de administrador.
+9. Para configurar el inicio de sesión único en el lado de **Clear Review** lateral, abra el portal de **Clear Review** con credenciales de administrador.
 
-9. Seleccione **Administrador** en el panel de navegación izquierdo.
+10. Seleccione **Administrador** en el panel de navegación izquierdo.
 
-    ![Botón Guardar de Configuración de inicio de sesión único](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_app_admin1.png)
+    ![Botón Configurar inicio de sesión único](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_app_admin1.png)
 
-10. En la parte inferior de la página, seleccione **Cambiar**.
+11. En la parte inferior de la página, seleccione **Cambiar**.
 
-    ![Botón Guardar de Configuración de inicio de sesión único](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_app_admin2.png)
+    ![Botón Configurar inicio de sesión único](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_app_admin2.png)
 
-11. Siga estos pasos en la página **Configuración de inicio de sesión único**:
+12. Siga estos pasos en la página **Configuración de inicio de sesión único**:
 
-    ![Botón Guardar de Configuración de inicio de sesión único](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_app_admin3.png)
+    ![Botón Configurar inicio de sesión único](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_app_admin3.png)
 
     a. En el cuadro de texto **Dirección URL del emisor**, pegue el valor de **SAML Entity ID** (Identificador de entidad de SAML) que ha copiado de Azure Portal.
 
@@ -155,7 +160,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     d. Abra el certificado descargado en el Bloc de notas y pegue el contenido en el cuadro de texto **X.509 Certificate** (Certificado X.509).   
 
-12. Haga clic en **Guardar**.
+13. Haga clic en **Save**(Guardar).
 
 > [!TIP]
 > Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -190,7 +195,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña**.
 
-    d. Haga clic en **Crear**.
+    d. Haga clic en **Create**(Crear).
   
 ### <a name="create-a-clear-review-test-user"></a>Creación de un usuario de prueba de Clear Review
 
@@ -200,11 +205,11 @@ En esta sección, se crea un usuario denominado Britta Simon en Clear Review. Tr
 
 En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Clear Review.
 
-![Asignación del rol de usuario][200] 
+![Asignación de rol de usuario][200] 
 
 **Para asignar Britta Simon a Clear Review, realice los pasos siguientes:**
 
-1. En Azure Portal, abra la vista de aplicaciones, vaya a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego, haga clic en **Todas las aplicaciones**.
+1. En Azure Portal, abra la vista de aplicaciones, navegue a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego haga clic en **Todas las aplicaciones**.
 
     ![Asignar usuario][201] 
 
@@ -253,4 +258,3 @@ Para más información sobre el Panel de acceso, consulte [Introducción al Pane
 [201]: ./media/active-directory-saas-clearreview-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-clearreview-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-clearreview-tutorial/tutorial_general_203.png
-

@@ -1,11 +1,11 @@
 ---
-title: "Uso de una identidad de servicio administrada asignada por el usuario para adquirir un token de acceso en una máquina virtual."
-description: "Instrucciones detalladas y ejemplos de uso de una identidad de servicio administrada asignada por el usuario de una máquina virtual de Azure para obtener un token de acceso de OAuth."
+title: Uso de una identidad de servicio administrada asignada por el usuario para adquirir un token de acceso en una máquina virtual.
+description: Instrucciones detalladas y ejemplos de uso de una identidad de servicio administrada asignada por el usuario de una máquina virtual de Azure para obtener un token de acceso de OAuth.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: a9513a59ec4540c6d63236519873c6e1e177b65a
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 68454d3f3880df82ca895d1c5f140ebdb6030e77
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="acquire-an-access-token-for-a-vm-user-assigned-managed-service-identity-msi"></a>Obtención de un token de acceso para una identidad de servicio administrada (MSI) asignada por el usuario de la máquina virtual
 
@@ -26,9 +26,7 @@ ms.lasthandoff: 02/03/2018
 En este artículo se proporcionan diversos ejemplos de códigos y scripts para obtener tokens, así como instrucciones sobre temas importantes como el control de errores HTTP y la expiración de tokens.
 
 ## <a name="prerequisites"></a>requisitos previos
-
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
-
 Si tiene previsto usar los ejemplos de Azure PowerShell de este artículo, no se olvide de instalar la última versión de [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM).
 
 > [!IMPORTANT]
@@ -48,21 +46,28 @@ Una aplicación cliente puede solicitar un [token de acceso de solo aplicación]
 
 ## <a name="get-a-token-using-http"></a>Obtención de un token con HTTP 
 
-La interfaz básica para obtener un token de acceso se basa en REST, de modo que podrá acceder a cualquier aplicación cliente que se ejecute en la máquina virtual que es capaz de realizar llamadas REST de HTTP. Algo parecido ocurre con el modelo de programación de Azure AD, solo que el cliente usa un punto de conexión de host local de la máquina virtual (y no un punto de conexión de Azure AD).
+La interfaz básica para obtener un token de acceso se basa en REST, de modo que podrá acceder a cualquier aplicación cliente que se ejecute en la máquina virtual que es capaz de realizar llamadas REST de HTTP. Algo parecido ocurre con el modelo de programación de Azure AD, solo que el cliente usa un punto de conexión en la máquina virtual (y no un punto de conexión de Azure AD).
 
-Solicitud de ejemplo:
+Solicitud de ejemplo con el punto de conexión de servicio de metadatos de instancia (IMDS):
 
 ```
-GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F&client_id=712eac09-e943-418c-9be6-9fd5c91078bl HTTP/1.1
-Metadata: true
+GET http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F&client_id=712eac09-e943-418c-9be6-9fd5c91078bl HTTP/1.1 Metadata: true
+```
+
+Solicitud de ejemplo con el punto de conexión de extensión de máquina virtual de MSI (próximamente en desuso):
+
+```
+GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F&client_id=712eac09-e943-418c-9be6-9fd5c91078bl HTTP/1.1 Metadata: true
 ```
 
 | Elemento | DESCRIPCIÓN |
 | ------- | ----------- |
 | `GET` | El verbo HTTP, indicando que se van a recuperar datos desde el punto de conexión. En este caso, el token de acceso de OAuth. | 
-| `http://localhost:50342/oauth2/token` | El punto de conexión de MSI, donde 50342 es el puerto predeterminado y es configurable. |
-| `resource` | Un parámetro de cadena de consulta, que indica el URI del identificador de aplicación del recurso de destino. También aparece en la notificación `aud` (audiencia) del token emitido. En este ejemplo, se solicita un token para acceder a Azure Resource Manager, cuyo URI del identificador de aplicación es https://management.azure.com/. |
-| `client_id` | Un parámetro de cadena de consulta, que indica el identificador de cliente (también conocido como Id. de aplicación) de la entidad de servicio que representa la MSI asignada por el usuario. Este valor se devuelve en la propiedad `clientId` durante la creación de una MSI asignada por el usuario. En este ejemplo, se solicita un token para el identificador de cliente "712eac09-e943-418c-9be6-9fd5c91078bl". |
+| `http://169.254.169.254/metadata/identity/oauth2/token` | El punto de conexión de MSI del servicio de metadatos de instancia. |
+| `http://localhost:50342/oauth2/token` | El punto de conexión de MSI de la extensión de máquina virtual, donde 50342 es el puerto predeterminado y es configurable. |
+| `api-version`  | Un parámetro de cadena de consulta, que indica la versión de API del punto de conexión de IMDS.  |
+| `resource` | Un parámetro de cadena de consulta, que indica el URI del identificador de aplicación del recurso de destino. También aparece en la notificación `aud` (audiencia) del token emitido. En este ejemplo, se solicita un token para acceder a Azure Resource Manager, que tiene un URI de identificador de aplicación de https://management.azure.com/. |
+| `client_id` |  Un parámetro de cadena de consulta *opcional*, que indica el identificador de cliente (también conocido como identificador de aplicación) de la entidad de servicio que representa la MSI asignada por el usuario. Si usa MSI asignada por el sistema, este parámetro no es necesario. Este valor se devuelve en la propiedad `clientId` durante la creación de una MSI asignada por el usuario. En este ejemplo, se solicita un token para el identificador de cliente "712eac09-e943-418c-9be6-9fd5c91078bl". |
 | `Metadata` | Un campo de encabezado de la solicitud HTTP, requerido por MSI como mitigación frente a ataques de falsificación de solicitud de lado del servidor (SSRF). Este valor debe establecerse en "true", todo en minúsculas.
 
 Respuesta de ejemplo:
@@ -94,6 +99,16 @@ Content-Type: application/json
 ## <a name="get-a-token-using-curl"></a>Obtención de un token con CURL
 
 No olvide sustituir el identificador de cliente (también conocido como Id. de aplicación) de la entidad de servicio de la MSI asignada por el usuario para el valor <MSI CLIENT ID> del parámetro `client_id`. Este valor se devuelve en la propiedad `clientId` durante la creación de una MSI asignada por el usuario.
+  
+Solicitud de ejemplo con el punto de conexión de servicio de metadatos de instancia (IMDS):
+
+   ```bash
+   response=$(curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com/&client_id=<MSI CLIENT ID>")
+   access_token=$(echo $response | python -c 'import sys, json; print (json.load(sys.stdin)["access_token"])')
+   echo The MSI access token is $access_token
+   ```
+   
+Solicitud de ejemplo con el punto de conexión de extensión de máquina virtual de MSI (próximamente en desuso):
 
    ```bash
    response=$(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/&client_id=<MSI CLIENT ID>" -H Metadata:true -s)
@@ -104,7 +119,7 @@ No olvide sustituir el identificador de cliente (también conocido como Id. de a
    Respuestas de ejemplo:
 
    ```bash
-   user@vmLinux:~$ response=$(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/&client_id=9d484c98-b99d-420e-939c-z585174b63bl" -H Metadata:true -s)
+   user@vmLinux:~$ response=$(curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com/&client_id=9d484c98-b99d-420e-939c-z585174b63bl")
    user@vmLinux:~$ access_token=$(echo $response | python -c 'import sys, json; print (json.load(sys.stdin)["access_token"])')
    user@vmLinux:~$ echo The MSI access token is $access_token
    The MSI access token is eyJ0eXAiOiJKV1QiLCJhbGciO...
@@ -112,7 +127,7 @@ No olvide sustituir el identificador de cliente (también conocido como Id. de a
 
 ## <a name="handling-token-expiration"></a>Control de la expiración de un token
 
-El subsistema MSI local almacena en memoria caché los tokens. Por lo tanto, se puede llamar con tanta frecuencia como necesite y solo se realiza una llamada a Azure AD si:
+El subsistema de MSI almacena en caché los tokens. Por lo tanto, se puede llamar con tanta frecuencia como necesite y solo se realiza una llamada a Azure AD si:
 - se produce un error de caché debido a no existir ningún token en la memoria caché
 - el token ha expirado
 
@@ -142,7 +157,7 @@ En esta sección se documentan las posibles respuestas de error. Un estado de "2
 | ----------- | ----- | ----------------- | -------- |
 | 400 - Solicitud incorrecta | invalid_resource | AADSTS50001: la aplicación denominada *\<URI\>* no se encontró en el inquilino llamado *\<TENANT-ID\>*. Esto puede pasar si el administrador del inquilino no es el que ha instalado el administrador del inquilino o no ha recibido el consentimiento de ningún usuario del inquilino. Es posible que haya enviado la solicitud de autenticación al inquilino incorrecto. | (Solo Linux). |
 | 400 - Solicitud incorrecta | bad_request_102 | Encabezado de metadatos necesario no especificado. | El campo `Metadata` del encabezado de la solicitud no está en la solicitud o tiene un formato incorrecto. El valor debe especificarse como `true`, todo en minúsculas. Consulte "Solicitud de ejemplo" en la sección [Obtención de un token con HTTP](#get-a-token-using-http) para obtener un ejemplo.|
-| 401 No autorizado | unknown_source | Origen desconocido *\<URI\>*. | Compruebe que el identificador URI de la solicitud HTTP GET tiene el formato correcto. La parte `scheme:host/resource-path` debe especificarse como `http://localhost:50342/oauth2/token`. Consulte "Solicitud de ejemplo" en la sección [Obtención de un token con HTTP](#get-a-token-using-http) para obtener un ejemplo.|
+| 401 No autorizado | unknown_source | Origen desconocido *\<URI\>*. | Compruebe que el identificador URI de la solicitud HTTP GET tiene el formato correcto. La parte `scheme:host/resource-path` debe especificarse como `http://169.254.169.254/metadata/identity/oath2/token` o `http://localhost:50342/oauth2/token`. Consulte "Solicitud de ejemplo" en la sección [Obtención de un token con HTTP](#get-a-token-using-http) para obtener un ejemplo.|
 |           | invalid_request | En la solicitud falta un parámetro necesario, incluye un valor de parámetro no válido o un parámetro repetido, o bien no tiene el formato correcto. |  |
 |           | unauthorized_client | El cliente no está autorizado a solicitar un token de acceso con este método. | Esto se debe a que una solicitud no usó el bucle invertido local para llamar a la extensión, o bien que una máquina virtual no tiene una identidad de servicio administrada configurada correctamente. Consulte [Configuración de la identidad de servicio administrada (MSI) de máquina virtual con Azure Portal](msi-qs-configure-portal-windows-vm.md) si necesita ayuda con la configuración de la máquina virtual. |
 |           | access_denied | El propietario del recurso o el servidor de consentimiento rechazaron la solicitud. |  |
@@ -155,7 +170,7 @@ En esta sección se documentan las posibles respuestas de error. Un estado de "2
 Consulte [Servicios de Azure que admiten la autenticación de Azure AD](msi-overview.md#azure-services-that-support-azure-ad-authentication) para ver una lista de recursos que admite Azure AD y que se han probado con la identidad de servicio administrada, y sus respectivos identificadores de recurso.
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Para configurar una MSI asignada por el usuario en una máquina virtual de Azure, vea [Configuración de una identidad de servicio administrada (MSI) asignada por el usuario para una máquina virtual con la CLI de Azure](msi-qs-configure-cli-windows-vm.md).
 

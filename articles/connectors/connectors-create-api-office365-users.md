@@ -1,11 +1,11 @@
 ---
-title: "Incorporación del conector de usuarios de Office 365 a sus Logic Apps | Microsoft Docs"
-description: "Información general del conector de Usuarios de Office 365 con parámetros de la API de REST"
-services: 
-documentationcenter: 
-author: MandiOhlinger
+title: Incorporación del conector de usuarios de Office 365 a sus Logic Apps | Microsoft Docs
+description: Información general del conector de Usuarios de Office 365 con parámetros de la API de REST
+services: ''
+documentationcenter: ''
+author: ecfan
 manager: anneta
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: b2146481-9105-4f56-b4c2-7ae340cb922f
 ms.service: multiple
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: 2e7827e32a03b6f6af46f5bc65f0ed74f3065f86
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 3d281bcb8e1d0ba4d1eb0b636bdd618340399898
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-office-365-users-connector"></a>Introducción al conector de Usuarios de Office 365
 Conéctese a Usuarios de Office 365 para obtener perfiles, buscar usuarios, etc. Con Usuarios de Office 365, puede:
@@ -36,7 +36,7 @@ Al agregar este conector a las aplicaciones lógicas, debe iniciar sesión en su
 > 
 > 
 
-Después de crear la conexión, especifique las propiedades de Usuarios de Office 365, como el identificador de usuario. En la **referencia de la API de REST** de este tema se describen estas propiedades.
+Después de crear la conexión, especifique las propiedades de Usuarios de Office 365, como el identificador de usuario. En la **referencia de la API REST** de este artículo se describen estas propiedades.
 
 ## <a name="connector-specific-details"></a>Detalles específicos del conector
 

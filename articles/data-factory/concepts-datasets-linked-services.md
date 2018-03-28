@@ -1,8 +1,8 @@
 ---
 title: Conjuntos de datos y servicios vinculados en Azure Data Factory | Microsoft Docs
-description: "Obtenga información sobre los conjuntos de datos y los servicios vinculados en Azure Data Factory. Los servicios vinculados vinculan almacenes de datos o servicios de proceso a una factoría de datos. Los conjuntos de datos representan datos de entrada y salida."
+description: Obtenga información sobre los conjuntos de datos y los servicios vinculados en Azure Data Factory. Los servicios vinculados vinculan almacenes de datos o servicios de proceso a una factoría de datos. Los conjuntos de datos representan datos de entrada y salida.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
 manager: jhubbard
 editor: spelluru
@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: 
+ms.topic: ''
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: bfc95588378466fe1e83bcc4e899eca6b66b358a
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 98d58b97457cc64954094d7e8d8b4defca7e05ff
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="datasets-and-linked-services-in-azure-data-factory"></a>Conjuntos de datos y servicios vinculados en Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -184,31 +184,37 @@ En el ejemplo en la sección anterior, el tipo del conjunto de datos se establec
 }
 ```
 ## <a name="dataset-structure"></a>Estructura del conjunto de datos
-La sección **structure** es opcional. Define el esquema del conjunto de datos al contener una colección de nombres y tipos de datos de columnas. La sección "structure" se usa para proporcionar el tipo de información que se utiliza para convertir tipos y columnas de mapas del origen al destino. En el ejemplo siguiente, el conjunto de datos tiene tres columnas: timestamp, projectname y pageviews. Estas columnas son del tipo String, String, y Decimal, respectivamente.
-
-```json
-[
-    { "name": "timestamp", "type": "String"},
-    { "name": "projectname", "type": "String"},
-    { "name": "pageviews", "type": "Decimal"}
-]
-```
+La sección **structure** es opcional. Define el esquema del conjunto de datos al contener una colección de nombres y tipos de datos de columnas. La sección "structure" se usa para proporcionar el tipo de información que se utiliza para convertir tipos y columnas de mapas del origen al destino.
 
 Cada columna de la estructura contiene las siguientes propiedades:
 
 Propiedad | DESCRIPCIÓN | Obligatorio
 -------- | ----------- | --------
 Nombre | Nombre de la columna. | Sí
-Tipo | Tipo de datos de la columna. | Sin 
+Tipo | Tipo de datos de la columna. Data Factory admite los siguientes tipos de datos provisionales como valores permitidos: **Int16, Int32, Int64, Single, Double, Decimal, Byte[], Boolean, String, Guid, Datetime, Datetimeoffset y Timespan**. | Sin 
 culture | Referencia cultural basada en .NET que se usará cuando se trate de un tipo .NET: `Datetime` o `Datetimeoffset`. El valor predeterminado es `en-us`. | Sin 
-formato | Cadena de formato que se usará cuando se trate de un tipo .NET: `Datetime` o `Datetimeoffset`. | Sin 
+formato | Cadena de formato que se usará cuando se trate de un tipo .NET: `Datetime` o `Datetimeoffset`. Consulte [Cadenas con formato de fecha y hora personalizado](https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings) para obtener información sobre el formato de fecha y hora. | Sin 
 
-Las siguientes instrucciones le ayudan a determinar cuándo incluir información de estructura y qué incluir en la sección **structure**.
+### <a name="example"></a>Ejemplo
+En el ejemplo siguiente, supongamos que los datos del blob de origen presentan el formato CSV y que contienen tres columnas: userid, name y lastlogindate. Son del tipo Int64, cadena y fecha y hora con un formato de fecha y hora personalizado mediante los nombres abreviados de los días de la semana en francés.
 
-- **Para orígenes de datos estructurados**, especifique la sección "structure" solo si desea asignar columnas de origen a columnas de receptor y sus nombres no son iguales. Este tipo de origen de datos estructurados almacena información de esquema y tipo de datos junto con los datos propiamente dichos. Ejemplos de orígenes de datos estructurados son SQL Server, Oracle y Azure SQL Database.<br/><br/>Dado que la información de tipo ya está disponible para orígenes de datos estructurados, no debe incluir información de tipo cuando se incluye la sección "structure".
-- **En cuanto al esquema de los orígenes de datos de lectura (en concreto, Blob Storage)**, puede optar por guardar los datos sin almacenar ningún esquema o información de tipos con ellos. Para estos tipos de orígenes de datos, incluya "structure" cuando desee asignar columnas de origen a columnas de receptor. Incluya también "structure" cuando el conjunto de datos sea una entrada para una actividad de copia y los tipos de datos del conjunto de datos de origen se deban convertir a tipos nativos para el receptor.<br/><br/> Data Factory admite los siguientes valores para proporcionar información de tipo en la estructura: `Int16, Int32, Int64, Single, Double, Decimal, Byte[], Boolean, String, Guid, Datetime, Datetimeoffset, and Timespan`. 
+Defina la estructura del conjunto de datos de blob como se indica a continuación, junto con las definiciones de tipo para las columnas:
 
-Obtenga más información sobre cómo Data Factory asigna datos de origen al receptor en [Schema and type mapping]( copy-activity-schema-and-type-mapping.md) (Asignación de esquema y tipos) y cuándo se debe especificar la información de estructura.
+```json
+"structure":
+[
+    { "name": "userid", "type": "Int64"},
+    { "name": "name", "type": "String"},
+    { "name": "lastlogindate", "type": "Datetime", "culture": "fr-fr", "format": "ddd-MM-YYYY"}
+]
+```
+
+### <a name="guidance"></a>Guía
+
+Las siguientes instrucciones le ayudan a determinar cuándo incluir información de estructura y qué incluir en la sección **structure**. Obtenga más información sobre cómo Data Factory asigna datos de origen al receptor y cuándo se debe especificar la información de estructura en [Esquema y asignación de tipos](copy-activity-schema-and-type-mapping.md).
+
+- **Para orígenes de datos de esquema**, especifique la sección "structure" solo si desea asignar columnas de origen a columnas de receptor y sus nombres no son iguales. Este tipo de origen de datos estructurados almacena información de esquema y tipo de datos junto con los datos propiamente dichos. Ejemplos de orígenes de datos estructurados son SQL Server, Oracle y Azure SQL Database.<br/><br/>Dado que la información de tipo ya está disponible para orígenes de datos estructurados, no debe incluir información de tipo cuando se incluye la sección "structure".
+- **Para orígenes de datos de esquema seguros/poco seguros, como, por ejemplo, archivos de texto en Blob Storage**, incluya también "structure" cuando el conjunto de datos sea una entrada para una actividad de copia y los tipos de datos del conjunto de datos de origen se deban convertir a tipos nativos para el receptor. Además, incluya "structure" cuando desee asignar columnas de origen a columnas de receptor.
 
 ## <a name="create-datasets"></a>Creación de conjuntos de datos
 Puede crear conjuntos de datos mediante una de estas herramientas o SDK: [API de .NET](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [API de REST](quickstart-create-data-factory-rest-api.md), plantilla de Azure Resource Manager y Azure Portal
@@ -221,7 +227,7 @@ A continuación se indican algunas diferencias entre los conjuntos de datos de D
 - Las propiedades de directiva y disponibilidad no se admiten en V2. La hora de inicio de una canalización depende de [desencadenadores](concepts-pipeline-execution-triggers.md).
 - Los conjuntos de datos con ámbito (conjuntos de datos definidos en una canalización) no se admiten en V2. 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Consulte el siguiente tutorial para obtener instrucciones paso a paso sobre cómo crear canalizaciones y conjuntos de datos con una de estas herramientas o SDK. 
 
 - [Inicio rápido: create a data factory using .NET](quickstart-create-data-factory-dot-net.md) (Crear una factoría de datos mediante .NET)

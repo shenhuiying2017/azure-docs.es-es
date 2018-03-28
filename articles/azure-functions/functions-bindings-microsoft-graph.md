@@ -1,21 +1,21 @@
 ---
 title: Enlaces de Microsoft Graph para Azure Functions
-description: "Descubra cómo utilizar desencadenadores y enlaces de almacenamiento de Microsoft Graph en Azure Functions."
+description: Descubra cómo utilizar desencadenadores y enlaces de almacenamiento de Microsoft Graph en Azure Functions.
 services: functions
 author: mattchenderson
 manager: cfowler
-editor: 
+editor: ''
 ms.service: functions
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 12/20/2017
 ms.author: mahender
-ms.openlocfilehash: 346fd26696480b6226c5e836e9876685fb408f96
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: d774f0ca644793235a8c423b052b559d26e289c4
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Enlaces de Microsoft Graph para Azure Functions
 
@@ -33,7 +33,13 @@ La extensión de Microsoft Graph proporciona los siguientes enlaces:
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!Note]
-> Los enlaces de Microsoft Graph se encuentran actualmente en versión preliminar.
+> Los enlaces de Microsoft Graph se encuentran actualmente en versión preliminar para Azure Functions, versión 2.x. No se admiten en la versión de Functions 1.x.
+
+## <a name="packages"></a>Paquetes
+
+El enlace de entrada del token de autenticación se proporciona en el paquete NuGet [Microsoft.Azure.WebJobs.Extensions.AuthTokens](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.AuthTokens/). El resto de los enlaces de Microsoft Graph se proporcionan en el paquete [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/). El código fuente para los paquetes está en el repositorio de GitHub [azure-functions-microsoftgraph-extension](https://github.com/Azure/azure-functions-microsoftgraph-extension/).
+
+[!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="setting-up-the-extensions"></a>Configuración de las extensiones
 
@@ -54,9 +60,7 @@ En ambos casos, aparecerá una advertencia que especifica la extensión que se v
 > [!Note] 
 > El proceso de instalación en el portal puede tardar hasta 10 minutos en un plan de consumo.
 
-Si utiliza Visual Studio, puede obtener las extensiones mediante la instalación de estos paquetes de NuGet:
-- [Microsoft.Azure.WebJobs.Extensions.AuthTokens](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.AuthTokens/)
-- [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/)
+Si utiliza Visual Studio, puede obtener las extensiones mediante la instalación de [los paquetes NuGet enumerados anteriormente en este artículo](#packages).
 
 ### <a name="configuring-authentication--authorization"></a>Configuración de autenticación o autorización
 
@@ -199,7 +203,7 @@ module.exports = function (context, req) {
 
 ### <a name="auth-token---attributes"></a>Token de autenticación: atributos
 
-Para [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el atributo [Token](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/TokenBinding/TokenAttribute.cs), que se define en el paquete NuGet [Microsoft.Azure.WebJobs.Extensions.AuthTokens](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.AuthTokens/).
+En las [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el atributo [Token](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/TokenBinding/TokenAttribute.cs).
 
 ### <a name="auth-token---configuration"></a>Token de autenticación: configuración
 
@@ -332,7 +336,7 @@ module.exports = function (context, req) {
 
 ### <a name="excel-input---attributes"></a>Entrada de Excel: atributos
 
-Para [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el atributo [Excel](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/ExcelAttribute.cs), que se define en el paquete NuGet [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+En las [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el atributo [Excel](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/ExcelAttribute.cs).
 
 ### <a name="excel-input---configuration"></a>Entrada de Excel: configuración
 
@@ -346,7 +350,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |**identity**|**Identidad**|(Requerido): identidad que se usará para realizar la acción. Puede ser uno de los siguientes valores:<ul><li><code>userFromRequest</code>: solo es válido con el [desencadenador HTTP]. Usa la identidad del usuario que realiza la llamada.</li><li><code>userFromId</code>: usa la identidad de un usuario que inició sesión previamente con el identificador especificado. Consulte la propiedad <code>userId</code>.</li><li><code>userFromToken</code>: usa la identidad representada por el token especificado. Consulte la propiedad <code>userToken</code>.</li><li><code>clientCredentials</code>: usa la identidad de la aplicación de función.</li></ul>|
 |**userId**|**UserId**  |Necesario si y solo si _identity_ está establecido en `userFromId`. Identificador de una entidad de seguridad de usuario asociado a un usuario que inició sesión previamente.|
 |**userToken**|**UserToken**|Necesario si y solo si _identity_ está establecido en `userFromToken`. Token válido para la aplicación de función. |
-|**path**|**Ruta de acceso**|(Requerido): ruta de acceso de OneDrive al libro de Excel.|
+|**path**|**Path**|(Requerido): ruta de acceso de OneDrive al libro de Excel.|
 |**worksheetName**|**WorksheetName**|Hoja de cálculo en la que se encuentra la tabla.|
 |**tableName**|**TableName**|El nombre de la tabla. Si no se especifica, se usará el contenido de la hoja de cálculo.|
 
@@ -492,7 +496,7 @@ module.exports = function (context, req) {
 
 ### <a name="excel-output---attributes"></a>Salida de Excel: atributos
 
-Para [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el atributo [Excel](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/ExcelAttribute.cs), que se define en el paquete NuGet [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+En las [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el atributo [Excel](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/ExcelAttribute.cs).
 
 ### <a name="excel-output---configuration"></a>Salida de Excel: configuración
 
@@ -506,7 +510,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |**identity**|**Identidad**|(Requerido): identidad que se usará para realizar la acción. Puede ser uno de los siguientes valores:<ul><li><code>userFromRequest</code>: solo es válido con el [desencadenador HTTP]. Usa la identidad del usuario que realiza la llamada.</li><li><code>userFromId</code>: usa la identidad de un usuario que inició sesión previamente con el identificador especificado. Consulte la propiedad <code>userId</code>.</li><li><code>userFromToken</code>: usa la identidad representada por el token especificado. Consulte la propiedad <code>userToken</code>.</li><li><code>clientCredentials</code>: usa la identidad de la aplicación de función.</li></ul>|
 |**UserId** |**userId** |Necesario si y solo si _identity_ está establecido en `userFromId`. Identificador de una entidad de seguridad de usuario asociado a un usuario que inició sesión previamente.|
 |**userToken**|**UserToken**|Necesario si y solo si _identity_ está establecido en `userFromToken`. Token válido para la aplicación de función. |
-|**path**|**Ruta de acceso**|(Requerido): ruta de acceso de OneDrive al libro de Excel.|
+|**path**|**Path**|(Requerido): ruta de acceso de OneDrive al libro de Excel.|
 |**worksheetName**|**WorksheetName**|Hoja de cálculo en la que se encuentra la tabla.|
 |**tableName**|**TableName**|El nombre de la tabla. Si no se especifica, se usará el contenido de la hoja de cálculo.|
 |**updateType**|**UpdateType**|(Requerido): tipo de cambio para realizar en la tabla. Puede ser uno de los siguientes valores:<ul><li><code>update</code>: reemplaza el contenido de la tabla en OneDrive.</li><li><code>append</code>: agrega la carga al final de la tabla de OneDrive mediante la creación de nuevas filas.</li></ul>|
@@ -636,7 +640,7 @@ module.exports = function (context, req) {
 
 ### <a name="file-input---attributes"></a>Entrada de archivo: atributos
 
-Para [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el atributo [OneDrive](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OneDriveAttribute.cs), que se define en el paquete NuGet [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+En las [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el atributo [OneDrive](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OneDriveAttribute.cs).
 
 ### <a name="file-input---configuration"></a>Entrada de archivo: configuración
 
@@ -650,7 +654,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |**identity**|**Identidad**|(Requerido): identidad que se usará para realizar la acción. Puede ser uno de los siguientes valores:<ul><li><code>userFromRequest</code>: solo es válido con el [desencadenador HTTP]. Usa la identidad del usuario que realiza la llamada.</li><li><code>userFromId</code>: usa la identidad de un usuario que inició sesión previamente con el identificador especificado. Consulte la propiedad <code>userId</code>.</li><li><code>userFromToken</code>: usa la identidad representada por el token especificado. Consulte la propiedad <code>userToken</code>.</li><li><code>clientCredentials</code>: usa la identidad de la aplicación de función.</li></ul>|
 |**userId**|**UserId**  |Necesario si y solo si _identity_ está establecido en `userFromId`. Identificador de una entidad de seguridad de usuario asociado a un usuario que inició sesión previamente.|
 |**userToken**|**UserToken**|Necesario si y solo si _identity_ está establecido en `userFromToken`. Token válido para la aplicación de función. |
-|**path**|**Ruta de acceso**|(Requerido): ruta de acceso de OneDrive al archivo.|
+|**path**|**Path**|(Requerido): ruta de acceso de OneDrive al archivo.|
 
 <a name="onedrive-input-code"></a>
 ### <a name="file-input---usage"></a>Entrada de archivo: uso
@@ -781,7 +785,7 @@ module.exports = function (context, req) {
 
 ### <a name="file-output---attributes"></a>Salida de archivo: atributos
 
-Para [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el atributo [OneDrive](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OneDriveAttribute.cs), que se define en el paquete NuGet [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+En las [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el atributo [OneDrive](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OneDriveAttribute.cs).
 
 ### <a name="file-output---configuration"></a>Salida de archivo: configuración
 
@@ -795,7 +799,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |**identity**|**Identidad**|(Requerido): identidad que se usará para realizar la acción. Puede ser uno de los siguientes valores:<ul><li><code>userFromRequest</code>: solo es válido con el [desencadenador HTTP]. Usa la identidad del usuario que realiza la llamada.</li><li><code>userFromId</code>: usa la identidad de un usuario que inició sesión previamente con el identificador especificado. Consulte la propiedad <code>userId</code>.</li><li><code>userFromToken</code>: usa la identidad representada por el token especificado. Consulte la propiedad <code>userToken</code>.</li><li><code>clientCredentials</code>: usa la identidad de la aplicación de función.</li></ul>|
 |**UserId** |**userId** |Necesario si y solo si _identity_ está establecido en `userFromId`. Identificador de una entidad de seguridad de usuario asociado a un usuario que inició sesión previamente.|
 |**userToken**|**UserToken**|Necesario si y solo si _identity_ está establecido en `userFromToken`. Token válido para la aplicación de función. |
-|**path**|**Ruta de acceso**|(Requerido): ruta de acceso de OneDrive al archivo.|
+|**path**|**Path**|(Requerido): ruta de acceso de OneDrive al archivo.|
 
 <a name="onedrive-output-code"></a>
 #### <a name="file-output---usage"></a>Salida de archivo: uso
@@ -930,7 +934,7 @@ module.exports = function (context, req) {
 
 ### <a name="outlook-output---attributes"></a>Salida de Outlook: atributos
 
-Para [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el atributo [Outlook](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OutlookAttribute.cs), que se define en el paquete NuGet [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+En las [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el atributo [Outlook](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OutlookAttribute.cs).
 
 ### <a name="outlook-output---configuration"></a>Salida de Outlook: configuración
 
@@ -1071,7 +1075,7 @@ module.exports = function (context) {
 
 ### <a name="webhook-trigger---attributes"></a>Desencadenador de webhook: atributos
 
-Para [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el atributo [GraphWebHookTrigger](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookTriggerAttribute.cs), que se define en el paquete NuGet [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+En las [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el atributo [GraphWebHookTrigger](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookTriggerAttribute.cs).
 
 ### <a name="webhook-trigger---configuration"></a>Desencadenador de webhook: configuración
 
@@ -1222,7 +1226,7 @@ module.exports = function (context, req) {
 
 ### <a name="webhook-input---attributes"></a>Entrada de webhook: atributos
 
-Para [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el atributo [GraphWebHookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookSubscriptionAttribute.cs), que se define en el paquete NuGet [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+En las [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el atributo [GraphWebHookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookSubscriptionAttribute.cs).
 
 ### <a name="webhook-input---configuration"></a>Entrada de webhook: configuración
 
@@ -1362,7 +1366,7 @@ module.exports = function (context, req) {
 
 ### <a name="webhook-output---attributes"></a>Salida de webhook: atributos
 
-Para [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el atributo [GraphWebHookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookSubscriptionAttribute.cs), que se define en el paquete NuGet [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+En las [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el atributo [GraphWebHookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookSubscriptionAttribute.cs).
 
 ### <a name="webhook-output---configuration"></a>Salida de webhook: configuración
 
@@ -1566,7 +1570,7 @@ public class UserSubscription {
 }
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Más información sobre desencadenadores y enlaces de Azure Functions](functions-triggers-bindings.md)

@@ -1,25 +1,25 @@
 ---
-title: "Adición del conector de una base de datos de Oracle en Azure Logic Apps | Microsoft Docs"
-description: "Use el conector de una base de datos de Oracle en una aplicación lógica"
-services: 
-documentationcenter: 
-author: MandiOhlinger
+title: Adición del conector de una base de datos de Oracle en Azure Logic Apps | Microsoft Docs
+description: Use el conector de una base de datos de Oracle en una aplicación lógica
+services: ''
+documentationcenter: ''
+author: ecfan
 manager: anneta
-editor: 
+editor: ''
 tags: connectors
-ms.assetid: 
+ms.assetid: ''
 ms.service: logic-apps
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/29/2017
-ms.author: mandia; ladocs
-ms.openlocfilehash: 4119e72abd568c9b53245a872691f06329b040de
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 57931b6c2f96debeb9ab7f1a3b6700f23e7d2a7e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Introducción al conector de una base de datos de Oracle
 
@@ -28,7 +28,7 @@ Mediante el conector de una base de datos de Oracle, crea flujos de trabajo orga
 * Agregue un nuevo cliente a una base de datos de clientes o actualice un pedido en una base de datos de pedidos para crear el flujo de trabajo.
 * Use acciones para obtener una fila de datos, insertar una fila nueva e incluso eliminarla. Por ejemplo, al crear un registro en Dynamics CRM Online (un desencadenador), inserte una fila en una base de datos de Oracle (una acción). 
 
-Este tema le muestra cómo usar el conector de una base de datos de Oracle en una aplicación lógica.
+Este artículo le muestra cómo usar el conector de una base de datos de Oracle en una aplicación lógica.
 
 ## <a name="prerequisites"></a>requisitos previos
 
@@ -46,7 +46,7 @@ Este tema le muestra cómo usar el conector de una base de datos de Oracle en un
   [64-bits ODAC 12c versión 4 (12.1.0.2.4) para Windows x64](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html)
 
     > [!TIP]
-    > Si no se instala el cliente Oracle, se producirá un error cuando intente crear o usar la conexión. Consulte los errores comunes en este tema.
+    > Si no se instala el cliente Oracle, se producirá un error cuando intente crear o usar la conexión. Consulte los errores comunes en este artículo.
 
 
 ## <a name="add-the-connector"></a>Incorporación del conector
@@ -104,7 +104,7 @@ Este tema le muestra cómo usar el conector de una base de datos de Oracle en un
 
 **Mitigación**: Asegúrese de que la puerta de enlace se esté ejecutando en el equipo local donde la instaló y que se pueda conectar a Internet.  Se recomienda no instalar la puerta de enlace en un equipo que pueda apagarse o suspenderse. También puede reiniciar el servicio de la puerta de enlace de datos local (PBIEgwService).
 
-#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-please-visit-httpsgomicrosoftcomfwlinkplinkid272376httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Error**: El proveedor que está usando está en desuso: 'System.Data.OracleClient requiere la versión 8.1.7 del software cliente de Oracle o una versión posterior'. Visite [https://go.microsoft.com/fwlink/p/?LinkID=272376](https://go.microsoft.com/fwlink/p/?LinkID=272376) para instalar el proveedor oficial.
+#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Error**: El proveedor que está usando está en desuso: 'System.Data.OracleClient requiere la versión 8.1.7 del software cliente de Oracle o una versión posterior'. Vea [https://go.microsoft.com/fwlink/p/?LinkID=272376](https://go.microsoft.com/fwlink/p/?LinkID=272376) para instalar el proveedor oficial.
 
 **Causa**: El SDK del cliente Oracle no está instalado en la misma máquina en la que se ejecuta la puerta de enlace de datos local.  
 
@@ -133,5 +133,5 @@ El [foro de Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/hom
 Puede ayudar a mejorar Logic Apps y conectores al votar y enviar sus ideas en [http://aka.ms/logicapps-wish](http://aka.ms/logicapps-wish). 
 
 
-## <a name="next-steps"></a>pasos siguientes
-[Cree una aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md) y explore los conectores disponibles en Logic Apps en nuestra [lista de API](apis-list.md).
+## <a name="next-steps"></a>Pasos siguientes
+[Cree una aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md) y explore los conectores disponibles en Logic Apps en la [lista de API](apis-list.md).

@@ -130,7 +130,7 @@ Para crear una nueva suscripción de Event Grid, haga lo siguiente:
 
    La siguiente imagen muestra un espacio de nombres que tenga algunas suscripciones de Event Grid:
 
-   ![20 ][]
+   ![20][]
 
    La siguiente imagen muestra cómo suscribirse a una función o a un webhook sin ningún filtro concreto:
 

@@ -1,6 +1,6 @@
 ---
-title: "Habilitar SSL en un clúster de Azure Machine Learning Compute (MLC) | Microsoft Docs"
-description: "Obtener instrucciones para configurar SSL y realizar llamadas de puntuación en un clúster de Azure Machine Learning Compute (MLC)"
+title: Habilitar SSL en un clúster de Azure Machine Learning Compute (MLC) | Microsoft Docs
+description: Obtener instrucciones para configurar SSL y realizar llamadas de puntuación en un clúster de Azure Machine Learning Compute (MLC)
 services: machine-learning
 author: SerinaKaye
 ms.author: serinak
@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 01/24/2018
-ms.openlocfilehash: b76fe7c0caa4a9aca76a9a3f50d1fced0ab67cba
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 444803eeb77e79a8bfe3271ddf27bd428042c875
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="enable-ssl-on-an-azure-machine-learning-compute-mlc-cluster"></a>Habilitar SSL en un clúster de Azure Machine Learning Compute (MLC) 
 
@@ -31,7 +31,7 @@ Estas instrucciones le permitirán configurar SSL para realizar llamadas de punt
 
 Después de completar los requisitos previos, tendrá dos archivos:
 
-* Un archivo para el certificado (por ejemplo, `cert.pem`).
+* Un archivo para el certificado (por ejemplo, `cert.pem`). Asegúrese de que el archivo tiene la cadena de certificados completa.
 * Un archivo para la clave (por ejemplo, `key.pem`).
 
 
@@ -55,7 +55,7 @@ Set-AzureRmMlOpCluster -ResourceGroupName my-rg -Name my-cluster -SslStatus Enab
 
 ## <a name="map-the-cname-and-the-ip-address"></a>Asignar el valor CNAME y la dirección IP
 
-Cree una asignación entre el valor CNAME que seleccionó en los requisitos previos y la dirección IP del front-end (FE) en tiempo real. Para conocer la dirección IP del FE, ejecute el siguiente comando. La salida muestra un campo denominado "publicIpAddress", que contiene la dirección IP del front-end del clúster en tiempo real. Consulte las instrucciones de su proveedor de DNS para configurar un registro CNAME.
+Cree una asignación entre el valor CNAME que seleccionó en los requisitos previos y la dirección IP del front-end (FE) en tiempo real. Para conocer la dirección IP del FE, ejecute el siguiente comando. La salida muestra un campo denominado "publicIpAddress", que contiene la dirección IP del front-end del clúster en tiempo real. Consulte las instrucciones de su proveedor de DNS para configurar un registro desde el FQDN utilizado en CNAME para la dirección IP pública.
 
 
 

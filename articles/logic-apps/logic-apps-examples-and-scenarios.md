@@ -1,11 +1,11 @@
 ---
 title: 'Ejemplos y escenarios comunes: Azure Logic Apps | Microsoft Docs'
-description: "Más información acerca de Logic Apps, con ejemplos, escenarios, tutoriales y guías detalladas"
+description: Más información acerca de Logic Apps, con ejemplos, escenarios, tutoriales y guías detalladas
 services: logic-apps
 author: jeffhollan
 manager: anneta
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: e06311bc-29eb-49df-9273-1f05bbb2395c
 ms.service: logic-apps
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: logic-apps
 ms.date: 01/31/18
 ms.author: LADocs; jehollan
-ms.openlocfilehash: b979096731caa7513c02a9fb398c14da4d4819ae
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 02690284e5487dba8e5fb5d973958f944bfa339f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Escenarios comunes, ejemplos, tutoriales y guías detalladas de Azure Logic Apps
 
@@ -81,7 +81,7 @@ Las aplicaciones lógicas incluyen amplias funciones de flujo de control avanzad
 
 Puede desarrollar e implementar aplicaciones lógicas completamente con Visual Studio, Visual Studio Team Services o cualquier otra herramienta de compilación automatizada o de control de código fuente. Con el fin de admitir la implementación para flujos de trabajos y conexiones dependientes en una plantilla de recursos, las aplicaciones lógicas usan las plantillas de implementación de recursos de Azure. Visual Studio Tools genera automáticamente estas plantillas, lo que puede comprobar en el control de código fuente para el control de versiones.
 
-* [Creación e implementación de aplicaciones lógicas en Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md)
+* [Creación e implementación de aplicaciones lógicas con Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
 * [Supervisar el estado, configurar el registro de diagnósticos y activar alertas para Azure Logic Apps](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 * [Creación de una plantilla de implementación automatizada](../logic-apps/logic-apps-create-deploy-template.md)
 
@@ -91,7 +91,7 @@ Puede obtener acceso a distintos tipos de contenido, convertirlos y transformarl
 
 * [Funcionamiento de las expresiones de flujo de trabajo en las aplicaciones lógicas](../logic-apps/logic-apps-author-definitions.md)
 * [Administración de los tipos de contenido no JSON](../logic-apps/logic-apps-content-type.md), como `application/xml`, `application/octet-stream` y `multipart/formdata`
-* [Referencia: Lenguaje de definición de flujo de trabajo de Azure Logic Apps](http://aka.ms/logicappsdocs)
+* [Esquema del lenguaje de definición de flujo de trabajo - Azure Logic Apps](http://aka.ms/logicappsdocs)
 
 ## <a name="other-integrations-and-capabilities"></a>Otras integraciones y funcionalidades
 

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/04/2018
 ms.author: tdykstra
-ms.openlocfilehash: 0a436a929696f759cdbe9807faa2a15902b7ce6d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9d63c95c849c8ef6011557c72240e56071ba614f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guía para el desarrollador de JavaScript para Azure Functions
 [!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
@@ -271,7 +271,7 @@ En la tabla siguiente se muestra la versión de Node.js que se usa en cada versi
 | Versión de Functions | Versión de Node.js | 
 |---|---|
 | 1.x | 6.11.2 (bloqueado por el entorno de tiempo de ejecución) |
-| 2.x  |>=8.4.0 con LTS 8.9.4 actual recomendado. Establezca la versión con la [configuración de aplicación](functions-how-to-use-azure-function-app-settings.md#settings) WEBSITE_DEFAULT_NODE_VERSION.|
+| 2.x  |>=8.4.0 con LTS 8.9.4 actual recomendado. Establezca la versión con la [configuración de aplicación](functions-how-to-use-azure-function-app-settings.md#settings) WEBSITE_NODE_DEFAULT_VERSION.|
 
 Puede ver la versión actual que el entorno de tiempo de ejecución usa mediante la impresión de `process.version` desde cualquier función.
 

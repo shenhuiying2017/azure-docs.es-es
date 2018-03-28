@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/02/2018
 ms.author: sachins
-ms.openlocfilehash: d3a0dd70a03f97a9b6bfb243eda7cbd470b0c239
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: c394142ba40fc580bdcec11430dcae2816fa9760
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="overview-of-azure-data-lake-store"></a>Información general del Almacenamiento con Azure Data Lake Store
+# <a name="best-practices-for-using-azure-data-lake-store"></a>Procedimientos recomendados para usar Azure Data Lake Store
 En este artículo hallará más información sobre los procedimientos recomendados y las consideraciones que debe tener en cuenta al trabajar con Azure Data Lake Store. En este artículo se proporciona información sobre seguridad, rendimiento, resistencia y supervisión de Data Lake Store. Antes de Data Lake Store, el trabajo con macrodatos en servicios como Azure HDInsight era complicado. Había que particionar los datos en varias cuentas de almacenamiento de blobs para que se pudiera lograr un almacenamiento de petabytes y un rendimiento óptimo a esa escala. Gracias a Data Lake Store, la mayoría de los restrictivos límites de tamaño y rendimiento se han eliminado. No obstante, aún quedan algunas consideraciones que debe tener en cuenta y que se describen en este artículo para que pueda obtener el mejor rendimiento de Data Lake Store. 
 
 ## <a name="security-considerations"></a>Consideraciones sobre la seguridad
@@ -139,7 +139,7 @@ Si el trasvase de registros de Data Lake Store no está activado, Azure HDInsigh
 
     log4j.logger.com.microsoft.azure.datalake.store=DEBUG 
 
-Una vez que esta se establece y se reinician los nodos, los diagnósticos de Data Lake Store se escriben en los registros de YARN en los nodos (/tmp/<user>/yarn.log) y se pueden supervisar detalles importantes como los errores o las limitaciones (código de error HTTP 429). Esta misma información también se puede supervisar en OMS o en cualquier ubicación en la que se trasvasen los registros en la hoja [Diagnóstico](data-lake-store-diagnostic-logs.md) de la cuenta de Data Lake Store. Se recomienda tener activado al menos el registro del lado cliente o utilizar la opción de trasvase de registros con Data Lake Store para una mayor visibilidad operativa y una depuración más sencilla.
+Una vez que esta se establece la propiedad y se reinician los nodos, los diagnósticos de Data Lake Store se escriben en los registros de YARN en los nodos (/tmp/<user>/yarn.log) y se pueden supervisar detalles importantes como los errores o las limitaciones (código de error HTTP 429). Esta misma información también se puede supervisar en OMS o en cualquier ubicación en la que se trasvasen los registros en la hoja [Diagnóstico](data-lake-store-diagnostic-logs.md) de la cuenta de Data Lake Store. Se recomienda tener activado al menos el registro del lado cliente o utilizar la opción de trasvase de registros con Data Lake Store para una mayor visibilidad operativa y una depuración más sencilla.
 
 ### <a name="run-synthetic-transactions"></a>Ejecutar transacciones sintéticas 
 
@@ -155,7 +155,7 @@ En las cargas de trabajo de IoT, puede haber una gran cantidad de datos que se c
 
     {Region}/{SubjectMatter(s)}/{yyyy}/{mm}/{dd}/{hh}/ 
 
-Por ejemplo, la telemetría de aterrizaje de un motor de un avión del Reino Unido podría ser parecida a esta: 
+Por ejemplo, la telemetría de aterrizaje de un motor de un avión del Reino Unido podría ser parecida a la estructura siguiente: 
 
     UK/Planes/BA1293/Engine1/2017/08/11/12/ 
 
@@ -163,7 +163,7 @@ Existe un motivo importante para poner la fecha al final de la estructura de car
 
 ### <a name="batch-jobs-structure"></a>Estructura de trabajos por lotes 
 
-Desde una perspectiva general, un enfoque utilizado habitualmente en el procesamiento por lotes es situar los datos en una carpeta "in". Posteriormente, una vez procesados los datos, ponga los nuevos datos en una carpeta "out" para que los consuman los procesos de nivel inferior. Esto se ve a veces con trabajos que requieren el procesamiento de archivos individuales pero que no requieren un procesamiento paralelo masivo en grandes conjuntos de datos. Al igual que en la estructura de IoT recomendada anteriormente, una buena estructura de directorios dispone de carpetas de nivel primario para cosas como las regiones o los asuntos (por ejemplo, organización, producto o productor). Esto ayuda a proteger los datos en la organización y a mejorar la administración de los datos de las cargas de trabajo. Además, tenga en cuenta la posibilidad de usar la fecha y la hora en la estructura para permitir una mejor organización, búsquedas filtradas, seguridad y automatización del procesamiento. El nivel de granularidad de la estructura de fecha viene determinado por el intervalo en el que los datos se cargan o procesan como, por ejemplo, cada hora, cada día o incluso mensualmente. 
+Desde una perspectiva general, un enfoque utilizado habitualmente en el procesamiento por lotes es situar los datos en una carpeta "in". Posteriormente, una vez procesados los datos, ponga los nuevos datos en una carpeta "out" para que los consuman los procesos de nivel inferior. Esta estructura de directorio se ve a veces con trabajos que requieren el procesamiento de archivos individuales pero que no requieren un procesamiento paralelo masivo en grandes conjuntos de datos. Al igual que en la estructura de IoT recomendada anteriormente, una buena estructura de directorios dispone de carpetas de nivel primario para cosas como las regiones o los asuntos (por ejemplo, organización, producto o productor). Esta estructura ayuda a proteger los datos en la organización y a mejorar la administración de los datos de las cargas de trabajo. Además, tenga en cuenta la posibilidad de usar la fecha y la hora en la estructura para permitir una mejor organización, búsquedas filtradas, seguridad y automatización del procesamiento. El nivel de granularidad de la estructura de fecha viene determinado por el intervalo en el que los datos se cargan o procesan como, por ejemplo, cada hora, cada día o incluso mensualmente. 
 
 En algunas ocasiones, el procesamiento de archivos es incorrecto debido a datos dañados o a formatos imprevistos. En tales casos, podría resultar útil que la estructura de directorios tuviera una carpeta **/bad** a la que mover los archivos para una mayor inspección. El trabajo por lotes también puede controlar el informe o notificación de estos archivos *incorrectos* para una posterior intervención manual. Tenga en cuenta la siguiente estructura de plantilla: 
 
@@ -171,7 +171,7 @@ En algunas ocasiones, el procesamiento de archivos es incorrecto debido a datos 
     {Region}/{SubjectMatter(s)}/Out/{yyyy}/{mm}/{dd}/{hh}/ 
     {Region}/{SubjectMatter(s)}/Bad/{yyyy}/{mm}/{dd}/{hh}/ 
 
-Por ejemplo, una empresa de marketing que recibe a diario extractos de datos de actualizaciones de los clientes de Estados Unidos podría tener este aspecto antes y después del procesamiento: 
+Por ejemplo, una empresa de marketing recibe a diario extractos de datos de actualizaciones de los clientes de Estados Unidos. Podría tener el aspecto del siguiente fragmento de código antes y después del procesamiento: 
 
     NA/Extracts/ACMEPaperCo/In/2017/08/14/updates_08142017.csv 
     NA/Extracts/ACMEPaperCo/Out/2017/08/14/processed_updates_08142017.csv 

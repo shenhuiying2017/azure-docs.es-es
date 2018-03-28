@@ -1,11 +1,11 @@
 ---
 title: Uso del conector de Slack en Azure Logic Apps | Microsoft Docs
-description: "Conéctese a Slack en las aplicaciones lógicas"
+description: Conéctese a Slack en las aplicaciones lógicas
 services: logic-apps
-documentationcenter: 
-author: MandiOhlinger
+documentationcenter: ''
+author: ecfan
 manager: anneta
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: 234cad64-b13d-4494-ae78-18b17119ba24
 ms.service: logic-apps
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: 04ea4508495b227d6ace4a3105f283c474c51d14
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 73c512c70f1c135bd791d93cecc42bd6f4c06b3d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-slack-connector"></a>Introducción al conector de Slack
 Slack es una herramienta de comunicación de equipo, que reúne todas las comunicaciones del equipo en un solo lugar, inmediatamente localizables y disponibles dondequiera que vaya. 
@@ -33,7 +33,7 @@ Para usar el conector de Slack, cree primero una **conexión** y, después, espe
 | --- | --- | --- |
 | Se necesita el cifrado de tokens |Sí |Proporcionar credenciales de Slack |
 
-Siga estos pasos para iniciar sesión en Slack y completar la configuración de la **conexión** de Slack en la aplicación lógica:
+Inicie sesión en Slack con estos pasos y complete la configuración de la **conexión** de Slack en la aplicación lógica:
 
 1. Seleccione **Periodicidad**
 2. Seleccione un valor para **Frequency** (Frecuencia) y especifique el correspondiente a **Interval** (Intervalo)
@@ -47,9 +47,9 @@ Siga estos pasos para iniciar sesión en Slack y completar la configuración de 
    ![Configurar Slack][3]  
 8. Se le redirigirá a la página de inicio de sesión de su organización. **Autorice** la interacción de Slack con la aplicación lógica:      
    ![Configurar Slack][5] 
-9. Una vez completada la autorización se le redirigirá a la aplicación lógica para terminar mediante la configuración de la sección **Slack - obtener todos los mensajes** . Agregue otros desencadenadores y acciones que necesite.  
+9. Una vez completada la autorización se le redirigirá a la aplicación lógica para terminar mediante la configuración de la sección **Slack - obtener todos los mensajes**. Agregue otros desencadenadores y acciones que necesite.  
    ![Configurar Slack][6]
-10. Guarde el trabajo seleccionando **Guardar** en la barra de menús superior.
+10. Guarde el trabajo seleccionando **Guardar** en el menú (cerca de la parte superior).
 
 ## <a name="connector-specific-details"></a>Detalles específicos del conector
 

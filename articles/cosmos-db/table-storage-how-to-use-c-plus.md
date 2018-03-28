@@ -1,6 +1,6 @@
 ---
-title: Uso de Azure Table Storage con C++ | Microsoft Docs
-description: "Almacene datos estructurados en la nube con el Almacenamiento de tablas de Azure, un almacén de datos NoSQL."
+title: Uso de Azure Table Storage y Azure Cosmos DB con C++ | Microsoft Docs
+description: Almacene datos estructurados en la nube con el Almacenamiento de tablas de Azure, un almacén de datos NoSQL.
 services: cosmos-db
 documentationcenter: .net
 author: mimig1
@@ -12,20 +12,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 03/12/2018
 ms.author: mimig
-ms.openlocfilehash: a71098583af8722f2e191e0e665ac87ebd30f355
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 69d56c79320931419ff8d71373ec578af2dec921
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="how-to-use-azure-table-storage-with-c"></a>Uso de Azure Table Storage con C++
+# <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-c"></a>Uso de Azure Table Storage y Table API de Azure Cosmos DB con C++
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-[!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
+[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 ## <a name="overview"></a>Información general
-Esta guía muestra cómo realizar algunas tareas comunes a través del servicio de almacenamiento de tablas de Azure. Los ejemplos están escritos en C++ y usan la [biblioteca de cliente de Azure Storage para C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md). Entre los escenarios descritos se incluyen **crear y eliminar una tabla**, así como **trabajar con entidades de tabla**.
+En esta guía se explica cómo realizar algunas tareas comunes mediante el servicio Azure Table Storage o Table API de Azure Cosmos DB. Los ejemplos están escritos en C++ y usan la [biblioteca de cliente de Azure Storage para C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md). Entre los escenarios descritos se incluyen **crear y eliminar una tabla**, así como **trabajar con entidades de tabla**.
 
 > [!NOTE]
 > Esta guía se destina a la biblioteca de cliente de Azure Storage para C++, versión 1.0.0 y posteriores. La versión recomendada es la biblioteca de cliente de almacenamiento 2.2.0, que se encuentra disponible a través de [NuGet](http://www.nuget.org/packages/wastorage) o [GitHub](https://github.com/Azure/azure-storage-cpp/).
@@ -46,7 +46,7 @@ Para instalar la biblioteca de cliente de Azure Storage para C++, puede usar los
   
      Install-Package wastorage
 
-## <a name="configure-your-application-to-access-table-storage"></a>Configuración de la aplicación para acceder al almacenamiento de tablas
+## <a name="configure-access-to-the-table-client-library"></a>Configuración de acceso a la biblioteca cliente de Table
 Agregue las siguientes instrucciones include en la parte superior del archivo C++ en el que desea usar las API de almacenamiento de Azure para obtener acceso a las tablas:  
 
 ```cpp
@@ -54,13 +54,24 @@ Agregue las siguientes instrucciones include en la parte superior del archivo C+
 #include <was/table.h>
 ```
 
-## <a name="set-up-an-azure-storage-connection-string"></a>Configuración de una cadena de conexión de Almacenamiento de Azure
-Un cliente de almacenamiento de Azure utiliza una cadena de conexión de almacenamiento para almacenar extremos y credenciales con el fin de obtener acceso a los servicios de administración de datos. Cuando se ejecuta una aplicación cliente, debe proporcionar la cadena de conexión de almacenamiento en el formato siguiente. Use el nombre de la cuenta de almacenamiento y la clave de acceso de almacenamiento para la cuenta de almacenamiento que aparece en [Azure Portal](https://portal.azure.com) para los valores *AccountName* y *AccountKey*. Para obtener información sobre las cuentas de almacenamiento y las claves de acceso, consulte [Acerca de las cuentas de almacenamiento de Azure](../storage/common/storage-create-storage-account.md). En este ejemplo se muestra cómo puede declarar un campo estático para mantener la cadena de conexión:  
+Un cliente de Azure Storage o Cosmos DB usa una cadena de conexión para almacenar puntos de conexión y credenciales con el fin de acceder a los servicios de administración de datos. Cuando se ejecuta una aplicación cliente, debe proporcionar la cadena de conexión de Storage o la cadena de conexión de Azure Cosmos DB en el formato apropiado.
+
+## <a name="set-up-an-azure-storage-connection-string"></a>Configuración de una cadena de conexión de Azure Storage
+ Use el nombre de la cuenta de Storage y la clave de acceso de para la cuenta de Storage que aparece en [Azure Portal](https://portal.azure.com) para los valores *AccountName* y *AccountKey*. Para obtener información sobre las cuentas de Storage y las claves de acceso, consulte [Acerca de las cuentas de Azure Storage](../storage/common/storage-create-storage-account.md). En este ejemplo se muestra cómo puede declarar un campo estático para mantener la cadena de conexión de Azure Storage:  
 
 ```cpp
-// Define the connection string with your values.
+// Define the Storage connection string with your values.
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_storage_account;AccountKey=your_storage_account_key"));
 ```
+
+## <a name="set-up-an-azure-cosmos-db-connection-string"></a>Configuración de una cadena de conexión de Azure Cosmos DB
+Use el nombre de la cuenta de Azure Cosmos DB, la clave principal y el punto de conexión que se indican en [Azure Portal](https://portal.azure.com) para los valores *Nombre de cuenta*, *Clave principal* y *Punto de conexión*. En este ejemplo se muestra cómo puede declarar un campo estático para mantener la cadena de conexión de Azure Cosmos DB:
+
+```cpp
+// Define the Azure Cosmos DB connection string with your values.
+const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_cosmos_db_account;AccountKey=your_cosmos_db_account_key;TableEndpoint=your_cosmos_db_endpoint"));
+```
+
 
 Para probar la aplicación en el equipo local de Windows, puede usar el [emulador de almacenamiento de Azure](../storage/common/storage-use-emulator.md) que se instala con el [SDK de Azure](https://azure.microsoft.com/downloads/). El emulador de almacenamiento es una utilidad que simula los servicios Azure Blob, Queue y Table en el equipo de desarrollo local. En el ejemplo siguiente se muestra cómo puede declarar un campo estático para mantener la cadena de conexión en el emulador de almacenamiento local:  
 
@@ -74,7 +85,7 @@ Para iniciar el emulador de almacenamiento de Azure, haga clic en el botón **In
 En los ejemplos siguientes se supone que usó uno de estos dos métodos para obtener la cadena de conexión de almacenamiento.  
 
 ## <a name="retrieve-your-connection-string"></a>Recuperación de la cadena de conexión
-Puede usar la clase **cloud_storage_account** para representar la información de la cuenta de almacenamiento. Para recuperar la información de la cuenta de almacenamiento a partir de la cadena de conexión de almacenamiento, puede usar el método parse.
+Puede usar la clase **cloud_storage_account** para representar la información de la cuenta de almacenamiento. Para recuperar la información de la cuenta de almacenamiento a partir de la cadena de conexión de almacenamiento, puede usar el método **parse** .
 
 ```cpp
 // Retrieve the storage account from the connection string.
@@ -198,6 +209,9 @@ Algunos aspectos que cabe tener en cuenta acerca de las operaciones por lotes:
 ## <a name="retrieve-all-entities-in-a-partition"></a>todas las entidades de una partición
 Para consultar una tabla a fin de obtener todas las entidades de una partición, use un objeto **table_query**. El ejemplo de código siguiente especifica un filtro para las entidades en las que “Smith” es la clave de partición. En este ejemplo, los campos de cada entidad se imprimen en la consola, como parte de los resultados de la consulta.  
 
+> [!NOTE]
+> Estos métodos no son compatibles actualmente con C++ en Azure Cosmos DB.
+
 ```cpp
 // Retrieve the storage account from the connection string.
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -232,6 +246,9 @@ La consulta de este ejemplo recupera todas las entidades que coinciden con los c
 
 ## <a name="retrieve-a-range-of-entities-in-a-partition"></a>Recuperación de un rango de entidades de una partición
 Si no desea consultar todas las entidades de una partición, puede especificar un rango combinando el filtro de clave de partición con un filtro de clave de fila. El ejemplo de código siguiente utiliza dos filtros para obtener todas las entidades de la partición “Smith” en las que la clave de fila (nombre de pila) empieza por una letra anterior a “E” en el alfabeto y, a continuación, imprime los resultados de la consulta.  
+
+> [!NOTE]
+> Estos métodos no son compatibles actualmente con C++ en Azure Cosmos DB.
 
 ```cpp
 // Retrieve the storage account from the connection string.
@@ -436,23 +453,30 @@ azure::storage::cloud_table_client table_client = storage_account.create_cloud_t
 // Create a cloud table object for the table.
 azure::storage::cloud_table table = table_client.get_table_reference(U("people"));
 
-// Create an operation to retrieve the entity with partition key of "Smith" and row key of "Jeff".
-azure::storage::table_operation retrieve_operation = azure::storage::table_operation::retrieve_entity(U("Smith"), U("Jeff"));
-azure::storage::table_result retrieve_result = table.execute(retrieve_operation);
-
-// Create an operation to delete the entity.
-azure::storage::table_operation delete_operation = azure::storage::table_operation::delete_entity(retrieve_result.entity());
-
-// Submit the delete operation to the Table service.
-azure::storage::table_result delete_result = table.execute(delete_operation);
+// Delete the table if it exists
+if (table.delete_table_if_exists())
+    {
+        std::cout << "Table deleted!";
+    }
+    else
+    {
+        std::cout << "Table didn't exist";
+    }
 ```
 
-## <a name="next-steps"></a>pasos siguientes
-Ahora que está familiarizado con los aspectos básicos del almacenamiento de tablas, siga estos vínculos para obtener más información sobre Azure Storage:  
+## <a name="troubleshooting"></a>solución de problemas
+* Errores de compilación en Visual Studio 2017 Community Edition
 
+  Si en el proyecto se generan errores de compilación porque incluye los archivos archivos storage_account.h y table.h, quite el conmutador de compilador **/permissive-**. 
+  - En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto y seleccione **Propiedades**.
+  - En el cuadro de diálogo **Páginas de propiedades**, expanda **Propiedades de configuración**, expanda **C/C++** y seleccione **Lenguaje**.
+  - Establezca **Modo de conformidad** en **No**.
+   
+## <a name="next-steps"></a>Pasos siguientes
+Siga estos vínculos para obtener más información sobre Azure Storage y Table API de Azure Cosmos DB: 
+
+* [Introducción a Table API](table-introduction.md)
 * El [Explorador de Microsoft Azure Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md) es una aplicación independiente y gratuita de Microsoft que permite trabajar visualmente con los datos de Azure Storage en Windows, macOS y Linux.
-* [Uso del almacenamiento de blobs en C++](../storage/blobs/storage-c-plus-plus-how-to-use-blobs.md)
-* [Uso del almacenamiento de colas en C++](../storage/queues/storage-c-plus-plus-how-to-use-queues.md)
 * [Enumeración de los recursos de Azure Storage en C++](../storage/common/storage-c-plus-plus-enumeration.md)
 * [Referencia de la biblioteca de clientes de almacenamiento para C++](http://azure.github.io/azure-storage-cpp)
 * [Documentación de Azure Storage](https://azure.microsoft.com/documentation/services/storage/)

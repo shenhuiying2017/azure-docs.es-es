@@ -1,23 +1,23 @@
 ---
-title: "Información sobre la mensajería de nube a dispositivo de Azure IoT Hub | Microsoft Docs"
-description: "Guía del desarrollador: cómo utilizar la mensajería de nube a dispositivo con IoT Hub. Incluye información sobre el ciclo de vida de los mensajes y las opciones de configuración."
+title: Información sobre la mensajería de nube a dispositivo de Azure IoT Hub | Microsoft Docs
+description: 'Guía del desarrollador: cómo utilizar la mensajería de nube a dispositivo con IoT Hub. Incluye información sobre el ciclo de vida de los mensajes y las opciones de configuración.'
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/06/2017
+ms.date: 03/15/2018
 ms.author: dobett
-ms.openlocfilehash: 1b34e579f2ba40f4d77f7a3ba1841f59f795d292
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: d265d35c7d5a394afa0e59f40ff1a5741e0ec35c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="send-cloud-to-device-messages-from-iot-hub"></a>Envío de mensajes de nube a dispositivo desde IoT Hub
 
@@ -81,11 +81,11 @@ Cuando envía un mensaje de nube a dispositivo, el servicio puede solicitar la e
 
 Si **Ack** es **full** y no recibe un mensaje de comentarios, significa que este ha expirado. El servicio no puede saber qué ha ocurrido con el mensaje original. En la práctica, un servicio debe asegurarse de que puede procesar el comentario antes de que expire. El tiempo de expiración máximo es de dos días, lo que permite tener tiempo suficiente para poner de nuevo en funcionamiento el servicio en caso de error.
 
-Como se explica en [Puntos de conexión][lnk-endpoints], IoT Hub envía los comentarios a través de un punto de conexión accesible desde el servicio (**/messages/servicebound/feedback**) en forma de mensajes. La semántica de recepción de los comentarios es la misma que para los mensajes de la nube al dispositivo; además, tienen el mismo [ciclo de vida de los mensajes][lnk-lifecycle]. Siempre que sea posible, los comentarios de mensajes se agrupan en un único mensaje, con el formato siguiente:
+Como se explica en [Puntos de conexión][lnk-endpoints], IoT Hub envía los comentarios a través de un punto de conexión accesible desde el servicio (**/messages/servicebound/feedback**) en forma de mensajes. La semántica de recepción de los comentarios es la misma que para los mensajes de la nube al dispositivo. Siempre que sea posible, los comentarios de mensajes se agrupan en un único mensaje, con el formato siguiente:
 
 | Propiedad     | DESCRIPCIÓN |
 | ------------ | ----------- |
-| EnqueuedTime | Marca de tiempo que indica cuándo se creó el mensaje. |
+| EnqueuedTime | Marca de tiempo que indica cuándo recibió el mensaje de comentarios el concentrador. |
 | UserId       | `{iot hub name}` |
 | ContentType  | `application/vnd.microsoft.iothub.feedback.json` |
 
@@ -93,7 +93,7 @@ El cuerpo es una matriz serializada de JSON de registros, cada uno con las sigui
 
 | Propiedad           | DESCRIPCIÓN |
 | ------------------ | ----------- |
-| EnqueuedTimeUtc    | Marca de tiempo que indica cuándo se produjo el resultado del mensaje. Por ejemplo, el dispositivo completado o el mensaje expirado. |
+| EnqueuedTimeUtc    | Marca de tiempo que indica cuándo se produjo el resultado del mensaje. Por ejemplo, el concentrador recibió el mensaje de comentarios o el mensaje original caducó. |
 | OriginalMessageId  | **MessageId** del mensaje de nube a dispositivo con el que está relacionada esta información de comentarios. |
 | StatusCode         | Cadena necesaria. Se utiliza en los mensajes de comentarios generados por Azure IoT Hub. <br/> "Success" <br/> "Expired" <br/> 'DeliveryCountExceeded' <br/> "Rejected" <br/> 'Purged' |
 | DESCRIPCIÓN        | Valores de cadena para **StatusCode**. |
@@ -134,7 +134,7 @@ Cada centro de IoT expone las siguientes opciones de configuración para la mens
 
 Para obtener más información sobre cómo establecer estas opciones de configuración, consulte [Crear instancias de IoT Hub][lnk-portal].
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener información sobre los SDK que puede utilizar para recibir mensajes de nube a dispositivo, consulte [SDK de Azure IoT][lnk-sdks].
 

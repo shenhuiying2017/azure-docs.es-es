@@ -1,11 +1,11 @@
 ---
-title: "Solución de problemas comunes durante la creación del VHD | Microsoft Docs"
-description: "Responde a preguntas sobre solución de problemas comunes y errores durante la creación del VHD."
+title: Solución de problemas comunes durante la creación del VHD | Microsoft Docs
+description: Responde a preguntas sobre solución de problemas comunes y errores durante la creación del VHD.
 services: Azure Marketplace
-documentationcenter: 
-author: HannibalSII
-manager: 
-editor: 
+documentationcenter: ''
+author: msmbaldwin
+manager: ''
+editor: ''
 ms.assetid: e39563d8-8646-4cb7-b078-8b10ac35b494
 ms.service: marketplace
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 09/26/2016
-ms.author: hascipio; v-divte
-ms.openlocfilehash: c4e88a9fbb15dd90d619b159ae1065dfacc1907f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbaldwin
+ms.openlocfilehash: 65361ad5bd7c3311c428b64b8476ec8f2ea2d17b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-troubleshoot-common-issues-encountered-during-vhd-creation"></a>Solución de problemas comunes detectados durante la creación del VHD
 En este artículo se proporciona ayuda a un publicador o coadministrador de Azure Marketplace que puede experimentar un problema o que tiene preguntas comunes mientras publica o administra sus soluciones de máquina virtual.
@@ -32,19 +32,19 @@ En este artículo se proporciona ayuda a un publicador o coadministrador de Azur
    * [Referencia para máquinas virtuales con Linux](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-classic-reset-access/)
 3. ¿Cómo generar certificados SSH nuevos?
    
-   Consulte el siguiente vínculo: [https://azure.microsoft.com/documentation/articles/virtual-machines-linux-classic-reset-access/](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-classic-reset-access/)
+   Consulte el vínculo: [https://azure.microsoft.com/documentation/articles/virtual-machines-linux-classic-reset-access/](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-classic-reset-access/)
 4. ¿Cómo configurar un certificado VPN abierto?
    
-   Vea la información facilitada en el siguiente vínculo: [https://azure.microsoft.com/documentation/articles/vpn-gateway-point-to-site-create/](https://azure.microsoft.com/documentation/articles/vpn-gateway-point-to-site-create/)
+   Consulte el vínculo: [https://azure.microsoft.com/documentation/articles/vpn-gateway-point-to-site-create/](https://azure.microsoft.com/documentation/articles/vpn-gateway-point-to-site-create/)
 5. ¿Cuál es la directiva de soporte técnico para ejecutar software de servidor de Microsoft en el entorno de máquina virtual de Microsoft Azure (infraestructura como servicio)?
    
-   Acceda al artículo del siguiente vínculo: [https://support.microsoft.com/kb/2721672](https://support.microsoft.com/kb/2721672)
+   Consulte el vínculo: [https://support.microsoft.com/kb/2721672](https://support.microsoft.com/kb/2721672)
 6. ¿Las máquinas virtuales tienen un identificador único?
    
    Azure codifica un identificador exclusivo de máquina virtual de Azure en cada máquina virtual. Vea los detalles en este blog y en la documentación.
 7. ¿Cómo se puede administrar la extensión de script personalizada en la tarea de inicio en una máquina virtual?
    
-   Consulte este vínculo: [https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/)
+   Consulte el vínculo: [https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/)
 8. ¿Cómo se crea una máquina virtual desde Azure Portal usando el VHD que se carga en Premium Storage?
    
    Aún no se admite esta característica.

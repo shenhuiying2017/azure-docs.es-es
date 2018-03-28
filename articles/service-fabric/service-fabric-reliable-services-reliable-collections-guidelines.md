@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 12/10/2017
 ms.author: mcoskun
-ms.openlocfilehash: f9c48598a6bfb33f0151eff74ec5dd0ffb47b228
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 27ea71bcc378100e613a8edd1c57a93f3c9ed925
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Directrices y recomendaciones de Reliable Collections en Azure Service Fabric
 Esta sección proporciona directrices para el uso de Reliable State Manager y Reliable Collections. El objetivo es ayudar a los usuarios a evitar problemas comunes.
@@ -26,7 +26,7 @@ Esta sección proporciona directrices para el uso de Reliable State Manager y Re
 Las instrucciones se organizan como recomendaciones sencillas precedidas por los términos *Haga*, *Considere*, *Evite* y *No haga*.
 
 * No modifique un objeto de tipo personalizado que hayan devuelto las operaciones de lectura (por ejemplo, `TryPeekAsync` o `TryGetValueAsync`). Las colecciones fiables, igual que las colecciones simultáneas, devuelven una referencia a los objetos y no una copia.
-* No haga una copia en profundidad del objeto devuelto de tipo personalizado antes de modificarlo. Por ello, los struct y los tipos integrados son una transmisión por valor, no es necesario hacer una copia en profundidad en ellos.
+* No haga una copia en profundidad del objeto devuelto de tipo personalizado antes de modificarlo. Como los tipos de estructuras e integrados son parámetros que se pasan a través de un valor, no es necesario realizar una copia en profundidad de ellos, a menos que contengan propiedades o campos tipo referencias que se pretendan modificar.
 * No use `TimeSpan.MaxValue` para tiempos de espera. Los tiempos de espera se deben utilizar para detectar interbloqueos.
 * No utilice una transacción una vez que se haya confirmado, anulado o eliminado.
 * No utilice una enumeración fuera del ámbito de transacción en que se creó.

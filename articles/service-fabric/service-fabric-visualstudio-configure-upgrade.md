@@ -1,6 +1,6 @@
 ---
-title: "Configuración de la actualización de una aplicación de Service Fabric | Microsoft Docs"
-description: "Obtenga información sobre cómo configurar los parámetros para la actualización de la aplicación de Service Fabric mediante Microsoft Visual Studio."
+title: Configuración de la actualización de una aplicación de Service Fabric | Microsoft Docs
+description: Obtenga información sobre cómo configurar los parámetros para la actualización de la aplicación de Service Fabric mediante Microsoft Visual Studio.
 services: service-fabric
 documentationcenter: na
 author: mikkelhegn
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/29/2017
 ms.author: mikkelhegn
-ms.openlocfilehash: 314b29a56e4651222822f40a116af97a7372ff2c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3ff85991e87a4996890520a566b3909d331ed27f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="configure-the-upgrade-of-a-service-fabric-application-in-visual-studio"></a>Configuración de la actualización de una aplicación de Service Fabric en Visual Studio
 Las herramientas de Visual Studio para Azure Service Fabric proporcionan compatibilidad con la actualización para la publicación el clústeres locales o remotos. Hay tres escenarios en los que le convendría actualizar la aplicación a una versión más reciente en lugar de reemplazarla durante las pruebas y la depuración:
@@ -86,4 +86,4 @@ El ejemplo siguiente muestra cómo aplicar una directiva de comprobación de est
 </Policies>
 ```
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener más información acerca de cómo implementar una aplicación, vea [Implementación de una aplicación existente en Azure Service Fabric](service-fabric-deploy-existing-app.md).
+Para obtener más información acerca de cómo actualizar una aplicación, consulte el [Tutorial sobre la actualización de aplicaciones de Service Fabric con Visual Studio](service-fabric-application-upgrade-tutorial.md).

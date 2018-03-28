@@ -1,11 +1,11 @@
 ---
 title: Referencia de tokens de Azure Active Directory v2.0 | Microsoft Docs
-description: "Los tipos de tokens y notificaciones emitidos por el punto de conexión de Azure AD v2.0"
+description: Los tipos de tokens y notificaciones emitidos por el punto de conexión de Azure AD v2.0
 services: active-directory
-documentationcenter: 
-author: dstrockis
+documentationcenter: ''
+author: hpsin
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: dc58c282-9684-4b38-b151-f3e079f034fd
 ms.service: active-directory
 ms.workload: identity
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: dastrock
+ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 01994e067bd7ce0343f12ec3334a91bd062251a8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4479b3d34824b88f0a666b6185a6bc89337358a9
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-active-directory-v20-tokens-reference"></a>Referencia de tokens de Azure Active Directory v2.0
 El punto de conexión de Azure Active Directory (Azure AD) v2.0 emite varios tipos de tokens de seguridad en cada [flujo de autenticación](active-directory-v2-flows.md). Esta referencia describe el formato, las características de seguridad y el contenido de cada tipo de token.
@@ -54,19 +54,19 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 >
 
 #### <a name="claims-in-id-tokens"></a>Notificaciones en tokens de identificador
-| Nombre | Notificación | Valor de ejemplo | Descripción |
+| NOMBRE | Notificación | Valor de ejemplo | DESCRIPCIÓN |
 | --- | --- | --- | --- |
 | audience |`aud` |`6731de76-14a6-49ae-97bc-6eba6914391e` |Identifica al destinatario previsto del token. En los tokens de identificador, la audiencia es el identificador de aplicación de su aplicación, que se asigna a la aplicación en el portal de registro de aplicaciones de Microsoft. La aplicación debe validar este valor y rechazar el token si el valor no coincide. |
 | issuer |`iss` |`https://login.microsoftonline.com/b9419818-09af-49c2-b0c3-653adc1f376e/v2.0 ` |Identifica el servicio de token de seguridad (STS) que construye y devuelve el token, así como el inquilino de Azure AD en el que se autenticó al usuario. La aplicación tiene que validar la notificación del emisor para asegurarse de que el token proviene del extremo de la versión 2.0. También debe usar la parte del GUID de la notificación para restringir el conjunto de inquilinos que pueden iniciar sesión en la aplicación. El GUID que indica que el usuario es un usuario consumidor desde una cuenta de Microsoft es `9188040d-6c67-4c5b-b112-36a304b66dad`. |
 | issued at |`iat` |`1452285331` |La hora en que se emitió el token, que se representa en tiempo de época. |
 | expiration time |`exp` |`1452289231` |La hora en que el token deja de ser válido, que se representa en tiempo de época. La aplicación tiene que usar esta notificación para comprobar la validez de la duración del token. |
 | not before |`nbf` |`1452285331` |Hora a la que el token pasa a ser válido, representada en tiempo de época. Normalmente es la misma que la hora de emisión. La aplicación tiene que usar esta notificación para comprobar la validez de la duración del token. |
-| versión |`ver` |`2.0` |La versión del token de identificador, tal como lo define Azure AD. En el caso del punto de conexión de la versión 2.0, el valor es `2.0`. |
+| version |`ver` |`2.0` |La versión del token de identificador, tal como lo define Azure AD. En el caso del punto de conexión de la versión 2.0, el valor es `2.0`. |
 | tenant ID |`tid` |`b9419818-09af-49c2-b0c3-653adc1f376e` |Un GUID que representa el inquilino de Azure AD de donde proviene el usuario. En el caso de las cuentas profesionales y educativas, el GUID es el identificador del inquilino inmutable de la organización a la que pertenece el usuario. En el caso de las cuentas personales, el valor es `9188040d-6c67-4c5b-b112-36a304b66dad`. El ámbito `profile` es necesario para recibir esta notificación. |
 | code hash |`c_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |El hash de código se incluye en los tokens de identificador solo cuando se emite el token de identificador con un código de autorización de OAuth 2.0. Se puede usar para validar la autenticidad de un código de autorización. Para detalles sobre cómo realizar esta validación, consulte la [especificación de OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html). |
 | access token hash |`at_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |El hash de token de acceso se incluye en los tokens de identificador solo cuando el token de identificador se emite con un token de acceso de OAuth 2.0. Se puede usar para validar la autenticidad de un token de acceso. Para detalles sobre cómo realizar esta validación, consulte la [especificación de OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html). |
 | valor de seguridad |`nonce` |`12345` |El valor de seguridad es una estrategia para mitigar los ataques de reproducción de los tokens. La aplicación puede especificar un valor de seguridad en una solicitud de autorización mediante el parámetro de consulta `nonce` . El valor que proporciona en la solicitud se emite en la notificación `nonce` del token de identificador, sin modificaciones. La aplicación puede comprobar el valor con respecto al valor que especifica en la solicitud, que asocia la sesión de la aplicación con un token de identificador específico. La aplicación tiene que realizar esta validación durante el proceso de validación del token de identificador. |
-| name |`name` |`Babe Ruth` |La notificación de nombre proporciona un valor en lenguaje natural que identifica al firmante del token. No se asegura que el valor sea único, es mutable y está diseñado para usarse solo con fines de visualización. El ámbito `profile` es necesario para recibir esta notificación. |
+| Nombre |`name` |`Babe Ruth` |La notificación de nombre proporciona un valor en lenguaje natural que identifica al firmante del token. No se asegura que el valor sea único, es mutable y está diseñado para usarse solo con fines de visualización. El ámbito `profile` es necesario para recibir esta notificación. |
 | email |`email` |`thegreatbambino@nyy.onmicrosoft.com` |La dirección de correo electrónico principal asociada con la cuenta de usuario, si existe. Su valor es mutable y podría cambiar en el tiempo. El ámbito `email` es necesario para recibir esta notificación. |
 | preferred username |`preferred_username` |`thegreatbambino@nyy.onmicrosoft.com` |El nombre de usuario principal que representa al usuario en el punto de conexión de la versión 2.0. Puede ser una dirección de correo electrónico, un número de teléfono o un nombre de usuario genérico sin un formato especificado. Su valor es mutable y podría cambiar en el tiempo. Puesto que es mutable, este valor no debe usarse para tomar decisiones de autorización. El ámbito `profile` es necesario para recibir esta notificación. |
 | subject |`sub` |`MF4f-ggWMEji12KynJUNQZphaUTvLcQug5jdF2nl01Q` | La entidad de seguridad sobre la que el token declara información como, por ejemplo, el usuario de una aplicación. Este valor es inmutable y no se puede reasignar ni volver a usar. Se puede usar para realizar comprobaciones de autorización de forma segura, por ejemplo, cuando el token se usa para acceder a un recurso, y se puede usar como clave en tablas de base de datos. Dado que el firmante siempre está presente en los tokens que emite Azure AD, se recomienda usar este valor en un sistema de autorización de propósito general. El asunto es, sin embargo, un identificador en pares (es único para un id. de aplicación determinado).  Por lo tanto, si un usuario inicia sesión en dos aplicaciones diferentes con dos identificadores de cliente diferente, esas aplicaciones recibirán dos valores diferentes para la notificación de asunto.  Esto puede ser o no deseable dependiendo de los requisitos de arquitectura y privacidad. |
@@ -86,7 +86,7 @@ Los tokens de actualización tienen varios recursos. Un token de actualización 
 
 Para recibir una actualización en la respuesta de un token, la aplicación debe solicitar el ámbito `offline_acesss` y obtener su concesión. Para más información sobre el ámbito `offline_access`, consulte el artículo sobre [consentimiento y ámbitos](active-directory-v2-scopes.md).
 
-Los tokens de actualización son, y siempre serán, totalmente opacos para la aplicación. Los emite el punto de conexión de Azure AD v2.0 y solo los puede inspeccionar e interpretar el punto de conexión v2.0. También son de larga duración, pero no se debe componer la aplicación esperando que un token de actualización dure por cualquier período de tiempo. Los tokens de actualización pueden invalidarse en cualquier momento por diversos motivos. La única forma para que la aplicación sepa si un token de actualización es válido es intentar canjearlo realizando una solicitud de token al extremo de la versión 2.0.
+Los tokens de actualización son, y siempre serán, totalmente opacos para la aplicación. Los emite el punto de conexión de Azure AD v2.0 y solo los puede inspeccionar e interpretar el punto de conexión v2.0. También son de larga duración, pero no se debe componer la aplicación esperando que un token de actualización dure por cualquier período de tiempo. Los tokens de actualización pueden invalidarse en cualquier momento por diversos motivos; para obtener más información, consulte [Revocación de tokens](active-directory-token-and-claims.md#token-revocation). La única forma para que la aplicación sepa si un token de actualización es válido es intentar canjearlo realizando una solicitud de token al extremo de la versión 2.0.
 
 Cuando se canjea un token de actualización por un nuevo token de acceso (y si se concedió el ámbito `offline_access` a la aplicación), se recibe un nuevo token de actualización en la respuesta del token. Debe guardar el token de actualización recién emitido; para ello, reemplace el que usó en la solicitud. Esto garantiza que los tokens de actualización sigan siendo válidos mientras sea posible.
 
@@ -99,7 +99,7 @@ Microsoft proporciona bibliotecas y ejemplos de código que le muestran cómo co
 ### <a name="validate-the-signature"></a>validar la firma
 Un JWT contiene tres segmentos, que están separados por el carácter `.` . El primer segmento se conoce como el *encabezado*, el segundo, como el *cuerpo*, y el tercero como la *firma*. El segmento de firma se puede usar para validar la autenticidad del token de identificador para que la aplicación pueda confiar en él.
 
-Los tokens de identificador se firman con algoritmos de cifrado asimétrico estándar del sector, como RSA 256. El encabezado del token de identificador tiene información sobre el método de cifrado y la clave que se usan para firmar el token. Por ejemplo:
+Los tokens de identificador se firman con algoritmos de cifrado asimétrico estándar del sector, como RSA 256. El encabezado del token de identificador tiene información sobre el método de cifrado y la clave que se usan para firmar el token. Por ejemplo: 
 
 ```
 {
@@ -143,7 +143,7 @@ En la sección sobre [tokens de identificador](# ID tokens) se incluyen detalles
 ## <a name="token-lifetimes"></a>Vigencia de los tokens
 Proporcionamos la siguiente vigencia de los tokens solo como información. La información puede ayudarle a desarrollar y depurar aplicaciones. Las aplicaciones no se deben escribir esperando que estas vigencias permanezcan constantes. La vigencia de los tokens puede cambiar en cualquier momento, y así será.
 
-| SWT | Vigencia | Descripción |
+| Se necesita el cifrado de tokens | Vigencia | DESCRIPCIÓN |
 | --- | --- | --- |
 | Tokens de identificador (cuentas profesionales o educativas) |1 hora |Habitualmente, los tokens de identificador son válidos durante 1 hora. La aplic. web puede usar esta misma vigencia para mantener su propia sesión con el usuario (recomendado), o bien puede elegir una vigencia de sesión completamente distinta. Si la aplicación necesita obtener un nuevo token de identificador, debe realizar una nueva solicitud de inicio de sesión en el punto de conexión de autorización v2.0. Si el usuario tiene una sesión de explorador válida con el punto de conexión v2.0, no se le solicitará que vuelva a escribir sus credenciales. |
 | Tokens de identificador (cuentas personales) |24 horas |Habitualmente, los tokens de identificador para cuentas personales son válidos durante 24 horas. La aplic. web puede usar esta misma vigencia para mantener su propia sesión con el usuario (recomendado), o bien puede elegir una vigencia de sesión completamente distinta. Si la aplicación necesita obtener un nuevo token de identificador, debe realizar una nueva solicitud de inicio de sesión en el punto de conexión de autorización v2.0. Si el usuario tiene una sesión de explorador válida con el punto de conexión v2.0, no se le solicitará que vuelva a escribir sus credenciales. |

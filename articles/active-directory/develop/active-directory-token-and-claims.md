@@ -1,11 +1,11 @@
 ---
-title: "Información acerca de los diferentes tipos de tokens y notificaciones compatibles con Azure AD | Microsoft Docs"
-description: "Una guía en la que se describen y evalúan las notificaciones en los tokens SAML 2.0 y los tokens web JSON (JWT) emitidos por Azure Active Directory (AAD)"
+title: Información acerca de los diferentes tipos de tokens y notificaciones compatibles con Azure AD | Microsoft Docs
+description: Una guía en la que se describen y evalúan las notificaciones en los tokens SAML 2.0 y los tokens web JSON (JWT) emitidos por Azure Active Directory (AAD)
 documentationcenter: na
-author: dstrockis
+author: hpsin
 services: active-directory
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 166aa18e-1746-4c5e-b382-68338af921e2
 ms.service: active-directory
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/07/2017
-ms.author: dastrock
+ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 3104b47d7ff8585142674b0ee545012f1e291ddd
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ca8a34c0a29ffad21e6384feac055d7a292311a5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-ad-token-reference"></a>Referencia de tokens de Azure AD
 Azure Active Directory (Azure AD) emite varios tipos de tokens de seguridad durante el procesamiento de cada flujo de autenticación. Este documento describe el formato, las características de seguridad y el contenido de cada tipo de token.
@@ -50,7 +50,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 
 #### <a name="claims-in-idtokens"></a>Notificaciones en los id_tokens
 > [!div class="mx-codeBreakAll"]
-| Notificación de JWT | Nombre | Description |
+| Notificación de JWT | NOMBRE | DESCRIPCIÓN |
 | --- | --- | --- |
 | `appid` |Identificador de aplicación |Identifica la aplicación que usa el token para acceder a un recurso. La aplicación puede actuar por sí misma o en nombre de un usuario. Normalmente, el id. de aplicación representa un objeto de aplicación, pero también puede representar un objeto de entidad de servicio en Azure AD. <br><br> **Valor de JWT de ejemplo**: <br> `"appid":"15CB020F-3984-482A-864D-1D92265E8268"` |
 | `aud` |Público |El destinatario previsto del token. La aplicación que recibe el token debe comprobar que el valor de la audiencia sea correcto y rechazar cualquier token destinado a una audiencia diferente. <br><br> **Valor de SAML de ejemplo**: <br> `<AudienceRestriction>`<br>`<Audience>`<br>`https://contoso.com`<br>`</Audience>`<br>`</AudienceRestriction>` <br><br> **Valor de JWT de ejemplo**: <br> `"aud":"https://contoso.com"` |
@@ -64,12 +64,12 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 | `iat` |IssuedAt |Almacena la hora a la que se emitió el token. A menudo se usa para medir la actualización de tokens. <br><br> **Valor de SAML de ejemplo**: <br> `<Assertion ID="_d5ec7a9b-8d8f-4b44-8c94-9812612142be" IssueInstant="2014-01-06T20:20:23.085Z" Version="2.0" xmlns="urn:oasis:names:tc:SAML:2.0:assertion">` <br><br> **Valor de JWT de ejemplo**: <br> `"iat": 1390234181` |
 | `iss` |Emisor |Identifica el servicio de token de seguridad (STS) que construye y devuelve el token. En los tokens que devuelve Azure AD, el emisor es sts.windows.net. El GUID en el valor de notificación del emisor es el id. de inquilino del directorio de Azure AD. El id. de inquilino es un identificador inmutable y confiable del directorio. <br><br> **Valor de SAML de ejemplo**: <br> `<Issuer>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/</Issuer>` <br><br> **Valor de JWT de ejemplo**: <br>  `"iss":”https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/”` |
 | `family_name` |Apellido |Proporciona el apellido del usuario según está definido en el objeto de usuario de Azure AD. <br><br> **Valor de SAML de ejemplo**: <br> `<Attribute Name=” http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname”>`<br>`<AttributeValue>Miller<AttributeValue>` <br><br> **Valor de JWT de ejemplo**: <br> `"family_name": "Miller"` |
-| `unique_name` |Nombre |Proporciona un valor en lenguaje natural que identifica al firmante del token. No se asegura que este valor sea único dentro de un inquilino y está diseñado para usarse solo con fines de visualización. <br><br> **Valor de SAML de ejemplo**: <br> `<Attribute Name=”http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name”>`<br>`<AttributeValue>frankm@contoso.com<AttributeValue>` <br><br> **Valor de JWT de ejemplo**: <br> `"unique_name": "frankm@contoso.com"` |
+| `unique_name` |NOMBRE |Proporciona un valor en lenguaje natural que identifica al firmante del token. No se asegura que este valor sea único dentro de un inquilino y está diseñado para usarse solo con fines de visualización. <br><br> **Valor de SAML de ejemplo**: <br> `<Attribute Name=”http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name”>`<br>`<AttributeValue>frankm@contoso.com<AttributeValue>` <br><br> **Valor de JWT de ejemplo**: <br> `"unique_name": "frankm@contoso.com"` |
 | `oid` |Id. de objeto |Contiene un identificador único de un objeto en Azure AD. Este valor es inmutable y no se puede reasignar ni volver a usar. Use el id. de objeto para identificar un objeto en las consultas a Azure AD. <br><br> **Valor de SAML de ejemplo**: <br> `<Attribute Name="http://schemas.microsoft.com/identity/claims/objectidentifier">`<br>`<AttributeValue>528b2ac2-aa9c-45e1-88d4-959b53bc7dd0<AttributeValue>` <br><br> **Valor de JWT de ejemplo**: <br> `"oid":"528b2ac2-aa9c-45e1-88d4-959b53bc7dd0"` |
 | `roles` |Roles |Representan todos los roles de aplicación que se han concedido al firmante directa e indirectamente a través de la pertenencia a grupos y se puede usar para exigir el control de acceso basado en roles. Los roles de aplicación se definen por aplicación mediante la propiedad `appRoles` del manifiesto de aplicación. La propiedad `value` de cada rol de aplicación es el valor que aparece en la notificación de roles. <br><br> **Valor de SAML de ejemplo**: <br> `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/role">`<br>`<AttributeValue>Admin</AttributeValue>` <br><br> **Valor de JWT de ejemplo**: <br> `“roles”: ["Admin", … ]` |
 | `scp` |Scope |Indica los permisos de suplantación concedidos a la aplicación cliente. El permiso predeterminado es `user_impersonation`. El propietario del recurso protegido puede registrar valores adicionales en Azure AD. <br><br> **Valor de JWT de ejemplo**: <br> `"scp": "user_impersonation"` |
 | `sub` |Asunto |Identifica la entidad de seguridad sobre la que el token declara información como, por ejemplo, el usuario de una aplicación. Este valor es inmutable y no se puede reasignar o volver a usar, por lo que se puede usar para realizar comprobaciones de autorización de forma segura. Dado que el firmante siempre está presente en los tokens que emite Azure AD, se recomienda usar este valor en un sistema de autorización de propósito general. <br> `SubjectConfirmation` no es una notificación. Describe cómo se comprueba el firmante del token. `Bearer` indica que el firmante se confirma mediante su posesión del token. <br><br> **Valor de SAML de ejemplo**: <br> `<Subject>`<br>`<NameID>S40rgb3XjhFTv6EQTETkEzcgVmToHKRkZUIsJlmLdVc</NameID>`<br>`<SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer" />`<br>`</Subject>` <br><br> **Valor de JWT de ejemplo**: <br> `"sub":"92d0312b-26b9-4887-a338-7b00fb3c5eab"` |
-| `tid` |Id. de inquilino |Identificador inmutable y no reutilizable que identifica al inquilino de directorio que emitió el token. Puede usar este valor para tener acceso a recursos de directorio específicos del inquilino en una aplicación multiempresa. Por ejemplo, puede usar este valor para identificar al inquilino en una llamada a API Graph. <br><br> **Valor de SAML de ejemplo**: <br> `<Attribute Name=”http://schemas.microsoft.com/identity/claims/tenantid”>`<br>`<AttributeValue>cbb1a5ac-f33b-45fa-9bf5-f37db0fed422<AttributeValue>` <br><br> **Valor de JWT de ejemplo**: <br> `"tid":"cbb1a5ac-f33b-45fa-9bf5-f37db0fed422"` |
+| `tid` |Id. de inquilino |Identificador inmutable y no reutilizable que identifica al inquilino de directorio que emitió el token. Puede usar este valor para tener acceso a recursos de directorio específicos del inquilino en una aplicación multiempresa. Por ejemplo, puede usar este valor para identificar al inquilino en una llamada a Graph API. <br><br> **Valor de SAML de ejemplo**: <br> `<Attribute Name=”http://schemas.microsoft.com/identity/claims/tenantid”>`<br>`<AttributeValue>cbb1a5ac-f33b-45fa-9bf5-f37db0fed422<AttributeValue>` <br><br> **Valor de JWT de ejemplo**: <br> `"tid":"cbb1a5ac-f33b-45fa-9bf5-f37db0fed422"` |
 | `nbf`, `exp` |Vigencia del token |Define el intervalo de tiempo dentro del cual es válido un token. El servicio que valida el token debe comprobar que la fecha actual está dentro de la vigencia del token; de lo contrario, debe rechazarlo. El servicio puede permitir que el intervalo de vigencia del token se supere en hasta cinco minutos para tener en cuenta las diferencias en la hora del reloj ("desfase temporal") entre Azure AD y el servicio. <br><br> **Valor de SAML de ejemplo**: <br> `<Conditions`<br>`NotBefore="2013-03-18T21:32:51.261Z"`<br>`NotOnOrAfter="2013-03-18T22:32:51.261Z"`<br>`>` <br><br> **Valor de JWT de ejemplo**: <br> `"nbf":1363289634, "exp":1363293234` |
 | `upn` |Nombre principal de usuario |Almacena el nombre de usuario de la entidad de seguridad del usuario.<br><br> **Valor de JWT de ejemplo**: <br> `"upn": frankm@contoso.com` |
 | `ver` |Versión |Almacena el número de versión del token. <br><br> **Valor de JWT de ejemplo**: <br> `"ver": "1.0"` |
@@ -90,13 +90,13 @@ Los tokens de actualización son tokens de seguridad que la aplicación puede ut
 
 Los tokens de actualización tienen varios recursos.  Es decir, un token de actualización recibido durante una solicitud de token para un recurso se puede canjear para los tokens de acceso a un recurso completamente diferente. Para ello, establezca el parámetro `resource` en la solicitud para el recurso de destino.
 
-Los tokens de actualización son totalmente opacos para su aplicación. También son de larga duración, pero no se debe componer la aplicación esperando que un token de actualización dure por cualquier período de tiempo.  Los tokens de actualización pueden ser invalidados en cualquier momento por varios motivos.  La única forma para que su aplicación sepa si un token de actualización es válido es intentar canjearlo; para ello, realice una solicitud de token a un punto de conexión de token de Azure AD.
+Los tokens de actualización son totalmente opacos para su aplicación. También son de larga duración, pero no se debe componer la aplicación esperando que un token de actualización dure por cualquier período de tiempo.  Los tokens de actualización pueden ser invalidados en cualquier momento por varios motivos (consulte [Revocación de tokens](#token-revocation) para conocerlos).  La única forma para que su aplicación sepa si un token de actualización es válido es intentar canjearlo; para ello, realice una solicitud de token a un punto de conexión de token de Azure AD.
 
 Al canjear un token de actualización por un nuevo token de acceso, recibirá un nuevo token de actualización en la respuesta del token.  Tienes que guardar el token de actualización recién emitido reemplazando el utilizado en la solicitud.  Esto garantizará que los tokens de actualización sigan siendo válidos mientras sea posible.
 
 ## <a name="validating-tokens"></a>Validación de los tokens
 
-Para validar un id_token o un access_token, la aplicación tiene que validar tanto la firma como las notificaciones del token. Para validar los tokens de acceso, la aplicación también debe validar el emisor, la audiencia y los tokens de firmas. Deben validarse con los valores del documento de detección de OpenID. Por ejemplo, la versión independiente de inquilino del documento se encuentra en [https://login.microsoftonline.com/common/.well-known/openid-configuration](https://login.microsoftonline.com/common/.well-known/openid-configuration). El middleware de Azure AD tiene funciones integradas para validar los tokens de acceso, y usted puede explorar nuestros [ejemplos](https://docs.microsoft.com/azure/active-directory/active-directory-code-samples) para buscar uno en el idioma de su elección. Para obtener más información sobre cómo validar explícitamente un token JWT, consulte el [ejemplo de una validación manual de JWT](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation).  
+Para validar un id_token o un access_token, la aplicación tiene que validar tanto la firma como las notificaciones del token. Para validar los tokens de acceso, la aplicación también debe validar el emisor, la audiencia y los tokens de firmas. Deben validarse con los valores del documento de detección de OpenID. Por ejemplo, la versión independiente del inquilino del documento se encuentra en [https://login.microsoftonline.com/common/.well-known/openid-configuration](https://login.microsoftonline.com/common/.well-known/openid-configuration). El middleware de Azure AD tiene funciones integradas para validar los tokens de acceso, y usted puede explorar nuestros [ejemplos](https://docs.microsoft.com/azure/active-directory/active-directory-code-samples) para buscar uno en el idioma de su elección. Para obtener más información sobre cómo validar explícitamente un token JWT, consulte el [ejemplo de una validación manual de JWT](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation).  
 
 Ofrecemos bibliotecas y ejemplos de código que muestran cómo realizar fácilmente la validación del token; la siguiente información se proporciona solo para quienes quieran entender el proceso subyacente.  También hay varias bibliotecas de código abierto de terceros para la validación de JWT; hay al menos una opción para casi cualquier plataforma e idioma. Para más información acerca de los ejemplos de código y las bibliotecas de autenticación de Azure AD, consulte [Bibliotecas de autenticación de Azure Active Directory](active-directory-authentication-libraries.md).
 
@@ -146,6 +146,24 @@ Cuando la aplicación recibe un token (un id_token al inicio de sesión de usuar
 * y mucho más...
 
 Para ver una lista completa de las validaciones de notificaciones que la aplicación debe realizar con los tokens de identificador, consulte la [especificación de OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation). En la [sección sobre id_token](#id-tokens) anterior se proporciona información detallada sobre los valores esperados para estas notificaciones.
+
+## <a name="token-revocation"></a>Revocación de tokens
+
+Los tokens de actualización pueden ser invalidados o revocados en cualquier momento por varios motivos.  Estos se dividen en dos categorías principales: tiempos de espera y revocaciones. 
+* Tiempos de espera de token
+  * MaxInactiveTime: si el token de actualización no se ha utilizado en el tiempo determinado por la MaxInactiveTime, el token de actualización ya no será válido. 
+  * MaxSessionAge: si MaxAgeSessionMultiFactor o MaxAgeSessionSingleFactor se han establecido en un valor distinto de su valor predeterminado (Hasta que se revoca), la reautenticación será obligatoria después de que transcurra el tiempo establecido en el MaxAgeSession*.  
+  * Ejemplos:
+    * El inquilino tiene un valor MaxInactiveTime de 5 días y el usuario se fue de vacaciones durante una semana, por lo que AAD no ha visto ninguna nueva solicitud de token de usuario en 7 días.  La próxima vez que el usuario solicite un nuevo token, encontrará que su token de actualización se ha revocado, así que tendrá que escribir sus credenciales de nuevo. 
+    * Una aplicación sensible tiene un MaxAgeSessionSingleFactor de 1 día.  Si un usuario inicia sesión el lunes y el martes (una vez que hayan transcurrido 25 horas), se le pedirá que se autentique de nuevo.  
+* Revocación
+  * Cambio voluntario de contraseña: si un usuario cambia su contraseña, es posible que tenga que volver a autenticarse en algunas de sus aplicaciones, dependiendo del modo en que se consiguió el token.  Vea las notas siguientes para conocer las excepciones. 
+  * Cambio involuntario de contraseña: si un administrador obliga al usuario a cambiar su contraseña o la restablece, los tokens de usuario se invalidan si se consiguieron utilizando la contraseña.  Vea las notas siguientes para conocer las excepciones. 
+  * Infracción de seguridad: si se produce una infracción de seguridad (por ejemplo, el almacén local de contraseñas se vulnera), el administrador puede revocar todos los tokens de actualización actualmente emitidos.  Esto obligará a todos los usuarios a volver a autenticarse. 
+
+Nota: 
+
+Si se utilizó un método de autenticación sin contraseña (Windows Hello, la aplicación Authenticator, factores biométricos como el rostro o la huella digital) para conseguir el token, el cambio de la contraseña del usuario no obligará a este a volver a autenticarse (pero exigirá que la aplicación Authenticator se autentique de nuevo).  Esto se debe a que el método de autenticación elegido (por ejemplo, el rostro) no ha cambiado y, por lo tanto, puede utilizarse de nuevo para la autenticación.
 
 ## <a name="sample-tokens"></a>Tokens de ejemplo
 
@@ -301,5 +319,5 @@ Además de las notificaciones, el token incluye un número de versión en **ver*
     }.
 
 ## <a name="related-content"></a>Contenido relacionado
-* Para más información acerca de la administración de la directiva de vigencia de token mediante la API de Azure AD Graph, consulte las [operaciones de directivas](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) y la [entidad de directiva](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#policy-entity) de Azure AD Graph.
+* Para más información acerca de la administración de la directiva de vigencia de token mediante Graph API de Azure AD, consulte las [operaciones de directivas](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) y la [entidad de directiva](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#policy-entity) de Azure AD Graph.
 * Para más información y ejemplos acerca de cómo administrar las directivas a través de los cmdlets de PowerShell, incluidos ejemplos, consulte [Configurable Token Lifetimes in Azure Active Directory](../active-directory-configurable-token-lifetimes.md) (Vigencias de tokens configurables en Azure Active Directory). 

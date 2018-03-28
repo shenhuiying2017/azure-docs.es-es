@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/05/2018
 ms.author: owend
-ms.openlocfilehash: 4c317736af30b4181fa975713258a41b42ed0da3
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: bb3e50c3e481bcedc436b8382fb55d6402d058b2
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Actualización asincrónica con la API de REST
 Mediante el uso de cualquier lenguaje de programación que admita llamadas REST, puede realizar operaciones de actualización de datos asincrónicas en los modelos tabulares de Azure Analysis Services. Esto incluye la sincronización de réplicas de solo lectura para la escalabilidad horizontal de consultas. 
@@ -36,7 +36,7 @@ La dirección URL base sigue este formato:
 https://<rollout>.asazure.windows.net/servers/<serverName>/models/<resource>/
 ```
 
-Por ejemplo, considere la posibilidad de un modelo denominado AdventureWorks, en un servidor llamado myserver, ubicado en la región de Azure Oeste de EE. UU., donde el nombre del servidor es:
+Por ejemplo, considere la posibilidad de un modelo denominado AdventureWorks, en un servidor llamado myserver, ubicado en la región de Azure Oeste de EE. UU. El nombre del servidor es:
 
 ```
 asazure://westus.asazure.windows.net/myserver 
@@ -48,7 +48,7 @@ La dirección URL base para este nombre de servidor es:
 https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/ 
 ```
 
-Mediante el uso de la dirección URL base, los recursos y las operaciones se pueden anexar basándose en lo siguiente: 
+Mediante el uso de la dirección URL base, los recursos y las operaciones se pueden anexar basándose en los siguientes parámetros: 
 
 ![Actualización asincrónica](./media/analysis-services-async-refresh/aas-async-refresh-flow.png)
 
@@ -56,7 +56,7 @@ Mediante el uso de la dirección URL base, los recursos y las operaciones se pue
 - Todo lo que termina en **()** es una función.
 - Todo lo demás es un recurso/objeto.
 
-Por ejemplo, puede utilizar el verbo POST en la colección de actualizaciones para realizar una operación de actualización, similar a la siguiente:
+Por ejemplo, puede utilizar el verbo POST en la colección de actualizaciones para realizar una operación de actualización:
 
 ```
 https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refreshes
@@ -106,7 +106,7 @@ No es necesario especificar parámetros. Se aplica el valor predeterminado.
 |---------|---------|---------|---------|
 |type     |  Enum       |  El tipo de procesamiento que desea realizar. Los tipos se alinean con los tipos de [comandos de actualización ](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl) de TMSL: full, clearValues, calculate, dataOnly, automatic, add y defragment.       |   automatic      |
 |CommitMode     |  Enum       |  Determina si los objetos se confirmarán en lotes o solo cuando hayan finalizado. Los modos incluyen: default, transactional y partialBatch.  |  transactional       |
-|MaxParallelism     |   int      |  Este valor determina el número máximo de subprocesos en los que ejecutar los comandos de procesamiento en paralelo. Se alinea con la propiedad MaxParallelism que se puede establecer en el [comando de secuencia](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl) de TMSL o mediante otros métodos.       | 10        |
+|MaxParallelism     |   int      |  Este valor determina el número máximo de subprocesos en los que ejecutar los comandos de procesamiento en paralelo. Este valor se alinea con la propiedad MaxParallelism que se puede establecer en el [comando de secuencia](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl) de TMSL o mediante otros métodos.       | 10        |
 |RetryCount    |    int     |   Indica el número de veces que se volverá a intentar la operación antes de un error.      |     0    |
 |Objetos     |   Matriz      |   Una matriz de objetos que se va a procesar. Cada objeto incluye: "table" al procesar la tabla completa o "table" y "partition" al procesar una partición. Si no se especifica ningún objeto, se actualiza el modelo completo. |   Process the entire model      |
 
@@ -188,7 +188,7 @@ Para comprobar el estado de una operación de sincronización, utilice el verbo 
 }
 ```
 
-Valores de syncstate:
+Los valores para `syncstate`:
 
 - 0: Replicando. Los archivos de base de datos se replican en una carpeta de destino.
 - 1: Rehidratando. La base de datos se rehidrata en las instancias de servidor de solo lectura.
@@ -228,7 +228,7 @@ Este tipo de autenticación requiere que se cree una aplicación de Azure con lo
 
     ![Agregar acceso de API](./media/analysis-services-async-refresh/aas-async-add.png)
 
-5.  En **Seleccionar una API**, escriba **SQL Server Analysis Services** en el cuadro de búsqueda y después seleccione **Azure Analysis Services (SQL Server Analysis Services Azure)**.
+5.  En **Selección de una API**, escriba **Azure Analysis Services** en el cuadro de búsqueda y, a continuación, selecciónelo.
 
     ![Seleccionar API](./media/analysis-services-async-refresh/aas-async-select-api.png)
 
@@ -242,7 +242,7 @@ Este tipo de autenticación requiere que se cree una aplicación de Azure con lo
 
 #### <a name="service-principal"></a>Entidad de servicio
 
-Vea la entrada de blog [Automation of Azure Analysis Services with Service Principals and PowerShell](https://azure.microsoft.com/blog/automation-of-azure-analysis-services-with-service-principals-and-powershell/) (Automatización de Azure Analysis Services con entidades de servicio y PowerShell) para obtener información sobre cómo configurar una entidad de servicio y asignar los permisos necesarios en Azure Analysis Services. Una vez completados los pasos detallados en la entrada de blog, siga estos pasos adicionales:
+Vea [Creación de una entidad de servicio: Azure Portal](../azure-resource-manager/resource-group-create-service-principal-portal.md) e [Incorporación de una entidad de servicio al rol de administrador del servidor](analysis-services-addservprinc-admins.md) para obtener más información sobre cómo configurar una entidad de servicio y asignar los permisos necesarios en Azure AS. Una vez completados los pasos, siga estos pasos adicionales:
 
 1.  En el código de ejemplo, busque **string authority = …**, reemplace **common** por el identificador del inquilino de su organización.
 2.  Comente o quite la marca de comentario para que se use la clase ClientCredential para crear una instancia del objeto creado. Asegúrese de que se accede a los valores \<Id. de aplicación> y \<Clave de la aplicación> de forma segura o use una autenticación basada en certificado para las entidades de servicio.

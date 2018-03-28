@@ -1,11 +1,11 @@
 ---
-title: "Creación y registro de la cuenta de publicador | Microsoft Docs"
-description: "Instrucciones para crear una cuenta de desarrollador de Microsoft de manera que, tras su aprobación, se puedan vender varios tipos de productos en Azure Marketplace."
+title: Creación y registro de la cuenta de publicador | Microsoft Docs
+description: Instrucciones para crear una cuenta de desarrollador de Microsoft de manera que, tras su aprobación, se puedan vender varios tipos de productos en Azure Marketplace.
 services: Azure Marketplace
-documentationcenter: 
-author: HannibalSII
-manager: hascipio
-editor: 
+documentationcenter: ''
+author: msmbaldwin
+manager: mbaldwin
+editor: ''
 ms.assetid: 5a2fe68d-2967-463f-8af6-42bed07e3eaa
 ms.service: marketplace
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2017
-ms.author: hascipio
-ms.openlocfilehash: 642e4a2d11ef5a92f5ab46bc4872414966b04c0d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbaldwin
+ms.openlocfilehash: da805bead3f6af4ebd0b4b94b30a51ff2abc62dd
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-microsoft-developer-account"></a>Crear una cuenta de desarrollador de Microsoft
 Este artículo le guía a través del proceso necesario de creación y registro de cuentas para convertirse en un desarrollador de Microsoft aprobado para Azure Marketplace.
@@ -55,7 +55,7 @@ Para más información sobre seguridad e instrucciones adicionales para la cuent
 1. Abra una nueva sesión de exploración de incógnito en Chrome o de InPrivate en Internet Explorer para asegurarse de que no tiene una sesión iniciada en una cuenta existente.
 2. Registre el correo electrónico (según las instrucciones anteriores, por ejemplo windowsapp@fabrikam.com) como una cuenta de Microsoft mediante el vínculo [https://signup.live.com/signup.aspx](https://signup.live.com/signup.aspx). Siga las instrucciones que se describen a continuación.
 
-   1. Durante el registro de la cuenta como cuenta de Microsoft, debe proporcionar un número de teléfono válido para que el sistema pueda enviarle un código de comprobación de la cuenta a través de un mensaje de texto o una llamada automatizada.
+   1. Durante el registro de la cuenta como cuenta de Microsoft, debe proporcionar un número de teléfono válido para que el sistema pueda enviarle un código de verificación de la cuenta a través de un mensaje de texto o una llamada automatizada.
    2. También, debe proporcionar un identificador de correo electrónico válido para recibir un correo electrónico automatizado de comprobación de la cuenta.
 3. Compruebe la dirección de correo electrónico enviada a la lista de distribución.
 4. Ahora está listo para usar la nueva cuenta Microsoft en el Centro para desarrolladores de Microsoft.
@@ -81,7 +81,7 @@ El Centro para desarrolladores de Microsoft se usa para registrar la informació
 
 ### <a name="register-your-company-account"></a>Registro de su cuenta de compañía
 1. Abra una nueva sesión de exploración de InPrivate en Internet Explorer o de incógnito en Chrome para asegurarse de que no tiene una sesión iniciada en una cuenta personal.
-2. Vaya a [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure) para registrarse como vendedor en el Centro de desarrollo. Lea la siguiente nota importante antes de continuar.
+2. Vaya a [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure) para registrarse como un vendedor en el Centro de desarrollo. Lea la siguiente nota importante antes de continuar.
 
    > [!IMPORTANT]
    > Asegúrese de que el identificador de correo electrónico o la DL (se recomienda usar una lista de distribución para no tener que depender de otras personas) que va a utilizar para registrarse en el Centro de desarrollo es una cuenta Microsoft. En caso contrario, regístrela haciendo clic en este [vínculo](https://signup.live.com/signup?uaid=e479342fe2824efeb0c3d92c8f961fd3&lic=1). Además, **no se puede utilizar cualquier identificador de correo electrónico en el dominio de empresa de Microsoft**, es decir, @microsoft.com para registrarse en el Centro de desarrollo.
@@ -159,13 +159,13 @@ Si prefiere actualizar la información fiscal y bancaria en otro momento, puede 
    > Si necesita actualizar o cambiar la cuenta de pago, siga estos mismos pasos, pero sustituya la información actual por la nueva. El hecho de cambiar la cuenta de pago puede dar lugar a retrasos en los pagos de hasta un ciclo completo. Este retraso se produce porque es necesario comprobar el cambio de la cuenta, al igual que hicimos cuando configuró por primera vez la cuenta de pago. Aunque se le seguirá pagando el importe completo después de que se haya comprobado la cuenta, los pagos pendientes del ciclo actual se agregarán al siguiente.
    >
    >
-4. Haga clic en **Siguiente**.
+4. Haga clic en **Next**.
 
 **Información fiscal**
 
 1. Inicie sesión en el [Centro para desarrolladores de Microsoft](http://dev.windows.com/registration?accountprogram=azure) con su cuenta Microsoft (si es necesario).
 2. Haga clic en **Perfil fiscal** en el menú izquierdo.
-3. En la página **Configure su formulario fiscal** , seleccione el país o la región donde tenga la residencia permanente y después seleccione el país o la región donde tiene la nacionalidad principal. Haga clic en **Siguiente**.
+3. En la página **Configure su formulario fiscal** , seleccione el país o la región donde tenga la residencia permanente y después seleccione el país o la región donde tiene la nacionalidad principal. Haga clic en **Next**.
 4. Escriba la información fiscal y, después, haga clic en **Siguiente**.
 
 > [!WARNING]
@@ -229,8 +229,8 @@ Si a usted se le agregó como coadministrador en el Portal de publicación, podr
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que ya se creó y se registró la cuenta, consulte los [requisitos previos no técnicos](marketplace-publishing-pre-requisites.md)para asegurarse de cumplir o satisfacer todos los requisitos previos no técnicos para publicar su oferta.
 
-## <a name="see-also"></a>Consulte también
-* [Introducción: Publicación de una oferta en Azure Marketplace](marketplace-publishing-getting-started.md)
+## <a name="see-also"></a>Otras referencias
+* [Introducción: cómo publicar una oferta en Azure Marketplace](marketplace-publishing-getting-started.md)
 
 [img-msalive]:media/marketplace-publishing-accounts-creation-registration/creating-msa-account-msa-live.jpg
 [img-email]:media/marketplace-publishing-accounts-creation-registration/creating-msa-account-msa-verifyemail.jpg

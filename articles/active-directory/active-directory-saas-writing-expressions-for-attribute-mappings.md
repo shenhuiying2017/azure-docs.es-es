@@ -1,8 +1,8 @@
 ---
 title: Escritura de expresiones para asignaciones de atributos en Azure Active Directory | Microsoft Azure
-description: "Obtenga información sobre cómo usar asignaciones de expresiones para transformar valores de atributos en un formato aceptable durante el aprovisionamiento automático de objetos de aplicaciones SaaS en Azure Active Directory."
+description: Obtenga información sobre cómo usar asignaciones de expresiones para transformar valores de atributos en un formato aceptable durante el aprovisionamiento automático de objetos de aplicaciones SaaS en Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: b13c51cd-1bea-4e5e-9791-5d951a518943
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
-ms.openlocfilehash: 5549fb8f20ac2eb07b52b3b8e1c418873e467c93
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: f1cf83044eb4f001ba341cabd0771b267c3f996d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Escritura de expresiones para la asignación de atributos en Azure Active Directory
 Al configurar el aprovisionamiento para una aplicación SaaS, uno de los tipos de asignaciones de atributos que puede especificar es una asignación de expresiones. En estos casos, debe escribir una expresión similar a un script que permite transformar los datos de los usuarios en formatos más aceptables para la aplicación SaaS.
@@ -108,7 +108,7 @@ Si uno de los valores de origen es un atributo multivalor, cada valor de ese atr
 
 - - -
 ### <a name="replace"></a>Replace
-**Función:**<br> ObsoleteReplace(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
+**Función:**<br> Replace(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
 
 **Descripción:**<br>
 Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo de los parámetros proporcionados:
@@ -119,13 +119,13 @@ Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo 
 * Cuando se proporcionan **oldValue** y **template**:
   
   * Reemplaza todas las ocurrencias de **oldValue** en **template** por el valor de **source**
-* Cuando se proporcionan **oldValueRegexPattern**, **oldValueRegexGroupName** y **replacementValue**:
+* Cuando se proporcionan **regexPattern**, **regexGroupName** y **replacementValue**:
   
   * Reemplaza todos los valores que coinciden en oldValueRegexPattern en la cadena de origen con replacementValue
-* Cuando se proporcionan **oldValueRegexPattern**, **oldValueRegexGroupName** y **replacementPropertyName**:
+* Cuando se proporcionan **regexPattern**, **regexGroupName** y **replacementPropertyName**:
   
-  * Si **source** tiene algún valor, se devuelve **source**
-  * Si **source** no tiene ningún valor, usa **oldValueRegexPattern** y **oldValueRegexGroupName** para extraer el valor de reemplazo de la propiedad con **replacementPropertyName**. El valor de reemplazo se devuelve como resultado
+  * Si **source** no tiene un valor, se devuelve **source**.
+  * Si **source** no tiene un valor, usa **regexPattern** y **regexGroupName** para extraer un valor de sustitución de la propiedad con **replacementPropertyName**. El valor de reemplazo se devuelve como resultado
 
 **Parámetros:**<br> 
 
@@ -213,6 +213,17 @@ Debe generar un alias de usuario con las tres primeras letras del nombre del usu
 * **ENTRADA** (givenName): "John"
 * **ENTRADA** (surname): "Doe"
 * **SALIDA**: "JohDoe"
+
+### <a name="remove-diacritics-from-a-string-and-convert-to-lowercase"></a>Eliminación de los signos diacríticos de una cadena y su conversión a minúsculas
+Debe quitar los caracteres especiales de una cadena y convertir los caracteres en mayúsculas a minúsculas.
+
+**Expresión:** <br>
+`Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace([givenName], , "([Øø])", , "oe", , ), , "[Ææ]", , "ae", , ), , "([äãàâãåáąÄÃÀÂÃÅÁĄA])", , "a", , ), , "([B])", , "b", , ), , "([CçčćÇČĆ])", , "c", , ), , "([ďĎD])", , "d", , ), , "([ëèéêęěËÈÉÊĘĚE])", , "e", , ), , "([F])", , "f", , ), , "([G])", , "g", , ), , "([H])", , "h", , ), , "([ïîìíÏÎÌÍI])", , "i", , ), , "([J])", , "j", , ), , "([K])", , "k", , ), , "([ľłŁĽL])", , "l", , ), , "([M])", , "m", , ), , "([ñńňÑŃŇN])", , "n", , ), , "([öòőõôóÖÒŐÕÔÓO])", , "o", , ), , "([P])", , "p", , ), , "([Q])", , "q", , ), , "([řŘR])", , "r", , ), , "([ßšśŠŚS])", , "s", , ), , "([TŤť])", , "t", , ), , "([üùûúůűÜÙÛÚŮŰU])", , "u", , ), , "([V])", , "v", , ), , "([W])", , "w", , ), , "([ýÿýŸÝY])", , "y", , ), , "([źžżŹŽŻZ])", , "z", , ), " ", , , "", , )`
+
+**Entrada/salida de ejemplo:** <br>
+
+* **ENTRADA** (givenName): "Zoë"
+* **SALIDA**: "zoe"
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>Fecha de resultado como una cadena en un formato determinado
 Desea enviar las fechas a una aplicación SaaS con un formato determinado. <br>

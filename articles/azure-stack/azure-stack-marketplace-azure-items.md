@@ -2,24 +2,24 @@
 title: Elementos de Azure Marketplace disponibles para Azure Stack | Microsoft Docs
 description: Estos elementos de Azure Marketplace pueden usarse en Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/09/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: c82ee87b341de4e85e2eab566f7a3c6fcffdace1
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: ae269c532773862e99884d84a05235cb904d13d4
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Elementos de Azure Marketplace disponibles para Azure Stack
 
@@ -36,9 +36,11 @@ Cada vez que haya actualizaciones de las extensiones de la máquina virtual que 
 |![](media/azure-stack-marketplace-azure-items/dsc.png) | [ Extensión DSC de PowerShell ](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-dsc-overview)| <b>Descargar esta actualización a la versión incluida de la extensión DSC de PowerShell.</b> | Microsoft | Windows |
 | ![](media/azure-stack-marketplace-azure-items/cse.png) | [ Extensión de Microsoft Antimalware ](https://docs.microsoft.com/en-us/azure/security/azure-security-antimalware)| Microsoft Antimalware para Azure es una solución de un único agente dirigida a entornos de aplicaciones e inquilinos, concebida para ejecutarse en segundo plano sin intervención humana. | Microsoft | Windows |
 | ![](media/azure-stack-marketplace-azure-items/dockerextension.png) | [Docker](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.docker-arm) | Extensión de Docker para máquina virtual Linux. | Microsoft | Linux |
-| ![](media/azure-stack-marketplace-azure-items/cse.png) | [VM Access para Linux ](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/)| <b>Descargue esta actualización para la versión incluida de la extensión VMAccess para Linux. Esto es importante si tiene previsto usar máquinas virtuales Debian Linux.</b> | Microsoft | Linux |
+| ![](media/azure-stack-marketplace-azure-items/cse.png) | [VM Access para Linux ](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/)| <b>Descargue esta actualización para la versión incluida de la extensión VMAccess para Linux. Esta actualización es importante si tiene previsto usar máquinas virtuales Debian Linux.</b> | Microsoft | Linux |
 | ![](media/azure-stack-marketplace-azure-items/acronis.png) | [ Extensión de Acronis Backup para Linux ](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-lin-arm) | La extensión de Acronis Backup para Microsoft Azure es parte de la familia de productos de protección de datos de Acronis Backup. | Acronis International GmbH. | Linux |
 | ![](media/azure-stack-marketplace-azure-items/acronis.png) | [ Extensión de Acronis Backup para Windows ](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-win-arm) | La extensión de Acronis Backup para Microsoft Azure es parte de la familia de productos de protección de datos de Acronis Backup. | Acronis International GmbH. | Windows |
+| ![](media/azure-stack-marketplace-azure-items/cloudlink.png) | [ Extensión CloudLink SecureVM para Linux ](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cloudlink.cloudlink-securevm)  | Controle, supervise y cifre máquinas virtuales con facilidad y confianza. | Dell EMC | Linux |
+| ![](media/azure-stack-marketplace-azure-items/cloudlink.png) | [ Extensión CloudLink SecureVM para Windows ](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cloudlink.cloudlink-securevm)  | Controle, supervise y cifre máquinas virtuales con facilidad y confianza. | Dell EMC | Windows |
 
 ## <a name="microsoft-virtual-machine-images-and-solution-templates"></a>Plantillas de imágenes y soluciones de máquinas virtuales de Microsoft
 
@@ -193,7 +195,7 @@ Microsoft Azure Stack es compatible con las siguientes plantillas de soluciones 
 | ![](media/azure-stack-marketplace-azure-items/suitecrm.png) | [SuiteCRM](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.suitecrm) | Aplicación popular de CRM de nivel empresarial. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/testlink.png) | [TestLink](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.testlink) | Software de administración de pruebas que facilita la garantía de calidad. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/tikiwikicmsgroupware.png) | [Tiki Wiki CMS Groupware](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.tikiwikicmsgroupware) | Plataforma de wikis rica en contenido y visualmente atractiva. | Bitnami |
-| ![](media/azure-stack-marketplace-azure-items/tinytinyrss.png) | [Tiny Tiny RSS](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.tinytinyrss) | Agregador y fuente de noticias basado en web de Flexible Spen Source. | Bitnami |
+| ![](media/azure-stack-marketplace-azure-items/tinytinyrss.png) | [Tiny Tiny RSS](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.tinytinyrss) | Agregador y fuente de noticias basados en Web de Flexible Open Source. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/tomcat.png) | [Tomcat](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.tom-cat) | Plataforma popular que implementa especificaciones de Java Community. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/trac.png) | [Trac](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.trac) | Sistema mejorado de wikis y de seguimiento de problemas. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/typo3.png) | [Typo3](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.typo3) | CMS totalmente flexible. | Bitnami |
@@ -204,8 +206,12 @@ Microsoft Azure Stack es compatible con las siguientes plantillas de soluciones 
 | ![](media/azure-stack-marketplace-azure-items/x2enginesalescrm.png) | [X2Engine Sales CRM](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.x2enginesalescrm) | Aplicación compacta de marketing , ventas y servicio al cliente. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/xoops.png) | [Xoops](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.xoops) | CMS y portal web que crea sitios web dinámicos. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/zurmo.png) | [Zurmo](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.zurmo) | Sistema de CRM de código abierto: móvil, social y gamificado. | Bitnami |
+| ![](media/azure-stack-marketplace-azure-items/barracuda.png) | [Centro de control de seguridad de aplicaciones de Barracuda](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-app-sec-control-center) | Administre de forma centralizada varios firewall de aplicaciones web (WAF) de Barracuda. | Barracuda Networks, Inc. |
+| ![](media/azure-stack-marketplace-azure-items/barracuda.png) | [Puerta de enlace de seguridad de correo electrónico de Barracuda](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-email-security-gateway) | Puerta de enlace de seguridad de correo electrónico para protegerse frente a amenazas entrantes procedentes de correo electrónico. | Barracuda Networks, Inc. |
+| ![](media/azure-stack-marketplace-azure-items/barracuda.png) | [Firewall de aplicaciones web (WAF) de Barracuda](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.waf) | Seguridad y protección contra DDoS frente a ataques automatizados y selectivos. | Barracuda Networks, Inc. |
 | ![](media/azure-stack-marketplace-azure-items/checkpoint.png) | [Administración de seguridad de Check Point vSEC](https://azuremarketplace.microsoft.com/marketplace/apps/checkpoint.vsec) | Check Point vSEC ofrece una avanzada prevención de amenazas de varias capas para proteger los recursos de los clientes en Azure contra el malware y amenazas sofisticadas. <b>Descargue ambos elementos de Check Point vSEC en Marketplace.</b> | Punto de comprobación |
 | ![](media/azure-stack-marketplace-azure-items/chefautomate.png) | [Chef Automate](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate) | Compile, implemente y administre con Chef Automate, la plataforma de automatización continua. <b>Descargue ambos elementos de Chef en Marketplace.</b> | Chef Software, Inc |
+| ![](media/azure-stack-marketplace-azure-items/cloudlink.png) | [ CloudLink SecureVM ](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cloudlink.cloudlink-securevm)  | Controle, supervise y cifre máquinas virtuales con facilidad y confianza. <b>Descargue todos los elementos de CloudLink SecureVM.<b> | Dell EMC |
 | ![](media/azure-stack-marketplace-azure-items/hortonworks.png) | [Espacio aislado de Hortonworks Data Platform (HDP)](https://azuremarketplace.microsoft.com/marketplace/apps/hortonworks.hortonworks-sandbox) | Con tecnología de HDP 2.5, una plataforma 100 % de código abierto de Hadoop, Spark, Storm, HBase, Kafka, Hive y Ambari. | Hortonworks |
 | ![](media/azure-stack-marketplace-azure-items/kemp.png) | [Conmutador de contenido de ADC de equilibrador de carga LoadMaster](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) | Equilibrador de carga de controlador de entrega de aplicaciones (ADC) de capa 4-7, conmutador de contenido y administrador de tráfico. | KEMP Technologies Inc. |
 | ![](media/azure-stack-marketplace-azure-items/noobaa.png) | [Compatible con NooBaa Hybrid AWS S3: Community Edition](https://azuremarketplace.microsoft.com/marketplace/apps/noobaa.noobaa-hybrid-s3-archive-05) | Servicio de almacenamiento compatible con S3 que abarca recursos de capacidades locales y públicos. | NooBaa |

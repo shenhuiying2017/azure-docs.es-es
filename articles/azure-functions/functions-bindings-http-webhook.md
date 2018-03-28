@@ -1,13 +1,13 @@
 ---
 title: Enlaces HTTP y webhook en Azure Functions
-description: "Descubra cómo utilizar desencadenadores y enlaces HTTP y webhook en Azure Functions."
+description: Descubra cómo utilizar desencadenadores y enlaces HTTP y webhook en Azure Functions.
 services: functions
 documentationcenter: na
 author: mattchenderson
 manager: cfowler
-editor: 
-tags: 
-keywords: "azure functions, funciones, procesamiento de eventos, webhooks, proceso dinámico, arquitectura sin servidor, HTTP, API, REST"
+editor: ''
+tags: ''
+keywords: azure functions, funciones, procesamiento de eventos, webhooks, proceso dinámico, arquitectura sin servidor, HTTP, API, REST
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: mahender
-ms.openlocfilehash: 01f845e0cb987eb4e4e9baa62478d3ff6991fb7e
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: a46177183035a53128c5341a3ce4c63dbc3a7497
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Enlaces HTTP y webhook en Azure Functions
 
@@ -30,6 +30,12 @@ Es posible personalizar un desencadenador HTTP para responder a [webhooks](https
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
+
+## <a name="packages"></a>Paquetes
+
+Los enlaces HTTP se proporcionan en el paquete NuGet [Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http). El código fuente del paquete está en el repositorio [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Http/) de GitHub.
+
+[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
 ## <a name="trigger"></a>Desencadenador
 
@@ -361,7 +367,7 @@ module.exports = function (context, data) {
 
 ## <a name="trigger---attributes"></a>Desencadenador: atributos
 
-En las [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el atributo [HttpTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs), que se define en el paquete NuGet [Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http).
+En las [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el atributo [HttpTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs).
 
 Puede establecer el nivel de autorización y los métodos HTTP permitidos en los parámetros del constructor de atributo. Además, existen propiedades para la plantilla de ruta y el tipo de webhook. Para más información sobre estos valores, consulte [Desencadenador: configuración](#trigger---configuration). A continuación, se muestra un atributo `HttpTrigger` en una signatura de método:
 
@@ -570,7 +576,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 
 Puede usar el parámetro de salida para responder al autor de la llamada HTTP o de webhook. También puede usar los patrones de respuesta estándar del lenguaje. Para respuestas de ejemplo, consulte el [ejemplo de desencadenador](#trigger---example) y el [ejemplo de webhook](#trigger---webhook-example).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Más información sobre desencadenadores y enlaces de Azure Functions](functions-triggers-bindings.md)

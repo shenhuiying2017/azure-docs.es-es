@@ -1,11 +1,11 @@
 ---
-title: "Adición del conector de OneDrive a Logic Apps | Microsoft Docs"
-description: "Información general del conector de OneDrive con parámetros de la API de REST"
+title: Adición del conector de OneDrive a Logic Apps | Microsoft Docs
+description: Información general del conector de OneDrive con parámetros de la API de REST
 services: logic-apps
-documentationcenter: 
-author: MandiOhlinger
+documentationcenter: ''
+author: ecfan
 manager: anneta
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: 47a8582a-1b1a-4fc3-beb5-97c60c4306fe
 ms.service: logic-apps
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: e988ae22a3d6e47591c37ad0b4c9f781d523bcc8
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 15b88baf21ead5a6b9506c47ca9930d5088b8787
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-onedrive-connector"></a>Introducción al conector de OneDrive
 Conéctese a OneDrive para administrar los archivos, incluyendo las tareas de carga, obtención y eliminación de archivos, y muchas más. 
@@ -30,7 +30,7 @@ Con OneDrive, puede:
 * Usar desencadenadores para iniciar el flujo de trabajo cuando se crea o se actualiza un archivo en OneDrive.
 * Usar acciones para crear o eliminar un archivo, entre otras muchas cosas. Por ejemplo, cuando se reciba un nuevo correo electrónico de Office 365 con datos adjuntos (desencadenador), cree un nuevo archivo en OneDrive (acción).
 
-En este tema se muestra cómo usar el conector de OneDrive en una aplicación lógica, y se enumeran los desencadenadores y las acciones.
+En este artículo se muestra cómo usar un conector de OneDrive en una aplicación lógica, y además se enumeran los desencadenadores y las acciones.
 
 Para más información sobre Logic Apps, consulte [¿Qué son las aplicaciones lógicas?](../logic-apps/logic-apps-overview.md) y [Creación de una aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -52,7 +52,7 @@ Un desencadenador es un evento que se puede utilizar para iniciar el flujo de tr
    
     ![](./media/connectors-create-api-onedrive/sample-folder.png)
    
-    Si se le solicita que inicie sesión, escriba los datos de inicio de sesión para crear la conexión. En la sección [Creación de la conexión](connectors-create-api-onedrive.md#create-the-connection) de este tema se enumeran los pasos. 
+    Si se le solicita que inicie sesión, escriba los datos de inicio de sesión para crear la conexión. En la sección [Creación de la conexión](connectors-create-api-onedrive.md#create-the-connection) de este artículo se enumeran los pasos. 
    
    > [!NOTE]
    > En este ejemplo, la aplicación lógica se ejecuta cuando un archivo de la carpeta que elija se actualiza. Para ver los resultados de este desencadenador, agregue otra acción que envíe un correo electrónico. Por ejemplo, agregue la acción *Enviar un correo electrónico* de Office 365 Outlook que le envía un correo electrónico cuando se actualiza un archivo. 
@@ -76,7 +76,7 @@ Una acción es una operación que se lleva a cabo mediante el flujo de trabajo d
    
     ![](./media/connectors-create-api-onedrive/sample-action.png)
    
-    Si se le solicita la información de conexión, escriba los detalles para crear la conexión. Estas propiedades se describen en la sección [Creación de la conexión](connectors-create-api-onedrive.md#create-the-connection) de este tema. 
+    Si se le solicita la información de conexión, escriba los detalles para crear la conexión. Estas propiedades se describen en la sección [Creación de la conexión](connectors-create-api-onedrive.md#create-the-connection) de este artículo. 
    
    > [!NOTE]
    > En este ejemplo, creamos un nuevo archivo en una carpeta de OneDrive. Puede utilizar la salida de otro desencadenador para crear el archivo de OneDrive. Por ejemplo, agregue el desencadenador *Cuando llega un nuevo correo electrónico* de Office 365 Outlook. A continuación, agregue la acción *Crear archivo* de OneDrive, que usa los campos Attachments y Content-Type de una instrucción ForEach para crear el nuevo archivo en OneDrive. 

@@ -1,12 +1,12 @@
 ---
-title: "Obtención de la aprobación previa a través del programa Microsoft Azure Certified | Microsoft Docs"
-description: "Obtenga información sobre el programa para partners Microsoft Azure Certified y cómo vender su imagen de máquina virtual, plantilla de solución, servicio de programadores o servicio de datos en Azure Marketplace"
+title: Obtención de la aprobación previa a través del programa Microsoft Azure Certified | Microsoft Docs
+description: Obtenga información sobre el programa para partners Microsoft Azure Certified y cómo vender su imagen de máquina virtual, plantilla de solución, servicio de programadores o servicio de datos en Azure Marketplace
 services: marketplace-publishing
 documentationcenter: na
-author: HannibalSII
-manager: hascipio
-editor: 
-tags: 
+author: msmbaldwin
+manager: mbaldwin
+editor: ''
+tags: ''
 ms.assetid: 7e9ebf17-07a1-4796-921f-d1d62046892d
 ms.service: marketplace
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
-ms.author: hascipio
-ms.openlocfilehash: aadc695b1f07d04f1fcc7f2f2e3ff90fb7f54849
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbaldwin
+ms.openlocfilehash: 6db5c8dc6aba4246b3672cf7931a266b26ad11db
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-pre-approved-via-the-microsoft-azure-certified-program"></a>Obtención de la aprobación previa a través del programa Microsoft Azure Certified
 En este artículo se proporcionan instrucciones sobre cómo conseguir la certificación de Microsoft Azure para poder publicar la solución en Azure Marketplace y disfrutar de las ventajas del marketing. Para obtener información general detallada del programa Microsoft Azure Certified y sus ventajas, visite [http://azure.com/certified](http://azure.com/certified).
@@ -39,5 +39,5 @@ En este artículo se proporcionan instrucciones sobre cómo conseguir la certifi
 ## <a name="next-step"></a>Paso siguiente
 Cuando reciba la aprobación previa del programa Microsoft Azure Certified, puede continuar y [registrar su cuenta Microsoft como vendedor de Microsoft](marketplace-publishing-accounts-creation-registration.md).
 
-## <a name="see-also"></a>Consulte también
-* [Introducción: Publicación de una oferta en Azure Marketplace](marketplace-publishing-getting-started.md)
+## <a name="see-also"></a>Otras referencias
+* [Introducción: cómo publicar una oferta en Azure Marketplace](marketplace-publishing-getting-started.md)

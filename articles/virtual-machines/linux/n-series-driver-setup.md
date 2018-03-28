@@ -1,11 +1,11 @@
 ---
-title: "Instalación del controlador de la serie N de Azure para Linux | Microsoft Docs"
-description: "Instalación de controladores de GPU de NVIDIA para máquinas virtuales de la serie N que se ejecutan en Linux en Azure"
+title: Instalación del controlador de la serie N de Azure para Linux | Microsoft Docs
+description: Instalación de controladores de GPU de NVIDIA para máquinas virtuales de la serie N que se ejecutan en Linux en Azure
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: d91695d0-64b9-4e6b-84bd-18401eaecdde
 ms.service: virtual-machines-linux
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/01/2018
+ms.date: 03/12/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 201734661873c7ac7f7a5dd710009eb324cedc86
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 7d353adcafed02832243277118da8480e54544ce
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Instalación de controladores de GPU de NVIDIA en máquinas virtuales de la serie N con Linux
 
@@ -106,12 +106,12 @@ sudo reboot
   
   sudo reboot
 
-2. Install the latest Linux Integration Services for Hyper-V.
+2. Install the latest [Linux Integration Services for Hyper-V and Azure](https://www.microsoft.com/download/details.aspx?id=55106).
 
   ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.4.tar.gz
+  wget https://aka.ms/lis
  
-  tar xvzf lis-rpms-4.2.4.tar.gz
+  tar xvzf lis
  
   cd LISISO
  
@@ -158,7 +158,7 @@ Si el controlador está instalado, verá una salida parecida a la siguiente. Ten
 
 ## <a name="rdma-network-connectivity"></a>Conectividad de red RDMA
 
-La conectividad de red RDMA puede habilitarse en las máquinas virtuales de la serie N que puedan usar RDMA, como la NC24r, implementadas en el mismo conjunto de disponibilidad. Ahora, la red RDMA admite el tráfico de interfaz de paso de mensajes (MPI) para aplicaciones que se ejecutan con Intel MPI 5.x o una versión posterior. Requisitos adicionales siguientes:
+La conectividad de red RDMA puede habilitarse en las máquinas virtuales de la serie N que puedan usar RDMA, como la NC24r, implementadas en el mismo conjunto de disponibilidad o conjunto de escalado de máquinas virtuales. Ahora, la red RDMA admite el tráfico de interfaz de paso de mensajes (MPI) para aplicaciones que se ejecutan con Intel MPI 5.x o una versión posterior. Requisitos adicionales siguientes:
 
 ### <a name="distributions"></a>Distribuciones
 
@@ -255,12 +255,12 @@ Para instalar los controladores NVIDIA GRID en máquinas virtuales de la serie N
   blacklist lbm-nouveau
   ```
  
-3. Reinicie la máquina virtual, vuelva a conectarse e instale la versión más reciente de Linux Integration Services para Hyper-V:
+3. Reinicie la máquina virtual, vuelva a conectarse e instale la versión más reciente de [Linux Integration Services para Hyper-V y Azure](https://www.microsoft.com/download/details.aspx?id=55106).
  
   ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.4.tar.gz
+  wget https://aka.ms/lis
 
-  tar xvzf lis-rpms-4.2.4.tar.gz
+  tar xvzf lis
 
   cd LISISO
 

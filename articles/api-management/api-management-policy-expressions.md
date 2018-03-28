@@ -1,11 +1,11 @@
 ---
 title: Expresiones de las directivas de Azure API Management | Microsoft Docs
-description: "Obtenga información acerca de las expresiones de las directivas de Azure API Management."
+description: Obtenga información acerca de las expresiones de las directivas de Azure API Management.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: ea160028-fc04-4782-aa26-4b8329df3448
 ms.service: api-management
 ms.workload: mobile
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: a5bcd03e71a69928fa1e02a5286801c4933d17ef
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 0ecfade830b2123257b8039d5f0c26f19f3f3fc6
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="api-management-policy-expressions"></a>Expresiones de las directivas de API Management
-Este artículo describe la sintaxis de expresiones de directiva C# 6.0. Cada expresión tiene acceso a la variable de [contexto](api-management-policy-expressions.md#ContextVariables) proporcionada de forma implícita y a un [subconjunto](api-management-policy-expressions.md#CLRTypes) permitido de tipos de .NET Framework.  
+Este artículo describe la sintaxis de expresiones de directiva C# 7. Cada expresión tiene acceso a la variable de [contexto](api-management-policy-expressions.md#ContextVariables) proporcionada de forma implícita y a un [subconjunto](api-management-policy-expressions.md#CLRTypes) permitido de tipos de .NET Framework.  
 
 Para obtener más información:
 
@@ -204,7 +204,7 @@ Para obtener más información:
 |byte[] Decrypt(input: this byte[], alg: System.Security.Cryptography.SymmetricAlgorithm, key:byte[], iv:byte[])|input - input: texto cifrado que se va a descifrar<br /><br />alg: algoritmo de cifrado<br /><br />key: clave de cifrado<br /><br />iv: vector de inicialización<br /><br />Devuelve texto no cifrado.|
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener más información sobre cómo trabajar con directivas, consulte:
 

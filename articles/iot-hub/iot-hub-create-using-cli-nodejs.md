@@ -1,11 +1,11 @@
 ---
-title: "Creación de un centro de IoT Hub mediante la CLI de Azure (azure.js) | Microsoft Docs"
-description: "Describe cómo crear un centro de IoT Hub de Azure mediante la CLI de Azure entre plataformas (azure.js)."
+title: Creación de un centro de IoT Hub mediante la CLI de Azure (azure.js) | Microsoft Docs
+description: Describe cómo crear un centro de IoT Hub de Azure mediante la CLI de Azure entre plataformas (azure.js).
 services: iot-hub
 documentationcenter: .net
 author: BeatriceOltean
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 46a17831-650c-41d9-b228-445c5bb423d3
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/04/2017
 ms.author: boltean
-ms.openlocfilehash: 5e37c6c5e8625ce446ab203f19f9a8b2f1cd5a46
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7ad0efeeacbdb5dd0185c6336e9bf0e4d7937c99
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli"></a>Creación de una instancia de IoT Hub mediante la CLI de Azure
 
@@ -35,7 +35,7 @@ Puede completar la tarea mediante una de las siguientes versiones de la CLI:
 
 Para completar este tutorial, necesitará lo siguiente:
 
-* Una cuenta de Azure activa. En caso de no tener ninguna, puede crear una [cuenta gratuita][lnk-free-trial] en tan solo unos minutos.
+* Una cuenta de Azure activa. Si no tiene ninguna, puede crear una [cuenta gratuita][lnk-free-trial] en tan solo unos minutos.
 * [CLI de Azure 0.10.4][lnk-CLI-install] o una versión posterior. Si ya tiene la CLI de Azure instalada, puede validar la versión actual en el símbolo del sistema con el comando siguiente:
 
 ```azurecli
@@ -88,7 +88,7 @@ azure iothub create -g <resource-group> -n <name> -l <location> -s <sku-name> -u
 ```
 
 * **resource-group**. El nombre del grupo de recursos. El formato no distingue mayúsculas de minúsculas, admite caracteres alfanuméricos, guiones bajos y guiones, y debe tener una longitud de entre 1 y 64 caracteres.
-* **nombre**. El nombre del centro de IoT Hub que se va a crear. El formato no distingue mayúsculas de minúsculas, admite caracteres alfanuméricos, guiones bajos y guiones, y debe tener una longitud de entre 3 y 50 caracteres.
+* **nombre**. El nombre del centro de IoT Hub que se va a crear. El formato no distingue mayúsculas de minúsculas, admite caracteres alfanuméricos y guiones, y debe tener una longitud de entre 3 y 50 caracteres.
 * **location**. La ubicación (centro de datos/región de Azure) para aprovisionar el centro de IoT Hub.
 * **sku-name**. El nombre de la SKU; uno de los siguientes: [F1, S1, S2 o S3]. Para consultar la lista completa más reciente, diríjase a la página de precios de IoT Hub.
 * **units**. El número de unidades aprovisionadas. Intervalo: F1 [1-1] : S1, S2 [1-200] : S3 [1-10]. Las unidades de IoT Hub se basan en el recuento total de mensajes y en el número de dispositivos que desea conectar.
@@ -120,7 +120,7 @@ Para obtener más información sobre cómo desarrollar para IoT Hub, consulte el
 
 * [SDK de IoT][lnk-sdks]
 
-Para explorar aún más las funcionalidades de Centro de IoT, consulte:
+Para explorar aún más las funcionalidades de IoT Hub, consulte:
 
 * [Uso de Azure Portal para administrar IoT Hub][lnk-portal]
 
