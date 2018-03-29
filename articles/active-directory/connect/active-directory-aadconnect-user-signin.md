@@ -1,8 +1,8 @@
 ---
-title: "Inicio de sesión de usuarios de Azure AD Connect | Microsoft Docs"
-description: "Inicio de sesión de usuarios de Azure AD Connect para la configuración personalizada"
+title: Inicio de sesión de usuarios de Azure AD Connect | Microsoft Docs
+description: Inicio de sesión de usuarios de Azure AD Connect para la configuración personalizada
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
 editor: curtand
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.openlocfilehash: 4670ec3cacd8d69a4ed59aa2bbbeb2e5c893f173
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6a6e83ad73f561cd8aa4fc629fb9b48449af6d0a
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Opciones para el inicio de sesión de los usuarios en Azure AD Connect
 Azure Active Directory (Azure AD) Connect permite que los usuarios inicien sesión en los recursos en la nube y locales con las mismas contraseñas. En este artículo se describen los conceptos clave para cada modelo de identidad para ayudarlo a elegir la identidad que desea utilizar con el fin de iniciar sesión en Azure AD.
 
 Si ya está familiarizado con el modelo de identidad de Azure AD y desea obtener más información sobre un método específico, haga clic más abajo en el vínculo que corresponda:
 
-* [Sincronización de hash de contraseña](#password-synchronization) con [Inicio de sesión único de conexión directa](active-directory-aadconnect-sso.md)
+* [Sincronización de hash de contraseña](#password-hash-synchronization) con [Inicio de sesión único de conexión directa](active-directory-aadconnect-sso.md)
 * [Autenticación de paso a través](active-directory-aadconnect-pass-through-authentication.md) con [Inicio de sesión único de conexión directa](active-directory-aadconnect-sso.md)
 * [SSO federado (con Active Directory Federation Services [AD FS])](#federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2)
 
@@ -54,7 +54,7 @@ También puede habilitar el [inicio de sesión único de conexión directa](acti
 
 ![Sincronización de hash de contraseña](./media/active-directory-aadconnect-user-signin/passwordhash.png)
 
-Para más información, vea el artículo [Implementación de la sincronización de contraseña mediante la sincronización de Azure AD Connect](active-directory-aadconnectsync-implement-password-synchronization.md).
+Para más información, vea el artículo [Implementación de la sincronización de contraseña mediante la sincronización de Azure AD Connect](active-directory-aadconnectsync-implement-password-hash-synchronization.md).
 
 ### <a name="pass-through-authentication"></a>Autenticación de paso a través
 Con la autenticación de paso a través, la contraseña del usuario se valida con el controlador de Active Directory local, y la contraseña no necesita estar presente en Azure AD de ninguna forma. Esto permite evaluar las directivas locales, como las restricciones en la hora de inicio de sesión, durante la autenticación en Cloud Services.
@@ -113,7 +113,7 @@ La experiencia de inicio de sesión de Azure AD depende de si este puede hacer c
 Azure AD Connect muestra los sufijos UPN definidos para los dominios y trata de hacerlos coincidir con un dominio personalizado de Azure AD. Después, puede ayudarlo con la acción pertinente que necesite realizar.
 La página de inicio de sesión de Azure AD enumera los sufijos UPN definidos para Active Directory local y muestra el estado correspondiente en cada sufijo. Los valores de estado pueden ser uno de los siguientes:
 
-| Estado | Descripción | Se requiere acción |
+| Estado | DESCRIPCIÓN | Se requiere acción |
 |:--- |:--- |:--- |
 | Verified |Azure AD Connect ha encontrado un dominio comprobado coincidente en Azure AD. Todos los usuarios de este dominio pueden iniciar sesión con sus credenciales locales. |No se requiere ninguna acción. |
 | Not verified (Sin comprobar) |Azure AD Connect encontró una coincidencia de dominio personalizado en Azure AD, pero no está comprobada. Se cambiará el sufijo UPN de los usuarios de este dominio al sufijo predeterminado .onmicrosoft.com después de la sincronización si el dominio no se comprueba. | [Compruebe el dominio personalizado en Azure AD.](../add-custom-domain.md#verify-the-custom-domain-name-in-azure-ad) |

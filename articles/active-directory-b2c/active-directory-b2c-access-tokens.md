@@ -1,24 +1,21 @@
 ---
 title: 'Solicitud de tokens de acceso: Azure AD B2C | Microsoft Docs'
-description: "En este artículo se mostrará cómo configurar una aplicación cliente y adquirir un token de acceso."
+description: En este artículo se mostrará cómo configurar una aplicación cliente y adquirir un token de acceso.
 services: active-directory-b2c
 documentationcenter: android
-author: parakhj
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 1c75f17f-5ec5-493a-b906-f543b3b1ea66
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
-ms.author: parakhj
-ms.openlocfilehash: 9d2df39118741d4254f7b7fe4c419a00ceb4ba8e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: bd919543072a8d2bf5fb0ebba17e69ba2f467218
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-b2c-requesting-access-tokens"></a>Azure AD B2C: solicitud de tokens de acceso
 
@@ -29,7 +26,7 @@ En este artículo se trata cómo configurar una aplicación cliente y una API we
 > [!NOTE]
 > **Las cadenas de la API web (en nombre de) no son compatibles con Azure AD B2C.**
 >
-> Muchas arquitecturas incluyen una API web que necesita llamar a otra API web de nivel inferior, ambas protegidas mediante Azure AD B2C. Este escenario es común en los clientes nativos que tienen un back-end de API web que, a su vez, llama a un servicio de Microsoft Online, como la API de Azure AD Graph.
+> Muchas arquitecturas incluyen una API web que necesita llamar a otra API web de nivel inferior, ambas protegidas mediante Azure AD B2C. Este escenario es común en los clientes nativos que tienen un back-end de API web que, a su vez, llama a un servicio de Microsoft Online, como Graph API de Azure AD.
 >
 > Este escenario de API web encadenadas puede admitirse mediante la concesión de credenciales de portador JWT de OAuth 2.0, también conocido como flujo "en nombre de". Sin embargo, el flujo "en nombre de" no está implementado actualmente en Azure AD B2C.
 
@@ -55,7 +52,7 @@ Los ámbitos, que son análogos a los permisos, son necesarios si la aplicación
 1. En el menú **Aplicaciones** de Azure AD B2C, abra la aplicación de API web ("API Contoso").
 1. Haga clic en **Ámbitos publicados**. Esto es donde se definen los permisos (ámbitos) que se pueden conceder a otras aplicaciones.
 1. Agregue **Valores de ámbito** según sea necesario (por ejemplo, "lectura"). De forma predeterminada, se definirá el ámbito de "user_impersonation". Puede omitir esto si lo desea. Escriba una descripción del ámbito en la columna **Nombre de ámbito**.
-1. Haga clic en **Guardar**.
+1. Haga clic en **Save**(Guardar).
 
 > [!IMPORTANT]
 > El **Nombre de ámbito** es la descripción del **Valor de ámbito**. Al usar el ámbito, asegúrese de usar el **Valor de ámbito**.
@@ -69,7 +66,7 @@ Una vez configurada una API para publicar ámbitos, es necesario que se concedan
 1. Haga clic en **Acceso de API**.
 1. Haga clic en **Agregar**.
 1. Seleccione la API web y los ámbitos (permisos) que desea conceder.
-1. Haga clic en **Aceptar**.
+1. Haga clic en **OK**.
 
 > [!NOTE]
 > Azure AD B2C no pide el consentimiento de los usuarios de la aplicación cliente. En lugar de eso, el administrador proporciona todo el consentimiento según los permisos configurados entre las aplicaciones descritas anteriormente. Si se revoca un permiso concedido para una aplicación, todos los usuarios que anteriormente podían adquirir ese permiso ya no podrán hacerlo.
@@ -85,7 +82,7 @@ Al solicitar un token de acceso, la aplicación cliente debe especificar los per
 https://login.microsoftonline.com/<tenantName>.onmicrosoft.com/oauth2/v2.0/authorize?p=<yourPolicyId>&client_id=<appID_of_your_client_application>&nonce=anyRandomValue&redirect_uri=<redirect_uri_of_your_client_application>&scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fnotes%2Fread&response_type=code 
 ```
 
-Para adquirir varios permisos en la misma solicitud, puede agregar varias entradas en el parámetro **scope** único, separadas por espacios. Por ejemplo:
+Para adquirir varios permisos en la misma solicitud, puede agregar varias entradas en el parámetro **scope** único, separadas por espacios. Por ejemplo: 
 
 Dirección URL descodificada:
 
@@ -117,7 +114,7 @@ Si el parámetro `response_type` de una solicitud de `/authorize` incluye `token
 
 En un **access\_token** que se creó correctamente (desde el punto de conexión `/authorize` o `/token`), existirán las siguientes notificaciones:
 
-| Nombre | Notificación | Descripción |
+| NOMBRE | Notificación | DESCRIPCIÓN |
 | --- | --- | --- |
 |Público |`aud` |El **id. de la aplicación** del recurso único al que se le concedió acceso al token. |
 |Scope |`scp` |Los permisos concedidos al recurso. Si se trata de varios permisos concedidos, se separarán con un espacio. |

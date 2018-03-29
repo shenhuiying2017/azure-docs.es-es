@@ -1,11 +1,11 @@
 ---
 title: Tipos de direcciones IP en Azure | Microsoft Docs
-description: "Información acerca de direcciones IP públicas y privadas en Azure."
+description: Información acerca de direcciones IP públicas y privadas en Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 610b911c-f358-4cfe-ad82-8b61b87c3b7e
 ms.service: virtual-network
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/16/2017
 ms.author: jdial
-ms.openlocfilehash: e3baedba814cf6ac19df72c49e1c95ea2cd5cf73
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: a5cda1b5ecb686c9b03da27bdbca42ddc1a74f54
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Tipos de direcciones IP y métodos de asignación en Azure
 
@@ -62,19 +62,16 @@ Todas las direcciones IP públicas creadas antes de la introducción de SKU son 
 - Se pueden asignar a una zona específica.
 - No tienen redundancia de zona. Para más información sobre las zonas de disponibilidad, consulte [Introducción a las zonas de disponibilidad](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-#### <a name="standard"></a>Standard
+#### <a name="standard"></a>Estándar
 
 Las direcciones IP públicas de SKU estándar:
 
 - Solo se asignan con el método de asignación estática.
 - Se asignan a interfaces de red o equilibradores de carga estándar accesibles desde Internet. Para más información sobre las SKU de los equilibradores de carga de Azure, consulte [Azure load balancer standard SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (SKU estándar de equilibrador de carga de Azure).
-- Tienen redundancia de zona de forma predeterminada. Se pueden crear de forma zonal y garantizada en una zona de disponibilidad específica.  Para más información sobre las zonas de disponibilidad, consulte [Introducción a las zonas de disponibilidad](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Tienen redundancia de zona de forma predeterminada. Se pueden crear de forma zonal y garantizada en una zona de disponibilidad específica. Para más información sobre las zonas de disponibilidad, consulte [Introducción a las zonas de disponibilidad](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
  
 > [!NOTE]
-> Cuando asigna una dirección IP pública de SKU estándar a la interfaz de red de una máquina virtual, debe permitir explícitamente el tráfico previsto con un [grupo de seguridad de red](security-overview.md#network-security-groups).  Para evitar que se produzca un error en la comunicación con el recurso, debe crear un grupo de seguridad de red, asociarlo y permitir explícitamente el tráfico deseado.
-
-La SKU estándar se encuentra en versión preliminar. Antes de crear una dirección IP pública de SKU estándar, primero debe registrarse para la versión preliminar y crear la dirección en una ubicación admitida. Para registrarse para la versión preliminar, consulte [Registro para la versión preliminar de la SKU estándar](virtual-network-public-ip-address.md#register-for-the-standard-sku-preview). Para una lista de ubicaciones (regiones) admitidas, consulte [Disponibilidad de regiones](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#region-availability) y supervise la página [Actualizaciones de Azure Virtual Network](https://azure.microsoft.com/updates/?product=virtual-network) para conocer la compatibilidad con regiones adicionales.
-
+> Cuando asigna una dirección IP pública de SKU estándar a la interfaz de red de una máquina virtual, debe permitir explícitamente el tráfico previsto con un [grupo de seguridad de red](security-overview.md#network-security-groups). Para evitar que se produzca un error en la comunicación con el recurso, debe crear un grupo de seguridad de red, asociarlo y permitir explícitamente el tráfico deseado.
 
 ### <a name="allocation-method"></a>Método de asignación
 
@@ -123,12 +120,12 @@ Puede asociar una dirección IP pública con una [puerta de enlace de aplicacion
 ### <a name="at-a-glance"></a>De un vistazo
 La siguiente tabla muestra la propiedad específica a través de la cual una dirección IP pública se puede asociar a un recurso de nivel superior y los métodos de asignación posibles (dinámicos o estáticos) que se pueden usar.
 
-| Recurso de nivel superior | Asociación de dirección IP | dinámico | estático |
+| Recurso de nivel superior | Asociación de dirección IP | Dinámica | estática |
 | --- | --- | --- | --- |
 | Máquina virtual |interfaz de red |Sí |Sí |
 | Equilibrador de carga accesible desde Internet |Configuración de front-end |Sí |Sí |
-| Puerta de enlace de VPN |Configuración de dirección IP de puerta de enlace |Sí |No |
-| puerta de enlace de aplicaciones |Configuración de front-end |Sí |No |
+| puerta de enlace de VPN |Configuración de dirección IP de puerta de enlace |Sí |Sin  |
+| puerta de enlace de aplicaciones |Configuración de front-end |Sí |Sin  |
 
 ## <a name="private-ip-addresses"></a>Direcciones IP privadas
 Las direcciones IP privadas permiten que los recursos de Azure se comuniquen con otros recursos en una [red virtual](virtual-networks-overview.md) , o en la red local a través de una puerta de enlace de VPN o un circuito ExpressRoute, sin usar una dirección IP accesible desde Internet.
@@ -171,13 +168,13 @@ Puede asignar una dirección IP privada a la configuración del **front-end** de
 ### <a name="at-a-glance"></a>De un vistazo
 La siguiente tabla muestra la propiedad específica a través de la cual una dirección IP privada se puede asociar a un recurso de nivel superior y los métodos de asignación posibles (dinámicos o estáticos) que se pueden usar.
 
-| Recurso de nivel superior | Asociación de dirección IP | dinámico | estático |
+| Recurso de nivel superior | Asociación de dirección IP | dinámico | estática |
 | --- | --- | --- | --- |
 | Máquina virtual |interfaz de red |Sí |Sí |
 | Equilibrador de carga |Configuración de front-end |Sí |Sí |
 | puerta de enlace de aplicaciones |Configuración de front-end |Sí |Sí |
 
-## <a name="limits"></a>Límites
+## <a name="limits"></a>límites
 Los límites impuestos en una dirección IP se indican en el conjunto completo de [límites de red](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) de Azure. Los límites son por región y suscripción. Puede [ponerse en contacto con el servicio de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para aumentar los límites predeterminados hasta alcanzar los límites máximos, según las necesidades empresariales.
 
 ## <a name="pricing"></a>Precios

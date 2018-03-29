@@ -1,24 +1,24 @@
 ---
-title: "Solución Agent Health en OMS | Microsoft Docs"
-description: "Este artículo está pensado para ayudarle a entender cómo usar esta solución para supervisar el mantenimiento de los agentes que informan directamente a OMS o System Center Operations Manager."
+title: Solución Agent Health en OMS | Microsoft Docs
+description: Este artículo está pensado para ayudarle a entender cómo usar esta solución para supervisar el mantenimiento de los agentes que informan directamente a OMS o System Center Operations Manager.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: 939bf5ae6ee306008567ce62ddf8a6d1f05da60a
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: d7eb1550a21e66d4ae4cc4932b30a90956c60d1e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 #  <a name="agent-health-solution-in-oms"></a>Solución Agent Health en OMS
 La solución Agent Health en OMS le ayuda a entender, para todos los agentes que informan directamente al área de trabajo de OMS o a un grupo de administración de System Center Operations Manager conectado a OMS, cuáles no responden y envían datos operativos.  También puede realizar un seguimiento del número de agentes que se implementan, dónde están distribuidos geográficamente y llevar a cabo otras consultas para mantener el conocimiento de la distribución de los agentes implementados en Azure, en otros entornos de nube o en un entorno local.    
@@ -98,25 +98,6 @@ Cada agente que informa a un servidor de administración de Operations Manager e
 En la tabla siguiente se proporcionan búsquedas de registros de ejemplo para los registros recopilados por esta solución.
 
 | Consultar | DESCRIPCIÓN |
-| --- | --- |
-| Type=Heartbeat &#124; distinct Computer |Número total de agentes |
-| Type=Heartbeat &#124; measure max(TimeGenerated) as LastCall by Computer &#124; where LastCall < NOW-24HOURS |Número de agentes que no responden en las últimas 24 horas |
-| Type=Heartbeat &#124; measure max(TimeGenerated) as LastCall by Computer &#124; where LastCall < NOW-15MINUTES |Número de agentes que no responden en los últimos 15 minutos |
-| Type=Heartbeat TimeGenerated>NOW-24HOURS Computer IN {Type=Heartbeat TimeGenerated>NOW-24HOURS &#124; distinct Computer} &#124; measure max(TimeGenerated) as LastCall by Computer |Equipos en línea (en las últimas 24 horas) |
-| Type=Heartbeat TimeGenerated>NOW-24HOURS Computer NOT IN {Type=Heartbeat TimeGenerated>NOW-30MINUTES &#124; distinct Computer} &#124; measure max(TimeGenerated) as LastCall by Computer |Total de agentes sin conexión en los últimos 30 minutos (para las últimas 24 horas) |
-| Type=Heartbeat &#124; measure countdistinct(Computer) by OSType |Obtener una tendencia de número de agentes a lo largo del tiempo por tipo de sistema operativo|
-| Type=Heartbeat&#124;measure countdistinct(Computer) by OSType |Distribution by OS Type (Distribución por tipo de sistema operativo) |
-| Type=Heartbeat&#124;measure countdistinct(Computer) by Version |Distribution by Agent Version (Distribución por versión del agente) |
-| Type=Heartbeat&#124;measure count() by Category |Distribution by Agent Category (Distribución por categoría del agente) |
-| Type=Heartbeat&#124;measure countdistinct(Computer) by ManagementGroupName | Distribution by Management Group (Distribución por grupo de administración) |
-| Type=Heartbeat&#124;measure countdistinct(Computer) by RemoteIPCountry |Geo-location of Agents (Geolocalización de los agentes) |
-| Type=Heartbeat IsGatewayInstalled=true&#124;Distinct Computer |Número de puertas de enlace de OMS instaladas |
-
-
->[!NOTE]
-> Si el área de trabajo se ha actualizado al [nuevo lenguaje de consulta Log Analytics](../log-analytics/log-analytics-log-search-upgrade.md), las consultas anteriores cambiarían como sigue.
->
->| Consultar | DESCRIPCIÓN |
 |:---|:---|
 | Heartbeat &#124; distinct Computer |Número total de agentes |
 | Heartbeat &#124; summarize LastCall = max(TimeGenerated) by Computer &#124; where LastCall < ago(24h) |Número de agentes que no responden en las últimas 24 horas |
@@ -131,6 +112,9 @@ En la tabla siguiente se proporcionan búsquedas de registros de ejemplo para lo
 | Heartbeat &#124; summarize AggregatedValue = dcount(Computer) by RemoteIPCountry |Geo-location of Agents (Geolocalización de los agentes) |
 | Heartbeat &#124; where iff(isnotnull(toint(IsGatewayInstalled)), IsGatewayInstalled == true, IsGatewayInstalled == "true") == true &#124; distinct Computer |Número de puertas de enlace de OMS instaladas |
 
-## <a name="next-steps"></a>pasos siguientes
+
+
+
+## <a name="next-steps"></a>Pasos siguientes
 
 * Obtenga información sobre [alertas en Log Analytics](../log-analytics/log-analytics-alerts.md) para más detalles sobre la generación de alertas desde Log Analytics.

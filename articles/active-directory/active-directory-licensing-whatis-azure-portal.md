@@ -1,27 +1,27 @@
 ---
-title: "¿En qué consisten las licencias basadas en grupos de Azure Active Directory? | Microsoft Docs"
-description: "Descripción de las licencias basadas en grupo de Azure Active Directory, cómo funcionan y procedimientos recomendados"
+title: ¿En qué consisten las licencias basadas en grupos de Azure Active Directory? | Microsoft Docs
+description: Descripción de las licencias basadas en grupo de Azure Active Directory, cómo funcionan y procedimientos recomendados
 services: active-directory
 keywords: Licencias de Azure AD
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/29/2017
+ms.date: 03/20/2018
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: 9cfa8c42c1f3955adad5e4ce596d96c4e98e40a1
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1d4151d6c00da618cc008257bcdad4607f8fec49
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="group-based-licensing-basics-in-azure-active-directory"></a>Aspectos básicos de las licencias basadas en grupos en Azure Active Directory
 
@@ -60,7 +60,7 @@ Si tiene comentarios o solicitudes de características, compártalos con nosotro
 Para más información sobre otros escenarios de administración de licencias basadas en grupos, consulte:
 
 * [Introducción a las licencias de Azure Active Directory](active-directory-licensing-get-started-azure-portal.md)
-* [Assigning licenses to a group in Azure Active Directory](active-directory-licensing-group-assignment-azure-portal.md) (Asignación de licencias a un grupo en Azure Active Directory)
+* [Asignación de licencias a un grupo en Azure Active Directory](active-directory-licensing-group-assignment-azure-portal.md)
 * [Identificación y resolución de problemas de licencias de un grupo en Azure Active Directory](active-directory-licensing-group-problem-resolution-azure-portal.md)
 * [Migración de usuarios individuales con licencia a licencias basadas en grupos en Azure Active Directory](active-directory-licensing-group-migration-azure-portal.md)
 * [Escenarios adicionales de licencias basadas en grupos de Azure Active Directory](active-directory-licensing-group-advanced.md)

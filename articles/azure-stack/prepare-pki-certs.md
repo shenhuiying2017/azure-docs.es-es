@@ -1,25 +1,25 @@
 ---
-title: "Preparación de certificados de infraestructura de clave pública de Azure Stack para la implementación de sistemas integrados de Azure Stack | Microsoft Docs"
-description: "Describe cómo preparar los certificados PKI de Azure Stack para sus sistemas integrados."
+title: Preparación de certificados de infraestructura de clave pública de Azure Stack para la implementación de sistemas integrados de Azure Stack | Microsoft Docs
+description: Describe cómo preparar los certificados PKI de Azure Stack para sus sistemas integrados.
 services: azure-stack
-documentationcenter: 
-author: jeffgilb
+documentationcenter: ''
+author: mattbriggs
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
-ms.author: jeffgilb
+ms.date: 03/22/2018
+ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: b2f1e9bf62773dd7124678552f23dd9262530031
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: dadb443f8b7739e3a18c0d3beb558d8c42e9d19c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="prepare-azure-stack-pki-certificates-for-deployment"></a>Preparación de certificados PKI de Azure Stack para la implementación
 Los archivos de certificado [obtenidos de la entidad de certificación que eligió](azure-stack-get-pki-certs.md) deben importarse y exportarse con propiedades que coincidan con los requisitos de certificado de Azure Stack.
@@ -36,13 +36,13 @@ Siga estos pasos para preparar y validar los certificados PKI de Azure Stack:
 
     a.  Haga clic con el botón derecho en el certificado y seleccione **Instalar PFX**.
 
-    b.  En el **Asistente para importar certificados**, seleccione **Máquina local** como la ubicación de importación. Seleccione **Siguiente**.
+    b.  En el **Asistente para importar certificados**, seleccione **Máquina local** como la ubicación de importación. Seleccione **Next** (Siguiente).
 
     ![Ubicación de importación de la máquina local](.\media\prepare-pki-certs\1.png)
 
     c.  Seleccione **Siguiente** en la página **Elija un archivo para importar**.
 
-    d.  En la página **Protección de clave privada**, escriba la contraseña de los archivos de certificado y, luego, habilite **Marcar esta clave como exportable. Esto permite realizar copias de seguridad o transportar las claves en un momento posterior**. Seleccione **Siguiente**.
+    d.  En la página **Protección de clave privada**, escriba la contraseña de los archivos de certificado y, luego, habilite **Marcar esta clave como exportable. Esto permite realizar copias de seguridad o transportar las claves en un momento posterior**. Seleccione **Next** (Siguiente).
 
     ![Marcar clave como exportable](.\media\prepare-pki-certs\2.png)
 
@@ -64,19 +64,19 @@ Siga estos pasos para preparar y validar los certificados PKI de Azure Stack:
 
   d.    En la barra de tareas de la consola del administrador de certificados, seleccione **Acciones** > **Todas las tareas** > **Exportar**.
 
-  e.    Seleccione **Siguiente**.
+  e.    Seleccione **Next** (Siguiente).
 
   f.    Seleccione **Exportar la clave privada** y, después, haga clic en **Siguiente**.
 
   g.    En la sección Formato de archivo de exportación, seleccione **Exportar todas las propiedades extendidas** y, luego, haga clic en **Siguiente**.
 
-  h.    Seleccione **Contraseña** y proporcione una contraseña para los certificados. Recuerde esta contraseña, ya que se utiliza como un parámetro de implementación. Seleccione **Siguiente**.
+  h.    Seleccione **Contraseña** y proporcione una contraseña para los certificados. Recuerde esta contraseña, ya que se utiliza como un parámetro de implementación. Seleccione **Next** (Siguiente).
 
-  i.    Elija un nombre de archivo y la ubicación del archivo PFX que se va a exportar. Seleccione **Siguiente**.
+  i.    Elija un nombre de archivo y la ubicación del archivo PFX que se va a exportar. Seleccione **Next** (Siguiente).
 
   j.    Seleccione **Finalizar**.
 
   k.    Repita este proceso para todos los certificados importados para su implementación en el paso 2 anterior.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Validar los certificados PKI](validate-pki-certs.md)

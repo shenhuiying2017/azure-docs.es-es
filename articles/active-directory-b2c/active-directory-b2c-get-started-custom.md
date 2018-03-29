@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C: introducción a las directivas personalizadas | Microsoft Docs"
-description: "Introducción a las directivas personalizadas de Azure Active Directory B2C"
+title: 'Azure Active Directory B2C: introducción a las directivas personalizadas | Microsoft Docs'
+description: Introducción a las directivas personalizadas de Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: 
-author: rojasja
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: rojasja
-ms.assetid: 658c597e-3787-465e-b377-26aebc94e46d
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 08/04/2017
-ms.author: joroja;parahk;gsacavdm
-ms.openlocfilehash: 86b86c7c670b34b4f3303adbcb55aff8d5edb53a
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.author: davidmu
+ms.openlocfilehash: 502f88bd08c05f71988763fedeba4d596aa409b6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-get-started-with-custom-policies"></a>Azure Active Directory B2C: introducción a las directivas personalizadas
 
@@ -196,7 +193,7 @@ Cuando se carga un archivo, se antepone `B2C_1A_` al nombre del archivo de direc
 >Una causa común de los errores en el inicio de sesión es que la aplicación IdentityExperienceFramework no esté configurada correctamente.
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 ### <a name="add-facebook-as-an-identity-provider"></a>Incorporación de Facebook como proveedor de identidades
 Para configurar Facebook:

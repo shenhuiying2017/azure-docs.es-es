@@ -1,25 +1,25 @@
 ---
-title: "Generación de certificados de infraestructura de clave pública de Azure Stack para la implementación de sistemas integrados de Azure Stack | Microsoft Docs"
-description: "Describe el proceso de implementación de certificados PKI de Azure Stack para sus sistemas integrados."
+title: Generación de certificados de infraestructura de clave pública de Azure Stack para la implementación de sistemas integrados de Azure Stack | Microsoft Docs
+description: Describe el proceso de implementación de certificados PKI de Azure Stack para sus sistemas integrados.
 services: azure-stack
-documentationcenter: 
-author: jeffgilb
+documentationcenter: ''
+author: mattbriggs
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
-ms.author: jeffgilb
+ms.date: 03/22/2018
+ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 991a94e4ca41bad438a3c8d06e4e1f691cff91bc
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 4a7432260167b8740567ad4308e102417abad82c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="generate-pki-certificates-for-azure-stack-deployment"></a>Generación de certificados de infraestructura de clave pública para la implementación de Azure Stack
 Ahora que conoce [los requisitos de los certificados PKI](azure-stack-pki-certs.md) para las implementaciones de Azure Stack, debe obtener dichos certificados de la entidad de certificación (CA) que prefiera. 
@@ -74,5 +74,5 @@ El siguiente proceso describe cómo puede personalizar y usar el ejemplo de arch
 4. **Importe el archivo .CER**. La entidad de certificación devuelve un archivo .CER. Con el mismo equipo Windows desde el que ha generado el archivo de solicitud, importe el archivo .CER que se devuelve en el almacén de equipo o personal. 
 5. **Exporte y copie el archivo . PFX en las carpetas de implementación**. Exporte el certificado (incluida la clave privada) como un archivo .PFX y cópielo en las carpetas de implementación descritas en los [requisitos de PKI de la implementación de Azure Stack](azure-stack-pki-certs.md).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Preparación de certificados PKI de Azure Stack](prepare-pki-certs.md)

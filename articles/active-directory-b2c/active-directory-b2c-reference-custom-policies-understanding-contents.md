@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C: descripción de directivas personalizadas del paquete de inicio | Microsoft Docs"
+title: 'Azure Active Directory B2C: descripción de directivas personalizadas del paquete de inicio | Microsoft Docs'
 description: Un tema acerca de las directivas personalizadas de Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: 
-author: rojasja
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: rojasja
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 04/25/2017
-ms.author: joroja
-ms.openlocfilehash: fccb6cfddc8629de7db0310340f07bffd1ff8a65
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 624a40b1e40db6ceac9c567926b3932449e7bf7e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="understanding-the-custom-policies-of-the-azure-ad-b2c-custom-policy-starter-pack"></a>Descripción de las directivas personalizadas del paquete del inicio de directivas personalizadas de Azure AD B2C
 
@@ -50,7 +47,7 @@ A continuación se enumeran los tipos de notificaciones disponibles.
 
 Las siguientes notificaciones son necesarias para que los recorridos de usuario funcionen correctamente:
 
-| Tipo de notificaciones | Descripción |
+| Tipo de notificaciones | DESCRIPCIÓN |
 |-------------|-------------|
 | *UserId* | Nombre de usuario |
 | *signInName* | Nombre de inicio de sesión |
@@ -81,7 +78,7 @@ Las siguientes notificaciones son necesarias para que los recorridos de usuario 
 
 Para pasar parámetros especiales (incluidos algunos parámetros de cadena de consulta), se requieren las siguientes notificaciones a otros proveedores de notificaciones:
 
-| Tipo de notificaciones | Descripción |
+| Tipo de notificaciones | DESCRIPCIÓN |
 |-------------|-------------|
 | *nux* | Parámetro especial pasado para la autenticación con la cuenta local en login.microsoftonline.com. |
 | *nca* | Parámetro especial pasado para la autenticación con la cuenta local en login.microsoftonline.com. |
@@ -98,7 +95,7 @@ Para pasar parámetros especiales (incluidos algunos parámetros de cadena de co
 
 Las siguientes notificaciones son notificaciones adicionales que pueden recopilarse de los usuarios, almacenarse en el directorio y enviarse en el token. Tal y como se ha descrito anteriormente, se pueden agregar notificaciones adicionales a esta lista.
 
-| Tipo de notificaciones | Descripción |
+| Tipo de notificaciones | DESCRIPCIÓN |
 |-------------|-------------|
 | *givenName* | Nombre dado del usuario (también conocido como nombre de pila) |
 | *surname* | Apellido del usuario (también conocido como nombre de familia) |
@@ -108,7 +105,7 @@ Las siguientes notificaciones son notificaciones adicionales que pueden recopila
 
 Las transformaciones de notificación disponibles se enumeran a continuación.
 
-| Transformación de notificación | Descripción |
+| Transformación de notificación | DESCRIPCIÓN |
 |----------------------|-------------|
 | *CreateOtherMailsFromEmail* | |
 | *CreateRandomUPNUserName* | |
@@ -121,7 +118,7 @@ Las transformaciones de notificación disponibles se enumeran a continuación.
 
 En esta sección se describen las definiciones de contenido ya declaradas en la directiva *B2C_1A_base*. Se puede hacer referencia a estas definiciones de contenido, se pueden anular o se pueden extender según sea necesario en sus propias directivas, así como en la directiva *B2C_1A_base_extensions*.
 
-| Proveedor de notificaciones | Descripción |
+| Proveedor de notificaciones | DESCRIPCIÓN |
 |-----------------|-------------|
 | *Facebook* | |
 | *Inicio de sesión en una cuenta local* | |
@@ -140,19 +137,19 @@ En esta sección se describen los perfiles técnicos ya declarados por el provee
 
 ### <a name="technical-profiles-for-facebook"></a>Perfiles técnicos de Facebook
 
-| Perfil técnico | Descripción |
+| Perfil técnico | DESCRIPCIÓN |
 |-------------------|-------------|
 | *Facebook-OAUTH* | |
 
 ### <a name="technical-profiles-for-local-account-signin"></a>Perfiles técnicos de inicio de sesión en una cuenta local
 
-| Perfil técnico | Descripción |
+| Perfil técnico | DESCRIPCIÓN |
 |-------------------|-------------|
 | *Login-NonInteractive* | |
 
 ### <a name="technical-profiles-for-phone-factor"></a>Perfiles técnicos de Phone Factor
 
-| Perfil técnico | Descripción |
+| Perfil técnico | DESCRIPCIÓN |
 |-------------------|-------------|
 | *PhoneFactor-Input* | |
 | *PhoneFactor-InputOrVerify* | |
@@ -160,7 +157,7 @@ En esta sección se describen los perfiles técnicos ya declarados por el provee
 
 ### <a name="technical-profiles-for-azure-active-directory"></a>Perfiles técnicos de Azure Active Directory
 
-| Perfil técnico | Descripción |
+| Perfil técnico | DESCRIPCIÓN |
 |-------------------|-------------|
 | *AAD-Common* | Perfil técnico incluido por los otros perfiles técnicos de AAD-xxx |
 | *AAD-UserWriteUsingAlternativeSecurityId* | Perfil técnico de inicios de sesión sociales |
@@ -175,20 +172,20 @@ En esta sección se describen los perfiles técnicos ya declarados por el provee
 
 ### <a name="technical-profiles-for-self-asserted"></a>Perfiles técnicos autoafirmados
 
-| Perfil técnico | Descripción |
+| Perfil técnico | DESCRIPCIÓN |
 |-------------------|-------------|
 | *SelfAsserted-Social* | |
 | *SelfAsserted-ProfileUpdate* | |
 
 ### <a name="technical-profiles-for-local-account"></a>Perfiles técnicos de cuenta local
 
-| Perfil técnico | Descripción |
+| Perfil técnico | DESCRIPCIÓN |
 |-------------------|-------------|
 | *LocalAccountSignUpWithLogonEmail* | |
 
 ### <a name="technical-profiles-for-session-management"></a>Perfiles técnicos de administración de sesiones
 
-| Perfil técnico | Descripción |
+| Perfil técnico | DESCRIPCIÓN |
 |-------------------|-------------|
 | *SM-Noop* | |
 | *SM-AAD* | |
@@ -202,7 +199,7 @@ Actualmente, no se ha definido ningún perfil técnico para el proveedor de noti
 
 ### <a name="technical-profiles-for-token-issuer"></a>Perfiles técnicos del emisor de tokens
 
-| Perfil técnico | Descripción |
+| Perfil técnico | DESCRIPCIÓN |
 |-------------------|-------------|
 | *JwtIssuer* | |
 
@@ -210,7 +207,7 @@ Actualmente, no se ha definido ningún perfil técnico para el proveedor de noti
 
 En esta sección se describen los recorridos de usuario ya declarados en la directiva *B2C_1A_base*. Se puede hacer referencia adicionalmente a estos recorridos de usuario, se pueden anular o se pueden extender según sea necesario en sus propias directivas, así como en la directiva *B2C_1A_base_extensions*.
 
-| Recorrido de usuario | Descripción |
+| Recorrido de usuario | DESCRIPCIÓN |
 |--------------|-------------|
 | *SignUp* | |
 | *SignIn* | |

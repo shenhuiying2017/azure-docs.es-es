@@ -1,11 +1,11 @@
 ---
-title: "Creación de una aplicación web ASP.NET Core en Azure | Microsoft Docs"
-description: "Obtenga información acerca de cómo ejecutar aplicaciones web en Azure App Service mediante la implementación de la aplicación web ASP.NET predeterminada."
+title: Creación de una aplicación web ASP.NET Core en Azure | Microsoft Docs
+description: Obtenga información acerca de cómo ejecutar aplicaciones web en Azure App Service mediante la implementación de la aplicación web ASP.NET predeterminada.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.service: app-service-web
 ms.workload: web
@@ -16,10 +16,10 @@ ms.date: 06/14/2017
 ms.author: cephalin
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 698f23507da0707a4612f8d33fe7e2995429f361
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-an-aspnet-core-web-app-in-azure"></a>Creación de una aplicación web ASP.NET Core en Azure
 
@@ -113,7 +113,7 @@ En el cuadro de diálogo **Configurar plan de App Service**, use la configuraci�
 | Configuración | Valor sugerido | DESCRIPCIÓN |
 |-|-|-|
 |Plan de App Service| myAppServicePlan | Nombre del plan de App Service. |
-| La ubicación | Europa occidental | El centro de datos donde se hospeda la aplicación web. |
+| Ubicación | Europa occidental | El centro de datos donde se hospeda la aplicación web. |
 | Tamaño | Gratuito | [Plan de tarifa](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) determina las características de hospedaje. |
 
 Seleccione **Aceptar**.
@@ -171,7 +171,7 @@ El menú izquierdo proporciona distintas páginas para configurar la aplicación
 
 [!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
 > [ASP.NET Core con SQL Database](app-service-web-tutorial-dotnetcore-sqldb.md)

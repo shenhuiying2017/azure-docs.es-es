@@ -1,6 +1,6 @@
 ---
-title: "Creación de un equilibrador de carga público: PowerShell | Microsoft Docs"
-description: "Aprenda a crear un equilibrador de carga público en Resource Manager con PowerShell"
+title: 'Creación de un equilibrador de carga público: PowerShell | Microsoft Docs'
+description: Aprenda a crear un equilibrador de carga público en Resource Manager con PowerShell
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 15e1c868a72a61d9721b96032d304fdec6d6e213
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 4ce11b0b06e1feaf55d17e25500c43a7eb1bf3d5
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="get-started"></a>Creación de un equilibrador de carga público en Resource Manager con PowerShell
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 01/23/2018
 > * [CLI de Azure](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
 > * [Plantilla](../load-balancer/load-balancer-get-started-internet-arm-template.md)
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
@@ -306,7 +306,7 @@ Remove-AzureRmLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
 > [!NOTE]
 > Puede usar el modificador opcional **-Force** para evitar la solicitud de eliminación.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 [Introducción a la configuración de un equilibrador de carga interno](load-balancer-get-started-ilb-arm-ps.md)
 

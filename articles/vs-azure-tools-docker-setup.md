@@ -1,11 +1,11 @@
 ---
-title: "Configuración de un host de Docker con VirtualBox | Microsoft Docs"
-description: "Instrucciones paso a paso para configurar una instancia de Docker predeterminada con la máquina de Docker y VirtualBox"
+title: Configuración de un host de Docker con VirtualBox | Microsoft Docs
+description: Instrucciones paso a paso para configurar una instancia de Docker predeterminada con la máquina de Docker y VirtualBox
 services: azure-container-service
 documentationcenter: na
 author: mlearned
 manager: douge
-editor: 
+editor: ''
 ms.assetid: 0b1335a2-7720-42a8-8260-4e06fc00c9f6
 ms.service: multiple
 ms.devlang: dotnet
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/08/2016
 ms.author: mlearned
-ms.openlocfilehash: e9465afb560a73d74f853c19094b3ee75b8c470c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 11e238fa901a164df1dfd896e38df828601e650b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-a-docker-host-with-virtualbox"></a>Configuración de un host de Docker con VirtualBox
 ## <a name="overview"></a>Información general
 Este artículo le guiará por el proceso de configuración de una instancia de Docker predeterminada con la máquina de Docker y VirtualBox. Si utiliza [Docker para Windows beta](http://beta.docker.com/), esta configuración no es necesaria.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Es necesario instalar las siguientes herramientas.
 
-* [Docker Toolbox](https://www.docker.com/products/overview#/docker_toolbox)
+* [Docker Toolbox](https://github.com/docker/toolbox/releases)
 
 ## <a name="configuring-the-docker-client-with-windows-powershell"></a>Configuración del cliente de Docker con Windows PowerShell
 Para configurar a un cliente de Docker, simplemente abra Windows PowerShell y realice los pasos siguientes:

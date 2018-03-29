@@ -1,10 +1,11 @@
 ---
-title: "Paso 3: Creación de un nuevo experimento de Machine Learning | Microsoft Docs"
-description: "Paso 3 del tutorial Desarrollo de una solución predictiva: crear un nuevo experimento de aprendizaje en Estudio de aprendizaje automático de Azure."
+title: 'Paso 3: Creación de un nuevo experimento de Machine Learning | Microsoft Docs'
+description: 'Paso 3 del tutorial Desarrollo de una solución predictiva: crear un nuevo experimento de aprendizaje en Azure Machine Learning Studio.'
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 660e3c27-55ef-4c33-a4e9-dff4d1224630
 ms.service: machine-learning
@@ -13,17 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.author: garye
-ms.openlocfilehash: a8f1764204740a8f5ef757e5e2ad63cfd43af150
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 72d6c3acfdf095ad8652561244139304b690344a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="walkthrough-step-3-create-a-new-azure-machine-learning-experiment"></a>Paso 3 del tutorial: Creación de un nuevo experimento de Aprendizaje automático de Azure
-Este es el tercer paso del tutorial [Desarrollo de una solución de análisis predictiva para la evaluación del riesgo de crédito en Aprendizaje automático de Azure](walkthrough-develop-predictive-solution.md)
+# <a name="walkthrough-step-3-create-a-new-azure-machine-learning-experiment"></a>Paso 3 del tutorial: Creación de un nuevo experimento de Azure Machine Learning
+Este es el tercer paso del tutorial [Desarrollo de una solución de análisis predictiva para la evaluación del riesgo de crédito en Azure Machine Learning](walkthrough-develop-predictive-solution.md)
 
-1. [Creación de un área de trabajo de Aprendizaje automático](walkthrough-1-create-ml-workspace.md)
+1. [Creación de un área de trabajo de Machine Learning](walkthrough-1-create-ml-workspace.md)
 2. [Carga de los datos existentes](walkthrough-2-upload-data.md)
 3. **Crear un experimento nuevo**
 4. [Entrenamiento y evaluación de los modelos](walkthrough-4-train-and-evaluate-models.md)

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 5aae5057cccdf8dfbe2a42a39da5b9e70b9166f9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f5ca5544a217d66d334ff468d2308af1836c7de8
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Supervisión y administración de canalizaciones de Azure Data Factory mediante la aplicación de supervisión y administración
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.lasthandoff: 03/23/2018
 > [!NOTE]
 > Este artículo se aplica a la versión 1 de Data Factory, que está disponible con carácter general. Si usa la versión 2 del servicio Data Factory, que se encuentra en versión preliminar, consulte el artículo sobre [la supervisión y administración de canalizaciones en Data Factory en la versión 2](../monitor-visually.md).
 
-En este artículo se describe cómo usar la aplicación de supervisión y administración para supervisar, administrar y depurar las canalizaciones de Data Factory. También proporciona información acerca de cómo crear alertas para recibir notificaciones cuando se produzcan errores. Para empezar a usar la aplicación, vea el vídeo siguiente:
+En este artículo se describe cómo usar la aplicación de supervisión y administración para supervisar, administrar y depurar las canalizaciones de Data Factory. Para empezar a usar la aplicación, vea el vídeo siguiente:
 
 > [!NOTE]
 > La interfaz de usuario que se muestra en el vídeo puede no coincidir exactamente con la que se ve en el portal. Es algo anterior, pero los conceptos siguen siendo los mismos. 
@@ -296,42 +296,3 @@ También puede seleccionar varias ventanas de actividad en la lista y volver a e
 También puede realizar una selección múltiple de dos o más canalizaciones con la tecla Ctrl. Puede utilizar los botones de la barra de comandos (que se resaltan en el rectángulo rojo en la imagen siguiente) para pausarlas o reanudarlas.
 
 ![Pausa/reanudación en la barra de comandos](./media/data-factory-monitor-manage-app/SuspendResumeOnCommandBar.png)
-
-## <a name="create-alerts"></a>Creación de alertas
-La página **Alertas** le permite crear una alerta nueva, así como ver, editar o eliminar las alertas existentes. También puede habilitar o deshabilitar una alerta. Haga clic en la pestaña Alertas para ver la pestaña **Alertas**.
-
-![Pestaña Alertas](./media/data-factory-monitor-manage-app/AlertsTab.png)
-
-### <a name="to-create-an-alert"></a>Para crear una alerta
-1. Haga clic en **Agregar alerta** para agregar una alerta. Verá la página **Detalles**.
-
-    ![Crear alertas: página de detalles](./media/data-factory-monitor-manage-app/CreateAlertDetailsPage.png)
-2. Especifique el **nombre** y la **descripción** de la alerta y haga clic en **Siguiente**. Verá la página **Filtros** .
-
-    ![Crear alertas: página de filtros](./media/data-factory-monitor-manage-app/CreateAlertFiltersPage.png)
-3. Seleccione el **evento**, el **estado** y el **subestado** (opcional) sobre los que desea que el servicio Data Factory le alerte y haga clic en **Siguiente**. Verá la página **Destinatarios** .
-
-    ![Crear alertas: página de destinatarios](./media/data-factory-monitor-manage-app/CreateAlertRecipientsPage.png)
-4. Seleccione la opción **Email subscription admins** (Administradores de suscripciones de correo electrónico) o escriba un **correo electrónico de administrador adicional** y haga clic en **Finish** (Finalizar). Debería ver la alerta en la lista.
-
-    ![Lista de alertas](./media/data-factory-monitor-manage-app/AlertsList.png)
-
-En la lista de alertas, use los botones asociados con la alerta para editarla, eliminarla, habilitarla o deshabilitarla.
-
-### <a name="eventstatussubstatus"></a>Evento/estado/subestado
-En la tabla siguiente se ofrece una lista de los eventos y los estados (y subestados) disponibles.
-
-| Nombre del evento | Status | Subestado |
-| --- | --- | --- |
-| Ejecución de actividad iniciada |Started |Iniciando |
-| Ejecución de actividad finalizada |Succeeded |Succeeded |
-| Ejecución de actividad finalizada |Con error |Asignación de recursos errónea<br/><br/>Ejecución con errores<br/><br/>Timed Out<br/><br/>Failed Validation<br/><br/>Abandoned |
-| Creación de clúster de HDI a petición iniciada |Started |-|
-| Creación correcta de clúster de HDI a petición |Succeeded |-|
-| Clúster de HDI a petición eliminado |Succeeded |-|
-
-### <a name="to-edit-delete-or-disable-an-alert"></a>Edición, eliminación o deshabilitación de alertas
-
-Utilice los siguientes botones (resaltados en rojo) para editar, eliminar o deshabilitar una alerta.
-
-![Botones de alertas](./media/data-factory-monitor-manage-app/AlertButtons.png)

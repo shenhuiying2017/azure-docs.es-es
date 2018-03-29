@@ -1,9 +1,9 @@
 ---
-title: "Artículo tutorial sobre las características de la versión preliminar de Azure Machine Learning: interfaz de línea de comandos | Microsoft Docs"
-description: "Este tutorial recorre todos los pasos necesarios para completar una clasificación de iris de un extremo a otro mediante la interfaz de línea de comandos."
+title: 'Artículo tutorial sobre las características de la versión preliminar de Azure Machine Learning: interfaz de línea de comandos | Microsoft Docs'
+description: Este tutorial recorre todos los pasos necesarios para completar una clasificación de iris de un extremo a otro mediante la interfaz de línea de comandos.
 services: machine-learning
 author: ahgyger
-ms.author: ahgyger, ritbhat
+ms.author: ahgyger
 manager: haining
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 10/15/2017
-ms.openlocfilehash: ad81cd02ba0c46cbe58de7071d2164aaefea6514
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 2d7965c0028e8f2e82db2e3ddd4eed6e20f4f443
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="tutorial-classifying-iris-using-the-command-line-interface"></a>Tutorial: Clasificación de iris mediante la interfaz de línea de comandos
 Los servicios de Azure Machine Learning (versión preliminar) son una solución de análisis avanzado y ciencia de datos completa e integrada que permite a los científicos de datos profesionales preparar datos, desarrollar experimentos e implementar modelos a escala de la nube.

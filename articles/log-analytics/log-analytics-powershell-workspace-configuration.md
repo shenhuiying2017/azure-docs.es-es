@@ -1,11 +1,11 @@
 ---
-title: "Uso de PowerShell para crear y configurar un área de trabajo de Log Analytics | Microsoft Docs"
-description: "Log Analytics usa datos de los servidores de la infraestructura local o de nube. Puede recopilar datos de equipo del almacenamiento de Azure cuando son generados por Diagnósticos de Azure."
+title: Uso de PowerShell para crear y configurar un área de trabajo de Log Analytics | Microsoft Docs
+description: Log Analytics usa datos de los servidores de la infraestructura local o de nube. Puede recopilar datos de equipo del almacenamiento de Azure cuando son generados por Diagnósticos de Azure.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: richrundmsft
 manager: jochan
-editor: 
+editor: ''
 ms.assetid: 3b9b7ade-3374-4596-afb1-51b695f481c2
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 11/21/2016
 ms.author: richrund
-ms.openlocfilehash: 6807ab67e3593da82c147669b29bfdae3b6c967c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6a3f91323a017533d2d012f1e81760396c17a643
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="manage-log-analytics-using-powershell"></a>Administración de Log Analytics mediante PowerShell
 Puede usar los [cmdlets de PowerShell de Log Analytics](https://msdn.microsoft.com/library/mt188224\(v=azure.300\).aspx) para realizar una serie de funciones en Log Analytics desde una línea de comandos o como parte de un script.  A continuación se indican algunos ejemplos de las tareas que puede realizar con PowerShell:
@@ -42,7 +42,7 @@ Este artículo proporciona dos ejemplos de código que muestran algunas de las f
 > 
 > 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Estos ejemplos funcionan con la versión 2.3.0 o posteriores del módulo AzureRm.OperationalInsights.
 
 
@@ -145,7 +145,7 @@ foreach ($solution in $Solutions) {
     Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -IntelligencePackName $solution -Enabled $true
 }
 
-#List enabled solutions
+# List enabled solutions
 (Get-AzureRmOperationalInsightsIntelligencePacks -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName).Where({($_.enabled -eq $true)})
 
 # Import Saved Searches
@@ -192,23 +192,23 @@ Para la supervisión de recursos de Azure sin agente, los recursos necesitan ten
 | Tipo de recurso | Registros | Métricas |
 | --- | --- | --- |
 | Puertas de enlace de aplicaciones    | Sí | Sí |
-| Cuentas de automatización     | Sí | |
+| Cuentas de Automation     | Sí | |
 | Cuentas de Batch          | Sí | Sí |
-| Data Lake Analytics     | yes | | 
+| Data Lake Analytics     | Sí | | 
 | Data Lake Store         | Sí | |
 | Elastic SQL Pool        |     | Sí |
 | Espacio de nombres del Centro de eventos     |     | Sí |
 | IoT Hubs                |     | Sí |
 | Key Vault               | Sí | |
 | Equilibradores de carga          | Sí | |
-| Logic Apps              | yes | Sí |
+| Logic Apps              | Sí | Sí |
 | Grupos de seguridad de red | Sí | |
-| Caché en Redis             |     | yes |
+| Caché en Redis             |     | Sí |
 | Servicios de búsqueda         | Sí | Sí |
-| Espacio de nombres de Bus de servicio   |     | Sí |
+| Espacio de nombres de Service Bus   |     | Sí |
 | SQL (v12)               |     | Sí |
-| Sitios web               |     | yes |
-| Granjas de servidores web        |     | yes |
+| Sitios web               |     | Sí |
+| Granjas de servidores web        |     | Sí |
 
 Para obtener información detallada sobre las métricas disponibles, consulte las [métricas admitidas con Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md).
 

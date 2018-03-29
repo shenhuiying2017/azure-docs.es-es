@@ -41,8 +41,8 @@
           href: what-is-a-data-warehouse-unit-dwu-cdwu.md
         - name: 'Escalabilidad horizontal, pausa, reanudación'
           href: sql-data-warehouse-manage-compute-overview.md
-        - name: Copias de seguridad de almacenamiento de datos
-          href: sql-data-warehouse-backups.md
+        - name: Copia de seguridad y restauración
+          href: backup-and-restore.md
         - name: Auditoría
           href: sql-data-warehouse-auditing-overview.md
         - name: Límites de capacidad

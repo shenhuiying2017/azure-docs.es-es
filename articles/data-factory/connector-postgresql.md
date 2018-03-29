@@ -1,11 +1,11 @@
 ---
 title: Copia de datos desde PostgreSQL mediante Azure Data Factory | Microsoft Docs
-description: "Obtenga información sobre cómo copiar datos desde PostgreSQL en almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory."
+description: Obtenga información sobre cómo copiar datos desde PostgreSQL en almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: ce2d20a31db1fc5aaa21d9d26e9fb280ef1716f9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: bc8524793e43f15c66b3b881cd01d51d959e1421
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-postgresql-by-using-azure-data-factory"></a>Copia de datos desde PostgreSQL mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -59,7 +59,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado PostgreSQL:
 | Servidor | Nombre del servidor de PostgreSQL. |Sí |
 | Base de datos | Nombre de la base de datos de PostgreSQL. |Sí |
 | schema | Nombre del esquema de la base de datos. El nombre del esquema distingue mayúsculas de minúsculas. |Sin  |
-| Nombre de usuario | Especifique el nombre de usuario para conectarse a la base de datos PostgreSQL. |Sí |
+| nombre de usuario | Especifique el nombre de usuario para conectarse a la base de datos PostgreSQL. |Sí |
 | contraseña | Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Tal y como se mencionó en los [requisitos previos](#prerequisites), se requiere un entorno Integration Runtime autohospedado. |Sí |
 
@@ -211,5 +211,5 @@ Al copiar datos desde PostgreSQL, se utilizan las siguientes asignaciones de tip
 | `text` | |`String` |&nbsp;
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Consulte los [almacenes de datos compatibles](copy-activity-overview.md##supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.

@@ -1,6 +1,6 @@
 ---
-title: "Integración con los servicios administrados de Azure mediante Open Service Broker for Azure (OSBA)"
-description: "Integración con los servicios administrados de Azure mediante Open Service Broker for Azure (OSBA)"
+title: Integración con los servicios administrados de Azure mediante Open Service Broker for Azure (OSBA)
+description: Integración con los servicios administrados de Azure mediante Open Service Broker for Azure (OSBA)
 services: container-service
 author: sozercan
 manager: timlt
@@ -8,11 +8,11 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 12/05/2017
 ms.author: seozerca
-ms.openlocfilehash: 594cb0afbdb0a44e9f092b9afc5af13b21e763a4
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: b1b51b6c36143747a81d1c1fc035ee6d54d34076
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="integrate-with-azure-managed-services-using-open-service-broker-for-azure-osba"></a>Integración con los servicios administrados de Azure mediante Open Service Broker for Azure (OSBA)
 
@@ -76,17 +76,45 @@ Empiece agregando Open Service Broker para el repositorio de Azure Helm:
 helm repo add azure https://kubernetescharts.blob.core.windows.net/azure
 ```
 
-A continuación, use el siguiente script para crear una [entidad de servicio][create-service-principal] y rellene varias variables. Estas variables se utilizan cuando se ejecuta el gráfico de Helm para instalar Service Broker.
+Cree una [entidad de servicio][create-service-principal] con el siguiente comando de la CLI de Azure:
 
 ```azurecli-interactive
-SERVICE_PRINCIPAL=$(az ad sp create-for-rbac)
-AZURE_CLIENT_ID=$(echo $SERVICE_PRINCIPAL | cut -d '"' -f 4)
-AZURE_CLIENT_SECRET=$(echo $SERVICE_PRINCIPAL | cut -d '"' -f 16)
-AZURE_TENANT_ID=$(echo $SERVICE_PRINCIPAL | cut -d '"' -f 20)
-AZURE_SUBSCRIPTION_ID=$(az account show --query id --output tsv)
+az ad sp create-for-rbac
 ```
 
-Ahora que ha rellenado estas variables de entorno, ejecute el siguiente comando para instalar Service Broker.
+La salida debe ser similar a la siguiente: Tome nota de los valores `appId`, `password` y `tenant`, que se utilizan en el paso siguiente.
+
+```JSON
+{
+  "appId": "7248f250-0000-0000-0000-dbdeb8400d85",
+  "displayName": "azure-cli-2017-10-15-02-20-15",
+  "name": "http://azure-cli-2017-10-15-02-20-15",
+  "password": "77851d2c-0000-0000-0000-cb3ebc97975a",
+  "tenant": "72f988bf-0000-0000-0000-2d7cd011db47"
+}
+```
+
+Establezca las siguientes variables de entorno con los valores anteriores:
+
+```azurecli-interactive
+AZURE_CLIENT_ID=<appId>
+AZURE_CLIENT_SECRET=<password>
+AZURE_TENANT_ID=<tenant>
+```
+
+Ahora obtenga el identificador de la suscripción a Azure:
+
+```azurecli-interactive
+az account show --query id --output tsv
+```
+
+De nuevo, establezca la siguiente variable de entorno con el valor anterior:
+
+```azurecli-interactive
+AZURE_SUBSCRIPTION_ID=[your Azure subscription ID from above]
+```
+
+Ahora que ha rellenado estas variables de entorno, ejecute el siguiente comando para instalar Open Service Broker para Azure mediante el gráfico de Helm:
 
 ```azurecli-interactive
 helm install azure/open-service-broker-azure --name osba --namespace osba \
@@ -152,7 +180,7 @@ Enumere los secretos instalados:
 kubectl get secrets -n wordpress -o yaml
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Al seguir este artículo, implementó el catálogo de servicios en un clúster de Azure Container Service (AKS). Usó Open Service Broker for Azure para implementar una instalación de WordPress que use servicios administrados de Azure, en este caso, Azure Database for MySQL.
 

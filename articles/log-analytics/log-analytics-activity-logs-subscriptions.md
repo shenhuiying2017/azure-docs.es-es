@@ -1,11 +1,11 @@
 ---
-title: "Recopilación de registros de actividad de Azure en Log Analytics entre suscripciones | Microsoft Docs"
-description: "Use Event Hubs y Logic Apps para recopilar datos del registro de actividad de Azure y enviarlos a un área de trabajo de Azure Log Analytics de un inquilino diferente."
+title: Recopilación de registros de actividad de Azure en Log Analytics entre suscripciones | Microsoft Docs
+description: Use Event Hubs y Logic Apps para recopilar datos del registro de actividad de Azure y enviarlos a un área de trabajo de Azure Log Analytics de un inquilino diferente.
 services: log-analytics, logic-apps, event-hubs
-documentationcenter: 
+documentationcenter: ''
 author: richrundmsft
 manager: carmonm
-editor: 
+editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/08/2018
 ms.author: richrund; bwren
-ms.openlocfilehash: 89c62563b9772fa07d63a24b4aa20857b0143f85
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 23e4b7c74e6dfb88ec6ec50d5b8ae6d8288223f3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions"></a>Recopilación de registros de actividad de Azure en Log Analytics entre suscripciones
 
@@ -113,7 +113,7 @@ Antes de crear la aplicación lógica, asegúrese de que dispone de la informaci
 - Identificador del área de trabajo de Log Analytics
 - Clave compartida de Log Analytics
 
-Para obtener el nombre y la cadena de conexión del centro de eventos, siga los pasos descritos en [Comprobar los permisos del espacio de nombres de Event Hubs y buscar la cadena de conexión](../connectors/connectors-create-api-azure-event-hubs.md#check-event-hubs-namespace-permissions-and-find-the-connection-string).
+Para obtener el nombre y la cadena de conexión del centro de eventos, siga los pasos descritos en [Comprobar los permisos del espacio de nombres de Event Hubs y buscar la cadena de conexión](../connectors/connectors-create-api-azure-event-hubs.md#connect-to-azure-event-hubs).
 
 
 ### <a name="create-a-new-blank-logic-app"></a>Creación de una aplicación lógica en blanco
@@ -131,7 +131,7 @@ Para obtener el nombre y la cadena de conexión del centro de eventos, siga los 
    | NOMBRE           | Nombre único para la aplicación lógica. |
    | La suscripción   | Seleccione la suscripción de Azure que contendrá la aplicación lógica. |
    | Grupo de recursos | Seleccione un grupo de recursos de Azure existente o cree uno para la aplicación lógica. |
-   | La ubicación       | Seleccione la región del centro de datos para implementar la aplicación lógica. |
+   | Ubicación       | Seleccione la región del centro de datos para implementar la aplicación lógica. |
    | Log Analytics  | Seleccione si desea registrar el estado de cada ejecución de la aplicación lógica en Log Analytics.  |
 
     
@@ -337,7 +337,7 @@ El último paso consiste en comprobar el área de trabajo de Log Analytics para 
 
 ![Prueba de la aplicación lógica](media/log-analytics-activity-logs-subscriptions/log-analytics-results.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este artículo, ha creado una aplicación lógica para leer los registros de actividad de Azure de un centro de eventos y enviarlos a Log Analytics para su análisis. Para más información sobre cómo visualizar los datos en Log Analytics, incluida la creación de paneles, revise el tutorial sobre la visualización de datos.
 

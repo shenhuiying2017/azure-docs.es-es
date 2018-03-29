@@ -1,11 +1,11 @@
 ---
-title: "Introducción a Azure Cosmos DB | Microsoft Docs"
-description: "Información acerca de Azure Cosmos DB. Esta base de datos de varios modelos y distribución global se ha creado con latencia baja, escalabilidad elástica y alta disponibilidad."
+title: Introducción a Azure Cosmos DB | Microsoft Docs
+description: Información acerca de Azure Cosmos DB. Esta base de datos de varios modelos y distribución global se ha creado con latencia baja, escalabilidad elástica y alta disponibilidad.
 services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: monicar
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: a855183f-34d4-49cc-9609-1478e465c3b7
 ms.service: cosmos-db
 ms.workload: data-services
@@ -15,15 +15,13 @@ ms.topic: overview
 ms.date: 12/15/2017
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: e8b1454583e52f2c7a38b375df259a8b66f7d24f
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: e78480ceb47e472029795848739b4416e0c4256e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Bienvenido a Azure Cosmos DB
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Azure Cosmos DB es la base de datos multimodelo de distribución global de Microsoft. Con tan solo un clic, Azure Cosmos DB permite escalar de forma elástica e individual el rendimiento y el almacenamiento en cualquiera de las regiones geográficas de Azure. Ofrece garantía de rendimiento, latencia, disponibilidad y coherencia con [acuerdos de nivel de servicio](https://aka.ms/acdbsla) (SLA)  integrales, algo que no ofrece ningún otro servicio de base de datos. También puede [probar gratis Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) sin una suscripción de Azure, de forma gratuita y sin compromiso.
 
@@ -46,7 +44,7 @@ Al igual que un servicio de base de datos de varios modelos y distribuido global
         * [SQL API](sql-api-introduction.md): un motor de base de datos JSON sin esquema con funcionalidades de consulta SQL avanzadas.
         * [API de MongoDB](mongodb-introduction.md): *MongoDB como servicio* masivamente escalable con la tecnología de la plataforma Azure Cosmos DB. Es compatible con las bibliotecas, los controladores, las herramientas y las aplicaciones existentes de MongoDB.
         * [Cassandra API](cassandra-introduction.md): Cassandra como servicio distribuido globalmente con tecnología de la plataforma Azure Cosmos DB. Es compatible con las bibliotecas, los controladores, las herramientas y las aplicaciones existentes de [Apache Cassandra](https://cassandra.apache.org/).
-        * [API Graph (Gremlin)](graph-introduction.md): servicio de base de datos de grafos de escalabilidad horizontal y completamente administrado que facilita la compilación y ejecución de aplicaciones que funcionan con conjuntos de datos altamente conectados que admiten las API Open Graph (según la [especificación de Apache TinkerPop](http://tinkerpop.apache.org/) y Apache Gremlin).
+        * [Graph API (Gremlin)](graph-introduction.md): servicio de base de datos de grafos de escalabilidad horizontal y completamente administrado que facilita la compilación y ejecución de aplicaciones que funcionan con conjuntos de datos altamente conectados que admiten las API Open Graph (según la [especificación de Apache TinkerPop](http://tinkerpop.apache.org/) y Apache Gremlin).
         * [Table API](table-introduction.md): servicio de base de datos de par clave-valor compilado para proporcionar funcionalidades premium (por ejemplo, indexación automática, baja latencia garantizada y distribución global) a aplicaciones de almacenamiento existentes de Azure Table sin realizar ningún cambio en las aplicaciones.
         * Modelos de datos adicionales disponibles próximamente.
 
@@ -94,13 +92,13 @@ Azure Cosmos DB proporciona las mejores funcionalidades de las bases de datos re
 
 Cualquier [aplicación web, móvil, de juegos y de IoT](use-cases.md) que deba controlar grandes cantidades de datos, lecturas y escrituras en una escala [global](distribute-data-globally.md) con tiempos de respuesta casi en tiempo real para una variedad de datos se beneficiará de la alta disponibilidad, el elevado rendimiento, la latencia baja y la coherencia ajustable [garantizados](https://azure.microsoft.com/support/legal/sla/cosmos-db/) de Azure Cosmos DB. Conozca cómo se puede aplicar Azure CosmosDB a los sectores de [IoT y telemática](use-cases.md#iot-and-telematics), [comercio minorista y marketing](use-cases.md#retail-and-marketing), [juegos](use-cases.md#gaming) y [aplicaciones web y móviles](use-cases.md#web-and-mobile-applications).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Comience a usar Azure Cosmos DB con una de nuestras guías rápidas:
 
 * [Introducción a SQL API de Azure Cosmos DB](create-sql-api-dotnet.md)
 * [Introducción a la API de MongoDB de Azure Cosmos DB](create-mongodb-nodejs.md)
 * [Introducción a la API Cassandra de Azure Cosmos DB](create-cassandra-dotnet.md)
-* [Introducción a API Graph de Azure Cosmos DB](create-graph-dotnet.md)
+* [Introducción a Graph API de Azure Cosmos DB](create-graph-dotnet.md)
 * [Introducción a Table API de Azure Cosmos DB](create-table-dotnet.md)
 
 > [!div class="nextstepaction"]

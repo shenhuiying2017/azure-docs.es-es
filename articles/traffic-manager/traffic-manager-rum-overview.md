@@ -1,31 +1,28 @@
 ---
 title: Real User Measurements en Azure Traffic Manager | Microsoft Docs
-description: "Introducción a Real User Measurements en Traffic Manager"
+description: Introducción a Real User Measurements en Traffic Manager
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
 manager: timlt
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 09/19/2017
+ms.date: 03/16/2018
 ms.author: kumud
-ms.custom: 
-ms.openlocfilehash: a7e8ae605b6234341d9ab8b790f4c54d8627f29f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: ''
+ms.openlocfilehash: 4e8d808d65c9898d230455d128e3ffc50db303d6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="traffic-manager-real-user-measurements-overview"></a>Introducción a Real User Measurements en Traffic Manager
-
->[!NOTE]
->La característica Real User Measurements de Traffic Manager está en versión preliminar pública y es posible que no tenga el mismo nivel de disponibilidad y confiabilidad que las características que están en versión de disponibilidad general. Esta característica no se admite, puede tener funcionalidades limitadas y no estar disponible en todas las ubicaciones de Azure. Para obtener las notificaciones más recientes acerca de la disponibilidad y el estado de esta característica, consulte la página de [actualizaciones de Azure Traffic Manager](https://azure.microsoft.com/updates/?product=traffic-manager).
 
 Al configurar un perfil de Traffic Manager para usar el método de enrutamiento de rendimiento, el servicio examina de dónde proceden las solicitudes de consulta DNS y toma decisiones de enrutamiento para dirigir a los solicitantes a la región de Azure que proporcione la latencia más baja. Esto se logra mediante el uso de la información de latencia de red que Traffic Manager mantiene para distintas redes de usuario final.
 
@@ -46,5 +43,5 @@ Cuando use Real User Measurements, se le facturará en función del número de m
 - Aprenda [cómo funciona el Administrador de tráfico](traffic-manager-overview.md)
 - Obtenga más información sobre [Mobile Center](https://docs.microsoft.com/mobile-center/).
 - Aprenda más sobre los [métodos de enrutamiento de tráfico](traffic-manager-routing-methods.md) que admite el Administrador de tráfico.
-- Aprenda a [crear un perfil de Administrador de tráfico](traffic-manager-create-profile.md)
+- Aprenda a [crear un perfil del Administrador de tráfico](traffic-manager-create-profile.md)
 

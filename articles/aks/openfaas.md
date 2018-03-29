@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/05/2018
 ms.author: juda
 ms.custom: mvc
-ms.openlocfilehash: 06706450d8af6f571f002789815290f75da9623d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: d531bb40421716bf9fb3c253a3e76207b2806912
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="using-openfaas-on-aks"></a>Uso de OpenFaaS en AKS
 
@@ -230,7 +230,7 @@ También puede probar la función dentro de la UI de OpenFaaS.
 
 ![texto alternativo](media/container-service-serverless/OpenFaaSUI.png)
 
-# <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 La implementación predeterminada de OpenFaas debe estar bloqueada tanto para la puerta de enlace de OpenFaaS como para sus funciones. [La entrada del blog de Alex Ellis](https://blog.alexellis.io/lock-down-openfaas/) contiene más detalles sobre las opciones de configuración segura. 
 

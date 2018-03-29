@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: bcb7074a6d590a08ad683c8746156245bc60c5e8
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: a7a81f51e0873da38f25deb687e4d03ccf67e11a
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="password-writeback-overview"></a>Información general sobre la escritura diferida de contraseñas
 
@@ -30,7 +30,7 @@ La escritura diferida de contraseñas ofrece las siguientes características:
 
 * **Proporciona comentarios con retraso cero**: la escritura diferida de contraseñas es una operación sincrónica. Si la contraseña de un usuario no cumple la directiva o no se puede restablecer o modificar por algún motivo, a dicho usuario se le envía una notificación inmediatamente.
 * **Admite el restablecimiento de contraseñas de usuarios que usan Servicios de federación de Active Directory (AD FS) u otras tecnologías de federación**: con la escritura diferida de contraseñas, siempre que las cuentas de usuario federadas estén sincronizadas en el inquilino de Azure AD, se podrán administrar las contraseñas de instancias locales de Active Directory desde la nube.
-* **Admite el restablecimiento de contraseñas de usuarios que usan la**  [sincronización de hash de contraseñas](./connect/active-directory-aadconnectsync-implement-password-synchronization.md): cuando el servicio de restablecimiento de contraseñas detecta que una cuenta de usuario sincronizada está habilitada para la sincronización de hash de contraseñas, se restablece la contraseña local y de la nube de la cuenta al mismo tiempo.
+* **Admite el restablecimiento de contraseñas de usuarios que usan la**  [sincronización de hash de contraseñas](./connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md): cuando el servicio de restablecimiento de contraseñas detecta que una cuenta de usuario sincronizada está habilitada para la sincronización de hash de contraseñas, se restablece la contraseña local y de la nube de la cuenta al mismo tiempo.
 * **Admite restablecimientos de contraseñas para usuarios que usan la autenticación de paso a través**: con la escritura diferida de contraseñas, las cuentas de autenticación de paso a través pueden administrar sus contraseñas de Active Directory locales desde la nube, siempre y cuando dichas cuentas estén sincronizadas en el inquilino de Azure AD.
 * **Admite la modificación de contraseñas desde el panel de acceso y Office 365**: si los usuarios con sincronización de contraseñas o federados modifican las contraseñas expiradas o no expiradas, se escriben tales contraseñas en diferido en el entorno local de Active Directory.
 * [Admite la escritura diferida de contraseñas si un administrador las restablece desde Azure Portal](https://portal.azure.com): cada vez que un administrador restablece una contraseña de usuario en **Azure Portal**, si ese usuario se federa o se sincroniza con contraseña, también se establece la contraseña que el administrador seleccione en el entorno local de Active Directory. Esta funcionalidad no se admite en el portal de administración de Office.

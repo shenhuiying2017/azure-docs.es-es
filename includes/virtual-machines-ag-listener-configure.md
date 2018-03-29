@@ -6,7 +6,7 @@ El agente de escucha del grupo de disponibilidad es un nombre de red y una direc
 
     b. Abra el Administrador de clústeres de conmutación por error.
 
-    c. Seleccione el nodo **Redes** y anota el nombre de red del clúster. Use este nombre en la variable `$ClusterNetworkName` del script de PowerShell. En la siguiente imagen el nombre de red del clúster es **Cluster Network 1**:
+    c. Seleccione el nodo **Redes** y anote el nombre de red del clúster. Use este nombre en la variable `$ClusterNetworkName` del script de PowerShell. En la siguiente imagen el nombre de red del clúster es **Cluster Network 1**:
 
    ![Nombre de red del clúster](./media/virtual-machines-ag-listener-configure/90-clusternetworkname.png)
 
@@ -51,7 +51,7 @@ El agente de escucha del grupo de disponibilidad es un nombre de red y una direc
 
    ![Recurso de IP](./media/virtual-machines-ag-listener-configure/97-propertiesdependencies.png) 
 
-    d. Haga clic en **Aceptar**.
+    d. Haga clic en **OK**.
 
 5. <a name="listname"></a>Haga que el recurso de punto de acceso cliente dependa de la dirección IP.
 
@@ -61,7 +61,7 @@ El agente de escucha del grupo de disponibilidad es un nombre de red y una direc
 
    ![Recurso de IP](./media/virtual-machines-ag-listener-configure/98-dependencies.png) 
 
-    c. Haz clic en la pestaña **Dependencias** . Compruebe que la dirección IP es una dependencia. Si no es así, establezca una dependencia en la dirección IP. Si aparecen varios recursos, comprueba que las direcciones IP tienen dependencias OR, y no AND. Haga clic en **Aceptar**. 
+    c. Haz clic en la pestaña **Dependencias** . Compruebe que la dirección IP es una dependencia. Si no es así, establezca una dependencia en la dirección IP. Si aparecen varios recursos, comprueba que las direcciones IP tienen dependencias OR, y no AND. Haga clic en **OK**. 
 
    ![Recurso de IP](./media/virtual-machines-ag-listener-configure/98-propertiesdependencies.png) 
 
@@ -78,7 +78,7 @@ El agente de escucha del grupo de disponibilidad es un nombre de red y una direc
     ```PowerShell
     $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
     $IPResourceName = "<IPResourceName>" # the IP Address resource name
-    $ILBIP = “<n.n.n.n>” # the IP Address of the Internal Load Balancer (ILB). This is the static IP address for the load balancer you configured in the Azure portal.
+    $ILBIP = "<n.n.n.n>" # the IP Address of the Internal Load Balancer (ILB). This is the static IP address for the load balancer you configured in the Azure portal.
     [int]$ProbePort = <nnnnn>
     
     Import-Module FailoverClusters

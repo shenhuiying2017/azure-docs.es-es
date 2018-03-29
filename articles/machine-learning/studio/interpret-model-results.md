@@ -1,10 +1,11 @@
 ---
-title: "Cómo interpretar los resultados del modelo de Machine Learning | Microsoft Docs"
-description: "Cómo elegir el conjunto de parámetros óptimo para un algoritmo que use y visualice resultados del modelo de puntuación."
+title: Cómo interpretar los resultados del modelo de Machine Learning | Microsoft Docs
+description: Cómo elegir el conjunto de parámetros óptimo para un algoritmo que use y visualice resultados del modelo de puntuación.
 services: machine-learning
-documentationcenter: 
-author: bradsev
-manager: cgronlun
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 6230e5ab-a5c0-4c21-a061-47675ba3342c
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.author: bradsev;garye
-ms.openlocfilehash: d6563d411e9f159399f9863a5b572365dc2b05cc
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: e8f6d3accc7ad8de1161f08cceb0e856cf764255
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="interpret-model-results-in-azure-machine-learning"></a>Cómo interpretar los resultados del modelo de Azure Machine Learning
 En este tema se explica cómo ver e interpretar los resultados de predicción en Azure Machine Learning Studio. Después de entrenar un modelo y realizar predicciones sobre él ("puntuar el modelo"), deberá comprender e interpretar el resultado de predicción.
@@ -28,8 +28,8 @@ En este tema se explica cómo ver e interpretar los resultados de predicción en
 Hay cuatro tipos de modelos de aprendizaje automático principales en Azure Machine Learning:
 
 * clasificación
-* agrupación en clústeres
-* regresión
+* Agrupación en clústeres
+* Regresión
 * Sistemas de recomendación
 
 Los módulos usados para la predicción sobre estos modelos son:
@@ -114,7 +114,7 @@ Al visualizar los resultados del módulo [Puntuar modelo][score-model] haciendo 
 
 ![Resultados del modelo de puntuación](./media/interpret-model-results/7.png)
 
-Figura 7. Visualización de los resultados del modelo de puntuación en una clasificación multiclase
+Ilustración 7. Visualización de los resultados del modelo de puntuación en una clasificación multiclase
 
 **Interpretación de resultados**
 
@@ -177,7 +177,7 @@ Al ejecutar el servicio web, el resultado devuelto es similar al de la figura 14
 
 Figura 14. Resultado del servicio web de un problema de regresión de precios de automóviles
 
-## <a name="clustering"></a>agrupación en clústeres
+## <a name="clustering"></a>Agrupación en clústeres
 **Experimento de ejemplo**
 
 Usemos de nuevo el conjunto de datos de Iris para generar un experimento de agrupación en clústeres. Aquí puede filtrar las etiquetas de clase del conjunto de datos, de forma que solo tenga características y pueda usarse para la agrupación en clústeres. En este caso de uso de iris, especifique el número de clústeres en dos durante el proceso de entrenamiento, lo que significa que le gustaría agrupar las flores en dos clases. El experimento se muestra en la figura 15.

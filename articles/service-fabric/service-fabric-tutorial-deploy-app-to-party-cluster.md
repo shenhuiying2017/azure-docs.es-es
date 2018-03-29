@@ -1,25 +1,25 @@
 ---
-title: "Implementación de una aplicación de Azure Service Fabric en un clúster desde Visual Studio | Microsoft Docs"
-description: "Aprenda a implementar una aplicación en un clúster desde Visual Studio"
+title: Implementación de una aplicación de Azure Service Fabric en un clúster desde Visual Studio | Microsoft Docs
+description: Aprenda a implementar una aplicación en un clúster desde Visual Studio
 services: service-fabric
 documentationcenter: .net
 -author: mikkelhegn
 -manager: msfussell
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/21/2018
-ms.author: mikkelhegn
+ms.date: 02/23/2018
+ms.author: mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 21c991a4e3f9ae19a4ad4a96427fdc1c91c55a1c
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 1d8f8d903046f1d471f7abbe08a957b81522e391
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="tutorial-deploy-an-application-to-a-service-fabric-cluster-in-azure"></a>Tutorial: Implementación de una aplicación en un clúster de Service Fabric en Azure
 Este tutorial es la segunda parte de una serie y muestra cómo implementar una aplicación de Azure Service Fabric en un clúster nuevo de Azure directamente desde Visual Studio.
@@ -65,7 +65,6 @@ En este tutorial se darán los pasos necesarios para crear un clúster desde Vis
 > Muchos servicios usan el proxy inverso para comunicarse entre ellos. Tanto los clústeres creados desde Visual Studio como los clústeres de entidad tienen el proxy inverso habilitado de forma predeterminada.  Si usa un clúster existente, debe [habilitar el proxy inverso en el clúster](service-fabric-reverseproxy.md#setup-and-configuration).
 
 ### <a name="deploy-the-app-to-the-service-fabric-cluster"></a>Implementación de la aplicación en el clúster de Service Fabric
-
 1. Haga clic con el botón derecho en el proyecto de la aplicación en el Explorador de soluciones y elija **Publicar**.
 
 2. Inicie sesión con su cuenta de Azure para poder acceder a sus suscripciones. Este paso es opcional si se usa un clúster de entidad.

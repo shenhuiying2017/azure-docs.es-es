@@ -1,25 +1,25 @@
 ---
-title: "Ejemplo de script de Azure PowerShell: creación de un clúster de Service Fabric | Microsoft Docs"
-description: "Ejemplo de script de Azure PowerShell: creación de un clúster de prueba de Service Fabric de tres nodos."
+title: 'Ejemplo de script de Azure PowerShell: creación de un clúster de Service Fabric | Microsoft Docs'
+description: 'Ejemplo de script de Azure PowerShell: creación de un clúster de prueba de Service Fabric de tres nodos.'
 services: service-fabric
-documentationcenter: 
+documentationcenter: ''
 author: rwike77
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 0f9c8bc5-3789-4eb3-8deb-ae6e2200795a
 ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
-ms.date: 01/29/2018
+ms.date: 03/19/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: fd94a5dd9630cc65dedc180cdfd7aafea83c4866
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a03362ebd4b8502f12b7c7bb9aadc558f6a073d2
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-three-node-test-service-fabric-cluster"></a>Crear un clúster de prueba de Service Fabric de tres nodos
 
@@ -50,7 +50,7 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 |---|---|
 | [New-AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) | Crea un clúster de Azure Service Fabric. |
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener más información sobre el módulo de Azure PowerShell, consulte la [documentación de Azure PowerShell](/powershell/azure/overview).
 

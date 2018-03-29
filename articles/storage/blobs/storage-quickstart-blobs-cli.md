@@ -1,19 +1,19 @@
 ---
-title: "Inicio rápido de Azure: Carga, descarga y enumeración de blobs de Azure Storage mediante la CLI de Azure | Microsoft Docs"
-description: "En esta guía de inicio rápido, puede usar la CLI de Azure para crear una cuenta de almacenamiento y un contenedor. Después, puede usar la CLI de Azure para cargar un blob en Azure Storage, descargar un blob o enumerar los blobs de un contenedor."
+title: 'Inicio rápido de Azure: Carga, descarga y enumeración de blobs de Azure Storage mediante la CLI de Azure | Microsoft Docs'
+description: En esta guía de inicio rápido, puede usar la CLI de Azure para crear una cuenta de almacenamiento y un contenedor. Después, puede usar la CLI de Azure para cargar un blob en Azure Storage, descargar un blob o enumerar los blobs de un contenedor.
 services: storage
-author: tamram
+author: roygara
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 02/22/2018
-ms.author: tamram
-ms.openlocfilehash: 2c567f06ca501799c895448c54955c8858705611
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.author: rogarana
+ms.openlocfilehash: 673392f393d3fb5d7351c0b4ad4782179a99da2a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-the-azure-cli"></a>Inicio rápido: Carga, descarga y enumeración de blobs mediante la CLI de Azure
 
@@ -109,7 +109,7 @@ Si ya no necesita ninguno de los recursos del grupo de recursos, incluida la cue
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial de inicio rápido aprendió a transferir archivos entre un disco local y un contenedor en Azure Blob Storage. Para más información sobre cómo trabajar con blobs en Azure Storage, continúe con el tutorial para trabajar con Azure Blob Storage.
 

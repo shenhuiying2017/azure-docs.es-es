@@ -1,11 +1,11 @@
 ---
 title: 'Cifrado de bases de datos en reposo: Azure Cosmos DB | Microsoft Docs'
-description: "Obtenga información sobre cómo Azure Cosmos DB proporciona cifrado predeterminado de todos los datos."
+description: Obtenga información sobre cómo Azure Cosmos DB proporciona cifrado predeterminado de todos los datos.
 services: cosmos-db
 author: voellm
 manager: jhubbard
 editor: mimig
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 99725c52-d7ca-4bfa-888b-19b1569754d3
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: voellm
-ms.openlocfilehash: 193dbede0655376714c6f8f12c826ba3f9bc8933
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: df793fb0511d1289b927caad200eb8252f2b64e6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-cosmos-db-database-encryption-at-rest"></a>Cifrado de base de datos en reposo en Azure Cosmos DB
 
@@ -53,7 +53,6 @@ R: Microsoft cuenta con un conjunto de directrices internas para la rotación de
 
 ### <a name="q-can-i-use-my-own-encryption-keys"></a>P: ¿Puedo usar mis propias claves de cifrado?
 R: Cosmos DB es un servicio de PaaS y se ha trabajado mucho para que siga siendo fácil de usar. Se ha observado que esta pregunta suele plantearse en relación con proxys y con la satisfacción de algún requisito de conformidad, como PCI DSS. Como parte de la compilación de esta característica, se colaboró con auditores de conformidad normativa para garantizar que los clientes que usen Cosmos DB cumplan sus requisitos sin tener que administrar las claves por ellos mismos.
-Por esta razón, que actualmente no permitimos a los usuarios la opción de encargarse ellos mismos de la administración de claves.
 
 ### <a name="q-what-regions-have-encryption-turned-on"></a>P: ¿Qué regiones tienen activado el cifrado?
 R: Todas las regiones de Azure Cosmos DB tienen activado el cifrado de todos los datos de usuario.
@@ -64,7 +63,7 @@ R: No hay ningún impacto ni cambios en el rendimiento de los Acuerdos de Nivel 
 ### <a name="q-does-the-local-emulator-support-encryption-at-rest"></a>P: ¿Admite el emulador local admite el cifrado en reposo?
 R: El emulador es una herramienta de desarrollo o prueba independiente y no emplea los servicios de administración de claves que usa el servicio de Cosmos DB. Nuestra recomendación es habilitar BitLocker en aquellas unidades de disco donde se almacenan los datos de prueba del emulador confidenciales. El [emulador admite los cambios de directorio de datos predeterminado](local-emulator.md), así como el uso de una ubicación conocida.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener información general sobre la seguridad y las últimas mejoras de Cosmos DB, consulte [Seguridad de base de datos de Azure Cosmos DB](database-security.md).
 Para obtener más información sobre las certificaciones de Microsoft, visite el [Centro de confianza de Azure](https://azure.microsoft.com/en-us/support/trust-center/).

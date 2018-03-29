@@ -1,3 +1,19 @@
+---
+title: archivo de inclusión
+description: archivo de inclusión
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: f9b597427c3731b28ec68a7bc518955eb5f829ce
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 03/23/2018
+---
 [!INCLUDE [P2S FAQ All](vpn-gateway-faq-p2s-all-include.md)]
 
 ### <a name="is-radius-authentication-supported-on-all-azure-vpn-gateway-skus"></a>¿Se admite la autenticación RADIUS en todas las SKU de Azure VPN Gateway?
@@ -6,7 +22,7 @@ La autenticación RADIUS es compatible con las SKU VpnGw1, VpnGw2 y VpnGw3. Si u
  
 ### <a name="is-radius-authentication-supported-for-the-classic-deployment-model"></a>¿Es compatible la autenticación RADIUS con el modelo de implementación clásica?
  
-No. La autenticación RADIUS no es compatible con el modelo de implementación clásica.
+Nº La autenticación RADIUS no es compatible con el modelo de implementación clásica.
  
 ### <a name="are-3rd-party-radius-servers-supported"></a>¿Se admiten servidores RADIUS de terceros?
 
@@ -18,7 +34,7 @@ Se necesita una conexión VPN de sitio a sitio en el sitio local, con las rutas 
  
 ### <a name="can-traffic-to-an-on-premises-radius-server-from-the-azure-vpn-gateway-be-routed-over-an-expressroute-connection"></a>¿Puede enrutarse el tráfico a un servidor RADIUS local (desde la instancia de Azure VPN Gateway) a través de una conexión ExpressRoute?
 
-No. Solo puede enrutarse a través de una conexión de sitio a sitio.
+Nº Solo puede enrutarse a través de una conexión de sitio a sitio.
  
 ### <a name="is-there-a-change-in-the-number-of-sstp-connections-supported-with-radius-authentication-what-is-the-maximum-number-of-sstp-and-ikev2-connections-supported"></a>¿Ha cambiado el número de conexiones SSTP admitidas con autenticación RADIUS? ¿Cuál es el número máximo de conexiones SSTP e IKEv2 admitidas?
 

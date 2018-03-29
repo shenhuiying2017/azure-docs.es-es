@@ -1,11 +1,11 @@
 ---
-title: "Actividad de obtención de metadatos en Azure Data Factory | Microsoft Docs"
-description: "Sepa cómo usar la actividad de procedimiento almacenado de SQL Server para invocar un procedimiento almacenado en Azure SQL Database o en Azure SQL Data Warehouse desde una canalización de Data Factory."
+title: Actividad de obtención de metadatos en Azure Data Factory | Microsoft Docs
+description: Sepa cómo usar la actividad de procedimiento almacenado de SQL Server para invocar un procedimiento almacenado en Azure SQL Database o en Azure SQL Data Warehouse desde una canalización de Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
 ms.service: data-factory
 ms.workload: data-services
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 20f3d4bb876a46b67385dd4435296e149641149e
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: e8e40b763f0c6f1f994535ab2ff335cfcbf02cf7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Actividad de obtención de metadatos en Azure Data Factory
 La actividad GetMetadata se puede usar para recuperar metadatos de datos en Azure Data Factory. Esta actividad solo se admite para las factorías de datos de la versión 2. Se puede usar en los escenarios siguientes:
@@ -99,7 +99,7 @@ Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio
 fieldList | Enumera los tipos de información de metadatos necesarios.  | <ul><li>size</li><li>structure</li><li>lastModified</li></ul> |    Sin <br/>Si está vacío, la actividad devuelve los tres tipos de información de metadatos admitidos. 
 dataset | Conjunto de datos de referencia cuya actividad de metadatos debe recuperar la actividad GetMetadata. <br/><br/>El tipo de conjunto de datos admitido actualmente es Azure Blob. Las dos subpropiedades son: <ul><li><b>referenceName</b>: Referencia a un conjunto de datos existente de Azure Blob</li><li><b>type</b>: Puesto que se hace referencia al conjunto de datos, es del tipo "DatasetReference"</li></ul> |    <ul><li>string</li><li>DatasetReference</li></ul> | Sí
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Consulte otras actividades de flujo de control compatibles con Data Factory: 
 
 - [Actividad de ejecución de canalización](control-flow-execute-pipeline-activity.md)

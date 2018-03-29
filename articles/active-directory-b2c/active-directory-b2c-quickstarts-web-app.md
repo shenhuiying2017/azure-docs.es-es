@@ -1,23 +1,20 @@
 ---
-title: "Versión de prueba de una aplicación web habilitada para Azure AD B2C"
-description: "Guía de inicio rápido para probar una aplicación web de ASP.NET de ejemplo que usa Azure Active Directory B2C para proporcionar inicio de sesión de usuario."
+title: Versión de prueba de una aplicación web habilitada para Azure AD B2C
+description: Guía de inicio rápido para probar una aplicación web de ASP.NET de ejemplo que usa Azure Active Directory B2C para proporcionar inicio de sesión de usuario.
 services: active-directory-b2c
-author: PatAltimore
+author: davidmu1
 manager: mtillman
-ms.reviewer: saraford
+editor: ''
 ms.service: active-directory-b2c
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 2/13/2018
-ms.author: patricka
-ms.openlocfilehash: 87c180445038b1205e2f6aab1ce721765ecb35c9
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.author: davidmu
+ms.openlocfilehash: 7d6744fe7ef82a6a4f54291cedd15d5b3d4ee242
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-test-drive-an-azure-ad-b2c-enabled-web-app"></a>Inicio rápido: Versión de prueba de una aplicación web habilitada para Azure AD B2C
 
@@ -119,7 +116,7 @@ Ha utilizado correctamente su cuenta de usuario de Azure AD B2C para realizar un
 
 Puede usar el inquilino de Azure AD B2C si tiene previsto leer otros tutoriales o guías de inicio rápido de Azure AD B2C. Cuando ya no sea necesario, puede [eliminar el inquilino de Azure AD B2C](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En esta guía de inicio rápido, ha utilizado una aplicación de ASP.NET de ejemplo habilitada para Azure AD B2C para iniciar sesión con una página de inicio de sesión personalizada, iniciar sesión con un proveedor de identidades de redes sociales, crear una cuenta de Azure AD B2C y llamar a una API web protegida por Azure AD B2C. 
 

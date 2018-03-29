@@ -1,11 +1,11 @@
 ---
-title: "Introducción a los servidores back-end multiinquilino con Azure Application Gateway | Microsoft Docs"
-description: "En esta página se proporciona una introducción a la compatibilidad de Application Gateway con los servidores back-end multiinquilino."
+title: Introducción a los servidores back-end multiinquilino con Azure Application Gateway | Microsoft Docs
+description: En esta página se proporciona una introducción a la compatibilidad de Application Gateway con los servidores back-end multiinquilino.
 documentationcenter: na
 services: application-gateway
 author: davidmu1
 manager: timlt
-editor: 
+editor: ''
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: hero-article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2017
 ms.author: davidmu
-ms.openlocfilehash: d093af064bca46aa1f454b61b1099f47f61ccd33
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: f5ec916fcf45734ab85751e749bd6bb312f05b1a
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="application-gateway-support-for-multi-tenant-back-ends"></a>Compatibilidad de Application Gateway con servidores back-end multiinquilino
 
@@ -32,10 +32,10 @@ La posibilidad de especificar una invalidación del host se define en la configu
 2. La posibilidad de obtener el nombre de host de la dirección IP o FQDN de los miembros del grupo de servidores back-end. La configuración de HTTP también proporciona una opción para seleccionar el nombre de host del FQDN de un miembro del grupo de servidores back-end si está configurado con esta opción. Al usar SSL de extremo a extremo, este nombre de host se obtiene del FQDN y se usa en la extensión SNI. Esta funcionalidad permite escenarios donde un grupo de servidores back-end puede tener dos o más servicios PaaS multiinquilino, como Azure Web Apps y el encabezado de host de la solicitud para que cada miembro contenga el nombre de host obtenido de su FQDN.
 
 > [!NOTE]
-> En los dos casos anteriores, la configuración solo afecta al comportamiento del tráfico dinámico y no al del sondeo de estado. Los sondeos personalizados ya admiten la posibilidad de especificar un encabezado de host en la configuración de sondeo. También admiten ahora la posibilidad de obtener el comportamiento del encabezado de host de la configuración de HTTP actualmente configurada. Esta configuración puede especificarse mediante el parámetro `PickHostNameFromback endAddress` en la configuración de sondeo. Para que la funcionalidad de extremo a extremo funcione, el sondeo y la configuración de HTTP se deben modificar para reflejar la configuración correcta.
+> En los dos casos anteriores, la configuración solo afecta al comportamiento del tráfico dinámico y no al del sondeo de estado. Los sondeos personalizados ya admiten la posibilidad de especificar un encabezado de host en la configuración de sondeo. También admiten ahora la posibilidad de obtener el comportamiento del encabezado de host de la configuración de HTTP actualmente configurada. Esta configuración puede especificarse mediante el parámetro `PickHostNameFromBackendHttpSettings` en la configuración de sondeo. Para que la funcionalidad de extremo a extremo funcione, el sondeo y la configuración de HTTP se deben modificar para reflejar la configuración correcta.
 
 Con esta funcionalidad, los clientes especifican las opciones en la configuración de HTTP y los sondeos personalizados para la configuración adecuada. Esta configuración se asocia luego a un agente de escucha y un grupo de servidores back-end mediante una regla.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para aprender a configurar una puerta de enlace de aplicaciones con una aplicación web como miembro del grupo de servidores back-end, visite [Configuración de App Service Web Apps con Application Gateway](application-gateway-web-app-powershell.md).

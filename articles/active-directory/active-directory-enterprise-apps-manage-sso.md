@@ -1,11 +1,11 @@
 ---
-title: "Administración del inicio de sesión único para aplicaciones empresariales en Azure Active Directory | Microsoft Docs"
-description: "Administre la configuración de inicio de sesión único para aplicaciones empresariales de su organización desde la galería de aplicaciones de Azure Active Directory."
+title: Administración del inicio de sesión único para aplicaciones empresariales en Azure Active Directory | Microsoft Docs
+description: Administre la configuración de inicio de sesión único para aplicaciones empresariales de su organización desde la galería de aplicaciones de Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: bcc954d3-ddbe-4ec2-96cc-3df996cbc899
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 09/19/2017
 ms.author: markvi
 ms.reviewer: asmalser
-ms.openlocfilehash: bb9c2e1fdf392e234e6c72e0728ab04d2fd88a81
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 45141551c502c89311ab7e43b53af50450d8babd
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="managing-single-sign-on-for-enterprise-apps"></a>Administración de inicio de sesión único para aplicaciones empresariales
 
@@ -88,7 +88,7 @@ Si se admite para la aplicación, la selección del modo de inicio de sesión ú
 
 ![Inicio de sesión vinculado][5]
 
-##<a name="feedback"></a>Comentarios
+## <a name="feedback"></a>Comentarios
 
 Esperamos que le guste usa la experiencia mejorada de Azure AD. Envíenos sus comentarios. Publique sus comentarios y sugerencias para la mejora en la sección **Portal de administración** de nuestro [foro de comentarios](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  Nos interesa cómo crear innovaciones estupendas todos los días y usamos sus comentarios para dar forma y definir qué será lo próximo que crearemos.
 

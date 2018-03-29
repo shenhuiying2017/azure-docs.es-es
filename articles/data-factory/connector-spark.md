@@ -1,11 +1,11 @@
 ---
 title: Copiar datos de Spark con Azure Data Factory | Microsoft Docs
-description: "Obtenga información sobre cómo copiar datos de Spark en almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory."
+description: Obtenga información sobre cómo copiar datos de Spark en almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 2682b6d149fc9a8b1a1a70351ea90fbd701dd4ec
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: fcdcc4cf948550467257fa6cbe9287cd26d49962
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-spark-using-azure-data-factory"></a>Copiar datos de Spark con Azure Data Factory 
 
@@ -51,7 +51,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Spark:
 | serverType | Tipo de servidor de Spark. <br/>Los valores permitidos son: **SharkServer**, **SharkServer2** y **SparkThriftServer**. | Sin  |
 | thriftTransportProtocol | Protocolo de transporte que se va a usar en la capa de Thrift. <br/>Los valores permitidos son: **Binary**, **SASL** y **HTTP **. | Sin  |
 | authenticationType | Método de autenticación que se usa para tener acceso al servidor de Spark. <br/>Los valores permitidos son: **Anonymous**, **Username**, **UsernameAndPassword** y **WindowsAzureHDInsightService**. | Sí |
-| Nombre de usuario | Nombre de usuario que utiliza para acceder al servidor de Spark.  | Sin  |
+| nombre de usuario | Nombre de usuario que utiliza para acceder al servidor de Spark.  | Sin  |
 | contraseña | Contraseña que corresponde al usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sin  |
 | httpPath | Dirección URL parcial correspondiente al servidor de Spark.  | Sin  |
 | enableSsl | Especifica si las conexiones al servidor se cifran mediante SSL. El valor predeterminado es false.  | Sin  |
@@ -149,5 +149,5 @@ Para copiar datos de Spark, establezca el tipo de origen de la actividad de copi
 ]
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Consulte los [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.

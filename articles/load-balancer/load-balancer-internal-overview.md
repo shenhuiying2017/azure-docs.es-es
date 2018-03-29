@@ -1,6 +1,6 @@
 ---
-title: "Información general sobre el equilibrador de carga interno de Azure | Microsoft Docs"
-description: "Cómo funciona un equilibrador de carga interno en Azure y escenarios para configurar los puntos de conexión internos."
+title: Información general sobre el equilibrador de carga interno de Azure | Microsoft Docs
+description: Cómo funciona un equilibrador de carga interno en Azure y escenarios para configurar los puntos de conexión internos.
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 54e390dbdb07cb4c45c801b638099aa0dcc6db1a
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 0511165225f5a336291e86e0c504e60989933f3c
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="overview-of-azure-internal-load-balancer"></a>Información general sobre el equilibrador de carga interno de Azure
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+
 
 El equilibrador de carga interno de Azure (ILB) solo dirige tráfico a los recursos que están dentro de un servicio de nube o que utilizan una VPN para acceder a la infraestructura de Azure. En este sentido, el ILB difiere de un equilibrador de carga accesible desde Internet. La infraestructura de Azure restringe el acceso a las direcciones de una IP virtual (VIP) con carga equilibrada de un servicio en la nube o una red virtual. Las direcciones de IP virtuales y las redes virtuales no se exponen nunca directamente a un punto de conexión de Internet. Las aplicaciones de línea de negocio internas se ejecutan en Azure y se accede a ellas desde Azure o desde recursos locales.
 

@@ -1,11 +1,11 @@
 ---
-title: "Creación de un espacio de nombres de Azure Event Hubs y habilitación de la funcionalidad de captura mediante una plantilla | Microsoft Docs"
-description: "Creación de un espacio de nombres de Azure Event Hubs con un centro de eventos y habilitación de la funcionalidad de captura mediante una plantilla de Azure Resource Manager"
+title: Creación de un espacio de nombres de Azure Event Hubs y habilitación de la funcionalidad de captura mediante una plantilla | Microsoft Docs
+description: Creación de un espacio de nombres de Azure Event Hubs con un centro de eventos y habilitación de la funcionalidad de captura mediante una plantilla de Azure Resource Manager
 services: event-hubs
 documentationcenter: .net
 author: ShubhaVijayasarathy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 8bdda6a2-5ff1-45e3-b696-c553768f1090
 ms.service: event-hubs
 ms.devlang: tbd
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/30/2018
 ms.author: sethm
-ms.openlocfilehash: 09345b32e80008d4afe61078bd4d272fafe631d2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: c241b8c38aab355729cd1bea318e70e85cf4ff1f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>Creación de un espacio de nombres con Event Hubs y habilitación de la característica Capture mediante una plantilla
 
@@ -177,7 +177,7 @@ El intervalo de tamaño en el que Capture comienza a capturar los datos.
 }
 ```
 
-###<a name="capturenameformat"></a>captureNameFormat
+### <a name="capturenameformat"></a>captureNameFormat
 
 El formato de nombre que usa Event Hubs Capture para escribir archivos Avro. Tenga en cuenta que un formato de nombre de Capture debe contener los campos `{Namespace}`, `{EventHub}`, `{PartitionId}`, `{Year}`, `{Month}`, `{Day}`, `{Hour}`, `{Minute}` y `{Second}`. Estos se pueden organizar en cualquier orden, con o sin delimitadores.
  
@@ -236,7 +236,7 @@ El contenedor de blobs en el que se van a capturar los datos del evento.
 
 Si elige como destino Azure Data Lake Store, use los parámetros siguientes. Debe establecer permisos en la ruta de acceso de Data Lake Store, en el que desea capturar el evento. Para establecer los permisos, consulte [este artículo](event-hubs-capture-enable-through-portal.md#capture-data-to-an-azure-data-lake-store-account).
 
-###<a name="subscriptionid"></a>subscriptionId
+### <a name="subscriptionid"></a>subscriptionId
 
 El identificador de suscripción para el espacio de nombres de Event Hubs y Azure Data Lake Store. Ambos recursos deben estar en el mismo identificador de suscripción.
 
@@ -249,7 +249,7 @@ El identificador de suscripción para el espacio de nombres de Event Hubs y Azur
  }
 ```
 
-###<a name="datalakeaccountname"></a>dataLakeAccountName
+### <a name="datalakeaccountname"></a>dataLakeAccountName
 
 El nombre de Azure Data Lake Store para los eventos capturados.
 
@@ -262,7 +262,7 @@ El nombre de Azure Data Lake Store para los eventos capturados.
 }
 ```
 
-###<a name="datalakefolderpath"></a>dataLakeFolderPath
+### <a name="datalakefolderpath"></a>dataLakeFolderPath
 
 La ruta de acceso de la carpeta de destino para los eventos capturados. Es la carpeta de Data Lake Store en la que se insertarán los eventos durante la operación de captura. Para establecer los permisos de esta carpeta, consulte [Uso de Azure Data Lake Store para capturar datos de Event Hubs](../data-lake-store/data-lake-store-archive-eventhub-capture.md).
 
@@ -401,7 +401,7 @@ Implemente la plantilla para habilitar Event Hubs Capture en Azure Data Lake Sto
 New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-capture-for-adls/azuredeploy.json
 ```
 
-## <a name="azure-cli"></a>CLI de Azure
+## <a name="azure-cli"></a>Azure CLI
 
 Azure Blob Storage como destino:
 
@@ -419,7 +419,7 @@ azure config mode arm
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-capture-for-adls/azuredeploy.json][]
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 También puede configurar la funcionalidad de captura de Event Hubs mediante [Azure Portal](https://portal.azure.com). Para más información, consulte [Habilitación de la funcionalidad de captura de Event Hubs mediante Azure Portal](event-hubs-capture-enable-through-portal.md).
 

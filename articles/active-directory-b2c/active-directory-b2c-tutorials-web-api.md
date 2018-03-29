@@ -1,19 +1,20 @@
 ---
 title: 'Tutorial: Uso de Azure Active Directory B2C para proteger ASP.NET Web API'
-description: "Tutorial sobre cómo usar Active Directory B2C para proteger ASP.NET Web API y llamarlo desde una aplicación web para ASP.NET."
+description: Tutorial sobre cómo usar Active Directory B2C para proteger ASP.NET Web API y llamarlo desde una aplicación web para ASP.NET.
 services: active-directory-b2c
-author: PatAltimore
-ms.author: patricka
-ms.reviewer: saraford
+author: davidmu1
+manager: mtillman
+editor: ''
+ms.author: davidmu
 ms.date: 1/23/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory-b2c
-ms.openlocfilehash: 0e9f324cec0d242c013a461d8580abd4faa97c8d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: f4e1c18f151a9c815258f01ea198d3d173d0b44e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-use-azure-active-directory-b2c-to-protect-an-aspnet-web-api"></a>Tutorial: Uso de Azure Active Directory B2C para proteger ASP.NET Web API
 
@@ -191,7 +192,7 @@ Al crear un elemento de la lista de tareas pendientes, la aplicación web realiz
 
 Puede usar el inquilino de Azure AD B2C si tiene previsto leer otros tutoriales de Azure AD B2C. Cuando ya no sea necesario, puede [eliminar el inquilino de Azure AD B2C](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este artículo se explica la protección de ASP.NET Web API mediante el registro y la definición de ámbitos en Azure AD B2C. Para más información sobre el desarrollo de este escenario, incluidos los tutoriales de código, continúe en el siguiente tutorial.
 

@@ -1,20 +1,20 @@
 ---
-title: "Simulación de un error al acceder al almacenamiento con redundancia geográfica con acceso de lectura en Azure | Microsoft Docs"
-description: "Simulación de un error al acceder al almacenamiento con redundancia geográfica con acceso de lectura"
+title: Simulación de un error al acceder al almacenamiento con redundancia geográfica con acceso de lectura en Azure | Microsoft Docs
+description: Simulación de un error al acceder al almacenamiento con redundancia geográfica con acceso de lectura
 services: storage
-author: ruthogunnnaike
+author: tamram
 manager: jeconnoc
 ms.service: storage
 ms.tgt_pltfrm: na
-ms.devlang: 
+ms.devlang: ''
 ms.topic: tutorial
 ms.date: 12/23/2017
-ms.author: v-ruogun
-ms.openlocfilehash: ea57ba54fefb1942dcbdbde6e68b20d6290d9fd6
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.author: tamram
+ms.openlocfilehash: 57296d828156184aa36532cd649fbec0c81b5e27
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="simulate-a-failure-in-accessing-read-access-redundant-storage"></a>Simulación de un error al acceder al almacenamiento con redundancia con acceso de lectura
 
@@ -157,7 +157,7 @@ Para eliminar la ruta estática de un host de destino (cuenta de almacenamiento)
  
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
-route del <ip_destino> gw <ip_puerta_de_enlace>
+route del <destination_ip> gw <gateway_ip>
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 

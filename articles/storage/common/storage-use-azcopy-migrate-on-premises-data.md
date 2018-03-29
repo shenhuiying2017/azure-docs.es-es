@@ -1,20 +1,20 @@
 ---
-title: "Migración de datos locales a Azure Storage mediante AzCopy | Microsoft Docs"
-description: "Use AzCopy para migrar datos al contenido de archivos, blobs y tablas o copiarlos. Realice la migración de los datos fácilmente desde el almacenamiento local a Azure Storage."
+title: Migración de datos locales a Azure Storage mediante AzCopy | Microsoft Docs
+description: Use AzCopy para migrar datos al contenido de archivos, blobs y tablas o copiarlos. Realice la migración de los datos fácilmente desde el almacenamiento local a Azure Storage.
 services: storage
-author: ruthogunnnaike
+author: roygara
 manager: jeconnoc
 ms.service: storage
 ms.tgt_pltfrm: na
 ms.devlang: azcopy
 ms.topic: tutorial
 ms.date: 12/14/2017
-ms.author: v-ruogun
-ms.openlocfilehash: 3dbfb935ac0b134e127a5dccb7bc76716c688e8a
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.author: rogarana
+ms.openlocfilehash: 1e7292cf4d647b38a6fe8ceb270ba161e548a537
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/28/2018
 ---
 #  <a name="migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>Migración de datos locales al almacenamiento en la nube mediante AzCopy
 
@@ -33,7 +33,7 @@ En este tutorial, aprenderá a:
 > * Modifique los datos para fines de prueba.
 > * Cree una tarea programada o trabajo cron para identificar los nuevos archivos que cargar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para completar este tutorial, descargue la versión más reciente de AzCopy en [Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux#download-and-install-azcopy) o [Windows](http://aka.ms/downloadazcopy). 
 
@@ -143,7 +143,7 @@ Para asegurarse de que la tarea programada o el trabajo cron se ejecutan correct
 
 Para más información sobre las formas de mover datos locales a Azure Storage y viceversa, consulte [Movimiento de datos hacia y desde Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-moving-data?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).  
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre Azure Storage y AzCopy, consulte los recursos siguientes:
 
 * [Introducción a Azure Storage](../storage-introduction.md)

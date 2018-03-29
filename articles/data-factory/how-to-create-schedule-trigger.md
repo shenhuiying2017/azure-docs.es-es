@@ -1,11 +1,11 @@
 ---
-title: "Creación de desencadenadores de programación en Azure Data Factory | Microsoft Docs"
-description: "Obtenga información acerca de cómo crear un desencadenador en Azure Data Factory para que ejecute una canalización en una programación."
+title: Creación de desencadenadores de programación en Azure Data Factory | Microsoft Docs
+description: Obtenga información acerca de cómo crear un desencadenador en Azure Data Factory para que ejecute una canalización en una programación.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: 
+manager: craigg
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: shlo
-ms.openlocfilehash: 51e2dddbe66ca372d89fc8efeb24bdab9fe6a442
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 6466d6cb535bbe0042d7c4c3e828e576e23d5d07
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Creación de un desencadenador que ejecuta una canalización en una programación
 En este artículo se proporciona información sobre el desencadenador de programación y los pasos para crear, iniciar y supervisar un desencadenador de programación. Para otros tipos de desencadenadores, consulte [Ejecución y desencadenadores de canalización](concepts-pipeline-execution-triggers.md).
@@ -117,7 +117,7 @@ En esta sección se muestra cómo usar Azure PowerShell para crear, iniciar y su
     Set-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" -DefinitionFile "C:\ADFv2QuickStartPSH\MyTrigger.json"
     ```
 
-3. Confirme que el estado del desencadenador es **Detenido** mediante el uso del cmdlet **Get-AzureRmDataFactoryV2Trigger**:
+3. Confirme que el estado del desencadenador es **Stopped** mediante el uso del cmdlet **Get-AzureRmDataFactoryV2Trigger**:
 
     ```powershell
     Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
@@ -129,7 +129,7 @@ En esta sección se muestra cómo usar Azure PowerShell para crear, iniciar y su
     Start-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-5. Confirme que el estado del desencadenador es **Iniciado** mediante el uso del cmdlet **Get-AzureRmDataFactoryV2Trigger**:
+5. Confirme que el estado del desencadenador es **Started** mediante el uso del cmdlet **Get-AzureRmDataFactoryV2Trigger**:
 
     ```powershell
     Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
@@ -314,12 +314,12 @@ En la tabla siguiente se muestra una descripción general de los elementos del e
 
 | Propiedad JSON | DESCRIPCIÓN |
 |:--- |:--- |
-| **startTime** | Valor de fecha y hora. Para las programaciones simples, se aplica el valor de la propiedad **startTime** a la primera aparición. Para las programaciones complejas, el desencadenador no se inicia antes del valor de **startTime** especificado. |
+| **startTime** | Valor de fecha y hora. Para las programaciones simples, se aplica el valor de la propiedad **startTime** al primer caso. Para las programaciones complejas, el desencadenador no se inicia antes del valor de **startTime** especificado. |
 | **endTime** | Fecha y hora de finalización para el desencadenador. El desencadenador no se ejecuta después de la fecha y hora de finalización especificadas. El valor de la propiedad no puede estar en el pasado. Esta propiedad es opcional. |
 | **timeZone** | Zona horaria. Actualmente, solo se admite la zona horaria UTC. |
 | **recurrence** | Objeto que especifica las reglas de periodicidad para el desencadenador. El objeto recurrence admite los elementos **frequency**, **interval**, **endTime**, **count** y **schedule**. Cuando se define un objeto recurrence, es necesario el elemento **frequency**. Los demás elementos del objeto recurrence son opcionales. |
 | **frequency** | Unidad de frecuencia a la que se repite el desencadenador. Los valores admitidos son "minute", "hour", "day", "week" y "month". |
-| **interval** | Un entero positivo que indica el intervalo para el valor de **frequency**, que determina la frecuencia con la que se ejecuta el desencadenador. Por ejemplo, si **interval** es 3 y **frequency** es “week”, el desencadenador se repite cada tres semanas. |
+| **interval** | Un entero positivo que indica el intervalo para el valor **frequency**, que determina la frecuencia con la que se ejecuta el desencadenador. Por ejemplo, si **interval** es 3 y **frequency** es “week”, el desencadenador se repite cada tres semanas. |
 | **schedule** | La programación de periodicidad para el desencadenador. Un desencadenador con valor de **frequency** especificado modifica su periodicidad según una programación periódica. La propiedad **schedule** contiene modificaciones de la periodicidad basadas en minutos, horas, días de la semana, días del mes y número de semana.
 
 
@@ -339,7 +339,7 @@ En la tabla siguiente se muestra cómo la propiedad **startTime** controla una e
 | Valor de startTime | Periodicidad sin programación | Periodicidad con programación |
 |:--- |:--- |:--- |
 | Hora de inicio en el pasado | Calcula la primera hora de ejecución futura después de la hora de inicio y se ejecuta a esa hora.<br/><br/>Realiza ejecuciones posteriores según el cálculo desde la última hora de ejecución.<br/><br/>Consulte el ejemplo que sigue a esta tabla. | El desencadenador se inicia _no antes que_ la hora de inicio especificada. La primera repetición se basa en la programación que se calcula a partir de la hora de inicio.<br/><br/>Realiza las sucesivas ejecuciones según la programación de periodicidad. |
-| Hora de inicio en el futuro o en el presente | Se ejecuta una vez a la hora de inicio especificada.<br/><br/>Realiza ejecuciones posteriores según el cálculo desde la última hora de ejecución. | El desencadenador se inicia _no antes que_ la hora de inicio especificada. La primera repetición se basa en la programación que se calcula a partir de la hora de inicio.<br/><br/>Realiza las sucesivas ejecuciones según la programación de periodicidad. |
+| Hora de inicio en el futuro o en el presente | Se ejecuta una vez a la hora de inicio especificada.<br/><br/>Realiza ejecuciones posteriores según el cálculo desde la última hora de ejecución. | El desencadenador se inicia _no antes_ que la hora de inicio especificada. La primera repetición se basa en la programación que se calcula a partir de la hora de inicio.<br/><br/>Realiza las sucesivas ejecuciones según la programación de periodicidad. |
 
 Veamos un ejemplo de lo que sucede cuando startTime se encuentra en el pasado, con periodicidad, pero sin programación. Suponga que la hora actual es `2017-04-08 13:00`, la hora de inicio es `2017-04-07 14:00`, y la periodicidad es cada dos días. (El valor de **recurrence** se define estableciendo la propiedad **frequency** en "day" y la propiedad **interval** en 2). Tenga en cuenta que el valor de **startTime** se encuentra en el pasado y tiene lugar antes de la hora actual.
 
@@ -364,7 +364,7 @@ En la siguiente tabla se describen los elementos de **schedule** con detalle:
 | **minutes** | Minutos de la hora en la que se ejecuta el desencadenador. | <ul><li>Entero</li><li>Matriz de enteros</li></ul>
 | **hours** | Horas del día en la que se ejecuta el desencadenador. | <ul><li>Entero</li><li>Matriz de enteros</li></ul> |
 | **weekDays** | Días de la semana en los que se ejecuta el desencadenador. El valor solo se puede especificar con una frecuencia semanal. | <ul><li>Lunes, martes, miércoles, jueves, viernes, sábado, domingo</li><li>Matriz de valores de día (el tamaño máximo de la matriz es 7)</li><li>Los valores de día no distinguen mayúsculas de minúsculas.</li></ul> |
-| **monthlyOccurrences** | Días del mes en los que se ejecuta el desencadenador. El valor solo se puede especificar con una frecuencia mensual. | <ul><li>Matriz de objetos **monthlyOccurrence**: `{ "day": day,  "occurrence": occurence }`.</li><li>El atributo **day** es el día de la semana en el que se ejecuta el desencadenador. Por ejemplo, una propiedad **monthlyOccurrences** con un valor de **day** de `{Sunday}` significa todos los domingos del mes. Se necesita un atributo **day**.</li><li>El atributo **occurrence** es la periodicidad del elemento **day** especificado durante el mes. Por ejemplo, una propiedad **monthlyOccurrences** valores de **day** y **occurrence** de `{Sunday, -1}` implica el último domingo del mes. El atributo **occurrence** es opcional.</li></ul> |
+| **monthlyOccurrences** | Días del mes en los que se ejecuta el desencadenador. El valor solo se puede especificar con una frecuencia mensual. | <ul><li>Matriz de objetos **monthlyOccurrence**: `{ "day": day,  "occurrence": occurence }`.</li><li>El atributo **day** es el día de la semana en el que se ejecuta el desencadenador. Por ejemplo, una propiedad **monthlyOccurrences** con un valor de **day** de `{Sunday}` significa todos los domingos del mes. Se necesita un atributo **day**.</li><li>El atributo **occurrence** es la repetición del elemento **day** especificado durante el mes. Por ejemplo, una propiedad **monthlyOccurrences** valores de **day** y **occurrence** de `{Sunday, -1}` implica el último domingo del mes. El atributo **occurrence** es opcional.</li></ul> |
 | **monthDays** | Día del mes en el que se ejecuta el desencadenador. El valor solo se puede especificar con una frecuencia mensual. | <ul><li>Cualquier valor <= -1 y >= -31</li><li>Cualquier valor >= 1 y <= 31</li><li>Matriz de valores</li></ul> |
 
 
@@ -384,13 +384,13 @@ Los ejemplos asumen que el valor de **interval** es 1 y que el valor de **freque
 | `{"minutes":[0]}` | Se ejecuta cada hora durante la hora. Este desencadenador se ejecuta cada hora a partir de las 12:00 a. m., 1:00 a. m., 2:00 a. m., y así sucesivamente.<br/><br/>Esta programación es equivalente a un desencadenador con un valor de **frequency** de "hour" y un valor de **startTime** de cero minutos, o sin valor de **schedule** pero con un valor de **frequency** de "day". Si el valor de **frequency** es "week" o "month", la programación ejecuta únicamente un día a la semana o un día al mes, respectivamente. |
 | `{"minutes":[15]}` | Se ejecuta 15 minutos después de cada hora en punto. Este desencadenador se ejecuta cada hora 15 minutos después de la hora en punto desde las 00:15 a. m., 1:15 a. m., 2:15 a. m. y así sucesivamente, y finalizando a las 11:15 p. m. |
 | `{"hours":[17], "weekDays":["saturday"]}` | Se ejecuta a las 5:00 p. m. los sábados de cada semana. |
-| `{"hours":[17], "weekDays":["monday", "wednesday", "friday"]}` | Se ejecuta a las 5:00 p. m. los lunes, miércoles y viernes de cada semana, |
+| `{"hours":[17], "weekDays":["monday", "wednesday", "friday"]}` | Se ejecuta a las 5:00 p. m. los lunes, miércoles y viernes de cada semana. |
 | `{"minutes":[15,45], "hours":[17], "weekDays":["monday", "wednesday", "friday"]}` | Se ejecuta a las 5:15 p. m. y 5:45 p. m. los lunes, miércoles y viernes de cada semana. |
 | `{"minutes":[0,15,30,45], "weekDays":["monday", "tuesday", "wednesday", "thursday", "friday"]}` | Se ejecuta cada 15 minutos los días laborables. |
 | `{"minutes":[0,15,30,45], "hours": [9, 10, 11, 12, 13, 14, 15, 16] "weekDays":["monday", "tuesday", "wednesday", "thursday", "friday"]}` | Se ejecuta cada 15 minutos los días laborables entre las 9:00 a. m. y las 4:45 p. m. |
 | `{"weekDays":["tuesday", "thursday"]}` | Se ejecuta los martes y jueves a la hora de inicio especificada. |
 | `{"minutes":[0], "hours":[6], "monthDays":[28]}` | Se ejecuta a las 6:00 a. m. del día 28 de cada mes (suponiendo un valor de **frequency** de mes). |
-| `{"minutes":[0], "hours":[6], "monthDays":[-1]}` | Se ejecuta a las 6:00 a. m. el último día del mes. Para ejecutar un desencadenador en el último día del mes, use -1 en lugar del día 28, 29, 30 o 31. |
+| `{"minutes":[0], "hours":[6], "monthDays":[-1]}` | Se ejecuta a las 6:00 a. m. el último día del mes. Para ejecutar un desencadenador el último día del mes, use -1 en lugar del día 28, 29, 30 o 31. |
 | `{"minutes":[0], "hours":[6], "monthDays":[1,-1]}` | Se ejecuta a las 6:00 a. m. el primer y el último día del mes. |
 | `{monthDays":[1,14]}` | Se ejecuta el primer día y el 14 de cada mes a la hora de inicio especificada. |
 | `{"minutes":[0], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1}]}` | Se ejecuta el primer viernes de cada mes a las 5:00 a. m. |
@@ -403,5 +403,5 @@ Los ejemplos asumen que el valor de **interval** es 1 y que el valor de **freque
 | `{"minutes":[15,45], "hours":[5,17], "monthlyOccurrences":[{"day":"wednesday", "occurrence":3}]}` | Se ejecuta a las 5:15 a. m., 5:45 a. m., 5:15 a. m. y las 5:45 a. m. el tercer miércoles de cada mes. |
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para obtener información detallada acerca de los desencadenadores, consulte el artículo [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#triggers) (Ejecución de canalizaciones y desencadenadores).

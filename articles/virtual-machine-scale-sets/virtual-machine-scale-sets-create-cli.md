@@ -1,13 +1,13 @@
 ---
-title: "Creación de un conjunto de escalado de máquinas virtuales con la CLI de Azure 2.0 | Microsoft Docs"
-description: "Aprenda a crear rápidamente un conjunto de escalado de máquinas virtuales con Azure PowerShell."
+title: Creación de un conjunto de escalado de máquinas virtuales con la CLI de Azure 2.0 | Microsoft Docs
+description: Aprenda a crear rápidamente un conjunto de escalado de máquinas virtuales con Azure PowerShell.
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
@@ -16,10 +16,10 @@ ms.topic: get-started-article
 ms.date: 12/19/2017
 ms.author: iainfou
 ms.openlocfilehash: 8794ea7d998293e7ea88ba780f67ef8a021f2298
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/27/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Creación de un conjunto de escalado de máquinas virtuales con la CLI de Azure 2.0
 El conjunto de escalado de máquinas virtuales le permite implementar y administrar un conjunto de máquinas virtuales de escalado automático idénticas. Puede escalar el número de máquinas virtuales del conjunto de escalado manualmente o definir reglas de escalado automático basado en el uso de recursos tales como la CPU, la demanda de memoria o el tráfico de red. En este artículo introductorio, debe crear un conjunto de escalado de máquinas virtuales con la CLI de Azure 2.0. También puede crear un conjunto de escalado mediante [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md) o [Azure Portal](virtual-machine-scale-sets-create-portal.md).
@@ -109,7 +109,7 @@ az group delete --name myResourceGroup
 ```
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este artículo introductorio, creó un conjunto de escalado básico y usó la extensión de script personalizada para instalar un servidor web NGINX básico en las instancias de VM. Para obtener mayor escalabilidad y automatización, expanda el conjunto de escalado con los siguientes artículos de procedimientos:
 
 - [Implementación de la aplicación en conjuntos de escalado de máquinas virtuales](virtual-machine-scale-sets-deploy-app.md)

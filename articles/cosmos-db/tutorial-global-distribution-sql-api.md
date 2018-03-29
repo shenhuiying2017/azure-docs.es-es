@@ -1,9 +1,9 @@
 ---
-title: "Tutorial de distribución global de Azure Cosmos DB para API de SQL | Microsoft Docs"
-description: "Obtenga información sobre cómo configurar la distribución global de Azure Cosmos DB con la API de SQL."
+title: Tutorial de distribución global de Azure Cosmos DB para API de SQL | Microsoft Docs
+description: Obtenga información sobre cómo configurar la distribución global de Azure Cosmos DB con la API de SQL.
 services: cosmos-db
-keywords: "distribución global"
-documentationcenter: 
+keywords: distribución global
+documentationcenter: ''
 author: rafats
 manager: jhubbard
 ms.assetid: 8b815047-2868-4b10-af1d-40a1af419a70
@@ -15,15 +15,13 @@ ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: rafats
 ms.custom: mvc
-ms.openlocfilehash: 0cee55673c8abca29b7e389fa4fd62a48566904b
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 58cfa4f8898febf6d0bbe4c5a7a1dad4fcc6c854
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-sql-api"></a>Cómo configurar la distribución global de Azure Cosmos DB con la API de SQL
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 En este artículo se muestra cómo usar Azure Portal para configurar la distribución global de Azure Cosmos DB y luego conectarse con la API de SQL.
 
@@ -164,7 +162,7 @@ Si la región de escritura cambia después de la fase de descubrimiento inicial 
 
 De este modo finaliza este tutorial. Para información sobre cómo administrar la coherencia de la cuenta replicada globalmente, lea [Niveles de coherencia en Azure Cosmos DB](consistency-levels.md). Para más información sobre cómo funciona la replicación global de bases de datos en Azure Cosmos DB, consulte [Distribución global de datos con Azure Cosmos DB](distribute-data-globally.md).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, ha hecho lo siguiente:
 

@@ -1,11 +1,11 @@
 ---
 title: Copiar datos de Concur con Azure Data Factory (beta) | Microsoft Docs
-description: "Obtenga información sobre cómo copiar datos de Concur en almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory."
+description: Obtenga información sobre cómo copiar datos de Concur en almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 2a300b45cba8b611d75a152060eaa2a4f95ac518
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ad93d40f7d1a08b248ed4b8ceb744929aeb13c79
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-concur-using-azure-data-factory-beta"></a>Copiar datos de Concur con Azure Data Factory (beta)
 
@@ -52,7 +52,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Concur:
 |:--- |:--- |:--- |
 | Tipo | La propiedad type debe establecerse en: **Concur** | Sí |
 | clientId | Aplicación client_id proporcionada por la administración de aplicaciones de Concur.  | Sí |
-| Nombre de usuario | Nombre de usuario que utiliza para acceder al servicio de Concur.  | Sí |
+| nombre de usuario | Nombre de usuario que utiliza para acceder al servicio de Concur.  | Sí |
 | contraseña | Contraseña correspondiente al nombre de usuario que ha proporcionado en el campo de nombre de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
 | useEncryptedEndpoints | Especifica si los puntos de conexión de origen de datos se cifran mediante HTTPS. El valor predeterminado es true.  | Sin  |
 | useHostVerification | Especifica si se requiere que el nombre de host del certificado del servidor coincida con el nombre de host del servidor al conectarse a través de SSL. El valor predeterminado es true.  | Sin  |
@@ -143,5 +143,5 @@ Para copiar datos de Concur, establezca el tipo de origen de la actividad de cop
 ]
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Consulte los [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.

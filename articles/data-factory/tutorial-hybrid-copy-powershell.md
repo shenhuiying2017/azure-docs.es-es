@@ -1,11 +1,11 @@
 ---
 title: Copia de datos de SQL Server a Blob Storage mediante Azure Data Factory | Microsoft Docs
-description: "Aprenda a copiar datos de un almacén de datos local a la nube de Azure mediante un runtime de integración autohospedado en Azure Data Factory."
+description: Aprenda a copiar datos de un almacén de datos local a la nube de Azure mediante un runtime de integración autohospedado en Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: a2abe0733f52c1e032a718fd8f870c3ec9686a41
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 3733531efb18a1fc14998af8bad2f61f22032048
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Tutorial: copia de datos de una base de datos de SQL Server local a Azure Blob Storage
 En este tutorial, use Azure PowerShell para crear una canalización de Data Factory que copie los datos de una base de datos de SQL Server local a Azure Blob Storage. Cree y use una instancia de Integration Runtime autohospedado, que mueve los datos entre almacenes locales y en la nube. 
@@ -203,7 +203,7 @@ En esta sección se crea una instancia de Integration Runtime autohospedada y se
 2. Cree una instancia de Integration Runtime autohospedada. 
 
     ```powershell
-    Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $integrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
+    Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $integrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
     ``` 
     Este es la salida de ejemplo:
 
@@ -290,8 +290,7 @@ En esta sección se crea una instancia de Integration Runtime autohospedada y se
 
     ![Ventana Canal de comunicaciones de intranet](media/tutorial-hybrid-copy-powershell/intranet-communication-channel-page.png)
 
-12. En la ventana **Registro de Integration Runtime (autohospedado)**, haga clic en 
-**Iniciar Configuration Manager**. 
+12. En la ventana **Registro de Integration Runtime (autohospedado)**, haga clic en **Iniciar Configuration Manager**. 
 
 13. Cuando el nodo se conecte al servicio en la nube, se mostrará el servicio en la nube:
 
@@ -670,7 +669,7 @@ La canalización automáticamente la carpeta de salida *fromonprem* en el conten
     ![Archivo de salida](media/tutorial-hybrid-copy-powershell/fromonprem-file.png)
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 La canalización de este ejemplo copia los datos de una ubicación a otra en Azure Blob Storage. Ha aprendido a:
 
 > [!div class="checklist"]

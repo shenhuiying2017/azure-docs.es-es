@@ -1,11 +1,11 @@
 ---
 title: Copia de datos desde MySQL mediante Azure Data Factory | Microsoft Docs
-description: "Obtenga información sobre el conector MySQL de Azure Data Factory que permite copiar los datos desde una base de datos MySQL a un almacén de datos admitido como receptor."
+description: Obtenga información sobre el conector MySQL de Azure Data Factory que permite copiar los datos desde una base de datos MySQL a un almacén de datos admitido como receptor.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 4ecbf2b2e144885159ae6d6e3a82b4d6063a3d23
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d7dea9a3d9eabdc9e4cdf21e6e584b745d22a54e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Copia de datos desde MySQL mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -61,7 +61,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de MySQL:
 | Servidor | Nombre del servidor MySQL. | Sí |
 | Base de datos | Nombre de la base de datos MySQL. | Sí |
 | schema | Nombre del esquema de la base de datos. | Sin  |
-| Nombre de usuario | Especifique el nombre de usuario para conectarse a la base de datos de MySQL. | Sí |
+| nombre de usuario | Especifique el nombre de usuario para conectarse a la base de datos de MySQL. | Sí |
 | contraseña | Especifique la contraseña de la cuenta de usuario especificada. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Tal y como se mencionó en los [requisitos previos](#prerequisites), se requiere un entorno Integration Runtime autohospedado. |Sí |
 
@@ -209,5 +209,5 @@ Al copiar datos desde MySQL, se utilizan las siguientes asignaciones de tipos de
 | `year` |`Int` |
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Consulte los [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.

@@ -1,26 +1,26 @@
 ---
-title: "Supervisión y actualización de máquinas virtuales Linux en Azure | Microsoft Docs"
-description: "Aprender a supervisar los diagnósticos de arranque y las métricas de rendimiento, así como a administrar las actualizaciones de paquetes en una máquina virtual Linux en Azure"
+title: Supervisión y actualización de máquinas virtuales Linux en Azure | Microsoft Docs
+description: Aprender a supervisar los diagnósticos de arranque y las métricas de rendimiento, así como a administrar las actualizaciones de paquetes en una máquina virtual Linux en Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: davidmu1
-manager: timlt
-editor: tysonn
+author: iainfoulds
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/08/2017
-ms.author: davidmu
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 230ce6a6b33e63bcced5f520b57b63ef4ed05448
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 9ffd36da535a2e5ac4a355f429394dc4209348b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Supervisión y actualización de una máquina virtual Linux en Azure
 
@@ -271,7 +271,7 @@ En la hoja Búsqueda de registros del portal de OMS, debería ver *myVM* como se
 
 ![Hoja OMS](./media/tutorial-monitoring/tutorial-monitor-oms.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, ha configurado, revisado y administrado las actualizaciones para una máquina virtual. Ha aprendido a:
 

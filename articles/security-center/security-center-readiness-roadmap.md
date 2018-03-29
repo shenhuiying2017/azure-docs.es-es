@@ -1,11 +1,11 @@
 ---
-title: "Mapa de ruta de preparación para Azure Security Center | Microsoft Docs"
-description: "Este documento le proporciona un mapa de ruta de preparación para sacar el máximo partido de Azure Security Center."
+title: Mapa de ruta de preparación para Azure Security Center | Microsoft Docs
+description: Este documento le proporciona un mapa de ruta de preparación para sacar el máximo partido de Azure Security Center.
 services: security-center
 documentationcenter: na
 author: YuriDio
 manager: ndicola
-editor: 
+editor: ''
 ms.assetid: fece670cc-df70-445d-9773-b32cbaba8d4a
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2018
 ms.author: yurid
-ms.openlocfilehash: 7a6717f4a9ec0594ccd6b326520d0e0ab620739a
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 0de8dda6f88f31208c3fe7d560a461fea46a67e6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Mapa de ruta de preparación para Azure Security Center
 Este documento le proporciona un mapa de ruta de preparación que le ayudará a empezar a trabajar con Azure Security Center.
@@ -116,7 +116,7 @@ Artículos
 * [Recomendaciones sobre PaaS](https://docs.microsoft.com/azure/security/security-paas-deployments)
 * [Cumplimiento normativo](https://www.microsoft.com/trustcenter/Compliance/Due-Diligence-Checklist)
 
-##<a name="community-resources"></a>Recursos de la comunidad
+## <a name="community-resources"></a>Recursos de la comunidad
 
 * [Security Center UserVoice](https://feedback.azure.com/forums/347535-azure-security-center)
 * [Foros de la comunidad de Security Center](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureSecurityCenter)

@@ -1,10 +1,11 @@
 ---
-title: "Paso 5: implementación del servicio web Machine Learning | Microsoft Docs"
-description: "Paso 5 del tutorial Desarrollo de una solución predictiva: implementación de un experimento predictivo en Machine Learning Studio como servicio web."
+title: 'Paso 5: implementación del servicio web Machine Learning | Microsoft Docs'
+description: 'Paso 5 del tutorial Desarrollo de una solución predictiva: implementación de un experimento predictivo en Machine Learning Studio como servicio web.'
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
 editor: cgronlun
 ms.assetid: 3fca74a3-c44b-4583-a218-c14c46ee5338
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.author: garye
-ms.openlocfilehash: ba8f1678d87159088c58cf0e05e0fe5a6579b358
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 416a6d1c151fae01a00d00282ab9118e7391fbb7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="walkthrough-step-5-deploy-the-azure-machine-learning-web-service"></a>Paso 5 del tutorial: Implementar el servicio web de Azure Machine Learning
 Este es el quinto paso del tutorial [Desarrollo de una solución de análisis predictiva para la evaluación del riesgo de crédito en Azure Machine Learning](walkthrough-develop-predictive-solution.md)
@@ -170,7 +170,7 @@ Puede probar un servicio web clásico en Machine Learning Studio o en el portal 
 
 1. En la página **PANEL** del servicio web, haga clic en el botón **Probar** de **Default Endpoint** (Punto de conexión predeterminado). Aparecerá un cuadro de diálogo que le pide los datos de entrada del servicio. Se trata de las mismas columnas que aparecieron en el conjunto de datos original de riesgo de crédito original.  
 
-2. Escriba un conjunto de datos y, a continuación, haga clic en **Aceptar**. 
+2. Escriba un conjunto de datos y haga clic en **Aceptar**. 
 
 #### <a name="test-in-the-machine-learning-web-services-portal"></a>Prueba en el portal Servicios web Machine Learning
 

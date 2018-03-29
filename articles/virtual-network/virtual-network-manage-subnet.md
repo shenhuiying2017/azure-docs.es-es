@@ -1,13 +1,13 @@
 ---
-title: "Incorporación, cambio o eliminación de una subred de red virtual de Azure | Microsoft Docs"
-description: "Obtenga información sobre la incorporación, la modificación o la eliminación de una subred de red virtual en Azure."
+title: Incorporación, cambio o eliminación de una subred de red virtual de Azure | Microsoft Docs
+description: Obtenga información sobre la incorporación, la modificación o la eliminación de una subred de red virtual en Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 902c0eee88f0de8a20b9c8bf9c0dae6e3c3a7d79
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 16ce5aac26abcf2ef2cf7664fb0b9aae600708d4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Incorporación, cambio o eliminación de una subred de red virtual
 
@@ -67,7 +67,7 @@ Complete las tareas siguientes antes de seguir los pasos de las secciones de est
 
 **Comandos**
 
-- CLI de Azure: [az network vnet subnet update](/cli/azure/network/vnet#az_network_vnet_update)
+- CLI de Azure: [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update)
 - PowerShell: [Set-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig)
 
 ## <a name="delete-a-subnet"></a>Eliminación de una subred
@@ -82,7 +82,7 @@ Solo se puede eliminar una subred si no tiene recursos. Si hay recursos en la su
 
 **Comandos**
 
-- CLI de Azure: [az network vnet delete](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_vnet_delete)
+- CLI de Azure: [az network vnet delete](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-delete)
 - PowerShell: [Remove-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/remove-azurermvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
 ## <a name="permissions"></a>Permisos

@@ -1,11 +1,11 @@
 ---
-title: "Creación de una máquina virtual Linux con PowerShell en Azure Stack | Microsoft Docs"
-description: "Cree una máquina virtual Linux con PowerShell en Azure Stack."
+title: Creación de una máquina virtual Linux con PowerShell en Azure Stack | Microsoft Docs
+description: Cree una máquina virtual Linux con PowerShell en Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 03EE5929-4F05-47D7-B246-EA93D6FC47CD
 ms.service: azure-stack
 ms.workload: na
@@ -15,19 +15,19 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 97847c0c2fcc4ab7d5fe8e4e5badd5809b7e2363
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 5446f00b698fbe1fe1bae9c52bf3e73fe0d1c506
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-linux-virtual-machine-by-using-powershell-in-azure-stack"></a>Creación de una máquina virtual Linux con PowerShell en Azure Stack 
 
-*Se aplica a: Sistemas integrados de Azure Stack*
+*Se aplica a: sistemas integrados de Azure Stack*
 
 Azure PowerShell se usa para crear y administrar recursos en Azure Stack desde una línea de comandos o en scripts.  En esta guía se detalla cómo usar PowerShell para crear una máquina virtual que ejecuta un servidor de Ubuntu en Azure Stack.
 
-## <a name="prerequisites"></a>Requisitos previos 
+## <a name="prerequisites"></a>requisitos previos 
 
 * Asegúrese de que el operador de Azure Stack haya agregado la imagen "Ubuntu Server 16.04 LTS" a Marketplace de Azure Stack.  
 
@@ -189,7 +189,7 @@ Add-AzureRmVMSshPublicKey -VM $VirtualMachine `
  -KeyData $sshPublicKey `
  -Path "/home/azureuser/.ssh/authorized_keys"
 
-#Create the virtual machine.
+# Create the virtual machine.
 New-AzureRmVM `
   -ResourceGroupName $ResourceGroupName `
  -Location $location `

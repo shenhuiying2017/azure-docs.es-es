@@ -2,10 +2,9 @@
 title: 'Movimiento de datos desde un origen HTTP: Azure | Microsoft Docs'
 description: Aprenda a mover datos desde un origen HTTP local o en la nube mediante Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +13,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: a6dad8242c709240b57b8a47acc44c5ddfdaa755
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 9820ed9b4c0abbb79c6f92e62f294fb7fbd4c87e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="move-data-from-an-http-source-using-azure-data-factory"></a>Movimiento de datos desde un origen HTTP mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -65,7 +64,7 @@ Establezca `authenticationType` como `Basic`, `Digest` o `Windows`, y especifiqu
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
-| Nombre de usuario | Nombre de usuario para acceder al punto de conexión HTTP. | Sí |
+| nombre de usuario | Nombre de usuario para acceder al punto de conexión HTTP. | Sí |
 | contraseña | Contraseña para el usuario (nombre de usuario). | Sí |
 
 #### <a name="example-using-basic-digest-or-windows-authentication"></a>Ejemplo: Uso de la autenticación Basic, Digest o Windows

@@ -1,3 +1,19 @@
+---
+title: archivo de inclusión
+description: archivo de inclusión
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: 738ebdcc612d944db3794525085d220b33533245
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 03/23/2018
+---
 ### <a name="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus"></a>¿Se admite la directiva de IPsec o IKE personalizada en todas las SKU de Azure VPN Gateway?
 La directiva IPsec/IKE personalizada se admite en las puertas de enlace Azure VPN Gateway **VpnGw1, VpnGw2, VpnGw3, Estándar** y **HighPerformance**. La SKU **Basic** **no** se admite.
 
@@ -59,7 +75,7 @@ En la tabla siguiente se enumeran los grupos Diffie-Hellman compatibles para IKE
 | 2                         | DHGroup2                 | PFS2         | MODP de 1024 bits  |
 | 14                        | DHGroup14<br>DHGroup2048 | PFS2048      | MODP de 2048 bits  |
 | 19                        | ECP256                   | ECP256       | ECP de 256 bits    |
-| 20 |                        | ECP384                   | ECP284       | ECP de 384 bits    |
+| 20                        | ECP384                   | ECP284       | ECP de 384 bits    |
 | 24                        | DHGroup24                | PFS24        | MODP de 2048 bits  |
 |                           |                          |              |                |
 
@@ -84,4 +100,4 @@ Sí, puede aplicar directivas personalizadas en las conexiones entre entornos de
 Sí. Un túnel entre redes virtuales consta de dos recursos de conexión en Azure, una para cada dirección. Asegúrese de que los dos recursos de conexión tienen la misma directiva, ya que, de no ser así, la conexión entre redes virtuales no se establecerá.
 
 ### <a name="does-custom-ipsecike-policy-work-on-expressroute-connection"></a>¿Funciona la directiva de IPsec o IKE personalizada en una conexión ExpressRoute?
-No. La directiva de IPsec o IKE solo funciona en conexiones entre redes virtuales a través de las puertas de enlace de VPN de Azure y VPN de S2S.
+Nº La directiva de IPsec o IKE solo funciona en conexiones entre redes virtuales a través de las puertas de enlace de VPN de Azure y VPN de S2S.

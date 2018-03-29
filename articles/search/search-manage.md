@@ -1,11 +1,11 @@
 ---
-title: "Administración de servicios de Azure Search en Azure Portal"
-description: "Administrar Azure Search, un servicio hospedado de búsqueda en la nube de Microsoft Azure, mediante Azure Portal."
+title: Administración de servicios de Azure Search en Azure Portal
+description: Administrar Azure Search, un servicio hospedado de búsqueda en la nube de Microsoft Azure, mediante Azure Portal.
 services: search
-documentationcenter: 
+documentationcenter: ''
 author: HeidiSteen
 manager: jhubbard
-editor: 
+editor: ''
 tags: azure-portal
 ms.assetid: c87d1fdd-b3b8-4702-a753-6d7e29dbe0a2
 ms.service: search
@@ -15,11 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: 916a08aacca428530bc4f728d5de422e04bed8bc
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: d19683291e001c3c3f2a7bfc5c203b5121a8a418
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Administración de servicios de Azure Search en Azure Portal
 > [!div class="op_single_selector"]
@@ -44,26 +44,12 @@ Tenga en cuenta que *actualizar* no aparece como una tarea administrativa. Dado 
 ## <a name="administrator-rights"></a>Derechos de administrador
 El aprovisionamiento o la retirada del propio servicio los puede realizar un administrador o coadministrador de una suscripción de Azure.
 
-Dentro de un servicio, cualquier persona con acceso a la dirección URL del servicio y una clave de API de administración tiene acceso de lectura y escritura al servicio. El acceso de lectura y escritura ofrece capacidad para agregar, eliminar o modificar objetos de servidor, incluidos claves de API, índices, indizadores, orígenes de datos, programaciones y asignaciones de roles, tal y como se implementa a través de [roles definidos por RBAC](#rbac).
+Dentro de un servicio, cualquier persona con acceso a la dirección URL del servicio y una clave de API de administración tiene acceso de lectura y escritura al servicio. El acceso de lectura y escritura ofrece capacidad para agregar, eliminar o modificar objetos de servidor, incluidos claves de API, índices, indizadores, orígenes de datos, programaciones y asignaciones de roles, tal y como se implementa a través de [roles definidos por RBAC](search-security-rbac.md).
 
-Toda la interacción del usuario con Azure Search se encuadra en de uno de estos modos: acceso de lectura y escritura al servicio (derechos de administrador) o acceso de solo lectura al servicio (derechos de consulta). Para más información, consulte [Administración de las claves de API](#manage-keys).
+Toda la interacción del usuario con Azure Search se encuadra en de uno de estos modos: acceso de lectura y escritura al servicio (derechos de administrador) o acceso de solo lectura al servicio (derechos de consulta). Para más información, consulte [Administración de las claves de API](search-security-api-keys.md).
 
 <a id="sys-info"></a>
 
-## <a name="set-rbac-roles-for-administrative-access"></a>Configuración de roles RBAC para el acceso administrativo
-Azure proporciona un [modelo de autorización global basado en roles](../active-directory/role-based-access-control-configure.md) para todos los servicios que se administran del portal o de las API de Resource Manager. Los roles de Propietario, Colaborador y Lector determinan el nivel de administración de servicio de los usuarios, grupos y entidades de seguridad de Active Directory asignados a cada rol. 
-
-En Azure Search, los permisos RBAC determinan las siguientes tareas administrativas:
-
-| Rol | Tarea |
-| --- | --- |
-| Propietario |Crear o eliminar el servicio o cualquier objeto del servicio, entre los que se incluyen claves de API, índices, indexadores, orígenes de datos de indexadores y programas de indexadores.<p>Ver el estado del servicio, incluidos el tamaño de almacenamiento y los recuentos.<p>Agregar o eliminar miembros del rol (solo un propietario puede administrar la pertenencia a roles).<p>Los administradores de suscripciones y los propietarios de servicios tienen pertenencia automática al rol Propietario. |
-| Colaborador |El mismo nivel de acceso que Propietario, menos el administración de roles RBAC. Por ejemplo, un usuario con el rol Colaborador puede ver y regenerar `api-key`, pero no puede modificar pertenencias a roles. |
-| Lector |Ver las claves de estado y consulta de servicio. Los miembros de este rol no pueden cambiar la configuración de un servicio, ni pueden ver claves de administrador. |
-
-Los roles no otorgan derechos de acceso al punto de conexión de servicio. Las operaciones del servicio Search, como la administración de índices, el rellenado del índice y las consultas en datos de búsqueda, se controlan mediante claves de API, no a través de roles. Para más información, consulte "Autorización para administración frente a operaciones de datos" en [¿Qué es el control de acceso basado en roles?](../active-directory/role-based-access-control-what-is.md)
-
-<a id="secure-keys"></a>
 ## <a name="logging-and-system-information"></a>Registro e información del sistema
 Azure Search no expone los archivos de registro de un servicio individual ni a través del portal ni de interfaces de programación. En el nivel básico, y en los superiores, Microsoft supervisa que todos los servicios de Azure Search tengan una disponibilidad del 99,9 % por acuerdo de nivel de servicio (SLA). Si el servicio es lento o el rendimiento de las solicitudes no llega a los umbrales del SLA, los equipos de soporte técnico revisan los archivos de registro a los que pueden acceder y solucionan el problema.
 
@@ -72,38 +58,6 @@ En términos de información general acerca del servicio, hay varias formas de o
 * En el portal, en el panel del servicio, a través de notificaciones, propiedades y mensajes de estado.
 * Usando [PowerShell](search-manage-powershell.md) o la [API de REST de administración](https://docs.microsoft.com/rest/api/searchmanagement/) para [obtener propiedades del servicio](https://docs.microsoft.com/rest/api/searchmanagement/services) o el estado del uso de recursos del índice.
 * A través del [análisis de tráfico de búsqueda](search-traffic-analytics.md), como se ha indicado anteriormente.
-
-<a id="manage-keys"></a>
-
-## <a name="manage-api-keys"></a>Administración de las claves de API
-Todas las solicitudes que se realizan a un servicio de búsqueda necesitan una clave de API generada de forma específica para el servicio. Dicha clave de API es el único mecanismo para autenticar el acceso del punto de conexión de su servicio de búsqueda. 
-
-Una clave de API es una cadena que se compone de letras y números generados aleatoriamente. Mediante [permisos RBAC](#rbac), puede eliminar o leer las claves pero no puede reemplazar una clave con una contraseña definida por el usuario. 
-
-Se usan dos tipos de claves para obtener acceso a su servicio de búsqueda:
-
-* Administración (válida para cualquier operación de lectura y escritura en el servicio)
-* Consulta (válida para operaciones de solo lectura, como las consultas en un índice)
-
-Una clave de API de administración se crea cuando se aprovisiona el servicio. Hay dos claves de administración, designadas como *principal* y *secundaria*, pero en realidad son intercambiables. Todos los servicios tienen dos claves de administración, con el fin de que se pueda dejar de usar una de ellas sin perder el acceso al servicio. Puede volver a generar cualquiera de las claves de administración, pero no puede agregarla al recuento total de claves de administración. Hay un máximo de dos claves de administración por servicio de búsqueda.
-
-Las claves de consulta están diseñadas para las aplicaciones cliente que llaman directamente a Azure Search. Puede crear hasta 50 claves de consulta. En el código de la aplicación, especifique la dirección URL de búsqueda y una clave de API de consulta para permitir el acceso de solo lectura al servicio. El código de aplicación también especifica el índice que utiliza la aplicación. Juntos, el punto de conexión, una clave de API para el acceso de solo lectura y un índice de destino definen el nivel de acceso y ámbito de la conexión desde la aplicación cliente.
-
-Para obtener o volver a generar claves de API, abra el panel de servicios. Haga clic en **CLAVES** para deslizar la página de administración de claves al abrirla. Los comandos para volver a generar o crear claves están en la parte superior de la página. De forma predeterminada, solo se crean claves de administración. Las claves de API de consulta deben crearse manualmente.
-
- ![][9]
-
-<a id="rbac"></a>
-
-## <a name="secure-api-keys"></a>Protección de las claves de API
-La seguridad de las claves se garantiza mediante la restricción del acceso a través del portal o de las interfaces de Resource Manager (PowerShell o interfaz de línea de comandos). Como se ha indicado, los administradores de suscripciones pueden ver y volver a generar todas las claves de API. Como medida de precaución, revise las asignaciones de roles para conocer quién tiene acceso a las claves de administración.
-
-1. En el panel de servicios, haga clic en el icono de acceso para abrir la hoja de Usuarios.
-   ![][7]
-2. En Usuarios, revise las asignaciones de roles existentes. Como se esperaba, los administradores de suscripciones ya tienen acceso total al servicio a través el rol Propietario.
-3. Para obtener detalles adicionales, haga clic en **Administradores de suscripciones** y, a continuación, expanda la lista de asignaciones de roles para ver quién tiene derechos de administración conjunta en el servicio de búsqueda.
-
-Otra forma de ver los permisos de acceso es hacer clic en **Roles** en la hoja Usuarios. Esto muestra los roles disponibles y el número de usuarios o grupos asignados a cada rol.
 
 <a id="sub-5"></a>
 
@@ -184,9 +138,6 @@ También se recomienda revisar el [artículo sobre rendimiento y optimización](
 Otra recomendación es ver el vídeo que se indica en la sección anterior. Proporciona cobertura más detallada de las técnicas mencionadas en esta sección.
 
 <!--Image references-->
-[7]: ./media/search-manage/rbac-icon.png
-[8]: ./media/search-manage/Azure-Search-Manage-1-URL.png
-[9]: ./media/search-manage/Azure-Search-Manage-2-Keys.png
 [10]: ./media/search-manage/Azure-Search-Manage-3-ScaleUp.png
 
 

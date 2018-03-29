@@ -1,34 +1,31 @@
 ---
-title: "Azure Active Directory B2C: Métodos de migración de usuarios"
-description: "Describe fundamentos y conceptos avanzados sobre la migración de usuarios mediante la API Graph y opcionalmente mediante directivas personalizadas de Azure AD B2C."
+title: 'Azure Active Directory B2C: Métodos de migración de usuarios'
+description: Describe fundamentos y conceptos avanzados sobre la migración de usuarios mediante Graph API y opcionalmente mediante directivas personalizadas de Azure AD B2C.
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 10/04/2017
-ms.author: yoelh
-ms.openlocfilehash: 25023359e3f1eeb241f6f0e70bcb179aa32974af
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: be80ea534be6de4fad2b072cf531669f45eda527
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C: Migración de usuarios
 Si migra su proveedor de identidades a Azure Active Directory B2C (Azure AD B2C), también debe migrar la cuenta de usuario. En este artículo se explica cómo migrar las cuentas de usuario existentes desde cualquier proveedor de identidades a Azure AD B2C. El artículo no pretende ser preceptivo, sino describir dos de los varios enfoques. El desarrollador es responsable de la idoneidad de cada enfoque.
 
 ## <a name="user-migration-flows"></a>Flujos de migración de usuarios
-Con Azure AD B2C, puede migrar los usuarios mediante la [API Graph](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet). El proceso de migración de usuarios se divide en dos flujos:
+Con Azure AD B2C, puede migrar los usuarios mediante [Graph API](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet). El proceso de migración de usuarios se divide en dos flujos:
 
 * **Antes de la migración**: este flujo se aplica cuando tiene acceso libre a las credenciales de un usuario (nombre de usuario y contraseña) o las credenciales se cifran, pero puede descifrarlas. El proceso de pre-migración implica leer los usuarios del anterior proveedor de identidades y crear nuevas cuentas en el directorio de Azure AD B2C.
 
-* **Pre-migración y restablecimiento de contraseña**: este flujo se aplica cuando la contraseña de un usuario no es accesible. Por ejemplo:
+* **Pre-migración y restablecimiento de contraseña**: este flujo se aplica cuando la contraseña de un usuario no es accesible. Por ejemplo: 
     * La contraseña se almacena en formato HASH.
     * La contraseña se almacena en un proveedor de identidades al que no tiene acceso. El proveedor de identidades anterior valida las credenciales de usuario mediante una llamada a un servicio web.
 
@@ -43,15 +40,15 @@ Si las cuentas que se van a migrar tienen menos seguridad de contraseña que la 
 "passwordPolicies": "DisablePasswordExpiration, DisableStrongPassword"
 ```
 
-## <a name="step-1-use-graph-api-to-migrate-users"></a>Paso 1: Uso de la API Graph para migrar usuarios
-Debe crear la cuenta de usuario de Azure AD B2C a través de la API Graph (con la contraseña o con una contraseña aleatoria). Esta sección describe el proceso de creación de cuentas de usuario en el directorio de Azure AD B2C mediante la API Graph.
+## <a name="step-1-use-graph-api-to-migrate-users"></a>Paso 1: Uso de Graph API para migrar usuarios
+Debe crear la cuenta de usuario de Azure AD B2C a través de Graph API (con la contraseña o con una contraseña aleatoria). Esta sección describe el proceso de creación de cuentas de usuario en el directorio de Azure AD B2C mediante Graph API.
 
 ### <a name="step-11-register-your-application-in-your-tenant"></a>Paso 1.1: Registro de la aplicación en el inquilino
-Para comunicarse con la API Graph, debe tener una cuenta de servicio con privilegios administrativos. En Azure AD, debe registrar una aplicación y la autenticación en Azure AD. Las credenciales de la aplicación son el **Identificador de aplicación** y el **Secreto de aplicación**. La aplicación actúa como tal, no como un usuario, para llamar a la API Graph.
+Para comunicarse con Graph API, debe tener una cuenta de servicio con privilegios administrativos. En Azure AD, debe registrar una aplicación y la autenticación en Azure AD. Las credenciales de la aplicación son el **Identificador de aplicación** y el **Secreto de aplicación**. La aplicación actúa como tal, no como un usuario, para llamar a Graph API.
 
 En primer lugar, registre la aplicación de migración en Azure AD. A continuación, cree una clave de aplicación (secreto de aplicación) y establezca la aplicación con los privilegios de escritura.
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
 2. Para elegir el inquilino de Azure AD **B2C**, seleccione la cuenta en la esquina superior derecha de la ventana.
 
@@ -250,7 +247,7 @@ Para obtener el vínculo a la directiva de restablecimiento de contraseña, haga
 > Para comprobar y cambiar el estado de migración del usuario, debe usar una directiva personalizada. Para obtener información, consulte [Introducción a las directivas personalizadas](active-directory-b2c-get-started-custom.md).
 >
 
-Cuando los usuarios intentan iniciar sesión sin restablecer la contraseña primero, la directiva debería devolver un mensaje de error descriptivo. Por ejemplo: 
+Cuando los usuarios intentan iniciar sesión sin restablecer la contraseña primero, la directiva debería devolver un mensaje de error descriptivo. Por ejemplo:  
 >*La contraseña ha expirado. Para restablecerla, seleccione el vínculo Restablecer contraseña.* 
 
 Este paso opcional requiere el uso de las directivas personalizadas de Azure AD B2C, como se describe en el artículo [Introducción a las directivas personalizadas](active-directory-b2c-get-started-custom.md).

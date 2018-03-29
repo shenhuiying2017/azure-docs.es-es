@@ -1,3 +1,19 @@
+---
+title: archivo de inclusión
+description: archivo de inclusión
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: b5aea9d7fe54402693be095350f7c095334fd4b5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 03/23/2018
+---
 **Para descargar el script de configuración de dispositivos VPN:**
 
 En función del dispositivo VPN que tenga, es posible que pueda descargar un script de configuración del mismo. Para más información, consulte [Descarga de scripts de configuración de dispositivos VPN para conexiones VPN S2S](../articles/vpn-gateway/vpn-gateway-download-vpndevicescript.md).

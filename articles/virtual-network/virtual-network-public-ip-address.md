@@ -1,11 +1,11 @@
 ---
-title: "Creación, modificación o eliminación de una dirección IP pública de Azure | Microsoft Docs"
-description: "Obtenga información sobre cómo crear, cambiar o eliminar una dirección IP pública."
+title: Creación, modificación o eliminación de una dirección IP pública de Azure | Microsoft Docs
+description: Obtenga información sobre cómo crear, cambiar o eliminar una dirección IP pública.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: bb71abaf-b2d9-4147-b607-38067a10caf6
 ms.service: virtual-network
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: 8efc0bff4764a7265a5f1bcdd995979af0b22234
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: c36a3451dabbb0d08e5e475e0eec14f861bd41ce
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>Creación, modificación o eliminación de una dirección IP pública
 
@@ -46,7 +46,7 @@ Las direcciones IP públicas tienen un precio simbólico. Para ver los precios, 
 
     |Configuración|¿Necesario?|Detalles|
     |---|---|---|
-    |SKU|Sí|Todas las direcciones IP públicas creadas antes de la introducción de SKU son direcciones IP públicas de SKU **básica**.  No se puede cambiar la SKU después de crear la dirección IP pública. Una máquina virtual independiente, las máquinas virtuales dentro de un conjunto de disponibilidad o los conjuntos de escalado de máquinas virtuales pueden usar SKU básicas o estándar.  No se permite la mezcla de SKU entre máquinas virtuales dentro de conjuntos de disponibilidad o conjuntos de escalado. SKU **básico**: si va a crear una dirección IP pública en una región que admite zonas de disponibilidad, el ajuste **Zona disponibilidad** se establece en *Ninguno* de forma predeterminada. Puede seleccionar una zona de disponibilidad para garantizar una zona específica para la dirección IP pública. SKU **estándar** SKU: una dirección IP pública de SKU estándar se puede asociar a una máquina virtual o una front-end de equilibrador de carga. Si va a crear una dirección IP pública en una región que admite zonas de disponibilidad, el ajuste **Zona disponibilidad** se establece en *Redundancia de zona* de forma predeterminada. Para obtener información sobre las zonas de disponibilidad, consulte el ajuste **Zona de disponibilidad**. La SKU estándar es necesaria si se asocia la dirección a un equilibrador de carga estándar. Para obtener más información sobre equilibradores de carga estándar, consulte [Azure load balancer standard SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (SLU estándar para Azure Load Balancer). La SKU estándar se encuentra en versión preliminar. Antes de crear una dirección IP pública de SKU estándar, primero debe completar los pasos descritos de la sección [Registro para la versión preliminar de la SKU estándar](#register-for-the-standard-sku-preview) y crear la dirección IP pública en una ubicación (región) admitida. Para una lista de ubicaciones admitidas, consulte [Region availability](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#region-availability) (Disponibilidad de regiones) y supervise la página [Actualizaciones de Azure](https://azure.microsoft.com/updates/?product=virtual-network) para conocer la compatibilidad con regiones adicionales. Cuando asigna una dirección IP pública de SKU estándar a una interfaz de red de una máquina virtual, debe permitir explícitamente el tráfico previsto con un [grupo de seguridad de red](security-overview.md#network-security-groups). Para evitar que se produzca un error en la comunicación con el recurso, debe crear un grupo de seguridad de red, asociarlo y permitir explícitamente el tráfico deseado.|
+    |SKU|Sí|Todas las direcciones IP públicas creadas antes de la introducción de SKU son direcciones IP públicas de SKU **básica**.  No se puede cambiar la SKU después de crear la dirección IP pública. Una máquina virtual independiente, las máquinas virtuales dentro de un conjunto de disponibilidad o los conjuntos de escalado de máquinas virtuales pueden usar SKU básicas o estándar.  No se permite la mezcla de SKU entre máquinas virtuales dentro de conjuntos de disponibilidad o conjuntos de escalado. SKU **básico**: si va a crear una dirección IP pública en una región que admite zonas de disponibilidad, el ajuste **Zona disponibilidad** se establece en *Ninguno* de forma predeterminada. Puede seleccionar una zona de disponibilidad para garantizar una zona específica para la dirección IP pública. SKU **estándar** SKU: una dirección IP pública de SKU estándar se puede asociar a una máquina virtual o una front-end de equilibrador de carga. Si va a crear una dirección IP pública en una región que admite zonas de disponibilidad, el ajuste **Zona disponibilidad** se establece en *Redundancia de zona* de forma predeterminada. Para obtener información sobre las zonas de disponibilidad, consulte el ajuste **Zona de disponibilidad**. La SKU estándar es necesaria si se asocia la dirección a un equilibrador de carga estándar. Para obtener más información sobre equilibradores de carga estándar, consulte [Azure load balancer standard SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (SLU estándar para Azure Load Balancer). Cuando asigna una dirección IP pública de SKU estándar a una interfaz de red de una máquina virtual, debe permitir explícitamente el tráfico previsto con un [grupo de seguridad de red](security-overview.md#network-security-groups). Para evitar que se produzca un error en la comunicación con el recurso, debe crear un grupo de seguridad de red, asociarlo y permitir explícitamente el tráfico deseado.|
     |NOMBRE|Sí|El nombre debe ser único dentro del grupo de recursos que seleccione.|
     |Versión de la dirección IP|Sí| Seleccione IPv4 o IPv6. Si bien las direcciones IPv4 públicas se pueden asignar a varios recursos de Azure, una dirección IP pública IPv6 solo se puede asignar a un equilibrador de carga accesible desde Internet. El equilibrador de carga puede equilibrar la carga del tráfico IPv6 a máquinas virtuales de Azure. Más información sobre el [equilibrio de carga del tráfico IPv6 a máquinas virtuales](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Si seleccionó la **SKU estándar**, no tiene la opción de seleccionar *IPv6*. Solo puede crear una dirección IPv4 cuando se usa la **SKU estándar**.|
     |Asignación de dirección IP|Sí|**Dinámica:** las direcciones dinámicas solo se asignan después de asociar la dirección IP pública a una interfaz de red asociada a una máquina virtual y que se inicie por primera vez. Las direcciones dinámicas pueden cambiar si la máquina virtual a la cual está asociada la interfaz de red está detenida (desasignada). La dirección sigue siendo la misma si la máquina virtual se reinicia o se detiene (pero no está desasignada). **Estático:** las direcciones estáticas se asignan cuando se crea la dirección IP pública. Las direcciones estáticas no cambian, aunque la máquina virtual se detenga (estado desasignado). La dirección solo se libera cuando se elimina la interfaz de red. Una vez creada la interfaz de red, puede cambiar el método de asignación. Si selecciona *IPv6* como la **versión de dirección IP**, el único método de asignación disponible es *Dinámica*. Si selecciona *estándar* para **SKU**, el método de asignación es *Estático*.|
@@ -88,24 +88,6 @@ Si bien el portal proporciona la opción de crear dos recursos de direcciones IP
 |---|---|
 |CLI|[az network public-ip-list](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_public_ip_list) para mostrar las direcciones IP públicas, [az network public-ip-show](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_public_ip_show) para mostrar la configuración, [az network public-ip update](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_public_ip_update) para actualizar, [az network public-ip delete](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_public_ip_delete) para eliminar|
 |PowerShell|[Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress?toc=%2fazure%2fvirtual-network%2ftoc.json) para recuperar un objeto de dirección IP pública y ver su configuración, [Set-AzureRmPublicIpAddress](/powershell/resourcemanager/azurerm.network/set-azurermpublicipaddress?toc=%2fazure%2fvirtual-network%2ftoc.json) para actualizar la configuración, [Remove-AzureRmPublicIpAddress](/powershell/module/azurerm.network/remove-azurermpublicipaddress) para eliminar|
-
-## <a name="register-for-the-standard-sku-preview"></a>Registro para la versión preliminar de la SKU estándar
-
-> [!NOTE]
-> Las características que se encuentran en versión preliminar pueden no tener el mismo nivel de disponibilidad y confiabilidad que las características que se encuentran en la versión de disponibilidad general. Las características de la versión preliminar no se admiten, pueden tener funcionalidades limitadas y pueden no estar disponibles en todas las ubicaciones de Azure. 
-
-Para poder crear una dirección IP pública de SKU estándar, primero debe registrarse para la versión preliminar. Complete los pasos siguientes para registrarse para la versión preliminar:
-
-1. Desde PowerShell, escriba el siguiente comando para registrarse para la versión preliminar:
-   
-    ```powershell
-    Register-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
-    ```
-2. Escriba el siguiente comando para confirmar que está registrado para la versión preliminar:
-
-    ```powershell
-    Get-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
-    ```
 
 ## <a name="next-steps"></a>Pasos siguientes
 Asignar direcciones IP públicas al crear los siguientes recursos de Azure:

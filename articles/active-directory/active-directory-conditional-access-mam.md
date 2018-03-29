@@ -1,12 +1,12 @@
 ---
 title: Acceso condicional basado en aplicaciones de Azure Active Directory | Microsoft Docs
-description: "Aprenda cómo funciona el acceso condicional basado en aplicaciones de Azure Active Directory."
+description: Aprenda cómo funciona el acceso condicional basado en aplicaciones de Azure Active Directory.
 services: active-directory
 keywords: acceso condicional a aplicaciones, acceso condicional con Azure AD, acceso seguro a recursos de empresa, directivas de acceso condicional
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.devlang: na
@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 01/11/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 7814b53a69506f81bc6a75387c62766e36d528d8
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: b35aed3583307c34eadbed3dd13d1ffd51494927
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-app-based-conditional-access"></a>Acceso condicional basado en aplicaciones de Azure Active Directory  
 
@@ -50,7 +50,7 @@ Puede combinar directivas de acceso condicional basado en aplicaciones con otras
  
 
 
-##<a name="before-you-begin"></a>Antes de empezar
+## <a name="before-you-begin"></a>Antes de empezar
 
 En este tema se da por supuesto que está familiarizado con:
 
@@ -64,7 +64,7 @@ En este tema se da por supuesto que está familiarizado con:
 - La [migración de directivas de acceso condicional](active-directory-conditional-access-best-practices.md#policy-migration).
  
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para crear una directiva de acceso condicional basado en aplicaciones, debe tener una suscripción a Enterprise Mobility + Security o una suscripción Premium a Azure Active Directory, y los usuarios deben disponer de una licencia para EMS o Azure AD. 
 
@@ -440,7 +440,7 @@ Consulte [Protección de aplicaciones y datos con Microsoft Intune](https://docs
 
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Si quiere saber cómo configurar una directiva de acceso condicional, consulte [Get started with conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md) (Introducción al acceso condicional en Azure Active Directory).
 

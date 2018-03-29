@@ -1,13 +1,13 @@
 ---
-title: "Creación de un conjunto de escalado de Azure que usa Zonas de disponibilidad (versión preliminar) | Microsoft Docs"
-description: "Obtenga información sobre cómo crear conjuntos de escalado de máquinas virtuales de Azure que usan Zonas de disponibilidad para aumentar la redundancia contra las interrupciones"
+title: Creación de un conjunto de escalado de Azure que usa Zonas de disponibilidad (versión preliminar) | Microsoft Docs
+description: Obtenga información sobre cómo crear conjuntos de escalado de máquinas virtuales de Azure que usan Zonas de disponibilidad para aumentar la redundancia contra las interrupciones
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: iainfou
-ms.openlocfilehash: 2de214f604469025a8a4accde44359fea0ded7e9
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8b497af8bc7e3060e184dd6a029b23ccb2d2bbfb
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones-preview"></a>Creación de un conjunto de escalado de máquinas virtuales que usa Zonas de disponibilidad (versión preliminar)
 Para proteger los conjuntos de escalado de máquinas virtuales de los errores en el nivel de centro de datos, puede crear un conjunto de escalado en todas las zonas de disponibilidad. Las regiones de Azure que admiten las Zonas de disponibilidad tienen un mínimo de tres zonas independientes, cada una de las cuales con su propia fuente de alimentación, red y sistema de refrigeración. Para obtener más información, consulte [Introducción a las zonas de disponibilidad](../availability-zones/az-overview.md).
@@ -34,14 +34,14 @@ Cuando crea un conjunto de escalado en una sola zona, controla en qué zona se e
 
 Para usar las Zonas de disponibilidad, el conjunto de escalado se debe crear en una [región de Azure compatible](../availability-zones/az-overview.md#regions-that-support-availability-zones). También necesita [registrarse para obtener la versión preliminar de las Zonas de disponibilidad](http://aka.ms/azenroll). Puede crear un conjunto de escalado que use las Zonas de disponibilidad con uno de los métodos siguientes:
 
-- [portal de Azure](#use-the-azure-portal)
+- [Azure Portal](#use-the-azure-portal)
 - [CLI de Azure 2.0](#use-the-azure-cli-20)
 - [Azure PowerShell](#use-azure-powershell)
 - [Plantillas del Administrador de recursos de Azure](#use-azure-resource-manager-templates)
 
 
 ## <a name="use-the-azure-portal"></a>Uso de Azure Portal
-El proceso para crear un conjunto de escalado que usa una zona de disponibilidad es igual al que se detalla en el [artículo de introducción](virtual-machine-scale-sets-create-portal.md). Asegúrese de haberse [registrado para obtener la versión preliminar de las Zonas de disponibilidad](http://aka.ms/azenroll). Cuando selecciona una región de Azure compatible, puede crear un conjunto de escalado en una de las zonas disponibles, tal como se muestra en el ejemplo siguiente:
+El proceso para crear un conjunto de escalado que usa una zona de disponibilidad es igual al que se detalla en el [artículo de introducción](quick-create-portal.md). Asegúrese de haberse [registrado para obtener la versión preliminar de las Zonas de disponibilidad](http://aka.ms/azenroll). Cuando selecciona una región de Azure compatible, puede crear un conjunto de escalado en una de las zonas disponibles, tal como se muestra en el ejemplo siguiente:
 
 ![Creación de un conjunto de escalado en una sola zona de disponibilidad](media/virtual-machine-scale-sets-use-availability-zones/create-portal-single-az.png)
 
@@ -49,7 +49,7 @@ El conjunto de escalado y los recursos de apoyo, como la dirección IP pública 
 
 
 ## <a name="use-the-azure-cli-20"></a>Uso de la CLI de Azure 2.0
-El proceso para crear un conjunto de escalado que usa una zona de disponibilidad es igual al que se detalla en el [artículo de introducción](virtual-machine-scale-sets-create-cli.md). Para usar las Zonas de disponibilidad, debe crear el conjunto de escalado en una región de Azure compatible y haberse [registrado para obtener la versión preliminar de las Zonas de disponibilidad](http://aka.ms/azenroll).
+El proceso para crear un conjunto de escalado que usa una zona de disponibilidad es igual al que se detalla en el [artículo de introducción](quick-create-cli.md). Para usar las Zonas de disponibilidad, debe crear el conjunto de escalado en una región de Azure compatible y haberse [registrado para obtener la versión preliminar de las Zonas de disponibilidad](http://aka.ms/azenroll).
 
 Agregue el parámetro `--zones` al comando [az vmss create](/cli/azure/vmss#az_vmss_create) y especifique qué zona se usará (como la zona *1*, *2* o *3*). En el ejemplo siguiente se crea un conjunto de escalado de una sola zona denominado *myScaleSet* en la zona *1*:
 
@@ -114,7 +114,7 @@ Se tardan unos minutos en crear y configurar todos los recursos de conjunto de e
 
 
 ## <a name="use-azure-powershell"></a>Uso de Azure PowerShell
-El proceso para crear un conjunto de escalado que usa una zona de disponibilidad es igual al que se detalla en el [artículo de introducción](virtual-machine-scale-sets-create-powershell.md). Para usar las Zonas de disponibilidad, debe crear el conjunto de escalado en una región de Azure compatible y haberse [registrado para obtener la versión preliminar de las Zonas de disponibilidad](http://aka.ms/azenroll). Agregue el parámetro `-Zone` al comando [New-AzureRmVmssConfig](/powershell/module/azurerm.compute/new-azurermvmssconfig) y especifique qué zona se usará (como la zona *1*, *2* o *3*). 
+El proceso para crear un conjunto de escalado que usa una zona de disponibilidad es igual al que se detalla en el [artículo de introducción](quick-create-powershell.md). Para usar las Zonas de disponibilidad, debe crear el conjunto de escalado en una región de Azure compatible y haberse [registrado para obtener la versión preliminar de las Zonas de disponibilidad](http://aka.ms/azenroll). Agregue el parámetro `-Zone` al comando [New-AzureRmVmssConfig](/powershell/module/azurerm.compute/new-azurermvmssconfig) y especifique qué zona se usará (como la zona *1*, *2* o *3*). 
 
 En el ejemplo siguiente se crea una configuración de conjunto de escalado de una sola zona denominada *vmssConfig* en *Este de EE. UU. 2* zona *1*:
 
@@ -178,7 +178,7 @@ Para ver un ejemplo completo de los recursos de red y un conjunto de escalado co
 
 
 ## <a name="use-azure-resource-manager-templates"></a>Utilización de plantillas del Administrador de recursos de Azure
-El proceso para crear un conjunto de escalado que usa una zona de disponibilidad es igual al que se detalla en el artículo de introducción para [Linux](virtual-machine-scale-sets-create-template-linux.md) o [Windows](virtual-machine-scale-sets-create-template-windows.md). Para usar las Zonas de disponibilidad, debe crear el conjunto de escalado en una región de Azure compatible y haberse [registrado para obtener la versión preliminar de las Zonas de disponibilidad](http://aka.ms/azenroll). Agregue la propiedad `zones` al tipo de recurso *Microsoft.Compute/virtualMachineScaleSets* en la plantilla y especifique qué zona se va a usar (como la zona *1*, *2* o *3*).
+El proceso para crear un conjunto de escalado que usa una zona de disponibilidad es igual al que se detalla en el artículo de introducción para [Linux](quick-create-template-linux.md) o [Windows](quick-create-template-windows.md). Para usar las Zonas de disponibilidad, debe crear el conjunto de escalado en una región de Azure compatible y haberse [registrado para obtener la versión preliminar de las Zonas de disponibilidad](http://aka.ms/azenroll). Agregue la propiedad `zones` al tipo de recurso *Microsoft.Compute/virtualMachineScaleSets* en la plantilla y especifique qué zona se va a usar (como la zona *1*, *2* o *3*).
 
 En el ejemplo siguiente se crea un conjunto de escalado Linux de una sola zona denominado *myScaleSet* en *Este de EE. UU. 2* zona *1*:
 
@@ -244,5 +244,5 @@ Si crea un equilibrador de carga o una dirección IP pública especifique la pro
 Para ver un ejemplo completo de los recursos de red y un conjunto de escalado con redundancia de zona, consulte [esta plantilla de Resource Manager de ejemplo](https://github.com/Azure/vm-scale-sets/blob/master/preview/zones/multizone.json)
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Ahora que creó un conjunto de escalado en una zona de disponibilidad, puede obtener información sobre cómo [implementar aplicaciones en conjuntos de escalado de máquinas virtuales](virtual-machine-scale-sets-deploy-app.md) o [usar el escalado automático con conjuntos de escalado de máquinas virtuales](virtual-machine-scale-sets-autoscale-overview.md).

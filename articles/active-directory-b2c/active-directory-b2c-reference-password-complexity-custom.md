@@ -1,24 +1,21 @@
 ---
-title: "Complejidad de contraseñas en las directivas personalizadas: Azure AD B2C | Microsoft Docs"
-description: "Cómo configurar los requisitos de complejidad para las contraseñas en una directiva personalizada"
+title: 'Complejidad de contraseñas en las directivas personalizadas: Azure AD B2C | Microsoft Docs'
+description: Cómo configurar los requisitos de complejidad para las contraseñas en una directiva personalizada
 services: active-directory-b2c
-documentationcenter: 
-author: saeedakhter-msft
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: 53ef86c4-1586-45dc-9952-dbbd62f68afc
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
-ms.author: saeeda
-ms.openlocfilehash: eb187a120399089f1c3c145a06fbe993f50fb92b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 4dabcdef32d337c5063d2b0503f32b06d5d0fdeb
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-password-complexity-in-custom-policies"></a>Configuración de la complejidad de contraseñas en las directivas personalizadas
 
@@ -33,7 +30,7 @@ Este artículo es una descripción avanzada de cómo funciona y cómo se habilit
 
 Azure Active Directory B2C (Azure AD B2C) admite el cambio de los requisitos de complejidad de las contraseñas proporcionadas por un usuario final al crear una cuenta.  De forma predeterminada, Azure AD B2C utiliza contraseñas **seguras**.  Azure AD B2C también admite opciones de configuración para controlar la complejidad de las contraseñas que los clientes pueden usar.  En este artículo se habla sobre cómo configurar la complejidad de las contraseñas en las directivas personalizadas.  También es posible utilizar [la configuración de complejidad de contraseñas en las directivas integradas](active-directory-b2c-reference-password-complexity.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Configuración de un inquilino de Azure AD B2C para completar el registro o inicio de sesión de una cuenta local como se describe en [Introducción](active-directory-b2c-get-started-custom.md).
 

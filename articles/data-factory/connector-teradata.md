@@ -1,11 +1,11 @@
 ---
 title: Copia de datos de Teradata mediante Azure Data Factory | Microsoft Docs
-description: "Obtenga información sobre el conector Teradata del servicio Data Factory que permite copiar datos desde una base de datos Teradata a almacenes de datos compatibles con Data Factory como receptores."
+description: Obtenga información sobre el conector Teradata del servicio Data Factory que permite copiar datos desde una base de datos Teradata a almacenes de datos compatibles con Data Factory como receptores.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 6af955b456a00fa90a9e49701fef6318e51bbd4b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 287fc502a0a538660da86e028a81fba04bcac903
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-teradata-using-azure-data-factory"></a>Copia de datos de Teradata mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -60,7 +60,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado Teradata:
 | Tipo | La propiedad type se debe establecer en: **Teradata** | Sí |
 | Servidor | Nombre del servidor de Teradata. | Sí |
 | authenticationType | Tipo de autenticación usado para conectarse a la base de datos Teradata.<br/>Los valores permitidos son: **Básica** y **Windows**. | Sí |
-| Nombre de usuario | Especifique el nombre de usuario para conectarse a la base de datos Teradata. | Sí |
+| nombre de usuario | Especifique el nombre de usuario para conectarse a la base de datos Teradata. | Sí |
 | contraseña | Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Tal y como se mencionó en los [requisitos previos](#prerequisites), se requiere un entorno Integration Runtime autohospedado. |Sí |
 
@@ -207,5 +207,5 @@ Al copiar datos desde Teradata, se usan las siguientes asignaciones de tipos de 
 | xml |string |
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Consulte los [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.

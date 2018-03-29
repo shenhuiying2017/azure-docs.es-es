@@ -1,12 +1,12 @@
 ---
-title: "Creación de un equilibrador de carga público con IPv6: CLI de Azure | Microsoft Docs"
-description: "Aprenda a crear un equilibrador de carga público con IPv6 en Azure Resource Manager con la CLI de Azure."
+title: 'Creación de un equilibrador de carga público con IPv6: CLI de Azure | Microsoft Docs'
+description: Aprenda a crear un equilibrador de carga público con IPv6 en Azure Resource Manager con la CLI de Azure.
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: timlt
 tags: azure-resource-manager
-keywords: "IPv6, Azure Load Balancer, pila doble, dirección ip pública, ipv6 nativo, móvil, iot"
+keywords: IPv6, Azure Load Balancer, pila doble, dirección ip pública, ipv6 nativo, móvil, iot
 ms.assetid: a1957c9c-9c1d-423e-9d5c-d71449bc1f37
 ms.service: load-balancer
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 3abd47460999f7b059469a58a59a3e297e88effb
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 62f22ccadfabd2f3d6906beb3c241703d4e6383f
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-in-azure-resource-manager-by-using-azure-cli"></a>Creación de un equilibrador de carga público con IPv6 en Azure Resource Manager con la CLI de Azure
 
@@ -28,7 +28,6 @@ ms.lasthandoff: 12/08/2017
 > * [CLI de Azure](load-balancer-ipv6-internet-cli.md)
 > * [Plantilla](load-balancer-ipv6-internet-template.md)
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Azure Load Balancer es un equilibrador de carga de nivel 4 (TCP y UDP) Los equilibradores de carga proporcionan una alta disponibilidad mediante la distribución del tráfico entrante entre las instancias de servicio correctas de los servicios en la nube o las máquinas virtuales de un conjunto de equilibradores de carga. Los equilibradores de carga también pueden prestar estos servicios en varios puertos, varias direcciones IP o ambos.
 

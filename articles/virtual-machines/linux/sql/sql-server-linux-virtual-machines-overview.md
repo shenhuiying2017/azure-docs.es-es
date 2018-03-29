@@ -1,8 +1,8 @@
 ---
-title: "Introducción a SQL Server en máquinas virtuales Linux de Azure | Microsoft Docs"
-description: "Aprenda a ejecutar ediciones completas de SQL Server en máquinas virtuales Linux de Azure. Obtenga vínculos directos a todas las imágenes de máquina virtual de SQL Server y al contenido relacionado."
+title: Introducción a SQL Server en máquinas virtuales Linux de Azure | Microsoft Docs
+description: Aprenda a ejecutar ediciones completas de SQL Server en máquinas virtuales Linux de Azure. Obtenga vínculos directos a todas las imágenes de máquina virtual de SQL Server y al contenido relacionado.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rothja
 manager: jhubbard
 tags: azure-service-management
@@ -10,13 +10,13 @@ ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: get-started-article
 ms.workload: iaas-sql-server
-ms.date: 10/02/2017
+ms.date: 03/22/2018
 ms.author: jroth
-ms.openlocfilehash: f044fcba92eb7aa7f4ac44608571fab3db0e03f5
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: e752ad844a6efe572564e7081ebac87193e9c2a7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines-linux"></a>Introducción a SQL Server en SQL Server en máquinas virtuales de Azure (Linux)
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 12/18/2017
 > * [Windows](../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)
 > * [Linux](sql-server-linux-virtual-machines-overview.md)
 
-En este tema se describen las opciones para ejecutar SQL Server en máquinas virtuales Linux de Azure (VM), junto con [vínculos a imágenes del portal](#option-1-create-a-sql-vm-with-per-minute-licensing).
+En este tema se describen las opciones para ejecutar SQL Server en máquinas virtuales Linux de Azure (VM), junto con [vínculos a imágenes del portal](#create).
 
 > [!NOTE]
 > Si ya conoce y ha usado SQL Server, y solo desea ver cómo implementar una máquina virtual Linux de SQL Server, consulte [Provision a Linux SQL Server VM in Azure](provision-sql-server-linux-virtual-machine.md) (Aprovisionamiento de una máquina virtual Linux de SQL Server en Azure Portal). O bien si desea crear una máquina virtual Windows con SQL Server, consulte [Aprovisionamiento de una máquina virtual de SQL Server en Azure Portal](../../windows/sql/virtual-machines-windows-portal-sql-server-provision.md).
@@ -61,9 +61,9 @@ Al configurar SQL Server en Linux, instale el paquete del motor de base de datos
 
 | Distribución | [Motor de base de datos](https://docs.microsoft.com/sql/linux/sql-server-linux-setup) | [Herramientas](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools) | [Agente SQL Server](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-sql-agent) | [Búsqueda de texto completo](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-full-text-search) | [SSIS](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-ssis) | [Complemento de alta disponibilidad](https://docs.microsoft.com/sql/linux/sql-server-linux-business-continuity-dr) |
 |---|---|---|---|---|---|---|
-| RHEL | ![yes](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![yes](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![yes](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![yes](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![yes](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![no](./media/sql-server-linux-virtual-machines-overview/no.png) |
-| SLES | ![yes](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![yes](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![yes](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![yes](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![no](./media/sql-server-linux-virtual-machines-overview/no.png) | ![no](./media/sql-server-linux-virtual-machines-overview/no.png) |
-| Ubuntu | ![yes](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![yes](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![yes](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![yes](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![yes](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![yes](./media/sql-server-linux-virtual-machines-overview/yes.png) |
+| RHEL | ![Sí](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![Sí](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![Sí](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![Sí](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![Sí](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![no](./media/sql-server-linux-virtual-machines-overview/no.png) |
+| SLES | ![Sí](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![Sí](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![Sí](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![Sí](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![no](./media/sql-server-linux-virtual-machines-overview/no.png) | ![no](./media/sql-server-linux-virtual-machines-overview/no.png) |
+| Ubuntu | ![Sí](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![Sí](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![Sí](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![Sí](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![Sí](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![Sí](./media/sql-server-linux-virtual-machines-overview/yes.png) |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

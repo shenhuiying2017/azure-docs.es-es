@@ -1,8 +1,8 @@
 ---
-title: "Azure AD Domain Services: comparación de Azure AD Domain Services con controladores de dominio de implementación personal | Microsoft Docs"
-description: "Comparación de Azure Active Directory Domain Services con controladores de dominio de implementación personal"
+title: 'Azure AD Domain Services: comparación de Azure AD Domain Services con controladores de dominio de implementación personal | Microsoft Docs'
+description: Comparación de Azure Active Directory Domain Services con controladores de dominio de implementación personal
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/07/2017
 ms.author: maheshu
 ms.openlocfilehash: c384046d280e03de5a808d245dd273fdf7b44549
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-decide-if-azure-ad-domain-services-is-right-for-your-use-case"></a>Cómo decidir si Active Directory Domain Services es adecuado para su caso de uso
 Con Active Directory Domain Services puede implementar cargas de trabajo en los servicios de infraestructura de Azure sin tener que preocuparse por mantener la infraestructura de las identidades en Azure. Este servicio administrado no es lo mismo que una implementación típica de Windows Server Active Directory donde los usuarios son los encargados de llevarla a cabo y administrarla. El servicio es fácil de implementar y permite la corrección de problemas y la supervisión automatizada del estado. Realizamos continuamente cambios en el servicio para agregar compatibilidad con escenarios comunes de implementación.
@@ -34,21 +34,21 @@ La tabla siguiente ayuda a decidir si usar Azure AD Domain Services y administra
 
 | **Característica** | **Azure AD Domain Services** | **AD de implementación personal en máquinas virtuales de Azure** |
 | --- |:---:|:---:|
-| [**Servicio administrado**](active-directory-ds-comparison.md#managed-service) |**&amp;#x2713;** |**&amp;#x2715;** |
-| [**Implementaciones seguras**](active-directory-ds-comparison.md#secure-deployments) |**&amp;#x2713;** |El administrador debe proteger la implementación. |
-| [**Servidor DNS**](active-directory-ds-comparison.md#dns-server) |**&amp;#x2713;** (servicio administrado) |**&amp;#x2713;** |
-| [**Domain or Enterprise administrator privileges**](active-directory-ds-comparison.md#domain-or-enterprise-administrator-privileges) |**&amp;#x2715;** |**&amp;#x2713;** |
-| [**Unión a un dominio**](active-directory-ds-comparison.md#domain-join) |**&amp;#x2713;** |**&amp;#x2713;** |
-| [**Autenticación de dominios mediante NTLM y Kerberos**](active-directory-ds-comparison.md#domain-authentication-using-ntlm-and-kerberos) |**&amp;#x2713;** |**&amp;#x2713;** |
+| [**Servicio administrado**](active-directory-ds-comparison.md#managed-service) |**&#x2713;** |**&amp;#x2715;** |
+| [**Implementaciones seguras**](active-directory-ds-comparison.md#secure-deployments) |**&#x2713;** |El administrador debe proteger la implementación. |
+| [**Servidor DNS**](active-directory-ds-comparison.md#dns-server) |**&#x2713;** (servicio administrado) |**&#x2713;** |
+| [**Domain or Enterprise administrator privileges**](active-directory-ds-comparison.md#domain-or-enterprise-administrator-privileges) |**&amp;#x2715;** |**&#x2713;** |
+| [**Unión a un dominio**](active-directory-ds-comparison.md#domain-join) |**&#x2713;** |**&#x2713;** |
+| [**Autenticación de dominios mediante NTLM y Kerberos**](active-directory-ds-comparison.md#domain-authentication-using-ntlm-and-kerberos) |**&#x2713;** |**&#x2713;** |
 | [**Delegación limitada de Kerberos**](active-directory-ds-comparison.md#kerberos-constrained-delegation)|basada en recursos|basada en recursos y basada en cuentas|
-| [**Estructura de unidad organizativa personalizada**](active-directory-ds-comparison.md#custom-ou-structure) |**&amp;#x2713;** |**&amp;#x2713;** |
-| [**Extensiones de esquema**](active-directory-ds-comparison.md#schema-extensions) |**&amp;#x2715;** |**&amp;#x2713;** |
-| [**Confianzas de bosques o dominios de AD**](active-directory-ds-comparison.md#ad-domain-or-forest-trusts) |**&amp;#x2715;** |**&amp;#x2713;** |
-| [**LDAP read**](active-directory-ds-comparison.md#ldap-read) |**&amp;#x2713;** |**&amp;#x2713;** |
-| [**LDAP seguro (LDAPS)**](active-directory-ds-comparison.md#secure-ldap) |**&amp;#x2713;** |**&amp;#x2713;** |
-| [**LDAP write**](active-directory-ds-comparison.md#ldap-write) |**&amp;#x2715;** |**&amp;#x2713;** |
-| [**Group Policy**](active-directory-ds-comparison.md#group-policy) |**&amp;#x2713;** |**&amp;#x2713;** |
-| [**Implementación distribuida geográficamente**](active-directory-ds-comparison.md#geo-dispersed-deployments) |**&amp;#x2715;** |**&amp;#x2713;** |
+| [**Estructura de unidad organizativa personalizada**](active-directory-ds-comparison.md#custom-ou-structure) |**&#x2713;** |**&#x2713;** |
+| [**Extensiones de esquema**](active-directory-ds-comparison.md#schema-extensions) |**&amp;#x2715;** |**&#x2713;** |
+| [**Confianzas de bosques o dominios de AD**](active-directory-ds-comparison.md#ad-domain-or-forest-trusts) |**&amp;#x2715;** |**&#x2713;** |
+| [**LDAP read**](active-directory-ds-comparison.md#ldap-read) |**&#x2713;** |**&#x2713;** |
+| [**LDAP seguro (LDAPS)**](active-directory-ds-comparison.md#secure-ldap) |**&#x2713;** |**&#x2713;** |
+| [**LDAP write**](active-directory-ds-comparison.md#ldap-write) |**&amp;#x2715;** |**&#x2713;** |
+| [**Group Policy**](active-directory-ds-comparison.md#group-policy) |**&#x2713;** |**&#x2713;** |
+| [**Implementación distribuida geográficamente**](active-directory-ds-comparison.md#geo-dispersed-deployments) |**&amp;#x2715;** |**&#x2713;** |
 
 #### <a name="managed-service"></a>Servicio administrado
 Los dominios de Azure AD Domain Services los administra Microsoft. No tiene que preocuparse por las tareas de aplicación de revisiones, actualizaciones, supervisión, lo que garantiza la disponibilidad del dominio. Estas tareas de administración se ofrecen como un servicio de Microsoft Azure en los dominios administrados.

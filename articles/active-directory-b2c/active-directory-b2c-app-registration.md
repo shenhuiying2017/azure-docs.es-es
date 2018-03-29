@@ -1,29 +1,26 @@
 ---
 title: 'Registro de aplicaciones: Azure Active Directory B2C'
-description: "Registro de la aplicación con Azure Active Directory B2C"
+description: Registro de la aplicación con Azure Active Directory B2C
 services: active-directory-b2c
-author: PatAltimore
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.custom: seo
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
 ms.date: 6/13/2017
-ms.author: parakhj
-ms.openlocfilehash: b1d145466382c8fc2ea6c5e4e295940b0f000b97
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.author: davidmu
+ms.openlocfilehash: 0d3c351ebe70a963db0453538108ae9b2fefef86
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-register-your-application"></a>Azure Active Directory B2C: Registro de la aplicación
 
 Este inicio rápido le ayuda a registrar una aplicación en un inquilino de Microsoft Azure Active Directory (Azure AD) B2C en tan solo unos minutos. Cuando haya terminado, la aplicación se habrá registrado para usarse en el inquilino de Azure AD B2C.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para crear una aplicación que acepte registros e inicios de sesión de consumidores, primero deberá registrarla en un inquilino de Azure Active Directory B2C. Para obtener su propio inquilino, siga los pasos descritos en [Creación de un inquilino de Azure AD B2C](active-directory-b2c-get-started.md).
 
@@ -126,7 +123,7 @@ Asegúrese de que no haya ningún carácter especial, como el carácter de subra
 Las aplicaciones B2C NO se deben editar:
 
 * En otros portales de administración de aplicaciones, como el [Portal de registro de aplicaciones](https://apps.dev.microsoft.com/).
-* Con la API Graph o PowerShell
+* Con Graph API o PowerShell
 
 Si edita la aplicación de Azure AD B2C como se ha descrito e intenta volver a editarla en las características de Azure AD B2C en Azure Portal, pasará a ser una aplicación con errores y no se podrá volver usar con Azure AD B2C. Tendrá que eliminarla y volver a crearla.
 

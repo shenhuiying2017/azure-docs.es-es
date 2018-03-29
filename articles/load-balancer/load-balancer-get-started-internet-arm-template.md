@@ -1,6 +1,6 @@
 ---
-title: "Creación de un equilibrador de carga público: plantilla de Azure | Microsoft Docs"
-description: "Aprenda a crear un equilibrador de carga público en Resource Manager con una plantilla"
+title: 'Creación de un equilibrador de carga público: plantilla de Azure | Microsoft Docs'
+description: Aprenda a crear un equilibrador de carga público en Resource Manager con una plantilla
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 21ff5a48d29117ba1d6195f308f00180b1f1edbf
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 8452d3a6e165bbcd6007d9dc2261e458746b475a
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="creating-a-public-load-balancer-using-a-template"></a>Creación de un equilibrador de carga público mediante una plantilla
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 01/23/2018
 > * [CLI de Azure](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
 > * [Plantilla](../load-balancer/load-balancer-get-started-internet-arm-template.md)
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
@@ -73,7 +73,7 @@ Para implementar la plantilla ARM mediante la CLI de Azure, siga estos pasos.
     azure group create --name TestRG --location westus --template-file 'https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json' --parameters-file 'c:\lb\azuredeploy.parameters.json'
     ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 [Introducción a la configuración de un equilibrador de carga interno](load-balancer-get-started-ilb-arm-ps.md)
 

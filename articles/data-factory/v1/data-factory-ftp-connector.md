@@ -2,10 +2,9 @@
 title: Movimiento de datos de un servidor de FTP mediante Azure Data Factory | Microsoft Docs
 description: Aprenda a mover datos de un servidor FTP mediante Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: eea3bab0-a6e4-4045-ad44-9ce06229c718
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: daf865ef33e2b099e01f4647b17f36ca8df92c94
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 17dea2d1106a57aa678a88db6647c71048d8c38f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="move-data-from-an-ftp-server-by-using-azure-data-factory"></a>Movimiento de datos de un servidor FTP mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -69,7 +68,7 @@ En la tabla siguiente se describen los elementos JSON específicos del servicio 
 | Tipo |Establezca el valor en FtpServer. |Sí |&nbsp; |
 | host |Especifique el nombre o dirección IP del servidor FTP. |Sí |&nbsp; |
 | authenticationType |Especifique el tipo de autenticación. |Sí |Basic, Anonymous |
-| Nombre de usuario |Especifique el usuario que tiene acceso al servidor FTP. |Sin  |&nbsp; |
+| nombre de usuario |Especifique el usuario que tiene acceso al servidor FTP. |Sin  |&nbsp; |
 | contraseña |Especifique la contraseña del usuario (nombre de usuario). |Sin  |&nbsp; |
 | encryptedCredential |Especifique las credenciales cifradas para obtener acceso al servidor FTP. |Sin  |&nbsp; |
 | gatewayName |Especifique el nombre de la puerta de enlace en Data Management Gateway para conectarse a un servidor FTP local. |Sin  |&nbsp; |
@@ -387,7 +386,7 @@ La canalización contiene una actividad de copia que está configurada para usar
 > [!NOTE]
 > Para asignar columnas del conjunto de datos de origen a columnas del conjunto de datos del receptor, consulte [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md) (Asignación de columnas de conjunto de datos en Azure Data Factory).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Consulte los artículos siguientes:
 
 * Para aprender sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Data Factory y las diversas formas de optimizarlo, consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md).

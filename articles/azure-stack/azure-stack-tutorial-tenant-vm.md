@@ -1,31 +1,28 @@
 ---
-title: "Máquinas virtuales disponibles para los usuarios de Azure Stack | Microsoft Docs"
-description: "Tutorial para que las máquinas virtuales estén disponibles en Azure Stack"
+title: Máquinas virtuales disponibles para los usuarios de Azure Stack | Microsoft Docs
+description: Tutorial para que las máquinas virtuales estén disponibles en Azure Stack
 services: azure-stack
-documentationcenter: 
-author: brenduns
+documentationcenter: ''
+author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/23/2017
-ms.author: brenduns
-ms.reviewer: 
+ms.date: 03/22/2018
+ms.author: jeffgilb
+ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: d169a18df8916cfb8dd30b00248099a3d374aacc
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: af97f32736959f8ebf8f3c4fbca400d6b0c41f3e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="make-virtual-machines-available-to-your-azure-stack-users"></a>Máquinas virtuales disponibles para los usuarios de Azure Stack
-
-*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
-
 Como administrador de la nube de Azure Stack, puede crear ofertas a las que se pueden suscribir los usuarios (a veces denominados inquilinos). Con su suscripción, los usuarios podrán consumir servicios de Azure Stack.
 
 En este artículo se muestra cómo crear una oferta y, a continuación, cómo probarla. Para la prueba, inicie sesión en el portal como usuario, suscríbase a la oferta y, a continuación, cree una máquina virtual con la suscripción.
@@ -116,7 +113,7 @@ Ahora que ha creado una oferta, puede probarla. Inicie sesión como usuario y su
    Ahora puede iniciar sesión en el portal como usuario para suscribirse a una oferta.
 
    a. Inicie sesión en el portal de usuarios como usuario y haga clic en **Obtener una suscripción**.
-   - En un sistema integrado, la dirección URL varía en función de la región y el nombre de dominio externo del operador, y estará en el formato https://portal.&lt;*región*&gt;.&lt;*nombre completo*&gt;.
+   - En un sistema integrado, la dirección URL varía en función de la región y el nombre de dominio externo del operador, y tendrá el formato https://portal.&lt;*región*&gt;.&lt;*FQDN*&gt;.
    - Si usa el Kit de desarrollo de Azure Stack, la dirección del portal es https://portal.local.azurestack.external.
 
    ![Obtener una suscripción](media/azure-stack-subscribe-plan-provision-vm/image01.png)

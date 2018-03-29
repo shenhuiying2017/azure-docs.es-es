@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C: modificación del registro en las directivas personalizadas y configuración de un proveedor autoafirmado"
-description: "Un tutorial sobre cómo agregar notificaciones para registrarse y configurar la entrada del usuario"
+title: 'Azure Active Directory B2C: modificación del registro en las directivas personalizadas y configuración de un proveedor autoafirmado'
+description: Un tutorial sobre cómo agregar notificaciones para registrarse y configurar la entrada del usuario
 services: active-directory-b2c
-documentationcenter: 
-author: rojasja
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: tbd
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 04/29/2017
-ms.author: joroja
-ms.openlocfilehash: e9eb9fa941569c508c4dddc6b85786537a5a0fac
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: b9ea48f0700509194602dd15ff42c7c689685a53
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-modify-sign-up-to-add-new-claims-and-configure-user-input"></a>Azure Active Directory B2C: modificación del registro para agregar nuevas notificaciones y configuración de la entrada del usuario.
 
@@ -26,7 +23,7 @@ ms.lasthandoff: 12/11/2017
 
 En este artículo, se agregará una nueva entrada (una notificación) por parte del usuario a un recorrido del usuario de la suscripción.  La entrada se configurará como una lista desplegable y se definirá si es necesario.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 * Complete los pasos del artículo [Introducción a las directivas personalizadas](active-directory-b2c-get-started-custom.md).  Pruebe el recorrido del usuario de suscripción o inicio de sesión para registrar una nueva cuenta local antes de continuar.
 

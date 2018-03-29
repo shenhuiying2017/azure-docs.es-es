@@ -1,11 +1,10 @@
 ---
-title: "Azure Data Factory: preguntas más frecuentes | Microsoft Docs"
-description: "Obtenga respuestas a las preguntas más frecuentes acerca de Azure Data Factory."
+title: 'Azure Data Factory: preguntas más frecuentes | Microsoft Docs'
+description: Obtenga respuestas a las preguntas más frecuentes acerca de Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: 532dec5a-7261-4770-8f54-bfe527918058
 ms.service: data-factory
 ms.workload: data-services
@@ -14,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: shlo
-ms.openlocfilehash: dd2475d5940927c65cae4d12b9697cbe535b69a8
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8c240e1a654c80c34f6b612d9126058e5d67c4c2
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-data-factory-faq"></a>Preguntas más frecuentes de Azure Data Factory
 Este artículo se aplica a la versión 2 del servicio de Azure Data Factory. Proporciona respuestas a las preguntas más frecuentes acerca de Data Factory.  
@@ -196,7 +195,7 @@ Puede usar la construcción de `@coalesce` en las expresiones para controlar cor
 ### <a name="can-i-use-retry-and-timeout-at-the-activity-level-in-version-2"></a>¿Puedo usar el reintento o el tiempo de expiración en el nivel de actividad en la versión 2?
 Sí. Para controlar la ejecución de actividades en la versión 2, al igual que en la versión 1, puede configurar el reintento y el tiempo de expiración en el nivel de actividad. 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para obtener instrucciones paso a paso para crear una factoría de datos de la versión 2, consulte los siguientes tutoriales:
 
 - [Guía de inicio rápido: Creación de una factoría de datos](quickstart-create-data-factory-dot-net.md)

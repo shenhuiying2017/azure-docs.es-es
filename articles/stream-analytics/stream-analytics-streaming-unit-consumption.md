@@ -1,13 +1,13 @@
 ---
-title: "Azure Stream Analytics: descripción y ajuste de las unidades de streaming | Microsoft Docs"
+title: 'Azure Stream Analytics: descripción y ajuste de las unidades de streaming | Microsoft Docs'
 description: Conozca los factores que afectan el rendimiento en Azure Stream Analytics.
 keywords: unidad de streaming, rendimiento de consulta
 services: stream-analytics
-documentationcenter: 
+documentationcenter: ''
 author: JSeb225
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: e8812f10662ee7b571e8e353074c2537d1a3181b
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 5c60b1808959c73759a78141566c5c49f0350e2f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Descripción y ajuste de las unidades de streaming
 
@@ -88,18 +88,18 @@ El tamaño del estado de una combinación temporal es proporcional al número de
 
 La cantidad de eventos no coincidentes en la combinación afecta el uso de memoria de la consulta. La consulta siguiente busca las impresiones de anuncios que generan clics:
 
-    SELECT id
+    SELECT clicks.id
     FROM clicks 
-    INNER JOIN, impressions ON impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10.
+    INNER JOIN impressions ON impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10.
 
 En este ejemplo, es posible que se muestren muchos anuncios, pero que pocas personas hagan clic en ellos, por lo que es necesario mantener todos los eventos en la ventana de tiempo. La memoria consumida es proporcional al tamaño de ventana y la tasa de eventos. 
 
 Para corregir esto, envíe eventos a Event Hub particionados por las claves de combinación (en este caso, el identificador) y escale horizontalmente la consulta permitiendo que el sistema procese de manera independiente cada partición de entrada con **PARTITION BY**, como se muestra a continuación:
 
-    SELECT id
+    SELECT clicks.id
     FROM clicks PARTITION BY PartitionId
     INNER JOIN impressions PARTITION BY PartitionId 
-    ON impression.PartitionId = clocks.PartitionId AND impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10 
+    ON impression.PartitionId = clicks.PartitionId AND impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10 
 </code>
 
 Una vez que la consulta está particionada, se extiende por varios nodos. Como resultado, el número de eventos que entra en cada nodo se reduce, lo que disminuye el tamaño del estado que se conserva en la ventana de la combinación. 
@@ -121,7 +121,7 @@ Los datos de referencia en ASA se cargan en la memoria para poder realizar una b
 Cuando agrega una función UDF, Azure Stream Analytics carga el entorno de tiempo de ejecución de Java en la memoria. Esto afectará el porcentaje de SU.
 
 
-## <a name="get-help"></a>Obtener ayuda
+## <a name="get-help"></a>Obtención de ayuda
 Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Pasos siguientes
