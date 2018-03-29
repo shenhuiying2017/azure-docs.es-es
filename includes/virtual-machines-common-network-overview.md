@@ -1,3 +1,19 @@
+---
+title: archivo de inclusión
+description: archivo de inclusión
+services: virtual-machines-windows
+author: cynthn
+ms.service: virtual-machines-windows
+ms.topic: include
+ms.date: 03/11/2018
+ms.author: cynthn
+ms.custom: include file
+ms.openlocfilehash: 6729c4281f4aa10b653d1c4f29104fd10a08a96e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 03/16/2018
+---
 Cuando se crea una máquina virtual (VM) de Azure, es preciso crear una [red virtual](../articles/virtual-network/virtual-networks-overview.md) (VNet) o usar una red virtual existente. También es preciso decidir la forma en que pretende que se acceda a las máquinas virtuales en la red virtual. Es importante [planear antes de crear recursos](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) y asegurarse de que se conocen los [límites de los recursos de red](../articles/azure-subscription-service-limits.md#networking-limits).
 
 En la siguiente ilustración, las máquinas virtuales se representan como servidores web y servidores de base de datos. Cada conjunto de máquinas virtuales se asignan a subredes separadas en la red virtual.
@@ -75,7 +91,7 @@ En esta tabla se enumeran los métodos que se pueden usar para crear una red vir
 | [Azure Portal](../articles/virtual-network/quick-create-portal.md) | Si deja que Azure cree una red virtual cuando cree una máquina virtual, el nombre será una combinación del nombre del grupo de recursos que contiene la red virtual y **- vnet**. El espacio de direcciones será 10.0.0.0/24, el nombre de subred requerida será **default** y el intervalo de direcciones de la subred será 10.0.0.0/24. |
 | [Azure PowerShell](../articles/virtual-network/quick-create-powershell.md) | Para crear una subred y una red virtual se usan [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmVirtualNetworkSubnetConfig) y [New-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmVirtualNetwork). También se puede usar [AzureRmVirtualNetworkSubnetConfig agregar](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig) para agregar una subred a una red virtual existente. |
 | [CLI de Azure](../articles/virtual-network/quick-create-cli.md) | La subred y la red virtual se crean al mismo tiempo. Especifique el parámetro **--subnet-name** en [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create) con el nombre de la subred. |
-| [Plantilla](../articles/virtual-network/virtual-networks-create-vnet-arm-template-click.md) | La manera más fácil de crear una red virtual y subredes es descargar una plantilla existente, como [Virtual Network with two Subnets](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets) (Red virtual con dos subredes) y modificarla hasta ajustarla a sus necesidades. |
+| Plantilla | La manera más fácil de crear una red virtual y subredes es descargar una plantilla existente, como [Virtual Network with two Subnets](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets) (Red virtual con dos subredes) y modificarla hasta ajustarla a sus necesidades. |
 
 ## <a name="network-security-groups"></a>Grupos de seguridad de red
 

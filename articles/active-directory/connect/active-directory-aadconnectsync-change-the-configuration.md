@@ -1,24 +1,24 @@
 ---
-title: "Sincronización de Azure AD Connect: cambio en la configuración de la sincronización de Azure AD Connect | Microsoft Docs"
-description: "Tutorial cómo realizar un cambio en la configuración de la sincronización de Azure AD Connect."
+title: 'Sincronización de Azure AD Connect: cambio en la configuración de la sincronización de Azure AD Connect | Microsoft Docs'
+description: Tutorial cómo realizar un cambio en la configuración de la sincronización de Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 7b9df836-e8a5-4228-97da-2faec9238b31
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/13/2018
+ms.date: 03/16/2018
 ms.author: billmath
-ms.openlocfilehash: e97d3e3e35ee87864c5d38e75e08e62088e25fdb
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 06c715cf5dbf039334adfde8b3111d9bfcb86568
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Sincronización de Azure AD Connect: Realización de un cambio en la configuración predeterminada
 El objetivo de este artículo es guiarle para realizar cambios en la configuración predeterminada de la sincronización de Azure Active Directory (Azure AD) Connect. Proporciona las instrucciones para algunos escenarios comunes. Con este conocimiento, podrá realizar cambios sencillos en su propia configuración en función de sus propias reglas de negocio.
@@ -245,7 +245,7 @@ De forma predeterminada, el atributo UserType no se importa en el espacio de Azu
  1. Vaya a la pestaña **Connectors** (Conectores) de Synchronization Service Manager.
  2. Haga clic con el botón derecho en **Conector de Azure AD** y seleccione **Propiedades**.
  3. En el cuadro de diálogo emergente, vaya a la pestaña **Seleccionar atributos**.
- 4. Asegúrese de que el atributo PreferredDataLocation esté activado en la lista de atributos.
+ 4. Asegúrese de que el atributo UserType esté activado en la lista de atributos.
  5. Haga clic en **Aceptar** para guardarlo.
 
 ![Agregar el atributo de origen al esquema de Conector Azure AD](./media/active-directory-aadconnectsync-change-the-configuration/usertype2.png)
@@ -293,7 +293,7 @@ La regla de sincronización de entrada permite enviar el valor del atributo desd
 ![Crear regla de sincronización de entrada](./media/active-directory-aadconnectsync-change-the-configuration/usertype3.png)
 
 ### <a name="step-5-create-an-outbound-synchronization-rule-to-flow-the-attribute-value-to-azure-ad"></a>Paso 5: Crear una regla de sincronización de salida para enviar el valor de atributo a Azure AD
-La regla de sincronización de salida permite enviar el valor del atributo desde el metaverso al atributo PreferredDataLocation en Azure AD:
+La regla de sincronización de salida permite enviar el valor del atributo desde el metaverso al atributo UserType en Azure AD:
 
 1. Vaya al Editor de Reglas de sincronización.
 2. Establezca el filtro de búsqueda **Dirección** como **Salida**.
@@ -388,7 +388,7 @@ Vuelva a habilitar el programador de sincronización integrado:
 2. Vuelva a habilitar la sincronización programada mediante la ejecución del cmdlet `Set-ADSyncScheduler -SyncCycleEnabled $true`.
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Obtenga más información sobre el modelo de configuración en el artículo de información sobre el [aprovisionamiento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
 * Consulte más detalles sobre el lenguaje de expresiones en el artículo [Descripción de las expresiones de aprovisionamiento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
 

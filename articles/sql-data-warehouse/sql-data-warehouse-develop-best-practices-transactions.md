@@ -1,45 +1,44 @@
 ---
-title: "Optimización de transacciones para SQL Data Warehouse | Microsoft Docs"
-description: "Guía de procedimientos recomendados sobre la escritura de actualizaciones de transacciones eficientes en Almacenamiento de datos SQL de Azure"
+title: Optimización de transacciones para SQL Data Warehouse | Microsoft Docs
+description: Guía de procedimientos recomendados sobre la escritura de actualizaciones de transacciones eficientes en Azure SQL Data Warehouse
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
 manager: jhubbard
-editor: 
-ms.assetid: 6f326f26-8a54-49df-a482-9c96a58db371
+editor: ''
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: t-sql
-ms.date: 10/31/2016
+ms.date: 03/15/2018
 ms.author: jrj;barbkess
-ms.openlocfilehash: f9f19d75a37351b3562ce8c2f3629df14c5437c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 607c169e3d9e8aa741084392439da383f46cfe0c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
-# <a name="optimizing-transactions-for-sql-data-warehouse"></a>Optimización de transacciones para Almacenamiento de datos SQL
+# <a name="optimizing-transactions-for-sql-data-warehouse"></a>Optimización de transacciones para SQL Data Warehouse
 En este artículo se explica cómo optimizar el rendimiento del código transaccional minimizando al mismo tiempo el riesgo de que se produzcan reversiones extensas.
 
 ## <a name="transactions-and-logging"></a>Transacciones y registro
-Las transacciones son un componente importante de un motor de base de datos relacional. Almacenamiento de datos SQL usa transacciones durante la modificación de los datos. Estas transacciones pueden ser explícitas o implícitas. Las instrucciones `INSERT`, `UPDATE` y `DELETE` son ejemplos de transacciones implícitas. Un desarrollador escribe explícitamente las transacciones explícitas con `BEGIN TRAN`, `COMMIT TRAN` o `ROLLBACK TRAN`; normalmente, estas transacciones se utilizan cuando es necesario vincular varias instrucciones de modificación entre sí en una unidad atómica única. 
+Las transacciones son un componente importante de un motor de base de datos relacional. SQL Data Warehouse usa transacciones durante la modificación de los datos. Estas transacciones pueden ser explícitas o implícitas. Las instrucciones `INSERT`, `UPDATE` y `DELETE` son ejemplos de transacciones implícitas. Las transacciones explícitas usan `BEGIN TRAN`, `COMMIT TRAN` o `ROLLBACK TRAN`. Las transacciones explícitas se usan normalmente cuando es necesario vincular varias instrucciones de modificación entre sí en una unidad atómica única. 
 
-Almacenamiento de datos SQL de Azure confirma los cambios en la base de datos con registros de transacciones. Cada distribución tiene su propio registro de transacciones. Las escrituras en el registro de transacciones son automáticas. No es necesario realizar ninguna configuración. Sin embargo, si bien este proceso garantiza la escritura, introduce una sobrecarga en el sistema. Para minimizar este impacto, puede escribir código transaccionalmente eficiente. De forma amplia, un código transaccionalmente eficiente pertenece en dos categorías.
+Azure SQL Data Warehouse confirma los cambios en la base de datos con registros de transacciones. Cada distribución tiene su propio registro de transacciones. Las escrituras en el registro de transacciones son automáticas. No es necesario realizar ninguna configuración. Sin embargo, si bien este proceso garantiza la escritura, introduce una sobrecarga en el sistema. Para minimizar este impacto, puede escribir código transaccionalmente eficiente. De forma amplia, un código transaccionalmente eficiente pertenece en dos categorías.
 
-* Aproveche las construcciones con registro mínimo, siempre que sea posible.
+* Use construcciones de registro mínimas siempre que sea posible.
 * Procese datos con lotes con ámbito para evitar transacciones singulares de larga ejecución.
 * Adopte un modelo de conmutación de particiones para realizar grandes modificaciones en una partición determinada.
 
 ## <a name="minimal-vs-full-logging"></a>Registro mínimo frente a registro completo
-A diferencia de las operaciones con registro completo, que usan el registro de transacciones para realizar un seguimiento de cada cambio en las filas, las operaciones con registro mínimo solo realizan un seguimiento de las asignaciones de extensión y los cambios en los metadatos. Por lo tanto, el registro mínimo implica registrar solo la información necesaria para revertir la transacción si se produce un error o una solicitud explícita (`ROLLBACK TRAN`). Puesto que se realiza un seguimiento de mucha menos información en el registro de transacciones, una operación con registro mínimo funciona mejor que una operación con registro completo de tamaño similar. Además, dado que menos escrituras van al registro de transacciones, se genera una cantidad mucho menor de datos de registro y sus operaciones de E/S son más eficientes.
+A diferencia de las operaciones con registro completo, que usan el registro de transacciones para realizar un seguimiento de cada cambio en las filas, las operaciones con registro mínimo solo realizan un seguimiento de las asignaciones de extensión y los cambios en los metadatos. Por lo tanto, el registro mínimo implica registrar solo la información necesaria para revertir la transacción tras un error, o para una solicitud explícita (`ROLLBACK TRAN`). Puesto que se realiza un seguimiento de mucha menos información en el registro de transacciones, una operación con registro mínimo funciona mejor que una operación con registro completo de tamaño similar. Además, dado que menos escrituras van al registro de transacciones, se genera una cantidad mucho menor de datos de registro y sus operaciones de E/S son más eficientes.
 
 Los límites de seguridad de la transacción solo se aplican a las operaciones de registro completo.
 
 > [!NOTE]
-> Las operaciones con registro mínimo pueden participar en transacciones explícitas. Puesto que se realiza el seguimiento de todos los cambios en las estructuras de asignación, es posible revertir las operaciones con registro mínimo. Es importante comprender que el cambio se registra "mínimamente", no se elimina el registro.
+> Las operaciones con registro mínimo pueden participar en transacciones explícitas. Puesto que se realiza el seguimiento de todos los cambios en las estructuras de asignación, es posible revertir las operaciones con registro mínimo. 
 > 
 > 
 
@@ -67,7 +66,7 @@ Las siguientes operaciones admiten el registro mínimo:
 > 
 
 ## <a name="minimal-logging-with-bulk-load"></a>Registro mínimo con carga masiva
-`CTAS` y `INSERT...SELECT` son operaciones de carga masiva. Sin embargo, ambas se ven afectadas por la definición de la tabla de destino y dependen del escenario de carga. A continuación se muestra una tabla que explica si la operación masiva tendrá un registro completo o mínimo:  
+`CTAS` y `INSERT...SELECT` son operaciones de carga masiva. Sin embargo, ambas se ven afectadas por la definición de la tabla de destino y dependen del escenario de carga. En la siguiente tabla se explica cuándo las operaciones masivas se registran completa o mínimamente:  
 
 | Índice principal | Escenario de carga | Modo de registro |
 | --- | --- | --- |
@@ -81,14 +80,14 @@ Las siguientes operaciones admiten el registro mínimo:
 Conviene tener en cuenta que cualquier escritura para actualizar índices secundarios o no agrupados será siempre una operación con registro completo.
 
 > [!IMPORTANT]
-> Almacenamiento de datos SQL tiene 60 distribuciones. Por lo tanto, suponiendo que todas las filas tengan una distribución uniforme y una sola partición como destino, el lote deberá contener 6.144.000 filas o más para un registro mínimo cuando se escribe en un índice de almacén de columnas agrupado. Si la tabla tiene particiones y las filas que se insertan traspasan los límites de las particiones, serán necesarias 6 144 000 filas por límite de partición, lo que supone una distribución de datos uniforme. Cada partición de cada distribución debe superar de forma independiente el umbral de 102.400 filas para que la inserción se registre mínimamente en la distribución.
+> SQL Data Warehouse tiene 60 distribuciones. Por lo tanto, suponiendo que todas las filas tengan una distribución uniforme y una sola partición como destino, el lote deberá contener 6.144.000 filas o más para un registro mínimo cuando se escribe en un índice de almacén de columnas agrupado. Si la tabla tiene particiones y las filas que se insertan traspasan los límites de las particiones, serán necesarias 6 144 000 filas por límite de partición, lo que supone una distribución de datos uniforme. Cada partición de cada distribución debe superar de forma independiente el umbral de 102.400 filas para que la inserción se registre mínimamente en la distribución.
 > 
 > 
 
 A menudo, la carga de datos en una tabla no vacía con un índice agrupado puede contener una mezcla de filas con registro completo y filas con registro mínimo. Un índice agrupado es un árbol equilibrado (árbol B) de las páginas. Si la página que se escribe ya contiene filas de otra transacción, estas escrituras se registrarán completamente. Sin embargo, si la página está vacía, la escritura en esa página se registrará mínimamente.
 
 ## <a name="optimizing-deletes"></a>Optimización de eliminaciones
-`DELETE` es una operación con registro completo.  Si necesita eliminar una gran cantidad de datos de una tabla o una partición, suele tener más sentido realizar una instrucción `SELECT` en los datos que desea conservar, que pueden ejecutarse como operación con registro completo.  Para ello, cree una nueva tabla con [CTAS][CTAS].  Cuando lo haga, utilice [RENAME][RENAME] para intercambiar la tabla por la que se acaba de crear.
+`DELETE` es una operación con registro completo.  Si necesita eliminar una gran cantidad de datos de una tabla o una partición, suele tener más sentido realizar una instrucción `SELECT` en los datos que desea conservar, que pueden ejecutarse como operación con registro completo.  Para seleccionar los datos, cree una nueva tabla con [CTAS][CTAS].  Cuando lo haga, utilice [RENAME][RENAME] para intercambiar la tabla por la que se acaba de crear.
 
 ```sql
 -- Delete all sales transactions for Promotions except PromotionKey 2.
@@ -119,7 +118,7 @@ RENAME OBJECT [dbo].[FactInternetSales_d] TO [FactInternetSales];
 ```
 
 ## <a name="optimizing-updates"></a>Optimización de actualizaciones
-`UPDATE` es una operación con registro completo.  Si necesita actualizar un gran número de filas de una tabla o una partición, suele ser mucho más eficiente utilizar una operación con registro mínimo, como [CTAS][CTAS], para hacerlo.
+`UPDATE` es una operación con registro completo.  Si necesita actualizar un gran número de filas de una tabla o una partición, suele ser mucho más eficiente utilizar para ello una operación con registro mínimo, como [CTAS][CTAS].
 
 En el ejemplo siguiente, se ha convertido la actualización de una tabla completa en una operación `CTAS` para que sea posible el registro mínimo.
 
@@ -180,7 +179,7 @@ DROP TABLE [dbo].[FactInternetSales_old]
 ```
 
 > [!NOTE]
-> Volver a crear tablas de gran tamaño puede beneficiarse del uso de las características de administración de cargas de trabajo de Almacenamiento de datos SQL. Para obtener más información, consulte la sección de administración de cargas de trabajo en el artículo sobre [simultaneidad][concurrency].
+> Volver a crear tablas de gran tamaño puede beneficiarse del uso de las características de administración de cargas de trabajo de SQL Data Warehouse. Para más información, consulte [Clases de recursos para la administración de cargas de trabajo](resource-classes-for-workload-management.md).
 > 
 > 
 
@@ -195,7 +194,7 @@ Los pasos para realizar una conmutación de particiones son los siguientes:
 4. Activar los datos nuevos
 5. Limpiar los datos
 
-Sin embargo, para ayudar a identificar las particiones que se van a conmutar, primero necesitamos crear un procedimiento auxiliar como el siguiente. 
+Sin embargo, para ayudar a identificar las particiones que se van a cambiar, cree el siguiente procedimiento auxiliar.  
 
 ```sql
 CREATE PROCEDURE dbo.partition_data_get
@@ -243,7 +242,7 @@ GO
 
 Este procedimiento maximiza la reutilización del código y mantiene el ejemplo de modificación de particiones más compacto.
 
-El código siguiente muestra los cinco pasos mencionados anteriormente para conseguir una rutina de conmutación de particiones completa.
+El código siguiente muestra los pasos mencionados anteriormente para lograr una rutina completa de modificación de particiones.
 
 ```sql
 --Create a partitioned aligned empty table to switch out the data 
@@ -349,7 +348,7 @@ DROP TABLE #ptn_data
 ## <a name="minimize-logging-with-small-batches"></a>Minimización del registro con lotes pequeños
 Para operaciones de modificación de datos de gran tamaño, puede tener sentido dividir la operación en fragmentos o lotes para definir el ámbito de la unidad de trabajo.
 
-A continuación, se proporciona un ejemplo de trabajo. El tamaño del lote se estableció en un número trivial para resaltar la técnica. En realidad, el tamaño del lote sería mucho mayor. 
+El siguiente código es un ejemplo ilustrativo. El tamaño del lote se estableció en un número trivial para resaltar la técnica. En realidad, el tamaño del lote sería mucho mayor. 
 
 ```sql
 SET NO_COUNT ON;
@@ -408,17 +407,17 @@ END
 ```
 
 ## <a name="pause-and-scaling-guidance"></a>Instrucciones de operaciones de pausa y escalado
-Almacenamiento de datos SQL de Azure permite pausar, reanudar y escalar su almacenamiento de datos a petición. Al pausar o escalar Almacenamiento de datos SQL es importante entender que las transacciones en curso se terminan inmediatamente, lo que hace que las transacciones abiertas se reviertan. Si la carga de trabajo había emitido una modificación de datos incompleta y de larga ejecución antes de la operación de pausa o escalado, será necesario deshacer este trabajo. Esto puede afectar al tiempo que tarda en pausar completamente la base de datos de Almacenamiento de datos SQL de Azure. 
+Azure SQL Data Warehouse permite [pausar, reanudar y escalar](sql-data-warehouse-manage-compute-overview.md) su almacenamiento de datos a petición. Al pausar o escalar SQL Data Warehouse, es importante entender que las transacciones en curso se terminan inmediatamente, lo que hace que las transacciones abiertas se reviertan. Si la carga de trabajo había emitido una modificación de datos incompleta y de larga ejecución antes de la operación de pausa o escalado, será necesario deshacer este trabajo. Esto puede afectar al tiempo que se tarda en pausar o escalar la base de datos de Azure SQL Data Warehouse. 
 
 > [!IMPORTANT]
 > `UPDATE` y `DELETE` son operaciones con registro completo y, por tanto, estas operaciones de deshacer y rehacer pueden tardar bastante más que las operaciones con registro mínimo equivalentes. 
 > 
 > 
 
-Lo mejor es dejar que las transacciones de modificación de datos en curso se completen antes de pausar o escalar Almacenamiento de datos SQL. Sin embargo, esto no siempre es posible. Para mitigar el riesgo de que se produzca una reversión extensa, considere una de las siguientes opciones:
+Lo mejor es dejar que las transacciones de modificación de datos en curso se completen antes de pausar o escalar SQL Data Warehouse. Sin embargo, puede que este escenario no sea siempre práctico. Para mitigar el riesgo de que se produzca una reversión extensa, considere una de las siguientes opciones:
 
 * Vuelva a escribir las operaciones de ejecución prolongada con [CTAS][CTAS].
-* Divida la operación en fragmentos, lo que opera en un subconjunto de las filas
+* Divida la operación en fragmentos para operar sobre un subconjunto de las filas
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte [Transactions in SQL Data Warehouse][Transactions in SQL Data Warehouse] (Transacciones en SQL Data Warehouse) para obtener más información sobre los niveles de aislamiento y los límites transaccionales.  Para obtener información general de otros procedimientos recomendados, consulte [Procedimientos recomendados para SQL Data Warehouse][SQL Data Warehouse Best Practices].
@@ -428,7 +427,6 @@ Consulte [Transactions in SQL Data Warehouse][Transactions in SQL Data Warehouse
 <!--Article references-->
 [Transactions in SQL Data Warehouse]: ./sql-data-warehouse-develop-transactions.md
 [table partition]: ./sql-data-warehouse-tables-partition.md
-[Concurrency]: ./sql-data-warehouse-develop-concurrency.md
 [CTAS]: ./sql-data-warehouse-develop-ctas.md
 [SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 

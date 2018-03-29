@@ -1,31 +1,30 @@
 ---
-title: "Recursos para desarrollar un almacén de datos en Azure | Microsoft Docs"
-description: "Conceptos de desarrollo, decisiones de diseño, recomendaciones y técnicas de codificación para el Almacenamiento de datos SQL."
+title: Recursos para desarrollar un almacén de datos en Azure | Microsoft Docs
+description: Conceptos de desarrollo, decisiones de diseño, recomendaciones y técnicas de codificación para SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
 manager: barbkess
-editor: 
-ms.assetid: 996e3afc-c21c-4e21-b9df-997f953f6dfd
+editor: ''
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: develop
-ms.date: 10/31/2016
+ms.date: 03/15/2018
 ms.author: jrj;barbkess
-ms.openlocfilehash: b85a4f09e561e429aa5bf46ec680014487fb40c7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 329217faaf865052b79a1d44200cc3c788702046
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
-# <a name="design-decisions-and-coding-techniques-for-sql-data-warehouse"></a>Decisiones de diseño y técnicas de codificación para el Almacenamiento de datos SQL
-Eche un vistazo a  estos artículos de desarrollo para comprender mejor las decisiones de diseño clave, las recomendaciones y las técnicas de codificación para el Almacenamiento de datos SQL.
+# <a name="design-decisions-and-coding-techniques-for-sql-data-warehouse"></a>Decisiones de diseño y técnicas de codificación para SQL Data Warehouse
+Eche un vistazo a estos artículos de desarrollo para comprender mejor las decisiones de diseño clave, las recomendaciones y las técnicas de codificación para SQL Data Warehouse.
 
 ## <a name="key-design-decisions"></a>Decisiones de diseño clave
-En los artículos siguientes se abordan algunos de los conceptos y las decisiones de diseño clave que es preciso comprender para el desarrollo de un almacenamiento de datos distribuido con Almacenamiento de datos SQL:
+En los siguientes artículos se resaltan los conceptos y las decisiones de diseño para desarrollar un almacén de datos distribuido mediante SQL Data Warehouse:
 
 * [conexiones][connections]
 * [simultaneidad][concurrency]
@@ -38,7 +37,7 @@ En los artículos siguientes se abordan algunos de los conceptos y las decisione
 * [estadísticas][statistics]
 
 ## <a name="development-recommendations-and-coding-techniques"></a>Recomendaciones de desarrollo y técnicas de codificación
-En estos artículos se abordan técnicas de codificación, sugerencias y recomendaciones específicas para el desarrollo de su Almacenamiento de datos SQL:
+En estos artículos se abordan técnicas de codificación, sugerencias y recomendaciones específicas para el desarrollo de SQL Data Warehouse:
 
 * [procedimientos almacenados][stored procedures]
 * [etiquetas][labels]
@@ -50,12 +49,12 @@ En estos artículos se abordan técnicas de codificación, sugerencias y recomen
 * [asignación de variables][variable assignment]
 
 ## <a name="next-steps"></a>Pasos siguientes
-Una vez leídos los artículos sobre desarrollo, eche un vistazo a la página [Referencia de Transact-SQL][Transact-SQL reference] para más detalles sobre la sintaxis admitida en SQL Data Warehouse.
+Para más información de referencia, consulte la página de [referencia de Transact-SQL][Transact-SQL reference] para SQL Data Warehouse.
 
 <!--Image references-->
 
 <!--Article references-->
-[concurrency]: ./sql-data-warehouse-develop-concurrency.md
+[concurrency]: ./resource-classes-for-workload-management.md
 [connections]: ./sql-data-warehouse-connect-overview.md
 [CTAS]: ./sql-data-warehouse-develop-ctas.md
 [dynamic SQL]: ./sql-data-warehouse-develop-dynamic-sql.md

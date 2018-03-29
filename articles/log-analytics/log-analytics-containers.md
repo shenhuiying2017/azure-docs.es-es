@@ -1,11 +1,11 @@
 ---
-title: "Solución de Supervisión de contenedores de Azure Log Analytics | Microsoft Docs"
-description: "La solución de Supervisión de contenedores de Log Analytics le ayuda a ver y administrar los hosts de contenedores de Docker y Windows en una sola ubicación."
+title: Solución de Supervisión de contenedores de Azure Log Analytics | Microsoft Docs
+description: La solución de Supervisión de contenedores de Log Analytics le ayuda a ver y administrar los hosts de contenedores de Docker y Windows en una sola ubicación.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: e1e4b52b-92d5-4bfa-8a09-ff8c6b5a9f78
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
 ms.author: magoedte
-ms.openlocfilehash: b3f78f6cc89a3d4bf8712c339f66b5d50f373919
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 0ad267b9694c2f9cdb574b6b6008d4f6fa027fce
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Solución de Supervisión de contenedores de Azure Log Analytics
 
@@ -51,7 +51,7 @@ En la tabla siguiente se hace un resumen de la compatibilidad de supervisión de
 | kubernetes | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
 | Mesosphere<br>DC/OS | &#8226; | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; |
 | Docker<br>Swarm | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
-| Servicio<br>Fabric | | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
+| Servicio<br>Fabric | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
 | Red Hat Open<br>Shift | | &#8226; | | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; | | &#8226; |
 | Windows Server<br>(independiente) | | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
 | Linux Server<br>(independiente) | | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
@@ -103,7 +103,7 @@ Utilice la siguiente información para instalar y configurar la solución.
     - Si tiene un clúster de Kubernetes con Azure Container Service, consulte [Configuración de un agente de OMS para Kubernetes](#configure-an-oms-agent-for-kubernetes).
     - Si tiene un clúster DC/OS de Azure Container Service, obtenga más información en [Monitor an Azure Container Service DC/OS cluster with Operations Management Suite](../container-service/dcos-swarm/container-service-monitoring-oms.md) (Uso de Operations Management Suite para supervisar un clúster DC/OS de Azure Container Service).
     - Si tiene un entorno en modo Docker Swarm, obtenga más información en [Configuración de un agente de OMS para Docker Swarm](#configure-an-oms-agent-for-docker-swarm).
-    - Si usa contenedores con Service Fabric, obtenga más información en [Información general de Azure Service Fabric ](../service-fabric/service-fabric-overview.md).
+    - Si tiene un clúster de Service Fabric, obtenga más información en [Supervisión de contenedores con Log Analytics de OMS](../service-fabric/service-fabric-diagnostics-oms-containers.md).
 
 Revise el artículo [Docker Engine en Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon) para obtener información adicional sobre cómo instalar y configurar Docker Engine en equipos con Windows.
 
@@ -663,5 +663,5 @@ El guardado de consultas es una característica estándar de Log Analytics. Guá
 
 Después de crear una consulta que encuentre útil, guárdela haciendo clic en **Favoritos** en la parte superior de la página Búsqueda de registros. Podrá volver a acceder fácilmente a ella más adelante desde la página **Mi panel**.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Búsqueda de registros](log-analytics-log-searches.md), para ver los registros de datos detallados de los contenedores.

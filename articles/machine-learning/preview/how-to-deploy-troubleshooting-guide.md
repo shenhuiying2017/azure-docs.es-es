@@ -1,9 +1,9 @@
 ---
-title: "Guía de solución de problemas de implementación de Azure Machine Learning | Microsoft Docs"
-description: "Guía de solución de problemas para la implementación y creación de servicios"
+title: Guía de solución de problemas de implementación de Azure Machine Learning | Microsoft Docs
+description: Guía de solución de problemas para la implementación y creación de servicios
 services: machine-learning
-author: raymondl
-ms.author: raymondl
+author: aashishb
+ms.author: aashishb
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 11/16/2017
-ms.openlocfilehash: 4cf372f17c3ded5c25a6ebde70b17b2c095a7169
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 7b8d2f4fb52c6d4faed8e813779e3b01d1817355
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="troubleshooting-service-deployment-and-environment-setup"></a>Solución de problemas de implementación del servicio y configuración del entorno
 La siguiente información puede ayudar a determinar la causa de errores al configurar el entorno de Administración de modelos.

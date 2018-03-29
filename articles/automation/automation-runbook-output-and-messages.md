@@ -1,24 +1,18 @@
 ---
-title: Salidas de runbook y mensajes en Azure Automation | Microsoft Docs
-description: "Describe cómo crear y recuperar los mensajes de salida y error de los runbooks en Azure Automation."
+title: Salidas de runbook y mensajes en Azure Automation
+description: Describe cómo crear y recuperar los mensajes de salida y error de los runbooks en Azure Automation.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: tysonn
-ms.assetid: 13a414f5-0e2c-4be2-9558-a3e3ec84b6b2
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 11/11/2016
-ms.author: magoedte;bwren
-ms.openlocfilehash: 540dca5416367f39d6132ae306dd1e44ec0561d5
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+manager: carmonm
+ms.openlocfilehash: a02ea2854de7ff32a8c50ff2e6f317596fb4aa1b
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Salidas de runbook y mensajes en Azure Automation
 La mayoría de los runbooks de Azure Automation generan alguna forma de salida, como el mensaje de error que verá el usuario o un objeto complejo que será consumido por otro flujo de trabajo. Windows PowerShell le ofrece [varios flujos](http://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) para enviar la salida desde un script o flujo de trabajo. Azure Automation funciona con cada uno de estos flujos de forma diferente, y es aconsejable que siga los procedimientos recomendados sobre cómo usar cada uno de ellos cuando cree un runbook.
@@ -221,7 +215,7 @@ Automation puede enviar el estado de un trabajo del runbook y de transmisiones d
 
 Para más información sobre cómo configurar la integración con Log Analytics para recopilar, poner en correlación y actuar con los datos de trabajo, vea [Reenvío del estado de un trabajo y de transmisiones de trabajos de Automation a Log Analytics (OMS)](automation-manage-send-joblogs-log-analytics.md).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Para más información acerca de la ejecución de un runbook, cómo supervisar trabajos del runbook y otros detalles técnicos, consulte [Ejecución de un runbook en Automatización de Azure](automation-runbook-execution.md)
 * Para comprender cómo diseñar y usar runbooks secundarios, consulte [runbooks secundarios en Azure Automation](automation-child-runbooks.md)
 

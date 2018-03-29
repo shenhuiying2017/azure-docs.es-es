@@ -1,11 +1,11 @@
 ---
-title: "Ejemplos de código de Azure Active Directory | Microsoft Docs"
-description: "Un índice de ejemplos de código de Azure Active Directory, organizados por escenario."
+title: Ejemplos de código de Azure Active Directory | Microsoft Docs
+description: Un índice de ejemplos de código de Azure Active Directory, organizados por escenario.
 services: active-directory
 documentationcenter: dev-center-name
 author: msmbaldwin
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: a242a5ff-7300-40c2-ba83-fb6035707433
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/19/2017
 ms.author: mbaldwin
 ms.custom: aaddev
-ms.openlocfilehash: 5f47f03594e64281b55161edb1c391ed0be83a73
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 130d26828acd5394756c47f22217272338cc33e6
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-active-directory-code-samples"></a>Ejemplos de código de Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -38,6 +38,7 @@ Estos ejemplos muestran cómo escribir una aplicación web que dirige el explora
 | C#/.NET |[WebApp-OpenIDConnect-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) |Utilice OpenID Connect (middleware ASP.Net OpenID Connect OWIN) para autenticar a los usuarios desde un inquilino de Azure AD. |
 | C#/.NET |[WebApp-MultiTenant-OpenIdConnect-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-multitenant-openidconnect) |Una aplicación web .NET MVC multiempresa que usa OpenID Connect (middleware ASP.Net OpenID Connect OWIN) para autenticar a los usuarios desde varios inquilinos de Azure AD. |
 | C#/.NET |[WebApp-WSFederation-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation) |Utilice WS-Federation (middleware ASP.Net WS-Federation OWIN) para autenticar a los usuarios desde un inquilino de Azure AD. |
+| C#/.NET Core |[WebApp-OpenIDConnect-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect-aspnetcore) |Aplicación web .NET MVC que usa OpenID Connect para el inicio de sesión de los usuarios desde un único inquilino de Azure Active Directory (Azure AD) mediante el middleware ASP.NET Core OpenID Connect. |
 
 ## <a name="single-page-application-spa"></a>Aplicación de una sola página (SPA)
 En este ejemplo se muestra cómo escribir una aplicación de una sola página protegida con Azure AD.  

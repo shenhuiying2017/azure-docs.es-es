@@ -2,24 +2,18 @@
 title: Límites de recursos de Azure SQL Database | Microsoft Docs
 description: En esta página se describen algunos límites de recursos comunes para Azure SQL Database.
 services: sql-database
-documentationcenter: na
 author: CarlRabeler
-manager: jhubbard
-editor: ''
-ms.assetid: 884e519f-23bb-4b73-a718-00658629646a
+manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Active
-ms.date: 02/28/2018
+ms.date: 03/15/2018
 ms.author: carlrab
-ms.openlocfilehash: eea4362e33ff2587758601758db463ffa82382b3
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: fb9cb15e96c4098151d220c2bd47fbb7f299687c
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-sql-database-resource-limits"></a>Límites de recursos de SQL Database
 
@@ -64,7 +58,7 @@ La duración de todo el proceso de escalado vertical depende del nivel de servic
 
 ## <a name="single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb"></a>Base de datos única: limitaciones de P11 y P15 cuando el máximo tamaño es mayor de 1 TB
 
-Se admite un tamaño máximo mayor de 1 TB para la base de datos P11 y P15 en las siguientes regiones: este de EE. UU. 2, oeste de EE. UU., Virginia Gob. EE. UU., Europa Occidental, centro de Alemania, Asia Suroriental, Japón Oriental, este de Australia, centro de Canadá y este de Canadá. Las siguientes consideraciones y limitaciones se aplican a las bases de datos P11 y P15 con un tamaño máximo mayor de 1 TB:
+Se admite un tamaño máximo superior a 1 TB en bases de datos P11 y P15 en las siguientes regiones: Este de Australia, Sudeste de Australia, Sur de Brasil, Centro de Canadá, Este de Canadá, Centro de EE. UU., Centro de Francia, Centro de Alemania, Este de Japón, Oeste de Japón, Centro de Corea, Centro y Norte de EE. UU., Europa del Norte, Centro y Sur de EE. UU., Sudeste Asiático, Sur de Reino Unido, Oeste de Reino Unido, Este de EE. UU. 2, Oeste de EE. UU., Virginia Gob. EE. UU. y Europa Occidental. Las siguientes consideraciones y limitaciones se aplican a las bases de datos P11 y P15 con un tamaño máximo mayor de 1 TB:
 
 - Si elige un tamaño máximo mayor de 1 TB al crear una base de datos (con un valor de 4 TB o 4096 GB), el comando de creación produce un error si la base de datos se aprovisiona en una región no admitida.
 - Para las bases de datos P11 y P15 existentes ubicadas en alguna de las regiones admitidas, puede aumentar el almacenamiento máximo hasta superar 1 TB en incrementos de 256 MB hasta 4 TB. Para ver si se admite un tamaño mayor en su región, utilice la función [DATABASEPROPERTYEX](/sql/t-sql/functions/databasepropertyex-transact-sql) o inspeccione el tamaño de la base de datos en Azure Portal. La actualización de una base de datos P11 o P15 existente solo puede realizarse mediante un inicio de sesión de entidad de seguridad de nivel de servidor o por los miembros del rol de base de datos dbmanager. 
@@ -119,7 +113,7 @@ Puede aumentar o disminuir los recursos disponibles para un grupo elástico en f
 | Máxima | Valor |
 | :--- | :--- |
 | Bases de datos por servidor | 5000 |
-| Número de servidores por suscripción por región | 21 |
+| Número de servidores por suscripción por región | 20 |
 |||
 
 > [!IMPORTANT]
@@ -161,4 +155,4 @@ Al encontrar un uso elevado de sesión o de trabajo, las opciones de mitigación
 - Para más información sobre los grupos elásticos, consulte [Grupos elásticos](sql-database-elastic-pool.md).
 - Para más información sobre los límites generales de Azure, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md).
 - Para más información sobre las DTU y eDTU, consulte [DTU y eDTU](sql-database-what-is-a-dtu.md).
-- Para obtener información acerca de los límites de tamaño de tempdb, consulte https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database.
+- Para más información sobre los límites de tamaño de tempdb, consulte https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database.

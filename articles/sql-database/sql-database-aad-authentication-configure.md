@@ -3,17 +3,17 @@ title: 'Configuración de la autenticación de Azure Active Directory: SQL | Mic
 description: Aprenda a conectarse a SQL Database, Instancia administrada y SQL Data Warehouse mediante Autenticación de Azure Active Directory después de configurar Azure AD.
 services: sql-database
 author: GithubMirek
-manager: johammer
+manager: craigg
 ms.service: sql-database
 ms.custom: security
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: mireks
-ms.openlocfilehash: 00b5be9863e2bff9e5b82845f99d6829e1bcdf13
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: e8decbe2c8ed4bed6cfb71308510d031fc242faa
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql-database-managed-instance-or-sql-data-warehouse"></a>Configuración y administración de la autenticación de Azure Active Directory con SQL Database, Instancia administrada o SQL Data Warehouse
 
@@ -191,9 +191,9 @@ Para más información acerca de los comandos de la CLI, consulte [SQL - az sql]
 
 
 ## <a name="configure-your-client-computers"></a>Configurar los equipos cliente.
-En todos los equipos cliente, desde el que las aplicaciones o los usuarios se conectan a Azure SQL Database o a Azure SQL Data Warehouse mediante identidades de Azure AD, debe instalar el software siguiente:
+En todos los equipos cliente, desde el que las aplicaciones o los usuarios se conectan a Azure SQL Database o a SQL Data Warehouse mediante identidades de Azure AD, debe instalar el software siguiente:
 
-* .NET Framework 4.6 o una versión posterior de [https://msdn.microsoft.com/library/5a4x27ek.aspx](https://msdn.microsoft.com/library/5a4x27ek.aspx).
+* .NET Framework 4.6 o posterior desde [https://msdn.microsoft.com/library/5a4x27ek.aspx](https://msdn.microsoft.com/library/5a4x27ek.aspx).
 * La Biblioteca de autenticación de Azure Active Directory para SQL Server (**ADALSQL.DLL**) está disponible en varios idiomas (x86 y amd64) en el centro de descarga en la sección [Biblioteca de autenticación de Microsoft Active Directory para Microsoft SQL Server](http://www.microsoft.com/download/details.aspx?id=48742).
 
 Puede cumplir estos requisitos mediante:

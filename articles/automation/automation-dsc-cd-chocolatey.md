@@ -1,24 +1,20 @@
 ---
-title: "Implementación continua de DSC de Azure Automation con Chocolatey | Microsoft Docs"
-description: "Implementación continua de DevOps mediante DSC de Azure Automation y el administrador de paquetes Chocolatey.  Ejemplo con plantilla de ARM JSON completa y código fuente de PowerShell."
+title: Implementación continua de DSC de Automatización de Azure con Chocolatey
+description: Implementación continua de DevOps mediante DSC de Azure Automation y el administrador de paquetes Chocolatey.  Ejemplo con plantilla de ARM JSON completa y código fuente de PowerShell.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: tysonn
-ms.assetid: c0baa411-eb76-4f91-8d14-68f68b4805b6
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: na
-ms.date: 10/29/2016
-ms.author: golive
-ms.openlocfilehash: f9957d745ed910fbdcbeeee7d9ddb24a51da141b
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+manager: carmonm
+ms.devlang: na
+ms.tgt_pltfrm: na
+ms.openlocfilehash: 8c1427bd40a6fd75a755c4709d88a4b8e4c55571
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-dsc-and-chocolatey"></a>Ejemplo de uso: implementación continua en máquinas virtuales DSC de Automation y Chocolatey
 En el mundo del desarrollo de software con DevOps, existen muchas herramientas que ayudan en diversos puntos de la canalización de integración continua.  Configuración de estado deseado (DSC) de Azure Automation es una opción nueva, y bienvenida, que puede ser de utilidad para los equipos de DevOps.  En este artículo, se muestra cómo configurar la implementación continua (CD) para un equipo de Windows.  Puede ampliar fácilmente la técnica para incluir tantos equipos de Windows como sean necesarios en el rol (por ejemplo, un sitio web) y, a partir de ahí, también a los roles adicionales.
@@ -173,10 +169,7 @@ Por supuesto, cuando se actualiza un paquete en una máquina virtual que se encu
 El código fuente completo de este ejemplo de uso se encuentra en [este proyecto de Visual Studio](https://github.com/sebastus/ARM/tree/master/CDIaaSVM) en GitHub.
 
 ## <a name="related-articles"></a>Artículos relacionados
-* 
-            [Información general de DSC de Azure Automation](automation-dsc-overview.md)
-* 
-            [Cmdlets de DSC de Azure Automation](https://msdn.microsoft.com/library/mt244122.aspx)
-* 
-            [Incorporación de máquinas para administrarlas con DSC de Azure Automation](automation-dsc-onboarding.md)
+* [Información general de DSC de Azure Automation](automation-dsc-overview.md)
+* [Cmdlets de DSC de Azure Automation](https://msdn.microsoft.com/library/mt244122.aspx)
+* [Incorporación de máquinas para administrarlas con DSC de Azure Automation](automation-dsc-onboarding.md)
 

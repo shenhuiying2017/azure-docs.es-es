@@ -1,12 +1,12 @@
 ---
-title: "Configuración de clústeres de HDInsight unidos a un dominio con Azure Active Directory Domain Services: Azure | Microsoft Docs"
-description: "Aprender a configurar y definir clústeres de HDInsight unidos a un dominio con Azure Active Directory Domain Services"
+title: 'Configuración de clústeres de HDInsight unidos a un dominio con Azure Active Directory Domain Services: Azure | Microsoft Docs'
+description: Aprender a configurar y definir clústeres de HDInsight unidos a un dominio con Azure Active Directory Domain Services
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: bprakash
 manager: jhubbard
 editor: cgronlun
-tags: 
+tags: ''
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/10/2017
 ms.author: bhanupr
-ms.openlocfilehash: 08795e6aafc6ccb43bad59189676a8680c03c966
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a0156915c329dfad1424cfd1f10a6ebb27c56acc
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-using-azure-active-directory-domain-services"></a>Configurar clústeres de HDInsight unidos a un dominio con Azure Active Directory Domain Services
 
@@ -57,12 +57,15 @@ Al crear un clúster de HDInsight unidos a un dominio, debe proporcionar los par
 - **Dirección URL de LDAPS**: ldaps://contoso.onmicrosoft.com:636.
 - **Grupo de usuarios de acceso**: grupos de seguridad cuyos usuarios quiere que se sincronicen con el clúster. Por ejemplo, HiveUsers. Si desea especificar varios grupos de usuarios, sepárelos con una coma ','.
  
+> [!NOTE]
+> Dado que Apache Zeppeling usa el nombre de dominio para autenticar la cuenta de servicio administrativa, dicha cuenta DEBE tener el mismo nombre de dominio que su sufijo de UPN para que Apache Zeppeling funcione correctamente.
+ 
 En la siguiente captura de pantalla se muestran las configuraciones en Azure Portal:
 
 ![Configuración de Active Directory Domain Services unido a un dominio de Azure HDInsight](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-domain-joined-configuration-azure-aads-portal.png).
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Para configurar directivas de Hive y ejecución de consultas de Hive, consulte [Configure Hive policies for Domain-joined HDInsight clusters](apache-domain-joined-run-hive.md) (Configuración de directivas de los clústeres de HDInsight unidos a dominio).
 * Para utilizar SSH para conectarse a clústeres de HDInsight unidos a dominio, consulte [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
 

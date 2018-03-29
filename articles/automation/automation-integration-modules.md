@@ -1,24 +1,20 @@
 ---
-title: "Creación de módulos de integración de Azure Automation | Microsoft Docs"
-description: "En este tutorial se explica cómo crear y probar módulos de integración en Azure Automation y se proporcionan ejemplos de uso."
+title: Creación de un módulo de integración de Azure Automation
+description: En este tutorial se explica cómo crear y probar módulos de integración en Azure Automation y se proporcionan ejemplos de uso.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: 
-ms.assetid: 27798efb-08b9-45d9-9b41-5ad91a3df41e
 ms.service: automation
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.date: 01/13/2017
-ms.author: magoedte
-ms.openlocfilehash: 4eddce9d355a4b709e266129935766376d352045
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+manager: carmonm
+ms.devlang: na
+ms.tgt_pltfrm: na
+ms.openlocfilehash: e1bcdb2938d1dcb2743b4c1c523ccefb322dd428
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-automation-integration-modules"></a>Módulos de integración de Azure Automation
 PowerShell es la principal tecnología que se esconde detrás de Azure Automation. Desde que Azure Automation se integró en PowerShell, los módulos de PowerShell resultan clave para la extensibilidad de Azure Automation. En este artículo, explicaremos los aspectos específicos sobre el uso de los módulos de PowerShell en Azure Automation, lo que se conoce como “Módulos de integración” y los procedimientos recomendados para crear sus propios módulos de PowerShell y asegurarse de que funcionan como módulos de integración en Azure Automation. 
@@ -207,7 +203,7 @@ Aunque los módulos de integración son esencialmente módulos de Powershell, ha
    <br>
 6. El módulo debe estar incluido en su totalidad en un paquete compatible con Xcopy. Como los módulos de Azure Automation se distribuyen en espacios aislados de Automation cuando es necesario ejecutar los runbooks, no pueden depender del host en el que se ejecutan. Esto significa que debería poder comprimir el paquete del módulo en un zip, trasladarlo a otro host que tenga la misma versión de PowerShell, u otra posterior, y conseguir que funcione normalmente cuando se importe en el entorno de PowerShell de dicho host. Para que esto ocurra, el módulo no debe depender de ningún archivo que esté fuera de la carpeta del módulo (la carpeta que se comprime al importar en Azure Automation) ni de ninguna configuración única del Registro de un host, como las que se establecen al instalar un producto. Si no se sigue este procedimiento recomendado, el módulo no podrá utilizarse en Azure Automation.  
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * Para empezar a trabajar con Runbooks de flujo de trabajo de PowerShell, consulte [Mi primer runbook de flujo de trabajo de PowerShell](automation-first-runbook-textual.md)
 * Para más información sobre la creación de módulos de PowerShell, consulte [Writing a Windows PowerShell Module](https://msdn.microsoft.com/library/dd878310%28v=vs.85%29.aspx)

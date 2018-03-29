@@ -1,12 +1,12 @@
 ---
-title: "Información general sobre Durable Functions: Azure (versión preliminar)"
-description: "Introducción a la extensión Durable Functions de Azure Functions."
+title: 'Información general sobre Durable Functions: Azure (versión preliminar)'
+description: Introducción a la extensión Durable Functions de Azure Functions.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: f1def2a43edee58bc8b5a33880e206130a1b4687
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: b5269bb51c787c927b4224b3520d5514b6d24501
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="durable-functions-overview-preview"></a>Información general sobre Durable Functions (versión preliminar)
 
@@ -153,44 +153,43 @@ public static async Task<HttpResponseMessage> Run(
 
 El parámetro `starter` [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) es un valor del enlace de salida `orchestrationClient` que forma parte de la extensión de Durable Functions. Proporciona métodos para iniciar, enviar eventos a, terminar y consultar instancias de función de orquestador nueva o existente. En el ejemplo anterior, una función desencadenada por HTTP toma un valor `functionName` de la dirección URL de entrada y pasa ese valor a [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_). Esta API de enlace, a continuación, devuelve una respuesta que contiene un `Location` encabezado e información adicional acerca de la instancia que se puede utilizar posteriormente para buscar una copia de seguridad del estado de la instancia iniciada o terminarlo.
 
-## <a name="pattern-4-stateful-singletons"></a>Patrón nº 4: Singletons con estado
+## <a name="pattern-4-monitoring"></a>Patrón 4: Supervisión
 
-La mayoría de las funciones tienen un inicio y un final explícitos y no interactúan directamente con los orígenes de eventos externos. Sin embargo, las orquestaciones admiten un patrón de [singleton con estado](durable-functions-singletons.md) que les permite comportarse como [actores](https://en.wikipedia.org/wiki/Actor_model) de confianza en informática distribuida.
+El patrón de supervisión hace referencia a un proceso *periódico* flexible de un flujo de trabajo; por ejemplo, realizar un sondeo hasta que se cumplan determinadas condiciones. Aunque un desencadenador de temporizador normal puede resolver un escenario simple, como un trabajo de limpieza periódico, su intervalo es estático y resulta más difícil administrar los ciclos de vida de las instancias. Durable Functions permite intervalos de periodicidad flexibles, administración del ciclo de vida de las tareas y la posibilidad de crear varios procesos de supervisión a partir de una única orquestación.
 
-El siguiente diagrama muestra una función que se ejecuta en un bucle infinito mientras procesa eventos recibidos de orígenes externos.
+Un ejemplo podría ser invertir el escenario anterior de API HTTP asincrónica. En lugar de exponer un punto de conexión a un cliente externo para supervisar una operación de ejecución prolongada, el monitor de ejecución prolongada consume el punto de conexión externo, a la espera de algún cambio de estado.
 
-![Diagrama de singleton con estado](media/durable-functions-overview/stateful-singleton.png)
+![Diagrama del monitor](media/durable-functions-overview/monitor.png)
 
-Mientras que Durable Functions no es una implementación del modelo de actor, las funciones de orquestador tienen muchas de las mismas características de tiempo de ejecución. Por ejemplo, son de ejecución larga (posiblemente infinita), globales, confiables y su ubicación es transparente; además, tienen estado y un único subproceso. Esto hace que las funciones del orquestador sean útiles para escenarios de tipo "actor".
-
-Las funciones normales son sin estado y, por tanto, no son adecuadas para implementar un patrón singleton con estado. Sin embargo, la extensión de Durable Functions facilita bastante la implementación del patrón singleton con estado. El código siguiente es una función de orquestador simple que implementa un contador.
+Mediante Durable Functions, es posible crear varios monitores que observan puntos de conexión arbitrarios en unas cuantas líneas de código. Los monitores pueden finalizar la ejecución cuando se cumple alguna condición o se terminan mediante [DurableOrchestrationClient](durable-functions-instance-management.md), y se puede cambiar su intervalo de espera en función de alguna condición (por ejemplo, retroceso exponencial). El código siguiente implementa un monitor básico.
 
 ```cs
 public static async Task Run(DurableOrchestrationContext ctx)
 {
-    int counterState = ctx.GetInput<int>();
-
-    string operation = await ctx.WaitForExternalEvent<string>("operation");
-    if (operation == "incr")
+    int jobId = ctx.GetInput<int>();
+    int pollingInterval = GetPollingInterval();
+    DateTime expiryTime = GetExpiryTime();
+    
+    while (ctx.CurrentUtcDateTime < expiryTime) 
     {
-        counterState++;
-    }
-    else if (operation == "decr")
-    {
-        counterState--;
+        var jobStatus = await ctx.CallActivityAsync<string>("GetJobStatus", jobId);
+        if (jobStatus == "Completed")
+        {
+            // Perform action when condition met
+            await ctx.CallActivityAsync("SendAlert", machineId);
+            break;
+        }
+
+        // Orchestration will sleep until this time
+        var nextCheck = ctx.CurrentUtcDateTime.AddSeconds(pollingInterval);
+        await ctx.CreateTimer(nextCheck, CancellationToken.None);
     }
 
-    ctx.ContinueAsNew(counterState);
+    // Perform further work here, or let the orchestration end
 }
 ```
 
-Este código es lo que se puede describir como una "orquestación infinita" &mdash; es decir, una orquestación que empieza y no termina nunca. Ejecuta los siguientes pasos:
-
-* Comienza con un valor de entrada en `counterState`.
-* Espera indefinidamente un mensaje denominado `operation`.
-* Lleva a cabo alguna lógica para actualizar su estado local.
-* "Se reinicia" mediante una llamada a `ctx.ContinueAsNew`.
-* Vuelve a esperar indefinidamente a la siguiente operación.
+Cuando se recibe una solicitud, se crea una nueva instancia de orquestación para ese identificador de trabajo. La instancia sondea un estado hasta que se cumple una condición y se cierra el bucle. Un temporizador durable se usa para controlar el intervalo de sondeo. Luego se puede realizar trabajo adicional o puede finalizar la orquestación. Cuando `ctx.CurrentUtcDateTime` supera el valor de `expiryTime`, el monitor finaliza.
 
 ## <a name="pattern-5-human-interaction"></a>Patrón nº 5: Interacción humana
 
@@ -229,7 +228,7 @@ El temporizador durable se crea mediante una llamada a `ctx.CreateTimer`. `ctx.W
 
 ## <a name="the-technology"></a>La tecnología
 
-En segundo plano, las extensiones de Durable Functions se crean a partir de [Durable Task Framework](https://github.com/Azure/durabletask), una biblioteca de código abierto en GitHub para la creación de orquestaciones de tarea durables. Muy similar a como Azure Functions es la evolución sin servidor de Azure WebJobs, Durable Function es la evolución sin servidor de Durable Task Framework. Durable Task Framework se usa mucho dentro de Microsoft y fuera también para automatizar los procesos críticos. Es una opción natural para el entorno de Azure Functions sin servidor.
+En segundo plano, la extensión Durable Functions se crea a partir de [Durable Task Framework](https://github.com/Azure/durabletask), una biblioteca de código abierto en GitHub para la creación de orquestaciones de tareas durables. Muy similar a como Azure Functions es la evolución sin servidor de Azure WebJobs, Durable Function es la evolución sin servidor de Durable Task Framework. Durable Task Framework se usa mucho dentro de Microsoft y fuera también para automatizar los procesos críticos. Es una opción natural para el entorno de Azure Functions sin servidor.
 
 ### <a name="event-sourcing-checkpointing-and-replay"></a>Abastecimiento de eventos, puntos de control y reproducción
 
@@ -278,7 +277,7 @@ Table Storage se utiliza para almacenar el historial de ejecución para las cuen
 
 En general, todos los problemas conocidos deben encontrarse en la lista de [problemas en GitHub](https://github.com/Azure/azure-functions-durable-extension/issues). Si le surge algún problema y no lo encuentra en GitHub, abra un nuevo problema e incluya una descripción detallada del mismo. Incluso si simplemente desea formular una pregunta, no dude en abrir un problema de GitHub y etiquetarlo como una pregunta.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Seguir leyendo la documentación sobre Durable Functions](durable-functions-bindings.md)

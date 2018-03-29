@@ -1,24 +1,18 @@
 ---
-title: "Solución Start/Stop VMs during off-hours (versión preliminar)| Microsoft Docs"
-description: "Esta solución de administración de máquinas virtuales inicia y detiene máquinas virtuales de Azure Resource Manager según una programación y realiza una supervisión proactiva desde Log Analytics."
+title: Solución Start/Stop VMs during off-hours (versión preliminar)
+description: Esta solución de administración de máquinas virtuales inicia y detiene máquinas virtuales de Azure Resource Manager según una programación y realiza una supervisión proactiva desde Log Analytics.
 services: automation
-documentationCenter: 
-authors: eslesar
-manager: carmonm
-editor: 
-ms.assetid: 06c27f72-ac4c-4923-90a6-21f46db21883
 ms.service: automation
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.date: 12/18/2017
-ms.author: magoedte
-ms.openlocfilehash: 7ffd424de2a7224b5ac50fa228289c5397092b2e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+manager: carmonm
+ms.openlocfilehash: ec15859a92527c4e084075b40d3439d7a19fea1a
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="startstop-vms-during-off-hours-solution-preview-in-azure-automation"></a>Solución Start/Stop VMs during off-hours (versión preliminar) en Azure Automation
 
@@ -129,7 +123,7 @@ No se deben habilitar todas las programaciones, ya que ello podría crear accion
 
 Realice los siguientes pasos para agregar la solución Start/Stop VMs during off-hours a su cuenta de Automation y, después, configure las variables para personalizar la solución.
 
-1. En Azure Portal, haga clic en **Crear un recurso**.<br> ![portal de Azure](media/automation-solution-vm-management/azure-portal-01.png)<br>  
+1. En Azure Portal, haga clic en **Crear un recurso**.<br> ![Azure Portal](media/automation-solution-vm-management/azure-portal-01.png)<br>  
 2. En el panel de Marketplace, escriba una palabra clave como **Start** o **Start/Stop**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Como alternativa, puede escribir en una o varias palabras clave del nombre completo de la solución y presione Entrar.  Seleccione **Start/Stop VMs during off-hours [Preview]** (Iniciar o detener máquinas virtuales fuera de las horas de trabajo [versión preliminar]) desde los resultados de la búsqueda.  
 3. En el panel **Start/Stop VMs during off-hours [Preview]** (Iniciar o detener máquinas virtuales fuera de las horas de trabajo [versión preliminar]), revise la información de resumen y luego haga clic en **Crear**.  
 4. Aparece el panel **Agregar solución**. Se le pide que configure la solución antes de importarla en la suscripción de Automation.<br><br> ![Hoja Agregar solución de administración de VM](media/automation-solution-vm-management/azure-portal-add-solution-01.png)<br><br>
@@ -316,7 +310,7 @@ No se eliminarán la cuenta de Automation ni el área de trabajo de Log Analytic
 2. En el panel **Log Analytics**, seleccione el área de trabajo.
 3. Seleccione **Eliminar** en el menú del panel de configuración del área de trabajo.  
       
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Para aprender a crear diferentes consultas de búsqueda y a revisar los registros de trabajos de Automation con Log Analytics, consulte [Descripción de las búsquedas de registros en Log Analytics](../log-analytics/log-analytics-log-searches.md).
 - Para más información acerca de la ejecución de un runbook, cómo supervisar trabajos del runbook y otros detalles técnicos, consulte [Ejecución de un runbook en Automatización de Azure](automation-runbook-execution.md).

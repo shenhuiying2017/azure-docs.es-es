@@ -1,25 +1,19 @@
 ---
-title: "Configuración de la autenticación con Amazon Web Services | Microsoft Docs"
-description: "En este artículo se describe cómo crear y validar una credencial de AWS para los Runbooks en Azure Automation y administrar los recursos de AWS."
+title: Configuración de la autenticación con Amazon Web Services
+description: En este artículo se describe cómo crear y validar una credencial de AWS para los Runbooks en Azure Automation y administrar los recursos de AWS.
+keywords: autenticación AWS, configurar aws
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: tysonn
-keywords: "autenticación AWS, configurar aws"
-ms.assetid: b6dde4bb-26ac-4876-9aa9-e586bed30d6b
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/15/2018
 ms.topic: article
-ms.date: 09/29/2017
-ms.author: magoedte
-ms.openlocfilehash: 68805a6b28fc9454262cb0503daa23af93c76a7e
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+manager: carmonm
+ms.openlocfilehash: 93e2a95e8b1ed2cf39b6e839908be54815f8fa63
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="authenticate-runbooks-with-amazon-web-services"></a>Autenticación de Runbooks con Amazon Web Services
 La automatización de las tareas comunes con recursos de Amazon Web Services (AWS) se puede realizar con los runbooks de Azure Automation.  Puede automatizar muchas tareas en AWS mediante Runbooks de Automation exactamente igual que con recursos de Azure.  Todo lo que se necesita son dos cosas:
@@ -37,6 +31,6 @@ Después de crear y copiar las claves de seguridad de AWS, debe crear un recurso
 1. En el cuadro **Nombre**, escriba **AWScred** o un valor adecuado que siga las normas de nomenclatura.  
 2. En el cuadro **Nombre de usuario**, escriba su **identificador de acceso** y su **clave de acceso secreta** en el cuadro **Contraseña** y en **Confirmar contraseña**.   
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Revise el artículo [Automatización de la implementación de una máquina virtual en Amazon Web Services](automation-scenario-aws-deployment.md) para aprender a crear runbooks y automatizar las tareas en AWS.
 

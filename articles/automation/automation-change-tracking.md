@@ -1,27 +1,21 @@
 ---
-title: Seguimiento de cambios con Azure Automation | Microsoft Docs
-description: "La solución Change Tracking ayuda a identificar los cambios en el software y el servicio de Windows que se producen en su entorno."
+title: Seguimiento de cambios con Azure Automation
+description: La solución Change Tracking ayuda a identificar los cambios en el software y el servicio de Windows que se producen en su entorno.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: 
-ms.assetid: f8040d5d-3c89-4f0c-8520-751c00251cb7
 ms.service: automation
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/28/2018
+author: georgewallace
 ms.author: gwallace
+ms.date: 03/15/2018
+ms.topic: article
+manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 79c5f354c3e63856474e46e2b6928af829604e15
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 91a093a44106ad861449b6defb140532698fa668
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>Seguimiento de cambios de software en su entorno con la solución de seguimiento de cambios
+# <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Seguimiento de cambios en el entorno con la solución Change Tracking
 
 Este artículo le ayuda a usar la solución Change Tracking para identificar fácilmente los cambios del entorno. La solución realiza un seguimiento de los cambios efectuados en el software de Windows y Linux, en los archivos de Windows y Linux, en las claves del registro de Windows, en los servicios de Windows y en los demonios de Linux. Identificar los cambios de configuración puede ayudarle a localizar problemas operativos.
 
@@ -198,7 +192,7 @@ En la tabla siguiente se proporcionan ejemplos de búsquedas de registros para l
 |ConfigurationData<br>&#124; where   ConfigDataType == "WindowsServices" and SvcStartupType == "Auto"<br>&#124; where SvcState == "Stopped"<br>&#124; summarize arg_max(TimeGenerated, *) by SoftwareName, Computer         | Muestra los registros de inventario más recientes para los servicios de Windows que se establecieron en Automático, pero se han notificado como Detenidos<br>Los resultados se limitan a la entrada más reciente para esos valores de SoftwareName y Computer      |
 |ConfigurationChange<br>&#124; where ConfigChangeType == "Software" and ChangeCategory == "Removed"<br>&#124; order by TimeGenerated desc|Muestra los registros de cambios para el software eliminado|
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Consulte el tutorial de Change Tracking para más información acerca del uso de la solución:
 

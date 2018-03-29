@@ -1,24 +1,18 @@
 ---
-title: "Solución Update Management en Azure | Microsoft Docs"
-description: "Este artículo está pensado para ayudarle a entender cómo utilizar esta solución para administrar las actualizaciones de los equipos Windows y Linux."
+title: Solución Update Management de Azure
+description: Este artículo está pensado para ayudarle a entender cómo utilizar esta solución para administrar las actualizaciones de los equipos Windows y Linux.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: 
-ms.assetid: e33ce6f9-d9b0-4a03-b94e-8ddedcc595d2
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/28/2018
+author: georgewallace
 ms.author: gwallace
-ms.openlocfilehash: 9280925cdd5cccf8d1d2f2b33a7de8523a07cd14
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.date: 03/16/2018
+ms.topic: article
+manager: carmonm
+ms.openlocfilehash: 202c75366477ae3445f607f75d08faf0335de79f
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="update-management-solution-in-azure"></a>Solución Update Management de Azure
 
@@ -160,7 +154,7 @@ Haga clic en **Update Management** en su cuenta de Automation para ver el estado
 
 Esta vista proporciona información de los equipos, las actualizaciones que faltan, las implementaciones de actualizaciones y las implementaciones de actualizaciones programadas.
 
-Puede ejecutar una búsqueda de registros que devuelve información de la máquina, actualización o implementación seleccionando el elemento en la lista. Se abre la página **Búsqueda de registros** con una consulta para el elemento seleccionado.
+Puede ejecutar una búsqueda de registros que devuelve información sobre la máquina, actualización o implementación mediante la selección del elemento de la lista. Se abre la página **Búsqueda de registros** con una consulta para el elemento seleccionado.
 
 ## <a name="installing-updates"></a>Instalación de actualizaciones
 

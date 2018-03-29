@@ -1,6 +1,6 @@
 ---
-title: "Supervisión en Azure Database for MySQL"
-description: "En este artículo se describen las métricas de supervisión y alerta de Azure Database for MySQL, incluyendo las estadísticas de conexión, almacenamiento, límites y CPU."
+title: Supervisión en Azure Database for MySQL
+description: En este artículo se describen las métricas de supervisión y alerta de Azure Database for MySQL, incluidas las estadísticas de CPU, almacenamiento y conexión.
 services: mysql
 author: rachel-msft
 ms.author: raagyema
@@ -8,22 +8,18 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: 7ecfb8151cd81fb588f964fdfa3a74aacab24874
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 03/15/2018
+ms.openlocfilehash: c3cba00077fd65239382d6fdd98e73a55f926b3b
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>Supervisión en Azure Database for MySQL
 La supervisión de los datos sobre los servidores le permite solucionar problemas y optimizar la carga de trabajo. Azure Database for MySQL proporciona diversas métricas que proporcionan información sobre el comportamiento de los recursos que admiten el servidor MySQL. 
 
 ## <a name="metrics"></a>Métricas
-Todas las métricas de Azure tienen una frecuencia de un minuto y cada métrica proporciona 30 días de historial. 
-
-Puede configurar alertas en las métricas. Para obtener instrucciones paso a paso, consulte [How to set up alerts](howto-alert-on-metric.md) (Configuración de alertas). 
-
-Otras tareas incluyen la configuración de acciones automatizadas, la realización de análisis avanzados y el archivo del historial. Para obtener más información, consulte [Información general sobre las métricas en Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Todas las métricas de Azure tienen una frecuencia de un minuto y cada métrica proporciona 30 días de historial. Puede configurar alertas en las métricas. Para obtener instrucciones paso a paso, consulte [How to set up alerts](howto-alert-on-metric.md) (Configuración de alertas). Otras tareas incluyen la configuración de acciones automatizadas, la realización de análisis avanzados y el archivo del historial. Para obtener más información, consulte [Información general sobre las métricas en Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
 ### <a name="list-of-metrics"></a>Lista de métricas
 Estas métricas están disponibles para Azure Database for MySQL:
@@ -31,8 +27,6 @@ Estas métricas están disponibles para Azure Database for MySQL:
 |Métrica|Nombre de métrica para mostrar|Unidad|DESCRIPCIÓN|
 |---|---|---|---|---|
 |cpu_percent|Porcentaje de CPU|Percent|Porcentaje de CPU en uso.|
-|compute_limit|Límite de unidad de proceso|Recuento|Número máximo de unidades de proceso de este servidor|
-|compute_consumption_percent|Porcentaje de unidad de proceso|Percent|Porcentaje de unidades de proceso que se usa más allá del límite máximo del servidor.|
 |memory_percent|Porcentaje de memoria|Percent|Porcentaje de memoria en uso.|
 |io_consumption_percent|Porcentaje de E/S|Percent|Porcentaje de E/S en uso.|
 |storage_percent|Porcentaje de almacenamiento|Percent|Porcentaje de almacenamiento que se usa más allá del límite máximo del servidor.|
@@ -42,6 +36,6 @@ Estas métricas están disponibles para Azure Database for MySQL:
 |connections_failed|Conexiones con errores totales|Recuento|Número de conexiones con errores al servidor.|
 
 
-## <a name="next-steps"></a>pasos siguientes
-- Para obtener instrucciones paso a paso, consulte [How to set up alerts](howto-alert-on-metric.md) (Configuración de alertas). 
+## <a name="next-steps"></a>Pasos siguientes
+- Consulte [How to set up alerts](howto-alert-on-metric.md) (Configuración de alertas) para obtener instrucciones sobre cómo crear una alerta en una métrica.
 - Para obtener más información sobre cómo acceder a las métricas y exportarlas con Azure Portal, la API de REST o la CLI, consulte [Información general sobre las métricas en Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).

@@ -1,6 +1,6 @@
 ---
-title: "Guía de diseño de tablas de Azure Storage | Microsoft Docs"
-description: "Diseño de tablas escalables y eficientes en Azure Table Storage"
+title: Guía de diseño de tablas de Azure Storage | Microsoft Docs
+description: Diseño de tablas escalables y eficientes en Azure Table Storage
 services: cosmos-db
 documentationcenter: na
 author: mimig1
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: a5511b8b2e76c6c651a8e05bda1322293601c92c
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: fadb81e16a6c641ca15efb4f910a51de4fe7c997
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Guía de diseño de tablas de Azure Storage: diseño de tablas escalables y eficientes
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -232,7 +232,7 @@ Para obtener ejemplos de código de cliente que pueda administrar varios tipos d
 * [Trabajar con tipos de entidad heterogéneos](#working-with-heterogeneous-entity-types)  
 
 ### <a name="choosing-an-appropriate-partitionkey"></a>Elegir un PartitionKey apropiado
-La elección del **PartitionKey** debe equilibrar la necesidad de habilitar el uso de EGT (para garantizar la coherencia) frente a la necesidad de distribuir las entidades en varias particiones (para asegurar que una solución escalable).  
+La elección del **PartitionKey** debe equilibrar la necesidad de habilitar el uso de EGT (para garantizar la coherencia) frente a la necesidad de distribuir las entidades en varias particiones (para asegurar una solución escalable).  
 
 En un extremo, puede almacenar todas las entidades en una sola partición, pero esto puede limitar la escalabilidad de su solución y podría impedir a Table service equilibrar la carga de las solicitudes. En el otro extremo, puede almacenar una entidad por cada partición que sería muy escalable y que permite a Table service equilibrar la carga de las solicitudes, pero que podrían impedir que se utilicen transacciones de grupo de la entidad.  
 
@@ -261,7 +261,7 @@ Muchas aplicaciones tienen requisitos para utilizar datos ordenados en distintos
 
 * [Patrón de índice secundario dentro de la partición](#intra-partition-secondary-index-pattern): almacenar varias copias de cada entidad con diferentes valores RowKey (en la misma partición) para habilitar búsquedas rápidas y eficaces y ordenaciones alternativas mediante el uso de diferentes valores RowKey.  
 * [Patrón de índice secundario entre particiones](#inter-partition-secondary-index-pattern): almacenar varias copias de cada entidad con diferentes valores RowKey en particiones en tablas independientes para habilitar búsquedas rápidas y eficaces y ordenaciones alternativas mediante el uso de diferentes valores RowKey.
-* [Patrón final del registro](#log-tail-pattern): recupere las entidades *n* agregadas recientemente a una partición utilizando un valor **RowKey** que se clasifique en orden de fecha y hora inverso.  
+* [Patrón final del registro](#log-tail-pattern): recupere las entidades *n* agregadas recientemente a una partición utilizando un valor **RowKey** que se ordene en orden de fecha y hora inverso.  
 
 ## <a name="design-for-data-modification"></a>Diseño para la modificación de datos
 Esta sección se centra en las consideraciones de diseño para optimizar las inserciones, actualizaciones y eliminaciones. En algunos casos, deberá evaluar el equilibrio entre los diseños que se optimizan para realizar una consulta en diseños que optimizan la modificación de datos como lo hace usted en los diseños de bases de datos relacionales (aunque las técnicas para administrar las ventajas y desventajas de diseño son diferentes en una base de datos relacional). En la sección [Patrones de diseño de tabla](#table-design-patterns) se describen algunos modelos de diseño detallados para Table service y se destacan algunas de estas ventajas e inconvenientes. En la práctica, encontrará que muchos diseños optimizados para consultar entidades también funcionan bien para la modificación de entidades.  
@@ -296,7 +296,7 @@ En muchos casos, un diseño para los resultados de consultas eficaces en modific
 Los siguientes patrones de la sección [Patrones de diseño de tabla](#table-design-patterns) tratan el equilibrio entre diseños para efectuar consultas eficaces y diseños para la modificación eficaz de datos:  
 
 * [Patrón de clave compuesta](#compound-key-pattern) : utilice valores **RowKey** compuestos para permitir a un cliente buscar datos relacionados con una consulta de punto único.  
-* [Patrón final del registro](#log-tail-pattern): recupere las entidades *n* agregadas recientemente a una partición utilizando un valor **RowKey** que se clasifique en orden de fecha y hora inverso.  
+* [Patrón final del registro](#log-tail-pattern) : recupere las entidades *n* agregadas recientemente a una partición utilizando un valor **RowKey** que se ordene en orden de fecha y hora inverso.  
 
 ## <a name="encrypting-table-data"></a>Cifrado de datos de tablas
 La biblioteca de clientes de Azure Storage para .NET admite el cifrado de propiedades de entidades de cadena en operaciones de insertar y reemplazar. Las cadenas cifradas se almacenan en el servicio como propiedades binarias y se convierten de nuevo en cadenas después del descifrado.    

@@ -1,6 +1,6 @@
 ---
-title: "Guía de planeamiento y diseño de Azure Virtual Network (red virtual) | Microsoft Docs"
-description: "Obtenga información sobre cómo planear y diseñar redes virtuales en Azure según los requisitos de aislamiento, conectividad y ubicación."
+title: Guía de planeamiento y diseño de Azure Virtual Network (red virtual) | Microsoft Docs
+description: Obtenga información sobre cómo planear y diseñar redes virtuales en Azure según los requisitos de aislamiento, conectividad y ubicación.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/08/2016
 ms.author: jdial
-ms.openlocfilehash: ecdc3a847821fd83718f9cfc42308667460feabc
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: f11b2d1b4061b395918a274c4c53688bf34fbae1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="plan-and-design-azure-virtual-networks"></a>Planeación y diseño de Azure Virtual Network
 Crear una red virtual con la cual experimentar es bastante sencillo, pero es probable que, con el tiempo, implemente varias redes virtuales para satisfacer las necesidades de producción que tiene su organización. Si aplica cierta planeación y diseño, podrá implementar redes virtuales y conectar los recursos que necesita de manera más eficaz. Si no conoce las redes virtuales, le recomendamos que [obtenga información sobre ellas](virtual-networks-overview.md) y aprenda [a implementar](quick-create-portal.md) una antes de continuar.
@@ -248,7 +248,7 @@ Los siguientes requisitos están relacionados con el control de acceso:
 Según esos requisitos, podría agregar usuarios desde el equipo de red al rol **Colaborador de la red** integrado en cada suscripción y, además, crear un rol personalizado para los desarrolladores de aplicaciones en cada suscripción y otorgarles derechos para agregar máquinas virtuales a las subredes existentes.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Implementar una red virtual](virtual-networks-create-vnet-arm-template-click.md) en función de un escenario.
+* [Implementar una red virtual](quick-create-portal.md).
 * Comprender cómo [equilibrar la carga](../load-balancer/load-balancer-overview.md) de las máquinas virtuales IaaS y [administrar el enrutamiento en varias regiones de Azure](../traffic-manager/traffic-manager-overview.md).
-* Obtener más información sobre los [NSG y cómo planear y diseñar](virtual-networks-nsg.md) una solución de NSG.
+* Obtener más información sobre los [grupos de seguridad de red](security-overview.md) de una solución NSG.
 * Obtener más información sobre las [opciones de conectividad local y redes virtuales](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti).

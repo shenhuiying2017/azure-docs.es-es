@@ -1,24 +1,24 @@
 ---
-title: "Creación de la primera aplicación de Service Fabric en C# | Microsoft Docs"
-description: "Introducción a la creación de una aplicación de Service Fabric de Microsoft Azure mediante servicios con y sin estado."
+title: Creación de la primera aplicación de Service Fabric en C# | Microsoft Docs
+description: Introducción a la creación de una aplicación de Service Fabric de Microsoft Azure mediante servicios con y sin estado.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: d9b44d75-e905-468e-b867-2190ce97379a
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 03/16/2018
 ms.author: vturecek
-ms.openlocfilehash: 101ea717816fa2eb9fa9ae25cef21df67cf6ef9c
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: dbd8508a7f55b8b5fdf53912d2189a18ef504193
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="get-started-with-reliable-services"></a>Introducción a los servicios de confianza
 > [!div class="op_single_selector"]
@@ -46,7 +46,7 @@ Inicie Visual Studio 2015 o Visual Studio 2017 como administrador y cree un nuev
 
 ![Uso del cuadro de diálogo Nuevo proyecto para crear una nueva aplicación de Service Fabric](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
 
-Después, cree un proyecto de servicio sin estado denominado *HelloWorldStateless*:
+Después, cree un proyecto de servicio sin estado mediante **.Net Core 2.0** llamado *HelloWorldStateless*:
 
 ![En el segundo cuadro de diálogo, cree un proyecto de servicio sin estado.](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject2.png)
 
@@ -97,7 +97,7 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
     {
         cancellationToken.ThrowIfCancellationRequested();
 
-        ServiceEventSource.Current.ServiceMessage(this, "Working-{0}", ++iterations);
+        ServiceEventSource.Current.ServiceMessage(this.Context, "Working-{0}", ++iterations);
 
         await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken);
     }
@@ -128,7 +128,7 @@ En la misma aplicación *HelloWorld*, puede agregar un nuevo servicio haciendo c
 
 ![Agregue un servicio a su aplicación Service Fabric](media/service-fabric-reliable-services-quick-start/hello-stateful-NewService.png)
 
-Seleccione **Servicio con estado** y asígnele el nombre *HelloWorldStateful*. Haga clic en **OK**.
+Seleccione **.Net Core 2.0 -> Servicio con estado** y llámelo *HelloWorldStateful*. Haga clic en **OK**.
 
 ![Uso del cuadro de diálogo Nuevo proyecto para crear un nuevo servicio con estado de Service Fabric](media/service-fabric-reliable-services-quick-start/hello-stateful-NewProject.png)
 
@@ -154,7 +154,7 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
         {
             var result = await myDictionary.TryGetValueAsync(tx, "Counter");
 
-            ServiceEventSource.Current.ServiceMessage(this, "Current Counter Value: {0}",
+            ServiceEventSource.Current.ServiceMessage(this.Context, "Current Counter Value: {0}",
                 result.HasValue ? result.Value.ToString() : "Value does not exist.");
 
             await myDictionary.AddOrUpdateAsync(tx, "Counter", 0, (key, value) => ++value);
@@ -215,7 +215,7 @@ Una vez que los servicios empiecen a ejecutarse, podrá ver los eventos del Segu
 
 ![Ver eventos de diagnóstico en Visual Studio](media/service-fabric-reliable-services-quick-start/hello-stateful-Output.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Depuración de la aplicación del Service Fabric en Visual Studio](service-fabric-debugging-your-application.md)
 
 [Introducción a los servicios de la API web de Microsoft Azure Service Fabric con autohospedaje OWIN](service-fabric-reliable-services-communication-webapi.md)

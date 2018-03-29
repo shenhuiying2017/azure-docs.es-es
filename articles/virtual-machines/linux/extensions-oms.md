@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/06/2018
+ms.date: 03/12/2018
 ms.author: danis
-ms.openlocfilehash: 5497c0151117c26e66e9669ed8da1ab7f9506b5a
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 5174e599f12314a657d142304ffec18fbff847b1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="oms-virtual-machine-extension-for-linux"></a>Extensión de máquina virtual de OMS para Linux
 
@@ -43,10 +43,11 @@ La extensión del agente de OMS puede ejecutarse en estas distribuciones de Linu
 | SUSE Linux Enterprise Server | 11 y 12 |
 
 ### <a name="agent-and-vm-extension-version"></a>Versión de extensión de agente y máquina virtual
-En la tabla siguiente se proporciona una asignación de la versión de la extensión de VM de OMS y el paquete del agente de OMS para cada versión. Se incluye un vínculo a las notas de la versión del paquete del agente de OMS.  
+En la tabla siguiente se proporciona una asignación de la versión de la extensión de VM de OMS y el paquete del agente de OMS para cada versión. Se incluye un vínculo a las notas de la versión del paquete del agente de OMS. Las notas de versión incluyen detalles sobre corrección de errores y nuevas características que están disponibles para una versión de agente determinada.  
 
 | Versión de extensión de máquina virtual Linux de OMS | Versión del paquete del agente de OMS | 
 |--------------------------------|--------------------------|
+| 1.4.60.2 | [1.4.4-210](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.4-210)| 
 | 1.4.59.1 | [1.4.3-174](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.3-174)|
 | 1.4.58.7 | [14.2-125](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.2-125)|
 | 1.4.56.5 | [1.4.2-124](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.2-124)|

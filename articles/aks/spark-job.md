@@ -1,0 +1,341 @@
+---
+title: Ejecución de un trabajo de Apache Spark con Azure Container Service (AKS)
+description: Uso de Azure Container Service (AKS) para ejecutar un trabajo de Apache Spark
+services: container-service
+author: lenadroid
+manager: timlt
+ms.service: container-service
+ms.topic: article
+ms.date: 03/15/2018
+ms.author: alehall
+ms.custom: mvc
+ms.openlocfilehash: 9d57f572ba159191f5b634b5ea604563ac2f7801
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 03/16/2018
+---
+# <a name="running-apache-spark-jobs-on-aks"></a>Ejecución de trabajos de Apache Spark en AKS
+
+[Apache Spark][apache-spark] es un motor rápido para el procesamiento de datos a gran escala. Desde la [versión de Spark 2.3.0][spark-latest-release], Apache Spark admite la integración nativa con clústeres de Kubernetes. Azure Container Service (AKS) es un entorno de Kubernetes administrado que se ejecuta en Azure. Este documento detalla la preparación y ejecución de trabajos de Apache Spark en un clúster de Azure Container Service (AKS).
+
+## <a name="prerequisites"></a>requisitos previos
+
+Para completar los pasos de este artículo, necesita lo siguiente.
+
+* Conocimientos básicos de Kubernetes y [Apache Spark][spark-quickstart].
+* Una cuenta de [Docker Hub][docker-hub] o un registro de [Azure Container Registry][acr-create].
+* La CLI de Azure [instalada][azure-cli] en el sistema de desarrollo.
+* [JDK 8][java-install] instalado en el sistema.
+* SBT ([Scala Build Tool][sbt-install]) instalado en el sistema.
+* Herramientas de línea de comandos GIT instaladas en el sistema.
+
+## <a name="create-an-aks-cluster"></a>Creación de un clúster de AKS
+
+Spark se usa para el procesamiento de datos a gran escala y requiere que los nodos Kubernetes tengan el tamaño adecuado para cumplir los requisitos de los recursos de Spark. Se recomienda un tamaño mínimo de `Standard_D3_v2` para los nodos de Azure Container Service (AKS).
+ 
+Si necesita un clúster de AKS que cumpla esta recomendación mínima, ejecute los siguientes comandos.
+
+Cree un grupo de recursos para el clúster.
+
+```azurecli
+az group create --name mySparkCluster --location eastus
+```
+
+Cree el clúster de AKS con nodos de tamaño `Standard_D3_v2`.
+
+```azurecli
+az aks create --resource-group mySparkCluster --name mySparkCluster --node-vm-size Standard_D3_v2
+```
+
+Conéctese al clúster de AKS.
+
+```azurecli
+az aks get-credentials --resource-group mySparkCluster --name mySparkCluster
+```
+
+Si usa Azure Container Registry (ACR) para almacenar las imágenes del contenedor, configure la autenticación entre AKS y ACR. Consulte la [documentación de autenticación de ACR][acr-aks] para realizar estos pasos.
+
+## <a name="build-the-spark-source"></a>Compilación del código fuente de Spark
+
+Antes de ejecutar trabajos de Spark en un clúster de AKS, es necesario compilar el código fuente de Spark y empaquetarlo en una imagen de contenedor. El código fuente de Spark incluye scripts que puede utilizar para completar este proceso. 
+
+Clone el repositorio del proyecto de Spark en el sistema de desarrollo.
+
+```bash
+git clone https://github.com/apache/spark
+```
+
+Cambie al directorio del repositorio clonado y guarde la ruta de acceso al código fuente de Spark en una variable.
+
+```bash
+cd spark
+sparkdir=$(pwd)
+```
+
+Si tiene instaladas varias versiones del JDK, establezca `JAVA_HOME` para utilizar la versión 8 en la sesión actual. 
+
+```bash
+export JAVA_HOME=`/usr/libexec/java_home -d 64 -v "1.8*"`
+```
+
+Ejecute el siguiente comando para compilar el código fuente de Spark con compatibilidad con Kubernetes.
+
+```bash
+./build/mvn -Pkubernetes -DskipTests clean package
+```
+
+El siguiente comando crea la imagen del contenedor de Spark y lo inserta en un registro de imagen de contenedor. Reemplace `registry.example.com` por el nombre de Registro de contenedor. Si usa Docker Hub, este valor es el nombre del registro. Si utiliza Azure Container Registry (ACR), este valor es el nombre del servidor de inicio de sesión de ACR.
+
+```bash
+./bin/docker-image-tool.sh -r registry.example.com -t v1 build
+```
+
+Inserte la imagen del contenedor en el registro de imagen de contenedor.
+
+```bash
+./bin/docker-image-tool.sh -r registry.example.com -t v1 push
+```
+
+## <a name="prepare-a-spark-job"></a>Preparación de un trabajo de Spark
+
+A continuación, prepare un trabajo de Spark. Se usa un archivo jar para contener el trabajo de Spark y es necesario para ejecutar el comando `spark-submit`. El archivo jar puede hacerse accesible a través de una dirección URL pública o preempaquetado dentro de una imagen de contenedor. En este ejemplo, se crea un archivo jar de ejemplo para calcular el valor de Pi. Este archivo jar, a continuación, se carga en Azure Storage. Si tiene un archivo jar existente, no dude en sustituirlo
+
+Cree un directorio donde desea crear el proyecto para un trabajo de Spark.
+
+```bash
+mkdir myprojects
+cd myprojects
+```
+
+Cree un nuevo proyecto de Scala desde una plantilla.
+
+```bash
+sbt new sbt/scala-seed.g8
+```
+
+Cuando se le solicite, escriba `SparkPi` como nombre del proyecto.
+
+```bash
+name [Scala Seed Project]: SparkPi
+```
+
+Vaya al directorio del proyecto recién creado.
+
+```bash
+cd sparkpi
+```
+
+Ejecute los comandos siguientes para agregar un complemento de SBT que permite empaquetar el proyecto como un archivo jar.
+
+```bash
+touch project/assembly.sbt
+echo 'addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "0.14.6")' >> project/assembly.sbt
+```
+
+Ejecute estos comandos para copiar el código de ejemplo en el proyecto recién creado y agregar todas las dependencias necesarias.
+
+```bash
+EXAMPLESDIR="src/main/scala/org/apache/spark/examples"
+mkdir -p $EXAMPLESDIR
+cp $sparkdir/examples/$EXAMPLESDIR/SparkPi.scala $EXAMPLESDIR/SparkPi.scala
+
+cat <<EOT >> build.sbt
+// https://mvnrepository.com/artifact/org.apache.spark/spark-sql
+libraryDependencies += "org.apache.spark" %% "spark-sql" % "2.3.0" % "provided"
+EOT
+
+sed -ie 's/scalaVersion.*/scalaVersion := "2.11.11",/' build.sbt
+sed -ie 's/name.*/name := "SparkPi",/' build.sbt
+```
+
+Para empaquetar el proyecto en un archivo jar, ejecute el siguiente comando.
+
+```bash
+sbt assembly
+```
+
+Después de empaquetarlo correctamente, debería ver una salida similar a la siguiente.
+
+```bash
+[info] Packaging /Users/me/myprojects/sparkpi/target/scala-2.11/SparkPi-assembly-0.1.0-SNAPSHOT.jar ...
+[info] Done packaging.
+[success] Total time: 10 s, completed Mar 6, 2018 11:07:54 AM
+```
+
+## <a name="copy-job-to-storage"></a>Copia del trabajo a Azure Storage
+
+Cree una cuenta de Azure Storage y un contenedor para almacenar el archivo jar.
+
+```azurecli
+RESOURCE_GROUP=sparkdemo
+STORAGE_ACCT=sparkdemo$RANDOM
+az group create --name $RESOURCE_GROUP --location eastus
+az storage account create --resource-group $RESOURCE_GROUP --name $STORAGE_ACCT --sku Standard_LRS
+export AZURE_STORAGE_CONNECTION_STRING=`az storage account show-connection-string --resource-group $RESOURCE_GROUP --name $STORAGE_ACCT -o tsv`
+```
+
+Cargue el archivo jar en la cuenta de Azure Storage con los siguientes comandos.
+
+```bash
+CONTAINER_NAME=jars
+BLOB_NAME=SparkPi-assembly-0.1.0-SNAPSHOT.jar
+FILE_TO_UPLOAD=target/scala-2.11/SparkPi-assembly-0.1.0-SNAPSHOT.jar
+
+echo "Creating the container..."
+az storage container create --name $CONTAINER_NAME
+az storage container set-permission --name $CONTAINER_NAME --public-access blob
+
+echo "Uploading the file..."
+az storage blob upload --container-name $CONTAINER_NAME --file $FILE_TO_UPLOAD --name $BLOB_NAME
+
+jarUrl=$(az storage blob url --container-name $CONTAINER_NAME --name $BLOB_NAME | tr -d '"')
+```
+
+La variable `jarUrl` ahora contiene la ruta de acceso pública al archivo jar.
+
+## <a name="submit-a-spark-job"></a>Envío de un trabajo de Spark
+
+Antes de enviar el trabajo de Spark, necesitará la dirección del servidor de la API de Kubernetes. Use el comando `kubectl cluster-info` para obtener esta dirección.
+
+Localice la dirección URL donde se está ejecutando el servidor de la API de Kubernetes.
+
+```bash
+kubectl cluster-info
+```
+
+Tome nota de la dirección y el puerto.
+
+```bash
+Kubernetes master is running at https://<your api server>:443
+```
+
+Vuelva hasta la raíz del repositorio de Spark.
+
+```bash
+cd $sparkdir
+```
+
+Envíe el trabajo mediante `spark-submit`. 
+
+Reemplace el valor `<kubernetes-api-server>` por la dirección del servidor de la API y el puerto. Reemplace `<spark-image>` por el nombre de la imagen de contenedor con el formato `<your container registry name>/spark:<tag>`.
+
+```bash
+./bin/spark-submit \
+  --master k8s://https://<k8s-apiserver-host>:<k8s-apiserver-port> \
+  --deploy-mode cluster \
+  --name spark-pi \
+  --class org.apache.spark.examples.SparkPi \
+  --conf spark.executor.instances=3 \
+  --conf spark.kubernetes.container.image=<spark-image> \
+  $jarUrl
+```
+
+Esta operación inicia el trabajo de Spark, que transmite el estado del trabajo a la sesión de shell. Mientras se ejecuta el trabajo, puede ver el pod del controlador de Spark y los pod del ejecutor mediante el comando kubectl get pods. Abra una segunda sesión de terminal para ejecutar estos comandos.
+
+```console
+$ kubectl get pods
+
+NAME                                               READY     STATUS     RESTARTS   AGE
+spark-pi-2232778d0f663768ab27edc35cb73040-driver   1/1       Running    0          16s
+spark-pi-2232778d0f663768ab27edc35cb73040-exec-1   0/1       Init:0/1   0          4s
+spark-pi-2232778d0f663768ab27edc35cb73040-exec-2   0/1       Init:0/1   0          4s
+spark-pi-2232778d0f663768ab27edc35cb73040-exec-3   0/1       Init:0/1   0          4s
+```
+
+Mientras se ejecuta el trabajo, también puede acceder a la interfaz de usuario de Spark. En la segunda sesión de terminal, use el comando `kubectl port-forward` para proporcionar acceso a la interfaz de usuario de Spark.
+
+```bash
+kubectl port-forward spark-pi-2232778d0f663768ab27edc35cb73040-driver 4040:4040
+```
+
+Para acceder a la interfaz de usuario de Spark, abra la dirección `127.0.0.1:4040` en un explorador.
+
+![Interfaz de usuario de Spark](media/aks-spark-job/spark-ui.png)
+
+## <a name="get-job-results-and-logs"></a>Obtención de los resultados y registros del trabajo
+
+Cuando haya finalizado el trabajo, el pod del controlador estará en un estado "Completado". Puede obtener el nombre del pod con el siguiente comando.
+
+```bash
+kubectl get pods --show-all
+```
+
+Salida:
+
+```bash
+NAME                                               READY     STATUS      RESTARTS   AGE
+spark-pi-2232778d0f663768ab27edc35cb73040-driver   0/1       Completed   0          1m
+```
+
+Use el comando `kubectl logs` para obtener los registros del pod del controlador de Spark. Sustituya el nombre del pod por el nombre del pod del controlador.
+
+```bash
+kubectl logs spark-pi-2232778d0f663768ab27edc35cb73040-driver
+```
+
+En estos registros, puede ver el resultado del trabajo de Spark, que es el valor de Pi.
+
+```bash
+Pi is roughly 3.152155760778804
+```
+
+## <a name="package-jar-with-container-image"></a>Paquete jar con la imagen de contenedor
+
+En el ejemplo anterior, el archivo jar de Spark se cargó en Azure Storage. Otra opción consiste en empaquetar el archivo jar en imágenes de Docker personalizadas.
+
+Para ello, busque el archivo `dockerfile` de la imagen de Spark ubicado en el directorio `$sparkdir/resource-managers/kubernetes/docker/src/main/dockerfiles/spark/`. Agregue una instrucción `ADD` al trabajo de Spark `jar` en algún lugar entre las declaraciones `WORKDIR` y `ENTRYPOINT`.
+
+Actualice la ruta de acceso del archivo jar con la ubicación del archivo `SparkPi-assembly-0.1.0-SNAPSHOT.jar` en el sistema de desarrollo. También puede utilizar su propio archivo jar personalizado.
+
+```bash
+WORKDIR /opt/spark/work-dir
+
+ADD /path/to/SparkPi-assembly-0.1.0-SNAPSHOT.jar SparkPi-assembly-0.1.0-SNAPSHOT.jar
+
+ENTRYPOINT [ "/opt/entrypoint.sh" ]
+```
+
+Compile e inserte la imagen con los scripts de Spark incluidos.
+
+```bash
+./bin/docker-image-tool.sh -r <your container repository name> -t <tag> build
+./bin/docker-image-tool.sh -r <your container repository name> -t <tag> push
+```
+
+Cuando se ejecuta el trabajo, en lugar de indicar una dirección URL del archivo jar remoto, puede usar el esquema `local://` con la ruta de acceso al archivo jar en la imagen de Docker.
+
+```bash
+./bin/spark-submit \
+    --master k8s://https://<k8s-apiserver-host>:<k8s-apiserver-port> \
+    --deploy-mode cluster \
+    --name spark-pi \
+    --class org.apache.spark.examples.SparkPi \
+    --conf spark.executor.instances=3 \
+    --conf spark.kubernetes.container.image=<spark-image> \
+    local:///opt/spark/work-dir/<your-jar-name>.jar
+```
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Consulte la documentación de Spark para más detalles.
+
+> [!div class="nextstepaction"]
+> [Documentación de Spark][spark-docs]
+
+<!-- LINKS - external -->
+[apache-spark]: https://spark.apache.org/
+[docker-hub]: https://docs.docker.com/docker-hub/
+[java-install]: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+[sbt-install]: https://www.scala-sbt.org/1.0/docs/Setup.html
+[spark-docs]: https://spark.apache.org/docs/latest/running-on-kubernetes.html
+[spark-latest-release]: https://spark.apache.org/releases/spark-release-2-3-0.html
+[spark-quickstart]: https://spark.apache.org/docs/latest/quick-start.html
+
+
+<!-- LINKS - internal -->
+[acr-aks]: https://docs.microsoft.com/en-us/azure/container-registry/container-registry-auth-aks
+[acr-create]: https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-azure-cli
+[aks-quickstart]: https://docs.microsoft.com/en-us/azure/aks/
+[azure-cli]: https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest
+[storage-account]: https://docs.microsoft.com/en-us/azure/storage/common/storage-azure-cli

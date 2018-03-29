@@ -7,14 +7,14 @@ Para crear y administrar máquinas virtuales (VM) de Azure de manera coherente a
  
 - Automatización de la administración de la infraestructura
     - Entre las herramientas se incluye [Packer](#packer) para automatizar las compilaciones personalizadas de imágenes de máquina virtual, y [Terraform](#terraform) para automatizar el proceso de compilación de la infraestructura.
-    - [Azure Automation](#azure-automation) puede realizar acciones en toda la infraestructura de Azure y en la local.
+    - [Azure Automation](#azure-automation) puede realizar acciones en toda la infraestructura local y de Azure.
 
 - Automatización de la implementación y entrega de aplicaciones
     - Algunos ejemplos son [Visual Studio Team Services](#visual-studio-team-services) y [Jenkins](#jenkins).
 
 
 ## <a name="ansible"></a>Ansible
-[Ansible](https://www.ansible.com/) es un motor de automatización para la administración de configuraciones, la creación de máquinas virtuales o la implementación de aplicaciones. Ansible utiliza un modelo sin agente, normalmente con claves SSH, para autenticar y administrar las máquinas de destino. Las tareas de configuración se definen en runbooks e incluyen un número de módulos de Ansible disponibles para llevar a cabo tareas específicas. Para más información, consulte el [funcionamiento de Ansible](https://www.ansible.com/how-ansible-works).
+[Ansible](https://www.ansible.com/) es un motor de automatización para la administración de configuraciones, la creación de máquinas virtuales o la implementación de aplicaciones. Ansible utiliza un modelo sin agente, normalmente con claves SSH, para autenticar y administrar las máquinas de destino. Las tareas de configuración se definen en cuadernos de estrategias, con una serie de módulos de Ansible disponibles para llevar a cabo tareas específicas. Para más información, consulte el [funcionamiento de Ansible](https://www.ansible.com/how-ansible-works).
 
 Obtenga información sobre cómo:
 
@@ -47,11 +47,11 @@ cloud-init también funciona entre distribuciones. Por ejemplo, no use **apt-get
 
  Estamos trabajando activamente con nuestros asociados de distribuciones de Linux certificadas para disponer de imágenes con cloud-init habilitado en Azure Marketplace. Estas imágenes harán que las implementaciones y configuraciones de cloud-init funcionen perfectamente con las máquinas virtuales y los conjuntos de escalado de máquinas virtuales. En la tabla siguiente se describe la disponibilidad actual de imágenes con cloud-init habilitado en la plataforma de Azure:
 
-| Publicador | Oferta | SKU | Versión | preparado para cloud-init
+| Publicador | Oferta | SKU | Versión | Preparado para cloud-init
 |:--- |:--- |:--- |:--- |:--- |:--- |
-|Canonical |UbuntuServer |16.04-LTS |más reciente |yes | 
-|Canonical |UbuntuServer |14.04.5-LTS |más reciente |yes |
-|CoreOS |CoreOS |Stable |más reciente |yes |
+|Canonical |UbuntuServer |16.04-LTS |más reciente |Sí | 
+|Canonical |UbuntuServer |14.04.5-LTS |más reciente |Sí |
+|CoreOS |CoreOS |Stable |más reciente |Sí |
 |OpenLogic |CentOS |7-CI |más reciente |Vista previa |
 |Redhat |RHEL |7-RAW-CI |más reciente |Vista previa |
 
@@ -103,7 +103,7 @@ Obtenga información sobre cómo:
 
 
 ## <a name="azure-automation"></a>Azure Automation
-[Azure Automation](https://azure.microsoft.com/services/automation/) usa runbooks para procesar un conjunto de tareas en las máquinas virtuales de su elección. Azure Automation se usa para administrar las máquinas virtuales existentes en lugar de para crear una infraestructura. Azure Automation puede ejecutarse en máquinas virtuales Linux y Windows, así como en máquinas locales virtuales o físicas con Hybrid Runbook Worker. Los runbooks se pueden almacenar en un repositorio de control de código fuente como GitHub. Estos runbooks se pueden ejecutar manualmente o según una programación definida.
+[Azure Automation](https://azure.microsoft.com/services/automation/) usa runbooks para procesar un conjunto de tareas en las máquinas virtuales de su elección. Azure Automation se usa para administrar las máquinas virtuales existentes en lugar de para crear una infraestructura. Azure Automation puede ejecutarse en máquinas virtuales Linux y Windows, así como en máquinas virtuales o físicas locales con una instancia de Hybrid Runbook Worker. Los runbooks se pueden almacenar en un repositorio de control de código fuente como GitHub. Estos runbooks se pueden ejecutar manualmente o según una programación definida.
 
 Azure Automation también proporciona un servicio Desired State Configuration (DSC) que le permite crear definiciones para configurar un conjunto determinado de máquinas virtuales. DSC garantiza que se aplica la configuración necesaria y que la máquina virtual sigue siendo coherente. DSC de Automatización de Azure se puede ejecutar tanto en máquinas virtuales Windows como Linux.
 

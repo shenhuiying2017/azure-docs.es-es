@@ -1,8 +1,8 @@
 ---
-title: "Personalización de la interfaz de usuario con directivas personalizadas - Azure AD B2C | Microsoft Docs"
-description: "Información acerca de cómo personalizar una interfaz de usuario (IU) con directivas personalizadas en Azure AD B2C."
+title: Personalización de la interfaz de usuario con directivas personalizadas - Azure AD B2C | Microsoft Docs
+description: Información acerca de cómo personalizar una interfaz de usuario (IU) con directivas personalizadas en Azure AD B2C.
 services: active-directory-b2c
-documentationcenter: 
+documentationcenter: ''
 author: saeedakhter-msft
 manager: mtillman
 editor: parakhj
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/04/2017
 ms.author: saeedakhter-msft
-ms.openlocfilehash: c430b488016f038ed1d7a67a8d52c057df1ea40e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: dcd8b6df68a68f5feb428b4fd98aee938b3bfe6c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-active-directory-b2c-configure-ui-customization-in-a-custom-policy"></a>Azure Active Directory B2C: configuración de la interfaz de usuario personalizada en una directiva personalizada
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/11/2017
 
 Después de completar este artículo, tendrá una directiva personalizada de registro e inicio de sesión con su marca y apariencia. Con Azure Active Directory B2C (Azure AD B2C), controlará prácticamente todo el contenido HTML y CSS que se presenta a los usuarios. Cuando se usa una directiva personalizada, la personalización de la interfaz del usuario se configura en XML en lugar de con controles de Azure Portal. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Antes de continuar, lea el artículo de [introducción a las directivas personalizadas](active-directory-b2c-get-started-custom.md). Debe tener una directiva personalizada activa para registrar e iniciar sesión de cuentas locales.
 
@@ -66,7 +66,7 @@ Puede crear contenido HTML con el nombre de la marca del producto en el título.
 
 Para hospedar este contenido HTML en Blob Storage, haga lo siguiente:
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. En el menú **central**, seleccione **Nuevo** > **Almacenamiento** > **Cuenta de almacenamiento**.
 3. Escriba un **Nombre** único para la cuenta de almacenamiento.
 4. El **Modelo de implementación** puede permanecer como **Resource Manager**.
@@ -118,7 +118,7 @@ Para configurar Blob Storage para Uso compartido de recursos entre orígenes (CO
 
 Para comprobar que está listo, haga lo siguiente:
 
-1. Vaya al sitio web [test-cors.org](http://test-cors.org/) y pegue la dirección URL en el cuadro **Remote URL** (Dirección URL remota).
+1. Vaya al sitio web [www.test-cors.org](http://www.test-cors.org/) y pegue la dirección URL en el cuadro **Remote URL** (Dirección URL remota).
 2. Haga clic en **Send Request** (Enviar solicitud).  
     Si recibe un error, asegúrese de que la [configuración de CORS](#configure-cors) sea correcta. Puede que también deba borrar la caché del explorador o abrir una sesión de navegación privada, para ello, presione Ctrl + Mayús + P.
 
@@ -159,7 +159,7 @@ git clone https://github.com/azureadquickstarts/b2c-azureblobstorage-client
 
 La carpeta sample_templates/wingtip contiene los siguientes archivos HTML:
 
-| Plantilla HTML5 | Descripción |
+| Plantilla HTML5 | DESCRIPCIÓN |
 |----------------|-------------|
 | *phonefactor.html* | Use este archivo como plantilla para una página de autenticación multifactor. |
 | *resetpassword.html* | Use este archivo como plantilla para una página de recuperación de contraseña. |
@@ -169,7 +169,7 @@ La carpeta sample_templates/wingtip contiene los siguientes archivos HTML:
 
 En la sección [Modificación de la directiva de inicio de sesión o de registro](#modify-your-sign-up-or-sign-in-custom-policy) configuró la definición del contenido de `api.idpselections`. Todos los identificadores de definición de contenido que se reconocen en el marco de la experiencia de identidad de Azure AD B2C y sus descripciones aparecen en la tabla siguiente:
 
-| Id. de definición de contenido | Descripción | 
+| Id. de definición de contenido | DESCRIPCIÓN | 
 |-----------------------|-------------|
 | *api.error* | **Página de error**. Esta página se muestra cuando se produce una excepción o un error. |
 | *api.idpselections* | **Página de selección del proveedor de identidades**. Esta página contiene una lista de proveedores de identidades que el usuario puede elegir durante el inicio de sesión. Estas opciones son proveedores de identidades de empresa, proveedores de identidades sociales como Facebook y Google+ o cuentas locales. |

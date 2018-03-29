@@ -1,10 +1,11 @@
 ---
 title: Registro para servicios web Machine Learning | Microsoft Docs
-description: "Aprenda cómo habilitar el registro para los servicios web de Aprendizaje automático. El registro proporciona información adicional para ayudar a solucionar las API."
+description: Aprenda cómo habilitar el registro para los servicios web de Machine Learning. El registro proporciona información adicional para ayudar a solucionar las API.
 services: machine-learning
-documentationcenter: 
-author: raymondlaghaeian
-manager: jhubbard
+documentationcenter: ''
+author: aashishb
+ms.author: aashishb
+manager: hjerez
 editor: cgronlun
 ms.assetid: c54d41e1-0300-46ef-bbfc-d6f7dca85086
 ms.service: machine-learning
@@ -13,21 +14,20 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/15/2017
-ms.author: raymondl;garye
-ms.openlocfilehash: 31497bcae5889590a2261b716574ec4eae21852d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1e04ef638c46ef0f3b40fd56d27ba3673565bdc7
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
-# <a name="enable-logging-for-machine-learning-web-services"></a>Habilitar el registro para los servicios web de Aprendizaje automático
+# <a name="enable-logging-for-machine-learning-web-services"></a>Habilitar el registro para los servicios web de Machine Learning
 Este documento proporciona información sobre la funcionalidad de registro de los servicios web Machine Learning. El registro ofrece información adicional, más allá de simplemente un número de error y un mensaje, que puede ayudarle a solucionar problemas con las llamadas a las API de Machine Learning.  
 
 ## <a name="how-to-enable-logging-for-a-web-service"></a>Habilitación del registro para un servicio web
 
 El registro se habilita desde el portal de [servicios web de Azure Machine Learning](https://services.azureml.net). 
 
-1. Inicie sesión en el portal de servicios web de Machine Learning en [https://services.azureml.net](https://services.azureml.net). Para servicios web clásicos, también puede llegar al portal si hace clic en **New Web Services Experience** (Nueva experiencia de servicios web) en la página de servicios web de Machine Learning en Machine Learning Studio.
+1. Inicie sesión en el portal de servicios web de Azure Machine Learning en [https://services.azureml.net](https://services.azureml.net). Para servicios web clásicos, también puede llegar al portal si hace clic en **New Web Services Experience** (Nueva experiencia de servicios web) en la página de servicios web de Machine Learning en Machine Learning Studio.
 
    ![Nuevo vínculo a la experiencia de servicios web](./media/web-services-logging/new-web-services-experience-link.png)
 
@@ -43,7 +43,7 @@ El registro se habilita desde el portal de [servicios web de Azure Machine Learn
 
    ![Selección del nivel de registro](./media/web-services-logging/enable-logging.png)
 
-6. Haga clic en **Guardar**.
+6. Haga clic en **Save**(Guardar).
 
 7. En servicios web clásicos, cree el contenedor **ml-diagnostics**.
 
@@ -53,7 +53,7 @@ El registro se habilita desde el portal de [servicios web de Azure Machine Learn
 
    2. En **Blob service**, haga clic en **Contenedores**.
 
-   3. Si el contenedor **ml-diagnostics** no existe, haga clic en **+Contenedor**, proporcione al contenedor el nombre "ml-diagnostics" y seleccione "Blob" como el **Tipo de acceso**. Haga clic en **Aceptar**.
+   3. Si el contenedor **ml-diagnostics** no existe, haga clic en **+Contenedor**, proporcione al contenedor el nombre "ml-diagnostics" y seleccione "Blob" como el **Tipo de acceso**. Haga clic en **OK**.
 
       ![Selección del nivel de registro](./media/web-services-logging/create-ml-diagnostics-container.png)
 

@@ -104,7 +104,7 @@ Use **Get-AzureStorageTableRowByCustomFilter** para recuperar entidades con un f
 ```powershell
 Get-AzureStorageTableRowByCustomFilter `
     -table $storageTable `
-    -customFilter "(userid eq '1')"
+    -customFilter "(userid eq 1)"
 ```
 
 Con esta consulta se recupera un único registro.
@@ -118,7 +118,7 @@ Con esta consulta se recupera un único registro.
 
 ### <a name="updating-entities"></a>Actualización de entidades 
 
-La actualización de las entidades es un proceso de tres pasos: primero se recupera la entidad que se va a cambiar, después se realiza el cambio y, finalmente, se confirma el cambio con **Update-AzureStorageTableRow**.
+La actualización de las entidades es un proceso de tres pasos: Primero se recupera la entidad que se va a cambiar, después se realiza el cambio y, finalmente, se confirma el cambio con **Update-AzureStorageTableRow**.
 
 Actualice la entidad con el nombre de usuario = "Jessie" para que refleje el nombre de usuario = "Jessie2". En este ejemplo se indica también otra forma de crear un filtro personalizado con tipos de .NET. 
 
@@ -177,10 +177,10 @@ Get-AzureStorageTableRowAll -table $storageTable | ft
 
 #### <a name="delete-all-entities-in-the-table"></a>Eliminar todas las entidades de la tabla 
 
-Para eliminar todas las entidades de la tabla, hay que recuperarlas y, después, canalizar los resultados en el cmdlet de eliminación. 
+Para eliminar todas las entidades de la tabla, recupérelas y canalice los resultados al cmdlet de eliminación. 
 
 ```powershell
-# Get all rows and pipe it into the remove cmdlet.
+# Get all rows and pipe the result into the remove cmdlet.
 Get-AzureStorageTableRowAll `
     -table $storageTable | Remove-AzureStorageTableRow -table $storageTable 
 

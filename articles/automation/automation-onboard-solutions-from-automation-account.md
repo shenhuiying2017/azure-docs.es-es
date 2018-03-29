@@ -1,26 +1,25 @@
 ---
-title: "Obtenga información sobre la incorporación de las soluciones Update Management, Change Tracking e Inventory en Azure Automation"
-description: "Obtenga información acerca de cómo incorporar una máquina virtual de Azure con las soluciones Update Management, Change Tracking e Inventory que forman parte de Azure Automation"
+title: Obtenga información sobre la incorporación de las soluciones Update Management, Change Tracking e Inventory en Azure Automation
+description: Obtenga información acerca de cómo incorporar una máquina virtual de Azure con las soluciones Update Management, Change Tracking e Inventory que forman parte de Azure Automation
 services: automation
-keywords: 
+ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/28/2018
+ms.date: 03/16/2018
 ms.topic: article
-ms.service: automation
-ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 670a0c2a11ebfe09406233ab4b454b2e9c2ba0e0
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.custom: mvc
+ms.openlocfilehash: b3ff1991d76b3ab5b4b3c44f4fbe28fbb986d4bd
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Incorporación de las soluciones Update Management, Change Tracking e Inventory
 
 Azure Automation proporciona soluciones para administrar las actualizaciones de seguridad del sistema operativo, el seguimiento de cambios y el inventario de los componentes instalados en los equipos. Hay varias maneras de incorporar máquinas, se puede incorporar la solución desde una máquina virtual, [desde su cuenta de Automation](automation-onboard-solutions-from-vm.md) o mediante un [runbook](automation-onboard-solutions.md). Este artículo trata la incorporación de estas soluciones desde la cuenta de Automation.
 
-## <a name="log-in-to-azure"></a>Inicie sesión en Azure.
+## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
 
 Inicie sesión en Azure en https://portal.azure.com.
 
@@ -95,7 +94,7 @@ Para habilitar la solución para todas las máquinas disponibles, seleccione **H
 
 Para habilitar la solución para todas las máquinas disponibles y futuras, seleccione **Habilitar en todas las máquinas disponibles y futuras**. Esta opción elimina las configuraciones de ámbito y las búsquedas guardadas del área de trabajo. Se abrirá la solución para todas las máquinas de Azure y las que no son de Azure que notifican al área de trabajo.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Continúe con los tutoriales de las soluciones para aprender a utilizarlas.
 

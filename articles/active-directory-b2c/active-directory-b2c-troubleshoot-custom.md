@@ -1,8 +1,8 @@
 ---
 title: 'Application Insights para resolver problemas de las directivas personalizadas: Azure AD B2C | Microsoft Docs'
-description: "cómo configurar Application Insights para realizar el seguimiento de la ejecución de las directivas personalizadas"
+description: cómo configurar Application Insights para realizar el seguimiento de la ejecución de las directivas personalizadas
 services: active-directory-b2c
-documentationcenter: 
+documentationcenter: ''
 author: saeedakhter-msft
 manager: mtillman
 editor: parakhj
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: saeda
-ms.openlocfilehash: 65a39479b4d4b86d569501636e4a0678b052d426
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 4f71380917a5a29497da9831791cd9f86ec4c8ca
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-active-directory-b2c-collecting-logs"></a>Azure Active Directory B2C: Collecting Logs (Azure Active Directory B2C: recopilación de registros)
 
@@ -105,6 +105,8 @@ Puede obtener más información sobre estas herramientas de Analytics [aquí](ht
 
 >[!NOTE]
 >La Comunidad ha desarrollado un visor de recorrido de usuario para ayudar a los desarrolladores de identidad.  No está admitido por Microsoft y está disponible estrictamente tal cual.  Lee de la instancia de Application Insights y proporciona una vista bien estructurada de los eventos de recorrido de usuario.  Proporciona el código fuente para implementarlo en su propia solución.
+
+La versión del visor que lee los eventos de Application Insights se encuentra [aquí](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/wingtipgamesb2c/src/WingTipUserJourneyPlayerWebApplication).
 
 >[!NOTE]
 >Actualmente, los registros de actividad descritos aquí están diseñados **SOLO** para ayudar en el desarrollo de directivas personalizadas. No use el modo de desarrollo en producción.  Los registros recopilan todas las notificaciones que se envían y se reciben de los proveedores de identidad durante el desarrollo.  Si se utilizan en producción, el programador asume la responsabilidad sobre la PII (información personal de identificación) recopilada en el registro de información de la instancia de App Insights que le pertenece.  Estos registros detallados solo se recopilan cuando la directiva se coloca en **MODO DE DESARROLLO**.

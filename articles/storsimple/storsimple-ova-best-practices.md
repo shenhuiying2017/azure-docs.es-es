@@ -5,20 +5,20 @@ services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 57ac6eeb-c47c-442d-a5f4-b360d81a76a6
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/08/2017
+ms.date: 03/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 264764c5e9c32574d97beb2cc3c1bb1cfb555568
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 46fd818d8ca15515c91bb6e65e99b0a3bc1f1fa4
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>Procedimientos recomendados de la matriz virtual de StorSimple
 ## <a name="overview"></a>Información general
@@ -38,7 +38,7 @@ Implemente los siguientes procedimientos recomendados al aprovisionar la matriz 
 
 |  | Hyper-V | VMware |
 | --- | --- | --- |
-| **Tipo de máquina virtual** |**segunda generación** para su uso con Windows Server 2012, o versiones posteriores, y una imagen *.vhdx* . <br></br> **primera generación** para su uso con Windows Server 2008, o versiones posteriores, y una imagen *.vhd* . |Su utiliza una imagen *.vmdk* , use la versión 8-11 de la máquina virtual. |
+| **Tipo de máquina virtual** |**segunda generación** para su uso con Windows Server 2012, o versiones posteriores, y una imagen *.vhdx* . <br></br> **primera generación** para su uso con Windows Server 2008, o versiones posteriores, y una imagen *.vhd* . |Su utiliza una imagen *.vmdk*, use la versión 8 de la máquina virtual. |
 | **Tipo de memoria** |Configurar como **memoria estática**. <br></br> No utilice la opción de **memoria dinámica** . | |
 | **Tipo de disco de datos** |Aprovisiónelo como **expansión dinámica**.<br></br> **Tamaño fijo** requiere mucho tiempo. <br></br> No use la opción de **diferenciación** . |Utilice la opción de **aprovisionamiento fino** . |
 | **Modificación del disco de datos** |No se permiten la expansión ni la reducción. Si se intenta, se pierden todos los datos locales del dispositivo. |No se permiten la expansión ni la reducción. Si se intenta, se pierden todos los datos locales del dispositivo. |
@@ -107,7 +107,7 @@ Un 15 % del total del disco se utiliza para almacenar las instantáneas, por lo 
 Si tiene en cuenta un crecimiento inesperado, puede aprovisionar un disco local de 1,25-1,5 TB.
 
 ### <a name="group-policy"></a>Directiva de grupo
-Directiva de grupo es una infraestructura que permite implementar configuraciones específicas para usuarios y equipos. La configuración de Directiva de grupo se encuentra en objetos de Directiva de grupo (GPO), que están vinculados a los siguientes contenedores de Servicios de dominio de Active Directory (AD DS): sitios, dominios o unidades organizativas (OU). 
+Directiva de grupo es una infraestructura que permite implementar configuraciones específicas para usuarios y equipos. La configuración de Directiva de grupo se encuentra en objetos de Directiva de grupo (GPO), que están vinculados a los siguientes contenedores de Active Directory Domain Services (AD DS): sitios, dominios o unidades organizativas (OU). 
 
 Si la matriz virtual está unido a un dominio, los GPO se pueden aplicar a él. Estos GPO pueden instalar aplicaciones, como un software antivirus, que pueden afectar negativamente al funcionamiento de la matriz virtual de StorSimple.
 
@@ -196,7 +196,7 @@ La matriz virtual de StorSimple tiene características de seguridad y cifrado de
 
 * Defina una clave de cifrado de almacenamiento en la nube para generar un cifrado AES-256 antes de que los datos se envíen desde la matriz virtual a la nube. Esta clave no se requiere si los datos están cifrados. La clave se puede generar y mantener segura mediante un sistema de administración de claves como [Almacén de claves de Azure](../key-vault/key-vault-whatis.md).
 * Al configurar la cuenta de almacenamiento mediante el servicio StorSimple Manager, asegúrese de que habilita el modo SSL crear un canal seguro para la comunicación de red entre el dispositivo de StorSimple y la nube.
-* Regenere las claves de las cuentas de almacenamiento (para lo que debe acceder al servicio Almacenamiento de Azure) periódicamente para representar todos los cambios en el acceso basándose en la lista de administradores modificada.
+* Regenere las claves de las cuentas de almacenamiento (para lo que debe acceder al servicio Azure Storage) periódicamente para representar todos los cambios en el acceso basándose en la lista de administradores modificada.
 * Los datos de la matriz virtual se comprimen y se desduplican antes de enviarlos a Azure. No se recomienda utilizar el servicio de rol de desduplicación de datos en el host de Windows Server.
 
 ## <a name="operational-best-practices"></a>Procedimientos recomendados operativos
@@ -210,7 +210,7 @@ No se pueden cambiar la frecuencia y retención asociadas con las copias de segu
 * Programar las copias de seguridad para que se realicen en horas de poca actividad. La hora de inicio de la copia de seguridad no debe coincidir con un momento de numerosas E/S del host.
 * Inicie una copia de seguridad manual a petición cuando planee realizar una conmutación por error de un dispositivo o antes de la ventana de mantenimiento, con el fin de proteger los datos en la matriz virtual.
 
-### <a name="restore"></a>Restauración
+### <a name="restore"></a>Restore
 Se puede realizar una restauración desde un conjunto de copia de seguridad de dos maneras: restaurar a otro volumen o recurso compartido, o bien realizar una recuperación a nivel de elemento (disponible solo en una matriz virtual configurada como un servidor de archivos). La recuperación a nivel de elemento permite realizar una recuperación de archivos y carpetas pormenorizada desde una copia de seguridad en la nube de todos los recursos compartidos del dispositivo de StorSimple. Para más información, vaya a [Restaurar desde una copia de seguridad de la matriz virtual de StorSimple](storsimple-virtual-array-clone.md).
 
 Al realizar una restauración, tenga en cuenta las siguientes directrices:

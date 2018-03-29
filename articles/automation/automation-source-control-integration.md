@@ -1,24 +1,18 @@
 ---
-title: "Integración del control de código fuente en Azure Automation | Microsoft Docs"
-description: "En este artículo se describe la integración del control de código fuente con GitHub en Azure Automation."
+title: Integración del control de código fuente en Azure Automation
+description: En este artículo se describe la integración del control de código fuente con GitHub en Azure Automation.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: tysonn
-ms.assetid: 224d7375-9887-44dd-b137-06ffe396a4b4
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/29/2017
-ms.author: magoedte;sngun
-ms.openlocfilehash: 15e69105d4171c63b4ccef0b072bccf49a2e9ceb
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+manager: carmonm
+ms.openlocfilehash: 96b4f38ea990edcb23ae792d40651672a921a7c7
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integración del control de código fuente en Azure Automation
 La integración del control de código fuente permite asociar runbooks de su cuenta de Automation a un repositorio de control de código fuente de GitHub. El control de código fuente le permite colaborar fácilmente con su equipo, realizar el seguimiento de los cambios y revertir a versiones anteriores de los runbooks. Por ejemplo, le permite sincronizar distintas ramas de control de código fuente con sus cuentas de Automation de desarrollo, prueba o producción, lo que facilita la promoción de código que se ha probado en el entorno de desarrollo a la cuenta de Automation de producción.
@@ -136,7 +130,7 @@ Para desconectarse de la cuenta de GitHub, abra la página Sincronización de re
 
   ![Botón Desconectar](media/automation-source-control-integration/automation_12_Disconnect.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información sobre la integración del control de código fuente, consulte los siguientes recursos:  
 
 * [Azure Automation: integración del control de código fuente en Azure Automation](https://azure.microsoft.com/blog/azure-automation-source-control-13/)  

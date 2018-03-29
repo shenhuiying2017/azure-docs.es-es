@@ -1,9 +1,9 @@
 ---
-title: "Organización de los recursos con grupos de administración de Azure | Microsoft Docs"
-description: "Obtenga información sobre los grupos de administración y cómo utilizarlos."
+title: Organización de los recursos con grupos de administración de Azure | Microsoft Docs
+description: Obtenga información sobre los grupos de administración y cómo utilizarlos.
 author: rthorn17
 manager: rithorn
-editor: 
+editor: ''
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.service: azure-resource-manager
 ms.devlang: na
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: rithorn
-ms.openlocfilehash: 1264bf77b6d922f5beb22177d1ac63efa9386ef2
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: a86fc568a0c7f4ada0b853cda8a7b2e06ed7dfcb
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organización de los recursos con grupos de administración de Azure 
 
-Si tiene varias suscripciones, puede organizarlas en contenedores llamados "grupos de administración" para ayudarle a administrar el acceso, la directiva y el cumplimiento en las suscripciones. Los grupos de administración proporcionan capacidad de administración de nivel empresarial a gran escala con independencia del tipo de suscripciones que tenga.  
+Si su organización tiene varias suscripciones, puede que necesite una manera de administrar el acceso, las directivas y el cumplimiento de esas suscripciones de forma eficaz. Los grupos de administración de Azure proporcionan un nivel de ámbito por encima de las suscripciones. Las suscripciones se organizan en contenedores llamados "grupos de administración" y aplican sus condiciones de gobierno a los grupos de administración. Todas las suscripciones dentro de un grupo de administración heredan automáticamente las condiciones que se aplican al grupo de administración. Los grupos de administración proporcionan capacidad de administración de nivel empresarial a gran escala con independencia del tipo de suscripciones que tenga.
 
 La característica de grupo de administración está disponible en versión preliminar pública. Para empezar a usar los grupos de administración, inicie sesión en [Azure Portal](https://portal.azure.com) y busque **Grupos de administración** en la sección **Todos los servicios**. 
 

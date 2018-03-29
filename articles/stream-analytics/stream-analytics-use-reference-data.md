@@ -1,10 +1,10 @@
 ---
-title: "Uso de tablas de búsqueda y datos de referencia en Stream Analytics | Microsoft Docs"
-description: "Uso de datos de referencia en una consulta de Análisis de transmisiones"
-keywords: "tabla de búsqueda, datos de referencia"
+title: Uso de tablas de búsqueda y datos de referencia en Stream Analytics | Microsoft Docs
+description: Uso de datos de referencia en una consulta de Stream Analytics
+keywords: tabla de búsqueda, datos de referencia
 services: stream-analytics
-documentationcenter: 
-author: samacha
+documentationcenter: ''
+author: jseb225
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 06103be5-553a-4da1-8a8d-3be9ca2aff54
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: 438ec565f3c6e06ab7ec92cf1bbfbdde88f99b6d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: f7366b4b7d78add47ebab4a6fc72717107814f1f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="using-reference-data-or-lookup-tables-in-a-stream-analytics-input-stream"></a>Uso de datos de referencia o tablas de consulta en una transmisión de entrada de Análisis de transmisiones
+# <a name="using-reference-data-or-lookup-tables-in-a-stream-analytics-input-stream"></a>Uso de datos de referencia o tablas de consulta en una transmisión de entrada de Stream Analytics
 Los datos de referencia (también denominados tabla de consulta) son un conjunto finito de datos estáticos o de cambio lento de naturaleza, que se usan para realizar una búsqueda o para relacionarlos con el flujo de datos. Para usar los datos de referencia en un trabajo de Azure Stream Analytics, por lo general usará una [instrucción JOIN de los datos de referencia](https://msdn.microsoft.com/library/azure/dn949258.aspx) en la consulta. Stream Analytics usa Azure Blob Storage como capa de almacenamiento para los datos de referencia y con Azure Data Factory los datos de referencia se pueden transformar o copiar en Azure Blob Storage para su uso como datos de referencia, desde [cualquier número de almacenes de datos locales y en la nube](../data-factory/copy-activity-overview.md). Los datos de referencia se modelan como una secuencia de blobs (que se define en la configuración de entrada) en orden ascendente por la fecha y hora que se especifique en el nombre del blob. **Solo** se admite que se agreguen al final de la secuencia con una fecha y hora **posteriores** a las especificadas en el último blob de la secuencia.
 
 Stream Analytics tiene un **límite de 100 MB por blob**, pero los trabajos pueden procesar varios blobs de referencia mediante la propiedad **patrón de la ruta de acceso**.
@@ -35,7 +35,7 @@ Para configurar los datos de referencia, tiene que crear primero una entrada que
 <tbody>
 <tr>
 <td>Nombre de propiedad</td>
-<td>Description</td>
+<td>DESCRIPCIÓN</td>
 </tr>
 <tr>
 <td>Alias de entrada</td>
@@ -51,7 +51,7 @@ Para configurar los datos de referencia, tiene que crear primero una entrada que
 </tr>
 <tr>
 <td>Contenedor de almacenamiento</td>
-<td>Los contenedores proporcionan una agrupación lógica de los blobs almacenados en el servicio BLOB de Microsoft Azure. Cuando carga un blob al servicio BLOB, debe especificar un contenedor para ese blob.</td>
+<td>Los contenedores proporcionan una agrupación lógica de los blobs almacenados en Microsoft Azure Blob service. Cuando carga un blob a Blob service, debe especificar un contenedor para ese blob.</td>
 </tr>
 <tr>
 <td>Patrón de la ruta de acceso</td>
@@ -67,10 +67,10 @@ Para configurar los datos de referencia, tiene que crear primero una entrada que
 </tr>
 <tr>
 <td>Formato de serialización de eventos</td>
-<td>Para asegurarse de que las consultas funcionen como se espera, Análisis de transmisiones debe saber cuál es el formato de serialización que usa para los flujos de datos entrantes. Para los datos de referencia, los formatos admitidos son CSV y JSON.</td>
+<td>Para asegurarse de que las consultas funcionen como se espera, Stream Analytics debe saber cuál es el formato de serialización que usa para los flujos de datos entrantes. Para los datos de referencia, los formatos admitidos son CSV y JSON.</td>
 </tr>
 <tr>
-<td>Codificación</td>
+<td>Encoding</td>
 <td>Por el momento, UTF-8 es el único formato de codificación compatible.</td>
 </tr>
 </tbody>
@@ -80,7 +80,7 @@ Para configurar los datos de referencia, tiene que crear primero una entrada que
 Si los datos de referencia son un conjunto de datos que cambia con poca frecuencia, se pueden actualizar los datos de referencia especificando un patrón de ruta de acceso en la configuración de entrada con los tokens de sustitución de {date} y {time}. Stream Analytics selecciona las definiciones actualizadas de los datos de referencia según este patrón de ruta de acceso. Por ejemplo, un patrón de `sample/{date}/{time}/products.csv` con un formato de fecha de **"AAAA-MM-DD"** y un formato de hora de **"HH:mm"** indica a Stream Analytics que seleccione el blob actualizado `sample/2015-04-16/17-30/products.csv` a las 17:30 del 16 de abril de 2015 (zona horaria UTC).
 
 > [!NOTE]
-> En estos momentos, los trabajos de Análisis de transmisiones buscan la actualización de blobs solo cuando la hora de la máquina coincide con la hora codificada en el nombre del blob. Por ejemplo, el trabajo buscará `sample/2015-04-16/17-30/products.csv` en cuanto sea posible, pero no antes de las 17:30 del 16 de abril de 2015 (zona horaria UTC). No buscará *nunca* un blob con una hora codificada anterior a la última detectada.
+> En estos momentos, los trabajos de Stream Analytics buscan la actualización de blobs solo cuando la hora de la máquina coincide con la hora codificada en el nombre del blob. Por ejemplo, el trabajo buscará `sample/2015-04-16/17-30/products.csv` en cuanto sea posible, pero no antes de las 17:30 del 16 de abril de 2015 (zona horaria UTC). No buscará *nunca* un blob con una hora codificada anterior a la última detectada.
 > 
 > Por ejemplo, una vez que el trabajo encuentre el blob `sample/2015-04-16/17-30/products.csv`, ignorará los archivos cuya fecha codificada sea anterior a las 17:30 del 16 de abril de 2015. Por tanto, si un blob `sample/2015-04-16/17-25/products.csv` se crea en el mismo contenedor posteriormente, el trabajo no lo usará.
 > 
@@ -90,22 +90,22 @@ Si los datos de referencia son un conjunto de datos que cambia con poca frecuenc
 > 
 > 
 
-[Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) puede usarse para organizar la tarea de crear los blobs actualizados requeridos por Stream Analytics para actualizar las definiciones de datos de referencia. Factoría de datos es un servicio de integración de datos basado en la nube que organiza y automatiza el movimiento y la transformación de datos. Factoría de datos admite la [conexión a un gran número de almacenes de datos locales y en la nube](../data-factory/copy-activity-overview.md) y el desplazamiento sencillo de los datos con la regularidad que se especifique. Para obtener más información e instrucciones paso a paso sobre cómo configurar una canalización de Factoría de datos para generar datos de referencia para Análisis de transmisiones que se actualiza según una programación predefinida, consulte este [ejemplo de GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ReferenceDataRefreshForASAJobs).
+[Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) puede usarse para organizar la tarea de crear los blobs actualizados requeridos por Stream Analytics para actualizar las definiciones de datos de referencia. Factoría de datos es un servicio de integración de datos basado en la nube que organiza y automatiza el movimiento y la transformación de datos. Factoría de datos admite la [conexión a un gran número de almacenes de datos locales y en la nube](../data-factory/copy-activity-overview.md) y el desplazamiento sencillo de los datos con la regularidad que se especifique. Para obtener más información e instrucciones paso a paso sobre cómo configurar una canalización de Factoría de datos para generar datos de referencia para Stream Analytics que se actualiza según una programación predefinida, consulte este [ejemplo de GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ReferenceDataRefreshForASAJobs).
 
 ## <a name="tips-on-refreshing-your-reference-data"></a>Sugerencias sobre cómo actualizar los datos de referencia
-1. Si sobrescribe blobs de datos de referencia, el Análisis de transmisiones no volverá a cargar el blob y, en algunos casos, puede impedir que el trabajo se ejecute. La mejor forma de cambiar datos de referencia consiste en agregar un nuevo blob con el mismo patrón de ruta de acceso y contenedor definidos en la entrada del trabajo, y usar una fecha y hora **posterior** a la especificada en el último blob de la secuencia.
+1. Si sobrescribe blobs de datos de referencia, el Stream Analytics no volverá a cargar el blob y, en algunos casos, puede impedir que el trabajo se ejecute. La mejor forma de cambiar datos de referencia consiste en agregar un nuevo blob con el mismo patrón de ruta de acceso y contenedor definidos en la entrada del trabajo, y usar una fecha y hora **posterior** a la especificada en el último blob de la secuencia.
 2. Los blobs de datos de referencia **no** se ordenan por la hora de "Última modificación" del blob sino únicamente por la fecha y la hora que se especifiquen en el nombre del blob mediante las sustituciones de {date} y {time}.
-3. En algunas ocasiones, un trabajo debe retroceder en el tiempo, por lo que los blobs de datos de referencia no se deben modificar ni eliminar.
+3. Para evitar tener que enumerar un gran número de blobs, considere la posibilidad de eliminar los blobs muy antiguos para los que ya no se va a realizar el procesamiento. Tenga en cuenta que ASA puede tener que reprocesar una pequeña cantidad en algunos escenarios como un reinicio.
 
-## <a name="get-help"></a>Obtener ayuda
-Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+## <a name="get-help"></a>Obtención de ayuda
+Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Pasos siguientes
-Ya conoce Análisis de transmisiones, un servicio administrado para el análisis del streaming de datos desde Internet de las cosas. Para obtener más información acerca de este servicio, consulte:
+Ya conoce Stream Analytics, un servicio administrado para el análisis del streaming de datos desde Internet de las cosas. Para obtener más información acerca de este servicio, consulte:
 
-* [Introducción al uso de Análisis de transmisiones de Azure](stream-analytics-real-time-fraud-detection.md)
-* [Escalación de trabajos de Análisis de transmisiones de Azure](stream-analytics-scale-jobs.md)
-* [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Introducción al uso de Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
+* [Escalación de trabajos de Azure Stream Analytics](stream-analytics-scale-jobs.md)
+* [Referencia del lenguaje de consulta de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Referencia de API de REST de administración de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 <!--Link references-->

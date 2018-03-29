@@ -1,12 +1,12 @@
 ---
-title: "Más información acerca de Azure Service Fabric | Microsoft Docs"
-description: "Obtenga información acerca de los conceptos básicos y las áreas principales de Azure Service Fabric. Proporciona información general ampliada de Service Fabric y cómo crear microservicios."
+title: Más información acerca de Azure Service Fabric | Microsoft Docs
+description: Obtenga información acerca de los conceptos básicos y las áreas principales de Azure Service Fabric. Proporciona información general ampliada de Service Fabric y cómo crear microservicios.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: ryanwi
-ms.openlocfilehash: 9360d29eb30171651b0bcc688fe7884614b50cf4
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: e9d0691876a417fe8665bed2d712d643a4364120
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>¿Qué desea saber sobre Service Fabric?
 Azure Service Fabric es una plataforma de sistemas distribuidos que facilita el empaquetamiento, la implementación y la administración de microservicios escalables y confiables.  Sin embargo, Service Fabric tiene un área expuesta de gran tamaño, y hay mucho por aprender.  En este artículo se proporciona una sinopsis de Service Fabric y se describen los conceptos principales, los modelos de programación, el ciclo de vida de la aplicación, las pruebas, los clústeres y la supervisión del estado. Lea [Información general](service-fabric-overview.md) y [¿Qué son los microservicios?](service-fabric-overview-microservices.md) para obtener una introducción y conocer cómo se puede utilizar Service Fabric para crear microservicios. Este artículo no contiene una lista completa de contenido, pero incluye vínculos a información general y artículos de introducción de cada área de Service Fabric. 
@@ -98,7 +98,7 @@ Service Fabric se integra con [ASP.NET Core](service-fabric-reliable-services-co
 - Se ejecuta en una instancia de Reliable Services. Permite una mejor integración con el entorno de ejecución de Service Fabric y permite servicios ASP.NET Core con estado.
 
 ### <a name="guest-executables"></a>Ejecutables de invitado
-Un [ejecutable de invitado](service-fabric-deploy-existing-app.md) es un ejecutable arbitrario y existente, escrito en cualquier lenguaje, que se hospeda en un clúster de Service Fabric junto con otros servicios. Los ejecutables de invitado no se integran directamente con las API de Service Fabric. Sin embargo, todavía se beneficiarán de las características que ofrece la plataforma, como la detección de servicio y la creación de informes de carga y de estado personalizada mediante la llamada de API de REST. También tienen soporte técnico completo de ciclo de vida de aplicación. 
+Un [ejecutable de invitado](service-fabric-guest-executables-introduction.md) es un ejecutable arbitrario y existente, escrito en cualquier lenguaje, que se hospeda en un clúster de Service Fabric junto con otros servicios. Los ejecutables de invitado no se integran directamente con las API de Service Fabric. Sin embargo, todavía se beneficiarán de las características que ofrece la plataforma, como la detección de servicio y la creación de informes de carga y de estado personalizada mediante la llamada de API de REST. También tienen soporte técnico completo de ciclo de vida de aplicación. 
 
 ## <a name="application-lifecycle"></a>Ciclo de vida de aplicación
 Al igual que sucede con otras plataformas, una aplicación en Service Fabric normalmente pasa por las siguientes fases: diseño, desarrollo, prueba, implementación, actualización, mantenimiento y eliminación. Service Fabric ofrece compatibilidad de primera clase para todo el ciclo de vida de aplicación de las aplicaciones de nube: desde el desarrollo hasta la implementación, la administración diaria, el mantenimiento y, finalmente, la retirada. El modelo de servicio habilita varios roles distintos para participar de manera independiente en el ciclo de vida de la aplicación. En [Ciclo de vida de la aplicación de Service Fabric](service-fabric-application-lifecycle.md) se proporciona información general de las API y cómo las utilizan los distintos roles durante todas las fases del ciclo de vida de la aplicación de Service Fabric. 
@@ -138,7 +138,7 @@ La ejecución de clústeres de Service Fabric en Azure proporciona integración 
 
 Puede crear un clúster en Azure a través de [Azure Portal](service-fabric-cluster-creation-via-portal.md), a partir de una [plantilla](service-fabric-cluster-creation-via-arm.md) o en [Visual Studio](service-fabric-cluster-creation-via-visual-studio.md).
 
-Service Fabric en Linux permite compilar, implementar y administrar aplicaciones de alta disponibilidad y escalabilidad en Linux de la misma forma que en Windows. Los marcos de Service Fabric (Reliable Services y Reliable Actors) se encuentran disponibles en Java en Linux, además de en C# (.NET Core). Puede compilar igualmente [servicios ejecutables invitados](service-fabric-deploy-existing-app.md) con cualquier lenguaje o marco. También se admite la organización de contenedores de Docker. Los contenedores de Docker pueden ejecutar archivos ejecutables invitados o servicios de Service Fabric nativos que utilizan los marcos de Service Fabric. Para más información, consulte [Service Fabric en Linux](service-fabric-deploy-anywhere.md).
+Service Fabric en Linux permite compilar, implementar y administrar aplicaciones de alta disponibilidad y escalabilidad en Linux de la misma forma que en Windows. Los marcos de Service Fabric (Reliable Services y Reliable Actors) se encuentran disponibles en Java en Linux, además de en C# (.NET Core). Puede compilar igualmente [servicios ejecutables invitados](service-fabric-guest-executables-introduction.md) con cualquier lenguaje o marco. También se admite la organización de contenedores de Docker. Los contenedores de Docker pueden ejecutar archivos ejecutables invitados o servicios de Service Fabric nativos que utilizan los marcos de Service Fabric. Para más información, consulte [Service Fabric en Linux](service-fabric-deploy-anywhere.md).
 
 Hay algunas características que se admiten en Windows, pero no en Linux. Para más información, vea [Diferencias entre Service Fabric en Linux (versión preliminar) y Windows (disponible con carácter general)](service-fabric-linux-windows-differences.md).
 
@@ -167,7 +167,7 @@ Periódicamente se publican nuevas versiones de Service Fabric en tiempo de ejec
 
 Un clúster de Service Fabric es un recurso de su propiedad administrado parcialmente por Microsoft. Microsoft es responsable de la aplicación de revisiones del sistema operativo subyacente y de realizar actualizaciones de Service Fabric en el clúster. Puede configurar el clúster para recibir las actualizaciones automáticas de Service Fabric cuando Microsoft publica una versión nueva, o bien seleccionar una versión de Service Fabric compatible que desee. Las actualizaciones de configuración y de Service Fabric pueden definirse en Azure Portal o en Resource Manager. Para más información, lea [Actualización de un clúster de Azure Service Fabric](service-fabric-cluster-upgrade.md). 
 
-Un clúster independiente es un recurso que es totalmente de su propiedad. Por tanto, usted es el responsable de la aplicación de revisiones del sistema operativo subyacente y de iniciar las actualizaciones de Service Fabric. Si el clúster se puede conectar a [https://www.microsoft.com/download](https://www.microsoft.com/download), puede configurar el clúster para que se descargue automáticamente y aprovisione el nuevo paquete en tiempo de ejecución de Service Fabric. A continuación, podría iniciar la actualización. En cambio, si el clúster no puede acceder a [https://www.microsoft.com/download](https://www.microsoft.com/download), puede descargar manualmente el nuevo paquete en tiempo de ejecución desde una máquina conectada a Internet y después iniciar la actualización. Para más información, lea [Actualización de un clúster independiente de Azure Service Fabric](service-fabric-cluster-upgrade-windows-server.md).
+Un clúster independiente es un recurso que es totalmente de su propiedad. Por tanto, usted es el responsable de la aplicación de revisiones del sistema operativo subyacente y de iniciar las actualizaciones de Service Fabric. Si el clúster se puede conectar a [https://www.microsoft.com/download](https://www.microsoft.com/download), puede configurar el clúster para que se descargue automáticamente y aprovisione el nuevo paquete en tiempo de ejecución de Service Fabric. A continuación, podría iniciar la actualización. Si el clúster no puede acceder a [https://www.microsoft.com/download](https://www.microsoft.com/download), puede descargar manualmente el nuevo paquete en tiempo de ejecución desde una máquina conectada a Internet y después iniciar la actualización. Para más información, lea [Actualización de un clúster independiente de Azure Service Fabric](service-fabric-cluster-upgrade-windows-server.md).
 
 ## <a name="health-monitoring"></a>Supervisión del estado
 Service Fabric presenta un [modelo de estado](service-fabric-health-introduction.md) diseñado para marcar las condiciones poco favorables del clúster o de la aplicación en entidades específicas, como nodos de clúster y réplicas de servicio. El modelo de mantenimiento utiliza informadores de estado (componentes del sistema y guardianes). El objetivo es obtener un diagnóstico y reparación sencillo y rápido. El escritor del servicio debe pensar de antemano en el estado y en cómo [diseñar informes de estado](service-fabric-report-health.md#design-health-reporting). Cualquier condición que pueda afectar al estado debe notificarse, sobre todo si puede ayudar a marcar la causa raíz de los problemas. La información de estado puede ahorrar tiempo y esfuerzo en la depuración y la investigación una vez que el servicio está en funcionamiento a escala en producción.

@@ -13,29 +13,30 @@ ms.devlang: azurecli
 ms.topic: ''
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 03/06/2018
+ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: df56f2e3e13f80e7ce2c2b6c9cffeac3d03776e5
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: bbf2e757e2d9ad76c59394ba0138a61fd4029d15
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-the-azure-cli"></a>Conexión de redes virtuales con emparejamiento de redes virtuales con la CLI de Azure
 
-Puede conectar redes virtuales entre sí con el emparejamiento de redes virtuales. Una vez que las redes virtuales están emparejadas, los recursos de ambas se pueden comunicar entre sí con el mismo ancho de banda y la misma latencia que si estuvieran en la misma red virtual. En este artículo se describe la creación y el emparejamiento de dos redes virtuales. Aprenderá a:
+Puede conectar redes virtuales entre sí con el emparejamiento de redes virtuales. Una vez que las redes virtuales están emparejadas, los recursos de ambas se pueden comunicar entre sí con el mismo ancho de banda y la misma latencia que si estuvieran en la misma red virtual. En este artículo, aprenderá a:
 
 > [!div class="checklist"]
 > * Crear dos redes virtuales
-> * Crear un emparejamiento entre redes virtuales
-> * Realizar un emparejamiento de prueba
+> * Conectar dos redes virtuales con el emparejamiento de redes virtuales
+> * Implementar una máquina virtual (VM) en cada red virtual
+> * Comunicarse entre máquinas virtuales
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar la CLI localmente, para esta guía de inicio rápido es preciso que ejecute la CLI de Azure versión 2.0.4 o posterior. Para encontrar la versión, ejecute `az --version`. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0](/cli/azure/install-azure-cli). 
+Si decide instalar y usar la CLI en un entorno local, para esta guía de inicio rápido es preciso que ejecute la versión 2.0.28 de la CLI de Azure o una versión posterior. Para encontrar la versión, ejecute `az --version`. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0](/cli/azure/install-azure-cli). 
 
 ## <a name="create-virtual-networks"></a>Creación de redes virtuales
 
@@ -56,7 +57,7 @@ az network vnet create \
   --subnet-prefix 10.0.0.0/24
 ```
 
-Cree una red virtual denominada *myVirtualNetwork2* con el prefijo de dirección *10.1.0.0/16*. El prefijo de dirección no se superpone con el prefijo de dirección de la red virtual *myVirtualNetwork1*. No se pueden emparejar redes virtuales con prefijos de direcciones superpuestos.
+Cree una red virtual denominada *myVirtualNetwork2* con el prefijo de dirección *10.1.0.0/16*:
 
 ```azurecli-interactive 
 az network vnet create \
@@ -120,17 +121,13 @@ az network vnet peering show \
 
 Los recursos de una red virtual no se comunican con los de la otra hasta que el estado **peeringState** de los emparejamientos de ambas redes virtuales es *conectado*. 
 
-Los emparejamientos se realizan entre dos redes virtuales, pero no son transitivos. Así, por ejemplo, si también desea emparejar *myVirtualNetwork2* con *myVirtualNetwork3*, tendrá que crear un emparejamiento adicional entre las redes virtuales *myVirtualNetwork2* y *myVirtualNetwork3*. Aunque *myVirtualNetwork1* esté emparejada con *myVirtualNetwork2*, los recursos de *myVirtualNetwork1* solo pueden acceder a los recursos de  *myVirtualNetwork3* si *myVirtualNetwork1* también se empareja con *myVirtualNetwork3*. 
+## <a name="create-virtual-machines"></a>Creación de máquinas virtuales
 
-Antes de emparejar redes virtuales de producción, se recomienda familiarizarse en detalle con la [introducción al emparejamiento](virtual-network-peering-overview.md), la [administración del emparejamiento](virtual-network-manage-peering.md) y los [límites de red virtual ](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Aunque en este artículo se explica un emparejamiento entre dos redes virtuales en la misma suscripción y ubicación, también puede emparejar redes virtuales en [diferentes regiones](#register) y [diferentes suscripciones de Azure](create-peering-different-subscriptions.md#cli). También puede crear [diseños de red de concentrador y radio](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) con emparejamiento.
+Cree una máquina virtual en cada red virtual para que puedan comunicarse entre ellas en un paso posterior.
 
-## <a name="test-peering"></a>Realizar un emparejamiento de prueba
+### <a name="create-the-first-vm"></a>Creación de la primera máquina virtual
 
-Para probar la comunicación de red entre las máquinas virtuales en diferentes redes virtuales mediante un emparejamiento, implemente una máquina virtual en cada subred y establezca la comunicación entre ellas. 
-
-### <a name="create-virtual-machines"></a>Creación de máquinas virtuales
-
-Cree la máquina virtual con [az vm create](/cli/azure/vm#az_vm_create). En el ejemplo siguiente se crea una máquina virtual llamada *myVm1* en la red virtual *myVirtualNetwork1*. Si las claves SSH no existen en la ubicación de claves predeterminada, el comando las crea. Para utilizar un conjunto específico de claves, utilice la opción `--ssh-key-value`. La opción `--no-wait` crea la máquina virtual en segundo plano para que pueda realizar el siguiente paso.
+Cree la máquina virtual con [az vm create](/cli/azure/vm#az_vm_create). En el ejemplo siguiente se crea una máquina virtual llamada *myVm1* en la red virtual *myVirtualNetwork1*. Si las claves SSH no existen en la ubicación de claves predeterminada, el comando las crea. Para utilizar un conjunto específico de claves, utilice la opción `--ssh-key-value`. La opción `--no-wait` crea la máquina virtual en segundo plano, así que puede continuar con el siguiente paso.
 
 ```azurecli-interactive
 az vm create \
@@ -143,9 +140,9 @@ az vm create \
   --no-wait
 ```
 
-Azure asigna automáticamente 10.0.0.4 como dirección IP privada de la máquina virtual, porque 10.0.0.4 es la primera dirección IP disponible en *Subnet1* de *myVirtualNetwork1*. 
+### <a name="create-the-second-vm"></a>Creación de la segunda máquina virtual
 
-Cree una máquina virtual en la red virtual *myVirtualNetwork2*.
+Cree una red virtual en la red virtual *myVirtualNetwork2*.
 
 ```azurecli-interactive 
 az vm create \
@@ -157,7 +154,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-La creación de la máquina virtual tarda algunos minutos. Después de crear la máquina virtual, la CLI de Azure muestra información similar al ejemplo siguiente: 
+La máquina virtual tarda en crearse unos minutos. Después de crear la máquina virtual, la CLI de Azure muestra información similar a la del ejemplo siguiente: 
 
 ```azurecli 
 {
@@ -172,25 +169,25 @@ La creación de la máquina virtual tarda algunos minutos. Después de crear la 
 }
 ```
 
-En la salida del ejemplo verá que **privateIpAddress** es *10.1.0.4*. El protocolo DHCP de Azure asigna de forma automática 10.1.0.4 a la máquina virtual, ya que es la primera dirección disponible en *Subnet1* de *myVirtualNetwork2*. Anote el valor de **publicIpAddress**. En un paso posterior, usaremos esta dirección para obtener acceso a la máquina virtual desde Internet.
+Anote el valor de **publicIpAddress**. En un paso posterior, usaremos esta dirección para obtener acceso a la máquina virtual desde Internet.
 
-### <a name="test-virtual-machine-communication"></a>Prueba de comunicación de la máquina virtual
+## <a name="communicate-between-vms"></a>Comunicarse entre máquinas virtuales
 
-Use el siguiente comando para crear una sesión SSH con la máquina virtual *myVm2*. Reemplace `<publicIpAddress>` con la dirección IP pública de la máquina virtual. En el ejemplo anterior, la dirección IP pública es *13.90.242.231*.
+Use el siguiente comando para crear una sesión de SSH con la máquina virtual *myVm2*. Reemplace `<publicIpAddress>` con la dirección IP pública de la máquina virtual. En el ejemplo anterior, la dirección IP pública es *13.90.242.231*.
 
 ```bash 
 ssh <publicIpAddress>
 ```
 
-Haga ping en la máquina virtual de *myVirtualNetwork1*.
+Haga ping a la máquina virtual en *myVirtualNetwork1*.
 
 ```bash 
 ping 10.0.0.4 -c 4
 ```
 
-Recibirá cuatro respuestas. Si hace ping por el nombre de la máquina virtual (*myVm1*), en lugar de su dirección IP, el ping falla, porque *myVm1* es un nombre de host desconocido. La resolución de nombres predeterminada de Azure funciona entre máquinas virtuales de la misma red virtual, pero no entre máquinas virtuales de diferentes redes virtuales. Para resolver nombres en varias redes virtuales, tiene que [implementar su propio servidor DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md) o usar [dominios privados de Azure DNS](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Recibirá cuatro respuestas. 
 
-Cierre la sesión SSH en la máquina virtual *myVm2*. 
+Cierre la sesión de SSH en la máquina virtual *myVm2*. 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -221,9 +218,9 @@ El emparejamiento de redes virtuales en las mismas regiones tiene disponibilidad
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, ha aprendido a conectar dos redes con el emparejamiento de redes virtuales. Puede [conectar su equipo a una red virtual](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) mediante VPN e interactuar con recursos en una red virtual, o en redes virtuales emparejadas.
+En este artículo, ha aprendido a conectar dos redes con el emparejamiento de redes virtuales. En este artículo, ha aprendido a conectar dos redes, de la misma ubicación de Azure, con el emparejamiento de redes virtuales. También puede emparejar redes virtuales de [diferentes regiones](#register), en [diferentes suscripciones de Azure](create-peering-different-subscriptions.md#portal) y puede crear [diseños de red de concentrador y radio](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) con emparejamiento. Antes de emparejar redes virtuales de producción, se recomienda familiarizarse en detalle con la [introducción al emparejamiento](virtual-network-peering-overview.md), la [administración del emparejamiento](virtual-network-manage-peering.md) y los [límites de red virtual ](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-Siga con los ejemplos de scripts reutilizables para completar muchas de las tareas descritas en los artículos sobre las redes virtuales.
+Puede [conectar su equipo a una red virtual](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) mediante VPN e interactuar con recursos en una red virtual, o en redes virtuales emparejadas. Siga con los ejemplos de scripts reutilizables para completar muchas de las tareas descritas en los artículos sobre las redes virtuales.
 
 > [!div class="nextstepaction"]
 > [Ejemplos de scripts de red virtual](../networking/cli-samples.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

@@ -1,48 +1,59 @@
 ---
-title: "Habilitación o deshabilitación de la integración de LinkedIn para las aplicaciones de Office en Azure Active Directory | Microsoft Docs"
-description: "Explica cómo habilitar o deshabilitar la integración de LinkedIn para las aplicaciones de Microsoft en Azure Active Directory"
+title: Habilitación de conexiones de LinkedIn para aplicaciones y servicios de Microsoft en Azure Active Directory | Microsoft Docs
+description: Se explica cómo habilitar o deshabilitar conexiones de cuentas de LinkedIn para aplicaciones de Microsoft en Azure Active Directory.
 services: active-directory
 author: curtand
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/15/2018
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
-ms.openlocfilehash: cdfb5458b020e9d3a3f33cecbeb0ee7b9a48909d
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 3bf224edea9e6da0d0eadb6fb6a409248de3d0e3
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/17/2018
 ---
-# <a name="linkedin-integration-for-office-applications"></a>Integración de LinkedIn para las aplicaciones de Office
-En este artículo se explica cómo restringir los usuarios a los que se proporciona la integración de LinkedIn en Azure Active Directory (Azure AD). La integración de LinkedIn está habilitada de forma predeterminada al agregarla al inquilino, lo que permite a los usuarios acceder a datos públicos de LinkedIn desde algunas de las aplicaciones de Microsoft. Los usuarios pueden elegir independientemente si conectan la cuenta profesional o educativa a la cuenta de LinkedIn.
+# <a name="linkedin-account-connections-for-microsoft-apps-and-services"></a>Conexiones de cuentas de LinkedIn para aplicaciones y servicios de Microsoft
+En este artículo, puede aprender a administrar conexiones de cuentas de LinkedIn para su inquilino en el centro de administración de Azure Active Directory (Azure AD). 
 
 > [!IMPORTANT]
-> La integración de LinkedIn no se implementa en todos los inquilinos de Azure AD al mismo tiempo. Una vez que se implanta en el inquilino de Azure, se habilita de forma predeterminada. No está disponible para los inquilinos go-local, sovereign y government. Para obtener una vista actualizada de la información de implementación, consulte la página del [plan de Office 365](https://products.office.com/business/office-365-roadmap?filters=%26freeformsearch=linkedin#abc).
+> La funcionalidad de conexiones de cuentas de LinkedIn se encuentra actualmente en proceso de implementación en inquilinos de Azure AD. Cuando se implemente en su inquilino, estará habilitada de forma predeterminada. No está disponible para clientes del gobierno de Estados Unidos y organizaciones con buzones de Exchange Online hospedados en Australia, Canadá, China, Francia, Alemania, India, Corea del Sur, Reino Unido, Japón y Sudáfrica. La compatibilidad con estas ubicaciones de buzón estará disponible próximamente.  Para obtener una vista actualizada de la información de implementación, consulte la página del [plan de Office 365](https://products.office.com/business/office-365-roadmap?filters=%26freeformsearch=linkedin#abc).
 
-## <a name="linkedin-integration-from-the-user-perspective"></a>Integración de LinkedIn desde la perspectiva del usuario
-Cuando los usuarios de la organización conectan la cuenta de LinkedIn a la cuenta profesional o educativa, [permiten que LinkedIn proporcione datos](https://www.linkedin.com/help/linkedin/answer/84077) para su uso en las aplicaciones y los servicios de Microsoft que proporciona la organización. [Los usuarios pueden desconectar las cuentas](https://www.linkedin.com/help/linkedin/answer/85097), lo cual quitaría el permiso a LinkedIn de compartir datos con Microsoft. La integración de LinkedIn utiliza la información de perfil público de LinkedIn disponible. [Los usuarios pueden controlar el modo de visualización de su perfil de LinkedIn](https://www.linkedin.com/help/linkedin/answer/83) mediante la configuración de privacidad de LinkedIn, incluso si su perfil se puede ver en las aplicaciones de Microsoft.
+## <a name="how-linkedin-account-connections-appear-to-the-user"></a>Cómo le aparecen al usuario las conexiones de cuentas de LinkedIn
+Las conexiones de cuentas de LinkedIn permiten a los usuarios ver la información pública del perfil de LinkedIn dentro de algunas de sus aplicaciones de Microsoft. Los usuarios de su inquilino pueden elegir conectar sus cuentas profesionales o educativas de LinkedIn y Microsoft para ver información adicional del perfil de LinkedIn. Para más información, consulte [Información y características de LinkedIn en aplicaciones y servicios de Microsoft](https://go.microsoft.com/fwlink/?linkid=850740).
+
+Cuando los usuarios de su organización conectan sus cuentas profesionales o educativas de LinkedIn y Microsoft, tienen dos opciones: 
+* Conceder permiso para compartir datos entre las dos cuentas. Esto significa otorgar permiso a su cuenta de LinkedIn para compartir datos con su cuenta profesional o educativa de Microsoft, y otorgar permiso a su cuenta profesional o educativa de Microsoft para compartir datos con su cuenta de LinkedIn. Los datos que se comparten con LinkedIn abandonan los servicios en línea. 
+* Conceder permiso para compartir datos únicamente entre la cuenta de LinkedIn y la cuenta de trabajo o educativa de Microsoft.
+
+Para más información sobre los datos que se comparten entre las cuentas de trabajo o educativas de LinkedIn y Microsoft de los usuarios, consulte [LinkedIn en las aplicaciones de Microsoft en tu trabajo o universidad](https://www.linkedin.com/help/linkedin/answer/84077). 
+* [Los usuarios pueden desconectar cuentas](https://www.linkedin.com/help/linkedin/answer/85097) y quitar permisos de uso compartido de datos en cualquier momento. 
+* [Los usuarios pueden controlar el modo de visualización de su perfil de LinkedIn](https://www.linkedin.com/help/linkedin/answer/83), por ejemplo, si su perfil se puede ver en las aplicaciones de Microsoft.
 
 ## <a name="privacy-considerations"></a>Consideraciones sobre privacidad
-Habilitar la integración de LinkedIn en Azure AD permite el acceso de las aplicaciones y los servicios de Microsoft a información de los usuarios de LinkedIn. Consulte la [Declaración de privacidad de Microsoft](https://privacy.microsoft.com/privacystatement/) para más información sobre las consideraciones de privacidad al habilitar la integración de LinkedIn en Azure AD. 
+Habilitar las conexiones de cuentas de LinkedIn permite el acceso de las aplicaciones y los servicios de Microsoft a información de los usuarios de LinkedIn. Lea la [Declaración de privacidad de Microsoft](https://privacy.microsoft.com/privacystatement/) para más información sobre las consideraciones de privacidad al habilitar las conexiones de cuentas de LinkedIn en Azure AD. 
 
-## <a name="manage-linkedin-integration"></a>Administración de la integración con LinkedIn
-La integración de LinkedIn para empresas está habilitada de forma predeterminada en Azure AD. Habilitar la integración de LinkedIn permite a todos los usuarios de la organización usar características de LinkedIn en los servicios de Microsoft, como ver perfiles de LinkedIn en Outlook. Al deshabilitarla se quitan las características de LinkedIn de las características y los servicios de Microsoft y se deja de compartir datos entre LinkedIn y la organización a través de los servicios de Microsoft.
+## <a name="manage-linkedin-account-connections"></a>Administración de las conexiones de cuentas de LinkedIn
+La funcionalidad de conexiones de cuentas de LinkedIn está activa de forma predeterminada en todo el inquilino. Puede elegir deshabilitar las conexiones de cuentas de LinkedIn en todo el inquilino o habilitarlas para usuarios determinados. 
 
-### <a name="enable-or-disable-linkedin-integration-for-your-organization-in-the-azure-portal"></a>Habilitación o deshabilitación de la integración de LinkedIn para la organización en Azure Portal
+### <a name="enable-or-disable-linkedin-account-connection-for-your-tenant-in-the-azure-portal"></a>Habilitar o deshabilitar conexiones de cuentas de LinkedIn en el inquilino en Azure Portal
 
 1. Inicie sesión en el [Centro de administración de Azure Active Directory](https://aad.portal.azure.com/) con una cuenta de administrador global del inquilino de Azure AD.
 2. Seleccione **Usuarios**.
 3. En la hoja **Usuarios**, seleccione **Configuración de usuario**.
-4. En **Integración de LinkedIn**, seleccione **Sí** o **No** para habilitar o deshabilitar la integración de LinkedIn.
-   ![Habilitación de la integración de LinkedIn](./media/linkedin-integration/LinkedIn-integration.PNG)
+4. En **LinkedIn account connections** (Conexiones de cuentas de LinkedIn), siga estos pasos:
+  * Seleccione **Sí** para habilitar las conexiones de cuentas de LinkedIn en todos los usuarios de su inquilino.
+  * Elija **Selected** (Seleccionados) para habilitar las conexiones de cuentas de LinkedIn solo en determinados usuarios del inquilino.
+  * Seleccione **No** para deshabilitar las conexiones de cuentas de LinkedIn en todos los usuarios. ![Habilitación de conexiones de cuentas de LinkedIn](./media/linkedin-integration/LinkedIn-integration.png)
+5. Guardar la configuración cuando haya terminado seleccionando **Guardar**.
 
-### <a name="enable-or-disable-linkedin-integration-for-your-organizations-office-2016-apps-using-group-policy"></a>Habilitación o deshabilitación de la integración de LinkedIn para las aplicaciones de Office 2016 de la organización mediante una directiva de grupo
+### <a name="enable-or-disable-linkedin-account-connections-for-your-organizations-office-2016-apps-using-group-policy"></a>Habilitar o deshabilitar las conexiones de cuentas de LinkedIn en las aplicaciones de Office 2016 de la organización mediante directiva de grupo
 
 1. Descargue los [archivos de plantilla de administración de Office 2016 (ADMX/ADML)](https://www.microsoft.com/download/details.aspx?id=49030)
 2. Extraiga los archivos **ADMX** y cópielos en el **repositorio central**.
@@ -60,6 +71,6 @@ Esta directiva de grupo afecta solo a las aplicaciones de Office 2016 de los equ
 * [Centro de ayuda de LinkedIn](https://www.linkedin.com/help/linkedin)
 
 ## <a name="next-steps"></a>Pasos siguientes
-Utilice el siguiente vínculo para ver la configuración de integración de LinkedIn actual en Azure Portal:
+Use el siguiente vínculo para ver la configuración actual de las conexiones de cuentas de LinkedIn en Azure Portal:
 
-[Configuración de la integración con LinkedIn](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/UserSettings) 
+[Configuración de las conexiones de cuentas de LinkedIn](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/UserSettings) 

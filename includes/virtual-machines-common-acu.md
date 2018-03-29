@@ -1,8 +1,20 @@
- 
-
-
-
-Creamos el concepto de unidad de Azure Compute (ACU) para brindar una forma de comparar el rendimiento de los procesos (CPU) en todas las SKU de Azure. Esto le ayudará a identificar fácilmente el SKU que tiene más probabilidades de satisfacer sus necesidades de rendimiento.  Actualmente, una ACU está estandarizada en una máquina virtual pequeña (Standard_A1) como 100 y todas las demás SKU representan, aproximadamente, qué tanto más rápido esa SKU puede ejecutar una prueba comparativa estándar. 
+---
+title: archivo de inclusión
+description: archivo de inclusión
+services: virtual-machines
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: cynthn;davberg
+ms.custom: include file
+ms.openlocfilehash: fde43e40a7a5bb87b9e63af47ae795616fac8b3f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 03/16/2018
+---
+El concepto de unidad de proceso de Azure (ACU) ofrece una forma de comparar el rendimiento de los procesos (CPU) en todas las SKU de Azure. Esto le ayudará a identificar fácilmente el SKU que tiene más probabilidades de satisfacer sus necesidades de rendimiento.  Actualmente, una ACU está estandarizada en una máquina virtual pequeña (Standard_A1) como 100 y todas las demás SKU representan, aproximadamente, qué tanto más rápido esa SKU puede ejecutar una prueba comparativa estándar. 
 
 > [!IMPORTANT]
 > La ACU es solo una referencia.  Los resultados de la carga de trabajo pueden variar. 
@@ -11,7 +23,7 @@ Creamos el concepto de unidad de Azure Compute (ACU) para brindar una forma de c
 
 <br>
 
-| Familia de SKU | ACU \ vCPU | vCPU:Core |
+| Familia de SKU | ACU \ vCPU | vCPU: núcleo |
 | --- | --- |---|
 | [A0](../articles/virtual-machines/windows/sizes-general.md) |50 | 1:1 |
 | [A1-A4](../articles/virtual-machines/windows/sizes-general.md) |100 | 1:1 |

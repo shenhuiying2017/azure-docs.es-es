@@ -1,25 +1,19 @@
 ---
-title: "Mi primer runbook gráfico en Azure Automation | Microsoft Docs"
-description: "Tutorial que le guiará a través de la creación, prueba y publicación de un runbook gráfico simple."
+title: Mi primer runbook gráfico en Azure Automation
+description: Tutorial que le guiará a través de la creación, prueba y publicación de un runbook gráfico simple.
+keywords: runbook, plantilla de runbook, automatización de runbooks, runbook de azure
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: 
-keywords: "runbook, plantilla de runbook, automatización de runbooks, runbook de azure"
-ms.assetid: dcb88f19-ed2b-4372-9724-6625cd287c8a
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.date: 05/17/2017
-ms.author: magoedte;bwren
-ms.openlocfilehash: 948510eaaf55854bbc14d49bf78a8584c43f182d
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+manager: carmonm
+ms.openlocfilehash: 4f0db9a7381468216c6b9a6e46b4e8f0fe7db59f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="my-first-graphical-runbook"></a>Mi primer runbook gráfico
 
@@ -32,7 +26,7 @@ ms.lasthandoff: 01/10/2018
 
 Este tutorial le guiará por la creación de un [runbook gráfico](automation-runbook-types.md#graphical-runbooks) en Azure Automation. Puede comenzar con un runbook simple que prueba y publica mientras aprende a cómo hacer un seguimiento del estado del trabajo del runbook. A continuación, puede modificar el runbook para administrar recursos de Azure, en este caso, iniciar una máquina virtual de Azure. Después, puede completar el tutorial haciendo el runbook más sólido con la adición de parámetros de runbook y vínculos condicionales.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para completar este tutorial, necesitará lo siguiente:
 
@@ -224,7 +218,7 @@ Ahora puede modificar el runbook para que solo intente iniciar la máquina virtu
 1. Guarde el runbook y abra el panel Prueba.
 1. Inicie el runbook con la máquina virtual detenida- Se debería iniciar.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * Para obtener más información sobre la creación de gráficos, consulte [Creación gráfica en Azure Automation](automation-graphical-authoring-intro.md)
 * Para empezar a trabajar con Runbooks de PowerShell, consulte [Mi primer Runbook de PowerShell](automation-first-runbook-textual-powershell.md)

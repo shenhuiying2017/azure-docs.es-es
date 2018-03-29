@@ -1,11 +1,12 @@
 ---
-title: "Reentrenamiento de un servicio web clásico | Microsoft Docs"
-description: "Obtenga información acerca de cómo volver a entrenar un modelo y actualizar el servicio web mediante programación para utilizar el modelo recién entrenado en Azure Machine Learning."
+title: Reentrenamiento de un servicio web clásico | Microsoft Docs
+description: Obtenga información acerca de cómo volver a entrenar un modelo y actualizar el servicio web mediante programación para utilizar el modelo recién entrenado en Azure Machine Learning.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: raymondlaghaeian
-editor: 
+documentationcenter: ''
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
+editor: cgronlun
 ms.assetid: e36e1961-9e8b-4801-80ef-46d80b140452
 ms.service: machine-learning
 ms.workload: data-services
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: raymondl
-ms.openlocfilehash: a0ec3191448362f8bf98ca6b5133d173735046ed
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d0c40d952008f58f9b99c1c44d06e971a1e60c3b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="retrain-a-classic-web-service"></a>Reentrenamiento de un servicio web clásico
 El servicio web predictivo que implementó es el punto de conexión de puntuación predeterminado. Los puntos de conexión predeterminados se mantienen sincronizados con los experimentos de entrenamiento y puntuación originales y, por tanto, el modelo entrenado de un punto de conexión predeterminado no se puede reemplazar. Para reciclar el servicio web, debe agregar un nuevo punto de conexión al servicio web. 
@@ -134,6 +134,6 @@ Mediante el uso de las API de reentrenamiento, puede actualizar el modelo entren
 * Reentrenamiento de modelos periódicos con nuevos datos.
 * Distribución de un modelo entre los clientes con el fin de permitirles reentrenar el modelo mediante sus propios datos.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Solución de problemas del reentrenamiento de un servicio web clásico de Azure Machine Learning](troubleshooting-retraining-models.md)
 

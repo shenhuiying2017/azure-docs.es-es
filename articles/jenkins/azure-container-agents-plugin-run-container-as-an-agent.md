@@ -1,24 +1,20 @@
 ---
 title: Compilar un proyecto en Azure con Jenkins y Azure Container Instances
-description: "Obtenga información acerca de cómo usar el complemento de Azure Container Agent para Jenkins para compilar un proyecto en Azure con Azure Container Instances"
-services: multiple
-documentationcenter: 
+description: Obtenga información acerca de cómo usar el complemento de Azure Container Agent para Jenkins para compilar un proyecto en Azure con Azure Container Instances
 author: tomarcher
 manager: rloutlaw
-editor: 
 ms.service: multiple
+ms.workload: web
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: web
-ms.date: 02/28/2018
+ms.date: 03/16/2018
 ms.author: tarcher
-ms.custom: jenkins
-ms.openlocfilehash: 557b21340a0ba4e5381d7505b14a172aa3478b84
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.custom: Jenkins
+ms.openlocfilehash: a18136afc096f8315310fae134d3f683994b6d0a
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="build-a-project-in-azure-using-jenkins-and-azure-container-instances"></a>Compilar un proyecto en Azure con Jenkins y Azure Container Instances
 
@@ -72,6 +68,11 @@ En esta sección se ofrece información detallada acerca de cómo configurar la 
 1. Seleccione **Guardar**.
 
 ## <a name="update-jenkins-to-allow-java-network-launch-protocol-jnlp"></a>Actualizar Jenkins para permitir el protocolo Java Network Launch Protocol (JNLP)
+
+> [!NOTE]
+> En este tutorial se muestra cómo configurar un agente de JNLP. A partir de la versión 0.4.x en adelante, el [complemento Jenkins Azure Container Agents](https://plugins.jenkins.io/azure-container-agents) también admite SSH.
+>
+>
 
 El agente Jenkins se conecta con el servidor de Jenkins a través del protocolo Java Network Launch Protocol (JNLP). En esta sección se explica cómo especificar un puerto para los agentes JNLP que se usará para comunicarse con el servidor de Jenkins.
 

@@ -1,18 +1,18 @@
 ---
-title: "Seguridad y autenticación de Azure Event Grid"
+title: Seguridad y autenticación de Azure Event Grid
 description: Describe Azure Event Grid y sus conceptos.
 services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/15/2018
 ms.author: babanisa
-ms.openlocfilehash: 9d2b32df6e4b931539eac34d09135ea33069b936
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 0b7ef71cf940f82f46a7f053e5c9f7ef64342b6e
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="event-grid-security-and-authentication"></a>Seguridad y autenticación de Event Grid 
 
@@ -24,9 +24,9 @@ Azure Event Grid tiene tres tipos de autenticación:
 
 ## <a name="webhook-event-delivery"></a>Entrega de eventos de WebHook
 
-Los webhooks son una de las muchas maneras de recibir eventos en tiempo real desde Azure Event Grid. Cada vez que hay un nuevo evento preparado para entregarse, el Webhook de Event Grid envía una solicitud HTTP al punto de conexión HTTP configurado con el evento en el cuerpo.
+Los webhooks son una de las muchas maneras de recibir eventos de Azure Event Grid. Cuando un nuevo evento está preparado, el webhook de Event Grid envía una solicitud HTTP al punto de conexión HTTP configurado con el evento en el cuerpo.
 
-Al registrar su propio punto de conexión de WebHook con Event Grid, envía una solicitud POST con un código de validación simple con el fin de comprobar la propiedad de dicho punto de conexión. La aplicación necesita responder devolviendo el código de validación. Event Grid no entrega eventos a los puntos de conexión de WebHook que no hayan superado la validación.
+Al registrar su propio punto de conexión de webhook con Event Grid, se le envía una solicitud POST con un código de validación simple con el fin de comprobar la propiedad del punto de conexión. La aplicación necesita responder devolviendo el código de validación. Event Grid no entrega eventos a los puntos de conexión de webhook que no hayan superado la validación.
 
 ### <a name="validation-details"></a>Detalles de la validación
 
@@ -34,6 +34,7 @@ Al registrar su propio punto de conexión de WebHook con Event Grid, envía una 
 * El evento contiene un valor de encabezado "Aeg-Event-Type: SubscriptionValidation".
 * El cuerpo del evento tiene el mismo esquema que otros eventos de Event Grid.
 * Los datos del evento incluyen una propiedad "validationCode" con una cadena generada aleatoriamente. Por ejemplo, "validationCode: acb13…".
+* La matriz contiene solo el evento de validación. Otros eventos se envían en una solicitud aparte después de devolver el código de validación.
 
 En el siguiente ejemplo se muestra un evento SubscriptionValidationEvent de ejemplo:
 
@@ -103,7 +104,7 @@ aeg-sas-key: VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg==
 
 Los tokens de SAS para Event Grid incluyen el recurso, un tiempo de expiración y una firma. El formato del token de SAS es: `r={resource}&e={expiration}&s={signature}`.
 
-El recurso es la ruta de acceso para el tema al que envía eventos. Por ejemplo, una ruta de acceso de recurso válida es: `https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events`
+El recurso es la ruta de acceso del tema de Event Grid al que envía los eventos. Por ejemplo, una ruta de acceso de recurso válida es: `https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events`
 
 Genere la firma a partir de una clave.
 
@@ -140,7 +141,7 @@ static string BuildSharedAccessSignature(string resource, DateTime expirationUtc
 
 ## <a name="management-access-control"></a>Control de acceso de administración
 
-Azure Event Grid permite controlar el nivel de acceso dado a distintos usuarios para realizar diversas operaciones de administración, como enumerar las suscripciones a eventos, crear otras nuevas y generar claves. Event Grid utiliza el control de acceso basado en roles (RBAC) de Azure.
+Azure Event Grid permite controlar el nivel de acceso dado a distintos usuarios para realizar diversas operaciones de administración, como enumerar las suscripciones a eventos, crear otras nuevas y generar claves. Event Grid usa el control de acceso basado en roles (RBAC) de Azure.
 
 ### <a name="operation-types"></a>Tipos de operación
 

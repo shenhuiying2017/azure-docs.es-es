@@ -1,24 +1,18 @@
 ---
-title: "Validación de la configuración de la cuenta de Azure Automation | Microsoft Docs"
-description: "En este artículo se describe cómo confirmar que la configuración de la cuenta de Automation es correcta."
+title: Validación de la configuración de cuentas de Azure Automation
+description: En este artículo se describe cómo confirmar que la configuración de la cuenta de Automation es correcta.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: 
-ms.assetid: 
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.date: 08/07/2017
-ms.author: magoedte
-ms.openlocfilehash: 1413b5d9625ebc2e3b2419f50e7e78be994d8d68
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+manager: carmonm
+ms.openlocfilehash: 5359a12d5b241eff80203c9e9bf04107ce4d3159
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="test-azure-automation-run-as-account-authentication"></a>Comprobación de la autenticación con la cuenta de ejecución de Azure Automation
 Una vez que se haya creado correctamente una cuenta de Automation, puede realizar una prueba sencilla para confirmar que puede autenticarse correctamente en Azure Resource Manager o en el modelo de implementación clásica de Azure mediante la cuenta de ejecución de Automation recién creada o actualizada.    
@@ -108,6 +102,6 @@ Para ver los resultados detallados del Runbook, haga clic en el icono **Salida**
 
 No olvide quitar el cmdlet **Get-AzureVM** cuando reutilice el código para sus runbooks.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Para empezar a trabajar con runbooks de PowerShell, consulte [Mi primer runbook de PowerShell](automation-first-runbook-textual-powershell.md).
 * Para más información sobre la creación gráfica, consulte [Creación gráfica en Azure Automation](automation-graphical-authoring-intro.md).

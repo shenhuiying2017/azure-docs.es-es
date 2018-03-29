@@ -2,29 +2,26 @@
 title: Introducción a Instancia administrada de Azure SQL Database | Microsoft Docs
 description: En este tema se describe una instancia de Instancia administrada de Azure SQL Database y se explica cómo funciona y cómo difiere de una base de datos única de Azure SQL Database.
 services: sql-database
-documentationcenter: na
 author: bonova
 ms.reviewer: carlrab
-manager: cguyer
-editor: ''
-ms.assetid: ''
+manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Active
-ms.date: 03/07/2018
+ms.date: 03/16/2018
 ms.author: bonova
-ms.openlocfilehash: dc3c93a1a13f3e10f9159d26411d6337c0269722
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: bc9c16462f28d129efa8c47183c6325e69bb64f3
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="what-is-a-managed-instance-preview"></a>¿Qué es Instancia administrada de SQL Database (versión preliminar)?
 
 Instancia administrada de Azure SQL Database (versión preliminar) es una nueva funcionalidad de Azure SQL Database que proporciona casi un 100 % de compatibilidad con instancias locales de SQL Server, una implementación nativa de [red virtual (VNet)](../virtual-network/virtual-networks-overview.md) que permite solucionar problemas de seguridad habituales y un [modelo de negocio](https://azure.microsoft.com/pricing/details/sql-database/) favorable para los clientes locales de SQL Server. Instancia administrada permite a los clientes existentes de SQL Server migrar mediante lift-and-shift sus aplicaciones locales a la nube con cambios mínimos en la aplicación y la base de datos. Al mismo tiempo, Instancia administrada conserva todas las funcionalidades de PaaS (revisiones y actualizaciones de versión automáticas, copia de seguridad, alta disponibilidad), lo cual reduce drásticamente la sobrecarga de administración y el costo total de propiedad.
+
+> [!IMPORTANT]
+> Para una lista de las regiones en las que está actualmente disponible Instancia administrada, consulte [Migrate your databases to a fully managed service with Azure SQL Database Managed Instance](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/) (Migración de las bases de datos a un servicio completamente administrado con Instancia administrada de Azure SQL Database).
  
 En el diagrama siguiente se describen las características principales de Instancia administrada:
 
@@ -42,7 +39,7 @@ En la siguiente tabla se describen las principales diferencias y escenarios de u
 | | Escenario de uso | 
 | --- | --- | 
 |Instancia administrada |Para aquellos clientes que desean migrar un gran número de aplicaciones desde ubicaciones locales o de IaaS, compiladas automáticamente o proporcionadas por fabricantes de software independientes, con el menor esfuerzo de migración posible, se recomienda Instancia administrada. Mediante el uso totalmente automatizado de [Azure Database Migration Service (DMS)](/sql/dma/dma-overview), los clientes pueden migrar mediante lift-and-shift sus instancias locales de SQL Server a una instancia administrada que ofrezca compatibilidad con SQL Server local y aislamiento completo de las instancias de cliente con compatibilidad nativa con redes virtuales.  Con Software Assurance, puede intercambiar sus licencias existentes para obtener descuentos en Instancia administrada de SQL Database mediante las [ventajas para uso híbrido de Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  Instancia administrada de SQL Database es el mejor destino de migración en la nube para instancias de SQL Server que requieren alta seguridad y una completa superficie de programación. |
-|Azure SQL Database |Para los clientes que desarrollan nuevas aplicaciones SaaS multiinquilino o que transforman intencionadamente sus aplicaciones locales existentes en una aplicación SaaS multiinquilino, se recomiendan los grupos elásticos. Las ventajas de este modelo son: <br><ul><li>Conversión del modelo de negocio de venta de licencias a la venta de suscripciones de servicio (para fabricantes de software independientes)</li></ul><ul><li>Aislamiento de inquilinos fácil y a toda prueba</li></ul><ul><li>Un modelo de programación simplificado centrado en una base de datos</li></ul><ul><li>La posibilidad de escalar horizontalmente sin alcanzar un límite estricto</li></ul>Para aquellos clientes que desean desarrollar nuevas aplicaciones que no sean aplicaciones SaaS multiinquilino, se recomienda usar bases de datos únicas. Las ventajas de este modelo son:<ul><li>Un modelo de programación simplificado centrado en una base de datos</li></ul>  <ul><li>Rendimiento predecible para cada base de datos</li></ul>|
+|Azure SQL Database |**Grupos elásticos**: para los clientes que desarrollan nuevas aplicaciones SaaS multiinquilino o que transforman intencionadamente sus aplicaciones locales existentes en una aplicación SaaS multiinquilino, se recomiendan los grupos elásticos. Las ventajas de este modelo son: <br><ul><li>Conversión del modelo de negocio de venta de licencias a la venta de suscripciones de servicio (para fabricantes de software independientes)</li></ul><ul><li>Aislamiento de inquilinos fácil y a toda prueba</li></ul><ul><li>Un modelo de programación simplificado centrado en una base de datos</li></ul><ul><li>La posibilidad de escalar horizontalmente sin alcanzar un límite estricto</li></ul>**Bases de datos únicas**: para aquellos clientes que desean desarrollar nuevas aplicaciones que no sean aplicaciones SaaS multiinquilino, se recomienda usar bases de datos únicas. Las ventajas de este modelo son:<ul><li>Un modelo de programación simplificado centrado en una base de datos</li></ul>  <ul><li>Rendimiento predecible para cada base de datos</li></ul>|
 |SQL IaaS |Para los clientes que necesitan personalizar el sistema operativo o el servidor de bases de datos, así como los clientes que tienen requisitos específicos en cuanto a la ejecución de aplicaciones de terceros en paralelo con SQL Server (en la misma máquina virtual), se recomiendan las máquinas virtuales de SQL o IaaS como la mejor solución|
 |||
 

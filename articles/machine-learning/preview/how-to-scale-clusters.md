@@ -1,9 +1,9 @@
 ---
-title: "Escalado de un clúster de Azure Container Service para Machine Learning | Microsoft Docs"
-description: "Escalado de un clúster de ACS (escalado automático y escalado estático); escalado del número de nodos del clúster"
+title: Escalado de un clúster de Azure Container Service para Machine Learning | Microsoft Docs
+description: Escalado de un clúster de ACS (escalado automático y escalado estático); escalado del número de nodos del clúster
 services: machine-learning
-author: raymondl
-ms.author: raymondl
+author: aashishb
+ms.author: aashishb
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/04/2017
-ms.openlocfilehash: 690068edf749a2c79d328337618d94936520d501
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 58709b5a5b060552e1bc349a6f720d3f45348ba0
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="scaling-the-cluster-to-manage-web-service-throughput"></a>Escalado del clúster para administrar el rendimiento del servicio web
 
@@ -59,7 +59,7 @@ Esta operación tardará algunos minutos en completarse. Para más información 
 
 ### <a name="scaling-the-number-of-kubernetes-pod-replicas-in-a-cluster"></a>Escalado del número de réplicas de pod de Kubernetes en un clúster
  
-Puede escalar el número de réplicas de pod asignado al clúster mediante la CLI de Azure Machine Learning o el [panel de Kubernetes] (https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/).
+Puede escalar el número de réplicas de pod asignado al clúster mediante la CLI de Azure Machine Learning o el [panel de Kubernetes] (https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/)).
 
 Para más información sobre pods de réplica de Kubernetes, consulte la documentación de [pods de Kubernetes](https://kubernetes.io/docs/concepts/workloads/pods/pod/).
 

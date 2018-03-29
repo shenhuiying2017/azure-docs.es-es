@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: a291aaf8456fd800edcf5a2df5d68c386d9f87c1
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 5c65157d1fdb0effd272437cc92c305ca4d1a510
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Servicio de metadatos de instancia de Azure
 
@@ -36,7 +36,7 @@ El servicio está disponible con carácter general en las regiones de Azure. Pue
 
 Regiones                                        | ¿Disponibilidad?                                 | Versiones compatibles
 -----------------------------------------------|-----------------------------------------------|-----------------
-[Todas las regiones globales de Azure disponibles con carácter general](https://azure.microsoft.com/regions/)     | Disponibilidad general   | 2017-04-02, 2017-08-01, 2017-12-01 (esta versión no está disponible en las regiones de Reino Unido)
+[Todas las regiones globales de Azure disponibles con carácter general](https://azure.microsoft.com/regions/)     | Disponibilidad general   | 2017-04-02, 2017-08-01, 2017-12-01
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Disponibilidad general | 2017-04-02,2017-08-01
 [Azure en China](https://www.azure.cn/)                                                           | Disponibilidad general | 2017-04-02,2017-08-01
 [Azure Alemania](https://azure.microsoft.com/overview/clouds/germany/)                    | Disponibilidad general | 2017-04-02,2017-08-01
@@ -405,7 +405,7 @@ Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
 5. ¿Por qué recibo el error `500 Internal Server Error`?
    * Vuelva a intentar la solicitud en función del sistema de interrupción exponencial. Si el problema persiste, póngase en contacto con el servicio de soporte técnico de Azure.
 6. ¿Dónde puedo compartir preguntas o comentarios adicionales?
-   * Envíe los comentarios en http://feedback.azure.com.
+   * Envíe sus comentarios en http://feedback.azure.com.
 7. ¿Esto funciona para la instancia del conjunto de escala de máquinas virtuales?
    * Sí, el servicio de metadatos está disponible para las instancias del conjunto de escala. 
 8. ¿Cómo puedo obtener soporte técnico para el servicio?

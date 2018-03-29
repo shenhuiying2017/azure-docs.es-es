@@ -1,23 +1,18 @@
 ---
-title: Compilación de configuraciones en DSC de Azure Automation | Microsoft Docs
+title: Compilación de configuraciones en DSC de Azure Automation
 description: En este artículo se describe cómo compilar configuraciones de configuración de estado deseado (DSC) para Azure Automation.
 services: automation
-documentationcenter: na
-author: georgewallace
-manager: carmonm
-ms.assetid: 49f20b31-4fa5-4712-b1c7-8f4409f1aecc
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: powershell
-ms.workload: na
-ms.date: 03/02/2018
-ms.author: magoedte; gwallace
-ms.openlocfilehash: 3ba9200023b71e6f1e69ee4c54d5c90efe1bc954
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+manager: carmonm
+ms.openlocfilehash: 04a8a8970df26638f2c19171864a3c4095ac7769
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="compiling-configurations-in-azure-automation-dsc"></a>Compilación de configuraciones en DSC de Azure Automation
 
@@ -299,7 +294,7 @@ Una configuración de nodo firmada se comprueba localmente en un nodo administra
 > [!NOTE]
 > Un archivo de configuración de nodo debe ocupar más de 1 MB para poderlo importar en Azure Automation.
 
-Puede descubrir cómo firmar configuraciones de nodo en https://msdn.microsoft.com/en-us/powershell/wmf/5.1/dsc-improvements#how-to-sign-configuration-and-module.
+Puede aprender a firmar configuraciones de nodo en https://msdn.microsoft.com/en-us/powershell/wmf/5.1/dsc-improvements#how-to-sign-configuration-and-module.
 
 ### <a name="importing-a-node-configuration-in-the-azure-portal"></a>Importación de una configuración de nodo en Azure Portal
 

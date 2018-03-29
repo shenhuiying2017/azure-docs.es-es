@@ -1,25 +1,21 @@
 ---
-title: Mi primer runbook de flujo de trabajo de PowerShell en Azure Automation | Microsoft Docs
-description: "Tutorial que le guiará a través de la creación, prueba y publicación de un runbook de texto simple con Flujo de trabajo de PowerShell."
-services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: 
+title: Mi primer runbook de flujo de trabajo de PowerShell en Azure Automation
+description: Tutorial que le guiará a través de la creación, prueba y publicación de un runbook de texto simple con Flujo de trabajo de PowerShell.
 keywords: flujo de trabajo de powershell, ejemplos de flujo de trabajo de powershell, powershell para flujos de trabajo
-ms.assetid: 0002d7f7-e2b5-46e3-b5eb-4596b84fd526
+services: automation
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.date: 08/31/2017
-ms.author: magoedte;bwren
-ms.openlocfilehash: 62cb96075deed6c252ae44c8a000e820cb691a90
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+manager: carmonm
+ms.devlang: na
+ms.tgt_pltfrm: na
+ms.openlocfilehash: 61191e78ebd2f0d7a960dfb0c74a1d8260331212
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="my-first-powershell-workflow-runbook"></a>Mi primer runbook de flujo de trabajo de PowerShell
 
@@ -131,7 +127,7 @@ Ahora que el runbook está autenticado en la suscripción a Azure, puede adminis
    Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'ResourceGroupName'
    }
    ```
-2. Guarde el runbook y haga clic en el **panel Prueba** para probarlo.
+2. Guarde el runbook y haga clic en **Panel de prueba** para probarlo.
 3. Haga clic en **Iniciar** para iniciar la prueba. Cuando haya terminado, compruebe que la máquina virtual se ha iniciado.
 
 ## <a name="step-7---add-an-input-parameter-to-the-runbook"></a>Paso 7: agregar un parámetro de entrada al runbook
@@ -158,7 +154,7 @@ Actualmente, el runbook inicia la máquina virtual que codificó en el runbook, 
 6. Haga clic en **Iniciar** para iniciar el runbook. Escriba el valor de **VMName** y **ResourceGroupName** para la máquina virtual que va a iniciar.<br><br> ![Start Runbook](media/automation-first-runbook-textual/automation-pass-params.png)<br>  
 7. Cuando se complete el runbook, compruebe que la máquina virtual se ha iniciado.  
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Para empezar a trabajar con runbooks gráficos, consulte [Mi primer runbook gráfico](automation-first-runbook-graphical.md)
 * Para empezar a trabajar con runbooks de PowerShell, consulte [Mi primer runbook de PowerShell](automation-first-runbook-textual-powershell.md)
 * Para más información sobre los tipos de Runbook, sus ventajas y sus limitaciones, consulte [Tipos de runbooks de Azure Automation](automation-runbook-types.md)

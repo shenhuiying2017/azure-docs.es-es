@@ -11,7 +11,7 @@
 
 <sup>1</sup>Incluye las cuentas de almacenamiento Estándar y Premium. Si necesita más de 200 cuentas de almacenamiento, realice una solicitud a través del [servicio de soporte técnico de Azure](https://azure.microsoft.com/support/faq/). El equipo de Azure Storage revisará su caso empresarial y podría aprobar hasta 250 cuentas de almacenamiento. 
 
-<sup>2</sup> Para conseguir que las cuentas de almacenamiento estándar crezcan por encima de los límites anunciados de capacidad, entrada/salida e índice de solicitudes, realice una solicitud al [soporte técnico de Azure](https://azure.microsoft.com/support/faq/). El equipo de Azure Storage revisa la solicitud y puede aprobar límites según el caso.
+<sup>2</sup> Si necesita límites ampliados de su cuenta de almacenamiento, póngase en contacto con el [soporte técnico de Azure](https://azure.microsoft.com/support/faq/). El equipo de Azure Storage revisa la solicitud y puede aprobar límites según el caso. Tanto las cuentas de uso general como las de Blob Storage admiten aumento de capacidad, entrada/salida y tasa de solicitudes por solicitud. Para información sobre los nuevos valores máximos para las cuentas de Blob Storage, consulte [Announcing larger, higher scale storage accounts](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/) (Anuncio de cuentas de almacenamiento más grandes y a mayor escala).
 
 <sup>3</sup> limitado únicamente por los límites de entrada/salida de la cuenta. *Entrada* hace referencia a todos los datos (solicitudes) que se envían a una cuenta de almacenamiento. *Salida* hace referencia a todos los datos (respuestas) recibidos desde una cuenta de almacenamiento.  
 

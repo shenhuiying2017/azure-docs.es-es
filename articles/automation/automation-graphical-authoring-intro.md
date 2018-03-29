@@ -1,24 +1,18 @@
 ---
-title: "Creación gráfica en Azure Automation | Microsoft Docs"
-description: "Creación gráfica le permite crear runbooks para Azure Automation sin trabajar con el código. Este artículo brinda una introducción a la creación gráfica y todos los detalles necesarios para comenzar a crear un runbook gráfico."
+title: Creación gráfica en Azure Automation
+description: Creación gráfica le permite crear runbooks para Azure Automation sin trabajar con el código. Este artículo brinda una introducción a la creación gráfica y todos los detalles necesarios para comenzar a crear un runbook gráfico.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: tysonn
-ms.assetid: 4b6f840c-e941-4293-a728-b33407317943
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/14/2017
-ms.author: magoedte;bwren
-ms.openlocfilehash: 34f896619e8fe02b0a88a8bbf52b9342a72bfd9a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+manager: carmonm
+ms.openlocfilehash: c67be9fc2fbeefd47b70f48885d641eebfbf2521
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Creación gráfica en Azure Automation
 ## <a name="introduction"></a>Introducción
@@ -52,7 +46,7 @@ El control de Biblioteca es donde selecciona las [actividades](#activities) para
 | Control de Runbook |Incluye las actividades de control de runbook que se pueden usar en el runbook actual. Una *unión* toma varias entradas y espera hasta que todas se completen antes de continuar con el flujo de trabajo. Una actividad de *código* ejecuta una o varias líneas de código de PowerShell o de flujo de trabajo de esta herramienta, en función del tipo de runbook gráfico. Puede usar esta actividad para ejecutar código personalizado o utilizar funcionalidades que sean difíciles de obtener con otras actividades. |
 
 ### <a name="configuration-control"></a>Control de Configuración
-En el control de Configuración se proporcionan los detalles de un objeto seleccionado del lienzo. Las propiedades disponibles en este control dependen del tipo de objeto seleccionado. Cuando selecciona una opción en el control Configuración, se abren hojas adicionales que proporcionan más información.
+En Control de configuración se proporcionan los detalles de un objeto seleccionado del lienzo. Las propiedades disponibles en este control dependen del tipo de objeto seleccionado. Cuando selecciona una opción en el control Configuración, se abren hojas adicionales que proporcionan más información.
 
 ### <a name="test-control"></a>Control de Prueba
 El control de Prueba no aparece cuando se inicia por primera vez el editor de gráficos. Se abre cuando [prueba un runbook gráfico](#graphical-runbook-procedures)de manera interactiva. 
@@ -61,7 +55,7 @@ El control de Prueba no aparece cuando se inicia por primera vez el editor de gr
 ### <a name="exporting-and-importing-a-graphical-runbook"></a>Exportación e importación de un runbook gráfico
 Solo puede exportar la versión publicada de un runbook gráfico. Si el runbook no se ha publicado aún, se deshabilita el botón **Exportar**. Al hacer clic en el botón **Exportar**, el runbook se descarga en el equipo local. El nombre del archivo coincide con el nombre del runbook con una extensión *graphrunbook* .
 
-Para importar un archivo de runbook gráfico o de runbook gráfico de flujo de trabajo de PowerShell, seleccione la opción **Importar** al agregar un runbook. Al seleccionar el archivo para importar, puede mantener el mismo **Nombre** o proporcionar otro nuevo. El campo Tipo de runbook mostrará el tipo de runbook después de que evalúe el archivo seleccionado. Además, si trata de elegir otro tipo que no es correcto, se presentará un mensaje donde se indica que hay posibles conflictos y que pueden producirse errores de sintaxis durante la conversión. 
+Para importar un archivo de runbook gráfico o de runbook gráfico de flujo de trabajo de PowerShell, seleccione la opción **Importar** al agregar un runbook. Al seleccionar el archivo para importar, puede mantener el mismo **Nombre** o proporcionar otro nuevo. El campo Tipo de Runbook mostrará el tipo de runbook después de que evalúe el archivo seleccionado. Además, si trata de elegir otro tipo que no es correcto, se presentará un mensaje donde se indica que hay posibles conflictos y que pueden producirse errores de sintaxis durante la conversión. 
 
 ![Importar runbook](media/automation-graphical-authoring-intro/runbook-import-revised20165.png)
 

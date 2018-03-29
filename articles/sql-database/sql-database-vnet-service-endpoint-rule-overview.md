@@ -1,27 +1,20 @@
 ---
-title: "Reglas y puntos de conexión del servicio de Virtual Network para Azure SQL Database | Microsoft Docs"
-description: "Marque una subred como punto de conexión del servicio de Virtual Network. A continuación, defina el punto de conexión como una regla de red virtual a la ACL de su instancia de Azure SQL Database. Su instancia de SQL Database aceptará la comunicación de todas las máquinas virtuales y otros nodos de la subred."
+title: Reglas y puntos de conexión del servicio de Virtual Network para Azure SQL Database | Microsoft Docs
+description: Marque una subred como punto de conexión del servicio de Virtual Network. A continuación, defina el punto de conexión como una regla de red virtual a la ACL de su instancia de Azure SQL Database. Su instancia de SQL Database aceptará la comunicación de todas las máquinas virtuales y otros nodos de la subred.
 services: sql-database
-documentationcenter: 
+ms.service: sql-database
 author: MightyPen
 manager: craigg
-editor: 
-tags: 
-ms.assetid: 
-ms.service: sql-database
 ms.custom: VNet Service endpoints
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: On Demand
-ms.date: 02/20/2018
+ms.date: 03/15/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.openlocfilehash: c1bb1698723af60544b89f4b3168c44a32d31afd
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 7622c6e6ffb1410cc2cbd42f6ac3601d281832da
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Reglas y puntos de conexión del servicio de Virtual Network para Azure SQL Database
 
@@ -237,6 +230,12 @@ En esta sección se muestra cómo puede usar [Azure Portal][http-azure-portal-li
 
 Un script de PowerShell también puede crear reglas de red virtual. El cmdlet fundamental es **New-AzureRmSqlServerVirtualNetworkRule**. Si le interesa, consulte [PowerShell to create a Virtual Network service endpoint and rule for Azure SQL Database][sql-db-vnet-service-endpoint-rule-powershell-md-52d] (PowerShell para crear una regla y un punto de conexión del servicio de Virtual Network para Azure SQL Database).
 
+#### <a name="rest-api-alternative"></a>Alternativa a la API REST
+
+Internamente, los cmdlets de PowerShell para acciones de red virtual SQL llaman a las API REST. Puede llamar directamente a las API REST.
+
+- [Reglas de red virtual: operaciones][rest-api-virtual-network-rules-operations-862r]
+
 #### <a name="prerequisites"></a>requisitos previos
 
 Ya debe tener una subred que esté etiquetada con el punto de conexión del servicio de Virtual Network *nombre de tipo* correspondiente a su instancia de Azure SQL Database.
@@ -293,9 +292,11 @@ Ya debe tener una subred que esté etiquetada con el punto de conexión del serv
 
 La característica de la regla de red virtual de Azure SQL Database empezó a estar disponible a finales de septiembre de 2017.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - [Use PowerShell para crear un punto de conexión del servicio de Virtual Network y, a continuación, una regla de red virtual para Azure SQL Database.][sql-db-vnet-service-endpoint-rule-powershell-md-52d]
+- [Reglas de red virtual: operaciones][rest-api-virtual-network-rules-operations-862r] con las API REST
+
 
 
 <!-- Link references, to images. -->
@@ -336,6 +337,7 @@ La característica de la regla de red virtual de Azure SQL Database empezó a es
 
 [http-azure-portal-link-ref-477t]: https://portal.azure.com/
 
+[rest-api-virtual-network-rules-operations-862r]: https://docs.microsoft.com/rest/api/sql/virtualnetworkrules
 
 
 

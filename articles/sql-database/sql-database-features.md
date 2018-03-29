@@ -2,19 +2,18 @@
 title: Comparación de características de Azure SQL Database | Microsoft Docs
 description: En este artículo se comparan las características de Azure SQL Database e Instancias administradas entre sí y con SQL Server.
 services: sql-database
-documentationcenter: ''
 author: jovanpop-msft
 ms.reviewer: bonova, carlrab
 ms.service: sql-database
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/16/2018
 ms.author: jovanpop
-manager: cguyer
-ms.openlocfilehash: 34aafdc377acf0b67674dbac2e67237440ed1420
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+manager: craigg
+ms.openlocfilehash: 4c50adeef0d6e811af6e144aa7351d9b65c1bd76
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Comparación de funciones: Azure SQL Database frente a SQL Server 
 
@@ -52,7 +51,7 @@ En las tablas siguientes se enumeran las características principales de SQL Ser
 | [Usuarios contenidos](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable) | Sí | Sí |
 | [Palabras clave del lenguaje de control de flujo](https://docs.microsoft.com/sql/t-sql/language-elements/control-of-flow) | Sí | Sí |
 | [Consultas entre bases de datos](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | No; consulte el artículo sobre [consultas elásticas](sql-database-elastic-query-overview.md) | Sí, más el artículo sobre [consultas elásticas](sql-database-elastic-query-overview.md) |
-| [Transacciones entre bases de datos]((https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine)) | Sin  | Sí |
+| [Transacciones entre bases de datos](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Sin  | Sí |
 | [Cursores](https://docs.microsoft.com/sql/t-sql/language-elements/cursors-transact-sql) | Sí |Sí | 
 | [Compresión de datos](https://docs.microsoft.com/sql/relational-databases/data-compression/data-compression) | Sí |Sí |
 | [Correo electrónico de base de datos](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail) | Sin  | Sí |

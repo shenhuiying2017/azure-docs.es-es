@@ -1,28 +1,27 @@
 ---
-title: "Supervisión de la carga de trabajo mediante DMV | Microsoft Docs"
-description: "Obtenga información sobre cómo supervisar la carga de trabajo mediante DMV."
+title: Supervisión de la carga de trabajo mediante DMV | Microsoft Docs
+description: Obtenga información sobre cómo supervisar la carga de trabajo mediante DMV.
 services: sql-data-warehouse
 documentationcenter: NA
 author: sqlmojo
 manager: jhubbard
-editor: 
-ms.assetid: 69ecd479-0941-48df-b3d0-cf54c79e6549
+editor: ''
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 12/14/2017
+ms.date: 03/15/2018
 ms.author: joeyong;barbkess;kevin
-ms.openlocfilehash: 1895e9c6174dfb05212991040cc265b8cb6e0651
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 3bd7431b9371b1de762558b8bd3c4ed0ed360495
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>Supervisión de la carga de trabajo mediante DMV
-En este artículo se describe cómo usar las vistas de administración dinámica (DMV) para supervisar la carga de trabajo e investigar la ejecución de la consulta en Azure SQL Data Warehouse.
+En este artículo se describe cómo usar vistas de administración dinámica (DMV) para supervisar la carga de trabajo. Esto incluye la investigación de la ejecución de consultas en Azure SQL Data Warehouse.
 
 ## <a name="permissions"></a>Permisos
 Para consultar las DMV de este artículo, necesita el permiso VER ESTADO DE BASE DE DATOS o CONTROL. Normalmente la concesión VER ESTADO DE BASE DE DATOS es el permiso preferido ya que es mucho más restrictivo.
@@ -72,7 +71,7 @@ WHERE   [label] = 'My Query';
 
 En los resultados de la consulta anterior, **fíjese en el id. de solicitud** de la consulta que quiere investigar.
 
-Las consultas con estado **suspendido** se ponen en cola debido a los límites de simultaneidad. Estas consultas también aparecen en la consulta sys.dm_pdw_waits con un tipo de UserConcurrencyResourceType. Para más información acerca de los límites de simultaneidad, consulte [Simultaneidad y administración de cargas de trabajo en SQL Data Warehouse][Concurrency and workload management]. Las consultas también pueden esperar por otros motivos, como los bloqueos de objetos.  Si la consulta está esperando un recurso, consulte la sección [Supervisión de consultas en espera][Investigating queries waiting for resources] de este mismo artículo.
+Las consultas con estado **suspendido** se ponen en cola debido a los límites de simultaneidad. Estas consultas también aparecen en la consulta sys.dm_pdw_waits con un tipo de UserConcurrencyResourceType. Para información sobre los límites de simultaneidad, consulte [Niveles de rendimiento](performance-tiers.md) o [Clases de recursos para la administración de cargas de trabajo](resource-classes-for-workload-management.md). Las consultas también pueden esperar por otros motivos, como los bloqueos de objetos.  Si la consulta está esperando un recurso, consulte la sección [Supervisión de consultas en espera][Investigating queries waiting for resources] de este mismo artículo.
 
 Para simplificar la búsqueda de una consulta en la tabla sys.dm_pdw_exec_requests, use [LABEL][LABEL] para asignar un comentario a la consulta que se pueda buscar en la vista sys.dm_pdw_exec_requests.
 
@@ -135,7 +134,7 @@ WHERE request_id = 'QID####' AND step_index = 2;
 ```
 
 * Compruebe la columna *total_elapsed_time* para ver si una distribución determinada tarda bastante más que otras en el movimiento de datos.
-* Para la distribución de larga ejecución, compruebe la columna *rows_processed* para ver si el número de filas que se mueven desde esa distribución es mucho mayor que para las demás. En ese caso, esto puede indicar un sesgo de los datos subyacentes.
+* Para la distribución de larga ejecución, compruebe la columna *rows_processed* para ver si el número de filas que se mueven desde esa distribución es mucho mayor que para las demás. En ese caso, este hallazgo puede indicar un sesgo de los datos subyacentes.
 
 Si la consulta se está ejecutando, [DBCC PDW_SHOWEXECUTIONPLAN][DBCC PDW_SHOWEXECUTIONPLAN] se puede utilizar para recuperar el plan estimado de SQL Server de la caché de planes de SQL Server para el paso de SQL que se está ejecutando en una distribución particular.
 
@@ -176,7 +175,7 @@ Si la consulta espera activamente recursos de otra consulta, el estado será **A
 ## <a name="monitor-tempdb"></a>Supervisión de tempdb
 El uso elevado de tempdb puede ser la causa principal de problemas de rendimiento lento y falta de memoria. Si observa que tempdb llega a su limite durante la ejecución de consultas, considere la posibilidad de escalar el almacenamiento de datos. A continuación se describe cómo identificar el uso de tempdb por consulta en cada nodo. 
 
-Cree la siguiente vista para asociar el identificador de nodo apropiado para sys.dm_pdw_sql_requests. Esto le permitirá aprovechar otras DMV de paso y combinar esas tablas con sys.dm_pdw_sql_requests.
+Cree la siguiente vista para asociar el identificador de nodo apropiado para sys.dm_pdw_sql_requests. Tener el identificador de nodo le permite usar otras DMV de paso a través y unir esas tablas con sys.dm_pdw_sql_requests.
 
 ```sql
 -- sys.dm_pdw_sql_requests with the correct node id
@@ -200,7 +199,7 @@ CREATE VIEW sql_requests AS
 FROM sys.pdw_distributions AS d
 RIGHT JOIN sys.dm_pdw_sql_requests AS sr ON d.distribution_id = sr.distribution_id)
 ```
-Ejecute la consulta siguiente para supervisar tempdb:
+Para supervisar tempdb, ejecute la siguiente consulta:
 
 ```sql
 -- Monitor tempdb
@@ -283,18 +282,16 @@ JOIN sys.dm_pdw_nodes nod ON t.pdw_node_id = nod.pdw_node_id
 GROUP BY t.pdw_node_id, nod.[type]
 ```
 
-## <a name="next-steps"></a>pasos siguientes
-Para más información acerca de las DMV, consulte [Vistas del sistema][System views].
-Para más información acerca de los procedimientos recomendados, consulte [Procedimientos recomendados para SQL Data Warehouse][SQL Data Warehouse best practices]
+## <a name="next-steps"></a>Pasos siguientes
+Para más información sobre las DMV, consulte [Vistas del sistema][System views].
+
 
 <!--Image references-->
 
 <!--Article references-->
-[Manage overview]: ./sql-data-warehouse-overview-manage.md
 [SQL Data Warehouse best practices]: ./sql-data-warehouse-best-practices.md
 [System views]: ./sql-data-warehouse-reference-tsql-system-views.md
 [Table distribution]: ./sql-data-warehouse-tables-distribute.md
-[Concurrency and workload management]: ./sql-data-warehouse-develop-concurrency.md
 [Investigating queries waiting for resources]: ./sql-data-warehouse-manage-monitor.md#waiting
 
 <!--MSDN references-->

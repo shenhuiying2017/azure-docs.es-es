@@ -1,12 +1,12 @@
 ---
-title: "La interacción humana y los tiempos de espera en Durable Functions: Azure"
-description: "Aprenda a controlar la interacción humana y los tiempos de espera en la extensión Durable Functions para Azure Functions."
+title: 'La interacción humana y los tiempos de espera en Durable Functions: Azure'
+description: Aprenda a controlar la interacción humana y los tiempos de espera en la extensión Durable Functions para Azure Functions.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 1763c63b37c5e6b326c3623dc058974f718ac990
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: e0b919ae5ef0639c8afdc5f9b006d899c8dbc4c1
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Las interacciones humanas en Durable Functions: comprobación telefónica de ejemplo
 
@@ -26,7 +26,7 @@ Este ejemplo muestra cómo compilar una orquestación de [Durable Functions](dur
 
 En este ejemplo se implementa un sistema de comprobación telefónica por SMS. A menudo se usan estos tipos de flujos al comprobar el número de teléfono de un cliente o para la autenticación multifactor (MFA). Este es un ejemplo eficaz, porque toda la implementación se realiza con un par de pequeñas funciones. No se necesita almacén de datos externo, como una base de datos.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 * Siga las instrucciones del artículo de [instalación de Durable Functions](durable-functions-install.md) para configurar el ejemplo.
 * En este artículo se da por supuesto que ya se ha leído el tutorial de [Hello Sequence](durable-functions-sequence.md) de ejemplo.
@@ -35,21 +35,13 @@ En este ejemplo se implementa un sistema de comprobación telefónica por SMS. A
 
 La comprobación telefónica sirve para verificar la identidad de los usuarios finales de la aplicación y que no son responsables de correo basura. La autenticación multifactor es un caso de uso común para proteger las cuentas de usuario de los piratas informáticos. La dificultad de implementar su propia comprobación telefónica consiste en que requiere una **interacción con estado** con una persona. Normalmente, al usuario final se le proporciona código (por ejemplo, un número de 4 dígitos) y debe responder **en un intervalo de tiempo razonable**.
 
-Las instancias normales de Azure Functions no tienen estado (igual que muchos otros puntos de conexión en la nube de otras plataformas), por lo que estos tipos de interacciones implicarán explícitamente la administración externa del estado en una base de datos u almacén de estado persistente. Además, la interacción debe dividirse en varias funciones que se puedan coordinar entre sí. Por ejemplo, necesita al menos una función para determinar un código, almacenarlo en alguna parte y enviarlo al teléfono del usuario. Además, necesita al menos un otra función para recibir una respuesta del usuario y asignarla de algún modo a la llamada de función original para la validación del código. El tiempo de espera también es un aspecto importante para garantizar la seguridad. Esto puede llegar a ser bastante complejo muy rápidamente.
+Las instancias normales de Azure Functions no tienen estado (igual que muchos otros puntos de conexión en la nube de otras plataformas), por lo que estos tipos de interacciones implican explícitamente la administración externa del estado en una base de datos u otro almacén persistente. Además, la interacción debe dividirse en varias funciones que se puedan coordinar entre sí. Por ejemplo, necesita al menos una función para determinar un código, almacenarlo en alguna parte y enviarlo al teléfono del usuario. Además, necesita al menos un otra función para recibir una respuesta del usuario y asignarla de algún modo a la llamada de función original para la validación del código. El tiempo de espera también es un aspecto importante para garantizar la seguridad. Este factor puede complicarse bon bastante rapidez.
 
-Con Durable Functions se reduce enormemente la complejidad de este escenario. Como verá en este ejemplo, una función de orquestador puede administrar la interacción con estado muy fácilmente y sin almacenes de datos externos. Dado que las funciones de orquestador son *durables*, estos flujos interactivos también son muy confiables.
+Con Durable Functions se reduce enormemente la complejidad de este escenario. Como verá en este ejemplo, una función de orquestador puede administrar la interacción con estado muy fácilmente y sin que intervengan almacenes de datos externos. Dado que las funciones de orquestador son *durables*, estos flujos interactivos también son muy confiables.
 
 ## <a name="configuring-twilio-integration"></a>Configuración de la integración de Twilio
 
-En este ejemplo se usa el servicio [Twilio](https://www.twilio.com/) para enviar mensajes SMS a un teléfono móvil. Azure Functions ya compatible con Twilio a través del [enlace de Twilio](https://docs.microsoft.com/azure/azure-functions/functions-bindings-twilio), el ejemplo utiliza esa característica.
-
-Lo primero que necesita es una cuenta de Twilio. Puede crear una gratis en https://www.twilio.com/try-twilio. Cuando tenga una cuenta, agregue los tres **valores de configuración de la aplicación** siguientes a la aplicación de función.
-
-| Nombre del valor de configuración de la aplicación | Descripción del valor |
-| - | - |
-| **TwilioAccountSid**  | Identificador de seguridad de la cuenta de Twilio |
-| **TwilioAuthToken**   | Token de autenticación de la cuenta de Twilio |
-| **TwilioPhoneNumber** | Número de teléfono asociado a la cuenta de Twilio, que se utiliza para enviar mensajes SMS. |
+[!INCLUDE [functions-twilio-integration](../../includes/functions-twilio-integration.md)]
 
 ## <a name="the-functions"></a>Funciones
 
@@ -75,7 +67,7 @@ Una vez iniciada, la función de orquestador hace lo siguiente:
 1. Obtiene un número de teléfono al que *enviar* la notificación mediante SMS.
 2. Llama a **E4_SendSmsChallenge** para enviar un mensaje SMS al usuario y devuelve el código de desafío de 4 dígitos esperado.
 3. Crea un temporizador durable que se desencadena 90 segundos a partir de la hora actual.
-4. En paralelo con el temporizador, espera un evento **SmsChallengeResponse** del usuario.
+4. Además del temporizador, espera un evento **SmsChallengeResponse** del usuario.
 
 El usuario recibe un mensaje SMS con un código de cuatro dígitos. Tiene 90 segundos para devolver ese mismo código de 4 dígitos a la instancia de la función de orquestador para completar el proceso de comprobación. Si envía un código incorrecto, tiene otros tres intentos para enviar el correcto (dentro de esos mismos 90 segundos).
 
@@ -99,7 +91,7 @@ A esta función **E4_SendSmsChallenge** solo se la llama una vez, aunque el proc
 
 ## <a name="run-the-sample"></a>Ejecución del ejemplo
 
-Con las funciones desencadenadas mediante HTTP del ejemplo, puede iniciar la orquestación con el envío de la siguiente solicitud HTTP POST.
+Con las funciones desencadenadas mediante HTTP del ejemplo, puede iniciar la orquestación con el envío de la siguiente solicitud HTTP POST:
 
 ```
 POST http://{host}/orchestrators/E4_SmsPhoneVerification

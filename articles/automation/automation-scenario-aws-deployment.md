@@ -1,24 +1,18 @@
 ---
-title: "Automatización de la implementación de una máquina virtual en Amazon Web Services | Microsoft Docs"
-description: "En este artículo se muestra cómo usar Azure Automation para automatizar la creación de una máquina virtual de Amazon Web Services"
+title: Automatización de la implementación de una máquina virtual en Amazon Web Services
+description: En este artículo se muestra cómo usar Azure Automation para automatizar la creación de una máquina virtual de Amazon Web Services
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: 
-ms.assetid: 1d85c01a-d795-4523-8194-84fc15b53838
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/29/2017
-ms.author: tiandert; bwren
-ms.openlocfilehash: ba86789a9571c4b09a0224e6c41497f091968ef8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+manager: carmonm
+ms.openlocfilehash: 371510bf335bda2e2475e6ba3f5f74ee2117d9a5
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-automation-scenario---provision-an-aws-virtual-machine"></a>Escenario de Azure Automation: aprovisionamiento de una máquina virtual de AWS
 En este artículo aprenderá cómo se puede aprovechar Azure Automation para aprovisionar una máquina virtual en su suscripción de Amazon Web Services (AWS) y asignar a dicha máquina virtual un nombre específico, lo que AWS denomina "etiquetar" la máquina virtual.
@@ -102,7 +96,7 @@ Antes de probar el runbook, es necesario verificar algunas cosas. Concretamente:
 4. Para ver el progreso del trabajo y las **transmisiones** de salida, seleccione el icono **Todos los registros** en la página del trabajo de runbook.<br><br> ![Salida de transmisiones](./media/automation-scenario-aws-deployment/runbook-job-streams-output.png)
 5. Para confirmar que la máquina virtual se está aprovisionando, inicie sesión en la Consola de administración de AWS si todavía no ha iniciado sesión.<br><br> ![Máquinas virtual implementada en consola AWS](./media/automation-scenario-aws-deployment/aws-instances-status.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Para empezar a trabajar con cuadernos gráficos, consulte [Mi primer runbook gráfico](automation-first-runbook-graphical.md)
 * Para empezar a trabajar con runbooks de flujo de trabajo de PowerShell, consulte [Mi primer runbook de flujo de trabajo de PowerShell](automation-first-runbook-textual.md)
 * Para obtener más información sobre los tipos de runbook, sus ventajas y sus limitaciones, consulte [Tipos de runbooks de Azure Automation](automation-runbook-types.md)

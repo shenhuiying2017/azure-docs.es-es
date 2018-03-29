@@ -1,24 +1,24 @@
 ---
-title: "Conexión de Azure SQL Database a Azure Search con indexadores | Microsoft Docs"
-description: "Obtenga información sobre cómo extraer datos de Azure SQL Database en un índice de Azure Search mediante el uso de indexadores."
+title: Conexión de Azure SQL Database a Azure Search con indexadores | Microsoft Docs
+description: Obtenga información sobre cómo extraer datos de Azure SQL Database en un índice de Azure Search mediante el uso de indexadores.
 services: search
-documentationcenter: 
+documentationcenter: ''
 author: chaosrealm
 manager: pablocas
-editor: 
+editor: ''
 ms.assetid: e9bbf352-dfff-4872-9b17-b1351aae519f
 ms.service: search
 ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 07/13/2017
+ms.date: 08/12/2018
 ms.author: eugenesh
-ms.openlocfilehash: 2ec1e02ccc8d8916f6d9d50ce787f2562f33fd7d
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 5f85b81e894cba7354fb146d6e9a1aa987be7dc5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>Conexión de Azure SQL Database a Azure Search con indexadores
 
@@ -57,6 +57,9 @@ Según varios factores relacionados con los datos, el uso del indizador de SQL A
 | Los tipos de datos son compatibles | En un índice de Azure Search se admite la mayoría de los tipos de SQL, aunque no todos. Para obtener una lista, vea [Asignación de tipos de datos](#TypeMapping). |
 | No se requiere la sincronización de datos en tiempo real | Un indexador puede volver a indexar la tabla cada cinco minutos como máximo. Si los datos cambian con frecuencia y los cambios deben reflejarse en el índice en cuestión de segundos o minutos, se recomienda usar la [API de REST](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents) o el [SDK de .NET](search-import-data-dotnet.md) para insertar directamente las filas actualizadas. |
 | Se permite la indexación incremental | Si tiene un conjunto de datos grande y prevé ejecutar el indexador en una programación, Azure Search debe ser capaz de identificar de forma eficaz las filas nuevas, cambiadas y eliminadas. Solo se permite la indexación no incremental si se indexa a petición (no en una programación), o se indexan menos de 100 000 filas. Para más información, vea [Capturar filas cambiadas y eliminadas](#CaptureChangedRows) a continuación. |
+
+> [!NOTE] 
+> Azure Search solo admite la autenticación de SQL Server. Si necesita soporte técnico para la autenticación de contraseña de Azure Active Directory, vote por esta [sugerencia de UserVoice](https://feedback.azure.com/forums/263029-azure-search/suggestions/33595465-support-azure-active-directory-password-authentica).
 
 ## <a name="create-an-azure-sql-indexer"></a>Crear un indexador de Azure SQL
 
@@ -302,7 +305,7 @@ El indexador de SQL expone varios valores de configuración:
 
 | Configuración | Tipo de datos | Propósito | Valor predeterminado |
 | --- | --- | --- | --- |
-| queryTimeout |cadena |Establece el tiempo de espera para la ejecución de consultas SQL |5 minutos ("00:05:00") |
+| queryTimeout |string |Establece el tiempo de espera para la ejecución de consultas SQL |5 minutos ("00:05:00") |
 | disableOrderByHighWaterMarkColumn |booleano |Hace que la consulta SQL utilizada por la directiva de límite superior omita la cláusula ORDER BY. Consulte [Directiva de detección de cambios de límite superior](#HighWaterMarkPolicy). |false |
 
 Esta configuración se utiliza en el objeto `parameters.configuration` en la definición del indexador. Por ejemplo, para establecer el tiempo de espera de consulta en 10 minutos, cree o actualice el indexador con la siguiente configuración:

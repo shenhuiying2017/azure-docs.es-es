@@ -1,13 +1,13 @@
 ---
-title: "Acerca de la supervisión de redes en Log Analytics | Microsoft Docs"
-description: "Introducción a las soluciones de supervisión de redes, como es NPM, para administrar redes en entornos en la nube, locales e híbridos."
+title: Acerca de la supervisión de redes en Log Analytics | Microsoft Docs
+description: Introducción a las soluciones de supervisión de redes, como es NPM, para administrar redes en entornos en la nube, locales e híbridos.
 services: monitoring-and-diagnostics
 documentationcenter: na
 author: agummadi
-manager: 
-editor: 
+manager: ''
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ajaycode
-ms.openlocfilehash: 6d93821b59e1f69a48c3d5eeda96dad2edddb188
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 7b9f42607f313f5570f414e810eafc6775ea18b9
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="network-monitoring-solutions"></a>Soluciones de supervisión de redes 
 
@@ -33,6 +33,8 @@ Network Performance Monitor (NPM) es un conjunto de funcionalidades, cada una or
 * Varios centros de datos y sucursales
 * Aplicaciones y microservicios esenciales de niveles múltiples
 * Aplicaciones basadas en web (HTTP/HTTPs) y ubicaciones de usuario 
+
+Monitor de rendimiento, Supervisión de ExpressRoute y Monitor de puntos de conexión de servicio son funcionalidades de supervisión dentro de NPM y se describen a continuación.
 
 ## <a name="performance-monitor"></a>Supervisión del rendimiento
 
@@ -67,7 +69,7 @@ Para más información, consulte los siguientes artículos.
 * [Configuración de Network Performance Monitor para ExpressRoute](../expressroute/how-to-npm.md)
 * [Entrada de blog](https://aka.ms/NPMExRmonitorGA)
 
-## <a name="service-endpoint-monitor"></a>Supervisión de puntos de conexión de servicio
+## <a name="service-endpoint-monitor"></a>Monitor de puntos de conexión de servicio
 
 Con la supervisión de puntos de conexión de servicio, ahora puede probar la accesibilidad de las aplicaciones y detectar los cuellos de botella en el rendimiento de las redes locales, redes de operadores y centros de datos en la nube y privados.
 
@@ -83,7 +85,38 @@ Para más información, consulte los siguientes artículos.
 * [Configurar Network Performance Monitor para la supervisión de puntos de conexión de servicio](https://aka.ms/applicationconnectivitymonitorguide)
 * [Entrada de blog](https://aka.ms/svcendptmonitor)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="traffic-analytics"></a>Análisis de tráfico
+Análisis de tráfico es una solución basada en la nube que proporciona visibilidad sobre la actividad de usuarios y aplicaciones en las redes en la nube. Los registros del flujo de NSG se analizan para proporcionar información sobre:
+
+* El flujo de tráfico a través de las redes entre Azure e Internet, las regiones de la nube pública, las redes virtuales y las subredes.
+* Las aplicaciones y los protocolos de la red, sin necesidad de rastreadores o aparatos de recopilación de flujo dedicados.
+* Top Talkers, aplicaciones comunicativas, conversaciones de máquinas virtuales en la nube, zonas activas de tráfico.
+* Orígenes y destinos del tráfico entre redes virtuales, interrelaciones entre servicios y aplicaciones críticos para el negocio.
+* Seguridad: tráfico malintencionado, puertos abiertos a Internet, aplicaciones o máquinas virtuales que intentan acceder a Internet…
+* Utilización de la capacidad: le ayuda a eliminar los problemas de aprovisionamiento en exceso o infrautilización al supervisarse las tendencias de uso de las puertas de enlace de VPN y otros servicios.
+
+Análisis de tráfico le proporciona información práctica que le ayuda a auditar la actividad de red de la organización, a proteger las aplicaciones y los datos, a optimizar el rendimiento de la carga de trabajo y a satisfacer los requisitos de cumplimiento.
+
+![Mapa geográfico que muestra el tráfico entre regiones](../network-watcher/media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png) 
+
+Vínculos relacionados:
+* [Entrada de blog](https://aka.ms/trafficanalytics), [Documentación](https://aka.ms/trafficanalyticsdocs), [Preguntas frecuentes](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-faq)
+
+## <a name="dns-analytics"></a>DNS Analytics
+Creada para los administradores de DNS, esta solución recopila, analiza y correlaciona registros DNS para proporcionar información detallada relacionada con la seguridad, las operaciones y el rendimiento.  Algunas de las funcionalidades son:
+
+* Identificación de los clientes que intentan resolver dominios malintencionados.
+* Identificación de registros de recursos obsoletos.
+* Visibilidad sobre los nombres de dominio consultados con más frecuencia y los clientes DNS participativos.
+* Visibilidad sobre la carga de solicitudes en servidores DNS.
+* Supervisión de errores de registro DNS dinámicos.
+
+![Panel de DNS Analytics](./media/network-monitoring-overview/dns-analytics-overview.png) 
+
+Vínculos relacionados:
+* [Entrada de blog](https://blogs.technet.microsoft.com/msoms/2017/04/19/introducing-oms-dns-analytics/), [Documentación](https://docs.microsoft.com/azure/log-analytics/log-analytics-dns)
+
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Configuración de Network Performance Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor)
 * [Configuración de Network Performance Monitor para ExpressRoute](../expressroute/how-to-npm.md)

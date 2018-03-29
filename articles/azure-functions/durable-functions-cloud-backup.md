@@ -1,12 +1,12 @@
 ---
-title: "Escenarios de distribución ramificada de entrada/salida en Durable Functions: Azure"
-description: "Aprenda a implementar un escenario de distribución ramificada de entrada y salida en la extensión Durable Functions para Azure Functions."
+title: 'Escenarios de distribución ramificada de entrada/salida en Durable Functions: Azure'
+description: Aprenda a implementar un escenario de distribución ramificada de entrada y salida en la extensión Durable Functions para Azure Functions.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: a5d539172f03246e3c658f2485d29d3ae389ae52
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 446ddbff7d945e90ebfd12bc6e9e7a1f0e18267c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Escenario de distribución ramificada de entrada/salida en Durable Functions: ejemplo de copia de seguridad en la nube
 
 La *distribución ramificada de entrada y salida* hace referencia al patrón de ejecución simultánea de varias funciones y la agregación de resultados. En este artículo se explica un ejemplo que usa [Durable Functions](durable-functions-overview.md) para implementar un escenario de distribución ramificada de entrada y salida. El ejemplo es una instancia de Durable Functions que realiza una copia de seguridad parcial o total del contenido de una aplicación en Azure Storage.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 * Siga las instrucciones del artículo de [instalación de Durable Functions](durable-functions-install.md) para configurar el ejemplo.
 * En este artículo se da por supuesto que ya se ha leído el tutorial de [Hello Sequence](durable-functions-sequence.md) de ejemplo.
@@ -158,7 +158,7 @@ Esta es la orquestación como archivo único de C# en un proyecto de Visual Stud
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Este ejemplo ha mostrado cómo implementar el modelo de distribución ramificada de salida y entrada. El ejemplo siguiente muestra cómo implementar el modelo [singleton con estado](durable-functions-singletons.md) en una [orquestación eterna](durable-functions-eternal-orchestrations.md).
+Este ejemplo ha mostrado cómo implementar el modelo de distribución ramificada de salida y entrada. En el ejemplo siguiente se muestra cómo implementar el patrón de supervisión con [temporizadores durables](durable-functions-timers.md).
 
 > [!div class="nextstepaction"]
-> [Ejecución del ejemplo de singleton con estado](durable-functions-counter.md)
+> [Ejecutar el ejemplo de supervisión](durable-functions-monitor.md)

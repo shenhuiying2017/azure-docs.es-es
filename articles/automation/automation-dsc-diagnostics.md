@@ -1,23 +1,20 @@
 ---
-title: "Reenvío de datos de informes de DSC de Azure Automation a Log Analytics de OMS | Microsoft Docs"
-description: "En este artículo se muestra cómo enviar datos de los informes de Desired State Configuration (DSC) a Log Analytics de Microsoft Operations Management Suite para ofrecer mayor información y administración."
+title: Reenvío de datos de informes de DSC de Automatización de Azure a Log Analytics
+description: En este artículo se muestra cómo enviar datos de los informes de Desired State Configuration (DSC) a Log Analytics para ofrecer mayor información y administración.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: tysonn
 ms.service: automation
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/24/2017
+author: georgewallace
 ms.author: gwallace
-ms.openlocfilehash: 5de22072a436e7a2dbaa7d413595c048f730189b
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.date: 03/16/2018
+ms.topic: article
+manager: carmonm
+ms.devlang: na
+ms.tgt_pltfrm: na
+ms.openlocfilehash: d06ec240477c2defca7a463b2e9338bc5e3930ab
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="forward-azure-automation-dsc-reporting-data-to-oms-log-analytics"></a>Reenvío de datos de informes de DSC de Azure Automation a Log Analytics de OMS
 
@@ -30,7 +27,7 @@ El estado de cumplimiento se puede ver en Azure Portal, o con PowerShell, tanto 
 * Correlacionar el estado de cumplimiento en las cuentas de Automation
 * Visualizar el historial de cumplimiento de los nodo con el paso del tiempo
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para empezar a enviar los registros de DSC de Automation a Log Analytics, necesita:
 
@@ -121,7 +118,7 @@ Diagnostics, de Azure Automation, crea dos categorías de registros en Log Analy
 
 ### <a name="dscnodestatusdata"></a>DscNodeStatusData
 
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 | --- | --- |
 | TimeGenerated |Fecha y hora en que se ejecutó la comprobación de cumplimiento. |
 | nombreOperación |DscNodeStatusData |
@@ -152,7 +149,7 @@ Diagnostics, de Azure Automation, crea dos categorías de registros en Log Analy
 
 ### <a name="dscresourcestatusdata"></a>DscResourceStatusData
 
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 | --- | --- |
 | TimeGenerated |Fecha y hora en que se ejecutó la comprobación de cumplimiento. |
 | nombreOperación |DscResourceStatusData|

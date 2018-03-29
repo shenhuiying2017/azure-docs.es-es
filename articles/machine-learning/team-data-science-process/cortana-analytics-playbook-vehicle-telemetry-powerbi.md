@@ -1,8 +1,8 @@
 ---
-title: "Panel de Power BI de hábitos de mantenimiento y conducción de vehículos (Azure) | Microsoft Docs"
-description: "Aproveche las posibilidades de Cortana Intelligence para obtener información en tiempo real y predictiva del estado de los vehículos y los hábitos de conducción."
+title: Panel de Power BI de hábitos de mantenimiento y conducción de vehículos (Azure) | Microsoft Docs
+description: Aproveche las posibilidades de Cortana Intelligence para obtener información en tiempo real y predictiva del estado de los vehículos y los hábitos de conducción.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -12,22 +12,22 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 03/14/2018
 ms.author: bradsev
-ms.openlocfilehash: 626987ec0648f9e770499b4a48bc4ca2d175d2b4
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 6a46a05539a7211fbc2a3a9f6ec45a28f5c64039
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="vehicle-telemetry-analytics-solution-template-power-bi-dashboard-setup-instructions"></a>Instrucciones de configuración del panel de Power BI para la plantilla de la solución Vehicle Telemetry Analytics
 Este menú está relacionado con los capítulos de este playbook: 
 
 [!INCLUDE [cap-vehicle-telemetry-playbook-selector](../../../includes/cap-vehicle-telemetry-playbook-selector.md)]
 
-La solución Vehicle Telemetry Analytics demuestra cómo los concesionarios de vehículos, los fabricantes de automóviles y las compañías de seguros pueden usar las funcionalidades de Cortana Intelligence. Así, pueden obtener información predictiva y en tiempo real sobre los hábitos de mantenimiento y conducción de vehículos con el objetivo de mejorar la experiencia del cliente, la investigación y el desarrollo, así como las campañas de marketing. Estas instrucciones paso a paso muestran cómo puede configurar los informes y el panel de Power BI después de implementar la solución en su suscripción. 
+La solución Vehicle Telemetry Analytics muestra cómo los concesionarios de vehículos, los fabricantes de automóviles y las compañías de seguros pueden usar las funcionalidades de Cortana Intelligence. Así, pueden obtener información predictiva y en tiempo real sobre los hábitos de mantenimiento y conducción de vehículos con el objetivo de mejorar la experiencia del cliente, la investigación y el desarrollo, así como las campañas de marketing. Estas instrucciones paso a paso muestran cómo puede configurar los informes y el panel de Power BI después de implementar la solución en su suscripción. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 * Implemente la solución [Vehicle Telemetry Analytics](https://gallery.cortanaintelligence.com/Solution/5bdb23f3abb448268b7402ab8907cc90). 
 * [Instale Power BI Desktop](http://www.microsoft.com/download/details.aspx?id=45331).
 * Obtenga una [suscripción a Azure](https://azure.microsoft.com/pricing/free-trial/). Si no tiene una suscripción a Azure, comience con una suscripción gratuita.
@@ -42,7 +42,7 @@ Como parte de la plantilla de la solución Vehicle Telemetry Analytics, se imple
 * **Azure HDInsight** transforma los datos a escala.
 * **Azure Data Factory** controla la orquestación, la programación, la administración de recursos y la supervisión de la canalización del procesamiento por lotes.
 
-**Power BI** ofrece a esta solución un panel completo para datos en tiempo real y visualizaciones de análisis predictivo. 
+**Power BI** ofrece a esta solución un panel completo para datos y visualizaciones de análisis predictivo. 
 
 Esta solución usa dos orígenes de datos diferentes:
 
@@ -160,7 +160,7 @@ Puede configurar los tres informes en tiempo real, o puede detenerse después de
 
     ![Panel con visualizaciones](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4k.png)
 
-Ha configurado correctamente el informe en tiempo real de "Vehículos en funcionamiento". Puede crear el siguiente informe en tiempo real o detenerse aquí y configurar el panel. 
+Ha configurado correctamente el informe Vehículos en funcionamiento. Puede crear el siguiente informe en tiempo real o detenerse aquí y configurar el panel. 
 
 ### <a name="vehicles-requiring-maintenance-report"></a>Informe de vehículos que requieren mantenimiento
 
@@ -198,7 +198,7 @@ Ha configurado correctamente el informe en tiempo real de "Vehículos en funcion
 
 6. En la pestaña **Campos**, arrastre **Model** al área **Eje**. Arrastre **vin** al área **Valor**. Después, ordene la visualización por **Recuento de vin**. Cambie el **título** del gráfico a **Vehículos que necesitan mantenimiento por modelo**. 
 
-7. En la sección **Campos** ![Campos](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4field.png) de la pestaña **Visualizaciones**, arrastre **vin** a **Saturación de color**.
+7. En la sección **Campos** ![imagen de Campos](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4field.png) de la pestaña **Visualizaciones**, arrastre **vin** a **Saturación de color**.
 
     ![Saturación de color](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4q.png)  
 
@@ -298,7 +298,7 @@ Ha configurado correctamente el informe en tiempo real "Vehículos que requieren
 
     ![Tipo de agregación](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4ff.png)
 
-22. Cambie el **título** del gráfico por **Media de aceite del motor, presión de los neumáticos, velocidad y probabilidad de mantenimiento por modelo**.
+22. Cambie el **título** del gráfico por **Valores medios de aceite del motor, presión de los neumáticos, velocidad y probabilidad de mantenimiento por modelo**.
 
     ![Título del gráfico de áreas](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4gg.png)
 
@@ -333,7 +333,7 @@ Ha creado correctamente el panel en tiempo real. Mientras ejecuta CarEventGenera
 
 ## <a name="set-up-the-power-bi-batch-processing-dashboard"></a>Configuración del panel de procesamiento por lotes de Power BI
 > [!NOTE]
-> La canalización del procesamiento por lotes de un extremo a otro tarda unas dos horas en ejecutarse (a partir de la finalización correcta de la implementación) y en procesar un año de datos generados. Espere a que el procesamiento finalice antes de continuar con los pasos siguientes. 
+> La canalización del procesamiento por lotes de un extremo a otro tarda unas dos horas en ejecutarse (a partir de la finalización correcta de la implementación) y en procesar un año de datos generados. Espere a que el procesamiento finalice antes de continuar con los pasos siguientes:
 > 
 > 
 

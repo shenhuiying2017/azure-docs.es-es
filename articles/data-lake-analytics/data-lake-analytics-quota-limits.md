@@ -1,40 +1,38 @@
 ---
-title: "Límites de cuota de Azure Data Lake Analytics | Microsoft Docs"
-description: "Obtenga información sobre cómo ajustar y aumentar los límites de cuota en cuentas de Azure Data Lake Analytics (ADLA)."
+title: Límites de cuota de Azure Data Lake Analytics
+description: Obtenga información sobre cómo ajustar y aumentar los límites de cuota en cuentas de Azure Data Lake Analytics (ADLA).
 services: data-lake-analytics
-keywords: "Análisis con Azure Data Lake"
-documentationcenter: 
+keywords: Análisis con Azure Data Lake
+documentationcenter: ''
 author: omidm1
 editor: omidm1
 ms.assetid: 49416f38-fcc7-476f-a55e-d67f3f9c1d34
 ms.service: data-lake-analytics
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/18/2017
+ms.date: 03/15/2018
 ms.author: omidm
-ms.openlocfilehash: 957f306ea0e80b5830ad64e5ef06c6d122d9eccc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 22774511720173915207da80a6ca33d5dbc83e19
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-data-lake-analytics-quota-limits"></a>Límites de cuota de Azure Data Lake Analytics
 
-Obtenga información sobre cómo ajustar y aumentar los límites de cuota en cuentas de Azure Data Lake Analytics (ADLA). Conocer estos límites puede ayudarle a comprender su comportamiento de trabajos de U-SQL. Todos los límites de cuota son flexibles, y siempre se puede poner en contacto con nosotros para aumentar los límites máximos.
+Obtenga información sobre cómo ajustar y aumentar los límites de cuota en cuentas de Azure Data Lake Analytics (ADLA). Conocer estos límites puede ayudarle a comprender su comportamiento de trabajos de U-SQL. Todos los límites de cuota son flexibles, y siempre se puede poner en contacto con el servicio de soporte técnico de Azure para aumentar los límites máximos.
 
 ## <a name="azure-subscriptions-limits"></a>Límites de las suscripciones de Azure
 
 **Número máximo de cuentas de ADLA por suscripción:** 5
 
- Este es el número máximo de cuentas de ADLA que puede crear por suscripción. Al intentar crear la sexta cuenta de ADLA, se muestra el error "Ha alcanzado el número máximo de cuentas de Data Lake Analytics permitido (5) en {región} con la suscripción {nombre}". En este caso, elimine las cuentas de ADLA sin usar, o póngase en contacto con nosotros mediante la [apertura de un vale de soporte](#increase-maximum-quota-limits).
+Este es el número máximo de cuentas de ADLA que puede crear por cada suscripción y región. Al intentar crear la sexta cuenta de ADLA, se muestra el error "Ha alcanzado el número máximo de cuentas de Data Lake Analytics permitido (5) en {región} con la suscripción {nombre}". En esta situación, puede elegir otra región si es adecuado, eliminar las cuentas de ADLA no utilizadas en la misma región o ponerse en contacto con el servicio de soporte técnico de Azure mediante la [apertura de una incidencia de soporte técnico](#increase-maximum-quota-limits) para solicitar un aumento de la cuota.
 
 ## <a name="adla-account-limits"></a>Límites de la cuenta de ADLA
 
 **Número máximo de unidades de análisis por cuenta:** 250
 
-Es el número máximo de unidades de análisis que se pueden ejecutar de forma simultánea en su cuenta. Si el total de unidades de análisis entre todos los trabajos supera este límite, los trabajos nuevos se ponen en cola automáticamente. Por ejemplo:
+Es el número máximo de unidades de análisis que se pueden ejecutar de forma simultánea en su cuenta. Si el total de unidades de análisis en ejecución entre todos los trabajos supera este límite, los trabajos nuevos se ponen en cola automáticamente. Por ejemplo: 
 
 * Si solo tiene un trabajo en ejecución con doscientas cincuenta unidades de análisis, cuando envíe un segundo trabajo, este permanecerá en la cola de trabajos hasta que el primero se complete.
 * Si ya tiene cinco trabajos en ejecución y cada uno usa cincuenta unidades de análisis, al enviar un sexto trabajo que necesita veinte unidades de análisis, este permanecerá en la cola de trabajos hasta que haya veinte unidades de análisis disponibles.
@@ -45,29 +43,29 @@ Es el número máximo de trabajos que se pueden ejecutar de forma simultánea en
 
 ## <a name="adjust-adla-quota-limits-per-account"></a>Ajuste de los límites de cuota de ADLA por cuenta
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Elija una cuenta de ADLA existente.
 3. Haga clic en **Propiedades**.
 4. Ajuste los valores de **Paralelismo** y **Trabajos simultáneos** según sus necesidades.
 
-    ![Hoja del portal de Análisis de Azure Data Lake](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-properties.png)
+    ![Página del portal de Azure Data Lake Analytics](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-properties.png)
 
 ## <a name="increase-maximum-quota-limits"></a>Aumento de los límites de cuota máximos
 
-1. Cree una petición de soporte técnico en Azure Portal.
+1. Cree una solicitud de soporte técnico en Azure Portal.
 
-    ![Hoja del portal de Análisis de Azure Data Lake](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-help-support.png)
+    ![Página del portal de Azure Data Lake Analytics](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-help-support.png)
 
-    ![Hoja del portal de Análisis de Azure Data Lake](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request.png)
+    ![Página del portal de Azure Data Lake Analytics](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request.png)
 2. Seleccione el tipo de problema **Cuota**.
 3. Seleccione su **Suscripción** (asegúrese de que no sea una suscripción de "prueba").
 4. Seleccione el tipo de cuota **Data Lake Analytics**.
 
-    ![Hoja del portal de Análisis de Azure Data Lake](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request-basics.png)
+    ![Página del portal de Azure Data Lake Analytics](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request-basics.png)
 
-5. En la hoja del problema, explique el límite de aumento que quiere pedir y los **detalles** sobre por qué necesita esta capacidad adicional.
+5. En la página del problema, explique el límite de aumento que quiere pedir y los **detalles** de por qué necesita esta capacidad adicional.
 
-    ![Hoja del portal de Análisis de Azure Data Lake](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request-details.png)
+    ![Página del portal de Azure Data Lake Analytics](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request-details.png)
 
 6. Verifique su información de contacto y cree la petición de soporte técnico.
 

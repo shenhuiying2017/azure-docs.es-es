@@ -1,9 +1,9 @@
 ---
-title: "Información general sobre las métricas en Microsoft Azure | Microsoft Docs"
-description: "Información general sobre las métricas y su uso en Microsoft Azure"
+title: Información general sobre las métricas en Microsoft Azure | Microsoft Docs
+description: Información general sobre las métricas y su uso en Microsoft Azure
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 405ec51c-0946-4ec9-b535-60f65c4a5bd1
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: johnkem
-ms.openlocfilehash: 32ca0ce5148ae2641500c98cb04b0d7db1987960
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 4a78236f9c6945bb982466b59690b221f35a1804
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Información general sobre las métricas en Microsoft Azure
 En este artículo se explica qué son las métricas en Microsoft Azure, sus beneficios y cómo comenzar a utilizarlas.  
@@ -116,7 +116,7 @@ Alertas de métricas: estas pueden enviarle una notificación por correo electr�
 
  ![Métricas y reglas de alerta en Azure Monitor](./media/monitoring-overview-metrics/MetricsOverview4.png)
 
-Alertas casi en tiempo real (versión preliminar): estas tienen la capacidad de supervisar varias métricas y umbrales para un recurso y, a continuación, enviarle una notificación a través de un [Grupo de acciones](/monitoring-action-groups.md). Obtenga más información sobre las [alertas de métricas casi en tiempo real aquí](https://aka.ms/azuremonitor/near-real-time-alerts).
+Alertas casi en tiempo real (versión preliminar): estas tienen la capacidad de supervisar varias métricas y umbrales para un recurso y, a continuación, enviarle una notificación a través de un [Grupo de acciones](/monitoring-action-groups.md). Encuentre más información sobre las [alertas de métricas casi en tiempo real aquí](https://aka.ms/azuremonitor/near-real-time-alerts).
 
 
 ### <a name="autoscale-your-azure-resources"></a>Escalado automático de recursos de Azure

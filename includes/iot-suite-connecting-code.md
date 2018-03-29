@@ -2,17 +2,14 @@
 
 La biblioteca de cliente del serializador de IoT Hub usa un modelo para especificar el formato de los mensajes que el dispositivo intercambia con IoT Hub.
 
-<!-- TO DO This needs to be verified when we can access the UI -->
-
-1. Agregue las siguientes declaraciones de variable después de las instrucciones `#include` . Sustituya los valores de marcador de posición `[Device Id]` y `[Device Key]` por los valores que anotó para el dispositivo en el panel de la solución de supervisión remota. Use el nombre de host de IoT Hub en el panel de la solución para sustituir `[IoTHub Name]`. Por ejemplo, si el nombre de host de IoT Hub es **contoso.azure-devices.net**, sustituya [IoTHub Name] por **contoso**:
+1. Agregue las siguientes declaraciones de variable después de las instrucciones `#include` . Sustituya los valores de marcador de posición `[Device Id]` y `[Device connection string]` por los valores que anotó para el dispositivo físico que agregó a la solución de supervisión remota:
 
     ```c
     static const char* deviceId = "[Device Id]";
-    static const char* connectionString = "HostName=[IoTHub Name].azure-devices.net;DeviceId=[Device Id];SharedAccessKey=[Device Key]";
-    static char propText[1024];
+    static const char* connectionString = "[Device connection string]";
     ```
 
-1. Agregue el código siguiente para definir el modelo que permite que el dispositivo se comunique con el Centro de IoT. Este modelo especifica que el dispositivo:
+1. Agregue el código siguiente para definir el modelo que permite que el dispositivo se comunique con IoT Hub. Este modelo especifica que el dispositivo:
 
     - Puede enviar la temperatura, presión y humedad como telemetría.
     - Puede enviar propiedades notificadas al dispositivo gemelo en IoT Hub. Estas propiedades notificadas incluyen información sobre el esquema de telemetría y los métodos admitidos.
@@ -50,6 +47,10 @@ La biblioteca de cliente del serializador de IoT Hub usa un modelo para especifi
     WITH_DATA(double, humidity),
     WITH_DATA(ascii_char_ptr, humidity_unit),
 
+    /* Manage firmware update process */
+    WITH_DATA(ascii_char_ptr, new_firmware_URI),
+    WITH_DATA(ascii_char_ptr, new_firmware_version),
+
     /* Device twin properties */
     WITH_REPORTED_PROPERTY(ascii_char_ptr, Protocol),
     WITH_REPORTED_PROPERTY(ascii_char_ptr, SupportedMethods),
@@ -65,7 +66,7 @@ La biblioteca de cliente del serializador de IoT Hub usa un modelo para especifi
 
     /* Direct methods implemented by the device */
     WITH_METHOD(Reboot),
-    WITH_METHOD(FirmwareUpdate),
+    WITH_METHOD(FirmwareUpdate, ascii_char_ptr, Firmware, ascii_char_ptr, FirmwareUri),
     WITH_METHOD(EmergencyValveRelease),
     WITH_METHOD(IncreasePressure)
     );
@@ -77,7 +78,65 @@ La biblioteca de cliente del serializador de IoT Hub usa un modelo para especifi
 
 Ahora, agregue código que implemente el comportamiento definido en el modelo.
 
-1. Agregue las siguientes funciones que controlan las propiedades deseadas establecidas en el panel de la solución. Estas propiedades deseadas se definen en el modelo:
+1. Agregue el siguiente controlador de devolución de llamadas que se ejecuta cuando el dispositivo ha enviado nuevos valores de propiedades notificadas a la solución preconfigurada:
+
+    ```c
+    /* Callback after sending reported properties */
+    void deviceTwinCallback(int status_code, void* userContextCallback)
+    {
+      (void)(userContextCallback);
+      printf("IoTHub: reported properties delivered with status_code = %u\n", status_code);
+    }
+    ```
+
+1. Agregue la siguiente función que simula un proceso de actualización de firmware:
+
+    ```c
+    static int do_firmware_update(void *param)
+    {
+      Chiller *chiller = (Chiller *)param;
+      printf("do_firmware_update('URI: %s, Version: %s')\r\n", chiller->new_firmware_URI, chiller->new_firmware_version);
+
+      printf("Simulating download phase...\r\n");
+      chiller->FirmwareUpdateStatus = "downloading";
+      /* Send reported properties to IoT Hub */
+      if (IoTHubDeviceTwin_SendReportedStateChiller(chiller, deviceTwinCallback, NULL) != IOTHUB_CLIENT_OK)
+      {
+        printf("Failed sending serialized reported state\r\n");
+      }
+      ThreadAPI_Sleep(5000);
+
+      printf("Simulating applying phase...\r\n");
+      chiller->FirmwareUpdateStatus = "applying";
+      /* Send reported properties to IoT Hub */
+      if (IoTHubDeviceTwin_SendReportedStateChiller(chiller, deviceTwinCallback, NULL) != IOTHUB_CLIENT_OK)
+      {
+        printf("Failed sending serialized reported state\r\n");
+      }
+      ThreadAPI_Sleep(5000);
+
+      printf("Simulating reboot phase...\r\n");
+      chiller->FirmwareUpdateStatus = "rebooting";
+      /* Send reported properties to IoT Hub */
+      if (IoTHubDeviceTwin_SendReportedStateChiller(chiller, deviceTwinCallback, NULL) != IOTHUB_CLIENT_OK)
+      {
+        printf("Failed sending serialized reported state\r\n");
+      }
+      ThreadAPI_Sleep(5000);
+
+      chiller->Firmware = _strdup(chiller->new_firmware_version);
+      chiller->FirmwareUpdateStatus = "waiting";
+      /* Send reported properties to IoT Hub */
+      if (IoTHubDeviceTwin_SendReportedStateChiller(chiller, deviceTwinCallback, NULL) != IOTHUB_CLIENT_OK)
+      {
+        printf("Failed sending serialized reported state\r\n");
+      }
+
+      return 0;
+    }
+    ```
+
+1. Agregue la siguiente función que administra las propiedades deseadas establecidas en el panel de la solución. Estas propiedades deseadas se definen en el modelo:
 
     ```c
     void onDesiredInterval(void* argument)
@@ -101,12 +160,32 @@ Ahora, agregue código que implemente el comportamiento definido en el modelo.
       return result;
     }
 
-    METHODRETURN_HANDLE FirmwareUpdate(Chiller* chiller)
+    METHODRETURN_HANDLE FirmwareUpdate(Chiller* chiller, ascii_char_ptr Firmware, ascii_char_ptr FirmwareUri)
     {
-      (void)(chiller);
-
-      METHODRETURN_HANDLE result = MethodReturn_Create(201, "\"Updating Firmware\"");
-      printf("Recieved firmware update request\r\n");
+      printf("Recieved firmware update request request\r\n");
+      METHODRETURN_HANDLE result = NULL;
+      if (chiller->FirmwareUpdateStatus != "waiting")
+      {
+        LogError("Attempting to initiate a firmware update out of order");
+        result = MethodReturn_Create(400, "\"Attempting to initiate a firmware update out of order\"");
+      }
+      else
+      {
+        chiller->new_firmware_version = _strdup(Firmware);
+        chiller->new_firmware_URI = _strdup(FirmwareUri);
+        THREAD_HANDLE thread_apply;
+        THREADAPI_RESULT t_result = ThreadAPI_Create(&thread_apply, do_firmware_update, chiller);
+        if (t_result == THREADAPI_OK)
+        {
+          result = MethodReturn_Create(201, "\"Starting firmware update thread\"");
+        }
+        else
+        {
+          LogError("Failed to start firmware update thread");
+          result = MethodReturn_Create(500, "\"Failed to start firmware update thread\"");
+        }
+      }
+      
       return result;
     }
 
@@ -181,17 +260,6 @@ Ahora, agregue código que implemente el comportamiento definido en el modelo.
     }
     ```
 
-1. Agregue el siguiente controlador de devolución de llamadas que se ejecuta cuando el dispositivo ha enviado nuevos valores de propiedades notificadas a la solución preconfigurada:
-
-    ```c
-    /* Callback after sending reported properties */
-    void deviceTwinCallback(int status_code, void* userContextCallback)
-    {
-      (void)(userContextCallback);
-      printf("IoTHub: reported properties delivered with status_code = %u\n", status_code);
-    }
-    ```
-
 1. Agregue la función siguiente para conectar el dispositivo a la solución preconfiguradas en la nube e intercambiar datos. Esta función lleva a cabo los pasos siguientes:
 
     - Inicializa la plataforma.
@@ -199,7 +267,7 @@ Ahora, agregue código que implemente el comportamiento definido en el modelo.
     - Inicializa el cliente con la cadena de conexión del dispositivo.
     - Cree una instancia del modelo **Chiller**.
     - Crea y envía valores de propiedades notificadas.
-    - Crea un bucle para enviar telemetría cada cinco segundos.
+    - Crea un bucle para enviar telemetría cada cinco segundos, mientras el estado de actualización del firmware es **en espera**.
     - Desinicializa todos los recursos.
 
     ```c
@@ -207,27 +275,27 @@ Ahora, agregue código que implemente el comportamiento definido en el modelo.
     {
       if (platform_init() != 0)
       {
-        printf("Failed to initialize the platform.\n");
+        printf("Failed to initialize the platform.\r\n");
       }
       else
       {
         if (SERIALIZER_REGISTER_NAMESPACE(Contoso) == NULL)
         {
-          printf("Unable to SERIALIZER_REGISTER_NAMESPACE\n");
+          printf("Unable to SERIALIZER_REGISTER_NAMESPACE\r\n");
         }
         else
         {
           IOTHUB_CLIENT_HANDLE iotHubClientHandle = IoTHubClient_CreateFromConnectionString(connectionString, MQTT_Protocol);
           if (iotHubClientHandle == NULL)
           {
-            printf("Failure in IoTHubClient_CreateFromConnectionString\n");
+            printf("Failure in IoTHubClient_CreateFromConnectionString\r\n");
           }
           else
           {
             Chiller* chiller = IoTHubDeviceTwin_CreateChiller(iotHubClientHandle);
             if (chiller == NULL)
             {
-              printf("Failure in IoTHubDeviceTwin_CreateChiller\n");
+              printf("Failure in IoTHubDeviceTwin_CreateChiller\r\n");
             }
             else
             {
@@ -251,7 +319,7 @@ Ahora, agregue código que implemente el comportamiento definido en el modelo.
               chiller->Telemetry.PressureSchema.MessageSchema.Fields = "{\"pressure\":\"Double\",\"pressure_unit\":\"Text\"}";
               chiller->Type = "Chiller";
               chiller->Firmware = "1.0.0";
-              chiller->FirmwareUpdateStatus = "";
+              chiller->FirmwareUpdateStatus = "waiting";
               chiller->Location = "Building 44";
               chiller->Latitiude = 47.638928;
               chiller->Longitude = -122.13476;
@@ -259,54 +327,58 @@ Ahora, agregue código que implemente el comportamiento definido en el modelo.
               /* Send reported properties to IoT Hub */
               if (IoTHubDeviceTwin_SendReportedStateChiller(chiller, deviceTwinCallback, NULL) != IOTHUB_CLIENT_OK)
               {
-                printf("Failed sending serialized reported state\n");
+                printf("Failed sending serialized reported state\r\n");
               }
               else
               {
                 /* Send telemetry */
-                chiller->temperature = 50;
                 chiller->temperature_unit = "F";
-                chiller->pressure= 55;
                 chiller->pressure_unit = "psig";
-                chiller->humidity = 50;
                 chiller->humidity_unit = "%";
 
+                srand((unsigned int)time(NULL));
                 while (1)
                 {
+                  chiller->temperature = 50 + ((rand() % 10) - 5);
+                  chiller->pressure = 55 + ((rand() % 10) - 5);
+                  chiller->humidity = 30 + ((rand() % 10) - 5);
                   unsigned char*buffer;
                   size_t bufferSize;
 
-                  (void)printf("Sending sensor value Temperature = %f %s,\n", chiller->temperature, chiller->temperature_unit);
+                  if (chiller->FirmwareUpdateStatus == "waiting")
+                  {
+                    (void)printf("Sending sensor value Temperature = %f %s,\r\n", chiller->temperature, chiller->temperature_unit);
 
-                  if (SERIALIZE(&buffer, &bufferSize, chiller->temperature, chiller->temperature_unit) != CODEFIRST_OK)
-                  {
-                    (void)printf("Failed sending sensor value\r\n");
-                  }
-                  else
-                  {
-                    sendMessage(iotHubClientHandle, buffer, bufferSize, chiller->Telemetry.TemperatureSchema.MessageSchema.Name);
-                  }
+                    if (SERIALIZE(&buffer, &bufferSize, chiller->temperature, chiller->temperature_unit) != CODEFIRST_OK)
+                    {
+                      (void)printf("Failed sending sensor value\r\n");
+                    }
+                    else
+                    {
+                      sendMessage(iotHubClientHandle, buffer, bufferSize, chiller->Telemetry.TemperatureSchema.MessageSchema.Name);
+                    }
 
-                  (void)printf("Sending sensor value Humidity = %f %s,\n", chiller->humidity, chiller->humidity_unit);
+                    (void)printf("Sending sensor value Humidity = %f %s,\r\n", chiller->humidity, chiller->humidity_unit);
 
-                  if (SERIALIZE(&buffer, &bufferSize, chiller->humidity, chiller->humidity_unit) != CODEFIRST_OK)
-                  {
-                    (void)printf("Failed sending sensor value\r\n");
-                  }
-                  else
-                  {
-                    sendMessage(iotHubClientHandle, buffer, bufferSize, chiller->Telemetry.HumiditySchema.MessageSchema.Name);
-                  }
+                    if (SERIALIZE(&buffer, &bufferSize, chiller->humidity, chiller->humidity_unit) != CODEFIRST_OK)
+                    {
+                      (void)printf("Failed sending sensor value\r\n");
+                    }
+                    else
+                    {
+                      sendMessage(iotHubClientHandle, buffer, bufferSize, chiller->Telemetry.HumiditySchema.MessageSchema.Name);
+                    }
 
-                  (void)printf("Sending sensor value Pressure = %f %s,\n", chiller->pressure, chiller->pressure_unit);
+                    (void)printf("Sending sensor value Pressure = %f %s,\r\n", chiller->pressure, chiller->pressure_unit);
 
-                  if (SERIALIZE(&buffer, &bufferSize, chiller->pressure, chiller->pressure_unit) != CODEFIRST_OK)
-                  {
-                    (void)printf("Failed sending sensor value\r\n");
-                  }
-                  else
-                  {
-                    sendMessage(iotHubClientHandle, buffer, bufferSize, chiller->Telemetry.PressureSchema.MessageSchema.Name);
+                    if (SERIALIZE(&buffer, &bufferSize, chiller->pressure, chiller->pressure_unit) != CODEFIRST_OK)
+                    {
+                      (void)printf("Failed sending sensor value\r\n");
+                    }
+                    else
+                    {
+                      sendMessage(iotHubClientHandle, buffer, bufferSize, chiller->Telemetry.PressureSchema.MessageSchema.Name);
+                    }
                   }
 
                   ThreadAPI_Sleep(5000);
@@ -314,9 +386,9 @@ Ahora, agregue código que implemente el comportamiento definido en el modelo.
 
                 IoTHubDeviceTwin_DestroyChiller(chiller);
               }
-            }
-            IoTHubClient_Destroy(iotHubClientHandle);
           }
+            IoTHubClient_Destroy(iotHubClientHandle);
+        }
           serializer_deinit();
         }
       }

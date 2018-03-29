@@ -1,24 +1,24 @@
 ---
-title: "Creación del primer microservicio de Azure basado en actores en C# | Microsoft Docs"
-description: "En este tutorial se explica paso a paso cómo crear, depurar e implementar un servicio de actor sencillo con Reliable Actors de Service Fabric."
+title: Creación del primer microservicio de Azure basado en actores en C# | Microsoft Docs
+description: En este tutorial se explica paso a paso cómo crear, depurar e implementar un servicio de actor sencillo con Reliable Actors de Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: d4aebe72-1551-4062-b1eb-54d83297f139
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/20/2017
+ms.date: 03/16/2018
 ms.author: vturecek
-ms.openlocfilehash: ea17cf744779f390fe4b3f4049deb0c1ad985024
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 20786522a9a25d84a32a53e5e111b4b542501287
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="getting-started-with-reliable-actors"></a>Introducción a Reliable Actors
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/21/2017
 
 Este artículo le guía por la creación y depuración de una aplicación sencilla de Reliable Actors en Visual Studio. Para obtener más información sobre Reliable Actors, vea [Introducción a Reliable Actors de Service Fabric](service-fabric-reliable-actors-introduction.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Antes de comenzar, asegúrese de que el entorno de desarrollo de Service Fabric, incluido Visual Studio, está configurado en la máquina. Para obtener más información, consulte [cómo configurar el entorno de desarrollo](service-fabric-get-started.md).
 
@@ -37,7 +37,7 @@ Inicie Visual Studio 2015 o versiones posteriores como administrador y cree un p
 
 ![Herramientas de Service Fabric para Visual Studio: nuevo proyecto][1]
 
-En el siguiente cuadro de diálogo, elija **Servicio de Actor** y escriba un nombre para el servicio.
+En el siguiente cuadro de diálogo, elija **Servicio de actor** en **.NET Core 2.0** y escriba un nombre para el servicio.
 
 ![Plantillas de proyecto de Service Fabric][5]
 
@@ -115,7 +115,7 @@ Cree una aplicación de consola simple para llamar al servicio de actor.
 
     El paquete NuGet y todas sus dependencias se instalan en el proyecto ActorClient.
 
-5. El proyecto de cliente también requiere una referencia al proyecto de interfaces.  En el proyecto ActorClient, haga clic en **Dependencias** y luego en **Agregar referencia...**.  Seleccione **Proyectos > Solución** (si no está ya seleccionada) y luego marque la casilla situada junto a **HelloWorld.Interfaces**.  Haga clic en **Aceptar**.
+5. El proyecto de cliente también requiere una referencia al proyecto de interfaces.  En el proyecto ActorClient, haga clic en **Dependencias** y luego en **Agregar referencia...**.  Seleccione **Proyectos > Solución** (si no está ya seleccionada) y luego marque la casilla situada junto a **HelloWorld.Interfaces**.  Haga clic en **OK**.
     
     ![Cuadro de diálogo Agregar referencia][7]
 

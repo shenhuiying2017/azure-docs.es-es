@@ -1,25 +1,19 @@
 ---
-title: Mi primer runbook de PowerShell en Azure Automation | Microsoft Docs
-description: "Tutorial que le guiará a través de la creación, prueba y publicación de un runbook de PowerShell."
+title: Mi primer runbook de PowerShell en Azure Automation
+description: Tutorial que le guiará a través de la creación, prueba y publicación de un runbook de PowerShell.
+keywords: powershell de Azure, tutorial de scripts de powershell, automatización de powershell
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: 
-keywords: "powershell de Azure, tutorial de scripts de powershell, automatización de powershell"
-ms.assetid: a43b395a-e740-41a3-ae62-40eac9d0ec00
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.date: 08/31/2017
-ms.author: magoedte;sngun
-ms.openlocfilehash: 8db2cc1c8759fd08129f7794a8675d006998cc55
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+manager: carmonm
+ms.openlocfilehash: 61632bfc8848fb5a5bcbcda7c1e60e763448ce23
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="my-first-powershell-runbook"></a>Mi primer runbook de PowerShell
 
@@ -66,7 +60,7 @@ Antes de publicar el runbook para que esté disponible en producción, puede que
 
    El estado del trabajo se inicia como *En cola*, lo que indica que está esperando que haya disponible un trabajo de runbook en la nube. Su estado cambia a *Iniciando* cuando un trabajo de runbook solicita el trabajo. Cuando el runbook comienza a ejecutarse realmente, el estado es *En ejecución*.  
 
-1. Cuando se complete el trabajo del runbook, se mostrará su resultado. En este caso, debería ver *Hello World*.<br><br> ![Salida del panel de prueba](media/automation-first-runbook-textual-powershell/automation-testpane-output.png)  
+1. Cuando se complete el trabajo del runbook, se mostrará su resultado. En este caso, debería ver *Hola mundo*.<br><br> ![Salida del panel de prueba](media/automation-first-runbook-textual-powershell/automation-testpane-output.png)  
 2. Cierre el panel Prueba para volver al lienzo.
 
 ## <a name="step-4---publish-and-start-the-runbook"></a>Paso 4: publicar e iniciar el runbook
@@ -99,7 +93,7 @@ Ha probado y publicado su runbook, pero hasta ahora no hace nada útil. Quiere q
    -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
    ```
    <br>
-4. Haga clic en el **panel de prueba** para probar el runbook.
+4. Haga clic en el **panel de prueba** para poder probar el runbook.
 5. Haga clic en **Iniciar** para iniciar la prueba. Cuando termine, recibirá unos resultados similares a los siguientes, que muestran información básica de su cuenta. Esto confirma que la credencial es válida.<br><br> ![Autenticar](media/automation-first-runbook-textual-powershell/runbook-auth-output.png)
 
 ## <a name="step-6---add-code-to-start-a-virtual-machine"></a>Paso 6: Incorporación de una actividad para iniciar una máquina virtual
@@ -148,7 +142,7 @@ Los runbooks de PowerShell tienen el mismo ciclo de vida, las mismas funcionalid
 3. Los runbooks de flujo de trabajo de PowerShell admiten la ejecución en serie y en paralelo, mientras que los runbooks de PowerShell solo puede ejecutar comandos en serie.
 4. En un runbook de flujo de trabajo de PowerShell, una actividad, un comando o un bloque de script pueden tener su propio espacio de ejecución, mientras que en un runbook de PowerShell todo lo que hay en el script se ejecuta en un único espacio de ejecución. También se observan algunas [diferencias sintácticas](https://technet.microsoft.com/magazine/dn151046.aspx) entre un runbook de PowerShell nativo y un runbook de flujo de trabajo de PowerShell.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Para empezar a trabajar con cuadernos gráficos, consulte [Mi primer runbook gráfico](automation-first-runbook-graphical.md)
 * Para empezar a trabajar con runbooks de flujo de trabajo de PowerShell, consulte [Mi primer runbook de flujo de trabajo de PowerShell](automation-first-runbook-textual.md)
 * Para obtener más información sobre los tipos de runbook, sus ventajas y sus limitaciones, consulte [Tipos de runbooks de Azure Automation](automation-runbook-types.md)

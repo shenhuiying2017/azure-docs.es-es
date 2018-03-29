@@ -1,25 +1,19 @@
 ---
-title: "Implementación de un servicio de división y combinación | Microsoft Docs"
-description: "Use la herramienta de división y combinación para mover los datos entre bases de datos con particiones."
+title: Implementación de un servicio de división y combinación | Microsoft Docs
+description: Use la herramienta de división y combinación para mover los datos entre bases de datos con particiones.
 services: sql-database
-documentationcenter: 
-author: ddove
-manager: jhubbard
-editor: 
-ms.assetid: 9a993c0f-7052-46cd-aa59-073bea8d535a
+author: stevestein
+manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
-ms.author: ddove
-ms.openlocfilehash: 4505aebc8919a5d7b8f3debe0db9f49b465176bf
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: sstein
+ms.openlocfilehash: ed5545df8d09192eeed21dd2ac379e255b049e30
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="deploy-a-split-merge-service"></a>Implemente un servicio de división y combinación
 La herramienta de división y combinación permite mover los datos entre bases de datos particionadas. Consulte [Mover datos entre bases de datos en la nube escaladas horizontalmente](sql-database-elastic-scale-overview-split-and-merge.md)
@@ -149,7 +143,7 @@ Si el rol de trabajo no puede ponerse en línea, pero el rol web sí, probableme
    ```
 
 * Asegúrese de que el nombre del servidor no comience por **https://**.
-* Asegúrese de que el servidor de Base de datos SQL de Azure permite que los servicios de Azure se conecten a él. Para ello, abra https://manage.windowsazure.com, haga clic en "SQL Database" a la izquierda, haga clic en "Servidores" en la parte superior y, a continuación, seleccione su servidor. Haga clic en **Configurar** en la parte superior para asegurarse de que el valor **Servicios de Microsoft Azure** esté establecido en "Sí". (Consulte la sección Requisitos previos al principio de este artículo).
+* Asegúrese de que el servidor de Base de datos SQL de Azure permite que los servicios de Azure se conecten a él. Para ello, abra https://manage.windowsazure.com, haga clic en "Bases de datos SQL" a la izquierda, haga clic en "Servidores" en la parte superior y, a continuación, seleccione el servidor. Haga clic en **Configurar** en la parte superior para asegurarse de que el valor **Servicios de Microsoft Azure** esté establecido en "Sí". (Consulte la sección Requisitos previos al principio de este artículo).
 
 ## <a name="test-the-service-deployment"></a>Prueba de la implementación del servicio
 ### <a name="connect-with-a-web-browser"></a>Conexión con un explorador web

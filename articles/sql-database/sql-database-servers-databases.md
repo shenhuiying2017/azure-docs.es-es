@@ -2,24 +2,18 @@
 title: Creación y administración de servidores y bases de datos SQL de Azure | Microsoft Docs
 description: Aprenda sobre los conceptos relativos a las bases de datos y los servidores de Transact-SQL, y sobre la creación y administración de bases de datos y servidores.
 services: sql-database
-documentationcenter: na
 author: CarlRabeler
-manager: jhubbard
-editor: ''
-ms.assetid: ''
+manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: On Demand
-ms.date: 02/28/2018
+ms.date: 03/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 0e2dabc5cc0b816f2623fce5f8fb09a7004039c7
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 2e05be2131ca89a084da5eeffc0b025b38432a8d
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>Creación y administración de servidores y bases de datos de Azure SQL Database
 
@@ -27,7 +21,7 @@ SQL Database ofrece tres tipos de bases de datos:
 
 - Una base de datos única que se crea dentro de un [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) con un conjunto definido de [recursos de proceso y almacenamiento para diferentes cargas de trabajo](sql-database-service-tiers.md). Una base de datos SQL de Azure está asociada con un servidor lógico de Azure SQL Database, que se crea dentro de una región específica de Azure.
 - Una base de datos creada como parte de un [grupo de bases de datos](sql-database-elastic-pool.md) dentro de un [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) con un conjunto definido de [recursos de proceso y almacenamiento para diferentes cargas de trabajo](sql-database-service-tiers.md) que se comparten entre todas las bases de datos del grupo. Una base de datos SQL de Azure está asociada con un servidor lógico de Azure SQL Database, que se crea dentro de una región específica de Azure.
-- Una [instancia de SQL Server](sql-database-managed-instance.md) creada dentro de un [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) con un conjunto definido de recursos de proceso y almacenamiento para todas las bases de datos de esa instancia de servidor. Una instancia administrada contiene bases de datos de usuario y del sistema. El servicio Instancia administrada está concebido para permitir que la base de datos migre mediante lift-and-shift a una plataforma como servicio (PaaS) completamente administrada, sin volver a diseñar la aplicación. Instancia administrada proporciona una gran compatibilidad con el modelo de programación de SQL Server local y con la gran mayoría de las características de SQL Server y las herramientas y los servicios complementarios.  
+- Una [instancia de SQL Server](sql-database-managed-instance.md) (una instancia administrada) creada dentro de un [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) con un conjunto definido de recursos de proceso y almacenamiento para todas las bases de datos en esa instancia de servidor. Una instancia administrada contiene bases de datos de usuario y del sistema. El servicio Instancia administrada está concebido para permitir que la base de datos migre mediante lift-and-shift a una plataforma como servicio (PaaS) completamente administrada, sin volver a diseñar la aplicación. Instancia administrada proporciona una gran compatibilidad con el modelo de programación de SQL Server local y con la gran mayoría de las características de SQL Server y las herramientas y los servicios complementarios.  
 
 Microsoft Azure SQL Database es compatible con la versión 7.3 o posterior del cliente de protocolo de secuencia de datos (TDS), y solo permite conexiones TCP/IP cifradas.
 
@@ -146,7 +140,7 @@ Para crear y administrar servidores, bases de datos y firewalls SQL de Azure con
 |[az group create](/cli/azure/group#az_group_create)|Crea un grupo de recursos.|
 |[az sql server create](/cli/azure/sql/server#az_sql_server_create)|Crea un servidor.|
 |[az sql server list](/cli/azure/sql/server#az_sql_server_list)|Enumera los servidores.|
-|[az sql server list-usages](/cli/azure/sql/server#az_sql_server_list-usages)|Devuelve los usos del servidor.|
+|[az sql server list-usages](/cli/azure/sql/server#az_sql_server_list_usages)|Devuelve los usos del servidor.|
 |[az sql server show](/cli/azure/sql/server#az_sql_server_show)|Obtiene un servidor.|
 |[az sql server update](/cli/azure/sql/server#az_sql_server_update)|Actualiza un servidor.|
 |[az sql server delete](/cli/azure/sql/server#az_sql_server_delete)|Permite eliminar un servidor.|
@@ -202,7 +196,6 @@ Para crear y administrar servidores, bases de datos y firewalls de Azure SQL, us
 |[Servers - List](/rest/api/sql/servers/list)|Devuelve una lista de servidores.|
 |[Servers - List By Resource Group](/rest/api/sql/servers/listbyresourcegroup)|Devuelve una lista de servidores en un grupo de recursos.|
 |[Servers - Update](/rest/api/sql/servers/update)|Actualiza un servidor existente.|
-|[Servers - Sql](/rest/api/sql/servers%20-%20sql)|Determina si se puede crear un recurso con el nombre especificado.|
 |[Databases - Create Or Update](/rest/api/sql/databases/createorupdate)|Crea una nueva base de datos o actualiza una ya existente.|
 |[Databases - Get](/rest/api/sql/databases/get)|Obtiene una base de datos.|
 |[Databases - Get By Elastic Pool](/rest/api/sql/databases/getbyelasticpool)|Obtiene una base de datos dentro de un grupo elástico.|

@@ -1,8 +1,20 @@
- ---
-title: Códigos de error de SQL, error de conexión de base de datos| Microsoft Docs description: "Obtenga información acerca de los códigos de error de SQL de las aplicaciones cliente de SQL Database, como los errores de conexión de base de datos más comunes, los problemas de copia de la base de datos y los errores generales. '' keywords: sql error code,access sql,database connection error,sql error codes services: sql-database documentationcenter: '' author: stevestein manager: jhubbard editor: ''
-
-ms.assetid: 2a23e4ca-ea93-4990-855a-1f9f05548202 ms.service: sql-database ms.custom: develop apps ms.workload: "Active" ms.tgt_pltfrm: na ms.devlang: na ms.topic: article ms.date: 09/28/2017 ms.author: sstein
-
+---
+title: 'Códigos de error de SQL: error de conexión de base de datos | Microsoft Docs'
+description: 'Obtenga información acerca de los códigos de error de SQL de las aplicaciones cliente de la SQL Database, como los errores de conexión de base de datos más comunes, los problemas de copia de la base de datos y los errores generales. '
+keywords: código de error de SQL, acceder a SQL, error de conexión de base de datos, códigos de error de SQL
+services: sql-database
+author: stevestein
+manager: craigg
+ms.service: sql-database
+ms.custom: develop apps
+ms.topic: article
+ms.date: 09/28/2017
+ms.author: sstein
+ms.openlocfilehash: 5031ab1ec8c7b42c65fb35e47c32d10ff2898501
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>Códigos de error para las aplicaciones cliente de SQL Database: errores de conexión de bases de datos y otros problemas
 
@@ -78,8 +90,8 @@ Temas relacionados:
 
 | Código de error | Severity | DESCRIPCIÓN |
 | ---:| ---:|:--- |
-| 10928 |20  |Id. de recurso: %d. El límite %s para la base de datos es %d y se ha alcanzado. Para más información, vea [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>El identificador de recurso indica el recurso que ha alcanzado el límite. Para subprocesos de trabajo, el id. de recurso = 1. Para las sesiones, Identificador de recurso = 2.<br/><br/>Para más información sobre este error y cómo solucionarlo, consulte:<br/>• [Límites de recursos de SQL Database](sql-database-service-tiers.md). |
-| 10929 |20  |Id. de recurso: %d. La garantía mínima de %s es de %d, el límite máximo es %d y el uso actual de la base de datos es %d. Sin embargo, el servidor está demasiado ocupado en estos momentos para admitir solicitudes mayores que %d para esta base de datos. Para más información, vea [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). De lo contrario, Inténtelo de nuevo más tarde.<br/><br/>El identificador de recurso indica el recurso que ha alcanzado el límite. Para subprocesos de trabajo, el id. de recurso = 1. Para las sesiones, Identificador de recurso = 2.<br/><br/>Para más información sobre este error y cómo solucionarlo, consulte:<br/>• [Límites de recursos de SQL Database](sql-database-service-tiers.md). |
+| 10928 |20  |Id. de recurso: %d. El límite %s para la base de datos es %d y se ha alcanzado. Para más información, consulte [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>El identificador de recurso indica el recurso que ha alcanzado el límite. Para subprocesos de trabajo, el id. de recurso = 1. Para las sesiones, Identificador de recurso = 2.<br/><br/>Para más información sobre este error y cómo solucionarlo, consulte:<br/>• [Límites de recursos de SQL Database](sql-database-service-tiers.md). |
+| 10929 |20  |Id. de recurso: %d. La garantía mínima de %s es de %d, el límite máximo es %d y el uso actual de la base de datos es %d. Sin embargo, el servidor está demasiado ocupado en estos momentos para admitir solicitudes mayores que %d para esta base de datos. Para más información, consulte [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). De lo contrario, Inténtelo de nuevo más tarde.<br/><br/>El identificador de recurso indica el recurso que ha alcanzado el límite. Para subprocesos de trabajo, el id. de recurso = 1. Para las sesiones, Identificador de recurso = 2.<br/><br/>Para más información sobre este error y cómo solucionarlo, consulte:<br/>• [Límites de recursos de SQL Database](sql-database-service-tiers.md). |
 | 40544 |20  |La base de datos ha alcanzado su cuota de tamaño. Cree particiones o elimine datos, quite índices o consulte la documentación para obtener soluciones posibles. |
 | 40549 |16 |La sesión terminó porque tiene una transacción de larga duración. Intente reducir la transacción. |
 | 40550 |16 |La sesión ha terminado porque ha adquirido demasiados bloqueos. Intente leer o modificar menos filas en una sola transacción. |
@@ -93,7 +105,7 @@ Los errores siguientes están relacionados con la creación y el uso de grupos e
 | ErrorNumber | ErrorSeverity | ErrorFormat | ErrorInserts | ErrorCause | ErrorCorrectiveAction |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | 1132 |EX_RESOURCE |El grupo elástico ha alcanzado su límite de almacenamiento. El uso del almacenamiento del grupo elástico no puede superar (%d) MB. |Límite de espacio del grupo elástico en MB. |Se ha intentado escribir datos en una base de datos cuando se ha alcanzado el límite de almacenamiento del grupo elástico. |Considere la posibilidad de incrementar el número de DTU del grupo elástico si es posible para aumentar su límite de almacenamiento, reduzca el almacenamiento usado por las bases de datos individuales del grupo elástico o quite bases de datos del grupo elástico. |
-| 10929 |EX_USER |La garantía mínima de %s es de %d, el límite máximo es %d y el uso actual de la base de datos es %d. Sin embargo, el servidor está demasiado ocupado en estos momentos para admitir solicitudes mayores que %d para esta base de datos. Vea [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637) para obtener ayuda. De lo contrario, Inténtelo de nuevo más tarde. |Número mínimo de DTU por cada base de datos; número máximo de DTU por base de datos. |El número total de trabajadores simultáneos (solicitudes) de todas las bases de datos del grupo elástico intentó superar el límite del grupo. |Considere la posibilidad de incrementar el número de DTU del grupo elástico si es posible para aumentar el límite de trabajadores, o bien quite bases de datos del grupo elástico. |
+| 10929 |EX_USER |La garantía mínima de %s es de %d, el límite máximo es %d y el uso actual de la base de datos es %d. Sin embargo, el servidor está demasiado ocupado en estos momentos para admitir solicitudes mayores que %d para esta base de datos. Consulte [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637) para obtener ayuda. De lo contrario, Inténtelo de nuevo más tarde. |Número mínimo de DTU por cada base de datos; número máximo de DTU por base de datos. |El número total de trabajadores simultáneos (solicitudes) de todas las bases de datos del grupo elástico intentó superar el límite del grupo. |Considere la posibilidad de incrementar el número de DTU del grupo elástico si es posible para aumentar el límite de trabajadores, o bien quite bases de datos del grupo elástico. |
 | 40844 |EX_USER |La base de datos '%ls' del servidor '%ls' es una base de datos de la versión '%ls' de un grupo elástico y no puede tener una relación de copia continua. |Nombre de la base de datos, versión de base de datos, nombre del servidor. |Se emitió un comando StartDatabaseCopy para una base de datos que no es Premium de un grupo elástico. |Próximamente |
 | 40857 |EX_USER |Grupo elástico no encontrado para el servidor: '%ls', nombre del grupo elástico: '%ls'. |Nombre del servidor; nombre del grupo elástico. |El grupo elástico especificado no existe en el servidor especificado. |Especifique un nombre de grupo elástico válido. |
 | 40858 |EX_USER |El grupo elástico '%ls' ya existe en el servidor: '%ls' |Nombre de grupo elástico, nombre del servidor. |El grupo elástico especificado ya existe en el servidor lógico especificado. |Proporcione un nuevo nombre de grupo elástico. |

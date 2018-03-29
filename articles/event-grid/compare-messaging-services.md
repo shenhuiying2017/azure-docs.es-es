@@ -1,18 +1,18 @@
 ---
-title: "Comparación de los servicios de mensajería de Azure"
-description: "Compara Azure Event Grid, Event Hubs y Service Bus. Recomienda qué servicio usar para escenarios diferentes."
+title: Comparación de los servicios de mensajería de Azure
+description: Compara Azure Event Grid, Event Hubs y Service Bus. Recomienda qué servicio usar para escenarios diferentes.
 services: event-grid
 author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: e082b9014e3734b554d3dae1cf8aecbaed65a28a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 30bbe7442cac96a1dcf6959cac2abedd61454a29
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="choose-between-azure-services-that-deliver-messages"></a>Elija entre los servicios de Azure de entrega de mensajes.
 
@@ -30,18 +30,22 @@ Hay una diferencia importante entre los servicios que ofrecen un evento y los qu
 
 ### <a name="event"></a>Evento
 
-Un evento es una notificación ligera de una acción o un cambio de estado. Los datos de evento contienen información acerca de lo que ha ocurrido, pero no tienen los datos que desencadenaron el evento. Por ejemplo, un evento notifica a los suscriptores que se ha creado un archivo. Puede contener información general sobre el archivo, pero no contiene el propio archivo. Por lo general, los eventos desencadenan que los controladores de eventos actúen en tiempo real.
+Un evento es una notificación ligera de una condición o un cambio de estado. El publicador del evento no tiene ninguna expectativa sobre cómo se trata el evento. El consumidor del evento decide qué hacer con la notificación. Los eventos pueden ser unidades discretas o parte de una serie.
+
+Los eventos discretos notifican un cambio de estado y se puede actuar sobre ellos. Para realizar el paso siguiente, el consumidor solo necesita saber que algo ha pasado. Los datos de evento contienen información acerca de lo que ha ocurrido, pero no tienen los datos que desencadenaron el evento. Por ejemplo, un evento notifica a los consumidores que se ha creado un archivo. Puede contener información general sobre el archivo, pero no contiene el propio archivo. Los eventos discretos funcionan muy bien con soluciones sin servidor que necesitan escalarse.
+
+Los eventos de serie notifican una condición y son analizables. Los eventos están ordenados en el tiempo e interrelacionados. El consumidor necesita la serie de eventos ordenada para analizar lo que ha pasado.
 
 ### <a name="message"></a>Message
 
-Un mensaje son datos sin procesar producidos por un servicio que se consumen o almacenan en otro lugar. El mensaje contiene los datos que desencadenó la canalización del mensaje. Este mensaje puede ser cualquier cosa, desde un pedido de comercio electrónico a telemetría de usuario. A diferencia de una notificación de eventos, el publicador de un mensaje puede esperar una respuesta. Por ejemplo, un mensaje contiene los datos sin procesar, pero espera que la siguiente parte del sistema cree un archivo de datos.
+Un mensaje son datos sin procesar producidos por un servicio que se consumen o almacenan en otro lugar. El mensaje contiene los datos que desencadenó la canalización del mensaje. El publicador del mensaje tiene una expectativa sobre la forma en que el consumidor trata el mensaje. Existe un contrato entre ambas partes. Por ejemplo, el publicador envía un mensaje con los datos sin procesar, espera que el consumidor cree un archivo a partir de esos datos y envía una respuesta cuando el trabajo finaliza.
 
 ## <a name="comparison-of-services"></a>Comparación de servicios
 
 | Servicio | Propósito | type | Cuándo se deben usar |
 | ------- | ------- | ---- | ----------- |
-| Event Grid | Programación reactiva | Distribución de eventos | Reacción ante los cambios de estado |
-| Event Hubs | Canalización de macrodatos | Streaming de eventos | Streaming de datos distribuidos y telemetría |
+| Event Grid | Programación reactiva | Distribución de eventos (discretos) | Reacción ante los cambios de estado |
+| Event Hubs | Canalización de macrodatos | Streaming de eventos (serie) | Streaming de datos distribuidos y telemetría |
 | Azure Service Bus | Mensajería empresarial de gran valor | Message | Procesamiento de pedidos y transacciones financieras |
 
 ### <a name="event-grid"></a>Event Grid
@@ -84,7 +88,7 @@ En otros casos, puede vincular estas soluciones para formar una canalización de
 
 ![Información general sobre streaming de datos](./media/compare-messaging-services/overview.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * Para obtener más información acerca de los servicios de mensajería de Azure, vea la entrada de blog [Events, Data Points, and Messages - Choosing the right Azure messaging service for your data](https://azure.microsoft.com/blog/events-data-points-and-messages-choosing-the-right-azure-messaging-service-for-your-data/) (Eventos, puntos de datos y mensajes: Elección del servicio de mensajería de Azure adecuado para sus datos).
 * Para obtener una introducción a Event Grid, vea [Acerca de Event Grid](overview.md).

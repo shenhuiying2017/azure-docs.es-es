@@ -1,3 +1,19 @@
+---
+title: archivo de inclusión
+description: archivo de inclusión
+services: virtual-machines
+author: jonbeck7
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: azcspmt;jonbeck;cynthn
+ms.custom: include file
+ms.openlocfilehash: 9602e8d73e5aca650dd20da34a9aa675b508ada7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 03/16/2018
+---
 <!-- F-series, Fs-series* -->
 
 Los tamaños de máquina virtual optimizados para el proceso tiene un alto ratio entre CPU y memoria, y son adecuados para servidores web de tráfico medios, aplicaciones de red, procesos por lotes y servidores de aplicaciones. En este artículo, se proporciona información sobre el número de vCPU, discos de datos y NIC, así como sobre el ancho de banda de red y almacenamiento para cada tamaño de esta agrupación.
@@ -28,7 +44,7 @@ ACU: 195 - 210
 
 <sup>1</sup>Las máquinas virtuales de la serie Fsv2 cuentan con la tecnología Hyper-Threading de Intel®.
 
-<sup>2</sup> Si hay más de 64 vCPU, se necesita uno de estos sistemas operativos invitados compatibles: Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2, Red Hat Enterprise, CentOS 7.3 y Oracle Linux 7.3 con LIS 4.2.1
+<sup>2</sup> Si hay más de 64 vCPU, se necesita uno de estos sistemas operativos invitados compatibles: Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2, Red Hat Enterprise, CentOS 7.3 u Oracle Linux 7.3 con LIS 4.2.1.
 
 <sup>3</sup> La instancia está aislada en el hardware dedicado a un solo cliente.
 
@@ -46,7 +62,7 @@ ACU: 210 - 250
 
 MBps = 10^6 bytes por segundo y GiB = 1024^3 bytes.
 
-<sup>1</sup> El rendimiento de disco máx. (E/S por segundo o Mbps) posible con una VM de la serie Fs puede estar limitado por el número, el tamaño y la fragmentación de los discos conectados.  Para obtener más información, consulte [Premium Storage: almacenamiento de alto rendimiento para las cargas de trabajo de la máquina virtual de Azure](../articles/virtual-machines/windows/premium-storage.md)
+<sup>1</sup> El rendimiento de disco máximo (IOPS o MBps) posible con una máquina virtual de la serie Fs puede estar limitado por el número, el tamaño y la fragmentación de los discos conectados.  Para obtener más información, consulte [Premium Storage: almacenamiento de alto rendimiento para las cargas de trabajo de la máquina virtual de Azure](../articles/virtual-machines/windows/premium-storage.md)
 
 
 <br>

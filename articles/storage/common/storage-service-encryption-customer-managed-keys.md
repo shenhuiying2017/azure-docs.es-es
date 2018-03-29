@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: lakasa
-ms.openlocfilehash: b40858640d10e5661be420976520774bd50837cb
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 1360d8bb0911c424747209c69b830fc1ee461798
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Cifrado del servicio Storage mediante claves administradas por el cliente en Azure Key Vault
 
@@ -81,6 +81,7 @@ Para especificar la clave a partir de un URI, siga estos pasos:
 
     ![Captura de pantalla del portal que muestra el cifrado con la opción de especificación del UIR de la clave](./media/storage-service-encryption-customer-managed-keys/ssecmk2.png)
 
+
 #### <a name="specify-a-key-from-a-key-vault"></a>Especificación de una clave a partir de un almacén de claves 
 
 Para especificar la clave a partir de un almacén de claves, siga estos pasos:
@@ -96,6 +97,17 @@ Si la cuenta de almacenamiento no tiene acceso al almacén de claves, puede ejec
 ![Captura de pantalla de portal que muestra el acceso denegado para el almacén de claves](./media/storage-service-encryption-customer-managed-keys/ssecmk4.png)
 
 También puede conceder acceso a través de Azure Portal yendo a Azure Key Vault en Azure Portal y concediendo acceso a la cuenta de almacenamiento.
+
+
+Puede asociar la clave anterior con una cuenta de almacenamiento existente mediante los siguientes comandos de PowerShell:
+```powershell
+$storageAccount = Get-AzureRmStorageAccount -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount"
+$keyVault = Get-AzureRmKeyVault -VaultName "mykeyvault"
+$key = Get-AzureKeyVaultKey -VaultName $keyVault.VaultName -Name "keytoencrypt"
+Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVault.VaultName -ObjectId $storageAccount.Identity.PrincipalId -PermissionsToKeys wrapkey,unwrapkey,get
+Set-AzureRmStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName -AccountName $storageAccount.StorageAccountName -EnableEncryptionService "Blob" -KeyvaultEncryption -KeyName $key.Name -KeyVersion $key.Version -KeyVaultUri $keyVault.VaultUri
+```
+
 
 ### <a name="step-5-copy-data-to-storage-account"></a>Paso 5: Copia de los datos en una cuenta de almacenamiento
 

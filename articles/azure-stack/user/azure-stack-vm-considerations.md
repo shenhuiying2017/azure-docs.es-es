@@ -1,11 +1,11 @@
 ---
-title: "Diferencias y consideraciones para las máquinas virtuales en Azure Stack | Microsoft Docs"
-description: "Aprenda sobre las diferencias y consideraciones al trabajar con máquinas virtuales en Azure Stack."
+title: Diferencias y consideraciones para las máquinas virtuales en Azure Stack | Microsoft Docs
+description: Aprenda sobre las diferencias y consideraciones al trabajar con máquinas virtuales en Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 6613946D-114C-441A-9F74-38E35DF0A7D7
 ms.service: azure-stack
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2018
 ms.author: brenduns
-ms.openlocfilehash: 2b39ff3665a4cc3aeddf81b83e0c90c7f770da72
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 50c0f293ac669ade4e45a5f45b0adf9a7c4b6c36
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="considerations-for-virtual-machines-in-azure-stack"></a>Consideraciones sobre máquinas virtuales en Azure Stack
 
@@ -37,7 +37,7 @@ Las máquinas virtuales son recursos informáticos escalables y a petición que 
 | Red de máquinas virtuales | Las direcciones IP públicas asignadas a la máquina virtual del inquilino son accesibles a través de Internet.<br><br><br>Azure Virtual Machines tiene un nombre de DNS fijo | Las direcciones IP públicas asignadas a una máquina virtual del inquilino son accesibles solo desde el entorno del Kit de desarrollo de Azure Stack. Un usuario debe tener acceso al Kit de desarrollo de Azure Stack a través de un [RDP](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop) o una [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) para conectarse a una máquina virtual que se crea en Azure Stack.<br><br>Las máquinas virtuales creadas dentro de una instancia específica de Azure Stack tienen un nombre DNS basado en el valor que se configura mediante el administrador de la nube. |
 | Almacenamiento de máquina virtual | Admite [discos administrados](../../virtual-machines/windows/managed-disks-overview.md). | Los discos administrados no se admiten todavía en Azure Stack. |
 | Versiones de API | Azure tiene siempre las últimas versiones de API para todas las características de la máquina virtual. | Azure Stack es compatible con servicios específicos de Azure y versiones de API específicas para estos servicios. Para ver la lista de versiones de API compatibles, consulte la sección [versiones de API](#api-versions) de este artículo. |
-|Conjuntos de disponibilidad de máquinas virtuales|Varios dominios de error (2 o 3 por región)<br>Varios dominios de actualización<br>Compatible con el disco administrado|Dominio de error único<br>Dominio actualizado único<br>No compatible con el disco administrado|
+|Conjuntos de disponibilidad de máquinas virtuales|Varios dominios de error (2 o 3 por región)<br>Varios dominios de actualización<br>Compatible con el disco administrado|Varios dominios de error (2 o 3 por región)<br>Varios dominios de actualización (hasta 20)<br>No compatible con el disco administrado|
 |Conjuntos de escalado de máquinas virtuales|Compatible con escalado automático|No compatible con escalado automático.<br>Agregar más instancias a un conjunto de escalado con el portal, las plantillas de Resource Manager o PowerShell.
 
 ## <a name="virtual-machine-sizes"></a>Tamaños de máquina virtual
@@ -94,6 +94,6 @@ Get-AzureRmResourceProvider | `
 ```
 La lista de versiones de API y tipos de recursos admitidos puede variar si el operador de nube actualiza su entorno de Azure Stack a una versión más reciente.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 [Cree una máquina virtual Windows con PowerShell en Azure Stack](azure-stack-quick-create-vm-windows-powershell.md)

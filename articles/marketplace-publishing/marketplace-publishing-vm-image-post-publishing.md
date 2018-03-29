@@ -1,11 +1,11 @@
 ---
-title: "Administración de la imagen de máquina virtual en Azure Marketplace | Microsoft Docs"
-description: "Guía detallada sobre cómo administrar la imagen de máquina virtual en Azure Marketplace después de la publicación inicial"
+title: Administración de la imagen de máquina virtual en Azure Marketplace | Microsoft Docs
+description: Guía detallada sobre cómo administrar la imagen de máquina virtual en Azure Marketplace después de la publicación inicial
 services: Azure Marketplace
-documentationcenter: 
-author: HannibalSII
-manager: hascipio
-editor: 
+documentationcenter: ''
+author: msmbaldwin
+manager: mbaldwin
+editor: ''
 ms.assetid: cc8648d4-59c2-4678-b47d-992300677537
 ms.service: marketplace
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/03/2016
-ms.author: hascipio;
-ms.openlocfilehash: e1f90650e71345957c2d353774cb8bef62c1868b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbaldwin;
+ms.openlocfilehash: 19f60de4a6c651885da7ff1fb7612a77f3d0c8f1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="post-production-guide-for-virtual-machine-offers-in-the-azure-marketplace"></a>Guía de postproducción para ofertas de máquina virtual en Azure Marketplace
 En este artículo se explica cómo actualizar una oferta de máquina virtual activa en Azure Marketplace. Este artículo le conduce a través del proceso de adición de una o varias SKU a una oferta existente. También le indica cómo eliminar una oferta de máquina virtual activa o una SKU de Marketplace.
@@ -38,7 +38,7 @@ Después de que una oferta o SKU aparezca en [Marketplace](http://azure.microsof
 * **Pricing Change of listed SKU(s) (Cambio de precios de las SKU activas)**
 * **Billing Model Change of listed SKU(s) (Cambio del modelo de facturación de las SKU activas)**
 * **Removal of billing regions of listed SKU(s)**
-* **Changing the data disk count of listed SKU(s)**
+* **Changing the data disk count of listed SKU(s) (Cambio del número de discos de datos de las SKU activas)**
 
 ## <a name="update-the-technical-details-of-a-sku"></a>Actualización de los detalles técnicos de una SKU
 Para agregar una nueva versión a las SKU de la lista y volver a publicar la oferta, siga estos pasos:
@@ -328,7 +328,7 @@ Para revertir la configuración de visibilidad de una SKU activa al valor de pro
     ![Visibilidad](media/marketplace-publishing-vm-image-post-publishing/img10-04.png)
 5. Una vez que haya terminado con los cambios, haga clic en **REQUEST APPROVAL TO PUSH TO PRODUCTION** (SOLICITAR APROBACIÓN PARA ENVIAR A PRODUCCIÓN) para volver a publicar la oferta en Marketplace.
 
-## <a name="see-also"></a>Consulte también
+## <a name="see-also"></a>Otras referencias
 * [Introducción: Publicación de una oferta en Azure Marketplace](marketplace-publishing-getting-started.md)
 * [Descripción de informes de pago](marketplace-publishing-report-payout.md)
 * [Cambio del incentivo de revendedores para proveedores de soluciones en la nube](marketplace-publishing-csp-incentive.md)
