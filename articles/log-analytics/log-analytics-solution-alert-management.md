@@ -1,8 +1,8 @@
 ---
-title: "Solución Alert Management en Log Analytics | Microsoft Azure"
-description: "La solución Administración de alertas de Log Analytics le ayuda a analizar todas las alertas de su entorno.  Además de consolidar las alertas generadas dentro de Log Analytics, importa las alertas de los grupos de administración conectados de System Center Operations Manager en Log Analytics."
+title: Solución Alert Management en Log Analytics | Microsoft Azure
+description: La solución Administración de alertas de Log Analytics le ayuda a analizar todas las alertas de su entorno.  Además de consolidar las alertas generadas dentro de Log Analytics, importa las alertas de los grupos de administración conectados de System Center Operations Manager en Log Analytics.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: c34916913915331020d9fc9789221f790b75a070
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 0d9028b821e4c488186143311c81bfa6d17908ff
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Solución Alert Management en Azure Log Analytics
 
@@ -109,20 +109,6 @@ La solución importa alertas desde System Center Operations Manager y crea un re
 La tabla siguiente proporciona búsquedas de registros de ejemplo para los registros de alerta recopilados por esta solución: 
 
 | Consultar | DESCRIPCIÓN |
-|:--- |:--- |
-| Type=Alert SourceSystem=OpsManager AlertSeverity=error TimeRaised>NOW-24HOUR |Alertas críticas generadas durante las últimas 24 horas |
-| Type=Alert AlertSeverity=warning TimeRaised>NOW-24HOUR |Alertas de advertencia generadas durante las últimas 24 horas |
-| Type=Alert SourceSystem=OpsManager AlertState!=Closed TimeRaised>NOW-24HOUR &#124; measure count() as Count by SourceDisplayName |Orígenes con alertas activas generadas durante las últimas 24 horas |
-| Type=Alert SourceSystem=OpsManager AlertSeverity=error TimeRaised>NOW-24HOUR AlertState!=Closed |Alertas críticas generadas durante las últimas 24 horas que todavía están activas |
-| Type=Alert SourceSystem=OpsManager TimeRaised>NOW-24HOUR AlertState=Closed |Alertas generadas durante las últimas 24 horas que ahora están cerradas |
-| Type=Alert SourceSystem=OpsManager TimeRaised>NOW-1DAY &#124; measure count() as Count by AlertSeverity |Alertas generadas durante el último día agrupadas por su gravedad |
-| Type=Alert SourceSystem=OpsManager TimeRaised>NOW-1DAY &#124; sort RepeatCount desc |Alertas generadas durante el último día ordenadas por su valor de número de repeticiones |
-
-
->[!NOTE]
-> Si el área de trabajo se ha actualizado al [nuevo lenguaje de consulta de Log Analytics](log-analytics-log-search-upgrade.md), las consultas anteriores cambiarían como sigue:
->
->| Consultar | DESCRIPCIÓN |
 |:---|:---|
 | Alert &#124; where SourceSystem == "OpsManager" and AlertSeverity == "error" and TimeRaised > ago(24h) |Alertas críticas generadas durante las últimas 24 horas |
 | Alert &#124; where AlertSeverity == "warning" and TimeRaised > ago(24h) |Alertas de advertencia generadas durante las últimas 24 horas |
@@ -133,5 +119,6 @@ La tabla siguiente proporciona búsquedas de registros de ejemplo para los regis
 | Alert &#124; where SourceSystem == "OpsManager" and TimeRaised > ago(1d) &#124; sort by RepeatCount desc |Alertas generadas durante el último día ordenadas por su valor de número de repeticiones |
 
 
-## <a name="next-steps"></a>pasos siguientes
+
+## <a name="next-steps"></a>Pasos siguientes
 * Obtenga información sobre [alertas en Log Analytics](log-analytics-alerts.md) para más detalles sobre la generación de alertas desde Log Analytics.

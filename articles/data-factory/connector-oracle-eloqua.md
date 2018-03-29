@@ -1,11 +1,11 @@
 ---
 title: Copiar datos de Oracle Eloqua con Azure Data Factory (beta) | Microsoft Docs
-description: "Obtenga información sobre cómo copiar datos de Oracle Eloqua en almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory."
+description: Obtenga información sobre cómo copiar datos de Oracle Eloqua en almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: af1da8c77ebe499cb413168b3234c02db941c3d3
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b1540ccd8a80d1cb3e3cff7b0ee488dd58c48df5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-oracle-eloqua-using-azure-data-factory-beta"></a>Copiar datos de Oracle Eloqua con Azure Data Factory (beta)
 
@@ -49,7 +49,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Oracle E
 |:--- |:--- |:--- |
 | Tipo | La propiedad type debe establecerse en: **Eloqua** | Sí |
 | endpoint | Punto de conexión del servidor de Eloqua. (es decir, eloqua.example.com)  | Sí |
-| Nombre de usuario | Nombre del sitio y nombre de usuario de la cuenta de Eloqua con el siguiente formato: nombre del sitio/nombre de usuario. (es decir, Eloqua/Alice)  | Sí |
+| nombre de usuario | Nombre del sitio y nombre de usuario de la cuenta de Eloqua con el siguiente formato: nombre del sitio/nombre de usuario. (es decir, Eloqua/Alice)  | Sí |
 | contraseña | Contraseña que corresponde al nombre de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
 | useEncryptedEndpoints | Especifica si los puntos de conexión de origen de datos se cifran mediante HTTPS. El valor predeterminado es true.  | Sin  |
 | useHostVerification | Especifica si se requiere que el nombre de host del certificado del servidor coincida con el nombre de host del servidor al conectarse a través de SSL. El valor predeterminado es true.  | Sin  |
@@ -140,5 +140,5 @@ Para copiar datos desde Oracle Eloqua, establezca el tipo de origen de la activi
 ]
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para ver una lista de los datos compatibles almacenados por Azure Data Factory, consulte los [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats).

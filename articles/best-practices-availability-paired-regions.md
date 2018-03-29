@@ -1,24 +1,19 @@
 ---
-title: "Continuidad empresarial y recuperación ante desastres (BCDR): regiones emparejadas de Azure | Microsoft Docs"
-description: "Conozca más sobre el emparejamiento de regiones de Azure para asegurarse de que las aplicaciones sean resistentes durante los errores del centro de datos."
+title: 'Continuidad empresarial y recuperación ante desastres (BCDR): regiones emparejadas de Azure | Microsoft Docs'
+description: Conozca más sobre el emparejamiento de regiones de Azure para asegurarse de que las aplicaciones sean resistentes durante los errores del centro de datos.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: rayne-wiselman
-manager: cfreeman
-editor: 
-ms.assetid: c2d0a21c-2564-4d42-991a-bc31723f61a4
-ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
+manager: carmonm
+ms.service: multiple
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 03/21/2018
 ms.author: raynew
-ms.openlocfilehash: 394f353837433e241e4da6f4accdb5eaa24bae46
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 660ced47b48e981b65c6b9390809e345be8eda2d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuidad empresarial y recuperación ante desastres (BCDR): regiones emparejadas de Azure
 
@@ -43,8 +38,8 @@ Ilustración 1: Diagrama de pareja regional de Azure
 | Japón |Este de Japón |Oeste de Japón |
 | Corea |Corea Central |Corea del Sur |
 | Norteamérica |Centro-Norte de EE. UU |Centro-Sur de EE. UU |
-| Norteamérica |Este de EE. UU. |Oeste de EE. UU. |
-| Norteamérica |Este de EE. UU. 2 |Central EE. UU.: |
+| Norteamérica |Este de EE. UU |Oeste de EE. UU |
+| Norteamérica |Este de EE. UU. 2 |Central EE. UU: |
 | Norteamérica |Oeste de EE. UU. 2 |Centro occidental de EE.UU. |
 | Europa |Europa del Norte |Europa occidental |
 | Japón |Este de Japón |Oeste de Japón |
@@ -58,10 +53,10 @@ Ilustración 1: Diagrama de pareja regional de Azure
 
 Tabla 1: Asignación de las parejas regionales de Azure
 
-- > (1) Oeste de la India es diferente porque se empareja con otra región en una sola dirección. La región secundaria del Oeste de la India es Sur de la India, pero la región secundaria esta última es India Central.
-- > (2) Sur de Brasil es un caso único porque se empareja con una región fuera de su propia ubicación geográfica. La región secundaria del Sur de Brasil es Centro y Sur de EE. UU., pero la región secundaria de esta última no es el Sur de Brasil.
-- > (3) La región secundaria de Iowa Gob. EE. UU. es Virginia Gob. EE. UU., pero la región secundaria de Virginia Gob. EE. UU. no es Iowa Gob. EE. UU.
-- > (4) La región secundaria de Virginia Gob. EE. UU. es Texas Gob. EE. UU., pero la región secundaria de Texas Gob. EE. UU. no es Virginia Gob. EE. UU.
+- (1) Oeste de la India es diferente porque se empareja con otra región en una sola dirección. La región secundaria del Oeste de la India es Sur de la India, pero la región secundaria esta última es India Central.
+- (2) Sur de Brasil es un caso único porque se empareja con una región fuera de su propia ubicación geográfica. La región secundaria del Sur de Brasil es Centro y Sur de EE. UU., pero la región secundaria de esta última no es el Sur de Brasil.
+- (3) La región secundaria de Iowa Gob. EE. UU. es Virginia Gob. EE. UU., pero la región secundaria de Virginia Gob. EE. UU. no es Iowa Gob. EE. UU.
+- (4) La región secundaria de Virginia Gob. EE. UU. es Texas Gob. EE. UU., pero la región secundaria de Texas Gob. EE. UU. no es Virginia Gob. EE. UU.
 
 
 Se recomienda que replique las cargas de trabajo entre las parejas regionales para beneficiarse de las directivas de aislamiento y disponibilidad de Azure. Por ejemplo, las actualizaciones planeadas del sistema de Azure se implementan de forma secuencial (no al mismo tiempo) entre regiones emparejadas. Esto significa que, incluso en el caso excepcional de una actualización defectuosa, ambas regiones no se verán afectadas al mismo tiempo. Además, en el improbable caso de una interrupción amplia, se da prioridad a la recuperación de al menos una región de cada pareja.

@@ -1,6 +1,6 @@
 ---
-title: "Configuración de Load Balancer para Always On de SQL Server | Microsoft Docs"
-description: "Configure Load Balancer para funcionar con Always On de SQL Server y aprenda a usar PowerShell para crear el equilibrador de carga para la implementación de SQL Server."
+title: Configuración de Load Balancer para Always On de SQL Server | Microsoft Docs
+description: Configure Load Balancer para funcionar con Always On de SQL Server y aprenda a usar PowerShell para crear el equilibrador de carga para la implementación de SQL Server.
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 5e890f8314c8f191dbfa6c6818d810b91d0e829d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a0c2345b47b9103ac6a7ae998f13a12332e3907e
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="configure-a-load-balancer-for-sql-server-always-on"></a>Configuración de un equilibrador de carga para Always On de SQL Server
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+
 
 Grupos de disponibilidad Always On de SQL Server ahora se pueden ejecutar con un equilibrador de carga interno. Un grupo de disponibilidad es la solución estrella de SQL Server para conseguir alta disponibilidad y recuperación ante desastres. El agente de escucha de grupo de disponibilidad permite a las aplicaciones cliente conectarse sin problemas a la réplica principal, independientemente del número de réplicas en la configuración.
 

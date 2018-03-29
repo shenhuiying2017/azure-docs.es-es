@@ -1,11 +1,10 @@
 ---
-title: "Creación de un entorno de ejecución de SSIS en Azure en Azure Data Factory | Microsoft Docs"
-description: "Obtenga información acerca de cómo crear un entorno de ejecución de SSIS en Azure para poder ejecutar el paquete SSIS en la nube de Azure."
+title: Creación de un entorno de ejecución de SSIS en Azure en Azure Data Factory | Microsoft Docs
+description: Obtenga información acerca de cómo crear un entorno de ejecución de SSIS en Azure para poder ejecutar el paquete SSIS en la nube de Azure.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: douglaslMS
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: douglasl
-ms.openlocfilehash: 879489dffbf713b5fadb72a58638e462938aaf26
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: dc4c690633d14163eddfa70e8417a645f95a0861
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Crear una instancia de Integration Runtime de Azure SSIS en Azure Data Factory
 En este artículo se describen los pasos necesarios para aprovisionar una instancia de Integration Runtime de SSIS de Azure en Azure Data Factory. Posteriormente, podrá usar SQL Server Data Tools (SSDT) o SQL Server Management Studio (SSMS) para implementar paquetes de SQL Server Integration Services (SSIS) en este entorno de ejecución de Azure.
@@ -34,7 +33,7 @@ El tutorial: [Implementación de paquetes de SQL Server Integration Services (SS
 ## <a name="overview"></a>Información general
 En este artículo se muestran diferentes maneras de aprovisionar un entorno de ejecución de SSIS en Azure:
 
-- [portal de Azure](#azure-portal)
+- [Azure Portal](#azure-portal)
 - [Azure PowerShell](#azure-powershell)
 - [Plantilla de Azure Resource Manager](#azure-resource-manager-template)
 
@@ -472,7 +471,7 @@ En esta sección, se utiliza una plantilla de Azure Resource Manager para crear 
 ## <a name="deploy-ssis-packages"></a>Implementación de paquetes SSIS
 Luego, use SQL Server Data Tools (SSDT) o SQL Server Management Studio (SSMS) para implementar los paquetes de SSIS en Azure. Conéctese a la instancia de SQL Server de Azure que hospeda el catálogo de SSIS (SSISDB). El nombre de la instancia de SQL Server de Azure tiene el siguiente formato: &lt;nombreservidor&gt;.database.windows.net (para Azure SQL Database). Vea el artículo [Implementación de paquetes](/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages#deploy-packages-to-integration-services-server) para obtener instrucciones. 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Consulte los restantes temas sobre instancias de Integration Runtime de SSIS de Azure en esta documentación:
 
 - [Integration Runtime de SSIS de Azure](concepts-integration-runtime.md#azure-ssis-integration-runtime). En este artículo se proporciona información conceptual acerca de Integration Runtime en general, lo que incluye Integration Runtime de SSIS de Azure. 

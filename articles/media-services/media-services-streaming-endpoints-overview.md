@@ -1,12 +1,12 @@
 ---
-title: "Información general de punto de conexión de streaming de Azure Media Services | Microsoft Docs"
-description: "En este tema se proporciona información general sobre los puntos de conexión de streaming de Azure Media Services."
+title: Información general de punto de conexión de streaming de Azure Media Services | Microsoft Docs
+description: En este tema se proporciona información general sobre los puntos de conexión de streaming de Azure Media Services.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 writer: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 097ab5e5-24e1-4e8e-b112-be74172c2701
 ms.service: media-services
 ms.workload: media
@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
-ms.openlocfilehash: 80d625a6ab2d3c6d5de0a90fbff0760888154d70
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: f923a2fb328ee62ce4dc73669fd922f275ba34a0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="streaming-endpoints-overview"></a>Información general de los puntos de conexión de streaming 
 
-##<a name="overview"></a>Información general
+## <a name="overview"></a>Información general
 
 En Microsoft Azure Media Services (AMS), un **punto de conexión de streaming** representa un servicio de streaming que puede entregar contenido directamente a una aplicación de reproducción de cliente o a una red Content Delivery Network (CDN) para la distribución posterior. Media Services también proporciona integración sin problemas de CDN de Azure. La secuencia de salida de un servicio de punto de conexión de streaming puede ser una secuencia en vivo, un vídeo bajo demanda o una descarga progresiva de su recurso en su cuenta de Media Services. Cada cuenta de Azure Media Services incluye un punto de conexión de streaming predeterminado. Es posible crear puntos de conexión de streaming adicionales en la cuenta. Existen dos versiones de puntos de conexión de streaming: 1.0 y 2.0. A partir del 10 de enero de 2017, las cuentas recién creadas de AMS incluirán de manera **predeterminada** la versión 2.0 del punto de conexión de streaming. Los puntos de conexión de streaming adicionales que agregue a esta cuenta también se generarán en la versión 2.0. Este cambio no afectará a las cuentas existentes; los puntos de conexión de streaming actuales mantendrán la versión 1.0, aunque es posible actualizarlos a la versión 2.0. Este cambio implicará modificaciones en cuanto al comportamiento, la facturación y las características (para obtener más información, consulte la sección **Tipos y versiones de streaming** a continuación).
 
@@ -104,7 +104,7 @@ Versión 1.0 con al menos una unidad de streaming en red CDN|Estándar o Premium
 Versión 1.0 con al menos una unidad de streaming en red CDN|Estándar con o sin red CDN|Permitido en el estado **stopped** (detenido). No se permite en el estado **started** (iniciado). La red CDN de la versión 1.0 se eliminará y se creará e iniciará una nueva.
 Versión 1.0 con al menos una unidad de streaming en red CDN|Premium con o sin red CDN|Permitido en el estado **stopped** (detenido). No se permite en el estado **started** (iniciado). La red CDN clásica se eliminará y se creará e iniciará una nueva.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Consulte las rutas de aprendizaje de Media Services.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
