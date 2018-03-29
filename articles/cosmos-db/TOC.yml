@@ -445,3 +445,5 @@
       href: faq.md
     - name: Coherencia de los datos explicada a través del béisbol
       href: 'http://research.microsoft.com/apps/pubs/default.aspx?id=206913'
+    - name: Solución de problemas de Azure Cosmos DB
+      href: troubleshoot-azure-cosmosdb.md

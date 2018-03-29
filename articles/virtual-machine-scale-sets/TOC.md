@@ -1,15 +1,38 @@
-# [Documentación de Virtual Machines Scale Sets](index.md)
+# [Documentación de Virtual Machines Scale Sets](index.yml)
 
 # Información general
-## [¿Qué son los conjuntos de escalado de máquinas virtuales?](virtual-machine-scale-sets-overview.md)
+## [¿Qué son los conjuntos de escalado de máquinas virtuales?](overview.md)
 
-# Introducción
-## [Creación en Azure Portal](virtual-machine-scale-sets-create-portal.md)
-## [Creación con la CLI de Azure 2.0](virtual-machine-scale-sets-create-cli.md)
-## [Creación con Azure PowerShell](virtual-machine-scale-sets-create-powershell.md)
+# Guías de inicio rápido
+## [Creación en Azure Portal](quick-create-portal.md)
+## [Creación con la CLI de Azure 2.0](quick-create-cli.md)
+## [Creación con Azure PowerShell](quick-create-powershell.md)
 ## Creación con una plantilla
-### [Conjunto de escalado de Linux](virtual-machine-scale-sets-create-template-linux.md)
-### [Conjunto de escalado de Windows](virtual-machine-scale-sets-create-template-windows.md)
+### [Conjunto de escalado de Linux](quick-create-template-linux.md)
+### [Conjunto de escalado de Windows](quick-create-template-windows.md)
+
+# Tutoriales
+## 1 - Creación y administración de un conjunto de escalado
+### [CLI de Azure 2.0](tutorial-create-and-manage-cli.md)
+### [Azure PowerShell](tutorial-create-and-manage-powershell.md)
+## 2 - Uso de discos de datos
+### [CLI de Azure 2.0](tutorial-use-disks-cli.md)
+### [Azure PowerShell](tutorial-use-disks-powershell.md)
+## 3 - Uso de una imagen de máquina virtual personalizada
+### [CLI de Azure 2.0](tutorial-use-custom-image-cli.md)
+### [Azure PowerShell](tutorial-use-custom-image-powershell.md)
+## 4 - Implementación de aplicaciones en un conjunto de escalado
+### [CLI de Azure 2.0](tutorial-install-apps-cli.md)
+### [Azure PowerShell](tutorial-install-apps-powershell.md)
+### [Plantilla](tutorial-install-apps-template.md)
+## 5 - Escalado automático de un conjunto de escalado
+### [CLI de Azure 2.0](tutorial-autoscale-cli.md)
+### [Azure PowerShell](tutorial-autoscale-powershell.md)
+### [Plantilla](tutorial-autoscale-template.md)
+
+# Ejemplos
+## [CLI de Azure 2.0](cli-samples.md)
+## [PowerShell](powershell-samples.md)
 
 # Procedimientos
 ## Planeamiento y diseño
@@ -24,12 +47,9 @@
 
 ## Implementación
 ### [Creación con Visual Studio](virtual-machine-scale-sets-vs-create.md)
-### [Conjunto de escalado con Managed Disks](virtual-machine-scale-sets-managed-disks.md)
 ### [Uso de zonas de disponibilidad](virtual-machine-scale-sets-use-availability-zones.md)
 ### [Escalado automático de un conjunto de escalado](virtual-machine-scale-sets-autoscale-overview.md)
 #### [Uso de Azure Portal](virtual-machine-scale-sets-autoscale-portal.md)
-#### [Uso de la CLI de Azure 2.0](virtual-machine-scale-sets-autoscale-cli.md)
-#### [Uso de Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
 #### [Escalado automático avanzado](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Aplicaciones en conjuntos de escalado](virtual-machine-scale-sets-deploy-app.md)
 ### [Uso de discos de datos con conjuntos de escalado](virtual-machine-scale-sets-attached-disks.md)

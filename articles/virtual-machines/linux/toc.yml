@@ -419,6 +419,8 @@
           href: extensions-nwa.md
         - name: Extensión VMAccess
           href: using-vmaccess-extension.md
+        - name: Restricción de la instalación de extensiones
+          href: extensions-rmpolicy-howto-cli.md
     - name: Migración de máquinas virtuales
       items:
         - name: Migración de máquinas virtuales de AWS y locales
@@ -458,6 +460,8 @@
           href: understand-vm-reboot.md
         - name: Diagnósticos de arranque
           href: boot-diagnostics.md
+        - name: Consola de serie
+          href: serial-console.md
         - name: Acceso a aplicaciones
           href: troubleshoot-app-connection.md
         - name: Errores de asignación

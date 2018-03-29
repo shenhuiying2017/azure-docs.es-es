@@ -39,7 +39,7 @@
 ### Preparación de la infraestructura de Azure
 #### [Windows con disco compartido para instancias de (A)SCS](sap-high-availability-infrastructure-wsfc-shared-disk.md)
 #### [Windows con uso compartido de archivos SOFS para instancias de (A)SCS](sap-high-availability-infrastructure-wsfc-file-share.md)
-#### [SUSE Linux con NFS para instancias de (A)SCS](high-availability-guide-suse.md)
+#### [Alta disponibilidad para NFS en máquinas virtuales de Azure en SLES](high-availability-guide-suse-nfs.md)
 #### [Pacemaker en SLES](high-availability-guide-suse-pacemaker.md)
 ### Instalación de SAP
 #### [Windows con disco compartido para instancias de (A)SCS](sap-high-availability-installation-wsfc-shared-disk.md)

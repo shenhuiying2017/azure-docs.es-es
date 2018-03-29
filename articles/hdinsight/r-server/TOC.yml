@@ -21,6 +21,10 @@
   items:
     - name: Uso de R Server
       items:
+        - name: Administración de clúster de R Server
+          href: r-server-hdinsight-manage.md
+        - name: Operacionalización de clúster de R Server
+          href: r-server-operationalize.md
         - name: Opciones de almacenamiento
           href: r-server-storage.md
         - name: Contexto de proceso

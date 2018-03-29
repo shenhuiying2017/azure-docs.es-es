@@ -349,8 +349,10 @@
           href: extensions-troubleshoot.md
         - name: Extensión de supervisión y diagnóstico
           href: extensions-diagnostics-template.md
-        - name: Agente de Network Watcher
+        - name: Network Watcher Agent
           href: extensions-nwa.md
+        - name: Restricción de la instalación de extensiones
+          href: extensions-rmpolicy-howto-ps.md
     - name: Migración de máquinas virtuales
       items:
         - name: Migración de AWS y máquinas virtuales locales
@@ -396,6 +398,8 @@
           href: reset-network-interface.md
         - name: Diagnósticos de arranque
           href: boot-diagnostics.md
+        - name: Consola de serie
+          href: serial-console.md
         - name: Creación de una máquina virtual
           href: troubleshoot-deployment-new-vm.md
         - name: Problemas de implementación

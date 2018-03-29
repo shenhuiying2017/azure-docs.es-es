@@ -19,12 +19,16 @@
       href: tutorial-simulate-device-windows.md
     - name: 'Desarrollo de un módulo de C#'
       href: tutorial-csharp-module.md
+    - name: Desarrollo de un módulo de Python
+      href: tutorial-python-module.md
     - name: Implementación de Azure Stream Analytics
       href: tutorial-deploy-stream-analytics.md
     - name: Implementación de Azure Machine Learning
       href: tutorial-deploy-machine-learning.md
     - name: Implementación de Azure Functions
       href: tutorial-deploy-function.md
+    - name: Uso de varios módulos en VS Code
+      href: tutorial-multiple-modules-in-vscode.md
 - name: Guías de procedimientos
   items:
     - name: Creación de puertas de enlace

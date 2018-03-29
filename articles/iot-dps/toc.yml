@@ -13,9 +13,9 @@
       href: quick-setup-auto-provision.md
     - name: 'Configuración del aprovisionamiento automático: Plantilla'
       href: quick-setup-auto-provision-rm.md
-    - name: Creación de un dispositivo simulado
+    - name: Aprovisionamiento automático de un dispositivo simulado
       items:
-        - name: TPM
+        - name: Atestación de TPM
           items:
             - name: C
               href: quick-create-simulated-device.md
@@ -27,7 +27,7 @@
               href: quick-create-simulated-device-tpm-node.md
             - name: Python
               href: quick-create-simulated-device-tpm-python.md
-        - name: X.509
+        - name: Atestación de X.509
           items:
             - name: C
               href: quick-create-simulated-device-x509.md
@@ -39,9 +39,9 @@
               href: quick-create-simulated-device-x509-node.md
             - name: Python
               href: quick-create-simulated-device-x509-python.md
-    - name: Inscripción de dispositivo
+    - name: Inscripción de dispositivos mediante las API de del servicio de aprovisionamiento
       items:
-        - name: TPM
+        - name: Atestación de TPM
           items:
             - name: Java
               href: quick-enroll-device-tpm-java.md
@@ -51,7 +51,7 @@
               href: quick-enroll-device-tpm-node.md
             - name: Python
               href: quick-enroll-device-tpm-python.md
-        - name: X.509
+        - name: Atestación de X.509
           items:
             - name: Java
               href: quick-enroll-device-x509-java.md
@@ -79,12 +79,14 @@
       href: tutorial-group-enrollments.md
 - name: Conceptos
   items:
-    - name: Conceptos de dispositivo
+    - name: Aprovisionamiento automático
+      href: concepts-auto-provisioning.md
+    - name: Dispositivos
       href: concepts-device.md
-    - name: Conceptos de servicio
-      href: concepts-service.md
-    - name: Conceptos de seguridad
+    - name: Seguridad
       href: concepts-security.md
+    - name: Servicio
+      href: concepts-service.md
 - name: Guías de procedimientos
   items:
     - name: Administración de inscripciones de los dispositivos

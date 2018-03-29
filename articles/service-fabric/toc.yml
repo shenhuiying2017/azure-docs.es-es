@@ -93,7 +93,7 @@
       href: service-fabric-architecture.md
     - name: Terminología
       href: service-fabric-technical-overview.md
-    - name: Modelos de programación admitidos
+    - name: Creación de aplicaciones
       href: service-fabric-choose-framework.md
       items:
         - name: Contenedores
@@ -106,10 +106,14 @@
         - name: Reliable Services
           href: service-fabric-reliable-services-introduction.md
           items:
+            - name: Partición del servicio
+              href: service-fabric-concepts-partitioning.md
             - name: 'Ciclo de vida de Reliable Services: C#'
               href: service-fabric-reliable-services-lifecycle.md
             - name: 'Ciclo de vida de Reliable Services: Java'
               href: service-fabric-reliable-services-lifecycle-java.md
+            - name: Ciclo de vida de las réplicas y las instancias
+              href: service-fabric-concepts-replica-lifecycle.md
             - name: Reliable Collections
               href: service-fabric-reliable-services-reliable-collections.md
             - name: Recomendaciones y directrices de Reliable Collections
@@ -122,10 +126,6 @@
               href: service-fabric-reliable-services-reliable-concurrent-queue.md
             - name: Serialización de colección confiable
               href: service-fabric-reliable-services-reliable-collections-serialization.md
-            - name: Reliable State Manager y Reliable Collection internos
-              href: service-fabric-reliable-services-reliable-collections-internals.md
-            - name: Uso avanzado
-              href: service-fabric-reliable-services-advanced-usage.md
         - name: Reliable Actors
           href: service-fabric-reliable-actors-introduction.md
           items:
@@ -153,18 +153,14 @@
           href: service-fabric-application-and-service-manifests.md
         - name: Modelo de alojamiento
           href: service-fabric-hosting-model.md
+        - name: Seguridad de las aplicaciones
+          href: service-fabric-application-and-service-security.md
         - name: Estado de servicio
           href: service-fabric-concepts-state.md
-        - name: Partición del servicio
-          href: service-fabric-concepts-partitioning.md
         - name: Escalabilidad de las aplicaciones
           href: service-fabric-concepts-scalability.md
         - name: Disponibilidad de servicios
           href: service-fabric-availability-services.md
-        - name: Ciclo de vida de las réplicas y las instancias
-          href: service-fabric-concepts-replica-lifecycle.md
-        - name: Reconfiguración
-          href: service-fabric-concepts-reconfiguration.md
         - name: Comunicación de servicio
           href: service-fabric-connect-and-communicate-with-services.md
           items:
@@ -242,55 +238,29 @@
               href: service-fabric-cluster-resource-manager-movement-cost.md
     - name: Supervisión y diagnóstico
       items:
-        - name: Aplicaciones de supervisión y diagnóstico
+        - name: Información general de la supervisión
           href: service-fabric-diagnostics-overview.md
-        - name: Generación de eventos
+        - name: Registro de clúster
+          href: service-fabric-diagnostics-event-generation-infra.md
           items:
-            - name: Generación de eventos de nivel de plataforma
-              href: service-fabric-diagnostics-event-generation-infra.md
-              items:
-                - name: Canal operativo
-                  href: service-fabric-diagnostics-event-generation-operational.md
-                - name: Eventos de Reliable Services
-                  href: service-fabric-reliable-services-diagnostics.md
-                - name: Eventos de Reliable Actors
-                  href: service-fabric-reliable-actors-diagnostics.md
-                - name: Métricas de rendimiento
-                  href: service-fabric-diagnostics-event-generation-perf.md
-                - name: Supervisión de la comunicación remota de servicio
-                  href: service-fabric-reliable-serviceremoting-diagnostics.md
-            - name: Generación de eventos en el nivel de la aplicación
-              href: service-fabric-diagnostics-event-generation-app.md
-        - name: Inspección del estado de un clúster y una aplicación
-          items:
-            - name: Supervisión del estado de Service Fabric
-              href: service-fabric-health-introduction.md
-            - name: Notificación y comprobación del estado del servicio
-              href: service-fabric-diagnostics-how-to-report-and-check-service-health.md
-            - name: Incorporación de informes de estado personalizados
-              href: service-fabric-report-health.md
-            - name: Solución de problemas con informes de estado del sistema
-              href: service-fabric-understand-and-troubleshoot-with-system-health-reports.md
-            - name: Visualización de informes de estado
-              href: service-fabric-view-entities-aggregated-health.md
-        - name: Agregación de eventos
-          items:
-            - name: Agregación de eventos con EventFlow
-              href: service-fabric-diagnostics-event-aggregation-eventflow.md
-            - name: Agregación de eventos con Azure Diagnostics
-              items:
-                - name: Windows
-                  href: service-fabric-diagnostics-event-aggregation-wad.md
-                - name: Linux
-                  href: service-fabric-diagnostics-event-aggregation-lad.md
-        - name: Análisis de eventos
-          items:
-            - name: Análisis de eventos con Application Insights
-              href: service-fabric-diagnostics-event-analysis-appinsights.md
-            - name: Análisis de eventos con OMS
-              href: service-fabric-diagnostics-event-analysis-oms.md
-        - name: Solución de problemas de un clúster local
-          href: service-fabric-troubleshoot-local-cluster-setup.md
+            - name: Canal operativo
+              href: service-fabric-diagnostics-event-generation-operational.md
+            - name: Eventos de Reliable Services
+              href: service-fabric-reliable-services-diagnostics.md
+            - name: Eventos de Reliable Actors
+              href: service-fabric-reliable-actors-diagnostics.md
+            - name: Métricas de rendimiento
+              href: service-fabric-diagnostics-event-generation-perf.md
+            - name: Supervisión de la comunicación remota de servicio
+              href: service-fabric-reliable-serviceremoting-diagnostics.md
+        - name: Registro de aplicaciones
+          href: service-fabric-diagnostics-event-generation-app.md
+        - name: Introducción al modelo de mantenimiento
+          href: service-fabric-health-introduction.md
+        - name: Informes de eventos de mantenimiento
+          href: service-fabric-report-health.md
+        - name: Supervisión con OMS
+          href: service-fabric-diagnostics-event-analysis-oms.md
     - name: Integración con API Management
       href: service-fabric-api-management-overview.md
 - name: Guías de procedimientos
@@ -347,8 +317,10 @@
               href: service-fabric-deploy-multiple-apps.md
         - name: Compilación de un servicio de contenedor
           items:
-            - name: Seguridad del contenedor
+            - name: Uso de un certificado en un contenedor
               href: service-fabric-securing-containers.md
+            - name: Configuración de gMSA para contenedores de Windows
+              href: service-fabric-setup-gmsa-for-windows-containers.md
             - name: Docker Compose (versión preliminar)
               href: service-fabric-docker-compose.md
             - name: Regulación de recursos para contenedores y servicios
@@ -383,6 +355,8 @@
                   href: service-fabric-reliable-services-secure-communication.md
                 - name: 'Comunicaciones seguras: Java'
                   href: service-fabric-reliable-services-secure-communication-java.md
+                - name: Comunicaciones WCF seguras
+                  href: service-fabric-reliable-services-secure-communication-wcf.md
             - name: Configuración
               href: service-fabric-reliable-services-configuration.md
             - name: Envío de notificaciones
@@ -419,8 +393,12 @@
           items:
             - name: Administración de secretos de aplicación
               href: service-fabric-application-secret-management.md
-            - name: Configuración de directivas de seguridad para la aplicación
+            - name: Ejecución de un script de inicio de servicio como cuenta de usuario local o del sistema
+              href: service-fabric-run-script-at-service-startup.md
+            - name: Ejecución de un servicio como cuenta de usuario local o del sistema
               href: service-fabric-application-runas-security.md
+            - name: Asignación de una directiva de acceso de seguridad a los puntos de conexión
+              href: service-fabric-assign-policy-to-endpoint.md
     - name: Trabajo en un entorno de desarrollo de Windows o VS
       items:
         - name: Administración de aplicaciones en Visual Studio
@@ -531,6 +509,8 @@
               href: service-fabric-cluster-security-update-certs-azure.md
             - name: Eliminar
               href: service-fabric-cluster-delete.md
+            - name: Conexión remota a máquina virtual de nodo de clúster
+              href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md
         - name: Clústeres independientes
           items:
             - name: Crear
@@ -545,8 +525,14 @@
                   href: service-fabric-cluster-standalone-package-contents.md
             - name: Escala
               href: service-fabric-cluster-windows-server-add-remove-nodes.md
-            - name: Establecimiento del control de acceso
-              href: service-fabric-cluster-security-roles.md
+            - name: Configuración de seguridad
+              items:
+                - name: Establecimiento del control de acceso
+                  href: service-fabric-cluster-security-roles.md
+                - name: Ejecución de un servicio como un usuario o grupo de AD
+                  href: service-fabric-run-service-as-ad-user-or-group.md
+                - name: Ejecución de un servicio como una cuenta de servicio administrada
+                  href: service-fabric-run-service-as-gmsa.md
             - name: Configuración
               href: service-fabric-cluster-manifest.md
             - name: Actualizar
@@ -559,7 +545,7 @@
           href: service-fabric-patch-orchestration-application.md
     - name: Supervisión y diagnóstico
       items:
-        - name: OMS
+        - name: Análisis con OMS
           items:
             - name: Configuración de Log Analytics de OMS
               href: service-fabric-diagnostics-oms-setup.md
@@ -567,10 +553,26 @@
               href: service-fabric-diagnostics-oms-agent.md
             - name: Supervisión de contenedores
               href: service-fabric-diagnostics-oms-containers.md
-        - name: Supervisión del rendimiento
+        - name: Análisis con Application Insights
+          href: service-fabric-diagnostics-event-analysis-appinsights.md
+        - name: 'Agregación de eventos: EventFlow'
+          href: service-fabric-diagnostics-event-aggregation-eventflow.md
+        - name: 'Agregación de eventos: Azure Diagnostics'
           items:
-            - name: Supervisión del rendimiento con WAD
-              href: service-fabric-diagnostics-perf-wad.md
+            - name: Windows
+              href: service-fabric-diagnostics-event-aggregation-wad.md
+            - name: Linux
+              href: service-fabric-diagnostics-event-aggregation-lad.md
+        - name: Supervisión del rendimiento con WAD
+          href: service-fabric-diagnostics-perf-wad.md
+        - name: Comprobación y notificación de mantenimiento
+          href: service-fabric-diagnostics-how-to-report-and-check-service-health.md
+        - name: Solución de problemas con informes de estado del sistema
+          href: service-fabric-understand-and-troubleshoot-with-system-health-reports.md
+        - name: Visualización de informes de estado
+          href: service-fabric-view-entities-aggregated-health.md
+        - name: Solución de problemas de un clúster local
+          href: service-fabric-troubleshoot-local-cluster-setup.md
 - name: Referencia
   items:
     - name: Azure PowerShell
