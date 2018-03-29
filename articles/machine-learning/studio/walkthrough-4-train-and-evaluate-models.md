@@ -1,10 +1,11 @@
 ---
-title: "Paso 4: Entrenamiento y evaluación de los modelos de análisis predictivo | Microsoft Docs"
-description: "Paso 4 del tutorial Desarrollo de una solución predictiva: entrenamiento, puntuación y evaluación de múltiples modelos en Estudio de aprendizaje automático de Azure."
+title: 'Paso 4: Entrenamiento y evaluación de los modelos de análisis predictivo | Microsoft Docs'
+description: 'Paso 4 del tutorial Desarrollo de una solución predictiva: entrenamiento, puntuación y evaluación de múltiples modelos en Azure Machine Learning Studio.'
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: d905f6b3-9201-4117-b769-5f9ed5ee1cac
 ms.service: machine-learning
@@ -13,17 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.author: garye
-ms.openlocfilehash: 5a545b9f9f7f935be91fed743779ebd6b4d930a6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3f722fa314b42501e0f6144f71b9d74c0a9127e9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="walkthrough-step-4-train-and-evaluate-the-predictive-analytic-models"></a>Paso 4 del tutorial: Entrenamiento y evaluación de los modelos de análisis predictivo
 Este tema contiene el cuarto paso del tutorial [Desarrollo de una solución de análisis predictivo en Azure Machine Learning](walkthrough-develop-predictive-solution.md)
 
-1. [Creación de un área de trabajo de Aprendizaje automático](walkthrough-1-create-ml-workspace.md)
+1. [Creación de un área de trabajo de Machine Learning](walkthrough-1-create-ml-workspace.md)
 2. [Carga de los datos existentes](walkthrough-2-upload-data.md)
 3. [Crear un experimento nuevo](walkthrough-3-create-new-experiment.md)
 4. **Entrenamiento y evaluación de los modelos**
@@ -38,7 +38,7 @@ En el experimento que vamos a crear en este tutorial, crearemos dos tipos difere
 Existen varios modelos entre los que se puede elegir. Para ver cuáles están disponibles, expanda el nodo **Machine Learning** de la paleta de módulos y luego expanda **Initialize Model** (Inicializar modelo) y los nodos que incluye. Teniendo en cuenta el objetivo de este experimento, se seleccionan los módulos [Two-Class Support Vector Machine][two-class-support-vector-machine] (Máquina de vectores de soporte de dos clases, SVM) y [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree] (Árbol de decisión ampliados de dos clases).    
 
 > [!TIP]
-> Para obtener ayuda para decidir qué algoritmo de Aprendizaje automático se adapta mejor al problema concreto que trata de solucionar, vea [Cómo elegir algoritmos para Aprendizaje automático de Microsoft Azure](algorithm-choice.md).
+> Para obtener ayuda para decidir qué algoritmo de Machine Learning se adapta mejor al problema concreto que trata de solucionar, vea [Cómo elegir algoritmos para Microsoft Azure Machine Learning](algorithm-choice.md).
 > 
 > 
 
@@ -182,7 +182,7 @@ La ciencia y el arte de interpretar estos resultados y de ajustar el rendimiento
 > Puede hacer una copia de cualquier iteración de su experimento si hace clic en **GUARDAR COMO** bajo el lienzo. 
 > Utilice las propiedades **Resumen** y **Descripción** para mantener un registro de lo que ha tratado de hacer en las iteraciones del experimento.
 > 
-> Consulte [Administración de iteraciones de experimentos en Estudio de aprendizaje automático de Azure](manage-experiment-iterations.md)para obtener más detalles.  
+> Consulte [Administración de iteraciones de experimentos en Azure Machine Learning Studio](manage-experiment-iterations.md)para obtener más detalles.  
 > 
 > 
 

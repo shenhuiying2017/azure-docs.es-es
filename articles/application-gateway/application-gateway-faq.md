@@ -1,6 +1,6 @@
 ---
-title: "Preguntas más frecuentes sobre Azure Application Gateway | Microsoft Docs"
-description: "Esta página proporciona respuestas a las preguntas más frecuentes acerca de Azure Application Gateway"
+title: Preguntas más frecuentes sobre Azure Application Gateway | Microsoft Docs
+description: Esta página proporciona respuestas a las preguntas más frecuentes acerca de Azure Application Gateway
 documentationcenter: na
 services: application-gateway
 author: davidmu1
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/19/2017
 ms.author: davidmu
-ms.openlocfilehash: f92af44df9863bbf48abb4afcf9b1505c843fadc
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 5b400b373577fc38fe108a74eb8bad936a82be0c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Preguntas más frecuentes sobre Application Gateway
 
@@ -135,10 +135,6 @@ Los sondeos personalizados no admiten caracteres comodín o regex en los datos d
 **P. ¿Cómo se procesan las reglas?**
 
 Las reglas se procesan en el orden en que están configuradas. Se recomienda que las reglas de varios sitios se configuren antes de las reglas básicas para reducir la posibilidad de que el tráfico se enrute al back-end inadecuado, ya que la regla básica coincidiría con el tráfico basado en el puerto antes de que se evalúe la regla de varios sitios.
-
-**P. ¿Cómo se procesan las reglas?**
-
-Las reglas se procesan en el orden en que se crearon. Se recomienda configurar las reglas multisitio antes que las reglas básicas. Al configurar primero los agentes de escucha multisitio, esta configuración reduce la probabilidad de que el tráfico se enrute al servidor no apropiado. Este problema de enrutamiento puede ocurrir cuando la regla básica debería coincidir con tráfico basado en puerto antes que la regla multisitio que se va a evaluar.
 
 **P. ¿Qué significa el campo Host de los sondeos personalizados?**
 

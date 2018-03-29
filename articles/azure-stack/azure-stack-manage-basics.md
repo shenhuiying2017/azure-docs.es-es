@@ -1,11 +1,11 @@
 ---
-title: "Aspectos básicos de administración de Azure Stack | Microsoft Docs"
+title: Aspectos básicos de administración de Azure Stack | Microsoft Docs
 description: Aprenda lo necesario para administrar Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 856738a7-1510-442a-88a8-d316c67c757c
 ms.service: azure-stack
 ms.workload: na
@@ -14,16 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: mabrigg
-ms.openlocfilehash: fa77faac195de3be7bf7b2785eb589b030a6e6ce
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 799651caf937ca2bafc79dc76f99ae43e700673a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-stack-administration-basics"></a>Aspectos básicos de administración de Azure Stack
-
-*Se aplica a: Sistemas integrados de Azure Stack y Azure Stack Development Kit*
-
 Hay varias cosas que debe saber si no está familiarizado con la administración de Azure Stack. Esta guía proporciona información general acerca del rol de los operadores de Azure Stack, y de lo que debe decir a los usuarios para que aumenten su productividad rápidamente.
 
 ## <a name="understand-the-builds"></a>Descripción de las compilaciones
@@ -34,7 +31,7 @@ Si se usa un sistema integrado de Azure Stack, las versiones actualizadas de Azu
  
 ### <a name="development-kit"></a>Kit de desarrollo
 
-Si usa Azure Stack Development Kit, consulte el artículo [What is Azure Stack?](azure-stack-poc.md) (¿Qué es Azure Stack?) para asegurarse de que comprende el propósito del kit de desarrollo y sus limitaciones. Debe usar el kit de desarrollo como un “espacio aislado” donde puede evaluar Azure Stack, y desarrollar y probar sus aplicaciones en un entorno que no es de producción. Para obtener información de implementación, consulte [Azure Stack Development Kit deployment quickstart](azure-stack-deploy-overview.md) (Guía de inicio rápido de implementación de Azure Stack Development Kit).
+Si usa el Kit de desarrollo de Azure Stack, consulte el artículo [What is Azure Stack?](azure-stack-poc.md) (¿Qué es Azure Stack?) para asegurarse de que comprende el propósito del Kit de desarrollo y sus limitaciones. Debe usar el kit de desarrollo como un “espacio aislado” donde puede evaluar Azure Stack, y desarrollar y probar sus aplicaciones en un entorno que no es de producción. Para obtener información de implementación, consulte [Azure Stack Development Kit deployment quickstart](azure-stack-deploy-overview.md) (Guía de inicio rápido de implementación del Kit de desarrollo de Azure Stack).
 
 Como Azure, innovamos con rapidez. Publicaremos nuevas compilaciones con asiduidad. Si ejecuta el kit de desarrollo y desea pasar a la compilación más reciente, debe [volver a implementar Azure Stack](azure-stack-redeploy.md), no puede aplicar paquetes de actualización. Este proceso lleva tiempo, pero la ventaja es que puede probar las características más recientes. La documentación del kit de desarrollo que hay en nuestro sitio web refleja la versión de compilación más reciente.
 

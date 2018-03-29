@@ -1,25 +1,25 @@
 ---
-title: "Validación de certificados de infraestructura de clave pública de Azure Stack para la implementación de sistemas integrados de Azure Stack | Microsoft Docs"
-description: "Describe cómo validar certificados PKI de Azure Stack para sistemas integrados de Azure Stack."
+title: Validación de certificados de infraestructura de clave pública de Azure Stack para la implementación de sistemas integrados de Azure Stack | Microsoft Docs
+description: Describe cómo validar certificados PKI de Azure Stack para sistemas integrados de Azure Stack.
 services: azure-stack
-documentationcenter: 
-author: jeffgilb
+documentationcenter: ''
+author: mattbriggs
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2018
-ms.author: jeffgilb
+ms.date: 03/22/2018
+ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 86f1b889d83905abfb5ddab2e82f32922409ff5f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: b38e3cc45d14645611c0cd804f2bfa66047810f0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>Validación de certificados PKI de Azure Stack
 La herramienta de comprobación de certificados de Azure Stack que se describe en este artículo la proporciona el OEM incluido con el archivo deploymentdata.json para validar que los [certificados PKI generados](azure-stack-get-pki-certs.md) son adecuados para la implementación previa. Los certificados se deben validar con tiempo suficiente para probarlos y volverlos a emitir si es necesario. 
@@ -176,5 +176,5 @@ Como paso final, todos los certificados que ha preparado deben ubicarse en los d
 <sup>*</sup> Los certificados se marcan con un asterisco * solo son necesarios cuando se utiliza AD FS como almacén de identidades.
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Integración de identidades de centros de datos](azure-stack-integrate-identity.md)

@@ -1,11 +1,10 @@
 ---
 title: Consideraciones de seguridad para el movimiento de datos en Azure Data Factory | Microsoft Docs
-description: "Información acerca de cómo proteger el movimiento de datos en Azure Data Factory."
+description: Información acerca de cómo proteger el movimiento de datos en Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: nabhishek
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +13,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: f483109170ed1dda7506f7ef5f02fb8b42ea331e
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: c2b6c494a9c4d0dac37315520b8d7b962f3490b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory: consideraciones de seguridad para el movimiento de datos
 
@@ -48,7 +47,7 @@ En este artículo, revisamos las consideraciones de seguridad en los dos escenar
 - **Escenario híbrido**: en este escenario, el origen o el destino está detrás de un firewall o dentro de una red corporativa local, o el almacén de datos se encuentra en una red privada o virtual (normalmente, el origen) y no es accesible públicamente. Los servidores de base de datos hospedados en máquinas virtuales también se incluyen en este escenario.
 
 ## <a name="cloud-scenarios"></a>Escenarios de nube
-###<a name="securing-data-store-credentials"></a>Protección de las credenciales del almacén de datos
+### <a name="securing-data-store-credentials"></a>Protección de las credenciales del almacén de datos
 Azure Data Factory protege las credenciales del almacén de datos al **cifrarlos** con **certificados administrados por Microsoft**. Estos certificados se alternan cada **dos años** (lo cual incluye la renovación del certificado y la migración de las credenciales). Estas credenciales cifradas se almacenan de forma segura en una instancia de **Azure Storage administrada por los servicios de administración de Azure Data Factory**. Para más información acerca de la seguridad de Azure Storage, consulte [Introducción a la seguridad de Azure Storage](../../security/security-storage-overview.md).
 
 ### <a name="data-encryption-in-transit"></a>Cifrado de datos en tránsito
@@ -190,7 +189,7 @@ Los siguientes almacenes de datos en la nube necesitan una lista de direcciones 
 **Pregunta:** ¿Cuáles son los certificados necesarios para la puerta de enlace?
 **Respuesta:** La puerta de enlace actual requiere un certificado que utiliza la aplicación de administración de credenciales para establecer las credenciales del almacén de datos de forma segura. Este certificado está autofirmado y se creó y configuró durante la instalación de la puerta de enlace. En su lugar, puede usar su propio certificado TLS / SSL. Para más información, consulte la sección sobre la [aplicación de administración de credenciales con un solo clic](#click-once-credentials-manager-app). 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para información sobre el rendimiento de la actividad de copia, consulte la [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md).
 
  

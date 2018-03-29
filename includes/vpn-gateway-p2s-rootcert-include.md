@@ -1,3 +1,19 @@
+---
+title: archivo de inclusión
+description: archivo de inclusión
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: b2a96aad793d956b3ea3de06fba74bcf68e50786
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 03/23/2018
+---
 Puede usar un certificado de raíz generada mediante una solución empresarial (se recomienda) o puede generar un certificado autofirmado. Después de crear el certificado raíz, exporte los datos del certificado público (no la clave privada) en forma de archivo X.509 .cer codificado en Base 64 y cargue los datos del certificado público en Azure.
 
 * **Certificado de empresa:** si usa una solución empresarial, puede utilizar la cadena de certificados existente. Obtenga el archivo .cer para el certificado raíz que desee usar.

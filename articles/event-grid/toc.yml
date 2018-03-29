@@ -27,6 +27,10 @@
       href: resize-images-on-storage-blob-upload-event.md
     - name: Desencadenamiento de runbook de Automation
       href: ensure-tags-exists-on-new-virtual-machines.md
+- name: Ejemplos
+  items:
+    - name: Plantillas de Resource Manager
+      href: template-samples.md
 - name: Conceptos
   items:
     - name: Conceptos de Event Grid
@@ -47,8 +51,6 @@
       href: publish-iot-hub-events-to-logic-apps.md
     - name: Escucha de eventos de Service Bus con Functions y Logic Apps
       href: ../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json
-    - name: Plantillas para suscripciones a eventos
-      href: event-subscription-template.md
     - name: Supervisión de la entrega de eventos
       href: monitor-event-delivery.md
 - name: Referencia

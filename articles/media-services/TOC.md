@@ -237,7 +237,7 @@
 ## Especificaciones
 ### [Ingesta en vivo: Especificación de ingesta en vivo de MP4 fragmentado](media-services-fmp4-live-ingest-overview.md)
 ### [Ingesta en vivo: Señalización de metadatos con tiempo en Live Streaming](media-services-specifications-live-timed-metadata.md)
-### [HEVC de Smooth Streaming](media-services-specifications-ms-sstr-ammendment-hevc.md)
+### [HEVC de Smooth Streaming](media-services-specifications-ms-sstr-amendment-hevc.md)
 
 # Recursos
 ## [Comunidad de Azure Media Services](media-services-community.md)

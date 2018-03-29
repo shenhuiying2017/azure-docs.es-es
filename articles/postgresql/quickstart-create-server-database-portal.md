@@ -1,6 +1,6 @@
 ---
-title: "Inicio rápido: Creación de un servidor de Azure Database for PostgreSQL mediante Azure Portal"
-description: "Guía de inicio rápido para crear y administrar un servidor de Azure Database for PostgreSQL a través de la interfaz de usuario de Azure Portal."
+title: 'Inicio rápido: Creación de un servidor de Azure Database for PostgreSQL mediante Azure Portal'
+description: Guía de inicio rápido para crear y administrar un servidor de Azure Database for PostgreSQL a través de la interfaz de usuario de Azure Portal.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 02/28/2018
-ms.openlocfilehash: 83bdc6eba35f0deaaf541f2042854764ae513fb9
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 03/20/2018
+ms.openlocfilehash: c1acb568598184974b65d666075032e74aa49eb3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>Inicio rápido: Creación de un servidor de Azure Database for PostgreSQL mediante Azure Portal
 
@@ -237,6 +237,6 @@ Para eliminar solo el servidor recién creado:
 
 3. Confirme el nombre del servidor que desea eliminar y vea las bases de datos que incluye y que resultan afectadas. Escriba el nombre del servidor en el cuadro de texto; en el ejemplo, **mydemoserver**. Seleccione **Eliminar**.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 > [!div class="nextstepaction"]
 > [Migración de una base de datos mediante exportación e importación](./howto-migrate-using-export-and-import.md)

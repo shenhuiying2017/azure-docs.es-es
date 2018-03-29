@@ -1,3 +1,19 @@
+---
+title: archivo de inclusión
+description: archivo de inclusión
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: a929149f115d716bf7f9d850abe5ba97bd5a8189
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 03/23/2018
+---
 ### <a name="gwipnoconnection"></a>Para modificar la dirección IP de la puerta de enlace de red local (no hay conexión con la puerta de enlace)
 
 Use el ejemplo para modificar una puerta de enlace de red local que no tenga una conexión de puerta de enlace. Al modificar este valor, también puede modificar al mismo tiempo los prefijos de dirección.

@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect y el Reglamento general de protección de datos | Microsoft Docs"
-description: "En este documento se describe cómo obtener el cumplimiento con el GDPR en Azure AD Connect."
+title: Azure AD Connect y el Reglamento general de protección de datos | Microsoft Docs
+description: En este documento se describe cómo obtener el cumplimiento con el GDPR en Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/15/2018
 ms.author: billmath
 ms.openlocfilehash: c3956dd379961b119f65bdebe1f5a8038c4fa8f0
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="gdpr-compliance-and-azure-ad-connect"></a>Cumplimiento del GDPR y Azure AD Connect 
 
@@ -81,6 +81,6 @@ Use los pasos siguientes para programar que el script se ejecute cada 48 horas.
 
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 - [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 - [Azure AD Connect Health y GDPR](../../active-directory/connect-health/active-directory-aadconnect-health-gdpr.md)

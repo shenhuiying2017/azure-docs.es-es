@@ -1,11 +1,12 @@
 ---
-title: "Ejecución de scripts de aprendizaje automático de Python | Microsoft Docs"
-description: "Describe los principios de diseño subyacentes a la compatibilidad con scripts de Python en Azure Machine Learning y los escenarios de uso básico, las funcionalidades y las limitaciones."
-keywords: "aprendizaje automático de Python, pandas, pandas de python, scripts de python, ejecutar scripts de python"
+title: Ejecución de scripts de aprendizaje automático de Python | Microsoft Docs
+description: Describe los principios de diseño subyacentes a la compatibilidad con scripts de Python en Azure Machine Learning y los escenarios de uso básico, las funcionalidades y las limitaciones.
+keywords: aprendizaje automático de Python, pandas, pandas de python, scripts de python, ejecutar scripts de python
 services: machine-learning
-documentationcenter: 
-author: bradsev
-manager: cgronlun
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: ee9eb764-0d3e-4104-a797-19fc29345d39
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.author: bradsev;garye
-ms.openlocfilehash: c25f31ca72417672298657c4585184ad72db6c99
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 0efa2a7604b41b791ed3717b7f2b667b7181085d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio"></a>Ejecución de scripts de Python en Azure Machine Learning Studio
 
@@ -148,7 +148,7 @@ La salida del módulo muestra que el archivo ZIP se ha desempaquetado y que la f
  
 ![image10](./media/execute-python-scripts/figure7.png)
 
-Figura 7. Función definida por el usuario en uso dentro del módulo [Ejecutar script de Python][execute-python-script].
+Ilustración 7. Función definida por el usuario en uso dentro del módulo [Ejecutar script de Python][execute-python-script].
 
 
 ## <a name="working-with-visualizations"></a>Trabajo con visualizaciones

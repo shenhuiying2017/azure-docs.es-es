@@ -1,22 +1,21 @@
 ---
-title: "Vinculación de una suscripción de Azure a Azure AD B2C | Microsoft Docs"
-description: "Guía paso a paso para habilitar la facturación de un inquilino de Azure AD B2C en una suscripción de Azure."
+title: Vinculación de una suscripción de Azure a Azure AD B2C | Microsoft Docs
+description: Guía paso a paso para habilitar la facturación de un inquilino de Azure AD B2C en una suscripción de Azure.
 services: active-directory-b2c
 documentationcenter: dev-center-name
-author: parakhj
+author: davidmu1
 manager: mtillman
+editor: ''
 ms.service: active-directory-b2c
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/05/2017
-ms.author: parja
-ms.openlocfilehash: c61cf24083ac3422e30dabf8514dcbd3aec0599d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: davidmu
+ms.openlocfilehash: bb9324b01bb810ba15994612bac2ff20dc83ab82
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="linking-an-azure-subscription-to-an-azure-ad-b2c-tenant"></a>Vinculación de una suscripción de Azure a un inquilino de Azure AD B2C
 
@@ -91,7 +90,7 @@ Actualmente, un inquilino de Azure AD B2C **no se puede** vincular a las suscrip
 
 Un usuario puede haber establecido una restricción regional para la creación de recursos de Azure. Esta restricción puede impedir la creación de un recurso de Azure AD B2C. Para mitigar esto, la restricción debe ser menos exigente.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Una vez que se han completados estos pasos en todos los inquilinos de Azure AD B2C, la suscripción de Azure se factura según los detalles del Contrato Enterprise o de Azure Direct.
 

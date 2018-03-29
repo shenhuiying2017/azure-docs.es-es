@@ -1,8 +1,8 @@
 ---
-title: "Introducción a Azure Cost Management | Microsoft Docs"
-description: "Azure Cost Management es una solución de administración de costos en varias nubes que le permitirá usar Azure y otros recursos en la nube."
+title: Introducción a Azure Cost Management | Microsoft Docs
+description: Azure Cost Management es una solución de administración de costos en varias nubes que le permitirá usar Azure y otros recursos en la nube.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 01/30/2018
@@ -10,17 +10,17 @@ ms.topic: overview
 ms.service: cost-management
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: e2f12a989eb275e645c8b3bde3494928c5cbdb47
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 3e5caff5ff1af79154baddf39bf465ddea5aadae
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="what-is-azure-cost-management"></a>¿Qué es Administración de costos de Azure?
 
 Azure Cost Management se concede bajo licencia de Cloudyn, una subsidiaria de Microsoft, y le permite realizar un seguimiento de los gastos y el uso de la nube para los recursos de Azure y otros proveedores de servicios en la nube, como AWS y Google. Los sencillos informes del panel proporcionan ayuda con la asignación de costos, los contracargos y la visibilidad de los gastos. Administración de costos le ayuda a optimizar los gastos en la nube mediante la identificación de los recursos que no está aprovechando para que pueda administrarlos y ajustarlos.
 
-Para ver un vídeo de introducción, consulte [Introducción a Azure Cost Management](https://youtu.be/NWIRny6Wpsk).
+Para ver un vídeo de introducción, consulte [Introducción a Azure Cost Management](https://azure.microsoft.com/en-us/resources/videos/azure-cost-management-overview-and-demo).
 
 ## <a name="monitor-usage-and-spending"></a>Supervisión del uso y del gasto
 

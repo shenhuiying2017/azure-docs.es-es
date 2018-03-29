@@ -1,5 +1,5 @@
 ---
-title: "Configuración de Integration Runtime de SSIS de Azure para conseguir un alto rendimiento | Microsoft Docs"
+title: Configuración de Integration Runtime de SSIS de Azure para conseguir un alto rendimiento | Microsoft Docs
 description: Aprenda a configurar las propiedades de Integration Runtime de SSIS de Azure para conseguir un alto rendimiento
 services: data-factory
 ms.date: 01/10/2018
@@ -9,11 +9,11 @@ ms.workload: data-services
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 7d0e75ad85731b10f9a993c2fa62f30c0142ed05
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 3c19ebc601136653a88ca8d2a3073d897af863f9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Configuración de Integration Runtime de SSIS de Azure para conseguir un alto rendimiento
 
@@ -24,7 +24,7 @@ En este artículo se describe cómo configurar una instancia de Integration Runt
 
 ## <a name="properties-to-configure"></a>Propiedades para configurar
 
-La parte siguiente de un script de configuración muestra las propiedades que puede configurar al crear una instancia de Integration Runtime de SSIS de Azure. Si quiere ver el script completo de PowerShell y una descripción, consulte [Implementación de paquetes de SSIS en Azure](tutorial-deploy-ssis-packages-azure.md).
+La parte siguiente de un script de configuración muestra las propiedades que puede configurar al crear una instancia de Integration Runtime de SSIS de Azure. Si quiere ver el script completo de PowerShell y una descripción, consulte [Implementación de paquetes de SSIS en Azure](tutorial-deploy-ssis-packages-azure-powershell.md).
 
 ```powershell
 $SubscriptionName = "<Azure subscription name>"
@@ -121,5 +121,5 @@ También puede ajustar el plan de tarifa de base de datos en función de la info
 ## <a name="design-for-high-performance"></a>Diseño para alto rendimiento
 Diseñar un paquete SSIS para que se ejecute en Azure no es lo mismo que diseñar un paquete para la ejecución local. En lugar de combinar varias tareas independientes en el mismo paquete, sepárelas en varios paquetes para una ejecución más eficiente en IR de SSIS de Azure. Cree una ejecución de paquete para cada paquete, así no tiene que esperar a que el otro finalice. Este enfoque se beneficia de la escalabilidad de Integration Runtime de SSIS de Azure y mejora el rendimiento global.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Aprenda sobre Integration Runtime de SSIS de Azure. Consulte [Integration Runtime de SSIS de Azure](concepts-integration-runtime.md#azure-ssis-integration-runtime).

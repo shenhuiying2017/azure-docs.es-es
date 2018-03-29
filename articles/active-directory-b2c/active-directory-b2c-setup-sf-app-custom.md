@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C: incorporación de un proveedor de Salesforce SAML mediante el uso de directivas personalizadas|Microsoft Docs"
-description: "Obtenga información sobre cómo crear y administrar directivas personalizadas de Azure Active Directory B2C."
+title: 'Azure Active Directory B2C: incorporación de un proveedor de Salesforce SAML mediante el uso de directivas personalizadas|Microsoft Docs'
+description: Obtenga información sobre cómo crear y administrar directivas personalizadas de Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: 
-author: parakhj
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: d7f4143f-cd7c-4939-91a8-231a4104dc2c
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 06/11/2017
-ms.author: parakhj
-ms.openlocfilehash: 16f7c5708b479f18de17a612a733a2be6e97ad01
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 1ccf5c58eab9df9016224a91ddda952a05457e2a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-sign-in-by-using-salesforce-accounts-via-saml"></a>Azure Active Directory B2C: inicio de sesión mediante cuentas de Salesforce a través de SAML
 
@@ -26,13 +23,13 @@ ms.lasthandoff: 12/11/2017
 
 En este artículo se muestra cómo usar [directivas personalizadas](active-directory-b2c-overview-custom.md) para configurar el inicio de sesión de los usuarios de una organización de Salesforce concreta.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 ### <a name="azure-ad-b2c-setup"></a>Configuración de Azure AD B2C
 
 Asegúrese de que ha completado todos los pasos que le muestran cómo [empezar a trabajar con directivas personalizadas](active-directory-b2c-get-started-custom.md) en Azure Active Directory B2C (Azure AD B2C).
 
-Entre ellos se incluyen los siguientes:
+Entre ellas se incluyen las siguientes:
 
 * Crear un inquilino de Azure AD B2C.
 * Crear una aplicación de Azure AD B2C.
@@ -59,7 +56,7 @@ Para permitir que Azure AD B2C se comunique con Salesforce, debe obtener la dire
 1. [Inicie sesión en Salesforce](https://login.salesforce.com/). 
 2. En el menú de la izquierda, en **Settings** (Configuración), expanda **Identity** (Identidad) y haga clic en **Identity Provider** (Proveedor de identidades).
 3. Haga clic en **Enable Identity Provider** (Habilitar proveedor de identidades).
-4. Bajo **Select the certificate** (Seleccionar el certificado), seleccione el certificado que quiere que Salesforce use para comunicarse con Azure AD B2C. (Puede usar el certificado predeterminado). Haga clic en **Guardar**. 
+4. Bajo **Select the certificate** (Seleccionar el certificado), seleccione el certificado que quiere que Salesforce use para comunicarse con Azure AD B2C. (Puede usar el certificado predeterminado). Haga clic en **Save**(Guardar). 
 
 ### <a name="create-a-connected-app-in-salesforce"></a>Crear una aplicación conectada en Salesforce
 
@@ -117,7 +114,7 @@ Cargue el certificado de firma en el inquilino de Azure AD B2C:
     2. Escriba un **nombre** (por ejemplo, SAMLSigningCert). El prefijo *B2C_1A_* se agrega automáticamente al nombre de la clave.
     3. Para seleccionar el certificado, use el **control de carga de archivos**. 
     4. Escriba la contraseña del certificado que ha establecido en el script de PowerShell.
-3. Haga clic en **Crear**.
+3. Haga clic en **Create**(Crear).
 4. Compruebe que ha creado una clave (por ejemplo, B2C_1A_SAMLSigningCert). Tome nota del nombre completo (incluido *B2C_1A_*). Hará referencia a esta clave más adelante en la directiva.
 
 ## <a name="create-the-salesforce-saml-claims-provider-in-your-base-policy"></a>Creación del proveedor de notificaciones de Salesforce SAML en la directiva de base

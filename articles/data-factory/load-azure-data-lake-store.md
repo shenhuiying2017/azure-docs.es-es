@@ -2,20 +2,20 @@
 title: Carga de datos en Azure Data Lake Store mediante Azure Data Factory | Microsoft Docs
 description: Uso de Azure Data Factory para copiar datos en Azure Data Lake Store
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 4446f83563293d0834f241dcca382ccf6ea99403
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: bf0d607d63a68a222a1d44d9cb05253497d12591
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="load-data-into-azure-data-lake-store-by-using-azure-data-factory"></a>Carga de datos en Azure Data Lake Store mediante Azure Data Factory
 
@@ -79,7 +79,7 @@ En este artículo se muestra cómo utilizar la herramienta Copy Data de Data Fac
 4. En la página **Specify Amazon S3 connection** (Especificar conexión de Amazon S3), siga estos pasos: 
    1. Especifique el valor de **Access Key ID** (Identificador de clave de acceso).
    2. Especifique el valor de **Secret Access Key** (Clave de acceso secreta).
-   3. Seleccione **Siguiente**.
+   3. Seleccione **Next** (Siguiente).
    
    ![Especificación de la cuenta de Amazon S3](./media/load-data-into-azure-data-lake-store/specify-amazon-s3-account.png)
 5. En la página **Choose the input file or folder** (Elegir archivo o carpeta de entrada), vaya a la carpeta y el archivo que desea copiar. Seleccione la carpeta o el archivo, **Choose** (Elegir) y **Next** (Siguiente):
@@ -98,7 +98,7 @@ En este artículo se muestra cómo utilizar la herramienta Copy Data de Data Fac
 
    1. Seleccione su instancia de Data Lake Store para **Data Lake Store account name** (Nombre de la cuenta de Data Lake Store).
    2. Especifique la información de la entidad de servicio, **Tenant** (Inquilino), **Service principal ID** (Identificador de entidad de servicio) y **Service principal key** (Clave de entidad de servicio).
-   3. Seleccione **Siguiente**.
+   3. Seleccione **Next** (Siguiente).
    
    > [!IMPORTANT]
    > En este tutorial, utilizará una _entidad de servicio_ para autenticar Data Lake Store. Asegúrese de conceder a la entidad de servicio los permisos adecuados en Azure Data Lake Store con [estas instrucciones](connector-azure-data-lake-store.md#using-service-principal-authentication).
@@ -132,7 +132,7 @@ En este artículo se muestra cómo utilizar la herramienta Copy Data de Data Fac
 
     ![Verificación de la salida de Data Lake Store](./media/load-data-into-azure-data-lake-store/adls-copy-result.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Prosiga en el siguiente artículo para obtener información acerca de la compatibilidad de Azure Data Lake Store: 
 

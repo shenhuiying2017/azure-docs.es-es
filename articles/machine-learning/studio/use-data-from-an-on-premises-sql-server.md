@@ -1,10 +1,11 @@
 ---
 title: Uso de una base de datos de SQL Server local en Azure Machine Learning | Microsoft Docs
-description: "Use datos de una base de datos de SQL Server local para llevar a cabo análisis avanzados con Aprendizaje automático de Azure."
+description: Use datos de una base de datos de SQL Server local para llevar a cabo análisis avanzados con Azure Machine Learning.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 08e4610d-02b6-4071-aad7-a2340ad8e2ea
 ms.service: machine-learning
@@ -13,23 +14,22 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
-ms.author: garye;krishnan
-ms.openlocfilehash: 79ae5cd78ce07fcc84be49c2693773d58a15771e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 73b68ec612f10fabe0891bfddfa7783b981642bc
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="perform-advanced-analytics-with-azure-machine-learning-using-data-from-an-on-premises-sql-server-database"></a>Análisis avanzados con Aprendizaje automático de Azure con datos de una base de datos de SQL Server local
+# <a name="perform-advanced-analytics-with-azure-machine-learning-using-data-from-an-on-premises-sql-server-database"></a>Análisis avanzados con Azure Machine Learning con datos de una base de datos de SQL Server local
 
 [!INCLUDE [import-data-into-aml-studio-selector](../../../includes/machine-learning-import-data-into-aml-studio.md)]
 
-Con frecuencia, a las compañías que trabajan con datos locales les gustaría aprovechar la escala y la agilidad de la nube para su cargas de trabajo de aprendizaje de automático. Sin embargo, no desean interrumpir los flujos de trabajo y los procesos de negocio actuales por mover sus datos locales a la nube. Ahora, Aprendizaje automático de Azure admite la lectura de los datos de una base de datos de SQL Server local, seguida del entrenamiento y la puntuación de un modelo con estos datos. Ya no tendrá que copiar y sincronizar de forma manual los datos entre la nube y el servidor local. En su lugar, el módulo **Importar datos** de Estudio de aprendizaje automático de Azure ahora puede leer directamente la base de datos de SQL Server local para los trabajos de entrenamiento y puntuación.
+Con frecuencia, a las compañías que trabajan con datos locales les gustaría aprovechar la escala y la agilidad de la nube para su cargas de trabajo de aprendizaje de automático. Sin embargo, no desean interrumpir los flujos de trabajo y los procesos de negocio actuales por mover sus datos locales a la nube. Ahora, Azure Machine Learning admite la lectura de los datos de una base de datos de SQL Server local, seguida del entrenamiento y la puntuación de un modelo con estos datos. Ya no tendrá que copiar y sincronizar de forma manual los datos entre la nube y el servidor local. En su lugar, el módulo **Importar datos** de Azure Machine Learning Studio ahora puede leer directamente la base de datos de SQL Server local para los trabajos de entrenamiento y puntuación.
 
-En este artículo se proporciona información general sobre la entrada de datos de SQL Server locales en Aprendizaje automático de Azure. Se da por supuesto que conoce conceptos de Azure Machine Learning tales como áreas de trabajo, módulos, conjuntos de datos, experimentos, *etc.*
+En este artículo se proporciona información general sobre la entrada de datos de SQL Server locales en Azure Machine Learning. Se da por supuesto que conoce conceptos de Azure Machine Learning tales como áreas de trabajo, módulos, conjuntos de datos, experimentos, *etc.*
 
 > [!NOTE]
-> Esta característica no está disponible para las áreas de trabajo gratuitas. Para más información acerca de los niveles y los precios de Aprendizaje automático, consulte [Precios de Aprendizaje automático](https://azure.microsoft.com/pricing/details/machine-learning/).
+> Esta característica no está disponible para las áreas de trabajo gratuitas. Para más información acerca de los niveles y los precios de Machine Learning, consulte [Precios de Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/).
 >
 >
 
@@ -58,18 +58,18 @@ Considere lo siguiente cuando configure y use una instancia de Data Management G
 * Una puerta de enlace se configura para una única área de trabajo al mismo tiempo. Actualmente, las puertas de enlace no se pueden compartir entre áreas de trabajo.
 * Puede configurar varias puertas de enlace para una sola área de trabajo. Por ejemplo, podría usar una puerta de enlace que esté conectada a los orígenes de datos de prueba durante el desarrollo, y una de producción cuando esté listo para ponerla en operación.
 * La puerta de enlace no tiene que estar en la misma máquina que el origen de datos. Sin embargo, si está más cerca del origen de datos, se reduce el tiempo que necesita la puerta de enlace para conectarse a este. Se recomienda que instale la puerta de enlace en un equipo diferente del que hospeda el origen de datos local para que la puerta de enlace y el origen de datos no compitan por los recursos.
-* Si ya tiene una puerta de enlace instalada en el equipo que atiende los escenarios de Power BI o Data Factory de Azure, instale en otro equipo una independiente para Aprendizaje automático de Azure.
+* Si ya tiene una puerta de enlace instalada en el equipo que atiende los escenarios de Power BI o Data Factory de Azure, instale en otro equipo una independiente para Azure Machine Learning.
 
   > [!NOTE]
   > No puede ejecutar Data Management Gateway y Power BI Gateway en el mismo equipo.
   >
   >
-* Debe usar la instancia de Data Management Gateway para Aprendizaje automático de Azure incluso si utiliza Azure ExpressRoute para otros datos. Considere el origen de datos como uno de tipo local (que está detrás de un firewall), aunque utilice ExpressRoute. Use Data Management Gateway para establecer la conectividad entre Machine Learning y el origen de datos.
+* Debe usar la instancia de Data Management Gateway para Azure Machine Learning incluso si utiliza Azure ExpressRoute para otros datos. Considere el origen de datos como uno de tipo local (que está detrás de un firewall), aunque utilice ExpressRoute. Use Data Management Gateway para establecer la conectividad entre Machine Learning y el origen de datos.
 
 Encontrará información detallada sobre los requisitos previos de instalación, los pasos de instalación y sugerencias para solucionar problemas en el artículo [Data Management Gateway](../../data-factory/v1/data-factory-data-management-gateway.md).
 
-## <a name="span-idusing-the-data-gateway-step-by-step-walk-classanchorspan-idtoc450838866-classanchorspanspaningress-data-from-your-on-premises-sql-server-database-into-azure-machine-learning"></a><span id="using-the-data-gateway-step-by-step-walk" class="anchor"><span id="_Toc450838866" class="anchor"></span></span>Entrada de datos de la base de datos de SQL Server local en Aprendizaje automático de Azure
-En este tutorial, instalará una instancia de Data Management Gateway en un área de trabajo de Aprendizaje automático de Azure, la configurará y después leerá datos de una base de datos de SQL Server local.
+## <a name="span-idusing-the-data-gateway-step-by-step-walk-classanchorspan-idtoc450838866-classanchorspanspaningress-data-from-your-on-premises-sql-server-database-into-azure-machine-learning"></a><span id="using-the-data-gateway-step-by-step-walk" class="anchor"><span id="_Toc450838866" class="anchor"></span></span>Entrada de datos de la base de datos de SQL Server local en Azure Machine Learning
+En este tutorial, instalará una instancia de Data Management Gateway en un área de trabajo de Azure Machine Learning, la configurará y después leerá datos de una base de datos de SQL Server local.
 
 > [!TIP]
 > Antes de comenzar, deshabilite el bloqueador de elementos emergentes del explorador para `studio.azureml.net`. Si usa el explorador Google Chrome, descargue e instale uno de los complementos disponibles en Google Chrome WebStore de entre las [extensiones de la aplicación ClickOnce](https://chrome.google.com/webstore/search/clickonce?_category=extensions).
@@ -105,7 +105,7 @@ El primer paso consiste en crear y configurar la puerta de enlace para acceder a
 
       ![Administrador de Data Management Gateway](./media/use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-registered.png)
 
-      También se actualiza Estudio de aprendizaje automático de Azure cuando el registro está completado.
+      También se actualiza Azure Machine Learning Studio cuando el registro está completado.
 
     ![Registro de puerta de enlace correcto](./media/use-data-from-an-on-premises-sql-server/gateway-registered.png)
 11. En el cuadro de diálogo **Download and register data gateway** (Descargar y registrar puerta de enlace), haga clic en la marca de verificación para completar la instalación. En la página **Settings** (Configuración), se muestra el estado de la puerta de enlace como "Online" (En línea). En el panel derecho, encontrará el estado y otra información útil.
@@ -121,26 +121,26 @@ El primer paso consiste en crear y configurar la puerta de enlace para acceder a
 Con esto, se completa el proceso de configuración de la puerta de enlace en Azure Machine Learning.
 Ya está listo para usar los datos locales.
 
-Puede crear y configurar varias puertas de enlace en Estudio para cada área de trabajo. Por ejemplo, puede conectar una puerta de enlace a los orígenes de datos de prueba durante el desarrollo, y una puerta de enlace diferente para los orígenes de datos de producción. Aprendizaje automático de Azure ofrece la flexibilidad para configurar varias puertas de enlace en función de su entorno corporativo. Actualmente no se puede compartir una puerta de enlace entre áreas de trabajo y solamente se puede instalar una única puerta de enlace en un equipo. Para más información, consulte [Movimiento de datos entre orígenes locales y la nube con Data Management Gateway](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md).
+Puede crear y configurar varias puertas de enlace en Estudio para cada área de trabajo. Por ejemplo, puede conectar una puerta de enlace a los orígenes de datos de prueba durante el desarrollo, y una puerta de enlace diferente para los orígenes de datos de producción. Azure Machine Learning ofrece la flexibilidad para configurar varias puertas de enlace en función de su entorno corporativo. Actualmente no se puede compartir una puerta de enlace entre áreas de trabajo y solamente se puede instalar una única puerta de enlace en un equipo. Para más información, consulte [Movimiento de datos entre orígenes locales y la nube con Data Management Gateway](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md).
 
 ### <a name="step-2-use-the-gateway-to-read-data-from-an-on-premises-data-source"></a>Paso 2: Uso de la puerta de enlace para leer datos de un origen de datos local
 Después de configurar la puerta de enlace, puede agregar un módulo **Importar datos** a un experimento que introduce los datos de la base de datos de SQL Server local.
 
 1. En Machine Learning Studio, seleccione la pestaña **EXPERIMENTOS**, haga clic en la pestaña **+ NUEVO** de la esquina inferior izquierda y seleccione **Blank Experiment** (Experimento en blanco). También puede seleccionar uno de los varios experimentos de ejemplo disponibles.
 2. Busque y arrastre el módulo **Importar datos** al lienzo del experimento.
-3. Haga clic en **Save as** (Guardar como) bajo el lienzo. Escriba "Tutorial de SQL Server local en Aprendizaje automático de Azure" como nombre del experimento, seleccione el área de trabajo y haga clic en la marca de verificación de **Aceptar** .
+3. Haga clic en **Save as** (Guardar como) bajo el lienzo. Escriba "Tutorial de SQL Server local en Azure Machine Learning" como nombre del experimento, seleccione el área de trabajo y haga clic en la marca de verificación de **Aceptar** .
 
    ![Guardado de un experimento con un nuevo nombre](./media/use-data-from-an-on-premises-sql-server/experiment-save-as.png)
-4. Haga clic en el módulo **Importar datos** para seleccionarlo y, en el panel **Properties** (Propiedades) de la derecha del lienzo, seleccione "Base de datos SQL local" en la lista desplegable **Data source** (Origen de datos).
+4. Haga clic en el módulo **Importar datos** para seleccionarlo y, en el panel **Properties** (Propiedades) de la derecha del lienzo, seleccione "SQL Database local" en la lista desplegable **Data source** (Origen de datos).
 5. Seleccione en **Data gateway** (Puerta de enlace de datos) la puerta de enlace que instaló y registró. Puede configurar otra si selecciona "(add new Data Gateway…)" (Agregar nueva puerta de enlace de datos).
 
    ![Selección de la puerta de enlace de datos para el módulo de importación de datos](./media/use-data-from-an-on-premises-sql-server/import-data-select-on-premises-data-source.png)
-6. Escriba el servidor SQL en **Database server name** (Nombre del servidor de base de datos) y un valor para **Database name** (Nombre de base de datos), junto con el texto para **Database query** (Consulta de base de datos) para la consulta de base de datos SQL que quiera ejecutar.
+6. Escriba el servidor SQL en **Database server name** (Nombre del servidor de base de datos) y un valor para **Database name** (Nombre de base de datos), junto con el texto para **Database query** (Consulta de base de datos) para la consulta de SQL Database que quiera ejecutar.
 7. Haga clic en **Enter values** (Escribir valores) de **User name and password** (Nombre de usuario y contraseña) y escriba sus credenciales de la base de datos. Puede usar la autenticación integrada de Windows o la autenticación de SQL Server según la configuración de SQL Server local.
 
    ![Especificación de las credenciales de la base de datos](./media/use-data-from-an-on-premises-sql-server/database-credentials.png)
 
-   El mensaje "values required" (valores necesarios) cambiará a "values set" (valores establecidos) con una marca de verificación verde. Basta con que escriba las credenciales una vez, a menos que la información de la base de datos o la contraseña cambien. Aprendizaje automático de Azure usa el certificado que proporcionó al instalar la puerta de enlace para cifrar las credenciales en la nube. Azure nunca almacena credenciales locales sin cifrado.
+   El mensaje "values required" (valores necesarios) cambiará a "values set" (valores establecidos) con una marca de verificación verde. Basta con que escriba las credenciales una vez, a menos que la información de la base de datos o la contraseña cambien. Azure Machine Learning usa el certificado que proporcionó al instalar la puerta de enlace para cifrar las credenciales en la nube. Azure nunca almacena credenciales locales sin cifrado.
 
    ![Propiedades del módulo de importación de datos](./media/use-data-from-an-on-premises-sql-server/import-data-properties-entered.png)
 8. Haga clic en **RUN** (Ejecutar) para ejecutar el experimento.

@@ -1,11 +1,10 @@
 ---
 title: Movimiento de datos con la actividad de copia | Microsoft Docs
-description: "Aprenda sobre el movimiento de datos en las canalizaciones de Data Factory: migración de datos entre almacenes en la nube, entre un almacén de datos local y un almacén de datos en la nube. Utilice la actividad de copia."
+description: 'Aprenda sobre el movimiento de datos en las canalizaciones de Data Factory: migración de datos entre almacenes en la nube, entre un almacén de datos local y un almacén de datos en la nube. Utilice la actividad de copia.'
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: 67543a20-b7d5-4d19-8b5e-af4c1fd7bc75
 ms.service: data-factory
 ms.workload: data-services
@@ -15,16 +14,16 @@ ms.topic: article
 ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: dff87d41df2bdb5439785846c9653f2f0be2b40d
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 09b35483b5ace1523c88576cfe37dfc313b93036
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="move-data-by-using-copy-activity"></a>Movimiento de datos con la actividad de copia
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versión 1: Disponibilidad general](data-factory-data-movement-activities.md)
-> * [Versión 2: Versión preliminar](../copy-activity-overview.md)
+> * [Versión 2: versión preliminar](../copy-activity-overview.md)
 
 > [!NOTE]
 > Este artículo se aplica a la versión 1 de Data Factory, que está disponible con carácter general. Si usa la versión 2 del servicio Data Factory, que se encuentra en versión preliminar, vea [Copy Activity in V2](../copy-activity-overview.md) (Actividad de copia en V2).
@@ -96,21 +95,21 @@ Si los almacenes de datos del origen y del receptor residen en la nube, Data Fac
 
 | Geografía de los almacenes de datos de destino | Región del almacén de datos de destino | Región usada para el movimiento de datos |
 |:--- |:--- |:--- |
-| Estados Unidos | Este de EE. UU. | Este de EE. UU. |
+| Estados Unidos | Este de EE. UU | Este de EE. UU |
 | &nbsp; | Este de EE. UU. 2 | Este de EE. UU. 2 |
-| &nbsp; | Central EE. UU.: | Central EE. UU.: |
+| &nbsp; | Central EE. UU: | Central EE. UU: |
 | &nbsp; | Centro-Norte de EE. UU | Centro-Norte de EE. UU |
 | &nbsp; | Centro-Sur de EE. UU | Centro-Sur de EE. UU |
 | &nbsp; | Centro occidental de EE.UU. | Centro occidental de EE.UU. |
-| &nbsp; | Oeste de EE. UU. | Oeste de EE. UU. |
+| &nbsp; | Oeste de EE. UU | Oeste de EE. UU |
 | &nbsp; | Oeste de EE. UU. 2 | Oeste de EE. UU. 2 |
 | Canadá | Este de Canadá | Centro de Canadá |
 | &nbsp; | Centro de Canadá | Centro de Canadá |
 | Brasil | Sur de Brasil | Sur de Brasil |
 | Europa | Europa del Norte | Europa del Norte |
 | &nbsp; | Europa occidental | Europa occidental |
-| Reino Unido | Oeste de Reino Unido | Sur del Reino Unido |
-| &nbsp; | Sur del Reino Unido | Sur del Reino Unido |
+| Reino Unido | Oeste de Reino Unido | Sur del Reino Unido 2 |
+| &nbsp; | Sur del Reino Unido 2 | Sur del Reino Unido 2 |
 | Asia Pacífico | Sudeste asiático | Sudeste asiático |
 | &nbsp; | Asia oriental | Sudeste asiático |
 | Australia | Australia Oriental | Australia Oriental |

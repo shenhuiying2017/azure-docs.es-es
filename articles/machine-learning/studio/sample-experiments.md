@@ -1,11 +1,12 @@
 ---
-title: "Creación de experimentos a partir de ejemplos de aprendizaje automático - Azure | Microsoft Docs"
-description: "Aprenda a usar experimentos de ejemplo de aprendizaje automático para crear nuevos experimentos con la galería de inteligencia artificial de Azure y Azure Machine Learning."
-keywords: "ejemplos de aprendizaje automático, ejemplo de experimento, ejemplo de aprendizaje automático, ejemplos de inteligencia artificial"
+title: Creación de experimentos a partir de ejemplos de aprendizaje automático - Azure | Microsoft Docs
+description: Aprenda a usar experimentos de ejemplo de aprendizaje automático para crear nuevos experimentos con la galería de inteligencia artificial de Azure y Azure Machine Learning.
+keywords: ejemplos de aprendizaje automático, ejemplo de experimento, ejemplo de aprendizaje automático, ejemplos de inteligencia artificial
 services: machine-learning
-documentationcenter: 
-author: cjgronlund
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 81e6c1d8-682c-4db3-bfd5-d7bfb1150ff3
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/05/2018
-ms.author: cgronlun
-ms.openlocfilehash: 9ea19f137acb23d3527315aae2624c746e138545
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 7cb5c869e4523333ce0651559632070e5a19163c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-machine-learning-experiments-from-working-examples-in-azure-ai-gallery"></a>Creación de experimentos de aprendizaje automático a partir de ejemplos de trabajo en la galería de inteligencia artificial de Azure
 
@@ -65,7 +65,7 @@ También puede crear un nuevo experimento en Machine Learning Studio tomando un 
 
 Se crea un nuevo experimento en su área de trabajo de Machine Learning Studio tomando como plantilla el experimento de ejemplo.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Importación de datos desde varios orígenes](import-data.md)
 * [Tutorial rápido para el lenguaje R en Machine Learning](r-quickstart.md)
 * [Implementación de un servicio web Machine Learning](publish-a-machine-learning-web-service.md)

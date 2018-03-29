@@ -1,11 +1,10 @@
 ---
-title: "Asignación de columnas de conjunto de datos de Azure Data Factory | Microsoft Docs"
-description: "Obtenga información acerca de cómo asignar columnas de origen a columnas de destino."
+title: Asignación de columnas de conjunto de datos de Azure Data Factory | Microsoft Docs
+description: Obtenga información acerca de cómo asignar columnas de origen a columnas de destino.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +13,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: b2cb55bc0c3888fa05b2dd49df10ec157c8bf95e
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 240ad2e02e95709d096df946051cbd91f749f252
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="map-source-dataset-columns-to-destination-dataset-columns"></a>Asignación de columnas de conjunto de datos de origen a columnas del conjunto de datos de destino
 > [!NOTE]
@@ -180,7 +179,7 @@ En este caso, los resultados de consulta se asignan primero a las columnas espec
 
 ![Flujo de asignación de columnas 2](./media/data-factory-map-columns/column-mapping-flow-2.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Vea el artículo para acceder a un tutorial sobre el uso de la actividad de copia: 
 
 - [Copia de datos de Blob Storage en SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)

@@ -1,12 +1,12 @@
 ---
 title: Instalar Azure Backup Server v2 | Microsoft Docs
-description: "Azure Backup Server v2 proporciona funciones mejoradas de copia de seguridad para proteger máquinas virtuales, archivos, carpetas, cargas de trabajo, etc. Obtenga información sobre cómo instalar Azure Backup Server v2 o actualizar a esta versión."
+description: Azure Backup Server v2 proporciona funciones mejoradas de copia de seguridad para proteger máquinas virtuales, archivos, carpetas, cargas de trabajo, etc. Obtenga información sobre cómo instalar Azure Backup Server v2 o actualizar a esta versión.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: masaran;markgal
-ms.openlocfilehash: 1bbb16afef7940933b4c3ae23873f212770137e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dd7b76d9e06bc82ffd75f12131c2c247da05cc91
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="install-azure-backup-server-v2"></a>Instalar Azure Backup Server v2
 
@@ -36,7 +36,7 @@ Puede instalar Backup Server v2 en Windows Server 2012 R2 o Windows Server 2016.
 ## <a name="upgrade-backup-server-to-v2"></a>Actualizar Backup Server a la versión v2
 Para actualizar de Backup Server v1 a Backup Server v2, asegúrese de que la instalación tiene las actualizaciones necesarias:
 
-- [Actualice los agentes de protección](backup-mabs-upgrade-to-v2.md#update-the-dpm-protection-agent) de los servidores protegidos.
+- [Actualice los agentes de protección](backup-mabs-upgrade-to-v2.md#update-the-data-protection-manager-protection-agent) de los servidores protegidos.
 - Actualice Windows Server 2012 R2 a Windows Server 2016.
 - Actualice Remote Administrator de Azure Backup Server en todos los servidores de producción.
 - Asegúrese de que las copias de seguridad están establecidas para continuar sin necesidad de reiniciar el servidor de producción.
@@ -74,7 +74,7 @@ Para actualizar de Backup Server v1 a Backup Server v2, asegúrese de que la ins
 
   ![Instalador: botón Comprobar e instalar en Configuración de SQL](./media/backup-mabs-upgrade-to-v2/mabs-installer-s5a-check-and fix-settings.png)
 
-8. En la página **Configuración de la instalación**, cambie la ubicación donde se instala Backup Server o la ubicación temporal. Seleccione **Siguiente**.
+8. En la página **Configuración de la instalación**, cambie la ubicación donde se instala Backup Server o la ubicación temporal. Seleccione **Next** (Siguiente).
 
   ![Instalador: página Configuración de la instalación](./media/backup-mabs-upgrade-to-v2/mabs-installer-s6-installation-settings.png)
 
@@ -95,7 +95,7 @@ Al agregar un volumen a Backup Server, puede asignarle un nombre descriptivo. Ha
 
 Para agregar un volumen en la consola de administrador:
 
-1. En la consola de administrador de Azure Backup Server, seleccione **Administración** > **Almacenamiento en disco** > **Agregar**.
+1. En la consola de administrador de servidor de Azure Backup, seleccione **Administración** > **Almacenamiento en disco** > **Agregar**.
 
     ![Abrir el Asistente para agregar almacenamiento en disco](./media//backup-mabs-upgrade-to-v2/open-add-disk-storage-wizard.png)
 
@@ -148,7 +148,7 @@ Para crear un grupo de protección:
 
   ![Página Seleccionar tipo de grupo de protección](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-2.png)
 
-5. En la página **Seleccionar miembros del grupo**, en el panel **Miembros disponibles**, se muestran los miembros con agentes de protección. Para este ejemplo, seleccione el volumen D:\ y E:\ y agréguelos al panel **Miembros seleccionados**. Seleccione **Siguiente**.
+5. En la página **Seleccionar miembros del grupo**, en el panel **Miembros disponibles**, se muestran los miembros con agentes de protección. Para este ejemplo, seleccione el volumen D:\ y E:\ y agréguelos al panel **Miembros seleccionados**. Seleccione **Next** (Siguiente).
 
   ![Página Seleccionar miembros del grupo](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-3.png)
 
@@ -181,7 +181,7 @@ La actualización de los grupos de protección para que usen Modern Backup Stora
 
   ![Detener protección de miembro](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
 
-2. En el cuadro de diálogo **Quitar del grupo**, revise el espacio en disco usado y el espacio disponible para el grupo de almacenamiento. El valor predeterminado es dejar los puntos de recuperación en el disco y permitirles expirar según su directiva de retención asociada. Haga clic en **Aceptar**.
+2. En el cuadro de diálogo **Quitar del grupo**, revise el espacio en disco usado y el espacio disponible para el grupo de almacenamiento. El valor predeterminado es dejar los puntos de recuperación en el disco y permitirles expirar según su directiva de retención asociada. Haga clic en **OK**.
 
   Si quiere devolver de inmediato el espacio en disco usado al grupo de almacenamiento libre, active la casilla **Eliminar réplica en disco** para eliminar los datos de copia de seguridad (y los puntos de recuperación) asociados a ese miembro.
 

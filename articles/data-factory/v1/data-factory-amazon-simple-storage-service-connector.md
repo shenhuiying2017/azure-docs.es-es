@@ -2,10 +2,9 @@
 title: Movimiento de datos desde Amazon Simple Storage Service mediante Data Factory | Microsoft Docs
 description: Aprenda a mover datos desde Amazon Simple Storage Service (S3) mediante Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: 636d3179-eba8-4841-bcb4-3563f6822a26
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: fb2b534955a2cd0e1294df5425550ac6958ff3c2
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 455c1247ee68c4841647d942a1ac210b1b91694a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="move-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Movimiento de datos desde Amazon Simple Storage Service mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -66,7 +65,7 @@ Un servicio vinculado vincula un almacén de datos a una factoría de datos. Se 
 
 | Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio |
 | --- | --- | --- | --- |
-| accessKeyID |Id. de la clave de acceso secreta. |cadena |Sí |
+| accessKeyID |Id. de la clave de acceso secreta. |string |Sí |
 | secretAccessKey |La propia clave de acceso secreta. |Cadena secreta cifrada |Sí |
 
 >[!NOTE]
@@ -361,7 +360,7 @@ La canalización contiene una actividad de copia que está configurada para usar
 > Para asignar columnas del conjunto de datos de origen a otras del conjunto de datos receptor, consulte [Asignación de columnas de conjuntos de datos en Azure Data Factory](data-factory-map-columns.md).
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Consulte los artículos siguientes:
 
 * Para aprender sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Data Factory y las diversas formas de optimizarlo, consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md).

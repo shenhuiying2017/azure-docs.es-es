@@ -1,11 +1,11 @@
 ---
-title: "Importar la colección de Postman con las operaciones de streaming a petición de Azure"
-description: "En este artículo se proporciona una definición de la colección de Postman para llamadas de REST de Azure Media Services."
+title: Importar la colección de Postman con las operaciones de streaming a petición de Azure
+description: En este artículo se proporciona una definición de la colección de Postman para llamadas de REST de Azure Media Services.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/04/2017
 ms.author: juliako
-ms.openlocfilehash: 0146f02df44d9b38f3a3f85c025ec42750a9c6e7
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 7270c8f6e9e6bfe2eb75bf6fa14429e2f22dc4ab
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="import-a-postman-collection-with-on-demand-streaming-operations"></a>Importar la colección de Postman con las operaciones de streaming a petición
 
@@ -475,13 +475,12 @@ Este artículo contiene una definición de la colección de **Postman** que tien
                         ],
                         "body": {},
                         "url": {
-                            "raw": "{{RESTAPIEndpoint}}/Assets/{{LastAssetId}}",
+                            "raw": "{{RESTAPIEndpoint}}/Assets('{{LastAssetId}}')",
                             "host": [
                                 "{{RESTAPIEndpoint}}"
                             ],
                             "path": [
-                                "Assets",
-                                "{{LastAssetId}}"
+                                "Assets('{{LastAssetId}}')"
                             ]
                         },
                         "description": ""

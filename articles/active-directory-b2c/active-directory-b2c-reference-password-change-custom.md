@@ -1,30 +1,28 @@
 ---
-title: "Azure Active Directory B2C: Cambio de contraseña de autoservicio | Microsoft Docs"
-description: "Tema en el que se demuestra cómo configurar el cambio de contraseña de autoservicio para los consumidores en Azure Active Directory B2C"
+title: 'Azure Active Directory B2C: Cambio de contraseña de autoservicio | Microsoft Docs'
+description: Tema en el que se demuestra cómo configurar el cambio de contraseña de autoservicio para los consumidores en Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: 
-author: vigunase
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-ms.assetid: 712a7128-5788-4914-8a52-24e200aa4de1
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2016
-ms.author: vigunase
-ms.openlocfilehash: 76e7ed328716d09dc57e25f15c411f07fda77bb9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 4c54abe8c3375b49b786c7849c7e963e5849fa3a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-configure-password-change-in-custom-policies"></a>Azure Active Directory B2C: Configuración del cambio de contraseña en las directivas personalizadas  
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 Con la característica de cambio de contraseña, los consumidores con sesión iniciada (mediante cuentas locales) pueden cambiar sus contraseñas sin tener que demostrar su autenticidad por comprobación de correo electrónico como se describe en el [flujo de restablecimiento de contraseña de autoservicio](active-directory-b2c-reference-sspr.md). Si la sesión expira cuando el consumidor recibe el flujo de cambio de contraseña, se solicita al usuario que inicie sesión de nuevo. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Configuración de un inquilino de Azure AD B2C para completar el registro o inicio de sesión de una cuenta local como se describe en [Introducción](active-directory-b2c-get-started-custom.md).
 
@@ -156,7 +154,7 @@ Agregue los identificadores de aplicación al archivo de extensiones (`TrustFram
 
 1. En el archivo de extensiones (TrustFrameworkExtensions.xml) busque el elemento `<TechnicalProfile Id="login-NonInteractive">` y `<TechnicalProfile Id="login-NonInteractive-PasswordChange">`
 
-2. Reemplace todas las instancias de `IdentityExperienceFrameworkAppId` por el identificador de la aplicación del marco de experiencia de identidad como se describe en la [Introducción](active-directory-b2c-get-started-custom.md). Aquí tiene un ejemplo:
+2. Reemplace todas las instancias de `IdentityExperienceFrameworkAppId` por el identificador de la aplicación del marco de experiencia de identidad como se describe en la [Introducción](active-directory-b2c-get-started-custom.md). Este es un ejemplo:
 
    ```
    <Item Key="client_id">8322dedc-cbf4-43bc-8bb6-141d16f0f489</Item>

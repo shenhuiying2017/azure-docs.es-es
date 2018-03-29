@@ -9,10 +9,10 @@ ms.workload: identity
 ms.service: active-Directory
 manager: mtillman
 ms.openlocfilehash: 96b12fbddd4293c55e9029b194416541ca44c622
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Rellenado de userPrincipalName de Azure AD
 
@@ -35,7 +35,7 @@ En este artículo se usa la siguiente terminología:
 UserPrincipalName es un atributo de inicio de sesión del estilo de Internet para un usuario basado en el estándar de Internet [RFC 822](http://www.ietf.org/rfc/rfc0822.txt). 
 
 ### <a name="upn-format"></a>Formato de UPN
-Un UPN consta de un prefijo de UPN (el nombre de la cuenta de usuario) y un sufijo de UPN (un nombre de dominio DNS). El prefijo se une con el sufijo mediante el símbolo "\@\". Por ejemplo, "someone@example.com". Un UPN debe ser único entre todos los objetos de entidad de seguridad dentro de un bosque de directorio. 
+Un UPN consta de un prefijo de UPN (el nombre de la cuenta de usuario) y un sufijo de UPN (un nombre de dominio DNS). El prefijo se une con el sufijo mediante el símbolo "@". Por ejemplo, "someone@example.com". Un UPN debe ser único entre todos los objetos de entidad de seguridad dentro de un bosque de directorio. 
 
 ## <a name="upn-in-azure-ad"></a>UPN en Azure AD 
 Azure AD usa el UPN para permitir que los usuarios inicien sesión.  El UPN que un usuario puede usar depende de si el dominio se ha verificado o no.  Si se ha verificado, un usuario con dicho sufijo podrá iniciar sesión en Azure AD.  

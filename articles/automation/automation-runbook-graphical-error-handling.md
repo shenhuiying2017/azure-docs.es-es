@@ -1,24 +1,18 @@
 ---
-title: "Control de errores en runbooks gráficos de Azure Automation | Microsoft Docs"
-description: "En este artículo se describe cómo implementar la lógica de control de errores en runbooks gráficos de Azure Automation."
+title: Control de errores en runbooks gráficos de Azure Automation
+description: En este artículo se describe cómo implementar la lógica de control de errores en runbooks gráficos de Azure Automation.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: tysonn
-ms.assetid: 
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.date: 12/26/2016
-ms.author: magoedte
-ms.openlocfilehash: 86d62ba7fb12b09a2c19b4689af38bb8c121880b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+manager: carmonm
+ms.openlocfilehash: 9076178c75bd4d1669ecc8ab0119edb0119f85bd
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="error-handling-in-azure-automation-graphical-runbooks"></a>Control de errores en runbooks gráficos de Azure Automation
 
@@ -68,7 +62,7 @@ Las actividades **Get-AutomationVariable** y **Start-AzureRmVm** están configur
 Fluyen vínculos de errores de flujo de estas actividades a una única actividad de **administración de errores** (una actividad de código). Esta actividad se configura con una expresión simple de PowerShell que utiliza la palabra clave *Throw* para detener el procesamiento, junto con *$Error.Exception.Message* para obtener el mensaje que describe la excepción actual.<br><br> ![Ejemplo de código de control de errores de runbook de Automation](media/automation-runbook-graphical-error-handling/runbook-example-error-handling-code.png)
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * Para más información acerca de los vínculos y tipos de vínculo de los runbooks gráficos, consulte [Creación gráfica en Azure Automation](automation-graphical-authoring-intro.md#links-and-workflow).
 

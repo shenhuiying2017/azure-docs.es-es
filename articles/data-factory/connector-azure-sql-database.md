@@ -1,11 +1,11 @@
 ---
-title: "Información sobre cómo copiar datos con una instancia de Azure SQL Database como origen o destino mediante Azure Data Factory | Microsoft Docs"
-description: "Con Data Factory, puede copiar datos desde cualquier almacén de datos de origen compatible a Azure SQL Database o desde Azure SQL Database a cualquier almacén de datos receptor compatible."
+title: Información sobre cómo copiar datos con una instancia de Azure SQL Database como origen o destino mediante Azure Data Factory | Microsoft Docs
+description: Con Data Factory, puede copiar datos desde cualquier almacén de datos de origen compatible a Azure SQL Database o desde Azure SQL Database a cualquier almacén de datos receptor compatible.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: jingwang
-ms.openlocfilehash: a4d2ccb4b4ba27983537f26e66b5c279f427d466
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 12f673a8d3ca9c0bb03b9cd2d8c33ae866039289
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Copia de datos con una instancia de Azure SQL Database como origen o destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -100,7 +100,7 @@ Para usar la autenticación de token de aplicación de AAD basada en la entidad 
     - Clave de la aplicación
     - Id. de inquilino
 
-2. **[Aprovisione un administrador de Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#create-an-azure-ad-administrator-for-azure-sql-server)** para el servidor Azure SQL Server mediante Azure Portal, si aún no lo ha hecho. El administrador de AAD debe ser un usuario de AAD o un grupo de AAD, pero no puede ser una entidad de servicio. Este paso se realiza para que, en el paso posterior, pueda usar una identidad de AAD para crear un usuario de base de datos independiente para el servicio principal.
+2. **[Aprovisione un administrador de Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#create-an-azure-ad-administrator-for-azure-sql-server)** para el servidor Azure SQL Server mediante Azure Portal si aún no lo ha hecho. El administrador de AAD debe ser un usuario de AAD o un grupo de AAD, pero no puede ser una entidad de servicio. Este paso se realiza para que, en el paso posterior, pueda usar una identidad de AAD para crear un usuario de base de datos independiente para el servicio principal.
 
 3. **Cree un usuario de base de datos independiente para la entidad de servicio** conectándolo a la base de datos en la que desee copiar los datos, o de la que quiera copiarlos, con herramientas como SSMS, con una identidad de AAD que tenga, al menos, un permiso ALTER ANY USER y que ejecute el siguiente comando T-SQL. Obtenga más información sobre el usuario de base de datos de contenedor [aquí](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities).
     
@@ -602,5 +602,5 @@ Al copiar datos con Azure SQL Database como origen o destino, se utilizan las si
 | varchar |String, Char[] |
 | xml |xml |
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Consulte los [almacenes de datos compatibles](copy-activity-overview.md##supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.

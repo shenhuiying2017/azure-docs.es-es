@@ -1,10 +1,10 @@
 ---
-title: "Lista de comprobación de rendimiento y escalabilidad de Azure Storage | Microsoft Docs"
-description: "Lista de comprobación de prácticas probadas para su uso con Azure Storage para desarrollar aplicaciones de alto rendimiento."
+title: Lista de comprobación de rendimiento y escalabilidad de Azure Storage | Microsoft Docs
+description: Lista de comprobación de prácticas probadas para su uso con Azure Storage para desarrollar aplicaciones de alto rendimiento.
 services: storage
-documentationcenter: 
-author: tamram
-manager: timlt
+documentationcenter: ''
+author: roygara
+manager: jeconnoc
 editor: tysonn
 ms.assetid: 959d831b-a4fd-4634-a646-0d2c0c462ef8
 ms.service: storage
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2016
-ms.author: tamram
-ms.openlocfilehash: 6f5a136d1be7a4bb4093baad820271770305b718
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: rogarana
+ms.openlocfilehash: 945289a172270eea56625287baf437fd4b70c7f3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Lista de comprobación de rendimiento y escalabilidad de Microsoft Azure Storage
 ## <a name="overview"></a>Información general
@@ -82,7 +82,7 @@ Este artículo organiza las prácticas probadas en los siguientes grupos. Práct
 | &nbsp; | Colas |Recuperación en masa |[¿Recupera varios mensajes en una sola operación "Get"?](#subheading42) |
 | &nbsp; | Colas |Frecuencia de sondeo |[¿Realiza sondeos con la suficiente frecuencia para reducir la latencia percibida de su aplicación?](#subheading43) |
 | &nbsp; | Colas |Actualizar mensaje |[¿Usa UpdateMessage para almacenar el progreso en mensajes de procesamiento evitando tener que volver a procesar todo el mensaje si se produce un error?](#subheading44) |
-| &nbsp; | Colas |Arquitectura |[¿Usa colas para hacer que toda su aplicación sea más escalable manteniendo cargas de trabajo de ejecución prolongada fuera de la ruta de acceso crítica y escala después de forma independiente?](#subheading45) |
+| &nbsp; | Colas |Architecture |[¿Usa colas para hacer que toda su aplicación sea más escalable manteniendo cargas de trabajo de ejecución prolongada fuera de la ruta de acceso crítica y escala después de forma independiente?](#subheading45) |
 
 ## <a name="allservices"></a>Todos los servicios
 En esta sección se enumeran las prácticas probadas aplicables al uso de cualquier servicio de Azure Storage (Blob, Table, Queue o Files).  
@@ -140,7 +140,7 @@ En cualquier entorno distribuido, la ubicación del cliente cerca del servidor o
 Si las aplicaciones cliente no están hospedadas dentro de Azure (como por ejemplo aplicaciones de dispositivos móviles o servicios empresariales locales), una vez más la ubicación de la cuenta de almacenamiento en una región próxima a los dispositivos a los que obtendrá acceso, generalmente reducirá la latencia. Si los clientes están muy distribuidos (por ejemplo algunos en Norteamérica y otros en Europa), debe plantearse el uso de varias cuentas de almacenamiento: una ubicada en una región de Norteamérica y otra en una región de Europa. Esto ayudará a reducir la latencia para los usuarios de ambas regiones. Este enfoque normalmente es más sencillo de implementar si los datos que almacena la aplicación son específicos de usuarios individuales y no se requiere la replicación de datos entre cuentas de almacenamiento.  Para distribución de contenido amplio, se recomienda una red CDN (consulte la siguiente sección para obtener más detalles).  
 
 ### <a name="subheading5"></a>Distribución de contenido
-Algunas veces, una aplicación necesita servir el mismo contenido a muchos usuarios (por ejemplo, un vídeo de demostración de producto o usado en la página principal de un sitio web) ubicados bien en la misma región, bien en varias regiones. En este escenario, debe usar una red de entrega de contenido (CDN), como por ejemplo Azure CDN, y dicha red CDN debe usar Azure Storage como origen de los datos. A diferencia de la cuenta de Azure Storage que existe en una sola región y que no puede entregar contenido con baja latencia a otras regiones, la red CDN de Azure usa servidores en varios centros de datos alrededor del mundo. Además, una red CDN normalmente puede admitir límites de salida mucho más altos que una sola cuenta de almacenamiento.  
+Algunas veces, una aplicación necesita servir el mismo contenido a muchos usuarios (por ejemplo, un vídeo de demostración de producto o usado en la página principal de un sitio web) ubicados bien en la misma región, bien en varias regiones. En este escenario, debe usar una instancia de Content Delivery Network (CDN), como por ejemplo Azure CDN, y dicha red CDN debe usar Azure Storage como origen de los datos. A diferencia de la cuenta de Azure Storage que existe en una sola región y que no puede entregar contenido con baja latencia a otras regiones, la red CDN de Azure usa servidores en varios centros de datos alrededor del mundo. Además, una red CDN normalmente puede admitir límites de salida mucho más altos que una sola cuenta de almacenamiento.  
 
 Para obtener más información acerca de la red CDN de Azure, consulte [Red CDN de Azure](https://azure.microsoft.com/services/cdn/).  
 
@@ -154,7 +154,7 @@ Estas dos tecnologías pueden ayudarle a evitar una carga innecesaria (y cuellos
 #### <a name="useful-resources"></a>Recursos útiles
 Para obtener más información acerca de SAS, consulte [Firmas de acceso compartido, parte 1: Descripción del modelo de firmas de acceso compartido](../storage-dotnet-shared-access-signature-part-1.md).  
 
-Para obtener más información sobre CORS, vea [Compatibilidad del Uso compartido de recursos entre orígenes (CORS) para los servicios de Azure Storage](http://msdn.microsoft.com/library/azure/dn535601.aspx).  
+Para obtener más información sobre CORS, vea [Compatibilidad del Uso compartido de recursos entre orígenes (CORS) para los Servicios de Azure Storage](http://msdn.microsoft.com/library/azure/dn535601.aspx).  
 
 ### <a name="caching"></a>Almacenamiento en caché
 #### <a name="subheading7"></a>Obtención de datos
@@ -246,7 +246,7 @@ Para obtener más información, consulte [Copia de blobs](http://msdn.microsoft.
 #### <a name="subheading18"></a>Uso de AzCopy
 El equipo de Azure Storage ha lanzado "AzCopy", una herramienta de línea de comandos diseñada para facilitar la transferencia masiva de muchos blobs a, desde y entre cuentas de almacenamiento.  Esta herramienta está optimizada para este escenario y puede lograr altas tasas de transferencia.  Su uso es muy recomendable para escenarios de carga, descarga y copia en masa. Para obtener más información, consulte [Transferencia de datos con la utilidad en línea de comandos AzCopy](storage-use-azcopy.md).  
 
-#### <a name="subheading19"></a>Servicio de importación y exportación de Azure
+#### <a name="subheading19"></a>Servicio Azure Import/Export
 Para volúmenes muy grandes de datos (más de 1 TB), Azure Storage ofrece el servicio Import/Export, que permite realizar operaciones de carga y descarga desde Blob Storage enviando unidades de disco duro.  Puede poner sus datos en una unidad de disco duro y enviarla a Microsoft para cargarlos o enviar una unidad de disco duro vacía a Microsoft para descargar datos.  Para más información, consulte [Uso del servicio Microsoft Azure Import/Export para transferir datos a Blob Storage](../storage-import-export-service.md).  Esto puede ser mucho más eficiente que cargar y descargar este volumen de datos a través de la red.  
 
 ### <a name="subheading20"></a>Uso de metadatos
@@ -298,7 +298,7 @@ El algoritmo de Nagle está ampliamente implementado en redes TCP/IP como medio 
 
 Para más información, consulte la entrada del blog para ver la entrada del blog [Nagle's Algorithm is Not Friendly towards Small Requests](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx) (El algoritmo de Nagle no es idóneo para pequeñas solicitudes), donde se explican los motivos por los que el algoritmo de Nagle no interactúa bien con solicitudes de tabla y cola, y cómo deshabilitarlo en una aplicación cliente.  
 
-### <a name="schema"></a>SCHEMA (ESQUEMA)
+### <a name="schema"></a>Esquema
 La forma de representar los datos y realizar consultas en los mismos es el factor más importante por sí mismo que afecta al rendimiento de Table service. Aunque cada aplicación es diferente, en esta sección se describen algunas prácticas probadas generales relacionadas con:  
 
 * Diseño de tablas

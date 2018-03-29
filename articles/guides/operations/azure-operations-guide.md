@@ -1,25 +1,25 @@
 ---
-title: "Guía de introducción para operadores de TI de Azure | Microsoft Docs"
-description: "Guía de introducción para operadores de TI de Azure"
-services: 
-documentationcenter: 
+title: Guía de introducción para operadores de TI de Azure | Microsoft Docs
+description: Guía de introducción para operadores de TI de Azure
+services: ''
+documentationcenter: ''
 author: neilpeterson
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure
-ms.devlang: 
-ms.topic: 
-ms.tgt_pltfrm: 
+ms.devlang: ''
+ms.topic: ''
+ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 06/12/2017
 ms.author: nepeters
-ms.openlocfilehash: 8d7cbe27e5acfe741aeb5ed85756bf3c7ce2160b
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 0be60fff3d49ff39691f19cb1013e023f9f984e6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>Introducción a la informática en la nube y Microsoft Azure
 
@@ -485,7 +485,7 @@ Puede conectar una red local con una red virtual de Azure con una conexión VPN 
 
 Dado que la red virtual de Azure está conectada a la red local, las redes virtuales con entorno local deben utilizar una parte única del espacio de direcciones que usa la organización. De la misma manera que diferentes ubicaciones de la empresa se asignan a una subred IP específica, Azure se convierte en otra ubicación cuando la red se amplía.
 
-###<a name="deploying-a-virtual-network"></a>Implementación de una red virtual
+### <a name="deploying-a-virtual-network"></a>Implementación de una red virtual
 
 Hay varias opciones para implementar una red virtual.
 

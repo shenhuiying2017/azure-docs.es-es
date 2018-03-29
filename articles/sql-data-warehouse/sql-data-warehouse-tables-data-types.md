@@ -1,11 +1,11 @@
 ---
-title: "Guía de tipos de datos - Azure SQL Data Warehouse | Microsoft Docs"
+title: Guía de tipos de datos - Azure SQL Data Warehouse | Microsoft Docs
 description: Recomendaciones para definir tipos de datos compatibles con SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: jenniehubbard
-editor: 
+editor: ''
 ms.assetid: d4a1f0a3-ba9f-44b9-95f6-16a4f30746d6
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 12/06/2017
+ms.date: 03/17/2018
 ms.author: barbkess
-ms.openlocfilehash: 2bde5da8593c559e2afb33c9c4842695dc273ac3
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: dcdcb6eddf35fe3ec4754353452c68cd3e24f907
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="guidance-for-defining-data-types-for-tables-in-sql-data-warehouse"></a>Guía para definir los tipos de datos para las tablas en SQL Data Warehouse
 Siga estas recomendaciones para definir los tipos de datos para tablas compatibles con SQL Data Warehouse. Además de compatibilidad, minimizar el tamaño de los tipos de datos mejora el rendimiento de las consultas.

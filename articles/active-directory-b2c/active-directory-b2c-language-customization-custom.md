@@ -1,23 +1,23 @@
 ---
-title: "Azure Active Directory B2C: personalización de idioma con las directivas personalizadas | Microsoft Docs"
-description: "Información sobre cómo usar localizar el contenido de las directivas personalizadas para varios idiomas"
+title: 'Azure Active Directory B2C: personalización de idioma con las directivas personalizadas | Microsoft Docs'
+description: Información sobre cómo usar localizar el contenido de las directivas personalizadas para varios idiomas
 services: active-directory-b2c
-documentationcenter: 
-author: sammak
+documentationcenter: ''
+author: davidmu1
+manager: mtillman
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 11/13/2017
-ms.author: sama
-ms.openlocfilehash: 4ed9791d6590e3982a1bc79b96f8592995bc315c
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.author: davidmu
+ms.openlocfilehash: 45cfa152615da1447cc695e0dd201e5b8d046cf4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="language-customization-in-custom-policies"></a>Personalización de idioma en las directivas personalizadas
+# <a name="language-customization-in-custom-policies"></a>Personalización de idioma en las directivas personalizadas
 
 > [!NOTE]
 > Esta característica está en versión preliminar pública.
@@ -25,7 +25,7 @@ ms.lasthandoff: 11/15/2017
 
 En las directivas personalizadas, la personalización de idioma funciona igual que en las directivas integradas.  Vea la [documentación](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-language-customization) integrada que describe el comportamiento de cómo un idioma se elige en función de los parámetros y la configuración del explorador.
 
-##<a name="enable-supported-languages"></a>Habilitación de los idiomas admitidos
+## <a name="enable-supported-languages"></a>Habilitación de los idiomas admitidos
 Si no se especificaron las configuraciones regionales de interfaz de usuario y el explorador del usuario solicita uno de estos idiomas, los idiomas admitidos se muestran al usuario.  
 
 Los idiomas admitidos se definen en `<BuildingBlocks>` con el formato siguiente:
@@ -43,7 +43,7 @@ Los idiomas admitidos se definen en `<BuildingBlocks>` con el formato siguiente:
 
 El idioma predeterminado y los idiomas admitidos se comportan de la misma manera que lo hacen en las directivas integradas.
 
-##<a name="enable-custom-language-strings"></a>Habilitación de las cadenas de idioma personalizado
+## <a name="enable-custom-language-strings"></a>Habilitación de las cadenas de idioma personalizado
 
 Para crear cadenas de idioma personalizado, hay que realizar dos pasos:
 1. Edite el parámetro `<ContentDefinition>` de la página para especificar un identificador de recurso para los idiomas deseados.
@@ -51,7 +51,7 @@ Para crear cadenas de idioma personalizado, hay que realizar dos pasos:
 
 Tenga en cuenta que puede colocar los parámetros `<ContentDefinition>` y `<BuildingBlock>` en el archivo de extensión o el archivo de directiva de confianza dependiendo de si desea que los cambios estén en todas las directivas heredadas o no.
 
-###<a name="edit-the-contentdefinition-for-the-page"></a>Edición de ContentDefinition para la página
+### <a name="edit-the-contentdefinition-for-the-page"></a>Edición de ContentDefinition para la página
 
 En cada página que desee localizar, puede especificar en `<ContentDefinition>` qué recursos de idioma buscar para cada código de idioma.
 
@@ -67,7 +67,7 @@ En cada página que desee localizar, puede especificar en `<ContentDefinition>` 
 En este ejemplo, las cadenas personalizadas de francés (fr) e inglés (en) se agregan a la página de inicio de sesión o registro unificada.  El parámetro `LocalizedResourcesReferenceId` de cada `LocalizedResourcesReference` es igual que su configuración regional, pero podría utilizar cualquier cadena como el identificador.  Para cada combinación de idioma y de página, tendrá que crear un parámetro `<LocalizedResources>` correspondiente tal y como se muestra a continuación.
 
 
-###<a name="create-the-localizedresources"></a>Creación de LocalizedResources
+### <a name="create-the-localizedresources"></a>Creación de LocalizedResources
 
 Las invalidaciones se encuentran en `<BuildingBlocks>` y hay un parámetro `<LocalizedResources>` para cada página y lenguaje que ha especificado en el parámetro `<ContentDefinition>` de cada página.  Cada invalidación se especifica como un parámetro `<LocalizedString>`, como en el ejemplo siguiente:
 

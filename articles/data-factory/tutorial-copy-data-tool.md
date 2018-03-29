@@ -1,21 +1,21 @@
 ---
 title: Copia de datos mediante la herramienta Copy Data de Azure | Microsoft Docs
-description: "Cree una factoría de datos de Azure y, luego, use la herramienta Copy Data para copiar datos de Azure Blob Storage a Azure SQL Database."
+description: Cree una factoría de datos de Azure y, luego, use la herramienta Copy Data para copiar datos de Azure Blob Storage a Azure SQL Database.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: hero-article
 ms.date: 01/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 5b636128d0df5a404df7aa6b2cfdce016e36681f
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d2f1d089c6a08a1dc90f82fd9d1c3cb2b6f6dc0a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Copia de datos de Azure Blob Storage a SQL Database mediante la herramienta Copy Data
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
@@ -134,7 +134,7 @@ Prepare su almacenamiento de blobs y su base de datos SQL para el tutorial media
 
     b. Seleccione el nombre de la cuenta de almacenamiento en la lista desplegable **Storage account name** (Nombre de la cuenta de almacenamiento).
 
-    c. Seleccione **Siguiente**. 
+    c. Seleccione **Next** (Siguiente). 
 
     ![Especificar la cuenta de almacenamiento](./media/tutorial-copy-data-tool/specify-blob-storage-account.png)
 
@@ -148,11 +148,11 @@ Prepare su almacenamiento de blobs y su base de datos SQL para el tutorial media
 
     c. Seleccione **Choose**(Elegir). Como alternativa, puede hacer doble clic en el archivo **inputEmp.txt**.
 
-    d. Seleccione **Siguiente**. 
+    d. Seleccione **Next** (Siguiente). 
 
     ![Seleccione el archivo o la carpeta de entrada.](./media/tutorial-copy-data-tool/choose-input-file-folder.png)
 
-6. En la página **File format settings** (Configuración de formato de archivo), observe que la herramienta detecta automáticamente los delimitadores de columna y fila. Seleccione **Siguiente**. También puede obtener una vista previa de los datos y ver el esquema de los datos de entrada en esta página. 
+6. En la página **File format settings** (Configuración de formato de archivo), observe que la herramienta detecta automáticamente los delimitadores de columna y fila. Seleccione **Next** (Siguiente). También puede obtener una vista previa de los datos y ver el esquema de los datos de entrada en esta página. 
 
     ![Configuración del formato de archivo](./media/tutorial-copy-data-tool/file-format-settings-page.png)
 7. En la página **Destination data store** (Almacén de datos de destino), seleccione **Azure SQL Database** y después **Next** (Siguiente).
@@ -170,7 +170,7 @@ Prepare su almacenamiento de blobs y su base de datos SQL para el tutorial media
 
     e. En **Password** (Contraseña), escriba la contraseña del usuario.
 
-    f. Seleccione **Siguiente**. 
+    f. Seleccione **Next** (Siguiente). 
 
     ![Especifique la base de datos SQL.](./media/tutorial-copy-data-tool/specify-azure-sql-database.png)
 
@@ -204,7 +204,7 @@ Prepare su almacenamiento de blobs y su base de datos SQL para el tutorial media
 
     ![Comprobar salida de SQL](./media/tutorial-copy-data-tool/verify-sql-output.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 La canalización de este ejemplo copia los datos de una instancia de Blob Storage en una instancia de SQL Database. Ha aprendido a: 
 
 > [!div class="checklist"]

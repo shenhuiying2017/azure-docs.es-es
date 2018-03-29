@@ -1,11 +1,11 @@
 ---
 title: Copia repetible en Azure Data Factory| Microsoft Docs
-description: "Aprenda a evitar duplicados aunque un segmento que copia datos se ejecute más de una vez."
+description: Aprenda a evitar duplicados aunque un segmento que copia datos se ejecute más de una vez.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: 
+manager: craigg
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 7a9023253b87d97d874dbcf1ade97bf32e1f0639
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: ce4f2d377fa6430206055cdb6d84db13a5341157
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="repeatable-copy-in-azure-data-factory"></a>Copia repetible en Azure Data Factory
 
@@ -148,7 +148,7 @@ Azure Data Factory rellena esta columna según sus necesidades para asegurarse d
 
 Similar al mecanismo de 1, la actividad de copia limpia automáticamente los datos del segmento especificado de la tabla de SQL de destino. Luego, inserta datos del origen en la tabla de destino. 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Revise los siguientes artículos de conectores para ver ejemplos completos de JSON: 
 
 - [Azure SQL Database](data-factory-azure-sql-connector.md)

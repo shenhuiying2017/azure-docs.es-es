@@ -1,11 +1,10 @@
 ---
-title: "Incorporación de tolerancia a errores en la actividad de copia de Azure Data Factory a través de la omisión de filas incompatibles | Microsoft Docs"
-description: "Obtenga información sobre cómo agregar tolerancia a errores en la actividad de copia de Azure Data Factory a través de la omisión de filas incompatibles durante la copia"
+title: Incorporación de tolerancia a errores en la actividad de copia de Azure Data Factory a través de la omisión de filas incompatibles | Microsoft Docs
+description: Obtenga información sobre cómo agregar tolerancia a errores en la actividad de copia de Azure Data Factory a través de la omisión de filas incompatibles durante la copia
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +13,11 @@ ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6e7923e2e0a23f22f7dff8c316050a1757310456
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 29c78eb850b418772126dea50b40e924b6e71423
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="add-fault-tolerance-in-copy-activity-by-skipping-incompatible-rows"></a>Incorporación de tolerancia a errores en la actividad de copia a través de la omisión de filas incompatibles
 > [!NOTE]
@@ -66,7 +65,7 @@ En el ejemplo siguiente se proporciona una definición JSON para configurar la o
 }
 ```
 
-| Propiedad | DESCRIPCIÓN | Valores permitidos | Requerido |
+| Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio |
 | --- | --- | --- | --- |
 | **enableSkipIncompatibleRow** | Habilite si lo desea la omisión de filas incompatibles durante la copia. | True<br/>False (valor predeterminado) | Sin  |
 | **redirectIncompatibleRowSettings** | Un grupo de propiedades que puede especificarse cuando quiere registrar las filas incompatibles. | &nbsp; | Sin  |
@@ -86,5 +85,5 @@ data1, data2, data3, UserErrorInvalidDataValue,Column 'Prop_2' contains an inval
 data4, data5, data6, Violation of PRIMARY KEY constraint 'PK_tblintstrdatetimewithpk'. Cannot insert duplicate key in object 'dbo.tblintstrdatetimewithpk'. The duplicate key value is (data4).
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre la actividad de copia de Azure Data Factory, consulte [Movimiento de datos con la actividad de copia](data-factory-data-movement-activities.md).

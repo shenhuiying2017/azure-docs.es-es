@@ -1,23 +1,23 @@
 ---
 title: 'Tareas del administrador de grupo del proceso de ciencia de datos en equipo: Azure | Microsoft Docs'
 description: Esquema de las tareas de un administrador de grupo en un proyecto en equipo de ciencia de datos.
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev;
-ms.openlocfilehash: 58cea8b0288469a76dd8c4eb967caa8e87cd3dd7
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.author: bradsev
+ms.openlocfilehash: 3c39ae865ec26567f70706b042dab2aa8e4939d3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="group-manager-tasks"></a>Tareas del administrador de grupo
 
@@ -292,7 +292,7 @@ Por último, cambie al directorio **GitRepos\GroupCommon\GroupUtilities** y ejec
     git commit -m"push from DSVM"
     git push
 
->[AZURE.NOTE] Si se trata de la primera vez que confirma un repositorio Git, debe configurar los parámetros globales *user.name* y *user.email* para poder ejecutar el comando `git commit`. Ejecute los siguientes dos comandos:
+>[AZURE.NOTE] Si se trata de la primera vez que confirma un repositorio de Git, debe configurar los parámetros globales *user.name* y *user.email* para poder ejecutar el comando `git commit`. Ejecute los siguientes dos comandos:
         
     git config --global user.name <your name>
     git config --global user.email <your email address>

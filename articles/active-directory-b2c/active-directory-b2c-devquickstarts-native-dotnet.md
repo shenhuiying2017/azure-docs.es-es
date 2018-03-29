@@ -1,25 +1,21 @@
 ---
-title: "Autenticación, inicio de sesión y edición de perfiles mediante Azure Active Directory B2C para .NET | Microsoft Docs"
-description: "Creación de una aplicación de escritorio de Windows que incluye tareas de registro, inicio de sesión y administración de perfiles mediante Azure Active Directory B2C."
+title: Autenticación, inicio de sesión y edición de perfiles mediante Azure Active Directory B2C para .NET | Microsoft Docs
+description: Creación de una aplicación de escritorio de Windows que incluye tareas de registro, inicio de sesión y administración de perfiles mediante Azure Active Directory B2C.
 services: active-directory-b2c
 documentationcenter: .net
-author: dstrockis
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 9da14362-8216-4485-960e-af17cd5ba3bd
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: dastrock
-ms.custom: seohack1
-ms.openlocfilehash: 5d4664e87ca0a45d59d976f6415fce858bc51dcd
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.author: davidmu
+ms.openlocfilehash: ec679115259611eb05021a68a552d25777a73356
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-b2c-build-a-windows-desktop-app"></a>Azure AD B2C: creación de una aplicación de escritorio de Windows
 Con Azure Active Directory (Azure AD) B2C, puede agregar eficaces características de administración de identidades autoservicio a sus aplicaciones de escritorio en pocos pasos. En este artículo se le mostrará cómo crear una aplicación de "lista de tareas pendientes" de Windows Presentation Foundation (WPF) para .NET que incluya tareas de registro, inicio de sesión y administración de perfiles de usuarios. La aplicación permitirá registrarse e iniciar sesión mediante un nombre de usuario o un correo electrónico. También será posible registrarse e iniciar sesión con cuentas sociales, como Facebook y Google.

@@ -1,6 +1,6 @@
 ---
-title: "Creación de un clúster de Service Fabric en Azure Portal | Microsoft Azure"
-description: "En este artículo se describe cómo configurar un clúster de Service Fabric seguro en Azure mediante Azure Portal y Azure Key Vault."
+title: Creación de un clúster de Service Fabric en Azure Portal | Microsoft Azure
+description: En este artículo se describe cómo configurar un clúster de Service Fabric seguro en Azure mediante Azure Portal y Azure Key Vault.
 services: service-fabric
 documentationcenter: .net
 author: chackdan
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/09/2018
 ms.author: chackdan
-ms.openlocfilehash: 4a42e36307f440a29740d947314f91dffac51a42
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 864952554b04d8d6bc14aad92d168298e554710e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Creación de un clúster de Service Fabric en Azure mediante el Portal de Azure
 > [!div class="op_single_selector"]
 > * [Administrador de recursos de Azure](service-fabric-cluster-creation-via-arm.md)
-> * [portal de Azure](service-fabric-cluster-creation-via-portal.md)
+> * [Azure Portal](service-fabric-cluster-creation-via-portal.md)
 > 
 > 
 
@@ -131,7 +131,7 @@ Configure los nodos del clúster. Los tipos de nodos definen los tamaños de má
 
 Para facilitar la configuración de un clúster de prueba seguro, hemos proporcionado la opción **Básico**. Si ya dispone de un certificado y lo ha cargado en su almacén de claves (y habilitó el almacén de claves para la implementación), use la opción **Personalizado**.
 
-#####<a name="basic-option"></a>Opción Básico
+##### <a name="basic-option"></a>Opción Básico
 Siga las instrucciones que se muestran en la pantalla para agregar o volver a usar un almacén de claves existente y agregar un certificado. La adición del certificado es un proceso sincrónico, por lo que tendrá que esperar a que se cree el certificado.
 
 
@@ -151,7 +151,7 @@ Ahora está listo para continuar con el resto del proceso de creación del clús
 
 ![CreateKeyVault4]
 
-#####<a name="custom-option"></a>Opción Personalizado
+##### <a name="custom-option"></a>Opción Personalizado
 Omita esta sección si ya realizó los pasos descritos en la opción **Básico**.
 
 ![SecurityCustomOption]
@@ -210,7 +210,7 @@ En la sección **Node Monitor** (Monitor de nodo) de la hoja del panel del clús
 ## <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>Conexión remota a una instancia de conjunto de escalado de máquinas virtuales (VMSS) o a un nodo del clúster
 Cada uno de los tipos de nodos que especifica en el clúster da lugar a una configuración del conjunto de escalado de máquinas virtuales. <!--See [Remote connect to a Virtual Machine Scale Set instance][remote-connect-to-a-vm-scale-set] for details. -->
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este punto, tiene un clúster seguro mediante certificados para la autenticación de administración. Después, [conéctese al clúster](service-fabric-connect-to-secure-cluster.md) y aprenda a [administrar secretos de aplicación](service-fabric-application-secret-management.md).  Más información sobre las [opciones de soporte técnico de Service Fabric](service-fabric-support.md)
 
 <!-- Links -->

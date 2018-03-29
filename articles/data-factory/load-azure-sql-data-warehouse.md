@@ -2,20 +2,20 @@
 title: Carga de datos en Azure SQL Data Warehouse mediante Azure Data Factory | Microsoft Docs
 description: Uso de Azure Data Factory para copiar datos en Azure SQL Data Warehouse
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: eec6eeb3419c5f5f4c8d22398051f7cf057ac980
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 49ba61ba8cf68a39eef21b1939a3e8a6c92f8827
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="load-data-into-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Carga de datos en Azure SQL Data Warehouse mediante Azure Data Factory
 
@@ -82,7 +82,7 @@ En este artículo se muestra cómo usar la herramienta para copiar datos de Data
    2. Seleccione la base de datos SQL de Azure en **Database name** (Nombre de la base de datos).
    3. Especifique el nombre de usuario en **User name** (Nombre de usuario).
    4. Especifique la contraseña del usuario en **Password** (Contraseña).
-   5. Seleccione **Siguiente**.
+   5. Seleccione **Next** (Siguiente).
    
    ![Especificación de la base de datos SQL de Azure](./media/load-azure-sql-data-warehouse/specify-source-connection.png)
 5. En la página **Select tables from which to copy the data or use a custom query** (Seleccionar tablas de donde copiar los datos o usar una consulta personalizada), escriba **SalesLT** para filtrar las tablas. Elija el cuadro **(Select all)** (Seleccionar todo) para usar todas las tablas para la copia y, a continuación, seleccione **Next** (Siguiente): 
@@ -98,7 +98,7 @@ En este artículo se muestra cómo usar la herramienta para copiar datos de Data
    2. Seleccione la instancia de Azure SQL Data Warehouse en el campo **Database name** (Nombre de la base de datos).
    3. Especifique el nombre de usuario en **User name** (Nombre de usuario).
    4. Especifique la contraseña del usuario en **Password** (Contraseña).
-   5. Seleccione **Siguiente**.
+   5. Seleccione **Next** (Siguiente).
    
    ![Especificación de la instancia de Azure SQL Data Warehouse](./media/load-azure-sql-data-warehouse/specify-sink-connection.png)
 8. En la página **Table mapping** (Asignación de tabla), revise el contenido y seleccione **Next** (Siguiente). Se muestra una asignación de tabla inteligente. Las tablas de origen se asignan a las tablas de destino en función de los nombres de tabla. Si la tabla de origen no existe en el destino, Azure Data Factory crea una con el mismo nombre de manera predeterminada. También se puede asignar una tabla de origen a una tabla de destino existente. 
@@ -132,7 +132,7 @@ En este artículo se muestra cómo usar la herramienta para copiar datos de Data
 
     ![Detalles de la supervisión de la ejecución de actividad](./media/load-azure-sql-data-warehouse/monitor-activity-run-details.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Continúe en el artículo siguiente para información sobre la compatibilidad de Azure SQL Data Warehouse: 
 

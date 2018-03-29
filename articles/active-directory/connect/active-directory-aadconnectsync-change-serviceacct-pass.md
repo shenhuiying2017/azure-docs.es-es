@@ -1,12 +1,12 @@
 ---
-title: "Sincronización de Azure AD Connect: cambio de la cuenta del servicio de sincronización de Azure AD Connect | Microsoft Docs"
-description: "En este documento del tema se describe la clave de cifrado y cómo abandonarla una vez cambiada la contraseña."
+title: 'Sincronización de Azure AD Connect: cambio de la cuenta del servicio de sincronización de Azure AD Connect | Microsoft Docs'
+description: En este documento del tema se describe la clave de cifrado y cómo abandonarla una vez cambiada la contraseña.
 services: active-directory
-keywords: "Cuenta del servicio Sincronización de Azure AD, contraseña"
-documentationcenter: 
+keywords: Cuenta del servicio Sincronización de Azure AD, contraseña
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 76b19162-8b16-4960-9e22-bd64e6675ecc
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: c22dd91f236454c774c00371bff668da245d45c6
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: faa6d667b514563516c23e0484437ac9572e52b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="changing-the-azure-ad-connect-sync-service-account-password"></a>Cambio de la contraseña de la cuenta del servicio de sincronización de Azure AD Connect
 Si cambia la contraseña de la cuenta del servicio de sincronización de Azure AD Connect, el servicio de sincronización no podrá iniciarse correctamente hasta que haya abandonado la clave de cifrado y reinicializado la contraseña de la cuenta del servicio de sincronización de Azure AD Connect. 
@@ -30,7 +30,7 @@ La clave de cifrado usada se protege mediante la [API de protección de datos de
 
 Si tiene que cambiar la contraseña de la cuenta del servicio, puede seguir para ello los procedimientos descritos en [Abandonar la clave de cifrado de sincronización de Azure AD Connect](#abandoning-the-azure-ad-connect-sync-encryption-key).  También debe seguir estos procedimientos si por algún motivo tiene que abandonar la clave de cifrado.
 
-##<a name="issues-that-arise-from-changing-the-password"></a>Problemas que surgen al cambiar la contraseña
+## <a name="issues-that-arise-from-changing-the-password"></a>Problemas que surgen al cambiar la contraseña
 Es preciso hacer dos cosas al cambiar la contraseña de la cuenta del servicio.
 
 En primer lugar, tiene que cambiar la contraseña en el Administrador de control de servicios de Windows.  Hasta que se solucione el problema, verá los siguientes errores:
@@ -107,7 +107,7 @@ Ahora que el servicio de sincronización tiene acceso a la clave de cifrado y a 
 1. Vaya a Administrador de control de servicios de Windows (INICIO → Servicios).
 2. Seleccione **Sincronización de Microsoft Azure AD** y haga clic en Reiniciar.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 **Temas de introducción**
 
 * [Sincronización de Azure AD Connect: comprender y personalizar la sincronización](active-directory-aadconnectsync-whatis.md)

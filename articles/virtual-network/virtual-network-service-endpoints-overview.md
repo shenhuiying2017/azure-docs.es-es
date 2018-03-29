@@ -1,12 +1,12 @@
 ---
-title: "Puntos de conexión de servicio de Azure Virtual Network | Microsoft Docs"
-description: "Aprenda a habilitar el acceso directo a los recursos de Azure desde una red virtual con puntos de conexión de servicio."
+title: Puntos de conexión de servicio de Azure Virtual Network | Microsoft Docs
+description: Aprenda a habilitar el acceso directo a los recursos de Azure desde una red virtual con puntos de conexión de servicio.
 services: virtual-network
 documentationcenter: na
 author: anithaa
 manager: narayan
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/07/2018
 ms.author: anithaa
-ms.custom: 
-ms.openlocfilehash: aa1ac804c9cd623e5fb03c97a38f9352ac8a42ad
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.custom: ''
+ms.openlocfilehash: dbcb1d87fafe085d6232fa621fbd9e211fa4174d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="virtual-network-service-endpoints"></a>Puntos de conexión del servicio de redes virtuales
 
@@ -119,7 +119,7 @@ Para un recurso de servicio de Azure (por ejemplo, una cuenta de Azure Storage),
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga información sobre cómo [configurar los puntos de conexión de servicio de la red virtual](virtual-network-service-endpoints-configure.md)
+- Obtenga información sobre cómo [configurar los puntos de conexión de servicio de la red virtual](tutorial-restrict-network-access-to-resources.md)
 - Obtenga información sobre cómo [proteger una cuenta de Azure Storage para una red virtual](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Obtenga información sobre cómo [proteger una instancia de Azure SQL Database para una red virtual](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Obtenga información sobre la [integración del servicio de Azure en redes virtuales](virtual-network-for-azure-services.md)

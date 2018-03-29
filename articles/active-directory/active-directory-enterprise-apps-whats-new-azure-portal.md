@@ -1,11 +1,11 @@
 ---
-title: "Novedades sobre la administración de aplicaciones empresariales en Azure Active Directory | Microsoft Docs"
-description: "Conozca las novedades sobre la administración de aplicaciones empresariales en Azure Active Directory."
+title: Novedades sobre la administración de aplicaciones empresariales en Azure Active Directory | Microsoft Docs
+description: Conozca las novedades sobre la administración de aplicaciones empresariales en Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 34ac4028-a5aa-40d9-a93b-0db4e0abd793
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/13/2017
 ms.author: asteen
 ms.reviewer: asteen
-ms.openlocfilehash: 949eae51c469205489153c271a7c20fcc843ad46
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 8d1b24708380aeed6055912fcf3538f0e5319e2d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="whats-new-in-enterprise-application-management-in-azure-active-directory"></a>Novedades sobre la administración de aplicaciones empresariales en Azure Active Directory 
 
@@ -147,7 +147,7 @@ Después de agregar una gran cantidad de nuevas aplicaciones, quizá desee permi
 1. Para empezar, seleccione la opción **Autoservicio** del menú de navegación izquierdo de la aplicación y establezca la opción **Allow users to request access to this application?** (¿Desea permitir a los usuarios solicitar acceso a esta aplicación?) en "**Sí**". 
 2. Esto le permitirá configurar a quién se le permite aprobar el acceso a esta aplicación y qué grupo de usuarios del modo autoservicio se agregará. Además, si la aplicación está configurada para el inicio de sesión único con contraseña, también verá otra opción que, opcionalmente, le dejará conceder permiso a esos aprobadores para administrar las contraseñas asignadas a la aplicación.
 
-##<a name="feedback"></a>Comentarios
+## <a name="feedback"></a>Comentarios
 
 Esperamos que le guste usa la experiencia mejorada de Azure AD. Envíenos sus comentarios. Publique sus comentarios y sugerencias para la mejora en la sección **Portal de administración** de nuestro [foro de comentarios](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  Nos interesa cómo crear innovaciones estupendas todos los días y usamos sus comentarios para dar forma y definir qué será lo próximo que crearemos.
 

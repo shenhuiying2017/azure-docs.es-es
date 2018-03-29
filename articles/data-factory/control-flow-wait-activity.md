@@ -1,11 +1,11 @@
 ---
 title: Actividad Wait en Azure Data Factory | Microsoft Docs
-description: "La actividad Wait pausa la ejecución de la canalización para el período especificado."
+description: La actividad Wait pausa la ejecución de la canalización para el período especificado.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 460d37b13a17eaf20d77ad4b1059e0461fb0181f
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 9887f735fab30c95241bd84f49f30140efc27873
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="wait-activity-in-azure-data-factory"></a>Actividad Wait en Azure Data Factory
 Cuando use una actividad Wait en una canalización, esta espera durante el período de tiempo especificado antes de continuar con la ejecución de actividades sucesivas. 
@@ -102,7 +102,7 @@ En este ejemplo, la canalización tiene dos actividades: **Until** y **Wait**. L
 
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Consulte otras actividades de flujo de control compatibles con Data Factory: 
 
 - [Actividad If Condition](control-flow-if-condition-activity.md)

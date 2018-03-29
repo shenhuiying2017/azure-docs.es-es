@@ -1,24 +1,24 @@
 ---
-title: "Grupos de equipos en búsquedas de registros de Azure Log Analytics | Microsoft Docs"
-description: "Los grupos de equipos en Log Analytics permiten delimitar las búsquedas de registros a un conjunto concreto de equipos.  En este artículo se describen los distintos métodos que puede utilizar para crear grupos de equipos y cómo usar estos grupos en una búsqueda de registros."
+title: Grupos de equipos en búsquedas de registros de Azure Log Analytics | Microsoft Docs
+description: Los grupos de equipos en Log Analytics permiten delimitar las búsquedas de registros a un conjunto concreto de equipos.  En este artículo se describen los distintos métodos que puede utilizar para crear grupos de equipos y cómo usar estos grupos en una búsqueda de registros.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
-editor: 
+editor: ''
 ms.assetid: a28b9e8a-6761-4ead-aa61-c8451ca90125
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 03/19/2018
 ms.author: bwren
-ms.openlocfilehash: 4d6a80082711f09e9c189d53fb4fda00a7d73c29
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: a6f0aa58762966f8da76387f3da7a7895801fcb9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Grupos de equipos en búsquedas de registros en Log Analytics
 
@@ -66,12 +66,6 @@ Utilice el procedimiento siguiente para crear un grupo de equipos a partir de un
 5. Proporcione valores para cada propiedad del grupo de equipos. 
 
 
->[!NOTE]
-> Si el área de trabajo sigue utilizando el [lenguaje de consulta de Log Analytics heredado](log-analytics-log-search-upgrade.md), utilice el mismo procedimiento para crear un grupo de equipos, pero debe usar la sintaxis del lenguaje de consulta heredado.
-
-
-### <a name="log-search-api"></a>API de búsqueda de registros
-Los grupos de equipos creados con la API de búsqueda de registros son los mismos que las búsquedas creadas con una búsqueda de registros.  Para más información sobre la creación de un grupo de equipos con la API de búsqueda de registros, consulte [Grupos de equipos en API de REST de búsqueda de registros de Log Analytics](log-analytics-log-search-api.md#computer-groups).
 
 ### <a name="active-directory"></a>Active Directory
 Al configurar Log Analytics para importar pertenencias a grupos de Active Directory, analiza la pertenencia al grupo de todos los equipos unidos al dominio con el agente de OMS.  En Log Analytics se crea un grupo de equipos para cada grupo de seguridad de Active Directory y cada equipo se agrega a los grupos de equipos correspondientes a los grupos de seguridad de los que son miembros.  Esta pertenencia se actualiza continuamente cada 4 horas.  
@@ -131,18 +125,6 @@ La siguiente consulta devolvería registros UpdateSummary solo para equipos del 
 
 
 
-  
-
->[!NOTE]
-> Si el área de trabajo sigue usando el [lenguaje de consulta de Log Analytics heredado](log-analytics-log-search-upgrade.md), use la siguiente sintaxis para hacer referencia a un grupo de equipos en una búsqueda de registros.  La **Categoría** es opcional y solo se necesita si tiene grupos de equipos con el mismo nombre en diferentes categorías. 
->
->    `$ComputerGroups[Category: Name]`
->
->Los grupos de equipos se utilizan normalmente con la cláusula **IN** en la búsqueda de registros, como en el ejemplo siguiente:
->
->    `Type=UpdateSummary Computer IN $ComputerGroups[My Computer Group]`
-
-
 
 ## <a name="computer-group-records"></a>Registros de grupos de equipos
 En el área de trabajo de Log Analytics se crea un registro para cada pertenencia a grupos de equipos creada mediante Active Directory o WSUS.  Estos registros tienen el tipo **ComputerGroup** y sus propiedades son las que aparecen en la tabla siguiente.  Para los grupos de equipos basados en búsquedas de registros no se crean registros.
@@ -159,6 +141,6 @@ En el área de trabajo de Log Analytics se crea un registro para cada pertenenci
 | ManagementGroupName |Nombre del grupo de administración de agentes SCOM.  En el caso de los otros agentes, es AOI-\<id. de área de trabajo\>. |
 | TimeGenerated |Fecha y hora en la que se creó o actualizó el grupo de equipos. |
 
-## <a name="next-steps"></a>pasos siguientes
-* Obtenga información acerca de las [búsquedas de registros](log-analytics-log-searches.md) para analizar los datos recopilados de soluciones y orígenes de datos.  
+## <a name="next-steps"></a>Pasos siguientes
+* Obtenga información acerca de las [búsquedas de registros](log-analytics-log-searches.md) para analizar los datos recopilados de las soluciones y los orígenes de datos.  
 

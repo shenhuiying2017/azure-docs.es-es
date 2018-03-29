@@ -4,8 +4,8 @@ description: En este artículo se describe la infraestructura de seguridad bási
 services: data-factory
 documentationcenter: ''
 author: nabhishek
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: abnarain
-ms.openlocfilehash: 3c8215ab4a1759efef3c2c13a5ac44f6944b53d7
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 56602e269a441f9541314424190da04be2c4add5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Consideraciones de seguridad para el movimiento de datos en Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -49,9 +49,10 @@ En este artículo, revisamos las consideraciones de seguridad en los dos escenar
 - **Escenario híbrido**: en este escenario, el origen o el destino están detrás de un firewall o dentro de una red corporativa local. O bien el almacén de datos está en una red privada o en una red virtual (que suele ser el origen) y no se puede acceder a él públicamente. Los servidores de base de datos hospedados en máquinas virtuales también se incluyen en este escenario.
 
 ## <a name="cloud-scenarios"></a>Escenarios de nube
-### <a name="secure-data-store-credentials"></a>Protección de las credenciales del almacén de datos
-- **Almacenamiento de credenciales cifradas en un almacén administrado de Azure Data Factory**. Data Factory ayuda a proteger las credenciales del almacén de datos cifrándolas con certificados administrados por Microsoft. Estos certificados se alternan cada dos años (esto incluye la renovación del certificado y la migración de las credenciales). Estas credenciales cifradas se almacenan de forma segura en una cuenta de almacenamiento de Azure administrada por los servicios de administración de Azure Data Factory. Para más información sobre la seguridad de Azure Storage, consulte [Introducción a la seguridad de Azure Storage](../security/security-storage-overview.md).
 
+### <a name="securing-data-store-credentials"></a>Protección de las credenciales del almacén de datos
+
+- **Almacenamiento de credenciales cifradas en un almacén administrado de Azure Data Factory**. Data Factory ayuda a proteger las credenciales del almacén de datos cifrándolas con certificados administrados por Microsoft. Estos certificados se alternan cada dos años (esto incluye la renovación del certificado y la migración de las credenciales). Estas credenciales cifradas se almacenan de forma segura en una cuenta de almacenamiento de Azure administrada por los servicios de administración de Azure Data Factory. Para más información sobre la seguridad de Azure Storage, consulte [Introducción a la seguridad de Azure Storage](../security/security-storage-overview.md).
 - **Almacenamiento de credenciales en Azure Key Vault** También puede almacenar la credencial del almacén de datos en [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). Data Factory recupera la credencial durante la ejecución de una actividad. Para obtener más información, consulte el artículo [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md).
 
 ### <a name="data-encryption-in-transit"></a>Cifrado de datos en tránsito
@@ -144,7 +145,7 @@ En la tabla siguiente se proporcionan el puerto de salida y los requisitos de do
 
 | Nombres de dominio                  | Puertos de salida | DESCRIPCIÓN                              |
 | ----------------------------- | -------------- | ---------------------------------------- |
-| `*.servicebus.windows.net`    | 443, 80        | Lo necesita Integration Runtime autohospedado para conectarse a los servicios de movimiento de datos de Data Factory. |
+| `*.servicebus.windows.net`    | 443            | Lo necesita Integration Runtime autohospedado para conectarse a los servicios de movimiento de datos de Data Factory. |
 | `*.core.windows.net`          | 443            | Lo usa Integration Runtime autohospedado para conectarse a la cuenta de Azure Storage cuando se utiliza la característica [Copia almacenada provisionalmente](copy-activity-performance.md#staged-copy). |
 | `*.frontend.clouddatahub.net` | 443            | Lo necesita Integration Runtime autohospedado para conectarse a los servicios de movimiento de Data Factory. |
 | `*.database.windows.net`      | 1433           | (Opcional) Necesario cuando copia desde o hacia Azure SQL Database o Azure SQL Data Warehouse. Usa la característica de copia almacenada provisionalmente para copiar datos en Azure SQL Database o Azure SQL Data Warehouse sin abrir el puerto 1433. |

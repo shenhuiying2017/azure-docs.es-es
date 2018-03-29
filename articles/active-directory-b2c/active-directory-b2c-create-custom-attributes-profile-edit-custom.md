@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C: adición de sus propios atributos a las directivas personalizadas y su uso en la edición del perfil | Microsoft Docs"
-description: "Un tutorial acerca de cómo utilizar las propiedades de extensión y los atributos personalizados, y cómo incluirlos en la interfaz de usuario"
+title: 'Azure Active Directory B2C: adición de sus propios atributos a las directivas personalizadas y su uso en la edición del perfil | Microsoft Docs'
+description: Un tutorial acerca de cómo utilizar las propiedades de extensión y los atributos personalizados, y cómo incluirlos en la interfaz de usuario
 services: active-directory-b2c
-documentationcenter: 
-author: rojasja
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 08/04/2017
-ms.author: joroja
-ms.openlocfilehash: 33c9e4322444895a3affc16e11af5443f2db6b6d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.author: davidmu
+ms.openlocfilehash: e0595a67b90e1be7bb992ef7bda4343e692d8957
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-creating-and-using-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C: creación y uso de atributos personalizados en una directiva de edición de perfil personalizada
 
