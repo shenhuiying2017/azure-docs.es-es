@@ -1,8 +1,8 @@
 ---
-title: "Ingeniería de características en ciencia de datos | Microsoft Docs"
-description: "Explica el propósito del diseño de características y ofrece ejemplos de su rol en el proceso de mejora de los datos del aprendizaje automático."
+title: Ingeniería de características en ciencia de datos | Microsoft Docs
+description: Explica el propósito del diseño de características y ofrece ejemplos de su rol en el proceso de mejora de los datos del aprendizaje automático.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
-ms.author: zhangya;bradsev
-ms.openlocfilehash: 72a412c08e57491a306f405f400665e2b0d25a3c
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.author: bradsev
+ms.openlocfilehash: 70a78659bc14ce5ff9358ed11ad0af68be31bd17
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="feature-engineering-in-data-science"></a>Ingeniería de características en ciencia de datos
 En este artículo se explica el propósito del diseño de características y se ofrecen ejemplos de su rol en el proceso de mejora de los datos del aprendizaje automático. Los ejemplos usados para ilustrar este proceso se extraen de Azure Machine Learning Studio. 

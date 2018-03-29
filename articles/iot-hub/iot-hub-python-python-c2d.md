@@ -1,11 +1,11 @@
 ---
 title: Mensajes de nube a dispositivo con IoT Hub de Azure (Python) | Microsoft Docs
-description: "Cómo enviar mensajes de nube a un dispositivo de una instancia de IoT Hub de Azure mediante los SDK de IoT de Azure para Python. Modifique una aplicación de dispositivo simulado para recibir mensajes de nube a dispositivo y cambie una aplicación de back-end para enviar los mensajes de nube a dispositivo."
+description: Cómo enviar mensajes de nube a un dispositivo de una instancia de IoT Hub de Azure mediante los SDK de IoT de Azure para Python. Modifique una aplicación de dispositivo simulado para recibir mensajes de nube a dispositivo y cambie una aplicación de back-end para enviar los mensajes de nube a dispositivo.
 services: iot-hub
 documentationcenter: python
 author: msebolt
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 3ca8a78f-ade2-46e8-8a49-d5d599cdf1f1
 ms.service: iot-hub
 ms.devlang: javascript
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/22/2018
 ms.author: v-masebo
-ms.openlocfilehash: 592e0cd858d16715f95955194eca4217d9914b05
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 9a669bda2a41ea6aa474549ee9798889523a27f8
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-python"></a>Envío de mensajes de nube a dispositivo con IoT Hub (Python)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -193,17 +193,6 @@ En esta sección, escribirá una aplicación de consola de Python que envía men
     DEVICE_ID = "{deviceId}"
     ```
 
-1. Agregue la función siguiente para imprimir los resultados de la operación en la consola:
-   
-    ```python
-    function printResultFor(op) {
-      return function printResult(err, res) {
-        if (err) console.log(op + ' error: ' + err.toString());
-        if (res) console.log(op + ' status: ' + res.constructor.name);
-      };
-    }
-    ```
-
 1. Agregue la función siguiente para imprimir mensajes de comentarios en la consola:
    
     ```python
@@ -307,7 +296,7 @@ Ahora está preparado para ejecutar las aplicaciones.
     ![Mensaje recibido][img-message-recieved]
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este tutorial, aprendió a enviar y recibir mensajes de nube a dispositivo. 
 
 Para ver ejemplos de soluciones completas de un extremo a otro que usen IoT Hub, consulte [Documentación de Azure IoT Suite].

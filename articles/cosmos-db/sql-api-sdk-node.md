@@ -1,6 +1,6 @@
 ---
 title: API, SDK y recursos de Node.js para SQL de Azure Cosmos DB | Microsoft Docs
-description: "Obtenga toda la información sobre la API y el SDK de Node.js para SQL incluidas la fechas de lanzamiento, fechas de retirada y cambios realizados entre las versiones del SDK de Node.js para Azure Cosmos DB."
+description: Obtenga toda la información sobre la API y el SDK de Node.js para SQL incluidas la fechas de lanzamiento, fechas de retirada y cambios realizados entre las versiones del SDK de Node.js para Azure Cosmos DB.
 services: cosmos-db
 documentationcenter: nodejs
 author: rnagpal
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 1/4/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a8869d8a8eead8bdaeda5dc1d6eeb2f81b16928e
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 58d043ac7037567d37321cb874804ad0e6cb5ed8
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>SDK de Node.js para la API de SQL de Azure Cosmos DB: notas de la versión y recursos
 > [!div class="op_single_selector"]
@@ -35,8 +35,6 @@ ms.lasthandoff: 03/02/2018
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > 
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 <table>
 

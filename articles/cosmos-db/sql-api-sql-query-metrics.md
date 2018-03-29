@@ -1,9 +1,9 @@
 ---
-title: "Métricas de consulta de SQL para la API de SQL de Azure Cosmos DB | Microsoft Docs"
-description: "Aprenda cómo instrumentar y depurar el rendimiento de consultas SQL de las solicitudes de Azure Cosmos DB."
+title: Métricas de consulta de SQL para la API de SQL de Azure Cosmos DB | Microsoft Docs
+description: Aprenda cómo instrumentar y depurar el rendimiento de consultas SQL de las solicitudes de Azure Cosmos DB.
 keywords: consulta sql, consultas sql, sintaxis sql, lenguaje de consulta json, conceptos de base de datos y consultas sql, funciones de agregado
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: arramac
 manager: jhubbard
 editor: monicar
@@ -15,15 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: arramac
-ms.openlocfilehash: a2a42fd65ba4344f703ca423dc451802f3f0ac76
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: a92d2ed1686765a54812ff82066bc30c1d48848d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Optimización del rendimiento de consultas con Azure Cosmos DB
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Azure Cosmos DB proporciona una [API de SQL para consultar datos](sql-api-sql-query.md), sin necesidad de índices de esquema o secundarios. En este artículo se proporciona la siguiente información para los desarrolladores:
 
@@ -278,7 +276,7 @@ Estos son algunos ejemplos de consultas y cómo interpretar algunas de las métr
 | `SELECT TOP 500 c.Name FROM c WHERE STARTSWITH(LOWER(c.Name), 'den')` | `"IndexLookupTime": "00:00:00", "RetrievedDocumentCount": 2491,  "OutputDocumentCount": 500` | La consulta se realiza como un examen porque se emplea `LOWER`, y se devuelven 500 de los 2491 documentos recuperados. |
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Para conocer los operadores de consulta y palabras clave SQL admitidos, consulte [Consultas SQL](sql-api-sql-query.md). 
 * Para aprender más sobre las unidades de solicitud, consulte [Unidades de solicitud](request-units.md).
 * Para aprender más sobre la directiva de indexación, consulte [Directiva de indexación](indexing-policies.md) 

@@ -1,11 +1,11 @@
 ---
-title: "Visualización de todas las aplicaciones empresariales que se pueden administrar en Azure Active Directory | Microsoft Docs"
-description: "Cómo ver una lista de las aplicaciones empresarial que tienen permisos de administración en Azure Active Directory"
+title: Visualización de todas las aplicaciones empresariales que se pueden administrar en Azure Active Directory | Microsoft Docs
+description: Cómo ver una lista de las aplicaciones empresarial que tienen permisos de administración en Azure Active Directory
 services: active-directory
-documentationcenter: 
-author: curtand
+documentationcenter: ''
+author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: c4fb6f94-34f8-4323-8bd7-a3ee44901f7d
 ms.service: active-directory
 ms.workload: identity
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
-ms.author: curtand
+ms.author: markvi
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: 5bcde742690e57d9195725fba524ee64cc691b30
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 64946b3bbf39cf8153fcc8c7aa548ed6055fb47f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="view-all-the-enterprise-apps-that-i-can-manage-in-azure-active-directory"></a>Visualización de todas las aplicaciones empresariales que se pueden administrar en Azure Active Directory
 Puede administrar las aplicaciones empresariales en Azure Active Directory (Azure AD). Podrá ver las aplicaciones que pueden administrarse, asignar usuarios o grupos a una aplicación, mantener las propiedades de la aplicación, como el nombre y logotipo, e incluso deshabilitar una aplicación para que ningún usuario pueda iniciar sesión en ella.
@@ -33,7 +33,7 @@ Puede administrar las aplicaciones empresariales en Azure Active Directory (Azur
     ![Apertura de Enterprise apps (Aplicaciones empresariales)](./media/active-directory-coreapps-view-azure-portal/open-enterprise-apps.png)
 4. En el panel **Aplicaciones empresariales**, seleccione **Todas las aplicaciones**. En este panel puede seleccionar aplicaciones para administrarlas, cambiar las columnas mostradas o filtrar la lista para encontrar la que quiera (por ejemplo, para ver solo las aplicaciones deshabilitadas).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Asignar un usuario o grupo a una aplicación empresarial](active-directory-coreapps-assign-user-azure-portal.md)
 * [Eliminación de asignaciones de usuario o grupo de una aplicación empresarial](active-directory-coreapps-remove-assignment-azure-portal.md)
 * [Deshabilitar los inicios de sesión de los usuarios de una aplicación empresarial](active-directory-coreapps-disable-app-azure-portal.md)

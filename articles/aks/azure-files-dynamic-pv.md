@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/06/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 1bcaf350fc6c1ba4a5f998c35f0c3a9d351c9c4d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 78f447c96afe7955f115de4bbd28015cd231bb53
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="persistent-volumes-with-azure-files"></a>Volúmenes persistentes con archivos de Azure
 
@@ -97,7 +97,7 @@ spec:
 Cree la notificación del volumen persistente con el comando [kubectl create] [kubectl-create].
 
 ```azurecli-interactive
-kubectl create -f azure-file-sc.yaml
+kubectl create -f azure-file-pvc.yaml
 ```
 
 Una vez completado, se creará el recurso compartido de archivos. También se crea un secreto Kubernetes que contiene las credenciales y la información de conexión.
@@ -133,6 +133,37 @@ kubectl create -f azure-pvc-files.yaml
 ```
 
 Ahora tiene un pod en ejecución con el disco de Azure montado en el directorio `/mnt/azure`. Puede ver el montaje del volumen al inspeccionar el pod a través de `kubectl describe pod mypod`.
+
+## <a name="mount-options"></a>Opciones de montaje
+ 
+Los valores predeterminados fileMode y dirMode varían entre las distintas versiones de Kubernetes, tal y como se describe en la tabla siguiente.
+ 
+| version | value |
+| ---- | ---- |
+| v1.6.x, v1.7.x | 0777 |
+| v1.8.0-v1.8.5 | 0700 |
+| v1.8.6 o posterior | 0755 |
+| v1.9.0 | 0700 |
+| v1.9.1 o posterior | 0755 |
+ 
+Si se usa un clúster con la versión 1.8.5 o posterior, las opciones de montaje pueden especificarse en el objeto de clase de almacenamiento. En el ejemplo siguiente se establece `0777`.
+ 
+```yaml
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: azurefile
+provisioner: kubernetes.io/azure-file
+mountOptions:
+  - dir_mode=0777
+  - file_mode=0777
+  - uid=1000
+  - gid=1000
+parameters:
+  skuName: Standard_LRS
+```
+ 
+Si se usa un clúster con las versiones 1.8.0 a 1.8.4, se puede especificar un contexto de seguridad con el valor `runAsUser` definido en `0`. Para más información sobre el contexto de seguridad de pod, vea [Configure a Security Context][kubernetes-security-context] (Configuración de un contexto de seguridad).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

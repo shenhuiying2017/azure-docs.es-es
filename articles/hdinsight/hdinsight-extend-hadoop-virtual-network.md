@@ -1,8 +1,8 @@
 ---
-title: "Extensión de HDInsight con Virtual Network - Azure | Microsoft Docs"
+title: Extensión de HDInsight con Virtual Network - Azure | Microsoft Docs
 description: Aprenda a usar Azure Virtual Network para conectar HDInsight con otros recursos en la nube o recursos en su centro de datos.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/21/2018
 ms.author: larryfr
-ms.openlocfilehash: ea686ea5dd6166d6e4e4055cb4a2cdd70af81ab4
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b02a4625e3973ca7679d1d2018bd37ff1d2ae2ba
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Extender Azure HDInsight mediante una instancia de Azure Virtual Network
 
@@ -173,11 +173,11 @@ Para habilitar la resolución de nombres entre la red virtual y los recursos en 
 
     Para obtener un ejemplo de cada configuración, vea la sección [Ejemplo: DNS personalizado](#example-dns).
 
-Para más información, vea el documento [Resolución de nombres para máquinas virtuales e instancias de rol](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
+Para más información, vea el documento [Resolución de nombres para máquinas virtuales e instancias de rol](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 ## <a name="directly-connect-to-hadoop-services"></a>Conectar directamente a servicios Hadoop
 
-En la mayor parte de la documentación sobre HDInsight se supone que tiene acceso al clúster a través de Internet. Por ejemplo, que se puede conectar al clúster en https://NOMBREDECLÚSTER.azurehdinsight.net. Esta dirección usa la puerta de enlace pública, que no está disponible si ha usado NSG o UDR para restringir el acceso desde Internet.
+En la mayor parte de la documentación sobre HDInsight se supone que tiene acceso al clúster a través de Internet. Por ejemplo, que se puede conectar al clúster en https://CLUSTERNAME.azurehdinsight.net. Esta dirección usa la puerta de enlace pública, que no está disponible si ha usado NSG o UDR para restringir el acceso desde Internet.
 
 Para conectarse a Ambari y otras páginas web a través de la red virtual, siga estos pasos:
 

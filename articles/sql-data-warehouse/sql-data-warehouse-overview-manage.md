@@ -1,11 +1,11 @@
 ---
-title: "Administración de bases de datos en Azure SQL Data Warehouse | Microsoft Docs"
-description: "Información general de administración de bases de datos de Almacenamiento de datos SQL Incluye herramientas de administración, DWU y rendimiento de escalado horizontal, solución de problemas de rendimiento de las consultas, el establecimiento de directivas de seguridad y la restauración una base de datos de daños en los datos o de un apagón regional."
+title: Administración de bases de datos en Azure SQL Data Warehouse | Microsoft Docs
+description: Información general de administración de bases de datos de Almacenamiento de datos SQL Incluye herramientas de administración, DWU y rendimiento de escalado horizontal, solución de problemas de rendimiento de las consultas, el establecimiento de directivas de seguridad y la restauración una base de datos de daños en los datos o de un apagón regional.
 services: sql-data-warehouse
 documentationcenter: NA
 author: kevinvngo
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 8576fdb3-71fe-4b3b-a4e0-5e8a7f148acf
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -16,10 +16,10 @@ ms.custom: manage
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
 ms.openlocfilehash: acf521bdc15dfab4c7e43081159bc1385768838e
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="manage-databases-in-azure-sql-data-warehouse"></a>Administración de base datos en Almacenamiento de datos SQL de Azure
 Almacenamiento de datos SQL automatiza muchos aspectos de la administración de las bases de datos. Por ejemplo, para escalar el rendimiento solo necesita ajustar y pagar por el nivel adecuado de recursos de proceso y, a continuación, dejar que Almacenamiento de datos SQL haga todo el trabajo de escalado horizontal y escalado de nuevo.

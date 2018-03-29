@@ -1,25 +1,25 @@
 ---
 title: Marcos de aprendizaje profundo y de AI - Azure | Microsoft Docs
 description: Marcos de aprendizaje profundo y de AI
-keywords: "herramientas de ciencia de datos, máquina virtual de ciencia de datos, herramientas para la ciencia de datos, ciencia de datos de linux"
+keywords: herramientas de ciencia de datos, máquina virtual de ciencia de datos, herramientas para la ciencia de datos, ciencia de datos de linux
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: gopitk
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
-ms.author: gokuma;bradsev
-ms.openlocfilehash: 89a8cde0dbb7fe7ccfbb6d068411aaf5488c532f
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.author: gokuma
+ms.openlocfilehash: 829095c7f9b92f64fd6204481e68b2594a3a0017
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>Marcos de aprendizaje profundo y de AI
 [Data Science Virtual Machine](http://aka.ms/dsvm) (DSVM) y [Deep Learning VM](http://aka.ms/dsvm/deeplearning) admiten varios marcos de aprendizaje profundo para compilar aplicaciones de inteligencia artificial (AI) con capacidades de análisis predictivo y capacidades cognitivas, como la comprensión de imágenes y de lenguajes. 

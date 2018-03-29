@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2018
-ms.author: bradsev;paulsh
-ms.openlocfilehash: 9b8a9b9bba242fd7c86dc285a77317a5821948df
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.author: bradsev
+ms.openlocfilehash: aff0dd17baa72b3f58ed5effbedb3a4c630f22c6
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Ciencia de datos con una instancia de Data Science Virtual Machine de Linux en Azure
 En este tutorial se muestra cómo realizar varias tareas comunes de ciencia de los datos con la máquina virtual de Linux Data Science. Linux Data Science Virtual Machine (DSVM) es una imagen de máquina virtual disponible en Azure que viene preinstalada con una colección de herramientas usadas normalmente en el análisis de los datos y el aprendizaje automático. Los componentes de software principales se detallan en el tema [Aprovisionamiento de Linux Data Science Virtual Machine](linux-dsvm-intro.md) . La imagen de máquina virtual permite comenzar a trabajar fácilmente con la ciencia de los datos en cuestión de minutos, sin tener que instalar ni configurar cada una de las herramientas de forma individual. Puede escalar la máquina virtual verticalmente de manera fácil, si es necesario, y detenerla cuando no la use. Así que este recurso es tanto elástico como rentable.

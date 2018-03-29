@@ -1,24 +1,24 @@
 ---
 title: Uso de la CLI de Azure 2.0 con Azure Storage | Microsoft Docs
-description: "Aprenda a usar la interfaz de línea de comandos (CLI de Azure) 2.0 de Azure con Azure Storage para crear y administrar cuentas de almacenamiento y trabajar con archivos y blobs de Azure. La CLI de Azure 2.0 es una herramienta multiplataforma escrita en Python."
+description: Aprenda a usar la interfaz de línea de comandos (CLI de Azure) 2.0 de Azure con Azure Storage para crear y administrar cuentas de almacenamiento y trabajar con archivos y blobs de Azure. La CLI de Azure 2.0 es una herramienta multiplataforma escrita en Python.
 services: storage
 documentationcenter: na
-author: tamram
-manager: timlt
+author: roygara
+manager: jeconnoc
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
 ms.date: 06/02/2017
-ms.author: tamram
-ms.openlocfilehash: 509c702054961c9d9fa525242ce0542059e32d81
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: rogarana
+ms.openlocfilehash: 99e67b9c8469f08f1cbfc980568eec35694d1ae2
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="using-the-azure-cli-20-with-azure-storage"></a>Uso de la CLI de Azure 2.0 con Azure Storage
 
@@ -510,7 +510,7 @@ Salida de ejemplo
 }
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Estos son algunos recursos adicionales para obtener más información acerca de cómo trabajar con la CLI de Azure 2.0.
 
 * [Introducción a la CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)

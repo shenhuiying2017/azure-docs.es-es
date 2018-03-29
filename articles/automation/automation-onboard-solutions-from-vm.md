@@ -1,28 +1,27 @@
 ---
-title: "Obtenga información sobre la incorporación de las soluciones Update Management, Change Tracking e Inventario desde una máquina virtual de Azure"
-description: "Obtenga información acerca de cómo incorporar una máquina virtual de Azure con las soluciones Update Management, Change Tracking e Inventory que forman parte de Azure Automation"
+title: Obtenga información sobre la incorporación de las soluciones Update Management, Change Tracking e Inventario desde una máquina virtual de Azure
+description: Obtenga información acerca de cómo incorporar una máquina virtual de Azure con las soluciones Update Management, Change Tracking e Inventory que forman parte de Azure Automation
 services: automation
-keywords: 
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/28/2018
+ms.date: 03/19/2018
 ms.topic: article
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: a850189406b394e7935763206f9e3a191b415170
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 8713447386e116b3f1ecb2754d46cc8d88d00b39
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Incorporación de las soluciones Update Management, Change Tracking e Inventory desde una máquina virtual de Azure
 
 Azure Automation proporciona soluciones para administrar las actualizaciones de seguridad del sistema operativo, el seguimiento de cambios y el inventario de los componentes instalados en los equipos. Hay varias maneras de incorporar máquinas, se puede incorporar la solución desde una máquina virtual, [desde su cuenta de Automation](automation-onboard-solutions-from-automation-account.md) o mediante un [runbook](automation-onboard-solutions.md). Este artículo trata la incorporación de estas soluciones desde una máquina virtual de Azure.
 
-## <a name="log-in-to-azure"></a>Inicie sesión en Azure.
+## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
 
-Inicie sesión en Azure en https://portal.azure.com.
+Inicie sesión en Azure en https://portal.azure.com
 
 ## <a name="enable-the-solutions"></a>Habilitación de las soluciones
 
@@ -62,7 +61,7 @@ Seleccione cualquier búsqueda guardada para ver la consulta utilizada para rell
 
 ![Búsquedas guardadas](media/automation-onboard-solutions-from-vm/logsearch.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Continúe con los tutoriales de las soluciones para aprender a utilizarlas.
 

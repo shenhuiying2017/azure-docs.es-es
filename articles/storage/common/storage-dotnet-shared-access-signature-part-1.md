@@ -1,10 +1,10 @@
 ---
 title: Uso de firmas de acceso compartido (SAS) en Azure Storage | Microsoft Docs
-description: "Obtenga información acerca de cómo usar firmas de acceso compartido (SAS) para delegar recursos de Azure Storage, incluidos blobs, colas, tablas y archivos."
+description: Obtenga información acerca de cómo usar firmas de acceso compartido (SAS) para delegar recursos de Azure Storage, incluidos blobs, colas, tablas y archivos.
 services: storage
-documentationcenter: 
-author: tamram
-manager: timlt
+documentationcenter: ''
+author: craigshoemaker
+manager: jeconnoc
 editor: tysonn
 ms.assetid: 46fd99d7-36b3-4283-81e3-f214b29f1152
 ms.service: storage
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/18/2017
-ms.author: tamram
-ms.openlocfilehash: 32e92e6ffc376d27297810596691f0371770e86d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: cshoe
+ms.openlocfilehash: d3f8b3261f9e2e86dbcaa41b92111545abeffe54
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="using-shared-access-signatures-sas"></a>Uso de firmas de acceso compartido (SAS)
 
@@ -66,7 +66,7 @@ Puede crear dos tipos de firmas de acceso compartido:
 * **SAS de cuenta.** SAS de cuenta delega el acceso a los recursos en uno o varios de los servicios de almacenamiento. Todas las operaciones disponibles con una SAS de servicio están también disponibles con una SAS de cuenta. Además, con la SAS de cuenta, puede delegar el acceso a las operaciones que se aplican a un servicio determinado como **Get/Set Service Properties** y **Get Service Stats**. También puede delegar el acceso para leer, escribir y eliminar operaciones en contenedores de blobs, tablas, colas y recursos compartidos de archivos que no están permitidos con SAS de servicio. Consulte [Creación de una SAS de cuenta](https://msdn.microsoft.com/library/mt584140.aspx) para obtener información detallada sobre cómo crear el token de SAS de cuenta.
 
 ## <a name="how-a-shared-access-signature-works"></a>Funcionamiento de una firma de acceso compartido
-Una firma de acceso compartido es un URI firmado que señala a uno o más recursos de almacenamiento e incluye un token que contiene un conjunto especial de parámetros de consulta. El token indica cómo puede el cliente tener acceso a los recursos. Uno de los parámetros de consulta, la firma, se construye a partir de parámetros SAS y se firma con la clave de cuenta. Almacenamiento de Azure usa esa firma para autenticar la SAS.
+Una firma de acceso compartido es un URI firmado que señala a uno o más recursos de almacenamiento e incluye un token que contiene un conjunto especial de parámetros de consulta. El token indica cómo puede el cliente tener acceso a los recursos. Uno de los parámetros de consulta, la firma, se construye a partir de parámetros SAS y se firma con la clave de cuenta. Azure Storage usa esa firma para autenticar la SAS.
 
 Este es un ejemplo de un URI de SAS, que muestra el URI de recurso y el token de SAS:
 
@@ -113,7 +113,7 @@ A continuación se muestra un ejemplo de un URI de SAS de servicio que ofrece pe
 https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2015-04-05&st=2015-04-29T22%3A18%3A26Z&se=2015-04-30T02%3A23%3A26Z&sr=b&sp=rw&sip=168.1.5.60-168.1.5.70&spr=https&sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D
 ```
 
-| Nombre | Parte de SAS | Description |
+| NOMBRE | Parte de SAS | DESCRIPCIÓN |
 | --- | --- | --- |
 | URI de blobs |`https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt` |La dirección del blob. Tenga en cuenta que se recomienda fehacientemente el uso de HTTPS. |
 | Versión de servicios de almacenamiento |`sv=2015-04-05` |En la versión de servicios de almacenamiento 2012-02-12 y superiores, este parámetro indica qué versión usar. |
@@ -133,9 +133,9 @@ Este es un ejemplo de una SAS de cuenta que usa los mismos parámetros comunes e
 https://myaccount.blob.core.windows.net/?restype=service&comp=properties&sv=2015-04-05&ss=bf&srt=s&st=2015-04-29T22%3A18%3A26Z&se=2015-04-30T02%3A23%3A26Z&sr=b&sp=rw&sip=168.1.5.60-168.1.5.70&spr=https&sig=F%6GRVAZ5Cdj2Pw4tgU7IlSTkWgn7bUkkAg8P6HESXwmf%4B
 ```
 
-| Nombre | Parte de SAS | Description |
+| NOMBRE | Parte de SAS | DESCRIPCIÓN |
 | --- | --- | --- |
-| URI de recurso |`https://myaccount.blob.core.windows.net/?restype=service&comp=properties` |Extremo de servicio BLOB, con parámetros para obtener propiedades de servicio (cuando se llama con GET) o para establecer propiedades de servicio (cuando se llama con SET). |
+| URI de recurso |`https://myaccount.blob.core.windows.net/?restype=service&comp=properties` |Extremo de Blob service, con parámetros para obtener propiedades de servicio (cuando se llama con GET) o para establecer propiedades de servicio (cuando se llama con SET). |
 | Services |`ss=bf` |La SAS se aplica a los servicios Blob y Archivo |
 | Tipos de recursos |`srt=s` |La SAS se aplica a las operaciones de nivel de servicio. |
 | Permisos |`sp=rw` |Los permisos conceden acceso para operaciones de lectura y escritura. |
@@ -228,14 +228,14 @@ Las siguientes recomendaciones para el uso de firmas de acceso compartido pueden
 7. **Comprenda que se le hará un cargo en la cuenta por cualquier uso, incluido el realizado con la SAS.** Si proporciona acceso de escritura a un blob, el usuario puede seleccionar cargar un blob de 200 GB. Si le proporciona también acceso de lectura, puede seleccionar descargarlo 10 veces, lo que le supone 2 TB de costos de salida. Proporcione de nuevo permisos limitados para ayudar a mitigar acciones potenciales de usuarios malintencionados. Use una SAS de corta duración para reducir esa amenaza (pero tenga en cuenta el desplazamiento del reloj y la hora final).
 8. **Valide los datos escritos mediante la SAS.** Cuando una aplicación cliente escribe datos en la cuenta de almacenamiento, tenga en cuenta que pueden existir problemas con esos datos. Si la aplicación requiere que se validen o autoricen los datos antes de que estén listos para usar, debe realizar la validación después de que se escriban los datos y antes de que la aplicación los use. Esta práctica también le protege frente a los datos erróneos o malintencionados que se escriben en la cuenta, ya sea mediante un usuario que adquirió correctamente la SAS o un usuario que aproveche una SAS errónea.
 9. **No use siempre la SAS.** En ocasiones, los riesgos asociados a una operación determinada en la cuenta de almacenamiento superan a las ventajas del uso de la SAS. Para esas operaciones, cree un servicio de nivel medio que escriba en la cuenta de almacenamiento después de llevar a cabo una auditoría, autenticación o validación de la regla de negocio. A veces también es más sencillo administrar el acceso de otras formas. Por ejemplo, si desea que todos los blobs de un contenedor puedan leerse públicamente, puede hacer que el contenedor sea público en lugar de proporcionar un SAS a cada cliente para obtener acceso.
-10. **Use el análisis de almacenamiento para supervisar la aplicación.** Puede hacer uso de registros y métricas para observar cualquier pico en los errores de autenticación producidos por la interrupción del servicio del proveedor de SAS o la eliminación involuntaria de una directiva de acceso almacenada. Consulte el [blog del equipo de almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx) (en inglés) para obtener más información.
+10. **Use Storage Analytics para supervisar la aplicación.** Puede hacer uso de registros y métricas para observar cualquier pico en los errores de autenticación producidos por la interrupción del servicio del proveedor de SAS o la eliminación involuntaria de una directiva de acceso almacenada. Consulte el [blog del equipo de Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx) (en inglés) para obtener más información.
 
 ## <a name="sas-examples"></a>Ejemplos de SAS
 A continuación figuran algunos ejemplos de ambos tipos de firmas de acceso compartido, SAS de cuenta y SAS de servicio.
 
 Para ejecutar estos ejemplos de C#, debe hacer referencia a los siguientes paquetes de NuGet en el proyecto:
 
-* Versión 6.x o posterior de la [Biblioteca de cliente de Almacenamiento de azure para .NET](http://www.nuget.org/packages/WindowsAzure.Storage) (para usar la cuenta SAS).
+* Versión 6.x o posterior de la [Biblioteca de cliente de Azure Storage para .NET](http://www.nuget.org/packages/WindowsAzure.Storage) (para usar la cuenta SAS).
 * [Administrador de configuración Azure](http://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager)
 
 Para obtener ejemplos adicionales que muestran cómo crear y probar SAS, vea [Ejemplos de código de Azure para Storage](https://azure.microsoft.com/documentation/samples/?service=storage).
@@ -265,7 +265,7 @@ static string GetAccountSASToken()
 }
 ```
 
-Para usar la SAS de cuenta a fin de acceder a las API de nivel de servicio para el servicio Blob, construya un objeto de cliente Blob con la SAS y el extremo de almacenamiento de Blob para la cuenta de almacenamiento.
+Para usar la SAS de cuenta a fin de acceder a las API de nivel de servicio para Blob service, construya un objeto de cliente de blob con la SAS y el extremo de Blob Storage para la cuenta de almacenamiento.
 
 ```csharp
 static void UseAccountSAS(string sasToken)
@@ -423,7 +423,7 @@ private static string GetBlobSasUri(CloudBlobContainer container, string blobNam
 ```
 
 ## <a name="conclusion"></a>Conclusión
-Las firmas de acceso compartido son útiles para ofrecer permisos limitados a su cuenta de almacenamiento a clientes que no deben tener la clave de cuenta. Por ese motivo, son una parte fundamental del modelo de seguridad para cualquier aplicación que use Almacenamiento de Azure. Si sigue las prácticas recomendadas descritas aquí, puede usar la SAS para ofrecer una mayor flexibilidad de acceso a los recursos en la cuenta de almacenamiento sin que se ponga en riesgo la seguridad de la aplicación.
+Las firmas de acceso compartido son útiles para ofrecer permisos limitados a su cuenta de almacenamiento a clientes que no deben tener la clave de cuenta. Por ese motivo, son una parte fundamental del modelo de seguridad para cualquier aplicación que use Azure Storage. Si sigue las prácticas recomendadas descritas aquí, puede usar la SAS para ofrecer una mayor flexibilidad de acceso a los recursos en la cuenta de almacenamiento sin que se ponga en riesgo la seguridad de la aplicación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Firmas de acceso compartido, Parte 2: Creación y uso de una SAS con Blob Storage](../blobs/storage-dotnet-shared-access-signature-part-2.md)

@@ -1,27 +1,27 @@
 ---
 title: Tareas del responsable de proyecto del proceso de ciencia de datos en equipo para Azure | Microsoft Docs
 description: Un esquema de las tareas de un responsable de proyecto en un proyecto en equipo de ciencia de datos.
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev;
-ms.openlocfilehash: fe7cf1e6167de7d0dfaa5ed75c0b7f5ec23b18cf
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.author: bradsev
+ms.openlocfilehash: 5c769fda09e70cfb0a43e0305ffab4923fbe3307
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="project-lead-tasks"></a>Tareas del responsable de proyecto
 
-Este tutorial describe las tareas que el responsable de proyecto debe completar para su equipo de proyecto. El objetivo es establecer el entorno de colaboración de equipo que se estandariza en el [proceso de ciencia de datos en equipo](overview.md) (TDSP). El proceso de ciencia de datos en equipo es una plataforma desarrollada por Microsoft que proporciona una secuencia estructurada de actividades para ejecutar de forma eficaz soluciones de análisis predictivos y basadas en la nube. Para un esquema de los roles personales y sus tareas asociadas que se controlan en un equipo de ciencia de datos que se estandariza en este proceso, consulte [Roles y tareas del proceso de ciencia de datos en equipo](roles-tasks.md).
+Este tutorial describe las tareas que el responsable de proyecto debe completar para su equipo de proyecto. El objetivo es establecer el entorno de colaboración de equipo que se estandariza en el [proceso de ciencia de datos en equipo](overview.md) (TDSP). El proceso de ciencia de datos en equipo es una plataforma desarrollada por Microsoft que proporciona una secuencia estructurada de actividades para ejecutar de forma eficaz soluciones de análisis predictivos y basadas en la nube. Puede encontrar un esquema de los roles personales y sus tareas asociadas que se controlan en un equipo de ciencia de datos que se estandariza en este proceso en [Roles y tareas del Proceso de ciencia de datos en equipo](roles-tasks.md).
 
 Un **responsable de proyecto** administra las actividades diarias de los científicos de datos en un proyecto de ciencia de datos específico. El flujo de trabajo de las tareas que van a realizar los responsables de equipo para configurar este entorno se representa en la figura siguiente:
 
@@ -42,7 +42,7 @@ En este tutorial se usan abreviaturas de nombres de los repositorios y directori
 - **D5**: el directorio local clonado de R5.
 
 
-## <a name="0-prerequisites"></a>0. Requisitos previos
+## <a name="0-prerequisites"></a>0. requisitos previos
 
 Para cumplir los requisitos previos, es necesario realizar las tareas asignadas al administrador de grupo que se describen en [Tareas del administrador de grupo en un equipo de ciencia de datos](group-manager-tasks.md) y al responsable de equipo descrito en [Tareas del responsable de equipo para un equipo de ciencia de datos](team-lead-tasks.md). 
 

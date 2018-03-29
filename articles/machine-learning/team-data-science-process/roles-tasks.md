@@ -1,23 +1,23 @@
 ---
 title: 'Roles y tareas del proceso de ciencia de datos en equipo: Azure | Microsoft Docs'
-description: "Una descripción de los componentes clave, las funciones del personal y las tareas asociadas para un proyecto de equipo de ciencia de datos."
-documentationcenter: 
+description: Una descripción de los componentes clave, las funciones del personal y las tareas asociadas para un proyecto de equipo de ciencia de datos.
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
-ms.author: bradsev;
-ms.openlocfilehash: b502a586cdb7351d5b22c6b0db966723b8ebb7b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: bradsev
+ms.openlocfilehash: b92bb8e633aa859324f2ff46f5d76a5934007ccf
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="team-data-science-process-roles-and-tasks"></a>Roles y tareas del proceso de ciencia de datos en equipo
 
@@ -82,7 +82,7 @@ Las siguientes tareas las realiza el responsable de equipo (o un administrador d
 - Si se selecciona VSTS como la plataforma de hospedaje de código para control de versiones y colaboración, crear un **proyecto de equipo** en el servidor de VSTS del grupo. En caso contrario, se puede omitir esta tarea.
 - Crear el **repositorio de plantillas de proyecto de equipo** en el proyecto de equipo e inicializarlo desde el repositorio de plantillas de proyecto del grupo creado por el administrador del grupo o el delegado por el administrador. 
 - Crear el **repositorio de utilidades del equipo** y agregar las utilidades específicas del equipo en el repositorio. 
-- (Opcional) Crear almacenamiento en  **[Azure File Storage](https://azure.microsoft.com/services/storage/files/)**  que se utilizará para almacenar los recursos de datos que puedan ser útiles para todo el equipo. Otros miembros del equipo pueden montar este almacén de archivos compartidos en la nube en sus escritorios de análisis.
+- (Opcional) Crear almacenamiento en **[Azure File Storage](https://azure.microsoft.com/services/storage/files/)** que se utilizará para almacenar los recursos de datos que puedan ser útiles para todo el equipo. Otros miembros del equipo pueden montar este almacén de archivos compartidos en la nube en sus escritorios de análisis.
 - (Opcional) Montar el almacenamiento de Azure File Storage en la instancia de **Data Science Virtual Machine** (DSVM) del responsable de equipo y agregar los recursos de datos en ella.
 - Configurar el **control de seguridad** mediante la agregación de los miembros del equipo y configurar sus privilegios. 
 

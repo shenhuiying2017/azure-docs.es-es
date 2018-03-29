@@ -1,12 +1,12 @@
 ---
-title: "Habilitación del cifrado para la cuenta de almacenamiento en Azure Security Center | Microsoft Docs"
-description: "En este documento se muestra cómo implementar las recomendaciones de Azure Security Center de //Habilitar el cifrado para la cuenta de Azure Storage**."
+title: Habilitación del cifrado para la cuenta de almacenamiento en Azure Security Center | Microsoft Docs
+description: Este documento muestra cómo implementar las recomendaciones de Azure Security Center de **Habilitar el cifrado para la cuenta de Azure Storage**.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/20/2016
 ms.author: terrylan
-ms.openlocfilehash: b7b2e8a12cbab68da9c8fcc348e8e3c543607007
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 82bb201c0b518d0b45e06a1eb25d54f60cb3e028
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="enable-encryption-for-azure-storage-account-in-azure-security-center"></a>Habilitación del cifrado para la cuenta de Azure Storage en Azure Security Center
 Azure Security Center puede recomendar que habilite el cifrado del servicio de Azure Storage para datos en reposo.
 
-El Cifrado de servicio de almacenamiento (SSE) funciona mediante el cifrado de los datos cuando se escriben en Azure Storage y el descifrado de los datos antes de la recuperación.  SSE actualmente solo está disponible para Azure Blob service y puede usarse para blobs en bloques, blobs de página y blobs en anexos.  Para obtener más información, consulte [Cifrado del servicio Almacenamiento de Azure para datos en reposo (versión preliminar)](../storage/common/storage-service-encryption.md).
+El Cifrado de servicio de almacenamiento (SSE) funciona mediante el cifrado de los datos cuando se escriben en Azure Storage y el descifrado de los datos antes de la recuperación.  SSE actualmente solo está disponible para Azure Blob service y puede usarse para blobs en bloques, blobs de página y blobs en anexos.  Para obtener más información, consulte [Cifrado del servicio Azure Storage para datos en reposo (versión preliminar)](../storage/common/storage-service-encryption.md).
 
 
 > [!Note]
-> Después de habilitar el cifrado, se cifran únicamente los datos nuevos. Los blobs existentes en la cuenta de almacenamiento permanecen sin cifrar. Para cifrar los blobs existentes, consulte [Preguntas más frecuentes acerca de Cifrado del servicio de Almacenamiento para datos en reposo](../storage/common/storage-service-encryption.md#frequently-asked-questions-about-storage-service-encryption-for-data-at-rest).
+> Después de habilitar el cifrado, se cifran únicamente los datos nuevos. Los blobs existentes en la cuenta de almacenamiento permanecen sin cifrar. Para cifrar los blobs existentes, consulte [Preguntas más frecuentes acerca de cifrado del servicio Storage para datos en reposo](../storage/common/storage-service-encryption.md#faq-for-storage-service-encryption).
 >
 >
 
@@ -50,10 +50,10 @@ El Cifrado del servicio de almacenamiento solo se admite en las cuentas de almac
 Ahora ha habilitado el cifrado de almacenamiento para **storageacct1**.
 
 
-## <a name="see-also"></a>Consulte también
+## <a name="see-also"></a>Otras referencias
 En este documento se muestra cómo implementar la recomendación de Azure Security Center "Habilitar el cifrado para la cuenta de Azure Storage". Para obtener más información acerca del cifrado de servicio de Azure Storage, vea lo siguiente:
 
-* [Cifrado del servicio Almacenamiento de Azure para datos en reposo (versión preliminar)](../storage/common/storage-service-encryption.md)
+* [Cifrado del servicio Azure Storage para datos en reposo (versión preliminar)](../storage/common/storage-service-encryption.md)
 
 Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
 

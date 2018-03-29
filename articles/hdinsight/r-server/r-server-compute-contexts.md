@@ -2,8 +2,8 @@
 title: 'Opciones de contexto de proceso para R Server en HDInsight: Azure | Microsoft Docs'
 description: Conozca las distintas opciones de contexto de proceso disponibles para los usuarios con R Server en HDInsight.
 services: HDInsight
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 0deb0b1c-4094-459b-94fc-ec9b774c1f8a
@@ -13,13 +13,13 @@ ms.devlang: R
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 06/19/2017
-ms.author: bradsev
-ms.openlocfilehash: 8bc7767d9903761f3338b7825185171aad74de78
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.date: 03/22/2018
+ms.author: nitinme
+ms.openlocfilehash: 7d10f58c345eff334f40c0ec64d7b9427d6a70e0
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="compute-context-options-for-r-server-on-hdinsight"></a>Opciones de contexto de proceso para R Server en HDInsight (versión preliminar)
 
@@ -78,7 +78,7 @@ Para más información sobre los contextos de proceso de RevoScaleR y ver alguno
 
 También puede consultar la [información general sobre la computación distribuida ](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-distributed-computing) en la [documentación de Machine Learning Server](https://docs.microsoft.com/machine-learning-server/).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este artículo ha aprendido las opciones que están disponibles para especificar si la ejecución se realiza o no en paralelo y, en caso afirmativo, cómo se lleva a cabo a través del nodo perimetral o del clúster de HDInsight. Para más información sobre cómo usar R Server con clústeres de HDInsight, consulte los temas siguientes:
 
 * [Información general sobre R Server en Hadoop](r-server-overview.md)

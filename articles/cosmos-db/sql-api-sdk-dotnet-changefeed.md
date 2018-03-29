@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/16/2018
 ms.author: maquaran
-ms.openlocfilehash: 7e53cf67bc6e03a5f45de5ad4e23ff91624874f4
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 54e366de60e34ef0aac258e16ac585c3b930ebf7
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>SDK para los procesadores de fuente de cambios de .NET: descarga y notas de la versión
 > [!div class="op_single_selector"]
@@ -33,8 +33,6 @@ ms.lasthandoff: 03/08/2018
 > * [Proveedor de recursos de REST](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
-
 |   |   |
 |---|---|
 |**Descarga del SDK**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
@@ -44,7 +42,7 @@ ms.lasthandoff: 03/08/2018
 
 ## <a name="release-notes"></a>Notas de la versión
 
-### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
+### <a name="a-name131131"></a><a name="1.3.1"/>1.3.1
 * Mejoras de estabilidad.
 * Compatibilidad con puntos de control manuales.
 * Compatible con el [SDK de .NET para SQL](sql-api-sdk-dotnet.md), versiones 1.21 y posteriores.
@@ -77,7 +75,7 @@ El servicio rechazará cualquier solicitud realizada a Cosmos DB mediante un SDK
 
 | Versión | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
-| [1.3.0](#1.3.0) |7 de marzo de 2018 |--- |
+| [1.3.1](#1.3.1) |13 de marzo de 2018 |--- |
 | [1.2.0](#1.2.0) |31 de octubre de 2017 |--- |
 | [1.1.1](#1.1.1) |29 de agosto de 2017 |--- |
 | [1.1.0](#1.1.0) |13 de agosto de 2017 |--- |

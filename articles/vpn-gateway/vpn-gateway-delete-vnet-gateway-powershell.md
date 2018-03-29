@@ -1,29 +1,29 @@
 ---
-title: "Eliminación de una puerta de enlace de red virtual: PowerShell y Azure Resource Manager | Microsoft Docs"
-description: "Elimine una puerta de enlace de red virtual mediante PowerShell en el modelo de implementación de Resource Manager."
+title: 'Eliminación de una puerta de enlace de red virtual: PowerShell y Azure Resource Manager | Microsoft Docs'
+description: Elimine una puerta de enlace de red virtual mediante PowerShell en el modelo de implementación de Resource Manager.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: 
+ms.topic: ''
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/20/2017
+ms.date: 03/26/2018
 ms.author: cherylmc
-ms.openlocfilehash: 4d0f085423d5bd60b24d88649ee1d77bcd1d009f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: c7e536b62ecaa374a278aeb8d18ef39489675711
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell"></a>Eliminación de una puerta de enlace de red virtual mediante PowerShell
 > [!div class="op_single_selector"]
-> * [Portal de Azure](vpn-gateway-delete-vnet-gateway-portal.md)
+> * [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
 > * [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 > * [PowerShell (clásico)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 >
@@ -74,7 +74,7 @@ Los siguientes pasos se aplican al modelo de implementación de Resource Manager
 ### <a name="1-get-the-virtual-network-gateway-that-you-want-to-delete"></a>1. Obtenga la puerta de enlace de red virtual que quiera eliminar.
 
 ```powershell
-$Gateway=get-azurermvirtualnetworkgateway -Name "GW1" -ResourceGroupName "RG1"
+$GW=get-azurermvirtualnetworkgateway -Name "GW1" -ResourceGroupName "RG1"
 ```
 
 ### <a name="2-check-to-see-if-the-virtual-network-gateway-has-any-connections"></a>2. Compruebe si la puerta de enlace de red virtual tiene todas las conexiones.
@@ -157,7 +157,7 @@ Los siguientes pasos se aplican al modelo de implementación de Resource Manager
 ### <a name="1-get-the-virtual-network-gateway-that-you-want-to-delete"></a>1. Obtenga la puerta de enlace de red virtual que quiera eliminar.
 
 ```powershell
-$Gateway=get-azurermvirtualnetworkgateway -Name "GW1" -ResourceGroupName "RG1"
+$GW=get-azurermvirtualnetworkgateway -Name "GW1" -ResourceGroupName "RG1"
 ```
 
 ### <a name="2-check-to-see-if-the-virtual-network-gateway-has-any-connections"></a>2. Compruebe si la puerta de enlace de red virtual tiene todas las conexiones.
@@ -251,7 +251,7 @@ Los siguientes pasos se aplican al modelo de implementación de Resource Manager
 ### <a name="1-get-the-virtual-network-gateway-that-you-want-to-delete"></a>1. Obtenga la puerta de enlace de red virtual que quiera eliminar.
 
 ```powershell
-$Gateway=get-azurermvirtualnetworkgateway -Name "GW1" -ResourceGroupName "RG1"
+$GW=get-azurermvirtualnetworkgateway -Name "GW1" -ResourceGroupName "RG1"
 ```
 
 ### <a name="2-delete-the-virtual-network-gateway"></a>2. Elimine la puerta de enlace de red virtual.

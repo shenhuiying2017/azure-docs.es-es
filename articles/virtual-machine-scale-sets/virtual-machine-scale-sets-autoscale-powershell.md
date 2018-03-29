@@ -1,11 +1,11 @@
 ---
-title: "Escalado automático de conjuntos de escalado de máquinas virtuales con Azure PowerShell | Microsoft Docs"
-description: "Creación de reglas de escalado automático de conjuntos de escalado de máquinas virtuales con Azure PowerShell"
+title: Escalado automático de conjuntos de escalado de máquinas virtuales con Azure PowerShell | Microsoft Docs
+description: Creación de reglas de escalado automático de conjuntos de escalado de máquinas virtuales con Azure PowerShell
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 88886cad-a2f0-46bc-8b58-32ac2189fc93
 ms.service: virtual-machine-scale-sets
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
 ms.openlocfilehash: 8928e56f353858234db314714d411a9c2990eb4e
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/27/2018
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>Creación de reglas de escalado automático de conjuntos de escalado de máquinas virtuales con Azure PowerShell
 Al crear un conjunto de escalado, puede definir el número de instancias de máquina virtual que quiere ejecutar. A medida que cambia la demanda de las aplicaciones, puede aumentar o reducir automáticamente el número de estas instancias. La posibilidad de realizar el escalado automático le permite satisfacer la demanda del cliente o responder a los cambios de rendimiento de la aplicación a lo largo del ciclo de vida de esta.
@@ -57,7 +57,7 @@ Los siguientes parámetros se utilizan para esta regla:
 | *-Threshold*            | El valor que hace que la regla de escalado automático desencadene una acción.                                                      | 70%            |
 | *-ScaleActionDirection* | Define si el conjunto de escalado debe escalarse o reducirse verticalmente.                                             | Aumento       |
 | *–ScaleActionScaleType* | Indica que el número de instancias de máquina virtual debe cambiarse por un porcentaje.                                 | Cambio de porcentaje |
-| *-ScaleActionValue*     | El porcentaje de instancias de máquina virtual se debe cambiar al desencadenarse la regla.                                            | 20              |
+| *-ScaleActionValue*     | El porcentaje de instancias de máquina virtual se debe cambiar al desencadenarse la regla.                                            | 20             |
 | *-ScaleActionCooldown*  | El periodo que hay que esperar hasta que la regla se vuelva a aplicar, para que las acciones de escalado automático tengan tiempo de surtir efecto. | 5 minutos      |
 
 En el ejemplo siguiente se crea un objeto denominado *myRuleScaleOut* que contiene esta regla de escalado vertical. *- MetricResourceId* usa las variables definidas anteriormente para el identificador de la suscripción, el nombre del grupo de recursos y el nombre del conjunto de escalado:
@@ -139,7 +139,7 @@ En los ejemplos anteriores se escaló o redujo horizontalmente de forma automát
 Para crear reglas de escalado automático basadas en una programación en lugar de en métricas del host, use Azure Portal. Actualmente, no se pueden crear reglas basadas en programaciones con Azure PowerShell.
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este artículo, ha aprendido a utilizar reglas de escalado automático para escalar horizontalmente y aumentar o reducir el *número* de instancias de máquina virtual del conjunto de escalado. También puede escalar verticalmente para aumentar o reducir el *tamaño* de la instancia de máquina virtual. Para más información, consulte [Escalado automático vertical con conjuntos de escalado de máquinas virtuales](virtual-machine-scale-sets-vertical-scale-reprovision.md).
 
 Para más información acerca de cómo administrar las instancias de máquina virtual, consulte [Manage virtual machine scale sets with Azure PowerShell](virtual-machine-scale-sets-windows-manage.md) (Administración de conjuntos de escalado de máquinas virtuales con Azure PowerShell).

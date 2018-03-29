@@ -1,8 +1,8 @@
 ---
-title: "Simulación de Azure IoT Edge en Windows | Microsoft Docs"
-description: "Instalación del runtime de Azure IoT Edge en un dispositivo simulado en Windows e implementación del primer módulo"
+title: Simulación de Azure IoT Edge en Windows | Microsoft Docs
+description: Instalación del runtime de Azure IoT Edge en un dispositivo simulado en Windows e implementación del primer módulo
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
@@ -10,11 +10,11 @@ ms.reviewer: elioda
 ms.date: 11/16/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 0207418cf71902ce9bc9d2911124d1d46889d893
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: ae974162a460289a34443879a9e78224684d94ed
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="deploy-azure-iot-edge-on-a-simulated-device-in-windows----preview"></a>Implementación de Azure IoT Edge en un dispositivo simulado en Windows (versión preliminar)
 
@@ -31,7 +31,7 @@ En este tutorial, aprenderá a:
 
 El dispositivo simulado que se crea en este tutorial es un monitor de un aerogenerador que genera datos de temperatura, humedad y presión. Le interesan estos datos porque las turbinas funcionan a diferentes niveles de eficiencia dependiendo de las condiciones meteorológicas. Los otros tutoriales de Azure IoT Edge se basan en el trabajo que se realiza aquí mediante la implementación de módulos que analizan los datos para obtener información empresarial. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 En este tutorial se asume que utiliza un equipo o máquina virtual con Windows para simular un dispositivo de Internet de las cosas. 
 
@@ -86,7 +86,7 @@ El runtime de IoT Edge se implementa en todos los dispositivos de IoT Edge. Cons
 Configure el runtime con la cadena de conexión del dispositivo de IoT Edge de la sección anterior.
 
 ```cmd
-iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
+iotedgectl setup --connection-string "{device connection string}" --nopass
 ```
 
 Inicie el runtime.
@@ -101,7 +101,7 @@ Compruebe Docker para ver si el agente de IoT Edge se ejecuta como un módulo.
 docker ps
 ```
 
-![Vea edgeAgent en Docker](./media/tutorial-simulate-device-windows/docker-ps.png)
+![Ver edgeAgent en Docker](./media/tutorial-simulate-device-windows/docker-ps.png)
 
 ## <a name="deploy-a-module"></a>Implementación de un módulo
 

@@ -1,29 +1,29 @@
 ---
 title: Plataformas y herramientas para proyectos de equipo de ciencia de datos en Azure | Microsoft Docs
-description: "Detalla y describe los recursos de datos y análisis disponibles para las empresas que se estandarizan en el proceso de ciencia de datos en equipo."
-documentationcenter: 
+description: Detalla y describe los recursos de datos y análisis disponibles para las empresas y que están normalizados en el proceso de ciencia de datos en equipo.
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
-ms.author: bradsev;
-ms.openlocfilehash: 3ec2eaaf4e8d54e7b1ea3d272c47eac96451f317
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.author: bradsev
+ms.openlocfilehash: 404e3dd106edf82f4f22e4c6a17987bd0bc51f65
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="platforms-and-tools-for-data-science-team-projects"></a>Plataformas y herramientas para proyectos de equipo de ciencia de datos
 
-Microsoft proporciona un espectro completo de servicios de datos y análisis, así como los recursos para plataformas locales y en la nube. Se pueden implementar para que la ejecución de los proyectos de ciencia de datos sean eficaces y escalables. En el [proceso de ciencia de datos en equipo](overview.md) (TDSP) se puede encontrar la guía para equipos que implementan proyectos de ciencia de datos de forma controlada por versiones, de colaboración y cuyo seguimiento se puede realizar.  Para obtener un esquema de los roles personales y sus tareas asociadas que se controlan en un equipo de ciencia de datos que se estandariza en este proceso, consulte [Roles y tareas del proceso de ciencia de datos en equipo](roles-tasks.md).
+Microsoft proporciona un amplio espectro de servicios de datos y análisis, así como recursos para plataformas locales y en la nube. Se pueden implementar para que la ejecución de los proyectos de ciencia de datos sean eficaces y escalables. El [proceso de ciencia de datos en equipo](overview.md) (TDSP) sirve de guía a los equipos que implementan proyectos de ciencia de datos con seguimiento, con control de versiones y en colaboración.  En [Roles y tareas del proceso de ciencia de datos en equipo](roles-tasks.md) dispone de un esquema de los roles profesionales y las tareas asociadas de las que se ocupa un equipo de ciencia de datos que sigue este proceso como estándar.
 
-Los servicios de datos y análisis disponibles para los equipos de ciencia de datos mediante el proceso de ciencia de datos en equipo incluyen los siguientes:
+Los servicios de datos y análisis a disposición de los equipos de ciencia de datos que siguen el proceso de ciencia de datos en equipo son:
 
 - Data Science Virtual Machine (tanto Windows como Linux CentOS)
 - Clústeres de HDInsight Spark
@@ -33,11 +33,11 @@ Los servicios de datos y análisis disponibles para los equipos de ciencia de da
 - Azure File Storage
 - SQL Server 2016 R Services
 
-En este documento, se describen brevemente los recursos y se proporcionan vínculos a tutoriales que los equipos del proceso de ciencia de datos en equipo han publicado. Pueden ayudar a aprender cómo usarlos paso a paso y comenzar a usarlos para compilar las aplicaciones inteligentes. Podrá encontrar más información sobre estos recursos en las páginas de producto. 
+En este documento, se describen brevemente los recursos y se proporcionan vínculos a tutoriales que los equipos del proceso de ciencia de datos en equipo han publicado. Aprenderá a usarlos paso a paso y podrá comenzar a usarlos para compilar las aplicaciones inteligentes. Podrá encontrar más información sobre estos recursos en las páginas de producto. 
 
 ## <a name="data-science-virtual-machine-dsvm"></a>Data Science Virtual Machine (DSVM)
 
-La máquina virtual de ciencia de datos que ofrece Microsoft para Windows y Linux contiene herramientas conocidas para actividades de desarrollo y modelado de ciencia de datos. Incluye herramientas tales como:
+La máquina virtual de ciencia de datos que Microsoft ofrece tanto con Windows como con Linux contiene herramientas conocidas para actividades de desarrollo y modelado de ciencia de datos. Incluye herramientas tales como:
 
 - Microsoft R Server Developer Edition 
 - Anaconda Python Distribution
@@ -46,34 +46,34 @@ La máquina virtual de ciencia de datos que ofrece Microsoft para Windows y Linu
 - Power BI Desktop para Windows
 - SQL Server 2016 Developer Edition en Windows/Postgres en Linux
 
-También incluye **herramientas de Machine Learning y AI** como CNTK (un kit de herramientas de aprendizaje profundo de código abierto de Microsoft), xgboost, mxnet y Vowpal Wabbit.
+También incluye **herramientas de aprendizaje automático e inteligencia artificial** como CNTK (un kit de herramientas de aprendizaje profundo de código abierto de Microsoft), xgboost, mxnet y Vowpal Wabbit.
 
-Actualmente la máquina virtual de ciencia de datos está disponible en los sistemas operativos **Windows** y **CentOS Linux**. Elija el tamaño de la máquina virtual de ciencia de datos (número de núcleos de CPU y la cantidad de memoria) en función de las necesidades de los proyectos de ciencia de datos que van a ejecutar en ella. 
+Actualmente, la máquina virtual de ciencia de datos está disponible con los sistemas operativos **Windows** y **CentOS Linux**. Elija el tamaño de la máquina virtual de ciencia de datos (número de núcleos de CPU y cantidad de memoria) en función de los proyectos de ciencia de datos que se vayan a ejecutar en ella. 
 
-Para más información sobre las ediciones de Windows de máquina virtual de ciencias de datos, consulte [Microsoft Data Science Virtual Machine](https://azure.microsoft.com/marketplace/partners/microsoft-ads/standard-data-science-vm/) en Azure Marketplace. Para la edición Linux de la máquina virtual de ciencia de datos, consulte [Linux Data Science Virtual Machine](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/).
+Para más información sobre la edición de Windows de la máquina virtual de ciencia de datos, consulte [Microsoft Data Science Virtual Machine](https://azure.microsoft.com/marketplace/partners/microsoft-ads/standard-data-science-vm/) en Azure Marketplace. Para la edición Linux de la máquina virtual de ciencia de datos, consulte [Linux Data Science Virtual Machine](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/).
 
-Para obtener información sobre cómo ejecutar de forma eficaz alguna de las tareas comunes de ciencia de datos en la máquina virtual de ciencia de datos, consulte [Ten things you can do on the Data science Virtual Machine](../data-science-virtual-machine/vm-do-ten-things.md) (Diez cosas que puede hacer en Data Science Virtual Machine).
+Para obtener información sobre cómo ejecutar de forma eficaz alguna de las tareas comunes de ciencia de datos en la máquina virtual de ciencia de datos, consulte [Ten things you can do on the Data science Virtual Machine](../data-science-virtual-machine/vm-do-ten-things.md) (Diez cosas que puede hacer en la máquina virtual de ciencia de datos).
 
 
 ## <a name="azure-hdinsight-spark-clusters"></a>Clústeres de Azure HDInsight Spark
 
-Apache Spark es una plataforma de procesamiento paralelo de código abierto que admite el procesamiento en memoria para mejorar el rendimiento de las aplicaciones analíticas de Big Data. El motor de procesamiento Spark se ha creado para ofrecer velocidad, facilidad de uso y análisis sofisticados. Las funcionalidades de cálculo en memoria de Spark lo convierten en una buena opción para algoritmos iterativos en los cálculos de gráficos y aprendizaje automático. Spark también es compatible con Azure Storage Blob (WASB), por lo que se pueden procesar los datos existentes almacenados en Azure fácilmente mediante Spark.
+Apache Spark es una plataforma de procesamiento paralelo de código abierto que admite el procesamiento en memoria para mejorar el rendimiento de las aplicaciones analíticas de Big Data. El motor de procesamiento Spark se ha creado para ofrecer velocidad, facilidad de uso y análisis sofisticados. Las funcionalidades de cálculo en memoria de Spark lo convierten en una buena opción para algoritmos iterativos en los cálculos de grafos y aprendizaje automático. Spark también es compatible con Azure Storage Blob (WASB), por lo que se pueden procesar los datos existentes almacenados en Azure fácilmente mediante Spark.
 
 Cuando crea un clúster Spark en HDInsight, aprovisiona recursos de proceso de Azure con Spark instalado y configurado. Se tardan unos diez minutos en crear un clúster Spark en HDInsight. Almacene los datos que se van procesar en Azure Blob Storage. Para más información sobre cómo usar Azure Blob Storage con HDInsight, consulte [Uso de Azure Storage con clústeres de Azure HDInsight](../../hdinsight/hdinsight-hadoop-use-blob-storage.md).
 
-El equipo de proceso de ciencia de datos en equipo de Microsoft ha publicado dos tutoriales completos sobre cómo usar clústeres de Azure HDInsight Spark para crear soluciones de ciencia de datos, una que use Python y otra Scala. Para más información sobre **clústeres de Azure HDInsight Spark**, consulte [Introducción a Apache Spark en HDInsight para Linux](../../hdinsight/spark/apache-spark-overview.md). Para obtener información sobre cómo crear una solución de ciencia de datos mediante **Python** en un clúster de Azure HDInsight Spark, consulte [Información general sobre la ciencia de datos con Azure HDInsight Spark](spark-overview.md). Para obtener información sobre cómo crear una solución de ciencia de datos mediante **Scala** en un clúster de Azure HDInsight Spark, consulte [Ciencia de datos mediante Scala y Spark en Azure](scala-walkthrough.md). 
+El equipo de proceso de ciencia de datos en equipo de Microsoft ha publicado dos tutoriales completos sobre el uso de clústeres de Azure HDInsight Spark para crear soluciones de ciencia de datos, en Python y en Scala. Para más información sobre **clústeres de Azure HDInsight Spark**, consulte [Introducción a Apache Spark en HDInsight para Linux](../../hdinsight/spark/apache-spark-overview.md). Para obtener información sobre cómo crear una solución de ciencia de datos mediante **Python** en un clúster de Azure HDInsight Spark, consulte [Información general sobre la ciencia de datos con Azure HDInsight Spark](spark-overview.md). Para obtener información sobre cómo crear una solución de ciencia de datos mediante **Scala** en un clúster de Azure HDInsight Spark, consulte [Ciencia de datos mediante Scala y Spark en Azure](scala-walkthrough.md). 
 
 
 ##  <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
 
-Azure SQL Data Warehouse le permite escalar los recursos de proceso fácilmente y en segundos, sin tener que realizar un aprovisionamiento excesivo o pagar en exceso. Además, ofrece la opción única de pausar el uso de los recursos de proceso, lo que aporta la libertad para administrar mejor los costos de la nube. La capacidad de implementar recursos de proceso escalables permite poner todos los datos en Azure SQL Data Warehouse. Los costos de almacenamiento son mínimos y puede ejecutar el proceso solo en aquellas partes de los conjuntos de datos que desea analizar. 
+Azure SQL Data Warehouse le permite escalar los recursos de proceso fácilmente y en segundos, sin tener que realizar un aprovisionamiento excesivo o pagar en exceso. Además, ofrece la exclusiva ventaja de pausar el uso de los recursos de proceso, lo que da total libertad para administrar mejor los costos de la nube. La posibilidad de implementar recursos de proceso escalables permite almacenar todos los datos en Azure SQL Data Warehouse. Los costos de almacenamiento son mínimos y puede ejecutar el proceso solo en aquellas partes de los conjuntos de datos que desea analizar. 
 
 Para más información sobre Azure SQL Data Warehouse, consulte el sitio web de [SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse). Para obtener información sobre cómo crear soluciones completas de análisis avanzado con SQL Data Warehouse, consulte [Proceso de ciencia de datos en equipo en acción: uso de SQL Data Warehouse](sqldw-walkthrough.md).
 
 
 ## <a name="azure-data-lake"></a>Azure Data Lake
 
-Azure Data Lake es un repositorio para toda la empresa de todos los tipos de datos recopilados en una única ubicación antes de cualquier requisito o esquema formal que se imponga. Esta flexibilidad permite a todos los tipos de datos conservarse en un Data Lake, con independencia del tamaño, estructura o velocidad de ingestión. Las organizaciones pueden usar después Hadoop o análisis avanzado para buscar patrones en estos Data Lake. Los Data Lake también pueden actuar como un repositorio para la preparación de datos de bajo costo antes de conservar los datos y pasarlos a un almacenamiento de datos.
+Azure Data Lake es un repositorio empresarial donde se recopila todo tipo de datos en una única ubicación antes de aplicar requisitos o esquemas formales. Esta flexibilidad permite conservar cualquier tipo de datos en Data Lake, con independencia del tamaño, la estructura o la velocidad de ingestión. Las organizaciones pueden usar después Hadoop o análisis avanzado para buscar patrones en estos Data Lake. Data Lake también sirve de repositorio para una preparación de los datos más económica antes de su mantenimiento y transferencia a un almacenamiento de datos.
 
 Para más información sobre Azure Data Lake, consulte la entrada de blob [Introducing Azure Data Lake](https://azure.microsoft.com/blog/introducing-azure-data-lake/) (Introducción a Azure Data Lake). Para obtener información sobre cómo crear una solución de ciencia de datos completa y escalable con Azure Data Lake, consulte [Ciencia de datos escalables con Azure Data Lake: tutorial completo](data-lake-walkthrough.md)
 
@@ -86,7 +86,7 @@ Hive le permite proyectar la estructura del proyecto en datos que en gran medida
 
 Para los científicos de datos, Hive puede ejecutar funciones de Python definidas por el usuario en consultas de Hive para procesar registros. Esta capacidad amplía considerablemente la funcionalidad de consultas de Hive en el análisis de datos. Específicamente, permite a los científicos de datos realizar ingeniería de características escalables en los lenguajes con los que están más familiarizados, como Python y HiveQA de tipo SQL. 
 
-Para más información sobre los clústeres de Azure HDInsight Hive, consulte [Uso de Hive y HiveQL con Hadoop en HDInsight](../../hdinsight/hadoop/hdinsight-use-hive.md). Para aprender cómo crear una solución de ciencia de datos completa y escalable a clústeres de Hive de HDInsight de Azure, consulte [el proceso de ciencia de datos en equipo en acción: uso de clústeres de Hadoop de HDInsight](hive-walkthrough.md).
+Para más información sobre los clústeres de Azure HDInsight Hive, consulte [Uso de Hive y HiveQL con Hadoop en HDInsight](../../hdinsight/hadoop/hdinsight-use-hive.md). Para aprender a crear una solución de ciencia de datos completa y escalable en clústeres de Hive de Azure HDInsight, consulte el artículo sobre [el proceso de ciencia de datos en equipo en acción: uso de clústeres de Hadoop de HDInsight](hive-walkthrough.md).
 
 
 ## <a name="azure-file-storage"></a>Azure File Storage 
@@ -98,7 +98,7 @@ Especialmente útil para los proyectos de ciencia de datos es la capacidad para 
 
 ## <a name="sql-server-2016-r-services"></a>SQL Server 2016 R Services
 
-R Services (en base de datos) proporciona una plataforma para desarrollar e implementar aplicaciones inteligentes que pueden descubrir nuevas perspectivas. Puede usar el completo y eficaz lenguaje R, incluidos los numerosos paquetes proporcionados por la comunidad R, para crear modelos y generar predicciones con sus datos de SQL Server. Como R Services (en base de datos) integra el lenguaje R con SQL Server, los análisis se mantienen cerca de los datos, lo que elimina los costos y riesgos de seguridad asociados con el movimiento de datos.
+R Services (en base de datos) proporciona una plataforma para desarrollar e implementar aplicaciones inteligentes que pueden descubrir nuevas perspectivas. Puede usar el completo y eficaz lenguaje R, incluidos los numerosos paquetes proporcionados por la comunidad R, para crear modelos y generar predicciones con sus datos de SQL Server. Como R Services (en base de datos) integra el lenguaje R con SQL Server, los análisis se mantienen cerca de los datos, lo que elimina los costos y los riesgos de seguridad asociados con el movimiento de datos.
 
 R Services (en base de datos) admite el lenguaje R de código abierto con un completo conjunto de tecnologías y herramientas de SQL Server. Ofrece un rendimiento superior, seguridad, confiabilidad y facilidad de uso. Puede implementar soluciones en R con herramientas conocidas y convenientes. Las aplicaciones de producción pueden llamar al entorno en tiempo de ejecución de R y recuperar las predicciones y los objetos visuales mediante Transact-SQL. También puede usar las bibliotecas de ScaleR para mejorar la escalabilidad y el rendimiento de las soluciones de R. Para más información, consulte [SQL Server R Services](https://msdn.microsoft.com/library/mt604845.aspx).
 
@@ -133,7 +133,7 @@ Si se usan máquinas Linux (CentOS) para ejecutar los comandos de Git, tendrá q
 
 ![](./media/platforms-and-tools/resources-1-generate_ssh.png)
 
-- Copie todo la clave ssh completa, incluida *ssh-rsa*. 
+- Copie la clave ssh completa, incluido *ssh-rsa*. 
 - Inicie sesión en el servidor de VSTS. 
 - Haga clic en **<Su nombre\>** en la esquina superior derecha de la página y haga clic en **Seguridad**. 
     

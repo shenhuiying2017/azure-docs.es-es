@@ -1,12 +1,12 @@
 ---
-title: "Introducción a Azure Advisor | Microsoft Docs"
-description: "Introducción a Azure Advisor."
+title: Introducción a Azure Advisor | Microsoft Docs
+description: Introducción a Azure Advisor.
 services: advisor
 documentationcenter: NA
 author: manbeenkohli
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: advisor
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/10/2017
 ms.author: makohli
-ms.openlocfilehash: 5a7864597e50294c8e1227cbab7a3be73dde0a7f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: cd64515beabec43a5209d62dccf2b55b21702c16
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="get-started-with-azure-advisor"></a>Introducción a Azure Advisor
 
@@ -35,10 +35,7 @@ Obtenga información acerca de cómo acceder a Advisor mediante Azure Portal y o
 
 4. El panel de Advisor mostrará un resumen de las recomendaciones para todas las suscripciones seleccionadas.  Puede elegir las suscripciones que desee que muestren las recomendaciones para usar el menú desplegable del filtro de suscripción.
 
-5. Para obtener recomendaciones para una categoría específica, haga clic en una de las pestañas **High Availability** (Alta disponibilidad), **Security** (Seguridad), **Performance** (Rendimiento) o **Cost** (Costo).
- 
-> [!NOTE]
-> Para utilizar Azure Advisor con una suscripción, debe iniciarse una suscripción *Propietario* en el panel de Advisor.  Esta acción registra la suscripción con Advisor.  Desde ese momento, cualquier suscripción *Propietario*, *Colaborador* o *Lector* puede acceder a las recomendaciones de Advisor para la suscripción.  
+5. Para obtener recomendaciones para una categoría específica, haga clic en una de las pestañas **High Availability** (Alta disponibilidad), **Security** (Seguridad), **Performance** (Rendimiento) o **Cost** (Costo). 
 
   ![Panel de Azure Advisor](./media/advisor-overview/advisor-dashboard.png)
 
@@ -128,7 +125,7 @@ Advisor le permite descargar un resumen de sus recomendaciones.  Puede descargar
 
 La opción de descarga respeta los filtros aplicados en el panel de Advisor.  Si selecciona la opción de descarga mientras visualiza una recomendación o categoría de recomendación específicas, el resumen descargado solo incluye información para esa categoría o recomendación. 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre Advisor, consulte:
 * [Introducción a Azure Advisor](advisor-overview.md)

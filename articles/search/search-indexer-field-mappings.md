@@ -1,11 +1,11 @@
 ---
 title: Asignaciones de campos en los indexadores de Azure Search
-description: "Configurar asignaciones de campos de indexador de Búsqueda de Azure para tener en cuenta las diferencias en los nombres de campo y las representaciones de datos"
+description: Configurar asignaciones de campos de indexador de Azure Search para tener en cuenta las diferencias en los nombres de campo y las representaciones de datos
 services: search
-documentationcenter: 
+documentationcenter: ''
 author: chaosrealm
 manager: pablocas
-editor: 
+editor: ''
 ms.assetid: 0325a4de-0190-4dd5-a64d-4e56601d973b
 ms.service: search
 ms.devlang: rest-api
@@ -14,18 +14,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 08/30/2017
 ms.author: eugenesh
-ms.openlocfilehash: 3f2ead208ea1525489a40d1fb637da47cd8a9b24
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e4d6960e540641405b879064a8064d45521dc04f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="field-mappings-in-azure-search-indexers"></a>Asignaciones de campos en los indexadores de Azure Search
-Al usar los indexadores de Búsqueda de Azure, habrá ocasiones en que pueda encontrarse en situaciones donde sus datos de entrada no coincidan demasiado con el esquema de su índice de destino. En esos casos, puede usar **asignaciones de campos** para transformar sus datos en la forma deseada.
+Al usar los indexadores de Azure Search, habrá ocasiones en que pueda encontrarse en situaciones donde sus datos de entrada no coincidan demasiado con el esquema de su índice de destino. En esos casos, puede usar **asignaciones de campos** para transformar sus datos en la forma deseada.
 
 Algunas situaciones donde las asignaciones de campos son útiles:
 
-* Su origen de datos tiene un campo `_id`, pero Búsqueda de Azure no permite los nombres de campo que empiezan por un carácter de subrayado. Una asignación de campos permite "cambiar el nombre" a un campo.
+* Su origen de datos tiene un campo `_id`, pero Azure Search no permite los nombres de campo que empiezan por un carácter de subrayado. Una asignación de campos permite "cambiar el nombre" a un campo.
 * Desea rellenar varios campos en el índice con los mismos datos de origen de datos, por ejemplo, porque desea aplicar diferentes analizadores a esos campos. Las asignaciones de campos permiten "bifurcar" un campo de origen de datos.
 * Necesita codificar o descodificar sus datos con Base64. Las asignaciones de campos admiten varias **funciones de asignación**, incluidas las funciones de codificación y descodificación Base64.   
 
@@ -60,12 +60,12 @@ Un indexador puede tener varias asignaciones de campos. Por ejemplo, así es com
 
 "fieldMappings" : [
     { "sourceFieldName" : "text", "targetFieldName" : "textStandardEnglishAnalyzer" },
-    { "sourceFieldName" : "text", "targetFieldName" : "textSoundexAnalyzer" },
+    { "sourceFieldName" : "text", "targetFieldName" : "textSoundexAnalyzer" }
 ]
 ```
 
 > [!NOTE]
-> Búsqueda de Azure usa una comparación que no distingue mayúsculas de minúsculas para resolver los nombres de campo y función de las asignaciones de campos. Esto es práctico (no es necesario que el uso de mayúsculas y minúsculas sea correcto en todo momento), pero se traduce en que su índice u origen de datos no puede tener campos que difieran únicamente en mayúsculas y minúsculas.  
+> Azure Search usa una comparación que no distingue mayúsculas de minúsculas para resolver los nombres de campo y función de las asignaciones de campos. Esto es práctico (no es necesario que el uso de mayúsculas y minúsculas sea correcto en todo momento), pero se traduce en que su índice u origen de datos no puede tener campos que difieran únicamente en mayúsculas y minúsculas.  
 >
 >
 
@@ -146,7 +146,7 @@ Si no usa .NET Framework, debería establecer `useHttpServerUtilityUrlTokenEncod
 
 La tabla siguiente compara diferentes codificaciones Base64 de la cadena `00>00?00`. Para determinar el procesamiento adicional necesario (si existe) para las funciones de Base64, aplique la función de codificación de bibliotecas en la cadena `00>00?00` y compare el resultado con el resultado esperado `MDA-MDA_MDA`.
 
-| Codificación | Salida de codificación Base64 | Procesamiento adicional después de la codificación de bibliotecas | Procesamiento adicional antes de la descodificación de bibliotecas |
+| Encoding | Salida de codificación Base64 | Procesamiento adicional después de la codificación de bibliotecas | Procesamiento adicional antes de la descodificación de bibliotecas |
 | --- | --- | --- | --- |
 | Base64 con espaciado interno | `MDA+MDA/MDA=` | Use caracteres seguros para direcciones URL y quite el espaciado interno | Use caracteres estándar de Base64 y agregue espaciado interno |
 | Base64 sin espaciado interno | `MDA+MDA/MDA` | Use caracteres seguros para direcciones URL | Use caracteres estándar de Base64 |
@@ -191,7 +191,7 @@ Transforma una cadena con formato de una matriz JSON de cadenas en una matriz de
 Por ejemplo, si la cadena de entrada es `["red", "white", "blue"]`, el campo de destino de tipo `Collection(Edm.String)` se rellenará con los tres valores `red`, `white` y `blue`. En el caso de los valores de entrada que no pueden analizarse como matrices de cadenas JSON, se devolverá un error.
 
 ### <a name="sample-use-case"></a>Caso de uso de ejemplo
-La base de datos SQL de Azure no tiene un tipo de datos integrado que se asigne de forma natural a los campos `Collection(Edm.String)` de Búsqueda de Azure. Para rellenar campos de colección de cadenas, aplique a sus datos de origen formato de una matriz de cadenas JSON y use esta función.
+Azure SQL Database no tiene un tipo de datos integrado que se asigne de forma natural a los campos `Collection(Edm.String)` de Azure Search. Para rellenar campos de colección de cadenas, aplique a sus datos de origen formato de una matriz de cadenas JSON y use esta función.
 
 ### <a name="example"></a>Ejemplo
 ```JSON
@@ -202,5 +202,5 @@ La base de datos SQL de Azure no tiene un tipo de datos integrado que se asigne 
 ```
 
 
-## <a name="help-us-make-azure-search-better"></a>Ayúdenos a mejorar Búsqueda de Azure
+## <a name="help-us-make-azure-search-better"></a>Ayúdenos a mejorar Azure Search
 Si tiene solicitudes o ideas para mejorar las características, póngase en contacto con nosotros en nuestro [sitio UserVoice](https://feedback.azure.com/forums/263029-azure-search/).

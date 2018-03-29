@@ -4,7 +4,7 @@ description: Aprenda a usar Apache Sqoop para realizar importaciones y exportaci
 editor: cgronlun
 manager: jhubbard
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 tags: azure-portal
 keywords: hadoop sqoop,sqoop
@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2018
+ms.date: 03/26/2018
 ms.author: larryfr
-ms.openlocfilehash: a0a63c414bc68f5125b65e288d78fb546c376c04
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: f98345c012b8507818d0218fe43bc29badf0d4c8
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-apache-sqoop-to-import-and-export-data-between-hadoop-on-hdinsight-and-sql-database"></a>Uso de Apache Sqoop para importar y exportar datos entre Hadoop en HDInsight y SQL Database
 
@@ -38,7 +38,7 @@ Aprenda a usar Apache Sqoop para realizar importaciones y exportaciones entre un
 > Este documento proporciona instrucciones T-SQL que se usan para crear y consultar una tabla en SQL Database. Hay muchos clientes que pueden usar estas instrucciones con SQL Database. Se recomiendan los siguientes clientes:
 >
 > * [SQL Server Management Studio](../../sql-database/sql-database-connect-query-ssms.md)
-> * [código de Visual Studio](../../sql-database/sql-database-connect-query-vscode.md)
+> * [Visual Studio Code](../../sql-database/sql-database-connect-query-vscode.md)
 > * La utilidad [sqlcmd](https://docs.microsoft.com/sql/tools/sqlcmd-utility)
 
 ## <a name="create-the-table-in-sql-database"></a>Creación de la tabla en SQL Database
@@ -71,7 +71,7 @@ GO
 1. Use SSH para conectarse al clúster de HDInsight. Por ejemplo, el siguiente comando se conecta al nodo primario principal de un clúster denominado `mycluster`:
 
     ```bash
-    ssh CLUSTERNAME-ssh.azurehdinsight.net
+    ssh mycluster-ssh.azurehdinsight.net
     ```
 
     Para más información, consulte [Uso SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
@@ -162,7 +162,7 @@ También puede usar Sqoop para importar y exportar datos desde SQL Server. Las d
 
 * Procesamiento por lotes: con HDInsight basado en Linux, cuando se usa `-batch` al realizar inserciones, Sqoop realiza varias inserciones en lugar de procesar por lotes las operaciones de inserción.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Ahora ya ha aprendido a usar Sqoop. Para obtener más información, consulte:
 

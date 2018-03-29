@@ -1,8 +1,8 @@
 ---
-title: "Azure Active Directory Domain Services: Unión de una máquina virtual CentOS a un dominio administrado | Microsoft Docs"
-description: "Unión de una máquina virtual CentOS Linux a Azure AD Domain Services"
+title: 'Azure Active Directory Domain Services: Unión de una máquina virtual CentOS a un dominio administrado | Microsoft Docs'
+description: Unión de una máquina virtual CentOS Linux a Azure AD Domain Services
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: maheshu
-ms.openlocfilehash: 9f3b6425f3c13080985fb168f46ea1f6be5d18ee
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f7095e82605d12221ba7beb0c48fd3eda75a2e7b
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-a-managed-domain"></a>Unión de una máquina virtual CentOS Linux a un dominio administrado
 Este artículo muestra cómo unir una máquina virtual CentOS Linux en Azure a un dominio administrado de Azure AD Domain Services.
@@ -34,7 +34,7 @@ Para realizar las tareas enumeradas en este artículo, necesita lo siguiente:
 
 ## <a name="provision-a-centos-linux-virtual-machine"></a>Aprovisionamiento de una máquina virtual CentOS Linux
 Aprovisione una máquina virtual CentOS Linux en Azure mediante cualquiera de los métodos siguientes:
-* [portal de Azure](../virtual-machines/linux/quick-create-portal.md)
+* [Azure Portal](../virtual-machines/linux/quick-create-portal.md)
 * [CLI de Azure](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
@@ -133,7 +133,7 @@ Verifique si la máquina se ha unido correctamente al dominio administrado. Con�
 
 
 ## <a name="troubleshooting-domain-join"></a>Solución de problemas de unión al dominio
-Consulte el artículo [Solución de problemas de unión al dominio](active-directory-ds-admin-guide-join-windows-vm-portal.md#troubleshooting-domain-join) .
+Consulte el artículo [Solución de problemas de unión al dominio](active-directory-ds-admin-guide-join-windows-vm-portal.md#troubleshoot-joining-a-domain) .
 
 ## <a name="related-content"></a>Contenido relacionado
 * [Introducción a Azure AD Domain Services](active-directory-ds-getting-started.md)

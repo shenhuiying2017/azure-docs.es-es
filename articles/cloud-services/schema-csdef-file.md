@@ -1,23 +1,23 @@
 ---
-title: "Esquema de definición de Azure Cloud Services (archivo .csdef) | Microsoft Docs"
-ms.custom: 
+title: Esquema de definición de Azure Cloud Services (archivo .csdef) | Microsoft Docs
+ms.custom: ''
 ms.date: 04/14/2015
 ms.prod: azure
-ms.reviewer: 
+ms.reviewer: ''
 ms.service: cloud-services
-ms.suite: 
-ms.tgt_pltfrm: 
+ms.suite: ''
+ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: b7735dbf-8e91-4d1b-89f7-2f17e9302469
-caps.latest.revision: "42"
+caps.latest.revision: ''
 author: thraka
 ms.author: adegeo
 manager: timlt
-ms.openlocfilehash: b833fdc06e4193c1b478028733c336feb6d8b9ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d49112df207e3b8e781480e25855ebb259bbab8e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cloud-services-definition-schema-csdef-file"></a>Esquema de definición de Azure Cloud Services (archivo .csdef)
 El archivo de definición de servicio define el modelo de servicio de una aplicación. El archivo contiene las definiciones de los roles que están disponibles para un servicio en la nube, especifica los puntos de conexión de servicio y establece los valores de configuración del servicio. Los valores de configuración se establecen en el archivo de configuración de servicio, como se describe en el [esquema de configuración de servicio en la nube (clásico)](http://msdn.microsoft.com/library/b1ae68cd-cc95-48cb-a4a4-da91dc708a35).
@@ -66,9 +66,9 @@ El elemento `ServiceDefinition` es el elemento de nivel superior del archivo de 
 
 En la tabla siguiente se describen los atributos del elemento `ServiceDefinition`:
 
-| Atributo               | Descripción |
+| Atributo               | DESCRIPCIÓN |
 | ----------------------- | ----------- |
-| name                    |Necesario. El nombre del servicio. El nombre debe ser único dentro de la cuenta de servicio.|
+| Nombre                    |Necesario. El nombre del servicio. El nombre debe ser único dentro de la cuenta de servicio.|
 | topologyChangeDiscovery | Opcional. Especifica el tipo de notificación de cambio de topología. Los valores posibles son:<br /><br /> -   `Blast`: envía la actualización en cuanto es posible a todas las instancias de rol. Si elige esta opción, el rol debe ser capaz de controlar la actualización de la topología sin tener que reiniciarse.<br />-   `UpgradeDomainWalk`: envía la actualización a cada instancia de rol de forma secuencial después de que la instancia anterior ha aceptado correctamente la actualización.|
 | schemaVersion           | Opcional. Especifica la versión del esquema de definición de servicio. La versión del esquema permite que Visual Studio seleccione las herramientas del SDK correcto que se usarán en la validación del esquema si se instala más de una versión del SDK en paralelo.|
-| upgradeDomainCount      | Opcional. Especifica el número de dominios de actualización en los que se asignan roles de este servicio. Las instancias de rol se asignan a un dominio de actualización cuando se implementa el servicio. Para más información, consulte [Actualización del rol de servicio en la nube o implementación](cloud-services-how-to-manage-portal.md#how-to-update-a-cloud-service-role-or-deployment).<br /><br /> Puede especificar hasta 20 dominios de actualización. Si no lo especifica, el número predeterminado de dominios de actualización es 5.|
+| upgradeDomainCount      | Opcional. Especifica el número de dominios de actualización en los que se asignan roles de este servicio. Las instancias de rol se asignan a un dominio de actualización cuando se implementa el servicio. Para más información, consulte [Actualización del rol de servicio en la nube o implementación](cloud-services-how-to-manage-portal.md#update-a-cloud-service-role-or-deployment).<br /><br /> Puede especificar hasta 20 dominios de actualización. Si no lo especifica, el número predeterminado de dominios de actualización es 5.|

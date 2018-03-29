@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: c03b124e21603056219a6ff6458469b4ecd60969
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: fa74f2e2d8fb9fc9f11810a4af4978fb4b443bcc
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-deploy-a-windows-hybrid-runbook-worker"></a>Cómo implementar un Hybrid Runbook Worker en Windows
 
@@ -68,7 +68,7 @@ Realice los pasos siguientes para automatizar la instalación y configuración d
         -ResourceGroupName <NameofOResourceGroup> -HybridGroupName <NameofHRWGroup> `
         -SubscriptionId <AzureSubscriptionId> -WorkspaceName <NameOfOMSWorkspace>
 
-4. Se le pedirá que acepte la instalación de **NuGet** y que se autentique con sus credenciales de Azure.<br><br> ![Ejecución del script New-OnPremiseHybridWorker](media/automation-hybrid-runbook-worker/new-onpremisehybridworker-scriptoutput.png)
+4. Se le pedirá que acepte la instalación de **NuGet** y que se autentique con sus credenciales de Azure.<br><br>![Ejecución del script New-OnPremiseHybridWorker](/media/automation-hybrid-runbook-worker/new-onpremisehybridworker-scriptoutput.png)
 
 5. Una vez completado el script, la página Grupos de Hybrid Worker muestra el nuevo grupo y el número de miembros o, si es un grupo existente, el número de miembros aumenta.  Puede seleccionar el grupo de la lista en la página **Grupos de Hybrid Worker** y seleccionar el icono **Hybrid Workers**.  En la página **Hybrid Workers**, verá que aparece cada miembro del grupo.  
 

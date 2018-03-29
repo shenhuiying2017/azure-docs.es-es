@@ -1,11 +1,11 @@
 ---
 title: Temas de referencia sobre SQL Data Warehouse | Microsoft Docs
-description: "Vínculos al contenido de referencia de Almacenamiento de datos SQL."
+description: Vínculos al contenido de referencia de SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: abecd886-77bd-484f-b006-93600533a044
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -16,13 +16,13 @@ ms.custom: reference
 ms.date: 10/31/2016
 ms.author: barbkess
 ms.openlocfilehash: c56c1c262aa1a88e3f7a3d6638176cb9f97011d3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="reference-topics-for-sql-data-warehouse"></a>Temas de referencia de Almacenamiento de datos SQL
-Estos artículos contienen información de referencia sobre Almacenamiento de datos SQL.
+# <a name="reference-topics-for-sql-data-warehouse"></a>Temas de referencia de SQL Data Warehouse
+Estos artículos contienen información de referencia sobre SQL Data Warehouse.
 
 * [Elementos del lenguaje Transact-SQL][Transact-SQL language elements]
 * [Instrucciones de Transact-SQL][Transact-SQL statements]

@@ -14,11 +14,11 @@ ms.devlang: java
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: mimig
-ms.openlocfilehash: a46b6e4d64b44c07fe7a2aa63bc49bea59ad5b53
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 992451018baeea15bf63906c71ad72faccb0dbe4
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-java-examples-for-the-sql-api"></a>Azure Cosmos DB: ejemplos de Java para la API de SQL
 
@@ -30,8 +30,6 @@ ms.lasthandoff: 02/11/2018
 > * [Galería de ejemplos de código de Azure](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)
 > 
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 En el repositorio de GitHub [azure-documentdb-java](https://github.com/Azure/azure-documentdb-java) se incluyen las aplicaciones de ejemplo más recientes que realizan operaciones CRUD y otras operaciones comunes en recursos de Azure Cosmos DB. Este artículo ofrece:
 

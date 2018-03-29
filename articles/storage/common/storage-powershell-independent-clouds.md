@@ -1,23 +1,23 @@
 ---
-title: "Administración del almacenamiento en las nubes independientes de Azure mediante Azure PowerShell | Microsoft Docs"
-description: "Administración del almacenamiento en las nubes de China, Alemania y de administración pública mediante Azure PowerShell"
+title: Administración del almacenamiento en las nubes independientes de Azure mediante Azure PowerShell | Microsoft Docs
+description: Administración del almacenamiento en las nubes de China, Alemania y de administración pública mediante Azure PowerShell
 services: storage
 documentationcenter: na
-author: robinsh
-manager: timlt
-ms.assetid: 
+author: roygara
+manager: jeconnoc
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
-ms.author: robinsh
-ms.openlocfilehash: 08e1af929d7ddc30c7dc149f6305ca1ca0bc22ae
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.author: rogarana
+ms.openlocfilehash: 31b36e6fb6a1ebf09c559b2777ffa5f554c3cfa0
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>Administración del almacenamiento en las nubes independientes mediante PowerShell
 
@@ -37,7 +37,7 @@ Para usar Azure Storage en una de las nubes independientes, conéctese a ella, e
 
 Los ejemplos requieren la versión 4.4.0 o posterior del módulo de Azure PowerShell. En una ventana de PowerShell, ejecute `Get-Module -ListAvailable AzureRM` para buscar la versión. Si no aparece ninguna o necesita una actualización, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). 
 
-## <a name="log-in-to-azure"></a>Inicie sesión en Azure.
+## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
 
 Ejecute el cmdlet [Get-AzureEnvironment](/powershell/module/azure/Get-AzureRmEnvironment) para ver los entornos de Azure disponibles:
    
@@ -83,7 +83,7 @@ Get-AzureRmEnvironment | select Name, StorageEndpointSuffix
 
 Este comando devuelve los siguientes resultados.
 
-| Nombre| StorageEndpointSuffix|
+| NOMBRE| StorageEndpointSuffix|
 |----|----|
 |AzureChinaCloud | core.chinacloudapi.cn|
 | AzureCloud | core.windows.net |
@@ -101,7 +101,7 @@ Los resultados son similares al siguiente:
 
 |Nombre de propiedad|Valor|
 |----|----|
-| Nombre | AzureGermanCloud |
+| NOMBRE | AzureGermanCloud |
 | EnableAdfsAuthentication | False |
 | ActiveDirectoryServiceEndpointResourceI | http://management.core.cloudapi.de/ |
 | GalleryURL | https://gallery.cloudapi.de/ |

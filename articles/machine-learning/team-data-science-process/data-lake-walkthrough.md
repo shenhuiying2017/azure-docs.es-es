@@ -1,8 +1,8 @@
 ---
 title: 'Ciencia de datos escalables con Azure Data Lake: tutorial completo | Microsoft Docs'
-description: "Uso de Azure Data Lake para realizar tareas de exploración de datos y clasificación binaria en un conjunto de datos."
+description: Uso de Azure Data Lake para realizar tareas de exploración de datos y clasificación binaria en un conjunto de datos.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev; weig
-ms.openlocfilehash: b18b454d1fcdfb2b6e8ea77508f779aeabdc87a0
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.author: bradsev
+ms.openlocfilehash: 6d0f889e1cc76eced172d66755a0a9275e6b7bdf
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Ciencia de datos escalables con Azure Data Lake: tutorial completo
 En este tutorial se muestra cómo utilizar Azure Data Lake para realizar las tareas de exploración de datos y clasificación binaria en un ejemplo del conjunto de datos de carreras y tarifas de taxi de la ciudad de Nueva York para predecir si se dará una propina por tarifa. Le guía por los pasos de todo el [proceso de la ciencia de datos en equipos](http://aka.ms/datascienceprocess), desde la adquisición de los datos al entrenamiento del modelo y, a continuación, a la implementación de un servicio web que publique el modelo.
@@ -42,7 +42,7 @@ Se usa Azure Machine Learning Studio para generar e implementar los modelos pred
 ### <a name="scripts"></a>Scripts
 En este tutorial solo se describen los principales pasos. Tanto el **script U-SQL** como **Jupyter Notebook** se pueden descargar de [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/AzureDataLakeWalkthrough).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Antes de empezar estos temas, debe tener lo siguiente:
 
 * Una suscripción de Azure. Si aún no tiene una, consulte [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)(Obtener una evaluación gratuita de Azure).

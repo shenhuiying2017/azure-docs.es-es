@@ -1,11 +1,11 @@
 ---
-title: "Asignación de un usuario o un grupo a una aplicación empresarial en Azure Active Directory | Microsoft Docs"
-description: "Procedimiento para seleccionar una aplicación empresarial para asignarla a un usuario o un grupo en la versión preliminar de Azure Active Directory"
+title: Asignación de un usuario o un grupo a una aplicación empresarial en Azure Active Directory | Microsoft Docs
+description: Procedimiento para seleccionar una aplicación empresarial para asignarla a un usuario o un grupo en la versión preliminar de Azure Active Directory
 services: active-directory
-documentationcenter: 
-author: daveba
+documentationcenter: ''
+author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 5817ad48-d916-492b-a8d0-2ade8c50a224
 ms.service: active-directory
 ms.workload: identity
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
-ms.author: daveba
+ms.author: markvi
 ms.reviewer: luleon
-ms.openlocfilehash: b65284f799eca956c30db21d5d4171d0495297ea
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 45f366767daa6557fd9577a2a27a6923e63da384
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Asignación de un usuario o un grupo a una aplicación empresarial en Azure Active Directory
 Para asignar un usuario o un grupo a una aplicación empresarial, debe contar con los permisos adecuados para administrar dicha aplicación, y debe ser administrador global del directorio.
@@ -110,7 +110,7 @@ En este ejemplo se asigna el usuario Britta Simon a la aplicación [Microsoft Wo
     New-AzureADUserAppRoleAssignment -ObjectId $user.ObjectId -PrincipalId $user.ObjectId -ResourceId $sp.ObjectId -Id $appRole.Id
     ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Ver todos mis grupos](active-directory-groups-view-azure-portal.md)
 * [Eliminación de asignaciones de usuario o grupo de una aplicación empresarial](active-directory-coreapps-remove-assignment-azure-portal.md)
 * [Deshabilitar los inicios de sesión de los usuarios de una aplicación empresarial](active-directory-coreapps-disable-app-azure-portal.md)

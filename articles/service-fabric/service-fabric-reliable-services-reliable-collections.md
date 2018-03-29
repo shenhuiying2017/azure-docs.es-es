@@ -1,5 +1,5 @@
 ---
-title: "Introducción a Reliable Collections en los servicios con estado de Azure Service Fabric | Microsoft Docs"
+title: Introducción a Reliable Collections en los servicios con estado de Azure Service Fabric | Microsoft Docs
 description: Los servicios con estado de Service Fabric proporcionan colecciones confiables que le permiten escribir aplicaciones en la nube altamente disponibles, escalables y de baja latencia.
 services: service-fabric
 documentationcenter: .net
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/6/2017
 ms.author: mcoskun
-ms.openlocfilehash: 0e89df79d2ff619343f914ce3a5ffe87b7bf25de
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: c6425f7642d9dbecafc6779184a2a5b0cc1a2cab
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="introduction-to-reliable-collections-in-azure-service-fabric-stateful-services"></a>Introducción a Reliable Collections en los servicios con estado de Azure Service Fabric
 Reliable Collections le permite escribir aplicaciones en la nube altamente disponibles, escalables y de baja latencia como si estuviese escribiendo aplicaciones para un solo equipo. Las clases del espacio de nombres **Microsoft.ServiceFabric.Data.Collections** proporcionan un conjunto de colecciones que automáticamente hacen que el estado tenga una elevada disponibilidad. Los desarrolladores solo necesitan programar en las API de Reliable Collections y permiten que Reliable Collections administren el estado local y el replicado.
@@ -57,7 +57,6 @@ Por el momento, el espacio de nombres **Microsoft.ServiceFabric.Data.Collections
 * [Recomendaciones y directrices de Reliable Collections](service-fabric-reliable-services-reliable-collections-guidelines.md)
 * [Trabajo con Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [Transacciones y bloqueos](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
-* [Reliable State Manager y Reliable Collections internos](service-fabric-reliable-services-reliable-collections-internals.md)
 * Administración de datos
   * [Copia de seguridad y restauración](service-fabric-reliable-services-backup-restore.md)
   * [Notifications](service-fabric-reliable-services-notifications.md)

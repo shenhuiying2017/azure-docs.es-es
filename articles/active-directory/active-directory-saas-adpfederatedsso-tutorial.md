@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integración de Azure Active Directory con ADP | Microsoft Docs"
-description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y ADP."
+title: 'Tutorial: Integración de Azure Active Directory con ADP | Microsoft Docs'
+description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y ADP.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/22/2018
 ms.author: jeedes
-ms.openlocfilehash: 1e0a35fd76f9eb6335685f05b8936b0b5105f6b2
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 038b2337ea49b769c6b19e9d50a5f0f2edd13d56
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adp"></a>Tutorial: Integración de Azure Active Directory con ADP
 
@@ -122,7 +122,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información de dominio y direcciones URL de inicio de sesión único de ADP](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_url.png)
 
-    En el cuadro de texto **Identificador**, escriba una dirección URL como: `https://fed.adp.com/` 
+    En el cuadro de texto **Identificador**, escriba una dirección URL como: `https://fed.adp.com` 
     
 5. La aplicación ADP espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de pantalla le muestra un ejemplo de esto. El nombre de la notificación siempre será **"PersonImmutableID"** cuyo valor hemos asignado a **employeeid**. 
 
@@ -238,10 +238,6 @@ Una vez recibida la confirmación del representante de ADP, configure los servic
  
 11. Cuando se confirme una prueba correcta, asigne el servicio de ADP federado a usuarios individuales o a grupos de usuarios (esto se explica más adelante en el tutorial) e implántelo entre sus empleados. 
 
-> [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
-
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
@@ -319,6 +315,8 @@ Para más información sobre el Panel de acceso, consulte [Introducción al Pane
 
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
+
 
 <!--Image references-->
 

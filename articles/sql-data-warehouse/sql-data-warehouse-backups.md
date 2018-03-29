@@ -1,11 +1,11 @@
 ---
-title: "Copias de seguridad de Azure SQL Data Warehouse: instantáneas, redundancia geográfica | Microsoft Docs"
-description: "Aprenda sobre las copias de seguridad de base de datos integradas de SQL Data Warehouse que permiten restaurar una instancia de Azure SQL Data Warehouse a un punto de restauración o una región geográfica distinta."
+title: 'Copias de seguridad de Azure SQL Data Warehouse: instantáneas, redundancia geográfica | Microsoft Docs'
+description: Aprenda sobre las copias de seguridad de base de datos integradas de SQL Data Warehouse que permiten restaurar una instancia de Azure SQL Data Warehouse a un punto de restauración o una región geográfica distinta.
 services: sql-data-warehouse
-documentationcenter: 
+documentationcenter: ''
 author: barbkess
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: b5aff094-05b2-4578-acf3-ec456656febd
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -16,10 +16,10 @@ ms.custom: backup-restore
 ms.date: 10/23/2017
 ms.author: jrj;barbkess
 ms.openlocfilehash: 159a1d34caba829750da33dbc4ad403fb21cd147
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="backup-and-restore-in-sql-data-warehouse"></a>Copia de seguridad y restauración en SQL Data Warehouse
 En este artículo se explican los aspectos específicos de las copias de seguridad en SQL Data Warehouse. Use copias de seguridad de almacenamiento de datos para restaurar una instantánea de base de datos en la región primaria, o bien restaure una copia de seguridad para su región con emparejamiento geográfico. 
@@ -72,7 +72,7 @@ Cuando se quita un almacenamiento de datos SQL Data Warehouse crea una instantá
 > Si elimina una instancia de servidor de SQL lógica, todas las bases de datos que pertenecen a la instancia también se eliminan y no se pueden recuperar. No puede restaurar un servidor eliminado.
 > 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para restaurar un almacenamiento de datos SQL, consulte [Restauración de un almacenamiento de datos SQL](sql-data-warehouse-restore-database-overview.md).
 
 Para ver una introducción a la continuidad empresarial, consulte [Información general sobre la continuidad empresarial](../sql-database/sql-database-business-continuity.md)

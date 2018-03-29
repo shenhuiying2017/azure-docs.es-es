@@ -1,11 +1,11 @@
 ---
-title: "Configuración de MSI en un conjunto de escalado de máquinas virtuales de Azure con Azure Portal"
-description: "Instrucciones paso a paso para configurar una identidad de servicio administrada (MSI) en un conjunto de escalado de máquinas virtuales de Azure mediante Azure Portal."
+title: Configuración de MSI en un conjunto de escalado de máquinas virtuales de Azure con Azure Portal
+description: Instrucciones paso a paso para configurar una identidad de servicio administrada (MSI) en un conjunto de escalado de máquinas virtuales de Azure mediante Azure Portal.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: 4d308d9cdc0405ee0041c877f5678647343631ab
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: d9b493203a78aebdfadef15cf53d9cc023bb66f8
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configure-an-azure-virtual-machine-scale-set-managed-service-identity-msi-using-the-azure-portal"></a>Configuración de una identidad de servicio administrada (MSI) en un conjunto de escalado de máquinas virtuales de Azure mediante Azure Portal
 
@@ -35,7 +35,7 @@ En este artículo, aprenderá a habilitar una MSI en un conjunto de escalado de 
 
 En el momento de redactar este artículo, no se admite la habilitación de MSI durante la creación de un conjunto de escalado de máquinas virtuales de Azure en Azure Portal. En su lugar, consulte la siguiente guía de inicio rápido sobre creación de un conjunto de escalado de máquinas virtuales de Azure para crear primero uno de ellos:
 
-- [Creación de un conjunto de escalado de máquinas virtuales en Azure Portal](../../virtual-machine-scale-sets/virtual-machine-scale-sets-create-portal.md)  
+- [Creación de un conjunto de escalado de máquinas virtuales en Azure Portal](../../virtual-machine-scale-sets/quick-create-portal.md)  
 
 A continuación, pase a la siguiente sección, donde encontrará información detallada acerca de la habilitación de MSI en el conjunto de escalado de máquinas virtuales.
 

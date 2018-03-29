@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: huvalo;bradsev
-ms.openlocfilehash: 3cffb90baadef570bbb7e4e2d96741cc0420b0a2
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.author: bradsev
+ms.openlocfilehash: 5f0823e07f0e583e32829b664a1d3d463092169e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Acceso a conjuntos de datos con Python mediante la biblioteca de cliente de Python de Azure Machine Learning
 La versión preliminar de la biblioteca de cliente de Python de Microsoft Azure Machine Learning puede permitir un acceso seguro a los conjuntos de datos de Azure Machine Learning desde un entorno local de Python, así como la creación y administración de conjuntos de datos en un área de trabajo.
@@ -91,7 +91,7 @@ Los tokens de autorización se administran en la página **TOKENS DE AUTORIZACI�
 2. Seleccione el conjunto de datos al que le gustaría tener acceso. Puede seleccionar cualquiera de los conjuntos de datos de las listas **MIS CONJUNTOS DE DATOS** o **EJEMPLOS**.
 3. En la barra de herramientas de la parte inferior, haga clic en **Generate Data Access Code**(Generar código de acceso a datos). Este botón se deshabilitará si los datos están en un formato no compatible con la biblioteca cliente de Python.
    
-    ![CONJUNTOS DE DATOS][datasets]
+    ![Conjuntos de datos][datasets]
 4. Seleccione el fragmento de código de la ventana que aparece y cópielo al Portapapeles.
    
     ![Código de acceso][dataset-access-code]

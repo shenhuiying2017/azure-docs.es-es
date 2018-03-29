@@ -1,24 +1,24 @@
 ---
-title: "Proceso de ciencia de datos en equipo para científicos de datos | Microsoft Docs"
-description: "Proporciona una guía para comprender una carga de trabajo de análisis mediante el uso del Proceso de ciencia de datos en equipo y Microsoft Azure Machine Learning."
+title: Proceso de ciencia de datos en equipo para científicos de datos | Microsoft Docs
+description: Proporciona una guía para comprender una carga de trabajo de análisis mediante el uso del Proceso de ciencia de datos en equipo y Microsoft Azure Machine Learning.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
-ms.author: bradsev;BuckWoody
-ms.openlocfilehash: 146657c699f55c3e8f692cf0723c3276e4df584a
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.author: bradsev
+ms.openlocfilehash: 670f2530887f33defdbdaffd18e5d2652811eb14
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="team-data-science-process-for-data-scientists"></a>Proceso de ciencia de datos en equipo para científicos de datos
 
@@ -65,5 +65,5 @@ Puede usar los elementos de la tabla siguiente para que le guíen en su aprendiz
 |                                                                                           | [Azure Log Analytics](../../log-analytics/log-analytics-overview.md)                                                   | Otro método para supervisar la aplicación consiste en integrarla en el proceso de DevOps. El sistema de Azure Log Analytics proporciona un amplio conjunto de características que le ayudan a inspeccionar sus soluciones de análisis después de implementarlas.                                                                                                                                                                                                                                                                                                                                                                                                                       | [Realice este tutorial](https://docs.loganalytics.io/docs/Learn/Getting-Started/Getting-started-with-the-Analytics-portal) sobre el uso de Azure Log Analytics.                                                                                                                                                                                                                                                                                                       |
 | Realización de esta ruta de aprendizaje                                                               | Proyectos adicionales para probar                                                                                                                           | Felicidades. Ha completado esta ruta de aprendizaje. Aún queda mucho por aprender. Existe un ejemplo más avanzado donde se crea un modelo de abandono de clientes en Azure Machine Learning Services. [Pruébelo aquí](../preview/scenario-churn-prediction.md).                                                                                                                                                                                                                                                                                                                                           |                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Team Data Science Process for Developer Operations](team-data-science-process-for-devops.md) (Proceso de ciencia de datos en equipo para operaciones de desarrollador) En este artículo se exploran las funciones de operaciones de desarrollo (DevOps) que son específicas de la implementación de una solución de análisis avanzado y Cognitive Services. 

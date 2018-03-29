@@ -1,23 +1,23 @@
 ---
 title: Ejecutar tareas de ciencia de datos - Azure Machine Learning | Microsoft Docs
-description: "Describe cómo un científico de datos puede ejecutar un proyecto de ciencia de datos de forma controlada por versiones, de colaboración y cuyo seguimiento se puede realizar."
-documentationcenter: 
+description: Describe cómo un científico de datos puede ejecutar un proyecto de ciencia de datos de forma controlada por versiones, de colaboración y cuyo seguimiento se puede realizar.
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
-ms.author: bradsev;
-ms.openlocfilehash: 7f3bf3bb5743bfb64489188d1016fb18d4967f79
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.author: bradsev
+ms.openlocfilehash: da09ab7daba115e570bb8b97549cc5f01e7496b6
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>Ejecutar tareas de ciencia de datos: exploración, modelado e implementación
 
@@ -105,7 +105,7 @@ NOTA: Para implementar mediante Azure Machine Learning Studio, consulte [Impleme
 Cuando hay varios modelos en producción, puede resultar útil realizar [pruebas A/B](https://en.wikipedia.org/wiki/A/B_testing) para comparar el rendimiento de los modelos. 
 
  
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En [Track progress of data science projects](track-progress.md) (Realizar un seguimiento del progreso de los proyectos de ciencia de datos) se muestra cómo puede un científico de datos realizar un seguimiento del progreso de un proyecto de ciencia de datos.
  

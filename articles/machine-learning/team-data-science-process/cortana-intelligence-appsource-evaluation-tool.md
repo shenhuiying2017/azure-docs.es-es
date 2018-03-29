@@ -1,8 +1,8 @@
 ---
-title: "Herramienta de evaluación de soluciones Cortana Intelligence | Microsoft Docs"
-description: "Como partner de Microsoft, estos son los pasos que debe seguir para publicar su solución Cortana Intelligence en AppSource."
+title: Herramienta de evaluación de soluciones Cortana Intelligence | Microsoft Docs
+description: Como partner de Microsoft, estos son los pasos que debe seguir para publicar su solución Cortana Intelligence en AppSource.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: AnupamMicrosoft
 manager: jhubbard
 editor: cgronlun
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
-ms.author: anupams;v-bruham;garye
-ms.openlocfilehash: c9ea8164d5866662a7ed81672ee1ba776603b193
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: anupams
+ms.openlocfilehash: f678cb9819a2c03f97bcca5a2092160212779328
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="cortana-intelligence-solution-evaluation-tool"></a>Herramienta de evaluación de soluciones Cortana Intelligence
 ## <a name="overview"></a>Información general
@@ -54,7 +54,7 @@ Esta información se usa para una mejor comprensión de cómo usan la solución 
 En este caso, ingesta hace referencia a cualquier origen de datos que se use para extraer datos de fuera de la solución o que cualquier servicio de fuera de la solución use para insertar datos en ella.
 
 ### <a name="consumption"></a>Consumo
-Consumo en este caso hace referencia a cualquier conjunto de datos que se use para insertar datos en los usuarios finales, ya sea directa o indirectamente. Por ejemplo:
+Consumo en este caso hace referencia a cualquier conjunto de datos que se use para insertar datos en los usuarios finales, ya sea directa o indirectamente. Por ejemplo: 
 - Los conjuntos de datos usados en consultas directas de PowerBI.
 - Los conjuntos de datos consultados en una aplicación web.
 

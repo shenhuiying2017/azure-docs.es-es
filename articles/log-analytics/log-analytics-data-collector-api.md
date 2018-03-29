@@ -1,11 +1,11 @@
 ---
 title: Log Analytics HTTP Data Collector API | Microsoft Docs
-description: "Puede usar Log Analytics HTTP Data Collector API para agregar datos POST JSON en el repositorio de Log Analytics desde cualquier cliente que pueda llamar a la API de REST. Este artículo describe cómo utilizar la API y contiene algunos ejemplos de cómo publicar datos mediante diferentes lenguajes de programación."
+description: Puede usar Log Analytics HTTP Data Collector API para agregar datos POST JSON en el repositorio de Log Analytics desde cualquier cliente que pueda llamar a la API de REST. Este artículo describe cómo utilizar la API y contiene algunos ejemplos de cómo publicar datos mediante diferentes lenguajes de programación.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
-editor: 
+editor: ''
 ms.assetid: a831fd90-3f55-423b-8b20-ccbaaac2ca75
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: bwren
-ms.openlocfilehash: 5c6f2b35b48988af533612cb48da8fe79a838cf6
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 167c36d2fa9bc182b6e37c0f47f838fde1ba01df
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>Envío de datos a Log Analytics con la API del recopilador de datos HTTP (versión preliminar pública)
 Este artículo muestra cómo utilizar la API del recopilador de datos HTTP para enviar datos a Log Analytics desde un cliente de la API de REST.  Describe cómo dar formato a los datos recopilados por el script o la aplicación, incluirlos en una solicitud y hacer que esa solicitud se autorice por Log Analytics.  Se proporcionan ejemplos de PowerShell, C# y Python.
@@ -328,7 +328,7 @@ namespace OIAPIExample
         {
             // Create a hash for the API signature
             var datestring = DateTime.UtcNow.ToString("r");
-            var jsonBytes = Encoding.UTF8.GetBytes(message);
+            var jsonBytes = Encoding.UTF8.GetBytes(json);
             string stringToHash = "POST\n" + jsonBytes.Length + "\napplication/json\n" + "x-ms-date:" + datestring + "\n/api/logs";
             string hashedString = BuildSignature(stringToHash, sharedKey);
             string signature = "SharedKey " + customerId + ":" + hashedString;
@@ -464,5 +464,5 @@ def post_data(customer_id, shared_key, body, log_type):
 post_data(customer_id, shared_key, body, log_type)
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 - Use la [API de búsqueda de registros](log-analytics-log-search-api.md) para recuperar datos desde el repositorio de Log Analytics.

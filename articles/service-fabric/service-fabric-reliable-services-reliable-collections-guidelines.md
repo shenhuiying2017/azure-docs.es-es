@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 12/10/2017
 ms.author: mcoskun
-ms.openlocfilehash: 27ea71bcc378100e613a8edd1c57a93f3c9ed925
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: b0eb6a5aab5e71c0a8ac8263e177c493a07dafc0
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Directrices y recomendaciones de Reliable Collections en Azure Service Fabric
 Esta sección proporciona directrices para el uso de Reliable State Manager y Reliable Collections. El objetivo es ayudar a los usuarios a evitar problemas comunes.
@@ -52,7 +52,6 @@ Algunos aspectos que debe tener en cuenta:
 ### <a name="next-steps"></a>Pasos siguientes
 * [Trabajo con Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [Transacciones y bloqueos](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
-* [Reliable State Manager y Reliable Collections internos](service-fabric-reliable-services-reliable-collections-internals.md)
 * Administración de datos
   * [Copia de seguridad y restauración](service-fabric-reliable-services-backup-restore.md)
   * [Notifications](service-fabric-reliable-services-notifications.md)

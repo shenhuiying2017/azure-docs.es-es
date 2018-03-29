@@ -1,10 +1,10 @@
 ---
-title: "Configuración de una cadena de conexión para Azure Storage | Microsoft Docs"
-description: "Configure una cadena de conexión para una cuenta de Azure Storage. Una cadena de conexión contiene la información necesaria para autenticar el acceso a una cuenta de almacenamiento desde una aplicación en tiempo de ejecución."
+title: Configuración de una cadena de conexión para Azure Storage | Microsoft Docs
+description: Configure una cadena de conexión para una cuenta de Azure Storage. Una cadena de conexión contiene la información necesaria para autenticar el acceso a una cuenta de almacenamiento desde una aplicación en tiempo de ejecución.
 services: storage
-documentationcenter: 
-author: tamram
-manager: timlt
+documentationcenter: ''
+author: craigshoemaker
+manager: jeconnoc
 editor: tysonn
 ms.assetid: ecb0acb5-90a9-4eb2-93e6-e9860eda5e53
 ms.service: storage
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
-ms.author: tamram
-ms.openlocfilehash: 192799cb44dc9a56c65a6414c1267c506252fe29
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: cshoe
+ms.openlocfilehash: dee0fd68ccaf80ff6e44ee10fa24bb19e220d0d5
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configure-azure-storage-connection-strings"></a>Configuración de las cadenas de conexión de Azure Storage
 

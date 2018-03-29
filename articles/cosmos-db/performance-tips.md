@@ -1,12 +1,12 @@
 ---
 title: Sugerencias de rendimiento de Azure Cosmos DB para .NET | Microsoft Docs
-description: "Conozca las opciones de configuración de cliente para mejorar el rendimiento de las bases de datos de Azure Cosmos DB."
-keywords: "cómo mejorar el rendimiento de la base de datos"
+description: Conozca las opciones de configuración de cliente para mejorar el rendimiento de las bases de datos de Azure Cosmos DB.
+keywords: cómo mejorar el rendimiento de la base de datos
 services: cosmos-db
 author: mimig1
 manager: jhubbard
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: 94ff155e-f9bc-488f-8c7a-5e7037091bb9
 ms.service: cosmos-db
 ms.workload: data-services
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: mimig
-ms.openlocfilehash: 2b822794cbafa037d4ab3cb23d2a885914c83607
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 6b8ff8d2efd2039e7b71f4e8f25b2756d324940f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/28/2018
 ---
 > [!div class="op_single_selector"]
 > * [Java](performance-tips-java.md)
@@ -28,8 +28,6 @@ ms.lasthandoff: 02/28/2018
 > 
 
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Sugerencias de rendimiento para Azure Cosmos DB y .NET
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Azure Cosmos DB es una base de datos distribuida rápida y flexible que se escala sin problemas con una latencia y un rendimiento garantizados. No es necesario realizar cambios de arquitectura importantes ni escribir código complejo para escalar la base de datos con Azure Cosmos DB. Escalar o reducir verticalmente es tan sencillo como realizar una única llamada de API o con el [método SDK](set-throughput.md#set-throughput-sdk). Sin embargo, como el acceso a Azure Cosmos DB se realiza mediante llamadas de red, puede realizar optimizaciones en el lado cliente para conseguir un rendimiento máximo al usar el [SDK de .NET para SQL](documentdb-sdk-dotnet.md).
 
@@ -219,7 +217,7 @@ Así que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la bas
 
     El gasto de solicitud (es decir, el costo de procesamiento de solicitudes) de una operación dada está directamente correlacionado con el tamaño del documento. Las operaciones con documentos grandes cuestan más que las operaciones con documentos pequeños.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Si quiere ver una aplicación de ejemplo usada para evaluar Azure Cosmos DB en escenarios de alto rendimiento en un pequeño número de máquinas cliente, consulte [Pruebas de escala y rendimiento con Azure Cosmos DB](performance-testing.md).
 
 Para más información sobre cómo diseñar la aplicación para escalarla y obtener un alto rendimiento, consulte [Partición y escalado en Azure Cosmos DB](partition-data.md).

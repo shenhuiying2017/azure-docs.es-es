@@ -5,7 +5,7 @@ services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 886d2c7f-838f-4938-bd23-466662fb1c8e
 ms.service: service-bus-relay
 ms.devlang: na
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/27/2018
 ms.author: sethm
-ms.openlocfilehash: 07cbdd24368d66104ecdeb263983e3aaf3f219fe
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: d433fb916280e98dd0f2af61728596b8566be71b
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-relay-faqs"></a>Preguntas frecuentes sobre Azure Relay
 
-En este artículo se responden algunas preguntas frecuentes sobre [Azure Relay](https://azure.microsoft.com/services/service-bus/). Consulte [Preguntas más frecuentes de soporte técnico de Azure](http://go.microsoft.com/fwlink/?LinkID=185083) para información general sobre los precios y el soporte técnico de Azure.
+En este artículo se responden algunas preguntas frecuentes sobre [Azure Relay](https://azure.microsoft.com/services/service-bus/). Consulte [Preguntas más frecuentes de soporte técnico de Azure](https://azure.microsoft.com/en-in/support/faq/) para información general sobre los precios y el soporte técnico de Azure.
 
 ## <a name="general-questions"></a>Preguntas generales
 ### <a name="what-is-azure-relay"></a>¿Qué es Relay de Azure?
@@ -129,7 +129,7 @@ Las firmas de acceso compartido (SAS) son un mecanismo de autenticación basado 
 ### <a name="is-it-possible-to-whitelist-relay-endpoints"></a>¿Es posible incluir los puntos de conexión de Relay en la lista de permitidos?
 Sí. El cliente de Relay establece conexiones al servicio de Azure Relay mediante nombres de dominio completos. Los clientes pueden agregar una entrada para `*.servicebus.windows.net` en los firewalls compatibles con la creación de listas de autorizados de DNS.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Creación de un espacio de nombres](relay-create-namespace-portal.md)
 * [Introducción a .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Introducción a Node](relay-hybrid-connections-node-get-started.md)

@@ -1,11 +1,11 @@
 ---
 title: Tutorial de C++ para Azure Cosmos DB | Microsoft Docs
-description: "Tutorial de C++ que crea una aplicación de consola y una base de datos de C++ mediante un SDK aprobado para C++. Azure Cosmos DB es un servicio de base de datos de escala mundial."
+description: Tutorial de C++ que crea una aplicación de consola y una base de datos de C++ mediante un SDK aprobado para C++. Azure Cosmos DB es un servicio de base de datos de escala mundial.
 services: cosmos-db
 documentationcenter: cpp
 author: asthana86
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: b8756b60-8d41-4231-ba4f-6cfcfe3b4bab
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,11 +14,11 @@ ms.devlang: cpp
 ms.topic: article
 ms.date: 12/25/2016
 ms.author: aasthan
-ms.openlocfilehash: b1dc49a9da42aa3630618c8099a7994950b313b4
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 86bf4fbc683efde60765b14b379a2b88c77d3103
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-c-console-application-tutorial-for-the-sql-api"></a>Azure Cosmos DB: tutorial de la aplicación de consola de C++ para la API de SQL
 > [!div class="op_single_selector"]
@@ -30,8 +30,6 @@ ms.lasthandoff: 02/24/2018
 > * [C++](sql-api-cpp-get-started.md)
 >  
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)] 
 
 Le damos la bienvenida al tutorial de C++ para el SDK aprobado de la API de SQL de Azure Cosmos DB para C++. Al terminar este tutorial, tendrá una aplicación de consola que crea recursos de Azure Cosmos DB y realiza consultas en ellos, incluida una base de datos de C++.
 
@@ -283,7 +281,7 @@ Para compilar la solución GetStarted que contiene todos los ejemplos de este ar
 * [Cuenta de Azure Cosmos DB][create-account].
 * La solución [GetStarted](https://github.com/stalker314314/DocumentDBCpp) está disponible en GitHub.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Información acerca de cómo [supervisar una cuenta de Azure Cosmos DB](monitor-accounts.md).
 * Ejecute las consultas en un conjunto de datos de ejemplo en el [área de consultas](https://www.documentdb.com/sql/demo).
 * Obtenga más información sobre el modelo de programación en la sección sobre desarrollo de la [página de documentación de Azure Cosmos DB](https://azure.microsoft.com/documentation/services/cosmos-db/).

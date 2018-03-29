@@ -1,11 +1,11 @@
 ---
 title: Niveles de rendimiento retirados de Azure Cosmos DB | Microsoft Docs
-description: "Obtenga información acerca de los niveles de rendimiento S1, S2 y S3 que estaban disponibles anteriormente en Azure Cosmos DB."
+description: Obtenga información acerca de los niveles de rendimiento S1, S2 y S3 que estaban disponibles anteriormente en Azure Cosmos DB.
 services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: monicar
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 7dc21c71-47e2-4e06-aa21-e84af52866f4
 ms.service: cosmos-db
 ms.workload: data-services
@@ -15,19 +15,17 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4cab6297e45dc7a14826d7bb10cf22a8a300355f
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 62ef3c8988b0f11d6d8bcb69080f4e1b98a44641
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Retirada de los niveles de rendimiento S1, S2 y S3
 
 > [!IMPORTANT] 
 > Los niveles de rendimiento S1, S2 y S3 descritos en este artículo se han retirado y ya no están disponibles para las nuevas cuentas de Azure Cosmos DB.
 >
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 En este artículo se proporciona información general de los niveles de rendimiento S1, S2 y S3, y se describe cómo se migrarán las colecciones que usan estos niveles de rendimiento a colecciones de partición única a finales de 2017. Después de leer este artículo, podrá responder a las preguntas siguientes:
 
@@ -174,7 +172,7 @@ Visite [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.documents
 
 El precio para los clientes de EA estará protegido hasta el final de su contrato actual.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información sobre los precios y la administración de datos con Azure Cosmos DB, consulte estos recursos:
 
 1.  [Partición de datos en Cosmos DB](sql-api-partition-data.md). Información sobre la diferencia entre un contenedor de partición única y contenedores con particiones, así como sugerencias sobre cómo implementar una estrategia de particiones para escalar sin problemas.

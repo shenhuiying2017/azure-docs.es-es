@@ -1,11 +1,11 @@
 ---
-title: "Solución Azure Key Vault en Log Analytics | Microsoft Docs"
-description: "Puede utilizar la solución Azure Key Vault en Log Analytics para revisar los registros de Azure Key Vault."
+title: Solución Azure Key Vault en Log Analytics | Microsoft Docs
+description: Puede utilizar la solución Azure Key Vault en Log Analytics para revisar los registros de Azure Key Vault.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: richrundmsft
 manager: jochan
-editor: 
+editor: ''
 ms.assetid: 5e25e6d6-dd20-4528-9820-6e2958a40dae
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: richrund
-ms.openlocfilehash: 651586e0846ffb22a23e64b73c2cc614980d9b92
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9c4b16ec11d1990de687014c5385314f0e0c602a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-key-vault-analytics-solution-in-log-analytics"></a>Solución de Azure Key Vault Analytics en Log Analytics
 
@@ -101,13 +101,13 @@ Tras hacer clic en el icono de **Overview** (Información general), puede ver re
 ## <a name="log-analytics-records"></a>Registros de Log Analytics
 La solución de Azure Key Vault analiza los registros que tienen un tipo de **KeyVaults** que se recopilan desde los [registros AuditEvent](../key-vault/key-vault-logging.md) de Diagnóstico de Azure.  Las propiedades de estos registros se muestran en la tabla siguiente:  
 
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 |:--- |:--- |
-| Escriba |*AzureDiagnostics* |
-| SourceSystem |*Las tablas de Azure* |
+| type |*AzureDiagnostics* |
+| SourceSystem |*Azure* |
 | CallerIpAddress |Dirección IP del cliente que realizó la solicitud. |
 | Categoría | *AuditEvent* |
-| CorrelationId |Un GUID opcional que el cliente puede pasar para correlacionar los registros del lado cliente con los registros del lado servicio (el Almacén de claves). |
+| CorrelationId |Un GUID opcional que el cliente puede pasar para correlacionar los registros del lado cliente con los registros del lado servicio (Key Vault). |
 | DurationMs |Tiempo que tardó en atender la solicitud de API de REST, en milisegundos. Este tiempo no incluye la latencia de red, por lo que el tiempo que se mide en el cliente podría no coincidir con este tiempo. |
 | httpStatusCode_d |Código de estado HTTP devuelto por la solicitud (por ejemplo, *200*) |
 | id_s |Identificador único de la solicitud. |
@@ -137,7 +137,7 @@ Para usar la solución actualizada:
 2. Habilite la solución Azure Key Vault mediante el proceso que se describe en [Incorporación de soluciones de administración de Log Analytics](log-analytics-add-solutions.md).
 3. Actualice cualquier consulta guardada, panel o alerta para usar el nuevo tipo de datos.
   + El tipo se cambia de KeyVaults a AzureDiagnostics. Puede usar ResourceType para filtrar registros de Key Vault.
-  - En lugar de `Type=KeyVaults`, use `Type=AzureDiagnostics ResourceType=VAULTS`.
+  - En lugar de `KeyVaults`, use `AzureDiagnostics | where ResourceType'=="VAULTS"`.
   + Campos: (Los nombres de campo distinguen entre mayúsculas y minúsculas).
   - Para todos los campos que tengan un sufijo \_s, \_d o \_g en el nombre, cambie el primer carácter a minúsculas.
   - Para todos los campos que tengan un sufijo \_o en el nombre, los datos se dividen en campos individuales según los nombres de campo anidados. Por ejemplo, el UPN del llamador se almacena en un campo `identity_claim_http_schemas_xmlsoap_org_ws_2005_05_identity_claims_upn_s`.
@@ -147,7 +147,7 @@ Para usar la solución actualizada:
 
 Los datos recopilados antes del cambio no aparecen en la nueva solución. Puede seguir consultando estos datos con el tipo y los nombres de campo anteriores.
 
-## <a name="troubleshooting"></a>Solución de problemas
+## <a name="troubleshooting"></a>solución de problemas
 [!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -1,8 +1,8 @@
 ---
-title: "Creación de características para los datos de Azure Blob Storage mediante Panda | Microsoft Docs"
-description: "Cómo crear características para los datos almacenados en un contenedor de blobs de Azure mediante el paquete Panda de Python."
+title: Creación de características para los datos de Azure Blob Storage mediante Panda | Microsoft Docs
+description: Cómo crear características para los datos almacenados en un contenedor de blobs de Azure mediante el paquete Panda de Python.
 services: machine-learning,storage
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
-ms.author: bradsev;garye
-ms.openlocfilehash: 7a2e64927f4afca87642fb4829166c5ec60dbc09
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.author: bradsev
+ms.openlocfilehash: a5a4b92f04fcb4683f792263f3477ecea4d7239e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-features-for-azure-blob-storage-data-using-panda"></a>Creación de características para los datos de almacenamiento de blobs de Azure mediante Panda
 Este documento muestra cómo crear características para datos que se almacenan en el contenedor de blobs de Azure mediante el paquete de Python [Pandas](http://pandas.pydata.org/) . Después de esquematizar cómo cargar los datos en una trama de datos de Panda, se muestra cómo generar características de categorías mediante scripts de Python con valores de indicador y características de discretización, mediante scripts de Python.
@@ -27,7 +27,7 @@ Este documento muestra cómo crear características para datos que se almacenan 
 
 Este **menú** vincula a temas en los que se describe cómo crear características para datos en diversos entornos. Esta tarea constituye un paso del [proceso de ciencia de datos en equipos (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 En este artículo se supone que ja creado una cuenta de almacenamiento de blobs de Azure y que ha almacenado los datos ahí. Si necesita instrucciones para configurar una cuenta, consulte [Creación de una cuenta de Azure Storage](../../storage/common/storage-create-storage-account.md#create-a-storage-account)
 
 ## <a name="load-the-data-into-a-pandas-data-frame"></a>Carga de los datos en una trama de datos Pandas

@@ -1,24 +1,24 @@
 ---
-title: "Solución DNS Analytics en Azure Log Analytics | Microsoft Docs"
-description: "Configure y use la solución DNS Analytics en Log Analytics para recopilar información en la infraestructura de DNS sobre seguridad, rendimiento y operaciones."
+title: Solución DNS Analytics en Azure Log Analytics | Microsoft Docs
+description: Configure y use la solución DNS Analytics en Log Analytics para recopilar información en la infraestructura de DNS sobre seguridad, rendimiento y operaciones.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: f44a40c4-820a-406e-8c40-70bd8dc67ae7
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 03/20/2018
 ms.author: magoedte
-ms.openlocfilehash: 8ead058108f39eca8682eccc296760d4b756d336
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 6a59cf8b9444fe7cb197501c51d10dae81acb027
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Recopilación de información sobre la infraestructura de DNS con la solución DNS Analytics
 
@@ -145,7 +145,6 @@ La información puede ayudarle a identificar:
 
 **Consultas de DDI Analytics de ejemplo**. Contiene una lista de las consultas de búsqueda más comunes que capturan directamente datos de análisis sin procesar.
 
-[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![Consultas de ejemplo](./media/log-analytics-dns/queries.png)
 
@@ -166,7 +165,7 @@ Puede usar estas consultas como punto de partida a fin de crear las suyas propia
 
 En la página Búsqueda de registros, puede crear una consulta. Puede filtrar los resultados de la búsqueda mediante controles de faceta. También puede crear consultas avanzadas para transformar, filtrar y informar sobre sus resultados. Comience con las siguientes consultas:
 
-1. En el **cuadro de consulta de búsqueda**, escriba `Type=DnsEvents` para ver todos los eventos DNS generados por los servidores DNS administrados por la solución. Los resultados muestran los datos de registro de todos los eventos relacionados con consultas de búsqueda, registros dinámicos y cambios de configuración.
+1. En el **cuadro de consulta de búsqueda**, escriba `DnsEvents` para ver todos los eventos DNS generados por los servidores DNS administrados por la solución. Los resultados muestran los datos de registro de todos los eventos relacionados con consultas de búsqueda, registros dinámicos y cambios de configuración.
 
     ![Búsqueda de registros de Dnsevents](./media/log-analytics-dns/log-search-dnsevents.png)  
 
@@ -176,7 +175,7 @@ En la página Búsqueda de registros, puede crear una consulta. Puede filtrar lo
 
     c. Para ver los datos de registro de los cambios de configuración, seleccione **ConfigurationChange** como el filtro de **subtipo** en el control de faceta que se encuentra a la izquierda. Aparecerá una tabla que muestra todos los eventos de cambios de configuración para el período de tiempo seleccionado.
 
-2. En el **cuadro de consulta de búsqueda**, escriba `Type=DnsInventory` para ver todos los datos relacionados con el inventario de DNS de los servidores DNS administrados por la solución. Los resultados muestran los datos del registro para los servidores DNS, las zonas DNS y los registros de recursos.
+2. En el **cuadro de consulta de búsqueda**, escriba `DnsInventory` para ver todos los datos relacionados con el inventario de DNS de los servidores DNS administrados por la solución. Los resultados muestran los datos del registro para los servidores DNS, las zonas DNS y los registros de recursos.
 
     ![Búsqueda de registros de DnsInventory](./media/log-analytics-dns/log-search-dnsinventory.png)
 
@@ -187,6 +186,6 @@ Hay dos maneras de proporcionar comentarios:
 - **UserVoice**. Publique ideas sobre características de DNS Analytics en las que trabajar. Visite la [página UserVoice de Operations Management Suite](https://aka.ms/dnsanalyticsuservoice).
 - **Únase a nuestra cohorte**. Siempre estamos interesados en que se unan nuevos clientes a nuestra comunidad para que consigan los primeros las nuevas características y nos ayuden a mejorar DNS Analytics. Si está interesado en unirse, rellene esta [encuesta rápida](https://aka.ms/dnsanalyticssurvey).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 [Búsqueda de registros](log-analytics-log-searches.md), para ver los registros de datos detallados de DNS.

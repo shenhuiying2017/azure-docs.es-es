@@ -1,12 +1,12 @@
 ---
-title: "Administración de clústeres de HDInsight unidos a dominio - Azure | Microsoft Docs"
-description: "Aprenda a administrar clústeres de HDInsight unidos a dominio"
+title: Administración de clústeres de HDInsight unidos a dominio - Azure | Microsoft Docs
+description: Aprenda a administrar clústeres de HDInsight unidos a dominio
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: bprakash
 manager: jhubbard
 editor: cgronlun
-tags: 
+tags: ''
 ms.assetid: 6ebc4d2f-2f6a-4e1e-ab6d-af4db6b4c87c
 ms.service: hdinsight
 ms.custom: hdinsightactive
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/11/2018
 ms.author: bhanupr
-ms.openlocfilehash: 68166be98acc64326a4053b45f0039ae54d930e4
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 44202541557a7513e0068f52289a637f6e48f43f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="manage-domain-joined-hdinsight-clusters"></a>Administración de clústeres de HDInsight unidos a dominio
 Conozca los usuarios y los roles de HDInsight unido a un dominio y cómo administrar clústeres de HDInsight unidos a dominio.
@@ -51,7 +51,7 @@ El uso de API estándar ayuda desde el punto de vista de la seguridad. Además, 
 Instale Beeline en la máquina, conéctese a través de la red pública de Internet y use los siguientes parámetros: 
 
 ```
-- Connection string: -u 'jdbc:hive2://&lt;clustername&gt;.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2'
+- Connection string: -u 'jdbc:hive2://<clustername>.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2'
 - Cluster login name: -n admin
 - Cluster login password -p 'password'
 ```
@@ -158,6 +158,6 @@ Los clústeres de HDInsight unidos a un dominio tienen los siguientes roles:
 2. En el menú de la izquierda, haga clic en **Roles**.
 3. Haga clic en **Agregar usuario** o **Agregar grupo** para asignar usuarios y grupos a roles diferentes.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Para configurar un clúster de HDInsight unido a dominio, consulte [Configure Domain-joined HDInsight clusters](apache-domain-joined-configure.md) (Configuración de clústeres de HDInsight unidos a un dominio).
 * Para configurar directivas de Hive y ejecución de consultas de Hive, consulte [Configure Hive policies for Domain-joined HDInsight clusters](apache-domain-joined-run-hive.md) (Configuración de directivas de los clústeres de HDInsight unidos a dominio).

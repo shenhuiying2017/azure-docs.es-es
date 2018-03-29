@@ -1,10 +1,10 @@
 ---
-title: "Creación de particiones y escalado en Azure Cosmos DB | Microsoft Docs"
-description: "Obtenga información sobre cómo funciona la creación de particiones en Azure Cosmos DB, cómo configurar la creación de particiones y las claves de partición y cómo seleccionar la clave de partición correcta para su aplicación."
+title: Creación de particiones y escalado en Azure Cosmos DB | Microsoft Docs
+description: Obtenga información sobre cómo funciona la creación de particiones en Azure Cosmos DB, cómo configurar la creación de particiones y las claves de partición y cómo seleccionar la clave de partición correcta para su aplicación.
 services: cosmos-db
 author: rafats
 manager: jhubbard
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 702c39b4-1798-48dd-9993-4493a2f6df9e
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,15 +14,13 @@ ms.topic: article
 ms.date: 05/24/2017
 ms.author: rafats
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bfed50eef02c237ce0ea4480e2e208f2e61ccbef
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: a48c1bb246e3e8659aada614d39fdc608e5bc8d8
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="partitioning-in-azure-cosmos-db-using-the-sql-api"></a>Creación de particiones en Azure Cosmos DB con la API de SQL
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 [Microsoft Azure Cosmos DB](../cosmos-db/introduction.md) es un servicio de base de datos distribuido de varios modelos global diseñado para ayudarle a lograr un rendimiento rápido y predecible. Además, permite escalar sin problemas a medida que la aplicación crece. 
 
@@ -223,7 +221,7 @@ await client.ExecuteStoredProcedureAsync<DeviceReading>(
    
 En la siguiente sección, veremos cómo puede moverse a contenedores con particiones desde contenedores de partición única.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este artículo se proporciona información general sobre cómo trabajar con las particiones de contenedores de Azure Cosmos DB con la API de SQL. Consulte también [la creación de particiones y el escalado horizontal](../cosmos-db/partition-data.md) para obtener una información general de los conceptos y procedimientos recomendados para crear particiones con cualquier API de Azure Cosmos DB. 
 
 * Realice pruebas de escala y de rendimiento con Azure Cosmos DB. Consulte [Pruebas de escala y rendimiento con Azure Cosmos DB](performance-testing.md) para ver ejemplos.

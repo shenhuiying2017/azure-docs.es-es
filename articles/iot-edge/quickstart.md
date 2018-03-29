@@ -1,19 +1,19 @@
 ---
-title: "Guía de inicio rápido de Azure IoT Edge + Windows | Microsoft Docs"
-description: "Pruebe Azure IoT Edge mediante la realización de análisis en un dispositivo perimetral simulado"
+title: Guía de inicio rápido de Azure IoT Edge + Windows | Microsoft Docs
+description: Pruebe Azure IoT Edge mediante la realización de análisis en un dispositivo perimetral simulado
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 16d9431ec0a0425c8433557fe384864bb599bf1f
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: f9ad01d3194ee0f8be4c3b4321c83c4bb15ea55c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Guía de inicio rápido: implementación del primer módulo de IoT Edge desde Azure Portal a un dispositivo Windows (versión preliminar)
 
@@ -79,7 +79,7 @@ El runtime de IoT Edge se implementa en todos los dispositivos de IoT Edge. Cons
 Configure el runtime con la cadena de conexión del dispositivo de IoT Edge de la sección anterior.
 
 ```cmd
-iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
+iotedgectl setup --connection-string "{device connection string}" --nopass
 ```
 
 Inicie el runtime.

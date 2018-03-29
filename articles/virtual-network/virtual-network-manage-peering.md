@@ -5,9 +5,9 @@ services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 8fa7496c3489a0a3e5ee6d829bbeef0f0ccdf315
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: f42a23a8d4e6a90f104c97d4a1cbdef5343e585e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Crear, cambiar o eliminar un emparejamiento de red virtual
 
@@ -140,7 +140,7 @@ Si quiere que las redes virtuales se comuniquen algunas veces pero no siempre, e
     - VirtualNetwork2 y VirtualNetwork3
 
   No hay ningún emparejamiento entre VirtualNetwork1 y VirtualNetwork3 a través de VirtualNetwork2. Si desea crear un emparejamiento de red virtual entre VirtualNetwork1 y VirtualNetwork3, debe crear un emparejamiento entre VirtualNetwork1 y VirtualNetwork3.
-- No se pueden resolver nombres en redes virtuales emparejadas mediante la resolución de nombres predeterminada de Azure. Para resolver nombres de otras redes virtuales, tiene que usar un servidor DNS personalizado. Para obtener información sobre cómo configurar el servidor DNS, vea el artículo [Resolución de nombres mediante su propio servidor DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
+- No se pueden resolver nombres en redes virtuales emparejadas mediante la resolución de nombres predeterminada de Azure. Para resolver nombres de otras redes virtuales, tiene que usar un servidor DNS personalizado. Para obtener información sobre cómo configurar el servidor DNS, vea el artículo [Resolución de nombres mediante su propio servidor DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 - Los recursos de ambas redes virtuales del emparejamiento puedan comunicarse entre sí con el mismo ancho de banda y latencia que si estuvieran en la misma red virtual. A pesar de ello, el tamaño de cada máquina virtual tiene su propio ancho de banda de red máximo. Para más información sobre el ancho de banda de red máximo para los diferentes tamaños de máquina virtual, consulte los artículos sobre los tamaños de máquina virtual [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Se pueden emparejar redes virtuales implementadas mediante el Administrador de recursos que se encuentren en la misma suscripción o en suscripciones diferentes.
 - Se pueden emparejar redes virtuales implementadas mediante diferentes modelos de implementación que se encuentren en la misma suscripción o en suscripciones distintas. 

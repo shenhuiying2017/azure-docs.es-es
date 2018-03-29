@@ -1,11 +1,11 @@
 ---
-title: "Diagnóstico de proxy inverso de Azure Service Fabric | Microsoft Docs"
+title: Diagnóstico de proxy inverso de Azure Service Fabric | Microsoft Docs
 description: Aprenda a supervisar y diagnosticar el procesamiento de solicitudes en el proxy inverso.
 services: service-fabric
 documentationcenter: .net
 author: kavyako
 manager: vipulm
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 08/08/2017
 ms.author: kavyako
-ms.openlocfilehash: 1c62d2390709577bfde6225b783642fb55396a6b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e645d86e4527cab1e650575c4d9a10dbd4b9de4e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="monitor-and-diagnose-request-processing-at-the-reverse-proxy"></a>Supervisión y diagnóstico del procesamiento de solicitudes en el proxy inverso.
 
 A partir de la versión 5.7 de Service Fabric, los eventos de proxy inverso están disponibles para la recopilación. Los eventos están disponibles en dos canales, uno que solo contiene eventos de error relacionados con los errores de procesamiento de solicitudes en el proxy inverso y el segundo canal que contiene eventos detallados con registros tanto para las solicitudes correctas como para las incorrectas.
 
-Consulte [Recopilación de eventos de proxy inverso](service-fabric-diagnostics-event-aggregation-wad.md#collect-reverse-proxy-events) para habilitar la recopilación de eventos de estos canales en clústeres de Azure Service Fabric y locales.
+Consulte [Recopilación de eventos de proxy inverso](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations) para habilitar la recopilación de eventos de estos canales en clústeres de Azure Service Fabric y locales.
 
 ## <a name="troubleshoot-using-diagnostics-logs"></a>Solución de problemas mediante la herramienta de diagnóstico
 Estos son algunos ejemplos sobre cómo interpretar los registros de error comunes que pueden encontrarse:

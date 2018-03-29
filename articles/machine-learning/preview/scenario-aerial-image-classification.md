@@ -1,6 +1,6 @@
 ---
-title: "Clasificación de imágenes aéreas | Microsoft Docs"
-description: "Proporciona instrucciones para un escenario real de clasificación de imágenes aéreas"
+title: Clasificación de imágenes aéreas | Microsoft Docs
+description: Proporciona instrucciones para un escenario real de clasificación de imágenes aéreas
 author: mawah
 ms.author: mawah
 manager: mwinkle
@@ -10,11 +10,11 @@ ms.service: machine-learning
 services: machine-learning
 ms.workload: data-services
 ms.date: 12/13/2017
-ms.openlocfilehash: 76c706496b3bcdbc1604661be85dc31000873ad3
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 42ebb7dc3abf8fdb6049f1114dc8604a7b810a7e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="aerial-image-classification"></a>Clasificación de imágenes aéreas
 
@@ -222,7 +222,7 @@ El clúster de Batch AI tiene acceso a los datos de entrenamiento en un servidor
 1. Emita el comando siguiente para crear un servidor Network File Server:
 
     ```
-    az batchai file-server create -n landuseclassifier -u demoUser -p Dem0Pa$$w0rd --vm-size Standard_DS2_V2 --disk-count 1 --disk-size 1000 --storage-sku Premium_LRS
+    az batchai file-server create -n landuseclassifier -u demoUser -p "Dem0Pa$$w0rd" --vm-size Standard_DS2_V2 --disk-count 1 --disk-size 1000 --storage-sku Premium_LRS
     ```
 
 1. Compruebe el estado de aprovisionamiento del servidor Network File Server con el comando siguiente:
@@ -253,7 +253,7 @@ Si lo desea, puede confirmar que se ha realizado la transferencia de datos segú
 1. Emita el siguiente comando para crear el clúster:
 
     ```
-    az batchai cluster create -n landuseclassifier2 -u demoUser -p Dem0Pa$$w0rd --afs-name baitshare --nfs landuseclassifier --image UbuntuDSVM --vm-size STANDARD_NC6 --max 2 --min 2 --storage-account-name %STORAGE_ACCOUNT_NAME% 
+    az batchai cluster create -n landuseclassifier2 -u demoUser -p "Dem0Pa$$w0rd" --afs-name baitshare --nfs landuseclassifier --image UbuntuDSVM --vm-size STANDARD_NC6 --max 2 --min 2 --storage-account-name %STORAGE_ACCOUNT_NAME% 
     ```
 
 1. Use el siguiente comando para comprobar el estado de aprovisionamiento del clúster:
@@ -418,7 +418,7 @@ Cuando se haya completado el ejemplo, se recomienda que elimine todos los recurs
 
 Azure Machine Learning Workbench ayuda a los científicos de datos a implementar fácilmente su código en destinos de proceso remotos. En este ejemplo, el código de entrenamiento de MMLSpark local se implementó para la ejecución remota en un clúster de HDInsight, y un script local inició un trabajo de aprendizaje en un clúster de GPU de Azure Batch AI. La característica de historial de ejecución de Azure Machine Learning Workbench ha permitido realizar el seguimiento del rendimiento de varios modelos y ha ayudado a identificar el modelo más exacto. La característica de cuadernos de Jupyter de Workbench ha ayudado a visualizar las predicciones de nuestros modelos en un entorno gráfico interactivo.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para profundizar más en este ejemplo:
 - En la característica de historial de ejecución de Machine Learning Workbench, haga clic en los símbolos de engranaje para seleccionar qué gráficos y métricas se van a mostrar.
 - Examine los scripts de ejemplo de las instrucciones mediante la llamada a `run_logger`. Compruebe que comprende cómo se registra cada métrica.

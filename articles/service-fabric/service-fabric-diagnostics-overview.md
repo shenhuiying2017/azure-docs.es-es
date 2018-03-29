@@ -1,12 +1,12 @@
 ---
-title: "Información general sobre supervisión y diagnóstico de Azure Service Fabric | Microsoft Docs"
-description: "Obtenga información sobre la supervisión y el diagnóstico para los clústeres, las aplicaciones y los servicios de Azure Service Fabric."
+title: Información general sobre supervisión y diagnóstico de Azure Service Fabric | Microsoft Docs
+description: Obtenga información sobre la supervisión y el diagnóstico para los clústeres, las aplicaciones y los servicios de Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/10/2018
 ms.author: dekapur
-ms.openlocfilehash: 1da2fab92c6fd51c5fc18589da5f8bbec2929503
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: f784576547f0d85a825ad9dd107c6c84cd261092
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Supervisión y diagnóstico para Azure Service Fabric
 
@@ -86,7 +86,7 @@ La plataforma Service Fabric incluye un modelo de estado, el cual proporciona in
 
 ![Panel de estado de SFX](media/service-fabric-diagnostics-overview/sfx-healthstatus.png)
 
-Además de ver los informes de estado más recientes de SFX, cada informe también está disponible como un evento. Los eventos de mantenimiento pueden recopilarse a través del canal operativo (consulte [Agregación de eventos con Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md#collect-health-and-load-events)) y almacenarse en Log Analytics de OMS para enviar alertas y realizar consultas en el futuro. Esto ayuda a detectar problemas que puedan afectar a la disponibilidad de las aplicaciones, por lo que se recomienda configurar alertas para los escenarios de error correspondientes (alertas personalizadas a través de OMS).
+Además de ver los informes de estado más recientes de SFX, cada informe también está disponible como un evento. Los eventos de mantenimiento pueden recopilarse a través del canal operativo (consulte [Agregación de eventos con Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations)) y almacenarse en Log Analytics de OMS para enviar alertas y realizar consultas en el futuro. Esto ayuda a detectar problemas que puedan afectar a la disponibilidad de las aplicaciones, por lo que se recomienda configurar alertas para los escenarios de error correspondientes (alertas personalizadas a través de OMS).
 
 ## <a name="monitoring-workflow"></a>Flujo de trabajo de supervisión 
 
@@ -132,7 +132,7 @@ Puede usar [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md)
 
 Para personalizar los gráficos, siga las instrucciones del artículo de [introducción a las métricas en Microsoft Azure](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md). También puede crear alertas basadas en estas métricas, como se describe en [Creación de alertas en Azure Monitor para servicios de Azure - Azure Portal](../monitoring-and-diagnostics/monitoring-overview-alerts.md). 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * Obtenga más información sobre la supervisión de la plataforma y los eventos que proporciona Service Fabric en [Generación de eventos y registros de nivel de plataforma](service-fabric-diagnostics-event-generation-infra.md)
 * Para empezar a trabajar con la instrumentación de las aplicaciones, consulte [Generación de eventos y registros de nivel de aplicación](service-fabric-diagnostics-event-generation-app.md)

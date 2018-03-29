@@ -14,11 +14,11 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: 7faa34b5528c53c06aeda25be17cbc5f3db2acdf
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0abf25726936a3d5e69c809c9714965936c7c64c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>Guía del anunciante de Azure Marketplace y AppSource
 
@@ -308,7 +308,7 @@ Existen varias opciones para las aplicaciones de un único inquilino:
 - Desarrolle una versión de prueba por cliente.
 - Compile una aplicación de demostración de ejemplo multiinquilino con SSO.
 
-##<a name="publishing-processes-by-product-for-office-dynamics-and-power-bi"></a>Publicación de procesos por producto para Office, Dynamics y Power BI
+## <a name="publishing-processes-by-product-for-office-dynamics-and-power-bi"></a>Publicación de procesos por producto para Office, Dynamics y Power BI
 Para aplicaciones de AppSource que amplían Office, Dynamics y Power BI, puede aprender más sobre los requisitos específicos en la documentación específica del producto en esta sección. 
 
 

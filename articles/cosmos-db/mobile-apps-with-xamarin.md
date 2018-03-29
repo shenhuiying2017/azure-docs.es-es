@@ -1,11 +1,11 @@
 ---
-title: "Creación de aplicaciones móviles con Xamarin y Azure Cosmos DB | Microsoft Docs"
-description: "Tutorial que permite crear una aplicación de Xamarin iOS, Android o Forms mediante Azure Cosmos DB. Azure Cosmos DB es una base de datos de nube, a escala mundial y rápida para aplicaciones móviles."
+title: Creación de aplicaciones móviles con Xamarin y Azure Cosmos DB | Microsoft Docs
+description: Tutorial que permite crear una aplicación de Xamarin iOS, Android o Forms mediante Azure Cosmos DB. Azure Cosmos DB es una base de datos de nube, a escala mundial y rápida para aplicaciones móviles.
 services: cosmos-db
 documentationcenter: .net
 author: arramac
 manager: monicar
-editor: 
+editor: ''
 ms.assetid: ff97881a-b41a-499d-b7ab-4f394df0e153
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,15 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: arramac
-ms.openlocfilehash: 34952fb1cbe5577fa00ed7799d51ba46e7173d7e
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 0cbe9a8463e8b471e3e4b0b4403c3a5d01ed59a0
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>Creación de aplicaciones móviles con Xamarin y Azure Cosmos DB
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 La mayoría de las aplicaciones móviles necesitan almacenar los datos en la nube, y Azure Cosmos DB es una base de datos de nube para aplicaciones móviles. Tiene todo lo que un desarrollador de aplicaciones móviles puede necesitar. Es una base de datos como servicio completamente administrada que se escala a petición. Puede llevar los datos a su aplicación de forma transparente, dondequiera que se encuentren los usuarios en cualquier parte del mundo. Mediante el [SDK de .NET Core para Azure Cosmos DB](sql-api-sdk-dotnet-core.md), puede permitir que las aplicaciones móviles de Xamarin interactúen directamente con Azure Cosmos DB, sin una capa intermedia.
 
@@ -101,7 +99,7 @@ A medida que su aplicación gane popularidad, podría conseguir usuarios de todo
 
 ¡Enhorabuena! Ha finalizado la solución y tiene una aplicación móvil con Xamarin y Azure Cosmos DB. Siga pasos similares para crear aplicaciones de Cordova mediante el SDK de JavaScript para Azure Cosmos DB, y aplicaciones nativas de iOS o Android mediante las API de REST de Azure Cosmos DB.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Vea el código fuente de [Xamarin y Azure Cosmos DB en Github](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin).
 * Descargue el [SDK de .NET Core para Azure Cosmos DB](sql-api-sdk-dotnet-core.md).
 * Encuentre más ejemplos de código para [aplicaciones .NET](sql-api-dotnet-samples.md).

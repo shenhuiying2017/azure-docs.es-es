@@ -1,11 +1,11 @@
 ---
-title: "Preguntas más frecuentes sobre la configuración de aplicaciones web de Azure | Microsoft Docs"
-description: "Obtenga respuestas a preguntas frecuentes acerca de los problemas de configuración y administración de la característica Web Apps de Azure App Service."
+title: Preguntas más frecuentes sobre la configuración de aplicaciones web de Azure | Microsoft Docs
+description: Obtenga respuestas a preguntas frecuentes acerca de los problemas de configuración y administración de la característica Web Apps de Azure App Service.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.service: app-service-web
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 92cbc36ac2a566cf5dfbb2f7b3347973bab5ee8c
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: efbed264babe0b192590380639cdc1c8861b4f38
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Preguntas más frecuentes sobre la configuración y administración de Web Apps en Azure
 
@@ -251,7 +251,7 @@ Para más información sobre los trabajos web programados, consulte [Creación d
 
 ## <a name="how-do-i-perform-penetration-testing-for-my-app-service-app"></a>¿Cómo se realizan pruebas de penetración para una aplicación de App Service?
 
-Para realizar pruebas de penetración, [envíe una solicitud](https://security-forms.azure.com/penetration-testing/terms).
+Para realizar pruebas de penetración, [envíe una solicitud](https://portal.msrc.microsoft.com/en-us/engage/pentest).
 
 ## <a name="how-do-i-configure-a-custom-domain-name-for-an-app-service-web-app-that-uses-traffic-manager"></a>¿Cómo se configura un nombre de dominio personalizado para una aplicación web de App Service que usa Traffic Manager?
 

@@ -1,9 +1,9 @@
 ---
 title: Archivo del registro de actividades de Azure | Microsoft Docs
-description: "Aprenda a archivar el registro de actividades de Azure para su retención a largo plazo en una cuenta de almacenamiento."
+description: Aprenda a archivar el registro de actividades de Azure para su retención a largo plazo en una cuenta de almacenamiento.
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: d37d3fda-8ef1-477c-a360-a855b418de84
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2016
 ms.author: johnkem
-ms.openlocfilehash: 0b041cc6a986c6f7a11d213f03294c9716c20d04
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1ee634b3acf0fa8815b69aef21e6213aee636ce1
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="archive-the-azure-activity-log"></a>Archivo del registro de actividades de Azure
 En este artículo, le mostraremos cómo puede usar Azure Portal, los cmdlets de PowerShell o la CLI multiplataforma para archivar el [**registro de actividades de Azure**](monitoring-overview-activity-logs.md) en una cuenta de almacenamiento. Esta opción es útil si desea conservar el registro de actividades más de 90 días (con control total sobre la directiva de retención) para auditorías, análisis estáticos o copias de seguridad. Si solo necesita conservar los eventos durante 90 días o menos, no es necesario configurar el archivado en una cuenta de almacenamiento, ya que los eventos del registro de actividades se conservan en la plataforma de Azure durante 90 días sin necesidad de habilitar el archivado.
@@ -163,8 +163,8 @@ En el archivo PT1H.json, cada evento se almacena en la matriz de "registros" con
 > 
 > 
 
-## <a name="next-steps"></a>pasos siguientes
-* [Descargar blobs para el análisis](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs)
+## <a name="next-steps"></a>Pasos siguientes
+* [Descargar blobs para el análisis](../storage/blobs/storage-quickstart-blobs-dotnet.md)
 * [Transmitir el registro de actividades a Event Hubs](monitoring-stream-activity-logs-event-hubs.md)
 * [Obtener más información acerca del registro de actividades](monitoring-overview-activity-logs.md)
 

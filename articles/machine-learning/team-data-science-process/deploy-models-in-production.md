@@ -1,23 +1,23 @@
 ---
-title: "Implementación de datos en producción: Azure Machine Learning | Microsoft Docs"
-description: "La implementación de modelos en producción les permite desempeñar un papel activo en la toma de decisiones empresariales."
-documentationcenter: 
+title: 'Implementación de datos en producción: Azure Machine Learning | Microsoft Docs'
+description: La implementación de modelos en producción les permite desempeñar un papel activo en la toma de decisiones empresariales.
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
-ms.author: bradsev;
-ms.openlocfilehash: 122c6db2a915dd2a933e261b5b735e7214407d66
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.author: bradsev
+ms.openlocfilehash: ddb45dd5fae0fbdecebbc262d7bac78ff2b10f21
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="deploy-models-in-production"></a>Implementación de modelos en producción
 
@@ -45,7 +45,7 @@ Hay varios enfoques y plataformas para poner los modelos en producción. Estas s
 Cuando hay varios modelos en producción, puede resultar útil realizar [pruebas A/B](https://en.wikipedia.org/wiki/A/B_testing) para comparar el rendimiento de los modelos. 
 
  
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 También se proporcionan tutoriales que muestran todos los pasos del proceso en **escenarios concretos**. Se enumeran y enlazan con descripciones en miniatura en los [tutoriales de ejemplo](walkthroughs.md). En ellos se ilustra cómo combinar herramientas y servicios locales y en la nube en un flujo de trabajo o canalización para crear una aplicación inteligente. 
  

@@ -1,11 +1,11 @@
 ---
-title: "Creación de características para datos de SQL Server con SQL y Python | Microsoft Docs"
+title: Creación de características para datos de SQL Server con SQL y Python | Microsoft Docs
 description: Procesar datos de SQL Azure
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
-editor: 
+editor: ''
 ms.assetid: bf1f4a6c-7711-4456-beb7-35fdccd46a44
 ms.service: machine-learning
 ms.workload: data-services
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
-ms.author: bradsev;garye
-ms.openlocfilehash: df1e658d532dcb23fdf0aa14bfad59e98c8ff7a8
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.author: bradsev
+ms.openlocfilehash: 5eaa7b5b30617cabedc7ed15a8fc7b174ecc68f2
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-features-for-data-in-sql-server-using-sql-and-python"></a>Creación de características para datos de SQL Server con SQL y Python
 En este documento se muestra cómo generar características para los datos almacenados en una VM de SQL Server en Azure que ayudan a los algoritmos a aprender de forma eficaz de los datos. Puede utilizar SQL o un lenguaje de programación como Python para realizar esta tarea. Ambos enfoques se muestran aquí.
