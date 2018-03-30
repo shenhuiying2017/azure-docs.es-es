@@ -56,7 +56,7 @@
 ## Administración de Azure AD Connect Sync
 ### [Cumplimiento de GDPR y Azure AD Connect](active-directory-aadconnect-gdpr.md)
 ### [Evitar eliminaciones accidentales](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
-### [Sincronización de contraseñas](active-directory-aadconnectsync-implement-password-synchronization.md)
+### [Sincronización de hash de contraseñas](active-directory-aadconnectsync-implement-password-hash-synchronization.md)
 ### [Cuenta de servicio de Azure AD](active-directory-aadconnectsync-howto-azureadaccount.md)
 ### [Asistente para la instalación](active-directory-aadconnectsync-installation-wizard.md)
 ### [¿Cómo se rellena UserPrincipalName?](active-directory-aadconnect-userprincipalname.md)
@@ -86,7 +86,7 @@
 ### [Errores durante la sincronización](active-directory-aadconnect-troubleshoot-sync-errors.md)
 ### [El objeto no está sincronizado](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)
 ### [Sincronización de objetos mediante la tarea de solución de problemas](active-directory-aadconnect-troubleshoot-objectsync.md)
-### [Sincronización de contraseñas](active-directory-aadconnectsync-troubleshoot-password-synchronization.md)
+### [Sincronización de hash de contraseñas](active-directory-aadconnectsync-troubleshoot-password-hash-synchronization.md)
 ### [Error LargeObject provocado por userCertificate](active-directory-aadconnectsync-largeobjecterror-usercertificate.md)
 ### [Recuperación del límite de 10 GB de LocalDB](active-directory-aadconnect-recover-from-localdb-10gb-limit.md)
 

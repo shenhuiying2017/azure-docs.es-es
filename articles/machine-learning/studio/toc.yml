@@ -3,8 +3,6 @@
 - name: Información general
   expanded: true
   items:
-    - name: ¿Qué es Machine Learning?
-      href: what-is-machine-learning.md
     - name: Machine Learning Studio
       href: what-is-ml-studio.md
     - name: Funcionalidades de ML Studio
