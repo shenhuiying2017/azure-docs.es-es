@@ -59,6 +59,8 @@
       items:
         - name: Dirección IP estática
           href: static-ip.md
+        - name: Equilibrador de carga interno
+          href: internal-lb.md
         - name: Entrada y TLS
           href: ingress.md
     - name: Seguridad y autenticación
