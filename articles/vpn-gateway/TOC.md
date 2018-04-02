@@ -6,6 +6,10 @@
 ## [Límites del servicio y la suscripción](../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 
 # Introducción
+## [Creación de una puerta de enlace VPN basada en ruta - Azure Portal](create-routebased-vpn-gateway-portal.md)
+## [Creación de una puerta de enlace VPN basada en ruta - PowerShell](create-routebased-vpn-gateway-powershell.md)
+
+# Conceptos
 ## [Planeamiento y diseño de VPN Gateway](vpn-gateway-plan-design.md)
 ## [Acerca de la configuración de VPN Gateway](vpn-gateway-about-vpn-gateway-settings.md)
 ## [Acerca de los dispositivos VPN](vpn-gateway-about-vpn-devices.md)

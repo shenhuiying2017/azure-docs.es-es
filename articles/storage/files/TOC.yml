@@ -18,44 +18,56 @@
       href: storage-how-to-use-files-linux.md
     - name: Montaje en Mac
       href: storage-how-to-use-files-mac.md
-    - name: Administración con el portal
+    - name: Administración con Azure Portal
       href: storage-how-to-use-files-portal.md
+    - name: Administración con PowerShell
+      href: storage-how-to-use-files-powershell.md
+    - name: Administración con la CLI de Azure
+      href: storage-how-to-use-files-cli.md
+    - name: Administración con el Explorador de Storage
+      href: storage-how-to-use-files-storage-explorer.md
 - name: Procedimientos
   items:
-    - name: Planeamiento y diseño
+    - name: Plan
       items:
-        - name: Opciones de la cuenta de almacenamiento
+        - name: Planeamiento de una implementación de Azure Files
+          href: storage-files-planning.md
+        - name: Planeamiento de una implementación de Azure Files Sync
+          href: storage-sync-files-planning.md
+        - name: Información acerca de las cuentas de almacenamiento
           href: ../common/storage-account-options.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Implementación de Azure Files
-          items:
-            - name: Planeamiento de una implementación de Azure Files
-              href: storage-files-planning.md
-            - name: Implementación de Azure Files
-              href: storage-files-deployment-guide.md
-        - name: Implementación de Azure File Sync
-          items:
-            - name: Planeamiento de una implementación de Azure Files Sync
-              href: storage-sync-files-planning.md
-            - name: Implementación de Azure Files Sync
-              href: storage-sync-files-deployment-guide.md
-            - name: Configuración del proxy y el firewall de Azure File Sync
-              href: storage-sync-files-firewall-and-proxy.md
-        - name: Acerca de las instantáneas de recursos compartidos de archivos
+        - name: Información acerca de las instantáneas de recursos compartidos de archivos
           href: storage-snapshots-files.md
-        - name: Trabajo con instantáneas de recursos compartidos de archivos
-          href: storage-how-to-use-files-snapshots.md
-        - name: Replicación
+        - name: Opciones de redundancia de almacenamiento
           href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Objetivos de escalabilidad y rendimiento
           href: storage-files-scale-targets.md
-        - name: Lista de comprobación de rendimiento y escalabilidad
-          href: ../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Simultaneidad
-          href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Guía de recuperación ante desastres
           href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Notas de la versión de Azure File Sync
+          href: storage-files-release-notes.md
+    - name: Implementación
+      items:
+        - name: Implementación de Azure Files
+          href: storage-files-deployment-guide.md
+        - name: Implementación de Azure Files Sync
+          href: storage-sync-files-deployment-guide.md
+        - name: Configuración del proxy y el firewall de Azure File Sync
+          href: storage-sync-files-firewall-and-proxy.md
+    - name: administración
+      items:
+        - name: Registro de un servidor en Azure Files Sync
+          href: storage-sync-files-server-registration.md
+        - name: Adición de un punto de conexión de servidor de Azure Files Sync
+          href: storage-sync-files-server-endpoint.md
+        - name: 'PowerShell para nubes de China, Alemania y de la administración pública'
+          href: ../common/storage-powershell-independent-clouds.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Azure Automation
+          href: ../common/storage-manage-with-automation.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Desarrollo
       items:
+        - name: Administrar la simultaneidad
+          href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: .NET
           href: storage-dotnet-how-to-use-files.md
         - name: Java
@@ -72,26 +84,6 @@
               href: ../common/storage-samples-java.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Configurar cadenas de conexión
           href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: administración
-      items:
-        - name: PowerShell para Azure Files
-          href: storage-how-to-use-files-powershell.md
-        - name: PowerShell para Azure Storage
-          href: ../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: 'PowerShell para nubes de China, Alemania y de la administración pública'
-          href: ../common/storage-powershell-independent-clouds.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: CLI de Azure 2.0
-          href: ../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: CLI de Azure 1.0
-          href: ../common/storage-azure-cli-nodejs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Registro de un servidor en Azure Files Sync
-          href: storage-sync-files-server-registration.md
-        - name: Adición de un punto de conexión de servidor de Azure Files Sync
-          href: storage-sync-files-server-endpoint.md
-        - name: Uso del Explorador de Storage con Azure File Storage
-          href: ../../vs-azure-tools-storage-explorer-files.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Azure Automation
-          href: ../common/storage-manage-with-automation.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Protección
       items:
         - name: Guía de seguridad
@@ -238,5 +230,3 @@
           href: 'https://github.com/Azure/azure-storage-ruby'
         - name: iOS
           href: 'https://github.com/Azure/azure-storage-ios'
-    - name: Notas de la versión de Azure File Sync
-      href: storage-files-release-notes.md
