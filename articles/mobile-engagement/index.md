@@ -1,24 +1,28 @@
 ---
-title: "Documentación sobre Azure Mobile Engagement: tutoriales y referencia de API | Microsoft Docs"
-description: "Obtenga información acerca de cómo obtener información detallada sobre el uso de aplicaciones móviles y la segmentación de los usuarios en tiempo real, y cómo habilitar las notificaciones push contextuales y la mensajería en la aplicación."
+title: 'Documentación sobre Azure Mobile Engagement: tutoriales y referencia de API | Microsoft Docs'
+description: Obtenga información acerca de cómo obtener información detallada sobre el uso de aplicaciones móviles y la segmentación de los usuarios en tiempo real, y cómo habilitar las notificaciones push contextuales y la mensajería en la aplicación.
 services: mobile-engagement
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: mobile-engagement
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 5f682ba16b52b9a084505b8212c4b6f043bb94c9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 874b40e0e1407be9f546c5a5f57cee2d1034a840
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="mobile-engagement-documentation"></a>Documentación de Mobile Engagement
+
+> [!IMPORTANT]
+> Azure Mobile Engagement se retira el 31 de marzo de 2018. Esta página se eliminará poco después.
+> 
 
 Obtenga información acerca de cómo aumentar el uso, la retención y la capitalización de las aplicaciones móviles con Mobile Engagement. Los tutoriales, los SDK y otra documentación muestran cómo obtener información detallada sobre el uso de aplicaciones y la segmentación de los usuarios en tiempo real, y cómo habilitar las notificaciones push contextuales y la mensajería en la aplicación.
 

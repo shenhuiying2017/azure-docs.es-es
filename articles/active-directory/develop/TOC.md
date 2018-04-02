@@ -45,7 +45,7 @@
 ### [Depuración de SSO basado en SAML](active-directory-saml-debugging.md)
 ### [Protocolo SAML de inicio de sesión único](active-directory-single-sign-on-protocol-reference.md)
 ### [Protocolo SAML de cierre de sesión único](active-directory-single-sign-out-protocol-reference.md)
-### [Creación de un inquilino](active-directory-howto-tenant.md)
+## [Creación de un inquilino](active-directory-howto-tenant.md)
 ## [Instrucciones de personalización de marca](active-directory-branding-guidelines.md)
 ## SSO móvil y de escritorio
 ### [Habilitación de SSO en Android](active-directory-sso-android.md)

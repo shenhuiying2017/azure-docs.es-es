@@ -240,7 +240,7 @@
       items:
         - name: Información general de la supervisión
           href: service-fabric-diagnostics-overview.md
-        - name: Registro de clúster
+        - name: Eventos de clúster
           href: service-fabric-diagnostics-event-generation-infra.md
           items:
             - name: Canal operativo
@@ -567,6 +567,8 @@
           href: service-fabric-diagnostics-perf-wad.md
         - name: Comprobación y notificación de mantenimiento
           href: service-fabric-diagnostics-how-to-report-and-check-service-health.md
+        - name: Adición de registro a un servicio
+          href: service-fabric-how-to-diagnostics-log.md
         - name: Solución de problemas con informes de estado del sistema
           href: service-fabric-understand-and-troubleshoot-with-system-health-reports.md
         - name: Visualización de informes de estado

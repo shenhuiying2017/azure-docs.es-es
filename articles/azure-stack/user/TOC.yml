@@ -27,6 +27,8 @@
   items:
     - name: Uso del portal de Azure Stack
       href: azure-stack-use-portal.md
+    - name: Uso de la API de Azure Stack
+      href: azure-stack-rest-api-use.md
     - name: Seguridad y cumplimiento
       items:
         - name: Administración de RBAC
