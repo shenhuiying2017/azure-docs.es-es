@@ -1,5 +1,5 @@
 - name: Documentación de la supervisión de Azure
-  href: management-overview-monitoring.md
+  href: index.md
 - name: Información general
   items:
     - name: Supervisión en Azure
