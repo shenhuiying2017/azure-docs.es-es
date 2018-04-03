@@ -8,6 +8,7 @@
 # Introducción
 ## [Creación de una puerta de enlace VPN basada en ruta - Azure Portal](create-routebased-vpn-gateway-portal.md)
 ## [Creación de una puerta de enlace VPN basada en ruta - PowerShell](create-routebased-vpn-gateway-powershell.md)
+## [Creación de una puerta de enlace VPN basada en ruta - CLI](create-routebased-vpn-gateway-cli.md)
 
 # Conceptos
 ## [Planeamiento y diseño de VPN Gateway](vpn-gateway-plan-design.md)

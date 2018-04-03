@@ -1,6 +1,6 @@
 ---
-title: "Inicio rápido de Azure: Carga, descarga y enumeración de blobs de Azure Storage mediante el Explorador de Azure Storage | Microsoft Docs"
-description: "En esta guía de inicio rápido, puede usar el Explorador de Azure Storage para crear una cuenta de almacenamiento y un contenedor. Después, puede usar este explorador para cargar un blob en Azure Storage, descargar un blob o enumerar los blobs de un contenedor."
+title: 'Inicio rápido de Azure: Carga, descarga y enumeración de blobs de Azure Storage mediante el Explorador de Azure Storage | Microsoft Docs'
+description: En esta guía de inicio rápido, puede usar el Explorador de Azure Storage para crear una cuenta de almacenamiento y un contenedor. Después, puede usar este explorador para cargar un blob en Azure Storage, descargar un blob o enumerar los blobs de un contenedor.
 services: storage
 author: tamram
 manager: jeconnoc
@@ -9,11 +9,11 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 02/22/2018
 ms.author: tamram
-ms.openlocfilehash: 72503dd0216d9d987d1222491c6e11d46a4d38a3
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: f44d42b949eae0d017e3bba218234fd1e2ead78e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-azure-storage-explorer"></a>Inicio rápido: Carga, descarga y enumeración de blobs mediante el Explorador de Azure Storage
 
@@ -47,7 +47,7 @@ Cuando se completa la conexión, el Explorador de Microsoft Azure Storage se car
 
 Los blobs siempre se cargan en un contenedor. Esto le permite organizar grupos de blobs de la misma forma que organiza archivos en carpetas en el equipo.
 
-Para crear un contenedor, expanda la cuenta de almacenamiento que creó en el paso anterior. Seleccione **Contenedor de blobs**, haga clic con el botón derecho y seleccione **Crear contenedor de blobs**. Escriba el nombre del contenedor de blobs. Para ver una lista de reglas y restricciones en la nomenclatura de contenedores de blobs, consulte la sección [Reglas de nomenclatura de contenedor](storage-dotnet-how-to-use-blobs.md#create-a-container). Cuando haya finalizado, presione **Entrar** para crear el contenedor de blobs. Una vez que el contenedor de blobs se haya creado correctamente, se mostrará en la carpeta **Contenedores de blobs** de la cuenta de almacenamiento seleccionada.
+Para crear un contenedor, expanda la cuenta de almacenamiento que creó en el paso anterior. Seleccione **Contenedor de blobs**, haga clic con el botón derecho y seleccione **Crear contenedor de blobs**. Escriba el nombre del contenedor de blobs. Para ver una lista de reglas y restricciones en la nomenclatura de contenedores de blobs, consulte la sección [Creación del contenedor y establecimiento de los permisos](storage-quickstart-blobs-dotnet.md#create-the-container-and-set-permissions). Cuando haya finalizado, presione **Entrar** para crear el contenedor de blobs. Una vez que el contenedor de blobs se haya creado correctamente, se mostrará en la carpeta **Contenedores de blobs** de la cuenta de almacenamiento seleccionada.
 
 ## <a name="upload-blobs-to-the-container"></a>Carga de blobs al contenedor
 
@@ -93,7 +93,7 @@ Las firmas de acceso compartido (SAS) se pueden recuperar mediante el Explorador
 
 ![Explorador de Microsoft Azure Storage: Enumeración de los blobs de un contenedor](media/storage-quickstart-blobs-storage-explorer/sharedaccesssignature.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En esta guía de inicio rápido aprendió a transferir archivos entre un disco local y Azure Blob Storage mediante el **Explorador de Microsoft Azure Storage**. Para más información sobre cómo trabajar con Blob Storage, continúe con los procedimientos de Blob Storage.
 
