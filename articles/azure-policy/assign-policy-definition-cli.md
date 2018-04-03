@@ -9,11 +9,11 @@ ms.date: 03/13/2018
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: f56f00aabbef2cfa86264d3e962af9a9c0bafa98
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1ff1240073e25bf406e7da6b79135264376a5b3f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment-with-the-azure-cli"></a>Creación de una asignación de directiva para identificar recursos no compatibles en el entorno de Azure con la CLI de Azure
 
@@ -46,7 +46,7 @@ El comando anterior usa la siguiente información:
 - **Name**: nombre para mostrar para la asignación de directiva. En este caso, se usa la *Auditoría de máquinas virtuales sin discos administrados*.
 - **Policy**: identificador de definición de la directiva, según la opción utilizada para crear la asignación. En este caso, es la definición de la directiva: *Auditoría de máquinas virtuales sin discos administrados*. Para obtener el identificador de definición de directiva, ejecute este comando: `az policy definition show --name 'Audit Virtual Machines without Managed Disks Assignment'`
 - **Scope**: un ámbito determina en qué recursos o agrupación de recursos se aplica la asignación de directiva. Puede abarcar desde una suscripción hasta grupos de recursos. Asegúrese de sustituir &lt;scope&gt; por el nombre del grupo de recursos.
-- **SKU**: este comando crea una asignación de directiva con el nivel estándar. El nivel estándar permite lograr la administración a escala, la evaluación del cumplimiento y la corrección. En este momento, el nivel estándar es gratuito. Más adelante, supondrá un costo. Cuando el precio varíe, se anunciará y se proporcionarán más detalles en [Precios de Azure Policy](https://azure.microsoft.com/pricing/details/azure-policy).
+- **SKU**: este comando crea una asignación de directiva con el nivel estándar. El nivel estándar permite lograr la administración a escala, la evaluación del cumplimiento y la corrección. Para más información acerca de los planes de tarifas, consulte [Precios de Azure Policy](https://azure.microsoft.com/pricing/details/azure-policy).
 
 
 ## <a name="identify-non-compliant-resources"></a>Identificación de recursos no compatibles

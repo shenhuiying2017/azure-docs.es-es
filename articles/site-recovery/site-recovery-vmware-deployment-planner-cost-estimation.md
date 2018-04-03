@@ -1,12 +1,12 @@
 ---
 title: Azure Site Recovery Deployment Planner para VMware en Azure| Microsoft Docs
-description: "Esta es la guía del usuario de Azure Site Recovery Deployment Planner."
+description: Esta es la guía del usuario de Azure Site Recovery Deployment Planner.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: nsoneji
 manager: garavd
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 03/09/2018
 ms.author: nisoneji
-ms.openlocfilehash: 63963804b81aa57e914e18fa474963a3830d04d5
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 337217e66fe4d3780af197911a0e72c6f936e411
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="cost-estimation-report-of-azure-site-recovery-deployment-planner"></a>Informe de estimación de costos de Azure Site Recovery Deployment Planner  
 
@@ -110,7 +110,7 @@ Para agregar las máquinas virtuales manualmente:
 * Each DR drill duration (Days) [Duración de cada simulacro de recuperación ante desastres (días)] 
 * OS Type (Tipo de SO)
 * Redundancia de datos 
-* Ventaja de uso híbrido de Azure
+* Ventaja híbrida de Azure
 
 3.  Haga clic en el botón "Apply to all" (Aplicar a todas) para aplicar a todas las máquinas virtuales de la tabla el mismo valor de número de simulacros de recuperación ante desastres en un año, duración de cada simulacro de recuperación ante desastres y ventaja para uso híbrido de Azure.
 
@@ -136,7 +136,7 @@ Para agregar las máquinas virtuales manualmente:
 
 **Data redundancy**: la redundancia de datos puede ser almacenamiento con redundancia local (LRS), almacenamiento con redundancia geográfica (GRS) o almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS). El valor predeterminado es LRS. Puede cambiar el tipo en función de su cuenta de almacenamiento para máquinas virtuales específicas o puede aplicar el nuevo tipo a todas las máquinas virtuales. Para ello, cambie el tipo de la fila superior y haga clic en el botón "Apply to all" (Aplicar a todas).  El costo del almacenamiento para la replicación se calcula en función del precio de la redundancia de datos que ha seleccionado. 
 
-**Azure Hybrid Use Benefit**: puede aplicar la ventaja para uso híbrido de Azure a las máquinas virtuales de Windows, si es aplicable.  El valor predeterminado es Yes. Puede cambiar la configuración de máquinas virtuales específicas o actualizar todas las máquinas virtuales. Para ello, haga clic en el botón "Apply to all" (Aplicar a todas).
+**Ventaja híbrida de Azure**: puede aplicar Ventaja híbrida de Azure a máquinas virtuales Windows, si es aplicable.  El valor predeterminado es Yes. Puede cambiar la configuración de máquinas virtuales específicas o actualizar todas las máquinas virtuales. Para ello, haga clic en el botón "Apply to all" (Aplicar a todas).
 
 **Total Azure consumption**: incluye los costos de licencia de Azure Site Recovery, almacenamiento y proceso para la recuperación ante desastres. En función de los valores seleccionados, mostrará el costo mensual o anual.
 

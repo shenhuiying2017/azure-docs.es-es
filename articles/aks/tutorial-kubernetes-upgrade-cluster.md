@@ -1,6 +1,6 @@
 ---
-title: "Tutorial de Kubernetes en Azure: actualización del clúster"
-description: "Tutorial de Kubernetes en Azure: actualización del clúster"
+title: 'Tutorial de Kubernetes en Azure: actualización del clúster'
+description: 'Tutorial de Kubernetes en Azure: actualización del clúster'
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 16c8892743ac25c21b7004e10796c77c3ac9f900
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 9c63bf2204f1e18cda6bfc80d54b01240193833f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="upgrade-kubernetes-in-azure-container-service-aks"></a>Actualización de Kubernetes en Azure Container Service (AKS)
+# <a name="tutorial-upgrade-kubernetes-in-azure-container-service-aks"></a>Tutorial: Actualización de Kubernetes en Azure Container Service (AKS)
 
 Un clúster de Azure Container Service (AKS) se puede actualizar mediante la CLI de Azure. Durante el proceso de actualización, los nodos de Kubernetes se [acordonan y vacían][kubernetes-drain] minuciosamente para minimizar las interrupciones en las aplicaciones en ejecución.
 
@@ -129,7 +129,7 @@ Name          Location    ResourceGroup    KubernetesVersion    ProvisioningStat
 myAKSCluster  eastus     myResourceGroup  1.8.2                Succeeded            myk8sclust-myresourcegroup-3762d8-2f6ca801.hcp.eastus.azmk8s.io
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, actualizó Kubernetes en un clúster de AKS. Se completaron las siguientes tareas:
 

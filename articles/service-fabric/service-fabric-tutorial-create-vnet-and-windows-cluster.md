@@ -1,12 +1,12 @@
 ---
-title: "Creación de un clúster de Azure Service Fabric en Azure | Microsoft Docs"
-description: "En este tutorial, aprenderá a implementar un clúster de Azure Service Fabric con Windows en una instancia existente de Azure Virtual Network mediante PowerShell."
+title: Creación de un clúster de Azure Service Fabric en Azure | Microsoft Docs
+description: En este tutorial, aprenderá a implementar un clúster de Azure Service Fabric con Windows en una instancia de Azure Virtual Network mediante PowerShell.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: tutorial
@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 01/22/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 7418e0420b14f044bac253046a8971d1263e45b3
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: b9bf9d8fcb64191295a88f5ac9ccf62d5e22eb18
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Tutorial: Implementación de un clúster de Windows de Service Fabric en una red virtual de Azure
 Este tutorial es la primera parte de una serie. Con él puede aprender a implementar un clúster de Service Fabric con Windows en una instancia de [Azure Virtual Network (VNET)](../virtual-network/virtual-networks-overview.md) y en un [grupo de seguridad de red](../virtual-network/virtual-networks-nsg.md) mediante PowerShell y una plantilla. Cuando haya terminado, tendrá un clúster que se ejecuta en la nube en el que puede implementar aplicaciones.  Para crear un clúster de Linux con la CLI de Azure, consulte [Create a secure Linux cluster on Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md) (Creación de un clúster de Linux seguro en Azure).
@@ -162,8 +162,8 @@ Set-AzureRmContext -SubscriptionId <guid>
 New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
 
 # Create the Service Fabric cluster.
-New-AzureRmServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\vnet-linuxcluster.json" `
--ParameterFile "$templatepath\vnet-linuxcluster.parameters.json" -CertificatePassword $certpwd `
+New-AzureRmServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\vnet-cluster.json" `
+-ParameterFile "$templatepath\vnet-cluster.parameters.json" -CertificatePassword $certpwd `
 -KeyVaultName $vaultname -KeyVaultResouceGroupName $vaultgroupname -CertificateFile $certpath
 ```
 
@@ -192,8 +192,8 @@ Set-AzureRmContext -SubscriptionId <guid>
 New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
 
 # Create the Service Fabric cluster.
-New-AzureRmServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\vnet-linuxcluster.json" `
--ParameterFile "$templatepath\vnet-linuxcluster.parameters.json" -CertificatePassword $certpwd `
+New-AzureRmServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\vnet-cluster.json" `
+-ParameterFile "$templatepath\vnet-cluster.parameters.json" -CertificatePassword $certpwd `
 -CertificateOutputFolder $certfolder -KeyVaultName $vaultname -KeyVaultResouceGroupName $vaultgroupname -CertificateSubjectName $subname
 
 ```
@@ -236,7 +236,7 @@ Remove-AzureRmResourceGroup -Name $groupname -Force
 Remove-AzureRmResourceGroup -Name $vaultgroupname -Force
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este tutorial aprendió lo siguiente:
 
 > [!div class="checklist"]

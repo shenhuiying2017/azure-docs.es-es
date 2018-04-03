@@ -1,6 +1,6 @@
 ---
-title: "Tutorial de Azure Container Service: actualización de una aplicación"
-description: "Tutorial de Azure Container Service: actualización de una aplicación"
+title: 'Tutorial de Azure Container Service: actualización de una aplicación'
+description: 'Tutorial de Azure Container Service: actualización de una aplicación'
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 5f22bb3ac378bc9b1ff94db486d6ea6053c64514
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 87de0f23a00b035b12bac6cf655781961b1fb9e5
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="update-an-application-in-kubernetes"></a>Actualización de una aplicación en Kubernetes
 
@@ -29,7 +29,7 @@ En este tutorial, la sección seis de siete, se actualiza la aplicación de ejem
 > * Inserción de una imagen de contenedor en Azure Container Registry
 > * Implementación de una imagen de contenedor actualizado
 
-En tutoriales posteriores, se configura Operations Management Suite para supervisar el clúster de Kubernetes.
+En tutoriales posteriores, se va a configurar Log Analytics para supervisar el clúster de Kubernetes.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -71,7 +71,7 @@ docker-compose up --build -d
 
 ## <a name="test-application-locally"></a>Prueba local de la aplicación
 
-Vaya a http://localhost:8080 para ver la aplicación actualizada.
+Navegue hasta http://localhost:8080 para ver la aplicación actualizada.
 
 ![Imagen del clúster de Kubernetes en Azure](media/container-service-kubernetes-tutorials/vote-app-updated.png)
 
@@ -156,7 +156,7 @@ Navegue hasta la dirección IP para ver la aplicación actualizada.
 
 ![Imagen del clúster de Kubernetes en Azure](media/container-service-kubernetes-tutorials/vote-app-updated-external.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, actualiza una aplicación y se implanta esta actualización en un clúster de Kubernetes. Se completaron las siguientes tareas:
 
@@ -166,7 +166,7 @@ En este tutorial, actualiza una aplicación y se implanta esta actualización en
 > * Insertó una imagen de contenedor en Azure Container Registry
 > * Implemento la aplicación actualizada
 
-Avance al siguiente tutorial para obtener información sobre cómo supervisar Kubernetes con Operations Management Suite.
+Vaya al siguiente tutorial para obtener información sobre cómo supervisar Kubernetes con Log Analytics.
 
 > [!div class="nextstepaction"]
-> [Supervisión de Kubernetes con OMS](./container-service-tutorial-kubernetes-monitor.md)
+> [Supervisión de Kubernetes con Log Analytics](./container-service-tutorial-kubernetes-monitor.md)

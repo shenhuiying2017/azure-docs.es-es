@@ -9,11 +9,11 @@ ms.date: 3/14/2018
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 9f7d32d3d1208b6fe6075f7dacdd6d350aee03e2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 45c5ccd0f891a5592eee7400de108c5097f75286
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-the-azure-rm-powershell-module"></a>Inicio rápido: Creación de una asignación de directiva para identificar recursos no compatibles con el módulo Azure RM PowerShell
 
@@ -48,7 +48,7 @@ Los comandos anteriores usan la siguiente información:
 - **Name**: nombre para mostrar para la asignación de directiva. En este caso, se usa la *auditoría de máquinas virtuales sin discos administrados*.
 - **Definition**: definición de la directiva, según la opción utilizada para crear la asignación. En este caso, es la definición de la directiva: *Auditoría de máquinas virtuales sin discos administrados*.
 - **Scope**: un ámbito determina en qué recursos o agrupación de recursos se aplica la asignación de directiva. Puede abarcar desde una suscripción hasta grupos de recursos. Asegúrese de sustituir &lt;scope&gt; por el nombre del grupo de recursos.
-- **SKU**: este comando crea una asignación de directiva con el nivel estándar. El nivel estándar permite lograr la administración a escala, la evaluación del cumplimiento y la corrección. En este momento, el nivel estándar es gratuito. Más adelante, supondrá un costo. Cuando el precio varíe, se anunciará y se proporcionarán más detalles en [Precios de Azure Policy](https://azure.microsoft.com/pricing/details/azure-policy).
+- **SKU**: este comando crea una asignación de directiva con el nivel estándar. El nivel estándar permite lograr la administración a escala, la evaluación del cumplimiento y la corrección. Para más información acerca de los planes de tarifas, consulte [Precios de Azure Policy](https://azure.microsoft.com/pricing/details/azure-policy).
 
 
 Ahora ya está listo para identificar los recursos no compatibles para saber el estado de cumplimiento de su entorno.

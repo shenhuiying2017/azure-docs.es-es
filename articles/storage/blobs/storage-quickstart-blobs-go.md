@@ -1,6 +1,6 @@
 ---
-title: "Inicio rápido de Azure: Carga, descarga y enumeración de blobs en Azure Storage mediante Go | Microsoft Docs"
-description: "En esta guía de inicio rápido, puede crear una cuenta de almacenamiento y un contenedor. Después, puede usar la biblioteca de clientes de almacenamiento para Go a fin de cargar un blob en Azure Storage, descargar un blob o enumerar los blobs de un contenedor."
+title: 'Inicio rápido de Azure: Carga, descarga y enumeración de blobs en Azure Storage mediante Go | Microsoft Docs'
+description: En esta guía de inicio rápido, puede crear una cuenta de almacenamiento y un contenedor. Después, puede usar la biblioteca de clientes de almacenamiento para Go a fin de cargar un blob en Azure Storage, descargar un blob o enumerar los blobs de un contenedor.
 services: storage
 author: seguler
 manager: jeconnoc
@@ -9,11 +9,11 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 02/22/2018
 ms.author: seguler
-ms.openlocfilehash: a30d012ea663b04028a4b0ebb2880532a596500b
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 5572eaafa49200be0b2a8156dbc96bffd48be925
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-go"></a>Inicio rápido: Carga, descarga y enumeración de blobs mediante Go
 
@@ -212,6 +212,13 @@ file.Close()
 os.Remove(fileName)
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="resources-for-developing-go-applications-with-blobs"></a>Recursos para el desarrollo de aplicaciones de Go con blobs
+
+Consulte estos recursos adicionales para el desarrollo de Go con Blob Storage:
+
+- Vea e instale el [código fuente de la biblioteca cliente de Go](https://github.com/Azure/azure-storage-blob-go) para Azure Storage en GitHub.
+- Explore los [ejemplos de Blob Storage](https://godoc.org/github.com/Azure/azure-storage-blob-go/2016-05-31/azblob#pkg-examples) escritos mediante la biblioteca cliente de Go.
+
+## <a name="next-steps"></a>Pasos siguientes
  
 En esta guía de inicio rápido, ha aprendido a transferir archivos entre un disco local y Azure Blob Storage mediante Go. Para más información sobre el SDK de Azure Storage Blob, vea el [código fuente](https://github.com/Azure/azure-storage-blob-go/) y la [referencia de la API](https://godoc.org/github.com/Azure/azure-storage-blob-go/2016-05-31/azblob).

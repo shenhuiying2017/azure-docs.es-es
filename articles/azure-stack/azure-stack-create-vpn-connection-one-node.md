@@ -1,11 +1,11 @@
 ---
-title: "Creación de una conexión VPN de sitio a sitio entre dos redes virtuales en diferentes entornos del Kit de desarrollo de Azure Stack | Microsoft Docs"
-description: "Procedimiento paso a paso que permite a un administrador en la nube crear una conexión VPN de sitio a sitio entre dos entornos del Kit de desarrollo de Azure Stack de un solo nodo."
+title: Creación de una conexión VPN de sitio a sitio entre dos redes virtuales en diferentes entornos del Kit de desarrollo de Azure Stack | Microsoft Docs
+description: Procedimiento paso a paso que permite a un administrador en la nube crear una conexión VPN de sitio a sitio entre dos entornos del Kit de desarrollo de Azure Stack de un solo nodo.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 3f1b4e02-dbab-46a3-8e11-a777722120ec
 ms.service: azure-stack
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 7/10/2017
 ms.author: brenduns
 ms.reviewer: scottnap
-ms.openlocfilehash: 886d56169c5500c9175b7ddc43edfc29c5142fbb
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8bb10be63ef31ebe6241c15a79dafe71923a4cf7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-development-kit-environments"></a>Creación de una conexión VPN de sitio a sitio entre dos redes virtuales en diferentes entornos del Kit de desarrollo de Azure Stack
 ## <a name="overview"></a>Información general
@@ -33,7 +33,7 @@ El diagrama siguiente muestra el aspecto que debería tener la configuración de
 ### <a name="before-you-begin"></a>Antes de empezar
 Para completar esta configuración de conexión, asegúrese de tener los elementos siguientes antes de empezar:
 
-* Dos servidores que cumplan los requisitos de hardware del Kit de desarrollo de Azure Stack que se definen en [Requisitos previos de la implementación de Azure Stack](azure-stack-deploy.md). Asegúrese de que los otros requisitos previos que aparecen en el [artículo](azure-stack-deploy.md) también se cumplen.
+* Dos servidores y otros requisitos previos que cumplen con los requisitos de hardware del Kit de desarrollo de Azure Stack, tal como se describe en [Guía de inicio rápido: Evaluación del Kit de desarrollo de Azure Stack](azure-stack-deploy-overview.md). 
 * Paquete de implementación del [Kit de desarrollo de Azure Stack](https://azure.microsoft.com/en-us/overview/azure-stack/try/).
 
 ## <a name="deploy-the-azure-stack-development-kit-environments"></a>Implementación de los entornos del Kit de desarrollo de Azure Stack

@@ -1,6 +1,6 @@
 ---
-title: "Solución de problemas de Azure Files Backup"
-description: "Este artículo contiene información para solución de problemas que se producen al proteger archivos (recursos compartidos de archivos) de Azure en Azure."
+title: Solución de problemas de Azure Files Backup
+description: Este artículo contiene información para solución de problemas que se producen al proteger recursos compartidos de archivos de Azure.
 services: backup
 ms.service: backup
 keywords: No agregue ni edite palabras clave sin consultar a su responsable de SEO Champ.
@@ -10,21 +10,20 @@ ms.date: 2/21/2018
 ms.topic: tutorial
 ms.workload: storage-backup-recovery
 manager: carmonm
-ms.openlocfilehash: 3bc259245df86406e23418bac598c8b1e062d512
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: c803118ccdafa8db0e8f8ddee608f60311f65e05
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="troubleshoot-problems-backing-up-azure-files"></a>Solución de problemas de copia de seguridad de archivos de Azure
-
 Puede solucionar los problemas y errores encontrados durante el uso de Azure Files Backup con la información indicada en las siguientes tablas.
 
 ## <a name="preview-boundaries"></a>Límites de versión preliminar
 Azure Files Backup se encuentra en versión preliminar. No se admiten los siguientes escenarios de copia de seguridad para los recursos compartidos de archivos de Azure:
-- Protección de recursos compartidos de archivos en cuentas de Storage con replicación de [almacenamiento con redundancia de zona](../storage/common/storage-redundancy.md#zone-redundant-storage) (ZRS) o [almacenamiento con redundancia geográfica con acceso de lectura](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage) (RA-GRS).
-- Protección de recursos compartidos de archivos en cuentas de Storage que tienen habilitadas redes virtuales.
-- Realización de una copia de seguridad de archivos de Azure con PowerShell o la CLI.
+- Protección de recursos compartidos de archivos de Azure en cuentas de almacenamiento con replicación de [almacenamiento con redundancia de zona](../storage/common/storage-redundancy.md#zone-redundant-storage) (ZRS) o [almacenamiento con redundancia geográfica con acceso de lectura](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage) (RA-GRS).
+- Protección de recursos compartidos de archivos de Azure en cuentas de almacenamiento que tienen habilitadas redes virtuales.
+- Realización de una copia de seguridad de recursos compartidos de archivos de Azure con PowerShell o la CLI.
 
 ### <a name="limitations"></a>Limitaciones
 - El número máximo de copias de seguridad programadas por día es 1.
@@ -51,7 +50,7 @@ La tabla siguiente es para configurar la copia de seguridad:
 | -------------- | ----------------------------- |
 | No se pudo realizar la operación porque no se encuentra el recurso compartido de archivos. | Asegúrese de que el recurso compartido de archivos que busca proteger no se ha eliminado.|
 | La cuenta de almacenamiento no se encuentra o no se admite. | <ul><li>Asegúrese de que la cuenta de almacenamiento existe en el grupo de recursos y que no se ha eliminado o quitado del grupo de recursos tras la validación final. <li> Asegúrese de que la cuenta de almacenamiento es una cuenta de almacenamiento admitida para la copia de seguridad de recursos compartidos de archivos.|
-| Ha alcanzado el límite máximo de instantáneas para este recurso compartido de archivos. Podrá tomar más cuando expiren las más antiguas. | <ul><li> Este error puede producirse al crear varias copias de seguridad a petición para un archivo. <li> Hay un límite de 200 instantáneas por recurso compartido de archivos, incluidas las realizadas por Azure Backup. Las copias de seguridad programadas antiguas (o instantáneas) se borran automáticamente. Las copias de seguridad a petición (o instantáneas) deben eliminarse si se alcanza el límite máximo.<li> Elimine las copias de seguridad a petición (instantáneas de recursos compartidos de archivos de Azure) desde el portal de Azure Files. **Nota**: Si elimina las instantáneas creadas por Azure Backup, perderá los puntos de recuperación. |
+| Ha alcanzado el límite máximo de instantáneas para este recurso compartido de archivos. Podrá tomar más cuando expiren las más antiguas. | <ul><li> Este error puede producirse al crear varias copias de seguridad a petición para un archivo. <li> Hay un límite de 200 instantáneas por recurso compartido de archivos, incluidas las realizadas por Azure Backup. Las copias de seguridad programadas antiguas (o instantáneas) se borran automáticamente. Las copias de seguridad a petición (o instantáneas) deben eliminarse si se alcanza el límite máximo.<li> Elimine las copias de seguridad a petición (instantáneas de recurso compartido de archivos de Azure) desde el portal de Azure Files. **Nota**: Si elimina las instantáneas creadas por Azure Backup, perderá los puntos de recuperación. |
 | Error de restauración o copia de seguridad de recursos compartidos de archivos debido a la limitación del servicio de almacenamiento. Esto puede ser debido a que el servicio de almacenamiento está ocupado procesando otras solicitudes para la cuenta de almacenamiento dada.| Vuelva a intentar la operación más tarde. |
 | Error de restauración con recurso compartido de archivos no encontrado. | <ul><li>Asegúrese de que existe la cuenta de almacenamiento seleccionada y que no se ha eliminado el recurso compartido de archivos de destino. <li> Asegúrese de que la cuenta de almacenamiento es una cuenta de almacenamiento admitida para la copia de seguridad de recursos compartidos de archivos. |
 | Azure Backup no se admite actualmente para Azure Files en cuentas de almacenamiento con redes virtuales habilitadas. | Deshabilite las redes virtuales en la cuenta de almacenamiento para garantizar operaciones correctas de copia de seguridad y restauración. |

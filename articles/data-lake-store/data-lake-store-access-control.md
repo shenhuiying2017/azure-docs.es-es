@@ -1,8 +1,8 @@
 ---
-title: "Introducción al control de acceso en Data Lake Store | Microsoft Docs"
-description: "Descripción de cómo funciona el control de acceso en Azure Data Lake Store"
+title: Introducción al control de acceso en Data Lake Store | Microsoft Docs
+description: Descripción de cómo funciona el control de acceso en Azure Data Lake Store
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/09/2018
+ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: ec0d1fa9c422dbe4958c5d5f0b7a6e093aeb32da
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: a2e29fd6f2dbd4bd573b780a14bd09c0cd03395f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="access-control-in-azure-data-lake-store"></a>Control de acceso en Azure Data Lake Store
 
@@ -124,15 +124,15 @@ A continuación, hay algunos escenarios comunes para ayudarle a entender qué pe
 
 ## <a name="viewing-permissions-in-the-azure-portal"></a>Visualización de permisos en el portal de Azure
 
-En la hoja **Data Explorer** (Explorador de datos) de la cuenta de Data Lake Store, haga clic en **Access** (Acceso) para ver las ACL de un archivo o una carpeta. Haga clic en **Access** (Acceso) para ver las ACL de la carpeta **catalog** de la cuenta **mydatastore**.
+En la hoja **Explorador de datos** de la cuenta de Data Lake Store, haga clic en **Access** (Acceso) para ver las ACL del archivo o la carpeta que se van a ver en el explorador de datos. Haga clic en **Access** (Acceso) para ver las ACL de la carpeta **catalog** de la cuenta **mydatastore**.
 
 ![ACL de Data Lake Store](./media/data-lake-store-access-control/data-lake-store-show-acls-1.png)
 
-En esta hoja, en la sección superior se muestra una descripción general de los permisos que tiene. (En la captura de pantalla, el usuario es Bob). Después, se muestran los permisos de acceso. Después, en la hoja **Acceso**, haga clic en **Vista simple**  para usar la vista más simple.
+En esta hoja, la sección superior muestra los permisos de propietario. (En la captura de pantalla, el usuario propietario es Bob). A continuación, se muestran las ACL de acceso asignadas. 
 
 ![ACL de Data Lake Store](./media/data-lake-store-access-control/data-lake-store-show-acls-simple-view.png)
 
-Haga clic en **Advanced View** (Vista avanzada) para ver la vista más avanzada, donde se muestran los conceptos de las ACL predeterminadas, la máscara y el superusuario.
+Haga clic en **Advanced View** (Vista avanzada) para ver la vista más avanzada, donde se muestran las ACL predeterminadas, la máscara y una descripción de los superusuarios.  Esta hoja también proporciona una manera de establecer de forma recursiva listas ACL de acceso y predeterminadas para los archivos y carpetas secundarios en función de los permisos de la carpeta actual.
 
 ![ACL de Data Lake Store](./media/data-lake-store-access-control/data-lake-store-show-acls-advance-view.png)
 
@@ -164,7 +164,7 @@ El usuario que creó el elemento es automáticamente el usuario propietario del 
 * Cambiar el grupo propietario de un archivo que le pertenece, siempre que el usuario propietario también sea miembro del grupo de destino.
 
 > [!NOTE]
-> El usuario propietario *no puede* cambiar el usuario propietario de otro archivo que le pertenece. Solo los superusuarios pueden cambiar el usuario propietario de un archivo o carpeta.
+> El usuario propietario *no puede* cambiar el usuario propietario de un archivo o carpeta. Solo los superusuarios pueden cambiar el usuario propietario de un archivo o carpeta.
 >
 >
 
@@ -177,9 +177,14 @@ Cuando se crea un nuevo elemento del sistema de archivos, Data Lake Store asigna
 * **Caso 1**: la carpeta raíz "/". Esta carpeta se crea cuando se crea una cuenta de Data Lake Store. En este caso, el grupo propietario se establece en el usuario que creó la cuenta.
 * **Caso 2** (cada dos casos): cuando se crea un elemento, se copia el grupo propietario de la carpeta primaria.
 
+De lo contrario, el grupo propietario se comporta de forma similar a los permisos asignados para otros usuarios o grupos.
+
 El grupo propietario se puede cambiar por:
 * Cualquier superusuario.
 * El usuario propietario, si el usuario propietario también es miembro del grupo de destino.
+
+> [!NOTE]
+> El grupo propietario *no puede* cambiar las ACL de un archivo o carpeta.
 
 ## <a name="access-check-algorithm"></a>Algoritmo de comprobación de acceso
 
@@ -209,7 +214,7 @@ Como referencia, aquí es donde la propiedad mask de un archivo o carpeta aparec
 ![ACL de Data Lake Store](./media/data-lake-store-access-control/data-lake-store-show-acls-mask-view.png)
 
 > [!NOTE]
-> En una nueva cuenta de Data Lake Store, el valor predeterminado de la propiedad mask de la ACL de acceso y de la ACL predeterminada de la carpeta raíz ("/") es RWX.
+> En una nueva cuenta de Data Lake Store, la máscara de la ACL de acceso de la carpeta raíz ("/") adopta como predeterminado el valor RWX.
 >
 >
 
@@ -308,7 +313,7 @@ Cuando el usuario ya no existe en Azure AD, se mostrará un GUID. Normalmente es
 
 ### <a name="does-data-lake-store-support-inheritance-of-acls"></a>¿Admite Data Lake Store la herencia de ACL?
 
-Nº
+No, pero las ACL predeterminada pueden usarse para establecer las ACL para archivos y carpetas secundarios recién creados en la carpeta principal.  
 
 ### <a name="what-is-the-difference-between-mask-and-umask"></a>¿Cuál es la diferencia entre mask y umask?
 
@@ -317,7 +322,7 @@ Nº
 | La propiedad **mask** está disponible en todos los archivos y carpetas. | **umask** es una propiedad de la cuenta de Data Lake Store. Por lo tanto, en Data Lake Store solo hay una propiedad umask.    |
 | La propiedad mask de un archivo o carpeta puede modificarla el usuario propietario o grupo propietario de un archivo, o bien un superusuario. | Ningún usuario, ni siquiera un superusuario, puede modificar la propiedad umask. Es un valor constante y que no puede cambiarse.|
 | La propiedad mask se usa durante el algoritmo de comprobación de acceso en tiempo de ejecución para determinar si un usuario tiene el derecho necesario para realizar una operación en un archivo o carpeta. El rol de la propiedad mask es crear "permisos efectivos" en el momento de la comprobación de acceso. | umask no se utiliza durante la comprobación de acceso. umask se utiliza para determinar la ACL de acceso de los nuevos elementos secundarios de una carpeta. |
-| mask es un valor RWX de 3 bits que se aplica al usuario designado, grupo designado y usuario propietario en el momento de la comprobación de acceso.| umask es un valor de 9 bits que se aplica al usuario propietario, al grupo propietario y **otros** de un nuevo elemento secundario.|
+| La máscara es un valor RWX de 3 bits que se aplica al usuario designado, el grupo propietario y el grupo designado en el momento de la comprobación de acceso.| umask es un valor de 9 bits que se aplica al usuario propietario, al grupo propietario y **otros** de un nuevo elemento secundario.|
 
 ### <a name="where-can-i-learn-more-about-posix-access-control-model"></a>¿Dónde puedo obtener más información sobre el modelo de control de acceso POSIX?
 

@@ -1,24 +1,24 @@
 ---
 title: Cifrado en Azure Data Lake Store | Microsoft Docs
-description: "El cifrado en Azure Data Lake Store le ayuda a proteger sus datos, implementar directivas de seguridad de empresa y satisfacer los requisitos de cumplimiento normativo. En este artículo se proporciona información general sobre el diseño y se discuten algunos de los aspectos técnicos de la implementación."
+description: El cifrado en Azure Data Lake Store le ayuda a proteger sus datos, implementar directivas de seguridad de empresa y satisfacer los requisitos de cumplimiento normativo. En este artículo se proporciona información general sobre el diseño y se discuten algunos de los aspectos técnicos de la implementación.
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: esung22
-manager: 
-editor: 
-ms.assetid: 
+manager: ''
+editor: ''
+ms.assetid: ''
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/31/2018
+ms.date: 03/26/2018
 ms.author: yagupta
-ms.openlocfilehash: 4df0ce3d705361f20fa003929fed6a019f8b2f5e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 53d5f413f58cea7bc8eab081d46eff2ab83e7ecb
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="encryption-of-data-in-azure-data-lake-store"></a>Cifrado de datos en Azure Data Lake Store
 
@@ -106,7 +106,7 @@ En el siguiente diagrama, se ilustra este concepto:
 4.  Almacene el bloque de datos cifrado en el almacenamiento persistente.
 
 > [!NOTE] 
-> Por motivos de rendimiento, la clave DEK sin cifrar se almacena en caché en memoria durante un corto período de tiempo, transcurrido el cual se borra inmediatamente. En medios persistentes, siempre se almacena cifrada con la clave MEK.
+> La clave de cifrado siempre se almacena cifrada por MEK, ya sea en un soporte duradero como en la memoria caché.
 
 ## <a name="key-rotation"></a>Rotación de claves
 

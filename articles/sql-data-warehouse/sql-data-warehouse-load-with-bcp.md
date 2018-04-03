@@ -1,11 +1,11 @@
 ---
 title: Uso de bcp para cargar datos en SQL Data Warehouse | Microsoft Docs
-description: "Obtenga información sobre qué es bcp y cómo usarlo en escenarios de almacenamiento de datos."
+description: Obtenga información sobre qué es bcp y cómo usarlo en escenarios de almacenamiento de datos.
 services: sql-data-warehouse
 documentationcenter: NA
 author: ckarst
 manager: barbkess
-editor: 
+editor: ''
 ms.assetid: f9467d11-fcd6-4131-a65a-2022d2c32d24
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: loading
 ms.date: 01/22/2018
 ms.author: cakarst;barbkess
-ms.openlocfilehash: 146c6fdada651551c05b2cbcadc3e1248a40b613
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 752a2f0d7b49f9e053788b26e3df389246c72a73
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="load-data-with-bcp"></a>Carga de datos con bcp
 
@@ -174,7 +174,7 @@ Puede comprobar que los datos se exportaron correctamente abriendo el nuevo arch
 > 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para diseñar el proceso de carga, consulte [Información general acerca de la carga](sql-data-warehouse-design-elt-data-loading).  
+Para diseñar un proceso de carga, consulte [Procedimientos recomendados para la carga de datos en Azure SQL Data Warehouse](guidance-for-loading-data.md).  
 
 
 

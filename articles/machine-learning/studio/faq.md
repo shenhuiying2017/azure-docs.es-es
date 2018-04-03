@@ -1,11 +1,12 @@
 ---
-title: "Preguntas más frecuentes (P+F) sobre Azure Machine Learning | Microsoft Docs"
-description: "Introducción a Azure Machine Learning: preguntas más frecuentes sobre facturación, capacidades y limitaciones de un servicio de nube para un modelado de predicción optimizado."
-keywords: "introducción de aprendizaje automático, modelo predictivo, qué es el aprendizaje automático"
+title: Preguntas más frecuentes (P+F) sobre Azure Machine Learning | Microsoft Docs
+description: 'Introducción a Azure Machine Learning: preguntas más frecuentes sobre facturación, capacidades y limitaciones de un servicio de nube para un modelado de predicción optimizado.'
+keywords: introducción de aprendizaje automático, modelo predictivo, qué es el aprendizaje automático
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: paulettm
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: a4a32a06-dbed-4727-a857-c10da774ce66
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/02/2017
-ms.author: garye
-ms.openlocfilehash: b162d7534eff0d1f79808fc86bacf92dbfc2f84a
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: ceec69ee822e118adfa3825620a31575109894ea
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Preguntas más frecuentes sobre Azure Machine Learning: facturación, funcionalidades, limitaciones y soporte técnico
 Estas son algunas de las preguntas más frecuentes (P+F) y las respuestas correspondientes sobre Azure Machine Learning, un servicio en la nube para el desarrollo de modelos predictivos y la aplicación de soluciones mediante servicios web. Estas preguntas más frecuentes incluyen cuestiones sobre cómo usar el servicio; por ejemplo, el modelo de facturación, las funcionalidades, las limitaciones y el soporte técnico.
@@ -173,7 +173,7 @@ No. Actualmente solo se admite el reentrenamiento mediante programación.
 
 **¿Puedo visualizar las capas de un modelo de red neuronal con el módulo integrado?**
 
-No.
+Nº
 
 **¿Puedo crear mis propios módulos en C# o algún otro lenguaje?**
 
@@ -210,7 +210,7 @@ Use las API de reentrenamiento. Para obtener más información, consulte [Volver
 ### <a name="create"></a>Crear
 **¿Puedo implementar el modelo de forma local o en una aplicación sin conexión a Internet?**
 
-No.
+Nº
 
 **¿Cabe esperar una latencia de línea de base para todos los servicios web?**
 
@@ -280,7 +280,7 @@ Las filas y las columnas están limitadas a la limitación .NET de Máx. int.: 2
 
 **¿Se puede ajustar el tamaño de la máquina virtual que ejecuta el servicio web?**
 
-No.  
+Nº  
 
 ## <a name="security-and-availability"></a>Seguridad y disponibilidad
 **¿Quién puede acceder de forma predeterminada al punto de conexión http del servicio web? ¿Cómo se restringe el acceso al punto de conexión?**
@@ -458,11 +458,11 @@ Los servicios que tienen asignado un plan de tarifa de desarrollo/pruebas se det
 
 En el caso de las cargas de trabajo de RRS, se le facturan tanto las llamadas de las transacciones de API que realice como el tiempo de proceso asociado a esas solicitudes. El costo de las transacciones de API de producción de RRS se calcula como el número total de llamadas de API que se realizan multiplicado por el precio por 1000 transacciones (prorrateado por cada transacción individual). El costo por hora de proceso de API de producción de RRS se calcula como el tiempo necesario para que se ejecute cada llamada de API multiplicado por el total de transacciones de API y por el precio de la hora de proceso de API de producción.
 
-Por ejemplo, en el caso del uso por encima del límite del nivel Estándar S1, si hay 1 000 000 transacciones de API, cada una de las cuales tarda 0,72 segundos en ejecutarse, el resultado será de 500 USD por los costos de transacción de API de producción (1 000 000 \* 0,50 USD/1000 transacciones de API) y de 400 USD por las horas de proceso de API de producción (1 000 000 0 \* 72 seg * 2 USD/h), lo que haría un total de 900 USD.
+Por ejemplo, en el caso del uso por encima del límite del nivel Estándar S1, si hay 1 000 000 transacciones de API, cada una de las cuales tarda 0,72 segundos en ejecutarse, el resultado será de 500 USD por los costos de transacción de API de producción (1 000 000 0,50 USD/1000 transacciones de API) y de 400 USD por las horas de proceso de API de producción (1 000 000 0,72 seg * 2 USD/h), lo que haría un total de 900 USD.
 
 La carga de trabajo BES se le cobrará de la misma manera. Sin embargo, el costo de las transacciones de API representa el número de trabajos por lotes que se envían, mientras que el costo de proceso representa el tiempo de proceso asociado a dichos trabajos por lotes. El costo por transacciones de API de producción del servicio BES se calcula como el número total de trabajos enviados multiplicado por el precio por 1 000 transacciones (prorrateado por transacción individual). El costo por horas de proceso de API de producción del servicio BES se calcula como la cantidad de tiempo necesario para que se ejecute cada fila del trabajo multiplicado por el número total de filas del trabajo y multiplicado por el número total de trabajos y por el precio de la hora de proceso de API de producción. En la calculadora de Machine Learning, el medidor de transacciones representa el número de trabajos que planea enviar, mientras que el campo de tiempo por transacción representa el tiempo combinado necesario para que se ejecuten todas las filas de cada trabajo.
 
-Por ejemplo, suponga un uso por encima del límite del nivel Estándar S1. Envía 100 trabajos al día, cada uno de los cuales consta de 500 filas, cada una de las cuales tarda 0,72 segundos en ejecutarse. Los costos mensuales de uso por encima del límite serían (100 trabajos al día = 3100 trabajos/mes \* 0,50 USD/1000 transacciones de API) 1,55 USD en costos de transacciones de API de producción y (500 filas 0,72 seg. \* 3100 trabajos \* 2 USD/h) 620 USD en horas de proceso de API de producción, lo que haría un total de 621,55 USD.
+Por ejemplo, suponga un uso por encima del límite del nivel Estándar S1. Envía 100 trabajos al día, cada uno de los cuales consta de 500 filas, cada una de las cuales tarda 0,72 segundos en ejecutarse. Los costos mensuales de uso por encima del límite serían (100 trabajos al día = 3100 trabajos/mes 0,50 USD/1000 transacciones de API) 1,55 USD en costos de transacciones de API de producción y (500 filas 0,72 seg. 3100 trabajos 2 USD/h) 620 USD en horas de proceso de API de producción, lo que haría un total de 621,55 USD.
 
 ### <a name="azure-machine-learning-classic-web-services"></a>Servicios web clásicos de Azure Machine Learning
 **¿Sigue estando disponible el plan de pago por uso?**
@@ -509,8 +509,7 @@ Todo lo que necesita es una cuenta de Microsoft. Vaya a la [página principal de
 
 **¿Cómo puedo suscribirme al nivel Estándar de Azure Machine Learning?**
 
-Para poder crear un área de trabajo de Machine Learning de nivel Estándar, primero debe acceder a una suscripción de Azure. Puede suscribirse a la versión de evaluación gratuita de Azure de 30 días y actualizar después a una suscripción de Azure de pago, o adquirir directamente una suscripción de Azure de pago. Una vez que acceda a la suscripción, podrá crear un área de trabajo de Machine Learning desde 
-Microsoft Azure Portal. Consulte [las instrucciones detalladas](https://azure.microsoft.com/trial/get-started-machine-learning-b/).
+Para poder crear un área de trabajo de Machine Learning de nivel Estándar, primero debe acceder a una suscripción de Azure. Puede suscribirse a la versión de evaluación gratuita de Azure de 30 días y actualizar después a una suscripción de Azure de pago, o adquirir directamente una suscripción de Azure de pago. Una vez que acceda a la suscripción, podrá crear un área de trabajo de Machine Learning desde Microsoft Azure Portal. Consulte [las instrucciones detalladas](https://azure.microsoft.com/trial/get-started-machine-learning-b/).
 
 También existe la opción de que el propietario de un área de trabajo de Machine Learning de nivel Estándar le invite. De este modo, podrá obtener acceso al área de trabajo de dicho propietario.
 
@@ -549,7 +548,7 @@ El servicio Machine Learning es un servicio multiinquilino. Los recursos de proc
 ### <a name="guest-access"></a>Acceso de invitado
 **¿Qué es el acceso de invitado en Azure Machine Learning Studio?**
 
-El acceso de invitado es una experiencia de evaluación restringida. Puede crear y ejecutar experimentos en Azure Machine Learning Studio sin costo alguno y sin autenticación. Las sesiones de invitado no son persistentes (no se pueden guardar) y están limitadas a 8 horas. Otras limitaciones son la falta de compatibilidad con R y Python, la falta de API de ensayo y la restricción en el tamaño del conjunto de datos y en la capacidad de almacenamiento. En comparación, los usuarios que eligen iniciar sesión con una cuenta de Microsoft tienen acceso total al nivel Gratis de Machine Learning Studio que se ha descrito anteriormente, que incluye un área de trabajo persistente y otras funcionalidades más completas. Para elegir la experiencia gratuita de Machine Learning, haga clic en **Get started** (Introducción) en [https://studio.azureml.net](https://studio.azureml.net) y seleccione **Guess Access** (Acceso de invitado) o inicie sesión con una cuenta de Microsoft.
+El acceso de invitado es una experiencia de evaluación restringida. Puede crear y ejecutar experimentos en Azure Machine Learning Studio sin costo alguno y sin autenticación. Las sesiones de invitado no son persistentes (no se pueden guardar) y están limitadas a 8 horas. Otras limitaciones son la falta de compatibilidad con R y Python, la falta de API de ensayo y la restricción en el tamaño del conjunto de datos y en la capacidad de almacenamiento. En comparación, los usuarios que eligen iniciar sesión con una cuenta de Microsoft tienen acceso total al nivel Gratis de Machine Learning Studio que se ha descrito anteriormente, que incluye un área de trabajo persistente y otras funcionalidades más completas. Para elegir el uso gratuito de Machine Learning, haga clic en **Get started** (Introducción) en [https://studio.azureml.net](https://studio.azureml.net) y seleccione **Guess Access** (Acceso de invitado) o inicie sesión con una cuenta de Microsoft.
 
 <!-- Module References -->
 [image-reader]: https://msdn.microsoft.com/library/azure/893f8c57-1d36-456d-a47b-d29ae67f5d84/

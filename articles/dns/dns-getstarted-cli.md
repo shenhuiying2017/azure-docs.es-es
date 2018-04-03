@@ -1,11 +1,11 @@
 ---
-title: "Introducción a Azure DNS con la CLI de Azure 2.0 | Microsoft Docs"
-description: "Obtenga información sobre cómo crear una zona y un registro DNS en Azure DNS. Esta es una guía paso a paso para crear y administrar su primera zona y su primer registro DNS con la CLI de Azure 2.0."
+title: Introducción a Azure DNS con la CLI de Azure 2.0 | Microsoft Docs
+description: Obtenga información sobre cómo crear una zona y un registro DNS en Azure DNS. Esta es una guía paso a paso para crear y administrar su primera zona y su primer registro DNS con la CLI de Azure 2.0.
 services: dns
 documentationcenter: na
 author: KumuD
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: fb0aa0a6-d096-4d6a-b2f6-eda1c64f6182
 ms.service: dns
@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: kumud
-ms.openlocfilehash: 76782ac1e78cd0f7da4bc1aad8eff00d79865ed7
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: d24eaa4974f8bff09b337384e4fd139edb6ebd70
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="get-started-with-azure-dns-using-azure-cli-20"></a>Introducción a Azure DNS con la CLI de Azure 2.0
 
 > [!div class="op_single_selector"]
-> * [Portal de Azure](dns-getstarted-portal.md)
+> * [Azure Portal](dns-getstarted-portal.md)
 > * [PowerShell](dns-getstarted-powershell.md)
 > * [CLI de Azure 2.0](dns-getstarted-cli.md)
 
@@ -33,6 +33,8 @@ Este artículo lo guiará por los pasos necesarios para crear su primera zona y 
 Una zona DNS se usa para hospedar los registros DNS de un dominio concreto. Para iniciar el hospedaje de su dominio en DNS de Azure, debe crear una zona DNS para ese nombre de dominio. Cada registro DNS del dominio se crea luego en esta zona DNS. Finalmente, para publicar la zona DNS en Internet, debe configurar los servidores de nombres para el dominio. A continuación, se describen cada uno de estos pasos.
 
 En estas instrucciones se da por hecho que ya haya instalado la CLI de Azure 2.0 e iniciado sesión en ella. Para obtener ayuda, consulte [Cómo administrar zonas DNS en Azure DNS con la CLI de Azure 2.0](dns-operations-dnszones-cli.md).
+
+Azure DNS admite zonas DNS privadas (actualmente en versión preliminar pública). Para más información acerca de las zonas DNS privadas, consulte [Using Azure DNS for private domains](private-dns-overview.md) (Uso de Azure DNS para dominios privados). Para ver un ejemplo de cómo crear una zona DNS privada, consulte ///[Get started with Azure DNS Private Zones using Azure CLI 2.0](./private-dns-getstarted-cli.md) (Introducción al uso de la CLI de Azure 2.0 con las zonas privadas de Azure DNS).
 
 ## <a name="create-the-resource-group"></a>Creación del grupo de recursos
 
@@ -52,7 +54,6 @@ En el ejemplo siguiente, se crea una zona DNS llamada *contoso.com* en el grupo 
 az network dns zone create -g MyResourceGroup -n contoso.com
 ```
 
-
 ## <a name="create-a-dns-record"></a>Creación de un registro de DNS
 
 Para crear un registro de DNS, use el comando `az network dns record-set [record type] add-record`. Para obtener ayuda con los registros A, por ejemplo, vea `azure network dns record-set A add-record -h`.
@@ -65,7 +66,6 @@ az network dns record-set a add-record -g MyResourceGroup -z contoso.com -n www 
 
 Para ver otros tipos de registros, conjuntos de registros con más de un registro, valores de TTL alternativos, y para modificar los registros existentes, consulte [Administración de registros de DNS en Azure DNS mediante la CLI de Azure 2.0](dns-operations-recordsets-cli.md).
 
-
 ## <a name="view-records"></a>Visualización de los registros
 
 Para enumerar los registros DNS de su zona, use lo siguiente:
@@ -73,7 +73,6 @@ Para enumerar los registros DNS de su zona, use lo siguiente:
 ```azurecli
 az network dns record-set list -g MyResourceGroup -z contoso.com
 ```
-
 
 ## <a name="update-name-servers"></a>Actualización de los servidores de nombres
 

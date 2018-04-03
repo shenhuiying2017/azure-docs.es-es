@@ -1,3 +1,19 @@
+---
+title: archivo de inclusión de PowerShell para Azure DNS
+description: archivo de inclusión de PowerShell para Azure DNS
+services: dns
+author: subsarma
+ms.service: dns
+ms.topic: include file for PowerShell for Azure DNS
+ms.date: 03/21/2018
+ms.author: subsarma
+ms.custom: include file for PowerShell for Azure DNS
+ms.openlocfilehash: 1ddfd1ae8dffbc5d381773ea9679713e93a44a32
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 03/28/2018
+---
 ## <a name="set-up-azure-powershell-for-azure-dns"></a>Configuración de Azure PowerShell para Azure DNS
 
 ### <a name="before-you-begin"></a>Antes de empezar
@@ -5,7 +21,31 @@
 Antes de comenzar con la configuración, compruebe que dispone de los elementos siguientes.
 
 * Una suscripción de Azure. Si todavía no la tiene, puede activar sus [ventajas como suscriptor de MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/).
-* Necesitará instalar la versión más reciente de los cmdlets de PowerShell de Azure Resource Manager. Para más información, vea [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* Necesitará instalar la versión más reciente de los cmdlets de PowerShell de Azure Resource Manager. Para obtener más información, consulte [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs).
+
+Además, para usar las zonas privadas (versión preliminar pública), debe asegurarse de que tiene los siguientes módulos y versiones de PowerShell. 
+* AzureRM.Dns: [versión 4.1.0](https://www.powershellgallery.com/packages/AzureRM.Dns/4.1.0) o superior
+* AzureRM.Network: [versión 5.4.0](https://www.powershellgallery.com/packages/AzureRM.Network/5.4.0) o superior
+
+```powershell 
+Find-Module -Name AzureRM.Dns 
+``` 
+ 
+```powershell 
+Find-Module -Name AzureRM.Network 
+``` 
+ 
+La salida de los comandos anteriores debe mostrar que la versión de AzureRM.Dns es 4.1.0 o una versión posterior y para AzureRM.Network es 5.4.0 o una versión posterior.  
+
+En caso de que el sistema tenga versiones anteriores, puede instalar la última versión de Azure PowerShell, o descargar e instalar los módulos anteriores desde la galería de PowerShell, mediante los enlaces anteriores junto a las versiones de los módulos. Después, puede instalarlos con los comandos siguientes. Ambos módulos son necesarios y totalmente compatibles con versiones anteriores. 
+
+```powershell
+Install-Module -Name AzureRM.Dns -Force
+```
+
+```powershell
+Install-Module -Name AzureRM.Network -Force
+```
 
 ### <a name="sign-in-to-your-azure-account"></a>Inicio de sesión en la cuenta de Azure.
 
@@ -31,7 +71,7 @@ Select-AzureRmSubscription -SubscriptionName "your_subscription_name"
 
 ### <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-El Administrador de recursos de Azure requiere que todos los grupos de recursos especifiquen una ubicación. Esta ubicación se utiliza como ubicación predeterminada para los recursos de ese grupo de recursos. Sin embargo, puesto que todos los recursos DNS son globales y no regionales, la elección de la ubicación del grupo de recursos no incide en DNS de Azure.
+Azure Resource Manager requiere que todos los grupos de recursos especifiquen una ubicación. Esta ubicación se utiliza como ubicación predeterminada para los recursos de ese grupo de recursos. Sin embargo, puesto que todos los recursos DNS son globales y no regionales, la elección de la ubicación del grupo de recursos no incide en DNS de Azure.
 
 Puede omitir este paso si utiliza un grupo de recursos existente.
 

@@ -1,6 +1,6 @@
 ---
-title: "Guía de inicio rápido: Creación de un registro privado de Docker en Azure con PowerShell"
-description: "Aprenda rápidamente a crear un registro de contenedor privado de Docker con PowerShell."
+title: 'Guía de inicio rápido: Creación de un registro privado de Docker en Azure con PowerShell'
+description: Aprenda rápidamente a crear un registro de contenedor privado de Docker con PowerShell.
 services: container-registry
 author: neilpeterson
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: quickstart
 ms.date: 03/03/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 2bae45955cf3c2b157acce2544b1f35fbddd0170
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9603ac779c7dbc640a7c24856c32f04edbac849d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="create-an-azure-container-registry-using-powershell"></a>Creación de una instancia de Azure Container Registry mediante PowerShell
+# <a name="quickstart-create-an-azure-container-registry-using-powershell"></a>Inicio rápido: Creación de una instancia de Azure Container Registry mediante PowerShell
 
 Azure Container Registry es un servicio de registro de contenedores de Docker administrado usado para almacenar imágenes de contenedor de Docker privadas. En esta guía se detalla la creación de una instancia de Azure Container Registry con PowerShell, la inserción de una imagen del contenedor en el registro y, por último, la implementación del contenedor desde el registro en Azure Container Instances (ACI).
 
@@ -73,7 +73,7 @@ Para insertar una imagen en Azure Container Registry, primero debe tener una ima
 docker pull microsoft/aci-helloworld
 ```
 
-La imagen debe estar etiquetada con el nombre del servidor de inicio de sesión de ACR. Use el comando [docker tag][docker-tag] para realizarlo. 
+La imagen debe estar etiquetada con el nombre del servidor de inicio de sesión de ACR. Use el comando [docker tag][docker-tag] para realizarlo.
 
 ```powershell
 $image = $registry.LoginServer + "/aci-helloworld:v1"

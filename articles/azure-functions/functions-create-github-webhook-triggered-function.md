@@ -1,12 +1,12 @@
 ---
-title: "Creación de una función en Azure desencadenada por Webhook de GitHub | Microsoft Docs"
-description: "Use Azure Functions para crear una función sin servidor que se invoca mediante Webhook de GitHub."
+title: Creación de una función en Azure desencadenada por Webhook de GitHub | Microsoft Docs
+description: Use Azure Functions para crear una función sin servidor que se invoca mediante Webhook de GitHub.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 36ef34b8-3729-4940-86d2-cb8e176fcc06
 ms.service: functions
 ms.devlang: multiple
@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 05/31/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 98632c3276e7d9cccf29d05b903c2fac62a7d68e
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: cd446c64b8e7627db1c76d652ea1ab6f496eee65
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-a-function-triggered-by-a-github-webhook"></a>Creación de una función desencadenada por Webhook de GitHub
 
@@ -69,11 +69,15 @@ A continuación, va a crear un webhook en el repositorio de GitHub.
 
 1. En GitHub, navegue hasta un repositorio que le pertenezca. También puede utilizar los repositorios bifurcados. Si necesita bifurcar un repositorio, use <https://github.com/Azure-Samples/functions-quickstart>.
 
-1. Haga clic en **Configuración**, después en **Webhooks** y, finalmente, en **Agregar Webhook**.
+2. Elija **Configuración** > **Opciones** y asegúrese de que **Problemas** está habilitado en **Características**.
+
+   ![Habilitar Problemas](./media/functions-create-github-webhook-triggered-function/functions-create-new-github-webhook.png)
+
+1. En **Configuración**, elija **Webhooks** > **Agregar webhook**.
 
     ![Agregar un webhook de GitHub](./media/functions-create-github-webhook-triggered-function/functions-create-new-github-webhook-2.png)
 
-1. Use la configuración especificada en la tabla y haga clic en **Agregar Webhook**.
+1. Use la configuración especificada en la siguiente tabla y haga clic en **Agregar webhook**:
 
     ![Establecer la dirección URL y el secreto del webhook](./media/functions-create-github-webhook-triggered-function/functions-create-new-github-webhook-3.png)
 
@@ -105,7 +109,7 @@ Ahora, el webhook está configurado para desencadenar la función cuando se agre
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Ha creado una función que se desencadena cuando se recibe una solicitud de un webhook de GitHub.
 

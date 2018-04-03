@@ -1,31 +1,31 @@
 ---
-title: "Compilación de una aplicación .NET Framework o Core para Azure Cosmos DB mediante Graph API | Microsoft Docs"
-description: "En este tema se incluye un ejemplo de código .NET Framework o Core que puede usar para conectarse a Azure Cosmos DB y realizar consultas."
+title: Compilación de una aplicación .NET Framework o Core para Azure Cosmos DB mediante Graph API | Microsoft Docs
+description: En este tema se incluye un ejemplo de código .NET Framework o Core que puede usar para conectarse a Azure Cosmos DB y realizar consultas.
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: luisbosquez
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: daacbabf-1bb5-497f-92db-079910703046
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: 38869444d43a3fb5c37a222ef58d30fc607106aa
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 21d8b39032c290d45a3ff772a769b427bded50b1
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-cosmos-db-build-a-net-framework-or-core-application-using-the-graph-api"></a>Azure Cosmos DB: compilación de una aplicación .NET Framework o Core mediante Graph API
 
 Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Puede crear rápidamente bases de datos de documentos, clave-valor y grafos, y realizar consultas en ellas. Todas las bases de datos se beneficiarán de las funcionalidades de distribución global y escala horizontal en Azure Cosmos DB. 
 
-En esta guía de inicio rápido se muestra cómo crear una cuenta, una base de datos y un grafo (contenedor) de Azure Cosmos DB mediante Azure Portal. Después, compile y ejecute una aplicación de consola compilada con el controlador [Gremlin.Net](http://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) de código abierto.  
+En esta guía de inicio rápido se muestra cómo crear una cuenta de [Graph API](graph-introduction.md), una base de datos y un grafo (contenedor) de Azure Cosmos DB mediante Azure Portal. Después, compile y ejecute una aplicación de consola compilada con el controlador [Gremlin.Net](http://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) de código abierto.  
 
 ## <a name="prerequisites"></a>requisitos previos
 
@@ -202,7 +202,7 @@ Si no va a seguir usando esta aplicación, siga estos pasos para eliminar todos 
 1. En el menú de la izquierda de Azure Portal, haga clic en **Grupos de recursos** y en el nombre del recurso que creó. 
 2. En la página del grupo de recursos, haga clic en **Eliminar**, escriba en el cuadro de texto el nombre del recurso que quiere eliminar y haga clic en **Eliminar**.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En esta guía de inicio rápido, ha obtenido información sobre cómo crear una cuenta de Azure Cosmos DB, crear un grafo mediante el Explorador de datos y ejecutar una aplicación. Ahora puede crear consultas más complejas e implementar con Gremlin una lógica eficaz de recorrido del grafo. 
 

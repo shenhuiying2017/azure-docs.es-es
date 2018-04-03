@@ -1,6 +1,6 @@
 ---
-title: "Tutorial de Azure Container Service: Implementación de clúster"
-description: "Tutorial de Azure Container Service: Implementación de clúster"
+title: 'Tutorial de Azure Container Service: Implementación de clúster'
+description: 'Tutorial de Azure Container Service: Implementación de clúster'
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 6ef789bc017e670566d25dd9d167698515e88349
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: cb7bdbaf095cefa72d1de302d90afeebbdb9d027
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="deploy-a-kubernetes-cluster-in-azure-container-service"></a>Implementación de un clúster de Kubernetes en Azure Container Service
 
@@ -26,7 +26,7 @@ Kubernetes proporciona una plataforma distribuida para aplicaciones en contenedo
 > * Instalación de la CLI de Kubernetes (kubectl)
 > * Configuración de kubectl
 
-En tutoriales posteriores, la aplicación Azure Vote se implementa en el clúster, se escala y se actualiza, y Operations Management Suite se configura para supervisar el clúster de Kubernetes.
+En tutoriales posteriores, la aplicación Azure Vote se implementa en el clúster, se escala y se actualiza, y Log Analytics se configura para supervisar el clúster de Kubernetes.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -86,7 +86,7 @@ k8s-master-98dc3136-0   Ready,SchedulingDisabled   5m        v1.6.2
 
 Al finalizar el tutorial, tendrá un clúster de ACS de Kubernetes preparado para cargas de trabajo. En los tutoriales posteriores, una aplicación de contenedores múltiples está implementada en este clúster, escalada horizontalmente, actualizada y supervisada.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, se implementó un clúster de Kubernetes de Azure Container Service. Se han completado los siguientes pasos:
 

@@ -1,64 +1,39 @@
 ---
-title: "Obtención de un inquilino de Azure AD | Microsoft Docs"
-description: "Obtenga un inquilino de Azure Active Directory para el registro y la creación de aplicaciones."
+title: Obtención de un inquilino de Azure AD | Microsoft Docs
+description: Obtenga un inquilino de Azure Active Directory para el registro y la creación de aplicaciones.
 services: active-directory
-documentationcenter: 
-author: bryanla
+documentationcenter: ''
+author: mtillman
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 1f4b24eb-ab4d-4baa-a717-2a0e5b8d27cd
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 07/19/2017
-ms.author: bryanla
+ms.date: 03/23/2018
+ms.author: mtillman
 ms.custom: aaddev
-ms.openlocfilehash: 85783d58b2b02a9d0c6230429bebf2806514dee5
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: ab7db49fa07f260de6ebbe4b2cee943b64cab7fe
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="how-to-get-an-azure-active-directory-tenant"></a>Obtención de un inquilino de Azure Active Directory
-En Azure Active Directory (Azure AD), un [inquilino](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) es un representante de una organización.  Se trata de una instancia dedicada del servicio de Azure AD que recibe una organización y que posee cuando registra un servicio en la nube de Microsoft, como Azure, Microsoft InTune u Office 365.  Cada inquilino de Azure AD es distinto e independiente de los demás inquilinos de Azure AD.  
+En Azure Active Directory (Azure AD), un [inquilino](https://msdn.microsoft.com/library/azure/jj573650.aspx#Anchor_0) es un representante de una organización.  Se trata de una instancia dedicada del servicio de Azure AD que recibe una organización y que posee cuando crea una relación con Microsoft, como al iniciar sesión en un servicio en la nube de Microsoft, como Azure, Microsoft Intune u Office 365.  Cada inquilino de Azure AD es distinto e independiente de los demás inquilinos de Azure AD.  
 
 Un inquilino aloja los usuarios de una empresa y la información sobre ellos: sus contraseñas, datos de perfil de usuario, permisos, etc.  También contiene grupos, aplicaciones y otra información relativa a una organización y su seguridad.
 
-Para permitir que los usuarios de Azure AD inicien sesión en su aplicación, debe registrar la aplicación en un inquilino que elija.  La publicación de una aplicación en un inquilino de Azure AD es **totalmente gratis**.  De hecho, la mayoría de programadores crea varios inquilinos y aplicaciones para fines de experimentación, desarrollo, almacenamiento provisional y prueba.  Las organizaciones que se registren y consuman la aplicación pueden elegir opcionalmente adquirir licencias si desean aprovechar las características avanzadas de directorio.
+Para permitir que los usuarios de Azure AD inicien sesión en su aplicación, debe registrar la aplicación en un inquilino que elija.  Crear un inquilino de Azure AD y publicar una aplicación en él es **totalmente gratuito** (aunque puede elegir pagar por las características de la edición Premium en el inquilino).  De hecho, muchos programadores crean varios inquilinos y aplicaciones para fines de experimentación, desarrollo, ensayo y pruebas.
 
-Por lo tanto, ¿cómo obtiene un inquilino de Azure AD?  El proceso puede ser poco diferente si:
+## <a name="use-an-existing-azure-ad-tenant"></a>Uso de un inquilino de Azure AD existente
 
-* [Dispone de una suscripción de Office 365 existente](#use-an-existing-office-365-subscription)
-* [Tiene una suscripción de Azure asociada a una cuenta Microsoft](#use-an-msa-azure-subscription)
-* [Dispone de una suscripción de Azure existente asociada a una cuenta organizativa](#use-an-organizational-azure-subscription)
-* [No dispone de ninguna de las opciones anteriores y desea comenzar desde cero](#start-from-scratch)
+Muchos desarrolladores ya tienen inquilinos mediante servicios o suscripciones que están vinculados a inquilinos de Azure AD (por ejemplo, suscripciones de Office 365 o Azure).  Para comprobar si ya tiene un inquilino, inicie sesión en [Azure Portal](https://portal.azure.com) con la cuenta que desea usar para administrar la aplicación y mire en la esquina superior derecha donde aparece la información de la cuenta.  Si tiene un inquilino, iniciará sesión de forma automática en él y verá el nombre del inquilino directamente bajo el nombre de la cuenta.  Si la cuenta está asociada a varios inquilinos, puede hacer clic en el nombre de la cuenta para abrir un menú donde puede cambiar entre los inquilinos.
 
-## <a name="use-an-existing-office-365-subscription"></a>Uso de una suscripción de Office 365 existente
-Si dispone de una suscripción a Office 365, ya tiene un inquilino de Azure AD. Puede iniciar sesión en [Azure Portal](https://portal.azure.com) con su cuenta de Office 365 y empezar a usar Azure AD.
+Si no tiene un inquilino existente asociado a la cuenta, verá un GUID bajo el nombre de la cuenta y no podrá realizar acciones como registrar aplicaciones hasta que [cree un nuevo inquilino](#create-a-new-azure-ad-tenant).
 
-## <a name="use-an-msa-azure-subscription"></a>Uso de una suscripción de MSA Azure
-Si se ha registrado anteriormente en una suscripción de Azure con una cuenta Microsoft individual, ya dispone de un inquilino.  Cuando inicia sesión en [Azure Portal](https://portal.azure.com), se registra automáticamente en su inquilino predeterminado. Pueden usa este inquilino como considere oportuno, pero es posible que desee crear una cuenta de administrador organizativo.
+## <a name="create-a-new-azure-ad-tenant"></a>Creación de un nuevo inquilino de Azure AD
 
-Para hacerlo, siga estos pasos:  También es posible que quiera crear a un nuevo inquilino y crear un administrador en ese inquilino siguiendo un proceso similar.
-
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con su cuenta individual
-2. Vaya a la sección "Azure Active Directory" del portal (que se encuentra en la barra de navegación izquierda, en **Todos los servicios**).
-3. Debería iniciar sesión automáticamente en el "directorio predeterminado". Si no, puede cambiar de directorio haciendo clic en el nombre de cuenta en la esquina superior derecha.
-4. En la sección **Tareas rápidas**, elija **Agregar un usuario**.
-5. En el formulario para agregar usuario, proporcione la siguiente información:
-
-   * Nombre: (elija un valor apropiado)
-   * Nombre de usuario: (elija un nombre de usuario para este administrador)
-   * Perfil: (rellene los valores apropiados en Nombre, Apellidos, Puesto y Departamento)
-   * Rol: administrador global
-6. Cuando haya completado el formulario de adición de usuario y reciba la contraseña temporal para el nuevo usuario administrativo, asegúrese de registrar esta contraseña, puesto que tendrá que iniciar sesión con este nuevo usuario para cambiar la contraseña. También puede enviar la contraseña directamente al usuario mediante un correo electrónico alternativo.
-7. Haga clic en **Crear** para crear el nuevo usuario.
-8. Para cambiar la contraseña temporal, inicie sesión en [https://login.microsoftonline.com](https://login.microsoftonline.com) con esta nueva cuenta de usuario y cambie la contraseña cuando se le solicite.
-
-## <a name="use-an-organizational-azure-subscription"></a>Uso de una suscripción de Azure organizativa
-Si se ha registrado anteriormente en una suscripción de Azure con la cuenta organizativa, ya dispone de un inquilino.  En [Azure Portal](https://portal.azure.com) debe buscar un inquilino cuando vaya a "Todos los servicios" y "Azure Active Directory".  Pueden usar a este inquilino como considere oportuno.
-
-## <a name="start-from-scratch"></a>Comienzo desde cero
-Si todo lo anterior es un galimatías para usted, no se preocupe. Basta con que visite [Azure Portal](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory) para crear un nuevo directorio de Azure AD. Cuando haya completado el proceso, tendrá su propio inquilino de Azure AD con el nombre de dominio que elija durante el registro.  En [Azure Portal](https://portal.azure.com) puede buscar el inquilino dirigiéndose a **Azure Active Directory** en panel de navegación de la izquierda.
+Si no tiene aún un inquilino de Azure AD o si desea crear uno nuevo, puede hacerlo mediante la [experiencia de creación de directorio](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory) en [Azure Portal](https://portal.azure.com).  El proceso tardará aproximadamente un minuto y al final se le pedirá que vaya al inquilino recién creado.

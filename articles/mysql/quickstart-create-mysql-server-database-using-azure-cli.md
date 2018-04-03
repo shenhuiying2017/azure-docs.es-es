@@ -1,6 +1,6 @@
 ---
-title: "Inicio rápido: Creación de un servidor de Azure Database for MySQL mediante la CLI de Azure"
-description: "En esta guía de inicio rápido se describe cómo usar la CLI de Azure para crear una Base de datos de Azure para el servidor MySQL en un grupo de recursos de Azure."
+title: 'Inicio rápido: Creación de un servidor de Azure Database for MySQL mediante la CLI de Azure'
+description: En esta guía de inicio rápido se describe cómo usar la CLI de Azure para crear una Base de datos de Azure para el servidor MySQL en un grupo de recursos de Azure.
 services: mysql
 author: ajlam
 ms.author: andrela
@@ -9,13 +9,13 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: quickstart
-ms.date: 02/28/2018
+ms.date: 03/20/2018
 ms.custom: mvc
-ms.openlocfilehash: 2cd867f09550f922479955b885f10ff329715c1c
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: a4ae31e133cb275a8b795d53e73e0e83bb64b045
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-an-azure-database-for-mysql-server-using-azure-cli"></a>Creación de una Base de datos de Azure para el servidor MySQL con la CLI de Azure
 En esta guía de inicio rápido se describe cómo usar la CLI de Azure para crear una Base de datos de Azure para el servidor MySQL en un grupo de recursos de Azure en unos cinco minutos. La CLI de Azure se usa para crear y administrar recursos de Azure desde la línea de comandos o en scripts.
@@ -56,11 +56,11 @@ El JSON que se devuelva debe incluir lo siguiente:
 {
     "extensionType": "whl",
     "name": "rdbms",
-    "version": "0.0.3"
+    "version": "0.0.4"
 }
 ```
 
-Si no se devuelve la versión 0.0.3, ejecute el siguiente procedimiento para actualizar la extensión: 
+Si no se devuelve la versión 0.0.4, ejecute el siguiente procedimiento para actualizar la extensión: 
 ```azurecli-interactive
 az extension update --name rdbms
 ```

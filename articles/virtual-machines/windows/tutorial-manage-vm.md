@@ -1,26 +1,26 @@
 ---
-title: "Creación y administración de máquinas virtuales Windows con el módulo de Azure PowerShell | Microsoft Docs"
-description: "Tutorial: Creación y administración de máquinas virtuales Windows con el módulo de Azure PowerShell"
+title: Creación y administración de máquinas virtuales Windows con el módulo de Azure PowerShell | Microsoft Docs
+description: 'Tutorial: Creación y administración de máquinas virtuales Windows con el módulo de Azure PowerShell'
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 02/09/2018
+ms.date: 03/23/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 4cf406dfbab40631c99da70085e99ba90f563411
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 9bc5154486bf09072bdf3da6bbeb05407a140354
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-and-manage-windows-vms-with-the-azure-powershell-module"></a>Creación y administración de máquinas virtuales Windows con el módulo de Azure PowerShell
 
@@ -50,7 +50,7 @@ New-AzureRmResourceGroup -ResourceGroupName "myResourceGroupVM" -Location "EastU
 
 Se especifica el grupo de recursos al crear o modificar una máquina virtual, como se ve a lo largo de este tutorial.
 
-## <a name="create-virtual-machine"></a>Create virtual machine
+## <a name="create-virtual-machine"></a>Crear máquina virtual
 
 Al crear una máquina virtual, hay varias opciones disponibles, como la imagen de sistema operativo,la configuración de red y las credenciales administrativas. En este ejemplo se crea una máquina virtual con el nombre *myVM* que ejecuta la versión predeterminada más reciente de Windows Server 2016 Datacenter.
 
@@ -90,9 +90,11 @@ Ejecute el comando siguiente en el equipo local para crear una sesión de escrit
 mstsc /v:<publicIpAddress>
 ```
 
+En la ventana **Seguridad de Windows**, seleccione **Más opciones** y, después, **Usar otra cuenta**. Escriba el nombre de usuario y la contraseña que creó para la máquina virtual y, a continuación, haga clic en **Aceptar**.
+
 ## <a name="understand-vm-images"></a>Descripción de las imágenes de máquina virtual
 
-Azure Marketplace incluye muchas imágenes de máquina virtual que se pueden usar para crear una nueva máquina virtual. En los pasos anteriores, se creó una máquina virtual mediante la imagen de Windows Server 2016 Datacenter. En este paso, el módulo de PowerShell se usa para buscar en Marketplace otras imágenes de Windows, que también se pueden usar como base para nuevas máquinas virtuales. Este proceso consiste en buscar el publicador, la oferta y el nombre de imagen (SKU). 
+Azure Marketplace incluye muchas imágenes de máquina virtual que se pueden usar para crear una nueva máquina virtual. En los pasos anteriores, se creó una máquina virtual mediante la imagen de Windows Server 2016 Datacenter. En este paso, el módulo de PowerShell se usa para buscar en Marketplace otras imágenes de Windows, que también se pueden usar como base para nuevas máquinas virtuales. Este proceso consiste en buscar el publicador, la oferta, la SKU y, opcionalmente, un número de versión para [identificar](cli-ps-findimage.md#terminology) la imagen. 
 
 Use el comando [Get-AzureRmVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher) para devolver una lista de publicadores de imágenes:
 
@@ -139,7 +141,7 @@ Skus                                      Offer         PublisherName          L
 2016-Nano-Server                          WindowsServer MicrosoftWindowsServer EastUS
 ```
 
-Esta información puede usarse para implementar una máquina virtual con una imagen específica. En este ejemplo se implementa una máquina virtual mediante Windows Server 2016 con una imagen de contenedores.
+Esta información puede usarse para implementar una máquina virtual con una imagen específica. En este ejemplo se implementa una máquina virtual mediante la versión más reciente de Windows Server 2016 con una imagen de Containers.
 
 ```azurepowershell-interactive
 New-AzureRmVm `
@@ -274,7 +276,7 @@ Al eliminar un grupo de recursos se eliminan también todos los recursos conteni
 Remove-AzureRmResourceGroup -Name "myResourceGroupVM" -Force
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, ha aprendido conceptos básicos sobre la creación y administración de máquinas virtuales. Por ejemplo:
 

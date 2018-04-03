@@ -1,11 +1,11 @@
 ---
-title: "Uso de Azure Portal para crear una canalización de factoría de datos | Microsoft Docs"
-description: "En este tutorial se proporcionan instrucciones paso a paso para usar Azure Portal para crear una factoría de datos con una canalización. La canalización usa la actividad de copia para copiar datos de Azure Blob Storage a SQL Database."
+title: Uso de Azure Portal para crear una canalización de factoría de datos | Microsoft Docs
+description: En este tutorial se proporcionan instrucciones paso a paso para usar Azure Portal para crear una factoría de datos con una canalización. La canalización usa la actividad de copia para copiar datos de Azure Blob Storage a SQL Database.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 116832175a4b7e4497c9005be7841cb56c1d235b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 34c78a114c1d106c400a94941aa113153383e206
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>Copia de datos de Azure Blob Storage a SQL Database mediante Azure Data Factory
 En este tutorial, creará una factoría de datos mediante la interfaz de usuario (UI) de Azure Data Factory. La canalización de esta factoría de datos copia los datos de Azure Blob Storage a Azure SQL Database. El patrón de configuración de este tutorial se aplica a la copia de un almacén de datos basado en archivos a un almacén de datos relacional. Para obtener una lista de los almacenes de datos que se admiten como orígenes y receptores, consulte la tabla de [almacenes de datos admitidos](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -303,7 +303,7 @@ Puede realizar la serie de pruebas de una canalización antes de publicar artefa
     ![Show Notifications (Mostrar notificaciones)](./media/tutorial-copy-data-portal/show-notifications.png)
 
 ## <a name="configure-code-repository"></a>Configuración del repositorio de código
-Puede publicar el código asociado a los artefactos de la factoría de datos en un repositorio de código de Visual Studio Team Services. En este paso, creará el repositorio de código. 
+Puede publicar el código asociado a los artefactos de la factoría de datos en un repositorio de código de Visual Studio Team Services. En este paso, creará el repositorio de código.  Para más información sobre la creación visual con integración de VSTS, consulte [Creación con la integración de Git de VSTS](author-visually.md#author-with-vsts-git-integration).
 
 Si no quiere trabajar con el repositorio de código de Visual Studio Team Services, puede omitir este paso. Puede seguir publicando en Data Factory como hizo en el paso anterior. 
 
@@ -404,7 +404,7 @@ En esta programación, creará un desencadenador de programación para la canali
 
     g. Seleccione la opción **Activated** (Activado). Puede desactivarla y activarla más adelante mediante esta casilla.
 
-    h. Seleccione **Siguiente**.
+    h. Seleccione **Next** (Siguiente).
 
     ![Botón Activated (Activado)](./media/tutorial-copy-data-portal/trigger-activiated-next.png)
 
@@ -427,7 +427,7 @@ En esta programación, creará un desencadenador de programación para la canali
     ![Lista de ejecuciones de desencadenador](./media/tutorial-copy-data-portal/trigger-runs-list.png)
 10. Compruebe que se insertan dos filas por minuto (para cada ejecución de canalización) en la tabla **emp** hasta la hora de finalización especificada. 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 La canalización de este ejemplo copia los datos de una ubicación a otra de Blob Storage. Ha aprendido a: 
 
 > [!div class="checklist"]

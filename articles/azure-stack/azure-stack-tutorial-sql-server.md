@@ -2,28 +2,27 @@
 title: Bases de datos SQL disponibles para los usuarios de Azure Stack | Microsoft Docs
 description: Tutorial para instalar al proveedor de recursos de SQL Server y crear ofertas que permiten a los usuarios de Azure Stack crear bases de datos SQL.
 services: azure-stack
-documentationcenter: 
-author: brenduns
+documentationcenter: ''
+author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 7/03/2017
-ms.author: brenduns
-ms.reviewer: 
+ms.date: 03/22/2017
+ms.author: jeffgilb
+ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: e9fd74fa44bb9482ee2285f4305085ee6ff2fb73
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: f8d2dd65d9d427872fe78508ed0bcc61e644fdb0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="make-sql-databases-available-to-your-azure-stack-users"></a>Bases de datos SQL disponibles para los usuarios de Azure Stack
-
 Como administrador de la nube de Azure Stack, puede crear ofertas que permitan a los usuarios (inquilinos) crear bases de datos SQL que se puedan usar con sus aplicaciones en la nube, sitios web y cargas de trabajo. Si proporciona a los usuarios estas bases de datos personalizadas, en la nube y a petición, puede ahorrarles tiempo y recursos. Para configurar esta opción, tendrá que:
 
 > [!div class="checklist"]
@@ -56,7 +55,7 @@ El proceso de implementación se describe en detalle en el artículo [Bases de d
 Ahora que ha implementado el proveedor de recursos de SQL Server y ha creado una oferta, puede iniciar sesión como un usuario, suscribirse a la oferta y crear una base de datos.
 
 ### <a name="subscribe-to-the-offer"></a>Suscripción a la oferta
-1. Inicie sesión Azure Stack Portal (https://portal.local.azurestack.external/) como inquilino.
+1. Inicie sesión en el portal de Azure Stack (https://portal.local.azurestack.external)) como inquilino.
 2. Haga clic en **Obtener una suscripción** y, a continuación, escriba **SuscripciónDePruebaDeSQLServer** en **Nombre para mostrar**.
 3. Haga clic en **Seleccionar una oferta** > **OfertaDePruebaDeSQLServer** > **Crear**.
 4. Haga clic en **Más servicios** > **Suscripciones** > **SuscripciónDePruebaDeSQLServer** > **Proveedores de recursos**.
@@ -74,7 +73,7 @@ Ahora que ha implementado el proveedor de recursos de SQL Server y ha creado una
 4. Haga clic en **SKU** > seleccione la SKU de SQL que ha creado para el servidor de hospedaje SQL > **Aceptar**.
 5. Haga clic en **Create**(Crear).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial aprendió lo siguiente:
 

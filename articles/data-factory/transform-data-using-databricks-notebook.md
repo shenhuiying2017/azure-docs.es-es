@@ -1,8 +1,8 @@
 ---
-title: "Ejecución de un cuaderno de Databricks con la actividad Notebook de Databricks en Azure Data Factory"
-description: "Aprenda cómo puede utilizar la actividad Notebook de Databricks en una instancia de Azure Data Factory para ejecutar un cuaderno de Databricks en el clúster de trabajos de Databricks."
+title: Ejecución de un cuaderno de Databricks con la actividad Notebook de Databricks en Azure Data Factory
+description: Aprenda cómo puede utilizar la actividad Notebook de Databricks en una instancia de Azure Data Factory para ejecutar un cuaderno de Databricks en el clúster de trabajos de Databricks.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: nabhishek
 manager: craigg
 ms.service: data-factory
@@ -13,11 +13,11 @@ ms.topic: get-started-article
 ms.date: 3/12/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: d1dcec26529c747a209dd10fcefbbadaa40365a3
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 7a90906f0bb41b0ced368e9010e0c8a4981f038c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Ejecución de un cuaderno de Databricks con la actividad Notebook de Databricks en Azure Data Factory
 
@@ -27,7 +27,7 @@ En este tutorial, realizará los siguientes pasos:
 
   - Creación de una factoría de datos.
 
-  - Creación de una canalización que utiliza la actividad Notebook de Databricks
+  - Cree una canalización que utiliza la actividad Notebook de Databricks.
 
   - Desencadenamiento de una ejecución de la canalización
 
@@ -151,9 +151,9 @@ En esta sección, va a crear un servicio vinculado de Databricks. Este servicio 
 
        3. [Cree un nuevo cuaderno](https://docs.databricks.com/user-guide/notebooks/index.html#creating-a-notebook) (Python), al que va a llamar **mynotebook** en la carpeta **adftutorial** **,** haga clic en **Crear**.
 
-          ![Crear un nuevo cuaderno](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image14.png)
+          ![Creación un nuevo cuaderno](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image14.png)
 
-          ![Establecer las propiedades del nuevo cuaderno](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image15.png)
+          ![Establecimiento de las propiedades del nuevo cuaderno](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image15.png)
 
        4. En el cuaderno "mynotebook" recién creado, agregue el código siguiente:
 

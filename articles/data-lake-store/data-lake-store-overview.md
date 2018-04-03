@@ -1,8 +1,8 @@
 ---
-title: "Introducción a Azure Data Lake Store | Microsoft Docs"
-description: "Comprenda qué es el Almacén de Azure Data Lake y el valor que proporciona en comparación con otros almacenes de datos"
+title: Introducción a Azure Data Lake Store | Microsoft Docs
+description: Comprenda qué es el Almacén de Azure Data Lake y el valor que proporciona en comparación con otros almacenes de datos
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/09/2018
+ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 88c44f2e47562f9992e7c6e228b9a4c917f806ba
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 111906bc9e7e85e30a879d7bacff37edb4b204ac
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="overview-of-azure-data-lake-store"></a>Información general del Almacén de Azure Data Lake
+# <a name="overview-of-azure-data-lake-store"></a>Información general del Almacenamiento con Azure Data Lake Store
 El Almacén de Azure Data Lake es un repositorio de gran escala en toda la empresa para cargas de trabajo de análisis de macrodatos. Azure Data Lake permite capturar datos de cualquier tamaño, tipo y velocidad de ingesta en un único lugar para realizar análisis exploratorios y operativos.
 
 > [!TIP]
@@ -61,7 +61,7 @@ El Almacén de Azure Data Lake usa Azure Active Directory para la autenticación
 | Característica | DESCRIPCIÓN |
 | --- | --- |
 | Autenticación |El Almacén de Azure Data Lake se integra con Azure Active Directory (AAD) para la administración de identidad y acceso para todos los datos almacenados en el Almacén de Azure Data Lake. Como resultado de la integración, Azure Data Lake se beneficia de todas las características de AAD, lo que incluye la autenticación multifactor, el acceso condicional, el control de acceso basado en roles, la supervisión del uso de aplicaciones, la supervisión y las alertas de seguridad, etc. El Almacén de Azure Data Lake es compatible con el protocolo OAuth 2.0 para la autenticación en la interfaz de REST. Consulte el artículo sobre la [autenticación en Data Lake Store](data-lakes-store-authentication-using-azure-active-directory.md)|
-| Control de acceso |El Almacén de Azure Data Lake proporciona control de acceso gracias a la compatibilidad con los permisos de estilo POSIX expuestos por el protocolo WebHDFS. En la versión preliminar pública de Data Lake Store (la versión actual), las ACL se pueden habilitar en la carpeta raíz, en las subcarpetas y en los archivos individuales. Para más información sobre cómo funcionan las ACL en el contexto de Data Lake Store, consulte [Control de acceso en Data Lake Store](data-lake-store-access-control.md). |
+| Control de acceso |El Almacén de Azure Data Lake proporciona control de acceso gracias a la compatibilidad con los permisos de estilo POSIX expuestos por el protocolo WebHDFS. Las listas de control de acceso se pueden habilitar en la carpeta raíz, en subcarpetas y en archivos individuales. Para más información sobre cómo funcionan las ACL en el contexto de Data Lake Store, consulte [Control de acceso en Data Lake Store](data-lake-store-access-control.md). |
 | Cifrado |Data Lake Store también proporciona el cifrado de los datos que se almacenan en la cuenta. Puede especificar la configuración de cifrado mientras crea una cuenta de Data Lake Store. Puede elegir si cifrar o no los datos. Para más información, consulte el artículo de [cifrado Data Lake Store](data-lake-store-encryption.md). Para instrucciones sobre cómo proporcionar una configuración relacionada con el cifrado, consulte [Introducción al uso de Azure Portal por parte de Azure Data Lake Store](data-lake-store-get-started-portal.md). |
 
 Si desea más información acerca cómo proteger los datos del Almacén de Data Lake, siga estos vínculos.

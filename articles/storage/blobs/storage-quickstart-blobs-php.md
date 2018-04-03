@@ -10,11 +10,11 @@ ms.devlang: php
 ms.topic: quickstart
 ms.date: 03/15/2018
 ms.author: rogarana
-ms.openlocfilehash: 4adad6fe3da16653bbd654a3e93e14f9e68b7c90
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: a1d0232f093ab99bfbeba3012d78c35d6476496e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-php"></a>Transferencia de objetos hacia Azure Blob Storage, y desde él, mediante PHP
 En esta guía de inicio rápido, aprenderá a usar PHP para cargar, descargar y enumerar blobs en bloques en un contenedor en Azure Blob Storage. 
@@ -206,10 +206,10 @@ Consulte estos recursos adicionales para el desarrollo de PHP con Blob Storage:
 
 ## <a name="next-steps"></a>Pasos siguientes
  
-En esta guía de inicio rápido, ha aprendido a transferir archivos entre un disco local y Azure Blob Storage mediante PHP. Para más información sobre cómo trabajar con Blob Storage, continúe con los procedimientos de Blob Storage.
+En esta guía de inicio rápido, ha aprendido a transferir archivos entre un disco local y Azure Blob Storage mediante PHP. Para más información acerca de cómo trabajar con PHP, vaya nuestro Centro para desarrolladores de PHP.
 
 > [!div class="nextstepaction"]
-> [Procedimientos de las operaciones de Blob Storage](./storage-php-how-to-use-blobs.md)
+> [Centro para desarrolladores de PHP](https://azure.microsoft.com/en-us/develop/php/)
 
 
 Para más información sobre el Explorador de Storage y los blobs, consulte [Administración de recursos de Azure Blob Storage con el Explorador de Storage (versión preliminar)](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).

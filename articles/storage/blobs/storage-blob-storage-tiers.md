@@ -1,11 +1,11 @@
 ---
-title: "Almacenamiento de archivo, esporádico y frecuente para blobs | Microsoft Docs"
-description: "Almacenamiento de archivo, esporádico y frecuente para cuentas de Azure Storage."
+title: Almacenamiento de archivo, esporádico y frecuente para blobs | Microsoft Docs
+description: Almacenamiento de archivo, esporádico y frecuente para cuentas de Azure Storage.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: kuhussai
 manager: jwillis
-editor: 
+editor: ''
 ms.assetid: eb33ed4f-1b17-4fd6-82e2-8d5372800eef
 ms.service: storage
 ms.workload: storage
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/11/2017
 ms.author: kuhussai
-ms.openlocfilehash: 2adb301f1d047c7762a35880da6e6094a5afbd75
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: c62f3a92e6199f6467556054c9f58c20b6ceba2c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-storage-tiers"></a>Azure Blob Storage: niveles de almacenamiento de archivo, esporádico y frecuente
 
@@ -79,7 +79,7 @@ Los blobs en los tres niveles de almacenamiento pueden coexistir dentro de la mi
 
 ### <a name="blob-level-tiering-billing"></a>Facturación del almacenamiento por niveles de blob
 
-Cuando un blob se mueve a un nivel más esporádico (frecuente -> esporádico, frecuente -> archivo o esporádico -> archivo), la operación se factura como una operación de escritura en el nivel de destino, y se aplican los cargos de la operación de escritura (por 10 000) y de la escritura de datos (por GB) del nivel de destino. Si un blob se mueve a un nivel menos esporádico (archivo -> esporádico, archivo -> frecuente -> o esporádico -> frecuente), la operación se factura como lectura desde el nivel de origen, y se aplican los cargos de la operación de lectura (por 10 000) y de la recuperación de datos (por GB) del nivel de origen.
+Cuando un blob se mueve a un nivel más esporádico (frecuente -> esporádico, frecuente -> archivo o esporádico -> archivo), la operación se factura como una operación de escritura del nivel de destino, donde se aplican los cargos de la operación de escritura (por 10 000) y de la escritura de datos (por GB) del nivel de destino. Si un blob se mueve a un nivel menos esporádico (archivo -> esporádico, archivo -> frecuente -> o esporádico -> frecuente), la operación se factura como lectura desde el nivel de origen, donde aplican los cargos de la operación de lectura (por 10 000) y de la recuperación de datos (por GB) del nivel de origen.
 
 Si cambia el nivel de acceso de la cuenta de frecuente a esporádico, solo se le cobrarán las operaciones de escritura (por 10 000) de todos los blobs sin un nivel establecido en las cuentas de GPv2. En las cuentas de Blob Storage no se realiza ningún cargo por esto. Si cambia el nivel de acceso de su cuenta de Blob Storage o de GPv2 de esporádico a frecuente, se le cobran tanto las operaciones de lectura (por 10 000) como las de recuperación de datos (por GB). También podrían aplicarse cargos por la eliminación temprana de algún blob que se haya trasladado desde el nivel de acceso esporádico o de archivo.
 

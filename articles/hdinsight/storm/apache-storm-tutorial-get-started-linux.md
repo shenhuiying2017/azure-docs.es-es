@@ -1,9 +1,9 @@
 ---
 title: Ejemplos de Storm-Starter en Apache Storm de HDInsight - Azure | Microsoft Docs
-description: "Aprenda a realizar análisis de macrodatos y a procesar datos en tiempo real mediante Apache Storm y los ejemplos de storm-starter de HDInsight."
+description: Aprenda a realizar análisis de macrodatos y a procesar datos en tiempo real mediante Apache Storm y los ejemplos de storm-starter de HDInsight.
 keywords: storm-starter, ejemplo de apache storm
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -16,13 +16,13 @@ ms.workload: big-data
 ms.date: 02/27/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 6abdb15917508152529990c434eb48a9983b9432
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 0490ba63e651b0ef16175dca46b85a3e48bfd26f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>Introducción a Apache Storm en HDInsight con los ejemplos de Storm-Starter
+# <a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>Introducción a Apache Storm en HDInsight con los ejemplos de Storm-Starter
 
 Aprenda a usar Apache Storm en HDInsight con los ejemplos de Storm-Starter.
 
@@ -108,7 +108,7 @@ Siga estos pasos para crear un clúster de Storm en HDInsight:
     >
     > El ejemplo de WordCount, y otros ejemplos de Storm-Starter, ya están incluidos en el clúster en `/usr/hdp/current/storm-client/contrib/storm-starter/`.
 
-Si quiere ver el origen de los ejemplos de Storm-Starter, encontrará el código en [https://github.com/apache/storm/tree/1.1.x-branch/examples/storm-starter](https://github.com/apache/storm/tree/1.1.x-branch/examples/storm-starter). Este vínculo es para Storm 1.1.x, que se proporciona con HDInsight 3.6. Para otras versiones de Storm, use el botón __Branch__ de la parte superior de la página para seleccionar otra versión de Storm.
+Si está interesado en ver el origen de los ejemplos de Storm Starter, puede encontrar el código en [https://github.com/apache/storm/tree/1.1.x-branch/examples/storm-starter](https://github.com/apache/storm/tree/1.1.x-branch/examples/storm-starter). Este vínculo es para Storm 1.1.x, que se proporciona con HDInsight 3.6. Para otras versiones de Storm, use el botón __Branch__ de la parte superior de la página para seleccionar otra versión de Storm.
 
 ## <a name="monitor-the-topology"></a>Supervisión de la topología
 

@@ -1,11 +1,11 @@
 ---
-title: "Transformación y protección de una API con Azure API Management | Microsoft Docs"
-description: "Aprenda a proteger su API con directivas de cuotas y limitaciones (limitación de frecuencia)."
+title: Transformación y protección de una API con Azure API Management | Microsoft Docs
+description: Aprenda a proteger su API con directivas de cuotas y limitaciones (limitación de frecuencia).
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 772f3828d85c54e7b8bb44c857e555175b7444cc
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: fb56b8489b086b724df9f3c9179f2c3265cd05a7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="transform-and-protect-your-api"></a>Transformación y protección de una API 
 
@@ -29,14 +29,14 @@ Este tutorial muestra lo fácil que es agregar protección para la API de back-e
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Transformar una API para eliminar encabezados de respuesta
-> * Reemplazar URL originales en el cuerpo de la respuesta de API con las URL de puerta de enlace de APIM
-> * Proteger una API agregando la directiva de límite de frecuencia (limitación)
-> * Probar las transformaciones
+> * Transformación una API para eliminar encabezados de respuesta
+> * Reemplazo de URL originales en el cuerpo de la respuesta de API con las URL de puerta de enlace de APIM
+> * Protección de una API agregando la directiva de límite de frecuencia (limitación)
+> * Prueba de las transformaciones
 
 ![Directivas](./media/transform-api/api-management-management-console.png)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 + Completar la guía de inicio rápido siguiente: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
 + Además, completar el tutorial siguiente: [Importación y publicación de la primera API](import-and-publish.md).
@@ -75,7 +75,7 @@ Para ver la respuesta original, siga estos pasos:
 7. Seleccione **Editor de código**.
     
      ![Editar directiva](./media/set-edit-policies/set-edit-policies01.png)
-9. Coloque el cursor dentro del elemento **<outbound>**.
+9. Coloque el cursor dentro del elemento **&lt;outbound&gt;**.
 10. En la ventana de la derecha, en **Transformation policies** (Directivas de transformación), haga clic en **Set HTTP header** (Establecer encabezado HTTP) dos veces (para insertar dos fragmentos de directiva).
 
     ![Directivas](./media/transform-api/transform-api.png)
@@ -111,9 +111,9 @@ Para ver la respuesta original, siga estos pasos:
 5. En la parte superior de la pantalla, seleccione la pestaña **Diseño**.
 6. En la ventana **Procesamiento de salida**, haga clic en el triángulo (al lado del lápiz).
 7. Seleccione **Editor de código**.
-8. Coloque el cursor dentro del elemento **<outbound>**.
+8. Coloque el cursor dentro del elemento **&lt;outbound&gt;**.
 9. En la ventana de la derecha, en **Transformation policies** (Directivas de transformación), haga clic en **+ Find and replace string in body** (+ Buscar y reemplazar cadena en el cuerpo).
-10. Modifique el código **<find-and-replace** (en el elemento **<outbound>**) para reemplazar la URL con el fin de que coincida con la puerta de enlace de APIM. Por ejemplo:
+10. Modifique el código **<find-and-replace** (en el elemento **<outbound>**) para reemplazar la URL con el fin de que coincida con la puerta de enlace de APIM. Por ejemplo: 
 
         <find-and-replace from="://conferenceapi.azurewebsites.net" to="://apiphany.azure-api.net/conference"/>
 
@@ -128,7 +128,7 @@ En esta sección se explica cómo agregar protección para la API de back-end co
 5. En la parte superior de la pantalla, seleccione la pestaña **Diseño**.
 6. En la ventana **Procesamiento de entrada**, haga clic en el triángulo (al lado del lápiz).
 7. Seleccione **Editor de código**.
-8. Coloque el cursor dentro del elemento **<inbound>**.
+8. Coloque el cursor dentro del elemento**&lt;inbound&gt;**.
 9. En la ventana de la derecha, bajo **Access restriction policies** (Directivas de restricción de acceso), haga clic en **+ Limit call rate per key** (+ Limitar la tasa de llamadas por clave).
 10. Modifique el código **<rate-limit-by-key** (en el elemento **<inbound>**) en el código siguiente:
 
@@ -207,7 +207,7 @@ En el resto de esta sección se prueban transformaciones de directiva que establ
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha aprendido cómo:
+En este tutorial aprendió lo siguiente:
 
 > [!div class="checklist"]
 > * Transformación una API para eliminar encabezados de respuesta

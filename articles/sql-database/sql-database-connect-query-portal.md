@@ -10,15 +10,15 @@ ms.custom: mvc,DBs & servers
 ms.topic: quickstart
 ms.date: 01/10/2018
 ms.author: ayolubek
-ms.openlocfilehash: e5c1a5a991284fcbeac53d2ce35be4e2634514fa
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 97b14de64c4aa6bf134f2c293e4bb8b5725810d3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-portal-use-the-sql-query-editor-to-connect-and-query-data"></a>Azure Portal: Uso del Editor de consultas de SQL para conectarse y consultar datos
 
-El Editor de consultas de SQL es una herramienta de consulta en el explorador que proporciona una manera eficaz y flexible de ejecutar consultas de SQL en Azure SQL Database o Azure SQL Data Warehouse sin salir de Azure Portal. Esta guía de inicio rápido muestra cómo usar el Editor de consultas para conectarse a una base de datos SQL y, después, usar instrucciones Transact-SQL para realizar consultas, insertar datos, actualizarlos y eliminarlos de la base de datos.
+El Editor de consultas de SQL es una herramienta de consulta en el explorador que proporciona una manera eficaz y flexible de ejecutar consultas de SQL en Azure SQL Database o Azure SQL Data Warehouse sin salir de Azure Portal. En este tutorial de inicio rápido, se muestra cómo usar el Editor de consultas para conectarse a una base de datos SQL y, después, usar instrucciones Transact-SQL para consultar, insertar, actualizar y eliminar datos de la base de datos.
 
 ## <a name="prerequisites"></a>requisitos previos
 
@@ -142,19 +142,25 @@ Utilice el código siguiente para eliminar el nuevo producto que ha agregado ant
 
 ## <a name="query-editor-considerations"></a>Consideraciones acerca del Editor de consultas
 
-Hay algunos aspectos que debe conocer al trabajar con el Editor de consultas mientras permanece en estado de versión preliminar:
+Hay algunos aspectos que debe conocer al trabajar con el Editor de consultas:
 
-1. Asegúrese de que ha establecido la opción "Permitir el acceso a servicios de Azure" en "Activado" en la configuración de firewall de Azure SQL Server. Esta opción proporciona al Editor de consultas de SQL acceso a los almacenes de datos y bases de datos de SQL.
+1. Asegúrese de que ha establecido la opción "Permitir el acceso a servicios de Azure" en "Activado" en la configuración de firewall de Azure SQL Server. Esta opción proporciona al Editor de consultas de SQL acceso a los almacenes de datos y las bases de datos de SQL.
 
-2. El inicio de sesión del administrador de Azure Active Directory no funciona con cuentas que tengan habilitada la autenticación en dos fases.
+2. Si el servidor SQL está en una red virtual, el Editor de consultas no puede usarse para consultar las bases de datos de ese servidor.
 
-3. Las cuentas de correo electrónico (por ejemplo outlook.com, hotmail.com, live.com, gmail.com, yahoo.com) ya no se admiten como administradores de Active Directory. Asegúrese de elegir un usuario que se creara de forma nativa en Azure Active Directory, o esté federado en Azure Active directory
+3. Al presionar la tecla F5, se actualizará la página del Editor de consultas y se perderá la consulta en la que se esté trabajando. Utilice el botón Ejecutar de la barra de herramientas para ejecutar consultas.
 
-4. Aún no se admiten consultas de tipos de datos espaciales en el Editor de consultas. La consulta de las columnas espaciales producirá un error 'System.IO.FileNotFoundException'.
+4. El Editor de consultas no admite la conexión a una base de datos maestra.
 
-5. No hay compatibilidad con IntelliSense para las vistas y las tablas de base de datos. Sin embargo, el editor permite autocompletar los nombres que ya se han escrito.
+5. Hay un tiempo de espera de 5 minutos para la ejecución de consultas.
 
-6. Al presionar la tecla F5, se actualizará la página del Editor de consultas y se perderá la consulta en la que se esté trabajando. Utilice el botón Ejecutar de la barra de herramientas para ejecutar consultas.
+6. El inicio de sesión del administrador de Azure Active Directory no funciona con cuentas que tengan habilitada la autenticación en dos fases.
+
+7. Las cuentas de correo electrónico (por ejemplo outlook.com, hotmail.com, live.com, gmail.com, yahoo.com) ya no se admiten como administradores de Active Directory. Asegúrese de elegir un usuario que se creara de forma nativa en Azure Active Directory, o esté federado en Azure Active directory
+
+8. El Editor de consultas solo admite la proyección cilíndrica de tipos de datos de geografía.
+
+9. No hay compatibilidad con IntelliSense para las vistas y las tablas de base de datos. Sin embargo, el editor permite autocompletar los nombres que ya se han escrito.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

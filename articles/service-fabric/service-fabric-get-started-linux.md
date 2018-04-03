@@ -1,11 +1,11 @@
 ---
-title: "Configuración del entorno de desarrollo en Linux | Microsoft Docs"
-description: "Instale el SDK y el motor en tiempo de ejecución, y cree un clúster de desarrollo local en Linux. Después de completar esta instalación, estará listo para crear aplicaciones."
+title: Configuración del entorno de desarrollo en Linux | Microsoft Docs
+description: Instale el SDK y el motor en tiempo de ejecución, y cree un clúster de desarrollo local en Linux. Después de completar esta instalación, estará listo para crear aplicaciones.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6
 ms.service: service-fabric
 ms.devlang: dotNet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 20239acba46996ed7ec84a2fbaf300190deebc7f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: c98a5e742356e24cee9e9d1414121faabac03084
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Preparación del entorno de desarrollo en Linux
 > [!div class="op_single_selector"]
@@ -29,6 +29,10 @@ ms.lasthandoff: 02/24/2018
 >  
 
 Para implementar y ejecutar [aplicaciones de Azure Service Fabric](service-fabric-application-model.md) en la máquina de desarrollo de Linux, instale el motor de tiempo de ejecución y el SDK común. También puede instalar SDK opcionales para el desarrollo con Java y .NET Core.
+
+> [!NOTE]
+> No se admite la instalación del SDK ni del entorno de tiempo de ejecución de Service Fabric en el subsistema Windows para Linux. Sin embargo, sí se admite la interfaz de la línea de comandos de Azure Service Fabric (CLI), que permite administrar las entidades de Service Fabric hospedadas en otra parte de la nube o del entorno local. Para más información sobre cómo instalar la CLI, consulte [Configuración de la CLI de Service Fabric](./service-fabric-cli.md).
+>
 
 ## <a name="prerequisites"></a>requisitos previos
 
@@ -108,6 +112,12 @@ sudo apt-get install servicefabricsdkcommon
 >   echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-ga select true" | sudo debconf-set-selections
 >   ```
 
+El entorno de tiempo de ejecución de Service Fabric que viene con la instalación anterior incluye los paquetes de la tabla siguiente. 
+
+ | | DotNetCore | Java | Python | NodeJS | 
+--- | --- | --- | --- |---
+Ubuntu | 2.0.0 | 1.8 OpenJDK | Implícito de npm | más reciente |
+
 ## <a name="set-up-a-local-cluster"></a>Instalación de un clúster local
   Una vez finalizada la instalación, debe poder iniciar un clúster local.
 
@@ -184,7 +194,7 @@ Puede instalar el complemento de Eclipse para Service Fabric desde el IDE de Ecl
 
 2. Para instalar el complemento de Service Fabric, seleccione **Help** > **Install New Software** (Ayuda > Instalar nuevo software).
 
-3. En el cuadro de texto **Trabajar con**, escriba **http://dl.microsoft.com/eclipse**.
+3. En el cuadro **Work with** (Trabajar con), escriba **http://dl.microsoft.com/eclipse**.
 
 4. Haga clic en **Agregar**.
 
@@ -221,7 +231,7 @@ sudo npm uninstall generator-azuresfguest
 sudo apt-get install -f
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Creación e implementación de la primera aplicación de Java para Service Fabric en Linux con Yeoman](service-fabric-create-your-first-linux-application-with-java.md)
 * [Creación e implementación de la primera aplicación de Java para Service Fabric en Linux con el complemento de Eclipse para Service Fabric](service-fabric-get-started-eclipse.md)

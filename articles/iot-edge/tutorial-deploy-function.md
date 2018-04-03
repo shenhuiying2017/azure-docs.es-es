@@ -1,8 +1,8 @@
 ---
-title: "Implementación de Azure Functions con Azure IoT Edge | Microsoft Docs"
-description: "Implementación de Azure Functions como módulo en un dispositivo perimetral"
+title: Implementación de Azure Functions con Azure IoT Edge | Microsoft Docs
+description: Implementación de Azure Functions como módulo en un dispositivo perimetral
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: v-jamebr
@@ -10,11 +10,11 @@ ms.date: 11/15/2017
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 1dfe46d307a076ae02362c4bba292602001ed915
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: a43ae8f28fc32b61fb5db985ffae98f093293798
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="deploy-azure-function-as-an-iot-edge-module---preview"></a>Implementación de Azure Functions como módulo de IoT Edge (versión preliminar)
 Azure Functions se puede usar para implementar código que, a su vez, implementa una lógica de negocios directamente en los dispositivos de IoT Edge. Este tutorial le guía a través de la creación y la implementación de una instancia de Azure Functions que filtra datos del sensor en el dispositivo de IoT Edge simulado que creó en el paso de implementación de Azure IoT Edge en un dispositivo simulado en los tutoriales de [Windows][lnk-tutorial1-win] o [Linux][lnk-tutorial1-lin]. En este tutorial, aprenderá a:     
@@ -28,7 +28,7 @@ Azure Functions se puede usar para implementar código que, a su vez, implementa
 
 La instancia de Azure Functions que se crea en este tutorial filtra los datos de temperatura generados por el dispositivo y solo envía mensajes en dirección ascendente a Azure IoT Hub si la temperatura se encuentra por encima de un umbral especificado. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 * El dispositivo de Azure IoT Edge que creó en el tutorial anterior o en la guía de inicio rápido.
 * [Visual Studio Code](https://code.visualstudio.com/). 
@@ -53,7 +53,7 @@ Puede usar cualquier registro compatible con Docker para este tutorial. Dos serv
 En los siguientes pasos puede ver cómo crear una función de IoT Edge mediante Visual Studio Code y la extensión de Azure IoT Edge.
 1. Abra Visual Studio Code.
 2. Para abrir el terminal integrado de VSCode, seleccione **Ver** > **Terminal integrado**.
-3. Para instalar (o actualizar) la plantilla **AzureIoTEdgeFunction** en DotNet, ejecute el comando siguiente en el terminal integrado:
+3. Para instalar o actualizar la plantilla **AzureIoTEdgeFunction** en DotNet, ejecute el comando siguiente en el terminal integrado:
 
     ```cmd/sh
     dotnet new -i Microsoft.Azure.IoT.Edge.Function
@@ -125,7 +125,7 @@ En los siguientes pasos puede ver cómo crear una función de IoT Edge mediante 
     }
    ```
 
-11. Guarde el archivo .
+11. Guarde el archivo.
 
 ## <a name="publish-a-docker-image"></a>Publicación de una imagen de Docker
 
@@ -174,9 +174,9 @@ Agregue las credenciales del Registro al runtime de Edge en el equipo en que eje
 1. Agregue el módulo **filterFunction**.
     1. Vuelva a seleccionar **Add IoT Edge Module** (Agregar módulo de IoT Edge).
     2. En el campo **Nombre**, escriba `filterFunction`.
-    3. En el campo **Imagen**, escriba la dirección de la imagen; por ejemplo, `<docker registry address>/filterfunction:latest`.
-    74. Haga clic en **Guardar**.
-2. Haga clic en **Siguiente**.
+    3. En el campo **URI de la imagen**, escriba la dirección de la imagen; por ejemplo, `<your container registry address>/filtermodule:0.0.1-amd64`. La dirección de la imagen completa puede encontrarse en la sección anterior.
+    74. Haga clic en **Save**(Guardar).
+2. Haga clic en **Next**.
 3. En el paso **Specify Routes** (Especificar rutas), copie el archivo JSON siguiente en el cuadro de texto. La primera ruta transporta los mensajes del sensor de temperatura al módulo de filtro a través del punto de conexión "input1". La segunda transporta mensajes desde el módulo de filtro hasta IoT Hub. En esta ruta, `$upstream` es un destino especial que indica a Edge Hub que envíe mensajes a IoT Hub. 
 
     ```json
@@ -188,7 +188,7 @@ Agregue las credenciales del Registro al runtime de Edge en el equipo en que eje
     }
     ```
 
-4. Haga clic en **Siguiente**.
+4. Haga clic en **Next**.
 5. En el paso **Review Template** (Revisar plantilla), haga clic en **Enviar**. 
 6. Vuelva a la página de detalles del dispositivo de IoT Edge y haga clic en **Actualizar**. Debería ver que se están ejecutando el nuevo módulo **filtermodule**, junto con el módulo **tempSensor** y el **runtime de IoT Edge**. 
 

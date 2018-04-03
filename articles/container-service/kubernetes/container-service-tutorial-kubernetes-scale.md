@@ -1,6 +1,6 @@
 ---
-title: "Tutorial de Azure Container Service: escalado de una aplicación"
-description: "Tutorial de Azure Container Service: escalado de una aplicación"
+title: 'Tutorial de Azure Container Service: escalado de una aplicación'
+description: 'Tutorial de Azure Container Service: escalado de una aplicación'
 services: container-service
 author: dlepow
 manager: timlt
@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 36c5586f79cf127ec069fd3c6ef95dd073fdbdb6
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ea64f9c52dc89dc8eb75a39afbb087a5127505f1
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="scale-kubernetes-pods-and-kubernetes-infrastructure"></a>Escalado de pods de Kubernetes e infraestructura de Kubernetes
 
@@ -28,7 +28,7 @@ En este tutorial, la parte cinco de siete, se escalan horizontalmente los pods e
 > * Configuración de pods de Autoscale que se ejecuten en el front-end de la aplicación
 > * Escalado de los nodos de agente de Azure para Kubernetes
 
-En tutoriales posteriores se actualiza la aplicación Azure Vote y se configura Operations Management Suite para supervisar el clúster de Kubernetes.
+En tutoriales posteriores se actualiza la aplicación Azure Vote y se configura Log Analytics para supervisar el clúster de Kubernetes.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -139,7 +139,7 @@ La salida del comando muestra el número de nodos de agente en el valor de `agen
 
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, se han usado distintas características de escalado en el clúster de Kubernetes. Las tareas tratadas incluyen:
 

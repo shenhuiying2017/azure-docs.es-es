@@ -1,21 +1,21 @@
 ---
 title: Cargar grandes cantidades de datos aleatorios en paralelo en Azure Storage | Microsoft Docs
-description: "Información acerca de cómo usar el SDK de Azure para cargar grandes cantidades de datos aleatorios en paralelo en una cuenta de Azure Storage"
+description: Información acerca de cómo usar el SDK de Azure para cargar grandes cantidades de datos aleatorios en paralelo en una cuenta de Azure Storage
 services: storage
-author: tamram
+author: roygara
 manager: jeconnoc
 ms.service: storage
 ms.workload: web
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 02/20/2018
-ms.author: tamram
+ms.author: rogarana
 ms.custom: mvc
-ms.openlocfilehash: 39a48007bdcd055df4529074a67b5b8a6db2d8b4
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 668700cf3ff3d1a90f9639129ef2953ddca016f1
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Cargar grandes cantidades de datos aleatorios en paralelo en Azure Storage
 
@@ -73,7 +73,7 @@ Además de establecer la configuración del límite de subprocesos y de conexion
 |---|---|---|
 |[ParallelOperationThreadCount](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.paralleloperationthreadcount?view=azure-dotnet)| 8| La configuración divide el blob en bloques al realizar la carga. Para conseguir el máximo rendimiento, este valor debe ser 8 veces el número de núcleos. |
 |[DisableContentMD5Validation](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.disablecontentmd5validation?view=azure-dotnet)| true| Esta propiedad deshabilita la función de comprobación del hash MD5 del contenido cargado. Al deshabilitar la validación de MD5, se agiliza la transferencia. Aún así, hay que tener en cuenta que no se puede confirmar la validez o integridad de los archivos que se transfieren.   |
-|[StorBlobContentMD5](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.storeblobcontentmd5?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_StoreBlobContentMD5)| false| Esta propiedad determina si se calcula y almacena un hash MD5 con el archivo.   |
+|[StoreBlobContentMD5](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.storeblobcontentmd5?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_StoreBlobContentMD5)| false| Esta propiedad determina si se calcula y almacena un hash MD5 con el archivo.   |
 | [RetryPolicy](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.retrypolicy?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_RetryPolicy)| Retroceso de 2 segundos con 10 reintentos como máximo |Determina la directiva de reintentos de las solicitudes. Los errores de conexión se reintentan y, en este ejemplo, una directiva [ExponentialRetry](/dotnet/api/microsoft.windowsazure.storage.retrypolicies.exponentialretry?view=azure-dotnet) está configurada con un retroceso de 2 segundos y un número máximo de reintentos de 10. Esta configuración es importante cuando la aplicación se acerca a los [Objetivos de escalabilidad y rendimiento de Azure Storage](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets).  |
 
 La tarea `UploadFilesAsync` se muestra en el ejemplo siguiente:
@@ -183,7 +183,7 @@ C:\>netstat -a | find /c "blob:https"
 C:\>
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En la segunda parte de la serie aprendió no solo cómo cargar grandes cantidades de datos aleatorios en una cuenta de almacenamiento en paralelo, si no que también aprendió lo siguiente:
 

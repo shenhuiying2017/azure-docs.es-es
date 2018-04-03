@@ -1,11 +1,11 @@
 ---
-title: "Creación de un equilibrador de carga público: CLI de Azure | Microsoft Docs"
-description: "Aprenda a crear un equilibrador de carga público mediante la CLI de Azure"
+title: 'Creación de un equilibrador de carga público: CLI de Azure | Microsoft Docs'
+description: Aprenda a crear un equilibrador de carga público mediante la CLI de Azure
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jennoc
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: a8bcdd88-f94c-4537-8143-c710eaa86818
 ms.service: load-balancer
@@ -13,300 +13,251 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 03/19/2017
 ms.author: kumud
-ms.openlocfilehash: bd8c2703a1b43834e1c82e0776e2dee807bb3192
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: f2ba819c2341b2e481c2cfa5d5231f4cd5b6295b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="creating-a-public-load-balancer-using-the-azure-cli"></a>Creación de un equilibrador de carga público mediante la CLI de Azure
+# <a name="create-a-public-load-balancer-to-load-balance-vms-using-azure-cli-20"></a>Creación de un equilibrador de carga público para equilibrar la carga de las máquinas virtuales con la CLI de Azure 2.0
 
-> [!div class="op_single_selector"]
-> * [Portal](../load-balancer/load-balancer-get-started-internet-portal.md)
-> * [PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md)
-> * [CLI de Azure](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
-> * [Plantilla](../load-balancer/load-balancer-get-started-internet-arm-template.md)
+En este tutorial rápido se muestra cómo crear una instancia de Azure Load Balancer. Para probar el equilibrador de carga, implemente dos máquinas virtuales (VM) que ejecutan un servidor Ubuntu y se equilibra la carga de una aplicación web entre ellas.
 
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+Si decide instalar y usar la CLI localmente, para este tutorial es preciso que ejecute la CLI de Azure versión 2.0.28 o versiones posteriores. Para encontrar la versión, ejecute `az --version`. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli).
 
-[!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
+## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Este artículo trata sobre el modelo de implementación del Administrador de recursos. También puede [aprender a crear un equilibrador de carga público mediante la implementación clásica](load-balancer-get-started-internet-classic-portal.md)
+Cree un grupo de recursos con [az group create](https://docs.microsoft.com/cli/azure/group#create). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure.
 
-[!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
+En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroupLB* en la ubicación *eastus*:
 
-## <a name="deploying-the-solution-using-the-azure-cli"></a>Implementación de la solución mediante la CLI de Azure
-
-Los pasos siguientes muestran cómo crear un equilibrador de carga público mediante Azure Resource Manager con la CLI. Con Azure Resource Manager, cada recurso se crea y configura individualmente, y a continuación se colocan juntos para crear un recurso.
-
-Para implementar un equilibrador de carga, debe crear y configurar los objetos siguientes:
-
-* Configuración de direcciones IP de front-end: contiene direcciones IP públicas para el tráfico de red entrante.
-* Grupo de direcciones de back-end: contiene interfaces de red (NIC) para que las máquinas virtuales reciban tráfico de red del equilibrador de carga.
-* Reglas de equilibrio de carga: contiene reglas que asignan un puerto público en el equilibrador de carga al del grupo de direcciones de back-end.
-* Reglas NAT de entrada: contiene reglas que asignan un puerto público en el equilibrador de carga a un puerto para una máquina virtual específica en el grupo de direcciones de back-end.
-* Sondeos: contiene los sondeos de estado que se usan para comprobar la disponibilidad de las instancias de las máquinas virtuales del grupo de direcciones de back-end.
-
-Para más información, consulte [Compatibilidad de Azure Resource Manager con Load Balancer](load-balancer-arm.md).
-
-## <a name="set-up-cli-to-use-resource-manager"></a>Configuración de la CLI para utilizar Resource Manager
-
-1. Si nunca ha usado la CLI de Azure, consulte [Instalación y configuración de la CLI de Azure](../cli-install-nodejs.md) y siga las instrucciones hasta el punto donde deba seleccionar su cuenta y suscripción de Azure.
-2. Ejecuta el comando **azure config mode** para cambiar al modo de Administrador de recursos, como se muestra a continuación.
-
-    ```azurecli
-        azure config mode arm
-    ```
-
-    Resultado esperado:
-
-        info:    New mode is arm
-
-## <a name="create-a-virtual-network-and-a-public-ip-address-for-the-front-end-ip-pool"></a>Creación de una red virtual y una dirección IP pública para el grupo de direcciones IP front-end
-
-1. Cree una red virtual llamada *NRPVnet* en la ubicación este de EE. UU. mediante el uso de un grupo de recursos llamado *NRPRG*.
-
-    ```azurecli
-        azure network vnet create NRPRG NRPVnet eastUS -a 10.0.0.0/16
-    ```
-
-    Cree una subred llamada *NRPVnetSubnet* con un bloque CIDR de 10.0.0.0/24 en *NRPVnet*.
-
-    ```azurecli
-        azure network vnet subnet create NRPRG NRPVnet NRPVnetSubnet -a 10.0.0.0/24
-    ```
-
-2. Cree una dirección IP pública llamada *NRPPublicIP* para que la use un grupo de direcciones IP de front-end cuyo nombre de DNS es *loadbalancernrp.eastus.cloudapp.azure.com*. El comando siguiente usa el tipo de asignación estática y el tiempo de espera de inactividad de 4 minutos.
-
-    ```azurecli
-        azure network public-ip create -g NRPRG -n NRPPublicIP -l eastus -d loadbalancernrp -a static -i 4
-    ```
-
-   > [!IMPORTANT]
-   > El equilibrador de carga usa la etiqueta de dominio de la dirección IP pública como su FQDN. Esto representa un cambio en la implementación clásica, que usa el servicio en la nube como nombre de dominio completo (FQDN) del equilibrador de carga.
-   > En este ejemplo, el FQDN será *loadbalancernrp.eastus.cloudapp.azure.com*.
-
-## <a name="create-a-load-balancer"></a>Crear un equilibrador de carga
-
-El comando siguiente crea un equilibrador de carga llamado *NRPlb* en el grupo de recursos *NRPRG* de la ubicación *este de EE. UU.* de Azure.
-
-    ```azurecli
-    azure network lb create NRPRG NRPlb eastus
-    ```
-
-## <a name="create-a-front-end-ip-pool-and-a-backend-address-pool"></a>Creación de un grupo de direcciones IP de front-end y un grupo de direcciones de back-end
-En este ejemplo se muestra cómo se crea el grupo de direcciones IP de front-end que recibe el tráfico de red que entra al equilibrador de carga y el grupo de direcciones IP de back-end donde el grupo de front-end envía el tráfico de red con equilibrio de carga.
-
-1. Cree un grupo de direcciones IP de front-end mediante la asociación de la dirección IP pública creada en el paso anterior y el equilibrador de carga.
-
-    ```azurecli
-        azure network lb frontend-ip create nrpRG NRPlb NRPfrontendpool -i nrppublicip
-    ```
-
-2. Configure un grupo de direcciones de back-end usado para recibir el tráfico entrante proveniente del grupo de direcciones IP de front-end.
-
-    ```azurecli
-        azure network lb address-pool create NRPRG NRPlb NRPbackendpool
-    ```
-
-## <a name="create-lb-rules-nat-rules-and-probe"></a>Crear reglas de equilibrador de carga, reglas NAT y sondeo
-
-Este ejemplo crea los siguientes elementos.
-
-* Una regla NAT para trasladar todo el tráfico entrante del puerto 21 al puerto 22<sup>1</sup>
-* Una regla NAT para trasladar todo el tráfico entrante del puerto 23 al puerto 22
-* Una regla de equilibrador de carga para equilibrar todo el tráfico entrante del puerto 80 al puerto 80 en las direcciones del grupo de back-end.
-* Una regla de sondeo que comprobará el estado de mantenimiento en una página llamada *HealthProbe.aspx*.
-
-<sup>1</sup> Las reglas NAT están asociadas a una instancia de máquina virtual específica detrás del equilibrador de carga. El tráfico de red que llega al puerto 21 se envía a una máquina virtual específica en el puerto 22 asociado a esta regla NAT. Debe especificar un protocolo (UDP o TCP) para una regla NAT. Los dos protocolos no se pueden asignar al mismo puerto.
-
-1. Cree las reglas NAT.
-
-    ```azurecli
-        azure network lb inbound-nat-rule create --resource-group nrprg --lb-name nrplb --name ssh1 --protocol tcp --frontend-port 21 --backend-port 22
-        azure network lb inbound-nat-rule create --resource-group nrprg --lb-name nrplb --name ssh2 --protocol tcp --frontend-port 23 --backend-port 22
-    ```
-
-2. Cree una regla de equilibrador de carga.
-
-    ```azurecli
-        azure network lb rule create --resource-group nrprg --lb-name nrplb --name lbrule --protocol tcp --frontend-port 80 --backend-port 80 --frontend-ip-name NRPfrontendpool --backend-address-pool-name NRPbackendpool
-    ```
-
-3. Cree un sondeo de estado.
-
-    ```azurecli
-        azure network lb probe create --resource-group nrprg --lb-name nrplb --name healthprobe --protocol "http" --port 80 --path healthprobe.aspx --interval 15 --count 4
-    ```
-
-4. Compruebe la configuración.
-
-    ```azurecli
-        azure network lb show nrprg nrplb
-    ```
-
-    Resultado esperado:
-
-        info:    Executing command network lb show
-        + Looking up the load balancer "nrplb"
-        + Looking up the public ip "NRPPublicIP"
-        data:    Id                              : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb
-        data:    Name                            : nrplb
-        data:    Type                            : Microsoft.Network/loadBalancers
-        data:    Location                        : eastus
-        data:    Provisioning State              : Succeeded
-        data:    Frontend IP configurations:
-        data:      Name                          : NRPfrontendpool
-        data:      Provisioning state            : Succeeded
-        data:      Public IP address id          : /subscriptions/####################################/resourceGroups/NRPRG/providers/Microsoft.Network/publicIPAddresses/NRPPublicIP
-        data:      Public IP allocation method   : Static
-        data:      Public IP address             : 40.114.13.145
-        data:
-        data:    Backend address pools:
-        data:      Name                          : NRPbackendpool
-        data:      Provisioning state            : Succeeded
-        data:
-        data:    Load balancing rules:
-        data:      Name                          : HTTP
-        data:      Provisioning state            : Succeeded
-        data:      Protocol                      : Tcp
-        data:      Frontend port                 : 80
-        data:      Backend port                  : 80
-        data:      Enable floating IP            : false
-        data:      Idle timeout in minutes       : 4
-        data:      Frontend IP configuration     : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/frontendIPConfigurations/NRPfrontendpool
-        data:      Backend address pool          : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/NRPbackendpool
-        data:
-        data:    Inbound NAT rules:
-        data:      Name                          : ssh1
-        data:      Provisioning state            : Succeeded
-        data:      Protocol                      : Tcp
-        data:      Frontend port                 : 21
-        data:      Backend port                  : 22
-        data:      Enable floating IP            : false
-        data:      Idle timeout in minutes       : 4
-        data:      Frontend IP configuration     : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/frontendIPConfigurations/NRPfrontendpool
-        data:
-        data:      Name                          : ssh2
-        data:      Provisioning state            : Succeeded
-        data:      Protocol                      : Tcp
-        data:      Frontend port                 : 23
-        data:      Backend port                  : 22
-        data:      Enable floating IP            : false
-        data:      Idle timeout in minutes       : 4
-        data:      Frontend IP configuration     : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/frontendIPConfigurations/NRPfrontendpool
-        data:
-        data:    Probes:
-        data:      Name                          : healthprobe
-        data:      Provisioning state            : Succeeded
-        data:      Protocol                      : Http
-        data:      Port                          : 80
-        data:      Interval in seconds           : 15
-        data:      Number of probes              : 4
-        data:
-        info:    network lb show command OK
-
-## <a name="create-nics"></a>Cree tarjetas NIC
-
-Debe crear tarjetas NIC (o modificar las existentes) y asociarlas a las reglas NAT, las reglas de equilibrador de carga y los sondeos.
-
-1. Cree una NIC llamada *lb-nic1-be* y asóciela con la regla NAT *rdp1* y el grupo de direcciones de back-end *NRPbackendpool*.
-
-    ```azurecli
-        azure network nic create --resource-group nrprg --name lb-nic1-be --subnet-name nrpvnetsubnet --subnet-vnet-name nrpvnet --lb-address-pool-ids "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/NRPbackendpool" --lb-inbound-nat-rule-ids "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp1" eastus
-    ```
-
-    Resultado esperado:
-
-        info:    Executing command network nic create
-        + Looking up the network interface "lb-nic1-be"
-        + Looking up the subnet "nrpvnetsubnet"
-        + Creating network interface "lb-nic1-be"
-        + Looking up the network interface "lb-nic1-be"
-        data:    Id                              : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/networkInterfaces/lb-nic1-be
-        data:    Name                            : lb-nic1-be
-        data:    Type                            : Microsoft.Network/networkInterfaces
-        data:    Location                        : eastus
-        data:    Provisioning state              : Succeeded
-        data:    Enable IP forwarding            : false
-        data:    IP configurations:
-        data:      Name                          : NIC-config
-        data:      Provisioning state            : Succeeded
-        data:      Private IP address            : 10.0.0.4
-        data:      Private IP Allocation Method  : Dynamic
-        data:      Subnet                        : /subscriptions/####################################/resourceGroups/NRPRG/providers/Microsoft.Network/virtualNetworks/NRPVnet/subnets/NRPVnetSubnet
-        data:      Load balancer backend address pools
-        data:        Id                          : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/NRPbackendpool
-        data:      Load balancer inbound NAT rules:
-        data:        Id                          : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp1
-        data:
-        info:    network nic create command OK
-
-2. Cree una NIC llamada *lb-nic2-be* y asóciela con la regla NAT *rdp2* y el grupo de direcciones de back-end *NRPbackendpool*.
-
-    ```azurecli
-        azure network nic create --resource-group nrprg --name lb-nic2-be --subnet-name nrpvnetsubnet --subnet-vnet-name nrpvnet --lb-address-pool-ids "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/NRPbackendpool" --lb-inbound-nat-rule-ids "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp2" eastus
-    ```
-
-3. Cree una máquina virtual llamada *web1* y asóciela con la NIC llamada *lb-nic1-be*. Se creó una cuenta de almacenamiento llamada *web1nrp* antes de ejecutar el comando que aparece a continuación.
-
-    ```azurecli
-        azure vm create --resource-group nrprg --name web1 --location eastus --vnet-name nrpvnet --vnet-subnet-name nrpvnetsubnet --nic-name lb-nic1-be --availset-name nrp-avset --storage-account-name web1nrp --os-type Windows --image-urn MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20150825
-    ```
-
-    > [!IMPORTANT]
-    > Las máquinas virtuales en un equilibrador de carga deben estar en el mismo conjunto de disponibilidad. Use `azure availset create` para crear un conjunto de disponibilidad.
-
-    La salida debe ser similar a la siguiente:
-
-        info:    Executing command vm create
-        + Looking up the VM "web1"
-        Enter username: azureuser
-        Enter password for azureuser: *********
-        Confirm password: *********
-        info:    Using the VM Size "Standard_A1"
-        info:    The [OS, Data] Disk or image configuration requires storage account
-        + Looking up the storage account web1nrp
-        + Looking up the availability set "nrp-avset"
-        info:    Found an Availability set "nrp-avset"
-        + Looking up the NIC "lb-nic1-be"
-        info:    Found an existing NIC "lb-nic1-be"
-        info:    Found an IP configuration with virtual network subnet id "/subscriptions/####################################/resourceGroups/NRPRG/providers/Microsoft.Network/virtualNetworks/NRPVnet/subnets/NRPVnetSubnet" in the NIC "lb-nic1-be"
-        info:    This is a NIC without publicIP configured
-        + Creating VM "web1"
-        info:    vm create command OK
-
-    > [!NOTE]
-    > El mensaje informativo **Esta es una NIC sin dirección IP pública configurada** es un comportamiento esperado, debido a que la NIC que se creó para el equilibrador de carga se conecta a Internet con la dirección IP pública del equilibrador de carga.
-
-    Como la NIC *lb-nic1-be* está asociada con la regla NAT *rdp1*, es posible conectarse a *web1* mediante RDP a través del puerto 3441 del equilibrador de carga.
-
-4. Cree una máquina virtual llamada *web2* y asóciela con la NIC llamada *lb-nic2-be*. Se creó una cuenta de almacenamiento llamada *web1nrp* antes de ejecutar el comando que aparece a continuación.
-
-    ```azurecli
-        azure vm create --resource-group nrprg --name web2 --location eastus --vnet-name nrpvnet --vnet-subnet-name nrpvnetsubnet --nic-name lb-nic2-be --availset-name nrp-avset --storage-account-name web2nrp --os-type Windows --image-urn MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20150825
-    ```
-
-## <a name="update-an-existing-load-balancer"></a>Actualización de un equilibrador de carga existente
-Puede agregar reglas que hacen referencia a un equilibrador de carga existente. En el ejemplo siguiente, se agrega una nueva regla de equilibrador de carga a un equilibrador de carga existente **NRPlb**
-
-```azurecli
-azure network lb rule create --resource-group nrprg --lb-name nrplb --name lbrule2 --protocol tcp --frontend-port 8080 --backend-port 8051 --frontend-ip-name frontendnrppool --backend-address-pool-name NRPbackendpool
+```azurecli-interactive
+  az group create \
+    --name myResourceGroupLB \
+    --location eastus
 ```
 
-## <a name="delete-a-load-balancer"></a>Eliminar un equilibrador de carga
-Para quitar un equilibrador de carga, use el siguiente comando:
+## <a name="create-a-public-ip-address"></a>Crear una dirección IP pública
 
-```azurecli
-azure network lb delete --resource-group nrprg --name nrplb
+Para obtener acceso a la aplicación web en Internet, necesita una dirección IP pública para el equilibrador de carga. Utilice [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip#create) para crear una dirección IP pública llamada *myPublicIP* en *myResourceGroupLB*.
+
+```azurecli-interactive
+  az network public-ip create --resource-group myResourceGroupLB --name myPublicIP
 ```
 
-## <a name="next-steps"></a>pasos siguientes
-[Introducción a la configuración de un equilibrador de carga interno](load-balancer-get-started-ilb-arm-cli.md)
+## <a name="create-azure-load-balancer"></a>Creación del equilibrador de carga de Azure
 
-[Configuración de un modo de distribución del equilibrador de carga](load-balancer-distribution-mode.md)
+En esta sección se detalla cómo se pueden crear y configurar los componentes siguientes del equilibrador de carga:
+  - Un grupo de direcciones IP de front-end que recibe el tráfico de red entrante en el equilibrador de carga.
+  - Un grupo de direcciones IP de back-end al que el grupo de servidores front-end envía el tráfico de red de carga equilibrada.
+  - Un sondeo de estado que determina el estado de las instancias de máquina virtual de back-end.
+  - Una regla de equilibrador de carga que define cómo se distribuye el tráfico a las máquinas virtuales.
 
-[Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
+### <a name="create-the-load-balancer"></a>Creación del equilibrador de carga
+
+Cree con [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#create) una instancia de Azure Load Balancer pública llamada **myLoadBalancer** que incluya un grupo de servidores front-end llamado **myFrontEndPool** y un grupo de servidores back-end llamado **myBackEndPool** que esté asociado a la dirección IP pública **myPublicIP** que creó en el paso anterior.
+
+```azurecli-interactive
+  az network lb create \
+    --resource-group myResourceGroupLB \
+    --name myLoadBalancer \
+    --public-ip-address myPublicIP \
+    --frontend-ip-name myFrontEndPool \
+    --backend-pool-name myBackEndPool       
+  ```
+
+### <a name="create-the-health-probe"></a>Creación del sondeo de estado
+
+Los sondeos de estado comprueban todas las instancias de máquina virtual para asegurarse de que pueden enviar tráfico de red. La instancia de máquina virtual con comprobaciones de sondeo incorrectas se elimina del equilibrador de carga hasta que vuelve a estar en línea y una comprobación de sondeo determina que es correcta. Cree un sondeo de estado con [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest#create) para supervisar el estado de las máquinas virtuales. 
+
+```azurecli-interactive
+  az network lb probe create \
+    --resource-group myResourceGroupLB \
+    --lb-name myLoadBalancer \
+    --name myHealthProbe \
+    --protocol tcp \
+    --port 80   
+```
+
+### <a name="create-the-load-balancer-rule"></a>Creación de la regla de equilibrador de carga
+
+Una regla de equilibrador de carga define la configuración de la dirección IP de front-end para el tráfico entrante y el grupo de direcciones IP de back-end para recibir el tráfico, junto con el puerto de origen y destino requeridos. Cree una regla de equilibrador de carga *myLoadBalancerRuleWeb* con [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#create) para escuchar el puerto 80 en el grupo de servidores front-end *myFrontEndPool* y enviar tráfico de red con equilibrio de carga al grupo de direcciones de back-end *myBackEndPool*, que también usan el puerto 80. 
+
+```azurecli-interactive
+  az network lb rule create \
+    --resource-group myResourceGroupLB \
+    --lb-name myLoadBalancer \
+    --name myHTTPRule \
+    --protocol tcp \
+    --frontend-port 80 \
+    --backend-port 80 \
+    --frontend-ip-name myFrontEndPool \
+    --backend-pool-name myBackEndPool \
+    --probe-name myHealthProbe  
+```
+
+## <a name="configure-virtual-network"></a>Configurar la red virtual
+
+Antes de implementar algunas máquinas virtuales y poder probar el equilibrador de carga, cree los recursos de red virtual auxiliares.
+
+### <a name="create-a-virtual-network"></a>Crear una red virtual
+
+Cree una red virtual llamada *myVnet* con una subred llamada *mySubnet* en *myResourceGroup* con el comando [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create).
+
+```azurecli-interactive
+  az network vnet create \
+    --resource-group myResourceGroupLB \
+    --location eastus \
+    --name myVnet \
+    --subnet-name mySubnet
+```
+###  <a name="create-a-network-security-group"></a>Crear un grupo de seguridad de red
+Cree un grupo de seguridad de red para definir las conexiones entrantes a la red virtual.
+
+```azurecli-interactive
+  az network nsg create \
+    --resource-group myResourceGroupLB \
+    --name myNetworkSecurityGroup
+```
+
+### <a name="create-a-network-security-group-rule"></a>Creación de una regla de grupo de seguridad de red
+
+Cree una regla de grupo de seguridad de red para permitir las conexiones entrantes a través del puerto 80.
+
+```azurecli-interactive
+  az network nsg rule create \
+    --resource-group myResourceGroupLB \
+    --nsg-name myNetworkSecurityGroup \
+    --name myNetworkSecurityGroupRuleHTTP \
+    --protocol tcp \
+    --direction inbound \
+    --source-address-prefix '*' \
+    --source-port-range '*' \
+    --destination-address-prefix '*' \
+    --destination-port-range 80 \
+    --access allow \
+    --priority 200
+```
+### <a name="create-nics"></a>Cree tarjetas NIC
+
+Cree tres interfaces de red con el comando [az network nic create](/cli/azure/network/nic#az_network_nic_create) y asócielas con la dirección IP pública y el grupo de seguridad de red. 
+
+```azurecli-interactive
+for i in `seq 1 2`; do
+  az network nic create \
+    --resource-group myResourceGroupLB \
+    --name myNic$i \
+    --vnet-name myVnet \
+    --subnet mySubnet \
+    --network-security-group myNetworkSecurityGroup \
+    --lb-name myLoadBalancer \
+    --lb-address-pools myBackEndPool
+done
+```
+
+
+## <a name="create-backend-servers"></a>Creación de servidores back-end
+
+En este ejemplo, se crean tres máquinas virtuales que se usarán como servidores back-end para el equilibrador de carga. Para comprobar que el equilibrador de carga se ha creado correctamente, también se debe instalar NGINX en las máquinas virtuales.
+
+### <a name="create-an-availability-set"></a>Creación de un conjunto de disponibilidad
+
+Cree un conjunto de disponibilidad con [az vm availabilityset create](/cli/azure/network/nic#az_network_availabilityset_create)
+
+ ```azurecli-interactive
+  az vm availability-set create \
+    --resource-group myResourceGroupLB \
+    --name myAvailabilitySet
+```
+
+### <a name="create-two-virtual-machines"></a>Creación de dos máquinas virtuales
+
+Puede usar un archivo de configuración cloud-init para instalar NGINX y ejecutar una aplicación Node.js "Hola mundo" en una máquina virtual Linux. En el shell actual, cree un archivo denominado cloud-init.txt, y copie y pegue la siguiente configuración en el shell. Asegúrese de copiar correctamente todo el archivo cloud-init, especialmente la primera línea:
+
+```yaml
+#cloud-config
+package_upgrade: true
+packages:
+  - nginx
+  - nodejs
+  - npm
+write_files:
+  - owner: www-data:www-data
+  - path: /etc/nginx/sites-available/default
+    content: |
+      server {
+        listen 80;
+        location / {
+          proxy_pass http://localhost:3000;
+          proxy_http_version 1.1;
+          proxy_set_header Upgrade $http_upgrade;
+          proxy_set_header Connection keep-alive;
+          proxy_set_header Host $host;
+          proxy_cache_bypass $http_upgrade;
+        }
+      }
+  - owner: azureuser:azureuser
+  - path: /home/azureuser/myapp/index.js
+    content: |
+      var express = require('express')
+      var app = express()
+      var os = require('os');
+      app.get('/', function (req, res) {
+        res.send('Hello World from host ' + os.hostname() + '!')
+      })
+      app.listen(3000, function () {
+        console.log('Hello world app listening on port 3000!')
+      })
+runcmd:
+  - service nginx restart
+  - cd "/home/azureuser/myapp"
+  - npm init
+  - npm install express -y
+  - nodejs index.js
+``` 
+ 
+Cree las máquinas virtuales con [az vm create](/cli/azure/vm#az_vm_create).
+
+ ```azurecli-interactive
+for i in `seq 1 2`; do
+  az vm create \
+    --resource-group myResourceGroupLB \
+    --name myVM$i \
+    --availability-set myAvailabilitySet \
+    --nics myNic$i \
+    --image UbuntuLTS \
+    --generate-ssh-keys \
+    --custom-data cloud-init.txt
+    --no-wait
+    done
+```
+Es posible que la implementación de las máquinas virtuales tarde unos minutos.
+
+## <a name="test-the-load-balancer"></a>Prueba del equilibrador de carga
+
+Para obtener la dirección IP pública del equilibrador de carga, use [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). Copie la dirección IP pública y péguela en la barra de direcciones del explorador.
+
+```azurecli-interactive
+  az network public-ip show \
+    --resource-group myResourceGroupLB \
+    --name myPublicIP \
+    --query [ipAddress] \
+    --output tsv
+``` 
+![Prueba del equilibrador de carga](./media/load-balancer-get-started-internet-arm-cli/running-nodejs-app.png)
+
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Cuando ya no se necesiten, puede usar el comando [az group delete](/cli/azure/group#az_group_delete) para quitar el grupo de recursos, el equilibrador de carga y todos los recursos relacionados.
+
+```azurecli-interactive 
+  az group delete --name myResourceGroupLB
+```
+
+
+## <a name="next-steps"></a>Pasos siguientes
+En esta guía de inicio rápido, ha creado un equilibrador de carga, le ha asociado máquinas virtuales, ha configurado la regla de tráfico del equilibrador de carga, ha sondeado el estado y, después, ha probado el equilibrador de carga. Para más información acerca de los equilibradores de carga y sus recursos asociados, vaya a los artículos de procedimientos.

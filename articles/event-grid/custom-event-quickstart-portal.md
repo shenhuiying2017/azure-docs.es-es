@@ -2,84 +2,117 @@
 title: Eventos personalizados para Azure Event Grid con Azure Portal | Microsoft Docs
 description: Use Azure Event Grid y PowerShell para publicar un tema y suscribirse a ese evento.
 services: event-grid
-keywords: 
+keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 01/30/2018
+ms.date: 03/23/2018
 ms.topic: hero-article
 ms.service: event-grid
-ms.openlocfilehash: f37d496d43bb24c51d6e1c11b77d9ceba48b7b23
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f1185c0b2d5d320cd712642f422408348bee7a37
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-and-route-custom-events-with-the-azure-portal-and-event-grid"></a>Creación y enrutamiento de eventos personalizados con Azure Portal y Event Grid
 
-Azure Event Grid es un servicio de eventos para la nube. En este artículo, se usa Azure Portal para crear un tema personalizado, suscribirse al tema y desencadenar el evento para ver el resultado. Por lo general, los eventos se envían a un punto de conexión que responde al evento, como un webhook o Azure Function. Sin embargo, para simplificar las cosas, en este artículo los eventos se envían a una dirección URL que simplemente recopila los mensajes. Debe crear esta dirección URL mediante herramientas de terceros desde [RequestBin](https://requestb.in/) o [Hookbin](https://hookbin.com/).
-
->[!NOTE]
->Tenga en cuenta que **RequestBin** y **Hookbin** no están diseñados para el uso de alto rendimiento. El uso de estas herramientas es meramente ilustrativo. Si inserta más de un evento a la vez, puede que no vea todos los eventos en la herramienta.
-
-Cuando haya terminado, verá que los datos del evento se han enviado a un punto de conexión.
-
-![Datos de evento](./media/custom-event-quickstart-portal/request-result.png)
+Azure Event Grid es un servicio de eventos para la nube. En este artículo, se usa Azure Portal para crear un tema personalizado, suscribirse al tema y desencadenar el evento para ver el resultado. El evento se envía a una función de Azure que registra sus datos. Cuando haya terminado, verá que los datos del evento se han enviado a un punto de conexión y se han registrado.
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-a-resource-group"></a>Crear un grupo de recursos
-
-Los temas de Event Grid son recursos de Azure y se deben colocar en un grupo de recursos de Azure. El grupo de recursos de Azure es una colección lógica en la que se implementan y administran los recursos de Azure.
-
-1. En el panel de la izquierda, seleccione **Grupos de recursos**. Después, seleccione **Agregar**.
-
-   ![Creación de un grupo de recursos](./media/custom-event-quickstart-portal/create-resource-group.png)
-
-1. Establezca el nombre del grupo de recursos en *gridResourceGroup* y la ubicación, en *westus2*. Seleccione **Crear**.
-
-   ![Incorporación de los valores para el grupo de recursos](./media/custom-event-quickstart-portal/provide-resource-group-values.png)
-
 ## <a name="create-a-custom-topic"></a>Creación de un tema personalizado
 
-Un tema proporciona un punto de conexión definido por el usuario en el que se registran los eventos. 
+Un tema de cuadrícula de eventos proporciona un punto de conexión definido por el usuario en el que se registran los eventos. 
 
-1. Para crear un tema en el grupo de recursos, seleccione **Todos los servicios** y busque *Event Grid*. Seleccione **Temas de Event Grid** entre las opciones disponibles.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
-   ![Creación del tema de Event Grid](./media/custom-event-quickstart-portal/create-event-grid-topic.png)
+1. Para crear un tema personalizado, seleccione **Crear un recurso**. 
 
-1. Seleccione **Agregar**.
+   ![Creación de un recurso](./media/custom-event-quickstart-portal/create-resource.png)
 
-   ![Incorporación del tema de Event Grid](./media/custom-event-quickstart-portal/add-topic.png)
+1. Busque *Event Grid Topic* y selecciónelo.
 
-1. Proporcione un nombre para el tema. El nombre del tema debe ser único porque se representa mediante una entrada DNS. Seleccione alguna de las [regiones admitidas](overview.md). Seleccione el grupo de recursos que creó anteriormente. Seleccione **Crear**.
+   ![Buscar Event Grid Topic](./media/custom-event-quickstart-portal/search-event-grid.png)
 
-   ![Incorporación de los valores para el tema de Event Grid](./media/custom-event-quickstart-portal/provide-topic-values.png)
+1. Seleccione **Crear**.
 
-1. Una vez creado el tema, seleccione **Actualizar** para verlo.
+   ![Pasos iniciales](./media/custom-event-quickstart-portal/select-create.png)
 
-   ![Visualización del tema de Event Grid](./media/custom-event-quickstart-portal/see-topic.png)
+1. Escriba un nombre único para el tema personalizado. El nombre del tema debe ser único porque se representa mediante una entrada DNS. No utilice el nombre que se muestra en la imagen. En su lugar, cree un nuevo. Seleccione una de las [regiones admitidas](overview.md). Proporcione un nombre para el grupo de recursos. Seleccione **Crear**.
 
-## <a name="create-a-message-endpoint"></a>Creación de un punto de conexión de mensaje
+   ![Incorporación de los valores para el tema de Event Grid](./media/custom-event-quickstart-portal/create-custom-topic.png)
 
-Antes de suscribirse al tema, vamos a crear el punto de conexión para el mensaje de evento. En lugar de escribir código para responder al evento, vamos a crear un punto de conexión que recopile los mensajes para que pueda verlos. RequestBin y Hookbin son herramientas de terceros que permiten crear un punto de conexión y ver las solicitudes enviadas a este. Vaya a [RequestBin](https://requestb.in/) y haga clic en **Create a RequestBin** (Crear un elemento de RequestBin), o visite [Hookbin](https://hookbin.com/) y haga clic en **Crear un nuevo punto de conexión**.  Copie la dirección URL de la ubicación, la necesitará para suscribirse al tema.
+1. Cuando se ha creado el tema personalizado, se ve la notificación de que la operación se ha realizado correctamente.
+
+   ![Ver la notificación de que la operación se ha realizado correctamente](./media/custom-event-quickstart-portal/success-notification.png)
+
+   Si la implementación no se ha realizado correctamente, averigüe la causa del error. Seleccione **Error de implementación**.
+
+   ![Seleccionar Error de implementación](./media/custom-event-quickstart-portal/select-failed.png)
+
+   Seleccione el mensaje de error.
+
+   ![Seleccionar Error de implementación](./media/custom-event-quickstart-portal/failed-details.png)
+
+   La siguiente imagen muestra una implementación en que se produjo un error porque el nombre del tema personalizado ya estaba en uso. Si ve este error, vuelva a intentar realizar la implementación con otro nombre.
+
+   ![Conflicto de nombres](./media/custom-event-quickstart-portal/name-conflict.png)
+
+## <a name="create-an-azure-function"></a>Creación de una Función de Azure
+
+Antes de suscribirse al tema, vamos a crear el punto de conexión para el mensaje de evento. En este artículo se usa Azure Functions para crear una aplicación de función para el punto de conexión.
+
+1. Para crear una función, seleccione **Crear un recurso**.
+
+   ![Crear un recurso](./media/custom-event-quickstart-portal/create-resource-small.png)
+
+1. Seleccione **Proceso** y **Function App**.
+
+   ![Crear función](./media/custom-event-quickstart-portal/create-function.png)
+
+1. Escriba un nombre único para la función de Azure. No utilice el nombre que se muestra en la imagen. Seleccione el grupo de recursos que creó en este artículo. En Plan de hospedaje, seleccione **Plan de consumo**. Use la nueva cuenta de almacenamiento sugerida. Después de especificar los valores, seleccione **Crear**.
+
+   ![Especificar los valores de la función](./media/custom-event-quickstart-portal/provide-function-values.png)
+
+1. Cuando finalice la implementación, seleccione **Go to resource** (Ir al recurso).
+
+   ![Ir al recurso](./media/custom-event-quickstart-portal/go-to-resource.png)
+
+1. A la derecha de **Funciones**, seleccione **+**.
+
+   ![Agregar función](./media/custom-event-quickstart-portal/add-function.png)
+
+1. Entre las opciones disponibles, seleccione **Función personalizada**.
+
+   ![Función personalizada](./media/custom-event-quickstart-portal/select-custom-function.png)
+
+1. Desplácese hacia abajo hasta que encuentre **Desencadenador de la cuadrícula de eventos**. Seleccione **C#**.
+
+   ![Seleccionar Desencadenador de la cuadrícula de eventos](./media/custom-event-quickstart-portal/select-event-grid-trigger.png)
+
+1. Acepte los valores predeterminados y haga clic en **Crear**.
+
+   ![Nueva función](./media/custom-event-quickstart-portal/new-function.png)
+
+La función ya está lista para recibir eventos.
 
 ## <a name="subscribe-to-a-topic"></a>Suscripción a un tema
 
-Suscríbase a un tema para indicar a Event Grid los eventos cuyo seguimiento desea realizar. 
+Suscríbase a un tema que indique a Event Grid los eventos cuyo seguimiento desea realizar y el lugar al que deben enviarse los eventos.
 
-1. Para crear una suscripción de Event Grid, seleccione **Todos los servicios** y busque *Event Grid* de nuevo. Seleccione **Suscripciones de Event Grid** entre las opciones disponibles.
+1. En la función de Azure, seleccione **Agregar suscripción a Event Grid**.
 
-   ![Creación de una suscripción de Event Grid](./media/custom-event-quickstart-portal/create-subscription.png)
+   ![Incorporación de una suscripción de Event Grid](./media/custom-event-quickstart-portal/add-event-grid-subscription.png)
 
-1. Seleccione **+ Suscripción de eventos**.
+1. Especifique los valores de la suscripción. Seleccione **Temas de Event Grid** como tipo de tema. Para la suscripción y el grupo de recursos, seleccione la suscripción y el grupo de recursos en los que creó el tema personalizado. Por ejemplo, seleccione el nombre del tema personalizado. El punto de conexión del suscriptor se rellena previamente con la dirección URL de la función.
 
-   ![Incorporación de una suscripción de Event Grid](./media/custom-event-quickstart-portal/add-subscription.png)
+   ![Proporcionar valores de suscripción](./media/custom-event-quickstart-portal/provide-subscription-values.png)
 
-1. Proporcione un nombre único para la suscripción de eventos. Como tipo de tema, seleccione **Temas de Event Grid**. Como instancia, seleccione el tema personalizado que ha creado. Proporcione la dirección URL de RequestBin o Hookbin como punto de conexión para la notificación de eventos. Cuando termine de proporcionar los valores pertinentes, haga clic en **Crear**.
+1. Antes de desencadenar el evento, abra los registros de la función para que pueda ver los datos del evento cuando se envíen. En la parte inferior de la función de Azure, seleccione **Registros**.
 
-   ![Incorporación del valor de la suscripción de Event Grid](./media/custom-event-quickstart-portal/provide-subscription-values.png)
+   ![Seleccionar Registros](./media/custom-event-quickstart-portal/select-logs.png)
 
-Ahora, vamos a desencadenar un evento para ver cómo Event Grid distribuye el mensaje al punto de conexión. Para simplificar las cosas, en este artículo se usa Cloud Shell para enviar los datos de evento de ejemplo al tema. Normalmente, una aplicación o servicio de Azure enviaría los datos del evento.
+Ahora, vamos a desencadenar un evento para ver cómo Event Grid distribuye el mensaje al punto de conexión. Para simplificar este artículo, use Cloud Shell para enviar los datos de evento de ejemplo al tema personalizado. Normalmente, una aplicación o servicio de Azure enviaría los datos del evento.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -88,8 +121,8 @@ Ahora, vamos a desencadenar un evento para ver cómo Event Grid distribuye el me
 En primer lugar, vamos a obtener la dirección URL y la clave del tema. Use el nombre de su tema en `<topic_name>`.
 
 ```azurecli-interactive
-endpoint=$(az eventgrid topic show --name <topic_name> -g gridResourceGroup --query "endpoint" --output tsv)
-key=$(az eventgrid topic key list --name <topic_name> -g gridResourceGroup --query "key1" --output tsv)
+endpoint=$(az eventgrid topic show --name <topic_name> -g myResourceGroup --query "endpoint" --output tsv)
+key=$(az eventgrid topic key list --name <topic_name> -g myResourceGroup --query "key1" --output tsv)
 ```
 
 En el ejemplo siguiente se obtienen los datos del evento de ejemplo:
@@ -98,41 +131,27 @@ En el ejemplo siguiente se obtienen los datos del evento de ejemplo:
 body=$(eval echo "'$(curl https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/customevent.json)'")
 ```
 
-Si ejecuta `echo "$body"` puede ver el evento completo. El elemento `data` del archivo JSON es la carga del evento. En este campo, puede usar cualquier archivo JSON bien formado. También puede usar el campo de asunto para realizar enrutamiento y filtrado avanzados.
+Para ver el evento completo, use `echo "$body"`. El elemento `data` del archivo JSON es la carga del evento. En este campo, puede usar cualquier archivo JSON bien formado. También puede usar el campo de asunto para realizar enrutamiento y filtrado avanzados.
 
-CURL es una utilidad que ejecuta solicitudes HTTP. En este artículo, use CURL para enviar un evento al tema. 
+CURL es una utilidad que envía solicitudes HTTP. En este artículo, use CURL para enviar un evento al tema personalizado. 
 
 ```azurecli-interactive
 curl -X POST -H "aeg-sas-key: $key" -d "$body" $endpoint
 ```
 
-Ha desencadenado el evento y Event Grid envió el mensaje al punto de conexión configurado durante la suscripción. Vaya a la dirección URL del punto de conexión que creó anteriormente. O bien, haga clic en Actualizar en el explorador abierto. Verá el evento que se acaba de enviar.
+Ha desencadenado el evento y Event Grid ha enviado el mensaje al punto de conexión que configuró al realizar la suscripción. Examine los registros para ver los datos del evento.
 
-```json
-[{
-  "id": "1807",
-  "eventType": "recordInserted",
-  "subject": "myapp/vehicles/motorcycles",
-  "eventTime": "2017-08-10T21:03:07+00:00",
-  "data": {
-    "make": "Ducati",
-    "model": "Monster"
-  },
-  "dataVersion": "1.0",
-  "metadataVersion": "1",
-  "topic": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventGrid/topics/{topic}"
-}]
-```
+![Ver registros](./media/custom-event-quickstart-portal/view-log-entry.png)
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Si piensa seguir trabajando con este evento, no limpie los recursos creados en este artículo. Si no va a continuar, elimine los recursos creados con este artículo.
+Si piensa seguir trabajando con este evento, no limpie los recursos creados en este artículo. De lo contrario, elimine los recursos que ha creado en este artículo.
 
 Seleccione el grupo de recursos y seleccione **Eliminar grupo de recursos**.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que sabe cómo crear suscripciones a temas y eventos, aprenda más sobre cómo Event Grid puede ayudarle:
+Ahora que sabe cómo crear suscripciones a temas personalizados y eventos, aprenda más acerca de cómo puede ayudarle Event Grid:
 
 - [About Event Grid](overview.md) (Acerca de Event Grid)
 - [Enrutamiento de eventos de Blob Storage a un punto de conexión web personalizado](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)

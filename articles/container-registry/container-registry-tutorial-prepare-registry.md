@@ -1,6 +1,6 @@
 ---
-title: "Tutorial de Azure Container Registry: preparar un registro de contenedor de Azure con replicación geográfica"
-description: "Crear un registro de contenedor de Azure, configurar la replicación geográfica, preparar una imagen de Docker e implementarla en el registro. Primera parte de una serie de tres partes."
+title: 'Tutorial de Azure Container Registry: preparar un registro de contenedor de Azure con replicación geográfica'
+description: Crear un registro de contenedor de Azure, configurar la replicación geográfica, preparar una imagen de Docker e implementarla en el registro. Primera parte de una serie de tres partes.
 services: container-registry
 author: mmacy
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 10/26/2017
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: b73222d9b31ff840273bdb91a15f7eaf37ad2508
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3463acc3db3dae9633635aaf7410d876aacf9b38
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="prepare-a-geo-replicated-azure-container-registry"></a>Preparar un registro de contenedor de Azure con replicación geográfica
+# <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Tutorial: Preparación de un registro de contenedor de Azure con replicación geográfica
 
 Un registro de contenedor de Azure es un registro de Docker privado implementado en Azure que puede mantener cerca de la red en las implementaciones. En este conjunto de artículos de tres tutoriales, aprenderá a usar la replicación geográfica para implementar una aplicación web de ASP.NET Core que se ejecuta en un contenedor de Linux en dos instancias de [Web App for Containers](../app-service/containers/index.yml). Podrá ver cómo Azure implementa automáticamente la imagen en cada instancia de Web App desde el repositorio de replicación geográfica más cercano.
 
@@ -230,7 +230,7 @@ a75caa09eb1f: Pushed
 v1: digest: sha256:0799014f91384bda5b87591170b1242bcd719f07a03d1f9a1ddbae72b3543970 size: 1792
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, creó un registro de contenedor privado con replicación geográfica, compiló una imagen de contenedor y la insertó en el registro. Al seguir los pasos de este tutorial, hizo lo siguiente:
 

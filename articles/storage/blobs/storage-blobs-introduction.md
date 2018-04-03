@@ -1,30 +1,31 @@
 ---
-title: "Introducción a Azure Blob Storage | Microsoft Docs"
-description: "Introducción a Azure Blob Storage"
+title: 'Introducción a Blob Storage: almacenamiento de objetos en Azure | Microsoft Docs'
+description: Azure Blob Storage está diseñado para almacenar grandes cantidades de datos de objetos no estructurados, como datos de texto o binarios. Las aplicaciones pueden acceder a objetos de Blob Storage desde PowerShell o la CLI de Azure, desde código mediante bibliotecas de cliente de Azure Storage o a través de REST.
 services: storage
 author: tamram
 manager: jeconnoc
 ms.service: storage
 ms.topic: overview
-ms.date: 09/28/2017
+ms.date: 03/27/2018
 ms.author: tamram
-ms.openlocfilehash: aabc10b1c1c501e4fa0eb31835c2818cfb8942c6
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 0fff0032ec2452413bcd1df3175634b14a64208f
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="introduction-to-blob-storage"></a>Introducción a Blob Storage
 
-El Almacenamiento de blobs de Azure es un servicio para almacenar grandes cantidades de datos de objetos no estructurados, como texto o datos binarios, a los que puede acceder desde cualquier lugar del mundo a través de HTTP o HTTPS. Puede usar el almacenamiento de blobs para exponer datos públicamente o para almacenar datos de la aplicación de manera privada.
+Azure Blob Storage es la solución de almacenamiento en la nube de Microsoft para objetos de datos. Blob Storage puede almacenar grandes cantidades de datos de objetos no estructurados, como datos de texto o binarios. Se puede obtener acceso a los datos de Blob Storage desde cualquier lugar del mundo a través de HTTP o HTTPS. Puede usar el almacenamiento de blobs para exponer datos públicamente o para almacenar datos de la aplicación de manera privada.
 
 El almacenamiento de blobs suele usarse para realizar las siguientes tareas:
 
 * Servicio de imágenes o documentos directamente a un explorador
 * Almacenamiento de archivos para acceso distribuido
 * Streaming de audio y vídeo
-* Almacenamiento de datos para copia de seguridad y restauración, recuperación ante desastres y archivado
+* Almacenamiento para copia de seguridad y restauración, recuperación ante desastres y archivado
 * Almacenamiento de datos para el análisis en local o en un servicio hospedado de Azure
+* Almacenamiento de discos duros virtuales para su uso con Azure Virtual Machines
 
 ## <a name="blob-service-concepts"></a>Conceptos de Blob service
 
@@ -44,7 +45,7 @@ Blob service contiene los componentes siguientes:
   
     Para más información sobre la nomenclatura de contenedores y blobs, consulte [Asignación de nombres y referencias a contenedores, blobs y metadatos](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [crear una cuenta de almacenamiento](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [Introducción a Blob Storage con .NET](storage-dotnet-how-to-use-blobs.md)

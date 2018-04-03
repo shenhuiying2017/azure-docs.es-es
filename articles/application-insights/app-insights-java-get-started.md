@@ -1,6 +1,6 @@
 ---
-title: "Análisis de aplicaciones web de Java con Azure Application Insights | Microsoft Docs"
-description: "Supervisión del rendimiento de aplicaciones web de Java con Application Insights. "
+title: Análisis de aplicaciones web de Java con Azure Application Insights | Microsoft Docs
+description: 'Supervisión del rendimiento de aplicaciones web de Java con Application Insights. '
 services: application-insights
 documentationcenter: java
 author: harelbr
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 1ec845a6491b406c1aef34609b155a9c3d087427
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 227ca3533c7a06b726c758be931df8ec0314e90f
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Introducción a Application Insights en un proyecto web de Java
 
@@ -30,7 +30,7 @@ Application Insights es compatible con aplicaciones Java que se ejecutan en Linu
 
 Necesita:
 
-* Oracle JRE 1.6 o posterior, o Zulu JRE 1.6 o posterior
+* Oracle o Zulu JRE versión 1.7 o 1.8
 * Una suscripción a [Microsoft Azure](https://azure.microsoft.com/).
 
 *Si tiene una aplicación web que ya está en funcionamiento, puede seguir el procedimiento alternativo para [agregar el SDK en tiempo de ejecución en el servidor web](app-insights-java-live.md). Esa alternativa evita volver a generar el código, pero no incluye la opción de escribir código para realizar un seguimiento de la actividad del usuario.*
@@ -169,8 +169,7 @@ SDK de Application Insights busca la clave en este orden:
 También se puede [configurar en el código](app-insights-api-custom-events-metrics.md#ikey):
 
 ```Java
-
-    telemetryClient.InstrumentationKey = "...";
+    TelemetryConfiguration.getActive().setInstrumentationKey(iKey);
 ```
 
 ## <a name="4-add-an-http-filter"></a>4. Adición de un filtro HTTP
@@ -379,7 +378,7 @@ Obtendrá gráficos de tiempos de respuesta, junto con notificaciones por correo
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Supervisión de llamadas a dependencias](app-insights-java-agent.md)
 * [Supervisión de contadores de rendimiento de Unix](app-insights-java-collectd.md)
 * Incorporación de la [supervisión a las páginas web](app-insights-javascript.md) para controlar los tiempos de carga, las llamadas de AJAX y la excepciones del explorador.

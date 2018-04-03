@@ -1,8 +1,8 @@
 ---
-title: "Introducción a Apache Kafka en Azure HDInsight | Microsoft Docs"
-description: "Información sobre Apache Kafka en HDInsight: qué es, qué hace y dónde encontrar ejemplos y obtener una introducción."
+title: Introducción a Apache Kafka en Azure HDInsight | Microsoft Docs
+description: 'Información sobre Apache Kafka en HDInsight: qué es, qué hace y dónde encontrar ejemplos y obtener una introducción.'
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 35dc83dea7dc1310852437cd7eede32cfa890e8f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4a4f2c6734de211cd20ee4b9f6815bdefefb25bc
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="introducing-apache-kafka-on-hdinsight"></a>Introducción a Apache Kafka en HDInsight
 
@@ -31,7 +31,7 @@ Kafka en HDInsight proporciona las siguientes características:
 
 * __99,9 % de Acuerdo de Nivel de Servicio (SLA) en tiempo de actividad de Kafka__: para más información, consulte el documento [Acuerdo de Nivel de Servicio para HDInsight](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/).
 
-* __Tolerancia a los errores y reconocimiento de bastidores__: Kafka está diseñado con una vista unidimensional de un bastidor que funciona bien en algunos entornos. Sin embargo, en entornos como Azure, los bastidores se dividen en dos dimensiones: dominios de actualización (UD) y dominios de error (FD). Microsoft proporciona herramientas que garantizan el equilibrio de las particiones de Kafka y las réplicas entre los dominios de actualización y de error. 
+* __Tolerancia a errores__: Kafka está diseñado con una vista unidimensional de un bastidor que funciona bien en algunos entornos. Sin embargo, en entornos como Azure, los bastidores se dividen en dos dimensiones: dominios de actualización (UD) y dominios de error (FD). Microsoft proporciona herramientas que pueden reequilibrar las particiones de Kafka y las réplicas entre los dominios de actualización y de error. 
 
     Para más información, consulte el artículo sobre [Alta disponibilidad con Kafka en HDInsight](apache-kafka-high-availability.md).
 

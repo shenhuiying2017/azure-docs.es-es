@@ -1,6 +1,6 @@
 ---
-title: "Tutorial de Azure Container Registry: inserción una imagen actualizada para implementaciones regionales"
-description: "Inserte una imagen de Docker en Azure Container Registry con replicación geográfica y, luego, vea los cambios implementados automáticamente en aplicaciones web que se ejecutan en varias regiones. Tercera parte de una serie de tres partes."
+title: 'Tutorial de Azure Container Registry: inserción una imagen actualizada para implementaciones regionales'
+description: Inserte una imagen de Docker en Azure Container Registry con replicación geográfica y, luego, vea los cambios implementados automáticamente en aplicaciones web que se ejecutan en varias regiones. Tercera parte de una serie de tres partes.
 services: container-registry
 author: mmacy
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 359fdcabd579d277e40f02eba2d4603ebd9f5f1f
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: f8eab93d1e6633ae4f17c5bb4836d96629d55cd4
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="push-an-updated-image-to-regional-deployments"></a>Inserción de una imagen actualizada en implementaciones regionales
+# <a name="tutorial-push-an-updated-image-to-regional-deployments"></a>Tutorial: Inserción de una imagen actualizada en implementaciones regionales
 
 Esta es la tercera parte de una serie de tutoriales de tres partes. En el [tutorial anterior](container-registry-tutorial-deploy-app.md), la replicación geográfica se configuró para dos implementaciones regionales de aplicaciones web diferentes. En este tutorial, primero modifique la aplicación, luego cree una nueva imagen de contenedor e insértela en el registro con replicación geográfica. Por último, vea el campo implementado automáticamente por los webhooks de Azure Container Registry en ambas instancias de aplicaciones web.
 

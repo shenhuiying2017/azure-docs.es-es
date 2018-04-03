@@ -1,6 +1,6 @@
 ---
-title: "Tutorial de Kubernetes en Azure: supervisión de Kubernetes"
-description: "Tutorial de AKS: supervisión de Kubernetes con Microsoft Operations Management Suite (OMS)"
+title: 'Tutorial de Kubernetes en Azure: supervisión de Kubernetes'
+description: 'Tutorial de AKS: Supervisión de Kubernetes con Azure Log Analytics'
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 227601858dbe07e6cb774a2d24878ddca05aaf56
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 86ae0c5ab302c49fa58df887d9dffef6cec31708
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="monitor-azure-container-service-aks"></a>Supervisión de Azure Container Service (AKS)
+# <a name="tutorial-monitor-azure-container-service-aks"></a>Tutorial: Supervisión de Azure Container Service (AKS)
 
 La supervisión de su clúster de Kubernetes y de los contenedores es fundamental, sobre todo al ejecutar un clúster de producción, a escala, con varias aplicaciones.
 
@@ -40,11 +40,11 @@ En Azure Portal, haga clic en **Crear un recurso** y busque `Container Monitorin
 
 ![Agregar solución](./media/container-service-tutorial-kubernetes-monitor/add-solution.png)
 
-Cree un área de trabajo de OMS o seleccione una existente. El área de trabajo de OMS le guía a través de este proceso.
+Cree un área de trabajo de Log Analytics o seleccione una existente. El área de trabajo de Log Analytics le guía a través de este proceso.
 
 Al crear el área de trabajo, seleccione **Anclar al panel** para que la recuperación resulte sencilla.
 
-![Área de trabajo de OMS](./media/container-service-tutorial-kubernetes-monitor/oms-workspace.png)
+![Área de trabajo de Log Analytics](./media/container-service-tutorial-kubernetes-monitor/oms-workspace.png)
 
 Cuando haya terminado, seleccione **Aceptar**. Una vez que se haya completado la validación, seleccione **Crear** para crear la solución de supervisión de contenedores.
 
@@ -58,7 +58,7 @@ Para recuperar estos valores, seleccione **Área de trabajo de OMS** en el menú
 
 ## <a name="create-kubernetes-secret"></a>Creación de un secreto de Kubernetes
 
-Almacene la configuración del área de trabajo de OMS en un secreto de Kubernetes denominado `omsagent-secret` mediante el comando [kubectl create secret][kubectl-create-secret]. Actualice `WORKSPACE_ID` con el identificador del área de trabajo de OMS y `WORKSPACE_KEY` con la clave de área de trabajo.
+Almacene la configuración del área de trabajo de Log Analytics en un secreto de Kubernetes denominado `omsagent-secret` mediante el comando [kubectl create secret][kubectl-create-secret]. Actualice `WORKSPACE_ID` con el identificador del área de trabajo de Log Analytics y `WORKSPACE_KEY` con la clave de área de trabajo.
 
 ```console
 kubectl create secret generic omsagent-secret --from-literal=WSID=WORKSPACE_ID --from-literal=KEY=WORKSPACE_KEY
@@ -154,7 +154,7 @@ NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE-SELECTOR 
 omsagent   3         3         3         3            3           beta.kubernetes.io/os=linux   8m
 ```
 
-Una vez que se ejecutan los agentes, OMS tarda varios minutos en ingerir y procesar los datos.
+Una vez que se ejecutan los agentes, Log Analytics tarda varios minutos en ingerir y procesar los datos.
 
 ## <a name="access-monitoring-data"></a>Acceso a los datos de supervisión
 
@@ -166,7 +166,7 @@ Consulte la [documentación de Azure Log Analytics][log-analytics-docs] para obt
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, se ha supervisado el clúster de Kubernetes con OMS. Estas son las tareas que se han tratado:
+En este tutorial, se ha supervisado el clúster de Kubernetes con Log Analytics. Estas son las tareas que se han tratado:
 
 > [!div class="checklist"]
 > * Configuración de la solución de supervisión de contenedores

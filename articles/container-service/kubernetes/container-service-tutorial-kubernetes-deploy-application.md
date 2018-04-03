@@ -1,6 +1,6 @@
 ---
-title: "Tutorial de Azure Container Service: implementación de una aplicación"
-description: "Tutorial de Azure Container Service: implementación de una aplicación"
+title: 'Tutorial de Azure Container Service: implementación de una aplicación'
+description: 'Tutorial de Azure Container Service: implementación de una aplicación'
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 02ec97fecd4759e9f35ab313ffe2d18fa076170a
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 7119976ada00e10ebeadf6fcff2daf125f439c17
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="run-applications-in-kubernetes"></a>Ejecución de aplicaciones en Kubernetes
 
@@ -26,7 +26,7 @@ En este tutorial, la cuarta parte de siete, se implementa una aplicación de eje
 > * Ejecución de una aplicación en Kubernetes
 > * Prueba de la aplicación
 
-En tutoriales posteriores se escala horizontalmente y se actualiza esta aplicación, y se configura Operations Management Suite para supervisar el clúster de Kubernetes.
+En los tutoriales posteriores, esta aplicación se escala horizontalmente y se actualiza, y se configura Log Analytics para supervisar el clúster de Kubernetes.
 
 En este tutorial se supone que tiene unos conocimientos básicos de los conceptos de Kubernetes. Para obtener una información más detallada sobre esta aplicación, consulte la [documentación de Kubernetes](https://kubernetes.io/docs/home/).
 
@@ -103,7 +103,7 @@ Para ver la aplicación, navegue hasta la dirección IP externa.
 
 ![Imagen del clúster de Kubernetes en Azure](media/container-service-kubernetes-tutorials/azure-vote.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, se ha implementado la aplicación Azure Vote en un clúster de Kubernetes de Azure Container Service. Las tareas completadas incluyen:  
 

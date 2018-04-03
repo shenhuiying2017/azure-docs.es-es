@@ -1,24 +1,24 @@
 ---
 title: Requisitos de enrutamiento de Azure ExpressRoute | Microsoft Docs
-description: "En eta página se especifican los requisitos detallados para configurar y administrar el enrutamiento en los circuitos de ExpressRoute."
+description: En eta página se especifican los requisitos detallados para configurar y administrar el enrutamiento en los circuitos de ExpressRoute.
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: ganesr
-editor: 
+editor: ''
 ms.assetid: 5b382e79-fa3f-495a-a764-c5ff86af66a2
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/03/2017
+ms.date: 03/28/2018
 ms.author: ganesr
-ms.openlocfilehash: 87cf32c23c2b3f50057016a23212c95b706f2910
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 829646be6404f86d9f370b3a402cfc0c0c980699
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="expressroute-routing-requirements"></a>Requisitos de enrutamiento de ExpressRoute
 Para conectarse a los servicios en la nube de Microsoft mediante ExpressRoute, es preciso configurar y administrar el enrutamiento. Algunos proveedores de conectividad ofrecen la configuración y administración de enrutamiento como un servicio administrado. Consulte a su proveedor de conectividad para saber si ofrece este servicio. Si no es así, debe cumplir los siguientes requisitos:
@@ -107,7 +107,7 @@ Asegúrese de que la dirección IP y el número AS se registran en uno de los re
 
 Si no se le asignaron los prefijos y el número de sistema autónomo en los registros anteriores, debe abrir una incidencia de soporte técnico para validar manualmente sus prefijos y ASN. El equipo de soporte técnico requiere documentación, por ejemplo, una carta de autorización, que certifique que puede utilizar los recursos.
 
-Con el emparejamiento de Microsoft se permite un número de sistema autónomo privado, pero debe validarse manualmente.
+Con el emparejamiento de Microsoft se permite un número de sistema autónomo privado, pero debe validarse manualmente. Además, se quitan los números AS privados en AS PATH para los prefijos recibidos. En consecuencia, no puede anexar números AS privados en AS PATH para que [influyan en el enrutamiento del emparejamiento de Microsoft](expressroute-optimize-routing.md). 
 
 > [!IMPORTANT]
 > Las direcciones IP públicas anunciadas a Microsoft a través de ExpressRoute no deben ser anunciadas en Internet. Esto puede interrumpir la conectividad con otros servicios de Microsoft. Sin embargo, las direcciones IP públicas utilizadas por los servidores de la red que se comunican con los puntos de conexión de Office 365 dentro de Microsoft pueden anunciarse en ExpressRoute. 
@@ -118,7 +118,7 @@ Con el emparejamiento de Microsoft se permite un número de sistema autónomo pr
 El cambio de enrutamiento se realizará sobre el protocolo eBGP. Se establecen sesiones EBGP entre los MSEE y los enrutadores. La autenticación de sesiones de BGP no es un requisito. Si es necesario, se puede configurar un hash MD5. Consulte las secciones [Configuración del enrutamiento](expressroute-howto-routing-classic.md) y [Flujos de trabajo de aprovisionamiento de circuitos y estados de circuito](expressroute-workflows.md) para más información sobre la configuración de las sesiones BGP.
 
 ## <a name="autonomous-system-numbers"></a>Números de sistema autónomo
-Microsoft usa AS 12076 para el emparejamiento público de Azure, privado de Azure y de Microsoft. Se han reservado los ASN desde el 65515 al 65520 para uso interno. Se admiten números AS de 16 y 32 bits. Requerimos un ASN registrado públicamente solo para el emparejamiento de Microsoft. Tanto el emparejamiento privado como el publico pueden usar ASN privados.
+Microsoft usa AS 12076 para el emparejamiento público de Azure, privado de Azure y de Microsoft. Se han reservado los ASN desde el 65515 al 65520 para uso interno. Se admiten números AS de 16 y 32 bits.
 
 No hay requisitos con respecto a la simetría de la transferencia de datos. Las rutas de reenvío y de retorno pueden atravesar pares de enrutadores diferentes. Las rutas idénticas deben anunciarse desde cualquiera de los lados en los distintos pares de circuito que le pertenezcan. No se requiere que las métricas de las rutas sean idénticas.
 
@@ -238,7 +238,7 @@ Además, Microsoft también etiquetará los prefijos en función del servicio al
 | Dynamics 365 |12076:5140 |
 | Otros servicios en línea de Office 365 |12076:5200 |
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Configure su conexión ExpressRoute.
   
   * [Creación y modificación de un circuito](expressroute-howto-circuit-arm.md)

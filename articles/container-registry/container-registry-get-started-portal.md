@@ -1,6 +1,6 @@
 ---
-title: "Guía de inicio rápido: Creación de un registro privado de Docker en Azure con Azure Portal"
-description: "Aprenda rápidamente a crear un registro de contenedor privado de Docker en Azure Portal."
+title: 'Guía de inicio rápido: Creación de un registro privado de Docker en Azure con Azure Portal'
+description: Aprenda rápidamente a crear un registro de contenedor privado de Docker en Azure Portal.
 services: container-registry
 author: mmacy
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: quickstart
 ms.date: 03/03/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: db112f7f8f486093509a86f9781c30133925c25f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 7ea0ae9c0c071a08c9ff99587cd8c5dc8034fe69
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="create-a-container-registry-using-the-azure-portal"></a>Creación de un registro de contenedor mediante Azure Portal
+# <a name="quickstart-create-a-container-registry-using-the-azure-portal"></a>Guía de inicio rápido: Creación de un registro de contenedor con Azure Portal
 
 Azure Container Registry es un registro privado de Docker en Azure donde se pueden almacenar y administrar las imágenes de contenedor privado de Docker. En esta guía de inicio rápido, se crea un registro de contenedores con Azure Portal, se inserta una imagen del contenedor en el registro y, finalmente, se implementa el contenedor desde el registro en Azure Container Instances (ACI).
 

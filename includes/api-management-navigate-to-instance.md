@@ -2,8 +2,8 @@
 
 Para acceder a la instancia de APIM, siga estos pasos:
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com). 
-2. Seleccionar ![arrow](./media/api-management-navigate-to-instance/arrow.png).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com). 
+2. En la parte superior izquierda de la pantalla, seleccione **Todos los servicios**.  
 3. En el cuadro de búsqueda, escriba "api".
 4. Haga clic en **Servicios de administración de API**.
 

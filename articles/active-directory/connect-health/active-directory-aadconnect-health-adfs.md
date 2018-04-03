@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4e82b1364593ff70ed87efcaa24c135277002904
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: ad8ed320a8dd91ea83dbaf71e2e9514b4df4cdb5
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Supervisión de AD FS mediante Azure AD Connect Health
 La siguiente documentación es específica de la supervisión de la infraestructura de AD FS con Azure AD Connect Health. Para más información sobre la supervisión de Azure AD Connect (Sync) con Azure AD Connect Health, consulte [Uso de Azure AD Connect Health para sincronización](active-directory-aadconnect-health-sync.md). Para obtener información adicional sobre la supervisión de Active Directory Domain Services con Azure AD Connect Health, consulte [Using Azure AD Connect Health with AD DS](active-directory-aadconnect-health-adds.md)(Uso de Azure AD Connect Health con AD DS).
@@ -117,7 +117,7 @@ El informe ofrece la siguiente información:
 >
 
 ## <a name="risky-ip-report"></a>Informe de direcciones IP de riesgo 
-Los clientes de AD FS pueden exponer puntos de conexión de autenticación de contraseña en Internet para proporcionar servicios de autenticación para que los usuarios finales tengan acceso a aplicaciones de SaaS, como Office 365. En este caso, es posible que un actor no deseado intente inicios de sesión en el sistema de AD FS para adivinar una contraseña de usuario final y acceder a los recursos de la aplicación. AD FS proporciona la funcionalidad de bloqueo de cuenta de extranet para evitar estos tipos de ataques desde AD FS en Windows Server 2012 R2. Si se encuentra en una versión anterior, se recomienda que actualice el sistema de AD FS a Windows Server 2016. <br />
+Los clientes de AD FS pueden exponer puntos de conexión de autenticación de contraseña en Internet para proporcionar servicios de autenticación para que los usuarios finales tengan acceso a aplicaciones de SaaS, como Office 365. En este caso, es posible que un actor no deseado intente inicios de sesión en el sistema de AD FS para adivinar la contraseña de usuario final y acceder a los recursos de la aplicación. AD FS proporciona la funcionalidad de bloqueo de cuenta de extranet para evitar estos tipos de ataques desde AD FS en Windows Server 2012 R2. Si se encuentra en una versión anterior, se recomienda que actualice el sistema de AD FS a Windows Server 2016. <br />
 Además, es posible que una única dirección IP intente varios inicios de sesión en varios usuarios. En estos casos, puede que el número de intentos por usuario esté por debajo del umbral de la protección de bloqueo de cuenta de AD FS. Azure AD Connect Health ahora proporciona el "informe de direcciones IP de riesgo", que detecta esta condición y notifica a los administradores cuando esto ocurre. Estas son las ventajas principales de este informe: 
 - Detección de direcciones IP que superan un umbral de inicios de sesión basada en contraseña erróneos
 - Admite inicios de sesión con error debidos a una contraseña incorrecta o debidos a un estado de bloqueo de la extranet
@@ -126,9 +126,9 @@ Además, es posible que una única dirección IP intente varios inicios de sesi�
 - Informes descargables para su análisis sin conexión e integración con otros sistemas mediante automatización
 
 > [!NOTE]
-> Para usar este informe, debe asegurarse de que está habilitada la auditoría de AD FS. Para obtener más información, consulte [Habilitación de la auditoría para AD FS](active-directory-aadconnect-health-agent-install.md#enable-auditing-for-ad-fs).
->
->
+> Para usar este informe, debe asegurarse de que está habilitada la auditoría de AD FS. Para obtener más información, consulte [Habilitación de la auditoría para AD FS](active-directory-aadconnect-health-agent-install.md#enable-auditing-for-ad-fs). <br />
+> Para acceder a la versión preliminar, se requiere el permiso de Administrador global o [Lector de seguridad](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#security-reader).  
+> 
 
 ### <a name="what-is-in-the-report"></a>Contenido del informe
 Cada elemento del informe de direcciones IP de riesgo muestra información agregada sobre las actividades de inicio de sesión de AD FS con errores que sobrepasan el umbral designado. Proporciona la siguiente información: ![Portal de Azure AD Connect Health](./media/active-directory-aadconnect-health-adfs/report4a.png)

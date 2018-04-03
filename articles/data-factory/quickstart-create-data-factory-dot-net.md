@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 01/22/2018
+ms.date: 03/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 7e3fd12b2157d28c5d61bfa8d5fb69a00557a1f9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c5b7af290a5e5c45d3f64ccb50586db0811dd592
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="create-a-data-factory-and-pipeline-using-net-sdk"></a>Creación de una factoría de datos y una canalización con SDK de .NET
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -102,12 +102,12 @@ En el tutorial de este artículo se usa Visual Studio 2017. También puede usar 
 Descargue e instale el [SDK de .NET para Azure](http://azure.microsoft.com/downloads/) en la máquina.
 
 ### <a name="create-an-application-in-azure-active-directory"></a>Creación de una aplicación en Azure Active Directory
-Siga las instrucciones de [este artículo](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) para realizar las tareas siguientes: 
+Siga las instrucciones de las secciones en [este artículo](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) para realizar las tareas siguientes: 
 
 1. **Crear una aplicación de Azure Active Directory**. Cree una aplicación en Azure Active Directory que represente la aplicación .NET que se va a crear en este tutorial. Para la dirección URL de inicio de sesión, puede proporcionar una dirección URL ficticia, tal como se muestra en el artículo (`https://contoso.org/exampleapp`).
-2. Obtenga el **identificador de la aplicación** y la **clave de autenticación**** siguiendo las instrucciones de la sección **Obtención del id. y la clave de autenticación de la aplicación** del artículo. Anote estos valores porque los usará más adelante en este tutorial. 
-3. Obtenga el **identificador de inquilino** siguiendo las instrucciones de la sección **Obtención del identificador de inquilino** del artículo. Anote este valor. 
-4. Asigne la aplicación al rol de **colaborador** en el nivel de suscripción para que la aplicación pueda crear factorías de datos en la suscripción. Siga las instrucciones de la sección **Asignación de la aplicación al rol** del artículo. 
+2. Obtenga el **identificador de aplicación** y la **clave de autenticación**, y tome nota de estos valores que se utilizan más adelante en este tutorial. 
+3. Obtenga el **identificador de inquilino** y tome nota de este valor enque se utiliza más adelante en este tutorial.
+4. Asigne la aplicación al rol de **colaborador** en el nivel de suscripción para que la aplicación pueda crear factorías de datos en la suscripción.
 
 ## <a name="create-a-visual-studio-project"></a>Creación de un proyecto de Visual Studio
 

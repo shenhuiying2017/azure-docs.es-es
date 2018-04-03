@@ -1,21 +1,21 @@
 ---
 title: Acerca de Azure Migrate | Microsoft Docs
-description: "Proporciona información general acerca del servicio Azure Migrate."
+description: Proporciona información general acerca del servicio Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 02/26/2018
+ms.date: 03/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 45eac1d1ecb173ba0a62ab13f47b7ee6e12f7af3
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 857dab5474cba24445daf7d139ae49d923038196
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="about-azure-migrate"></a>Acerca de Azure Migrate
 
-El servicio Azure Migrate evalúa las cargas de trabajo locales para su migración a Azure. El servicio evalúa la idoneidad de migración de las máquinas locales a Azure, el ajuste de tamaño basado en el rendimiento y proporciona estimaciones del costo que supone la ejecución de máquinas locales en Azure. Si está pensando en migrar mediante lift-and-shift o se encuentra en las primeras fases de la evaluación de la migración, este es el servicio que debe elegir. Tras la evaluación, puede usar servicios como [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) y [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview) para migrar las máquinas a Azure.
+El servicio Azure Migrate evalúa las cargas de trabajo locales para su migración a Azure. El servicio evalúa la idoneidad de la migración de las máquinas locales y el ajuste de tamaño basado en el rendimiento, y proporciona estimaciones del costo que supone la ejecución de máquinas locales en Azure. Si está pensando en migrar mediante lift-and-shift o se encuentra en las primeras fases de la evaluación de la migración, este es el servicio que debe elegir. Tras la evaluación, puede usar servicios como [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) y [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview) para migrar las máquinas a Azure.
 
 ## <a name="why-use-azure-migrate"></a>¿Por qué usar Azure Migrate?
 
@@ -28,14 +28,12 @@ Azure Migrate le ayuda a:
 
 ## <a name="current-limitations"></a>Limitaciones actuales
 
-- Actualmente, solo puede evaluar máquinas virtuales de VMware locales para la migración a máquinas virtuales de Azure. Las máquinas virtuales de VMware las debe administrar vCenter Server (versión 5.5, 6.0 o 6.5).
-
-> [!NOTE]
-> La compatibilidad con Hyper-V está en el mapa de ruta y se habilitará próximamente. Mientras tanto, se recomienda usar [Azure Site Recovery Deployment Planner](http://aka.ms/asr-dp-hyperv-doc) para planear la migración de las cargas de trabajo de Hyper-V. 
-
+- Actualmente, solo puede evaluar máquinas virtuales de VMware locales para la migración a máquinas virtuales de Azure. Las máquinas virtuales de VMware las debe administrar vCenter Server (versiones 5.5, 6.0 o 6.5).
+- La compatibilidad con Hyper-V está en nuestra hoja de ruta. Mientras tanto, se recomienda usar [Azure Site Recovery Deployment Planner](http://aka.ms/asr-dp-hyperv-doc) para planear la migración de las cargas de trabajo de Hyper-V. 
 - Puede detectar hasta 1000 máquinas virtuales en una sola detección y hasta 1500 en un solo proyecto. Además, puede evaluar hasta 400 máquinas virtuales en una valoración única. Si necesita detectar o evaluar más, puede aumentar el número de detecciones o valoraciones. [Más información](how-to-scale-assessment.md).
 - Los proyectos de Azure Migrate solo se pueden crear en la región Centro occidental de EE. UU. o Este de EE. UU. Sin embargo, esto no afecta a su capacidad para planear la migración de otra ubicación de Azure de destino. La ubicación del proyecto de migración solo se usa para almacenar los metadatos que se detectan desde el entorno local.
 - Azure Migrate solo admite discos administrados para la valoración de la migración.
+
 
 ## <a name="what-do-i-need-to-pay-for"></a>¿Por qué conceptos tengo qué pagar?
 

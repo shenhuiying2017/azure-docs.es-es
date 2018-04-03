@@ -1,6 +1,6 @@
 ---
-title: "Introducción a Azure Storage | Microsoft Docs"
-description: "Introducción a Azure Storage, el servicio de almacenamiento de datos de Microsoft en la nube."
+title: Introducción a Azure Storage | Microsoft Docs
+description: Introducción a Azure Storage, el servicio de almacenamiento de datos de Microsoft en la nube.
 services: storage
 author: tamram
 manager: jeconnoc
@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: get-started-article
 ms.date: 03/06/2018
 ms.author: tamram
-ms.openlocfilehash: 799636d0a702407be06bbe8cebae552b34d860db
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: eb68993924bff8605fc244f438a686f0142c4762
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Introducción a Microsoft Azure Storage
 

@@ -4,8 +4,9 @@ description: Este tutorial de aprendizaje automático le guiará a través de un
 keywords: experimento,regresión lineal,algoritmos de aprendizaje automático,tutorial de aprendizaje automático,técnicas de modelado predictivo,experimento de ciencia de datos
 services: machine-learning
 documentationcenter: ''
-author: garyericson
-manager: jhubbard
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: b6176bb2-3bb6-4ebf-84d1-3598ee6e01c6
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 03/20/2017
-ms.author: garye
-ms.openlocfilehash: 3cc4278ca7d4603f4bfb916885d44e6a85864b25
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 57461cf94898012619b865c455955f511e978995
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="machine-learning-tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Tutorial de aprendizaje automático: creación del primer experimento de ciencia de datos en Azure Machine Learning Studio
 
@@ -320,7 +320,7 @@ El experimento final debe tener un aspecto similar a este:
 <br/>
 ***El experimento final***
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Ahora que ha completado el primer tutorial de aprendizaje automático y tiene su experimento configurado, puede continuar mejorando el modelo y luego implementarlo como un servicio web predictivo.
 

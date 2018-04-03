@@ -1,6 +1,6 @@
 ---
-title: "Tutorial de Kubernetes en Azure: implementación de la aplicación"
-description: "Tutorial de AKS: implementación de la aplicación"
+title: 'Tutorial de Kubernetes en Azure: implementación de la aplicación'
+description: 'Tutorial de AKS: implementación de la aplicación'
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 095bfe328f3e3ed220de71b3410e34b9be86cff1
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 9fad9627be453fb00508d1f6ec9594bd2bde6fad
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="run-applications-in-azure-container-service-aks"></a>Ejecutar aplicaciones en Azure Container Service (AKS)
+# <a name="tutorial-run-applications-in-azure-container-service-aks"></a>Tutorial: Ejecución de aplicaciones en Azure Container Service (AKS)
 
 En este tutorial, la cuarta parte de ocho, se implementa una aplicación de ejemplo en un clúster de Kubernetes. Los pasos completados incluyen:
 
@@ -24,7 +24,7 @@ En este tutorial, la cuarta parte de ocho, se implementa una aplicación de ejem
 > * Ejecución de una aplicación en Kubernetes
 > * Prueba de la aplicación
 
-En tutoriales posteriores se escala horizontalmente y se actualiza esta aplicación, y se configura Operations Management Suite para supervisar el clúster de Kubernetes.
+En los tutoriales posteriores, esta aplicación se escala horizontalmente y se actualiza, y se configura Log Analytics para supervisar el clúster de Kubernetes.
 
 En este tutorial se da por hecho que tiene unos conocimientos básicos de los conceptos de Kubernetes. Para obtener información más detallada sobre esta aplicación, consulte la [documentación de Kubernetes][kubernetes-documentation].
 

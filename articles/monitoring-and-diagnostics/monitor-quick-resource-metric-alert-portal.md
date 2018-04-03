@@ -1,6 +1,6 @@
 ---
-title: "Recibir una notificación cuando el valor de una métrica cumple una condición | Microsoft Docs"
-description: "Una guía de inicio rápido para ayudar a los usuarios a crear una métrica para una aplicación lógica"
+title: Recibir una notificación cuando el valor de una métrica cumple una condición | Microsoft Docs
+description: Una guía de inicio rápido para ayudar a los usuarios a crear una métrica para una aplicación lógica
 author: anirudhcavale
 manager: orenr
 services: monitoring-and-diagnostics
@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 02/08/2018
 ms.author: ancav
 ms.custom: mvc
-ms.openlocfilehash: 3c1a6271d0cb2157cb23f1dd4193eadba2c1679b
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 0bbb7d7036c18675a64171a8bbf5c7fa46d53336
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="receive-a-notification-when-a-metric-value-meets-a-condition"></a>Recibir una notificación cuando el valor de una métrica cumple una condición
 
@@ -34,20 +34,20 @@ Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
 2. Busque y seleccione **Aplicación lógica**. Haga clic en el botón **Crear** .
 
-3. Escriba la información de la aplicación lógica que se muestra en la siguiente imagen.  Use la ubicación predeterminada. Seleccione la opción **Anclar al panel**.  Cuando haya terminado, haga clic en **Cerrar**. 
+3. Escriba el nombre myLogicApp y el grupo de recursos myResourceGroup. Use su suscripción.  Use la ubicación predeterminada. Seleccione la opción **Anclar al panel**.  Cuando haya terminado, haga clic en **Cerrar**. 
 
-    ![Especificación de la información básica sobre la aplicación lógica en el portal](./media/monitoring-quick-resource-metric-alert-portal/create-logic-app-portal.png)  
+    ![Especificación de la información básica sobre la aplicación lógica en el portal](./media/monitor-quick-resource-metric-alert-portal/create-logic-app-portal.png)  
 
 
 4. La aplicación lógica debe anclarse al panel. Haga clic en la aplicación lógica para navegar a ella.
 
 5. En el panel Aplicación lógica, seleccione la opción **Diseñador de aplicación lógica**.
 
-     ![Creación de un desencadenador de periodicidad en el Diseñador de aplicación lógica en el panel de portal](./media/monitoring-quick-resource-metric-alert-portal/logic-app-designer.png)  
+     ![Creación de un desencadenador de periodicidad en el Diseñador de aplicación lógica en el panel de portal](./media/monitor-quick-resource-metric-alert-portal/logic-app-designer.png)  
 
 6. Configure los valores tal como se muestra en el diagrama siguiente.
 
-    ![Configuración del desencadenador de la aplicación lógica en el panel del portal](./media/monitoring-quick-resource-metric-alert-portal/create-logic-app-triggers.png). 
+    ![Configuración del desencadenador de la aplicación lógica en el panel del portal](./media/monitor-quick-resource-metric-alert-portal/create-logic-app-triggers.png). 
 
 7. En el diseñador, seleccione el desencadenador **Periodicidad**.
 
@@ -75,7 +75,7 @@ Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
 5. Ahora debería ver un gráfico en el que se traza el número total de ejecuciones que ha iniciado su aplicación lógica durante la última hora. Si no sucede nada, asegúrese de que han transcurrido al menos 5 minutos desde el paso anterior. A continuación, actualice el explorador. 
 
-    ![Trazado de un gráfico de métricas para el recurso de la aplicación lógica](./media/monitoring-quick-resource-metric-alert-portal/logic-app-metric-chart.png)
+    ![Trazado de un gráfico de métricas para el recurso de la aplicación lógica](./media/monitor-quick-resource-metric-alert-portal/logic-app-metric-chart.png)
 
 ## <a name="create-a-metric-alert-for-your-logic-app"></a>Creación de una alerta de métricas para la aplicación lógica
 
@@ -87,7 +87,7 @@ Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
 4. Por último, en **Correos electrónicos adicionales del administrador**, escriba su dirección de correo electrónico. Esta alerta le garantiza que recibirá un correo electrónico en caso de que la aplicación lógica tenga más de 10 ejecuciones erróneas dentro de un período de 5 minutos.
 
-    ![Configuración de la alerta de la aplicación lógica en el panel del portal](./media/monitoring-quick-resource-metric-alert-portal/logic-app-metrics-alert-portal.png)
+    ![Configuración de la alerta de la aplicación lógica en el panel del portal](./media/monitor-quick-resource-metric-alert-portal/logic-app-metrics-alert-portal.png)
 
 ## <a name="receive-metric-alert-notifications-for-your-logic-app"></a>Recepción de notificaciones de alerta de métricas para la aplicación lógica
 1. A los pocos instantes, debería recibir un correo electrónico de “Microsoft Azure Alerts” que le informe de que la alerta se ha “activado”.
@@ -110,7 +110,7 @@ Otras guías de inicio rápido de esta colección se basan en los valores de est
 
 5. En el panel, haga clic en la aplicación lógica que creó en este inicio rápido en el cuadro de texto y, a continuación, haga clic en **Eliminar**.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este inicio rápido, ha visto cómo crear una alerta de métricas para los recursos. Para obtener más información sobre las alertas de métricas, vaya hasta la información general sobre las alertas.
 

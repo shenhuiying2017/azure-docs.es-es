@@ -1,24 +1,19 @@
 ---
-title: "Introducción a Azure Automation | Microsoft Docs"
-description: "Obtenga información sobre cómo usar Azure Automation para automatizar el ciclo de vida de la infraestructura y las aplicaciones."
+title: Introducción a Azure Automation
+description: Obtenga información sobre cómo usar Azure Automation para automatizar el ciclo de vida de la infraestructura y las aplicaciones.
 services: automation
-author: eamonoreilly
-documentationcenter: 
-keywords: "Azure Automation, DSC, PowerShell, Desired State Configuration, Update Management, Change Tracking, inventario, runbooks, Python, gráfico"
-ms.assetid: 0cf1f3e8-dd30-4f33-b52a-e148e97802a9
 ms.service: automation
-ms.devlang: na
-ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 12/13/2017
+author: eamonoreilly
 ms.author: eamono
+keywords: Azure Automation, DSC, PowerShell, Desired State Configuration, Update Management, Change Tracking, inventario, runbooks, Python, gráfico
+ms.date: 03/15/2018
 ms.custom: mvc
-ms.openlocfilehash: 896bcd9630a6a7c942bd3f1a986832442a474cce
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.topic: overview
+ms.openlocfilehash: c44968dbceee2fdd29818a65e14f5b64ffcccade
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="an-introduction-to-azure-automation"></a>Introducción a Azure Automation
 
@@ -78,7 +73,7 @@ Azure Automation se administra en el ciclo de vida de la infraestructura y las a
 
 Puede revisar el precio para Azure Automation en la página de [precios](https://azure.microsoft.com/pricing/details/automation/).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Crear una cuenta de automatización](automation-quickstart-create-account.md)

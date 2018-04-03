@@ -1,24 +1,24 @@
 ---
-title: "Implementación de una aplicación .NET de un contenedor en Azure Service Fabric | Microsoft Docs"
-description: "Se ofrece información sobre cómo empaquetar una aplicación .NET de Visual Studio en un contenedor de Docker. Esta nueva aplicación de \"contenedor\" se implementa después en un clúster de Service Fabric."
+title: Implementación de una aplicación .NET de un contenedor en Azure Service Fabric | Microsoft Docs
+description: Se ofrece información sobre cómo empaquetar una aplicación .NET de Visual Studio en un contenedor de Docker. Esta nueva aplicación de "contenedor" se implementa después en un clúster de Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/19/2017
+ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: cd1c3b063132ae549bfbf1e059667c5056c91046
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 11bb34939e5fa3699973051664e85f9ef2147ff7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Implementación de una aplicación .NET de un contenedor de Windows en Azure Service Fabric
 
@@ -49,13 +49,6 @@ Las aplicaciones de Service Fabric se ejecutan en un clúster o en un conjunto d
 Ahora que tiene un clúster de Service Fabric que se ejecuta en Azure, está listo para crear e implementar una aplicación incluida en un contenedor. Para empezar a ejecutar la aplicación en un contenedor, se debe agregar la **compatibilidad con Docker** al proyecto en Visual Studio. Al agregar la **Compatibilidad con Docker** en la aplicación, suceden dos cosas. En primer lugar, se agrega un _Dockerfile_ al proyecto. En este nuevo archivo se describe cómo se va a generar la imagen de contenedor. En segundo lugar, se agrega un nuevo proyecto de _Docker Compose_ a la solución. El nuevo proyecto contiene algunos archivos de Docker Compose. Los archivos de Docker Compose pueden utilizarse para describir cómo se ejecuta el contenedor.
 
 Más información sobre cómo trabajara con las [herramientas de contenedor de Visual Studio][link-visualstudio-container-tools].
-
->[!NOTE]
->Si se trata de la primera vez que ejecuta imágenes de contenedor de Windows en el equipo, Docker CE debe extraer las imágenes base para los contenedores. Las imágenes utilizadas en este tutorial tienen un tamaño de 14 GB. Siga adelante y ejecute el siguiente comando de terminal para extraer las imágenes base:
->```cmd
->docker pull microsoft/mssql-server-windows-developer
->docker pull microsoft/aspnet:4.6.2
->```
 
 ### <a name="add-docker-support"></a>Agregue compatibilidad con Docker
 
@@ -205,11 +198,11 @@ Presione **Aceptar**.
    >La creación de imágenes de contenedor tarda aproximadamente 15 minutos.
    >La primera implementación en el clúster de Service Fabric hace que se descarguen las imágenes base del contenedor de Windows Server Core. La descarga tarda entre 5 y 10 minutos más en completarse.
 
-Vaya a la aplicación de Fabrikam Call Center mediante la dirección URL del clúster: por ejemplo, *http://mycluster.westeurope.cloudapp.azure.com*
+Vaya a la aplicación Fabrikam Call Center, para lo que debe usar la dirección URL de su clúster: por ejemplo, *http://mycluster.westeurope.cloudapp.azure.com*
 
 Ahora que ya ha incluido la solución Fabrikam CallCenter en un contenedor y la ha implementado, puede abrir [Azure Portal][link-azure-portal] y ver la aplicación en ejecución en Service Fabric. Para probar la aplicación, abra un explorador web y vaya a la dirección URL del clúster de Service Fabric.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial aprendió lo siguiente:
 

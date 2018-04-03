@@ -1,6 +1,6 @@
 ---
-title: "Guía de inicio rápido: creación de un clúster de Azure Kubernetes en el portal"
-description: "Aprenda rápidamente cómo puede crear un clúster de Kubernetes para contenedores de Linux en AKS con Azure Portal."
+title: 'Guía de inicio rápido: creación de un clúster de Azure Kubernetes en el portal'
+description: Aprenda rápidamente cómo puede crear un clúster de Kubernetes para contenedores de Linux en AKS con Azure Portal.
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: quickstart
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 35886217328d35229a59b9713f5bb4bf0244569a
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 4aad45559d167e6c046822200c9bbb98113d463b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="deploy-an-azure-container-service-aks-cluster"></a>Implementación de un clúster de Azure Container Service (AKS)
+# <a name="quickstart-deploy-an-azure-container-service-aks-cluster"></a>Guía de inicio rápido: Implementación de un clúster de Azure Container Service (AKS)
 
 En esta guía rápida, implementará un clúster de AKS mediante Azure Portal. A continuación, se ejecuta en el clúster una aplicación de varios contenedores que consta de un front-end web y una instancia de Redis. Una vez finalizado el proceso, la aplicación es accesible a través de Internet.
 
@@ -229,7 +229,7 @@ En esta guía de inicio rápido, se han usado imágenes de un contenedor creado 
 
 [https://github.com/Azure-Samples/azure-voting-app-redis][azure-vote-app]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En esta guía de inicio rápido, ha implementado un clúster de Kubernetes y una aplicación de varios contenedores en él.
 

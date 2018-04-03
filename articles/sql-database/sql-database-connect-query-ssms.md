@@ -1,33 +1,26 @@
 ---
 title: 'SSMS: conexión y consulta de datos en Azure SQL Database | Microsoft Docs'
 description: Aprenda a conectarse a SQL Database en Azure con SQL Server Management Studio (SSMS). A continuación, ejecute instrucciones de Transact-SQL (T-SQL) para consultar y editar los datos.
-metacanonical: ''
 keywords: conexión a base de datos sql,sql server management studio
 services: sql-database
-documentationcenter: ''
 author: CarlRabeler
-manager: jhubbard
-editor: ''
-ms.assetid: 7cd2a114-c13c-4ace-9088-97bd9d68de12
+manager: craigg
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
-ms.workload: Active
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 11/28/2017
 ms.author: carlrab
-ms.openlocfilehash: c60158c07fb517e12d73f9739286fe871afeca2e
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 91e7759784732320d88a9f22381df265b3eb8aab
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data"></a>Azure SQL Database: uso de SQL Server Management Studio para conectarse a los datos y realizar consultas en ellos
 
-[SQL Server Management Studio][ssms-install-latest-84g] (SSMS) es un entorno integrado para administrar cualquier infraestructura de SQL, desde SQL Server hasta SQL Database para Microsoft Windows. Este inicio rápido muestra cómo usar SSMS para conectarse a una base de datos de SQL Azure Database, para después usar las instrucciones Transact-SQL para consultar, insertar, actualizar y eliminar datos en la base de datos. 
+[SQL Server Management Studio][ssms-install-latest-84g] (SSMS) es un entorno integrado para administrar cualquier infraestructura de SQL, desde SQL Server hasta SQL Database para Microsoft Windows. Este tutorial de inicio rápido muestra cómo usar SSMS para conectarse a una instancia de Azure SQL Database y, después, usar instrucciones Transact-SQL para consultar, insertar, actualizar y eliminar los datos de la base de datos. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 En esta guía de inicio rápido se utilizan como punto de partida los recursos creados en una de las siguientes guías:
 
@@ -53,7 +46,7 @@ Use SQL Server Management Studio para establecer una conexión con un servidor d
 
 2. En el cuadro de diálogo **Conectar con el servidor**, especifique la siguiente información:
 
-   | Configuración      | Valor sugerido    | Descripción | 
+   | Configuración      | Valor sugerido    | DESCRIPCIÓN | 
    | ------------ | ------------------ | ----------- | 
    | **Tipo de servidor** | Motor de base de datos | Este valor es necesario. |
    | **Nombre del servidor** | Nombre completo del servidor | Dicho nombre debe parecerse al siguiente: **mynewserver20170313.database.windows.net**. |

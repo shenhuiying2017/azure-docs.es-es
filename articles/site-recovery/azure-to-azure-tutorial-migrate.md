@@ -1,18 +1,18 @@
 ---
-title: "Migrar máquinas virtuales de Azure entre regiones de Azure mediante Azure Site Recovery | Microsoft Docs"
-description: "Use Azure Site Recovery para migrar máquinas virtuales de IaaS de Azure de una región de Azure a otra."
+title: Migrar máquinas virtuales de Azure entre regiones de Azure mediante Azure Site Recovery | Microsoft Docs
+description: Use Azure Site Recovery para migrar máquinas virtuales de IaaS de Azure de una región de Azure a otra.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/27/2018
+ms.date: 03/24/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: abae7cbd21a2c7f49dc1fe85711b80dc43a10517
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 8de067ece55e13d32af6822e114cb9dab000bdff
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="migrate-azure-vms-to-another-region"></a>Migración de máquinas virtuales de Azure a otra región
 
@@ -35,7 +35,15 @@ En este tutorial se asume que ya tiene una suscripción de Azure. Si no la tiene
 
 ## <a name="prerequisites"></a>requisitos previos
 
-Para completar este tutorial, necesita que las máquinas virtuales de Azure estén en la región de Azure desde la que se va a hacer la migración. Además, hay una serie de valores que debe comprobar antes de empezar.
+- Asegúrese de tener las máquinas virtuales de Azure en la región de Azure desde la que va a migrar.
+- Asegúrese de entender la [arquitectura y los componentes del escenario](azure-to-azure-architecture.md).
+- Revise las [limitaciones y los requisitos de compatibilidad](azure-to-azure-support-matrix.md).
+
+
+
+## <a name="before-you-start"></a>Antes de comenzar
+
+Antes de configurar la replicación, siga estos pasos.
 
 
 ### <a name="verify-target-resources"></a>Comprobación de los recursos de destino
@@ -114,9 +122,7 @@ Site Recovery recupera una lista de las máquinas virtuales asociadas a la suscr
 
     ![habilitar replicación](media/tutorial-migrate-azure-to-azure/settings.png)
 
->[!NOTE]
-  >
-  > Actualmente, no se admite la replicación de máquinas virtuales de Azure mediante discos administrados. 
+ 
 
 ## <a name="run-a-failover"></a>Ejecución de la conmutación por error
 
@@ -129,7 +135,7 @@ Site Recovery recupera una lista de las máquinas virtuales asociadas a la suscr
 
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Siguiendo este tutorial migró una máquina virtual de Azure a otra región de Azure. Ya puede configurar la opción de recuperación ante desastres para las máquinas virtuales que haya migrado.
 

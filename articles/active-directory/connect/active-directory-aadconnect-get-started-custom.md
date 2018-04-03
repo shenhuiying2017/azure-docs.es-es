@@ -1,9 +1,9 @@
 ---
-title: "Azure AD Connect: instalación personalizada | Microsoft Docs"
-description: "En este documento se explica las opciones de instalación personalizada de Azure AD Connect. Siga estas instrucciones para instalar Active Directory mediante Azure AD Connect."
+title: 'Azure AD Connect: instalación personalizada | Microsoft Docs'
+description: En este documento se explica las opciones de instalación personalizada de Azure AD Connect. Siga estas instrucciones para instalar Active Directory mediante Azure AD Connect.
 services: active-directory
-keywords: "qué es Azure AD Connect, instalar Active Directory, componentes necesarios para Azure AD"
-documentationcenter: 
+keywords: qué es Azure AD Connect, instalar Active Directory, componentes necesarios para Azure AD
+documentationcenter: ''
 author: billmath
 manager: mtillman
 ms.assetid: 6d42fb79-d9cf-48da-8445-f482c4c536af
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/15/2018
+ms.date: 03/27/2018
 ms.author: billmath
-ms.openlocfilehash: ee16fe9e15e52fea482e0db34857780449c2ccb4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 680e70ce572e182aa35c736f61036415d8714ea0
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Instalación personalizada de Azure AD Connect
 Se utiliza **Configuración personalizada** de Azure AD Connect cuando se desea contar con más opciones para la instalación. Se utiliza si tiene varios bosques o si desea configurar características opcionales que no se incluyen en la instalación rápida. Se usa en todos aquellos casos en que la opción [**Instalación rápida**](active-directory-aadconnect-get-started-express.md) no vale para su implementación o topología.
@@ -49,7 +49,7 @@ Después de instalar los componentes necesarios, se le pide que seleccione el m�
 
 | Inicio de sesión único | DESCRIPCIÓN |
 | --- | --- |
-| Sincronización de hash de contraseñas |Los usuarios pueden iniciar sesión en los servicios en la nube de Microsoft, como Office 365, con la misma contraseña que usan en su red local. Las contraseñas de usuario se sincronizan en Azure AD en forma de hash de contraseña y la autenticación tiene lugar en la nube. Consulte [Sincronización de hash de contraseñas](active-directory-aadconnectsync-implement-password-synchronization.md) para más información. |
+| Sincronización de hash de contraseñas |Los usuarios pueden iniciar sesión en los servicios en la nube de Microsoft, como Office 365, con la misma contraseña que usan en su red local. Las contraseñas de usuario se sincronizan en Azure AD en forma de hash de contraseña y la autenticación tiene lugar en la nube. Consulte [Sincronización de hash de contraseñas](active-directory-aadconnectsync-implement-password-hash-synchronization.md) para más información. |
 |Autenticación de paso a través|Los usuarios pueden iniciar sesión en los servicios en la nube de Microsoft, como Office 365, con la misma contraseña que usan en su red local.  La contraseña de los usuarios se pasa al controlador de dominio de Active Directory local para su validación.
 | Federación con AD FS |Los usuarios pueden iniciar sesión en los servicios en la nube de Microsoft, como Office 365, con la misma contraseña que usan en su red local.  Los usuarios se redirigen a su instancia local de AD FS para iniciar sesión y la autenticación se realiza de forma local. |
 | No configurar |No se instala ni configura ninguna característica de inicio de sesión de usuario. Elija esta opción si ya tiene un servidor de federación de terceros u otra solución existente ya instalada. |
@@ -165,7 +165,7 @@ Esta pantalla le permite seleccionar las características opcionales para situac
 | Implementación híbrida de Exchange |La característica de implementación híbrida de Exchange permite la coexistencia de buzones de Exchange en un entorno local y en Office 365. Azure AD Connect sincroniza un conjunto específico de [atributos](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) de Azure AD en su directorio local. |
 | Carpetas públicas de correo de Exchange | La característica Carpetas públicas de correo de Exchange permite sincronizar objetos de carpeta pública habilitada para correo desde su instancia local de Active Directory con Azure AD. |
 | Aplicación Azure AD y filtro de atributos |Al habilitar la aplicación Azure AD y el filtro de atributos, se puede adaptar el conjunto de atributos sincronizados. Esta opción agrega dos páginas más de configuración al asistente. Para más información, consulte [Aplicación Azure AD y filtro de atributos](#azure-ad-app-and-attribute-filtering). |
-| sincronización de contraseñas |Si seleccionó la federación como solución de inicio de sesión. puede habilitar esta solución. A continuación, la sincronización de contraseñas se puede usar como opción de copia de seguridad. Para más información, consulte [Sincronización de contraseñas](active-directory-aadconnectsync-implement-password-synchronization.md). </br></br>Si seleccionó la autenticación de paso a través, esta opción también se puede habilitar para garantizar la compatibilidad a los clientes heredados y como opción de respaldo. Para más información, consulte [Sincronización de contraseñas](active-directory-aadconnectsync-implement-password-synchronization.md).|
+| Sincronización de hash de contraseña |Si seleccionó la federación como solución de inicio de sesión. puede habilitar esta solución. La sincronización de hash de contraseñas se puede usar como opción de copia de seguridad. Para más información, consulte [Sincronización de hash de contraseñas](active-directory-aadconnectsync-implement-password-hash-synchronization.md). </br></br>Si seleccionó la autenticación de paso a través, esta opción también se puede habilitar para garantizar la compatibilidad a los clientes heredados y como opción de respaldo. Para más información, consulte [Sincronización de hash de contraseñas](active-directory-aadconnectsync-implement-password-hash-synchronization.md).|
 | escritura diferida de contraseñas |Al habilitar la escritura diferida de contraseñas, los cambios de contraseña que se originan en Azure AD se escriben en su directorio local. Para más información, consulte [Introducción a la administración de contraseñas](../active-directory-passwords-getting-started.md). |
 | Escritura diferida de grupos |Si utiliza la característica **Grupos de Office 365** , estos grupos pueden estar representados en su instancia de Active Directory local. Esta opción solo está disponible si dispone de Exchange en su Active Directory local. Para más información, consulte [Escritura diferida de grupos](active-directory-aadconnect-feature-preview.md#group-writeback). |
 | Escritura diferida de dispositivos |Permite realizar una escritura diferida de objetos de dispositivo en Azure AD para su Active Directory local para escenarios de acceso condicional. Para más información, consulte [Habilitación de la escritura diferida de dispositivos](active-directory-aadconnect-feature-device-writeback.md). |
@@ -338,11 +338,11 @@ Azure AD Connect comprueba la configuración de DNS al hacer clic en el botón C
 
 Además, realice los pasos de comprobación siguientes:
 
-* Valide la posibilidad de iniciar sesión desde un explorador de una máquina unida a un dominio en la intranet: conéctese a https://myapps.microsoft.com y compruebe la conexión con la cuenta con la que ha iniciado sesión. La cuenta de administrador de AD DS integrada no está sincronizada y no se puede usar para la verificación.
+* Asegúrese de que puede iniciar sesión desde un explorador de una máquina unida a un dominio en la intranet: conéctese a https://myapps.microsoft.com y verifique la conexión con la cuenta con la que ha iniciado sesión. La cuenta de administrador de AD DS integrada no está sincronizada y no se puede usar para la verificación.
 * Valide que puede iniciar sesión desde un dispositivo desde la extranet. Conéctese a https://myapps.microsoft.com y especifique sus credenciales desde un equipo doméstico o un dispositivo móvil.
 * Valide el inicio de sesión de un cliente mejorado. Conéctese a https://testconnectivity.microsoft.com, elija la pestaña **Office 365** y **Prueba de inicio de sesión único de Office 365**.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Una vez completada la instalación, cierre la sesión e inicie de sesión de nuevo en Windows antes de usar el Administrador del servicio de sincronización o el Editor de reglas de sincronización.
 
 Ahora que ha instalado Azure AD Connect, puede [comprobar la instalación y asignar licencias](active-directory-aadconnect-whats-next.md).

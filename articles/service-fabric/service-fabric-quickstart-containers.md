@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 02/27/18
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: d4fe2d410152fc4d65f2d22bc26e5e72b91bc282
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: eb4de9d7781ae355e42a6fec9f7732ad67228e70
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="quickstart-deploy-a-service-fabric-windows-container-application-on-azure"></a>Inicio rápido: Implementación de una aplicación contenedora Windows de Service Fabric en Azure
 Azure Service Fabric es una plataforma de sistemas distribuidos para implementar y administrar microservicios y contenedores escalables y confiables. 
@@ -83,17 +83,20 @@ Configure la asignación de los puertos del host al contenedor para que las soli
 Al final de este artículo se proporciona un archivo ApplicationManifest.xml de ejemplo.
 
 ## <a name="create-a-cluster"></a>Crear un clúster
-Para implementar la aplicación en un clúster de Azure, puede unirse a un clúster de entidad. Los clústeres de entidad son clústeres de Service Fabric gratuitos y de duración limitada, hospedados en Azure y ejecutados por el equipo de Service Fabric, donde cualquier usuario puede implementar aplicaciones y obtener información sobre la plataforma.  El clúster usa un único certificado autofirmado para la seguridad de nodo a nodo así como para la de cliente a nodo. Los clústeres de la entidad admiten contenedores. De todas formas, si configura su propio clúster este tiene que ejecutarse en Windows Server 2016 con Containers para que pueda ejecutar contenedores.
+Para implementar la aplicación en un clúster de Azure, puede unirse a un clúster de entidad. Los clústeres de entidad son clústeres de Service Fabric gratuitos y de duración limitada, hospedados en Azure y ejecutados por el equipo de Service Fabric, donde cualquier usuario puede implementar aplicaciones y obtener información sobre la plataforma.  El clúster usa un único certificado autofirmado para la seguridad de nodo a nodo así como para la de cliente a nodo. Los clústeres de la entidad admiten contenedores. Si decide configurar y usar su propio clúster, el clúster debe ejecutarse en una SKU que admita contenedores (por ejemplo, Windows Server 2016 Datacenter con Containers).
 
-Inicie sesión y [únase a un clúster de Windows](http://aka.ms/tryservicefabric). Descargue los certificados PFX en el equipo. Para ello, haga clic en el vínculo **PFX**. El certificado y el valor de **Punto de conexión** se usan en los pasos siguientes.
+Inicie sesión y [únase a un clúster de Windows](http://aka.ms/tryservicefabric). Descargue los certificados PFX en el equipo. Para ello, haga clic en el vínculo **PFX**. Haga clic en el vínculo **How to connect to a secure Party cluster?** (Cómo conectarse a un clúster de entidad segura) y copie la contraseña del certificado. El certificado, la contraseña del certificado y el valor de **Punto de conexión** se usan en los pasos siguientes.
 
 ![PFX y punto de conexión](./media/service-fabric-quickstart-containers/party-cluster-cert.png)
+
+> [!Note]
+> Hay un número limitado de clústeres de entidad por hora. Si se produce un error al intentar iniciar sesión en un clúster de entidad, puede esperar un tiempo y volver a intentarlo, o puede seguir estos pasos del tutorial [Implementación de una aplicación .NET](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-deploy-app-to-party-cluster#deploy-the-sample-application) para crear un clúster de Service Fabric en su suscripción de Azure e implementar la aplicación en él. El clúster que creó mediante Visual Studio admite Containers. Después de haber implementado y comprobado la aplicación en el clúster, puede pasar directamente a [Manifiestos de servicio y de aplicación de Service Fabric de ejemplo completos](#complete-example-service-fabric-application-and-service-manifests) en esta guía de inicio rápido. 
+>
 
 En un equipo Windows, instale el archivo PFX en el almacén de certificados *CurrentUser\My*.
 
 ```powershell
-PS C:\mycertificates> Import-PfxCertificate -FilePath .\party-cluster-873689604-client-cert.pfx -CertStoreLocation Cert:
-\CurrentUser\My
+PS C:\mycertificates> Import-PfxCertificate -FilePath .\party-cluster-873689604-client-cert.pfx -CertStoreLocation Cert:\CurrentUser\My -Password (ConvertTo-SecureString 873689604 -AsPlainText -Force)
 
 
   PSParentPath: Microsoft.PowerShell.Security\Certificate::CurrentUser\My
@@ -118,7 +121,7 @@ Haga clic en **Publicar**.
 
 Todas las aplicaciones del clúster deben tener un nombre único.  Sin embargo, los clústeres de entidad son un entorno compartido y público, por lo que es posible que se produzca un conflicto con una aplicación existente.  Si se produce un conflicto de nombres, cambie el nombre del proyecto de Visual Studio y vuelva a realizar la implementación.
 
-Abra un explorador y vaya a http://zwin7fh14scd.westus.cloudapp.azure.com:80. Debería ver la página web predeterminada de IIS: ![Página web predeterminada de IIS][iis-default]
+Abra un explorador y vaya al **punto de conexión** especificado en la página del clúster de la entidad. Si lo desea, puede anteponer el identificador de esquema `http://` y agregar el puerto `:80` a la dirección URL. Por ejemplo, http://zwin7fh14scd.westus.cloudapp.azure.com:80. Debería ver la página web predeterminada de IIS: ![Página web predeterminada de IIS][iis-default]
 
 ## <a name="complete-example-service-fabric-application-and-service-manifests"></a>Manifiestos de servicio y de aplicación de Service Fabric de ejemplo completos
 Estos son los manifiestos de servicio y de aplicación completos que se usan en esta guía de inicio rápido.

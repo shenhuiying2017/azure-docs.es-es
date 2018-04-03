@@ -1,6 +1,6 @@
 ---
-title: "Auditoría y recepción de notificaciones sobre las acciones importantes en su suscripción de Azure | Microsoft Docs"
-description: "Comprenda el historial de administración de recursos, el estado del servicio y otra actividad de suscripción en el Registro de actividad y, después, utilice una alerta del Registro de actividad para recibir una notificación por correo electrónico cuando se realice una operación con privilegios elevados en su suscripción."
+title: Auditoría y recepción de notificaciones sobre las acciones importantes en su suscripción de Azure | Microsoft Docs
+description: Comprenda el historial de administración de recursos, el estado del servicio y otra actividad de suscripción en el Registro de actividad y, después, utilice una alerta del Registro de actividad para recibir una notificación por correo electrónico cuando se realice una operación con privilegios elevados en su suscripción.
 author: johnkemnetz
 manager: orenr
 services: monitoring-and-diagnostics
@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.openlocfilehash: b0a79f46788dc7efb588110dc50805c45c373a49
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: dd04cd9c8074d49df168b32840d12901da83c834
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="audit-and-receive-notifications-about-important-actions-in-your-azure-subscription"></a>Auditoría y recepción de notificaciones sobre las acciones importantes en su suscripción de Azure
 
@@ -74,7 +74,7 @@ Haga clic en la pestaña **JSON** para ver los detalles completos del evento. Es
 
 5. En **Alertar mediante**, seleccione el grupo de acción **Nuevo** y proporcione un **nombre** y un **nombre corto** para el grupo de acciones. El grupo de acciones define el conjunto de acciones llevadas a cabo cuando se activa la alerta (cuando los criterios coinciden con un nuevo evento).
 
-6. En **Acciones**, agregue una o más acciones proporcionando un **nombre** a la acción, el **tipo de acción** (por ejemplo, correo electrónico o SMS) y **detalles** para ese tipo de acción determinado (por ejemplo, una dirección URL de webhook, una dirección de correo electrónico o un número SMS).
+6. En **Acciones**, agregue una o más acciones proporcionando un **nombre** a la acción, el **tipo de acción** (por ejemplo, correo electrónico, SMS o webhook) y **detalles** para ese tipo de acción determinado (por ejemplo, una dirección URL de webhook, una dirección de correo electrónico o un número SMS).
 
     ![Creación de un grupo de seguridad de red en el portal](./media/monitor-quick-audit-notify-action-in-subscription/activity-log-alert-actions.png)
 
@@ -83,7 +83,7 @@ Haga clic en la pestaña **JSON** para ver los detalles completos del evento. Es
 ## <a name="test-the-activity-log-alert"></a>Prueba de la alerta del Registro de actividad
 
 > [!NOTE]
-> Se tarda aproximadamente 10 minutos en que la alerta del Registro de actividad esté totalmente habilitada. Los nuevos eventos que se producen antes de que la alerta del Registro de actividad esté totalmente habilitada no generan notificaciones.
+> Se tarda aproximadamente 5 minutos en que la alerta del registro de actividad esté totalmente habilitada. Los nuevos eventos que se producen antes de que la alerta del Registro de actividad esté totalmente habilitada no generan notificaciones.
 >
 >
 
@@ -93,7 +93,7 @@ Para probar la alerta, repita la sección anterior a **Creación de un grupo de 
 
 Cuando ya no sea necesario, elimine el grupo de recursos y el grupo de seguridad de red. Para ello, escriba el nombre del grupo de recursos que creó en el cuadro de búsqueda en la parte superior del portal y haga clic en el nombre del grupo de recursos. En la sección que se muestra, haga clic en el botón **Eliminar grupo de recursos**, escriba el nombre del grupo de recursos y haga clic en **Eliminar**.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este inicio rápido, ha realizado una operación para generar un evento del Registro de actividad y, después, ha creado una alerta del Registro de actividad para que se notifique cuando esta operación se produzca de nuevo en el futuro. A continuación, ha probado la alerta mediante la realización de esa operación de nuevo. Azure proporciona los eventos del Registro de actividad de los últimos 90 días. Si necesita conservar eventos posteriores a 90 días, pruebe a archivar los datos del Registro de actividad junto con los demás datos de supervisión.
 

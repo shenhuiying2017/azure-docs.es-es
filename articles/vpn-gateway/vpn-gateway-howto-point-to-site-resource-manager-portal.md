@@ -1,11 +1,11 @@
 ---
-title: "Conexión de un equipo a una red virtual de Azure mediante punto a sitio y la autenticación de certificados de Azure nativa: Azure Portal | Microsoft Docs"
-description: "Conexión segura de los clientes de Windows y Mac OS X a una red virtual de Azure mediante P2S y certificados autofirmados o emitidos por una entidad de certificación. En este artículo se usa Azure Portal."
+title: 'Conexión de un equipo a una red virtual de Azure mediante punto a sitio y la autenticación de certificados de Azure nativa: Azure Portal | Microsoft Docs'
+description: Conexión segura de los clientes de Windows y Mac OS X a una red virtual de Azure mediante P2S y certificados autofirmados o emitidos por una entidad de certificación. En este artículo se usa Azure Portal.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: a15ad327-e236-461f-a18e-6dbedbf74943
 ms.service: vpn-gateway
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/27/2018
+ms.date: 03/19/2018
 ms.author: cherylmc
-ms.openlocfilehash: 0a45430491e1e06080ae2eca2124088402c17f54
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 4603131c31ab3792efc1df504eb95dfde2eccb17
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Configuración de una conexión de punto a sitio a una red virtual mediante la autenticación de certificados de Azure nativa: Azure Portal
 
@@ -78,6 +78,10 @@ Después de crear la red virtual, puede agregar la dirección IP de un servidor 
 
 [!INCLUDE [create-gateway](../../includes/vpn-gateway-add-gw-p2s-rm-portal-include.md)]
 
+>[!NOTE]
+>La SKU básica no admite la autenticación de IKEv2 o RADIUS.
+>
+
 ## <a name="generatecert"></a>5. Generación de certificados
 
 Azure usa certificados para autenticar a los clientes para conectarse a una red virtual a través de una conexión VPN de punto a sitio. Una vez que obtenga el certificado raíz, [cargue](#uploadfile) la información de clave pública en Azure. En ese momento, Azure considera que el certificado raíz es "de confianza" para conectarse de P2S a la red virtual. También genere certificados de cliente desde el certificado raíz de confianza y, a continuación, vuelva a instalarlos en cada equipo cliente. El certificado de cliente se utiliza para autenticar al cliente cuando se inicia una conexión con la red virtual. 
@@ -103,6 +107,10 @@ El grupo de direcciones de cliente es un intervalo de direcciones IP privadas qu
 3. En la página **Configuración de punto a sitio**, en el cuadro **Grupo de direcciones**, agregue el intervalo de direcciones IP privadas que desea utilizar. Los clientes VPN reciben de forma dinámica una dirección IP del intervalo que especifique. Haga clic en **Guardar** para validar y guardar la configuración.
 
   ![Grupo de direcciones de clientes](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/addresspool.png)
+
+  >[!NOTE]
+  >Si no ve el tipo de túnel o el tipo de autenticación del portal en esta página, la puerta de enlace está usando la SKU básica. La SKU básica no admite la autenticación de IKEv2 o RADIUS.
+  >
 
 ## <a name="tunneltype"></a>7. Configuración del tipo de túnel
 
@@ -234,7 +242,7 @@ Puede revocar un certificado de cliente si agrega la huella digital a la lista d
 
 [!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Una vez completada la conexión, puede agregar máquinas virtuales a las redes virtuales. Consulte [Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute) para más información. Para más información acerca de las redes y las máquinas virtuales, consulte [Información general sobre las redes de máquina virtual con Linux y Azure](../virtual-machines/linux/azure-vm-network-overview.md).
 
 Para obtener información sobre solución de problemas de P2S, vea [Solución de problemas: conexión de punto a sitio de Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

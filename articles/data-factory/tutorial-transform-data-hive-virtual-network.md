@@ -1,11 +1,11 @@
 ---
-title: "Transformación de datos con Hive en Azure Virtual Network | Microsoft Docs"
+title: Transformación de datos con Hive en Azure Virtual Network | Microsoft Docs
 description: Este tutorial proporciona instrucciones detalladas para transformar los datos mediante el uso de la actividad de Hive en Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: shengcmsft
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: shengc
-ms.openlocfilehash: 04323e5f6b729cdadf5ede748a1178dfa9460cd2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: fda9cab53290d7af69e243ce47df702b25d1de67
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Transformación de datos en Azure Virtual Network mediante la actividad de Hive en Azure Data Factory
 En este tutorial, se usa Azure PowerShell para crear una canalización de Data Factory que transforma los datos mediante la actividad de Hive en un clúster de HDInsight que se encuentra en una instancia de Azure Virtual Network (VNet). En este tutorial, realizará los siguientes pasos:
@@ -223,7 +223,7 @@ Actualice los valores de las siguientes propiedades en la definición de servici
 
 - **username**. Nombre del usuario de inicio de sesión del clúster que especificó al crear el clúster. 
 - **password**. Contraseña del usuario.
-- **clusterUri**. Especifique la dirección URL de su clúster de HDInsight en el formato https://<clustername>.azurehdinsight.net.  En este artículo, se supone que tiene acceso al clúster a través de Internet. Por ejemplo, que se puede conectar al clúster en `https://clustername.azurehdinsight.net`. Esta dirección usa la puerta de enlace pública, que no está disponible si ha usado grupos de seguridad de red (NSG) o rutas definidas por el usuario (UDR) para restringir el acceso desde Internet. Para que Data Factory pueda enviar trabajos al clúster de HDInsight en Azure Virtual Network, debe configurar su instancia de Azure Virtual Network de modo que la URL pueda resolverse en la dirección IP privada de la puerta de enlace que usa HDInsight.
+- **clusterUri**. Especifique la dirección URL de su clúster de HDInsight con el formato siguiente: https://<clustername>.azurehdinsight.net.  En este artículo, se supone que tiene acceso al clúster a través de Internet. Por ejemplo, se puede conectar al clúster en `https://clustername.azurehdinsight.net`. Esta dirección usa la puerta de enlace pública, que no está disponible si ha usado grupos de seguridad de red (NSG) o rutas definidas por el usuario (UDR) para restringir el acceso desde Internet. Para que Data Factory pueda enviar trabajos al clúster de HDInsight en Azure Virtual Network, debe configurar su instancia de Azure Virtual Network de modo que la URL pueda resolverse en la dirección IP privada de la puerta de enlace que usa HDInsight.
 
   1. Desde Azure Portal, abra la instancia de Virtual Network en que se encuentra HDInsight. Abra la interfaz de red con nombres que empiecen por `nic-gateway-0`. Anote su dirección IP privada. Por ejemplo: 10.6.0.15. 
   2. Si su instancia de Azure Virtual Network tiene un servidor DNS, actualice el registro DNS para que la dirección URL del clúster de HDInsight `https://<clustername>.azurehdinsight.net` puede resolverse en `10.6.0.15`. Éste es el método recomendado. Si no tiene ningún servidor DNS en su instancia de Azure Virtual Network, puede evitar este problema de forma temporal. Para ello, edite el archivo de hosts (C:\Windows\System32\drivers\etc) de todas las máquinas virtuales que se registran como nodos de la instancia de Integration Runtime autohospedado mediante la adición de una entrada similar a la siguiente: 
@@ -394,7 +394,7 @@ Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGrou
    246 en-US SCH-i500 District Of Columbia
    ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este tutorial, realizó los pasos siguientes: 
 
 > [!div class="checklist"]

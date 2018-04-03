@@ -1,6 +1,6 @@
 ---
-title: "Tutorial de Azure Container Registry: implementación de una aplicación web desde Azure Container Registry"
-description: "Implemente una aplicación web basada en Linux con una imagen de contenedor de un registro de contenedor de Azure con replicación geográfica. Segunda parte de una serie de tres partes."
+title: 'Tutorial de Azure Container Registry: implementación de una aplicación web desde Azure Container Registry'
+description: Implemente una aplicación web basada en Linux con una imagen de contenedor de un registro de contenedor de Azure con replicación geográfica. Segunda parte de una serie de tres partes.
 services: container-registry
 author: mmacy
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: d775a17cb8069a7521788d850d7d52b92cc67526
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 51aa3c6fc56e974fc1729a1d2fe35c889adf35e2
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="deploy-web-app-from-azure-container-registry"></a>Implementación de una aplicación web desde Azure Container Registry
+# <a name="tutorial-deploy-web-app-from-azure-container-registry"></a>Tutorial: Implementación de una aplicación web desde Azure Container Registry
 
 Esta es la segunda parte de una serie de tutoriales de tres partes. En la [primera parte](container-registry-tutorial-prepare-registry.md), se creó un registro de contenedor privado con replicación geográfica y se compiló una imagen de contenedor a partir del origen, que se insertó en el registro. En este artículo, se implementa el contenedor en dos instancias de aplicación web en dos regiones de Azure diferentes para aprovechar el aspecto cercano a la red del registro con replicación geográfica.
 

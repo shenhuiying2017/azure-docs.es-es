@@ -1,26 +1,26 @@
 ---
-title: "Creación de una canalización de desarrollo en Azure con Jenkins | Microsoft Docs"
-description: "Obtenga información sobre cómo crear una máquina virtual de Jenkins en Azure que se obtiene desde GitHub en cada confirmación de código y que crea un nuevo contenedor de Docker para ejecutar la aplicación"
+title: Creación de una canalización de desarrollo en Azure con Jenkins | Microsoft Docs
+description: Obtenga información sobre cómo crear una máquina virtual de Jenkins en Azure que se obtiene desde GitHub en cada confirmación de código y que crea un nuevo contenedor de Docker para ejecutar la aplicación
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/15/2017
+ms.date: 03/27/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 8a595ead7da8dfa5544903bd698bfdff40555eb9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 9250e40c491257b554333f4606cbf0b476d8db21
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Creación de una infraestructura de desarrollo en una máquina virtual Linux en Azure con Jenkins, GitHub y Docker
 Para automatizar las fases de compilación y prueba del desarrollo de la aplicación, puede utilizar una canalización de integración e implementación continua (CI/CD). En este tutorial, creará una canalización de CI/CD en una máquina virtual de Azure, y aprenderá los siguientes temas:
@@ -39,7 +39,7 @@ Para automatizar las fases de compilación y prueba del desarrollo de la aplicac
 Si decide instalar y usar la CLI localmente, para este tutorial es preciso que ejecute la CLI de Azure de la versión 2.0.22 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-jenkins-instance"></a>Creación de la instancia de Jenkins
-En un tutorial anterior sobre [cómo personalizar una máquina virtual Linux en el primer arranque](tutorial-automate-vm-deployment.md), aprendió a automatizar la personalización de máquinas virtuales con cloud-init. Este tutorial utiliza un archivo cloud-init para instalar Jenkins y Docker en una máquina virtual. Jenkins es un popular servidor de automatización de código abierto que se integra perfectamente con Azure para habilitar la integración continua (CI) y la entrega continua (CD). Para más tutoriales sobre cómo usar Jenkins, consulte el artículo sobre [Jenkins en el concentrador de Azure](https://docs.microsoft.com/azure/jenkins/).
+En un tutorial anterior sobre [cómo personalizar una máquina virtual Linux en el primer arranque](tutorial-automate-vm-deployment.md), aprendió a automatizar la personalización de máquinas virtuales con cloud-init. Este tutorial utiliza un archivo cloud-init para instalar Jenkins y Docker en una máquina virtual. Jenkins es un popular servidor de automatización de código abierto que se integra perfectamente con Azure para permitir la integración continua (CI) y la entrega continua (CD). Para más tutoriales sobre cómo usar Jenkins, consulte el artículo sobre [Jenkins en el concentrador de Azure](https://docs.microsoft.com/azure/jenkins/).
 
 En el shell actual, cree un archivo denominado *cloud-init-jenkins.txt* y pegue la siguiente configuración. Por ejemplo, cree el archivo en Cloud Shell, no en la máquina local. Escriba `sensible-editor cloud-init-jenkins.txt` para crear el archivo y ver una lista de editores disponibles. Asegúrese de que todo el archivo cloud-init se copia correctamente, especialmente la primera línea:
 
@@ -64,7 +64,6 @@ runcmd:
   - curl -sSL https://get.docker.com/ | sh
   - usermod -aG docker azureuser
   - usermod -aG docker jenkins
-  - touch /var/lib/jenkins/jenkins.install.InstallUtil.lastExecVersion
   - service jenkins restart
 ```
 
@@ -118,10 +117,13 @@ Si el archivo aún no está disponible, espere unos minutos más a que cloud-ini
 
 Ahora, abra un explorador web y vaya a `http://<publicIps>:8080`. Complete la instalación inicial de Jenkins como sigue:
 
-- Escriba el nombre de usuario **admin** y proporcione el valor de *initialAdminPassword* que obtuvo de la máquina virtual en el paso anterior.
-- Seleccione **Manage Jenkins** (Administrar Jenkins) y, luego, **Manage plugins** (Administrar complementos).
-- Elija **Available** (Disponible) y busque *GitHub* en el cuadro de texto en la parte superior. Active la casilla de *GitHub plugin* (Complemento de GitHub) y seleccione **Download now and install after restart** (Descargar ahora e instalar después de reiniciar).
-- Active la casilla de **Restart Jenkins when installation is complete and no jobs are running** (Restaurar Jenkins cuando se complete la instalación y no haya trabajos en ejecución) y espere hasta que finalice el proceso de instalación del complemento.
+- Elija **Select plugins to install** (Seleccionar complementos para instalar).
+- Busque *GitHub* en el cuadro de texto de la parte superior. Active la casilla *GitHub* y, luego, seleccione **Install** (Instalar).
+- Cree el primer usuario administrador. Escriba un nombre de usuario, por ejemplo, **administrador** y, luego, proporcione su propia contraseña segura. Por último, escriba un nombre completo y la dirección de correo electrónico.
+- Seleccione **Save and Finish** (Guardar y finalizar).
+- Cuando esté listo Jenkins, seleccione **Start using Jenkins** (Comenzar a usar Jenkins).
+  - Si el explorador web muestra una página en blanco cuando empiece a usar Jenkins, reinicie el servicio Jenkins. En la sesión de SSH, escriba `sudo service jenkins restart` y, luego, actualice el explorador web.
+- Inicie sesión en Jenkins con el nombre de usuario y la contraseña que ha creado.
 
 
 ## <a name="create-github-webhook"></a>Creación de un webhook de GitHub
@@ -139,13 +141,13 @@ Cree un webhook dentro de la bifurcación que ha creado:
 
 
 ## <a name="create-jenkins-job"></a>Creación de trabajos de Jenkins
-Para que Jenkins responda a un evento de GitHub como código de confirmación, cree un trabajo de Jenkins. 
+Para que Jenkins responda a un evento de GitHub como código de confirmación, cree un trabajo de Jenkins. Use las direcciones URL de su propia bifurcación de GitHub.
 
 En el sitio web de Jenkins, seleccione **Create new jobs** (Crear trabajos nuevos) desde la página principal:
 
 - Escriba *HelloWorld* como nombre del trabajo. Seleccione **Freestyle project** (Proyecto de estilo libre) y elija **OK** (Aceptar).
-- En la sección **General**, seleccione el proyecto de **GitHub** y escriba la dirección URL del repositorio bifurcado; por ejemplo, *https://github.com/iainfoulds/nodejs-docs-hello-world*
-- En la sección **Source code management** (Administración de código fuente), seleccione **Git** y escriba la dirección URL *.git* del repositorio bifurcado; por ejemplo, *https://github.com/iainfoulds/nodejs-docs-hello-world.git*.
+- En la sección **General**, seleccione **GitHub project** (Proyecto de GitHub) y escriba la dirección URL del repositorio bifurcado, como *https://github.com/iainfoulds/nodejs-docs-hello-world*.
+- En la sección **Source code management** (Administración del código fuente), seleccione **Git** y escriba la dirección URL de su repositorio bifurcado *.git*, como *https://github.com/iainfoulds/nodejs-docs-hello-world.git*.
 - En la sección **Build Triggers** (Compilar desencadenadores), seleccione **GitHub hook trigger for GITScm polling** (Desencadenador de enlace de GitHub para sondeo de GITScm).
 - En la sección **Build** (Compilación), seleccione **Add build step** (Agregar el paso de compilación). Seleccione **Execute shell** (Ejecutar shell) y escriba `echo "Testing"` en la ventana de comandos.
 - Seleccione **Save** (Guardar) en la parte inferior de la ventana de trabajos.
@@ -226,7 +228,7 @@ Ahora, realice otra modificación en el archivo *index.js* de GitHub y confirme 
 ![Aplicación de Node.js en ejecución después de otra confirmación de GitHub](media/tutorial-jenkins-github-docker-cicd/another_running_nodejs_app.png)
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este tutorial, ha configurado GitHub para ejecutar un trabajo de compilación de Jenkins en cada confirmación de código y, luego, ha implementado un contenedor de Docker para probar la aplicación. Ha aprendido a:
 
 > [!div class="checklist"]

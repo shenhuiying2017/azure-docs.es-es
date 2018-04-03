@@ -1,11 +1,11 @@
 ---
-title: "Importación y publicación de la primera API en Azure API Management | Microsoft Docs"
-description: "Obtenga información sobre cómo importar y publicar la primera API con API Management."
+title: Importación y publicación de la primera API en Azure API Management | Microsoft Docs
+description: Obtenga información sobre cómo importar y publicar la primera API con API Management.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -14,15 +14,15 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: apimpm
-ms.openlocfilehash: ffe5ee95c66eee7dccd25a1afd2fe639cbc273f5
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 26a5ab93c82b523063632c4899daadbde70dd7d8
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="import-and-publish-your-first-api"></a>Importación y publicación de la primera API 
 
-Este tutorial muestra cómo importar una API de back-end "Especificación OpenAPI" que reside en http://conferenceapi.azurewebsites.net?format=json. Esta API de back-end la proporciona Microsoft y se hospeda en Azure. 
+En este tutorial se explica cómo importar una API de back-end de Especificación OpenAPI que reside en http://conferenceapi.azurewebsites.net?format=json. Esta API de back-end la proporciona Microsoft y se hospeda en Azure. 
 
 Una vez que la API de back-end se importa en Management API (APIM), la API de APIM se convierte en una fachada de la API de back-end. En el momento en que se importa la API de back-end, el origen de la API y la API de APIM son idénticos. APIM permite personalizar la fachada según sus necesidades sin tocar la API de back-end. Para obtener más información, consulte [Transformación y protección de una API](transform-api.md). 
 
@@ -50,7 +50,7 @@ Esta sección explica cómo importar y publicar una API de back-end de Especific
 
     ![Creación de una API](./media/api-management-get-started/create-api.png)
 
-    Puede establecer los valores de API durante la creación o luego accediendo a la pestaña **Configuración**.  
+    Puede establecer los valores de API durante la creación o luego accediendo a la pestaña **Configuración**. El asterisco rojo junto a un campo indica que el campo es obligatorio.
 
     |Configuración|Valor|DESCRIPCIÓN|
     |---|---|---|
@@ -58,15 +58,20 @@ Esta sección explica cómo importar y publicar una API de back-end de Especific
     |**Nombre para mostrar**|*API de conferencia de demostración* (API de conferencia de demostración)|Si presiona la tecla Tab después de escribir la dirección URL del servicio, APIM rellenará este campo en función de lo que aparece en el JSON. <br/>El nombre se muestra en el Portal para desarrolladores.|
     |**Name**|*demo-conference-api*|Proporciona un nombre único para la API. <br/>Si presiona la tecla Tab después de escribir la dirección URL del servicio, APIM rellenará este campo en función de lo que aparece en el JSON.|
     |**Descripción**|Proporcione una descripción opcional de la API.|Si presiona la tecla Tab después de escribir la dirección URL del servicio, APIM rellenará este campo en función de lo que aparece en el JSON.|
-    |**Sufijo de dirección URL de API**|*conference*|El sufijo se anexa a la dirección URL base del servicio API Management. Administración de API distingue las API por su sufijo, por lo que el sufijo debe ser único para cada API de un publicador determinado.|
     |**Esquema URL**|*HTTPS*|Determina los protocolos que se pueden usar para acceder a la API. |
-    |**Productos**|*Sin límite*| Publique la API asociándola a un producto. Para agregar, opcionalmente, esta nueva API a un producto, escriba el nombre del producto. Este paso se puede repetir varias veces para agregar la API a varios productos.<br/>Los productos son asociaciones de una o varias API. Puede incluir varias API y ofrecerlas a los desarrolladores mediante el portal para desarrolladores. En primer lugar, los desarrolladores deben suscribirse a un producto para acceder a la API. Al suscribirse, obtienen una clave de suscripción que funciona con cualquier API de ese producto. Si creó la instancia de APIM, ya es un administrador, así que, de forma predeterminada, está suscrito a todos los productos.<br/> De forma predeterminada, cada instancia de API Management incluye dos productos de ejemplo: **Starter** y **Unlimited**. |
+    |**Sufijo de dirección URL de API**|*conference*|El sufijo se anexa a la dirección URL base del servicio API Management. Administración de API distingue las API por su sufijo, por lo que el sufijo debe ser único para cada API de un publicador determinado.|
+    |**Productos**|*Sin límite*|Los productos son asociaciones de una o varias API. Puede incluir varias API en un producto y ofrecerlas a los desarrolladores mediante el portal para desarrolladores. <br/>Para publicar la API, hay que asociarla a un producto (en este ejemplo, *Unlimited*). Para agregar esta nueva API a un producto, escriba el nombre del producto (también puede hacerlo más tarde desde la página de **configuración**). Este paso se puede repetir varias veces para agregar la API a varios productos.<br/>Para acceder a la API, los desarrolladores primero deben suscribirse a un producto. Al suscribirse, obtienen una clave de suscripción que funciona con cualquier API de ese producto. <br/> Si creó la instancia de APIM, ya es un administrador, así que está suscrito a todos los productos.<br/> De forma predeterminada, cada instancia de API Management incluye dos productos de ejemplo: **Starter** y **Unlimited**. |
+    |¿Definir versión de esta API?||Para más información sobre las versiones, consulte [Publicación de varias versiones de la API](api-management-get-started-publish-versions.md).|
+    
+    >[!NOTE]
+    > Para publicar la API, debe asociarla a un producto. Puede hacerlo desde la **página de configuración**.
+    
 3. Seleccione **Crear**.
 
 ## <a name="test-the-new-apim-api-in-the-azure-portal"></a>Prueba de la nueva API APIM en Azure Portal
 
 Se puede llamar a las operaciones directamente desde Azure Portal, lo que proporciona una forma cómoda de ver y probar las operaciones de una API.  
-1. Seleccione la API que creó en los pasos anteriores.
+1. Seleccione la API que ha creado en los pasos anteriores (desde la pestaña **API**).
 2. Presione la pestaña **Prueba**.  ![Prueba de API](./media/api-management-get-started/test-api.png)
 3. Haga clic en **GetSpeakers**.
     La página muestra los campos de los parámetros de consulta, pero, en este caso, no tiene ninguno. La página también muestra los campos de los encabezados. Uno de los encabezados es "Ocp-Apim-Suscripción-Key", para la clave de suscripción del producto que está asociado a esta API. La clave se rellena automáticamente.
@@ -76,25 +81,18 @@ Se puede llamar a las operaciones directamente desde Azure Portal, lo que propor
 
 ## <a name="call-operation"></a>Llamada a una operación desde el portal para desarrolladores
 
-También se pueden llamar a las operaciones desde **portal para desarrolladores** para probar las API. 
+También se pueden llamar a las operaciones desde el **portal para desarrolladores** para probar las API. 
 
-1. Seleccione la API que creó en el paso "Importación y publicación de una API de back-end".
-2. Presione **Portal para desarrolladores**.
-
-    ![Prueba en el Portal para desarrolladores](./media/api-management-get-started/developer-portal.png)
-
-    Se abre el sitio "Portal para desarrolladores".
-3. Seleccione **API**.
-4. Seleccione **Demo Conference API** (API de conferencia de demostración).
-5. Haga clic en **GetSpeakers**.
+1. Seleccione **Demo Conference API** (API de conferencia de demostración).
+2. Haga clic en **GetSpeakers**.
     
     La página muestra los campos de los parámetros de consulta, pero, en este caso, no tiene ninguno. La página también muestra los campos de los encabezados. Uno de los encabezados es "Ocp-Apim-Suscripción-Key", para la clave de suscripción del producto que está asociado a esta API. Si ha creado la instancia APIM, ya es administrador, por lo que la clave se rellena automáticamente.
-6. Presione **Try it** (Probarlo).
-7. Presione **Enviar**.
+3. Presione **Try it** (Probarlo).
+4. Presione **Enviar**.
     
-    Después de invocar una operación, el portal para desarrolladores mostrará el **estado de respuesta**, los **encabezados de respuesta** y el **contenido de respuesta**.
+    Después de invocar una operación, el portal para desarrolladores muestra las respuestas.  
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"> </a>Pasos siguientes
 
 En este tutorial aprendió lo siguiente:
 

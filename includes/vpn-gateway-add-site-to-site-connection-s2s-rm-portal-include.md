@@ -1,9 +1,25 @@
-1. Navegue hasta la hoja de la puerta de enlace de la red virtual y ábrala. Hay varias formas de navegar. En nuestro ejemplo, navegamos hasta la puerta de enlace "VNet1GW", para lo que vamos a **TestVNet1 -> Introducción -> Dispositivos conectados -> VNet1GW**.
-2. En la hoja de VNet1GW, haga clic en **Conexiones**. En la parte superior de la hoja Conexiones, haga clic en **+ Agregar** para abrir la hoja **Agregar conexión**.
+---
+title: archivo de inclusión
+description: archivo de inclusión
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: ea616786d69d41435be2a46e90d4973b21270935
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 03/23/2018
+---
+1. Vaya a la página de la puerta de enlace de la red virtual y ábrala. Hay varias formas de navegar. En nuestro ejemplo, navegamos hasta la puerta de enlace "VNet1GW", para lo que vamos a **TestVNet1 -> Introducción -> Dispositivos conectados -> VNet1GW**.
+2. En la página de VNet1GW, haga clic en **Conexiones**. En la parte superior de la página Conexiones, haga clic en **+Agregar** para abrir la página **Agregar conexión**.
 
     ![Creación de una conexión de sitio a sitio](./media/vpn-gateway-add-site-to-site-connection-s2s-rm-portal-include/connection1.png)
 
-3. En la hoja **Agregar conexión**, rellene los valores necesarios para crear la conexión.
+3. En la página **Agregar conexión**, rellene los valores necesarios para crear la conexión.
 
   - **Nombre**: asigne un nombre a la conexión. En nuestro ejemplo usamos **VNet1toSite2**.
   - **Tipo de conexión:** seleccione **Sitio a sitio (IPSec)**.
@@ -13,4 +29,4 @@
   - Los restantes valores de **Suscripción**, **Grupo de recursos** y **Ubicación** son fijos.
 
 4. Haga clic en **Aceptar** para crear la conexión. El mensaje *Creando la conexión* aparecerá de forma intermitente en la pantalla.
-5. La conexión se puede ver en la hoja **Conexiones** de la puerta de enlace de red virtual. El valor de Estado pasará de *Desconocido* a *Conectando* y luego a *Correcto*.
+5. La conexión se puede ver en la página **Conexiones** de la puerta de enlace de red virtual. El valor de Estado pasará de *Desconocido* a *Conectando* y luego a *Correcto*.

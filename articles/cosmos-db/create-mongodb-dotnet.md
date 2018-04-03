@@ -1,57 +1,57 @@
 ---
-title: "Azure Cosmos DB: Compilar una aplicación web con .NET y la API MongoDB | Microsoft Docs"
-description: "En este tema se presenta un ejemplo de código de .NET que se puede usar para conectarse a la API MongoDB de Azure Cosmos DB y realizar consultas."
+title: 'Azure Cosmos DB: Compilar una aplicación web con .NET y la API MongoDB | Microsoft Docs'
+description: En este tema se presenta un ejemplo de código de .NET que se puede usar para conectarse a la API MongoDB de Azure Cosmos DB y realizar consultas.
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: mimig1
 manager: jhubbard
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 05/10/2017
+ms.date: 03/19/2018
 ms.author: mimig
-ms.openlocfilehash: c92d970783ae0fb36e5761e4f35af7d4d6718121
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 90b1ec66007302ed02032e04e7f3d771012ad02d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-web-app-with-net-and-the-azure-portal"></a>Azure Cosmos DB: Compilar una aplicación web de API MongoDB con .NET y Azure Portal
 
-Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Puede crear rápidamente bases de datos de documentos, clave-valor y grafos, y realizar consultas en ellas. Todas las bases de datos se beneficiarán de las funcionalidades de distribución global y escalado horizontal en Azure Cosmos DB. 
+Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Puede crear rápidamente bases de datos de documentos, clave-valor y grafos, y realizar consultas en ellas. Todas las bases de datos se beneficiarán de las funcionalidades de distribución global y escala horizontal en Azure Cosmos DB. 
 
-En esta guía de inicio rápido se muestra cómo crear una cuenta, una base de datos de documentos y una colección de Azure Cosmos DB mediante Azure Portal. Después, compilará e implementará una aplicación web de lista de tareas compilada en el [controlador .NET de MongoDB](https://docs.mongodb.com/ecosystem/drivers/csharp/). 
+En esta guía de inicio rápido se muestra cómo crear una cuenta, una base de datos de documentos y una colección de Azure Cosmos DB mediante Azure Portal. Después, compilará e implementará una aplicación web de lista de tareas compilada en el [controlador .NET de MongoDB](https://docs.mongodb.com/ecosystem/drivers/csharp/).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites-to-run-the-sample-app"></a>Requisitos previos para ejecutar la aplicación de ejemplo
 
-Si aún no tiene Visual Studio de 2017 instalado, puede descargar y usar la versión **gratis** de [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Asegúrese de que habilita **Desarrollo de Azure** durante la instalación de Visual Studio.
+Para ejecutar el ejemplo, necesitará [Visual Studio](https://www.visualstudio.com/downloads/) y una cuenta de Azure CosmosDB válida.
+
+Si no tiene Visual Studio, descargue [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) con la carga de trabajo **ASP.NET y desarrollo web** instalada con el programa de instalación.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
-[!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
 <a id="create-account"></a>
 ## <a name="create-a-database-account"></a>Creación de una cuenta de base de datos
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
 
-## <a name="clone-the-sample-application"></a>Clonación de la aplicación de ejemplo
+## <a name="clone-the-sample-app"></a>Clonación de la aplicación de ejemplo
 
-Ahora vamos a clonar una aplicación de API MongoDB desde GitHub, establecer la cadena de conexión y ejecutarla. Verá lo fácil que es trabajar con datos mediante programación. 
+En primer lugar, descargue la aplicación API de MongoDB de ejemplo de GitHub. Implementa una lista de tareas con el modelo de almacenamiento de documentos de MongoDB.
 
-1. Abra una ventana de terminal de Git, como Git Bash, y `cd` en un directorio de trabajo.  
-
+1. Abra una ventana de terminal de Git, como Git Bash, y `cd` en un directorio de trabajo.
 2. Ejecute el comando siguiente para clonar el repositorio de ejemplo. 
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-mongodb-dotnet-getting-started.git
     ```
 
-3. Después, abra el archivo de solución en Visual Studio. 
+Si no desea usar git, también puede [descargar el proyecto como un archivo ZIP](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-dotnet-getting-started/archive/master.zip).
 
 ## <a name="review-the-code"></a>Revisión del código
 
@@ -93,7 +93,7 @@ Vamos a revisar rápidamente lo que sucede en la aplicación. Abra el archivo **
     collection.Find(new BsonDocument()).ToList();
     ```
 
-## <a name="update-your-connection-string"></a>Actualizar la cadena de conexión
+## <a name="update-your-connection-string"></a>Actualización de la cadena de conexión
 
 Ahora vuelva a Azure Portal para obtener la información de la cadena de conexión y cópiela en la aplicación.
 
@@ -117,11 +117,11 @@ Ya ha actualizado la aplicación con toda la información que necesita para comu
 
 3. En los resultados, instale la biblioteca **MongoDB.Driver**. De este modo, se instalan el paquete de MongoDB.Driver y todas las dependencias.
 
-4. Presione Ctrl+F5 para ejecutar la aplicación. La aplicación se muestra en el explorador. 
+4. Haga clic en CTRL + F5 para ejecutar la aplicación. La aplicación se muestra en el explorador. 
 
 5. Haga clic en **Crear** en el explorador y cree algunas tareas en la aplicación de lista de tareas.
 
-## <a name="review-slas-in-the-azure-portal"></a>Revisar los SLA en Azure Portal
+## <a name="review-slas-in-the-azure-portal"></a>Revisión de los SLA en Azure Portal
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 

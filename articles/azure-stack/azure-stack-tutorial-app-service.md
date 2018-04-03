@@ -2,28 +2,27 @@
 title: Aplicaciones web y API disponibles para los usuarios de Azure Stack | Microsoft Docs
 description: Tutorial para instalar el proveedor de recursos de App Service y crear ofertas que permitan a los usuarios de Azure Stack crear aplicaciones web y de API.
 services: azure-stack
-documentationcenter: 
-author: brenduns
+documentationcenter: ''
+author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 7/03/2017
-ms.author: brenduns
-ms.reviewer: 
+ms.date: 03/22/2018
+ms.author: jeffgilb
+ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: 5978706f2cab69c83a49bfd0e15ae904a38c7bab
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: e2f15ca3a46af51ab6228e772298c51ad33fd49c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="make-web-and-api-apps-available-to-your-azure-stack-users"></a>Aplicaciones web y API disponibles para los usuarios de Azure Stack
-
 Como administrador en la nube de Azure Stack, puede crear ofertas que permitan a los usuarios (inquilinos) crear aplicaciones web, móviles y de API, así como de Azure Functions. Si proporciona a los usuarios acceso a estas aplicaciones en la nube y a petición, puede ahorrarles tiempo y recursos. Para configurar esta opción, tendrá que:
 
 > [!div class="checklist"]
@@ -58,7 +57,7 @@ Por ejemplo, puede crear una oferta que permita a los usuarios crear sistemas de
 Ahora que ha implementado el proveedor de recursos de App Service y ha creado una oferta, puede iniciar sesión como un usuario, suscribirse a la oferta y crear una aplicación. En este ejemplo, vamos a crear un sistema de administración de contenido de la plataforma DNN. Primero debe crear una base de datos SQL y, a continuación, la aplicación web DNN.
 
 ### <a name="subscribe-to-the-offer"></a>Suscripción a la oferta
-1. Inicie sesión Azure Stack Portal (https://portal.local.azurestack.external/) como inquilino.
+1. Inicie sesión en el portal de Azure Stack (https://portal.local.azurestack.external)) como inquilino.
 2. Haga clic en **Obtener una suscripción** > escriba **SuscripciónDePruebaDeAppService** en **Nombre para mostrar** > **Seleccionar una oferta**  >  **OfertaDePruebaDeAppService** > **Crear**.
 
 ### <a name="create-a-sql-database"></a>Creación de una base de datos SQL
@@ -75,7 +74,7 @@ Ahora que ha implementado el proveedor de recursos de App Service y ha creado un
 
 ### <a name="create-a-dnn-app"></a>Creación de una aplicación DNN    
 
-1. Haga clic en  **+**   >  **Ver todo** > **DNN Platform preview** (Versión preliminar de la plataforma DNN)  > **Crear**.
+1. Haga clic en **+**  >  **Ver todo** > **DNN Platform preview** (Versión preliminar de la plataforma DNN)  > **Crear**.
 2. Escriba *AppDNN* en **Nombre de la aplicación** y seleccione **OfertaDePruebaDeAppService** en **Suscripción**.
 3. Haga clic en **Configurar los valores obligatorios** > **Crear nuevo** > escriba un nombre de **Plan de App Service**.
 4. Haga clic en **Nivel de precios** > **F1 gratuito** > **Seleccionar** > **Aceptar**.

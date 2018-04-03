@@ -1,11 +1,11 @@
 ---
-title: "Conexión de una red virtual de Azure a otra red virtual: portal | Microsoft Docs"
-description: "Crear una conexión de VPN Gateway entre redes virtuales mediante Resource Manager y Azure Portal."
+title: 'Conexión de una red virtual de Azure a otra red virtual: portal | Microsoft Docs'
+description: Crear una conexión de VPN Gateway entre redes virtuales mediante Resource Manager y Azure Portal.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: a7015cfc-764b-46a1-bfac-043d30a275df
 ms.service: vpn-gateway
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/14/2018
+ms.date: 03/21/2018
 ms.author: cherylmc
-ms.openlocfilehash: a24bd41adbe26b1905f7817f5e5888e492d234f4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a95fdf078baa35eb9ca8ade462223b204be77d8e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-the-azure-portal"></a>Configuración de una conexión de VPN Gateway de red virtual a red virtual mediante Azure Portal
 
@@ -28,7 +28,7 @@ Este artículo le ayuda a conectarse a redes virtuales mediante el tipo de conex
 Los pasos descritos en este artículo se aplican al modelo de implementación de Resource Manager y utilizan Azure Portal. También se puede crear esta configuración con una herramienta o modelo de implementación distintos, mediante la selección de una opción diferente en la lista siguiente:
 
 > [!div class="op_single_selector"]
-> * [portal de Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [CLI de Azure](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Portal de Azure clásico](vpn-gateway-howto-vnet-vnet-portal-classic.md)
@@ -127,7 +127,7 @@ Una vez que la red virtual se haya creado, puede agregar un espacio de direccion
 [!INCLUDE [vpn-gateway-additional-address-space](../../includes/vpn-gateway-additional-address-space-include.md)]
 
 ## <a name="gatewaysubnet"></a>3. Creación de una subred de puerta de enlace
-Antes de conectar la red virtual a una puerta de enlace, es preciso crear la subred de la puerta de enlace de la red virtual a la que desea conectarse. Si es posible, es preferible crear una subred de puerta de enlace con un bloque CIDR de /28 o /27 para proporcionar suficientes direcciones IP para adaptarse a nuevos requisitos de configuración que puedan surgir en el futuro.
+Antes de crear una puerta de enlace de red virtual para una red virtual es preciso crear la subred de la puerta de enlace. La subred de la puerta de enlace contiene las direcciones IP que usa la puerta de enlace de la red virtual. Si es posible, es preferible crear una subred de puerta de enlace con un bloque CIDR de /28 o /27 para proporcionar suficientes direcciones IP para adaptarse a nuevos requisitos de configuración que puedan surgir en el futuro.
 
 Si va a crear esta configuración como ejercicio, consulte estos [valores de ejemplo](#values) al crear la subred de la puerta de enlace.
 
@@ -190,7 +190,7 @@ Vea los detalles de preguntas más frecuentes para más información acerca de l
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Consulte [Seguridad de red](../virtual-network/security-overview.md) para obtener más información sobre cómo limitar el tráfico de red a los recursos de una red virtual.
 

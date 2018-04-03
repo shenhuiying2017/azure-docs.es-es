@@ -1,11 +1,10 @@
 ---
-title: "Comparación de las versiones 1 y 2 de Azure Data Factory | Microsoft Docs"
-description: "En este artículo se comparan Azure Data Factory V1 con Azure Data Factory V2."
+title: Comparación de las versiones 1 y 2 de Azure Data Factory | Microsoft Docs
+description: En este artículo se comparan Azure Data Factory V1 con Azure Data Factory V2.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: kromerm
-manager: jhubbard
-editor: spelluru
+manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/24/2018
 ms.author: makromer
-ms.openlocfilehash: 673bc4e0d1609e445e3d18e7cf516ad532be4bc2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 9aed1e903b5af3e5bcf53987ba80c1dcdb06f202
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="compare-azure-data-factory-v1-and-v2"></a>Comparación de Azure Data Factory V1 y V2
 En este artículo se comparan las versiones 2 y 1 de Azure Data Factory. Para ver una introducción a la versión 1, consulte [Introducción a Azure Data Factory](v1/data-factory-introduction.md). Para ver una introducción a la versión 2, consulte [Introducción a Azure Data Factory](introduction.md).
@@ -112,7 +111,7 @@ En la versión 1, el código de la actividad de DotNet (personalizada) se implem
 
 En las actividades personalizadas de la versión 2, no es preciso implementar ninguna interfaz .NET. Puede ejecutar directamente comandos, scripts y su propio código personalizado compilado como ejecutable. 
 
-Para más información, consulte [Diferencias entre la actividad personalizada de Azure Data Factory V2 y la actividad de DotNet (personalizada) de Azure Data Factory V1](transform-data-using-dotnet-custom-activity.md#difference-between-custom-activity-in-azure-data-factory-v2-and-custom-dotnet-activity-in-azure-data-factory-v1).
+Para más información, consulte [Diferencias entre la actividad personalizada de Azure Data Factory V2 y la actividad de DotNet (personalizada) de Azure Data Factory V1](transform-data-using-dotnet-custom-activity.md#compare-v2-v1).
 
 ## <a name="sdks"></a>SDK
  Data Factory V2 proporciona un conjunto más completo de SDK que se pueden usar para crear, administrar y supervisar canalizaciones.
@@ -138,10 +137,17 @@ Los SDK que se actualizan para la versión 2 no son compatibles con los clientes
 | SDK de Python | [Sí](quickstart-create-data-factory-python.md) | Sin  |
 | Plantilla de Resource Manager | [Sí](quickstart-create-data-factory-resource-manager-template.md) | [Sí](data-factory-build-your-first-pipeline-using-arm.md) | 
 
+## <a name="roles-and-permissions"></a>Roles y permisos
+
+Para crear y administrar recursos secundarios de una instancia de Data Factory v2:
+
+-   No se puede usar el rol de colaborador de Data Factory versión 1 para crear y administrar recursos de v2.
+-   El rol de colaborador de ARM estándar, creado en el recurso de Data Factory, es suficiente para crear y administrar recursos secundarios de una instancia de Data Factory v2 implementada con PowerShell o los SDK. No es suficiente crear y administrar recursos secundarios para una instancia de Data Factory v2 implementada desde Azure Portal o con la implementación de plantillas de ARM.
+-   Para crear y administrar recursos secundarios para una instancia de Data Factory v2 implementada desde Azure Portal o con la implementación de plantillas de ARM, debe ser miembro del rol Operador de trabajos de Automation a nivel de grupo de recursos o a nivel de suscripción. La organización también puede crear un rol personalizado que contenga "Microsoft.Resources/deployments/*" en la lista "Acciones", tal como se describe en [Creación de roles personalizados para el control de acceso basado en roles de Azure](../active-directory/role-based-access-control-custom-roles.md).
 
 ## <a name="monitoring-experience"></a>Experiencia de supervisión
 En la versión 2, también puede supervisar factorías de datos mediante [Azure Monitor](monitor-using-azure-monitor.md). Los nuevos cmdlets de PowerShell admiten la supervisión de [instancias de Integration Runtime](monitor-integration-runtime.md). Tanto la versión 1 como la versión 2 admiten la supervisión visual a través de una aplicación de supervisión que se puede iniciar desde Azure Portal.
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para aprender a crear una factoría de datos, siga las instrucciones detalladas de las siguientes guías de inicio rápido: [PowerShell](quickstart-create-data-factory-powershell.md), [.NET](quickstart-create-data-factory-dot-net.md), [Python](quickstart-create-data-factory-python.md) y [API de REST](quickstart-create-data-factory-rest-api.md). 

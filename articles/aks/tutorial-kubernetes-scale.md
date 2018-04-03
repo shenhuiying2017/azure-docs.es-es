@@ -1,6 +1,6 @@
 ---
-title: "Tutorial de Kubernetes en Azure: escalado de una aplicación"
-description: "Tutorial de AKS: escalado de una aplicación"
+title: 'Tutorial de Kubernetes en Azure: escalado de una aplicación'
+description: 'Tutorial de AKS: escalado de una aplicación'
 services: container-service
 author: dlepow
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 556f4bfb204504de55c41da9615e61d5a88c75b2
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 5e35be84df53386398deaca19d60d4a93f53e541
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="scale-application-in-azure-container-service-aks"></a>Escalado de una aplicación en Azure Container Service (AKS)
+# <a name="tutorial-scale-application-in-azure-container-service-aks"></a>Tutorial: Escalado de una aplicación en Azure Container Service (AKS)
 
 Si ha ido siguiendo los tutoriales, tiene un clúster de Kubernetes en funcionamiento en AKS y ha implementado la aplicación Azure Voting.
 
@@ -26,7 +26,7 @@ En este tutorial, parte cinco de ocho, se escalan horizontalmente los pods en la
 > * Escalado manual de pods de Kubernetes
 > * Configuración de pods de Autoscale que se ejecuten en el front-end de la aplicación
 
-En tutoriales posteriores se actualiza la aplicación Azure Vote y se configura Operations Management Suite para supervisar el clúster de Kubernetes.
+En tutoriales posteriores se actualiza la aplicación Azure Vote y se configura Log Analytics para supervisar el clúster de Kubernetes.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -138,7 +138,7 @@ azure-vote-front   Deployment/azure-vote-front   0% / 50%   3         10        
 
 Después de unos minutos con carga mínima en la aplicación Azure Vote, el número de réplicas del pod se reduce automáticamente a tres.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, se han usado distintas características de escalado en el clúster de Kubernetes. Las tareas tratadas incluyen:
 

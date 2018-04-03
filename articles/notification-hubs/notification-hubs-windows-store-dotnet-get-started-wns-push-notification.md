@@ -1,11 +1,11 @@
 ---
-title: "Introducción a Azure Notification Hubs para aplicaciones de la plataforma universal de Windows | Microsoft Docs"
-description: "En este tutorial aprenderá a usar Azure Notification Hubs para enviar notificaciones push a una aplicación de la plataforma universal de Windows."
+title: Introducción a Azure Notification Hubs para aplicaciones de la plataforma universal de Windows | Microsoft Docs
+description: En este tutorial aprenderá a usar Azure Notification Hubs para enviar notificaciones push a una aplicación de la plataforma universal de Windows.
 services: notification-hubs
 documentationcenter: windows
 author: jwhitedev
 manager: kpiteira
-editor: 
+editor: ''
 ms.assetid: cf307cf3-8c58-4628-9c63-8751e6a0ef43
 ms.service: notification-hubs
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 12/22/2017
 ms.author: jawh
-ms.openlocfilehash: c09621d1152aafbe15039130f6ca24082dc5bd21
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 8464a7e48a02be39fb624322fac6c26f4c6c6806
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="get-started-with-notification-hubs-for-universal-windows-platform-apps"></a>Introducción a Notification Hubs para aplicaciones de la plataforma universal de Windows
 
@@ -94,11 +94,11 @@ El centro de notificaciones ya está configurado para funcionar con WNS. Tiene l
 1. En Visual Studio, haga clic con el botón derecho en la solución y seleccione **Administrar paquetes NuGet**.  
     Se abre la ventana **Administrar paquetes NuGet**.
 
-2. En el cuadro de búsqueda, escriba **WindowsAzure.Messaging.Managed**, seleccione **Instalar** y acepte las condiciones de uso.
+2. En el cuadro de búsqueda, escriba **Microsoft.Azure.NotificationHubs**, seleccione **Instalar** y acepte las condiciones de uso.
    
     ![Ventana Administrar paquetes NuGet][20]
    
-    Con esta acción se descarga, instala y agrega una referencia a la biblioteca de mensajería de Azure para Windows mediante el [paquete NuGet WindowsAzure.Messaging.Managed](http://nuget.org/packages/WindowsAzure.Messaging).
+    Esta acción descarga, instala y agrega una referencia a la biblioteca de Azure Notification Hubs para Windows mediante el [paquete NuGet Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs).
 
 3. Abra el archivo de proyecto App.xaml.cs y agregue las siguientes instrucciones `using`: 
    
@@ -162,7 +162,7 @@ En este tutorial se va a mostrar cómo probar la aplicación cliente simplemente
     * [Java](notification-hubs-java-push-notification-tutorial.md)
     * [PHP](notification-hubs-php-push-notification-tutorial.md)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este sencillo ejemplo, ha difundido notificaciones a todos los dispositivos con Windows mediante el portal o la aplicación de consola. Como siguiente paso, se recomienda el tutorial sobre el [uso de Notification Hubs para enviar notificaciones push a los usuarios]. Se muestra cómo enviar notificaciones desde un back-end de ASP.NET mediante etiquetas para dirigirse a usuarios específicos.
 
 Si desea segmentar los usuarios por grupos de interés, consulte [Uso de Notification Hubs para enviar noticias de última hora]. 
