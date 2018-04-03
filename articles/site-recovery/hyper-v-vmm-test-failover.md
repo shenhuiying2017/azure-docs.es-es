@@ -1,6 +1,6 @@
 ---
-title: "Ejecución de una exploración de la recuperación ante desastres de máquinas virtuales de Hyper-V en un sitio secundario con Azure Site Recovery | Microsoft Docs"
-description: "Obtenga información acerca de cómo ejecutar una exploración de la recuperación ante desastres para máquinas virtuales de Hyper-V en nubes de VMM en un centro de datos secundario con Azure Site Recovery."
+title: Ejecución de una exploración de la recuperación ante desastres de máquinas virtuales de Hyper-V en un sitio secundario con Azure Site Recovery | Microsoft Docs
+description: Obtenga información acerca de cómo ejecutar una exploración de la recuperación ante desastres para máquinas virtuales de Hyper-V en nubes de VMM en un centro de datos secundario con Azure Site Recovery.
 services: site-recovery
 author: ponatara
 manager: abhemraj
@@ -52,7 +52,7 @@ Al ejecutar una conmutación por error de prueba se le pide que seleccione la co
 ### <a name="best-practices"></a>Procedimientos recomendados
 
 - Las pruebas en una red de producción conllevan un tiempo de inactividad para las cargas de trabajo de producción. Pida a los usuarios que no usen aplicaciones relacionadas mientras se realiza la exploración de recuperación ante desastres.
-- La red de prueba no tiene por qué coincidir con el tipo de red lógica de VMM usado para la conmutación por error de prueba. No obstante, algunas combinaciones no funcionan: si la réplica utiliza DHCP y aislamiento basado en VLAN, la red de máquina virtual para la réplica no necesita un grupo de direcciones IP estáticas. Por lo tanto, el uso de la virtualización de red de Windows para la conmutación por error de prueba no funcionaría, ya que no hay grupos de direcciones disponibles. 
+- La red de prueba no tiene por qué coincidir con el tipo de red lógica de VMM usado para la conmutación por error de prueba. No obstante, algunas combinaciones no funcionan: - si la réplica utiliza DHCP y aislamiento basado en VLAN, la red de máquina virtual para la réplica no necesita un grupo de direcciones IP estáticas. Por lo tanto, el uso de la virtualización de red de Windows para la conmutación por error de prueba no funcionaría, ya que no hay grupos de direcciones disponibles.   
         - La conmutación por error de prueba no funcionará si la red de réplica no tiene aislamiento y la red de prueba utiliza la virtualización de red de Windows. Esto se debe a que una red sin aislamiento no tiene las subredes necesarias para crear una red de virtualización de red de Windows.
 - Para la conmutación por error, le recomendamos que no use la red que seleccionó para la asignación de red.
 - La manera en que las máquinas virtuales de réplica se conectan a las redes de máquinas virtuales asignadas después de la conmutación por error depende de cómo se configure la red de máquinas virtuales en la consola VMM.
