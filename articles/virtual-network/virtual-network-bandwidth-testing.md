@@ -1,12 +1,12 @@
 ---
-title: "Prueba del rendimiento de la red de una máquina virtual de Azure | Microsoft Docs"
-description: "Aprenda a probar el rendimiento de la red de una máquina virtual de Azure."
+title: Prueba del rendimiento de la red de una máquina virtual de Azure | Microsoft Docs
+description: Aprenda a probar el rendimiento de la red de una máquina virtual de Azure.
 services: virtual-network
 documentationcenter: na
 author: steveesp
 manager: Gerald DeGrace
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article

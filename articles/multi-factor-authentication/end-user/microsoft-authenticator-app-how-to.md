@@ -1,8 +1,8 @@
 ---
-title: "Aplicación Microsoft Authenticator para teléfonos móviles | Microsoft Docs"
-description: "Aprenda a actualizar a la versión más reciente de Azure Authenticator."
+title: Aplicación Microsoft Authenticator para teléfonos móviles | Microsoft Docs
+description: Aprenda a actualizar a la versión más reciente de Azure Authenticator.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.assetid: 3065a1ee-f253-41f0-a68d-2bd84af5ffba

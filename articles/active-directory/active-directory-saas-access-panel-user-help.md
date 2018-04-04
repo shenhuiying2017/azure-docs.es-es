@@ -1,11 +1,11 @@
 ---
 title: Ayuda para acceder al portal Mis aplicaciones de Azure Active Directory y usarlo | Microsoft Docs
-description: "Obtenga ayuda para iniciar sesión en el panel de acceso y realizar tareas comunes."
+description: Obtenga ayuda para iniciar sesión en el panel de acceso y realizar tareas comunes.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: c67cd675-b567-41e1-8bc2-e06fe0b38d3b
 ms.service: active-directory
 ms.workload: identity

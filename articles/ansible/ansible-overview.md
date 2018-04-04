@@ -1,8 +1,8 @@
 ---
 title: Uso de Ansible con Azure
-description: "Introducción al uso de Ansible para automatizar el aprovisionamiento en la nube, la administración de configuración y las implementaciones de aplicaciones."
+description: Introducción al uso de Ansible para automatizar el aprovisionamiento en la nube, la administración de configuración y las implementaciones de aplicaciones.
 ms.service: ansible
-keywords: "ansible, azure, devops, introducción, aprovisionamiento en la nube, administración de configuración, implementación de aplicaciones, módulos de ansible, guiones de procedimientos de ansible"
+keywords: ansible, azure, devops, introducción, aprovisionamiento en la nube, administración de configuración, implementación de aplicaciones, módulos de ansible, guiones de procedimientos de ansible
 author: tomarcher
 manager: routlaw
 ms.author: tarcher

@@ -1,8 +1,8 @@
 ---
-title: "Integración de aplicaciones con Azure Active Directory"
-description: "Cómo agregar, actualizar o eliminar una aplicación en Azure Active Directory (Azure AD)."
+title: Integración de aplicaciones con Azure Active Directory
+description: Cómo agregar, actualizar o eliminar una aplicación en Azure Active Directory (Azure AD).
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: PatAltimore
 manager: mtillman
 editor: mbaldwin

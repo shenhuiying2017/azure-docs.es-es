@@ -1,6 +1,6 @@
 ---
-title: "Creación de una puerta de enlace de aplicaciones con un conjunto de escalado de máquinas virtuales: Azure PowerShell | Microsoft Docs"
-description: "Aprenda a crear una puerta de enlace de aplicaciones con un conjunto de escalado de máquinas virtuales mediante Azure PowerShell."
+title: 'Creación de una puerta de enlace de aplicaciones con un conjunto de escalado de máquinas virtuales: Azure PowerShell | Microsoft Docs'
+description: Aprenda a crear una puerta de enlace de aplicaciones con un conjunto de escalado de máquinas virtuales mediante Azure PowerShell.
 services: application-gateway
 author: davidmu1
 manager: timlt

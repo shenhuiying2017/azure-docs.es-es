@@ -5,12 +5,18 @@
 - name: Control de acceso basado en rol (RBAC)
   href: role-based-access-control-what-is.md
   items:
-    - name: Administración de asignaciones de acceso
+    - name: Administración de asignaciones de roles
       items:
         - name: Por usuario
           href: role-based-access-control-manage-assignments.md
         - name: Por recurso
           href: role-based-access-control-configure.md
+        - name: Con la CLI de Azure
+          href: role-based-access-control-manage-access-azure-cli.md
+        - name: Con PowerShell
+          href: role-based-access-control-manage-access-powershell.md
+        - name: Con REST
+          href: role-based-access-control-manage-access-rest.md
     - name: Roles integrados
       href: role-based-access-built-in-roles.md
     - name: Roles personalizados
@@ -19,14 +25,6 @@
       href: role-based-access-control-create-custom-roles-for-internal-external-users.md
     - name: Informes
       href: role-based-access-control-access-change-history-report.md
-    - name: Más formas de administrar roles
-      items:
-        - name: Con la CLI de Azure
-          href: role-based-access-control-manage-access-azure-cli.md
-        - name: Con PowerShell
-          href: role-based-access-control-manage-access-powershell.md
-        - name: Con REST
-          href: role-based-access-control-manage-access-rest.md
     - name: Elevación de acceso de administrador de inquilinos
       href: role-based-access-control-tenant-admin-access.md
     - name: Solución de problemas

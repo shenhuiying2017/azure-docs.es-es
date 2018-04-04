@@ -1,11 +1,11 @@
 ---
-title: "Marcas de tiempo y secuenciación de mensajes de Azure Service Bus | Microsoft Docs"
+title: Marcas de tiempo y secuenciación de mensajes de Azure Service Bus | Microsoft Docs
 description: Conserve el orden y la secuencia de los mensajes de Service Bus con marcas de tiempo.
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na

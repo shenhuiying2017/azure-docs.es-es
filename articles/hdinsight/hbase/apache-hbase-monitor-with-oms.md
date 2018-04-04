@@ -1,13 +1,13 @@
 ---
-title: "Supervisión de HBase con Operations Management Suite (OMS): Azure HDInsight | Microsoft Docs"
-description: "Uso de OMS con Azure Log Analytics para supervisar clústeres de HDInsight HBase."
+title: 'Supervisión de HBase con Operations Management Suite (OMS): Azure HDInsight | Microsoft Docs'
+description: Uso de OMS con Azure Log Analytics para supervisar clústeres de HDInsight HBase.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.workload: big-data

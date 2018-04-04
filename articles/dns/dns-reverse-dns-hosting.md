@@ -1,6 +1,6 @@
 ---
-title: "Alojamiento de zonas de búsqueda inversa DNS en Azure DNS | Microsoft Docs"
-description: "Aprenda a usar DNS de Azure para hospedar las zonas de búsqueda inversa de DNS para los intervalos IP"
+title: Alojamiento de zonas de búsqueda inversa DNS en Azure DNS | Microsoft Docs
+description: Aprenda a usar DNS de Azure para hospedar las zonas de búsqueda inversa de DNS para los intervalos IP
 services: dns
 documentationcenter: na
 author: jtuliani

@@ -1,10 +1,10 @@
 ---
-title: "Creación de una puerta de enlace de aplicaciones: Azure PowerShell | Microsoft Docs"
+title: 'Creación de una puerta de enlace de aplicaciones: Azure PowerShell | Microsoft Docs'
 description: Aprenda a crear una puerta de enlace de aplicaciones mediante Azure PowerShell.
 services: application-gateway
 author: davidmu1
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.devlang: azurepowershell

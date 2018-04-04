@@ -1,11 +1,11 @@
 ---
-title: "Restablecimiento de una contraseña local de Windows sin el agente de Azure| Microsoft Docs"
-description: "Restablecimiento de la contraseña de una cuenta de usuario de Windows local cuando el agente invitado de Azure no está instalado o funcionando en una VM"
+title: Restablecimiento de una contraseña local de Windows sin el agente de Azure| Microsoft Docs
+description: Restablecimiento de la contraseña de una cuenta de usuario de Windows local cuando el agente invitado de Azure no está instalado o funcionando en una VM
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: cf353dd3-89c9-47f6-a449-f874f0957013
 ms.service: virtual-machines-windows
 ms.devlang: na

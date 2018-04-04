@@ -1,10 +1,10 @@
 ---
-title: "Creación de una puerta de enlace de aplicaciones con Azure Portal | Microsoft Docs"
+title: Creación de una puerta de enlace de aplicaciones con Azure Portal | Microsoft Docs
 description: Aprenda a crear una puerta de enlace de aplicaciones mediante Azure Portal.
 services: application-gateway
 author: davidmu1
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article

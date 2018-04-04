@@ -1,13 +1,13 @@
 ---
-title: "Instalación de aplicación publicada: Cask Data Application Platform (CDAP) - Azure HDInsight | Microsoft Docs"
-description: "Instale y use la aplicación de Hadoop de terceros Cask Data Application Platform."
+title: 'Instalación de aplicación publicada: Cask Data Application Platform (CDAP) - Azure HDInsight | Microsoft Docs'
+description: Instale y use la aplicación de Hadoop de terceros Cask Data Application Platform.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na

@@ -1,11 +1,11 @@
 ---
-title: "Solución de problemas de conexiones con Azure Network Watcher: CLI de Azure 2.0 | Microsoft Docs"
-description: "Obtenga información sobre cómo usar la funcionalidad de solución de problemas de conexiones de Azure Network Watcher con la CLI de Azure 2.0."
+title: 'Solución de problemas de conexiones con Azure Network Watcher: CLI de Azure 2.0 | Microsoft Docs'
+description: Obtenga información sobre cómo usar la funcionalidad de solución de problemas de conexiones de Azure Network Watcher con la CLI de Azure 2.0.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article

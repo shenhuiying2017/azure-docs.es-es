@@ -1,9 +1,9 @@
 ---
-title: "Configuración de la comprobación en dos pasos para mi cuenta profesional o educativa | Microsoft Docs"
-description: "Si su empresa configura Azure Multi-Factor Authentication, deberá registrarse para la comprobación en dos pasos. Aprenda a configurar. "
+title: Configuración de la comprobación en dos pasos para mi cuenta profesional o educativa | Microsoft Docs
+description: 'Si su empresa configura Azure Multi-Factor Authentication, deberá registrarse para la comprobación en dos pasos. Aprenda a configurar. '
 services: multi-factor-authentication
-keywords: "cómo usar azure directory, active directory en la nube, tutorial de active directory"
-documentationcenter: 
+keywords: cómo usar azure directory, active directory en la nube, tutorial de active directory
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.reviewer: richagi

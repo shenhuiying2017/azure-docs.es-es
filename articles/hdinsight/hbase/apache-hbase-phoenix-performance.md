@@ -2,12 +2,12 @@
 title: Rendimiento de Phoenix en Azure HDInsight | Microsoft Docs
 description: Procedimientos recomendados para optimizar el rendimiento de Phoenix.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.workload: big-data

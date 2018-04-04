@@ -1,8 +1,8 @@
 ---
 title: Herramientas para usar Ansible con Azure
-description: "Instalación y uso de herramientas individuales para Ansible con Azure"
+description: Instalación y uso de herramientas individuales para Ansible con Azure
 ms.service: ansible
-keywords: "ansible, azure, devops, herramientas, vs code, visual studio code, extensión"
+keywords: ansible, azure, devops, herramientas, vs code, visual studio code, extensión
 author: tomarcher
 manager: routlaw
 ms.author: tarcher

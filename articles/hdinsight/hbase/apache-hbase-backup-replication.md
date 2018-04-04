@@ -1,13 +1,13 @@
 ---
-title: "Configuración de la copia de seguridad y lareplicación de HBase y Phoenix: Azure HDInsight | Microsoft Docs"
-description: "Configuración de la copia de seguridad y la replicación para HBase y Phoenix."
+title: 'Configuración de la copia de seguridad y lareplicación de HBase y Phoenix: Azure HDInsight | Microsoft Docs'
+description: Configuración de la copia de seguridad y la replicación para HBase y Phoenix.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.workload: big-data

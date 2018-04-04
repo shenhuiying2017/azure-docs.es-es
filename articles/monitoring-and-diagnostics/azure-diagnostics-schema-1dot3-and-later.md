@@ -1,12 +1,12 @@
 ---
-title: "Esquema de configuración de la versión 1.3 y posterior de la extensión Azure Diagnostics | Microsoft Docs"
-description: "La versión 1.3 y posterior del esquema de Azure Diagnostics se incluye como parte de Microsoft Azure SDK 2.4 y posterior."
+title: Esquema de configuración de la versión 1.3 y posterior de la extensión Azure Diagnostics | Microsoft Docs
+description: La versión 1.3 y posterior del esquema de Azure Diagnostics se incluye como parte de Microsoft Azure SDK 2.4 y posterior.
 services: monitoring-and-diagnostics
 documentationcenter: .net
 author: rboucher
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
