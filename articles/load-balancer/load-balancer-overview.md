@@ -1,104 +1,184 @@
 ---
-title: "Información general sobre Azure Load Balancer | Microsoft Docs"
-description: "Información general sobre las características, la arquitectura y la implementación del Equilibrador de carga de Azure Obtenga información acerca de cómo funciona el equilibrador de carga y aproveche sus ventajas en la nube."
+title: Información general sobre Azure Load Balancer | Microsoft Docs
+description: Información general sobre las características, la arquitectura y la implementación del Equilibrador de carga de Azure Obtenga información acerca de cómo funciona el equilibrador de carga y aproveche sus ventajas en la nube.
 services: load-balancer
 documentationcenter: na
-author: kumudd
-manager: timlt
-editor: 
-ms.assetid: 0f313dc0-f007-4cee-b2b9-f542357925a3
+author: KumudD
+manager: jeconnoc
+editor: ''
+ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 03/21/2018
 ms.author: kumud
-ms.openlocfilehash: ecf1fc38d2b9fd54fe5b00db616224a0848179fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3a5d1e897d8ffe063ecf9277bef346c8b7c5092b
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-load-balancer-overview"></a>Información general sobre el Equilibrador de carga de Azure
 
-Equilibrador de carga de Azure proporciona una alta disponibilidad y un elevado rendimiento de red para sus aplicaciones. Se trata de un equilibrador de carga de nivel 4 (TCP y UDP) que distribuye el tráfico entrante entre las instancias de servicio correctas de los servicios que se definen en un conjunto de carga equilibrada.
+Azure Load Balancer permite escalar las aplicaciones y crear alta disponibilidad para sus servicios. Load Balancer admite escenarios de entrada y de salida, proporciona baja latencia y alta capacidad de proceso, y puede escalar hasta millones de flujos para todas las aplicaciones TCP y UDP.   
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+Load Balancer distribuirá los nuevos flujos de entrada que lleguen a las instancias del grupo de front-end a back-end del equilibrador de carga, según las reglas y los sondeos de mantenimiento.  
 
-Azure Load Balancer puede configurarse para lo siguiente:
+Además, un equilibrador de carga público puede traducir direcciones IP privadas en direcciones IP públicas para proporcionar conexiones de salida para máquinas virtuales dentro de la red virtual.
 
-* Equilibrar la carga del tráfico entrante de Internet entre las máquinas virtuales. Esta configuración se conoce como " [equilibrio de carga con conexión a Internet](load-balancer-internet-overview.md)".
-* Equilibrar la carga del tráfico entre máquinas virtuales de una red virtual, entre máquinas virtuales de servicios en la nube o entre equipos locales y máquinas virtuales de una red virtual entre entornos locales. Esta configuración se conoce como " [equilibrio de carga interno](load-balancer-internal-overview.md)".
-* Reenviar el tráfico externo a una máquina virtual determinada.
+Azure Load Balancer está disponible en dos SKU diferentes: Básico y Estándar.  Hay diferencias en la escala, las características y los precios.  Cualquier escenario posible con Load Balancer Básico puede crearse con Load Balancer Estándar, aunque el enfoque puede ser ligeramente diferente.  Para conocer Load Balancer, es importante familiarizarse con los conceptos básicos y las diferencias específicas de cada SKU.
 
-Todos los recursos en la nube necesitan una dirección IP pública para ser accesibles desde Internet. La infraestructura de nube de Azure usa direcciones IP no enrutables para sus recursos. Asimismo, usa traducción de direcciones de red (NAT) con direcciones IP públicas para comunicarse con Internet.
+## <a name="why-use-load-balancer"></a>¿Por qué usar Load Balancer? 
 
-## <a name="load-balancer-features"></a>Características del equilibrador de carga
+Azure Load Balancer puede usarse para lo siguiente:
 
-* Distribución basada en hash
+* Equilibrar la carga del tráfico entrante de Internet entre las máquinas virtuales. Esta configuración se conoce como [equilibrador de carga interno](#publicloadbalancer).
+* Equilibrar la carga del tráfico entre las máquinas virtuales dentro de una red virtual. También puede tener acceso a un servidor front-end de Load Balancer desde una red local en un escenario híbrido. Ambos escenarios utilizan una configuración que se conoce como [equilibrador de carga interno](#internalloadbalancer).
+* Reenviar el tráfico a un puerto específico de máquinas virtuales determinadas con reglas NAT de entrada.
+* Proporcionar [conectividad de salida](load-balancer-outbound-connections.md) para máquinas virtuales dentro de la red virtual mediante el uso de un equilibrador de carga público.
 
-    El Equilibrador de carga de Azure usa un algoritmo de distribución basado en hash. De forma predeterminada, usa un hash de 5-tupla (IP de origen, puerto de origen, IP de destino, puerto de destino y tipo de protocolo) para asignar el tráfico a los servidores disponibles. Dicho algoritmo solo proporciona adherencia *dentro* de una sesión de transporte. Los paquetes de la misma sesión TCP o UDP se dirigirán a la misma instancia tras el punto de conexión de carga equilibrada. Cuando el cliente cierra y vuelve a abrir la conexión o inicia una nueva sesión desde la misma IP de origen, el puerto de origen cambia. Esto puede provocar que el tráfico vaya a un punto de conexión diferente en un centro de datos distinto.
 
-    Para obtener más detalles, consulte [Modo de distribución del equilibrador de carga (afinidad de IP de origen)](load-balancer-distribution-mode.md). En el siguiente gráfico se muestra la distribución basada en hash:
+>[!NOTE]
+> Azure ofrece un conjunto de soluciones de equilibrio de carga completamente administradas para sus escenarios.  Si desea finalización de conexiones TLS ("descarga SSL") o procesamiento de capas de aplicación por solicitud HTTP/HTTPS, consulte [Application Gateway](../application-gateway/application-gateway-introduction.md).  Si desea equilibrio de carga de DNS global, consulte [Traffic Manager](../traffic-manager/traffic-manager-overview.md).  Sus escenarios pueden beneficiarse de extremo a extremo de la combinación de estas soluciones según sea necesario.
+
+## <a name="what-is-load-balancer"></a>¿Qué es el Equilibrador de carga?
+
+Un recurso de Load Balancer puede existir como un equilibrador de carga público o un equilibrador de carga interno. Las funciones de un recurso de Load Balancer se expresan como un front-end, una regla, un sondeo de mantenimiento y una definición de grupo de back-end.  Las máquinas virtuales se colocan en el grupo de back-end; para ello, se especifica el grupo de back-end desde la máquina virtual.
+
+Los recursos de Load Balancer son objetos mediante los cuales se puede expresar cómo debe Azure programar su infraestructura multiinquilino para lograr el escenario que se desea crear.  No hay ninguna relación directa entre los recursos de Load Balancer y la infraestructura real; crear un equilibrador de carga no crea una instancia y su capacidad está siempre disponible. 
+
+## <a name="fundamental-load-balancer-features"></a>Características fundamentales de Load Balancer
+
+Load Balancer proporciona las siguientes funcionalidades básicas para las aplicaciones TCP y UDP:
+
+* **Equilibrio de carga**
+
+    Azure Load Balancer permite crear una regla de equilibrio de carga para distribuir el tráfico que llega a un front-end a las instancias del grupo de back-end.  Usa un algoritmo hash para la distribución de los flujos de entrada y, después, reescribe los encabezados de los flujos en las instancias del grupo de back-end. Un servidor está disponible para recibir nuevos flujos cuando el sondeo de estado indica un punto de conexión de back-end correcto.
+    
+    De forma predeterminada, usa un hash de tupla 5 compuesto por IP de origen, puerto de origen, IP de destino, puerto de destino y número de protocolo IP para asignar los flujos a los servidores disponibles.  Puede elegir crear afinidad con una dirección IP de origen específica; para ello, elija un hash de tupla 2 o 3 para una regla determinada.  Todos los paquetes del mismo flujo de paquetes llegan a la misma instancia subyacente al servidor front-end con equilibrio de carga.  Cuando el cliente inicia un nuevo flujo desde la misma dirección IP de origen, el puerto de origen cambia. Como resultado, la tupla 5 resultante puede hacer que el tráfico vaya a un punto de conexión de back-end diferente.
+
+    Para más información, consulte [Modo de distribución de Load Balancer](load-balancer-distribution-mode.md). En el siguiente gráfico se muestra la distribución basada en hash:
 
     ![Distribución basada en hash](./media/load-balancer-overview/load-balancer-distribution.png)
 
-    Ilustración: Distribución basada en Hash
+    *Figura: Distribución basada en hash*
 
-* Enrutamiento de puerto
+* **Reenvío de puertos**
 
-    El Equilibrador de carga de Azure le permite controlar cómo se administra la comunicación entrante. Estas comunicación incluye tráfico iniciado desde hosts de Internet o máquinas virtuales de otros servicios en la nube o redes virtuales. Este control se representa mediante un punto de conexión (también conocido como punto de conexión de entrada).
+    Azure Load Balancer permite crear una regla NAT de entrada para reenviar el tráfico desde un puerto específico de la dirección IP de un servidor front-end específico a un puerto específico de una instancia de back-end específica dentro de la red virtual. Esto también se realiza con la misma distribución basada en hash que se usa para el equilibrio de carga.  Los escenarios comunes para esta funcionalidad son sesiones de Protocolo de Escritorio remoto (RDP) o Secure Shell (SSH) en instancias de máquina virtual individuales dentro de la red virtual.  Puede asignar varios puntos de conexión internos a los diferentes puertos de la misma dirección IP de front-end. Estos se pueden usar para administrar las máquinas virtuales de forma remota a través de Internet sin necesidad de un servidor de salto adicional.
 
-    Un punto de conexión de entrada escucha en un puerto público y enruta el tráfico a un puerto interno. Puede asignar los mismos puertos para un extremo interno o externo o usar un puerto diferente para ellos. Por ejemplo, puede tener un servidor web configurado para escuchar el puerto 81, mientras que la asignación del punto de conexión público corresponda al puerto 80. La creación de un punto de conexión público desencadena la generación de una instancia del equilibrador de carga.
+* **Independiente de la aplicación y transparente**
 
-    Cuando se hace mediante el Portal de Azure, se crean automáticamente puntos de conexión a la máquina virtual del Protocolo de escritorio remoto (RDP) y el tráfico de sesión remota de Windows PowerShell. Estos puntos de conexión le permiten administrar la máquina virtual de manera remota a través de Internet.
+    Load Balancer no interactúa directamente con TCP, UDP ni el nivel de aplicación, y admite cualquier escenario de aplicación TCP o UDP.  Por ejemplo, aunque Load Balancer no termina las conexiones TLS por sí mismo, se pueden compilar y escalar horizontalmente aplicaciones TLS mediante Load Balancer y terminar la conexión TLS en la propia máquina virtual. Load Balancer no termina un flujo y protocolos de enlace se realizan siempre directamente entre el cliente y la instancia del grupo de back-end seleccionada por hash. Por ejemplo, un protocolo de enlace TCP se realiza siempre entre el cliente y la máquina virtual de back-end seleccionada.  Y una respuesta a una solicitud para un front-end es una respuesta generada en la máquina virtual de back-end.  El rendimiento de red de salida de Load Balancer solo está limitado por la SKU de máquina virtual que elija, y los flujos permanecerán activos durante largos períodos de tiempo si nunca se alcanza el tiempo de espera de inactividad.
 
-* Reconfiguración automática
+* **Reconfiguración automática**
 
-    El Equilibrador de carga de Azure se reconfigura inmediatamente al escalar instancias horizontalmente o reducirlas verticalmente. Por ejemplo, esta reconfiguración ocurre cuando se aumenta el recuento de instancias para los roles web o de trabajador en un servicio en la nube, o al agregar máquinas virtuales adicionales al mismo conjunto de carga equilibrada.
+    El Equilibrador de carga de Azure se reconfigura inmediatamente al escalar instancias horizontalmente o reducirlas verticalmente. Al agregar o quitar máquinas virtuales del grupo de back-end, se vuelve a configurar el equilibrador de carga sin necesidad de operaciones adicionales en el recurso de Load Balancer.
 
-* Supervisión de servicios
+* **Sondeos de mantenimiento**
 
-    Azure Load Balancer puede sondear el estado de las distintas instancias de servidor. Cuando un sondeo no responde, el equilibrador de carga deja de enviar nuevas conexiones a las instancias incorrectas. Las conexiones existentes no se ven afectadas.
+    Azure Load Balancer usa los sondeos de mantenimiento que defina para determinar el mantenimiento de las instancias en el grupo de back-end. Cuando un sondeo no responde, el equilibrador de carga deja de enviar nuevas conexiones a las instancias incorrectas. Las conexiones existentes no se ven afectadas y continuarán hasta que la aplicación finalice el flujo, se produzca un tiempo de inactividad o se apague la máquina virtual.
 
     Se admiten tres tipos de sondeos:
 
-    + **Sonda de agente invitado (solo en máquinas virtuales de PaaS)**: el equilibrador de carga utiliza el agente invitado en la máquina virtual. El agente invitado solo escucha y contesta con una respuesta HTTP 200 OK cuando la instancia está lista (es decir, cuando su estado no es ocupada, en reciclaje o en detención). Si no responde con HTTP 200 OK, el equilibrador de carga marca la instancia como sin respuesta y deja de enviarle tráfico. El equilibrador de carga continúa para hacer ping a la instancia. Si el agente invitado responde con HTTP 200, el equilibrador de carga le enviará tráfico nuevamente. Cuando se usa un rol web, el código de sitio web normalmente se ejecuta en w3wp.exe, que no está supervisado por el agente invitado o el tejido de Azure. Esto significa que los errores de w3wp.exe (por ejemplo, las respuestas HTTP 500) no se notificarán al agente invitado, y el equilibrador de carga no sabrá sacar esa instancia de la rotación.
-    + **Sonda personalizada de HTTP:** esta invalida la sonda predeterminado (del agente invitado) predeterminada. Puede usarlo para crear su propia lógica personalizada para determinar el estado de la instancia de rol. El equilibrador de carga sondeará periódicamente el punto de conexión (de forma predeterminada, cada 15 segundos). La instancia se considera en rotación si responde con un TCP ACK o HTTP 200 dentro del periodo de espera (el valor predeterminado es de 31 segundos). Esto resulta útil para implementar su propia lógica con el fin de quitar instancias de la rotación del equilibrador de carga. Por ejemplo, puede configurar la instancia para devolver un estado no 200 si la instancia está por encima del 90% de la CPU. En el caso de los roles web que usan w3wp.exe, también dispondrá de supervisión automática de su sitio web, puesto que los errores del código de este devuelven a la sonda un estado distinto a 200.
-    + **Sonda personalizada de TCP:** esta se basa en el establecimiento correcto de sesiones TCP para un puerto de sondeo definido.
+    - **Sondeo HTTP personalizado**: puede usarlo para crear su propia lógica personalizada para determinar el estado de una instancia del grupo de back-end. El equilibrador de carga sondeará periódicamente el punto de conexión (de forma predeterminada, cada 15 segundos). La instancia se considera correcta si responde con HTTP 200 antes de que finalice el tiempo de espera (el valor predeterminado es 31 segundos). Cualquier estado distinto a HTTP 200 hace que se produzca un error en este sondeo.  Esto resulta útil también para implementar su propia lógica con el fin de quitar instancias de la rotación del equilibrador de carga. Por ejemplo, puede configurar la instancia para devolver un estado no 200 si la instancia está por encima del 90% de la CPU.   El sondeo invalida el sondeo predeterminado del agente invitado.
 
-    Para obtener más información, consulte [LoadBalancerProbe schema](https://msdn.microsoft.com/library/azure/jj151530.aspx)(Esquema LoadBalancerProbe).
+    - **Sonda personalizada de TCP:** esta se basa en el establecimiento correcto de sesiones TCP para un puerto de sondeo definido.  Siempre que exista el agente de escucha especificado en la máquina virtual, este sondeo se realizará correctamente. Si se rechaza la conexión, se producirá un error en el sondeo. El sondeo invalida el sondeo predeterminado del agente invitado.
 
-* NAT de origen
+    - **Sondeo de agente invitado (solo en máquinas virtuales de PaaS)**: el equilibrador de carga puede usar también el agente invitado dentro de la máquina virtual. El agente invitado escucha y responde con una respuesta HTTP 200 OK solo cuando la instancia está preparada. Si no responde con HTTP 200 OK, el equilibrador de carga marca la instancia como sin respuesta y deja de enviarle tráfico. El equilibrador de carga continúa intentando conectar con la instancia. Si el agente invitado responde con HTTP 200, el equilibrador de carga le enviará tráfico nuevamente.  Los sondeos de agente de invitado son el último recurso y no deben usarse cuando son posibles configuraciones de sondeo personalizado HTTP o TCP. 
+    
+* **Conexiones de salida (NAT de origen)**
 
-    Todo el tráfico saliente a Internet procedente de su servicio pasa por un proceso de NAT de origen (SNAT) mediante el uso de la misma dirección VIP que para el tráfico entrante. SNAT proporciona ventajas importantes:
+    Todos los flujos de salida desde direcciones IP privadas dentro de la red virtual a direcciones IP públicas en Internet se pueden traducir a una dirección IP de front-end del equilibrador de carga. Cuando un front-end público está asociado a una máquina virtual de back-end por una regla de equilibrio de carga, Azure programa conexiones de salida que se deben traducir automáticamente a la dirección IP del front-end público. Esto también se denomina NAT de origen (SNAT). SNAT proporciona ventajas importantes:
 
-    + Permite la actualización y la recuperación ante desastres de servicios de forma fácil, puesto que la dirección VIP puede asignarse dinámicamente a otra instancia del servicio.
-    + Facilita la administración de la lista de control de acceso (ACL). Las ACL que se expresan en términos de VIP no cambian cuando los servicios se escalan verticalmente, se reducen horizontalmente o se vuelven a implementar.
+    + Permite la actualización y la recuperación ante desastres de servicios de forma fácil, puesto que el front-end puede asignarse dinámicamente a otra instancia del servicio.
+    + Facilita la administración de la lista de control de acceso (ACL). Las ACL que se expresan en términos de IP de front-end no cambian cuando los servicios se escalan o se reducen verticalmente, o se vuelven a implementar.
 
-    La configuración del equilibrador de carga admite NAT de cono completo para UDP. NAT de cono completo es un tipo de NAT en el que el puerto permite conexiones entrantes desde cualquier host externo (en respuesta a una solicitud saliente).
+    Consulte el artículo sobre [conexiones de salida](load-balancer-outbound-connections.md) para obtener una explicación detallada de esta funcionalidad.
 
-    Tenga en cuenta que, para cada nueva conexión saliente que inicie una máquina virtual, el equilibrador de carga también asigna un puerto saliente. El host externo verá el tráfico como un puerto IP virtual (VIP) asignado. Para los escenarios que requieren un gran número de conexiones salientes, se recomienda que las máquinas virtuales usen [direcciones IP públicas a nivel de instancia](../virtual-network/virtual-networks-instance-level-public-ip.md) para que tengan una dirección IP saliente específica para SNAT. Esto reduce el riesgo de agotamiento de puertos.
+Load Balancer Estándar tiene funcionalidades específicas de cada SKU además de estos aspectos básicos.  Consulte el resto de este artículo para obtener más información.
 
-    Consulte el artículo sobre [conexiones salientes](load-balancer-outbound-connections.md) para obtener más información acerca de este tema.
+## <a name="skus"></a> Comparación de las SKU de Load Balancer
 
-### <a name="support-for-multiple-load-balanced-ip-addresses-for-virtual-machines"></a>Compatibilidad con varias direcciones IP con equilibrio de carga para máquinas virtuales
-Puede asignar más de una dirección IP pública de carga equilibrada a un conjunto de máquinas virtuales. Gracias a esta posibilidad, puede hospedar varios sitios web SSL o varios agentes de escucha de Grupo de disponibilidad AlwaysOn de SQL Server en el mismo conjunto de máquinas virtuales. Para obtener más información, consulte [Varias direcciones VIP por servicio en la nube](load-balancer-multivip.md).
+Azure Load Balancer admite dos SKU diferentes: Básico y Estándar.  Hay diferencias en la escala del escenario, las características y los precios.  Cualquier escenario posible con Load Balancer Básico puede crearse con Load Balancer Estándar también.  De hecho, las API para ambas SKU son similares y se invocan especificando una SKU.  La API que admite las SKU de Load Balancer y la dirección IP pública es la versión 2017-08-01 y posteriores.  Ambas SKU tiene la misma API general y estructura.
 
-[!INCLUDE [load-balancer-compare-tm-ag-lb-include.md](../../includes/load-balancer-compare-tm-ag-lb-include.md)]
+Sin embargo, según la SKU que se elija, la configuración del escenario completo puede ser ligeramente diferente. La documentación de Load Balancer indica si un artículo se aplica únicamente a una SKU específica. Consulte la tabla siguiente para comparar y comprender las diferencias.  Consulte [Introducción a Azure Load Balancer Estándar](load-balancer-standard-overview.md) para obtener más información.
 
-## <a name="limitations"></a>Limitaciones
+>[!NOTE]
+> Para los nuevos diseños, deberá considerarse el uso de Load Balancer Estándar. 
 
-Los grupos de back-end de Load Balancer pueden contener cualquier SKU de máquina virtual, excepto nivel Básico.
+Las máquinas virtuales independientes, los conjuntos de disponibilidad y los conjuntos de escalado de máquinas virtuales solo se pueden conectar a una SKU, nunca ambas. Cuando se usa con direcciones IP públicas, la SKU de Load Balancer y la dirección IP pública deben coincidir. Las SKU de Load Balancer y de la dirección IP pública no se pueden cambiar.
+
+_El procedimiento recomendado es especificar las SKU de forma explícita, aunque aún no es obligatorio._  En este momento, se están realizando los cambios necesarios mínimos. Si no se especifica una SKU, se interpreta que la intención es usar la SKU Básico en la versión de API 2017-08-01.
+
+>[!IMPORTANT]
+>Load Balancer Estándar es un nuevo producto de Load Balancer y, en gran medida, un superconjunto de Load Balancer Básico.  Existen diferencias importantes y deliberadas entre ambos productos.  Cualquier escenario posible con Load Balancer Básico puede crearse con Load Balancer Estándar.  Si ya está acostumbrado a Load Balancer Básico, debe familiarizarse con Load Balancer Estándar para comprender los cambios importantes en el comportamiento de ambos, y su impacto. Consulte detenidamente esta sección.
+
+| | [SKU estándar](load-balancer-standard-overview.md) | SKU Básico |
+| --- | --- | --- |
+| Tamaño de grupo de back-end | Hasta 1000 instancias | Hasta 100 instancias |
+| Puntos de conexión del grupo de back-end | Cualquier máquina virtual en una única red virtual, incluida la combinación de máquinas virtuales, conjuntos de disponibilidad y grupos de escalado de máquinas virtuales. | Máquinas virtuales en un único conjunto de disponibilidad o conjunto de escalado de máquinas virtuales. |
+| Zonas de disponibilidad | Front-ends zonales y con redundancia de zona para la entrada y la salida, asignaciones de flujos de salida, supervivencia a errores de zona, equilibrio de carga entre zonas. | / |
+| Diagnóstico | Azure Monitor, métricas multidimensionales, incluidos bytes y contadores de paquetes, estado de sondeo de mantenimiento, intentos de conexión (TCP SYN), mantenimiento de la conexión de salida (flujos SNAT correctos e incorrectos), medidas de planos de datos activos. | Azure Log Analytics solo para equilibradores de carga públicos, alerta de agotamiento de SNAT, recuento de mantenimientos del grupo de back-end. |
+| Puertos HA | Equilibrador de carga interno | / |
+| Seguro de forma predeterminada | Cerrado de forma predeterminada para puntos de conexión públicos de direcciones IP y Load Balancer, y debe usarse un grupo de seguridad de red para incluirlos en una lista de permitidos de forma explícita para que el tráfico fluya. | Abierto de forma predeterminada, grupo de seguridad de red opcional. |
+| Conexiones de salida | Varios front-end con posibilidad de exclusión para cada regla. Un escenario de salida _debe_ crearse explícitamente para que la máquina virtual pueda usar la conectividad de salida.  [Los puntos de conexión del servicio de red virtual](../virtual-network/virtual-network-service-endpoints-overview.md) son accesibles sin conectividad de salida y no se cuentan como datos procesados.  Las direcciones IP públicas, incluidos los servicios de PaaS de Azure que no están disponibles como puntos de conexión de servicio de red virtual, deben ser accesibles mediante conectividad de salida y cuentan como datos procesados. Si solo hay un equilibrador de carga interno dando servicio a una máquina virtual, no hay disponibles conexiones de salida mediante SNAT predeterminada. La programación de SNAT de salida es específica del protocolo de transporte de la regla de equilibrio de carga de entrada. | Único front-end, seleccionado de forma aleatoria, cuando hay varios front-ends.  Cuando solo un equilibrador de carga interno da servicio a una máquina virtual, se usa SNAT predeterminada. |
+| Varios servidores front-end | Entrada y salida | Solo de entrada |
+| Operaciones de administración | La mayoría de las operaciones en menos de 30 segundos | Normalmente, entre 60 y 90 segundos |
+| Contrato de nivel de servicio | 99,99 % para la ruta de acceso a los datos con dos máquinas virtuales correctas | SLA de máquina virtual implícito | 
+| Precios | Se cobra según el número de reglas, los datos procesados de entrada o salida asociados con el recurso.  | Sin cargo |
+
+Consulte los [límites de servicio de Load Balancer](https://aka.ms/lblimits).  Para Load Balancer Estándar, consulte más detalles en los artículos de [información general](load-balancer-standard-overview.md), [precios](https://aka.ms/lbpricing) y [SLA](https://aka.ms/lbsla).
+
+## <a name="concepts"></a>Conceptos
+
+### <a name = "publicloadbalancer"></a>Equilibrador de carga público
+
+El equilibrador de carga público asigna la dirección IP pública y el número de puerto del tráfico de entrada a la dirección IP privada y el número de puerto de la máquina virtual, y viceversa, para el tráfico de respuesta desde la máquina virtual. Las reglas de equilibrio de carga permiten distribuir tipos específicos de tráfico entre varias máquinas virtuales o servicios. Por ejemplo, puede distribuir la carga del tráfico de solicitudes web entre varios servidores web.
+
+En la siguiente ilustración, se muestra un punto de conexión de carga equilibrada para el tráfico web que se comparte entre tres máquinas virtuales en el puerto TCP público y privado de 80. Estas tres máquinas virtuales se encuentran en un conjunto con equilibrio de carga.
+
+![ejemplo de equilibrador de carga público](./media/load-balancer-overview/IC727496.png)
+
+**Figura 1: Equilibrio de carga de tráfico web mediante un equilibrador de carga público**
+
+Cuando los clientes de Internet envían solicitudes de página web a la dirección IP pública de una aplicación web en el puerto TCP 80, Azure Load Balancer distribuye las solicitudes entre las tres máquinas virtuales del conjunto con equilibrio de carga. Para más información sobre algoritmos del equilibrador de carga, consulte la [página de información general del equilibrador de carga](load-balancer-overview.md#load-balancer-features).
+
+De forma predeterminada, Azure Load Balancer distribuye el tráfico de red equitativamente entre varias instancias de máquina virtual. También puede configurar la afinidad de la sesión. Para más información, consulte [Modo de distribución de Load Balancer](load-balancer-distribution-mode.md).
+
+### <a name = "internalloadbalancer"></a>Equilibrador de carga interno
+
+El equilibrador de carga interno solo dirige el tráfico a los recursos que están dentro de una red virtual o que utilizan una VPN para acceder a la infraestructura de Azure. En este sentido, el equilibrador de carga interno difiere del equilibrador de carga público. La infraestructura de Azure restringe el acceso a las direcciones IP de front-end con equilibrio de carga de una red virtual. Las direcciones IP de front-end y las redes virtuales no se exponen nunca directamente a un punto de conexión de Internet. Las aplicaciones de línea de negocio internas se ejecutan en Azure y se accede a ellas desde Azure o desde recursos locales.
+
+El equilibrador de carga interno permite los siguientes tipos de equilibrio de carga:
+
+* En una red virtual: equilibrio de carga entre las máquinas virtuales de la red virtual y un conjunto de máquinas virtuales que residen en la misma red virtual.
+* En una red virtual entre entornos locales: equilibrio de carga entre los equipos locales y un conjunto de máquinas virtuales que residen en la misma red virtual. 
+* En aplicaciones de varios niveles: equilibrio de carga para aplicaciones de varios niveles accesibles desde Internet, a cuyos niveles de back-end no se puede acceder desde Internet. Los niveles de back-end requieren un equilibrio de carga del tráfico desde el nivel accesible desde Internet (consulte la figura 2).
+* En aplicaciones de línea de negocio: equilibrio de carga para las aplicaciones de línea de negocio hospedadas en Azure sin un hardware ni un software adicional al equilibrador de carga. Este escenario incluye servidores locales que se encuentran en el conjunto de equipos de cuyo tráfico se va a equilibrar la carga.
+
+![Ejemplo de equilibrador de carga interno](./media/load-balancer-overview/IC744147.png)
+
+**Figura 2: Equilibrio de carga de aplicaciones multinivel mediante equilibradores de carga públicos e internos**
+
+## <a name="pricing"></a>Precios
+Load Balancer Estándar es un producto que se carga según el número de reglas de equilibrio de carga configuradas y de todos los datos de entrada y salida procesados. Para más información sobre los precios de Load Balancer Estándar, visite la página [Precios de Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/).
+
+Load Balancer Básico se ofrece sin cargo.
+
+## <a name="sla"></a>Contrato de nivel de servicio
+
+Para obtener información sobre el SLA de Load Balancer Estándar, visite la página [SLA de Load Balancer](https://aka.ms/lbsla). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Más información sobre el [equilibrador de carga accesible desde Internet](load-balancer-internet-overview.md)
-
-- Para más información, consulte [Información general sobre el equilibrador de carga interno](load-balancer-internal-overview.md)
-
-- Cree un [equilibrador de carga accesible desde Internet](load-balancer-get-started-internet-portal.md)
-
-- Información acerca de las demás [funcionalidades de red](../networking/networking-overview.md) clave de Azure.
+- Consulte [Load Balancer Estándar con más detalle](load-balancer-standard-overview.md)
+- Más información acerca de cómo usar [Load Balancer Estándar y zonas de disponibilidad](load-balancer-standard-availability-zones.md).
+- Más información acerca de cómo usar [Load Balancer para conexiones salientes](load-balancer-outbound-connections.md).
+- Más información acerca de [los puertos HA de Load Balancer](load-balancer-ha-ports-overview.md).
+- Más información acerca de cómo usar [Load Balancer con varios front-ends](load-balancer-multivip-overview.md).
+- Más información acerca de [Puntos de conexión de servicio de red virtual](../virtual-network/virtual-network-service-endpoints-overview.md).
+- Más información acerca de cómo crear un [equilibrador de carga público básico](load-balancer-get-started-internet-portal.md).
 
