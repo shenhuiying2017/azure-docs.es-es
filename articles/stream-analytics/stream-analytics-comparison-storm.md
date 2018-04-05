@@ -1,12 +1,11 @@
 ---
-title: "Plataformas de Analytics: Comparación de Apache Storm con Stream Analytics | Microsoft Docs"
-description: "Obtenga instrucciones para seleccionar una plataforma de análisis en la nube mediante una comparación de Apache Storm con Análisis de transmisiones. Comprenda las características y diferencias."
-keywords: "plataforma de análisis, plataformas de análisis, plataforma de análisis de la nube, comparación de storm"
+title: 'Plataformas de Analytics: Comparación de Apache Storm con Stream Analytics | Microsoft Docs'
+description: Obtenga instrucciones para seleccionar una plataforma de análisis en la nube mediante una comparación de Apache Storm con Stream Analytics. Comprenda las características y diferencias.
+keywords: plataforma de análisis, plataformas de análisis, plataforma de análisis de la nube, comparación de storm
 services: stream-analytics
-documentationcenter: 
-author: samacha
-manager: jhubbard
-editor: cgronlun
+documentationcenter: ''
+author: jseb225
+manager: ryanw
 ms.assetid: b9aac017-9866-4d0a-b98f-6f03881e9339
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/27/2017
-ms.author: samacha
-ms.openlocfilehash: 97044cb5d7b0b3fcb3b85328df618a265bc59b61
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: 48599c362c5db50ebec3acd0aaa4359439edb00b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="choosing-a-streaming-analytics-platform-comparing-apache-storm-and-azure-stream-analytics"></a>Elección de una plataforma de Stream Analytics: comparación de Apache Storm con Azure Stream Analytics
 Azure ofrece varias soluciones para analizar datos de streaming: [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) y [Apache Storm en HDInsight de Azure](https://azure.microsoft.com/services/hdinsight/apache-storm/). Ambas plataformas de análisis ofrecen las ventajas de una solución PaaS. Pero las plataformas presentan algunas diferencias importantes en cuanto a funcionalidades, así como en la forma en que se configuran y administran. 
@@ -33,7 +32,7 @@ En este artículo se ofrece una comparación de características en paralelo par
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong></strong>
+                    <strong> </strong>
                 </p>
             </td>
             <td width="204" valign="top">
@@ -55,7 +54,7 @@ En este artículo se ofrece una comparación de características en paralelo par
             </td>
             <td width="204" valign="top">
                 <p>
-No. Azure Stream Analytics es una oferta propiedad de Microsoft.
+Nº Azure Stream Analytics es una oferta propiedad de Microsoft.
                 </p>
             </td>
             <td width="246" valign="top">
@@ -87,7 +86,7 @@ Sí </p>
             </td>
             <td width="204" valign="top">
                 <p>
-Ninguno. Análisis de transmisiones de Azure es un servicio de Azure.
+Ninguno. Azure Stream Analytics es un servicio de Azure.
                 </p>
             </td>
             <td width="246" valign="top">
@@ -145,7 +144,7 @@ Para más información, vea los <a href="http://azure.microsoft.com/pricing/deta
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong></strong>
+                    <strong> </strong>
                 </p>
             </td>
             <td width="204" valign="top">
@@ -172,7 +171,7 @@ Sí. Stream Analytics ofrece un lenguaje de tipo SQL para crear las transformaci
             </td>
             <td width="246" valign="top">
                 <p>
-No. Los usuarios escriben el código en Java o C# o usan las API de Trident.
+Nº Los usuarios escriben el código en Java o C# o usan las API de Trident.
                 </p>
             </td>
         </tr>
@@ -254,7 +253,7 @@ Sí. Los usuarios pueden escribir código personalizado en C#, Java o en cualqui
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong></strong>
+                    <strong> </strong>
                 </p>
             </td>
             <td width="204" valign="top">
@@ -344,7 +343,7 @@ Los usuarios pueden implementar cualquier formato de codificación de datos medi
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong></strong>
+                    <strong> </strong>
                 </p>
             </td>
             <td width="204" valign="top">
@@ -492,7 +491,7 @@ Apache Storm es una plataforma de streaming con tolerancia a errores. Pero, es r
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong></strong>
+                    <strong> </strong>
                 </p>
             </td>
             <td width="204" valign="top">

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: 15bbd32d982bdefc5665421b828ce0c8234b7257
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: b5443cb1d883bd829a13b6d941d2c87c6205c64f
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Introducción a Azure Load Balancer Estándar
 
@@ -76,9 +76,6 @@ El grupo de back-end puede contener máquinas virtuales independientes, conjunto
 A la hora de considerar cómo diseñar el grupo de back-end, puede diseñar el menor número de recursos individuales del grupo de back-end para optimizar aún más la duración de las operaciones de administración.  No hay ninguna diferencia en el rendimiento o la escala en el plano de los datos.
 
 ## <a name="az"></a>Zonas de disponibilidad
-
->[!NOTE]
-> Para usar [la versión preliminar de las zonas de disponibilidad](https://aka.ms/availabilityzones) con Load Balancer Estándar, es necesario [registrarse en las zonas de disponibilidad](https://aka.ms/availabilityzones).
 
 Load Balancer Estándar admite otras funcionalidades en las regiones donde las zonas de disponibilidad están disponibles.  Estas características se agregan a las que Load Balancer Estándar ya proporciona.  Las configuraciones de las zonas de disponibilidad están disponibles para equilibradores de carga estándar públicos e internos.
 
