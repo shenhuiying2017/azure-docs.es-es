@@ -1,24 +1,24 @@
 ---
 title: Seguridad de la serie 8000 de StorSimple | Microsoft Docs
-description: "Describe las características de seguridad y privacidad que protegen el servicio y el dispositivo StorSimple y los datos locales y en la nube."
+description: Describe las características de seguridad y privacidad que protegen el servicio y el dispositivo StorSimple y los datos locales y en la nube.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 01/23/2018
+ms.date: 03/27/2018
 ms.author: alkohli
-ms.openlocfilehash: c14927f82ca01320206ccec83216777b7d1b8708
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: ee0534ab8bc3400854ddf550df9ca2f395f8d80d
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="storsimple-security-and-data-protection"></a>Protección de datos y seguridad de StorSimple
 
@@ -268,7 +268,21 @@ Las siguientes son algunas preguntas y respuestas acerca de la seguridad y de Mi
 
 **R:** Como todos los datos están cifrados en el servicio y la clave privada se mantiene en el dispositivo, la entidad gubernamental deberá pedir los datos al cliente.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="gdpr-compliance"></a>Cumplimiento del GDPR
+
+El [Reglamento general de protección de datos (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) es una ley de privacidad y protección de datos de la Unión Europea (UE). El RGPD incluye muchos requisitos acerca de cómo recopilar, almacenar y usar la información personal. Las reglas del RGPD se imponen a las empresas, a las instituciones oficiales y a otras organizaciones que operan en la UE, y recopilan y analizan datos vinculados a residentes en la UE. 
+
+El Administrador de dispositivos de StorSimple de las series física y virtual es compatible con el RGPD. Existen dos instancias clave en las que se recopila información personal y esta se muestra en el servicio:
+
+- La configuración del usuario de alerta en la que se configuran las direcciones de correo electrónico de los usuarios. El administrador puede ver y borrar esta información. Esto se aplica a los dispositivos de la serie StorSimple 8000 y a StorSimple Virtual Array.
+ * Para ver y borrar la configuración de la serie StorSimple 8000, siga los pasos que se indican en [Visualización y administración de alertas de StorSimple](storsimple-8000-manage-alerts.md#configure-alert-settings).
+ * Para ver y borrar la configuración de StorSimple Virtual Array, siga los pasos que se indican en [Visualización y administración de alertas de StorSimple](storsimple-virtual-array-manage-alerts.md#configure-alert-settings).
+- Los usuarios que pueden acceder a los datos que residen en los recursos compartidos. Se muestra y se puede ver una lista de los usuarios que pueden acceder a los datos del recurso compartido. Esta lista también se elimina al eliminar los recursos compartidos. Esto se aplica solo a StorSimple Virtual Array.
+ * Para ver la lista de usuarios que pueden obtener acceso a un recurso compartido o eliminarlo, siga los pasos que se indican en [Administración de recursos compartidos en StorSimple Virtual Array](storsimple-virtual-array-manage-shares.md).
+
+Para obtener más información, revise la directiva de privacidad de Microsoft en el [Centro de confianza](https://www.microsoft.com/trustcenter).
+
+## <a name="next-steps"></a>Pasos siguientes
 
 [Implementación del dispositivo de StorSimple](storsimple-8000-deployment-walkthrough-u2.md)
 

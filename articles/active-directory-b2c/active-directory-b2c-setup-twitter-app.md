@@ -1,29 +1,26 @@
 ---
-title: "Azure Active Directory B2C: configuración de Twitter | Microsoft Docs"
-description: "Proporcione funciones de registro e inicio de sesión a los consumidores con cuentas de Twitter en las aplicaciones protegidas por Azure Active Directory B2C."
+title: 'Azure Active Directory B2C: configuración de Twitter | Microsoft Docs'
+description: Proporcione funciones de registro e inicio de sesión a los consumidores con cuentas de Twitter en las aplicaciones protegidas por Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: 
-author: parakhj
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: 579a6841-9329-45b8-a351-da4315a6634e
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 4/06/2017
-ms.author: parakhj
-ms.openlocfilehash: 4dbc70d866a728a63102bd169a124bd26990aeb2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: davidmu
+ms.openlocfilehash: ee2d82f8c90b88a898428973a1febaa21034a14f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-twitter-accounts"></a>Azure Active Directory B2C: provisión de registro e inicio de sesión a los usuarios con cuentas de Twitter
 
 ## <a name="create-a-twitter-application"></a>Crear una aplicación de Twitter
-Para usar Twitter como proveedor de identidades en Azure Active Directory (Azure AD) B2C, debe crear una aplicación de Twitter y suministrarle los parámetros correctos. Necesita una cuenta de desarrollador de Twitter para hacerlo. Si no tiene una, puede obtenerla en [https://dev.twitter.com/](https://dev.twitter.com/).
+Para usar Twitter como proveedor de identidades en Azure Active Directory (Azure AD) B2C, debe crear una aplicación de Twitter y suministrarle los parámetros correctos. Necesita una cuenta de desarrollador de Twitter para hacerlo. Si no tiene ninguna, puede obtener una en [https://dev.twitter.com/](https://dev.twitter.com/).
 
 1. Vaya al [sitio web para desarrolladores de Twitter](https://dev.twitter.com/) e inicie sesión con sus credenciales.
 2. Haga clic en **Mis aplicaciones** en **Herramientas y soporte técnico** y, después, haga clic en **Crear una aplicación nueva**. 
@@ -42,6 +39,6 @@ Para usar Twitter como proveedor de identidades en Azure Active Directory (Azure
 6. Haga clic en **Configurar este proveedor de identidades** y escriba la **Clave de consumidor** de Twitter para el **Id. de cliente** y el **Secreto de consumidor** de Twitter para el **Secreto de cliente**.
 7. Haga clic en **Aceptar** y luego en **Crear** para guardar la configuración de Twitter.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Cree o edite una [directiva integrada](active-directory-b2c-reference-policies.md) y agregue Twitter como proveedor de identidades.

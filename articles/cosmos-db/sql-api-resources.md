@@ -1,9 +1,9 @@
 ---
 title: Modelo de recursos y conceptos de Azure Cosmos DB | Microsoft Docs
-description: "Obtenga información sobre el modelo jerárquico de Azure Cosmos DB de bases de datos, colecciones, funciones definidas por el usuario (UDF), documentos, permisos para administrar recursos, etc."
-keywords: "Modelo jerárquico, cosmosdb, azure, Microsoft azure"
+description: Obtenga información sobre el modelo jerárquico de Azure Cosmos DB de bases de datos, colecciones, funciones definidas por el usuario (UDF), documentos, permisos para administrar recursos, etc.
+keywords: Modelo jerárquico, cosmosdb, azure, Microsoft azure
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: rafats
 manager: jhubbard
 ms.assetid: ef9d5c0c-0867-4317-bb1b-98e219799fd5
@@ -12,18 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 03/26/2018
 ms.author: rafats
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a88f17a658987e1ff3ae0e0f38d6551c3acee1da
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: f64d79cd3929a279c7e279e74b0b21d163c0fa45
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-hierarchical-resource-model-and-core-concepts"></a>Conceptos básicos y modelo jerárquico de recursos de Azure Cosmos DB
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Las entidades de base de datos que administra Azure Cosmos DB se conocen como **recursos**. Cada recurso se identifica mediante un URI lógico. Se puede interactuar con los recursos mediante verbos HTTP estándar, encabezados de solicitud/respuesta y códigos de estado. 
 
@@ -34,6 +32,12 @@ En este artículo se responden a las siguientes preguntas:
 * ¿Cómo se puede dirigir un recurso?
 * ¿Cómo se trabaja con las colecciones?
 * ¿Cómo se trabaja con procedimientos almacenados, desencadenadores y Funciones definidas por el usuario (UDF)?
+
+En el siguiente vídeo, Andrew Liu, administrador de programas de Azure Cosmos DB, le muestra el modelo de recursos de Azure Cosmos DB. 
+
+> [!VIDEO https://www.youtube.com/embed/luWFgTP0IL4]
+>
+>
 
 ## <a name="hierarchical-resource-model"></a>Modelo jerárquico de recursos
 Tal y como muestra el siguiente diagrama, el **modelo de recursos** jerárquico de Azure Cosmos DB consta de conjuntos de recursos en una cuenta de base de datos, cada uno de ellos direccionable mediante un URI lógico y estable. En este artículo, los conjuntos de recursos se denominan **fuentes**. 
@@ -457,7 +461,7 @@ La única forma de obtener una clave de recurso es creando un recurso de permiso
 
 Tal como sucede con el resto de recursos, los permisos de Azure Cosmos DB se pueden crear, reemplazar, eliminar, leer o enumerar fácilmente mediante las API de REST o con cualquier SDK de cliente. Azure Cosmos DB siempre proporciona una coherencia para leer o consultar los metadatos de un permiso. 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Más información sobre cómo trabajar con recursos usando comandos HTTP en [Interacciones RESTful con recursos de Azure Cosmos DB](https://msdn.microsoft.com/library/azure/mt622086.aspx).
 
 [1]: media/sql-api-resources/resources1.png

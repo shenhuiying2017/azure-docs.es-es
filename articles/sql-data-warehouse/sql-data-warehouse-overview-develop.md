@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: develop
-ms.date: 03/15/2018
+ms.date: 03/22/2018
 ms.author: jrj;barbkess
-ms.openlocfilehash: 329217faaf865052b79a1d44200cc3c788702046
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: c81a6f9af556a86f10d2482333fdc98f9cfb1454
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="design-decisions-and-coding-techniques-for-sql-data-warehouse"></a>Decisiones de diseño y técnicas de codificación para SQL Data Warehouse
 Eche un vistazo a estos artículos de desarrollo para comprender mejor las decisiones de diseño clave, las recomendaciones y las técnicas de codificación para SQL Data Warehouse.
@@ -49,7 +49,7 @@ En estos artículos se abordan técnicas de codificación, sugerencias y recomen
 * [asignación de variables][variable assignment]
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para más información de referencia, consulte la página de [referencia de Transact-SQL][Transact-SQL reference] para SQL Data Warehouse.
+Para obtener más información de referencia, consulte las [instrucciones de T-SQL de SQL Data Warehouse](sql-data-warehouse-reference-tsql-statements.md).
 
 <!--Image references-->
 
@@ -71,7 +71,7 @@ Para más información de referencia, consulte la página de [referencia de Tran
 [user-defined schemas]: ./sql-data-warehouse-develop-user-defined-schemas.md
 [variable assignment]: ./sql-data-warehouse-develop-variable-assignment.md
 [views]: ./sql-data-warehouse-develop-views.md
-[Transact-SQL reference]: ./sql-data-warehouse-overview-reference.md
+
 
 <!--MSDN references-->
 [renaming objects]: https://msdn.microsoft.com/library/mt631611.aspx

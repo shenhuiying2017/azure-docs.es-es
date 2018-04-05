@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C: adición de una cuenta de Microsoft (MSA) como proveedor de identidades mediante directivas personalizadas"
+title: 'Azure Active Directory B2C: adición de una cuenta de Microsoft (MSA) como proveedor de identidades mediante directivas personalizadas'
 description: Ejemplo en el que se usa Microsoft como proveedor de identidades mediante el protocolo OpenID Connect (OIDC).
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 08/04/2017
-ms.author: yoelh
-ms.openlocfilehash: cdc77d093358fa15bb1acbc9ba6b1867bae062f8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: a49e9589322eeb90a713321b4fbe4c4820609f7a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-add-microsoft-account-msa-as-an-identity-provider-using-custom-policies"></a>Azure Active Directory B2C: adición de una cuenta de Microsoft (MSA) como proveedor de identidades mediante directivas personalizadas
 
@@ -26,7 +23,7 @@ ms.lasthandoff: 12/11/2017
 
 En este artículo se muestra cómo habilitar el inicio de sesión para usuarios de la cuenta de Microsoft (MSA) mediante [directivas personalizadas](active-directory-b2c-overview-custom.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Complete los pasos del artículo [Introducción a las directivas personalizadas](active-directory-b2c-get-started-custom.md).
 
 Estos pasos incluyen:
@@ -38,7 +35,7 @@ Estos pasos incluyen:
 5.  Cargar la directiva en un inquilino de Azure AD B2C y probarla
 
 ## <a name="create-a-microsoft-account-application"></a>Creación de una aplicación de cuenta Microsoft
-Para usar una cuenta Microsoft como proveedor de identidades en Azure Active Directory (Azure AD) B2C, debe crear una aplicación de cuenta Microsoft y suministrarle los parámetros correctos. Necesita una cuenta de Microsoft. Si no tiene una, visite [https://www.live.com/](https://www.live.com/).
+Para usar una cuenta Microsoft como proveedor de identidades en Azure Active Directory (Azure AD) B2C, debe crear una aplicación de cuenta Microsoft y suministrarle los parámetros correctos. Necesita una cuenta de Microsoft. Si no tiene ninguna, visite [https://www.live.com/](https://www.live.com/).
 
 1.  Vaya al [Portal de registro de aplicaciones de Microsoft](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) e inicie sesión con las credenciales de su cuenta Microsoft.
 2.  Haga clic en **Agregar una aplicación**.
@@ -71,7 +68,7 @@ Para usar una cuenta Microsoft como proveedor de identidades en Azure Active Dir
 
     ![Cuenta de Microsoft: Copia de la nueva contraseña](media/active-directory-b2c-custom-setup-ms-account-idp/msa-new-password.png)
 
-9.  Active la casilla **Soporte técnico de SDK de Live** de la sección **Opciones avanzadas**. Haga clic en **Guardar**.
+9.  Active la casilla **Soporte técnico de SDK de Live** de la sección **Opciones avanzadas**. Haga clic en **Save**(Guardar).
 
     ![Cuenta Microsoft: Soporte técnico de SDK de Live](media/active-directory-b2c-custom-setup-ms-account-idp/msa-live-sdk-support.png)
 
@@ -84,7 +81,7 @@ La federación con cuentas de Microsoft requiere un secreto de cliente para que 
 4.  En **Opciones**, use **Manual**.
 5.  En **Nombre**, use `MSASecret`.  
     Es posible que se agregue automáticamente el prefijo `B2C_1A_`.
-6.  En el cuadro **Secreto**, escriba el secreto de aplicación de Microsoft desde https://apps.dev.microsoft.com.
+6.  En el cuadro **Secreto**, escriba el secreto de aplicación de Microsoft de https://apps.dev.microsoft.com.
 7.  En **Uso de claves**, use **Firma**.
 8.  Haga clic en **Crear**
 9.  Confirme que ha creado la clave `B2C_1A_MSASecret`.
@@ -140,7 +137,7 @@ Defina la cuenta de Microsoft como proveedor de notificaciones; para ello, agreg
 
 4.  Reemplace el valor `client_id` por el id. de cliente de aplicación de la cuenta de Microsoft.
 
-5.  Guarde el archivo .
+5.  Guarde el archivo.
 
 ## <a name="register-the-microsoft-account-claims-provider-to-sign-up-or-sign-in-user-journey"></a>Registro del proveedor de notificaciones de la cuenta de Microsoft en un recorrido del usuario de registro o inicio de sesión
 

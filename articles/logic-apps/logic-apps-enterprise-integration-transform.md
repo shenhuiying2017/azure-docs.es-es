@@ -1,6 +1,6 @@
 ---
-title: "Conversión de datos XML con transformaciones: Azure Logic Apps | Microsoft Docs"
-description: "Crear transformaciones o mapas para convertir datos XML de un formato a otro en las aplicaciones lógicas mediante el SDK de Enterprise Integration"
+title: 'Conversión de datos XML con transformaciones: Azure Logic Apps | Microsoft Docs'
+description: Crear transformaciones o mapas para convertir datos XML de un formato a otro en las aplicaciones lógicas mediante el SDK de Enterprise Integration
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: f4ca7004432d28233888483424164456b008e992
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: fd59b6b3f51adb538e774bc5bb089880ca22e97e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="enterprise-integration-with-xml-transforms"></a>Integración de empresas con transformaciones XML
 ## <a name="overview"></a>Información general
@@ -35,7 +35,7 @@ Cuando cargue la transformación o la asignación en la cuenta de integración, 
 
 **Estos son los pasos para utilizar una transformación**:
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>requisitos previos
 
 * Crear una cuenta de integración y agregarle una asignación.  
 
@@ -64,6 +64,7 @@ En este momento, ya ha terminado de configurar su asignación. En una aplicació
 
 Ahora puede probar la transformación realizando una solicitud al punto de conexión HTTP.  
 
+
 ## <a name="features-and-use-cases"></a>Características y casos de uso
 * La transformación creada en una asignación puede ser simple, como copiar un nombre y una dirección de un documento a otro. O bien puede crear transformaciones más complejas mediante las operaciones de asignación integradas.  
 * Hay varias operaciones de asignación o funciones a las que se puede acceder fácilmente, por ejemplo, cadenas, funciones de fecha hora, etc.  
@@ -73,11 +74,49 @@ Ahora puede probar la transformación realizando una solicitud al punto de conex
 * Cargue asignaciones que ya existan.  
 * Es compatible con el formato XML.
 
-## <a name="adanced-features"></a>Características avanzadas
-Solo se puede acceder a las siguientes características desde la vista de código.
+## <a name="advanced-features"></a>Características avanzadas
+
+### <a name="reference-assembly-or-custom-code-from-maps"></a>Ensamblado de referencia o código personalizado de asignaciones 
+La acción de transformación también admite asignaciones o transformaciones con referencia a ensamblados externos. Esta funcionalidad permite llamadas a código .NET personalizado directamente desde asignaciones XSLT. Estos son los requisitos previos para usar ensamblados en asignaciones.
+
+* La asignación y el ensamblado al que se hace referencia desde la asignación debe [cargarse en la cuenta de integración](./logic-apps-enterprise-integration-maps.md). 
+
+  > [!NOTE]
+  > La asignación y el ensamblado deben cargarse en un orden específico. Debe cargar el ensamblado antes de cargar la asignación que hace referencia al ensamblado.
+
+* Además, la asignación debe tener estos atributos y una sección CDATA que contenga la llamada al código de ensamblado:
+
+    * **name** es el nombre de ensamblado personalizado.
+    * **namespace** es el espacio de nombres en el ensamblado que incluye el código personalizado.
+
+  En este ejemplo se muestra una asignación que hace referencia a un ensamblado denominado "XslUtilitiesLib" y llama al método `circumreference` desde el ensamblado.
+
+  ````xml
+  <?xml version="1.0" encoding="UTF-8"?>
+  <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:user="urn:my-scripts">
+  <msxsl:script language="C#" implements-prefix="user">
+    <msxsl:assembly name="XsltHelperLib"/>
+    <msxsl:using namespace="XsltHelpers"/>
+    <![CDATA[public double circumference(int radius){ XsltHelper helper = new XsltHelper(); return helper.circumference(radius); }]]>
+  </msxsl:script>
+  <xsl:template match="data">
+     <circles>
+        <xsl:for-each select="circle">
+            <circle>
+                <xsl:copy-of select="node()"/>
+                    <circumference>
+                        <xsl:value-of select="user:circumference(radius)"/>
+                    </circumference>
+            </circle>
+        </xsl:for-each>
+     </circles>
+    </xsl:template>
+    </xsl:stylesheet>
+  ````
+
 
 ### <a name="byte-order-mark"></a>Marca BOM
-De forma predeterminada, la respuesta de la transformación se iniciará con la marca BOM. Para deshabilitar esta funcionalidad, especifique `disableByteOrderMark` para la propiedad `transformOptions`:
+De forma predeterminada, la respuesta de la transformación se inicia con la marca BOM. Puede tener acceso a esta funcionalidad solo mientras trabaja en el editor de la vista Código. Para deshabilitar esta funcionalidad, especifique `disableByteOrderMark` para la propiedad `transformOptions`:
 
 ````json
 "Transform_XML": {
@@ -94,6 +133,10 @@ De forma predeterminada, la respuesta de la transformación se iniciará con la 
     "type": "Xslt"
 }
 ````
+
+
+
+
 
 ## <a name="learn-more"></a>Más información
 * [Más información sobre Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Información sobre Enterprise Integration Pack")  

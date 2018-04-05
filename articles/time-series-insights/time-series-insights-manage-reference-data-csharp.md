@@ -1,27 +1,28 @@
 ---
-title: "Administración de datos de referencia en un entorno de Azure Time Series Insights con C# | Microsoft Docs"
-description: "En este artículo se describe cómo administrar datos de referencia para un entorno de Azure Time Series Insights mediante la creación de una aplicación personalizada escrita en el lenguaje de .NET C# (c-sharp)."
+title: Administración de datos de referencia en un entorno de Azure Time Series Insights con C# | Microsoft Docs
+description: En este artículo se describe cómo administrar datos de referencia para un entorno de Azure Time Series Insights mediante la creación de una aplicación personalizada escrita en el lenguaje de .NET C# (c-sharp).
 services: time-series-insights
 ms.service: time-series-insights
 author: venkatgct
 ms.author: venkatja
 manager: jhubbard
 editor: MicrosoftDocs/tsidocs
-ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.reviewer: jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/21/2017
-ms.openlocfilehash: b08b6af7abccb550884adc6cc90d180cfcadb2af
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.date: 03/23/2018
+ms.openlocfilehash: 61375ae3b304959d5cda37c4ce0364d566d576a5
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="manage-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>Administración de los datos de referencia para un entorno de Azure Time Series Insights con C#
 
-En este tema se describe el código de ejemplo de C# que se puede compilar para administrar los datos de referencia para un entorno de Azure Time Series Insights.
+Este artículo describe un proyecto de ejemplo en C# que puede compilar para administrar los datos de referencia para un entorno de Azure Time Series Insights.
 
+## <a name="prerequistes"></a>Requisitos previos
 Realice los pasos siguientes antes de compilar y ejecutar el código de ejemplo:
 1. [Cree un conjunto de datos de referencia](time-series-insights-add-reference-data-set.md).
 
@@ -30,6 +31,11 @@ Realice los pasos siguientes antes de compilar y ejecutar el código de ejemplo:
    Para obtener información acerca de la configuración de aplicaciones no interactivas, consulte [Autenticación y autorización](time-series-insights-authentication-and-authorization.md).
 
 3. Modifique el código de ejemplo para reemplazar las constantes de ejemplo, designadas en **DUMMY #**, cerca del principio del código. 
+
+Este código de ejemplo también está disponible en [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights)
+
+## <a name="project-references"></a>Referencias de proyectos
+Agregue los paquetes de NuGet `Microsoft.IdentityModel.Clients.ActiveDirectory` y `Newtonsoft.Json` para este ejemplo. 
 
 ## <a name="c-sample-code"></a>Código de ejemplo de C# 
 ```csharp
@@ -233,5 +239,5 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
 }
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [API de los datos de referencia](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api)

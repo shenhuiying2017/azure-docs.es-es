@@ -15,11 +15,11 @@ ms.topic: 02get-started-article
 ms.date: 02/27/2018
 ms.author: mabrigg
 ms.reviewer: hector.linares
-ms.openlocfilehash: e7c437e3310fbf5c921920a3f08ecb8fe1f0d931
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 0e74c6af36130d206456634548f452a1f1a2d4af
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="protect-virtual-machines-deployed-on-azure-stack"></a>Protección de máquinas virtuales implementadas en Azure Stack
 
@@ -68,8 +68,8 @@ El esquema de protección más habitual para aplicaciones basadas en máquinas v
  
 La recuperación de la aplicación requiere la restauración de una o más máquinas virtuales en la misma nube o en una nube nueva. Puede elegir como destino una nube en su centro de datos o en la nube pública. La nube que elija está completamente a su elección y se basa en los requisitos de privacidad y soberanía sobre sus datos. 
  
- - RTO: tiempo de inactividad medido en segundos 
- - RPO: pérdida de datos mínima
+ - RTO: tiempo de inactividad medido en horas 
+ - RPO: pérdida de datos variables (dependiendo de la frecuencia de las copias de seguridad)
  - Topología de implementación: activa/pasiva 
 
 #### <a name="planning-your-backup-strategy"></a>Planeamiento de la estrategia de copia de seguridad
@@ -95,8 +95,8 @@ Con este enfoque, la aplicación se implementa únicamente en una nube. La máqu
 
 ![Replicación y conmutación por error](media\azure-stack-manage-vm-backup\vm_backupdataflow_02.png)
 
- - RTO: tiempo de inactividad en minutos 
- - RPO: pérdida de datos variable
+ - RTO: tiempo de inactividad medido en minutos 
+ - RPO: pérdida de datos variables (dependiendo de la frecuencia de replicación)
  - Topología de implementación: activa/pasiva o en espera
  
 ### <a name="high-availabilityautomatic-failover"></a>Alta disponibilidad o conmutación por error automática

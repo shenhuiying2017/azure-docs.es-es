@@ -1,11 +1,12 @@
 ---
-title: "Tutorial rápido del lenguaje R para Machine Learning | Microsoft Docs"
-description: "Use este tutorial para empezar a utilizar rápidamente el lenguaje de programación R con Azure Machine Learning Studio con el fin de crear una solución de previsión."
-keywords: "inicio rápido, idioma r, lenguaje de programación r, tutorial de programación r"
+title: Tutorial rápido del lenguaje R para Machine Learning | Microsoft Docs
+description: Use este tutorial para empezar a utilizar rápidamente el lenguaje de programación R con Azure Machine Learning Studio con el fin de crear una solución de previsión.
+keywords: inicio rápido, idioma r, lenguaje de programación r, tutorial de programación r
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 99a3a0fd-b359-481a-b236-66868deccd96
 ms.service: machine-learning
@@ -14,22 +15,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.author: garye
-ms.openlocfilehash: 40cc3728d1361b9304896bf0cc4ceed439291d45
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 231d505e91fc036b30344e2fd9971db8ba2fdf05
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning"></a>Tutorial de inicio rápido en la programación en lenguaje R para Azure Machine Learning
 
 <!-- Stephen F Elston, Ph.D. -->
 
 ## <a name="introduction"></a>Introducción
-Este tutorial rápido le ayudará a comenzar a ampliar Aprendizaje automático de Azure mediante el uso del lenguaje de programación R. Siga este tutorial de programación R para crear, probar y ejecutar código R en Aprendizaje automático de Azure. A medida que vaya avanzando en este tutorial, creará una solución completa de previsión mediante el lenguaje R en Aprendizaje automático de Azure.  
+Este tutorial rápido le ayudará a comenzar a ampliar Azure Machine Learning mediante el uso del lenguaje de programación R. Siga este tutorial de programación R para crear, probar y ejecutar código R en Azure Machine Learning. A medida que vaya avanzando en este tutorial, creará una solución completa de previsión mediante el lenguaje R en Azure Machine Learning.  
 
-Aprendizaje automático de Microsoft Azure contiene muchos módulos versátiles de manipulación de datos y aprendizaje automático. El lenguaje R se conoce como la lingua franca del análisis de datos. Afortunadamente, la manipulación y el análisis de datos en Aprendizaje automático de Azure se pueden ampliar mediante R. Esta combinación une la escalabilidad y sencillez en la implementación de Aprendizaje automático de Azure con la flexibilidad y el análisis profundo de R.
-
+Microsoft Azure Machine Learning contiene muchos módulos versátiles de manipulación de datos y aprendizaje automático. El lenguaje R se conoce como la lingua franca del análisis de datos. Afortunadamente, la manipulación y el análisis de datos en Azure Machine Learning se pueden ampliar mediante R. Esta combinación une la escalabilidad y sencillez en la implementación de Azure Machine Learning con la flexibilidad y el análisis profundo de R.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
@@ -40,28 +39,28 @@ Los datos de series temporales son datos en los que los valores tienen un índic
 
 En esta guía de inicio rápido, trabajaremos con los productos lácteos de California y los datos de precios. Estos datos incluyen información mensual acerca de la producción de varios de los productos lácteos, así como sobre el precio de la grasa láctea, materia prima de referencia.
 
-Los datos usados en este artículo, junto con scripts R, se pueden [descargar aquí][download]. Estos datos están tomados de la información disponible de la universidad de Wisconsin en http://future.aae.wisc.edu/tab/production.html.
+Los datos usados en este artículo, junto con scripts R, se pueden [descargar aquí][download]. Estos datos se han resumido a partir de la información disponible de la universidad de Wisconsin en http://future.aae.wisc.edu/tab/production.html.
 
 ### <a name="organization"></a>Organización
-En esta sección abordaremos distintos pasos a medida que aprenda a crear, probar y ejecutar código R de análisis y manipulación de datos en entornos de Aprendizaje automático de Azure.  
+En esta sección abordaremos distintos pasos a medida que aprenda a crear, probar y ejecutar código R de análisis y manipulación de datos en entornos de Azure Machine Learning.  
 
-* Primero analizaremos los aspectos básicos del uso del lenguaje R en el entorno de Estudio de aprendizaje automático de Azure.
-* A continuación, se tratarán distintos aspectos de la E/S de datos, el código R y los gráficos en entornos de Aprendizaje automático de Azure.
+* Primero analizaremos los aspectos básicos del uso del lenguaje R en el entorno de Azure Machine Learning Studio.
+* A continuación, se tratarán distintos aspectos de la E/S de datos, el código R y los gráficos en entornos de Azure Machine Learning.
 * Llegados a este punto, crearemos la primera parte de nuestra solución de previsión mediante la creación de código para la limpieza y la transformación de datos.
 * Con los datos preparados, realizamos un análisis de las correlaciones existentes entre varias de las variables de nuestro conjunto de datos.
 * Por último, crearemos un modelo de previsión de serie temporal estacional para la producción de leche.
 
-## <a id="mlstudio"></a>Interacción con el lenguaje R para Machine Learning Studio
-Esta sección le guiará por algunos aspectos básicos de la interacción con el lenguaje de programación R en el entorno de Estudio de aprendizaje automático. El lenguaje R proporciona una herramienta eficaz para crear módulos de manipulación de datos y de análisis personalizado en el entorno de Aprendizaje automático de Azure.
+## <a id="mlstudio"></a>Interactuación con el lenguaje R en Machine Learning Studio
+Esta sección le guiará por algunos aspectos básicos de la interacción con el lenguaje de programación R en el entorno de Machine Learning Studio. El lenguaje R proporciona una herramienta eficaz para crear módulos de manipulación de datos y de análisis personalizado en el entorno de Azure Machine Learning.
 
 Utilizaremos RStudio para desarrollar, probar y depurar el código R a escala reducida. A continuación, este código se cortará y pegará en un módulo [Ejecutar script R][execute-r-script] en Machine Learning Studio listo para ejecutarse.  
 
 ### <a name="the-execute-r-script-module"></a>Módulo Ejecutar script de R
 En Machine Learning Studio, los scripts R se ejecutan dentro del módulo [Ejecutar script R][execute-r-script]. En la ilustración 1, se muestra un ejemplo del módulo [Ejecutar script R][execute-r-script] en Machine Learning Studio.
 
- ![Lenguaje de programación R: el módulo Ejecutar script de R seleccionado en Estudio de aprendizaje automático][1]
+ ![Lenguaje de programación R: el módulo Ejecutar script de R seleccionado en Machine Learning Studio][1]
 
-*Ilustración 1. Entorno de Estudio de aprendizaje automático que muestra el módulo Ejecutar script de R seleccionado.*
+*Ilustración 1. Entorno de Machine Learning Studio que muestra el módulo Ejecutar script de R seleccionado.*
 
 Tomando como referencia la ilustración 1, veamos algunas de las partes principales del entorno de Machine Learning Studio necesarias para trabajar con el módulo [Ejecutar script R][execute-r-script].
 
@@ -71,22 +70,22 @@ Tomando como referencia la ilustración 1, veamos algunas de las partes principa
 
 Por supuesto, analizaremos el módulo [Ejecutar script R][execute-r-script] con mayor detalle en el resto de este documento.
 
-Cuando se utilicen funciones complejas de R, es recomendable editar, probar y depurar el código en RStudio. Al igual que con cualquier desarrollo de software, amplíe el código de forma incremental y pruébelo en casos de prueba más sencillos.  Luego, corte y pegue las funciones en la ventana de scripts R del módulo [Ejecutar script R][execute-r-script]. Este enfoque le permite aprovechar el entorno de desarrollo integrado (IDE) de RStudio y la eficacia de Aprendizaje automático de Azure.  
+Cuando se utilicen funciones complejas de R, es recomendable editar, probar y depurar el código en RStudio. Al igual que con cualquier desarrollo de software, amplíe el código de forma incremental y pruébelo en casos de prueba más sencillos.  Luego, corte y pegue las funciones en la ventana de scripts R del módulo [Ejecutar script R][execute-r-script]. Este enfoque le permite aprovechar el entorno de desarrollo integrado (IDE) de RStudio y la eficacia de Azure Machine Learning.  
 
 #### <a name="execute-r-code"></a>Ejecución del código R
 Cualquier código R del módulo [Ejecutar script R][execute-r-script] se ejecutará cuando haga clic en el botón **Ejecutar** para ejecutar el experimento. Cuando haya finalizado la ejecución, aparecerá una marca de verificación en el icono [Ejecutar script R][execute-r-script].
 
-#### <a name="defensive-r-coding-for-azure-machine-learning"></a>Codificación R defensiva para Aprendizaje automático de Azure
-Si está desarrollando código R para un servicio web utilizando Aprendizaje automático de Azure, deberá planear cómo tratará el código las entradas de datos inesperadas y las excepciones. Para mantener la claridad, he preferido no entrar en muchos detalles en cuanto al método de comprobación o control de excepciones en la mayoría de los ejemplos de código mostrados. Sin embargo, conforme avancemos compartiré varios ejemplos de funciones mediante la capacidad de control de excepciones de R.  
+#### <a name="defensive-r-coding-for-azure-machine-learning"></a>Codificación R defensiva para Azure Machine Learning
+Si está desarrollando código R para un servicio web utilizando Azure Machine Learning, deberá planear cómo tratará el código las entradas de datos inesperadas y las excepciones. Para mantener la claridad, he preferido no entrar en muchos detalles en cuanto al método de comprobación o control de excepciones en la mayoría de los ejemplos de código mostrados. Sin embargo, conforme avancemos compartiré varios ejemplos de funciones mediante la capacidad de control de excepciones de R.  
 
 Si necesita un tratamiento más completado del control de excepciones de R, le recomiendo que lea las secciones correspondientes del manual de Wickham que se detallan en el [Apéndice B: información adicional](#appendixb).
 
-#### <a name="debug-and-test-r-in-machine-learning-studio"></a>Depuración y prueba de R en Estudio de aprendizaje automático
-Nuevamente, recomiendo probar y depurar el código de R a escala reducida en RStudio. Sin embargo, hay casos en los que necesitará rastrear problemas de código R en el propio módulo [Ejecutar script R][execute-r-script]. Además, se recomienda comprobar los resultados en Estudio de aprendizaje automático.
+#### <a name="debug-and-test-r-in-machine-learning-studio"></a>Depuración y prueba de R en Machine Learning Studio
+Nuevamente, recomiendo probar y depurar el código de R a escala reducida en RStudio. Sin embargo, hay casos en los que necesitará rastrear problemas de código R en el propio módulo [Ejecutar script R][execute-r-script]. Además, se recomienda comprobar los resultados en Machine Learning Studio.
 
-Los resultados de la ejecución del código R y de la plataforma Aprendizaje automático de Azure pueden encontrarse en el archivo output.log. Se mostrará información adicional en el archivo error.log.  
+Los resultados de la ejecución del código R y de la plataforma Azure Machine Learning pueden encontrarse en el archivo output.log. Se mostrará información adicional en el archivo error.log.  
 
-Si se produce un error en Estudio de aprendizaje automático durante la ejecución del código R, lo primero que debe hacer es consultar el archivo error.log. Este archivo puede contener mensajes de error útiles que le ayudarán a comprender y a corregir el error. Para ver el archivo error.log, haga clic en **Ver registro de errores** en el **panel de propiedades** del módulo [Ejecutar script R][execute-r-script] que contiene el error.
+Si se produce un error en Machine Learning Studio durante la ejecución del código R, lo primero que debe hacer es consultar el archivo error.log. Este archivo puede contener mensajes de error útiles que le ayudarán a comprender y a corregir el error. Para ver el archivo error.log, haga clic en **Ver registro de errores** en el **panel de propiedades** del módulo [Ejecutar script R][execute-r-script] que contiene el error.
 
 Por ejemplo, ejecuté el siguiente código R con una variable y sin definir en un módulo [Ejecutar script R][execute-r-script]:
 
@@ -113,22 +112,22 @@ Este mensaje de error no contiene sorpresas e identifica claramente el problema.
 
 Imprima estos valores en el archivo output.log para comprobar el valor de los objetos en R. Las reglas para examinar los valores de objeto son las mismas que las que se usan en sesiones interactivas de código R. Por ejemplo, si escribe un nombre de variable en una línea, el valor del objeto se imprimirá al archivo output.log.  
 
-#### <a name="packages-in-machine-learning-studio"></a>Paquetes de Estudio de aprendizaje automático
-Aprendizaje automático de Azure incluye más de 350 paquetes del lenguaje R preinstalados. Puede usar el código siguiente en el módulo [Ejecutar script R][execute-r-script] para recuperar una lista de paquetes preinstalados.
+#### <a name="packages-in-machine-learning-studio"></a>Paquetes de Machine Learning Studio
+Azure Machine Learning incluye más de 350 paquetes del lenguaje R preinstalados. Puede usar el código siguiente en el módulo [Ejecutar script R][execute-r-script] para recuperar una lista de paquetes preinstalados.
 
     data.set <- data.frame(installed.packages())
     maml.mapOutputPort("data.set")
 
-Siga leyendo si no comprende la última línea de este código. En el resto del documento se describe con detalle el uso de R en el entorno Aprendizaje automático de Azure.
+Siga leyendo si no comprende la última línea de este código. En el resto del documento se describe con detalle el uso de R en el entorno Azure Machine Learning.
 
 ### <a name="introduction-to-rstudio"></a>Introducción a RStudio
 RStudio es un IDE ampliamente usado para R. Utilizaremos RStudio para editar, probar y depurar el código R utilizado en esta guía de inicio rápido. Una vez que el código R se pruebe y esté listo, simplemente deberá cortar y pegar desde el editor de RStudio en un módulo [Ejecutar script R][execute-r-script] de Machine Learning Studio.  
 
-Si no tiene instalado el lenguaje de programación R en su equipo de sobremesa, es recomendable que lo instale ahora. Encontrará descargas gratuitas del lenguaje R abierto están disponibles en la red completa de archivos de R o CRAN en [http://www.r-project.org/](http://www.r-project.org/). Hay descargas disponibles para Windows, Mac OS y Linux/UNIX. Elija el espejo más cercano a su ubicación y siga las instrucciones de descarga. Además, CRAN contiene una gran cantidad de paquetes de manipulación de datos y análisis de utilidad.
+Si no tiene instalado el lenguaje de programación R en su equipo de sobremesa, es recomendable que lo instale ahora. Encontrará descargas gratuitas del lenguaje R de código abierto en la red completa de archivos de R o CRAN en [http://www.r-project.org/](http://www.r-project.org/). Hay descargas disponibles para Windows, Mac OS y Linux/UNIX. Elija el espejo más cercano a su ubicación y siga las instrucciones de descarga. Además, CRAN contiene una gran cantidad de paquetes de manipulación de datos y análisis de utilidad.
 
 Si no está familiarizado con RStudio, descargue e instale la versión de escritorio. Encontrará descargas de RStudio para Windows, Mac OS y Linux/UNIX en http://www.rstudio.com/products/RStudio/. Siga las instrucciones proporcionadas para instalar RStudio en su equipo.  
 
-Encontrará un tutorial de introducción a RStudio en https://support.rstudio.com/hc/sections/200107586-Using-RStudio.
+Existe un tutorial de introducción a RStudio disponible en https://support.rstudio.com/hc/sections/200107586-Using-RStudio.
 
 En el [Apéndice A][appendixa], encontrará información adicional sobre el uso de RStudio.  
 
@@ -137,11 +136,11 @@ En esta sección, veremos cómo introducir y extraer datos del módulo [Ejecutar
 
 Encontrará el código completo de esta sección en el archivo zip que descargó anteriormente.
 
-### <a name="load-and-check-data-in-machine-learning-studio"></a>Carga y comprobación de datos en Estudio de aprendizaje automático
+### <a name="load-and-check-data-in-machine-learning-studio"></a>Carga y comprobación de datos en Machine Learning Studio
 #### <a id="loading"></a>Carga del conjunto de datos
-En primer lugar, comience por cargar el archivo **csdairydata.csv** en Estudio de aprendizaje automático de Azure.
+En primer lugar, comience por cargar el archivo **csdairydata.csv** en Azure Machine Learning Studio.
 
-* Iniciar su entorno Estudio de aprendizaje automático de Azure
+* Iniciar su entorno Azure Machine Learning Studio
 * Haga clic en **+ NUEVO** en la parte inferior izquierda de la pantalla y seleccione **Conjunto de datos**.
 * Seleccione **From Local File** (De archivo local) y luego **Examinar** para seleccionar el archivo.
 * Asegúrese de haber seleccionado la opción **Archivo CSV genérico con encabezado (.csv)** como el tipo de conjunto de datos.
@@ -149,7 +148,7 @@ En primer lugar, comience por cargar el archivo **csdairydata.csv** en Estudio d
 * Una vez cargado el conjunto de datos, debería ver el nuevo conjunto de datos haciendo clic en la pestaña **Conjuntos de datos** .  
 
 #### <a name="create-an-experiment"></a>Creación de un experimento
-Ahora que tenemos algunos datos en Estudio de aprendizaje automático, debemos crear un experimento para realizar el análisis.  
+Ahora que tenemos algunos datos en Machine Learning Studio, debemos crear un experimento para realizar el análisis.  
 
 * Haga clic en **+ NUEVO** en la parte inferior izquierda y seleccione **Experiment** (Experimento) y luego **Blank Experiment** (Experimento en blanco).
 * Para asignar un nombre al experimento, seleccione y modifique el título **Experimento creado el...** en la parte superior de la página. Por ejemplo, cámbielo a **Análisis de productos lácteos de CA**.
@@ -176,7 +175,7 @@ Echemos un vistazo a los datos que se han cargado en nuestro experimento. En el 
 En esta vista hay una gran cantidad de información útil. Pueden verse las primeras filas de dicho conjunto de datos. Si se selecciona una columna, la sección de estadísticas muestra más información sobre ella. Por ejemplo, la fila de tipo de característica muestra los tipos de datos que Azure Machine Learning Studio asignó a la columna. Echar un vistazo rápido de este modo es una buena práctica de comprobación antes de empezar a realizar cualquier trabajo más importante.
 
 ### <a name="first-r-script"></a>Primer script de R
-A continuación, vamos a crear nuestro primer script de código R para experimentar con él en Estudio de aprendizaje automático de Azure. Para ello, he creado y probado el siguiente script en RStudio.  
+A continuación, vamos a crear nuestro primer script de código R para experimentar con él en Azure Machine Learning Studio. Para ello, he creado y probado el siguiente script en RStudio.  
 
     ## Only one of the following two lines should be used
     ## If running in Machine Learning Studio, use the first line with maml.mapInputPort()
@@ -189,7 +188,7 @@ A continuación, vamos a crear nuestro primer script de código R para experimen
     ## Azure Machine Learning Studio
     maml.mapOutputPort('cadairydata')
 
-Ahora necesito transferir este script a Estudio de aprendizaje automático de Azure. Basta con cortar y pegar. Sin embargo, en este caso, transferiré el script de código R mediante un archivo zip.
+Ahora necesito transferir este script a Azure Machine Learning Studio. Basta con cortar y pegar. Sin embargo, en este caso, transferiré el script de código R mediante un archivo zip.
 
 ### <a name="data-input-to-the-execute-r-script-module"></a>Introducción de datos en el módulo de script de ejecución de código R
 Echemos un vistazo a las entradas del módulo [Ejecutar script R][execute-r-script]. En este ejemplo se leerán los datos de productos lácteos de California en el módulo [Ejecutar script de R][execute-r-script].  
@@ -205,7 +204,7 @@ La entrada Paquete de script permite pasar el contenido de un archivo ZIP al mó
     load("src/yourData.rdata") # Reads a zipped R data file
 
 > [!NOTE]
-> Aprendizaje automático de Azure trata los archivos del archivo zip como si se encontrasen en el directorio src/, por lo que necesitará agregar el nombre del directorio como prefijo a los nombres de archivo. Por ejemplo, si el archivo zip contiene los archivos `yourfile.R` y `yourData.rdata` en la raíz del archivo zip, los tratará como `src/yourfile.R` y `src/yourData.rdata` al utilizar `source` y `load`.
+> Azure Machine Learning trata los archivos del archivo zip como si se encontrasen en el directorio src/, por lo que necesitará agregar el nombre del directorio como prefijo a los nombres de archivo. Por ejemplo, si el archivo zip contiene los archivos `yourfile.R` y `yourData.rdata` en la raíz del archivo zip, los tratará como `src/yourfile.R` y `src/yourData.rdata` al utilizar `source` y `load`.
 > 
 > 
 
@@ -340,7 +339,7 @@ La sintaxis para cualquiera de estas conversiones es simple: `as.datatype()`. Es
 
 Viendo los tipos de datos de las columnas introducidas en la sección anterior: todas las columnas son de tipo numérico, excepto la columna con la etiqueta 'Month', que es de carácter de tipo. A continuación, vamos a convertirla en un factor y a probar los resultados.  
 
-He eliminado la línea que creaba la matriz de trazado de dispersión y he agregado una línea para convertir la columna 'Month' en un factor. En mi experimento solo cortaré y pegaré el código R en la ventana de código del módulo [Ejecutar script R][execute-r-script]. También puede actualizar el archivo zip y cargarlo en Estudio de aprendizaje automático de Azure; aunque esto implica varios pasos.  
+He eliminado la línea que creaba la matriz de trazado de dispersión y he agregado una línea para convertir la columna 'Month' en un factor. En mi experimento solo cortaré y pegaré el código R en la ventana de código del módulo [Ejecutar script R][execute-r-script]. También puede actualizar el archivo zip y cargarlo en Azure Machine Learning Studio; aunque esto implica varios pasos.  
 
     ## Only one of the following two lines should be used
     ## If running in Machine Learning Studio, use the first line with maml.mapInputPort()
@@ -429,7 +428,7 @@ Las tramas de datos R incluyen capacidades de filtrado eficaces. Es posible obte
 En nuestro conjunto de datos, es necesario crear un bit de filtrado. Si observamos las columnas de la trama de datos cadairydata, podemos ver que hay dos columnas innecesarias. La primera columna contiene solo un número de fila, que no es muy útil. La segunda columna, Year.Month, contiene información redundante. Estas dos columnas se pueden excluir fácilmente mediante el código R siguiente.
 
 > [!NOTE]
-> De ahora en adelante en esta sección, solo mostraré el código adicional que voy a agregar en el módulo [Ejecutar script R][execute-r-script]. Voy a agregar cada nueva línea **antes** de la función `str()`. Esta función se utiliza para comprobar los resultados en Estudio de aprendizaje automático de Azure.
+> De ahora en adelante en esta sección, solo mostraré el código adicional que voy a agregar en el módulo [Ejecutar script R][execute-r-script]. Voy a agregar cada nueva línea **antes** de la función `str()`. Esta función se utiliza para comprobar los resultados en Azure Machine Learning Studio.
 > 
 > 
 
@@ -959,7 +958,7 @@ La ejecución del código genera series de gráficos temporales desde el resulta
 ### <a name="a-trend-model"></a>Modelo de tendencia
 Una vez creado el objeto de la serie temporal y tras haber analizado los datos, procederemos con la creación de un modelo de tendencias para los datos de producción de leche de California. Para ello, utilizaremos una regresión de serie temporal. Sin embargo, resulta evidente en el trazado, que necesitaremos algo más una pendiente y una intercepción para modelar con precisión la tendencia observada en los datos de entrenamiento.
 
-Dada la pequeña escala de los datos, crearé el modelo de la tendencia en RStudio para, a continuación, cortar y pegar el modelo resultante en Aprendizaje automático de Azure. RStudio proporciona un entorno interactivo para este tipo de análisis interactivo.
+Dada la pequeña escala de los datos, crearé el modelo de la tendencia en RStudio para, a continuación, cortar y pegar el modelo resultante en Azure Machine Learning. RStudio proporciona un entorno interactivo para este tipo de análisis interactivo.
 
 Como primer intento, probaré con una regresión polinómica con potencia de hasta 3. Existe un claro riesgo de sobreajuste con estos modelos. Por lo tanto, es mejor evitar los términos de alto nivel. La función `I()` impide la interpretación del contenido (interpreta el contenido "tal cual") y permite escribir una función interpretada de manera literal en una ecuación de regresión.
 
@@ -1083,7 +1082,7 @@ A continuación, crearemos otro gráfico de serie temporal con los datos de prod
     plot(cadairytrain$Time, cadairytrain$Milk.Prod, xlab = "Time", ylab = "Log CA Milk Production 1000s lb", type = "l")
     lines(cadairytrain$Time, predict(milk.lm2, cadairytrain), lty = 2, col = 2)
 
-La ejecución de este código en Aprendizaje automático de Azure genera el gráfico que se muestra en la ilustración 24.
+La ejecución de este código en Azure Machine Learning genera el gráfico que se muestra en la ilustración 24.
 
 ![Producción de leche de California con modelo que incluye los efectos de temporada](./media/r-quickstart/unnamed-chunk-20.png)
 
@@ -1214,42 +1213,42 @@ RStudio cuenta con una documentación bastante extensa, por lo que en este apén
 
 1. Creación de proyectos
    
-   Puede organizar y administrar el código de R en proyectos mediante RStudio. La documentación que utiliza proyectos se encuentra en https://support.rstudio.com/hc/articles/200526207-Using-Projects.
+   Puede organizar y administrar el código de R en proyectos mediante RStudio. La documentación que usa proyectos se puede encontrar en https://support.rstudio.com/hc/articles/200526207-Using-Projects.
    
    Recomiendo seguir estas instrucciones y crear un proyecto para los ejemplos de código R de este documento.  
 2. Edición y ejecución de código R
    
-   RStudio proporciona un entorno integrado para editar y ejecutar código R. La documentación se encuentra en https://support.rstudio.com/hc/articles/200484448-Editing-and-Executing-Code.
+   RStudio proporciona un entorno integrado para editar y ejecutar código R. Encontrará documentación en https://support.rstudio.com/hc/articles/200484448-Editing-and-Executing-Code.
 3. Depuración
    
-   RStudio incluye eficaces capacidades de depuración. Encontrará la documentación de estas características en https://support.rstudio.com/hc/articles/200713843-Debugging-with-RStudio.
+   RStudio incluye eficaces capacidades de depuración. La documentación de estas características está en https://support.rstudio.com/hc/articles/200713843-Debugging-with-RStudio.
    
-   Las características de solución de problemas en puntos de interrupción se documentan en https://support.rstudio.com/hc/articles/200534337-Breakpoint-Troubleshooting.
+   Las características de solución de problemas de punto de interrupción se documentan en https://support.rstudio.com/hc/articles/200534337-Breakpoint-Troubleshooting.
 
 ## <a id="appendixb"></a>APÉNDICE B: lectura adicional
-Este tutorial de programación R cubre los aspectos básicos de lo que debe usar el lenguaje R con Estudio de aprendizaje automático de Azure. Si no está familiarizado con el código R, encontrará dos introducciones disponibles en CRAN:
+Este tutorial de programación R cubre los aspectos básicos de lo que debe usar el lenguaje R con Azure Machine Learning Studio. Si no está familiarizado con el código R, encontrará dos introducciones disponibles en CRAN:
 
-* R for Beginners de Emmanuel Paradis es un buen punto de partida. Lo encontrará en http://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf.  
-* Una introducción a R de W. Venables et. al. profundiza un poco más en la materia. La encontrará en http://cran.r-project.org/doc/manuals/R-intro.html.
+* R for Beginners (R para principiantes) por Emmanuel Paradis es un buen lugar para comenzar en http://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf.  
+* Una introducción a R de W. Venables et. al. profundiza un poco más en http://cran.r-project.org/doc/manuals/R-intro.html.
 
 Existen muchas obras sobre el código R que pueden servirle como punto de partida. Estas son algunas que considero más útiles:
 
 * The Art of R Programming: A Tour of Statistical Software Design de Norman Matloff ofrece una excelente introducción a la programación en código R.  
 * R Cookbook de Paul Teetor ofrece un enfoque del uso del código R basado en problemas y soluciones.  
 * R in Action de Robert Kabacoff es otro libro que puede resultarle muy útil. El sitio de web complementario Quick R es un recurso que le será de gran utilidad: http://www.statmethods.net/.
-* <bpt i="1000001" x="1000001" type="formatting">{i&gt;</bpt>R Inferno<ept i="1000001">&lt;i}</ept> de Patrick Burns es un libro sorprendentemente divertido que lo ayudará a abordar numerosos temas complejos con los que puede encontrarse a la hora de programar en código R. Esta obra está disponible gratis en http://www.burns-stat.com/documents/books/the-r-inferno/.
+* R Inferno (Infierno de R), de Patrick Burns, es un libro sorprendentemente divertido que le ayudará a abordar numerosos temas complejos con los que puede encontrarse a la hora de programar en R. Esta obra está disponible gratis en http://www.burns-stat.com/documents/books/the-r-inferno/.
 * Si desea obtener información más detallada sobre temas avanzados de R, recomendamos el título Advanced R de Hadley Wickham. La versión en línea de este libro está disponible de forma gratuita en http://adv-r.had.co.nz/.
 
-Podrá encontrar un catálogo de series temporales de R en la vista de tareas CRAN para análisis de series temporales: http://cran.r-project.org/web/views/TimeSeries.html. Para obtener información sobre paquetes de objetos de series temporales, debe hacer referencia a la documentación de ese paquete.
+Podrá encontrar un catálogo de series temporales de R en la vista de tareas CRAN para el análisis de series temporales: http://cran.r-project.org/web/views/TimeSeries.html. Para obtener información sobre paquetes de objetos de series temporales, debe hacer referencia a la documentación de ese paquete.
 
 El libro Introductory Time Series with R de Paul Cowpertwait y Andrew Metcalfe ofrece una introducción al uso de R para el análisis de series temporales. No obstante, existen muchos más textos teóricos que proporcionan ejemplos de R.
 
 Algunos recursos excelentes en Internet:
 
-* DataCamp: DataCamp enseña R desde la comodidad del explorador con lecciones en vídeo y ejercicios de codificación. Existen tutoriales interactivos sobre los paquetes y las técnicas más recientes de R. Tutorial interactivo gratis de R en https://www.datacamp.com/courses/introduction-to-r
-* Una guía de introducción a R de Programiz en https://www.programiz.com/r-programming
-* Un tutorial rápido de R Kelly Black de la Universidad de Clarkson: http://www.cyclismo.org/tutorial/R/
-* Recopilación de más de 60 recursos de R en http://www.computerworld.com/article/2497464/business-intelligence-60-r-resources-to-improve-your-data-skills.html
+* DataCamp: DataCamp enseña R desde la comodidad del explorador con lecciones en vídeo y ejercicios de codificación. Existen tutoriales interactivos sobre los paquetes y las técnicas más recientes de R. Siga el tutorial interactivo de R disponible en https://www.datacamp.com/courses/introduction-to-r
+* Una guía de introducción a R de Programiz https://www.programiz.com/r-programming
+* Un tutorial rápido de R por Kelly Black de la Universidad de Clarkson: http://www.cyclismo.org/tutorial/R/
+* Más de 60 recursos de R en http://www.computerworld.com/article/2497464/business-intelligence-60-r-resources-to-improve-your-data-skills.html
 
 <!--Image references-->
 [1]: ./media/r-quickstart/fig1.png

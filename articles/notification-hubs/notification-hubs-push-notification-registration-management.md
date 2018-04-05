@@ -1,11 +1,11 @@
 ---
-title: "Administración de registros"
-description: "En este tema se explica cómo registrar dispositivos en los centros de notificaciones para recibir notificaciones push."
+title: Administración de registros
+description: En este tema se explica cómo registrar dispositivos en los centros de notificaciones para recibir notificaciones push.
 services: notification-hubs
 documentationcenter: .net
 author: ysxu
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: fd0ee230-132c-4143-b4f9-65cef7f463a1
 ms.service: notification-hubs
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.openlocfilehash: a1a349150ef4c7837932706f0c4fcc8d022ec7ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: af5738ac96bd2afacee493765453567f7f13c9e5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="registration-management"></a>Administración de registros
 ## <a name="overview"></a>Información general
@@ -31,7 +31,7 @@ El registro de dispositivos en un Centro de notificaciones se logra mediante un 
 Un registro asocia el identificador del Servicio de notificación de plataforma (PNS) de un dispositivo con etiquetas y, posiblemente, una plantilla. El identificador del PNS puede ser un ChannelURI, un token de dispositivo o un identificador de registro de GCM. Las etiquetas se usan para enrutar las notificaciones al conjunto correcto de identificadores de dispositivos. Para obtener más información, consulte [Expresiones de etiqueta y enrutamiento](notification-hubs-tags-segment-push-message.md). Se utilizan plantillas para implementar la transformación por registro. Para obtener más información, consulte [Plantillas](notification-hubs-templates-cross-platform-push-messages.md).
 
 #### <a name="installations"></a>Instalaciones
-Una Instalación es un registro mejorado que incluye un conjunto de propiedades relacionadas con la inserción. Sin embargo, es el mejor y más reciente enfoque al registro de los dispositivos. Sin embargo, aún no es compatible con el SDK para .NET del cliente ([SDK del centro de notificaciones para operaciones de back-end](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)).  Esto significa que si registra desde el propio dispositivo cliente, tendría que usar el enfoque [API de REST de Centros de notificaciones](https://msdn.microsoft.com/library/mt621153.aspx) para admitir las instalaciones. Si usa un servicio back-end, debe ser capaz de usar el [SDK del Centro de notificaciones para las operaciones de back-end](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
+Una Instalación es un registro mejorado que incluye un conjunto de propiedades relacionadas con la inserción. Sin embargo, es el mejor y más reciente enfoque al registro de los dispositivos. Sin embargo, aún no es compatible con el SDK para .NET del cliente ([SDK del centro de notificaciones para operaciones de back-end](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)).  Esto significa que si registra desde el propio dispositivo cliente, tendría que usar el enfoque [API de REST de Notification Hubs](https://msdn.microsoft.com/library/mt621153.aspx) para admitir las instalaciones. Si usa un servicio back-end, debe ser capaz de usar el [SDK del Centro de notificaciones para las operaciones de back-end](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
 Las siguientes son algunas ventajas clave de usar las instalaciones:
 
@@ -39,7 +39,7 @@ Las siguientes son algunas ventajas clave de usar las instalaciones:
 * El modelo de instalación facilita la realización de inserciones individuales, orientándose a un dispositivo específico. Una etiqueta de instalación **"$InstallationId:[IdentificadordeInstalación]"** se crea automáticamente con cada registro basado en instalación. Por lo tanto, puede llamar un envío a esta etiqueta para orientarse a un dispositivo específico sin tener que realizar ninguna codificación adicional.
 * El uso de las instalaciones también le permite realizar actualizaciones parciales de registros. La actualización parcial de una instalación se solicita con un método PATCH a través del [estándar JSON-Patch](https://tools.ietf.org/html/rfc6902). Esto resulta especialmente útil cuando desea actualizar las etiquetas del registro. No es necesario desplegar todo el registro y reenviar todas las etiquetas anteriores.
 
-Una instalación puede contener las siguientes propiedades. Para ver una lista completa de las propiedades de instalación, vea [Creación o sobrescritura de una instalación con API de REST](https://msdn.microsoft.com/library/azure/mt621153.aspx) o [Installation (propiedades)](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx).
+Una instalación puede contener las siguientes propiedades. Para ver una lista completa de las propiedades de instalación, vea [Creación o sobrescritura de una instalación con API de REST](https://msdn.microsoft.com/library/azure/mt621153.aspx) o [Installation Properties](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx) (Propiedades de instalación).
 
     // Example installation format to show some supported properties
     {
@@ -105,7 +105,7 @@ La primera desventaja es que una aplicación cliente solo puede actualizar sus e
 La segunda desventaja de la administración de registros desde la aplicación cliente es que, debido a que es posible piratear las aplicaciones, proteger el registro de etiquetas específicas requiere un cuidado adicional, tal como se explica en la sección "Seguridad a nivel de etiqueta".
 
 #### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-an-installation"></a>Ejemplo de código para el registro en un centro de notificaciones desde un dispositivo con una instalación
-En este momento, esta opción solo es compatible si se usa la [API de REST de Centros de notificaciones](https://msdn.microsoft.com/library/mt621153.aspx).
+En este momento, esta opción solo es compatible si se usa la [API de REST de Notification Hubs](https://msdn.microsoft.com/library/mt621153.aspx).
 
 También puede utilizar el método PATCH con el [estándar JSON-Patch](https://tools.ietf.org/html/rfc6902) para actualizar la instalación.
 
@@ -293,7 +293,7 @@ También puede utilizar el método PATCH con el [estándar JSON-Patch](https://t
 
 
 #### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-a-registration-id"></a>Ejemplo de código para el registro en un centro de notificaciones desde un dispositivo con un identificador de registro
-Desde el back-end de la aplicación, puede ejecutar operaciones de tipo CRUD en los registros. Por ejemplo:
+Desde el back-end de la aplicación, puede ejecutar operaciones de tipo CRUD en los registros. Por ejemplo: 
 
     var hub = NotificationHubClient.CreateClientFromConnectionString("{connectionString}", "hubName");
 
@@ -316,5 +316,5 @@ Desde el back-end de la aplicación, puede ejecutar operaciones de tipo CRUD en 
     await hub.DeleteRegistrationAsync(r);
 
 
-El back-end debe controlar la simultaneidad entre las actualizaciones de los registros. Bus de servicio ofrece un control de simultaneidad optimista para la administración de registros. A nivel de HTTP, se implementa con el uso de ETag en las operaciones de administración de registros. Los SDK de Microsoft utilizan esta característica de manera transparente y generan una excepción si se rechaza una actualización por motivos de simultaneidad. El back-end de aplicación es responsable de controlar estas excepciones y de volver a intentar la actualización, si es necesario.
+El back-end debe controlar la simultaneidad entre las actualizaciones de los registros. Service Bus ofrece un control de simultaneidad optimista para la administración de registros. A nivel de HTTP, se implementa con el uso de ETag en las operaciones de administración de registros. Los SDK de Microsoft utilizan esta característica de manera transparente y generan una excepción si se rechaza una actualización por motivos de simultaneidad. El back-end de aplicación es responsable de controlar estas excepciones y de volver a intentar la actualización, si es necesario.
 

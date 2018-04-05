@@ -1,11 +1,11 @@
 ---
 title: Alta disponibilidad de Hadoop - Azure HDInsight | Microsoft Docs
-description: "Obtenga información sobre cómo los clústeres de HDInsight mejoran la confiabilidad y la disponibilidad gracias al uso de un nodo principal extra. Obtenga información sobre cómo esto afecta a los servicios de Hadoop como Ambari y Hive, y cómo conectarse individualmente a cada nodo principal mediante SSH."
+description: Obtenga información sobre cómo los clústeres de HDInsight mejoran la confiabilidad y la disponibilidad gracias al uso de un nodo principal extra. Obtenga información sobre cómo esto afecta a los servicios de Hadoop como Ambari y Hive, y cómo conectarse individualmente a cada nodo principal mediante SSH.
 services: hdinsight
 editor: cgronlun
-manager: jhubbard
+manager: cgronlun
 author: Blackmist
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 keywords: hadoop alta disponibilidad
 ms.assetid: 99c9f59c-cf6b-4529-99d1-bf060435e8d4
@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/08/2018
+ms.date: 03/22/2018
 ms.author: larryfr
-ms.openlocfilehash: 0822502bcd3e2b0d20f718a158d6db489a650bde
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 556aedf5ce822d681caf1373ed7d51999bd439b6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="availability-and-reliability-of-hadoop-clusters-in-hdinsight"></a>Disponibilidad y fiabilidad de clústeres de Hadoop en HDInsight
 
@@ -112,7 +112,7 @@ Para comprobar el estado de los servicios que se ejecutan en el nodo principal, 
 
 ### <a name="ambari-web-ui"></a>Interfaz de usuario web de Ambari
 
-La interfaz de usuario web de Ambari es visible en https://CLUSTERNAME.azurehdinsight.net. Reemplace **CLUSTERNAME** por el nombre del clúster. Si se le solicita, introduzca las credenciales de usuario HTTP de su clúster. El nombre de usuario HTTP predeterminado es **admin** y la contraseña es la contraseña que especificó al crear el clúster.
+La UI web de Ambari se puede ver en https://CLUSTERNAME.azurehdinsight.net. Reemplace **CLUSTERNAME** por el nombre del clúster. Si se le solicita, introduzca las credenciales de usuario HTTP de su clúster. El nombre de usuario HTTP predeterminado es **admin** y la contraseña es la contraseña que especificó al crear el clúster.
 
 Cuando llegue a la página de Ambari, se enumeran los servicios instalados a la izquierda de la página.
 
@@ -224,7 +224,7 @@ Al crear un clúster, puede especificar el tamaño de los nodos. A continuación
 
 * **Azure PowerShell**: cuando se usa el cmdlet `New-AzureRmHDInsightCluster`, puede establecer el tamaño de los nodos principal, de trabajo y ZooKeeper mediante los parámetros `-HeadNodeVMSize`, `-WorkerNodeSize` y `-ZookeeperNodeSize`.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Use los siguientes vínculos para obtener más información sobre los aspectos que se mencionan en este documento.
 

@@ -1,25 +1,25 @@
 ---
-title: "Creación de un estándar de equilibrador de carga público con redundancia de zona en el front-end para la dirección IP pública mediante Azure Portal | Microsoft Docs"
-description: "Aprenda a crear un estándar de equilibrador de carga público con redundancia de zona en el front-end para la dirección IP pública mediante Azure Portal"
+title: Creación de un estándar de equilibrador de carga público con redundancia de zona en el front-end para la dirección IP pública mediante Azure Portal | Microsoft Docs
+description: Aprenda a crear un estándar de equilibrador de carga público con redundancia de zona en el front-end para la dirección IP pública mediante Azure Portal
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/20/2017
+ms.date: 03/22/2018
 ms.author: kumud
-ms.openlocfilehash: d09115d7b01b72476ebc9eb883a43aa4c59d2e3b
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 10a264609469245d4743886b58730304da3df7bb
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 #  <a name="create-a-public-load-balancer-standard-with-zone-redundant-public-ip-address-frontend-using-azure-portal"></a>Creación de un estándar de equilibrador de carga público con redundancia de zona en el front-end para la dirección IP pública mediante Azure Portal
 
@@ -27,15 +27,9 @@ Este artículo le ayudará a crear un servicio [Load Balancer Estándar](https:/
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="register-for-availability-zones-load-balancer-standard-and-public-ip-standard-preview"></a>Registro para la versión preliminar de las zonas de disponibilidad, Load Balancer Estándar y dirección IP pública Estándar
+## <a name="register-for-availability-zones-preview"></a>Registrarse para obtener la versión preliminar de Zonas de disponibilidad
  
->[!NOTE]
-La [SKU estándar de Load Balancer](https://aka.ms/azureloadbalancerstandard) se encuentra actualmente en versión preliminar. Durante la versión preliminar, la característica podría no tener el mismo nivel de disponibilidad y confiabilidad que las características que se encuentran en las versiones de disponibilidad general. Para obtener más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Use la [SKU básica de Load Balancer](load-balancer-overview.md) disponible con carácter general con sus servicios de producción. 
-
-> [!NOTE]
-> Las zonas de disponibilidad están en versión preliminar y están listas para escenarios de desarrollo y pruebas. El soporte técnico está disponible para recursos y regiones de Azure, y familias de tamaños de máquina virtual seleccionados. Para más información sobre cómo empezar a trabajar y qué recursos, regiones y familias de tamaños de máquina virtual de Azure puede probar con las zonas de disponibilidad, consulte la [introducción a las zonas de disponibilidad](https://docs.microsoft.com/azure/availability-zones/az-overview). Para soporte técnico, eche un vistazo a [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) o [Creación de una solicitud de soporte técnico de Azure](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  
-
-Antes de seleccionar una zona o una opción con redundancia de zona para la dirección IP pública de front-end de Load Balancer, primero debe completar los pasos descritos en el [registro para la versión preliminar de zonas de disponibilidad](https://docs.microsoft.com/azure/availability-zones/az-overview).
+Las zonas de disponibilidad están en versión preliminar y están listas para escenarios de desarrollo y pruebas. El soporte técnico está disponible para recursos y regiones de Azure, y familias de tamaños de máquina virtual seleccionados. Para más información sobre cómo empezar a trabajar y qué recursos, regiones y familias de tamaños de máquina virtual de Azure puede probar con las zonas de disponibilidad, consulte la [introducción a las zonas de disponibilidad](https://docs.microsoft.com/azure/availability-zones/az-overview). Para soporte técnico, eche un vistazo a [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) o [Creación de una solicitud de soporte técnico de Azure](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  
 
 ## <a name="log-in-to-azure"></a>Inicio de sesión en Azure 
 
@@ -43,7 +37,7 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
 
 ## <a name="create-a-zone-redundant-load-balancer"></a>Creación de un equilibrador de carga con redundancia de zona
 
-1. Desde un explorador, vaya a Azure Portal: [http://portal.azure.com](http://portal.azure.com) e inicie sesión con su cuenta de Azure.
+1. Desde un explorador, navegue a Azure Portal: [http://portal.azure.com](http://portal.azure.com) e inicie sesión con su cuenta de Azure.
 2. En la parte superior izquierda de la pantalla, seleccione **Crear un recurso** > **Redes** > **Equilibrador de carga**.
 3. En **Crear equilibrador de carga, en **Nombre**, escriba **myPublicLB**.
 4. En **Tipo**, seleccione **Público**.

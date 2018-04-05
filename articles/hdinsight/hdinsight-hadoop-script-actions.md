@@ -1,8 +1,8 @@
 ---
 title: Desarrollo de acciones de script con HDInsight - Azure | Microsoft Docs
-description: "Obtenga información acerca de cómo personalizar clústeres de Hadoop mediante la acción de script. La acción de se usa para instalar software adicional que se ejecuta en un clúster de Hadoop o para cambiar la configuración de las aplicaciones instaladas en un clúster."
+description: Obtenga información acerca de cómo personalizar clústeres de Hadoop mediante la acción de script. La acción de se usa para instalar software adicional que se ejecuta en un clúster de Hadoop o para cambiar la configuración de las aplicaciones instaladas en un clúster.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: d0e95014f6ebfc4e0286d3a12999c918f831b489
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: ac2a087bb0a9d8cac15dfea2448a9c42cee4a1f4
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>Desarrollo de acciones de script para clústeres basados en Windows de HDInsight
 Aprenda a escribir acciones de script para HDInsight. Para obtener más información acerca del uso de acciones de script, vea [Personalización de un clúster de HDInsight mediante la acción de script](hdinsight-hadoop-customize-cluster.md). Si desea leer el mismo artículo escrito para el clúster de HDInsight basado en Linux, consulte [Desarrollo de la acción de script con HDInsight](hdinsight-hadoop-script-actions-linux.md).
@@ -92,17 +92,17 @@ Para crear clústeres de HDInsight en el sistema operativo Windows, la acción d
 
     Write-HDILog "$configFileName has been configured."
 
-El script toma cuatro parámetros, el nombre del archivo de configuración, la propiedad que desea modificar, el valor que desea establecer y una descripción. Por ejemplo:
+El script toma cuatro parámetros, el nombre del archivo de configuración, la propiedad que desea modificar, el valor que desea establecer y una descripción. Por ejemplo: 
 
     hive-site.xml hive.metastore.client.socket.timeout 90
 
 Estos parámetros establecen el valor hive.metastore.client.socket.timeout en 90 en el archivo hive-site.xml.  El valor predeterminado es 60 segundos.
 
-Este script de ejemplo se puede encontrar también en [https://hditutorialdata.blob.core.windows.net/customizecluster/editSiteConfig.ps1](https://hditutorialdata.blob.core.windows.net/customizecluster/editSiteConfig.ps1).
+Este script de ejemplo también se puede encontrar en [https://hditutorialdata.blob.core.windows.net/customizecluster/editSiteConfig.ps1](https://hditutorialdata.blob.core.windows.net/customizecluster/editSiteConfig.ps1).
 
 HDInsight proporciona varios scripts para instalar los componentes adicionales en clústeres de HDInsight:
 
-| Nombre | Script |
+| NOMBRE | Script |
 | --- | --- |
 | **Instalar Spark** |https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1. Vea [Instalación y uso de Spark en clústeres de HDInsight][hdinsight-install-spark]. |
 | **Instalar R** |https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1. Consulte [Instalación y uso de R en clústeres de HDInsight][hdinsight-r-scripts]. |
@@ -117,7 +117,7 @@ La acción de script puede implementarse desde el Portal de Azure, Azure PowerSh
 >
 
 ## <a name="helper-methods-for-custom-scripts"></a>Métodos auxiliares para scripts personalizados
-Los métodos auxiliares de la acción de script son utilidades que puede usar al escribir scripts personalizados. Estos métodos se definen en [https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1](https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1) y se pueden incluir en los scripts mediante el ejemplo siguiente:
+Los métodos auxiliares de la acción de script son utilidades que puede usar al escribir scripts personalizados. Estos métodos se definen en [https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1](https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1) y pueden incluirse en los scripts mediante el siguiente ejemplo:
 
     # Download config action module from a well-known directory.
     $CONFIGACTIONURI = "https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1";
@@ -138,7 +138,7 @@ Los métodos auxiliares de la acción de script son utilidades que puede usar al
 
 Estos son los métodos auxiliares proporcionados por este script:
 
-| Método auxiliar | Description |
+| Método auxiliar | DESCRIPCIÓN |
 | --- | --- |
 | **Save-HDIFile** |Descargar un archivo desde el Identificador uniforme de recursos (URI) especificado en una ubicación en el disco local asociado con el nodo de máquina virtual de Azure asignado al clúster. |
 | **Expand-HDIZippedFile** |Descomprimir un archivo comprimido. |
@@ -167,13 +167,13 @@ Al desarrollar un script personalizado para un clúster de HDInsight, hay varios
 * Proporcionar vínculos estables a recursos de script
 
     Los usuarios deben asegurarse de que todos los scripts y demás artefactos que se usan en la personalización de un clúster permanecen disponibles durante la vigencia de este y de que las versiones de estos archivos no cambian. Estos recursos son necesarios si hay que restablecer imágenes iniciales de los nodos del clúster. La práctica recomendada es descargar y archivar todo el contenido de una cuenta de almacenamiento controlada por el usuario. Esta puede ser la cuenta de almacenamiento predeterminada o alguna de las cuentas de almacenamiento adicionales especificadas en el momento de la implementación de un clúster personalizado.
-    Así, en los ejemplos de clústeres personalizados de Spark y R proporcionados en la documentación, hemos realizado una copia local de los recursos de esta cuenta de almacenamiento: https://hdiconfigactions.blob.core.windows.net/.
+    Así, en los ejemplos de clústeres personalizados de Spark y R proporcionados en la documentación, hay una copia local de los recursos de esta cuenta de almacenamiento: https://hdiconfigactions.blob.core.windows.net/.
 * Asegurarse de que el script de personalización del clúster es idempotente
 
     Debe prever que se restablezcan imágenes iniciales de los nodos de un clúster de HDInsight durante la vigencia de este. El script de personalización de clústeres se ejecuta siempre que se restablece la imagen inicial de un clúster. Este script debe estar diseñado para ser idempotente, en el sentido de que después de restablecer la imagen inicial, el script debe asegurarse de que el clúster se devuelva al mismo estado personalizado en que se encontraba cuando se ejecutó el script por primera vez cuando se creó inicialmente el clúster. Por ejemplo, si un script personalizado instaló una aplicación en D:\AppLocation en su primera ejecución, en cada ejecución posterior, al restablecer la imagen inicial, el script debe comprobar si la aplicación existe en la ubicación D:\AppLocation antes de continuar con otros pasos del script.
 * Instalación de componentes personalizados en la ubicación óptima
 
-    Cuando se restablece la imagen inicial de los nodos del clúster, es posible volver a dar formato a la unidad de recursos C:\ y a la unidad de sistema D:\, lo que da lugar a la pérdida de los datos y las aplicaciones que se hubieran instalado en esas unidades. Esto también podría ocurrir si un nodo de la máquina virtual de Azure que forma parte del clúster deja de funcionar y se reemplaza por un nuevo nodo. Puede instalar los componentes en la unidad D:/ o en la ubicación C:\apps del clúster. Todas las demás ubicaciones en la unidad C:\ están reservadas. Especifique la ubicación donde las aplicaciones o bibliotecas se van a instalar en el script de personalización del clúster.
+    Cuando se restablece la imagen inicial de los nodos del clúster, es posible volver a dar formato a la unidad de recursos C:\ y a la unidad de sistema D:\, lo que da lugar a la pérdida de los datos y las aplicaciones que se hubieran instalado en esas unidades. Esta pérdida también podría ocurrir si un nodo de la máquina virtual de Azure que forma parte del clúster deja de funcionar y se reemplaza por un nuevo nodo. Puede instalar los componentes en la unidad D:/ o en la ubicación C:\apps del clúster. Todas las demás ubicaciones en la unidad C:\ están reservadas. Especifique la ubicación donde las aplicaciones o bibliotecas se van a instalar en el script de personalización del clúster.
 * Asegurar una alta disponibilidad de la arquitectura de clúster
 
     HDInsight tiene una arquitectura activa-pasiva para alta disponibilidad, en la cual un nodo principal está en modo activo (donde se ejecutan los servicios de HDInsight) y el otro nodo principal está en modo de espera (en el que los servicios de HDInsight no se están ejecutando). Los nodos cambian los modos activos y pasivos si se interrumpen los servicios HDInsight. Si se usa una acción de script para instalar servicios en ambos nodos principales para alta disponibilidad, tenga en cuenta que el mecanismo de conmutación por error de HDInsight no podrá realizar la conmutación por error de estos servicios instalados por el usuario de manera automática. Por tanto, los servicios instalados por el usuario en los nodos principales de HDInsight que se espera que tengan una alta disponibilidad, deben tener su propio mecanismo de conmutación por error si se encuentra en modo activo-pasivo o si se requiere que estén en modo activo-activo.
@@ -202,7 +202,7 @@ Los scripts usados para personalizar un clúster deben encontrarse en la cuenta 
 En este ejemplo, debe asegurarse de que el contenedor "somecontainer" de la cuenta de almacenamiento "somestorageaccount" es públicamente accesible. De lo contrario, el script genera una excepción y un error "No encontrado".
 
 ### <a name="pass-parameters-to-the-add-azurermhdinsightscriptaction-cmdlet"></a>Paso de los parámetros al cmdlet Add-AzureRmHDInsightScriptAction
-Para pasar varios parámetros al cmdlet Add-AzureRmHDInsightScriptAction, debe dar formato al valor de cadena para que contenga todos los parámetros del script. Por ejemplo:
+Para pasar varios parámetros al cmdlet Add-AzureRmHDInsightScriptAction, debe dar formato al valor de cadena para que contenga todos los parámetros del script. Por ejemplo: 
 
     "-CertifcateUri wasb:///abc.pfx -CertificatePassword 123456 -InstallFolderName MyFolder"
 
@@ -246,7 +246,7 @@ Estos son los pasos que se llevaron a cabo al prepararse para implementar estos 
 ## <a name="debug-custom-scripts"></a>Depuración de scripts personalizados
 Se almacenan los registros de errores de scripts, junto con otros resultados, en la cuenta de almacenamiento predeterminada que ha especificado para el clúster en su creación. Los registros se almacenan en una tabla con el nombre *u<\cluster-name-fragment><\time-stamp>setuplog*. Estos son registros agregados que tienen registros de todos los nodos (el nodo principal y los nodos de trabajo) en los que se ejecuta el script en el clúster.
 
-Una manera fácil de comprobar los registros es usar las herramientas de HDInsight para Visual Studio. Para obtener información sobre la instalación de las herramientas, consulte [Introducción al uso de herramientas de Hadoop en Visual Studio para HDInsight](hadoop/apache-hadoop-visual-studio-tools-get-started.md#install-and-upgrade-data-lake-tools-for-visual-studio)
+Una manera fácil de comprobar los registros es usar las herramientas de HDInsight para Visual Studio. Para obtener información sobre la instalación de las herramientas, consulte [Introducción al uso de herramientas de Hadoop en Visual Studio para HDInsight](hadoop/apache-hadoop-visual-studio-tools-get-started.md#install-or-update-data-lake-tools-for-visual-studio)
 
 **Para comprobar el registro mediante Visual Studio**
 

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 03/22/2018
 ms.author: jeedes
-ms.openlocfilehash: faf4b2ff24ef733b740a5b65864941a10de64ed8
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 604249151f3c1ca206f64a178b25ea1dae5b5023
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-spacio"></a>Tutorial: Integración de Azure Active Directory con Spacio
 
@@ -112,18 +112,32 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     > [!NOTE] 
     > Estos valores no son reales. Debe actualizarlos con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de Spacio](mailto:support@spac.io) para obtener estos valores. 
- 
 
-
-4. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo de metadatos en el equipo.
-
-    ![Vínculo de descarga del certificado](./media/active-directory-saas-spacio-tutorial/tutorial_spacio_certificate.png) 
-
-5. Haga clic en el botón **Guardar** .
+4. Haga clic en el botón **Save** (Guardar).
 
     ![Botón Configurar inicio de sesión único](./media/active-directory-saas-spacio-tutorial/tutorial_general_400.png)
 
-6. Para configurar el inicio de sesión único en **Spacio**, debe enviar el archivo **XML de metadatos** descargado al [equipo de soporte técnico de Spacio](mailto:support@spac.io). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+5. Para generar la **dirección URL de Metadatos**, lleve a cabo los pasos siguientes:
+
+    a. Haga clic en **Registros de aplicaciones**.
+    
+    ![Configurar inicio de sesión único](./media/active-directory-saas-spacio-tutorial/tutorial_spacio_appregistrations.png)
+   
+    b. Haga clic en **Puntos de conexión** para abrir el cuadro de diálogo **Puntos de conexión**.  
+    
+    ![Configurar inicio de sesión único](./media/active-directory-saas-spacio-tutorial/tutorial_spacio_endpointicon.png)
+
+    c. Haga clic en el botón **Copiar** para copiar la dirección URL del **DOCUMENTO DE METADATOS DE FEDERACIÓN** y péguela en el Bloc de notas.
+    
+    ![Configurar inicio de sesión único](./media/active-directory-saas-spacio-tutorial/tutorial_spacio_endpoint.png)
+     
+    d. Ahora, vaya a la página de propiedades de **Spacio**, copie el **Identificador de la aplicación** con el botón **Copiar** y péguelo en el Bloc de notas.
+ 
+    ![Configurar inicio de sesión único](./media/active-directory-saas-spacio-tutorial/tutorial_spacio_appid.png)
+
+    e. Genere la **Dirección URL de metadatos** con el patrón siguiente: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
+
+6. Para configurar el inicio de sesión único en **Spacio**, debe enviar la **dirección URL de metadatos** que se ha generado al [equipo de soporte técnico de Spacio](mailto:support@spac.io). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 > [!TIP]
 > Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)

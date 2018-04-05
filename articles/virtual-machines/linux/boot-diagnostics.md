@@ -1,25 +1,25 @@
 ---
-title: "Diagnósticos de arranque de máquinas virtuales Linux en Azure | Microsoft Docs"
-description: "Introducción a las dos características de depuración para máquinas virtuales Linux en Azure"
+title: Diagnósticos de arranque de máquinas virtuales Linux en Azure | Microsoft Docs
+description: Introducción a las dos características de depuración para máquinas virtuales Linux en Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
 author: Deland-Han
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2017
+ms.date: 03/19/2018
 ms.author: delhan
-ms.openlocfilehash: 70254d39b5c6326166f7e29fdfc99533835502f9
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: bf8e1b338012898ed3de3f443cf492b6890af796
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-use-boot-diagnostics-to-troubleshoot-linux-virtual-machines-in-azure"></a>Instrucciones de uso de diagnósticos de arranque para solucionar problemas de máquinas virtuales Linux en Azure
 
@@ -39,9 +39,9 @@ Ambas características son compatibles para Azure Virtual Machines en todas las 
 
 ## <a name="common-boot-errors"></a>Errores comunes de arranque
 
-- [Problemas del sistema de archivos](https://blogs.msdn.microsoft.com/linuxonazure/2016/09/13/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck-inodes/)
-- [Problemas de kernel](https://blogs.msdn.microsoft.com/linuxonazure/2016/10/09/linux-recovery-manually-fixing-non-boot-issues-related-to-kernel-problems/)
-- [Errores de FSTAB](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/ )
+- [Problemas del sistema de archivos](https://support.microsoft.com/help/3213321/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck) 
+- [Problemas de kernel](https://support.microsoft.com/help/4091524/how-recovery-azure-linux-vm-from-kernel-related-boot-related-issues/) 
+- [Errores de FSTAB](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors)
 
 ## <a name="enable-diagnostics-on-a-new-virtual-machine"></a>Habilitación del diagnóstico en una nueva máquina virtual
 1. Cuando cree una máquina virtual desde la versión preliminar del portal, seleccione **Azure Resource Manager** en la lista desplegable de modelo de implementación:
@@ -79,3 +79,7 @@ Ambas características son compatibles para Azure Virtual Machines en todas las 
 Para habilitar el diagnóstico de arranque a través del portal, también puede actualizar una máquina virtual existente en el portal. Seleccione la opción Diagnósticos de arranque y guarde. Reinicie la máquina virtual para que surta efecto.
 
 ![Actualización de una máquina virtual existente](./media/boot-diagnostics/screenshot5.png)
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Si ve el error "No se pudo obtener el contenido del registro" en diagnósticos de arranque de la máquina virtual, consulte [No se pudo obtener el contenido del registro en diagnósticos de arranque de la máquina virtual](https://support.microsoft.com/help/4094480/failed-to-get-contents-of-the-log-error-in-vm-boot-diagnostics-in-azur).

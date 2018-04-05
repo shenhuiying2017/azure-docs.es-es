@@ -1,25 +1,25 @@
 ---
 title: Compatibilidad con la fuente de cambios en Azure Cosmos DB | Microsoft Docs
-description: "Use la compatibilidad con la fuente de cambios de Azure Cosmos DB para controlar los cambios en documentos y realizar el procesamiento basado en eventos tales como desencadenadores y mantener actualizados las cachés y los sistemas de análisis."
+description: Use la compatibilidad con la fuente de cambios de Azure Cosmos DB para controlar los cambios en documentos y realizar el procesamiento basado en eventos tales como desencadenadores y mantener actualizados las cachés y los sistemas de análisis.
 keywords: fuente de cambios
 services: cosmos-db
 author: rafats
 manager: jhubbard
 editor: mimig
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 2d7798db-857f-431a-b10f-3ccbc7d93b50
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
-ms.date: 01/29/2018
+ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: e0940ab11f8840ffa2dbdbfd739340f8af5caf51
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 16f339540767246ef82bce020aacf9846c8d2e0b
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Compatibilidad con la fuente de cambios en Azure Cosmos DB
 
@@ -34,7 +34,13 @@ La **compatibilidad con la fuente de cambios**  en Azure Cosmos DB le permite cr
 ![Uso de la fuente de cambios de Azure Cosmos DB para aumentar la eficacia de los escenarios de informática orientada a eventos y análisis en tiempo real](./media/change-feed/changefeedoverview.png)
 
 > [!NOTE]
-> La compatibilidad con la fuente de cambios se proporciona para todos los contenedores y modelos de datos de Azure Cosmos DB. Sin embargo, la fuente de cambios se lee mediante el cliente de SQL y serializa los elementos en formato JSON. Debido al formato JSON, los clientes de MongoDB experimentarán una discrepancia entre los documentos con formato BSON y la fuente de cambios con formato JSON. 
+> La compatibilidad con la fuente de cambios se proporciona para todos los contenedores y modelos de datos de Azure Cosmos DB. Sin embargo, la fuente de cambios se lee mediante el cliente de SQL y serializa los elementos en formato JSON. Debido al formato JSON, los clientes de MongoDB experimentarán una discrepancia entre los documentos con formato BSON y la fuente de cambios con formato JSON.
+
+En el siguiente vídeo, Andrew Liu, administrador de programas de Azure Cosmos DB, muestra cómo funciona la fuente de cambios de Azure Cosmos DB.
+
+> [!VIDEO https://www.youtube.com/embed/mFnxoxeXlaU]
+>
+>
 
 ## <a name="how-does-change-feed-work"></a>¿Cómo funciona la fuente de cambios?
 
@@ -271,7 +277,7 @@ using (DocumentClient destClient = new DocumentClient(destCollInfo.Uri, destColl
 
 ¡Ya está! Después de estos pasos, los documentos empezarán a entrar en el método **DocumentFeedObserver ProcessChangesAsync**.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para más información acerca Azure Cosmos DB con Azure Functions, consulte [Azure Cosmos DB: informática de base de datos sin servidor con Azure Functions](serverless-computing-database.md).
 

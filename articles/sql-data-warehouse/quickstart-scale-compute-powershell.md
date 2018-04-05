@@ -1,24 +1,24 @@
 ---
-title: "Inicio rápido: Escalabilidad horizontal de un proceso en Azure SQL Data Warehouse (PowerShell) | Microsoft Docs"
+title: 'Inicio rápido: Escalabilidad horizontal de un proceso en Azure SQL Data Warehouse (PowerShell) | Microsoft Docs'
 description: Tareas de PowerShell para escalar horizontalmente los recursos de procesos mediante el ajuste de unidades de almacenamiento de datos.
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
 manager: jhubbard
-editor: 
+editor: ''
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 01/31/2018
+ms.date: 03/16/2018
 ms.author: elbutter;barbkess
-ms.openlocfilehash: a3a435d6bdb0d35c96349540d5e9f9b5be61bd9b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3236c0ad9676712afd220a3c8a9326f3ea1f59d5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-powershell"></a>Guía de inicio rápido: Escalabilidad horizontal de un proceso en Azure SQL Data Warehouse en PowerShell
 
@@ -32,7 +32,7 @@ Para realizar este tutorial, es necesaria la versión 5.1.1 del módulo de Azure
 
 En este inicio rápido se da por supuesto que ya tiene una instancia de SQL Data Warehouse que puede escalar. Si tiene que crear una, consulte [Guía de inicio rápido: Creación de una instancia de Azure SQL Data Warehouse en Azure Portal, y realización de consultas en ella](create-data-warehouse-portal.md) para crear un almacenamiento de datos denominado **mySampleDataWarehouse**. 
 
-## <a name="log-in-to-azure"></a>Inicie sesión en Azure.
+## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
 
 Inicie sesión en la suscripción de Azure con el comando [Add-AzureRmAccount](/powershell/module/azurerm.profile/add-azurermaccount) y siga las instrucciones de la pantalla.
 
@@ -64,7 +64,7 @@ Siga estos pasos para buscar información de ubicación para el almacenamiento d
 
     ![Nombre del servidor y grupo de recursos](media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
 
-4. Anote el nombre del almacenamiento de datos que se usará como nombre de la base de datos. Además, anote el nombre del servidor y el grupo de recursos. Los usará en los comandos para pausar y reanudar.
+4. Anote el nombre del almacenamiento de datos que se usará como nombre de la base de datos. Recuerda que un almacenamiento de datos es un tipo de base de datos. Además, anote el nombre del servidor y el grupo de recursos. Los usará en los comandos para pausar y reanudar.
 5. Si su servidor es foo.database.windows.net, use solo la primera parte como nombre de servidor en los cmdlets de PowerShell. En la imagen anterior, el nombre completo del servidor es newserver-20171113.database.windows.net. Usamos **newserver-20171113** como nombre del servidor en el cmdlet de PowerShell.
 
 ## <a name="scale-compute"></a>Escalado de proceso
@@ -77,12 +77,13 @@ Para cambiar las unidades de almacenamiento de datos, use el cmdlet de PowerShel
 Set-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300"
 ```
 
-## <a name="check-database-state"></a>Comprobar el estado de la base de datos
+## <a name="check-data-warehouse-state"></a>Comprobar el estado del almacenamiento de datos
 
 Para ver el estado actual del almacenamiento de datos, use el cmdlet [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase) de PowerShell. De esta forma, se obtiene el estado de la base de datos **mySampleDataWarehouse** del grupo de recursos **myResourceGroup** y el servidor **mynewserver-20171113.database.windows.net**.
 
 ```powershell
-Get-AzureRmSqlDatabase -ResourceGroupName myResourceGroup -ServerName mynewserver-20171113 -DatabaseName mySampleDataWarehouse
+$database = Get-AzureRmSqlDatabase -ResourceGroupName myResourceGroup -ServerName mynewserver-20171113 -DatabaseName mySampleDataWarehouse
+$database
 ```
 
 El resultado será similar a este:
@@ -113,9 +114,15 @@ ReadScale                     : Disabled
 ZoneRedundant                 : False
 ```
 
-Puede comprobar el **Estado** de la base de datos. En este caso, puede ver esta base de datos está en línea.  Al ejecutar este comando, debería recibir uno de los siguientes valores de Estado: En línea, Pausando, Reanudando, Escalando o Pausado.
+Puede comprobar el **Estado** de la base de datos en la salida. En este caso, puede ver esta base de datos está en línea.  Al ejecutar este comando, debería recibir uno de los siguientes valores de Estado: En línea, Pausando, Reanudando, Escalando o Pausado. 
 
-## <a name="next-steps"></a>pasos siguientes
+Para ver el estado del servicio, use el comando siguiente:
+
+```powershell
+$database | Select-Object DatabaseName,Status
+```
+
+## <a name="next-steps"></a>Pasos siguientes
 Ya ha aprendido a escalar procesos para el almacenamiento de datos. Para más información sobre Azure SQL Data Warehouse, siga el tutorial para cargar los datos.
 
 > [!div class="nextstepaction"]

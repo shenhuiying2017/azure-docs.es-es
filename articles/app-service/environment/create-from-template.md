@@ -1,6 +1,6 @@
 ---
-title: "Creación de una instancia de Azure App Service Environment mediante plantillas de Resource Manager"
-description: "Explica cómo crear una instancia externa o con un ILB de Azure App Service Environment mediante una plantilla de Resource Manager"
+title: Creación de una instancia de Azure App Service Environment mediante plantillas de Resource Manager
+description: Explica cómo crear una instancia externa o con un ILB de Azure App Service Environment mediante una plantilla de Resource Manager
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 015bf031aea6b79fcca0a416253e9aa47bb245b6
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d85384620b2e4c7ba0de84e0fe82ef3e83376dd8
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Creación de una instancia de ASE mediante el uso de una plantilla de Azure Resource Manager
 
@@ -40,7 +40,7 @@ Para automatizar la creación del ASE:
 
 2. Una vez creado el ASE con un ILB, se carga un certificado SSL que coincide con su dominio de ASE con un ILB.
 
-3. El certificado SSL cargado se asigna al ASE con un ILB como su certificado SSL "predeterminado".  Este certificado se usa para el tráfico SSL a las aplicaciones del ASE con ILB cuando usan el dominio raíz común asignado al ASE (por ejemplo, https://someapp.mycustomrootdomain.com).
+3. El certificado SSL cargado se asigna al ASE con un ILB como su certificado SSL "predeterminado".  Este certificado se usa para el tráfico SSL a las aplicaciones del ASE con ILB cuando usan el dominio raíz común asignado al ASE (por ejemplo, https://someapp.mycustomrootdomain.com)).
 
 
 ## <a name="create-the-ase"></a>Creación del ASE
@@ -54,15 +54,17 @@ Si desea crear un ASE con un ILB, use estos [ejemplos][quickstartilbasecreate] d
 
 Después de que se llene el archivo *azuredeploy.parameters.json*, cree el ASE mediante el fragmento de código de PowerShell. Cambie las rutas del archivo para que coincidan con las ubicaciones en las que se encuentran los archivos de plantilla de Resource Manager. Recuerde especificar sus propios valores para el nombre de implementación y el nombre del grupo de recursos de Resource Manager:
 
-    $templatePath="PATH\azuredeploy.json"
-    $parameterPath="PATH\azuredeploy.parameters.json"
+```powershell
+$templatePath="PATH\azuredeploy.json"
+$parameterPath="PATH\azuredeploy.parameters.json"
 
-    New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+```
 
 La creación de un ASE tarda aproximadamente una hora. Luego el ASE se muestra en el portal en la lista de ASE de la suscripción que desencadenó la implementación.
 
 ## <a name="upload-and-configure-the-default-ssl-certificate"></a>Carga y configuración del certificado SSL "predeterminado"
-Es preciso asociar un certificado SSL "predeterminado" con el ASE para establecer conexiones SSL con las aplicaciones. Si el sufijo DNS predeterminado del ASE es *internal-contoso.com*, una conexión a https://some-random-app.internal-contoso.com requiere un certificado SSL que sea válido para **.internal contoso.com*. 
+Es preciso asociar un certificado SSL "predeterminado" con el ASE para establecer conexiones SSL con las aplicaciones. Si el sufijo DNS predeterminado del ASE es *internal-contoso.com*, una conexión a https://some-random-app.internal-contoso.com requiere un certificado SSL que sea válido para **.internal-contoso.com*. 
 
 Obtenga un certificado SSL válido a través de las autoridades de certificados internas, adquiriendo un certificado de un emisor externo o usando un certificado autofirmado. Independientemente del origen del certificado SSL, es necesario configurar correctamente los siguientes atributos del certificado:
 
@@ -82,17 +84,19 @@ Use el siguiente fragmento de código de PowerShell para:
 
 El código de PowerShell para la codificación en base64 se adaptó del [blog de la cadena de PowerShell][examplebase64encoding]:
 
-        $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
+```powershell
+$certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
 
-        $certThumbprint = "cert:\localMachine\my\" + $certificate.Thumbprint
-        $password = ConvertTo-SecureString -String "CHANGETHISPASSWORD" -Force -AsPlainText
+$certThumbprint = "cert:\localMachine\my\" + $certificate.Thumbprint
+$password = ConvertTo-SecureString -String "CHANGETHISPASSWORD" -Force -AsPlainText
 
-        $fileName = "exportedcert.pfx"
-        Export-PfxCertificate -cert $certThumbprint -FilePath $fileName -Password $password     
+$fileName = "exportedcert.pfx"
+Export-PfxCertificate -cert $certThumbprint -FilePath $fileName -Password $password     
 
-        $fileContentBytes = get-content -encoding byte $fileName
-        $fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
-        $fileContentEncoded | set-content ($fileName + ".b64")
+$fileContentBytes = get-content -encoding byte $fileName
+$fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
+$fileContentEncoded | set-content ($fileName + ".b64")
+```
 
 Una vez que el certificado SSL se genera y convierte correctamente en una cadena con codificación base64, use el ejemplo de la plantilla de Resource Manager [Configuración del certificado SSL predeterminado][quickstartconfiguressl] en GitHub. 
 
@@ -107,37 +111,41 @@ Los parámetros del archivo *azuredeploy.parameters.json* se enumeran aquí:
 
 Aquí se muestra un ejemplo abreviado de *azuredeploy.parameters.json* :
 
-    {
-         "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json",
-         "contentVersion": "1.0.0.0",
-         "parameters": {
-              "appServiceEnvironmentName": {
-                   "value": "yourASENameHere"
-              },
-              "existingAseLocation": {
-                   "value": "East US 2"
-              },
-              "pfxBlobString": {
-                   "value": "MIIKcAIBAz...snip...snip...pkCAgfQ"
-              },
-              "password": {
-                   "value": "PASSWORDGOESHERE"
-              },
-              "certificateThumbprint": {
-                   "value": "AF3143EB61D43F6727842115BB7F17BBCECAECAE"
-              },
-              "certificateName": {
-                   "value": "DefaultCertificateFor_yourASENameHere_InternalLoadBalancingASE"
-              }
-         }
+```json
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "appServiceEnvironmentName": {
+      "value": "yourASENameHere"
+    },
+    "existingAseLocation": {
+      "value": "East US 2"
+    },
+    "pfxBlobString": {
+      "value": "MIIKcAIBAz...snip...snip...pkCAgfQ"
+    },
+    "password": {
+      "value": "PASSWORDGOESHERE"
+    },
+    "certificateThumbprint": {
+      "value": "AF3143EB61D43F6727842115BB7F17BBCECAECAE"
+    },
+    "certificateName": {
+      "value": "DefaultCertificateFor_yourASENameHere_InternalLoadBalancingASE"
     }
+  }
+}
+```
 
 Después de que se llene el archivo *azuredeploy.parameters.json*, configure el certificado SSL mediante el fragmento de código de PowerShell. Cambie las rutas del archivo para que coincidan con la ubicación de la máquina en la que se encuentran los archivos de plantilla de Resource Manager. Recuerde especificar sus propios valores para el nombre de implementación y el nombre del grupo de recursos de Resource Manager:
 
-     $templatePath="PATH\azuredeploy.json"
-     $parameterPath="PATH\azuredeploy.parameters.json"
+```powershell
+$templatePath="PATH\azuredeploy.json"
+$parameterPath="PATH\azuredeploy.parameters.json"
 
-     New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+```
 
 La aplicación del cambio se tarda aproximadamente 40 minutos por cada front-end de ASE. Por ejemplo, para un ASE de un tamaño predeterminado que usa dos front-ends, la plantilla tarda aproximadamente una hora y veinte minutos en completarse. Mientras la plantilla se ejecute, el ASE no se puede escalar.  
 

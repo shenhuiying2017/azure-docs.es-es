@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/09/2017
 ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: 3652e0171e0c6a53c16fb5b5fde20df9ed2ab7c7
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: f41cc83bfb18146e46e7d8501318acd68ce9c421
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Ejecución de tareas en segundo plano con WebJobs en Azure App Service
 
@@ -170,15 +170,7 @@ when making changes in one don't forget the other two.
 
 ## <a name="cron-expressions"></a>Expresiones CRON
 
-Una [expresión CRON](https://en.wikipedia.org/wiki/Cron) se compone de seis campos: `{second} {minute} {hour} {day} {month} {day of the week}`.  Estos son algunos ejemplos:
-
-* Cada 15 minutos: `0 */15 * * * *`
-* Cada hora (es decir, siempre que el número de minutos sea 0): `0 0 * * * *` 
-* Cada hora de 9 a 17 horas: `0 0 9-17 * * *` 
-* A las 9:30 todos los días: `0 30 9 * * *`
-* A las 9:30 cada día de lunes a viernes: `0 30 9 * * 1-5`
-
-Puede escribir la expresión CRON en el portal o incluir un archivo `settings.job` en la raíz del archivo *ZIP* del WebJob, como en el ejemplo siguiente:
+Puede especificar una [expresión CRON](../azure-functions/functions-bindings-timer.md#cron-expressions) en el portal o incluir un archivo `settings.job` en la raíz del archivo *.zip* de WebJob, como en el ejemplo siguiente:
 
 ```json
 {

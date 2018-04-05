@@ -6,13 +6,13 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 03/20/2018
 ms.author: raynew
-ms.openlocfilehash: c4fb466443e2f29fb79c3707ce142895f140f9a7
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6f2f28b36fdb3751a469d66f242f9fa2119f9ae8
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Matriz de compatibilidad para la replicación de VMware y servidores físicos en Azure
 
@@ -175,7 +175,7 @@ Arquitectura del sistema operativo invitado | 64 bits | Se produce un error en l
 Tamaño del disco del sistema operativo | Hasta 2048 GB | Se produce un error en la comprobación si no es compatible. 
 Número de discos del sistema operativo | 1 | Se produce un error en la comprobación si no es compatible.  
 Número de discos de datos | 64 o menos | Se produce un error en la comprobación si no es compatible.  
-Tamaño de VHD del disco de datos | Hasta 4095 GB | Se produce un error en la comprobación si no es compatible. 
+Tamaño del disco de datos | Hasta 4095 GB | Se produce un error en la comprobación si no es compatible. 
 Adaptadores de red | Se admiten varios adaptadores. | 
 VHD compartido | No compatible. | Se produce un error en la comprobación si no es compatible. 
 Disco FC | No compatible. | Se produce un error en la comprobación si no es compatible. 

@@ -1,5 +1,5 @@
 ---
-title: "Implementación de recursos con la plantilla y la CLI de Azure | Microsoft Docs"
+title: Implementación de recursos con la plantilla y la CLI de Azure | Microsoft Docs
 description: Use Azure Resource Manager y la CLI de Azure para implementar recursos en Azure. Los recursos se definen en una plantilla de Resource Manager.
 services: azure-resource-manager
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: tomfitz
-ms.openlocfilehash: 9c8b352194e3a624097a48b5d312356a0ead4276
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: f920165448f4197778faec07c9d49e0bddf1b555
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Implementación de recursos con plantillas de Resource Manager y la CLI de Azure
 
@@ -82,10 +82,12 @@ En el ejemplo anterior, se requiere un identificador URI accesible públicamente
 
 En Cloud Shell, use los comandos siguientes:
 
-   ```azurecli-interactive
-   az group create --name examplegroup --location "South Central US"
-   az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json --parameters storageAccountType=Standard_GRS
-   ```
+```azurecli-interactive
+az group create --name examplegroup --location "South Central US"
+az group deployment create --resource-group examplegroup \
+  --template-uri <copied URL> \
+  --parameters storageAccountType=Standard_GRS
+```
 
 ## <a name="deploy-to-more-than-one-resource-group-or-subscription"></a>Implementación en varios grupos de recursos o suscripciones
 
@@ -234,7 +236,7 @@ La plantilla siguiente se usa para los ejemplos de este artículo. Cópiela y gu
 }
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Los ejemplos de este artículo implementan recursos en un grupo de recursos de su suscripción predeterminada. Para usar una suscripción diferente, consulte [Administración de varias suscripciones de Azure](/cli/azure/manage-azure-subscriptions-azure-cli).
 * Para obtener un script de ejemplo completo que implementa una plantilla, vea [Resource Manager template deployment script](resource-manager-samples-cli-deploy.md) (Script de implementación de plantilla de Resource Manager).
 * Para entender cómo definir parámetros en la plantilla, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](resource-group-authoring-templates.md).

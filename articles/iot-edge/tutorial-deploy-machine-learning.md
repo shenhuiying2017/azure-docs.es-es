@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 03/12/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 1b8a6079a68c50f80b593a1f56bc5256047ef31c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3d3a271bcdd5c507125b8b1a5482f833607a5a78
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Implementación de Azure Machine Learning como un módulo de IoT Edge (versión preliminar)
 
@@ -35,6 +35,8 @@ El módulo de Azure Machine Learning que crea en este tutorial lee los datos de 
 * La cadena de conexión de IoT Hub del centro de IoT al que se conecta el dispositivo de IoT Edge.
 * Una cuenta de Azure Machine Learning. Para crear una cuenta, siga las instrucciones que se incluyen en [Creación de cuentas de Azure Machine Learning e instalación de Azure Machine Learning Workbench](../machine-learning/preview/quickstart-installation.md#create-azure-machine-learning-services-accounts). No es necesario instalar la aplicación de área de trabajo para este tutorial. 
 * Administración del módulo de Azure Machine Learning en su equipo. Para configurar el entorno y crear una cuenta, siga las instrucciones de [Instalación de Administración de modelos](https://docs.microsoft.com/azure/machine-learning/preview/deployment-setup-configuration).
+
+El módulo de Azure Machine Learning no admite procesadores ARM. 
 
 ## <a name="create-the-azure-ml-container"></a>Creación del contenedor de Azure Machine Learning
 En esta sección, descargará los archivos de modelo entrenados y los convertirá en un contenedor de Azure Machine Learning.  

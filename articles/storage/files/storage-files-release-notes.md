@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: wgries
-ms.openlocfilehash: b42287580078b4391ddbc5b8ff2835131c64236d
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: bb7fa68809341b5132d551ff1cab187bd4d7eeac
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent-preview"></a>Notas de la versión del agente de Azure File Sync (versión preliminar)
 Azure File Sync le permite centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Las instalaciones de Windows Server se transforman en una memoria caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a los datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -93,11 +93,12 @@ Los siguientes elementos no se sincronizan, pero el resto del sistema funciona c
 - Un punto de conexión de servidor no puede estar en el volumen del sistema. Por ejemplo, C:\MyFolder no es una ruta de acceso aceptable, a menos que C:\MyFolder sea un punto de montaje.
 - Los clústeres de conmutación por error solo son compatibles con discos en clúster, pero no con volúmenes compartidos de clúster (CSV).
 - No se puede anidar un punto de conexión de servidor. Puede coexistir en el mismo volumen en paralelo con otro punto de conexión.
-- La eliminación de un gran número (más de 10 000) de directorios desde un servidor de una sola vez puede provocar errores de sincronización. Elimine directorios en lotes de menos de 10 000. Asegúrese de que la sincronización de las operaciones de eliminación es correcta antes de eliminar el siguiente lote.
 - En esta versión se ha agregado compatibilidad para que la raíz de sincronización se encuentre en la raíz de un volumen.
 - No almacene un archivo de paginación de aplicación o sistema operativo en un punto de conexión de servidor.
 - Una novedad de esta versión es que se han añadido nuevos eventos para realizar un seguimiento del tiempo de ejecución total para los niveles de nube (EventID 9016), el progreso de carga de sincronización (EventID 9302) y los archivos que no se han sincronizado (EventID 9900).
-- Una novedad de esta versión es que se ha incrementado considerablemente el rendimiento de sincronización de espacios de nombres de recuperación ante desastres rápida.
+- En esta versión se incluyen las siguientes mejoras: 
+- Considerable incremento del rendimiento de sincronización de espacios de nombres de recuperación ante desastres rápida.
+- No es necesario eliminar grandes cantidades de directorios (más de 10 000) en lotes con v2*.
  
 ### <a name="cloud-tiering"></a>Niveles de nube
 - Modificado respecto a la versión anterior: los nuevos archivos están organizados en niveles dentro de 1 hora (anteriormente 32 horas) sujeto a la configuración de directiva de niveles. Se proporciona un cmdlet de PowerShell para establecer niveles a petición. Puede usar el cmdlet para evaluar los niveles de manera más eficaz sin tener que esperar al proceso en segundo plano.

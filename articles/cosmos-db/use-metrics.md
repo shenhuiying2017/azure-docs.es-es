@@ -1,13 +1,13 @@
 ---
-title: "Supervisión y depuración con métricas de Azure Cosmos DB | Microsoft Docs"
-description: "Use las métricas de Azure Cosmos DB para depurar problemas comunes y supervisar la base de datos."
-keywords: "Métricas"
+title: Supervisión y depuración con métricas de Azure Cosmos DB | Microsoft Docs
+description: Use las métricas de Azure Cosmos DB para depurar problemas comunes y supervisar la base de datos.
+keywords: Métricas
 services: cosmos-db
 author: gnot
 manager: jhubbard
-editor: 
-documentationcenter: 
-ms.assetid: 
+editor: ''
+documentationcenter: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: govindk
-ms.openlocfilehash: 3b3de91c3850071d7c3fbff1faccde6c17a606e3
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 37ef1bc01bd3679e664e71e6a6e3bede84615305
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="monitoring-and-debugging-with-metrics-in-azure-cosmos-db"></a>Supervisión y depuración con métricas de Azure Cosmos DB
 
@@ -34,7 +34,7 @@ Este artículo le guía a través de casos de uso comunes y cómo se pueden util
 
 ## <a name="understanding-how-many-requests-are-succeeding-or-causing-errors"></a>Descripción de cuántas solicitudes se realizan correctamente o causan errores
 
-Para empezar, vaya a [Azure Portal](https://portal.azure.com) y navegue hasta la hoja **Métricas**. En la hoja, busque el gráfico **Cantidad de solicitudes que superaron la capacidad durante 1 minuto**. Este gráfico muestra las solicitudes totales minuto a minuto segmentadas por el código de estado. Para más información sobre los códigos de estado HTTP, consulte [HTTP Status Codes for Azure Cosmos DB](https://docs.microsoft.com/rest/api/documentdb/http-status-codes-for-documentdb) (Códigos de estado HTTP para Azure Cosmos DB).
+Para empezar, vaya a [Azure Portal](https://portal.azure.com) y navegue hasta la hoja **Métricas**. En la hoja, busque el gráfico **Cantidad de solicitudes que superaron la capacidad durante 1 minuto**. Este gráfico muestra las solicitudes totales minuto a minuto segmentadas por el código de estado. Para más información sobre los códigos de estado HTTP, consulte [HTTP Status Codes for Azure Cosmos DB](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb) (Códigos de estado HTTP para Azure Cosmos DB).
 
 El código de estado de error más común es 429 (limitación), lo que significa que las solicitudes a Azure Cosmos DB superan el rendimiento aprovisionado. La solución más común para este problema consiste en [escalar verticalmente las RU](./set-throughput.md) para la colección dada.
 

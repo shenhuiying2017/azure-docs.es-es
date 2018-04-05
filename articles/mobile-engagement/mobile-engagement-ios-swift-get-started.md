@@ -1,11 +1,11 @@
 ---
-title: "Introducción a Azure Mobile Engagement para iOS en Swift | Microsoft Docs"
-description: "Aprenda a usar Azure Mobile Engagement con los análisis y las notificaciones de inserción para aplicaciones iOS."
+title: Introducción a Azure Mobile Engagement para iOS en Swift | Microsoft Docs
+description: Aprenda a usar Azure Mobile Engagement con los análisis y las notificaciones de inserción para aplicaciones iOS.
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 196c282d-6f2f-4cbc-aeee-6517c5ad866d
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: swift
 ms.topic: hero-article
 ms.date: 09/20/2016
 ms.author: piyushjo
-ms.openlocfilehash: 1011b9823333e79a52cd2d187df4f8d063b1f799
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1168e05afa457825c2b982d6d33ea73c62b565dc
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-ios-apps-in-swift"></a>Introducción a Azure Mobile Engagement para aplicaciones iOS en Swift
+> [!IMPORTANT]
+> Azure Mobile Engagement se retira el 31 de marzo de 2018. Esta página se eliminará poco después.
+> 
+
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 En este tema se muestra cómo utilizar Azure Mobile Engagement para conocer el uso de las aplicaciones y enviar notificaciones push a usuarios segmentados en una aplicación de iOS.
@@ -40,7 +44,7 @@ Este tutorial requiere lo siguiente:
 Completar este tutorial es un requisito previo para todos los tutoriales de Mobile Engagement para aplicaciones iOS.
 
 > [!NOTE]
-> Para completar este tutorial, deberá tener una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-ios-swift-get-started).
+> Para completar este tutorial, deberá tener una cuenta de Azure activa. En caso de no tener cuenta, puede crear una de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-ios-swift-get-started).
 > 
 > 
 
@@ -103,7 +107,7 @@ Para comenzar a enviar datos y asegurarse de que los usuarios estén activos, de
    
     `class ViewController : EngagementViewController {`
 
-## <a id="monitor"></a>Conexión de la aplicación con la supervisión en tiempo real
+## <a id="monitor"></a>Conectar la aplicación con la supervisión en tiempo real
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
 ## <a id="integrate-push"></a>Habilitación de las notificaciones de inserción y mensajería en la aplicación

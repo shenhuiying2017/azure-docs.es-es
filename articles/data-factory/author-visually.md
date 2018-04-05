@@ -4,20 +4,20 @@ description: Información acerca de cómo utilizar la creación visual de Azure 
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/9/2018
+ms.date: 03/27/2018
 ms.author: shlo
-ms.openlocfilehash: 954693ee208dc7868a5a5ad0e774c5c352036627
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 977fd59b746d13e9bf331edc32c63dd5a21c69f7
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Creación visual de Azure Data Factory
 La experiencia de la interfaz de usuario (UX) de Azure Data Factory le permite crear e implementar visualmente recursos para la factoría de datos sin tener que escribir código. Puede arrastrar y colocar las actividades en un lienzo de canalización, realizar ejecuciones de prueba, depurar de forma iterativa e implementar y supervisar ejecuciones de canalizaciones. Hay dos enfoques a la hora de utilizar la experiencia de la interfaz de usuario para llevar a cabo la creación visual:
@@ -33,7 +33,7 @@ La creación visual con el servicio Data Factory difiere de la creación visual 
 
 ![Configuración del servicio Data Factory ](media/author-visually/configure-data-factory.png)
 
-Cuando usa el **lienzo de creación** de UX para crear directamente con el servicio Data Factory, solo está disponible el modo **Publicar**. Los cambios que realice se publicarán directamente en el servicio Data Factory.
+Cuando usa el **lienzo de creación** de UX para crear directamente con el servicio Data Factory, solo está disponible el modo **Publicar todo**. Los cambios que realice se publicarán directamente en el servicio Data Factory.
 
 ![Modo Publicar](media/author-visually/data-factory-publish.png)
 
@@ -61,9 +61,12 @@ El panel muestra la siguiente configuración del repositorio de código de VSTS:
 | Configuración | DESCRIPCIÓN | Valor |
 |:--- |:--- |:--- |
 | **Tipo de repositorio** | El tipo de repositorio de código de VSTS.<br/>**Nota**: GitHub actualmente no se admite. | Git de Visual Studio Team Services |
+| **Azure Active Directory** | El nombre de su inquilino de Azure AD. | <your tenant name> |
 | **Cuenta de Visual Studio Team Services** | El nombre de su cuenta de VSTS. Puede buscar el nombre de cuenta de VSTS en `https://{account name}.visualstudio.com`. Puede [iniciar sesión en su cuenta de VSTS](https://www.visualstudio.com/team-services/git/) para acceder a su perfil de Visual Studio y ver sus proyectos y repositorios. | \<su nombre de cuenta> |
 | **ProjectName** | El nombre del proyecto de VSTS. Puede buscar el nombre de proyecto de VSTS en `https://{account name}.visualstudio.com/{project name}`. | \<su nombre de proyecto de VSTS> |
 | **RepositoryName** | El nombre del repositorio de código de VSTS. Los proyectos de VSTS contienen repositorios de Git para administrar el código fuente a medida que crece el proyecto. Puede crear un repositorio nuevo o usar uno existente en el proyecto. | \<el nombre del repositorio de código de VSTS> |
+| **Rama de colaboración** | La rama de colaboración de VSTS que se usará para la publicación. De forma predeterminada, es `master`. Cámbielo en caso de que desee publicar recursos de otra rama. | \<nombre de la rama de colaboración> |
+| **Carpeta raíz** | La carpeta raíz de la rama de colaboración de VSTS. | \<nombre de la carpeta raíz > |
 | **Import existing Data Factory resources to repository** (Importar recursos existentes de Data Factory en el repositorio). | Especifica si se deben importar los recursos de la factoría de datos existente del **lienzo de creación** de UX en un repositorio Git de VSTS. Active la casilla para importar los recursos de la factoría de datos en el repositorio Git asociado en formato JSON. Esta acción exporta cada recurso individualmente (es decir, los servicios vinculados y los conjuntos de datos se exportan a archivos JSON independientes). Cuando esta casilla no está activada, no se importan los recursos existentes. | Activada (valor predeterminado) |
 
 #### <a name="configuration-method-2-ux-authoring-canvas"></a>Método de configuración 2: lienzo de creación de UX
@@ -76,41 +79,41 @@ Aparece un panel de configuración. Para obtener más detalles acerca de las opc
 ### <a name="use-version-control"></a>Uso del control de versiones
 Los sistemas de control de versiones, conocidos también como _de control de código fuente_, permiten a los desarrolladores colaborar en el código y llevar a cabo el seguimiento de los cambios realizados en la base de código. El control del código fuente es una herramienta esencial para proyectos de varios desarrolladores.
 
-Tan pronto como cada repositorio Git de VSTS se asocia a una factoría de datos, tiene una rama principal. Cuando accede a un repositorio Git de VSTS, puede cambiar el código eligiendo **Sincronizar** o **Publicar**:
+Tan pronto como cada repositorio GIT de VSTS se asocia a una factoría de datos, tiene una rama de colaboración. (`master` es la rama de colaboración predeterminada). Para crear ramas de características, los usuarios también pueden hacer clic en **+ Nueva rama** y desarrollar en las ramas de características.
 
 ![Cambio del código sincronizando o publicando](media/author-visually/sync-publish.png)
 
-#### <a name="sync-code-changes"></a>Cambios de código sincronizando
-Tras seleccionar **Sincronizar**, puede incorporar los cambios desde la rama principal a la rama local, o desde la rama local a la rama principal.
+Cuando haya terminado con el desarrollo de la característica en la rama de características, haga clic en **Crear solicitud de incorporación de cambios**. Esto lo llevará a GIT de VSTS, donde puede generar la solicitud de incorporación de cambios, revisar el código y combinar los cambios en su rama de colaboración. (`master` es el valor predeterminado). Solo tiene permitido publicar en el servicio Data Factory de la rama de colaboración. 
 
-![Cambios de código sincronizando](media/author-visually/sync-change.png)
+![Creación de una nueva solicitud de incorporación de cambios](media/author-visually/create-pull-request.png)
 
 #### <a name="publish-code-changes"></a>Cambios de código publicando
-Seleccione **Publicar** para publicar manualmente los cambios de código en la bifurcación principal para el servicio Data Factory.
+Después de haber combinado los cambios en la rama de colaboración (`master` es el valor predeterminado), seleccione **Publicar** para publicar manualmente los cambios de código en la rama principal para el servicio Data Factory.
+
+![Publicación de cambios en el servicio Data Factory](media/author-visually/publish-changes.png)
 
 > [!IMPORTANT]
 > La rama principal no es representativa de lo que se implementa en el servicio Data Factory. La rama principal se *debe* publicar manualmente en el servicio Data Factory.
 
 ## <a name="use-the-expression-language"></a>Uso del lenguaje de expresión
-Puede especificar expresiones para los valores de propiedad mediante el lenguaje de expresión que admite Azure Data Factory. Para más información sobre las expresiones admitidas, consulte [Expresiones y funciones de Azure Data Factory](control-flow-expression-language-functions.md).
+Puede especificar expresiones para los valores de propiedad mediante el lenguaje de expresión que admite Azure Data Factory. 
 
-Especifique expresiones para los valores de propiedad mediante el **lienzo de creación** de UX:
+Para especificar las expresiones para los valores de propiedad, seleccione **Agregar contenido dinámico**:
 
-![Uso del lenguaje de expresión](media/author-visually/expression-language.png)
+![Uso del lenguaje de expresión](media/author-visually/dynamic-content-1.png)
 
-## <a name="specify-parameters"></a>Especificación de parámetros
-Puede especificar parámetros para canalizaciones y conjuntos de datos en la pestaña **Parameters** (Parámetros) de Azure Data Factory. Puede usar fácilmente los parámetros en las propiedades seleccionando **Agregar contenido dinámico**:
+## <a name="use-functions-and-parameters"></a>Uso de funciones y parámetros
 
-![Incorporación de contenido dinámico](media/author-visually/dynamic-content.png)
+Puede usar funciones o especificar parámetros para canalizaciones y conjuntos de datos en el **compilador de expresiones** de Data Factory:
 
-Puede utilizar los parámetros existentes o especificar otros nuevos para los valores de propiedad:
+Para más información sobre las expresiones admitidas, consulte [Expresiones y funciones de Azure Data Factory](control-flow-expression-language-functions.md).
 
-![Especificación de parámetros para los valores de propiedad](media/author-visually/parameters.png)
+![Incorporación de contenido dinámico](media/author-visually/dynamic-content-2.png)
 
 ## <a name="provide-feedback"></a>Envío de comentarios
 Seleccione **Comentarios** para comentar sobre las características o para notificar a Microsoft sobre los problemas con la herramienta:
 
-![Comentarios](media/monitor-visually/feedback.png)
+![Comentarios](media/author-visually/provide-feedback.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre la supervisión y la administración de canalizaciones, consulte el artículo [Supervisión y administración de canalizaciones mediante programación](monitor-programmatically.md).

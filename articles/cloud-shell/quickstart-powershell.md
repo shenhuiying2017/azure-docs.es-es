@@ -1,12 +1,12 @@
 ---
-title: "Guía de inicio rápido de PowerShell en Azure Cloud Shell (versión preliminar | Microsoft Docs"
-description: "Guía de inicio rápido de PowerShell en Cloud Shell"
+title: Guía de inicio rápido de PowerShell en Azure Cloud Shell (versión preliminar | Microsoft Docs
+description: Guía de inicio rápido de PowerShell en Cloud Shell
 services: Azure
-documentationcenter: 
+documentationcenter: ''
 author: maertendmsft
 manager: timlt
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: damaerte
-ms.openlocfilehash: 71ae70c13b4de87593345fd957a773741294b49c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: efee0842a2fca2afac28f179bba07c3b6682ee57
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell-preview"></a>Guía de inicio rápido de PowerShell en Azure Cloud Shell (versión preliminar)
 
@@ -118,7 +118,7 @@ Sin embargo, siempre puede usar `dir -Force` para obtener datos actualizados.
 
 ### <a name="navigate-storage-resources"></a>Navegación de los recursos de almacenamiento
     
-Para navegar fácilmente en los recursos de almacenamiento, entre a la carpeta `StorageAccounts`
+Para navegar fácilmente en los recursos de almacenamiento, acceda al directorio `StorageAccounts`
     
 ``` PowerShell 
 PS Azure:\MySubscriptionName\StorageAccounts\MyStorageAccountName\Files> dir
@@ -182,7 +182,7 @@ TestVm10   MyResourceGroup2   eastus    Standard_DS1_v2 Windows           mytest
 #### <a name="invoke-powershell-script-across-remote-vms"></a>Invocación del script de PowerShell a través de máquinas virtuales remotas
 
  > [!WARNING]
- > Consulte el artículo sobre la [solución de problemas de la administración remota de máquinas virtuales de Azure](troubleshooting.md#powershell-resolutions).
+ > Consulte el artículo sobre la [solución de problemas de la administración remota de máquinas virtuales de Azure](troubleshooting.md#troubleshooting-remote-management-of-azure-vms).
 
   Supongamos que tiene una máquina virtual llamada MyVM1. Usemos entonces `Invoke-AzureRmVMCommand` para invocar un bloque de scripts de PowerShell en la máquina remota.
 
@@ -227,7 +227,7 @@ También puede navegar primero al directorio `VirtualMachines` y ejecute `Enter-
 
 ### <a name="discover-webapps"></a>Detección de WebApps
 
-Para navegar fácilmente por los recursos de aplicaciones web, acceda a la carpeta `WebApps`.
+Para navegar fácilmente por los recursos de Web Apps, acceda al directorio `WebApps`
 
 ``` PowerShell
 PS Azure:\MySubscriptionName> dir .\WebApps\
@@ -274,11 +274,11 @@ Para realizar la autenticación en servidores o máquinas virtuales mediante SSH
 
 ### <a name="using-a-custom-profile-to-persist-git-and-ssh-settings"></a>Uso de un perfil personalizado para conservar la configuración de GIT y SSH
 
-Puesto que las sesiones no se conservan al cerrar la sesión, guarde la carpeta `$env:USERPROFILE\.ssh` en `CloudDrive` o cree un vínculo simbólico al iniciar Cloud Shell.
+Puesto que las sesiones no se conservan al cerrar la sesión, guarde el directorio `$env:USERPROFILE\.ssh` en `CloudDrive` o cree un vínculo simbólico al iniciar Cloud Shell.
 Agregue el fragmento de código siguiente en el archivo profile.ps1 para crear un vínculo simbólico a CloudDrive.
 
 ``` PowerShell
-# Check if the .ssh folder exists
+# Check if the .ssh directory exists
 if( -not (Test-Path $home\CloudDrive\.ssh)){
     mkdir $home\CloudDrive\.ssh
 }
@@ -357,7 +357,7 @@ PS C:\users\ContainerAdministrator\CloudDrive> .\helloworld.ps1
 Hello World!
 ```
 
-La próxima vez que use PowerShell en Cloud Shell, el archivo `helloworld.ps1` existirá en la carpeta `CloudDrive` que monta el recurso compartido de Azure Files.
+La próxima vez que use PowerShell en Cloud Shell, el archivo `helloworld.ps1` existirá en el directorio `CloudDrive` que monta el recurso compartido de Azure Files.
 
 ## <a name="use-custom-profile"></a>Uso de un perfil personalizado
 

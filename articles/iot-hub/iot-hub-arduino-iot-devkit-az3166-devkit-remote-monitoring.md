@@ -1,12 +1,12 @@
 ---
-title: "IoT DevKit en la nube: conexión de IoT DevKit AZ3166 a Azure IoT Hub | Microsoft Docs"
-description: "En este tutorial aprenda cómo enviar el estado de los sensores de IoT DevKit AZ3166 a Azure IoT Suite para su supervisión y visualización."
+title: 'IoT DevKit en la nube: conexión de IoT MXChip DevKit a Azure IoT Hub | Microsoft Docs'
+description: En este tutorial aprenda cómo enviar el estado de los sensores de IoT DevKit AZ3166 a Azure IoT Suite para su supervisión y visualización.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: liydu
 manager: timlt
-tags: 
-keywords: 
+tags: ''
+keywords: ''
 ms.service: iot-hub
 ms.devlang: arduino
 ms.topic: article
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2018
 ms.author: liydu
-ms.openlocfilehash: b43061f5af3e836ba3f0b37eb11b351a769890be
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 92efd0970bcf516c4210f831a0c2f23b3ee7b5d8
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="connect-iot-devkit-az3166-to-azure-iot-suite-for-remote-monitoring"></a>Conexión de IoT DevKit AZ3166 a Azure IoT Suite para la supervisión remota
+# <a name="connect-mxchip-iot-devkit-to-azure-iot-suite-for-remote-monitoring"></a>Conexión de MXChip IoT DevKit a Azure IoT Suite para la supervisión remota
 
 En este tutorial, aprenderá a ejecutar una aplicación de ejemplo en DevKit para enviar datos de sensor a Azure IoT Suite.
 
@@ -42,7 +42,7 @@ Una suscripción de Azure activa. Si no tiene una, puede registrarse a través d
 
 1. Vaya a [sitio de Azure IoT Suite](https://www.azureiotsuite.com/) y haga clic en **Crear una solución nueva**.
   ![Selección del tipo de instancia Azure IoT Suite](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-solution-types.png)
-  > [!NOTE]
+  > [!WARNING]
   > De forma predeterminada, este ejemplo crea una instancia de S2 IoT Hub después de crear una instancia de IoT Suite. Si no esta instancia de IoT Hub no se utiliza con un gran número de dispositivos, se recomienda cambiar de S2 a S1 y eliminar la instancia de IoT Suite para poder eliminar también la de IoT Hub cuando ya no la necesite. 
 
 2. Seleccione **Supervisión remota**.
@@ -119,7 +119,7 @@ Si tiene algún problema, acuda a [P+F](https://microsoft.github.io/azure-iot-de
 * [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
 * [Stackoverflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Ahora que ha aprendido cómo conectar un dispositivo de DevKit a Azure IoT Suite y visualizar los datos de sensor, aquí tiene los siguientes pasos sugeridos:
 

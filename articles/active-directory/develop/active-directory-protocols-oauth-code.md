@@ -1,24 +1,24 @@
 ---
-title: "Descripción del flujo de código de autorización de OAuth 2.0 en Azure AD"
-description: "En este artículo se describe cómo utilizar mensajes HTTP para autorizar el acceso a aplicaciones y API web en su inquilino con Azure Active Directory y OAuth 2.0."
+title: Descripción del flujo de código de autorización de OAuth 2.0 en Azure AD
+description: En este artículo se describe cómo utilizar mensajes HTTP para autorizar el acceso a aplicaciones y API web en su inquilino con Azure Active Directory y OAuth 2.0.
 services: active-directory
 documentationcenter: .net
-author: dstrockis
+author: hpsin
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
-ms.author: dastrock
+ms.date: 03/19/2018
+ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 77df32710f17f8c5b749c39af9f6c64f0cc0b376
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 87a24ae9b620557e3106eb7f51b3f002cd76dd03
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="authorize-access-to-web-applications-using-oauth-20-and-azure-active-directory"></a>Autorización del acceso a aplicaciones web mediante OAuth 2.0 y Azure Active Directory
 Azure Active Directory (Azure AD) utiliza el protocolo OAuth 2.0 para poder autorizar el acceso a aplicaciones y API web en su inquilino de Azure AD. En esta guía, que es independiente del lenguaje, describe cómo enviar y recibir mensajes HTTP sin usar ninguna de nuestras bibliotecas de código abierto.
@@ -59,6 +59,8 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | símbolo del sistema |opcional |Indica el tipo de interacción necesaria con el usuario.<p> Los valores válidos son: <p> *login*: se le solicitará al usuario que vuelva a autenticarse. <p> *consent*: se le ha concedido el consentimiento al usuario, pero debe actualizarse. Se le solicitará al usuario consentimiento. <p> *admin_consent*: se le solicitará al administrador que dé consentimiento en nombre de todos los usuarios de su organización. |
 | login_hint |opcional |Puede usarse para rellenar previamente el campo de nombre de usuario y dirección de correo electrónico de la página de inicio de sesión del usuario, si sabe su nombre de usuario con antelación.  A menudo las aplicaciones usan este parámetro durante la reautenticación, dado que ya han extraído el nombre de usuario de un inicio de sesión anterior mediante la notificación `preferred_username`. |
 | domain_hint |opcional |Proporciona una sugerencia sobre el inquilino o dominio que el usuario debe utilizar para iniciar sesión. El valor de domain_hint es un dominio registrado para el inquilino. Si el inquilino está federado en un directorio local, AAD le redirige al servidor de federación del inquilino especificado. |
+| code_challenge_method | opcional    | Método utilizado para codificar `code_verifier` para el parámetro `code_challenge`. Puede ser `plain` o `S256`.  Si se excluye, se supone que `code_challenge` es texto no cifrado si se incluye `code_challenge`.  Azure AAD v2.0 admite `plain` y `S256`. Para obtener más información, consulte [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
+| code_challenge        | opcional    | Se usa para proteger concesiones de código de autorización a través de la clave de prueba para intercambio de códigos (PKCE) desde un cliente nativo. Se requiere si se incluye `code_challenge_method`.  Para obtener más información, consulte [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
 
 > [!NOTE]
 > Si el usuario forma parte de una organización, un administrador de la organización puede mostrar su aprobación o rechazo en nombre del usuario, o bien permitir que el usuario dé su consentimiento. El usuario tiene la opción de dar su consentimiento solo cuando el administrador lo permite.
@@ -138,6 +140,7 @@ grant_type=authorization_code
 | redirect_uri |requerido |El mismo valor de `redirect_uri` que usó para obtener `authorization_code`. |
 | client_secret |necesario para las aplicaciones web |El secreto de la aplicación que creó en el portal de registro de aplicaciones para su aplicación.  No debería utilizarse en una aplicación nativa, porque los client_secrets no se pueden almacenar de forma confiable en los dispositivos.  Es necesario para aplicaciones y API web, que tienen la capacidad de almacenar `client_secret` de forma segura en el servidor. |
 | resource |Requerido si se especifica en la solicitud de código de autorización; en caso contrario, es opcional. |El URI del identificador de la aplicación de la API web (recurso seguro). |
+| code_verifier | opcional              | El mismo valor de code_verifier que usó para obtener el valor de authorization_code.  Se requiere si PKCE se utilizó en la solicitud de concesión de código de autorización.  Para obtener más información, consulte [PKCE RFC](https://tools.ietf.org/html/rfc7636).                                                                                                                                                                                                                                                                                             |
 
 Para buscar el URI del identificador, en el Portal de administración de Azure, haga clic sucesivamente en **Active Directory**, en el directorio, en la aplicación y, finalmente, en **Configurar**.
 
@@ -290,10 +293,10 @@ WWW-Authenticate: Bearer authorization_uri="https://login.microsoftonline.com/co
 #### <a name="error-parameters"></a>Parámetros de error
 | . | DESCRIPCIÓN |
 | --- | --- |
-| authorization_uri |URI (punto de conexión físico) del servidor de autorización. Este valor también se utiliza como clave de búsqueda con el fin de obtener más información del servidor a partir de un punto de conexión de detección. <p><p> El cliente debe validar que el servidor de autorización sea de confianza. Cuando el recurso está protegido por Azure AD, basta con comprobar que la dirección URL comienza con https://login.windows.net u otro nombre de host que Azure AD admita. Los recursos específicos del inquilino siempre deben devolver un URI de autorización exclusivo del inquilino. |
+| authorization_uri |URI (punto de conexión físico) del servidor de autorización. Este valor también se utiliza como clave de búsqueda con el fin de obtener más información del servidor a partir de un punto de conexión de detección. <p><p> El cliente debe validar que el servidor de autorización sea de confianza. Cuando el recurso está protegido por Azure AD, basta con comprobar que la dirección URL comienza por https://login.microsoftonline.com u otro nombre de host que admita Azure AD. Los recursos específicos del inquilino siempre deben devolver un URI de autorización exclusivo del inquilino. |
 | error |Valor de código de error definido en la sección 5.2 del [marco de autorización de OAuth 2.0](http://tools.ietf.org/html/rfc6749). |
 | error_description |Descripción más detallada del error. Este mensaje no está diseñado para que el usuario final lo comprenda sin problemas. |
-| resource_id |Devuelve el identificador único del recurso. La aplicación cliente puede utilizar este identificador como valor del parámetro `resource` cuando se solicita un token para el recurso. <p><p> Es importante para la aplicación cliente comprobar este valor; de lo contrario, un servicio malintencionado puede inducir un ataque por **elevación de privilegios**. <p><p> La estrategia recomendada para prevenir ataques consiste en comprobar que `resource_id` coincide con la base de la dirección URL de la API web que tiene acceso. Por ejemplo, si se tiene acceso a https://service.contoso.com/data, `resource_id` puede ser htttps://service.contoso.com/. La aplicación cliente debe rechazar un parámetro `resource_id` que no empiece por la dirección URL base, salvo que exista una alternativa confiable para comprobar el id. |
+| resource_id |Devuelve el identificador único del recurso. La aplicación cliente puede utilizar este identificador como valor del parámetro `resource` cuando se solicita un token para el recurso. <p><p> Es importante para la aplicación cliente comprobar este valor; de lo contrario, un servicio malintencionado puede inducir un ataque por **elevación de privilegios**. <p><p> La estrategia recomendada para prevenir ataques consiste en comprobar que `resource_id` coincide con la base de la dirección URL de la API web que tiene acceso. Por ejemplo, si se accede a https://service.contoso.com/data, `resource_id` puede ser https://service.contoso.com/. La aplicación cliente debe rechazar un parámetro `resource_id` que no empiece por la dirección URL base, salvo que exista una alternativa confiable para comprobar el id. |
 
 #### <a name="bearer-scheme-error-codes"></a>Códigos de error del esquema de portador
 La especificación RFC 6750 define los siguientes errores de los recursos que utilizan el encabezado WWW-Authenticate y el esquema de portador en la respuesta.

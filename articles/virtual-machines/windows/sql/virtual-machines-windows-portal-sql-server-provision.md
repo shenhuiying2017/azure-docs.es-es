@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 02/15/2018
 ms.author: jroth
-ms.openlocfilehash: 7e55227773820af26435100b11dfefce058e7e78
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 33b7c82f08f63199cd128055bc497f61cb30fc4a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Aprovisionamiento de una máquina virtual Windows con SQL Server en Azure Portal
 
@@ -59,7 +59,7 @@ Cuando crea una máquina virtual de SQL Server, puede seleccionar una de varias 
    > La edición Developer se usa en este tutorial porque se trata de una edición gratuita completa de SQL Server para pruebas de desarrollo. Solo paga por el costo de ejecutar la máquina virtual. Sin embargo, es libre de elegir cualquiera de las imágenes para usarla en este tutorial. Para una descripción de las imágenes disponibles, consulte la [introducción a SQL Server en máquinas virtuales Windows de Azure](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo).
 
    > [!TIP]
-   > Los costos de licencia de SQL Server se incorporan en el precio por minuto de la máquina virtual que se crea y varía según edición y núcleos. Sin embargo, la edición SQL Server Developer es gratis para desarrollo/pruebas (no producción) y SQL Express es gratis para cargas de trabajo ligeras (menos de 1 GB de memoria, menos de 10 GB de almacenamiento). También existe la opción de traiga su propia licencia (BYOL) y que solo pague por la máquina virtual. Esos nombres de imagen tienen el prefijo {BYOL}. 
+   > Los costos de licencia de SQL Server se incorporan en el precio por segundo de la VM que se crea y varía según edición y núcleos. Sin embargo, la edición SQL Server Developer es gratis para desarrollo/pruebas (no producción) y SQL Express es gratis para cargas de trabajo ligeras (menos de 1 GB de memoria, menos de 10 GB de almacenamiento). También existe la opción de traiga su propia licencia (BYOL) y que solo pague por la máquina virtual. Esos nombres de imagen tienen el prefijo {BYOL}. 
    >
    > Para más información sobre estas opciones, consulte [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Orientación de precios de máquinas virtuales de SQL Server en Azure).
 
@@ -238,7 +238,7 @@ En la tabla siguiente se enumeran los parámetros necesarios para configurar la 
 
 | PARÁMETRO | Description | EJEMPLO: |
 | --- | --- | --- |
-| **Dirección URL de Key Vault** |La ubicación del almacén de claves. |https://contosokeyvault.vault.azure.net/ |
+| **Dirección URL de Key Vault** |La ubicación del Almacén de claves. |https://contosokeyvault.vault.azure.net/ |
 | **Nombre de entidad de seguridad** |Nombre de la entidad de servicio de Azure Active Directory Esto se conoce también como Id. Este nombre también se conoce como «identificador de cliente». |fde2b411-33d5-4e11-af04eb07b669ccf2 |
 | **Secreto de entidad de seguridad** |Secreto de la entidad de seguridad de servicio de Azure Active Directory Este secreto también se conoce como «secreto de cliente». |9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM= |
 | **Nombre de credencial** |**Nombre de credencial**: la integración de AKV crea una credencial en SQL Server, permitiendo el acceso de la máquina virtual al Almacén de claves. Elija un nombre para esta credencial. |mycred1 |

@@ -1,22 +1,22 @@
 ---
-title: "Consulta de datos desde un entorno de Azure Time Series Insights mediante código de C# | Microsoft Docs"
-description: "En este artículo se describe cómo consultar datos de un entorno de Azure Time Series Insights mediante la creación de una aplicación personalizada escrita en el lenguaje de .NET C# (c-sharp)."
+title: Consulta de datos desde un entorno de Azure Time Series Insights mediante código de C# | Microsoft Docs
+description: En este artículo se describe cómo consultar datos de un entorno de Azure Time Series Insights mediante la creación de una aplicación personalizada escrita en el lenguaje de .NET C# (c-sharp).
 services: time-series-insights
 ms.service: time-series-insights
 author: ankryach
 ms.author: ankryach
 manager: jhubbard
 editor: MicrosoftDocs/tsidocs
-reviewer: v-mamcge, jasonwhowell, kfile, tsidocs
+reviewer: jasonwhowell, kfile, tsidocs
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/15/2017
-ms.openlocfilehash: 561ad848e7bddc6bf9d71328db4ddbba9bc5d2b4
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.date: 03/23/2018
+ms.openlocfilehash: 2cbdf4a5c7272e88430b1db7b853f8b6d441c893
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="query-data-from-the-azure-time-series-insights-environment-using-c"></a>Consulta de datos desde el entorno de Azure Time Series Insights mediante C#
 
@@ -26,6 +26,11 @@ El ejemplo muestra varios ejemplos básicos del uso de la API de consulta:
 2. Se obtiene la lista de entornos a los que el usuario tiene acceso. Uno de los entornos se elige como entorno de interés y se consultan datos adicionales para este entorno.
 3. Como ejemplo de solicitud de HTTPS, se solicitan datos de disponibilidad del entorno de interés.
 4. Como ejemplo de solicitud de web socket, se solicitan datos de agregación de eventos del entorno de interés. Se solicitan datos de todo el intervalo de tiempo de disponibilidad.
+
+Este código de ejemplo también está disponible en [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights)
+
+## <a name="project-references"></a>Referencias de proyectos
+Agregue los paquetes de NuGet `Microsoft.IdentityModel.Clients.ActiveDirectory` y `Newtonsoft.Json` para este ejemplo. 
 
 ## <a name="c-example"></a>Ejemplo de C#
 
@@ -449,6 +454,6 @@ namespace TimeSeriesInsightsQuerySample
 }
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 > [!div class="nextstepaction"]
 > [Referencia de Query API](/rest/api/time-series-insights/time-series-insights-reference-queryapi)

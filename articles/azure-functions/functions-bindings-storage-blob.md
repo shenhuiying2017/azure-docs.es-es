@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: glenga
-ms.openlocfilehash: 221a049ae37cc6934d04e90b6b8035e2a020e811
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: bf2c4a12d1344ec17ce9688e1c7192f57104dc7b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Enlaces de Azure Blob Storage para Azure Functions
 
@@ -233,12 +233,12 @@ En C# y el script de C#, puede usar los tipos de parámetros siguientes para el 
 * `string`
 * `Byte[]`
 * Un objeto POCO serializable como JSON
-* `ICloudBlob` (necesita una dirección de enlace "inout" en *function.json*)
-* `CloudBlockBlob` (necesita una dirección de enlace "inout" en *function.json*)
-* `CloudPageBlob` (necesita una dirección de enlace "inout" en *function.json*)
-* `CloudAppendBlob` (necesita una dirección de enlace "inout" en *function.json*)
+* `ICloudBlob`<sup>1</sup>
+* `CloudBlockBlob`<sup>1</sup>
+* `CloudPageBlob`<sup>1</sup>
+* `CloudAppendBlob`<sup>1</sup>
 
-Como se indica, algunos de estos tipos necesitan una dirección de enlace `inout` en *function.json*. El editor estándar de Azure Portal no admite esta dirección, por lo que debe usar el editor avanzado.
+<sup>1</sup> requiere un enlace "inout" `direction` en *function.json* o `FileAccess.ReadWrite` en una biblioteca de clases de C#.
 
 El enlace a `string`, `Byte[]` o POCO solo se recomienda si el tamaño de blob es pequeño, ya que todo el contenido del blob se carga en memoria. Por lo general, es preferible usar un tipo `Stream` o `CloudBlockBlob`. Para obtener más información, consulte [Uso de simultaneidad y memoria](#trigger---concurrency-and-memory-usage) más adelante en este artículo.
 
@@ -374,7 +374,6 @@ public static void Run(
     TraceWriter log)
 {
     log.Info($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
-
 }
 ```        
 
@@ -534,12 +533,12 @@ En C# y el script de C#, puede usar los tipos de parámetros siguientes para el 
 * `Byte[]`
 * `CloudBlobContainer`
 * `CloudBlobDirectory`
-* `ICloudBlob` (necesita una dirección de enlace "inout" en *function.json*)
-* `CloudBlockBlob` (necesita una dirección de enlace "inout" en *function.json*)
-* `CloudPageBlob` (necesita una dirección de enlace "inout" en *function.json*)
-* `CloudAppendBlob` (necesita una dirección de enlace "inout" en *function.json*)
+* `ICloudBlob`<sup>1</sup>
+* `CloudBlockBlob`<sup>1</sup>
+* `CloudPageBlob`<sup>1</sup>
+* `CloudAppendBlob`<sup>1</sup>
 
-Como se indica, algunos de estos tipos necesitan una dirección de enlace `inout` en *function.json*. El editor estándar de Azure Portal no admite esta dirección, por lo que debe usar el editor avanzado.
+<sup>1</sup> requiere un enlace "inout" `direction` en *function.json* o `FileAccess.ReadWrite` en una biblioteca de clases de C#.
 
 El enlace a `string` o `Byte[]` solo se recomienda si el tamaño de blob es pequeño, ya que todo el contenido del blob se carga en memoria. Por lo general, es preferible usar un tipo `Stream` o `CloudBlockBlob`. Para más información, consulte [Uso de simultaneidad y memoria](#trigger---concurrency-and-memory-usage) que apareció anteriormente en este artículo.
 
@@ -737,21 +736,23 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 
 ## <a name="output---usage"></a>Uso de salidas
 
-En C# y el script de C#, puede usar los tipos de parámetros siguientes para el enlace de salida de blob:
+En C# y script de C#, puede enlazar con los tipos siguientes para la escritura de blobs:
 
 * `TextWriter`
 * `out string`
 * `out Byte[]`
 * `CloudBlobStream`
 * `Stream`
-* `CloudBlobContainer`
+* `CloudBlobContainer`<sup>1</sup>
 * `CloudBlobDirectory`
-* `ICloudBlob` (necesita una dirección de enlace "inout" en *function.json*)
-* `CloudBlockBlob` (necesita una dirección de enlace "inout" en *function.json*)
-* `CloudPageBlob` (necesita una dirección de enlace "inout" en *function.json*)
-* `CloudAppendBlob` (necesita una dirección de enlace "inout" en *function.json*)
+* `ICloudBlob`<sup>2</sup>
+* `CloudBlockBlob`<sup>2</sup>
+* `CloudPageBlob`<sup>2</sup>
+* `CloudAppendBlob`<sup>2</sup>
 
-Como se indica, algunos de estos tipos necesitan una dirección de enlace `inout` en *function.json*. El editor estándar de Azure Portal no admite esta dirección, por lo que debe usar el editor avanzado.
+<sup>1</sup> requiere un enlace "in" `direction` en *function.json* o `FileAccess.Read` en una biblioteca de clases de C#.
+
+<sup>2</sup> requiere un enlace "inout" `direction` en *function.json* o `FileAccess.ReadWrite` en una biblioteca de clases de C#.
 
 En las funciones asincrónicas, use el valor devuelto o `IAsyncCollector` en lugar de un parámetro `out`.
 

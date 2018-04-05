@@ -1,14 +1,14 @@
 ---
 title: 'Herramientas de Azure HDInsight: uso de Visual Studio Code para Hive, LLAP o pySpark | Microsoft Docs'
-description: "Aprenda a usar Obtenga información sobre cómo usar Herramientas de Azure HDInsight para Visual Studio Code para crear y enviar consultas y scripts."
+description: Aprenda a usar Obtenga información sobre cómo usar Herramientas de Azure HDInsight para Visual Studio Code para crear y enviar consultas y scripts.
 Keywords: VS Code,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,Interactive Hive,Interactive Query
 services: HDInsight
-documentationcenter: 
+documentationcenter: ''
 author: jejiang
-manager: 
+manager: ''
 editor: jgao
 tags: azure-portal
-ms.assetid: 
+ms.assetid: ''
 ms.service: HDInsight
 ms.devlang: na
 ms.topic: article
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/27/2017
 ms.author: jejiang
-ms.openlocfilehash: 4f0bcd0992a02e64b4b10347fc30776af17900bd
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8c976e5508c928943e2a5e4820f72520554f9b5d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Uso de las Herramientas de Azure HDInsight para Visual Studio Code
 
@@ -69,9 +69,9 @@ Cree un área de trabajo en VS Code para poder conectarse a Azure.
 
 4. Abra **XXXX_hdi_settings.json** desde el **EXPLORADOR** o haga clic con el botón derecho en el editor de scripts para seleccionar **Set Configuration** (Establecer configuración). Puede configurar los parámetros de entrada de inicio de sesión, clúster predeterminado y envío de trabajos, como se muestra en el ejemplo del archivo. Puede dejar vacíos el resto de parámetros.
 
-## <a name="connect-to-azure"></a>Conexión a Azure
+## <a name="connect-to-hdinsight-cluster"></a>Conexión al clúster de HDInsight
 
-Para poder enviar scripts a los clústeres de HDInsight desde VS Code, debe conectarse a su cuenta de Azure.
+Antes de poder enviar scripts a clústeres de HDInsight desde VS Code, debe conectarse a su cuenta de Azure, o vincular un clúster (con el nombre de usuario y la contraseña de Ambari o una cuenta unida a un dominio).
 
 **Para conectarse a Azure**
 
@@ -120,7 +120,7 @@ Puede vincular un clúster normal mediante un nombre de usuario administrado de 
 
    ![clúster vinculado](./media/hdinsight-for-vscode/linked-cluster.png)
 
-4. También puede desvincular un clúster si inserta **HDInsight: Unlink a cluster** desde la paleta de comandos.
+4. También puede desvincular un clúster si inserta **HDInsight: Unlink a cluster** (HDInsight: desvincular un clúster) desde la paleta de comandos.
 
 ## <a name="list-hdinsight-clusters"></a>Enumerar los clústeres de HDInsight
 
@@ -293,7 +293,7 @@ HDInsight para VS Code admite las siguientes características:
 
     ![Aspectos destacados de la sintaxis de Herramientas de HDInsight para Visual Studio Code](./media/hdinsight-for-vscode/hdinsight-for-vscode-syntax-highlights.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 ### <a name="demo"></a>Demostración
 * HDInsight para VS Code: [vídeo](https://go.microsoft.com/fwlink/?linkid=858706)

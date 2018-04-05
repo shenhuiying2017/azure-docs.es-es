@@ -1,12 +1,12 @@
 ---
-title: "Creación de un servidor de Analysis Services en Azure | Microsoft Docs"
+title: Creación de un servidor de Analysis Services en Azure | Microsoft Docs
 description: Aprenda a crear una instancia de servidor de Analysis Services en Azure.
 services: analysis-services
-documentationcenter: 
+documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 7f560216-8a9a-4d06-852e-48cf24deab19
 ms.service: analysis-services
 ms.devlang: NA
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 54b9c9df1c368575c271a44e4738a2fc25ac4798
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 9a80d7e6e9f24ccc730fe747fa0a71b91f22b7e9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-an-azure-analysis-services-server-in-azure-portal"></a>Creación de un servidor de Azure Analysis Services en Azure Portal
 Este artículo lo guiará por la creación de un recurso de servidor de Analysis Services en la suscripción de Azure.
@@ -36,7 +36,7 @@ Para completar este inicio rápido necesita instalar:
 > 
 > 
 
-## <a name="to-create-a-server-in-azure-portal"></a>Creación de un servidor de Azure Portal
+## <a name="to-create-a-server-in-the-azure-portal"></a>Creación de un servidor en Azure Portal
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).  
 2. Haga clic en **+ Nuevo** > **Datos y análisis** > **Analysis Services**.
 3. En la hoja de **Analysis Services**, rellene los campos obligatorios y, a continuación, presione **Crear**.
@@ -55,7 +55,7 @@ La creación normalmente tarda menos de un minuto, a menudo solo unos pocos segu
  ![panel](./media/analysis-services-create-server/aas-create-server-dashboard.png)
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Una vez creado el servidor, puede [implementar un modelo](analysis-services-deploy.md) en él mediante SSDT o con SSMS.
 
 Si un modelo que se implemente en el servidor se conecta a orígenes de datos locales, deberá instalar una [puerta de enlace de datos local](analysis-services-gateway.md) en un equipo de la red.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
-ms.openlocfilehash: e4b7113f27e5e15d69dfdd1efd13e255ef4a8ab7
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: f8dac5469e7160fae93e8251ab7f4195a383f8b4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Condiciones de coincidencia del motor de reglas de la red CDN de Azure 
 En este artículo se muestran descripciones detalladas de las condiciones de coincidencia disponibles para el [motor de reglas](cdn-rules-engine.md) de Azure Content Delivery Network (CDN).
@@ -526,15 +526,15 @@ Información importante:
 
      Por ejemplo: https:\//&lt;punto_de_conexión&gt;.azureedge.net/**myfolder**/index.htm 
 
-     Esta dirección URL señala al nombre de host de Verizon CDN siguiente: http:\//wpc.0001.&lt;Dominio&gt;/800001/myorigin/**myfolder**/index.htm
+     Esta dirección URL señala al nombre de host de Verizon CDN siguiente: http:\//wpc.0001.&lt;domain&gt;/800001/myorigin/**myfolder**/index.htm
 
 - Se vuelve a escribir un dirección URL de CNAME perimetral a una dirección URL de la red CDN antes de la comparación de la dirección URL.
 
     Por ejemplo, las siguientes direcciones URL apuntan al mismo recurso y, por tanto, tienen la misma ruta de acceso URL.
-    - Dirección URL de la red CDN: http:\//wpc.0001.&lt;Dominio&gt;/800001/CustomerOrigin/path/asset.htm
+    - Dirección URL de la red CDN: http:\//wpc.0001.&lt;domain&gt;/800001/CustomerOrigin/path/asset.htm
     
     - Dirección URL del CNAME perimetral: http:\//&lt;punto_de_conexión&gt;.azureedge.net/path/asset.htm
-
+    
     Información adicional:
     - Dominio personalizado: https:\//my.domain.com/path/asset.htm
     
@@ -640,21 +640,21 @@ Información importante:
     Los valores siguientes están disponibles para la opción **Relative to** (Relativo a):
      - **Root** (Raíz): indica que el punto de comparación de la dirección URL comienza directamente después del nombre de host de la red CDN.
 
-       Por ejemplo: http:\//wpc.0001.&lt;Dominio&gt;/**800001/myorigin/myfolder/index.htm**
+       Por ejemplo: http:\//wpc.0001.&lt;domain&gt;/**800001/myorigin/myfolder/index.htm**
 
      - **Origin** (Origen): indica que el punto de comparación de la dirección URL comienza después del punto de acceso al contenido (por ejemplo, /000001 o /800001/myorigin). Dado que el CNAME \*. azureedge.net se crea en relación con el directorio de origen en el nombre de host de Verizon CDN de forma predeterminada, los usuarios de la red CDN de Azure deben utilizar el valor **Origin** (Origen). 
 
        Por ejemplo: https:\//&lt;punto_de_conexión&gt;.azureedge.net/**myfolder/index.htm**
 
-     Esta dirección URL señala al nombre de host de Verizon CDN siguiente: http:\//wpc.0001.&lt;Dominio&gt;/800001/myorigin/**myfolder/index.htm**
+     Esta dirección URL señala al nombre de host de Verizon CDN siguiente: http:\//wpc.0001.&lt;domain&gt;/800001/myorigin/**myfolder/index.htm**
 
 - Se vuelve a escribir una dirección URL de CNAME perimetral a una dirección URL de la red CDN antes de la comparación de la dirección URL.
 
-   Por ejemplo, las siguientes direcciones URL apuntan al mismo recurso y, por tanto, tienen la misma ruta de acceso URL:
-    - Dirección URL de la red CDN: http:\//wpc.0001.&lt;Dominio&gt;/800001/CustomerOrigin/path/asset.htm
+    Por ejemplo, las siguientes direcciones URL apuntan al mismo recurso y, por tanto, tienen la misma ruta de acceso URL:
+    - Dirección URL de la red CDN: http:\//wpc.0001.&lt;domain&gt;/800001/CustomerOrigin/path/asset.htm
     - Dirección URL del CNAME perimetral: http:\//&lt;punto_de_conexión&gt;.azureedge.net/path/asset.htm
-
-   Información adicional:
+    
+    Información adicional:
     
     - Ruta de acceso URL (relativa a la raíz): /800001/CustomerOrigin/path/asset.htm
    
@@ -662,7 +662,7 @@ Información importante:
 
 - Se omiten las cadenas de consulta en la dirección URL.
 - Utilice la opción **Ignore Case** (No distinguir mayúsculas y minúsculas) para controlar si en la comparación se distinguirán mayúsculas y minúsculas.
-- El valor especificado para esta condición de coincidencia se comparará con la ruta de acceso relativa de la solicitud exacta realizada por el cliente.
+- El valor especificado para esta condición de coincidencia se compara con la ruta de acceso relativa de la solicitud exacta realizada por el cliente.
 
 - Para hacer coincidir todas las solicitudes realizadas a un directorio determinado, utilice la condición de coincidencia [directorio de la ruta de acceso URL](#url-path-directory) o [carácter comodín de la ruta de acceso URL](#url-path-wildcard).
 
@@ -681,13 +681,13 @@ La opción **Matches**/**Does Not Match** (Coincide/No coincide) determina las c
 Información importante:
 - Se vuelve a escribir una dirección URL de CNAME perimetral a una dirección URL de la red CDN antes de la comparación de la dirección URL. 
  
-   Por ejemplo, las direcciones URL apuntan al mismo recurso y, por tanto, tienen la misma ruta de acceso URL.
+    Por ejemplo, las direcciones URL apuntan al mismo recurso y, por tanto, tienen la misma ruta de acceso URL.
 
-     - Dirección URL de la red CDN: http:\//wpc.0001.&lt;Dominio&gt;/800001/CustomerOrigin/path/asset.htm
+     - Dirección URL de la red CDN: http:\//wpc.0001.&lt;domain&gt;/800001/CustomerOrigin/path/asset.htm
 
      - Dirección URL de CNAME perimetral: http:\//my.domain.com/path/asset.htm
-
-   Información adicional:
+    
+    Información adicional:
     
      - Ruta de acceso URL: /800001/CustomerOrigin/path/asset.htm
 
@@ -715,21 +715,21 @@ Información importante:
    Esta opción puede tener los valores siguientes:
      - **Root** (Raíz): indica que el punto de comparación de la dirección URL comienza directamente después del nombre de host de la red CDN.
 
-       Por ejemplo: http:\//wpc.0001.&lt;Dominio&gt;/**800001/myorigin/myfolder/index.htm**
+       Por ejemplo: http:\//wpc.0001.&lt;domain&gt;/**800001/myorigin/myfolder/index.htm**
 
      - **Origin** (Origen): indica que el punto de comparación de la dirección URL comienza después del punto de acceso al contenido (por ejemplo, /000001 o /800001/myorigin). Dado que el CNAME \*. azureedge.net se crea en relación con el directorio de origen en el nombre de host de Verizon CDN de forma predeterminada, los usuarios de la red CDN de Azure deben utilizar el valor **Origin** (Origen). 
 
        Por ejemplo: https:\//&lt;punto_de_conexión&gt;.azureedge.net/**myfolder/index.htm**
 
-     Esta dirección URL señala al nombre de host de Verizon CDN siguiente: http:\//wpc.0001.&lt;Dominio&gt;/800001/myorigin/**myfolder/index.htm**
+     Esta dirección URL señala al nombre de host de Verizon CDN siguiente: http:\//wpc.0001.&lt;domain&gt;/800001/myorigin/**myfolder/index.htm**
 
 - Se vuelve a escribir una dirección URL de CNAME perimetral a una dirección URL de la red CDN antes de la comparación de la dirección URL.
 
-   Por ejemplo, las siguientes direcciones URL apuntan al mismo recurso y, por tanto, tienen la misma ruta de acceso URL:
-     - Dirección URL de la red CDN: http://wpc.0001.&lt;Dominio&gt;/800001/CustomerOrigin/path/asset.htm
+    Por ejemplo, las siguientes direcciones URL apuntan al mismo recurso y, por tanto, tienen la misma ruta de acceso URL:
+     - Dirección URL de la red CDN: http://wpc.0001.&lt;domain&gt;/800001/CustomerOrigin/path/asset.htm
      - Dirección URL del CNAME perimetral: http:\//&lt;punto_de_conexión&gt;.azureedge.net/path/asset.htm
-
-   Información adicional:
+    
+    Información adicional:
     
      - Ruta de acceso URL (relativa a la raíz): /800001/CustomerOrigin/path/asset.htm
     
@@ -737,7 +737,7 @@ Información importante:
     
 - Especifique varias rutas de acceso URL mediante la delimitación de cada una con un espacio único.
 
-   Por ejemplo: /marketing/asset.\* /sales/\*.htm
+   Por ejemplo: /marketing/asset.* /sales/*.htm
 
 - Se omiten las cadenas de consulta en la dirección URL.
     
@@ -757,7 +757,7 @@ Valor                   | Relativo a    | Resultado
 /80ABCD/origin/text/*   | Raíz           | Este patrón coincide cuando el recurso solicitado cumple los criterios siguientes: <br />- Debe residir en un origen de cliente que se llama "origin". <br />- La ruta de acceso relativa debe comenzar con una carpeta llamada "text". Es decir, el recurso solicitado puede residir en la carpeta "text" o una de sus subcarpetas recursivas.
 */css/* */js/*          | Raíz u origen | Este patrón coincide con todas las direcciones URL de CNAME perimetral o de la red CDN que contengan una carpeta llamada css o js.
 *.jpg *.gif *.png       | Raíz u origen | Este patrón coincide con todas las direcciones URL de CNAME perimetral o de la red CDN que terminen con .jpg, .gif o .png. Una manera alternativa para especificar este patrón es con la [condición de coincidencia Extensión de ruta de acceso URL](#url-path-extension).
-/images/\* /media/\*      | Origen         | Este patrón coincide con las direcciones URL de CNAME perimetral o de la red CDN cuya ruta de acceso relativa comienza por una carpeta "images" o "media". <br />- Dirección URL de la red CDN: http:\//wpc.0001.&lt;Dominio&gt;/800001/myorigin/images/sales/event1.png<br />- Dirección URL de CNAME perimetral de ejemplo: http:\//cdn.mydomain.com/images/sales/event1.png
+/images/\* /media/\*      | Origen         | Este patrón coincide con las direcciones URL de CNAME perimetral o de la red CDN cuya ruta de acceso relativa comienza por una carpeta "images" o "media". <br />- Dirección URL de la red CDN: http:\//wpc.0001.&lt;domain&gt;/800001/myorigin/images/sales/event1.png<br />- Dirección URL de CNAME perimetral de ejemplo: http:\//cdn.mydomain.com/images/sales/event1.png
 
 [Volver arriba](#match-conditions-for-the-azure-cdn-rules-engine)
 
@@ -867,11 +867,11 @@ Información importante:
 #### <a name="sample-scenarios"></a>Escenarios de ejemplo
 En el ejemplo siguiente se muestra cómo funciona esta opción en situaciones específicas:
 
-NOMBRE      | Valor |  Resultado
-----------|-------|--------
-Usuario      | Joe   | Este patrón coincide cuando la cadena de consulta para una dirección URL solicitada es "?user=joe".
-Usuario      | *     | Este patrón coincide cuando la cadena de consulta para una dirección URL solicitada contiene el parámetro User.
-Email Joe | *     | Este patrón coincide cuando la cadena de consulta para una dirección URL solicitada contiene un parámetro Email que comienza por "Joe".
+NOMBRE  | Valor |  Resultado
+------|-------|--------
+Usuario  | Joe   | Este patrón coincide cuando la cadena de consulta para una dirección URL solicitada es "?user=joe".
+Usuario  | *     | Este patrón coincide cuando la cadena de consulta para una dirección URL solicitada contiene el parámetro User.
+Email | Joe\* | Este patrón coincide cuando la cadena de consulta para una dirección URL solicitada contiene un parámetro Email que comienza por "Joe".
 
 [Volver arriba](#match-conditions-for-the-azure-cdn-rules-engine)
 
@@ -908,7 +908,7 @@ Información importante:
    Valor | Se interpreta como 
    ------|---------------
    \\+    | +
-   \\\+   | \\+
+   \\\\+   | \\+
 
 - Debido a la manera en que se realiza el seguimiento de la configuración de la memoria caché, esta condición de coincidencia es incompatible con las siguientes características:
    - Relleno de la memoria caché completa

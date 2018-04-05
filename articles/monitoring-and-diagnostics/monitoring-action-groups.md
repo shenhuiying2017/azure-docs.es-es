@@ -1,24 +1,24 @@
 ---
-title: "Creación y administración de grupos de acciones en Azure Portal | Microsoft Docs"
-description: "Obtenga información acerca de cómo crear y administrar grupos de acciones en Azure Portal."
+title: Creación y administración de grupos de acciones en Azure Portal | Microsoft Docs
+description: Obtenga información acerca de cómo crear y administrar grupos de acciones en Azure Portal.
 author: dkamstra
 manager: chrad
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/16/2018
+ms.date: 03/12/2018
 ms.author: dukek
-ms.openlocfilehash: 772b9c2b9532bd2cc37ad89db92545297eecd903
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a7f8697b7a92de1c19ceb65fadbcd7e4186e83f7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Creación y administración de grupos de acciones en Azure Portal
 ## <a name="overview"></a>Información general ##
@@ -29,7 +29,7 @@ Los grupos de acciones le permiten configurar una lista de acciones. Estos grupo
 Un grupo de acciones puede tener hasta 10 acciones de cada tipo. Cada acción se compone de las siguientes propiedades:
 
 * **Nombre**: un identificador único dentro del grupo de acciones.  
-* **Tipo de acción**: enviar un SMS, enviar un correo electrónico, llamar a un webhook, enviar datos a una herramienta ITSM, llamar a una aplicación de Azure o ejecutar un runbook de Automation.
+* **Tipo de acción**: realizar una llamada de voz o enviar un SMS, enviar un correo electrónico, llamar a un webhook, enviar datos a una herramienta ITSM, llamar a una aplicación de Azure o ejecutar un runbook de Automation.
 * **Detalles**: el número de teléfono, dirección de correo electrónico o identificador URI del webhook o los detalles de conexión de ITSM.
 
 Para más información sobre el uso de plantillas de Azure Resource Manager para configurar grupos de acciones, consulte [Plantillas de Resource Manager para grupos de acciones](monitoring-create-action-group-with-resource-manager-template.md).
@@ -56,7 +56,7 @@ Para más información sobre el uso de plantillas de Azure Resource Manager para
 
     a. **Nombre**: escriba un identificador único para esta acción.
 
-    b. **Tipo de acción**: seleccionar correo electrónico, SMS, aplicación de Azure, webhook, ITSM o runbook de Automation.
+    b. **Tipo de acción**: seleccionar correo electrónico, SMS, notificación push, voz, aplicación de Azure, webhook, ITSM o runbook de Automation.
 
     c. **Detalles**: según el tipo de acción, proporcione un número de teléfono, una dirección de correo electrónico o un identificador URI de webhook, una aplicación de Azure, una conexión de ITSM o un runbook de Automation. Para la acción de ITSM, especifique además **Elemento de trabajo** y otros campos que requiera la herramienta ITSM.
 
@@ -71,7 +71,7 @@ Después de crear un grupo de acciones, está visible en la sección **Grupos de
 * Agregar, editar o quitar acciones.
 * Eliminar el grupo de acciones.
 
-## <a name="next-steps"></a>pasos siguientes ##
+## <a name="next-steps"></a>Pasos siguientes ##
 * Más información sobre el [comportamiento de las alertas por SMS](monitoring-sms-alert-behavior.md).  
 * [Comprender el esquema de webhook de alertas del registro de actividad](monitoring-activity-log-alerts-webhook.md).  
 * Obtenga más información sobre [Conector de ITSM](../log-analytics/log-analytics-itsmc-overview.md)

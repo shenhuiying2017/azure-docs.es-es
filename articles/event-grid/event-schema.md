@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/22/2018
 ms.author: babanisa
-ms.openlocfilehash: 9d1f0eed28a1c1c6776ddba89480adcedfc599a5
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 7af0e1cc8ae36774ef1cebf1bada6477888860d0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-event-grid-event-schema"></a>Esquema de eventos de Azure Event Grid
 
@@ -97,9 +97,13 @@ Para aprender acerca de las propiedades del objeto de datos, vea el origen del e
 * [IoT Hub](event-schema-iot-hub.md)
 * [Grupos de recursos (operaciones de administración)](event-schema-resource-groups.md)
 
-Para temas personalizados, el publicador de eventos determina el objeto de datos. Los datos de nivel superior deben contener los mismos campos que los eventos estándar definidos por los recursos. Al publicar eventos de temas personalizados, debe considerar modelar el asunto de los eventos como ayuda para el enrutamiento y el filtrado.
+Para temas personalizados, el publicador de eventos determina el objeto de datos. Los datos de nivel superior deben contener los mismos campos que los eventos estándar definidos por los recursos.
 
-## <a name="next-steps"></a>pasos siguientes
+Al publicar eventos en temas personalizados, cree asuntos para los eventos que faciliten el que los suscriptores sepan si están interesados en el evento. Los suscriptores usan el asunto para filtrar y redirigir eventos. Considere la posibilidad de proporcionar la ruta de acceso de donde se produjo el evento, para que los suscriptores pueden filtrar por los segmentos de esa ruta de acceso. La ruta de acceso permite que los suscriptores filtren eventos de una manera más amplia o más restringida. Por ejemplo, si se proporciona una ruta de acceso de tres segmentos como `/A/B/C` en el asunto, los suscriptores pueden filtrar por el primer segmento `/A` para obtener un amplio conjunto de eventos. Esos suscriptores obtienen eventos con asuntos como `/A/B/C` o `/A/D/E`. Otros suscriptores pueden filtrar por `/A/B` para obtener un conjunto de eventos más reducido.
+
+A veces el asunto necesita información más detallada sobre qué ocurrió. Por ejemplo, el publicador de **cuentas de almacenamiento** proporciona el asunto `/blobServices/default/containers/<container-name>/blobs/<file>` cuando se agrega un archivo a un contenedor. Un suscriptor puede filtrar por la ruta de acceso `/blobServices/default/containers/testcontainer` para obtener todos los eventos de ese contenedor, pero no otros contenedores en la cuenta de almacenamiento. Un suscriptor también puede filtrar o redirigir por el sufijo `.txt` para que funcione solo con archivos de texto.
+
+## <a name="next-steps"></a>Pasos siguientes
 
 * Para una introducción a Azure Event Grid, consulte [Introducción a Azure Event Grid](overview.md).
 * Para más información acerca de la creación de una suscripción de Azure Event Grid, consulte [Esquema de suscripción de Event Grid](subscription-creation-schema.md).

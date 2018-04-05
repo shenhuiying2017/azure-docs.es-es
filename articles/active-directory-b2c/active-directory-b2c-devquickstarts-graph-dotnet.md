@@ -1,24 +1,21 @@
 ---
 title: 'Uso de Graph API: Azure AD B2C | Microsoft Docs'
-description: "Cómo llamar a Graph API para un inquilino de B2C mediante una identidad de aplicación para automatizar el proceso."
+description: Cómo llamar a Graph API para un inquilino de B2C mediante una identidad de aplicación para automatizar el proceso.
 services: active-directory-b2c
 documentationcenter: .net
-author: parakhj
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: f9904516-d9f7-43b1-ae4f-e4d9eb1c67a0
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/07/2017
-ms.author: parakhj
-ms.openlocfilehash: aee051946c90c686959066ac14798f807e7b91b0
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.author: davidmu
+ms.openlocfilehash: ff3aa44a4e2513f4d3e5ac2eed84715b8fe9b004
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: uso de Graph API de Azure AD
 
@@ -48,7 +45,7 @@ Una vez que tenga un inquilino B2C, debe registrar la aplicación a través de [
 3. En el panel de navegación izquierdo, elija **Todos los servicios**, haga clic en **Registros de aplicaciones** y, luego, en **Agregar**.
 4. Siga las indicaciones y cree una nueva aplicación. 
     1. Seleccione **Aplicación web o API** como Tipo de aplicación.    
-    2. Proporcione **cualquier URI de redirección** (p. ej., https://B2CGraphAPI), ya que no es relevante para este ejemplo.  
+    2. Proporcione **cualquier dirección URL de inicio de sesión** (p. ej., https://B2CGraphAPI), ya que no es pertinente para este ejemplo).  
 5. La aplicación aparecerá ahora en la lista de aplicaciones. Haga clic en ella para obtener el **Identificador de aplicación** (también conocido como id. de cliente). Cópielo, pues lo necesitará en una sección posterior.
 6. En el menú Configuración, haga clic en **Claves** y agregue una nueva clave (también conocida como secreto de cliente). Cópiela también para usarla en una sección posterior.
 

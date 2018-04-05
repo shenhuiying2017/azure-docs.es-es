@@ -1,24 +1,24 @@
 ---
-title: "Administración de las aplicaciones en Visual Studio | Microsoft Docs"
-description: Use Visual Studio para crear, desarrollar, empaquetar, implementar y depurar las aplicaciones y servicios de Service Fabric.
+title: Administración de las aplicaciones de Azure Service Fabric en Visual Studio | Microsoft Docs
+description: Use Visual Studio para crear, desarrollar, empaquetar, implementar y depurar las aplicaciones y servicios de Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: c317cb7e-7eae-466e-ba41-6aa2518be5cf
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/07/2017
-ms.author: mikkelhegn
-ms.openlocfilehash: 81814ef07cfab06855b3bfbf0eb6ef51b8dfce4f
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.date: 03/26/2018
+ms.author: mikhegn
+ms.openlocfilehash: 5c5c3dc20996fbbdee9f9ed61eb3b09e4b274d92
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-visual-studio-to-simplify-writing-and-managing-your-service-fabric-applications"></a>Uso de Visual Studio para simplificar la escritura y la administración de las aplicaciones de Service Fabric
 Puede administrar los servicios y aplicaciones de Service Fabric de Azure a través de Visual Studio. Cuando haya [configurado su entorno de desarrollo](service-fabric-get-started.md), puede usar Visual Studio para crear aplicaciones de Service Fabric, agregar servicios, o empaquetar, registrar e implementar aplicaciones en el clúster de desarrollo local.
@@ -32,7 +32,7 @@ De forma predeterminada, la implementación de una aplicación combina los pasos
 4. Eliminación de cualquier instancia de aplicación en ejecución
 5. Creación de una instancia de aplicación
 
-En Visual Studio, al presionar **F5** se implementará su aplicación y se asociará el depurador a todas las instancias de aplicación. Puede usar **CTRL+F5** para implementar una aplicación sin depurar o bien, publicar en un clúster local o remoto mediante el perfil de publicación. 
+En Visual Studio, al presionar **F5** se implementará su aplicación y se asociará el depurador a todas las instancias de aplicación. Puede usar **CTRL+F5** para implementar una aplicación sin depurar o bien, publicar en un clúster local o remoto mediante el perfil de publicación.
 
 ### <a name="application-debug-mode"></a>Application Debug Mode
 Visual Studio proporciona una propiedad llamada **Application Debug Mode**, que controla cómo desea que Visual Studio controle la implementación de la aplicación como parte de la depuración.
@@ -45,7 +45,7 @@ Visual Studio proporciona una propiedad llamada **Application Debug Mode**, que 
 
 #### <a name="application-debug-modes"></a>Modos de depuración de la aplicación
 
-1. **Actualizar aplicación** Este modo le permite cambiar y depurar su código rápidamente y permite editar archivos web estáticos durante la depuración. Este modo solo funciona si el clúster de desarrollo local está en [modo 1 nodo](/service-fabric-get-started-with-a-local-cluster.md#one-node-and-five-node-cluster-mode).
+1. **Actualizar aplicación** Este modo le permite cambiar y depurar su código rápidamente y permite editar archivos web estáticos durante la depuración. Este modo solo funciona si el clúster de desarrollo local está en [modo 1 nodo]. Este es el modo de depuración de la aplicación predeterminado (/service-fabric-get-started-with-a-local-cluster.md#one-node-and-five-node-cluster-mode).
 2. **Quitar aplicación** : la aplicación se quita cuando finaliza la sesión de depuración.
 3. **Actualización automática** La aplicación continúa ejecutándose cuando finaliza la sesión de depuración. La siguiente sesión de depuración tratará la implementación como una actualización. El proceso de actualización conserva todos los datos especificados en una sesión de depuración anterior.
 4. **Mantener aplicación** La aplicación sigue ejecutándose en el clúster cuando finaliza la sesión de depuración. Al principio de la siguiente sesión de depuración, se eliminará la aplicación.
@@ -53,7 +53,7 @@ Visual Studio proporciona una propiedad llamada **Application Debug Mode**, que 
 Se conservan los datos de **Actualización automática** por medio de las funcionalidades de actualización de aplicaciones de Service Fabric. Para obtener más información sobre la actualización de aplicaciones y cómo se realiza una actualización en un entorno real, consulte [Actualización de la aplicación de Service Fabric](service-fabric-application-upgrade.md).
 
 ## <a name="add-a-service-to-your-service-fabric-application"></a>Agregue un servicio a su aplicación Service Fabric
-Puede agregar nuevos servicios a su aplicación para ampliar su funcionalidad.  Para garantizar que el servicio se incluye en el paquete de aplicación, agregue el servicio a través del elemento de menú **Nuevo servicio del tejido...** .
+Puede agregar nuevos servicios a su aplicación para ampliar su funcionalidad. Para garantizar que el servicio se incluye en el paquete de aplicación, agregue el servicio a través del elemento de menú **Nuevo servicio del tejido...** .
 
 ![Agregar un nuevo servicio de Service Fabric][newservice]
 

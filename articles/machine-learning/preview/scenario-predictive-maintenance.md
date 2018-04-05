@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.topic: article
 ms.custom: mvc
 ms.date: 10/05/2017
-ms.openlocfilehash: 81e227194ff64d7b7af842a208349ccc63528ab8
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: bb6e4f9f147db2fb70d991922cf0bb8d16b29671
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="predictive-maintenance-for-real-world-scenarios"></a>Mantenimiento predictivo en escenarios reales
 
@@ -25,7 +25,7 @@ En este escenario se explora un [conjunto de datos simulado a gran escala](https
 
 ### <a name="cortana-intelligence-gallery-github-repository"></a>Repositorio GitHub de la Galería de Cortana Intelligence
 
-El tutorial de la Galería de Cortana Intelligence para el mantenimiento predictivo es un repositorio GitHub público ([https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance)) en el que puede notificar problemas y realizar contribuciones.
+La Galería de Cortana Intelligence para el tutorial de PM es un repositorio GitHub público ([https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance)) donde puede notificar problemas y realizar contribuciones.
 
 
 ## <a name="use-case-overview"></a>Información general del caso de uso
@@ -135,6 +135,6 @@ Las referencias siguientes proporcionan ejemplos de otros casos de uso de manten
 * [Mantenimiento predictivo con PySpark](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-using-PySpark)
 * [Aprendizaje profundo para mantenimiento predictivo](https://docs.microsoft.com/en-us/azure/machine-learning/preview/scenario-deep-learning-for-predictive-maintenance)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Hay otros escenarios de ejemplo disponibles en Machine Learning Workbench que muestran características adicionales del producto. 

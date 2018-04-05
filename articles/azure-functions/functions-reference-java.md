@@ -5,7 +5,7 @@ services: functions
 documentationcenter: na
 author: rloutlaw
 manager: justhe
-keywords: "Azure Functions, funciones, procesamiento de eventos, webhooks, proceso dinámico, arquitectura sin servidor, java"
+keywords: Azure Functions, funciones, procesamiento de eventos, webhooks, proceso dinámico, arquitectura sin servidor, java
 ms.service: functions
 ms.devlang: java
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/07/2017
 ms.author: routlaw
-ms.openlocfilehash: 09a48d61cb27b4db0778295565d167a0688cc99f
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 71576e65d20d7e8cb7f5ff1c5f19c82439bb6807
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guía de Azure Functions para desarrolladores de Java
 > [!div class="op_single_selector"]
@@ -325,9 +325,33 @@ public class Function {
 }
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="environment-variables"></a>Variables de entorno
+
+A menudo resulta deseable extraer información de secreto del código fuente por motivos de seguridad. Esto permite publicar el código en repositorios de código fuente sin proporcionar por accidente las credenciales a otros desarrolladores. Esto puede lograrse simplemente mediante variables de entorno, tanto al ejecutar Azure Functions localmente como al implementar las funciones en Azure.
+
+Para establecer las variables de entorno con facilidad al ejecutar Azure Functions localmente, puede optar por agregar estas variables en el archivo local.settings.json. Si no tiene uno en el directorio raíz del proyecto de la función, puede crear uno. Este es el aspecto que debería tener el archivo:
+
+```xml
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "",
+    "AzureWebJobsDashboard": ""
+  }
+}
+```
+
+Cada asignación de clave y valor en el mapa `values` se pondrá a disposición en tiempo de ejecución como variable de entorno, a la que podrá tener acceso mediante una llamada a `System.getenv("<keyname>")`, por ejemplo, `System.getenv("AzureWebJobsStorage")`. Agregar pares adicionales de clave/valor es una práctica aceptada y recomendada.
+
+> [!NOTE]
+> Si se sigue este enfoque, asegúrese de que tener en cuenta si agregar el archivo local.settings.json al repositorio omitir archivos, para que no se confirme.
+
+Ahora que el código depende de estas variables de entorno, puede iniciar sesión en Azure Portal para establecer el mismo par de clave/valor en la configuración de aplicación de la función, para que el código funcione de forma equivalente al probar localmente y al implementar en Azure.
+
+## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información, consulte los siguientes recursos:
 
 * [Procedimientos recomendados para Azure Functions](functions-best-practices.md)
 * [Referencia para desarrolladores de Azure Functions](functions-reference.md)
 * [Enlaces y desencadenadores de Azure Functions](functions-triggers-bindings.md)
+* [Depuración remota de Azure Functions en Java con Visual Studio Code](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud)

@@ -1,11 +1,11 @@
 ---
-title: "Administrar conjuntos de escalado de máquinas virtuales con Azure PowerShell | Microsoft Docs"
-description: "Cmdlets de Azure PowerShell comunes para administrar conjuntos de escalado de máquinas virtuales, por ejemplo, cómo iniciar y detener una instancia, o cambiar la capacidad del conjunto de escalado."
+title: Administrar conjuntos de escalado de máquinas virtuales con Azure PowerShell | Microsoft Docs
+description: Cmdlets de Azure PowerShell comunes para administrar conjuntos de escalado de máquinas virtuales, por ejemplo, cómo iniciar y detener una instancia, o cambiar la capacidad del conjunto de escalado.
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: d35fa77a-de96-4ccd-a332-eb181d1f4273
 ms.service: virtual-machine-scale-sets
@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 5b5f3eb05f0d6c10f7efe8af1b93b2cb4fc585c5
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: c463dd26c106b3178becc977a8afd742220d7973
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Administrar un conjunto de escalado de máquinas virtuales con Azure PowerShell
 Durante el ciclo de vida de la máquina virtual, es posible que deba ejecutar una o varias tareas de administración. Además, puede crear scripts para automatizar varias tareas de ciclo de vida. En este artículo se detallan algunos de los cmdlets comunes de Azure PowerShell que le permiten realizar estas tareas.
 
-Para completar estas tareas de administración, se requiere el módulo de Azure PowerShell más reciente. Para obtener información acerca de cómo instalar y usar la versión más reciente, consulte [Introducción a Azure PowerShell](/powershell/azure/get-started-azureps). Si necesita crear un conjunto de escalado de máquinas virtuales, puede [crear un conjunto de escalado en Azure Portal](virtual-machine-scale-sets-create-portal.md).
+Para completar estas tareas de administración, se requiere el módulo de Azure PowerShell más reciente. Para obtener más información, consulte [Introducción a Azure PowerShell](/powershell/azure/get-started-azureps). Si necesita crear un conjunto de escalado de máquinas virtuales, puede [crear un conjunto de escalado con Azure PowerShell](quick-create-powershell.md).
 
 
 ## <a name="view-information-about-a-scale-set"></a>Visualización de información acerca de un conjunto de escalado
@@ -108,5 +108,5 @@ Remove-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScale
 ```
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Entre otras tareas comunes para conjuntos de escalado se incluye cómo [implementar una aplicación](virtual-machine-scale-sets-deploy-app.md) y cómo [actualizar instancias de máquinas virtuales](virtual-machine-scale-sets-upgrade-scale-set.md). También puede usar Azure PowerShell para [configurar reglas de escalado automático](virtual-machine-scale-sets-autoscale-overview.md).

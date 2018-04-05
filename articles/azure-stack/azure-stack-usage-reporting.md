@@ -11,14 +11,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 03/27/2018
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: 29d53f63bf3d551823ca27df04f0e385a92cdec7
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 9153efb73e84d7b84a732217b92a9c66617e90ae
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="report-azure-stack-usage-data-to-azure"></a>Notificar los datos de uso de Azure Stack a Azure 
 
@@ -27,7 +27,7 @@ Los datos de uso, también denominados datos de consumo, representan la cantidad
 Los sistemas de varios nodos de Azure Stack que usan el modelo de facturación basado en el consumo deben notificar datos de uso a Azure para la facturación.  Los operadores de Azure Stack deben configurar su instancia de Azure Stack para informar de los datos de uso a Azure.
 
 > [!NOTE]
-> Los informes de datos de uso son obligatorios para los usuarios de varios nodos de Azure Stack con una licencia de modelo de pago por uso. Es opcional para los clientes con una licencia de modelo de capacidad (vea la [página Cómo comprar Azure Stack](https://azure.microsoft.com/overview/azure-stack/how-to-buy/ to learn more about pricing in Azure Stack)). Para los usuarios del Kit de desarrollo de Azure Stack, los operadores de Azure Stack pueden notificar los datos de uso y probar la característica. Sin embargo, no se cobrará a los usuarios por el uso. 
+> Los informes de datos de uso son obligatorios para los usuarios de varios nodos de Azure Stack con una licencia de modelo de pago por uso. Es opcional para los clientes con una licencia de modelo de capacidad (vea la [página sobre cómo comprar Azure Stack](https://azure.microsoft.com/en-us/overview/azure-stack/how-to-buy/)). Para los usuarios del Kit de desarrollo de Azure Stack, los operadores de Azure Stack pueden notificar los datos de uso y probar la característica. Sin embargo, no se cobrará a los usuarios por el uso. 
 
 
 ![flujo de facturación](media/azure-stack-usage-reporting/billing-flow.png)

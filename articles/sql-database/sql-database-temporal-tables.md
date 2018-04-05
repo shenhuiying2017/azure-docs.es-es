@@ -3,17 +3,17 @@ title: Introducción a las tablas temporales de Azure SQL Database | Microsoft D
 description: Obtenga información sobre cómo empezar a usar las tablas temporales de Azure SQL Database
 services: sql-database
 author: bonova
+ms.date: 03/21/2018
 manager: craigg
 ms.service: sql-database
 ms.custom: develop databases
 ms.topic: article
-ms.date: 01/10/2017
 ms.author: bonova
-ms.openlocfilehash: 8e76d78e402d2cdc58ca26767c55c413f83226d9
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0299d52396549baf8ea7e5eb7145585c7b5900a6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Introducción a las tablas temporales de Azure SQL Database
 Las tablas temporales son una nueva característica de programación de Azure SQL Database que permiten realizar un seguimiento del historial completo de los cambios en los datos y analizarlo, sin necesidad de codificación personalizada. Las tablas temporales mantienen datos estrechamente relacionados con el contexto de tiempo para que se puedan interpretar los hechos almacenados como válidos solo dentro del período específico. Esta propiedad de las tablas temporales permite un análisis eficaz basado en el tiempo y obtener información detalladas de la evolución de los datos.
@@ -64,7 +64,7 @@ Cuando se crea la tabla temporal con versión del sistema, la tabla del historia
 En este caso particular, nuestro objetivo es realizar un análisis de tendencias basado en el tiempo a través de un historial de datos más largo y con conjuntos de datos más grandes, por lo que la elección de almacenamiento para la tabla de historial es un índice de almacén de columnas agrupado. Un almacén de columnas agrupado proporciona muy buena compresión y rendimiento de consultas analíticas. Las tablas temporales proporcionan flexibilidad para configurar índices en las tablas actuales y temporales de forma totalmente independiente. 
 
 > [!NOTE]
-> Los índices de almacén de columnas solo están disponibles en el nivel de servicio Premium.
+> Los índices de almacén de columnas están disponibles en el nivel Premium y en el nivel Estándar, S3 y versiones posteriores.
 >
 
 El siguiente script muestra cómo se puede cambiar el índice predeterminado en la tabla de historial para el almacén de columnas agrupado:

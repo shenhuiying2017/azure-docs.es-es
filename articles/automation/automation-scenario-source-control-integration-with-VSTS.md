@@ -1,24 +1,19 @@
 ---
-title: "Integración de Azure Automation con control de código fuente de Visual Studio Team Services | Documentos de Microsoft"
-description: "Escenario que le lleva por la configuración de la integración con una cuenta de Azure Automation y el control de código fuente de Visual Studio Team Services."
+title: Integración de Azure Automation con control de código fuente de Visual Studio Team Services
+description: Escenario que le lleva por la configuración de la integración con una cuenta de Azure Automation y el control de código fuente de Visual Studio Team Services.
 services: automation
-documentationcenter: 
-author: eamono
-manager: 
-editor: 
-keywords: "azure powershell, VSTS, control de código fuente, automation"
-ms.assetid: a43b395a-e740-41a3-ae62-40eac9d0ec00
+documentationcenter: ''
+author: eamonoreilly
+ms.author: eamono
+keywords: azure powershell, VSTS, control de código fuente, automation
 ms.service: automation
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2017
-ms.openlocfilehash: 5afccc4aa7b751958952d1401182f93109cff358
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.date: 03/19/2017
+ms.openlocfilehash: a60143db03e5f89685a25f26789003de30d91f4c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-automation-scenario---automation-source-control-integration-with-visual-studio-team-services"></a>Escenario de Azure Automation: integración del control del código fuente de Automation con Visual Studio Team Services
 
@@ -51,7 +46,7 @@ Cree una [variable segura](automation-variables.md) en su cuenta de automatizaci
 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSTokenVariable.png)
 
-Importe el Runbook que sincroniza los runbooks o las configuraciones en la cuenta de automatización. Puede usar el [runbook de ejemplo de VSTS](https://www.powershellgallery.com/packages/Sync-VSTS/1.0/DisplayScript) o el [runbook de ejemplo de VSTS con GIT] (https://www.powershellgallery.com/packages/Sync-VSTSGit/1.0/DisplayScript) de PowerShellGallery.com, según si usa el control de código fuente de VSTS o VSTS con GIT e implementarlo en su cuenta de automatización.
+Importe el Runbook que sincroniza los runbooks o las configuraciones en la cuenta de automatización. Puede usar el [runbook de ejemplo de VSTS](https://www.powershellgallery.com/packages/Sync-VSTS/1.0/DisplayScript) o el [runbook de ejemplo de VSTS con GIT] (https://www.powershellgallery.com/packages/Sync-VSTSGit/1.0/DisplayScript)) de PowerShellGallery.com, según si usa el control de código fuente de VSTS o VSTS con GIT e implementarlo en su cuenta de automatización.
 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSPowerShellGallery.png)
 

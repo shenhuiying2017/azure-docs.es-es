@@ -1,10 +1,10 @@
 ---
-title: "Directivas de indexación de Azure Cosmos DB | Microsoft Docs"
-description: "Comprenda cómo funciona la indexación en Azure Cosmos DB. Obtenga información sobre la configuración y cambio de la directiva de indexación para una indexación automática y un mayor rendimiento."
-keywords: "funcionamiento de la indexación, indexación automática, indexación de base de datos"
+title: Directivas de indexación de Azure Cosmos DB | Microsoft Docs
+description: Comprenda cómo funciona la indexación en Azure Cosmos DB. Obtenga información sobre la configuración y cambio de la directiva de indexación para una indexación automática y un mayor rendimiento.
+keywords: funcionamiento de la indexación, indexación automática, indexación de base de datos
 services: cosmos-db
-documentationcenter: 
-author: arramac
+documentationcenter: ''
+author: rafats
 manager: jhubbard
 editor: monicar
 ms.assetid: d5e8f338-605d-4dff-8a61-7505d5fc46d7
@@ -13,19 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 08/17/2017
-ms.author: arramac
-ms.openlocfilehash: b09f5323f0378721412baade9be9926ebd0c171e
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.date: 03/26/2018
+ms.author: rafats
+ms.openlocfilehash: 5610c5fdc6a04f9ef13d2e4592f0d7e5d8eba30c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>¿Cómo funcionan los datos del índice de Azure Cosmos DB?
 
 De forma predeterminada, todos los datos de Azure Cosmos DB se indexan. Aunque muchos clientes prefieren dejar que Azure Cosmos DB controle automáticamente todos los aspectos de la indexación, puede especificar una *directiva de indexación* personalizada para las colecciones durante la creación en Azure Cosmos DB. Las directivas de indexación de Azure Cosmos DB son más flexibles y eficaces que los índices secundarios que se ofrecen en otras plataformas de base de datos. En Azure Cosmos DB, puede diseñar y definir la forma del índice sin renunciar a la flexibilidad del esquema. 
 
 Para entender cómo funciona la indexación en Azure Cosmos DB, es importante comprender que, al administrar la directiva de indexación, puede lograr un equilibrio específico entre la sobrecarga de almacenamiento, el rendimiento de escritura y de consulta, y la coherencia de las consultas del índice.  
+
+En el siguiente vídeo, Andrew Liu, administrador de programas de Azure Cosmos DB, muestra las funcionalidades de indización automática de Azure Cosmos DB, y cómo optimizar y configurar la directiva de indización en el contenedor de Azure Cosmos DB. 
+
+>[!VIDEO https://www.youtube.com/embed/uFu2D-GscG0]
 
 En este artículo, echamos un vistazo más detenido a las directivas de indexación de Azure Cosmos DB, la personalización de la directiva de indexación, y las ventajas y desventajas asociadas. 
 
@@ -122,7 +126,7 @@ El siguiente ejemplo de código muestra cómo crear una colección de Azure Cosm
 ### <a name="index-paths"></a>Rutas de acceso del índice
 Azure Cosmos DB modela los documentos JSON y el índice como árboles. Puede ajustar las rutas de acceso a las directivas en el árbol. En los documentos, puede elegir las rutas de acceso que quiere incluir o excluir de la indexación. Esto puede mejorar el rendimiento de escritura y reducir el almacenamiento necesario para índice en escenarios en los que se conocen de antemano los patrones de consulta.
 
-Las rutas de acceso de índice comienzan con la raíz (/) y suelen terminar con el operador de comodín ?, lo que indica que hay varios valores posibles para el prefijo. Por ejemplo, para atender la consulta SELECT * FROM Families F WHERE F.familyName = "Andersen", debe incluir una ruta de acceso de índice para /familyName/? en la directiva de índice de la colección.
+Las rutas de acceso de índice comienzan con la raíz (/) comodín ?, lo que indica que hay varios valores posibles para el prefijo. Por ejemplo, para atender la consulta SELECT * FROM Families F WHERE F.familyName = "Andersen", debe incluir una ruta de acceso de índice para /familyName/? en la directiva de índice de la colección.
 
 Las rutas de acceso del índice también pueden usar el operador comodín \* para especificar el comportamiento de las rutas de acceso de forma recursiva en el prefijo. Por ejemplo, /payload/* puede usarse para excluir de la indexación a todo el contenido de la propiedad payload.
 
@@ -420,7 +424,7 @@ Para obtener una comparación práctica, se incluye a continuación un ejemplo d
     }
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para obtener ejemplos de administración de directivas de índice y más información acerca del lenguaje de consulta de Azure Cosmos DB, visite los vínculos siguientes (pueden estar en inglés):
 
 * [Ejemplos de código de administración de índices de .NET de SQL API](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/IndexManagement/Program.cs)

@@ -1,11 +1,11 @@
 ---
 title: Opciones avanzadas de informes para el SDK de Android para Azure Mobile Engagement
-description: "Describe cómo realizar los informes avanzados para capturar el análisis para el SDK de Android para Azure Mobile Engagement"
+description: Describe cómo realizar los informes avanzados para capturar el análisis para el SDK de Android para Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 7da7abd5-19d6-4892-94d8-818e5424b2cd
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/10/2016
 ms.author: piyushjo;ricksal
-ms.openlocfilehash: 2a1445afa2c2fca1a31ad9c012b9c8a917ebf65c
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 419b65250d2b65e184e6e36349b17b5ac9e7a6ba
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="advanced-reporting-with-engagement-on-android"></a>Informes avanzados con Engagement en Android
+> [!IMPORTANT]
+> Azure Mobile Engagement se retira el 31 de marzo de 2018. Esta página se eliminará poco después.
+> 
+
 > [!div class="op_single_selector"]
 > * [Windows universal](mobile-engagement-windows-store-integrate-engagement.md)
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
@@ -31,7 +35,7 @@ ms.lasthandoff: 12/21/2017
 
 Este tema describe los escenarios de informes adicionales en la aplicación Android. Puede aplicar estas opciones a la aplicación creada en el tutorial [Introducción a Azure Mobile Engagement para aplicaciones Android](mobile-engagement-android-get-started.md) .
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 [!INCLUDE [Prereqs](../../includes/mobile-engagement-android-prereqs.md)]
 
 El tutorial realizado era deliberadamente directo y sencillo, pero hay una serie de opciones avanzadas entre las que elegir.

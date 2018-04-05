@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: e0b919ae5ef0639c8afdc5f9b006d899c8dbc4c1
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 071a9ffb8305a30b0fedeaa49c4a95d91fbce6c1
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Las interacciones humanas en Durable Functions: comprobación telefónica de ejemplo
 
@@ -28,8 +28,8 @@ En este ejemplo se implementa un sistema de comprobación telefónica por SMS. A
 
 ## <a name="prerequisites"></a>requisitos previos
 
-* Siga las instrucciones del artículo de [instalación de Durable Functions](durable-functions-install.md) para configurar el ejemplo.
-* En este artículo se da por supuesto que ya se ha leído el tutorial de [Hello Sequence](durable-functions-sequence.md) de ejemplo.
+* [Instale Durable Functions](durable-functions-install.md).
+* Complete el tutorial de [Hello Sequence](durable-functions-sequence.md).
 
 ## <a name="scenario-overview"></a>Información general de escenario
 
@@ -50,7 +50,7 @@ En este artículo se explican las funciones siguientes en la aplicación de ejem
 * **E4_SmsPhoneVerification**
 * **E4_SendSmsChallenge**
 
-En las siguientes secciones se explican la configuración y el código que se utilizan para el desarrollo de Azure Portal. Al final del artículo se muestra el código para el desarrollo de Visual Studio.
+En las siguientes secciones se explican la configuración y el código que se utilizan para el scripting C#. Al final del artículo se muestra el código para el desarrollo de Visual Studio.
  
 ## <a name="the-sms-verification-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>La orquestación de verificación por SMS (código de ejemplo de Azure Portal y Visual Studio Code) 
 

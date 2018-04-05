@@ -1,28 +1,25 @@
 ---
-title: "Azure Active Directory B2C: configuración de LinkedIn | Microsoft Docs"
-description: "Proporcionar a los consumidores registro e inicio de sesión con cuentas de LinkedIn en las aplicaciones protegidas por Azure Active Directory B2C"
+title: 'Azure Active Directory B2C: configuración de LinkedIn | Microsoft Docs'
+description: Proporcionar a los consumidores registro e inicio de sesión con cuentas de LinkedIn en las aplicaciones protegidas por Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: 
-author: swkrish
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: bryanla
-ms.assetid: fa51a16b-9ce9-4e27-9eff-0869b4c4f0ef
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
-ms.author: swkrish
-ms.openlocfilehash: 860aa90c391604924850a00cf2137d59fa4a1b53
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 91970b3ec41c645cd1cd3e203cc96ad655dafd7e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-linkedin-accounts"></a>Azure Active Directory B2C: provisión de registro e inicio de sesión a los consumidores con cuentas de LinkedIn
 ## <a name="create-a-linkedin-application"></a>Creación de una aplicación de LinkedIn
-Para usar LinkedIn como proveedor de identidades en Azure Active Directory (Azure AD) B2C, primero debe crear una aplicación de LinkedIn y suministrarle los parámetros correctos. Necesita una cuenta de LinkedIn para ello. Si no tiene una, puede obtenerla en [https://www.linkedin.com/](https://www.linkedin.com/).
+Para usar LinkedIn como proveedor de identidades en Azure Active Directory (Azure AD) B2C, primero debe crear una aplicación de LinkedIn y suministrarle los parámetros correctos. Necesita una cuenta de LinkedIn para ello. Si no tiene, puede obtenerla en [https://www.linkedin.com/](https://www.linkedin.com/).
 
 1. Vaya al [sitio web para desarrolladores de LinkedIn](https://www.developer.linkedin.com/) e inicie sesión con las credenciales de su cuenta de LinkedIn.
 2. Haga clic en **My Apps** (Mis aplicaciones) en la barra de menús superior y, luego, en **Create Application** (Crear aplicación).

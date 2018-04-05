@@ -1,12 +1,11 @@
 ---
-title: "Introducción a Stream Analytics | Microsoft Docs"
-description: "Obtenga información sobre Stream Analytics, un servicio administrado que le ayudará a analizar datos de streaming desde Internet de las cosas (IoT) en tiempo real."
-keywords: "análisis como servicio, servicios administrados, procesamiento de transmisiones, análisis de transmisiones, qué es stream analytics"
+title: Introducción a Stream Analytics | Microsoft Docs
+description: Obtenga información sobre Stream Analytics, un servicio administrado que le ayudará a analizar datos de streaming desde Internet de las cosas (IoT) en tiempo real.
+keywords: análisis como servicio, servicios administrados, procesamiento de transmisiones, análisis de transmisiones, qué es stream analytics
 services: stream-analytics
-documentationcenter: 
-author: samacha
-manager: jhubbard
-editor: cgronlun
+documentationcenter: ''
+author: jseb225
+manager: ryanw
 ms.assetid: 613c9b01-d103-46e0-b0ca-0839fee94ca8
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 10/17/2017
-ms.author: samacha
-ms.openlocfilehash: 5747f2f1d3eed3905e0ae3123dab74287beccf66
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.author: jeanb
+ms.openlocfilehash: 70a4b0b358b79ec892483a9fa5573e4bf2d57534
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="what-is-stream-analytics"></a>¿Qué es Stream Analytics?
 

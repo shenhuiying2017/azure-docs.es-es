@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: lakasa
-ms.openlocfilehash: 1360d8bb0911c424747209c69b830fc1ee461798
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 04688f943ac9eba27ca193aa2054c69b6a94547d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Cifrado del servicio Storage mediante claves administradas por el cliente en Azure Key Vault
 
@@ -111,11 +111,11 @@ Set-AzureRmStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName -
 
 ### <a name="step-5-copy-data-to-storage-account"></a>Paso 5: Copia de los datos en una cuenta de almacenamiento
 
-Para transferir datos a la nueva cuenta de almacenamiento de manera que se cifren, consulte el paso 3 de [Introducción de Cifrado del servicio Storage para datos en reposo](storage-service-encryption.md#step-3-copy-data-to-storage-account).
+Para transferir datos a la nueva cuenta de almacenamiento de modo que estén cifrados. Para obtener más información, consulte [Preguntas frecuentes sobre el Cifrado del servicio Storage](storage-service-encryption.md#faq-for-storage-service-encryption).
 
 ### <a name="step-6-query-the-status-of-the-encrypted-data"></a>Paso 6: Consulta del estado de los datos cifrados
 
-Para consultar el estado de los datos cifrados, consulte el paso 4 de [Introducción de Cifrado del servicio Storage para datos en reposo](storage-service-encryption.md#step-4-query-the-status-of-the-encrypted-data).
+Consulte el estado de los datos cifrados.
 
 ## <a name="faq-for-sse-with-customer-managed-keys"></a>Preguntas más frecuentes sobre SSE con claves administradas por el cliente
 

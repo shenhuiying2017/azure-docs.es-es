@@ -1,19 +1,19 @@
 ---
-title: "Estructura de definición de Azure Policy | Microsoft Docs"
-description: "Describe cómo Azure Policy usa la definición de directiva de recursos para establecer convenciones para los recursos de su organización al describir cuándo se aplica la directiva y qué acción realizar."
+title: Estructura de definición de Azure Policy | Microsoft Docs
+description: Describe cómo Azure Policy usa la definición de directiva de recursos para establecer convenciones para los recursos de su organización al describir cuándo se aplica la directiva y qué acción realizar.
 services: azure-policy
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 01/17/2018
 ms.topic: article
 ms.service: azure-policy
-ms.custom: 
-ms.openlocfilehash: ffff4a663b64342142f42a662905a290044e2dfb
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.custom: ''
+ms.openlocfilehash: 50965010d821d4edf94e2f5727546cb56f61f5db
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Estructura de definición de Azure Policy
 
@@ -70,7 +70,9 @@ El **modo** determina qué tipos de recurso se evaluarán para una directiva. Lo
 * `all`: evalúe los grupos de recursos y todos los tipos de recurso 
 * `indexed`: evalúe solo los tipos de recurso que admitan las etiquetas y la ubicación
 
-Se recomienda que establezca el **modo** en `all`. Todas las definiciones de directivas creadas a través del portal usan el modo `all`. Si usa PowerShell o la CLI de Azure, tiene que especificar el parámetro de **modo** y establecerlo en `all`. 
+Se recomienda que establezca **mode** en `all` en la mayoría de los casos. Todas las definiciones de directivas creadas a través del portal usan el modo `all`. Si usa PowerShell o la CLI de Azure, tiene que especificar el parámetro **mode** de forma manual.
+
+`indexed` debe usarse al crear directivas que apliquen etiquetas o ubicaciones. Esto no es obligatorio, pero impedirá que los recursos que no son compatibles con etiquetas y ubicaciones aparezcan como no conformes en los resultados de cumplimiento. La única excepción a esto es **grupos de recursos**. Las directivas que intentan aplicar la ubicación o etiquetas en un grupo de recursos deben establecer **mode** en `all` y tener como destino específico el tipo `Microsoft.Resources/subscriptions/resourceGroup`. Para obtener un ejemplo, consulte [Aplicar etiqueta y su valor en grupos de recursos](scripts/enforce-tag-rg.md).
 
 ## <a name="parameters"></a>Parámetros
 
@@ -126,7 +128,7 @@ En el bloque **Then**, defina el efecto que se produce cuando se cumplen las con
     <condition> | <logical operator>
   },
   "then": {
-    "effect": "deny | audit | append"
+    "effect": "deny | audit | append | auditIfNotExists | deployIfNotExists"
   }
 }
 ```
@@ -165,16 +167,22 @@ Puede anidar los operadores lógicos. El ejemplo siguiente muestra una operació
 Una condición evalúa si un **campo** cumple determinados criterios. Estas son las condiciones que se admiten:
 
 * `"equals": "value"`
+* `"notEquals": "value"`
 * `"like": "value"`
+* `"notLike": "value"`
 * `"match": "value"`
+* `"notMatch": "value"`
 * `"contains": "value"`
+* `"notContains": "value"`
 * `"in": ["value1","value2"]`
+* `"notIn": ["value1","value2"]`
 * `"containsKey": "keyName"`
+* `"notContainsKey": "keyName"`
 * `"exists": "bool"`
 
-Cuando se usa la condición **like**, puede incluir un carácter comodín (*) en el valor.
+Cuando se usan las condiciones **like** y **notLike**, puede incluir un carácter comodín (*) en el valor.
 
-Cuando se usa la condición **match**, proporcione `#` para representar un dígito, `?` para una letra y cualquier otro carácter para representar ese carácter en sí. Por ejemplo, consulte las [imágenes de máquina virtual aprobadas](scripts/allowed-custom-images.md).
+Cuando se usan las condiciones **match** y **notMatch**, proporcione `#` para representar un dígito, `?` para una letra, y cualquier otro carácter para representar ese carácter en sí. Por ejemplo, consulte las [imágenes de máquina virtual aprobadas](scripts/allowed-custom-images.md).
 
 ### <a name="fields"></a>Fields
 Para crear condiciones se usan campos. Un campo representa las propiedades de la carga de solicitud de recursos que se usa para describir el estado del recurso.  
@@ -182,12 +190,28 @@ Para crear condiciones se usan campos. Un campo representa las propiedades de la
 Se admiten los siguientes campos:
 
 * `name`
+* `fullName`
+  * Devuelve el nombre completo del recurso, incluidos a los elementos primarios (por ejemplo, "miServidor/miBaseDeDatos").
 * `kind`
 * `type`
 * `location`
 * `tags`
-* `tags.*`
+* `tags.tagName`
+* `tags[tagName]`
+  * Esta sintaxis con corchetes admite nombres de etiqueta que contengan puntos.
 * alias de propiedad: para obtener una lista, vea [Alias](#aliases).
+
+### <a name="alternative-accessors"></a>Descriptores de acceso alternativos
+**Field** es el descriptor de acceso principal usado en reglas de directiva. Inspecciona directamente el recurso que se va a evaluar. Sin embargo, la directiva es compatible con otro descriptor de acceso, **source**.
+
+```json
+"source": "action",
+"equals": "Microsoft.Compute/virtualMachines/write"
+```
+
+**Source** solo admite un valor, **action**. Action devuelve la acción de autorización de la solicitud que se va a evaluar. Las acciones de autorización se exponen en la sección de autorización del [Registro de actividad](../monitoring-and-diagnostics/monitoring-activity-log-schema.md).
+
+Cuando la directiva está evaluando los recursos existentes en segundo plano, establece **action** en una acción de autorización `/write` en el tipo de recurso.
 
 ### <a name="effect"></a>Efecto
 La directiva admite tres tipos de efectos:
@@ -212,7 +236,7 @@ En el caso de **append**, debe proporcionar los detalles tal y como se muestra a
 
 El valor puede ser una cadena o un objeto con formato JSON.
 
-Con **AuditIfNotExists** y **DeployIfNotExists**, puede evaluar la existencia de un recurso secundario y aplicar una regla y un efecto correspondiente si no existe ese recurso. Por ejemplo, puede requerir que un monitor de red se implemente para todas las redes virtuales.
+Con **AuditIfNotExists** y **DeployIfNotExists**, puede evaluar la existencia de un recurso relacionado y aplicar una regla y un efecto correspondiente si no existe ese recurso. Por ejemplo, puede requerir que un monitor de red se implemente para todas las redes virtuales.
 Para un ejemplo de auditoría cuando no se implementa una extensión de máquina virtual, consulte el artículo sobre la [auditoría si la extensión no existe](scripts/audit-ext-not-exist.md).
 
 
@@ -415,6 +439,6 @@ En el ejemplo siguiente se muestra cómo crear una iniciativa para controlar dos
 }
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Revise los ejemplos de plantilla de Azure Policy en [Plantillas para Azure Policy](json-samples.md).

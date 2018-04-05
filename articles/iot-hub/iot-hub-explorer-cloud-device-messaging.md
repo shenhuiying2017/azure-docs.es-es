@@ -1,12 +1,12 @@
 ---
-title: "Administración de mensajería entre dispositivos y la nube de Azure IoT Hub con iothub-explorer | Microsoft Docs"
+title: Administración de mensajería entre dispositivos y la nube de Azure IoT Hub con iothub-explorer | Microsoft Docs
 description: Aprenda a utilizar la herramienta de la CLI iothub-explorer para supervisar los mensajes de dispositivo a nube (D2C) y enviar mensajes de nube a dispositivo (C2D) en Azure IoT Hub.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: shizn
 manager: timlt
-tags: 
-keywords: "iothub explorer, mensajería de dispositivo a nube, nube a dispositivo de iot hub, mensajería de nube a dispositivo"
+tags: ''
+keywords: iothub explorer, mensajería de dispositivo a nube, nube a dispositivo de iot hub, mensajería de nube a dispositivo
 ms.assetid: 04521658-35d3-4503-ae48-51d6ad3c62cc
 ms.service: iot-hub
 ms.devlang: arduino
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: xshi
-ms.openlocfilehash: 30151b7bdc544bc36e959cc3528d37897198fc7e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7e74c08849ae2f98d3189c0cd3d340874ea085ff
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-iothub-explorer-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Uso de iothub-explorer para enviar y recibir mensajes entre el dispositivo y la instancia de IoT Hub
 
@@ -28,6 +28,8 @@ ms.lasthandoff: 10/11/2017
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
 [iothub-explorer](https://github.com/azure/iothub-explorer) tiene una serie de comandos que facilitan la administración de IoT Hub. Este tutorial se centra en cómo utilizar iothub-explorer para enviar y recibir mensajes entre el dispositivo y el IoT Hub.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 ## <a name="what-you-will-learn"></a>Lo qué aprenderá
 

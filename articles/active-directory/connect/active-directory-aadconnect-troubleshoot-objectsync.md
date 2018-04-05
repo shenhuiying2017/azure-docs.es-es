@@ -1,8 +1,8 @@
 ---
-title: "Azure AD Connect: solución de problemas de sincronización de objetos | Microsoft Docs"
-description: "En este tema se proporcionan los pasos para solucionar problemas relacionados con la sincronización de objetos mediante la tarea de solución de problemas."
+title: 'Azure AD Connect: solución de problemas de sincronización de objetos | Microsoft Docs'
+description: En este tema se proporcionan los pasos para solucionar problemas relacionados con la sincronización de objetos mediante la tarea de solución de problemas.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
 editor: curtand
@@ -11,19 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 03/19/2018
 ms.author: billmath
-ms.openlocfilehash: 10ebe039b9d266d15696b397b9cdef9bc7ec2a10
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 54ae18b9a802fe078d307f4d36400adf806b233f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>Solución de problemas de sincronización de objetos con Azure AD Connect Sync
 En este documento se proporcionan los pasos para solucionar problemas relacionados con la sincronización de objetos mediante la tarea de solución de problemas.
 
 ## <a name="troubleshooting-task"></a>Tarea de solución de problemas
-Para la implementación de Azure Active Directory (AAD) Connect con la versión <verison> o superior, use la tarea de solución de problemas del asistente para solucionar problemas de sincronización de objetos. En versiones anteriores, solucione los problemas manualmente como se describe [aquí](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md).
+Para la implementación de Azure Active Directory (AAD) Connect con la versión 1.1.749.0 o superior, use la tarea de solución de problemas del asistente para solucionar problemas de sincronización de objetos. En versiones anteriores, solucione los problemas manualmente como se describe [aquí](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md).
 
 ### <a name="run-the-troubleshooting-task-in-the-wizard"></a>Ejecución de la tarea de solución de problemas en el asistente
 Para ejecutar la tarea de solución de problemas en el asistente, realice los pasos siguientes:
@@ -85,5 +85,5 @@ Además de analizar el objeto, la tarea de solución de problemas también gener
 
 ![](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch8.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).

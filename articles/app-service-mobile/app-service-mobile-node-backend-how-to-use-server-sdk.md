@@ -1,11 +1,11 @@
 ---
-title: "Cómo trabajar con el SDK del servidor back-end de Node.js para Mobile Apps | Microsoft Docs"
-description: "Obtenga información acerca de cómo trabajar con el SDK del servidor back-end de Node.js para Azure App Service Mobile Apps."
+title: Cómo trabajar con el SDK del servidor back-end de Node.js para Mobile Apps | Microsoft Docs
+description: Obtenga información acerca de cómo trabajar con el SDK del servidor back-end de Node.js para Azure App Service Mobile Apps.
 services: app-service\mobile
-documentationcenter: 
+documentationcenter: ''
 author: elamalani
 manager: elamalani
-editor: 
+editor: ''
 ms.assetid: e7d97d3b-356e-4fb3-ba88-38ecbda5ea50
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: bd423d6fb62b2ace16832f665c8834b4aea7e26f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 335186deccaa82b9a8d262d62dd8ce5d620446b6
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Uso del SDK de Node.js de Mobile Apps
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -135,7 +135,7 @@ Al crear un nuevo back-end de Mobile Apps de Node.js mediante el panel **Inicio 
 El siguiente procedimiento usa un repositorio de GIT para descargar el código del proyecto de inicio rápido:
 
 1. Si aún no lo ha hecho, instale Git. Los pasos requeridos para instalar Git varían según los sistemas operativos. Para obtener una guía sobre la instalación y las distribuciones específicas del sistema operativo, vea [Installing Git](http://git-scm.com/book/en/Getting-Started-Installing-Git) (Instalación de Git).
-2. Siga los pasos de [Habilitación del repositorio de aplicaciones de App Service](../app-service/app-service-deploy-local-git.md#Step3) con el fin de habilitar el repositorio de GIT para el sitio del back-end. Anote el nombre de usuario y la contraseña de la implementación.
+2. Consulte [Preparación del repositorio](../app-service/app-service-deploy-local-git.md#prepare-your-repository) para habilitar el repositorio de GIT para el sitio de back-end. Anote el nombre de usuario y la contraseña de la implementación.
 3. En el panel para el back-end de Mobile Apps, tome nota del valor de **URL de clonación de Git**.
 4. Ejecute el comando `git clone` mediante el uso de la dirección URL de clonación de GIT. Escriba la contraseña cuando se le solicite, como en el ejemplo siguiente:
 
@@ -336,9 +336,9 @@ La mayoría de las opciones de configuración del archivo azureMobile.js tienen 
 
 | Configuración de aplicación | Configuración de azureMobile.js | DESCRIPCIÓN | Valores válidos |
 |:--- |:--- |:--- |:--- |
-| **MS_MobileAppName** |Nombre |Nombre de la aplicación |cadena |
+| **MS_MobileAppName** |Nombre |Nombre de la aplicación |string |
 | **MS_MobileLoggingLevel** |logging.level |Nivel mínimo de registro de mensajes en el registro |error, advertencia, información, detallado, depuración, absurdo |
-| **MS_DebugMode** |debug |Habilita o deshabilita el modo de depuración. |true, false |
+| **MS_DebugMode** |debug |Habilita o deshabilita el modo de depuración |true, false |
 | **MS_TableSchema** |data.schema |Nombre del esquema predeterminado para tablas SQL |cadena (valor predeterminado: dbo) |
 | **MS_DynamicSchema** |data.dynamicSchema |Habilita o deshabilita el modo de depuración |true, false |
 | **MS_DisableVersionHeader** |version (establecida en undefined) |Deshabilita el encabezado X-ZUMO-Server-Version |true, false |

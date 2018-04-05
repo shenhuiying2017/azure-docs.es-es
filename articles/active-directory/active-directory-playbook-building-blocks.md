@@ -1,12 +1,12 @@
 ---
-title: "Guía de prueba de concepto de Azure Active Directory: bloques de creación | Documentos de Microsoft"
-description: "Exploración e implementación rápida de escenarios de administración de identidades y acceso"
+title: 'Guía de prueba de concepto de Azure Active Directory: bloques de creación | Documentos de Microsoft'
+description: Exploración e implementación rápida de escenarios de administración de identidades y acceso
 services: active-directory
-keywords: "azure active directory, guía, prueba de concepto, PoC"
-documentationcenter: 
+keywords: azure active directory, guía, prueba de concepto, PoC
+documentationcenter: ''
 author: dstefanMSFT
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: b37ca3c6ca528551ef09a90159e92fd31e0fabf2
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 1efb8d89b0a78dcf88c60c2e8cd3b968a725e8b9
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Guía de prueba de concepto de Azure Active Directory: bloques de creación
 
@@ -40,8 +40,8 @@ A continuación se proporcionan algunos requisitos previos necesarios para cualq
 
 | Requisito previo | Recursos |
 | --- | --- |
-| Inquilino de Azure AD definido con una suscripción válida a Azure | [Obtención de un inquilino de Azure Active Directory](active-directory-howto-tenant.md)<br/>**Nota:** Si ya tiene un entorno con licencias de Azure AD Premium, puede obtener una suscripción de límite cero, vaya a https://aka.ms/accessaad. <br/>Más información en https://blogs.technet.microsoft.com/enterprisemobility/2016/02/26/azure-ad-mailbag-azure-subscriptions-and-azure-ad-2/ and https://technet.microsoft.com/library/dn832618.aspx. |
-| Dominios definidos y verificados | [Incorporación de un nombre de dominio personalizado a Azure Active Directory](active-directory-domains-add-azure-portal.md)<br/>**Nota:** Algunas cargas de trabajo como Power BI podrían haber aprovisionado un inquilino de Azure AD en segundo plano. Para comprobar si un determinado dominio está asociado a un inquilino, vaya a https://login.microsoftonline.com/{dominio}/v2.0/.well-known/openid-configuration. Si obtiene una respuesta correcta, el dominio ya está asignado a un inquilino y puede ser necesario adquirir el control. En ese caso, póngase en contacto con Microsoft para más información. Aprenda más sobre las opciones de adquisición en [¿Qué es la suscripción de autoservicio de Azure?](active-directory-self-service-signup.md) |
+| Inquilino de Azure AD definido con una suscripción válida a Azure | [Obtención de un inquilino de Azure Active Directory](active-directory-howto-tenant.md)<br/>**Nota:** Si ya tiene un entorno con licencias de Azure AD Premium, para obtener una suscripción de límite cero, vaya a https://aka.ms/accessaad. <br/>Más información en https://blogs.technet.microsoft.com/enterprisemobility/2016/02/26/azure-ad-mailbag-azure-subscriptions-and-azure-ad-2/ y https://technet.microsoft.com/library/dn832618.aspx |
+| Dominios definidos y verificados | [Incorporación de un nombre de dominio personalizado a Azure Active Directory](active-directory-domains-add-azure-portal.md)<br/>**Nota:** Algunas cargas de trabajo como Power BI podrían haber aprovisionado un inquilino de Azure AD en segundo plano. Para comprobar si un dominio determinado está asociado a un inquilino, vaya a https://login.microsoftonline.com/{domain}/v2.0/.well-known/openid-configuration. Si obtiene una respuesta correcta, el dominio ya está asignado a un inquilino y puede ser necesario adquirir el control. En ese caso, póngase en contacto con Microsoft para más información. Aprenda más sobre las opciones de adquisición en [¿Qué es la suscripción de autoservicio de Azure?](active-directory-self-service-signup.md) |
 | Prueba de Azure AD Premium o EMS habilitada | [Azure Active Directory Premium gratis durante un mes](https://azure.microsoft.com/trial/get-started-active-directory/) |
 | Tener asignadas licencias de Azure AD Premium o EMS para usuarios de prueba de concepto | [Obtención de una licencia para usted y sus usuarios en Azure Active Directory.](active-directory-licensing-get-started-azure-portal.md) |
 | Credenciales de administrador global de Azure AD | [Asignación de roles de administrador en Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md) |
@@ -71,7 +71,7 @@ Tiempo aproximado para completarlo: una hora para menos de 1000 usuarios de prue
 
 ### <a name="considerations"></a>Consideraciones
 
-1. Examine las consideraciones de seguridad de la sincronización de hash de contraseñas [aquí](./connect/active-directory-aadconnectsync-implement-password-synchronization.md).  Si la sincronización de hash de contraseñas para los usuarios de producción piloto no es una opción, tenga en cuenta las alternativas siguientes:
+1. Examine las consideraciones de seguridad de la sincronización de hash de contraseñas [aquí](./connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md).  Si la sincronización de hash de contraseñas para los usuarios de producción piloto no es una opción, tenga en cuenta las alternativas siguientes:
    * Crear usuarios de prueba en el dominio de producción. Asegúrese de que no sincronizar ninguna otra cuenta.
    * Trasladarse a un entorno UAT.
 2.  Si desea lograr la federación, merece la pena entender los costos asociados a una solución federada con el proveedor de identidades local más allá de la prueba de concepto y medirlo en relación a las ventajas que busca:
@@ -101,7 +101,7 @@ Tiempo aproximado para completarlo: 15 minutos
 | Vaya al Portal de administración de Azure AD. | [Portal de administración de Azure AD: Personalización de marca de empresa](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/LoginTenantBranding) |
 | Cargue los recursos de la página de inicio de sesión (logotipo prominente o pequeño, etiquetas, etc.). Opcionalmente, si tiene AD FS, alinee los mismos recursos con páginas de inicio de sesión ADFS. | [Incorporación de personalización de marca de empresa a sus páginas de inicio de sesión y panel de acceso: Elementos personalizables](customize-branding.md) |
 | Espere unos minutos para que surta efecto el cambio. |  |
-| Inicie sesión con las credenciales de usuario de prueba de concepto para https://myapps.microsoft.com. |  |
+| Inicie sesión con las credenciales de usuario de POC para https://myapps.microsoft.com. |  |
 | Confirme la apariencia en el explorador. | [Incorporación de personalización de marca de empresa a sus páginas de inicio de sesión y panel de acceso](customize-branding.md) |
 | Si lo desea, confirme la apariencia en otros dispositivos. |  |
 
@@ -138,7 +138,7 @@ Tiempo aproximado para completarlo: 60 minutos
 
 | Requisito previo | Recursos |
 | --- | --- |
-| Entorno de prueba de la aplicación de SaaS disponible. En esta guía, se utiliza ServiceNow como ejemplo.<br/>Se recomienda encarecidamente usar una instancia de prueba para minimizar la fricción al desplazarse por las asignaciones y la calidad de los datos existentes. | Vaya a https://developer.servicenow.com/app.do#!/home para iniciar el proceso de obtención de una instancia de prueba. |
+| Entorno de prueba de la aplicación de SaaS disponible. En esta guía, se utiliza ServiceNow como ejemplo.<br/>Se recomienda encarecidamente usar una instancia de prueba para minimizar la fricción al desplazarse por las asignaciones y la calidad de los datos existentes. | Vaya a https://developer.servicenow.com/app.do#!/inicio para iniciar el proceso de obtención de una instancia de prueba. |
 | Acceso de administrador a la consola de administración de ServiceNow. | [Tutorial: Integración de Azure Active Directory con ServiceNow](active-directory-saas-servicenow-tutorial.md) |
 | Conjuntos de usuarios de destino a los que asignar la aplicación. Se recomienda un grupo de seguridad que contenga los usuarios de prueba de concepto. <br/>Si no es posible crear el grupo, asigne los usuarios directamente a la aplicación para la prueba de concepto. | [Asignación de un usuario o un grupo a una aplicación empresarial en la versión preliminar de Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
 
@@ -209,7 +209,7 @@ Tiempo aproximado para completarlo: 30 minutos
 | Requisito previo | Recursos |
 | --- | --- |
 | La lista de las aplicaciones de destino y las URL de inicio de sesión exactas anteriores. Por ejemplo, puede usar Twitter. | [Twitter en Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/aad.twitter)<br/>[Registro en Twitter](https://twitter.com/signup?lang=en) |
-| Credenciales compartidas para esta aplicación SaaS. | [Uso compartido de cuentas con Azure AD](active-directory-sharing-accounts.md)<br/>[Azure AD automated password roll-over for Facebook, Twitter and LinkedIn now in preview! Enterprise Mobility and Security Blog (Versión preliminar de la sustitución automatizada de contraseñas de Azure AD para Facebook, Twitter y LinkedIn: Blog de seguridad y movilidad empresarial)] (https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/) |
+| Credenciales compartidas para esta aplicación SaaS. | [Uso compartido de cuentas con Azure AD](active-directory-sharing-accounts.md)<br/>[Azure AD automated password roll-over for Facebook, Twitter and LinkedIn now in preview! - Blog de Enterprise Mobility + Security (https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/) |
 | Credenciales para al menos dos miembros del equipo que accederán a la misma cuenta. Deben formar parte de un grupo de seguridad. | [Asignación de un usuario o un grupo a una aplicación empresarial en la versión preliminar de Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
 | Acceso de administrador local a un equipo para implementar la extensión Access Panel para Internet Explorer, Chrome o Firefox. | [Extensión Access Panel para IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Extensión Access Panel para Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Extensión Access Panel para Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 
@@ -420,7 +420,7 @@ Tiempo aproximado para completarlo: 10 minutos
 | --- | --- |
 | Vaya a la hoja "Usuarios y grupos" en el Portal de administración de Azure AD. | [Portal de administración de Azure AD: Usuarios y grupos](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/Overview/menuId/) |
 | Elija la hoja "Todos los usuarios". |  |
-| En la barra superior, elija el botón "Multi-Factor Authentication". | Dirección URL directa para el portal de Azure MFA: https://aka.ms/mfaportal. |
+| En la barra superior, elija el botón "Multi-Factor Authentication". | Dirección URL directa para el portal de Azure MFA: https://aka.ms/mfaportal |
 | En la configuración de "Usuario", seleccione los usuarios de prueba de concepto y habilítelas para MFA. | [Estados de usuario en Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md) |
 | Inicie sesión como usuario de prueba de concepto y recorra el proceso de prueba.  |  |
 
@@ -443,7 +443,7 @@ Tiempo aproximado para completarlo: 10 minutos
 | Los usuarios de prueba de concepto ya están asignados a la aplicación |  |
 | Las credenciales del usuario de prueba de concepto están disponibles |  |
 | El usuario de prueba de concepto está registrado para MFA Uso de un teléfono con una buena cobertura | https://aka.ms/ssprsetup |
-| Dispositivo en la red interna. Dirección IP configurada en el intervalo de direcciones internas | Localice la dirección IP: https://www.bing.com/search?q=what%27s+my+ip |
+| Dispositivo en la red interna. Dirección IP configurada en el intervalo de direcciones internas | Busque su dirección IP: https://www.bing.com/search?q=what%27s+my+ip. |
 | Dispositivo en la red externa (puede ser un teléfono que use la red móvil del operador) |  |
 
 ### <a name="steps"></a>Pasos
@@ -476,7 +476,7 @@ Tiempo aproximado para completarlo: 15 minutos
 
 | Paso | Recursos |
 | --- | --- |
-| Inicie sesión en https://portal.azure.com como un administrador global (GA) y arranque en la hoja PIM. El administrador global que realiza este paso se considera el administrador de seguridad.  Vamos a llamar a este actor GA1. | [Uso del Asistente para seguridad de Azure AD Privileged Identity Management](active-directory-privileged-identity-management-security-wizard.md) |
+| Inicie sesión en https://portal.azure.com como administrador global (GA) y arranque la hoja PIM. El administrador global que realiza este paso se considera el administrador de seguridad.  Vamos a llamar a este actor GA1. | [Uso del Asistente para seguridad de Azure AD Privileged Identity Management](active-directory-privileged-identity-management-security-wizard.md) |
 | Identifique al administrador global y muévalo de permanente a apto. Para mayor claridad, debe ser un administrador distinto al usado en el paso 1. Vamos a llamar a este actor GA2. | [Privileged Identity Management de Azure AD: Incorporación o eliminación de un rol de usuario](active-directory-privileged-identity-management-how-to-add-role-to-user.md)<br/>[¿Qué es Azure AD Privileged Identity Management?: Configuración de las opciones de activación de rol](active-directory-privileged-identity-management-configure.md#configure-the-role-activation-settings)  |
 | Ahora, inicie sesión como GA2 en https://portal.azure.com y pruebe a cambiar "Configuración de usuario". Tenga en cuenta que algunas opciones aparecen atenuadas. | |
 | En una nueva pestaña en la misma sesión que el paso 3, vaya a https://portal.azure.com y agregue la hoja PIM al panel. | [Activación y desactivación de roles en Azure AD Privileged Identity Management: Incorporación de la aplicación Privileged Identity Management](active-directory-privileged-identity-management-how-to-activate-role.md#add-the-privileged-identity-management-application) |
@@ -506,9 +506,9 @@ Tiempo aproximado para completarlo: 20 minutos
 | Paso | Recursos |
 | --- | --- |
 | Abra el explorador Tor | [Descarga del explorador Tor](https://www.torproject.org/projects/torbrowser.html.en#downloads) |
-| Inicie sesión en https://myapps.microsoft.com con la cuenta de usuario de prueba de concepto. | [Guía de Azure Active Directory Identity Protection: Simulación de eventos de riesgo](active-directory-identityprotection-playbook.md#simulating-risk-events) |
+| Inicie sesión en https://myapps.microsoft.com con la cuenta de usuario de POC. | [Guía de Azure Active Directory Identity Protection: Simulación de eventos de riesgo](active-directory-identityprotection-playbook.md#simulating-risk-events) |
 | Espere 5-7 minutos. |  |
-| Inicie sesión como administrador global en https://portal.azure.com y abra la hoja Protección de identidad. | https://aka.ms/aadipgetstarted |
+| Inicie sesión como administrador global en https://portal.azure.com y abra la hoja Identity Protection. | https://aka.ms/aadipgetstarted |
 | Abra la hoja Eventos de riesgo. Debería ver una entrada en "Inicios de sesión desde direcciones IP anónimas".  | [Guía de Azure Active Directory Identity Protection: Simulación de eventos de riesgo](active-directory-identityprotection-playbook.md#simulating-risk-events) |
 
 ### <a name="considerations"></a>Consideraciones
@@ -532,10 +532,10 @@ Tiempo aproximado para completarlo: 10 minutos
 
 | Paso | Recursos |
 | --- | --- |
-| Inicie sesión como administrador global en https://portal.azure.com y abra la hoja Protección de identidad. | https://aka.ms/aadipgetstarted |
+| Inicie sesión como administrador global en https://portal.azure.com y abra la hoja Identity Protection. | https://aka.ms/aadipgetstarted |
 | Habilite una directiva de inicio de sesión de riesgo de la manera siguiente:<br/>- Asignado a: usuario de prueba de concepto<br/>- Condiciones: inicio de sesión de riesgo medio o superior (el inicio de sesión en desde una ubicación anónima se considera un nivel de riesgo medio)<br/>- Controles: requiere MFA | [Guía de Azure Active Directory Identity Protection: Riesgo de inicio de sesión](active-directory-identityprotection-playbook.md) |
 | Abra el explorador Tor | [Descarga del explorador Tor](https://www.torproject.org/projects/torbrowser.html.en#downloads) |
-| Inicie sesión en https://myapps.microsoft.com con la cuenta de usuario de prueba de concepto. |  |
+| Inicie sesión en https://myapps.microsoft.com con la cuenta de usuario de POC. |  |
 | Tenga en cuenta el desafío de MFA. | [Experiencias de inicio de sesión con Azure AD Identity Protection: Recuperación de inicios de sesión peligrosos](active-directory-identityprotection-flows.md#risky-sign-in-recovery)
 
 ### <a name="considerations"></a>Consideraciones

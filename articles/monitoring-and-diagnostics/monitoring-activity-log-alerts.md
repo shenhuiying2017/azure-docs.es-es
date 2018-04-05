@@ -1,33 +1,32 @@
 ---
-title: "Creación de alertas del registro de actividad | Microsoft Docs"
-description: "Reciba notificaciones por SMS, webhook y correo electrónico cuando se produzcan determinados eventos en el registro de actividad."
+title: Creación de alertas clásicas del registro de actividad | Microsoft Docs
+description: Reciba notificaciones por SMS, webhook y correo electrónico cuando se produzcan determinados eventos en el registro de actividad.
 author: johnkemnetz
-manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2017
+ms.date: 03/18/2017
 ms.author: johnkem
-ms.openlocfilehash: c8a2ce3ca90895262e77c3895867d29c9d3530a2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e0d92fcd6d3cbd50a2bcb8166b27b11bc86aad83
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="create-activity-log-alerts"></a>Creación de alertas del registro de actividad
+# <a name="create-activity-log-alerts-classic"></a>Creación de alertas del registro de actividad (clásica)
 
 ## <a name="overview"></a>Información general
 Las alertas del registro de actividad son alertas que se activan cuando un nuevo evento del registro de actividad cumple las condiciones especificadas en la alerta. Son recursos de Azure, por lo que pueden crearse con una plantilla de Azure Resource Manager. También se pueden crear, actualizar o eliminar en Azure Portal. Este artículo presenta los conceptos relativos a las alertas del registro de actividad. Seguidamente, se explica cómo usar Azure Portal para configurar alertas en eventos del registro de actividad.
 
 > [!NOTE]
 
->  [Alertas (versión preliminar)](monitoring-overview-unified-alerts.md) actualmente ofrece una experiencia mejorada para crear y administrar los registros de actividad.  [Más información](monitoring-activity-log-alerts-new-experience.md).
+>  La nueva experiencia [Alertas](monitoring-overview-unified-alerts.md) ha reemplazado este procedimiento. Este artículo se proporciona como referencia para la experiencia anterior. [Más información](monitoring-activity-log-alerts-new-experience.md).
 
 Por lo general, se crean alertas del registro de actividad para recibir notificaciones cuando:
 
@@ -59,11 +58,11 @@ Para más información sobre los grupos de acciones, consulte [Creación y admin
 
 Para más información acerca de las notificaciones de mantenimiento del servicio, consulte [Recibir alertas del registro de actividad con las notificaciones de mantenimiento del servicio](monitoring-activity-log-alerts-on-service-notifications.md).
 
-## <a name="create-an-alert-on-an-activity-log-event-with-a-new-action-group-by-using-the-azure-portal"></a>Creación de una alerta para un evento del registro de actividad con un nuevo grupo de acciones mediante Azure Portal
+## <a name="create-an-alert-classic-on-an-activity-log-event-with-a-new-action-group-by-using-the-azure-portal"></a>Creación de una alerta (clásica) para un evento del registro de actividad con un nuevo grupo de acciones mediante Azure Portal
 1. En el [portal](https://portal.azure.com), seleccione **Monitor**.
 
     ![Servicio "Monitor"](./media/monitoring-activity-log-alerts/home-monitor.png)
-2. En la sección **Registro de actividad**, seleccione **Alertas**.
+2. En la sección **Registro de actividad**, seleccione **Alertas (clásica)**.
 
     ![Pestaña "Alertas"](./media/monitoring-activity-log-alerts/alerts-blades.png)
 3. Seleccione **Agregar alerta de registro de actividad** y rellene los campos.
@@ -123,7 +122,7 @@ Después de crear una alerta, es visible en la sección Alertas de la hoja Super
 * Eliminarla.
 * Deshabilitarla o habilitarla, si desea detener temporalmente o reanudar la recepción de notificaciones de la alerta.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 - Obtener una [Introducción a las alertas](monitoring-overview-alerts.md).
 - Más información sobre la [Limitación del número de notificaciones](monitoring-alerts-rate-limiting.md).
 - Revise el [Esquema de webhook de alertas del registro de actividad](monitoring-activity-log-alerts-webhook.md).

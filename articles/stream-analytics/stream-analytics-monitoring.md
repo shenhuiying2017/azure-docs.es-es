@@ -1,12 +1,11 @@
 ---
-title: "Descripción de la supervisión del trabajo de Stream Analytics y cómo supervisar consultas | Microsoft Docs"
-description: "Descripción de la supervisión del trabajo de Stream Analytics"
-keywords: "supervisión de consultas"
+title: Descripción de la supervisión del trabajo de Stream Analytics y cómo supervisar consultas | Microsoft Docs
+description: Descripción de la supervisión del trabajo de Stream Analytics
+keywords: supervisión de consultas
 services: stream-analytics
-documentationcenter: 
+documentationcenter: ''
 author: jseb225
-manager: jhubbard
-editor: cgronlun
+manager: ryanw
 ms.assetid: 5f5cc00f-4a7b-491e-89e1-dbafea46d399
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: 7474f45494c6190ffcac354e75458b18f5777fb9
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.author: jeanb
+ms.openlocfilehash: cbfbc653deccbd215a404479100ee5cae860cb3f
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Descripción de la supervisión del trabajo de Stream Analytics y cómo supervisar consultas
 
@@ -58,7 +57,7 @@ Puede ajustar el tipo de gráfico, las métricas que se muestran y el intervalo 
 Otro punto de datos interesante para supervisar el trabajo es la hora de la salida más reciente, que se muestra en la página Introducción.
 La hora es el tiempo de aplicación (es decir, el tiempo usando la marca de tiempo desde los datos de eventos) de la salida más reciente de su trabajo.
 
-## <a name="get-help"></a>Obtener ayuda
+## <a name="get-help"></a>Obtención de ayuda
 Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Pasos siguientes

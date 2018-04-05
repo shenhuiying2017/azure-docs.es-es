@@ -1,24 +1,24 @@
 ---
-title: "Ejecución de tareas en cuentas de usuario en Azure Batch | Microsoft Docs"
+title: Ejecución de tareas en cuentas de usuario en Azure Batch | Microsoft Docs
 description: Configure cuentas de usuario para ejecutar tareas en Azure Batch
 services: batch
-author: tamram
-manager: timlt
-editor: 
-tags: 
-ms.assetid: 
+author: dlepow
+manager: jeconnoc
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 05/22/2017
-ms.author: tamram
-ms.openlocfilehash: d408c0565c0ed81fc97cc2b3976a4fc233e31302
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: danlep
+ms.openlocfilehash: 1b9c0514e93fa89f8776d830ef242fc4963a6f7b
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Ejecución de tareas en cuentas de usuario en Batch
 

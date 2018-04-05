@@ -1,12 +1,12 @@
 ---
 title: Acceso condicional de Azure Active Directory | Microsoft Docs
-description: "Conozca cómo el acceso condicional en Azure Active Directory puede ayudarle a administrar el control de acceso desde una ubicación central."
+description: Conozca cómo el acceso condicional en Azure Active Directory puede ayudarle a administrar el control de acceso desde una ubicación central.
 services: active-directory
 keywords: acceso condicional a aplicaciones, acceso condicional con Azure AD, acceso seguro a recursos de empresa, directivas de acceso condicional
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.devlang: na
@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 02/23/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 7e4a65d81a7dade9ae63a24657d15a97a3a588b2
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 74a87065416b397b4eebbcaa54c769711176708d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Acceso condicional en Azure Active Directory
 
@@ -111,7 +111,7 @@ Para más información, consulte [Configuración de SharePoint Online y Exchange
 Para usar el acceso condicional, se necesita una licencia de Azure AD Premium. Para obtener la licencia correcta para sus requisitos, consulte [Comparación de las características con disponibilidad general de las ediciones Gratis, Básico y Premium](https://www.microsoft.com/en-us/cloud-platform/azure-active-directory-features).
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Si quiere saber más sobre:
     - Condiciones, consulte [Conditions in Azure Active Directory conditional access](active-directory-conditional-access-conditions.md) (Condiciones en el acceso condicional de Azure Active Directory).

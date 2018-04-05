@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 202c75366477ae3445f607f75d08faf0335de79f
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: e426f2b90e3ac3ac6bcb9825c7848c76e52a1021
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="update-management-solution-in-azure"></a>Solución Update Management de Azure
 
@@ -36,7 +36,7 @@ El siguiente diagrama muestra una vista conceptual del comportamiento y un flujo
 
 Después de que un equipo realiza un examen de cumplimiento de las actualizaciones, el agente reenvía la información de forma masiva a Log Analytics. En un equipo Windows, el examen de cumplimiento se realiza cada 12 horas de forma predeterminada. Además del examen programado, el examen de cumplimiento de las actualizaciones se inicia a los 15 minutos si se reinicia Microsoft Monitoring Agent (MMA), antes y después de la instalación de actualizaciones. En un equipo Linux, el examen de cumplimiento se realiza cada 3 horas de forma predeterminada y se inicia un examen de cumplimiento en 15 minutos si se reinicia el agente MMA.
 
-La solución informa del grado de actualización del equipo en función del origen configurado para la sincronización. Si el equipo Windows está configurado para informar a WSUS, dependiendo de cuándo WSUS sincronizó por última vez con Microsoft Update, los resultados pueden diferir de lo que se muestra en Microsoft Updates. Lo mismo ocurre en los equipos Linux que se configuran para informar a un repositorio local en lugar de a uno público.
+La solución informa del grado de actualización del equipo en función del origen configurado para la sincronización. Si el equipo Windows está configurado para informar a WSUS, dependiendo de cuándo WSUS sincronizó por última vez con Microsoft Update, los resultados pueden diferir de lo que se muestra en Microsoft Updates. Esto mismo ocurre en los equipos Linux que se configuran para informar a un repositorio local en lugar de a uno público.
 
 Puede implementar e instalar las actualizaciones de software en equipos que requieren las actualizaciones mediante la creación de una implementación programada. Las actualizaciones clasificadas como *Opcional* no se incluyen en el ámbito de implementación para equipos Windows, solo las actualizaciones necesarias. La implementación programada define qué equipos de destino reciben las actualizaciones aplicables, ya sea explícitamente especificando equipos o seleccionando un [grupo de equipos](../log-analytics/log-analytics-computer-groups.md) que se basa en las búsquedas en registros de un conjunto determinado de equipos. También se especifica una programación para aprobar y designar un período de tiempo dentro del cual se autoriza la instalación de las actualizaciones. Los Runbooks instalan las actualizaciones en Azure Automation. No puede ver estos runbooks, que no requieren ninguna configuración. Cuando se crea una implementación de actualizaciones, esta crea una programación que inicia un runbook de actualización maestro a la hora especificada para los equipos incluidos. Este runbook maestro inicia un runbook secundario en cada agente que realiza la instalación de las actualizaciones necesarias.
 

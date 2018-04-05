@@ -1,6 +1,6 @@
 ---
-title: "Supervisión de un clúster de Azure DC/OS: Operations Management"
-description: "Uso de Microsoft Operations Management Suite para supervisar un clúster DC/OS de Azure Container Service."
+title: 'Supervisión de un clúster de Azure DC/OS: Operations Management'
+description: Supervisión de un clúster de DC/OS de Azure Container Service con Log Analytics.
 services: container-service
 author: keikhara
 manager: timlt
@@ -9,45 +9,46 @@ ms.topic: article
 ms.date: 11/17/2016
 ms.author: keikhara
 ms.custom: mvc
-ms.openlocfilehash: a675f0b57ed9e5d515cfa79a3a841e0f133fff6f
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: ba76f8480dedb37326505f7ed756eb51a41ee0fe
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="monitor-an-azure-container-service-dcos-cluster-with-operations-management-suite"></a>Uso de Operations Management Suite para supervisar un clúster DC/OS de Azure Container Service
+# <a name="monitor-an-azure-container-service-dcos-cluster-with-log-analytics"></a>Supervisión de un clúster de DC/OS de Azure Container Service con Log Analytics
 
-Microsoft Operations Management Suite (OMS) es la solución de administración de TI basada en la nube de Microsoft que le ayuda a administrar y proteger su infraestructura local y en la nube. La solución de contenedor es una solución de Log Analytics de OMS, que le permite ver el inventario de contenedor, el rendimiento y los registros en una sola ubicación. Puede auditar contenedores y solucionar problemas de los mismos mediante la visualización de los registros en una ubicación centralizada, así como encontrar contenedores ruidosos con un consumo excesivo.
+Log Analytics es la solución de administración de TI basada en la nube de Microsoft que lo ayuda a administrar y proteger su infraestructura local y en la nube. La solución de contenedor es una solución de Log Analytics, que le permite ver el inventario de contenedor, el rendimiento y los registros en una sola ubicación. Puede auditar contenedores y solucionar problemas de los mismos mediante la visualización de los registros en una ubicación centralizada, así como encontrar contenedores ruidosos con un consumo excesivo.
 
 ![](media/container-service-monitoring-oms/image1.png)
 
 Para más información sobre la solución de contenedor, consulte [Solución Containers (versión preliminar) en Log Analytics](../../log-analytics/log-analytics-containers.md).
 
-## <a name="setting-up-oms-from-the-dcos-universe"></a>Configuración de OMS desde el universo de DC/OS
+## <a name="setting-up-log-analytics-from-the-dcos-universe"></a>Configuración de Log Analytics desde el universo de DC/OS
 
 
 En este artículo se supone que ha configurado un DC/OS y ha implementado aplicaciones de contenedor web simples en el clúster.
 
 ### <a name="pre-requisite"></a>Requisito previo
 - [Suscripción de Microsoft Azure](https://azure.microsoft.com/free/) (se puede obtener de gratis).  
-- Configuración de área de trabajo de Microsoft OMS (consulte el "paso 3" a continuación)
+- Configuración de área de trabajo de Log Analytics (consulte el "paso 3" a continuación)
 - [CLI de DC/OS](https://dcos.io/docs/1.8/usage/cli/install/) instalada.
 
 1. En el panel de DC/OS, haga clic en Universo y busque ‘OMS’ tal y como se muestra a continuación.
 
 ![](media/container-service-monitoring-oms/image2.png)
 
-2. Haga clic en **Instalar**. Verá un mensaje emergente con la información de versión OMS y un botón **Instalar paquete** o **Advanced Installation** (Instalación avanzada). Al hacer clic en **Instalación avanzada**, se abre la página **OMS specific configuration properties** (Propiedades de configuración específicas de OMS).
+2. Haga clic en **Instalar**. Verá un mensaje emergente con la información de versión y un botón **Instalar paquete** o **Advanced Installation** (Instalación avanzada). Al hacer clic en **Instalación avanzada**, se abre la página **OMS specific configuration properties** (Propiedades de configuración específicas de OMS).
 
 ![](media/container-service-monitoring-oms/image3.png)
 
 ![](media/container-service-monitoring-oms/image4.png)
 
-3. Aquí se le pedirá que escriba `wsid` (el identificador del área de trabajo de OMS) y `wskey` (la clave principal de OMS para el identificador del área de trabajo). Para obtener ambos `wsid` y `wskey` debe crear una cuenta OMS en <https://mms.microsoft.com>. Siga los pasos para crear una cuenta. Una vez que haya terminado de crear la cuenta, deberá obtener su `wsid` y `wskey` haciendo clic en **Configuración**, luego en **Orígenes conectados** y, por último, en **Servidores Linux**, tal y como se muestra a continuación.
+3. Aquí se le pedirá que escriba `wsid` (el identificador del área de trabajo de Log Analytics) y `wskey` (la clave principal para el identificador del área de trabajo). Para obtener tanto `wsid` como `wskey`, tiene que crear una cuenta en <https://mms.microsoft.com>.
+Siga los pasos para crear una cuenta. Una vez que haya terminado de crear la cuenta, deberá obtener su `wsid` y `wskey` haciendo clic en **Configuración**, luego en **Orígenes conectados** y, por último, en **Servidores Linux**, tal y como se muestra a continuación.
 
  ![](media/container-service-monitoring-oms/image5.png)
 
-4. Seleccione el número de instancias de OMS que desee y haga clic en el botón 'Revisar e instalar'. Por lo general, querrá tener el mismo número de instancias de OMS que VM hay en el clúster de agente. El agente de OMS para Linux se instala como contenedores individuales en cada VM que quiere para recopilar información de supervisión e inicio de sesión.
+4. Seleccione el número de instancias que desee y haga clic en el botón Revisar e instalar. Por lo general, querrá tener el mismo número de instancias que VM que hay en el clúster de agente. El agente de OMS para Linux se instala como contenedores individuales en cada VM que quiere para recopilar información de supervisión e inicio de sesión.
 
 ## <a name="setting-up-a-simple-oms-dashboard"></a>Configuración de un panel de OMS
 
@@ -81,7 +82,7 @@ Una vez que haya seleccionado el área de trabajo, haga clic en **Crear**.
 
 ![](media/container-service-monitoring-oms/image11.png)
 
-Para más información sobre la solución de contenedor de OMS, consulte [Solución Containers (versión preliminar) en Log Analytics](../../log-analytics/log-analytics-containers.md).
+Para más información sobre la solución de contenedor de Log Analytics, consulte [Solución de Supervisión de contenedores de Azure Log Analytics](../../log-analytics/log-analytics-containers.md).
 
 ### <a name="how-to-scale-oms-agent-with-acs-dcos"></a>Escalado del agente de OMS con ACS DC/OS 
 
@@ -106,4 +107,4 @@ $ dcos package uninstall msoms
 
 ## <a name="next-steps"></a>Pasos siguientes
 
- Ahora que ha configurado OMS para supervisar los contenedores,[vea el panel de contenedor](../../log-analytics/log-analytics-containers.md).
+ Ahora que ha configurado Log Analytics para supervisar los contenedores,[vea el panel de contenedores](../../log-analytics/log-analytics-containers.md).

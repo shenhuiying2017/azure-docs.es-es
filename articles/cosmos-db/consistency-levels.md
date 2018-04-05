@@ -6,26 +6,30 @@ services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: cgronlun
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 3fe51cfa-a889-4a4a-b320-16bf871fe74c
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 03/27/2018
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c3bd28316e3d2e7596021d6964594002d47d160a
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 5b0e46eb001e0b100ad1e181b02c18cfe67648f9
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Niveles de coherencia de datos optimizables en Azure Cosmos DB
 El diseño de Azure Cosmos DB se llevó a cabo desde el principio pensando en la distribución global de cada modelo de datos. Se ha diseñado para que ofrezca garantías de una baja latencia predecible y varios modelos de coherencia moderada bien definidos. Actualmente, Azure Cosmos DB ofrece cinco niveles de coherencia: fuerte, de obsolescencia limitada, de sesión, de prefijo coherente y final. Obsolescencia limitada, sesión, prefijo coherente y posible se denominan "modelos de coherencia moderada", ya que proporcionan menos coherencia que la coherencia fuerte, que es el modelo más coherente disponible. 
 
 Además de los modelos de **coherencia fuerte** y **final** que proporcionan habitualmente las bases de datos distribuidas, Azure Cosmos DB ofrece tres modelos de coherencia codificados y operacionalizados de forma cuidadosa: **obsolescencia limitada**, **sesión** y **prefijo coherente**. La utilidad de cada uno de estos niveles de coherencia se ha validado con casos de uso reales. De forma colectiva, estos cinco niveles de coherencia permiten lograr equilibrios bien razonados entre la coherencia, la disponibilidad y la latencia. 
+
+En el siguiente vídeo, Andrew Liu, administrador de programas de Azure Cosmos DB, muestra las características de distribución global inmediata.
+
+>[!VIDEO https://www.youtube.com/embed/-4FsGysVD14]
 
 ## <a name="distributed-databases-and-consistency"></a>Coherencia y bases de datos distribuidas
 Las bases de datos distribuidas comerciales se dividen en dos categorías: las bases de datos que no ofrecen opciones de coherencia bien definida en absoluto y las que ofrecen dos opciones de programación opuestas (coherencia fuerte y final). 
@@ -60,14 +64,16 @@ El ámbito de la granularidad de coherencia se limita a una única solicitud de 
 ## <a name="consistency-levels"></a>Niveles de coherencia
 Puede configurar el nivel de coherencia predeterminado en la cuenta de la base de datos que se aplica a todas las colecciones (y bases de datos) de su cuenta de Cosmos DB. De manera predeterminada, todas las lecturas y consultas enviadas a los recursos definidos por el usuario usan el nivel de coherencia predeterminado especificado en la cuenta de la base de datos. Puede relajar el nivel de coherencia de una solicitud de lectura o consulta específica que se usa en cada una de las API admitidas. Existen cinco tipos de niveles de coherencia admitidos por el protocolo de replicación de Azure Cosmos DB que proporcionan un equilibrio claro entre las garantías de coherencia específicas y el rendimiento, como se describe en esta sección.
 
-**Alta**: 
+<a id="strong"></a>
+**Fuerte**: 
 
 * La coherencia fuerte ofrece una garantía de [linealidad](https://aphyr.com/posts/313-strong-consistency-models) que asegura que las lecturas devuelvan la versión más reciente de un elemento. 
 * la coherencia alta garantiza que una escritura solo es visible después de confirmarse de forma duradera por la mayoría del cuórum de réplicas. Una escritura se confirma sincrónicamente de forma duradera tanto por la réplica principal como por el cuórum de las secundarias, o se anula. Una lectura siempre se confirma por la mayoría del cuórum de lectura; un cliente no puede ver nunca una escritura no confirmada o parcial y cuenta con la garantía de que leerá la última escritura confirmada. 
 * Las cuentas de Azure Cosmos DB configuradas para usar la coherencia fuerte no pueden asociar más de una región de Azure a su cuenta de Azure Cosmos DB.  
 * El costo de una operación de lectura (en términos de [unidades de solicitud](request-units.md) consumidas) con coherencia fuerte es mayor que con la de sesión o la eventual, pero igual que con la de obsolescencia entrelazada.
 
-**De obsolescencia entrelazada**: 
+<a id="bounded-staleness"></a>
+**Obsolescencia limitada**: 
 
 * La coherencia de obsolescencia limitada garantiza que las lecturas puedan ir con retraso respecto a las escrituras en un máximo de versiones *K* o prefijos de un elemento o el intervalo de tiempo *t*. 
 * Por lo tanto, si elige la obsolescencia limitada, la "obsolescencia" puede configurarse de dos maneras: por el número de versiones *K* del elemento por el que las lecturas van detrás de las escrituras y por el intervalo de tiempo *t*. 
@@ -76,6 +82,7 @@ Puede configurar el nivel de coherencia predeterminado en la cuenta de la base d
 * Las cuentas de Azure Cosmos DB que están configuradas con la coherencia de obsolescencia limitada pueden asociar cualquier número de regiones de Azure a su cuenta de Azure Cosmos DB. 
 * El costo de una operación de lectura (en términos de unidades de solicitud consumidas) con uso vinculado es mayor que con la de sesión o la eventual, pero igual que con la de coherencia fuerte.
 
+<a id="session"></a>
 **Sesión**: 
 
 * A diferencia de los modelos de coherencia global ofrecidos por los niveles de coherencia fuerte y de obsolescencia entrelazada, el ámbito de la coherencia de sesión corresponde a una sesión de cliente. 
@@ -91,7 +98,8 @@ Puede configurar el nivel de coherencia predeterminado en la cuenta de la base d
 * El prefijo coherente garantiza que las lecturas nunca vean escrituras desordenadas. Si se realizan escrituras en el orden `A, B, C`, un cliente ve `A`, `A,B` o `A,B,C`, pero nunca un desorden como `A,C` o `B,A,C`.
 * Las cuentas de Azure Cosmos DB que están configuradas con la coherencia de prefijo coherente pueden asociar cualquier número de regiones de Azure a su cuenta de Azure Cosmos DB. 
 
-**Ocasional**: 
+<a id="eventual"></a>
+**Final**: 
 
 * La coherencia final garantiza que, en ausencia de escrituras adicionales, las réplicas dentro del grupo terminarán por converger. 
 * La coherencia eventual es la forma más débil de coherencia, ya que un cliente puede obtener los valores que son más antiguos que los que ha visto antes.
@@ -122,22 +130,15 @@ Al igual que con las solicitudes de lectura, puede disminuir el nivel de coheren
 
 Azure Cosmos DB implementa actualmente la versión 3.4 de MongoDB, que tiene dos opciones de configuración de coherencia: fuerte y eventual. Como Azure Cosmos DB tiene varias API, la configuración de coherencia se puede aplicar en el nivel de cuenta y cada una de las API controla el cumplimiento de la coherencia.  Hasta MongoDB 3.6, no había ningún concepto de una coherencia de sesión, por lo que si establece una cuenta de API de MongoDB para usar coherencia de sesión, la coherencia cambia a eventual al usar las API de MongoDB. Si necesita una garantía de lectura de lo que ha escrito para una cuenta de API de MongoDB, el nivel de coherencia predeterminado para la cuenta se debe establecer en fuerte u obsolescencia limitada.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Si desea leer más sobre los niveles de coherencia y los compromisos, recomendamos los siguientes recursos:
 
-* Doug Terry. Vídeo Replicated Data Consistency explained through baseball (Coherencia de datos replicados explicada mediante el béisbol).   
-  [https://www.youtube.com/watch?v=gluIh8zd26I](https://www.youtube.com/watch?v=gluIh8zd26I)
-* Doug Terry. Explicación de la coherencia de datos replicados a través del béisbol.   
-  [http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
-* Doug Terry. Garantías de sesión para datos replicados con coherencia débil.   
-  [http://dl.acm.org/citation.cfm?id=383631](http://dl.acm.org/citation.cfm?id=383631)
-* Daniel Abadi. Compromisos de coherencia en el diseño de sistemas modernos de bases de datos distribuidas: CAP es solo una parte de la historia".   
-  [http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html)
-* Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph M. Hellerstein, Ion Stoica. Uso vinculado probabilístico (PBS) para cuórums parciales prácticos.   
-  [http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
-* Werner Vogels. Coherencia ocasional - Revisión.    
-  [http://allthingsdistributed.com/2008/12/eventually_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
-* Moni Naor y Avishai Wool. The Load, Capacity, and Availability of Quorum Systems, SIAM Journal on Computing, v. 27 n.º 2, p. 423-447, abril de 1998.
-  [http://epubs.siam.org/doi/abs/10.1137/S0097539795281232](http://epubs.siam.org/doi/abs/10.1137/S0097539795281232)
-* Sebastian Burckhardt, Chris Dern, Macanal Musuvathi y Roy Tan. Line-up: a complete and automatic linearizability checker, Proceedings of the 2010 ACM SIGPLAN conference on Programming language design and implementation, 5-10 de junio de 2010, Toronto, Ontario, Canadá [doi>10.1145/1806596.1806634] [http://dl.acm.org/citation.cfm?id=1806634](http://dl.acm.org/citation.cfm?id=1806634)
-* Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph M. Hellerstein e Ion Stoica. Probabilistically bounded staleness for practical partial quorums, Proceedings of the VLDB Endowment, v. 5 n.º 8, p. 776-787, abril de 2012 [http://dl.acm.org/citation.cfm?id=2212359](http://dl.acm.org/citation.cfm?id=2212359)
+* [Replicated Data Consistency explained through baseball (Coherencia de datos replicados explicada mediante el béisbol) (vídeo), por Doug Terry](https://www.youtube.com/watch?v=gluIh8zd26I)
+* [Replicated Data Consistency explained through baseball (Coherencia de datos replicados explicada mediante el béisbol) (notas del producto), por Doug Terry](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
+* [Session Guarantees for Weakly Consistent Replicated Data (Garantías de sesión para datos replicados con coherencia débil)](http://dl.acm.org/citation.cfm?id=383631)
+* [Consistency Tradeoffs in Modern Distributed Database Systems Design: CAP is only part of the story (Compromisos de coherencia en el diseño de sistemas modernos de bases de datos distribuidas: CAP es solo una parte de la historia)](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html)
+* [Probabilistic Bounded Staleness (PBS) for Practical Partial Quorums](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf) [Obsolescencia limitada probabilística (PBS) para cuórums parciales prácticos].
+* [Eventual Consistent - Revisited (Coherencia final: revisión)](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
+* [The Load, Capacity, and Availability of Quorum Systems (La carga, capacidad y disponibilidad de los sistemas de cuórum), SIAM Journal on Computing](http://epubs.siam.org/doi/abs/10.1137/S0097539795281232)
+* [Line-up: a complete and automatic linearizability checker (Line-up: un comprobador de linearización completo y automático), registros de la conferencia 2010 ACM SIGPLAN sobre diseño e implementación de lenguajes de programación](http://dl.acm.org/citation.cfm?id=1806634)
+* [Probabilistic Bounded Staleness (PBS) for Practical Partial Quorums](http://dl.acm.org/citation.cfm?id=2212359) (Obsolescencia limitada probabilística [PBS] para cuórums parciales prácticos).

@@ -1,19 +1,19 @@
 ---
-title: "Implementación de grupos de varios contenedores en Azure Container Instances"
-description: "Obtenga información sobre cómo implementar un grupo de contenedores con varios contenedores en Azure Container Instances."
+title: Implementación de grupos de varios contenedores en Azure Container Instances
+description: Obtenga información sobre cómo implementar un grupo de contenedores con varios contenedores en Azure Container Instances.
 services: container-instances
 author: neilpeterson
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 03/30/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 41a47adb1f1da417038757934f0a6cf7e11555da
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 58fd4c18df5ec0a5d02be0e6e89cb2b4af26b20e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="deploy-a-container-group"></a>Implementación de un grupo de contenedores
 
@@ -22,7 +22,7 @@ Azure Container Instances admite la implementación de varios contenedores en un
 Este documento describe la ejecución de una configuración de sidecar de varios contenedores sencilla mediante la implementación de una plantilla de Azure Resource Manager.
 
 > [!NOTE]
-> Los grupos de varios contenedores están restringidos actualmente a los contenedores Linux. Aunque estamos trabajando para traer todas las características a los contenedores Windows, puede encontrar diferencias en la plataforma actual en la [disponibilidad de cuotas y regiones para Azure Container Instances](container-instances-quotas.md).
+> Los grupos de varios contenedores están restringidos actualmente a los contenedores Linux. Aunque estamos trabajando para traer todas las características a los contenedores Windows, puede encontrar diferencias en la plataforma actual en la [disponibilidad de cuotas y regiones en Azure Container Instances](container-instances-quotas.md).
 
 ## <a name="configure-the-template"></a>Configuración de la plantilla
 
@@ -45,7 +45,7 @@ En este ejemplo, se definen un grupo de contenedores con dos contenedores, una d
     {
       "name": "myContainerGroup",
       "type": "Microsoft.ContainerInstance/containerGroups",
-      "apiVersion": "2017-10-01-preview",
+      "apiVersion": "2018-04-01",
       "location": "[resourceGroup().location]",
       "properties": {
         "containers": [
@@ -197,7 +197,7 @@ Connection: keep-alive
 
 Como puede ver, el sidecar realiza periódicamente una solicitud HTTP a la aplicación web principal a través de la red local del grupo para asegurarse de que se está ejecutando. Este ejemplo de sidecar podría ampliarse para desencadenar una alerta si recibe un código de respuesta HTTP distinto de 200 OK.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este artículo se explican los pasos necesarios para implementar una instancia de contenedor de Azure de varios contenedores. Para obtener una experiencia integral de Azure Container Instances, consulte el tutorial de Azure Container Instances.
 

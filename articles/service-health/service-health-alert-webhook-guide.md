@@ -1,12 +1,12 @@
 ---
-title: "Configuración de las notificaciones de estado para sistemas de administración de problemas existentes mediante un webhook | Microsoft Docs"
-description: "Obtenga notificaciones personalizadas sobre los eventos del estado de servicio en el sistema de administración de problemas existente."
+title: Configuración de las notificaciones de estado para sistemas de administración de problemas existentes mediante un webhook | Microsoft Docs
+description: Obtenga notificaciones personalizadas sobre los eventos del estado de servicio en el sistema de administración de problemas existente.
 author: shawntabrizi
 manager: scotthit
-editor: 
+editor: ''
 services: service-health
 documentationcenter: service-health
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-health
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: shtabriz
-ms.openlocfilehash: b6a5f61f61675b825dcfe9c706c80944f5890538
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 0e233fe537ea37da97ebe5d4e8221d24f656fd10
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-health-notifications-for-existing-problem-management-systems-using-a-webhook"></a>Configuración de las notificaciones de estado para los sistemas de administración de problemas existentes mediante un webhook
 
@@ -36,9 +36,9 @@ Si desea usar una integración preconfigurada, vea los siguientes procedimientos
 ## <a name="configuring-a-custom-notification-using-the-service-health-webhook-payload"></a>Configuración de una notificación personalizada con la carga de webhook de estado del servicio
 Si desea configurar su propia integración de webhook personalizada, tiene que analizar la carga JSON enviada durante las notificaciones de Estado del servicio.
 
-Consulte [aquí para ver un ejemplo](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md) del aspecto de la carga de webhook `Service Health`.
+Consulte [aquí para ver un ejemplo](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md) del aspecto de la carga de webhook `ServiceHealth`.
 
-Puede detectar si trata de una alerta de Estado del servicio examinando `context.eventSource == "ServiceHealth"`. A partir de ahí, las propiedades que son más importantes en cuanto a la introducción son:
+Puede detectar si trata de una alerta de estado del servicio examinando `context.eventSource == "ServiceHealth"`. A partir de ahí, las propiedades que son más importantes en cuanto a la introducción son:
  * `data.context.activityLog.status`
  * `data.context.activityLog.level`
  * `data.context.activityLog.subscriptionId`
@@ -48,13 +48,13 @@ Puede detectar si trata de una alerta de Estado del servicio examinando `context
  * `data.context.activityLog.properties.impactedServices`
  * `data.context.activityLog.properties.trackingId`
 
-## <a name="creating-a-direct-link-to-azure-service-health-for-an-incident"></a>Creación de un vínculo directo a Estado del servicio de Azure para un incidente
-Puede crear un vínculo directo al incidente personalizado de Estado del servicio de Azure en el escritorio o en el móvil generando una dirección URL especializada. Use `trackingId`, así como los tres primeros y últimos dígitos de `subscriptionId` para formar:
+## <a name="creating-a-direct-link-to-the-service-health-dashboard-for-an-incident"></a>Creación de un vínculo directo al panel de Service Health para un incidente
+Puede crear un vínculo directo al panel de Service Health en el escritorio o en el móvil generando una dirección URL especializada. Use `trackingId`, así como los tres primeros y últimos dígitos de `subscriptionId` para formar:
 ```
 https://app.azure.com/h/<trackingId>/<first and last three digits of subscriptionId>
 ```
 
-Por ejemplo, si `subscriptionId` es `bba14129-e895-429b-8809-278e836ecdb3` y `trackingId` es `0DET-URB`, la dirección URL personalizada de Estado del servicio de Azure es:
+Por ejemplo, si `subscriptionId` es `bba14129-e895-429b-8809-278e836ecdb3` y `trackingId` es `0DET-URB`, la dirección URL de Service Health es:
 
 ```
 https://app.azure.com/h/0DET-URB/bbadb3
@@ -64,7 +64,7 @@ https://app.azure.com/h/0DET-URB/bbadb3
 Desde la gravedad más leve a la más grave, la propiedad `level` en la carga puede ser `Informational`, `Warning`, `Error` y `Critical`.
 
 ## <a name="parsing-the-impacted-services-to-understand-the-full-scope-of-the-incident"></a>Análisis de los servicios afectados para entender el ámbito completo del incidente
-Las alertas de estado del servicio pueden informar acerca de los problemas en varias regiones y servicios. Para obtener detalles completos, debe analizar el valor de `impactedServices`.
+Las alertas de Service Health pueden informar acerca de los problemas en varias regiones y servicios. Para obtener detalles completos, debe analizar el valor de `impactedServices`.
 El contenido interior es una cadena con [caracteres de escape JSON](http://json.org/), cuando no tiene caracteres de escape, contiene otro objeto JSON que puede analizarse regularmente.
 
 ```json
@@ -110,7 +110,7 @@ Esto indica que hay problemas con "Alerts & Metrics" en el Este de Australia y S
 
     HEADERS     Content-Type: application/json
 
-    BODY        <Service Health payload>
+    BODY        <service health payload>
     ```
 3. Debe recibir una respuesta `2XX - Successful`.
 

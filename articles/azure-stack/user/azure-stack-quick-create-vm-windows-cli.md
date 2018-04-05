@@ -1,11 +1,11 @@
 ---
-title: "Creación de una máquina virtual Windows en Azure Stack con la CLI de Azure | Microsoft Docs"
-description: "Aprenda a crear una máquina virtual Windows en Azure Stack con la CLI de Azure."
+title: Creación de una máquina virtual Windows en Azure Stack con la CLI de Azure | Microsoft Docs
+description: Aprenda a crear una máquina virtual Windows en Azure Stack con la CLI de Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: E26B246E-811D-44C9-9BA6-2B3CE5B62E83
 ms.service: azure-stack
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: ea972db9ce3488d9a46a7d059714c8bbe820d47d
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 2a4eb909c39051ce9fa2efd7e7997644d9b8b1b1
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-a-windows-virtual-machine-on-azure-stack-using-azure-cli"></a>Creación de una máquina virtual Windows en Azure Stack con la CLI de Azure
 
@@ -29,7 +29,7 @@ La CLI de Azure se usa para crear y administrar recursos de Azure Stack desde la
 
 * Asegúrese de que el operador de Azure Stack haya agregado la imagen "Windows Server 2016" a Marketplace de Azure Stack.  
 
-* Azure Stack requiere una versión específica de la CLI de Azure para crear y administrar los recursos. Si no tiene la CLI de Azure configurada para Azure Stack, siga los pasos que se indican para [instalarla y configurarla](azure-stack-connect-cli.md).
+* Azure Stack requiere una versión específica de la CLI de Azure para crear y administrar los recursos. Si no tiene la CLI de Azure configurada para Azure Stack, siga los pasos que se indican para [instalarla y configurarla](azure-stack-version-profiles-azurecli2.md).
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
@@ -94,6 +94,6 @@ Cuando ya no se necesiten, puede usar el comando [az group delete](/cli/azure/gr
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En esta guía de inicio rápido, ha implementado una máquina virtual Windows sencilla. Para aprender más sobre las máquina virtuales de Azure Stack, continúe con el artículo [Considerations for Virtual Machines in Azure Stack](azure-stack-vm-considerations.md) (Consideraciones acerca de máquinas virtuales de Azure Stack).

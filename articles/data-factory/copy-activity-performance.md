@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 03/27/2018
 ms.author: jingwang
-ms.openlocfilehash: 733a396117a58d8dc51e55614e503853f13141c0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c43973a7e5070676fc0f32a4c8923d57a479f884
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guía de optimización y rendimiento de la actividad de copia
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -91,7 +91,7 @@ Una **unidad de movimiento de datos (DMU) de nube** es una medida que representa
 | Copia de datos entre almacenes basados en archivos | Entre 4 y 32 según el número y el tamaño de los archivos. |
 | Todos los demás escenarios de copia | 4 |
 
-Para reemplazar esta configuración predeterminada, especifique un valor para la propiedad **cloudDataMovementUnits** de la manera siguiente. Los **valores admitidos** para la propiedad **cloudDataMovementUnits** son 2, 4, 8, 16, 32. El **número real de DMS de nube** que usa la operación de copia en tiempo de ejecución es igual o inferior al valor configurado, según el patrón de datos. Para más información sobre el nivel de ganancia de rendimiento que puede obtener al configurar más unidades para un origen y un receptor de copia específicos, consulte la [referencia de rendimiento](#performance-reference).
+Para reemplazar esta configuración predeterminada, especifique un valor para la propiedad **cloudDataMovementUnits** de la manera siguiente. Los **valores admitidos** para la propiedad **cloudDataMovementUnits** son **hasta 256**. El **número real de DMS de nube** que usa la operación de copia en tiempo de ejecución es igual o inferior al valor configurado, según el patrón de datos. Para más información sobre el nivel de ganancia de rendimiento que puede obtener al configurar más unidades para un origen y un receptor de copia específicos, consulte la [referencia de rendimiento](#performance-reference).
 
 Puede ver las unidades de movimiento de datos de nube que realmente se usan en cada ejecución de copia en la salida de la actividad de copia cuando se supervisa una ejecución de copia. Obtenga detalles en [Supervisión de la actividad de copia](copy-activity-overview.md#monitoring).
 
@@ -133,11 +133,14 @@ Para cada ejecución de actividad de copia, Data Factory determina el número de
 
 | Escenario de copia | Recuento predeterminado de copias en paralelo determinado por servicio |
 | --- | --- |
-| Copia de datos entre almacenes basados en archivos |Entre 1 y 64. Depende del tamaño de los archivos y del número de unidades de movimiento de datos (DMU) de nube usadas para copiar datos entre dos almacenes de datos de nube, o de la configuración física de la máquina de Integration Runtime autohospedado. |
+| Copia de datos entre almacenes basados en archivos |Depende del tamaño de los archivos y del número de unidades de movimiento de datos (DMU) de nube usadas para copiar datos entre dos almacenes de datos de nube, o de la configuración física de la máquina de Integration Runtime autohospedado. |
 | Copia de datos desde cualquier almacén de datos a Azure Table Storage |4 |
 | Todos los demás escenarios de copia |1 |
 
-Normalmente, el comportamiento predeterminado debe proporcionar el mejor rendimiento. Sin embargo, para controlar la carga en las máquinas que hospedan los almacenes de datos, o para optimizar el rendimiento de la copia, puede optar por reemplazar el valor predeterminado y especificar un valor para la propiedad **parallelCopies** . El valor debe ser un entero mayor o igual que 1. En tiempo de ejecución, y para obtener el mejor rendimiento, la actividad de copia usa un valor inferior o igual al valor que ha establecido.
+[!TIP]
+> Al copiar datos entre almacenes basados en archivos, normalmente el comportamiento predeterminado (autodeterminado) le ofrece el mejor rendimiento. 
+
+Para controlar la carga en las máquinas que hospedan los almacenes de datos, o para optimizar el rendimiento de la copia, puede optar por reemplazar el valor predeterminado y especificar un valor para la propiedad **parallelCopies**. El valor debe ser un entero mayor o igual que 1. En tiempo de ejecución, y para obtener el mejor rendimiento, la actividad de copia usa un valor inferior o igual al valor que ha establecido.
 
 ```json
 "activities":[

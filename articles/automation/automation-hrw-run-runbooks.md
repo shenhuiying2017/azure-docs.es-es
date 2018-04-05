@@ -8,13 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: 6e1e6272009b4357162339643580f3d31dc6062e
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: d635938558a5c2bf68e7c20c287b16c672bdf962
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Ejecución de runbooks en Hybrid Runbook Worker 
 No hay ninguna diferencia en la estructura de runbooks que se ejecutan en Azure Automation y los que se ejecutan en Hybrid Runbook Worker. Los runbooks que usa con cada uno de ellos probablemente sean muy distintos entre sí, debido a que los runbooks destinados a Hybrid Runbook Worker normalmente administran los recursos en el propio equipo local donde se implementan, mientras que los runbooks en Azure Automation suelen hacerlo en la nube de Azure.
@@ -22,7 +20,7 @@ No hay ninguna diferencia en la estructura de runbooks que se ejecutan en Azure 
 Puede editar un runbook para Trabajo híbrido de runbook en Azure Automation, pero es probable que tenga dificultades si intenta probar el runbook en el editor.  Es posible que los módulos de PowerShell que tienen acceso a los recursos locales no estén instalados en el entorno de Azure Automation; si este es el caso, la prueba presentará errores.  Si instala los módulos necesarios, se ejecutará el runbook, pero no podrá tener acceso a los recursos locales para una prueba completa.
 
 ## <a name="starting-a-runbook-on-hybrid-runbook-worker"></a>Inicio de un runbook en Hybrid Runbook Worker
-[Inicio de un runbook en Azure Automation](automation-starting-a-runbook.md) describe los distintos métodos para iniciar un runbook.  Trabajo híbrido de runbook agrega una opción **Ejecutar en** donde puede especificar el nombre de un grupo de Trabajos híbridos de runbook.  Si se especifica un grupo, los trabajos de ese grupo recuperan y ejecutan el runbook.  Si no se especifica esta opción, se ejecuta en Azure Automation de la manera normal.
+[Inicio de un runbook en Azure Automation](automation-starting-a-runbook.md) describe los distintos métodos para iniciar un runbook.  Trabajo híbrido de runbook agrega una opción **Ejecutar en** donde puede especificar el nombre de un grupo de Trabajos híbridos de runbook.  Si se especifica un grupo, uno de los trabajos del grupo recupera y ejecuta el runbook.  Si no se especifica esta opción, se ejecuta en Azure Automation de la manera normal.
 
 Cuando inicie un runbook en Azure Portal, verá una opción **Ejecutar en** donde puede seleccionar **Azure** o **Hybrid Worker**.  Si selecciona **Trabajo híbrido**, puede seleccionar el grupo en una lista desplegable.
 

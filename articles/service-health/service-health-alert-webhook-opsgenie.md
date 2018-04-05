@@ -1,12 +1,12 @@
 ---
-title: "Configuración de alertas de estado del servicio de Azure con OpsGenie | Microsoft Docs"
+title: Configuración de alertas de estado del servicio de Azure con OpsGenie | Microsoft Docs
 description: Obtenga notificaciones personalizadas sobre los eventos del estado de servicio en la instancia de OpsGenie.
 author: shawntabrizi
 manager: scotthit
-editor: 
+editor: ''
 services: service-health
 documentationcenter: service-health
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-health
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: shtabriz
-ms.openlocfilehash: a2309a050225dd0d7ac8d5b3e4c762bc5bcb25c0
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 6b8017f62dd895219f1d2cdac40f0efdf2db6c93
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-service-health-alerts-with-opsgenie"></a>Configuración de alertas de estado del servicio con OpsGenie
 
@@ -77,7 +77,7 @@ Este artículo muestra cómo configurar las alertas de estado del servicio de Az
 5. Cuando termine de actualizar el grupo de acciones, seleccione **Guardar**.
 
 ## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>Prueba de la integración de webhook a través de una solicitud HTTP POST
-1. Crear la carga de estado del servicio que desee enviar. Puede encontrar una carga de webhook de estado del servicio de ejemplo en [Webhooks para alertas del registro de actividad de Azure](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
+1. Cree la carga de estado del servicio que desee enviar. Puede encontrar una carga de webhook de estado del servicio de ejemplo en [Webhooks para alertas del registro de actividad de Azure](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
 
 2. Cree una solicitud HTTP POST de la siguiente manera:
 
@@ -86,7 +86,7 @@ Este artículo muestra cómo configurar las alertas de estado del servicio de Az
 
     HEADERS     Content-Type: application/json
 
-    BODY        <Service Health payload>
+    BODY        <service health payload>
     ```
 3. Debe recibir una respuesta `200 OK` con el mensaje de estado "correcto".
 

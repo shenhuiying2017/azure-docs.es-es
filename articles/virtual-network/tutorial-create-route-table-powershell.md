@@ -1,5 +1,5 @@
 ---
-title: Enrutamiento del tráfico de red en PowerShell | Microsoft Docs
+title: Enrutamiento del tráfico de red en Azure PowerShell | Microsoft Docs
 description: Aprenda a enrutar el tráfico de red con una tabla de rutas mediante PowerShell.
 services: virtual-network
 documentationcenter: virtual-network
@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 49c7b6158beee9d47ecd224e6a0750310d2b68c0
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f7be6aa58c6779150d3e79893e6e179d08611567
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="route-network-traffic-with-a-route-table-using-powershell"></a>Enrutamiento del tráfico de red con una tabla de rutas mediante PowerShell
 
@@ -242,7 +242,7 @@ Escriba el nombre de usuario y la contraseña que especificó al crear la máqui
 En el último paso, se usa el comando tracert.exe para probar el enrutamiento. Tracert usa el Protocolo de mensajes de control de Internet (ICMP), que se deniega a través del Firewall de Windows. Para habilitar ICMP mediante el Firewall de Windows, escriba el comando siguiente desde PowerShell:
 
 ```powershell
-New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+New-NetFirewallRule ???DisplayName ???Allow ICMPv4-In??? ???Protocol ICMPv4
 ```
 
 Aunque en este artículo se usa tracert para probar el enrutamiento, no se recomienda permitir ICMP mediante el Firewall de Windows para las implementaciones en producción.
@@ -272,7 +272,7 @@ mstsc /v:myVmPublic
 Para habilitar ICMP mediante el Firewall de Windows, escriba el comando siguiente desde PowerShell:
 
 ```powershell
-New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+New-NetFirewallRule ???DisplayName ???Allow ICMPv4-In??? ???Protocol ICMPv4
 ```
 
 Para probar el enrutamiento del tráfico de red a la máquina virtual *myVmPrivate* de la máquina virtual *myVmPublic*, escriba el siguiente comando de PowerShell:
@@ -332,4 +332,4 @@ En este artículo, creó una tabla de rutas y la asoció a una subred. Creó una
 Aunque puede implementar muchos recursos de Azure en una red virtual, no es el caso de los recursos de algunos servicios de PaaS de Azure. Pero puede restringir el acceso a los recursos de algunos servicios de PaaS de Azure solo al tráfico que procede de una subred de una red virtual. Avance al siguiente tutorial para aprender a restringir el acceso de red a los recursos de PaaS de Azure.
 
 > [!div class="nextstepaction"]
-> [Restringir el acceso de red a los recursos de PaaS](virtual-network-service-endpoints-configure.md#azure-powershell)
+> [Restringir el acceso de red a los recursos de PaaS](tutorial-restrict-network-access-to-resources-powershell.md)

@@ -1,24 +1,18 @@
 ---
-title: Dirigir actualizaciones mediante colecciones de SCCM en Update Management de Azure Automation | Microsoft Docs
-description: "Este artículo está pensado para ayudarle a configurar System Center Configuration Manager con esta solución para administrar las actualizaciones de los equipos administrado con SCCM."
+title: Dirigir actualizaciones mediante colecciones de SCCM en Azure Automation | Update Management
+description: Este artículo está pensado para ayudarle a configurar System Center Configuration Manager con esta solución para administrar las actualizaciones de los equipos administrado con SCCM.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: 
-ms.assetid: 
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/28/2018
+author: georgewallace
 ms.author: gwallace
-ms.openlocfilehash: c1636ce84f6d0d228dcb15e62af4a88b50fd84bd
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.date: 03/19/2018
+ms.topic: article
+manager: carmonm
+ms.openlocfilehash: 481195538a8c0ece572b4589ea2c2303e559fc44
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="integrate-system-center-configuration-manager-with-update-management"></a>Integración de System Center Configuration Manager con Update Management
 
@@ -54,4 +48,4 @@ Para administrar actualizaciones para VM Windows Server que son clientes de Conf
 
 Después de aplicar este cambio de configuración, cree una nueva implementación según los pasos descritos en [Creación de una implementación de actualizaciones](automation-tutorial-update-management.md#schedule-an-update-deployment) y seleccione **Grupos importados** en la lista desplegable **Tipo** para seleccionar la colección adecuada de Configuration Manager.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes

@@ -1,8 +1,8 @@
 ---
 title: Uso de Apache Spark para leer y escribir datos en una base de datos SQL de Azure | Microsoft Docs
-description: "Aprenda a configurar una conexión entre el clúster de HDInsight Spark y una base de datos SQL de Azure para leer, escribir y transmitir datos en una base de datos SQL."
+description: Aprenda a configurar una conexión entre el clúster de HDInsight Spark y una base de datos SQL de Azure para leer, escribir y transmitir datos en una base de datos SQL.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: cgronlun
 editor: cgronlun
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/29/2018
+ms.date: 03/28/2018
 ms.author: nitinme
-ms.openlocfilehash: 28ed6b9774bb85c7ec806c7775c34f8bc3d66bde
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 011471224d79ae326ccc33fc23fd6fada347497b
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>Uso del clúster de HDInsight Spark para leer y escribir datos en la base de datos SQL de Azure
 
@@ -234,11 +234,11 @@ En esta sección, vamos a transmitir los datos a la tabla **hvactable** que ha c
         
          var streamingQuery = WriteToSQLQuery.start()
 
-6. Para comprobar que los datos se están transmitiendo a la tabla **hvactable**, ejecute la consulta siguiente. Cada vez que se ejecuta la consulta, muestra el aumento del número de filas en la tabla.
+6. Para comprobar que los datos se estén transmitiendo a la tabla **hvactable**, ejecute la siguiente consulta en SQL Server Management Studio (SSMS). Cada vez que se ejecuta la consulta, muestra el aumento del número de filas en la tabla.
 
         SELECT COUNT(*) FROM hvactable
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Uso de un clúster de HDInsight Spark para analizar los datos en Data Lake Store](apache-spark-use-with-data-lake-store.md)
 * [Proceso de los eventos de flujo estructurado mediante EventHub](apache-spark-eventhub-structured-streaming.md)

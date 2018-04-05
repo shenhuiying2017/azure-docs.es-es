@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 2d7405baee84b53311f01e748ca7975147c107d8
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 63a7ceacffe1ee33227d3a8272dda7de7b3b1135
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Generación de perfiles de aplicaciones web de Azure Linux de ASP.NET Core con Application Insights Profiler
 
@@ -143,6 +143,18 @@ Verá un resultado similar al siguiente:
 5. Vaya al panel de rendimiento de Application Insights en Azure Portal. Podrá ver los seguimientos del generador de perfiles disponibles en la esquina inferior derecha.
 
     ![Visualización de seguimientos](./media/app-insights-profiler-aspnetcore-linux/view-traces.png)
+
+## <a name="known-issues"></a>Problemas conocidos
+
+### <a name="enable-button-in-profiler-configuration-pane-does-not-work"></a>La habilitación del botón en el panel de configuración del generador de perfiles no funciona.
+**Si hospeda la aplicación con App Services de Linux, no es necesario habilitar de nuevo el generador de perfiles en el panel de rendimiento del portal de App Insights. La inclusión del paquete NuGet en el proyecto y la configuración de la clave de instrumentación de App Insights en la configuración de la aplicación son suficientes para habilitar el generador de perfiles**.
+
+Si sigue la habilitación del flujo de trabajo [Generador de perfiles de App Insights para Windows](./app-insights-profiler.md) para hacer clic en **Habilitar** en el panel de configuración del generador de perfiles, recibirá un error ya que el botón intentará instalar la versión de Windows del agente de generador de perfiles en un entorno Linux.
+
+Estamos trabajando para resolver este problema en la experiencia de habilitación.
+
+![No es necesario volver a habilitar el generador de perfiles en el panel de rendimiento para que el generador de perfiles funcione en App Services de Linux.](./media/app-insights-profiler-aspnetcore-linux/issue-enable-profiler.png)
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 Si usa contenedores personalizados hospedados por App Services, siga las instrucciones que se describen en [Habilitación de Profiler de servicio para aplicaciones ASP.NET en contenedor](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/tree/master/examples/EnableServiceProfilerForContainerApp) para habilitar App Insights Profiler.

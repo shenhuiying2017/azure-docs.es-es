@@ -61,6 +61,10 @@
           items:
             - name: Agentes de Windows
               href: log-analytics-agent-windows.md
+            - name: Extensión de VM para Windows
+              href: ../virtual-machines/windows/extensions-oms.md
+            - name: Extensión de VM para Linux
+              href: ../virtual-machines/linux/extensions-oms.md
             - name: Recursos de Azure
               href: log-analytics-azure-storage.md
             - name: Recursos de PaaS de Azure

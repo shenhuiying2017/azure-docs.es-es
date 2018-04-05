@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: mimig
-ms.openlocfilehash: 466abbffd250685baf886b7fc7cc772ee9e327f2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7039b87c80aecb837059d80087c97e8691da2988
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-cosmos-db-faq"></a>Preguntas más frecuentes sobre Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Conceptos básicos de Azure Cosmos DB
@@ -76,7 +76,7 @@ También puede usar el [Emulador de Azure Cosmos DB](local-emulator.md) para des
 ### <a name="how-can-i-get-additional-help-with-azure-cosmos-db"></a>¿Cómo puedo obtener ayuda adicional con Azure Cosmos DB?
 
 Para formular una pregunta técnica, puede realizar una publicación en alguno de estos dos foros de preguntas y respuestas:
-* [Foro de MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB)
+* [Foro de MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecosmosdb)
 * [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow es la mejor opción para preguntas de programación. Asegúrese de que su pregunta es [relevante](https://stackoverflow.com/help/on-topic) y [proporcione tantos detalles como sea posible, formulando la pregunta de forma clara y responsable](https://stackoverflow.com/help/how-to-ask). 
 
 Para solicitar nuevas características, cree una nueva solicitud en [UserVoice](https://feedback.azure.com/forums/263030-azure-cosmos-db).
@@ -122,7 +122,7 @@ Al establecer una región, debe recordar que Cosmos DB respeta las nubes indepen
 ### <a name="how-do-i-start-developing-against-the-sql-api"></a>¿Cómo se empieza a desarrollar con SQL API?
 En primer lugar, debe registrarse para obtener una suscripción de Azure. Una vez registrado para obtener una suscripción de Azure, puede agregar un contenedor de SQL API a la suscripción de Azure. Para obtener instrucciones sobre cómo agregar una cuenta de Azure Cosmos DB, vea [Creación de una cuenta de base de datos de Azure Cosmos DB](create-sql-api-dotnet.md#create-account). 
 
-[SDK](sql-api-sdk-dotnet.md) están disponibles para NET, Python, Node.js, JavaScript y Java. Los desarrolladores también pueden usar las [API de HTTP RESTful](/rest/api/documentdb/) para interactuar con recursos de Azure Cosmos DB en varias plataformas y lenguajes.
+[SDK](sql-api-sdk-dotnet.md) están disponibles para NET, Python, Node.js, JavaScript y Java. Los desarrolladores también pueden usar las [API de HTTP RESTful](/rest/api/cosmos-db/) para interactuar con recursos de Azure Cosmos DB en varias plataformas y lenguajes.
 
 ### <a name="can-i-access-some-ready-made-samples-to-get-a-head-start"></a>¿Se puede acceder a algunos ejemplos disponibles que me puedan ayudar a empezar?
 En GitHub se encuentran disponibles ejemplos de los SDK de [.NET](sql-api-dotnet-samples.md), [Java](https://github.com/Azure/azure-documentdb-java), [Node.js](sql-api-nodejs-samples.md) y [Python](sql-api-python-samples.md) de SQL API.
@@ -140,10 +140,10 @@ Una colección es un grupo de documentos y su lógica de aplicación de JavaScri
 Las colecciones también son las entidades de facturación de Azure Cosmos DB. Cada colección se factura por hora según el rendimiento aprovisionado y el espacio de almacenamiento usado. Para más información, vea los [precios de Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/). 
 
 ### <a name="how-do-i-create-a-database"></a>¿Cómo se crea una base de datos?
-Puede crear bases de datos mediante [Azure Portal](https://portal.azure.com), tal y como se describe en [Agregar una colección](create-sql-api-dotnet.md#create-collection), uno de los [SDK de Azure Cosmos DB](sql-api-sdk-dotnet.md) o las [API de REST](/rest/api/documentdb/). 
+Puede crear bases de datos mediante [Azure Portal](https://portal.azure.com), tal y como se describe en [Agregar una colección](create-sql-api-dotnet.md#create-collection), uno de los [SDK de Azure Cosmos DB](sql-api-sdk-dotnet.md) o las [API de REST](/rest/api/cosmos-db/). 
 
 ### <a name="how-do-i-set-up-users-and-permissions"></a>¿Cómo se configuran los usuarios y los permisos?
-Puede crear usuarios y permisos mediante uno de los [SDK de la API de Cosmos DB](sql-api-sdk-dotnet.md) o de las [API de REST](/rest/api/documentdb/).  
+Puede crear usuarios y permisos mediante uno de los [SDK de la API de Cosmos DB](sql-api-sdk-dotnet.md) o de las [API de REST](/rest/api/cosmos-db/).  
 
 ### <a name="does-the-sql-api-support-sql"></a>¿SQL API admite SQL?
 El lenguaje de consulta SQL que admiten las cuentas de SQL API es un subconjunto mejorado de la funcionalidad de consulta admitida por SQL. El lenguaje de consulta SQL de Azure Cosmos DB ofrece complejos operadores relacionales y jerárquicos y extensibilidad a través de funciones definidas por el usuario (UDF) basadas en JavaScript. La sintaxis JSON permite el modelado de documentos JSON como árboles con nodos etiquetados, algo que usan las técnicas de indexación automática de Azure Cosmos DB y el dialecto de consulta SQL de Azure Cosmos DB. Para obtener información sobre el uso de la gramática de SQL, vea el artículo [SQL Query][query].
@@ -244,7 +244,7 @@ Si alguna de estas diferencias supone un problema para el proyecto, póngase en 
 Puede proporcionar comentarios de alguna de las siguientes formas:
 
 * [UserVoice](https://feedback.azure.com/forums/599062-azure-cosmos-db-table-api)
-* [Foro de MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB)
+* [Foro de MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecosmosdb)
 * [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow es la mejor opción para preguntas de programación. Asegúrese de que su pregunta es [relevante](https://stackoverflow.com/help/on-topic) y [proporcione tantos detalles como sea posible, formulando la pregunta de forma clara y responsable](https://stackoverflow.com/help/how-to-ask).
 
 ### <a name="what-is-the-connection-string-that-i-need-to-use-to-connect-to-the-table-api"></a>¿Qué cadena de conexión hay que usar para conectarse a Table API?

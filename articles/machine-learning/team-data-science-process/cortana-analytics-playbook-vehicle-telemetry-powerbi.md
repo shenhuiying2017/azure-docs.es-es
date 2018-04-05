@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: bradsev
-ms.openlocfilehash: 6a46a05539a7211fbc2a3a9f6ec45a28f5c64039
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 085ce90311d4d89b365f7fe51a95c00c1a734196
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="vehicle-telemetry-analytics-solution-template-power-bi-dashboard-setup-instructions"></a>Instrucciones de configuración del panel de Power BI para la plantilla de la solución Vehicle Telemetry Analytics
 Este menú está relacionado con los capítulos de este playbook: 
@@ -308,7 +308,7 @@ Ha configurado correctamente el informe en tiempo real "Vehículos que requieren
 
     ![Áreas Detalles, Leyenda, Eje y Tamaño](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4hh.png)
 
-25. Cambie el **Título** del gráfico a **Media de combustible, media de temperatura del motor y recuento de vin por modelo**.
+25. Cambie el **Título** del gráfico a **Media de combustible, media de engineTemperature y recuento de vin por modelo**.
 
     ![Título del gráfico de dispersión](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4ii.png)
 

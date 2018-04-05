@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/12/2018
+ms.date: 03/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: c2b8498b2d32e2c3c7ed5dca3295ae6a98fa2676
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 264befc6c60b87d41658b4da763e477fbb7e3f8c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Uso del portal para crear una aplicación de Azure Active Directory y una entidad de servicio con acceso a los recursos
 
@@ -159,7 +159,7 @@ Puede establecer el ámbito en el nivel de suscripción, grupo de recursos o rec
 
    ![seleccionar rol](./media/resource-group-create-service-principal-portal/select-role.png)
 
-1. Busque la aplicación y selecciónela.
+1. De manera predeterminada, las aplicaciones de Azure Active Directory no se muestran en las opciones disponibles. Para buscar la aplicación, debe proporcionar su nombre en el campo de búsqueda. Selecciónelo.
 
    ![buscar aplicación](./media/resource-group-create-service-principal-portal/search-app.png)
 

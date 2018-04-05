@@ -1,24 +1,24 @@
 ---
-title: "Indexación de Azure Blob Storage con Azure Search"
+title: Indexación de Azure Blob Storage con Azure Search
 description: Aprenda a indexar Azure Blob Storage y a extraer el texto de los documentos con Azure Search
 services: search
-documentationcenter: 
+documentationcenter: ''
 author: chaosrealm
 manager: pablocas
-editor: 
+editor: ''
 ms.assetid: 2a5968f4-6768-4e16-84d0-8b995592f36a
 ms.service: search
 ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 12/28/2017
+ms.date: 03/22/2018
 ms.author: eugenesh
-ms.openlocfilehash: 286e2b8eddc87a5132fa13468b0cef1b499c3993
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 67f6775fb68f4cd13c52ebe66727f2b4df23c692
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Indexación de documentos en Azure Blob Storage con Azure Search
 En este artículo se explica cómo usar Azure Search para indexar documentos (como archivos PD, documentos de Microsoft Office y otros formatos comunes) almacenados en Azure Blob Storage. En primer lugar, se explican los conceptos básicos de cómo instalar y configurar un indizador de blobs. A continuación, se ofrecen más detalles sobre los comportamientos y escenarios que es probable que encuentre.
@@ -31,7 +31,7 @@ El indexador de blob puede extraer texto de los siguientes formatos de documento
 ## <a name="setting-up-blob-indexing"></a>Configuración de la indexación de blob
 Puede configurar un indexador de Azure Blob Storage utilizando:
 
-* [Portal de Azure](https://ms.portal.azure.com)
+* [Azure Portal](https://ms.portal.azure.com)
 * [API de REST](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations) de Azure Search
 * [SDK de .NET de Azure Search](https://aka.ms/search-sdk)
 
@@ -271,6 +271,10 @@ De forma predeterminada, el indizador de blob se detiene cuando encuentra un blo
 Para algunos blobs, Azure Search no puede determinar el tipo de contenido o no puede procesar un documento de otro tipo de contenido admitido. Para ignorar este modo de error, establezca el parámetro de configuración `failOnUnprocessableDocument` en false:
 
       "parameters" : { "configuration" : { "failOnUnprocessableDocument" : false } }
+
+Azure Search limita el tamaño de los blobs que se indexan. Estos límites se documentan en [Límites de servicio en Azure Search](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity). Los blobs demasiado grandes se tratan como errores de forma predeterminada. Sin embargo, puede indexar los metadatos de almacenamiento de blobs demasiado grandes si define el parámetro de configuración `indexStorageMetadataOnlyForOversizedDocuments` como true: 
+
+    "parameters" : { "configuration" : { "indexStorageMetadataOnlyForOversizedDocuments" : true } }
 
 También puede continuar con la indexación si se producen errores en cualquier punto del procesamiento, mientras se analizan blobs o se agregan documentos a un índice. Para omitir un número específico de errores, establezca los parámetros de configuración `maxFailedItems` y `maxFailedItemsPerBatch` en los valores deseados. Por ejemplo: 
 

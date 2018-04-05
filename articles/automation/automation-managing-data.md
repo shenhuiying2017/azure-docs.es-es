@@ -1,24 +1,18 @@
 ---
-title: "Administración de datos de Azure Automation | Microsoft Docs"
-description: "Este artículo contiene varios temas para administrar un entorno de Azure Automation.  Actualmente incluye la retención de datos y la realización de copias de seguridad de la recuperación ante desastres en Azure Automation."
+title: Administración de datos de Azure Automation
+description: Este artículo contiene varios temas para administrar un entorno de Azure Automation.  Actualmente incluye la retención de datos y la realización de copias de seguridad de la recuperación ante desastres en Azure Automation.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: stevenka
-editor: tysonn
-ms.assetid: 2896f129-82e3-43ce-b9ee-a3860be0423a
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 06/02/201
-ms.author: magoedte;bwren;sngun
-ms.openlocfilehash: 2afcf918ffa104bd0e13048c152e04992f55ffe1
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+manager: carmonm
+ms.openlocfilehash: c71807a14c8a7f1edff60411a84f7d0d6f70fd23
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="managing-azure-automation-data"></a>Administración de datos de Azure Automation
 Este artículo contiene varios temas para administrar un entorno de Azure Automation.
@@ -43,7 +37,7 @@ La tabla siguiente resume la directiva de retención para distintos recursos.
 
 La directiva de retención se aplica a todos los usuarios y, por el momento, no se puede personalizar.
 
-Sin embargo, si tiene que conservar los datos durante un periodo de tiempo mayor, puede reenviar los registros de trabajos del runbook a Log Analytics.  Para más información, consulte [Reenvío de datos del trabajo de Azure Automation a Log Analytics de OMS](automation-manage-send-joblogs-log-analytics.md)   
+Sin embargo, si tiene que conservar los datos durante un periodo de tiempo mayor, puede reenviar los registros de trabajos del runbook a Log Analytics.  Para más información, consulte [Reenvío de datos de trabajos de Azure Automation a Log Analytics](automation-manage-send-joblogs-log-analytics.md).   
 
 ## <a name="backing-up-azure-automation"></a>Copia de seguridad de Azure Automation
 Cuando se elimina una cuenta de automatización en Microsoft Azure, se eliminan todos los objetos de la cuenta, incluidos runbooks, módulos, configuraciones, trabajos y recursos. No es posible recuperar los objetos una vez eliminada la cuenta.  Puede usar la información siguiente para crear una copia de seguridad de los contenidos de la cuenta de automatización antes de eliminarla. 

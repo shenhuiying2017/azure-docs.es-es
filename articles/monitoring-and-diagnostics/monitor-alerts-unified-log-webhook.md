@@ -1,12 +1,12 @@
 ---
-title: "Acciones de webhook para alertas de registro en Alertas de Azure (versión preliminar) | Microsoft Docs"
-description: "En este artículo se describe cómo una regla de alertas de registro puede insertar datos como webhook de HTTP mediante Log Analytics, así como los detalles de las diferentes personalizaciones posibles."
+title: Acciones de webhook para alertas de registro en Alertas de Azure | Microsoft Docs
+description: En este artículo se describe cómo una regla de alertas de registro puede insertar datos como webhook de HTTP mediante Log Analytics, así como los detalles de las diferentes personalizaciones posibles.
 author: msvijayn
 manager: kmadnani1
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/2/2018
 ms.author: vinagara
-ms.openlocfilehash: 5852eb099f6620656aa69e5085447c2a8b4e0c01
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9d2bc934424ff7a31b65ad6c03624ff02ee2a6f3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Acciones de webhook para reglas de alertas de registro
-Cuando se [crea una alerta en Azure (versión preliminar) ](monitor-alerts-unified-usage.md), tiene la opción de [configurarla mediante grupos de acción](monitoring-action-groups.md), para así poder realizar una o varias acciones.  En este artículo se describen las diferentes acciones de webhook que están disponibles y los detalles sobre la configuración de los webhook personalizados basados en JSON.
+Cuando se [crea una alerta en Azure](monitor-alerts-unified-usage.md), tiene la opción de [configurarla mediante grupos de acción](monitoring-action-groups.md), para así poder realizar una o varias acciones.  En este artículo se describen las diferentes acciones de webhook que están disponibles y los detalles sobre la configuración de los webhook personalizados basados en JSON.
 
 
 ## <a name="webhook-actions"></a>Acciones de webhook
@@ -33,7 +33,7 @@ Las acciones de webhook requieren las propiedades de la siguiente tabla:
 | Propiedad | DESCRIPCIÓN |
 |:--- |:--- |
 | Dirección URL de Webhook |La dirección URL del webhook. |
-| Carga de JSON personalizada |Carga personalizada para enviar con el webhook, cuando esta opción se elige durante la creación de la alerta. Puede obtener más información en [Manage alerts using Azure Alerts (Preview)](monitor-alerts-unified-usage.md) [Administrar alertas mediante Alertas de Azure (versión preliminar)] |
+| Carga de JSON personalizada |Carga personalizada para enviar con el webhook, cuando esta opción se elige durante la creación de la alerta. Puede obtener más información en [Manage alerts using Azure Alerts](monitor-alerts-unified-usage.md) (Administrar alertas mediante Alertas de Azure) |
 
 > [!NOTE]
 > Si prueba el botón de webhook junto con la opción *Incluir la carga personalizada de JSON para webhook* de la alerta del registro, se desencadenará una llamada ficticia para probar la URL de webhook. No contiene datos reales ni representativos del esquema JSON que se usen en las alertas de registro. 
@@ -157,6 +157,8 @@ A continuación, se muestra una carga de ejemplo de un webhook estándar *sin la
     }
     }
 
+> [!NOTE]
+> Alertas de registro de Application Insights está actualmente en versión preliminar pública, la funcionalidad y la experiencia del usuario están sujetas a cambios.
 
 #### <a name="log-alert-with-custom-json-payload"></a>Alerta de registro con carga de JSON personalizada
 Por ejemplo, para crear una carga personalizada que incluya solo el nombre de la alerta y los resultados de la búsqueda, puede usar lo siguiente: 
@@ -194,7 +196,7 @@ A continuación se muestra una carga de ejemplo para una acción de webhook pers
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Obtenga información sobre las [alertas de registro en Alertas de Azure (versión preliminar)](monitor-alerts-unified-log.md).
+- Más información sobre las [alertas de registro en Alertas de Azure](monitor-alerts-unified-log.md).
 - Crear y administrar [grupos de acciones en Azure](monitoring-action-groups.md)
 - Más información sobre [Application Insights](../application-insights/app-insights-analytics.md)
 - Más información sobre [Log Analytics](../log-analytics/log-analytics-overview.md). 

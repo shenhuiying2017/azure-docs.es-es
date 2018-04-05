@@ -1,24 +1,24 @@
 ---
-title: "Guía de inicio rápido de instalación y configuración de PowerShell para Azure Stack | Microsoft Docs"
+title: Guía de inicio rápido de instalación y configuración de PowerShell para Azure Stack | Microsoft Docs
 description: Aprenda a instalar y configurar PowerShell para Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 6996DFC1-5E05-423A-968F-A9427C24317C
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/22/2018
 ms.author: mabrigg
-ms.openlocfilehash: cba6f8295e5d4b75192e566d4931cbd617e7dc8d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 2b306cc9dc9bbf435eb70315cc46e7faf4268b47
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="get-up-and-running-with-powershell-in-azure-stack"></a>Póngase a trabajar con PowerShell en Azure Stack
 
@@ -83,10 +83,6 @@ Import-Module .\Connect\AzureStack.Connect.psm1
 
 # For Azure Stack development kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
   $ArmEndpoint = "<Resource Manager endpoint for your environment>"
-
-# For Azure Stack development kit, this value is adminvault.local.azurestack.external 
-$KeyvaultDnsSuffix = "<Keyvault DNS suffix for your environment>"
-
 
 # Register an AzureRM environment that targets your Azure Stack instance
   Add-AzureRMEnvironment `
@@ -154,9 +150,6 @@ Import-Module .\Connect\AzureStack.Connect.psm1
 # For Azure Stack development kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
 $ArmEndpoint = "<Resource Manager endpoint for your environment>"
 
-# For Azure Stack development kit, this value is adminvault.local.azurestack.external 
-$KeyvaultDnsSuffix = "<Keyvault DNS suffix for your environment>"
-
 # Register an AzureRM environment that targets your Azure Stack instance
 Add-AzureRMEnvironment `
     -Name "AzureStackAdmin" `
@@ -181,6 +174,9 @@ Ahora que ha configurado PowerShell, puede probar la configuración creando un g
 New-AzureRMResourceGroup -Name "ContosoVMRG" -Location Local
 ```
 
+> [!note]  
+> Para especificar un grupo de recursos, debe tener un grupo de recursos en su suscripción. Para obtener más información acerca de las suscripciones, consulte [Introducción a los planes, ofertas, cuotas y suscripciones](azure-stack-plan-offer-quota-overview.md).
+
 Cuando se crea el grupo de recursos, la propiedad de **estado de aprovisionamiento** se establece en **Correcto**.
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -188,10 +184,3 @@ Cuando se crea el grupo de recursos, la propiedad de **estado de aprovisionamien
 * [Instalación y configuración de la CLI](azure-stack-connect-cli.md)
 
 * [Desarrollo de plantillas](user/azure-stack-develop-templates.md)
-
-
-
-
-
-
-

@@ -1,25 +1,25 @@
 ---
 title: Puerta de enlace de datos local | Microsoft Docs
-description: "Necesitará una puerta de enlace local si el servidor de Analysis Services de Azure se debe conectar a orígenes de datos locales."
+description: Necesitará una puerta de enlace local si el servidor de Analysis Services de Azure se debe conectar a orígenes de datos locales.
 services: analysis-services
-documentationcenter: 
+documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: cd596155-b608-4a34-935e-e45c95d884a9
 ms.service: analysis-services
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/02/2018
+ms.date: 03/19/2018
 ms.author: owend
-ms.openlocfilehash: a0af2e0448d8ce991c9bcc138d6132d216715768
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 2bb85eafc7722840b6a35956403c29d4ac642cc1
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>Conexión a orígenes de datos locales con la puerta de enlace de datos local de Azure
 La puerta de enlace de datos local actúa como un puente, ya que proporciona una transferencia de datos segura entre orígenes de datos locales y los servidores de Azure Analysis Services en la nube. Además de funcionar con varios servidores de Azure Analysis Services en la misma región, la versión más reciente de la puerta de enlace también funciona con Azure Logic Apps, Power BI, Power Apps y Microsoft Flow. Puede asociar varios servicios de la misma región con una sola puerta de enlace. 
@@ -61,7 +61,7 @@ La puerta de enlace crea una conexión de salida con Azure Service Bus. Se comun
 Se recomienda crear una lista de direcciones IP permitidas de la región de datos en el firewall. Puede descargar la [lista de direcciones IP del centro de datos de Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). La lista se actualiza semanalmente.
 
 > [!NOTE]
-> Las direcciones IP mostradas en la lista de direcciones IP del centro de datos de Azure están en notación CIDR. Por ejemplo, 10.0.0.0/24 no significa de 10.0.0.0 a 10.0.0.24. Conozca más información acerca de la [notación CIDR](http://whatismyipaddress.com/cidr).
+> Las direcciones IP mostradas en la lista de direcciones IP del centro de datos de Azure están en notación CIDR. Para obtener más información, consulte [Enrutamiento de interdominios sin clases](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 >
 >
 
@@ -201,7 +201,7 @@ La telemetría puede usarse para tareas de supervisión y solución de problemas
 
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Instalación y configuración de una puerta de enlace de datos local](analysis-services-gateway-install.md)   
 * [Administración de Analysis Services](analysis-services-manage.md)
 * [Obtención de datos de Azure Analysis Services](analysis-services-connect.md)

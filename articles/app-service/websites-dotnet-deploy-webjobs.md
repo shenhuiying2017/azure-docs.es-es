@@ -1,9 +1,9 @@
 ---
-title: "Desarrollo e implementación de WebJobs mediante Visual Studio - Azure"
-description: "Obtenga información sobre cómo desarrollar e implementar Azure WebJobs en Azure App Service mediante Visual Studio."
+title: Desarrollo e implementación de WebJobs mediante Visual Studio - Azure
+description: Obtenga información sobre cómo desarrollar e implementar Azure WebJobs en Azure App Service mediante Visual Studio.
 services: app-service
-documentationcenter: 
-author: ggailey777
+documentationcenter: ''
+author: tdykstra
 manager: erikre
 editor: jimbe
 ms.assetid: a3a9d320-1201-4ac8-9398-b4c9535ba755
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2017
 ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: 8793485f2f1967e8c14ef335f14f81c9b946f974
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: babe190c0865f5be4aeecb40ca48b52673c6920e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Desarrollo e implementación de WebJobs mediante Visual Studio - Azure App Service
 
@@ -29,7 +29,7 @@ En este tema se explica cómo usar Visual Studio para implementar un proyecto de
 Cuando Visual Studio implementa un proyecto de aplicación de consola con funcionalidad WebJobs, realiza dos tareas:
 
 * Copia archivos de tiempo de ejecución a la carpeta apropiada en la aplicación web (*App_Data/jobs/continuous* para WebJobs continuos, *App_Data/jobs/triggered* para WebJobs programados y a petición).
-* Configura [trabajos de Azure Scheduler](#scheduler) para WebJobs que se programan para ejecutarse en momentos concretos. (Esto no se necesita para WebJobs continuos.)
+* Configura trabajos de [Azure Scheduler](https://docs.microsoft.com/azure/scheduler/) para WebJobs que se programan para ejecutarse en momentos concretos. (Esto no se necesita para WebJobs continuos.)
 
 Un proyecto con funcionalidad WebJobs tiene los siguientes elementos agregados:
 
@@ -44,7 +44,7 @@ Puede implementar un proyecto como un WebJob por sí mismo o vincularlo a un pro
 
 ![Diagram showing WebJob project linking to web project](./media/websites-dotnet-deploy-webjobs/link.png)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Si usa Visual Studio 2015, instale el [Azure SDK para .NET (Visual Studio 2015)](https://azure.microsoft.com/downloads/).
 

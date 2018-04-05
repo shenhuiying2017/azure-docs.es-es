@@ -1,8 +1,8 @@
 ---
-title: "Información general sobre la ciencia de los datos con Spark en HDInsight de Azure | Microsoft Docs"
-description: "El kit de herramientas MLlib de Spark ofrece importantes funciones de modelado de aprendizaje automático para el entorno distribuido de HDInsight."
+title: Información general sobre la ciencia de los datos con Spark en HDInsight de Azure | Microsoft Docs
+description: El kit de herramientas MLlib de Spark ofrece importantes funciones de modelado de aprendizaje automático para el entorno distribuido de HDInsight.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: deguhath;bradsev;gokuma
-ms.openlocfilehash: e1c4a507214b9686154fc8311121b56f42f5cd40
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: bradsev
+ms.openlocfilehash: a12e2f1af945c8186067b791c4e96a52eb23f52f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="overview-of-data-science-using-spark-on-azure-hdinsight"></a>Información general sobre la ciencia de los datos con Spark en HDInsight de Azure
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
@@ -53,9 +53,9 @@ Estos cuadernos están indicados para ejecutarse en el kernel pySpark3 del servi
 > [!NOTE]
 > El conjunto de datos de las líneas aéreas se agregó a los cuadernos de Spark 2.0 para ilustrar mejor el uso de algoritmos de clasificación. Consulte los siguientes vínculos para obtener información sobre el conjunto de datos de salidas puntuales de las líneas aéreas y sobre el de datos climatológicos:
 
->- Datos de salida puntuales de líneas aéreas: [http://www.transtats.bts.gov/ONTIME/](http://www.transtats.bts.gov/ONTIME/)
+>- Datos de salida en hora de líneas aéreas: [http://www.transtats.bts.gov/ONTIME/](http://www.transtats.bts.gov/ONTIME/)
 
->- Datos climatológicos del aeropuerto: [https://www.ncdc.noaa.gov/](https://www.ncdc.noaa.gov/) 
+>- Datos meteorológicos de aeropuertos: [https://www.ncdc.noaa.gov/](https://www.ncdc.noaa.gov/) 
 > 
 > 
 
@@ -70,7 +70,7 @@ Los cuadernos de Spark 2.0 sobre los conjuntos de datos de los taxis de Nueva Yo
 
 Para obtener instrucciones sobre la operacionalización de un modelo de Spark 2.0 y el consumo de modelo para puntuación, consulte el [documento de Spark 1.6 sobre consumo](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark1.6/pySpark-machine-learning-data-science-spark-model-consumption.ipynb) para obtener un ejemplo que muestre los pasos necesarios. Para utilizar esta opción en Spark 2.0, reemplace el archivo de código Python por [este archivo](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Python/Spark2.0_ConsumeRFCV_NYCReg.py).
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>requisitos previos
 Los procedimientos siguientes están relacionados con Spark 1.6. En la versión Spark 2.0, use los cuadernos descritos anteriormente, con sus correspondientes vínculos. 
 
 1. Debe tener una suscripción de Azure. Si aún no tiene una, consulte [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)(Obtener una evaluación gratuita de Azure).
@@ -149,7 +149,7 @@ Puede iniciar Jupyter Notebook desde el portal de Azure. Busque el clúster de S
 
 ![Paneles de clúster](./media/spark-overview/spark-jupyter-on-portal.png)
 
-También puede ir a ***https://CLUSTERNAME.azurehdinsight.net/jupyter*** para acceder a los cuadernos de Jupyter Notebook. Reemplace la parte CLUSTERNAME de esta dirección URL por el nombre de su propio clúster. Necesitará la contraseña de su cuenta de administrador para acceder a los Notebooks.
+También puede ir a ***https://CLUSTERNAME.azurehdinsight.net/jupyter*** para tener acceso a las instancias de Jupyter Notebook. Reemplace la parte CLUSTERNAME de esta dirección URL por el nombre de su propio clúster. Necesitará la contraseña de su cuenta de administrador para acceder a los Notebooks.
 
 ![Examinar cuadernos de Jupyter Notebook](./media/spark-overview/spark-jupyter-notebook.png)
 

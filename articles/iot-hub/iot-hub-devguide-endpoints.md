@@ -1,11 +1,11 @@
 ---
-title: "Información de los puntos de conexión de Azure IoT Hub | Microsoft Docs"
-description: "Guía para desarrolladores: información de referencia sobre los puntos de conexión orientados a dispositivos y servicios IoT Hub."
+title: Información de los puntos de conexión de Azure IoT Hub | Microsoft Docs
+description: 'Guía para desarrolladores: información de referencia sobre los puntos de conexión orientados a dispositivos y servicios IoT Hub.'
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 57ba52ae-19c6-43e4-bc6c-d8a5c2476e95
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,13 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 54491d0ca1f515786af07146d83ef65fc7d46f11
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 17479fce776b0786e2fa32054eec8b0456871aae
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="reference---iot-hub-endpoints"></a>Referencia: Puntos de conexión de IoT Hub
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 ## <a name="iot-hub-names"></a>Nombres de IoT Hub
 
@@ -106,7 +108,7 @@ En una solución de IoT, un *puerta de enlace de campo* se encuentra entre los d
 
 Puede usar [Azure IoT Edge][lnk-iot-edge] para implementar una puerta de enlace de campo. IoT Edge ofrece la funcionalidad de multiplexar la comunicación desde varios dispositivos en la misma conexión de IoT Hub.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Otros temas de referencia en la Guía del desarrollador de IoT Hub son:
 

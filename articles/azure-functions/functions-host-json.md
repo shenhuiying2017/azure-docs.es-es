@@ -1,12 +1,12 @@
 ---
 title: Referencia de host.json para Azure Functions
-description: "Documentación de referencia para el archivo host.json de Azure Functions."
+description: Documentación de referencia para el archivo host.json de Azure Functions.
 services: functions
 author: tdykstra
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: tdykstra
-ms.openlocfilehash: 6b5a8c81b1e3e45c85ea84a46054b6a38a886c5b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 577c45edc832288943a7eeefe27c7a189a61b7b0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>Referencia de host.json para Azure Functions
 
@@ -202,6 +202,9 @@ Opciones de configuración para los [desencadenadores y enlaces HTTP](functions-
 
 Identificador único de un host de trabajo. Puede ser un GUID en minúsculas sin guiones. Requerido cuando se realiza la ejecución localmente. Cuando se ejecuta en Azure Functions, se genera automáticamente un identificador si `id` se omite.
 
+Si comparte una cuenta de almacenamiento entre varias aplicaciones de función, asegúrese de que cada aplicación de función tiene otro `id`. Puede omitir la propiedad `id` o establecer manualmente el `id` de cada aplicación de función en un valor diferente. El desencadenador de temporizador utiliza un bloqueo de almacenamiento para asegurarse de que solo hay una instancia de temporizador cuando una aplicación de función se escala a varias instancias. Si dos aplicaciones de función comparten el mismo `id` y cada una usa un desencadenador de temporizador, solo se ejecutará un temporizador.
+
+
 ```json
 {
     "id": "9f4ea53c5136457d883d685e57164f08"
@@ -312,7 +315,7 @@ Nombre de la [central de tareas](durable-functions-task-hubs.md) para [Durable F
 Los nombres de la central de tareas deben empezar por una letra y estar formados únicamente por letras y números. Si no se especifica, el nombre predeterminado de la central de tareas de la aplicación de función es **DurableFunctionsHub**. Para más información, consulte el artículo sobre las [centrales de tareas](durable-functions-task-hubs.md).
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Vea cómo actualizar el archivo host.json](functions-reference.md#fileupdate)

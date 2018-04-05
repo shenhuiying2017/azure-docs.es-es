@@ -1,25 +1,25 @@
 ---
-title: "Requisitos de certificados de infraestructura de clave pública de Azure Stack para sistemas integrados de Azure Stack | Microsoft Docs"
-description: "Describe los requisitos de implementación de certificados PKI de Azure Stack para sus sistemas integrados."
+title: Requisitos de certificados de infraestructura de clave pública de Azure Stack para sistemas integrados de Azure Stack | Microsoft Docs
+description: Describe los requisitos de implementación de certificados PKI de Azure Stack para sus sistemas integrados.
 services: azure-stack
-documentationcenter: 
-author: jeffgilb
+documentationcenter: ''
+author: mabriggs
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: f2f71372211dcc9db34beb3fa3fd788920f8bd45
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 455c74ca808f71258a12166c2e36bdd73d9a3e20
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Requisitos de certificados de infraestructura de clave pública de Azure Stack
 Azure Stack tiene una red de infraestructura pública que usa direcciones IP públicas accesibles externamente y asignadas a un pequeño conjunto de servicios de Azure Stack y, posiblemente, a las máquinas virtuales del inquilino. Se requieren certificados PKI con los nombres DNS apropiados para estos puntos de conexión de la infraestructura pública de Azure Stack durante la implementación de este. En este artículo se proporciona información acerca de lo siguiente:
@@ -33,12 +33,13 @@ Azure Stack tiene una red de infraestructura pública que usa direcciones IP pú
 
 ## <a name="certificate-requirements"></a>Requisitos de certificados
 En la lista siguiente se describen los requisitos de certificados que son necesarios para implementar Azure Stack: 
-- Los certificados deben ser emitidos desde una entidad de certificación interna o pública. Si se usa una entidad de certificación pública, se debe incluir en la imagen del sistema operativo base como parte del programa de entidades de certificación raíz de confianza de Microsoft (Microsoft Trusted Root Certificate Program). Puede encontrar la lista completa aquí: https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca 
+- Los certificados deben ser emitidos desde una entidad de certificación interna o pública. Si se usa una entidad de certificación pública, se debe incluir en la imagen del sistema operativo base como parte del programa de entidades de certificación raíz de confianza de Microsoft (Microsoft Trusted Root Certificate Program). Podrá encontrar la lista completa aquí: https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca 
 - El certificado puede ser uno único comodín que abarque todos los espacios de nombres en el campo del nombre alternativo del firmante (SAN). Como alternativa, puede usar certificados individuales con caracteres comodín para los puntos de conexión como el almacenamiento y el almacén de claves donde sean necesarios. 
 - El algoritmo de firma de certificados no puede ser SHA1, ya que debe ser más seguro. 
 - El formato del certificado debe ser PFX, porque las claves públicas y privadas son necesarias para la instalación de Azure Stack. 
 - Los archivos PFX de certificado deben tener un valor "Digital Signature" (firma digital) y "KeyEncipherment" (cifrado de clave) en el campo "Key Usage" (uso de clave).
 - Los archivos pfx de certificado deben tener los valores "Autenticación de servidor (1.3.6.1.5.5.7.3.1)" y "Autenticación de cliente (1.3.6.1.5.5.7.3.2)" en el campo de "Uso mejorado de clave".
+- El campo "Issued to:" (Emitido para:) del certificado no debe ser el mismo que su campo "Issued by:" (Emitido por:).
 - Las contraseñas para todos los archivos PFX de certificado deben ser las mismas en el momento de la implementación.
 - Asegúrese de que los nombres de asunto y nombres alternativos del firmante de todos los certificados coinciden con las especificaciones descritas en este artículo para evitar errores en las implementaciones.
 
@@ -50,7 +51,7 @@ En la tabla de esta sección se describen los certificados PKI públicos de punt
 
 Se requieren certificados con los nombres DNS apropiados para cada punto de conexión de la infraestructura pública de Azure Stack. El nombre DNS de cada punto de conexión se expresa en el formato: *&lt;prefijo>.&lt;región>.&lt;fqdn>*. 
 
-En la implementación, los valores de [region] y [externalfqdn] deben coincidir con los nombres de dominio externo y región que eligió para el sistema de Azure Stack. Por ejemplo, si el nombre de la región es *Redmond* y el nombre de dominio externo fuese *contoso.com*, los nombres DNS tendrían el formato  *&lt;prefijo>.redmond.contoso.com* . Los valores de *&lt;prefijo>* son designados de antemano por Microsoft para describir el punto de conexión protegido por el certificado. Además, los valores de  *&lt;prefijo>* de los puntos de conexión de la infraestructura externa dependen del servicio de Azure Stack que use el punto de conexión concreto. 
+En la implementación, los valores de [region] y [externalfqdn] deben coincidir con los nombres de dominio externo y región que eligió para el sistema de Azure Stack. Por ejemplo, si el nombre de la región es *Redmond* y el nombre de dominio externo fuese *contoso.com*, los nombres DNS tendrían el formato *&lt;prefijo>.redmond.contoso.com*. Los valores de *&lt;prefijo>* son designados de antemano por Microsoft para describir el punto de conexión protegido por el certificado. Además, los valores de  *&lt;prefijo>* de los puntos de conexión de la infraestructura externa dependen del servicio de Azure Stack que use el punto de conexión concreto. 
 
 |Carpeta de implementación|Nombres alternativos del firmante (SAN) y firmante del certificado requeridos|Ámbito (por región)|Nombre del subdominio|
 |-----|-----|-----|-----|
@@ -98,6 +99,6 @@ En la tabla siguiente se describen los puntos de conexión y los certificados ne
 ## <a name="learn-more"></a>Más información
 Aprenda a [generar certificados PKI para la implementación de Azure Stack](azure-stack-get-pki-certs.md). 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Integración de identidades](azure-stack-integrate-identity.md)
 

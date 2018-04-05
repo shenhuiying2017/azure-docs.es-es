@@ -1,7 +1,7 @@
 ---
-title: "Compilación de una aplicación web de Node.js para Azure Cosmos DB | Microsoft Docs"
-description: "Este tutorial de Node.js explora cómo usar Microsoft Azure Cosmos DB para almacenar datos de una aplicación web Node.js Express hospedada en Azure Websites y acceder a ellos."
-keywords: "Desarrollo de aplicaciones, tutorial de base de datos, información sobre node.js, tutorial de node.js"
+title: Compilación de una aplicación web de Node.js para Azure Cosmos DB | Microsoft Docs
+description: Este tutorial de Node.js explora cómo usar Microsoft Azure Cosmos DB para almacenar datos de una aplicación web Node.js Express hospedada en Azure Websites y acceder a ellos.
+keywords: Desarrollo de aplicaciones, tutorial de base de datos, información sobre node.js, tutorial de node.js
 services: cosmos-db
 documentationcenter: nodejs
 author: mimig1
@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/23/2018
 ms.author: mimig
-ms.openlocfilehash: 441f352555f40c0467df4c466d58ac35e32f9e61
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: ad6e335c562e52d7e2336dd1f29e5c159fe46589
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="_Toc395783175"></a>Creación de una aplicación web de Node.js con Azure Cosmos DB
 > [!div class="op_single_selector"]
@@ -29,8 +29,6 @@ ms.lasthandoff: 02/14/2018
 > * [Python](sql-api-python-application.md)
 > 
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 En este tutorial de Node.js se muestra cómo usar Azure Cosmos DB y la API de SQL para almacenar y acceder a los datos de una aplicación Node.js Express hospedada en Azure Websites. Compile una aplicación de administración de tareas basadas en web sencilla, una aplicación ToDo, que permite crear, recuperar y completar tareas. Las tareas se almacenan como documentos JSON en Azure Cosmos DB. Este tutorial le guiará a través de la creación e implementación de la aplicación y le explicará lo que sucede en cada fragmento de código.
 
@@ -154,7 +152,7 @@ Se encarga de toda la configuración e instalación iniciales; ahora volvamos a 
 
     ```nodejs
     let DocumentDBClient = require('documentdb').DocumentClient;
-    let docdbUtils = require('./docdbUtils');
+    let docdbUtils = require('./cosmosdb-manager.js');
     ```
 7. A continuación, agregará código para definir y exportar el objeto Task. Esta función se encarga de inicializar el objeto Task y de configurar la base de datos y la colección de documentos que se utilizarán.  
 
@@ -489,7 +487,7 @@ El segundo formulario contiene dos campos de entrada y un botón que nos permite
 Esto debería ser todo lo que necesitamos para que nuestra aplicación funcione.
 
 ## <a name="_Toc395783181"></a>Paso 6: Ejecución de la aplicación de forma local
-1. Para probar la aplicación en el equipo local, ejecute `npm start` en terminal para iniciar la aplicación y, a continuación, actualice la página del explorador [http://localhost:3000](http://localhost:3000). La página se debería parecer a la de la imagen siguiente:
+1. Para probar la aplicación en el equipo local, ejecute `npm start` en el terminal para iniciar la aplicación y, a continuación, actualice la página del explorador [http://localhost:3000](http://localhost:3000). La página se debería parecer a la de la imagen siguiente:
    
     ![Captura de pantalla de la aplicación MyTodo List en una ventana del explorador](./media/sql-api-nodejs-application/cosmos-db-node-js-localhost.png)
 

@@ -12,22 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/02/2017
+ms.date: 03/15/2018
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 68de6295b84385f54eaadd6d24e8309a32fae9ce
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f7c58b4ebd840aca555b52a03cf44ace311b64e3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>Credenciales de certificado para la autenticación de aplicaciones
 
-Azure Active Directory permite que una aplicación use sus propias credenciales para la autenticación, por ejemplo, en el flujo de concesión de credenciales de cliente de OAuth 2.0 ([v1](active-directory-protocols-oauth-service-to-service.md) [v2](active-directory-v2-protocols-oauth-client-creds.md)) y el flujo en nombre de ([v1](active-directory-protocols-oauth-on-behalf-of.md) [v2](active-directory-v2-protocols-oauth-on-behalf-of.md)).
+Azure Active Directory permite que una aplicación use sus propias credenciales para la autenticación. Por ejemplo, en el flujo de concesión de credenciales de cliente de OAuth 2.0 ([v1](active-directory-protocols-oauth-service-to-service.md), [v2](active-directory-v2-protocols-oauth-client-creds.md)) y el flujo de On-Behalf-Of ([v1](active-directory-protocols-oauth-on-behalf-of.md), [v2](active-directory-v2-protocols-oauth-on-behalf-of.md)).
 Un formato de credencial que se puede utilizar es una aserción de JSON Web Token (JWT) firmada con un certificado que la aplicación posea.
 
 ## <a name="format-of-the-assertion"></a>Formato de la aserción
-Para calcular la aserción, es posible que desee utilizar una de las muchas bibliotecas de [JSON Web Token](https://jwt.io/) en el idioma que prefiera. La información que lleva el token es:
+Para calcular la aserción, es posible que desee utilizar una de las muchas bibliotecas de [JSON Web Token](https://jwt.ms/) en el idioma que prefiera. La información que lleva el token es:
 
 #### <a name="header"></a>Encabezado
 
@@ -43,10 +43,10 @@ Para calcular la aserción, es posible que desee utilizar una de las muchas bibl
 | --- | --- |
 | `aud` | Público: debe ser **https://login.microsoftonline.com/*tenant_Id*/oauth2/token** |
 | `exp` | Fecha de expiración: la fecha en que el token expira. La hora se representa como el número de segundos desde el 1 de enero de 1970 (1970-01-01T0:0:0Z) UTC hasta el momento en que la validez del token expira.|
-| `iss` | Emisor: debe ser el identificador client_id (identificador de la aplicación del servicio de cliente) |
+| `iss` | Emisor: debe ser el valor de client_id (identificador de la aplicación del servicio de cliente) |
 | `jti` | GUID: el identificador de JWT |
 | `nbf` | No antes de: fecha antes de la cual el token no se puede usar. La hora se representa como el número de segundos desde el 1 de enero de 1970 (1970-01-01T0:0:0Z) UTC hasta el momento en que se emitió el token. |
-| `sub` | Asunto: al igual que para `iss`, debe ser el identificador client_id (identificador de la aplicación del servicio de cliente) |
+| `sub` | Asunto: al igual que para `iss`, debe ser el valor de client_id (identificador de la aplicación del servicio de cliente) |
 
 #### <a name="signature"></a>Firma
 
@@ -85,7 +85,14 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 
 ### <a name="register-your-certificate-with-azure-ad"></a>Registro del certificado con Azure AD
 
-Para asociar las credenciales del certificado con la aplicación de cliente en Azure AD, debe editar el manifiesto de la aplicación.
+Puede asociar las credenciales del certificado con la aplicación de cliente en Azure AD a través de Azure Portal mediante cualquiera de los métodos siguientes:
+
+**Cargar el archivo de certificado**
+
+En el registro de aplicación de Azure para la aplicación cliente, haga clic en **Configuración** y en **Claves** y, a continuación, haga clic en **Cargar clave pública**. Seleccione el archivo de certificado que quiera cargar y haga clic en **Guardar**. Una vez guardado, el certificado se carga y se muestra la huella digital, la fecha inicial y la caducidad. 
+
+**Actualizar el manifiesto de aplicación**
+
 Si tiene un certificado, debe calcular:
 
 - `$base64Thumbprint`, que es la codificación base64 del hash del certificado

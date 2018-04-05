@@ -1,11 +1,11 @@
 ---
-title: "Creación de canalizaciones de datos predictivas con Azure Data Factory | Microsoft Docs"
-description: "Obtenga información sobre cómo crear una canalización predictiva mediante el uso de Azure Machine Learning: actividad de ejecución de Batch en Azure Data Factory."
+title: Creación de canalizaciones de datos predictivas con Azure Data Factory | Microsoft Docs
+description: 'Obtenga información sobre cómo crear una canalización predictiva mediante el uso de Azure Machine Learning: actividad de ejecución de Batch en Azure Data Factory.'
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: shengcmsft
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: fa493a6d7b4cf775f64b87c1d5cc21ff4a138609
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: bd72fd957948e77df6ffb0b310c590132c663235
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Creación de canalizaciones predictivas con Azure Machine Learning y Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -75,7 +75,7 @@ Azure Machine Learning admite los servicios web clásicos y los nuevos servicios
 
 ![Servicios web de Azure Machine Learning](./media/transform-data-using-machine-learning/web-services.png)
 
-##<a name="azure-machine-learning-batch-execution-activity"></a>Actividad de ejecución de Batch de Azure Machine Learning
+## <a name="azure-machine-learning-batch-execution-activity"></a>Actividad de ejecución de Batch de Azure Machine Learning
 
 El siguiente fragmento JSON define una actividad de ejecución de Batch de Azure Machine Learning. La definición de actividad tiene una referencia al servicio vinculado de Azure Machine Learning que ha creado anteriormente. 
 
@@ -227,7 +227,7 @@ Cuando haya terminado el reciclaje, actualice el servicio web de puntuación (ex
 
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Vea los siguientes artículos, en los que se explica cómo transformar datos de otras maneras: 
 
 * [Actividad de U-SQL](transform-data-using-data-lake-analytics.md)

@@ -1,11 +1,11 @@
 ---
 title: Escalado de Azure Redis Cache | Microsoft Docs
-description: "Obtenga información acerca de cómo ampliar las instancias de Azure Redis Cache"
+description: Obtenga información acerca de cómo ampliar las instancias de Azure Redis Cache
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 350db214-3b7c-4877-bd43-fef6df2db96c
 ms.service: cache
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: wesmc
-ms.openlocfilehash: b0a9208681b164fe7be33bf9ef5f635358284ba3
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 9ef988ccdcca921c0285bf983125483a38a07678
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-scale-azure-redis-cache"></a>Escalado de Azure Redis Cache
 Azure Redis Cache tiene diferentes ofertas de caché que proporcionan flexibilidad en la elección del tamaño y las características de la caché. Después de crear una memoria caché, puede ajustar su tamaño y el plan de tarifa si cambian los requisitos de la aplicación. En este artículo se muestra cómo escalar la memoria caché en Azure Portal o con herramientas tales como Azure PowerShell y la CLI de Azure.
@@ -111,6 +111,7 @@ La lista siguiente contiene las respuestas a las preguntas más frecuentes sobre
 * [¿Se pierden los datos de mi memoria caché durante el escalado?](#will-i-lose-data-from-my-cache-during-scaling)
 * [¿Mi configuración de bases de datos personalizada se ve afectada durante el escalado?](#is-my-custom-databases-setting-affected-during-scaling)
 * [¿La caché estará disponible durante el escalado?](#will-my-cache-be-available-during-scaling)
+* [Con la replicación geográfica configurada, ¿por qué no puedo escalar la memoria caché o cambiar las particiones de un clúster?](#scaling-limitations-with-geo-relication)
 * [Operaciones que no son compatibles](#operations-that-are-not-supported)
 * [¿Cuánto tarda el escalado?](#how-long-does-scaling-take)
 * [¿Cómo puedo saber si el escalado ha terminado?](#how-can-i-tell-when-scaling-is-complete)
@@ -119,9 +120,9 @@ La lista siguiente contiene las respuestas a las preguntas más frecuentes sobre
 * No puede escalar desde una caché **Premium** a un plan de tarifa **Básico** o **Estándar**.
 * Puede escalar desde un plan de tarifa de caché **Premium** a otro.
 * No puede escalar de una memoria caché **Básica** directamente a una memoria caché **Premium**. En primer lugar, escale desde **Básica** a **Estándar** en una operación de escalado y, después, desde **Estándar** a **Premium** en una operación de escalado posterior.
-* Si ha habilitado la agrupación en clústeres cuando creó su caché **Premium**, puede [cambiar el tamaño de clúster](cache-how-to-premium-clustering.md#cluster-size). Si su caché se creó sin habilitar la agrupación en clústeres, no puede configurar la agrupación en clústeres después.
+* Si ha habilitado la agrupación en clústeres cuando creó su caché **Premium**, puede [cambiar el tamaño de clúster](cache-how-to-premium-clustering.md#cluster-size). Si su caché se creó sin habilitar la agrupación en clústeres, puede configurar la agrupación en clústeres después.
   
-  Para obtener más información, consulte [Cómo configurar la agrupación en clústeres para una instancia Premium de Azure Redis Cache](cache-how-to-premium-clustering.md).
+  Para más información, vea [Cómo configurar la agrupación en clústeres de Redis para una Azure Redis Cache Premium](cache-how-to-premium-clustering.md).
 
 ### <a name="after-scaling-do-i-have-to-change-my-cache-name-or-access-keys"></a>Después de escalar, ¿tengo que cambiar el nombre de la memoria caché o las teclas de acceso?
 No, el nombre de la memoria caché y las claves no se cambian durante una operación de escalado.
@@ -151,6 +152,12 @@ Mientras las memorias caché Estándar y Premium tienen un Acuerdo de Nivel de S
 * Las memorias caché de los planes **Estándar** y **Premium** permanecen disponibles durante la operación de escalado. Sin embargo, pueden producirse interrupciones momentáneas de conexión mientras se escalan las memorias caché Estándar y Premium, así como al escalar de Básica a Estándar. Estas interrupciones momentáneas de conexión deberían ser breves y los clientes de Redis deberían poder volver a establecer su conexión al instante.
 * Las memorias caché **Básicas** están sin conexión durante las operaciones de escalado a un tamaño diferente. Las memorias caché Básicas siguen estando disponibles al escalar de **Básica** a **Estándar**, pero pueden experimentar una breve interrupción momentánea de conexión. En caso de producirse una interrupción momentánea de conexión, los clientes de Redis deberían poder volver a establecer su conexión al instante.
 
+
+### <a name="scaling-limitations-with-geo-relication"></a>Limitaciones de escalado con replicación geográfica
+
+Cuando haya agregado un vínculo de replicación geográfica entre dos cachés, ya no podrá iniciar una operación de escalado ni cambiar el número de particiones en un clúster. Debe desvincular la memoria caché para emitir estos comandos. Para obtener más información, consulte [Configuración de replicación geográfica](cache-how-to-geo-replication.md).
+
+
 ### <a name="operations-that-are-not-supported"></a>Operaciones que no son compatibles
 * No se puede escalar desde un plan de tarifa superior a un plan de tarifa inferior.
   * No puede cambiar de una memoria caché **Premium** a una memoria caché **Estándar** o **Básica**.
@@ -160,6 +167,7 @@ Mientras las memorias caché Estándar y Premium tienen un Acuerdo de Nivel de S
 * No puede escalar desde un tamaño mayor hasta el tamaño **C0 (250 MB)** .
 
 Si se produce un error en una operación de escalado, el servicio intenta revertir la operación y la memoria caché se restablecerá al tamaño original.
+
 
 ### <a name="how-long-does-scaling-take"></a>¿Cuánto tarda el escalado?
 El escalado tarda aproximadamente 20 minutos, según la cantidad de datos que haya en la memoria caché.

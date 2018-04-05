@@ -1,12 +1,12 @@
 ---
-title: "Instalación de un bosque de Active Directory en una red virtual de Azure | Microsoft Docs"
-description: "Un tutorial que explica cómo crear un nuevo bosque de Active Directory en una máquina virtual (VM) en una instancia de Azure Virtual Network."
+title: Instalación de un bosque de Active Directory en una red virtual de Azure | Microsoft Docs
+description: Un tutorial que explica cómo crear un nuevo bosque de Active Directory en una máquina virtual (VM) en una instancia de Azure Virtual Network.
 services: active-directory, virtual-network
-keywords: "máquina virtual de Active Directory, instalación de un bosque de Active Directory, vídeos de Azure Active Directory  "
-documentationcenter: 
+keywords: 'máquina virtual de Active Directory, instalación de un bosque de Active Directory, vídeos de Azure Active Directory  '
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
-tags: 
+tags: ''
 ms.assetid: eb7170d0-266a-4caa-adce-1855589d65d1
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2017
 ms.author: joflore
-ms.openlocfilehash: c98082b7d839490410132f19fdbf653c61d7165c
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 0b98b475f49847589398ca743fc3ac3b8bcbb381
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="install-a-new-active-directory-forest-on-an-azure-virtual-network"></a>Instalación de un bosque nuevo de Active Directory en una red virtual de Azure
 En este artículo se muestra la creación de un nuevo entorno de Windows Server Active Directory en una máquina virtual (VM) de una [red virtual de Azure](../virtual-network/virtual-networks-overview.md). En este caso, la red virtual de Azure no está conectada a una red de un entorno local.

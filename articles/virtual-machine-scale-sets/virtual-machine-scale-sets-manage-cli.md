@@ -1,13 +1,13 @@
 ---
-title: "Administración de conjuntos de escalado de máquinas virtuales con la CLI de Azure 2.0 | Microsoft Docs"
-description: "Comandos comunes de la CLI de Azure 2.0 para administrar conjuntos de escalado de máquinas virtuales, por ejemplo, cómo iniciar y detener una instancia, o cambiar la capacidad del conjunto de escalado."
+title: Administración de conjuntos de escalado de máquinas virtuales con la CLI de Azure 2.0 | Microsoft Docs
+description: Comandos comunes de la CLI de Azure 2.0 para administrar conjuntos de escalado de máquinas virtuales, por ejemplo, cómo iniciar y detener una instancia, o cambiar la capacidad del conjunto de escalado.
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
-ms.openlocfilehash: a484cf6734ff663a852be1a46e2b2ca2f75bb17d
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 1afb43b65203406a7d49b0e3f641bc22d164a4a9
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Administración de un conjunto de escalado de máquinas virtuales con la CLI de Azure 2.0
 Durante el ciclo de vida de la máquina virtual, es posible que deba ejecutar una o varias tareas de administración. Además, puede crear scripts para automatizar varias tareas de ciclo de vida. En este artículo se detallan algunos de los comandos comunes de la CLI de Azure 2.0 que le permiten realizar estas tareas.
 
-Para completar estas tareas de administración, se requiere la compilación más reciente de la CLI de Azure 2.0. Para información sobre cómo instalar y usar la versión más reciente, consulte [Instalación de la CLI de Azure 2.0](/cli/azure/install-azure-cli). Si necesita crear un conjunto de escalado de máquinas virtuales, puede [crear un conjunto de escalado en Azure Portal](virtual-machine-scale-sets-create-portal.md).
+Para completar estas tareas de administración, se requiere la CLI de Azure 2.0 más reciente. Para obtener información, consulte [Instalación de la CLI de Azure 2.0](/cli/azure/install-azure-cli). Si necesita crear un conjunto de escalado de máquinas virtuales, puede [crear un conjunto de escalado en la CLI de Azure 2.0](quick-create-cli.md).
 
 
 ## <a name="view-information-about-a-scale-set"></a>Visualización de información acerca de un conjunto de escalado
@@ -136,5 +136,5 @@ az vmss delete-instances --resource-group myResourceGroup --name myScaleSet --in
 ```
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Entre otras tareas comunes para conjuntos de escalado se incluye cómo [implementar una aplicación](virtual-machine-scale-sets-deploy-app.md) y cómo [actualizar instancias de máquinas virtuales](virtual-machine-scale-sets-upgrade-scale-set.md). También puede usar la CLI de Azure para [configurar reglas de escalado automático](virtual-machine-scale-sets-autoscale-overview.md).

@@ -1,11 +1,11 @@
 ---
-title: "Solución de problemas de una aplicación web en Azure App Service con Visual Studio"
-description: "Obtenga información acerca de cómo solucionar problemas de una aplicación web de Azure con herramientas de registro, seguimiento y depuración remota que están integradas en Visual Studio 2013."
+title: Solución de problemas de una aplicación web en Azure App Service con Visual Studio
+description: Obtenga información acerca de cómo solucionar problemas de una aplicación web de Azure con herramientas de registro, seguimiento y depuración remota que están integradas en Visual Studio 2013.
 services: app-service
 documentationcenter: .net
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: def8e481-7803-4371-aa55-64025d116c97
 ms.service: app-service
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: cephalin
-ms.openlocfilehash: 6b1d5694c4d80a4db584b0c76a044dd596c5d553
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7973f4311095b7c87ccd2394b048ec92c50f32a9
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>Solución de problemas de una aplicación web en Azure App Service con Visual Studio
 ## <a name="overview"></a>Información general
@@ -125,12 +125,14 @@ En esta sección se muestra cómo realizar una depuración remota mediante el pr
 
 3. Elimine el método `About()` e inserte el siguiente código en su lugar.
 
-        public ActionResult About()
-        {
-            string currentTime = DateTime.Now.ToLongTimeString();
-            ViewBag.Message = "The current time is " + currentTime;
-            return View();
-        }
+``` c#
+public ActionResult About()
+{
+    string currentTime = DateTime.Now.ToLongTimeString();
+    ViewBag.Message = "The current time is " + currentTime;
+    return View();
+}
+```
 4. [Establezca un punto de interrupción](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) en la línea `ViewBag.Message`.
 
 5. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto y, luego, haga clic en **Publicar**.
@@ -241,10 +243,12 @@ Si la función [escribió registros](https://github.com/Azure/azure-webjobs-sdk/
 * Mientras realiza la depuración, el servidor envía datos a Visual Studio, lo que podría afectar a los cargos de ancho de banda. Para obtener información acerca de las tarifas de ancho de banda, consulte [Precios de Azure](https://azure.microsoft.com/pricing/calculator/).
 * Asegúrese de que el atributo `debug` del elemento `compilation` en el archivo *Web.config* esté establecido en true. Este es el valor predeterminado cuando publica una configuración de compilación de depuración.
 
-        <system.web>
-          <compilation debug="true" targetFramework="4.5" />
-          <httpRuntime targetFramework="4.5" />
-        </system.web>
+``` xml
+<system.web>
+  <compilation debug="true" targetFramework="4.5" />
+  <httpRuntime targetFramework="4.5" />
+</system.web>
+```
 * Si encuentra que el depurador no entra en el código que desea depurar, es posible que deba cambiar la configuración de Solo mi código.  Para obtener más información, consulte [Restricción de la ejecución paso a paso a Solo mi código](http://msdn.microsoft.com/library/vstudio/y740d9d3.aspx#BKMK_Restrict_stepping_to_Just_My_Code).
 * Cuando habilita la característica de depuración remota, se inicia un temporizador en el servidor y 48 horas después la característica se desactiva automáticamente. Este límite de 48 horas es por motivos de seguridad y rendimiento. Puede activar fácilmente la característica las veces que lo desee. Recomendamos dejarla deshabilitada cuando no esté realizando activamente una depuración.
 * Puede asociar manualmente el depurador a cualquier proceso, no solo al proceso de la aplicación web (w3wp.exe). Para obtener más información acerca de cómo utilizar el modo de depuración en Visual Studio, consulte [Depuración en Visual Studio](http://msdn.microsoft.com/library/vstudio/sc65sadd.aspx).
@@ -277,32 +281,35 @@ Para obtener información acerca de cómo crear registros de aplicaciones en Web
 ### <a name="add-tracing-statements-to-the-application"></a>Adición de instrucciones de seguimiento a la aplicación
 1. Abra *Controllers\HomeController.cs* y reemplace los métodos `Index`, `About` y `Contact` por el siguiente código para agregar instrucciones `Trace` y una instrucción `using` para `System.Diagnostics`:
 
-        public ActionResult Index()
-        {
-            Trace.WriteLine("Entering Index method");
-            ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
-            Trace.TraceInformation("Displaying the Index page at " + DateTime.Now.ToLongTimeString());
-            Trace.WriteLine("Leaving Index method");
-            return View();
-        }
+```c#
+public ActionResult Index()
+{
+    Trace.WriteLine("Entering Index method");
+    ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
+    Trace.TraceInformation("Displaying the Index page at " + DateTime.Now.ToLongTimeString());
+    Trace.WriteLine("Leaving Index method");
+    return View();
+}
 
-        public ActionResult About()
-        {
-            Trace.WriteLine("Entering About method");
-            ViewBag.Message = "Your app description page.";
-            Trace.TraceWarning("Transient error on the About page at " + DateTime.Now.ToShortTimeString());
-            Trace.WriteLine("Leaving About method");
-            return View();
-        }
+public ActionResult About()
+{
+    Trace.WriteLine("Entering About method");
+    ViewBag.Message = "Your app description page.";
+    Trace.TraceWarning("Transient error on the About page at " + DateTime.Now.ToShortTimeString());
+    Trace.WriteLine("Leaving About method");
+    return View();
+}
 
-        public ActionResult Contact()
-        {
-            Trace.WriteLine("Entering Contact method");
-            ViewBag.Message = "Your contact page.";
-            Trace.TraceError("Fatal error on the Contact page at " + DateTime.Now.ToLongTimeString());
-            Trace.WriteLine("Leaving Contact method");
-            return View();
-        }        
+public ActionResult Contact()
+{
+    Trace.WriteLine("Entering Contact method");
+    ViewBag.Message = "Your contact page.";
+    Trace.TraceError("Fatal error on the Contact page at " + DateTime.Now.ToLongTimeString());
+    Trace.WriteLine("Leaving Contact method");
+    return View();
+}        
+```
+
 2. Agregue una instrucción `using System.Diagnostics;` a la parte superior del archivo.
 
 ### <a name="view-the-tracing-output-locally"></a>Visualización del resultado de seguimiento localmente
@@ -315,23 +322,28 @@ Para obtener información acerca de cómo crear registros de aplicaciones en Web
     Los pasos siguientes muestran cómo ver el resultado del seguimiento en una página web, sin compilar en modo de depuración.
 2. Abra el archivo Web.config de la aplicación (el que está ubicado en la carpeta del proyecto) y agregue un elemento `<system.diagnostics>` al final del archivo, justo antes del elemento `</configuration>` de cierre:
 
-          <system.diagnostics>
-            <trace>
-              <listeners>
-                <add name="WebPageTraceListener"
-                    type="System.Web.WebPageTraceListener,
-                    System.Web,
-                    Version=4.0.0.0,
-                    Culture=neutral,
-                    PublicKeyToken=b03f5f7f11d50a3a" />
-              </listeners>
-            </trace>
-          </system.diagnostics>
+``` xml
+<system.diagnostics>
+<trace>
+  <listeners>
+    <add name="WebPageTraceListener"
+        type="System.Web.WebPageTraceListener,
+        System.Web,
+        Version=4.0.0.0,
+        Culture=neutral,
+        PublicKeyToken=b03f5f7f11d50a3a" />
+  </listeners>
+</trace>
+</system.diagnostics>
+```
 
-    `WebPageTraceListener` le permite ver los resultados de seguimiento si navega a `/trace.axd`.
+`WebPageTraceListener` le permite ver los resultados de seguimiento si navega a `/trace.axd`.
 3. Agregue un <a href="http://msdn.microsoft.com/library/vstudio/6915t83k(v=vs.100).aspx">elemento de seguimiento</a> bajo `<system.web>` en el archivo Web.config, como en el siguiente ejemplo:
 
-        <trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
+``` xml
+<trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
+```       
+
 4. Presione CTRL+F5 para ejecutar la aplicación.
 5. En la barra de direcciones de la ventana del explorador, agregue *trace.axd* a la dirección URL y, a continuación, presione Entrar (la dirección URL es similar a http://localhost:53370/trace.axd).
 6. En la página **Seguimiento de la aplicación**, haga clic en **Ver detalles** en la primera línea (no en la línea BrowserLink).
@@ -646,15 +658,18 @@ No hay introducciones rigurosas ni actualizadas al seguimiento de ASP.NET dispon
 * [Seguimiento en vistas Razor de ASP.NET MVC](http://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
   Además del seguimiento en vistas de Razor, la publicación también explica cómo crear un filtro de error para registrar todas las excepciones no manejadas en una aplicación MVC. Si desea obtener información sobre cómo registrar todas las excepciones no controladas en una aplicación de Web Forms, consulte el ejemplo Global.asax en [Ejemplo completo de controladores de errores en MSDN](http://msdn.microsoft.com/library/bb397417.aspx) . Ya sea en MVC o en Web Forms, si desea registrar ciertas excepciones, pero permitir que la gestión del marco predeterminado las afecte, puede volver a intentarlo como en el siguiente ejemplo:
 
-        try
-        {
-           // Your code that might cause an exception to be thrown.
-        }
-        catch (Exception ex)
-        {
-            Trace.TraceError("Exception: " + ex.ToString());
-            throw;
-        }
+``` c#
+try
+{
+   // Your code that might cause an exception to be thrown.
+}
+catch (Exception ex)
+{
+    Trace.TraceError("Exception: " + ex.ToString());
+    throw;
+}
+```
+
 * [Registro de seguimiento de diagnóstico de streaming desde la línea de comandos de Azure (con Glimpse)](http://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
   Uso de la línea de comandos para hacer lo que muestra este tutorial en Visual Studio. [Glimpse](http://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) es una herramienta de depuración de aplicaciones ASP.NET.
 * [Uso de diagnósticos y registro de Web Apps - con David Ebbo](/documentation/videos/azure-web-site-logging-and-diagnostics/) y [Registros de streaming desde Web Apps - con David Ebbo](/documentation/videos/log-streaming-with-azure-web-sites/)<br>

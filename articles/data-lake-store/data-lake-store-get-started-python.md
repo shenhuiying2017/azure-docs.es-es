@@ -1,8 +1,8 @@
 ---
-title: "Python: operaciones de administración de cuentas en Azure Data Lake Store | Microsoft Docs"
-description: "Aprenda a usar el SDK de Python para realizar operaciones de administración de cuentas de Data Lake Store."
+title: 'Python: operaciones de administración de cuentas en Azure Data Lake Store | Microsoft Docs'
+description: Aprenda a usar el SDK de Python para realizar operaciones de administración de cuentas de Data Lake Store.
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 834dbc93348e00b0a0821bcbca989b0c2d539056
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 5f060dfd061af07f220576f17110afccd01fdae5
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="account-management-operations-on-azure-data-lake-store-using-python"></a>Operaciones de administración de cuentas en Azure Data Lake Store con Python
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/10/2018
 
 Aprenda a usar el SDK de Python para Azure Data Lake Store para realizar operaciones de administración de cuentas básicas, como la creación o la enumeración de cuentas de Data Lake Store. Para instrucciones sobre cómo realizar operaciones de sistema de archivos en Data Lake Store con Python consulte [Operaciones de sistema de archivos en Azure Data Lake Store con Python](data-lake-store-data-operations-python.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 * **Python**. Python se puede descargar desde [aquí](https://www.python.org/downloads/). En este artículo se usa Python 3.6.2.
 
@@ -43,7 +43,7 @@ Aprenda a usar el SDK de Python para Azure Data Lake Store para realizar operaci
 Para trabajar con Data Lake Store mediante Python, debe instalar tres módulos.
 
 * El módulo `azure-mgmt-resource`, que incluye los módulos de Azure para Active Directory, etc.
-* El módulo `azure-mgmt-datalake-store`, que incluye las operaciones de administración de cuentas de Azure Data Lake Store. Para más información acerca de este módulo, consulte [referencia al módulo de Azure Data Lake Management Store](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html).
+* El módulo `azure-mgmt-datalake-store`, que incluye las operaciones de administración de cuentas de Azure Data Lake Store. Para más información acerca de este módulo, consulte [referencia al módulo de Azure Data Lake Management Store](http://azure-sdk-for-python.readthedocs.io/sample_azure-mgmt-datalake-store.html).
 * El módulo `azure-datalake-store`, que incluye las operaciones de sistema de archivos de Azure Data Lake Store. Para más información acerca de este módulo, consulte [referencia al módulo de Azure Data Lake Store Filesystem](http://azure-datalake-store.readthedocs.io/en/latest/).
 
 Utilice el comando siguiente para instalar los módulos.
@@ -131,7 +131,7 @@ El siguiente fragmento de código crea primero el cliente de la cuenta de Data L
     adlsAcctClient.account.delete(adlsAccountName)
     
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Operaciones de sistema de archivos en Azure Data Lake Store con Python](data-lake-store-data-operations-python.md)
 
 ## <a name="see-also"></a>Otras referencias

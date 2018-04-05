@@ -1,24 +1,24 @@
 ---
 title: Herramientas de Azure Stack Storage
-description: "Obtenga información acerca de las herramientas de transferencia de datos de Azure Stack Storage"
+description: Obtenga información acerca de las herramientas de transferencia de datos de Azure Stack Storage
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/21/2018
+ms.date: 03/30/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 9318b7af3c3dd545207f1896c9008207f562b735
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: e26a38b8fd7d008a46eba2c41075c5af09a6616a
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="tools-for-azure-stack-storage"></a>Herramientas de Azure Stack Storage
 
@@ -181,7 +181,7 @@ La CLI de Azure es la forma de usar la línea de comandos de Azure para administ
 
 La CLI de Azure está optimizada para administrar recursos de Azure desde la línea de comandos y para compilar scripts de automatización que funcionen con Azure Resource Manager. Proporciona muchas de las funciones que se encuentran en Azure Stack Portal, lo que incluye el acceso a datos enriquecidos.
 
-Azure Stack requiere la versión 2.0 de la CLI de Azure. Para más información acerca de cómo instalar y Azure PowerShell con Azure Stack, consulte [Install and configure Azure Stack CLI](azure-stack-connect-cli.md) (Instalación y configuración de la CLI de Azure Stack). Para más información acerca de cómo utilizar la CLI de Azure 2.0 para realizar varias tareas relativas al trabajo con recursos de su cuenta de Azure Stack Storage, consulte [Uso de la CLI de Azure 2.0 con Azure Storage](../../storage/storage-azure-cli.md)
+Azure Stack requiere la versión 2.0 de la CLI de Azure. Para más información acerca de cómo instalar y Azure PowerShell con Azure Stack, consulte [Install and configure Azure Stack CLI](azure-stack-version-profiles-azurecli2.md) (Instalación y configuración de la CLI de Azure Stack). Para más información acerca de cómo utilizar la CLI de Azure 2.0 para realizar varias tareas relativas al trabajo con recursos de su cuenta de Azure Stack Storage, consulte [Uso de la CLI de Azure 2.0 con Azure Storage](../../storage/storage-azure-cli.md)
 
 ### <a name="azure-cli-sample-script-for-azure-stack"></a>Script de ejemplo de la CLI de Azure para Azure Stack 
 Cuando haya completado la instalación y configuración de la CLI, puede probar los siguientes pasos para trabajar con un pequeño script de ejemplo de shell pequeño para interactuar con los recursos de Azure Stack Storage. En primer lugar, el script crea un contenedor nuevo en la cuenta de almacenamiento, después, carga un archivo existente (como un blob) en dicho contenedor, enumera todos los blobs del contenedor y, por último, descarga el archivo en el destino del equipo local que especifique. Antes de ejecutar este script, asegúrese de que se conecta a inicia sesión correctamente con el servicio Azure Stack de destino. 

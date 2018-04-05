@@ -2,24 +2,18 @@
 title: Tecnologías en memoria de Azure SQL Database | Microsoft Docs
 description: Las tecnologías en memoria de Azure SQL Database mejoran notablemente el rendimiento de las cargas de trabajo transaccionales y de análisis.
 services: sql-database
-documentationCenter: ''
 author: jodebrui
-manager: jhubbard
-editor: ''
-ms.assetid: 250ef341-90e5-492f-b075-b4750d237c05
+manager: craigg
 ms.service: sql-database
 ms.custom: develop databases
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2017
+ms.date: 03/21/2018
 ms.author: jodebrui
-ms.openlocfilehash: 98b4a0b4bcb271a68880359b1bb04655cae8d003
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 442c860a13e2af1d5398fb30a6069a0e3764ee64
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Optimización del rendimiento mediante las tecnologías en memoria de SQL Database
 
@@ -110,7 +104,7 @@ Al utilizar índices de almacén de columnas no agrupados, la tabla base sigue a
 
 Nunca hay incompatibilidades u otros problemas al actualizar a un plan de tarifas superior, como de Estándar a Premium. Solo aumenta la funcionalidad y los recursos disponibles.
 
-Pero cambiar a un plan de tarifas inferior puede repercutir negativamente en la base de datos. El impacto es especialmente evidente al cambiar de Premium a Estándar o Básico cuando la base de datos contiene objetos de OLTP en memoria. Las tablas optimizadas para memoria y los índices de almacén de columnas no están disponibles después del cambio a una versión anterior (aunque sigan estando visibles). Lo mismo se aplica al reducir el plan de tarifa de un grupo elástico o mover bases de datos con tecnologías en memoria a un grupo elástico Estándar o Básico.
+Pero cambiar a un plan de tarifas inferior puede repercutir negativamente en la base de datos. El impacto es especialmente evidente al cambiar de Premium a Estándar o Básico cuando la base de datos contiene objetos de OLTP en memoria. Las tablas optimizadas para memoria no están disponibles después del cambio a una versión anterior (aunque sigan estando visibles). Lo mismo se aplica al reducir el plan de tarifa de un grupo elástico o mover bases de datos con tecnologías en memoria a un grupo elástico Estándar o Básico.
 
 ### <a name="in-memory-oltp"></a>In-Memory OLTP
 
@@ -136,11 +130,11 @@ SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 
 ### <a name="columnstore-indexes"></a>Índices de almacén de columnas
 
-*Cambiar a Básico o Estándar*: los índices de almacén de columnas solo se admiten en el plan de tarifa Premium y no en los planes Estándar o Básico. Cuando se cambie la base de datos a Estándar o Básico, el índice de almacén de columnas no estará disponible. El sistema mantiene el índice de almacén de columnas, pero no aprovecha el índice. Si después actualiza a Premium, el índice de almacén de columnas está listo para volver a sacar el máximo partido.
+*Cambiar a Básico o Estándar*: los índices de almacén de columnas solo se admiten en el plan de tarifa Premium y Estándar (S3 y superior), no en el plan Básico. Si se cambia la base de datos a un nivel inferior incompatible, el índice de almacén de columnas dejará de estar disponible. El sistema mantiene el índice de almacén de columnas, pero no aprovecha el índice. Si, más tarde, vuelve a actualizar a un plan o nivel superior compatible, el almacén de columnas estará listo inmediatamente para volver a sacar el máximo partido.
 
-Si tiene un índice de almacén de columnas **en clúster**, toda la tabla deja de estar disponible después del cambio a un nivel inferior. Por lo tanto, se recomienda quitar todos los índices de almacén de columnas *en clúster* antes de cambiar la base de datos por debajo del nivel Premium.
+Si tiene un índice de almacén de columnas **en clúster**, toda la tabla deja de estar disponible después del cambio a un nivel inferior. Por lo tanto, se recomienda quitar todos los índices de almacén de columnas *en clúster* antes de cambiar la base de datos a un nivel o plan inferior incompatible.
 
-*Cambio a un plan Premium inferior*: este cambio se realiza correctamente si toda la base de datos se adapta al tamaño máximo de la base de datos del plan de tarifa objetivo o al almacenamiento disponible en el grupo elástico. Los índices de almacén de columnas no tienen ningún impacto concreto en este caso.
+*Cambio a un plan o nivel inferior compatible*: este cambio se realiza correctamente si toda la base de datos se adapta al tamaño máximo de la base de datos del plan de tarifa objetivo o al almacenamiento disponible en el grupo elástico. Los índices de almacén de columnas no tienen ningún impacto concreto en este caso.
 
 
 <a id="install_oltp_manuallink" name="install_oltp_manuallink"></a>

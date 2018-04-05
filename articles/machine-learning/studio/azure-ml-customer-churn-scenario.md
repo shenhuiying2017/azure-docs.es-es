@@ -1,10 +1,11 @@
 ---
-title: "Análisis del abandono de clientes mediante Machine Learning | Microsoft Docs"
-description: "Caso práctico de desarrollo de un modelo integrado para analizar y puntuar el abandono de clientes"
+title: Análisis del abandono de clientes mediante Machine Learning | Microsoft Docs
+description: Caso práctico de desarrollo de un modelo integrado para analizar y puntuar el abandono de clientes
 services: machine-learning
-documentationcenter: 
-author: jeannt
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 1333ffe2-59b8-4f40-9be7-3bf1173fc38d
 ms.service: machine-learning
@@ -13,14 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.author: jeannt
-ms.openlocfilehash: e0b82fe8e8c8bc4ac9c45370d90fa9330d749878
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 6c64444fc8d42782065d42ed5ee0c193678bb1f1
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="analyzing-customer-churn-by-using-azure-machine-learning"></a>Análisis del el abandono de clientes mediante Azure Machine Learning
+# <a name="analyzing-customer-churn-using-azure-machine-learning"></a>Análisis del abandono de clientes mediante Azure Machine Learning
 ## <a name="overview"></a>Información general
 En este artículo se presenta una implementación de referencia de un proyecto de análisis de pérdida de clientes creado mediante Azure Machine Learning. Se describen los modelos asociados genéricos para solucionar holísticamente el problema de pérdida de clientes industrial. También medimos la precisión de los modelos generados mediante Machine Learning y evaluamos instrucciones para su posterior desarrollo.  
 

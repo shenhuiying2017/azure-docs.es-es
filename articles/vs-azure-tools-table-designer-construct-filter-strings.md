@@ -1,11 +1,11 @@
 ---
-title: "Construcción de cadenas de filtro para el diseñador de tablas | Microsoft Docs"
-description: "Construcción de cadenas de filtro para el Diseñador de tablas"
+title: Construcción de cadenas de filtro para el diseñador de tablas | Microsoft Docs
+description: Construcción de cadenas de filtro para el Diseñador de tablas
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
-manager: ghogen
-editor: 
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: a1a10ea1-687a-4ee1-a952-6b24c2fe1a22
 ms.service: storage
 ms.devlang: multiple
@@ -13,23 +13,23 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
-ms.author: kraigb
-ms.openlocfilehash: 069224d84462b4955912ce1462a65298a5acc04a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: ghogen
+ms.openlocfilehash: 722052e351062efba85eb143b2ea7bd0136002a0
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="constructing-filter-strings-for-the-table-designer"></a>Construcción de cadenas de filtro para el Diseñador de tablas
 ## <a name="overview"></a>Información general
-Para filtrar los datos de una tabla de Azure que se muestra en el **Diseñador de tablas**de Visual Studio, es preciso construir una cadena de filtro y especificar en el campo de filtro. La sintaxis de la cadena de filtro la define WCF Data Services y es similar a una cláusula WHERE de SQL, pero se envía al servicio Tabla a través de una solicitud HTTP. El **Diseñador de tablas** administra la codificación adecuada para el usuario, por lo que para filtrar por un valor de propiedad deseado, solo necesita escribir el nombre de la propiedad, el operador de comparación, los valores de los criterios y opcionalmente, el operador booleano en el campo de filtro. No es preciso incluir la opción de consulta $filter como lo haría si fuera a construir una dirección URL para realizar consultas en la tabla a través de la [referencia de la API REST de servicios de almacenamiento](http://go.microsoft.com/fwlink/p/?LinkId=400447).
+Para filtrar los datos de una tabla de Azure que se muestra en el **Diseñador de tablas**de Visual Studio, es preciso construir una cadena de filtro y especificar en el campo de filtro. La sintaxis de la cadena de filtro la define servicios de datos de WCF y es similar a una cláusula WHERE de SQL, pero se envía a Table service a través de una solicitud HTTP. El **Diseñador de tablas** administra la codificación adecuada para el usuario, por lo que para filtrar por un valor de propiedad deseado, solo necesita escribir el nombre de la propiedad, el operador de comparación, los valores de los criterios y opcionalmente, el operador booleano en el campo de filtro. No es preciso incluir la opción de consulta $filter como lo haría si fuera a construir una dirección URL para realizar consultas en la tabla a través de la [referencia de la API REST de servicios de almacenamiento](http://go.microsoft.com/fwlink/p/?LinkId=400447).
 
 WCF Data Services se basa en [Open Data Protocol](http://go.microsoft.com/fwlink/p/?LinkId=214805) (OData). Para obtener más información sobre la opción de consulta del sistema de filtro (**$filter**), consulte las [especificaciones de las convenciones del URI de OData](http://go.microsoft.com/fwlink/p/?LinkId=214806).
 
 ## <a name="comparison-operators"></a>Operadores de comparación
 Los siguientes operadores lógicos se admiten para todos los tipos de propiedades:
 
-| Operador lógico | Description | Ejemplo de cadena de filtro |
+| Operador lógico | DESCRIPCIÓN | Ejemplo de cadena de filtro |
 | --- | --- | --- |
 | eq |Igual |Ciudad eq "Redmond" |
 | gt |Mayor que |Precio gt 20 |
@@ -58,7 +58,7 @@ Las expresiones de filtro se pueden escribir entre paréntesis, aunque no es obl
 
     (PartitionKey eq 'Partition1') and (RowKey eq '00001')
 
-Tenga en cuenta que el servicio Tabla no admite consultas con caracteres comodín y que tampoco se admiten en el Diseñador de tablas. Sin embargo, puede realizar que los prefijos coincidan mediante el uso de operadores de comparación en el prefijo deseado. El ejemplo siguiente devuelve las entidades cuya propiedad LastName empieza por la letra "A":
+Tenga en cuenta que Table service no admite consultas con caracteres comodín y que tampoco se admiten en el Diseñador de tablas. Sin embargo, puede realizar que los prefijos coincidan mediante el uso de operadores de comparación en el prefijo deseado. El ejemplo siguiente devuelve las entidades cuya propiedad LastName empieza por la letra "A":
 
     LastName ge 'A' and LastName lt 'B'
 
@@ -80,7 +80,7 @@ El ejemplo siguiente devuelve todas las entidades en las que la propiedad IsActi
 
     IsActive eq true
 
-Esta expresión de filtro también se puede escribir sin el operador lógico. En el ejemplo siguiente, el servicio Tabla también devolverá todas las entidades en las que el valor de IsActive sea **true**:
+Esta expresión de filtro también se puede escribir sin el operador lógico. En el ejemplo siguiente, Table service también devolverá todas las entidades en las que el valor de IsActive sea **true**:
 
     IsActive
 

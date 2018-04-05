@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integración de Azure Active Directory con GoToMeeting | Microsoft Docs"
-description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y GoToMeeting."
+title: 'Tutorial: Integración de Azure Active Directory con GoToMeeting | Microsoft Docs'
+description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y GoToMeeting.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: jeedes
-ms.openlocfilehash: 4826dee82e62ffac70d7ca3d6dcfe005129de764
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: d26b78fb5be96e979fb7b375acf6e907d858b706
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gotomeeting"></a>Tutorial: Integración de Azure Active Directory con GoToMeeting
 
@@ -32,7 +32,7 @@ La integración de GoToMeeting con Azure AD le proporciona las siguientes ventaj
 
 Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para configurar la integración de Azure AD con GoToMeeting, necesita los siguientes elementos:
 
@@ -108,77 +108,32 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información acerca del inicio de sesión único de dominio y direcciones URL de GoToMeeting](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_url.png)
 
-    En el cuadro de texto **Identificador**, escriba la dirección URL: `https://login.citrixonline.com/saml/sp`
+    En el cuadro de texto **Identificador**, escriba la dirección URL: `https://authentication.logmeininc.com/saml/sp`
 
-4. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo de metadatos en el equipo.
+4. Haga clic en **Mostrar configuración URL avanzada** y configure las siguientes direcciones URL.
 
-    ![Vínculo de descarga del certificado](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_certificate.png) 
-
+    **Dirección URL de inicio de sesión** (mantener en blanco)
+    
+    **URL de respuesta**: `https://authentication.logmeininc.com/saml/acs`
+    
+    **RelayState**:
+    
+    - Para la aplicación GoToMeeting, use `https://global.gotomeeting.com`
+    
+    - Para GoToTraining, use `https://global.gototraining.com`
+    
+    - Para GoToWebinar, use `https://global.gotowebinar.com` 
+    
+    - Para GoToAssist, use `https://app.gotoassist.com`
+    
 5. Haga clic en el botón **Guardar** .
 
     ![Botón Configurar inicio de sesión único](./media/active-directory-saas-gotomeeting-tutorial/tutorial_general_400.png)
 
-6. Para generar la dirección URL de **Metadatos**, lleve a cabo los pasos siguientes:
+6. En otra ventana del explorador, inicie sesión en el [Centro de organización de GoToMeeting](https://organization.logmeininc.com/). Se le pedirá que confirme que se ha actualizado el IdP.
 
-    a. Haga clic en **Registros de aplicaciones**.
-    
-    ![Configurar inicio de sesión único](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_appregistrations.png)
-   
-    b. Haga clic en **Puntos de conexión** para abrir el cuadro de diálogo **Puntos de conexión**.  
-    
-    ![Configurar inicio de sesión único](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_endpointicon.png)
+7. Habilite la casilla de verificación "Mi proveedor de identidad se ha actualizado con el nuevo dominio". Cuando haya terminado, haga clic en **Listo**.
 
-    c. Haga clic en el botón Copiar para copiar la dirección URL del **DOCUMENTO DE METADATOS DE FEDERACIÓN** y péguela en el Bloc de notas.
-    
-    ![Configurar inicio de sesión único](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_endpoint.png)
-     
-    d. Ahora, vaya a la página de propiedades de **GoToMeeting** y copie el **Identificador de la aplicación** con el botón **Copiar** y péguelo en el Bloc de notas.
- 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_appid.png)
-
-    e. Genere la **Dirección URL de metadatos** con el patrón siguiente: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`   
-
-7. En la sección **Configuración de GoToMeeting**, haga clic en **Configurar GoToMeeting** para abrir la ventana **Configurar inicio de sesión**. Copie la **URL del servicio de inicio de sesión único de SAML, el identificador de entidad de SAML y la dirección URL de cierre de sesión** de la sección **Referencia rápida**.
-
-    ![Configuración de GoToMeeting](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_configure.png) 
-
-8. En otra ventana del explorador, inicie sesión en su [Centro de organización de GoToMeeting](https://organization.logmeininc.com/)
-
-9. En la pestaña de **proveedor de identidades**, puede configurar los valores de Azure o bien proporcionando la **Dirección URL de metadatos** generada o el **Archivo de metadatos** o **Manual** descargados.
-
-10. Para la **dirección URL de Metadatos**, lleve a cabo los pasos siguientes:
-
-    ![Configuración de GoToMeeting](./media/active-directory-saas-gotomeeting-tutorial/config1.png)
-
-    a. En **How would you like to configure your SAML IDP?**(¿Cómo desearía configurar el IDP de SAML?), seleccione **Automática** en la lista desplegable.
-
-    b. Pegue la **dirección URL de metadatos**, que han generado en los pasos anteriores en el  cuadro de texto **URL de metadatos**.
-
-    c. Haga clic en **Save**(Guardar).
-
-11. Para el **archivo de metadatos**, lleve a cabo los pasos siguientes:
-
-    ![Configuración de GoToMeeting](./media/active-directory-saas-gotomeeting-tutorial/config2.png)
-
-    a. En **How would you like to configure your SAML IDP?**(¿Cómo desearía configurar el IDP de SAML?), seleccione **Upload SAML metadata file** (Cargar archivo de metadatos de SAML) en la lista desplegable.
-
-    b. Haga clic en **Upload metadata file**(Cargar archivo de metadatos) para cargar el archivo de metadatos descargado.
-
-    c. Haga clic en **Save**(Guardar).
-
-12. Para **Manual** lleve a cabo los siguiente pasos:
-
-    ![Configuración de GoToMeeting](./media/active-directory-saas-gotomeeting-tutorial/config3.png)
-
-    a.  Copie el valor de **SAML Single Sign-On Service URL** (Dirección URL de inicio de sesión único de SAML) que ha copiado de Azure Portal en el cuadro de texto **Sign-in page URL** (Dirección URL de la página de inicio de sesión).
-
-    b.  En el cuadro de texto **Sign-out page URL** (Dirección URL de la página de cierre de sesión), pegue el valor de **Dirección URL de cierre de sesión** que copió de Azure Portal.
-
-    c.  En el cuadro de texto **Identity provider Entity ID** (Identificador de entidad del proveedor de identidades), pegue el valor del **Identificador de entidad de SAML** que ha copiado de Azure Portal.
-
-    d. Extraiga X509Certificate desde el archivo de metadatos descargado y cargue este certificado, haciendo clic en **Cargar certificado**.
-
-    e. Haga clic en **Save**(Guardar).
 
 > [!TIP]
 > Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)

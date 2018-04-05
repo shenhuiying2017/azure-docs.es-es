@@ -1,11 +1,11 @@
 ---
-title: "Streaming en vivo con codificadores locales que crean transmisiones de velocidad de bits múltiple: Azure | Microsoft Docs"
-description: "En este tema se describe cómo configurar un canal que recibe streaming en vivo de velocidad de bits múltiple desde un codificador local. Posteriormente, la transmisión se puede enviar a aplicaciones de reproducción cliente a través de uno o más puntos de conexión de streaming, mediante uno de los siguientes protocolos de streaming adaptable: HLS, Smooth Streaming y DASH."
+title: 'Streaming en vivo con codificadores locales que crean transmisiones de velocidad de bits múltiple: Azure | Microsoft Docs'
+description: 'En este tema se describe cómo configurar un canal que recibe streaming en vivo de velocidad de bits múltiple desde un codificador local. Posteriormente, la transmisión se puede enviar a aplicaciones de reproducción cliente a través de uno o más puntos de conexión de streaming, mediante uno de los siguientes protocolos de streaming adaptable: HLS, Smooth Streaming y DASH.'
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: d9f0912d-39ec-4c9c-817b-e5d9fcf1f7ea
 ms.service: media-services
 ms.workload: media
@@ -14,13 +14,17 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: 1266c7b6c1539f84eafea1007999fb4360184857
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: fae123d2cc594bb741fb1cdb0da62bef05a2a8c2
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>Streaming en vivo con codificadores locales que crean transmisiones de velocidad de bits múltiple
+
+> [!NOTE]
+> A partir del 12 de mayo de 2018, los canales en directo ya no admitirán el protocolo de ingesta de secuencia de transporte RTP/MPEG-2. Migre de RTP/MPEG-2 a RTMP o protocolos de ingeesta de MP4 fragmentado (Smooth Streaming).
+
 ## <a name="overview"></a>Información general
 En Azure Media Services, un *canal* representa una canalización para procesar contenido de streaming en vivo. Los canales reciben la transmisión de entrada en vivo de dos maneras posibles:
 

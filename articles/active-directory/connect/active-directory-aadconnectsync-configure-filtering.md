@@ -1,11 +1,11 @@
 ---
-title: "Configuración de filtrado de sincronización de Azure AD Connect | Microsoft Docs"
-description: "Explica cómo configurar el filtrado en Azure AD Connect Sync."
+title: Configuración de filtrado de sincronización de Azure AD Connect | Microsoft Docs
+description: Explica cómo configurar el filtrado en Azure AD Connect Sync.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 880facf6-1192-40e9-8181-544c0759d506
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 5af82e889a80994dd47d4fc3b89f8eece2201355
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 0b4b306d1224b5521774b05a110c862b58450eb3
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect Sync: configuración del filtrado
 Con el filtrado puede controlar qué objetos aparecen en Azure Active Directory (Azure AD) desde el directorio local. La configuración predeterminada aceptará todos los objetos en todos los dominios de los bosques configurados. Por lo general, esta configuración es la recomendada. Los usuarios con cargas de trabajo de Office 365, como Exchange Online y Skype Empresarial, se benefician de una lista global de direcciones completa para poder enviar correo electrónico y llamar a todos los integrantes. Con la configuración predeterminada, obtendrían la misma experiencia que con una implementación local de Exchange o Lync.
@@ -44,7 +44,7 @@ Como el filtrado puede quitar varios objetos al mismo tiempo, querrá asegurarse
 
 Para evitar eliminar muchos objetos por error, la característica para [evitar eliminaciones por error](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) está activada de forma predeterminada. Si elimina muchos objetos debido al filtrado (de forma predeterminada, 500), debe seguir los pasos descritos en este artículo para permitir que las eliminaciones se reflejen en Azure AD.
 
-Si usa una compilación anterior a la de noviembre de 2015 ([1.0.9125](active-directory-aadconnect-version-history.md#1091250)), realiza un cambio en la configuración de filtro y usa la sincronización de contraseñas, deberá desencadenar una sincronización completa de todas las contraseñas una vez terminada la configuración. Para conocer los pasos para desencadenar una sincronización completa de las contraseñas, consulte [Desencadenamiento de una sincronización completa de todas las contraseñas](active-directory-aadconnectsync-troubleshoot-password-synchronization.md#trigger-a-full-sync-of-all-passwords). Si usa la compilación 1.0.9125 o una posterior, la acción de **sincronización completa** normal también calcula si se deben sincronizar las contraseñas, por lo que no se requiere este paso adicional.
+Si utiliza una compilación anterior a la de noviembre de 2015 ([1.0.9125](active-directory-aadconnect-version-history.md#1091250)), realice un cambio en la configuración de un filtro y utilice la sincronización de hash de contraseñas; una vez terminada la configuración, deberá desencadenar una sincronización completa de todas las contraseñas. Para conocer los pasos para desencadenar una sincronización completa de las contraseñas, consulte [Desencadenamiento de una sincronización completa de todas las contraseñas](active-directory-aadconnectsync-troubleshoot-password-hash-synchronization.md#trigger-a-full-sync-of-all-passwords). Si usa la compilación 1.0.9125 o una posterior, la acción de **sincronización completa** normal también calcula si se deben sincronizar las contraseñas, por lo que no se requiere este paso adicional.
 
 Si los objetos de **usuario** se eliminaron involuntariamente en Azure AD por un error de filtrado, puede volver a crearlos en Azure AD al quitar las configuraciones de filtrado. A continuación, podrá volver a sincronizar los directorios. Esta acción restaura los usuarios de la papelera de reciclaje en Azure AD. Sin embargo, no se pueden recuperar otros tipos de objeto. Por ejemplo, si elimina por error un grupo de seguridad que se usara para incluir un recurso en una ACL, no podrá recuperar ni el grupo ni sus ACL.
 
@@ -305,6 +305,6 @@ Al sincronizar varios bosques de AD, puede configurar el filtrado basado en grup
 * Tiene un usuario en un bosque que tiene un contacto de correo correspondiente en otro bosque. Además, ha configurado Azure AD Connect para vincular el usuario con el contacto de correo. Ambos objetos deben estar dentro del ámbito de filtrado basado en grupos. De lo contrario, el usuario no se sincronizará con Azure AD.
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 - Más información sobre la configuración de la [Sincronización de Azure AD Connect](active-directory-aadconnectsync-whatis.md).
 - Más información sobre la [integración de las identidades locales con Azure AD](active-directory-aadconnect.md).

@@ -1,9 +1,9 @@
 ---
-title: "Introducción a Graph API de Azure Cosmos DB | Microsoft Docs"
+title: Introducción a Graph API de Azure Cosmos DB | Microsoft Docs
 description: Aprenda a usar Azure Cosmos DB para almacenar, realizar consultas y recorrer grafos enormes con latencia baja mediante el lenguaje de consulta de grafos Gremlin de Apache TinkerPop.
 services: cosmos-db
-author: luisbosquez
-documentationcenter: 
+author: LuisBosquez
+documentationcenter: ''
 ms.assetid: b916644c-4f28-4964-95fe-681faa6d6e08
 ms.service: cosmos-db
 ms.workload: data-services
@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: lbosq
-ms.openlocfilehash: ba58377614326a10405be4a64d4b39f116b75bfe
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 50030434f3b2e59ba97efca2946be1a5115bc145
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="introduction-to-azure-cosmos-db-graph-api"></a>Introducción a Graph API de Azure Cosmos DB
 
@@ -111,8 +111,8 @@ En la siguiente tabla se muestran los controladores Gremlin populares que puede 
 | --- | --- | --- |
 | [.NET](http://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-DotNet) | [Gremlin.NET en GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-dotnet) | [Crear gráfico con .NET](create-graph-dotnet.md) |
 | [Java](https://mvnrepository.com/artifact/com.tinkerpop.gremlin/gremlin-java) | [Gremlin JavaDoc](http://tinkerpop.apache.org/javadocs/current/full/) | [Crear gráfico con Java](create-graph-java.md) |
-| [Node.js](https://www.npmjs.com/package/gremlin) | [Gremlin-JavaScript en Github](https://github.com/jbmusso/gremlin-javascript) | [Crear gráfico con Node.js](create-graph-nodejs.md) |
-| [Python](http://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-python) | [Gremlin-Python en Github](https://github.com/apache/tinkerpop/tree/master/gremlin-python) | [Crear gráfico con Python](create-graph-python.md) |
+| [Node.js](https://www.npmjs.com/package/gremlin) | [JavaScript de Gremlin en GitHub](https://github.com/jbmusso/gremlin-javascript) | [Crear gráfico con Node.js](create-graph-nodejs.md) |
+| [Python](http://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-python) | [Python de Gremlin en GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-python) | [Crear gráfico con Python](create-graph-python.md) |
 | [PHP](https://packagist.org/packages/brightzone/gremlin-php) | [Gremlin-PHP en GitHub](https://github.com/PommeVerte/gremlin-php) | [Crear gráfico con PHP](create-graph-php.md) |
 | [Gremlin Console](https://tinkerpop.apache.org/downloads.html) | [Documentación de TinkerPop](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |  [Crear gráfico con la consola de Gremlin](create-graph-gremlin-console.md) |
 
@@ -135,7 +135,7 @@ Estos son algunos escenarios donde se puede usar la compatibilidad con gráficos
 
  Con la red y las conexiones entre dispositivos IoT modeladas como un grafo, se puede conocer mejor el estado de los dispositivos y recursos. También se puede ver de qué manera los cambios en una parte de la red pueden afectar a otra.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para aprender más sobre la compatibilidad con grafos en Azure Cosmos DB:
 
 * Empiece con el [tutorial de gráficos en Azure Cosmos DB](create-graph-dotnet.md).

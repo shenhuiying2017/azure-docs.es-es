@@ -9,15 +9,15 @@ ms.workload: identity
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 03/22/2018
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
-ms.openlocfilehash: 3bf224edea9e6da0d0eadb6fb6a409248de3d0e3
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 33e3305288edc3990ed88b39c819293a8adc2dfe
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="linkedin-account-connections-for-microsoft-apps-and-services"></a>Conexiones de cuentas de LinkedIn para aplicaciones y servicios de Microsoft
 En este artículo, puede aprender a administrar conexiones de cuentas de LinkedIn para su inquilino en el centro de administración de Azure Active Directory (Azure AD). 
@@ -56,9 +56,9 @@ La funcionalidad de conexiones de cuentas de LinkedIn está activa de forma pred
 ### <a name="enable-or-disable-linkedin-account-connections-for-your-organizations-office-2016-apps-using-group-policy"></a>Habilitar o deshabilitar las conexiones de cuentas de LinkedIn en las aplicaciones de Office 2016 de la organización mediante directiva de grupo
 
 1. Descargue los [archivos de plantilla de administración de Office 2016 (ADMX/ADML)](https://www.microsoft.com/download/details.aspx?id=49030)
-2. Extraiga los archivos **ADMX** y cópielos en el **repositorio central**.
+2. Extraiga los archivos **ADMX** y cópielos en el almacén central.
 3. Abra la Administración de directivas de grupo.
-4. Cree un objeto de directiva de grupo con la siguiente configuración: **Configuración de usuario** > **Plantillas administrativas** > **Microsoft Office 2016** > **Varios** > **Allow LinkedIn Integration** (Permitir integración de LinkedIn).
+4. Cree un objeto de directiva de grupo con la siguiente configuración: **Configuración de usuario** > **Plantillas administrativas** > **Microsoft Office 2016** > **Varios** > **Show LinkedIn features in Office applications**(Mostrar características de LinkedIn en las aplicaciones de Office).
 5. Seleccione **Habilitado** o **Deshabilitado**.
   * Cuando la directiva está **habilitada**, la configuración **Show LinkedIn features in Office applications** (Mostrar características de LinkedIn en las aplicaciones de Office) del cuadro de diálogo Opciones de Office 2016 está habilitada. Esto también significa que los usuarios de la organización pueden usar las características de LinkedIn en las aplicaciones de Office.
   * Cuando la directiva está **deshabilitada**, la configuración **Show LinkedIn features in Office applications** (Mostrar características de LinkedIn en las aplicaciones de Office) del cuadro de diálogo Opciones de Office 2016 está deshabilitada y los usuarios no pueden cambiarla. Los usuarios de la organización no podrán usar las características de LinkedIn en las aplicaciones de Office 2016. 

@@ -1,13 +1,13 @@
 ---
-title: "Uso de Terraform para crear una máquina virtual Linux completa en Azure | Microsoft Docs"
-description: "Aprenda a usar Terraform para crear un entorno completo de máquina virtual Linux y administrarla en Azure"
+title: Uso de Terraform para crear una máquina virtual Linux completa en Azure | Microsoft Docs
+description: Aprenda a usar Terraform para crear un entorno completo de máquina virtual Linux y administrarla en Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: echuvyrov
 manager: timlt
 editor: na
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/14/2017
 ms.author: echuvyrov
-ms.openlocfilehash: 2a6fb8b6b096a029db1ab88bd578461549db9776
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: aaa8235d5fe47e72963ef4942876ea9827a38ef6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-complete-linux-virtual-machine-infrastructure-in-azure-with-terraform"></a>Creación de una infraestructura completa de máquina virtual Linux en Azure con Terraform
 
@@ -185,7 +185,7 @@ resource "azurerm_storage_account" "mystorageaccount" {
 ```
 
 
-## <a name="create-virtual-machine"></a>Create virtual machine
+## <a name="create-virtual-machine"></a>Crear máquina virtual
 
 El último paso es crear una máquina virtual y usar todos los recursos creados. Con la siguiente sección se crea una máquina virtual *myVM* y se conecta la NIC virtual *myNIC*. Se utiliza la imagen de *Ubuntu 16.04-LTS* más reciente y se crea un usuario llamado *azureuser* con la autenticación de contraseña deshabilitada.
 
@@ -468,5 +468,5 @@ Después, puede acceder mediante SSH a la VM:
 ssh azureuser@<publicIps>
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Ha creado una infraestructura básica en Azure mediante Terraform. Para escenarios más complejos, incluidos ejemplos sobre cómo usar equilibradores de carga y conjuntos de escalado de máquinas virtuales, consulte los diversos [ejemplos de Terraform para Azure](https://github.com/hashicorp/terraform/tree/master/examples). Para una lista actualizada de los proveedores admitidos de Azure, consulte la [documentación de Terraform](https://www.terraform.io/docs/providers/azurerm/index.html).

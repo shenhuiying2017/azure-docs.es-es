@@ -1,24 +1,24 @@
 ---
-title: "Uso del punto de conexión con privilegios en Azure Stack | Microsoft Docs"
-description: "Se muestra cómo usar el punto de conexión con privilegios (PEP) en Azure Stack (para un operador de Azure Stack)."
+title: Uso del punto de conexión con privilegios en Azure Stack | Microsoft Docs
+description: Se muestra cómo usar el punto de conexión con privilegios (PEP) en Azure Stack (para un operador de Azure Stack).
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: e94775d5-d473-4c03-9f4e-ae2eada67c6c
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2018
+ms.date: 03/22/2018
 ms.author: mabrigg
-ms.openlocfilehash: 29ac4517ec691f94f24ced81ca227cd4d1e7214e
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: fb4dea9832e781b2ec9f4cfa573b5a4f630188db
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Uso del punto de conexión con privilegios en Azure Stack
 
@@ -74,7 +74,7 @@ Es recomendable que se conecte al PEP solo desde el host de ciclo de vida del ha
       ```` 
    Cuando se le pida, utilice las siguientes credenciales:
 
-      - **Nombre de usuario**: especifique la cuenta CloudAdmin con el formato **&lt;*dominio de Azure Stack*&gt;\cloudadmin**. (Para ASDK, el nombre de usuario es **azurestack\cloudadmin**).
+      - **Nombre de usuario**: especifique la cuenta CloudAdmin con el formato **&lt;*dominio de Azure Stack*&gt;\accountname**. (Para ASDK, el nombre de usuario es **azurestack\accountname**). 
       - **Contraseña**: escriba la misma contraseña que proporcionó durante la instalación de la cuenta del administrador de dominio de AzureStackAdmin.
     
 3.  Después de conectarse, el símbolo del sistema cambia a **[*dirección IP o nombre de máquina virtual de ERCS*]: PS>** o a **[azs-ercs01]: PS>**, según el entorno. Desde aquí, ejecute `Get-Command` para ver la lista de los cmdlets disponibles.
@@ -143,7 +143,7 @@ Lleve a cabo los siguientes pasos para importar la sesión del PEP al equipo loc
       ```` 
    Cuando se le pida, utilice las siguientes credenciales:
 
-      - **Nombre de usuario**: especifique la cuenta CloudAdmin con el formato **&lt;*dominio de Azure Stack*&gt;\cloudadmin**. (Para ASDK, el nombre de usuario es **azurestack\cloudadmin**).
+      - **Nombre de usuario**: especifique la cuenta CloudAdmin con el formato **&lt;*dominio de Azure Stack*&gt;\accountname**. (Para ASDK, el nombre de usuario es **azurestack\accountname**). 
       - **Contraseña**: escriba la misma contraseña que proporcionó durante la instalación de la cuenta del administrador de dominio de AzureStackAdmin.
 
 3. Importe la sesión PEP al equipo local.
@@ -167,5 +167,5 @@ Para cerrar la sesión del punto de conexión:
 
 Una vez los archivos de registro de transcripción se transfieren correctamente al recurso compartido de archivos, se eliminan automáticamente del PEP. Si cierra la sesión del PEP mediante los cmdlets `Exit-PSSession` o `Exit`, o simplemente cierra la consola de PowerShell, los archivos de transcripción no se transfieren a un recurso compartido de archivos. Permanecen en el PEP. La próxima vez que ejecute `Close-PrivilegedEndpoint` e incluya un recurso compartido de archivos, también se transferirán los registros de transcripción de la sesión anterior.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Herramientas de diagnóstico de Azure Stack](azure-stack-diagnostics.md)

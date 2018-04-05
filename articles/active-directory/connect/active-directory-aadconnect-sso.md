@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/22/2018
 ms.author: billmath
-ms.openlocfilehash: 14018db3cbe34c9eca9048ceaf376ff3a06a4353
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b1c82727e97b85fae5f315ceb1cd79cfdd111b45
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Inicio de sesión único de conexión directa de Azure Active Directory
 
@@ -50,7 +50,8 @@ SSO de conexión directa se puede combinar con los métodos de inicio de sesión
 
 - El nombre de usuario de inicio de sesión puede ser el predeterminado local (`userPrincipalName`) u otro atributo `Alternate ID`) configurado en Azure AD Connect. Ambos casos de uso funcionan porque SSO de conexión directa usa la notificación `securityIdentifier` en el vale Kerberos para buscar el objeto de usuario correspondiente en Azure AD.
 - SSO de conexión directa es una característica oportunista. Si, por algún motivo, genera un error, la experiencia de inicio de sesión del usuario se revierte a su comportamiento habitual; es decir, el usuario deberá escribir su contraseña en la página de inicio de sesión.
-- Si una aplicación envía un parámetro `domain_hint` (OpenID Connect) o `whr` (SAML) que identifica el inquilino, o bien el parámetro `login_hint` que identifica el usuario, en la solicitud de inicio de sesión de Azure AD, los usuarios inician sesión automáticamente sin que tengan que escribir nombres de usuario ni contraseñas.
+- Si una aplicación, (por ejemplo, https://myapps.microsoft.com/contoso.com) envía un parámetro `domain_hint` (OpenID Connect) o `whr` (SAML) que identifica el usuario inquilino, o bien el parámetro `login_hint` que identifica el usuario, en la solicitud de inicio de sesión de Azure AD, los usuarios inician sesión automáticamente sin necesidad de escribir nombres de usuario ni contraseñas.
+- Los usuarios también obtienen una experiencia de inicio de sesión silenciosa si una aplicación (por ejemplo, https://contoso.sharepoint.com) envía solicitudes de inicio de sesión a los puntos de conexión con inquilinos de Azure AD; es decir, https://login.microsoftonline.com/contoso.com/<..> o https://login.microsoftonline.com/<tenant_ID>/<..>, en lugar del punto de conexión común de Azure AD; es decir, https://login.microsoftonline.com/common/<...>.
 - Se admite el cierre de sesión. Esto permite que los usuarios elijan otra cuenta de Azure AD con la cual iniciar sesión, en lugar de iniciar sesión automáticamente con SSO de conexión directa.
 - Los clientes Office 365 (16.0.8730.xxxx y versiones superiores) se admiten con un flujo no interactivo.
 - Puede habilitarse a través de Azure AD Connect.

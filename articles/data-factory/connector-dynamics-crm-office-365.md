@@ -1,25 +1,25 @@
 ---
-title: Copia de datos desde y hacia Dynamics CRM o Dynamics 365 mediante Azure Data Factory | Microsoft Docs
-description: Aprenda a copiar datos desde Microsoft Dynamics CRM o Microsoft Dynamics 365, a almacenes de datos receptores compatibles, o bien desde almacenes de datos de origen compatibles a Dynamics CRM o Dynamics 365 a través de una actividad de copia en una canalización de Azure Data Factory.
+title: Copia de datos desde y hacia Dynamics CRM o Dynamics 365 (Common Data Service) mediante Azure Data Factory | Microsoft Docs
+description: Aprenda a copiar datos de Microsoft Dynamics CRM o Microsoft Dynamics 365 (Common Data Service) en almacenes de datos receptores compatibles, o bien de almacenes de datos de origen compatibles en Dynamics CRM o Dynamics 365 a través de una actividad de copia en una canalización de Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 03/16/2018
 ms.author: jingwang
-ms.openlocfilehash: dc0b01e23ebb2695fd0365f054b3cacd2573f3c6
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: ea69fdab9ec510f6060b280db3afffb7533a4bda
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="copy-data-from-and-to-dynamics-365-or-dynamics-crm-by-using-azure-data-factory"></a>Copia de datos desde y hacia Dynamics 365 o Dynamics CRM mediante Azure Data Factory
+# <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copia de datos desde y hacia Dynamics 365 (Common Data Service) o Dynamics CRM mediante Azure Data Factory
 
 En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos desde y hacia Microsoft Dynamics 365 o Microsoft Dynamics CRM. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de esta actividad.
 
@@ -28,7 +28,7 @@ En este artículo se explica el uso de la actividad de copia de Azure Data Facto
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
-Puede copiar datos desde Dynamics 365 o Dynamics CRM a cualquier almacén de datos receptor compatible. También puede copiar datos desde cualquier almacén de datos de origen no compatible a Dynamics 365 o Dynamics CRM. Consulte la tabla de [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver una lista de almacenes de datos que la actividad de copia admite como orígenes o receptores.
+Puede copiar datos de Dynamics 365 (Common Data Service) o Dynamics CRM en cualquier almacén de datos receptor compatible. También puede copiar datos de cualquier almacén de datos de origen compatible en Dynamics 365 (Common Data Service) o Dynamics CRM. Consulte la tabla de [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver una lista de almacenes de datos que la actividad de copia admite como orígenes o receptores.
 
 Este conector de Dynamics admite los siguientes tipos de autenticación y versiones de Dynamics. IFD es la abreviatura en inglés del término "implementación con conexión a Internet".
 

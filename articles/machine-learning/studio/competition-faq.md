@@ -2,9 +2,10 @@
 title: Preguntas frecuentes sobre las competiciones de Cortana Intelligence | Microsoft Docs
 description: Preguntas frecuentes sobre las competiciones de Microsoft Cortana Intelligence.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: hning86
-manager: jhubbard
+ms.author: haining
+manager: mwinkle
 editor: cgronlun
 ms.assetid: 9bac5154-a56c-4e78-9d67-34368b9d1624
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.author: haining;garye
-ms.openlocfilehash: f7c839a8471dc54daebc47d0bb5a450358f5250d
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: db6fb6cd6c500ffe4537b57a968ef3b8792bcad6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="microsoft-cortana-intelligence-competitions-faq"></a>Preguntas frecuentes sobre las competiciones de Microsoft Cortana Intelligence
 **¿En qué consisten las competiciones de Cortana Intelligence?**
@@ -35,7 +35,7 @@ Para preguntas generales, puede usar el [foro de Microsoft Azure Machine Learnin
 
 **¿Cómo puedo participar en una competición?**
 
-Acceda a la página principal de las [competiciones](https://gallery.cortanaintelligence.com/competitions) a través de la [Galería de Azure AI](https://gallery.cortanaintelligence.com/) o vaya a [http://aka.ms/CIComp](http://aka.ms/CIComp). En la página principal se enumeran todas las competiciones en curso. Cada competición incluye instrucciones detalladas, así como las reglas de participación, información sobre los premios y la duración en su propia página de registro.
+Acceda a la página principal de las [competiciones](https://gallery.cortanaintelligence.com/competitions) a través de [Azure AI Gallery](https://gallery.cortanaintelligence.com/) o vaya a [http://aka.ms/CIComp](http://aka.ms/CIComp). En la página principal se enumeran todas las competiciones en curso. Cada competición incluye instrucciones detalladas, así como las reglas de participación, información sobre los premios y la duración en su propia página de registro.
 
 1. Busque la competición en la que le gustaría participar, lea todas las instrucciones y vea el vídeo tutorial. Después, haga clic en el botón **Enter Competition** (Entrar en la competición) y copie el experimento de inicio en el área de trabajo existente de Azure Machine Learning. Si ya no tiene acceso a ninguna área de trabajo, deberá crear una de antemano. Ejecute el experimento de inicio, observe las métricas de rendimiento y use su creatividad para mejorar el rendimiento del modelo. Probablemente empleará la mayor parte del tiempo en este paso.   
 

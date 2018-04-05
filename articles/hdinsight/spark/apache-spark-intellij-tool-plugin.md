@@ -1,8 +1,8 @@
 ---
-title: "Kit de herramientas de Azure para IntelliJ: creación de aplicaciones Spark para un clúster de HDInsight | Microsoft Docs"
-description: "Uso del kit de herramientas de Azure para IntelliJ con el fin de desarrollar aplicaciones Spark escritas en Scala y enviarlas a un clúster de HDInsight Spark."
+title: 'Kit de herramientas de Azure para IntelliJ: creación de aplicaciones Spark para un clúster de HDInsight | Microsoft Docs'
+description: Uso del kit de herramientas de Azure para IntelliJ con el fin de desarrollar aplicaciones Spark escritas en Scala y enviarlas a un clúster de HDInsight Spark.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2017
 ms.author: maxluk,jejiang
-ms.openlocfilehash: 69f5857f89271b3e4865b93e42e5233ead572715
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 2ebf87b0436dbc5ee12a1c41d33ff3d17af1f043
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>Uso del kit de herramientas de Azure para IntelliJ con el fin de crear aplicaciones Spark para un clúster de HDInsight
 
@@ -44,6 +44,10 @@ Para crear el proyecto, vea el vídeo [Create Spark Applications with the Azure 
 
 ## <a name="install-azure-toolkit-for-intellij"></a>Instalación del kit de herramientas de Azure para IntelliJ
 Para obtener instrucciones de instalación, consulte [Instalación del kit de herramientas de Azure para IntelliJ](https://docs.microsoft.com/azure/azure-toolkit-for-intellij-installation).
+
+## <a name="get-started"></a>Introducción
+El usuario puede [iniciar sesión en la suscripción a Azure](#sign-in-to-your-azure-subscription) o [vincular un clúster de HDInsight](#link-a-cluster) con el nombre de usuario y la contraseña de Ambari o credenciales unidas a un dominio para comenzar.
+
 
 ## <a name="sign-in-to-your-azure-subscription"></a>Inicie sesión en la suscripción de Azure
 
@@ -75,12 +79,14 @@ Puede vincular un clúster normal mediante un nombre de usuario administrado de 
 
    ![menú contextual de vinculación de un clúster](./media/apache-spark-intellij-tool-plugin/link-a-cluster-context-menu.png)
 
-2. Escriba los valores para **Cluster Name** (Nombre del clúster), **Storage Account** (Cuenta de almacenamiento) y **Storage Key** (Clave de almacenamiento), luego seleccione **Storage Container** (Contenedor de almacenamiento) y, finalmente, escriba el nombre de usuario y la contraseña. Si obtiene un error de autenticación, debe comprobar el nombre de usuario y la contraseña.
+2. Escriba el **Nombre de clúster**, el **Nombre de usuario** y la **Contraseña**. Si obtiene un error de autenticación, debe comprobar el nombre de usuario y la contraseña. Si lo desea, agregue la cuenta de almacenamiento, la clave de almacenamiento, y seleccione un contenedor del contenedor de almacenamiento. La información de almacenamiento es para el explorador de almacenamiento en el árbol de la izquierda
    
    ![cuadro de diálogo de vinculación de clúster](./media/apache-spark-intellij-tool-plugin/link-a-cluster-dialog.png)
 
    > [!NOTE]
-   > Si el clúster se registró en la suscripción de Azure y se vinculó, se usan la clave de almacenamiento, el nombre de usuario y la contraseña vinculados. 
+   > Si el clúster se registró en la suscripción de Azure y se vinculó, se usan la clave de almacenamiento, el nombre de usuario y la contraseña vinculados.
+   > ![explorador de almacenamiento en IntelliJ](./media/apache-spark-intellij-tool-plugin/storage-explorer-in-IntelliJ.png)
+
    
 3. Puede ver un clúster vinculado en el nodo de **HDInsight** si la información de entrada es correcta. Ahora puede enviar una aplicación a este clúster vinculado.
 
@@ -103,7 +109,7 @@ Puede vincular un clúster normal mediante un nombre de usuario administrado de 
 
     ![Cuadro de diálogo Nuevo proyecto](./media/apache-spark-intellij-tool-plugin/create-hdi-scala-app.png)
 
-2. Seleccione **Siguiente**.
+2. Seleccione **Next** (Siguiente).
 
 3. El asistente para crear un proyecto de Scala detecta automáticamente si se ha instalado el complemento de Scala. Seleccione **Instalar**.
 

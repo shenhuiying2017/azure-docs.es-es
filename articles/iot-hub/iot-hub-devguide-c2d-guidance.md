@@ -1,11 +1,11 @@
 ---
 title: Opciones de nube a dispositivo de IoT Hub de Azure | Microsoft Docs
-description: "Guía del desarrollador: una guía sobre cuándo usar métodos directos, propiedades notificadas del dispositivo gemelo o mensajes de nube a dispositivo para comunicaciones de este mismo tipo."
+description: 'Guía del desarrollador: una guía sobre cuándo usar métodos directos, propiedades notificadas del dispositivo gemelo o mensajes de nube a dispositivo para comunicaciones de este mismo tipo.'
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: fsautomata
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1ac90923-1edf-4134-bbd4-77fee9b68d24
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: elioda
-ms.openlocfilehash: dc8256022aca37823245ecb9a9326240f1c449c2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 144bd8e0a954e54cf17fb88105759d0e000454fb
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="cloud-to-device-communications-guidance"></a>Guía de comunicación de nube a dispositivo
 IoT Hub proporciona tres opciones para aplicaciones de dispositivo que exponen funcionalidades a una aplicación de back-end:
@@ -26,6 +26,8 @@ IoT Hub proporciona tres opciones para aplicaciones de dispositivo que exponen f
 * [Métodos directos][lnk-methods], para las comunicaciones que requieren confirmación inmediata del resultado. Los métodos directos se utilizan frecuentemente para el control interactivo de dispositivos, como la activación de un ventilador.
 * [Propiedades deseadas del dispositivo gemelo][lnk-twins], para comandos de ejecución prolongada destinados a poner el dispositivo en un determinado estado deseado. Por ejemplo, establecer el intervalo de envío de telemetría en 30 minutos.
 * [Mensajes de nube a dispositivo][lnk-c2d], para notificaciones unidireccionales a la aplicación de dispositivo.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 Esta es una comparación detallada de las distintas opciones de comunicación de nube a dispositivo.
 

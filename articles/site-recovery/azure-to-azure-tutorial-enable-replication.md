@@ -12,11 +12,11 @@ ms.workload: storage-backup-recovery
 ms.date: 03/16/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 47d9a1e8aecde8ba0f01034f1d172c3fbd87ccfe
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 7dd0bfbd96e6ba7b5d2174334419797c4fd60a51
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region-preview"></a>Configuración de la recuperación ante desastres para las máquinas virtuales de Azure en una región secundaria de Azure (versión preliminar)
 
@@ -144,7 +144,9 @@ Site Recovery crea la configuración predeterminada y la directiva de replicaci�
 
 - **Cuentas de almacenamiento en caché**: Site Recovery utiliza una cuenta de almacenamiento en la región de origen. Los cambios en las máquinas virtuales de origen se envían a esta cuenta, antes de la replicación en la ubicación de destino.
 
-- **Cuentas de almacenamiento de destino**: de forma predeterminada, Site Recovery crea una nueva cuenta de almacenamiento en la región de destino, para reflejar la cuenta de almacenamiento de la máquina virtual de origen.
+- **Cuentas de almacenamiento de destino (si la VM de origen no usa discos administrados)**: de forma predeterminada, Site Recovery crea una nueva cuenta de almacenamiento en la región de destino, para reflejar la cuenta de almacenamiento de la máquina virtual de origen.
+
+- **Discos administrados de réplica (si la VM de origen utiliza discos administrados)**: de manera predeterminada, Site Recovery crea discos administrados de réplica en la región de destino para crear el reflejo de discos administrados de la máquina virtual de origen con el mismo tipo de almacenamiento (Standard o Premium) que el disco administrado de la VM de origen.
 
 - **Conjuntos de disponibilidad de destino**: de forma predeterminada, Site Recovery crea un nuevo conjunto de disponibilidad en la región de destino con el sufijo "asr". Solo puede agregar conjuntos de disponibilidad si las máquinas virtuales forman parte de un conjunto en la región de origen.
 

@@ -1,11 +1,11 @@
 ---
-title: "Introducción a Azure Queue Storage y a Servicios conectados de Visual Studio (ASP.NET) | Microsoft Docs"
-description: "Cómo empezar a usar Azure Queue Storage en un proyecto ASP.NET en Visual Studio después de conectarse a una cuenta de almacenamiento mediante Servicios conectados de Visual Studio"
+title: Introducción a Azure Queue Storage y a Servicios conectados de Visual Studio (ASP.NET) | Microsoft Docs
+description: Cómo empezar a usar Azure Queue Storage en un proyecto ASP.NET en Visual Studio después de conectarse a una cuenta de almacenamiento mediante Servicios conectados de Visual Studio
 services: storage
-documentationcenter: 
-author: kraigb
-manager: ghogen
-editor: 
+documentationcenter: ''
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: 94ca3413-5497-433f-abbe-836f83a9de72
 ms.service: storage
 ms.workload: web
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
 ms.date: 12/23/2016
-ms.author: kraigb
-ms.openlocfilehash: 4687e5dfce72583728068c176d86d100313badf6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: ghogen
+ms.openlocfilehash: 89baa741dcd916b70514f9703255b9e6d01c689b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="get-started-with-azure-queue-storage-and-visual-studio-connected-services-aspnet"></a>Introducción a Azure Queue Storage y a Servicios conectados de Visual Studio (ASP.NET)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -29,10 +29,10 @@ Azure Queue Storage proporciona mensajería en la nube entre componentes de apli
 
 Este tutorial muestra cómo escribir código ASP.NET para algunos escenarios comunes mediante entidades de Azure Queue Storage. Estos escenarios incluyen tareas comunes como crear una cola de Azure y agregar, modificar, leer y eliminar mensajes de la cola.
 
-##<a name="prerequisites"></a>Requisitos previos
+##<a name="prerequisites"></a>requisitos previos
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-* [Cuenta de Azure Storage](../storage/common/storage-create-storage-account.md#create-a-storage-account)
+* [Cuenta de Almacenamiento de Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account)
 
 [!INCLUDE [storage-queue-concepts-include](../../includes/storage-queue-concepts-include.md)]
 

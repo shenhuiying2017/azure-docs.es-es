@@ -1,8 +1,8 @@
 ---
-title: "Guía de recuperación ante desastres para Azure Data Lake Store | Microsoft Docs"
-description: "Guía de recuperación ante desastres para Azure Data Lake Store"
+title: Guía de recuperación ante desastres para Azure Data Lake Store | Microsoft Docs
+description: Guía de recuperación ante desastres para Azure Data Lake Store
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: d76f756e7a6fe77886f0d4e00ab8b23273b4e09d
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 9a2705a2372ea4f2fbea1e27bf675679dfda28f8
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="disaster-recovery-guidance-for-data-in-data-lake-store"></a>Guía de recuperación ante desastres para datos de Data Lake Store
 
-Los datos de su cuenta de Azure Data Lake Store resisten a los errores transitorios de hardware dentro de una región a través de las réplicas automatizadas. Esto garantiza la durabilidad y alta disponibilidad, en cumplimiento con el Acuerdo de Nivel de Servicio de Azure Data Lake Store. En este artículo, se proporciona una guía sobre cómo proteger aún más los datos en caso de las poco frecuentes interrupciones de toda la región o de eliminaciones accidentales.
+Azure Data Lake Store proporciona almacenamiento con redundancia local (LRS). Por ello, los datos de su cuenta de Azure Data Lake Store resisten a los errores transitorios de hardware dentro de una región a través de las réplicas automatizadas. Esto garantiza la durabilidad y alta disponibilidad, en cumplimiento con el Acuerdo de Nivel de Servicio de Azure Data Lake Store. En este artículo, se proporciona una guía sobre cómo proteger aún más los datos en caso de las poco frecuentes interrupciones de toda la región o de eliminaciones accidentales.
 
 ## <a name="disaster-recovery-guidance"></a>Guía de recuperación ante desastres
-Es fundamental que todos los clientes preparen su propio plan de recuperación ante desastres. Consulte la documentación de Azure para crear su plan de recuperación ante desastres. Aquí tiene algunos recursos que pueden ayudarle a crear su propio plan.
+Es fundamental que todos los clientes preparen su propio plan de recuperación ante desastres. Lea la información de este artículo para generar el plan de recuperación ante desastres. Aquí tiene algunos recursos que pueden ayudarle a crear su propio plan.
 
 * [Recuperación ante desastres y alta disponibilidad para aplicaciones de Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md)
 * [Guía técnica sobre resistencia en Azure](../resiliency/resiliency-technical-guidance.md)
@@ -42,7 +42,7 @@ Para evitar la eliminación por error, se recomienda establecer primero las dire
 
 Las organizaciones también pueden habilitar un [registro de diagnóstico](data-lake-store-diagnostic-logs.md) para su cuenta de Azure Data Lake Store y recopilar seguimientos de auditoría de acceso a datos que proporcionen información sobre quién puede eliminar o actualizar un archivo.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Introducción Azure Data Lake Store](data-lake-store-get-started-portal.md)
 * [Protección de los datos en Data Lake Store](data-lake-store-secure-data.md)
 

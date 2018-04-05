@@ -1,8 +1,8 @@
 ---
-title: "Simulación de Azure IoT Edge en Linux | Microsoft Docs"
-description: "Instale el runtime de Azure IoT Edge en un dispositivo simulado en Linux e implemente el primer módulo"
+title: Simulación de Azure IoT Edge en Linux | Microsoft Docs
+description: Instale el runtime de Azure IoT Edge en un dispositivo simulado en Linux e implemente el primer módulo
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
@@ -10,11 +10,11 @@ ms.reviewer: elioda
 ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 55770c92f5d5959e83066b425bc6ccf2b9dcc62e
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 65a3f6d71c0c0d92f703a5d48760dd348c726ba4
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="deploy-azure-iot-edge-on-a-simulated-device-in-linux-or-macos---preview"></a>Implementación de Azure IoT Edge en un dispositivo simulado en Linux o MacOS (versión preliminar)
 
@@ -31,12 +31,17 @@ En este tutorial, aprenderá a:
 
 El dispositivo simulado que se crea en este tutorial es un monitor que genera datos de temperatura, humedad y presión. Los otros tutoriales de Azure IoT Edge se basan en el trabajo que se realiza aquí mediante la implementación de módulos que analizan los datos para obtener información empresarial. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 En este tutorial se usa el equipo o la máquina virtual como un dispositivo de Internet de las cosas. Para convertir una máquina en un dispositivo IoT Edge, se requieren los siguientes servicios:
 
 * PIP de Python, para instalar el runtime de IoT Edge.
    * Linux: `sudo apt-get install python-pip`.
+     * _Tenga en cuenta que en ciertas distribuciones (p. ej., Raspbian), también tendrá que actualizar determinados paquetes pip e instalar dependencias adicionales:_
+     ```
+     sudo pip install --upgrade setuptools pip
+     sudo apt-get install python2.7-dev libffi-dev libssl-dev
+     ```
    * MacOS: `sudo easy_install pip`.
 * Docker, para ejecutar los módulos de IoT Edge
    * [Instale Docker para Linux][lnk-docker-ubuntu] y asegúrese de que se ejecuta. 
@@ -70,7 +75,7 @@ sudo pip install -U azure-iot-edge-runtime-ctl
 
 Configure el runtime con la cadena de conexión del dispositivo de IoT Edge de la sección anterior:
 ```cmd
-sudo iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
+sudo iotedgectl setup --connection-string "{device connection string}" --nopass
 ```
 
 Inicie el runtime:
@@ -114,7 +119,7 @@ sudo docker logs -f tempSensor
 
 También puede ver la telemetría que envía el dispositivo mediante la [herramienta del explorador IoT Hub][lnk-iothub-explorer]. 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, ha creado un nuevo dispositivo de IoT Edge y ha usado la interfaz en la nube de Azure IoT Edge para implementar el código en el dispositivo. Ahora tiene un dispositivo simulado que genera datos sin procesar acerca de su entorno. 
 

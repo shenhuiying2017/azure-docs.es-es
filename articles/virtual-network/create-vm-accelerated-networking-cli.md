@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 01/02/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 5c09ffe6867972e772334ae7ae1dd655cdac431f
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: aa74596906206ba4460e80af9015955c0b848cd4
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Creación de una máquina virtual Linux con Accelerated Networking
 
@@ -57,7 +57,7 @@ Accelerated Networking se admite con tamaños de instancia optimizados para proc
 Para más información sobre las instancias de máquinas virtuales, consulte [Tamaños de las máquinas virtuales Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## <a name="regions"></a>Regiones
-Está disponible en todas las regiones de Azure públicas con la excepción de Asia oriental.   La nube de Azure Government todavía no se admite.
+Está disponible en todas las regiones públicas de Azure y en las nubes de Azure Government.
 
 ## <a name="limitations"></a>Limitaciones
 Cuando se utiliza esta funcionalidad, existen las siguientes limitaciones:

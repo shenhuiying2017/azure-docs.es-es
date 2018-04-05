@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: fd97e0ca7615691c537dcb1dc18643627046742d
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 01d5150bff8642a1a3fe9b7ac063923916f191c0
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Preguntas frecuentes sobre Análisis de tráfico
 
@@ -29,10 +29,22 @@ ms.lasthandoff: 03/09/2018
     - Registros de flujo habilitados para los grupos de seguridad de red que desea supervisar
     - Una cuenta de Azure Storage para almacenar los registros de flujo sin formato
     - Un área de trabajo de Log Analytics (OMS) con acceso de lectura y escritura
+    - Su cuenta debe tener asignadas las siguientes acciones en el proveedor de Microsoft.Network:
+
+        - Microsoft.Network/applicationGateways/read
+        - Microsoft.Network/connections/read
+        - Microsoft.Network/loadBalancers/read 
+        - Microsoft.Network/localNetworkGateways/read 
+        - Microsoft.Network/networkInterfaces/read 
+        - Microsoft.Network/networkSecurityGroups/read 
+        - Microsoft.Network/publicIPAddresses/read
+        - Microsoft.Network/routeTables/read
+        - Microsoft.Network/virtualNetworkGateways/read 
+        - Microsoft.Network/virtualNetworks/read
 
 2.  ¿Qué regiones de Azure están disponibles en Análisis de tráfico?
 
-    Aunque se trata de una versión preliminar, puede utilizar Análisis de tráfico con grupos de seguridad de red en cualquiera de las siguientes **regiones admitidas**: Centro-oeste de EE. UU., Este de EE.UU., Este de EE. UU. 2, Centro-norte de EE.. UU., Centro-sur de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2, Europa Occidental, Europa del Norte, Oeste de Reino Unido, Sur de Reino Unido, Este de Australia y Sudeste de Australia. El área de trabajo de Log Analytics debe encontrarse en las regiones Centro-oeste de EE. UU., Este de EE. UU., Europa Occidental, Sudeste de Australia o Sur de Reino Unido.
+    Aunque se trata de una versión preliminar, puede utilizar Análisis de tráfico con grupos de seguridad de red en cualquiera de las siguientes **regiones admitidas**: Centro-oeste de EE. UU., Este de EE.UU., Este de EE. UU. 2, Centro-norte de EE. UU., Centro-sur de EE. UU., Centro de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2, Europa Occidental, Europa del Norte, Oeste de Reino Unido, Sur de Reino Unido, Este de Australia y Sudeste de Australia. El área de trabajo de Log Analytics debe encontrarse en las regiones Centro-oeste de EE. UU., Este de EE. UU., Europa Occidental, Sudeste de Australia o Sur de Reino Unido.
 
 3.  ¿Los grupos de seguridad de red en los que he habilitado los registros de flujo pueden estar en otras regiones que no sean las de mi área de trabajo de OMS?
 
@@ -94,7 +106,7 @@ ms.lasthandoff: 03/09/2018
 
 14.  ¿Qué precio tiene Análisis de tráfico?
 
-        Mientras Análisis de tráfico esté en la versión preliminar pública, no se aplicarán cargos. La generación de los registros de flujo de grupos de seguridad de red y la retención de los datos en un área de trabajo de OMS se cobrarán con arreglo a las tarifas publicadas.
+        Análisis de tráfico se mide para mejorar la reducción de los registros y almacenar los registros mejorados en un área de trabajo de Log Analytics. Mientras esté en versión preliminar, no se cobra por el Análisis de tráfico para mejorar los registros reducidos; sin embargo, la retención de datos en un área de trabajo está sujeta a facturación a las tasas publicadas. Esta respuesta se actualizará una vez que el precio del Análisis de tráfico esté disponible.
 
 15.  ¿Cómo puedo navegar con el teclado en la vista del mapa geográfico?
 

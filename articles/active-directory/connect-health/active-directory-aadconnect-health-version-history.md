@@ -14,16 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: edc1771153581e73398e8df25e70660f9f85ceba
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 57cc8a63773cda5b66856ba7d6b3215d9c52162c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: historial de versiones
 El equipo de Azure Active Directory actualiza periódicamente Azure AD Connect Health con nuevas características y funciones. En este artículo se enumeran las versiones y características que se han publicado.
 
 ## <a name="march-2018"></a>Marzo de 2018
+**Nuevas características de la versión preliminar:**
+* Azure AD Connect Health para AD FS: informe de IP de riesgo y de alerta.
+
 **Actualización del agente:**
 
 *   Agente de Azure AD Connect Health para AD DS (versión 3.0.176.0)
@@ -64,7 +67,7 @@ El equipo de Azure Active Directory actualiza periódicamente Azure AD Connect H
   1. Correcciones de errores y mejoras generales
   2. Compatibilidad con nubes independientes
 * Agente de Azure AD Connect Health para sincronización (versión 3.0.68.0), publicado con Azure AD Connect versión 1.1.614.0
-1. Se ha agregado compatibilidad para Microsoft Azure Government Cloud y Microsoft Cloud Germany
+  1. Se ha agregado compatibilidad para Microsoft Azure Government Cloud y Microsoft Cloud Germany
 
 ## <a name="april-2017"></a>Abril de 2017      
 **Actualización del agente:**

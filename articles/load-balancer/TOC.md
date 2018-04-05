@@ -20,13 +20,19 @@
 
 # Procedimientos
 
+## [Creación de una instancia de Load Balancer Estándar pública con redundancia de zonas](load-balancer-get-started-internet-az-portal.md)
+### [Creación de una instancia de Load Balancer Estándar pública con redundancia de zonas (PowerShell)](load-balancer-get-started-internet-az-powershell.md)
+### [Creación de una instancia de Load Balancer Estándar pública con redundancia de zonas (CLI)](load-balancer-get-started-internet-az-cli.md)
+## [Creación de una instancia de Load Balancer Estándar pública zonal](load-balancer-get-started-internet-availability-zones-zonal-portal.md)
+### [Creación de una instancia de Load Balancer Estándar pública zonal (PowerShell)](load-balancer-get-started-internet-availability-zones-zonal-powershell.md)
+### [Creación de una instancia de Load Balancer Estándar pública con redundancia zonal (CLI)](load-balancer-get-started-internet-availability-zones-zonal-cli.md)
+## [Equilibrio de carga de máquinas virtuales en distintas zonas de disponibilidad](load-balancer-standard-public-availability-zones-portal.md)
+###  [Equilibrio de carga de máquinas virtuales en distintas zonas de disponibilidad (CLI)](load-balancer-standard-public-zone-redundant-cli.md)
+##  [Equilibrio de carga de máquinas virtuales en una zona (CLI)](load-balancer-standard-public-zonal-cli.md)   
+## [Creación de Load Balancer básico (plantilla)](load-balancer-get-started-internet-arm-template.md)
 ## [Creación de un equilibrador de carga público con IPv6](load-balancer-ipv6-internet-ps.md)
 ### [Creación de un equilibrador de carga público con IPv6 (CLI)](load-balancer-ipv6-internet-cli.md)
 ### [Creación de un equilibrador de carga público con IPv6 (plantilla)](load-balancer-ipv6-internet-template.md)
-## [Creación de un equilibrador de carga estándar público con redundancia de zonas](load-balancer-get-started-internet-az-portal.md)
-### [Creación de un equilibrador de carga estándar público con redundancia de zonas (PowerShell)](load-balancer-get-started-internet-az-powershell.md)
-### [Creación de un equilibrador de carga estándar público con redundancia de zonas (CLI)](load-balancer-get-started-internet-az-cli.md)
-## [Creación de Load Balancer básico (plantilla)](load-balancer-get-started-internet-arm-template.md)
 ## [Configuración de un equilibrador de carga interno](load-balancer-get-started-ilb-arm-portal.md)
 ### [Configuración del equilibrador de carga interno (PowerShell)](load-balancer-get-started-ilb-arm-ps.md)
 ### [Configuración del equilibrador de carga interno (CLI)](load-balancer-get-started-ilb-arm-cli.md)

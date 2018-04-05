@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2018
 ms.author: chackdan
-ms.openlocfilehash: ad5f396cd71eb0136fe683bbccb9360291be2d59
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b39c22fb45b0e20a3aa7a6dcf59619a87df32ca1
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Consideraciones de planeación de capacidad del clúster de Service Fabric
 En cualquier implementación de producción, la planeación de capacidad es un paso importante. Estos son algunos de los elementos que se deben tener en cuenta como parte de ese proceso.
@@ -69,7 +69,7 @@ El nivel de durabilidad se usa para indicar al sistema los privilegios que tiene
 
 Este privilegio se expresa con los siguientes valores:
 
-* Gold: los trabajos de infraestructura se pueden pausar dos horas por cada UD. La durabilidad Gold se puede habilitar solo en las SKU de máquina virtual de nodo completo, como L32s, GS5, G5, DS15_v2, D15_v2, etc. (en general, todos los tamaños de máquina virtual que aparecen en http://aka.ms/vmspecs y están marcados como "La instancia está aislada en el hardware dedicado a un solo cliente" en la nota, son máquinas virtuales de nodo completo).
+* Gold: los trabajos de infraestructura se pueden pausar dos horas por cada UD. La durabilidad Gold se puede habilitar solo en las SKU de máquina virtual de nodo completo, como L32s, GS5, G5, DS15_v2, D15_v2, etc. (En general, todos los tamaños de máquina virtual que aparecen en http://aka.ms/vmspecs y están marcados como "La instancia está aislada en el hardware dedicado a un solo cliente" en la nota, son máquinas virtuales de nodo completo).
 * Silver: los trabajos de infraestructura se pueden pausar 10 minutos por cada UD y están disponibles en todas las máquinas virtuales estándares de un solo núcleo y superiores.
 * Bronze: sin privilegios. Este es el valor predeterminado. Utilice solo este nivel de durabilidad en los tipos de nodos que ejecutan _exclusivamente_ cargas de trabajo sin estado. 
 
@@ -87,7 +87,7 @@ Puede elegir el nivel de durabilidad de todos los tipos de nodos. Puede elegir q
 **Desventajas del uso de los niveles de durabilidad Silver o Gold**
  
 1. Las implementaciones tanto en el conjunto de escalado de máquinas virtuales como en otros recursos de Azure relacionados se pueden retrasar, pueden agotar el tiempo de espera o se pueden bloquear completamente por problemas en el clúster o en el nivel de infraestructura. 
-2. Aumenta el número de [eventos de los ciclos de vida de las réplicas](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle ) (p. ej. intercambios principales) debidos a las desactivaciones automáticas de nodos durante las operaciones en la infraestructura de Azure.
+2. Aumenta el número de [eventos de los ciclos de vida de las réplicas](service-fabric-reliable-services-lifecycle.md) (p. ej. intercambios principales) debidos a las desactivaciones automáticas de nodos durante las operaciones en la infraestructura de Azure.
 3. Deja los nodos fuera de servicio durante los períodos de tiempo en los que tienen lugar las actualizaciones de software de la plataforma de Azure o las actividades de mantenimiento de hardware. Durante estas actividades, puede ver los nodos con un estado que indica que se están deshabilitando o que están deshabilitados. Esto reduce la capacidad del clúster temporalmente, pero no debería afectar a la disponibilidad de dicho clúster o de las aplicaciones.
 
 ### <a name="recommendations-on-when-to-use-silver-or-gold-durability-levels"></a>Recomendaciones acerca de cuándo usar los niveles de durabilidad Silver o Gold
@@ -101,10 +101,10 @@ Utilice las durabilidades Silver o Gold para todos los tipos de nodo que hospeda
 
 ### <a name="operational-recommendations-for-the-node-type-that-you-have-set-to-silver-or-gold-durability-level"></a>Recomendaciones operativas para el tipo de nodo en el que ha elegido los niveles de durabilidad Silver o Gold.
 
-1. Mantenga el clúster y las aplicaciones en buen estado en todo momento, y asegúrese de que las aplicaciones responden a todos los [eventos de los ciclos de vida de las réplicas del servicio](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle) (como que la réplica en compilación está bloqueada) en el momento adecuado.
+1. Mantenga el clúster y las aplicaciones en buen estado en todo momento, y asegúrese de que las aplicaciones responden a todos los [eventos de los ciclos de vida de las réplicas del servicio](service-fabric-reliable-services-lifecycle.md) (como que la réplica en compilación está bloqueada) en el momento adecuado.
 2. Adopte formas más seguras para cambiar una SKU de una máquina virtual (escalar verticalmente/reducir verticalmente): el cambio de SKU de una máquina virtual de un conjunto de escalado de máquinas virtuales es en sí una operación no segura y por lo tanto debería evitarse, si es posible. Este es el proceso que se puede seguir para evitar problemas comunes.
     - **En el caso de tipo de nodo no principal:** se recomienda crear un nuevo conjunto de escalado de máquinas virtuales, modificar la restricción de la ubicación de servicio para incluir el nuevo conjunto de escalado de máquinas virtuales/tipo de servicio y, después, reducir el número de instancias del conjunto de escalado de máquinas virtuales antiguo a 0, nodo a nodo (esto es para asegurarse de que la eliminación de los nodos no afecta a la confiabilidad del clúster).
-    - **En el caso de tipo de nodo principal:** nuestra recomendación es no cambiar la SKU de máquina virtual del tipo de nodo principal. No se admite el cambio de la SKU del tipo de nodo principal. Si la razón de la nueva SKU es la capacidad, se recomienda agregar más instancias. Si ello no es posible, se recomienda crear un clúster nuevo y [restaurar el estado de la aplicación](service-fabric-reliable-services-backup-restore.md) (si procede) a partir del clúster anterior. No es preciso restaurar el estado de ningún servicio del sistema, ya que se vuelven a crear al implementar las aplicaciones en el clúster nuevo. Si ha ejecutado aplicaciones sin estado en el clúster, lo único que hace es implementar las aplicaciones en el clúster nuevo, no hay nada que para restaurar. Si decide ir por la ruta no compatible y desea cambiar la SKU de la máquina virtual, realice modificaciones en la definición del modelo del conjunto de escalado de máquinas virtuales para que refleje la SKU nueva. Si el clúster tiene un solo tipo de nodo, asegúrese de que las aplicaciones con estado responden a todos los [eventos de ciclo de vida de réplica de servicio](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle) (como que la réplica en creación está bloqueada) en el momento adecuado y que la duración de la regeneración de la réplica del servicio es inferior a cinco minutos (en el nivel de durabilidad Silver). 
+    - **En el caso de tipo de nodo principal:** nuestra recomendación es no cambiar la SKU de máquina virtual del tipo de nodo principal. No se admite el cambio de la SKU del tipo de nodo principal. Si la razón de la nueva SKU es la capacidad, se recomienda agregar más instancias. Si ello no es posible, se recomienda crear un clúster nuevo y [restaurar el estado de la aplicación](service-fabric-reliable-services-backup-restore.md) (si procede) a partir del clúster anterior. No es preciso restaurar el estado de ningún servicio del sistema, ya que se vuelven a crear al implementar las aplicaciones en el clúster nuevo. Si ha ejecutado aplicaciones sin estado en el clúster, lo único que hace es implementar las aplicaciones en el clúster nuevo, no hay nada que para restaurar. Si decide ir por la ruta no compatible y desea cambiar la SKU de la máquina virtual, realice modificaciones en la definición del modelo del conjunto de escalado de máquinas virtuales para que refleje la SKU nueva. Si el clúster tiene un solo tipo de nodo, asegúrese de que las aplicaciones con estado responden a todos los [eventos de ciclo de vida de réplica de servicio](service-fabric-reliable-services-lifecycle.md) (como que la réplica en creación está bloqueada) en el momento adecuado y que la duración de la regeneración de la réplica del servicio es inferior a cinco minutos (en el nivel de durabilidad Silver). 
 
 
 > [!WARNING]

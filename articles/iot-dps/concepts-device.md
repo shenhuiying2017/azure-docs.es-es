@@ -1,26 +1,26 @@
 ---
 title: Conceptos de dispositivos en el servicio Azure Device Provisioning | Microsoft Docs
-description: "Describe conceptos del aprovisionamiento de dispositivos específicos de los dispositivos con el servicio Device Provisioning e IoT Hub"
+description: Describe conceptos del aprovisionamiento de dispositivos específicos de los dispositivos con el servicio Device Provisioning e IoT Hub
 services: iot-dps
-keywords: 
+keywords: ''
 author: nberdy
 ms.author: nberdy
 ms.date: 09/05/2017
 ms.topic: article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 5297bc57729d9e983d63244c71eb21995cf73f0e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5482801461e2afea33d65d559723116f37a35d1f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="iot-hub-device-provisioning-service-device-concepts"></a>Conceptos de dispositivos del servicio IoT Hub Device Provisioning
 
-IoT Hub Device Provisioning es un servicio auxiliar de IoT Hub que se utiliza para configurar el aprovisionamiento de dispositivos sin interacción de un centro IoT especificado. Con el servicio Device Provisioning puede aprovisionar millones de dispositivos de forma segura y escalable.
+IoT Hub Device Provisioning es un servicio auxiliar de IoT Hub que se utiliza para configurar el aprovisionamiento de dispositivos sin interacción de un centro IoT especificado. Con el servicio Device Provisioning pueden aprovisionar millones de dispositivos de forma segura y escalable.
 
 Este artículo proporciona información general sobre conceptos de *dispositivos* implicados en el aprovisionamiento de dispositivos. Este artículo es más apropiado para las personas implicadas en [el paso de fabricación](about-iot-dps.md#manufacturing-step) para preparar un dispositivo para la implementación.
 
@@ -33,7 +33,7 @@ El mecanismo de atestación es el método utilizado para confirmar la identidad 
 
 El servicio Device Provisioning admite dos formas de atestación:
 * **Certificados X.509** basado en el flujo de autenticación de certificados X.509 estándar.
-* **Tokens de SAS** basado en un desafío nonce que usa el estándar TPM para las claves. Esto no requiere un módulo de plataforma segura (TPM) físico en el dispositivo, pero el servicio espera atestar usando la clave de aprobación para cada [especificación de TPM](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/).
+* **Módulo de plataforma segura (TPM)** basado en un desafío nonce, utilizando el estándar TPM para las claves para presentar un token de Firma de acceso compartido (SAS) firmado. Esto no requiere un módulo de plataforma segura (TPM) físico en el dispositivo, pero el servicio espera atestar usando la clave de aprobación para cada [especificación de TPM](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/).
 
 ## <a name="hardware-security-module"></a>Módulo de seguridad de hardware
 

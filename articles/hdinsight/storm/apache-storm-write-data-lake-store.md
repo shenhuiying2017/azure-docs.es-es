@@ -1,6 +1,6 @@
 ---
 title: Escritura de Apache Storm en Storage o Data Lake Store - Azure HDInsight | Microsoft Docs
-description: "Obtenga más información sobre cómo usar Apache Storm para escribir datos en almacenamiento compatible con HDFS para HDInsight. Azure Storage o Azure Data Lake Store proporcionan almacenamiento compatible con HDFS para HDInsight. En este documento y en el ejemplo relacionado se muestra cómo se puede usar el componente HfdfsBolt para escribir datos en el almacenamiento predeterminado de un clúster de HDInsight en Storm."
+description: Obtenga más información sobre cómo usar Apache Storm para escribir datos en almacenamiento compatible con HDFS para HDInsight. Azure Storage o Azure Data Lake Store proporcionan almacenamiento compatible con HDFS para HDInsight. En este documento y en el ejemplo relacionado se muestra cómo se puede usar el componente HfdfsBolt para escribir datos en el almacenamiento predeterminado de un clúster de HDInsight en Storm.
 services: hdinsight
 documentationcenter: na
 author: Blackmist
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 908a1130171cc091b4d95d4532cc3bb95edb44f9
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 2310894e7257d0ddb919406a8f297089189a9484
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="write-to-hdfs-from-apache-storm-on-hdinsight"></a>Escritura de datos en HDFS desde Apache Storm en HDInsight
 
@@ -30,7 +30,7 @@ Obtenga más información sobre cómo usar Storm para escribir datos en el almac
 
 ## <a name="get-the-code"></a>Obtención del código
 
-El proyecto que contiene esta topología está disponible como descarga en [https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store).
+El proyecto que contiene esta topología está disponible para su descarga desde [https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store).
 
 Para compilar este proyecto, necesitará la siguiente configuración para su entorno de desarrollo:
 
@@ -134,7 +134,7 @@ En este YAML se definen los siguientes elementos:
 * `rotationPolicy`: define cuándo se giran los archivos. En este ejemplo no se realiza ningún giro.
 * `hdfs-bolt`: usa los componentes anteriores como parámetros de configuración para la clase `HdfsBolt`.
 
-Para obtener más información sobre el marco Flux, consulte [https://storm.apache.org/releases/1.1.0/flux.html](https://storm.apache.org/releases/1.1.0/flux.html).
+Para obtener más información acerca del marco Flux, consulte [https://storm.apache.org/releases/1.1.0/flux.html](https://storm.apache.org/releases/1.1.0/flux.html).
 
 ## <a name="configure-the-cluster"></a>Configuración del clúster
 
@@ -148,7 +148,7 @@ Para obtener más información sobre cómo usar este script con su clúster, con
 
 ## <a name="build-and-package-the-topology"></a>Compilación y empaquetado de la topología
 
-1. Descargue el proyecto de ejemplo de [https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store ](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store) en su entorno de desarrollo.
+1. Descargue el proyecto de ejemplo de [https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store ](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store) a su entorno de desarrollo.
 
 2. Desde un símbolo del sistema, un terminal o una sesión de shell, cambie los directorios a la raíz del proyecto descargado. Para compilar y empaquetar la topología, use el siguiente comando:
    
@@ -222,7 +222,7 @@ Las topologías de Storm se ejecutarán hasta que se detengan o se elimine el cl
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Ahora que ya sabe usar Storm para escribir datos en Azure Storage y Azure Data Lake Store, descubra otros [ejemplos de Storm para HDInsight](apache-storm-example-topology.md).
 

@@ -1,19 +1,19 @@
 ---
 title: Grupos de contenedores de Azure Container Instances
-description: Descripción del funcionamiento de los Grupos de contenedores en Azure Container Instances
+description: Descripción del funcionamiento de los grupos de contenedores en Azure Container Instances
 services: container-instances
 author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 03/20/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 6f7f0d9aea86594140c302e6d12e6528e802b9e7
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 3b1eeebacb55ffc7af4e2014f26dd9d5643f5478
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Grupos de contenedores en Azure Container Instances
 
@@ -38,15 +38,15 @@ Este grupo de contenedores de ejemplo:
 > [!NOTE]
 > Los grupos de varios contenedores están restringidos actualmente a los contenedores Linux. Aunque estamos trabajando para traer todas las características a los contenedores Windows, puede encontrar diferencias en la plataforma actual en la [disponibilidad de cuotas y regiones en Azure Container Instances](container-instances-quotas.md).
 
-### <a name="deployment"></a>Implementación
+## <a name="deployment"></a>Implementación
 
-Los **grupos de contenedores** tienen una asignación mínima de recursos de 1 vCPU y 1 GB de memoria. Los **contenedores** individuales se pueden aprovisionar con menos de 1 vCPU y 1 GB de memoria. Dentro de un grupo de contenedores, se puede personalizar la distribución de recursos a varios contenedores dentro de los límites establecidos en el nivel de grupo de contenedores. Por ejemplo, a dos contenedores con 0,5 vCPU cada uno que residen dentro de un grupo contenedores se les asigna 1 vCPU.
+Los *grupos* de contenedores tienen una asignación de recursos mínima de 1 vCPU y 1 GB de memoria. Los *contenedores* individuales dentro de un grupo de contenedores pueden aprovisionarse con menos de 1 vCPU y 1 GB de memoria. Dentro de un grupo de contenedores, se puede personalizar la distribución de recursos a varios contenedores dentro de los límites establecidos en el nivel de grupo de contenedores. Por ejemplo, dos contenedores con 0,5 vCPU cada uno que residen en un grupo contenedores que tiene asignado 1 vCPU.
 
-### <a name="networking"></a>Redes
+## <a name="networking"></a>Redes
 
 Los grupos de contenedores comparten una dirección IP y un espacio de nombres de puerto en esa dirección IP. Para permitir que los clientes externos lleguen a un contenedor dentro del grupo, debe exponer el puerto en la dirección IP y desde el contenedor. Dado que los contenedores dentro del grupo comparten un espacio de nombres de puerto, no se admite la asignación de puertos. Los contenedores dentro de un grupo pueden comunicar entre sí a través de localhost en los puertos que han expuesto, incluso si estos puertos no se exponen externamente en la dirección IP del grupo.
 
-### <a name="storage"></a>Storage
+## <a name="storage"></a>Storage
 
 Puede especificar volúmenes externos para montar dentro de un grupo de contenedores. Puede asignar los volúmenes en rutas de acceso específicas dentro de los contenedores individuales en un grupo.
 
@@ -57,12 +57,15 @@ Los grupos de varios contenedores son útiles en casos donde quiera dividir una 
 Ejemplos posibles de uso serían:
 
 * Un contenedor de aplicación y un contenedor de registro. El contenedor de registro recopila la salida de registros y métricas de la aplicación principal y los escribe en un almacenamiento a largo plazo.
-* Una aplicación y un contenedor de supervisión. Periódicamente, el contenedor de supervisión realiza una solicitud a la aplicación para asegurarse de que se está ejecutando y responde correctamente, y genera una alerta si no es así.
+* Un contenedor de aplicación y un contenedor de supervisión. Periódicamente, el contenedor de supervisión realiza una solicitud a la aplicación para asegurarse de que se está ejecutando y responde correctamente, y genera una alerta si no es así.
 * Un contenedor para servir una aplicación web y un contenedor para extraer el contenido más reciente desde el control de código fuente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga información acerca de cómo [implementar un grupo de múltiples contenedores](container-instances-multi-container-group.md) con una plantilla de Azure Resource Manager.
+Obtenga información acerca de cómo implementar un grupo de múltiples contenedores con una plantilla de Azure Resource Manager:
+
+> [!div class="nextstepaction"]
+> [Implementación de un grupo de contenedores](container-instances-multi-container-group.md)
 
 <!-- IMAGES -->
 [container-groups-example]: ./media/container-instances-container-groups/container-groups-example.png

@@ -1,9 +1,9 @@
 ---
-title: "Métricas de Azure Monitor admitidas por tipo de recurso | Microsoft Docs"
-description: "Lista de métricas disponibles para cada tipo de recurso con Azure Monitor."
+title: Métricas de Azure Monitor admitidas por tipo de recurso | Microsoft Docs
+description: Lista de métricas disponibles para cada tipo de recurso con Azure Monitor.
 author: anirudhcavale
 manager: ashwink
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 63d4ac65-1688-40d1-85c8-7cd408285b0f
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/31/2018
+ms.date: 03/19/2018
 ms.author: ancav
-ms.openlocfilehash: 97dca282bd7bbf00ce1d03899f6de0444a41163a
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 285f4540c7f9be19cde0aafeff67ce2b39abe957
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas compatibles con Azure Monitor
 Azure Monitor proporciona varias maneras de interactuar con las métricas, como la representación en gráficos en el portal, el acceso a ellas a través de la API de REST o consultarlas con PowerShell o la CLI. A continuación se muestra una lista completa de todas las métricas disponibles actualmente en la canalización de métricas de Azure Monitor.
@@ -86,7 +86,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |FailedRequests|Solicitudes de puerta de enlace con error|Recuento|Total|Número de errores en solicitudes de puerta de enlace|Ubicación, Nombre de host|
 |OtherRequests|Otras solicitudes de puerta de enlace|Recuento|Total|Número de otras solicitudes de puerta de enlace|Ubicación, Nombre de host|
 |Duration|Duración total de las solicitudes de puerta de enlace|Milisegundos|Media|Duración total de las solicitudes de puerta de enlace en milisegundos|Ubicación, Nombre de host|
-|Capacity|Capacidad (versión preliminar)|Percent|Máxima|Métrica de uso para el servicio ApiManagement|La ubicación|
+|Capacity|Capacidad (versión preliminar)|Percent|Máxima|Métrica de uso para el servicio ApiManagement|Ubicación|
 
 ## <a name="microsoftautomationautomationaccounts"></a>Microsoft.Automation/automationAccounts
 
@@ -133,6 +133,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |cachemisses|Errores de caché|Recuento|Total||Sin dimensiones|
 |getcommands|Gets|Recuento|Total||Sin dimensiones|
 |setcommands|Sets|Recuento|Total||Sin dimensiones|
+|operationsPerSecond|Operaciones por segundo|Recuento|Total||Sin dimensiones|
 |evictedkeys|Claves expulsadas|Recuento|Total||Sin dimensiones|
 |totalkeys|Total de claves|Recuento|Máxima||Sin dimensiones|
 |expiredkeys|Claves expiradas|Recuento|Total||Sin dimensiones|
@@ -148,6 +149,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |cachemisses0|Errores de caché (partición 0)|Recuento|Total||Sin dimensiones|
 |getcommands0|Obtenciones (partición 0)|Recuento|Total||Sin dimensiones|
 |setcommands0|Definiciones (partición 0)|Recuento|Total||Sin dimensiones|
+|operationsPerSecond0|Operaciones por segundo (partición 0)|Recuento|Total||Sin dimensiones|
 |evictedkeys0|Claves expulsadas (partición 0)|Recuento|Total||Sin dimensiones|
 |totalkeys0|Total de claves (partición 0)|Recuento|Máxima||Sin dimensiones|
 |expiredkeys0|Claves expiradas (partición 0)|Recuento|Total||Sin dimensiones|
@@ -163,6 +165,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |cachemisses1|Errores de caché (partición 1)|Recuento|Total||Sin dimensiones|
 |getcommands1|Obtenciones (partición 1)|Recuento|Total||Sin dimensiones|
 |setcommands1|Definiciones (partición 1)|Recuento|Total||Sin dimensiones|
+|operationsPerSecond1|Operaciones por segundo (partición 1)|Recuento|Total||Sin dimensiones|
 |evictedkeys1|Claves expulsadas (partición 1)|Recuento|Total||Sin dimensiones|
 |totalkeys1|Total de claves (partición 1)|Recuento|Máxima||Sin dimensiones|
 |expiredkeys1|Claves expiradas (partición 1)|Recuento|Total||Sin dimensiones|
@@ -178,6 +181,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |cachemisses2|Errores de caché (partición 2)|Recuento|Total||Sin dimensiones|
 |getcommands2|Obtenciones (partición 2)|Recuento|Total||Sin dimensiones|
 |setcommands2|Definiciones (partición 2)|Recuento|Total||Sin dimensiones|
+|operationsPerSecond2|Operaciones por segundo (partición 2)|Recuento|Total||Sin dimensiones|
 |evictedkeys2|Claves expulsadas (partición 2)|Recuento|Total||Sin dimensiones|
 |totalkeys2|Total de claves (partición 2)|Recuento|Máxima||Sin dimensiones|
 |expiredkeys2|Claves expiradas (partición 2)|Recuento|Total||Sin dimensiones|
@@ -193,6 +197,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |cachemisses3|Errores de caché (partición 3)|Recuento|Total||Sin dimensiones|
 |getcommands3|Obtenciones (partición 3)|Recuento|Total||Sin dimensiones|
 |setcommands3|Definiciones (partición 3)|Recuento|Total||Sin dimensiones|
+|operationsPerSecond3|Operaciones por segundo (partición 3)|Recuento|Total||Sin dimensiones|
 |evictedkeys3|Claves expulsadas (partición 3)|Recuento|Total||Sin dimensiones|
 |totalkeys3|Total de claves (partición 3)|Recuento|Máxima||Sin dimensiones|
 |expiredkeys3|Claves expiradas (partición 3)|Recuento|Total||Sin dimensiones|
@@ -208,6 +213,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |cachemisses4|Errores de caché (partición 4)|Recuento|Total||Sin dimensiones|
 |getcommands4|Obtenciones (partición 4)|Recuento|Total||Sin dimensiones|
 |setcommands4|Definiciones (partición 4)|Recuento|Total||Sin dimensiones|
+|operationsPerSecond4|Operaciones por segundo (partición 4)|Recuento|Total||Sin dimensiones|
 |evictedkeys4|Claves expulsadas (partición 4)|Recuento|Total||Sin dimensiones|
 |totalkeys4|Total de claves (partición 4)|Recuento|Máxima||Sin dimensiones|
 |expiredkeys4|Claves expiradas (partición 4)|Recuento|Total||Sin dimensiones|
@@ -223,6 +229,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |cachemisses5|Errores de caché (partición 5)|Recuento|Total||Sin dimensiones|
 |getcommands5|Obtenciones (partición 5)|Recuento|Total||Sin dimensiones|
 |setcommands5|Definiciones (partición 5)|Recuento|Total||Sin dimensiones|
+|operationsPerSecond5|Operaciones por segundo (partición 5)|Recuento|Total||Sin dimensiones|
 |evictedkeys5|Claves expulsadas (partición 5)|Recuento|Total||Sin dimensiones|
 |totalkeys5|Total de claves (partición 5)|Recuento|Máxima||Sin dimensiones|
 |expiredkeys5|Claves expiradas (partición 5)|Recuento|Total||Sin dimensiones|
@@ -238,6 +245,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |cachemisses6|Errores de caché (partición 6)|Recuento|Total||Sin dimensiones|
 |getcommands6|Obtenciones (partición 6)|Recuento|Total||Sin dimensiones|
 |setcommands6|Definiciones (partición 6)|Recuento|Total||Sin dimensiones|
+|operationsPerSecond6|Operaciones por segundo (partición 6)|Recuento|Total||Sin dimensiones|
 |evictedkeys6|Claves expulsadas (partición 6)|Recuento|Total||Sin dimensiones|
 |totalkeys6|Total de claves (partición 6)|Recuento|Máxima||Sin dimensiones|
 |expiredkeys6|Claves expiradas (partición 6)|Recuento|Total||Sin dimensiones|
@@ -253,6 +261,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |cachemisses7|Errores de caché (partición 7)|Recuento|Total||Sin dimensiones|
 |getcommands7|Obtenciones (partición 7)|Recuento|Total||Sin dimensiones|
 |setcommands7|Definiciones (partición 7)|Recuento|Total||Sin dimensiones|
+|operationsPerSecond7|Operaciones por segundo (partición 7)|Recuento|Total||Sin dimensiones|
 |evictedkeys7|Claves expulsadas (partición 7)|Recuento|Total||Sin dimensiones|
 |totalkeys7|Total de claves (partición 7)|Recuento|Máxima||Sin dimensiones|
 |expiredkeys7|Claves expiradas (partición 7)|Recuento|Total||Sin dimensiones|
@@ -268,6 +277,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |cachemisses8|Errores de caché (partición 8)|Recuento|Total||Sin dimensiones|
 |getcommands8|Obtenciones (partición 8)|Recuento|Total||Sin dimensiones|
 |setcommands8|Definiciones (partición 8)|Recuento|Total||Sin dimensiones|
+|operationsPerSecond8|Operaciones por segundo (partición 8)|Recuento|Total||Sin dimensiones|
 |evictedkeys8|Claves expulsadas (partición 8)|Recuento|Total||Sin dimensiones|
 |totalkeys8|Total de claves (partición 8)|Recuento|Máxima||Sin dimensiones|
 |expiredkeys8|Claves expiradas (partición 8)|Recuento|Total||Sin dimensiones|
@@ -283,6 +293,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |cachemisses9|Errores de caché (partición 9)|Recuento|Total||Sin dimensiones|
 |getcommands9|Obtenciones (partición 9)|Recuento|Total||Sin dimensiones|
 |setcommands9|Definiciones (partición 9)|Recuento|Total||Sin dimensiones|
+|operationsPerSecond9|Operaciones por segundo (partición 9)|Recuento|Total||Sin dimensiones|
 |evictedkeys9|Claves expulsadas (partición 9)|Recuento|Total||Sin dimensiones|
 |totalkeys9|Total de claves (partición 9)|Recuento|Máxima||Sin dimensiones|
 |expiredkeys9|Claves expiradas (partición 9)|Recuento|Total||Sin dimensiones|
@@ -294,6 +305,18 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |percentProcessorTime9|CPU (partición 9)|Percent|Máxima||Sin dimensiones|
 
 ## <a name="microsoftclassiccomputevirtualmachines"></a>Microsoft.ClassicCompute/virtualMachines
+
+|Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|DESCRIPCIÓN|Dimensiones|
+|---|---|---|---|---|---|
+|Porcentaje de CPU|Porcentaje de CPU|Percent|Media|El porcentaje de unidades de proceso asignadas que las máquinas virtuales usan actualmente.|Sin dimensiones|
+|Red interna|Red interna|Bytes|Total|El número de bytes recibidos en todas las interfaces de red por las máquinas virtuales (tráfico entrante).|Sin dimensiones|
+|Red interna|Red interna|Bytes|Total|El número de bytes enviados en todas las interfaces de red por las máquinas virtuales (tráfico saliente).|Sin dimensiones|
+|Disk Read Bytes/Sec|Lectura de disco|BytesPerSecond|Media|Promedio de bytes que se leen desde el disco durante el período de supervisión.|Sin dimensiones|
+|Disk Write Bytes/Sec|Escritura de disco|BytesPerSecond|Media|Promedio de bytes que se escriben en el disco durante el período de supervisión.|Sin dimensiones|
+|Operaciones de lectura de disco por segundo|Operaciones de lectura de disco por segundo|CountPerSecond|Media|E/S por segundo de lectura de disco.|Sin dimensiones|
+|Operaciones de escritura por segundo en disco|Operaciones de escritura por segundo en disco|CountPerSecond|Media|E/S por segundo de escritura en disco.|Sin dimensiones|
+
+## <a name="microsoftclassiccomputedomainnamesslotsroles"></a>Microsoft.ClassicCompute/domainNames/slots/roles
 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|DESCRIPCIÓN|Dimensiones|
 |---|---|---|---|---|---|
@@ -364,6 +387,13 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |Créditos de CPU restantes|Créditos de CPU restantes|Recuento|Media|Número total de créditos disponibles para irrumpir|Sin dimensiones|
 |Créditos de CPU consumidos|Créditos de CPU consumidos|Recuento|Media|Número total de créditos consumidos por la máquina virtual|Sin dimensiones|
 
+## <a name="microsoftcontainerinstancecontainergroups"></a>Microsoft.ContainerInstance/containerGroups
+
+|Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|DESCRIPCIÓN|Dimensiones|
+|---|---|---|---|---|---|
+|CpuUsage|Uso de CPU|Recuento|Media|Uso de la CPU en todos los núcleos en millares de núcleos.|containerName|
+|MemoryUsage|Uso de la memoria|Bytes|Media|Uso de memoria total en bytes.|containerName|
+
 ## <a name="microsoftcustomerinsightshubs"></a>Microsoft.CustomerInsights/hubs
 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|DESCRIPCIÓN|Dimensiones|
@@ -403,19 +433,21 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|DESCRIPCIÓN|Dimensiones|
 |---|---|---|---|---|---|
-|SuccessfulRuns|Ejecuciones correctas|Recuento|Total|Número de ejecuciones correctas.|Sin dimensiones|
-|FailedRuns|Ejecuciones con error|Recuento|Total|Número de ejecuciones con error.|Sin dimensiones|
+|FailedRuns|Ejecuciones con error|Recuento|Total||pipelineName, activityName, windowEnd, windowStart |
+|SuccessfulRuns|Ejecuciones correctas|Recuento|Total||pipelineName, activityName, windowEnd, windowStart |
 
 ## <a name="microsoftdatafactoryfactories"></a>Microsoft.DataFactory/factories
 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|DESCRIPCIÓN|Dimensiones|
 |---|---|---|---|---|---|
-|PipelineFailedRuns|Métricas de ejecuciones de canalización erróneas|Recuento|Total||Sin dimensiones|
-|PipelineSucceededRuns|Las métricas de ejecuciones de canalización se realizaron correctamente|Recuento|Total||Sin dimensiones|
-|ActivityFailedRuns|Métricas de ejecuciones de actividad erróneas|Recuento|Total||Sin dimensiones|
-|ActivitySucceededRuns|Métricas de ejecución de actividad realizadas correctamente|Recuento|Total||Sin dimensiones|
-|TriggerFailedRuns|Métricas de ejecuciones de desencadenador erróneas|Recuento|Total||Sin dimensiones|
-|TriggerSucceededRuns|Métricas de ejecuciones de desencadenador realizadas correctamente|Recuento|Total||Sin dimensiones|
+|PipelineFailedRuns|Métricas de ejecuciones de canalización erróneas|Recuento|Total||FailureType, Name|
+|PipelineSucceededRuns|Las métricas de ejecuciones de canalización se realizaron correctamente|Recuento|Total||FailureType, Name|
+|ActivityFailedRuns|Métricas de ejecuciones de actividad erróneas|Recuento|Total||ActivityType, PipelineName, FailureType, Name|
+|ActivitySucceededRuns|Métricas de ejecución de actividad realizadas correctamente|Recuento|Total||ActivityType, PipelineName, FailureType, Name|
+|TriggerFailedRuns|Métricas de ejecuciones de desencadenador erróneas|Recuento|Total||Name, FailureType|
+|TriggerSucceededRuns|Métricas de ejecuciones de desencadenador realizadas correctamente|Recuento|Total||Name, FailureType|
+|IntegrationRuntimeCpuPercentage|Uso de la CPU de entorno de ejecución de integración|Percent|Media||IntegrationRuntimeName, NodeName|
+|IntegrationRuntimeAvailableMemory|Memoria disponible de entorno de ejecución de integración|Bytes|Media||IntegrationRuntimeName, NodeName|
 
 ## <a name="microsoftdatalakeanalyticsaccounts"></a>Microsoft.DataLakeAnalytics/accounts
 
@@ -634,12 +666,13 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |OutgoingMessages|Mensajes salientes (versión preliminar)|Recuento|Total|Mensajes salientes de Microsoft.EventHub. (versión preliminar)|EntityName|
 |IncomingBytes|Bytes entrantes. (versión preliminar)|Bytes|Total|Bytes entrantes de Microsoft.EventHub. (versión preliminar)|EntityName|
 |OutgoingBytes|Bytes salientes. (versión preliminar)|Bytes|Total|Bytes salientes de Microsoft.EventHub. (versión preliminar)|EntityName|
-|ActiveConnections|ActiveConnections (versión preliminar)|Recuento|Total|Total de conexiones activas de Microsoft.EventHub. (versión preliminar)|EntityName|
-|ConnectionsOpened|Conexiones abiertas. (versión preliminar)|Recuento|Total|Conexiones abiertas de Microsoft.EventHub. (versión preliminar)|EntityName|
-|ConnectionsClosed|Conexiones cerradas. (versión preliminar)|Recuento|Total|Conexiones cerradas de Microsoft.EventHub. (versión preliminar)|EntityName|
+|ActiveConnections|ActiveConnections (versión preliminar)|Recuento|Media|Total de conexiones activas de Microsoft.EventHub. (versión preliminar)|Sin dimensiones|
+|ConnectionsOpened|Conexiones abiertas. (versión preliminar)|Recuento|Media|Conexiones abiertas de Microsoft.EventHub. (versión preliminar)|EntityName|
+|ConnectionsClosed|Conexiones cerradas. (versión preliminar)|Recuento|Media|Conexiones cerradas de Microsoft.EventHub. (versión preliminar)|EntityName|
 |CaptureBacklog|Capturar el trabajo pendiente. (versión preliminar)|Recuento|Total|Capturar el trabajo pendiente de Microsoft.EventHub. (versión preliminar)|EntityName|
 |CapturedMessages|Mensajes capturados. (versión preliminar)|Recuento|Total|Mensajes capturados de Microsoft.EventHub. (versión preliminar)|EntityName|
 |CapturedBytes|Bytes capturados. (versión preliminar)|Bytes|Total|Bytes capturados de Microsoft.EventHub. (versión preliminar)|EntityName|
+|Tamaño|Tamaño (vista previa)|Bytes|Media|Tamaño de EventHub en bytes. (versión preliminar)|EntityName|
 |INREQS|Solicitudes entrantes|Recuento|Total|Total de solicitudes de envío entrantes de un espacio de nombres|Sin dimensiones|
 |SUCCREQ|Solicitudes correctas|Recuento|Total|Número total de solicitudes correctas para un espacio de nombres|Sin dimensiones|
 |FAILREQ|Solicitudes con error|Recuento|Total|Número total de solicitudes erróneas para un espacio de nombres|Sin dimensiones|
@@ -658,6 +691,13 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |EHAMSGS|Mensajes de archivado|Recuento|Total|Mensajes archivados del centro de eventos en un espacio de nombres|Sin dimensiones|
 |EHAMBS|Rendimiento de mensajes de archivado|Bytes|Total|Rendimiento de mensajes archivados del centro de eventos en un espacio de nombres|Sin dimensiones|
 
+## <a name="microsofthdinsightclusters"></a>Microsoft.HDInsight/clusters
+
+|Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|DESCRIPCIÓN|Dimensiones|
+|---|---|---|---|---|---|
+|GatewayRequests|Solicitudes de puerta de enlace|Recuento|Total|Número de solicitudes de puerta de enlace|ClusterDnsName, HttpStatus|
+|CategorizedGatewayRequests|Solicitudes de puerta de enlace categorizadas|Recuento|Total|Número de solicitudes de puerta de enlace por categorías (1xx/2xx/3xx/4xx/5xx)|ClusterDnsName, HttpStatus|
+
 ## <a name="microsoftinsightsautoscalesettings"></a>Microsoft.Insights/AutoscaleSettings
 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|DESCRIPCIÓN|Dimensiones|
@@ -671,9 +711,9 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|DESCRIPCIÓN|Dimensiones|
 |---|---|---|---|---|---|
-|ServiceApiHit|Número total de visitas de la API de servicio|Recuento|Recuento, Total|Número total de visitas de la API de servicio|ActivityType, ActivityName|
-|ServiceApiLatency|Latencia general de la API de servicio|Milisegundos|Recuento, Media, Mínimo, Máximo|Latencia general de las solicitudes de la API de servicio|ActivityType, ActivityName, StatusCode|
-|ServiceApiResult|Número total de resultados de la API de servicio|Recuento|Recuento, Total|Número total de resultados de la API de servicio|ActivityType, ActivityName, StatusCode|
+|ServiceApiHit|Número total de visitas de la API de servicio|Recuento|Recuento|Número total de visitas de la API de servicio|ActivityType, ActivityName|
+|ServiceApiLatency|Latencia general de la API de servicio|Milisegundos|Media|Latencia general de las solicitudes de la API de servicio|ActivityType, ActivityName, StatusCode|
+|ServiceApiResult|Número total de resultados de la API de servicio|Recuento|Recuento|Número total de resultados de la API de servicio|ActivityType, ActivityName, StatusCode|
 
 ## <a name="microsoftlocationbasedservicesaccounts"></a>Microsoft.LocationBasedServices/accounts
 
@@ -727,6 +767,14 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |SYNCount|Recuento de SYN|Recuento|Total|Número total de paquetes SYN transmitidos en un período|VipAddress, VipPort, Direction|
 |SnatConnectionCount|Recuento de conexiones SNAT|Recuento|Total|Número total de conexiones SNAT nuevas creadas en un período|VipAddress, DipAddress, ConnectionState|
 
+## <a name="microsoftnetworkdnszones"></a>Microsoft.Network/dnszones
+
+|Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|DESCRIPCIÓN|Dimensiones|
+|---|---|---|---|---|---|
+|QueryVolume|Volumen de consulta|Recuento|Total|Número de consultas que se sirven para una zona DNS|Sin dimensiones|
+|RecordSetCount|Recuento de conjunto de registros|Recuento|Máxima|Número de conjuntos de registros de una zona DNS|Sin dimensiones|
+|RecordSetCapacityUtilization|Uso de capacidad de conjunto de registros|Percent|Máxima|Porcentaje de capacidad de conjunto de registros que usa una zona DNS|Sin dimensiones|
+
 ## <a name="microsoftnetworkpublicipaddresses"></a>Microsoft.Network/publicIPAddresses
 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|DESCRIPCIÓN|Dimensiones|
@@ -763,6 +811,12 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|DESCRIPCIÓN|Dimensiones|
 |---|---|---|---|---|---|
 |Throughput|Throughput|BytesPerSecond|Total|Número de bytes por segundo que ha ofrecido Application Gateway|Sin dimensiones|
+|UnhealthyHostCount|Recuento de hosts con estado incorrecto|Recuento|Media|Número de hosts de back-end con estado incorrecto|BackendSettingsPool|
+|HealthyHostCount|Recuento de hosts con estado correcto|Recuento|Media|Número de hosts de back-end con estado correcto|BackendSettingsPool|
+|TotalRequests|Total de solicitudes|Recuento|Total|Recuento de solicitudes correctas que ha servido Application Gateway|BackendSettingsPool|
+|FailedRequests|Solicitudes con error|Recuento|Total|Recuento de solicitudes con error que ha servido Application Gateway|BackendSettingsPool|
+|ResponseStatus|Estado de respuesta|Recuento|Total|Estado de respuesta HTTP devuelto por Application Gateway|HttpStatusGroup|
+|CurrentConnections|Conexiones actuales|Recuento|Total|Recuento de conexiones actuales establecidas con Application Gateway|Sin dimensiones|
 
 ## <a name="microsoftnetworkvirtualnetworkgateways"></a>Microsoft.Network/virtualNetworkGateways
 
@@ -789,6 +843,13 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |---|---|---|---|---|---|
 |QpsByEndpoint|Consultas por punto de conexión devueltas|Recuento|Total|Número de veces que se devolvió un punto de conexión de Traffic Manager en el período dado|EndpointName|
 |ProbeAgentCurrentEndpointStateByProfileResourceId|Estado de punto de conexión por punto de conexión|Recuento|Máxima|1 si el estado de sondeo de un punto de conexión es “Habilitado”, 0 en caso contrario.|EndpointName|
+
+## <a name="microsoftnetworknetworkwatchersconnectionmonitors"></a>Microsoft.Network/networkWatchers/connectionMonitors
+
+|Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|DESCRIPCIÓN|Dimensiones|
+|---|---|---|---|---|---|
+|ProbesFailedPercent|% de sondeos con error|Percent|Media|% de sondeos de supervisión de conectividad con error|Sin dimensiones|
+|AverageRoundtripMs|Prom. Tiempo de ida y vuelta (ms)|MilliSeconds|Media|Promedio de tiempo de ida y vuelta de red (ms) para los sondeos de supervisión de conectividad que se envían entre el origen y el destino|Sin dimensiones|
 
 ## <a name="microsoftnotificationhubsnamespacesnotificationhubs"></a>Microsoft.NotificationHubs/Namespaces/NotificationHubs
 
@@ -864,6 +925,82 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |QueryDuration|Duración de la consulta|Milisegundos|Media|Duración de la consulta DAX en el último intervalo|Sin dimensiones|
 |QueryPoolJobQueueLength|Subprocesos: longitud de la cola de trabajos del grupo de consultas|Recuento|Media|Número de trabajos en la cola del grupo de subprocesos de consultas.|Sin dimensiones|
 
+## <a name="microsoftoperationalinsightsworkspaces"></a>Microsoft.OperationalInsights/workspaces
+(Vista previa pública)
+
+|Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|DESCRIPCIÓN|Dimensiones|
+|---|---|---|---|---|---|
+|Average_% Free Inodes|Average_% Free Inodes|Recuento|Media|Average_% Free Inodes|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Free Space|Average_% Free Space|Recuento|Media|Average_% Free Space|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Used Inodes|Average_% Used Inodes|Recuento|Media|Average_% Used Inodes|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Used Space|Average_% Used Space|Recuento|Media|Average_% Used Space|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Disk Read Bytes/sec|Average_Disk Read Bytes/sec|Recuento|Media|Average_Disk Read Bytes/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Disk Reads/sec|Average_Disk Reads/sec|Recuento|Media|Average_Disk Reads/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Disk Transfers/sec|Average_Disk Transfers/sec|Recuento|Media|Average_Disk Transfers/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Disk Write Bytes/sec|Average_Disk Write Bytes/sec|Recuento|Media|Average_Disk Write Bytes/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Disk Writes/sec|Average_Disk Writes/sec|Recuento|Media|Average_Disk Writes/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Free Megabytes|Average_Free Megabytes|Recuento|Media|Average_Free Megabytes|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Logical Disk Bytes/sec|Average_Logical Disk Bytes/sec|Recuento|Media|Average_Logical Disk Bytes/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Available Memory|Average_% Available Memory|Recuento|Media|Average_% Available Memory|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Available Swap Space|Average_% Available Swap Space|Recuento|Media|Average_% Available Swap Space|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Used Memory|Average_% Used Memory|Recuento|Media|Average_% Used Memory|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Used Swap Space|Average_% Used Swap Space|Recuento|Media|Average_% Used Swap Space|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Available MBytes Memory|Average_Available MBytes Memory|Recuento|Media|Average_Available MBytes Memory|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Available MBytes Swap|Average_Available MBytes Swap|Recuento|Media|Average_Available MBytes Swap|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Page Reads/sec|Average_Page Reads/sec|Recuento|Media|Average_Page Reads/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Page Writes/sec|Average_Page Writes/sec|Recuento|Media|Average_Page Writes/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Pages/sec|Average_Pages/sec|Recuento|Media|Average_Pages/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Used MBytes Swap Space|Average_Used MBytes Swap Space|Recuento|Media|Average_Used MBytes Swap Space|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Used Memory MBytes|Average_Used Memory MBytes|Recuento|Media|Average_Used Memory MBytes|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Total Bytes Transmitted|Average_Total Bytes Transmitted|Recuento|Media|Average_Total Bytes Transmitted|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Total Bytes Received|Average_Total Bytes Received|Recuento|Media|Average_Total Bytes Received|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Total Bytes|Average_Total Bytes|Recuento|Media|Average_Total Bytes|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Total Packets Transmitted|Average_Total Packets Transmitted|Recuento|Media|Average_Total Packets Transmitted|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Total Packets Received|Average_Total Packets Received|Recuento|Media|Average_Total Packets Received|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Total Rx Errors|Average_Total Rx Errors|Recuento|Media|Average_Total Rx Errors|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Total Tx Errors|Average_Total Tx Errors|Recuento|Media|Average_Total Tx Errors|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Total Collisions|Average_Total Collisions|Recuento|Media|Average_Total Collisions|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Avg. Segundos de disco/lecturas|Average_Avg. Segundos de disco/lecturas|Recuento|Media|Average_Avg. Segundos de disco/lecturas|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Avg. Segundos de disco/transferencias|Average_Avg. Segundos de disco/transferencias|Recuento|Media|Average_Avg. Segundos de disco/transferencias|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Avg. Segundos de disco/escrituras|Average_Avg. Segundos de disco/escrituras|Recuento|Media|Average_Avg. Segundos de disco/escrituras|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Physical Disk Bytes/sec|Average_Physical Disk Bytes/sec|Recuento|Media|Average_Physical Disk Bytes/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Pct Privileged Time|Average_Pct Privileged Time|Recuento|Media|Average_Pct Privileged Time|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Pct User Time|Average_Pct User Time|Recuento|Media|Average_Pct User Time|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Used Memory kBytes|Average_Used Memory kBytes|Recuento|Media|Average_Used Memory kBytes|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Virtual Shared Memory|Average_Virtual Shared Memory|Recuento|Media|Average_Virtual Shared Memory|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% DPC Time|Average_% DPC Time|Recuento|Media|Average_% DPC Time|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Idle Time|Average_% Idle Time|Recuento|Media|Average_% Idle Time|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Interrupt Time|Average_% Interrupt Time|Recuento|Media|Average_% Interrupt Time|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% IO Wait Time|Average_% IO Wait Time|Recuento|Media|Average_% IO Wait Time|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Nice Time|Average_% Nice Time|Recuento|Media|Average_% Nice Time|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Privileged Time|Average_% Privileged Time|Recuento|Media|Average_% Privileged Time|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Processor Time|Average_% Processor Time|Recuento|Media|Average_% Processor Time|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% User Time|Average_% User Time|Recuento|Media|Average_% User Time|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Free Physical Memory|Average_Free Physical Memory|Recuento|Media|Average_Free Physical Memory|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Free Space in Paging Files|Average_Free Space in Paging Files|Recuento|Media|Average_Free Space in Paging Files|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Free Virtual Memory|Average_Free Virtual Memory|Recuento|Media|Average_Free Virtual Memory|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Processes|Average_Processes|Recuento|Media|Average_Processes|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Size Stored In Paging Files|Average_Size Stored In Paging Files|Recuento|Media|Average_Size Stored In Paging Files|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Uptime|Average_Uptime|Recuento|Media|Average_Uptime|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Users|Average_Users|Recuento|Media|Average_Users|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Avg. Segundos de disco/lecturas|Average_Avg. Segundos de disco/lecturas|Recuento|Media|Average_Avg. Segundos de disco/lecturas|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Avg. Segundos de disco/escrituras|Average_Avg. Segundos de disco/escrituras|Recuento|Media|Average_Avg. Segundos de disco/escrituras|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Current Disk Queue Length|Average_Current Disk Queue Length|Recuento|Media|Average_Current Disk Queue Length|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Disk Reads/sec|Average_Disk Reads/sec|Recuento|Media|Average_Disk Reads/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Disk Transfers/sec|Average_Disk Transfers/sec|Recuento|Media|Average_Disk Transfers/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Disk Writes/sec|Average_Disk Writes/sec|Recuento|Media|Average_Disk Writes/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Free Megabytes|Average_Free Megabytes|Recuento|Media|Average_Free Megabytes|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Free Space|Average_% Free Space|Recuento|Media|Average_% Free Space|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Available MBytes|Average_Available MBytes|Recuento|Media|Average_Available MBytes|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Committed Bytes In Use|Average_% Committed Bytes In Use|Recuento|Media|Average_% Committed Bytes In Use|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Bytes Received/sec|Average_Bytes Received/sec|Recuento|Media|Average_Bytes Received/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Bytes Sent/sec|Average_Bytes Sent/sec|Recuento|Media|Average_Bytes Sent/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Bytes Total/sec|Average_Bytes Total/sec|Recuento|Media|Average_Bytes Total/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Processor Time|Average_% Processor Time|Recuento|Media|Average_% Processor Time|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Processor Queue Length|Average_Processor Queue Length|Recuento|Media|Average_Processor Queue Length|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Latido|Latido|Recuento|Media|Latido|Computer, OSType, Version, SourceComputerId|
+|Actualizar|Actualizar|Recuento|Media|Actualizar|Computer, Product, Classification, UpdateState, Optional, Approved|
+
 ## <a name="microsoftrelaynamespaces"></a>Microsoft.Relay/namespaces
 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|DESCRIPCIÓN|Dimensiones|
@@ -894,16 +1031,17 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|DESCRIPCIÓN|Dimensiones|
 |---|---|---|---|---|---|
-|SuccessfulRequests|Solicitudes correctas (versión preliminar)|Recuento|Total|Número total de solicitudes correctas para un espacio de nombres (versión preliminar)|EntityName|
-|ServerErrors|Errores del servidor. (versión preliminar)|Recuento|Total|Errores del servidor para Microsoft.ServiceBus. (versión preliminar)|EntityName|
-|UserErrors|Errores de usuario. (versión preliminar)|Recuento|Total|Errores de usuario para Microsoft.ServiceBus. (versión preliminar)|EntityName|
-|ThrottledRequests|Solicitudes limitadas. (versión preliminar)|Recuento|Total|Solicitudes limitadas para Microsoft.ServiceBus. (versión preliminar)|EntityName|
+|SuccessfulRequests|Solicitudes correctas (versión preliminar)|Recuento|Total|Número total de solicitudes correctas para un espacio de nombres (versión preliminar)|EntityName, |
+|ServerErrors|Errores del servidor. (versión preliminar)|Recuento|Total|Errores del servidor para Microsoft.ServiceBus. (versión preliminar)|EntityName, |
+|UserErrors|Errores de usuario. (versión preliminar)|Recuento|Total|Errores de usuario para Microsoft.ServiceBus. (versión preliminar)|EntityName, |
+|ThrottledRequests|Solicitudes limitadas. (versión preliminar)|Recuento|Total|Solicitudes limitadas para Microsoft.ServiceBus. (versión preliminar)|EntityName, |
 |IncomingRequests|Solicitudes entrantes (versión preliminar)|Recuento|Total|Solicitudes entrantes para Microsoft.ServiceBus. (versión preliminar)|EntityName|
 |IncomingMessages|Mensajes entrantes (versión preliminar)|Recuento|Total|Mensajes entrantes para Microsoft.ServiceBus. (versión preliminar)|EntityName|
 |OutgoingMessages|Mensajes salientes (versión preliminar)|Recuento|Total|Mensajes salientes para Microsoft.ServiceBus. (versión preliminar)|EntityName|
-|ActiveConnections|ActiveConnections (versión preliminar)|Recuento|Total|Total de conexiones activas para Microsoft.ServiceBus. (versión preliminar)|EntityName|
-|ConnectionsOpened|Conexiones abiertas. (versión preliminar)|Recuento|Total|Conexiones abiertas para Microsoft.ServiceBus. (versión preliminar)|EntityName|
-|ConnectionsClosed|Conexiones cerradas. (versión preliminar)|Recuento|Total|Conexiones cerradas para Microsoft.ServiceBus. (versión preliminar)|EntityName|
+|ActiveConnections|ActiveConnections (versión preliminar)|Recuento|Total|Total de conexiones activas para Microsoft.ServiceBus. (versión preliminar)|Sin dimensiones|
+|Tamaño|Tamaño (vista previa)|Bytes|Media|Tamaño de cola/tema en bytes. (versión preliminar)|EntityName|
+|error de Hadoop|Recuento de mensajes de una cola/tema. (versión preliminar)|Recuento|Media|Recuento de mensajes de una cola/tema. (versión preliminar)|EntityName|
+|ActiveMessages|Recuento de mensajes activos de una cola/tema. (versión preliminar)|Recuento|Media|Recuento de mensajes activos de una cola/tema. (versión preliminar)|EntityName|
 |CPUXNS|Uso de CPU por espacio de nombres|Percent|Máxima|Métrica de uso de CPU de espacio de nombres premium de Service Bus|Sin dimensiones|
 |WSXNS|Uso de tamaño de memoria por espacio de nombres|Percent|Máxima|Métrica de uso de memoria de espacio de nombres premium de Service Bus|Sin dimensiones|
 
@@ -929,8 +1067,8 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |dwu_limit|Límite de DWU|Recuento|Máxima|Límite de DWU|Sin dimensiones|
 |dwu_consumption_percent|Porcentaje de DWU|Percent|Máxima|Porcentaje de DWU|Sin dimensiones|
 |dwu_used|DWU utilizada|Recuento|Máxima|DWU utilizada|Sin dimensiones|
-|dw_cpu_percent|Porcentaje de CPU de nivel de nodo de almacenamiento de datos|Percent|Media|Porcentaje de CPU de nivel de nodo de almacenamiento de datos|dw_logical_node_id|
-|dw_physical_data_read_percent|Porcentaje de E/S de datos de nivel de nodo de almacenamiento de datos|Percent|Media|Porcentaje de E/S de datos de nivel de nodo de almacenamiento de datos|dw_logical_node_id|
+|dw_cpu_percent|Porcentaje de CPU de nivel de nodo de almacenamiento de datos|Percent|Media|Porcentaje de CPU de nivel de nodo de almacenamiento de datos|DwLogicalNodeId|
+|dw_physical_data_read_percent|Porcentaje de E/S de datos de nivel de nodo de almacenamiento de datos|Percent|Media|Porcentaje de E/S de datos de nivel de nodo de almacenamiento de datos|DwLogicalNodeId|
 
 ## <a name="microsoftsqlserverselasticpools"></a>Microsoft.Sql/servers/elasticPools
 
@@ -972,8 +1110,8 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|DESCRIPCIÓN|Dimensiones|
 |---|---|---|---|---|---|
-|BlobCapacity|Capacidad de Blob|Bytes|Media|La cantidad de almacenamiento que ha utilizado el Blob service de la cuenta de almacenamiento, en bytes.|BlobType|
-|BlobCount|Recuento de blobs|Recuento|Media|El número de blobs en el Blob service de la cuenta de almacenamiento.|BlobType|
+|BlobCapacity|Capacidad de Blob|Bytes|Total|La cantidad de almacenamiento que ha utilizado el Blob service de la cuenta de almacenamiento, en bytes.|BlobType|
+|BlobCount|Recuento de blobs|Recuento|Total|El número de blobs en el Blob service de la cuenta de almacenamiento.|BlobType|
 |ContainerCount|Recuento de contenedores de blobs|Recuento|Media|El número de contenedores en el Blob service de la cuenta de almacenamiento.|Sin dimensiones|
 |Transacciones|Transacciones|Recuento|Total|El número de solicitudes realizadas a un servicio de almacenamiento o la operación de API especificada. Este número incluye solicitudes correctas y con errores, así como las solicitudes que generaron errores. Use la dimensión ResponseType para el número de diferentes tipos de respuesta.|ResponseType, GeoType, ApiName|
 |Entrada|Entrada|Bytes|Total|La cantidad de datos de entrada, en bytes. Este número incluye la entradas desde un cliente externo en Azure Storage, así como la entrada dentro de Azure.|GeoType, ApiName|
@@ -1039,6 +1177,8 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |AMLCalloutRequests|Solicitudes de función|Recuento|Total|Solicitudes de función|Sin dimensiones|
 |AMLCalloutFailedRequests|Solicitudes de función con errores|Recuento|Total|Solicitudes de función con errores|Sin dimensiones|
 |AMLCalloutInputEvents|Eventos de función|Recuento|Total|Eventos de función|Sin dimensiones|
+|DeserializationError|Errores de deserialización de entrada|Recuento|Total|Errores de deserialización de entrada|Sin dimensiones|
+|EarlyInputEvents|Eventos cuya hora de aplicación es anterior a su hora de llegada.|Recuento|Total|Eventos cuya hora de aplicación es anterior a su hora de llegada.|Sin dimensiones|
 
 ## <a name="microsoftwebserverfarms"></a>Microsoft.Web/serverfarms
 
@@ -1072,6 +1212,8 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |AverageMemoryWorkingSet|Espacio de trabajo de memoria promedio|Bytes|Media|Espacio de trabajo de memoria promedio|Instance|
 |AverageResponseTime|Tiempo de respuesta promedio|Segundos|Media|Tiempo de respuesta promedio|Instance|
 |AppConnections|Conexiones|Recuento|Media|Conexiones|Instance|
+|Identificadores|Recuento de identificadores|Recuento|Media|Recuento de identificadores|Instance|
+|Subprocesos|Número de subprocesos|Recuento|Media|Número de subprocesos|Instance|
 
 ## <a name="microsoftwebsites-functions"></a>Microsoft.Web/sites (Functions)
 
@@ -1108,6 +1250,8 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |FunctionExecutionUnits|Unidades de ejecución de función|Recuento|Total|Unidades de ejecución de función|Instance|
 |FunctionExecutionCount|Recuento de ejecución de funciones|Recuento|Total|Recuento de ejecución de funciones|Instance|
 |AppConnections|Conexiones|Recuento|Media|Conexiones|Instance|
+|Identificadores|Recuento de identificadores|Recuento|Media|Recuento de identificadores|Instance|
+|Subprocesos|Número de subprocesos|Recuento|Media|Número de subprocesos|Instance|
 
 ## <a name="microsoftwebhostingenvironmentsmultirolepools"></a>Microsoft.Web/hostingEnvironments/multiRolePools
 
@@ -1146,7 +1290,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |CpuPercentage|Porcentaje de CPU|Percent|Media|Porcentaje de CPU|Instance|
 |MemoryPercentage|Porcentaje de memoria|Percent|Media|Porcentaje de memoria|Instance|
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Lea información sobre las métricas en Azure Monitor](monitoring-overview-metrics.md)
 * [Creación de alertas basadas en métricas](insights-receive-alert-notifications.md)
 * [Exportación de métricas a cuentas de almacenamiento, Event Hubs o Log Analytics](monitoring-overview-of-diagnostic-logs.md)

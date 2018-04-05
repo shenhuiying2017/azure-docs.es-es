@@ -1,6 +1,6 @@
 ---
-title: "Información sobre la terminología de Azure Service Fabric | Microsoft Docs"
-description: "Descripción sobre la terminología de Service Fabric. Describe la terminología y los conceptos clave que se emplean en el resto de la documentación."
+title: Información sobre la terminología de Azure Service Fabric | Microsoft Docs
+description: Descripción sobre la terminología de Service Fabric. Describe la terminología y los conceptos clave que se emplean en el resto de la documentación.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/18/2017
+ms.date: 03/26/2018
 ms.author: ryanwi
-ms.openlocfilehash: dc7e536ce40bf95e1950e1e44844cd8fe26ea1a1
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: bd57b6344baef3bdf97c850564ae2d3afa9c811e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="service-fabric-terminology-overview"></a>Información general sobre la terminología de Service Fabric
 Azure Service Fabric es una plataforma de sistemas distribuidos que facilita el empaquetamiento, la implementación y la administración de microservicios escalables y confiables. En este artículo se describe la terminología que se usa en Service Fabric para comprender los términos que se utilizan en la documentación.
@@ -89,17 +89,27 @@ Para más información sobre la implementación en el servicio Image Store, cons
    - Orquesta las actualizaciones de la aplicación y el clúster.
    - Interactúa con otros componentes del sistema.
 
+**Servicio de administrador de reparaciones**: se trata de un servicio de sistema opcional que permite acciones de reparación que se realizan en un clúster de manera segura, automatizable y transparente. El administrador de reparaciones se usa en:
+   - Reparaciones de mantenimiento de Azure en clústeres de Azure Service Fabric con [durabilidad Silver y Gold](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster).
+   - Acciones de reparación para la [aplicación de orquestación de revisiones](service-fabric-patch-orchestration-application.md)
+
 ## <a name="built-in-programming-models"></a>Modelos de programación integrados
-Hay modelos de programación de .NET Framework disponibles para generar servicios de Service Fabric:
+Hay modelos de programación de .NET Framework y Java disponibles para compilar servicios de Service Fabric:
 
 **Reliable Services**: una API para generar servicios con y sin estado. Los servicios con estado almacenan su estado en colecciones confiables, como un diccionario o una cola. También permiten conectar una amplia variedad de pilas de comunicación, como la API web y Windows Communication Foundation (WCF).
 
 **Reliable Actors**: una API para crear objetos con y sin estado a través del modelo de programación de actor virtual. Este modelo resulta útil cuando hay muchas unidades independientes de cálculo o estado. Este modelo utiliza un modelo de subprocesos basado en turnos, por lo que es conveniente evitar usar código que llame a otros actores o servicios, ya que un actor individual no puede procesar otras solicitudes entrantes hasta que terminen todas sus solicitudes salientes.
 
+También puede ejecutar las aplicaciones existentes en Service Fabric:
+
+**Contenedores**: Service Fabric admite la implementación de contenedores de Docker en Linux y de contenedores de Windows Server en Windows Server 2016, además de el modo de aislamiento de Hyper-V. En el [modelo de aplicación](service-fabric-application-model.md)de Service Fabric, un contenedor representa un host de la aplicación en el que se colocan varias réplicas de servicio. Service Fabric puede ejecutar cualquier contenedor, y este escenario es similar al escenario del archivo ejecutable invitado, donde se empaqueta una aplicación existente dentro de un contenedor. También puede ejecutar los [servicios de Service Fabric dentro de contenedores](service-fabric-services-inside-containers.md).
+
+**Archivos ejecutables invitados**: puede ejecutar cualquier tipo de código, como Node.js, Java o C++ en Azure Service Fabric como servicio. Service Fabric hace referencia a estos tipos de servicios como archivos ejecutables invitados, que se tratan como servicios sin estado. Entre las ventajas de ejecutar a un archivo ejecutable invitado en un clúster de Service Fabric se incluyen la alta disponibilidad, la supervisión del estado, la administración del ciclo de vida de las aplicaciones, la alta densidad y la detectabilidad.
+
 Para más información, consulte el artículo de [elección de un modelo de programación para el servicio](service-fabric-choose-framework.md).
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para más información acerca de Service Fabric:
 
 * [Información general de Service Fabric](service-fabric-overview.md)

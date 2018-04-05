@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: asgang
-ms.openlocfilehash: 17cd6a931563c7d33576749453d742aca253526b
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 48d84f59a80ea14c2b40821d886fc410c7e3f2c3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Habilitación de máquinas virtuales de VMware en Azure
 
@@ -112,15 +112,15 @@ Después, compruebe las propiedades de la máquina de origen. Recuerde que el no
     Por ejemplo, si una máquina de origen tiene dos adaptadores de red y el tamaño de la máquina de destino admite cuatro, el equipo de destino tiene dos adaptadores. Si la máquina de origen tiene dos adaptadores pero el tamaño de destino compatible solo admite uno, la máquina de destino tiene solo un adaptador.
     - Si la máquina virtual tiene varios adaptadores de red, todos ellos se conectan a la misma red. Además, el primero de ellos que se muestre en la lista se convertirá en el adaptador de red *predeterminado* en la máquina virtual de Azure.
 
-### <a name="azure-hybrid-use-benefit"></a>Ventaja de uso híbrido de Azure
+### <a name="azure-hybrid-benefit"></a>Ventaja híbrida de Azure
 
-Los clientes de Microsoft Software Assurance pueden usar la Ventaja para uso híbrido de Azure para ahorrar en los costos de licencia de máquinas Windows Server que se migran a Azure o usar Azure para la recuperación ante desastres. Si está autorizado a usar la Ventaja para uso híbrido de Azure, puede especificar que la máquina virtual asignada a este beneficio es la que crea Azure Site Recovery en caso de una conmutación por error. Para ello, siga estos pasos:
+Los clientes de Microsoft Software Assurance pueden usar la Ventaja híbrida de Azure para ahorrar en los costos de licencia de máquinas Windows Server que se migran a Azure o usar Azure para la recuperación ante desastres. Si está autorizado a usar la Ventaja híbrida de Azure, puede especificar que la máquina virtual asignada a este beneficio sea la que crea Azure Site Recovery en caso de una conmutación por error. Para ello, siga estos pasos:
 - Vaya a la sección de propiedades de Compute y Network de la máquina virtual replicada.
-- Responda a la pregunta sobre si tiene una licencia de Windows Server que le permita ser apto para la Ventaja para uso híbrido de Azure.
-- Active la casilla para confirmar que tiene una licencia de Windows Server con Software Assurance que puede usar para aplicar la Ventaja para uso híbrido en la máquina que se creará en la conmutación por error.
+- Responda a la pregunta sobre si tiene una licencia de Windows Server que le permita ser apto para la Ventaja híbrida de Azure.
+- Active la casilla para confirmar que tiene una licencia de Windows Server con Software Assurance que puede usar para aplicar la Ventaja híbrida de Azure en la máquina que se creará en la conmutación por error.
 - Guarde la configuración de la máquina replicada.
 
-Más información sobre [Ventaja para uso híbrido de Azure](https://aka.ms/azure-hybrid-use-benefit-pricing).
+Más información sobre la [Ventaja híbrida de Azure](https://aka.ms/azure-hybrid-benefit-pricing).
 
 ## <a name="common-issues"></a>Problemas comunes
 

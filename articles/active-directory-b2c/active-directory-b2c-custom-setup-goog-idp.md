@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C: adición de Google + como un proveedor de identidades de OAuth2 mediante directivas personalizadas"
+title: 'Azure Active Directory B2C: adición de Google + como un proveedor de identidades de OAuth2 mediante directivas personalizadas'
 description: Ejemplo donde se usa Google+ como proveedor de identidades mediante el protocolo OAuth2
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 08/04/2017
-ms.author: yoelh
-ms.openlocfilehash: d389a44ce38d84e510060f3b0a53cda58513dee5
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.author: davidmu
+ms.openlocfilehash: f12bbc2472aa2d83088c7d4d7b8f173744fb36b4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-add-google-as-an-oauth2-identity-provider-using-custom-policies"></a>Azure Active Directory B2C: adición de Google + como un proveedor de identidades de OAuth2 mediante directivas personalizadas
 
@@ -26,7 +23,7 @@ ms.lasthandoff: 01/09/2018
 
 En esta guía se muestra cómo habilitar el inicio de sesión para usuarios de desde la cuenta de Google+ mediante [directivas personalizadas](active-directory-b2c-overview-custom.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Complete los pasos del artículo [Introducción a las directivas personalizadas](active-directory-b2c-get-started-custom.md).
 
@@ -39,7 +36,7 @@ Estos pasos incluyen:
 5.  Cargar la directiva en un inquilino de Azure AD B2C y probarla
 
 ## <a name="create-a-google-account-application"></a>Creación de una aplicación de la cuenta de Google+
-Para usar Google+ como proveedor de identidades en Azure Active Directory (Azure AD) B2C, debe crear una aplicación de Google+ y suministrarle los parámetros correctos. Puede registrar una aplicación de Google+ aquí: [https://accounts.google.com/SignUp](https://accounts.google.com/SignUp).
+Para usar Google+ como proveedor de identidades en Azure Active Directory (Azure AD) B2C, debe crear una aplicación de Google+ y suministrarle los parámetros correctos. Puede registrar una aplicación de Google+ aquí: [https://accounts.google.com/SignUp](https://accounts.google.com/SignUp)
 
 1.  Vaya a [Google Developers Console](https://console.developers.google.com/) e inicie sesión con las credenciales de su cuenta de Google+.
 2.  Haga clic en **Create project** (Crear proyecto), escriba un nombre de proyecto en **Project name** y haga clic en **Create** (Crear).

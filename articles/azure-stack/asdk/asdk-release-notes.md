@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/22/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 176b850120958a5ca5fdaece4831e2ed27ac0a04
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 6b08c1793857fd6c6a6a04c0d450e76a36357597
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Notas de la versión del Kit de desarrollo de Azure Stack
 Estas notas de la versión proporcionan información sobre las mejoras, correcciones y problemas conocidos en el Kit de desarrollo de Azure Stack. Si no está seguro de qué versión se está ejecutando, puede usar el [portal de administración](.\.\azure-stack-updates.md#determine-the-current-version).
@@ -56,6 +56,11 @@ Consulte la sección de [nuevas características y correcciones](.\.\azure-stack
     - *ERROR - Template for FaultType ResourceProviderTimeout is missing.* (ERROR: falta la plantilla de FaultType ResourceProviderTimeout)
 
     Esta alerta puede omitirse sin problemas. 
+
+- En el portal de administración y el portal de usuarios, la hoja de información general no puede cargarse al seleccionarla para las cuentas de almacenamiento que se crearon con una versión anterior de la API (ejemplo: 15-06-2015). 
+
+  Como alternativa, use PowerShell para ejecutar el script **Start-ResourceSynchronization.ps1** para restaurar el acceso a los detalles de la cuenta de almacenamiento. [El script está disponible en GitHub]( https://github.com/Azure/AzureStack-Tools/tree/master/Support/scripts) y debe ejecutarse con las credenciales de administrador del servicio en el host del kit de desarrollo si utiliza el ASDK.  
+
 
 #### <a name="health-and-monitoring"></a>Estado y supervisión
 En el portal de administración de Azure Stack, puede que vea una alerta crítica con el nombre **Pending external certificate expiration**(Pendiente de expiración del certificado externo).  Esta alerta puede omitirse sin problemas y afecta a las operaciones del Kit de desarrollo de Azure Stack. 
@@ -273,9 +278,11 @@ En entornos implementados de Servicios de federación de Active Directory (AD FS
     > Algunos de los elementos que aparecen en la sección **Nuevas características y correcciones** solo son importantes para los sistemas integrados de Azure Stack.
 
 ### <a name="known-issues"></a>Problemas conocidos
+
  
 #### <a name="deployment"></a>Implementación
 - Debe especificar un servidor de hora mediante una dirección IP durante la implementación.
+- A partir de la versión 1711, **CloudAdmin** es un nombre de cuenta reservada y no debe especificarse manualmente al implementar el kit de desarrollo. 
 
 #### <a name="infrastructure-management"></a>Administración de la infraestructura
 - No habilite la copia de seguridad de la infraestructura en la hoja **Infrastructure backup** (Copia de seguridad de la infraestructura).

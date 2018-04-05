@@ -8,24 +8,27 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: 8b16545bd1a3afa138c22ac6ab01b139a9e636a8
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.date: 03/22/2018
+ms.openlocfilehash: cfebdbe7485f0ffaa15828803d72c2a3f97c118d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>Versiones admitidas de servidores de Azure Database for MySQL
 Azure Database for MySQL se ha desarrollado a partir de [MySQL Community Edition](https://www.mysql.com/products/community/), con el motor InnoDB.  Azure Database for MySQL actualmente admite las siguientes versiones:
 
-## <a name="mysql-version-5635"></a>Versión MySQL 5.6.35
-Consulte la [documentación](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-35.html) de MySQL para obtener más información sobre las mejoras y correcciones de MySQL 5.6.35.
+## <a name="mysql-version-5638"></a>Versión de MySQL 5.6.38
+Consulte la [documentación](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-38.html) de MySQL para obtener más información sobre las mejoras y correcciones de MySQL 5.6.38.
 
-## <a name="mysql-version-5718"></a>Versión MySQL 5.7.18
-Consulte la [documentación](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-18.html) de MySQL para obtener más información sobre las mejoras y correcciones de MySQL 5.7.18.
+## <a name="mysql-version-5720"></a>Versión de MySQL 5.7.20
+Consulte la [documentación](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-20.htmll) de MySQL para obtener más información sobre las mejoras y correcciones de MySQL 5.7.20.
+
+> [!NOTE]
+> En el servicio, se usa una puerta de enlace para redirigir las conexiones a las instancias de servidor. Una vez establecida la conexión, el cliente de MySQL muestra la versión de MySQL establecida en la puerta de enlace, no la versión real que se ejecuta en la instancia del servidor MySQL. Para determinar la versión de la instancia del servidor MySQL, use el comando `SELECT VERSION();` en el símbolo del sistema de MySQL. 
 
 ## <a name="managing-updates-and-upgrades"></a>Administración de actualizaciones
-Azure Database for MySQL administra automáticamente la aplicación de revisiones para las actualizaciones de versión secundaria. No se admiten las actualizaciones de versiones principales, por ejemplo, de MySQL 5.6 a MySQL 5.7.
+El servicio administra automáticamente la aplicación de revisiones para las actualizaciones de versión secundaria. No se admiten actualizaciones de versión principal (p. ej. actualizar de MySQL 5.6 a MySQL 5.7).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

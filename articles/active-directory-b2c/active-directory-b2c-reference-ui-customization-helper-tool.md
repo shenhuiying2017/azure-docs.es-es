@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C: herramienta auxiliar de personalización de la interfaz de usuario de página | Microsoft Docs"
-description: "Herramienta auxiliar que se usa para mostrar la característica de personalización de la interfaz de usuario (IU) de página en Azure Active Directory B2C"
+title: 'Azure Active Directory B2C: herramienta auxiliar de personalización de la interfaz de usuario de página | Microsoft Docs'
+description: Herramienta auxiliar que se usa para mostrar la característica de personalización de la interfaz de usuario (IU) de página en Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: 
-author: swkrish
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: bryanla
-ms.assetid: ae935d52-3520-4a94-b66e-b35bb40e7514
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: swkrish
-ms.openlocfilehash: a9ccdea64213d564b271699afe28f5ae6db0a71a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: f898c626d52b1a4e7df72284190749f4481999ad
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-a-helper-tool-used-to-demonstrate-the-page-user-interface-ui-customization-feature"></a>Azure Active Directory B2C: una herramienta auxiliar que se usa para mostrar la característica de personalización de la interfaz de usuario de la página
 Este artículo es un complemento del [artículo principal sobre personalización de la interfaz de usuario](active-directory-b2c-reference-ui-customization.md) de Azure Active Directory (Azure AD) B2C. Los pasos siguientes describen cómo ejecutar la característica de personalización de la interfaz de usuario de la página mediante el contenido HTML y CSS de ejemplo que hemos proporcionado.
@@ -48,7 +45,7 @@ Para los fines de este tutorial, ya hemos creado algún contenido de ejemplo y l
 5. Haga clic en **Página de suscripción de cuenta local**. Cambie el conmutador **Usar plantilla personalizada** a **Sí**. En el campo **URI de página personalizada**, escriba `https://wingtiptoysb2c.blob.core.windows.net/b2c/wingtip/selfasserted.html`.
 6. Repita el mismo paso para la **página de registro de cuenta de redes sociales**.
    Haga clic en **Aceptar** dos veces para cerrar las hojas de personalización de la interfaz de usuario.
-7. Haga clic en **Guardar**.
+7. Haga clic en **Save**(Guardar).
 
 Ahora puede probar la directiva personalizada. Puede usar su propia aplicación o el área de juegos de Azure AD B2C si lo desea, pero también puede hacer simplemente clic en el comando **Ejecutar** de la hoja de directivas. Seleccione la aplicación en la lista desplegable y elija el URI de redirección correspondiente. Haga clic en el botón **Ejecutar ahora** . Se abrirá una nueva pestaña del explorador y podrá pasar por la experiencia de usuario de registro en su aplicación con el nuevo contenido implementado.
 
@@ -56,12 +53,12 @@ Ahora puede probar la directiva personalizada. Puede usar su propia aplicación 
 Si desea usar Azure Blob Storage para hospedar el contenido de su página, puede crear su propia cuenta de almacenamiento y usar nuestra herramienta auxiliar de B2C para cargar los archivos.
 
 ### <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 2. Haga clic en **+ Nuevo** > **Datos y almacenamiento** > **Cuenta de almacenamiento**. Necesitará una suscripción de Azure para crear una cuenta de Azure Blob Storage. Puede registrarse para obtener una evaluación gratuita en el [sitio web de Azure](https://azure.microsoft.com/pricing/free-trial/).
-3. Proporcione un **Nombre** para la cuenta de almacenamiento (por ejemplo, "contoso") y elija las opciones adecuadas para **Plan de tarifa**, **Grupo de recursos** y **Suscripción**. Asegúrese de tener la opción **Anclar a Panel de inicio** activada. Haga clic en **Crear**.
+3. Proporcione un **Nombre** para la cuenta de almacenamiento (por ejemplo, "contoso") y elija las opciones adecuadas para **Plan de tarifa**, **Grupo de recursos** y **Suscripción**. Asegúrese de tener la opción **Anclar a Panel de inicio** activada. Haga clic en **Create**(Crear).
 4. Regrese al panel de inicio y haga clic en la cuenta de almacenamiento que acaba de crear.
 5. En la sección **Resumen**, haga clic en **Contenedores** y luego en **+ Agregar**.
-6. Asigne un **Nombre** al contenedor (por ejemplo, "b2c") y seleccione **Blob** como **Tipo de acceso**. Haga clic en **Aceptar**.
+6. Asigne un **Nombre** al contenedor (por ejemplo, "b2c") y seleccione **Blob** como **Tipo de acceso**. Haga clic en **OK**.
 7. El contenedor que creó aparecerá en la lista de la hoja **Blobs** . Anote la dirección URL del contenedor; por ejemplo, debería ser similar a `https://contoso.blob.core.windows.net/b2c`. Cierre la hoja **Blobs** .
 8. En la hoja de la cuenta de almacenamiento, haga clic en **Claves** y anote los valores de los campos **Nombre de la cuenta de almacenamiento** y **Clave de acceso primaria**.
 

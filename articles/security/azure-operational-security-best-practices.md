@@ -1,12 +1,12 @@
 ---
 title: Procedimientos recomendados de seguridad operativa de Azure | Microsoft Docs
-description: "En este artículo se proporciona un conjunto de procedimientos recomendados para la reforzar la seguridad operativa de Azure."
+description: En este artículo se proporciona un conjunto de procedimientos recomendados para la reforzar la seguridad operativa de Azure.
 services: security
 documentationcenter: na
 author: unifycloud
 manager: swadhwa
 editor: tomsh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: db9840817d92b4f2f63009d30dbd554666d53dbe
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: bb7e0df046ecc2ffcd3fa59ac53edf36095933c7
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-operational-security-best-practices"></a>Procedimientos recomendados de seguridad operativa de Azure
 Con seguridad operativa de Azure, se hace referencia a los servicios, los controles y las características disponibles para los usuarios para proteger sus datos, aplicaciones y otros recursos en Microsoft Azure. La seguridad operativa de Azure se basa en una plataforma que incorpora el conocimiento adquirido a través de diversas funcionalidades exclusivas de Microsoft, incluido el ciclo de vida de desarrollo de seguridad (SDL) de Microsoft, el programa Microsoft Security Response Center y un conocimiento en profundidad del panorama de amenazas de ciberseguridad.
@@ -167,10 +167,10 @@ Para más información sobre cómo configurar Network Watcher y cómo habilitarl
 Estas son algunas de las prácticas incluidas en la lista de Azure DevOps en este espacio de Microsoft Cloud, que repercuten en la mejora de la productividad y la eficiencia de las empresas y los equipos humanos.
 
 -   **Infraestructura como código (IaC):** se trata de un conjunto de técnicas y procedimientos recomendados que ayudan a los profesionales de TI a aminorar la carga de trabajo que supone la creación y administración cotidianas de una infraestructura modular. Permite a los profesionales de TI crear y mantener su entorno de servidor moderno de forma similar a como los programadores de software crean y mantienen el código de las aplicaciones. En Azure, [Azure Resource Manager]( https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/) le permite aprovisionar las aplicaciones mediante una plantilla declarativa. En una plantilla, puede implementar varios servicios junto con sus dependencias. Use la misma plantilla para implementar su aplicación de forma repetida durante cada fase de su ciclo de vida.
--   **Implementación e integración continuas**: puede configurar los proyectos de equipo de Visual Studio Online para que se [compilen y se implementen automáticamente](https://www.visualstudio.com/docs/build/overview) en Azure Web Apps o Cloud Services. VSO implementa automáticamente los archivos binarios después de realizar una compilación en Azure tras cada comprobación de código. El proceso de compilación del paquete que se describe en este artículo es equivalente al comando Package en Visual Studio y los pasos de publicación son equivalentes al comando Publish en Visual Studio.
+-   **Implementación e integración continuas**: puede configurar los proyectos de equipo de Visual Studio Team Services (VSTS) para que se [compilen y se implementen automáticamente](https://www.visualstudio.com/docs/build/overview) en Azure Web Apps o Cloud Services. VSTS implementa automáticamente los archivos binarios después de realizar una compilación en Azure tras cada comprobación de código. El proceso de compilación del paquete que se describe en este artículo es equivalente al comando Package en Visual Studio y los pasos de publicación son equivalentes al comando Publish en Visual Studio.
 -   **Administración de versiones:** Visual Studio [Release Management](https://msdn.microsoft.com/library/vs/alm/release/overview) es una excelente solución para automatizar la implementación en varias fases y administrar el proceso de publicación. Cree canalizaciones de implementación continua y administrada con el fin de que el lanzamiento sea rápido, sencillo y frecuente. Con Release Management, podemos automatizar en gran medida el proceso de lanzamiento así como tener predefinidos flujos de trabajo de aprobación. Realice la implementación de forma local y en la nube, amplíela y personalícela según sea necesario.
 -   **Supervisión del rendimiento de las aplicaciones:** detecte y resuelva los problemas, y mejore continuamente las aplicaciones. Diagnostique rápidamente cualquier problema en su aplicación activa. Sepa lo que sus usuarios hacen con ella. La configuración es cuestión de agregar código de Javascript y una entrada webconfig, y verá los resultados en minutos en el portal, con todos los detalles. [App Insights](https://azure.microsoft.com/documentation/articles/app-insights-start-monitoring-app-health-usage/) ayuda a las empresas a agilizar la detección y corrección de problemas.
--   **Prueba de carga y escalado automático:** se pueden detectar los problemas de rendimiento en la aplicación para mejorar la calidad de la implementación y asegurarse de que esté siempre activada o disponible para satisfacer las necesidades empresariales. Asegúrese de que la aplicación puede controlar el tráfico para su campaña de marketing o su siguiente lanzamiento. Empiece a ejecutar [pruebas de carga](https://www.visualstudio.com/docs/test/performance-testing/getting-started/getting-started-with-performance-testing) basadas en la nube sin invertir apenas tiempo con Visual Studio Online.
+-   **Prueba de carga y escalado automático:** se pueden detectar los problemas de rendimiento en la aplicación para mejorar la calidad de la implementación y asegurarse de que esté siempre activada o disponible para satisfacer las necesidades empresariales. Asegúrese de que la aplicación puede controlar el tráfico para su campaña de marketing o su siguiente lanzamiento. Empiece a ejecutar [pruebas de carga](https://www.visualstudio.com/docs/test/performance-testing/getting-started/getting-started-with-performance-testing) basadas en la nube sin invertir apenas tiempo con VSTS.
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Más información acerca de la [Seguridad operativa de Azure](https://docs.microsoft.com/azure/security/azure-operational-security).

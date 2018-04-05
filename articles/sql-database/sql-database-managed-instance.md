@@ -8,17 +8,17 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/22/2018
 ms.author: bonova
-ms.openlocfilehash: bc9c16462f28d129efa8c47183c6325e69bb64f3
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 2d07d58114a4d89f40a4ea9e388c58f58494766c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="what-is-a-managed-instance-preview"></a>¿Qué es Instancia administrada de SQL Database (versión preliminar)?
 
-Instancia administrada de Azure SQL Database (versión preliminar) es una nueva funcionalidad de Azure SQL Database que proporciona casi un 100 % de compatibilidad con instancias locales de SQL Server, una implementación nativa de [red virtual (VNet)](../virtual-network/virtual-networks-overview.md) que permite solucionar problemas de seguridad habituales y un [modelo de negocio](https://azure.microsoft.com/pricing/details/sql-database/) favorable para los clientes locales de SQL Server. Instancia administrada permite a los clientes existentes de SQL Server migrar mediante lift-and-shift sus aplicaciones locales a la nube con cambios mínimos en la aplicación y la base de datos. Al mismo tiempo, Instancia administrada conserva todas las funcionalidades de PaaS (revisiones y actualizaciones de versión automáticas, copia de seguridad, alta disponibilidad), lo cual reduce drásticamente la sobrecarga de administración y el costo total de propiedad.
+Instancia administrada de Azure SQL Database (versión preliminar) es una nueva funcionalidad de Azure SQL Database que proporciona casi un 100 % de compatibilidad con instancias locales de SQL Server (Enterprise Edition), una implementación nativa de [red virtual (VNet)](../virtual-network/virtual-networks-overview.md) que permite solucionar problemas de seguridad habituales y un [modelo de negocio](https://azure.microsoft.com/pricing/details/sql-database/) favorable para los clientes locales de SQL Server. Instancia administrada permite a los clientes existentes de SQL Server migrar mediante lift-and-shift sus aplicaciones locales a la nube con cambios mínimos en la aplicación y la base de datos. Al mismo tiempo, Instancia administrada conserva todas las funcionalidades de PaaS (revisiones y actualizaciones de versión automáticas, copia de seguridad, alta disponibilidad), lo cual reduce drásticamente la sobrecarga de administración y el costo total de propiedad.
 
 > [!IMPORTANT]
 > Para una lista de las regiones en las que está actualmente disponible Instancia administrada, consulte [Migrate your databases to a fully managed service with Azure SQL Database Managed Instance](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/) (Migración de las bases de datos a un servicio completamente administrado con Instancia administrada de Azure SQL Database).
@@ -34,16 +34,16 @@ Instancia administrada está pensado para convertirse en la plataforma preferida
 
 En cuanto a la disponibilidad general, Instancia administrada quiere proporcionar una compatibilidad de área expuesta cercana al 100% con la última versión de SQL Server local mediante un plan de lanzamiento gradual. 
 
-En la siguiente tabla se describen las principales diferencias y escenarios de uso previstos para SQL IaaS, Azure SQL Database e Instancia administrada:
+En la siguiente tabla se describen las principales diferencias y escenarios de uso previstos para SQL IaaS, Azure SQL Database e Instancia administrada de SQL Database:
 
 | | Escenario de uso | 
 | --- | --- | 
-|Instancia administrada |Para aquellos clientes que desean migrar un gran número de aplicaciones desde ubicaciones locales o de IaaS, compiladas automáticamente o proporcionadas por fabricantes de software independientes, con el menor esfuerzo de migración posible, se recomienda Instancia administrada. Mediante el uso totalmente automatizado de [Azure Database Migration Service (DMS)](/sql/dma/dma-overview), los clientes pueden migrar mediante lift-and-shift sus instancias locales de SQL Server a una instancia administrada que ofrezca compatibilidad con SQL Server local y aislamiento completo de las instancias de cliente con compatibilidad nativa con redes virtuales.  Con Software Assurance, puede intercambiar sus licencias existentes para obtener descuentos en Instancia administrada de SQL Database mediante las [ventajas para uso híbrido de Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  Instancia administrada de SQL Database es el mejor destino de migración en la nube para instancias de SQL Server que requieren alta seguridad y una completa superficie de programación. |
-|Azure SQL Database |**Grupos elásticos**: para los clientes que desarrollan nuevas aplicaciones SaaS multiinquilino o que transforman intencionadamente sus aplicaciones locales existentes en una aplicación SaaS multiinquilino, se recomiendan los grupos elásticos. Las ventajas de este modelo son: <br><ul><li>Conversión del modelo de negocio de venta de licencias a la venta de suscripciones de servicio (para fabricantes de software independientes)</li></ul><ul><li>Aislamiento de inquilinos fácil y a toda prueba</li></ul><ul><li>Un modelo de programación simplificado centrado en una base de datos</li></ul><ul><li>La posibilidad de escalar horizontalmente sin alcanzar un límite estricto</li></ul>**Bases de datos únicas**: para aquellos clientes que desean desarrollar nuevas aplicaciones que no sean aplicaciones SaaS multiinquilino, se recomienda usar bases de datos únicas. Las ventajas de este modelo son:<ul><li>Un modelo de programación simplificado centrado en una base de datos</li></ul>  <ul><li>Rendimiento predecible para cada base de datos</li></ul>|
-|SQL IaaS |Para los clientes que necesitan personalizar el sistema operativo o el servidor de bases de datos, así como los clientes que tienen requisitos específicos en cuanto a la ejecución de aplicaciones de terceros en paralelo con SQL Server (en la misma máquina virtual), se recomiendan las máquinas virtuales de SQL o IaaS como la mejor solución|
+|Instancia administrada de SQL Database |Para aquellos clientes que desean migrar un gran número de aplicaciones desde ubicaciones locales o de IaaS, compiladas automáticamente o proporcionadas por fabricantes de software independientes, con el menor esfuerzo de migración posible, se recomienda Instancia administrada. Mediante el uso totalmente automatizado de [Azure Database Migration Service (DMS)](/sql/dma/dma-overview), los clientes pueden migrar mediante lift-and-shift sus instancias locales de SQL Server a una instancia administrada que ofrezca compatibilidad con SQL Server local y aislamiento completo de las instancias de cliente con compatibilidad nativa con redes virtuales.  Con Software Assurance, puede intercambiar sus licencias existentes para obtener descuentos en Instancia administrada de SQL Database mediante las [ventajas para uso híbrido de Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  Instancia administrada de SQL Database es el mejor destino de migración en la nube para instancias de SQL Server que requieren alta seguridad y una completa superficie de programación. |
+|Azure SQL Database (única o grupal) |**Grupos elásticos**: para los clientes que desarrollan nuevas aplicaciones SaaS multiinquilino o que transforman intencionadamente sus aplicaciones locales existentes en una aplicación SaaS multiinquilino, se recomiendan los grupos elásticos. Las ventajas de este modelo son: <br><ul><li>Conversión del modelo de negocio de venta de licencias a la venta de suscripciones de servicio (para fabricantes de software independientes)</li></ul><ul><li>Aislamiento de inquilinos fácil y a toda prueba</li></ul><ul><li>Un modelo de programación simplificado centrado en una base de datos</li></ul><ul><li>La posibilidad de escalar horizontalmente sin alcanzar un límite estricto</li></ul>**Bases de datos únicas**: para aquellos clientes que desean desarrollar nuevas aplicaciones que no sean aplicaciones SaaS multiinquilino, se recomienda usar bases de datos únicas. Las ventajas de este modelo son:<ul><li>Un modelo de programación simplificado centrado en una base de datos</li></ul>  <ul><li>Rendimiento predecible para cada base de datos</li></ul>|
+|Máquina virtual IaaS de SQL|Para los clientes que necesitan personalizar el sistema operativo o el servidor de bases de datos, así como los clientes que tienen requisitos específicos en cuanto a la ejecución de aplicaciones de terceros en paralelo con SQL Server (en la misma máquina virtual), se recomiendan las máquinas virtuales de SQL o IaaS como la mejor solución|
 |||
 
-![posicionamiento](./media/sql-database-managed-instance/positioning.png)
+<!---![positioning](./media/sql-database-managed-instance/positioning.png)--->
 
 ## <a name="how-to-programmatically-identify-a-managed-instance"></a>Cómo identificar mediante programación una instancia administrada
 
@@ -57,6 +57,9 @@ En la tabla siguiente se muestran varias propiedades, accesibles mediante Transa
 |`@@SERVERNAME`, `SERVERPROPERTY ('ServerName')`|Nombre DNS completo de la instancia en el siguiente formato:<instanceName>.<dnsPrefix>.database.windows.net, donde <instanceName> es el nombre proporcionado por el cliente, mientras que <dnsPrefix> es la parte que se genera automáticamente del nombre, lo cual permite garantizar la exclusividad del nombre DNS global (por ejemplo, "wcus17662feb9ce98")|Por ejemplo: my-managed-instance.wcus17662feb9ce98.database.windows.net|
 
 ## <a name="key-features-and-capabilities-of-a-managed-instance"></a>Principales características y funcionalidades de Instancia administrada 
+
+> [!IMPORTANT]
+> Una instancia administrada se ejecuta con todas las características de la versión más reciente de SQL Server, incluidas las operaciones en línea, las correcciones automáticas del plan y otras mejoras de rendimiento empresarial. 
 
 | **Ventajas de PaaS** | **Continuidad del negocio** |
 | --- | --- |
@@ -90,6 +93,7 @@ La tabla siguiente describe las principales características del nivel de servic
 | Versión de SQL Server | SQL Server (la versión más reciente disponible) |
 | Tamaño de almacenamiento mínimo | 32 GB |
 | Tamaño de almacenamiento máximo | 8 TB |
+| Almacenamiento máximo por base de datos | 4 TB |
 | IOPS de almacenamiento esperadas | 500-7500 IOPS por cada archivo de datos (depende del archivo de datos). Consulte, [Premium Storage](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes) |
 | Número de archivos de datos (ROWS) por base de datos | Múltiple | 
 | Número de archivos de registro (LOG) por base de datos | 1 | 
@@ -120,7 +124,7 @@ El siguiente diagrama describe el diseño del aislamiento:
 
 ### <a name="auditing-for-compliance-and-security"></a>Auditoría de seguridad y cumplimiento 
 
-La [auditoría](sql-database-auditing.md) de Instancia administrada realiza un seguimiento de eventos de bases de datos y los escribe en un registro de auditoría de su cuenta de Azure Storage. La auditoría puede ayudarle a mantener el cumplimiento de normativas, comprender la actividad de las bases de datos y conocer las discrepancias y anomalías que pueden indicar problemas en el negocio o infracciones de seguridad sospechosas. 
+La [auditoría de Instancia administrada](sql-database-managed-instance-auditing.md) realiza un seguimiento de eventos de bases de datos y los escribe en un registro de auditoría de su cuenta de Azure Storage. La auditoría puede ayudarle a mantener el cumplimiento de normativas, comprender la actividad de las bases de datos y conocer las discrepancias y anomalías que pueden indicar problemas en el negocio o infracciones de seguridad sospechosas. 
 
 ### <a name="data-encryption-in-motion"></a>Cifrado de datos en movimiento 
 
@@ -138,7 +142,7 @@ La [seguridad de nivel de fila](/sql/relational-databases/security/row-level-sec
 
 ### <a name="threat-detection"></a>Detección de amenazas 
 
-[Detección de amenazas](sql-database-threat-detection.md) de Azure SQL Database complementa la auditoría, ya que proporciona una capa adicional de inteligencia de seguridad integrada en el servicio que detecta intentos inusuales y potencialmente dañinos para obtener acceso a las bases de datos o vulnerarlas. Recibirá alertas de actividades sospechosas, vulnerabilidades potenciales y ataques por inyección de código SQL, así como patrones anómalos de acceso a bases de datos. Las alertas de Detección de amenazas pueden verse en [Azure Security Center](https://azure.microsoft.com/services/security-center/) y proporcionar detalles de actividad sospechosa y la acción recomendada sobre cómo investigar y mitigar la amenaza.  
+La [detección de amenazas de Instancia administrada](sql-database-managed-instance-threat-detection.md) complementa la [auditoría de Instancia administrada](sql-database-managed-instance-auditing.md), ya que proporciona una capa adicional de inteligencia de seguridad integrada en el servicio que detecta intentos inusuales y potencialmente dañinos para obtener acceso a las bases de datos o vulnerarlas. Recibirá alertas de actividades sospechosas, vulnerabilidades potenciales y ataques por inyección de código SQL, así como patrones anómalos de acceso a bases de datos. Las alertas de Detección de amenazas pueden verse en [Azure Security Center](https://azure.microsoft.com/services/security-center/) y proporcionar detalles de actividad sospechosa y la acción recomendada sobre cómo investigar y mitigar la amenaza.  
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Integración de Azure Active Directory y autenticación multifactor 
 

@@ -1,11 +1,11 @@
 ---
-title: "Tutorial de Data Factory: primera canalización de datos | Microsoft Docs"
-description: "En este tutorial de Azure Data Factory se muestra cómo crear y programar una factoría de datos que procese los datos mediante el script de Hive en un clúster de Hadoop."
+title: 'Tutorial de Data Factory: primera canalización de datos | Microsoft Docs'
+description: En este tutorial de Azure Data Factory se muestra cómo crear y programar una factoría de datos que procese los datos mediante el script de Hive en un clúster de Hadoop.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: 
+manager: craigg
+editor: ''
 ms.assetid: 81f36c76-6e78-4d93-a3f2-0317b413f1d0
 ms.service: data-factory
 ms.workload: data-services
@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 374eebfe35207f6e5264159dcb72abddc6de4598
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 2fc9c0a823f48446f98fe9686242b8500462427b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Tutorial: Compilación de la primera canalización para procesar datos mediante el clúster de Hadoop
 > [!div class="op_single_selector"]
 > * [Introducción y requisitos previos](data-factory-build-your-first-pipeline.md)
-> * [portal de Azure](data-factory-build-your-first-pipeline-using-editor.md)
+> * [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Plantilla de Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
@@ -85,15 +85,15 @@ Antes de comenzar este tutorial, debe cumplir los siguientes requisitos previos:
 
 1. **Suscripción de Azure** : si no tiene ninguna, puede crear una cuenta de evaluación gratuita en un par de minutos. Consulte el artículo [Evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/) sobre cómo puede obtener una cuenta de evaluación gratuita.
 2. **Azure Storage** : para almacenar los datos de este tutorial usará una cuenta de Azure Storage. Si no dispone de una cuenta de almacenamiento de Azure, vea el artículo [Creación de una cuenta de almacenamiento](../../storage/common/storage-create-storage-account.md#create-a-storage-account) . Después de haber creado la cuenta de almacenamiento, anote el **nombre de la cuenta** y la **clave de acceso**. Consulte [Visualización y copia de las claves de acceso de almacenamiento](../../storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys).
-3. Descargue y revise el archivo de consulta de Hive (**HQL**), que se encuentra en: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql](https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql). Esta consulta transforma los datos de entrada para generar datos de salida. 
-4. Descargue y revise el archivo de entrada de ejemplo (**input.log**), que se encuentra en: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log](https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log).
+3. Descargue y revise el archivo de consulta de Hive (**HQL**) ubicado en: [ https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql ](https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql). Esta consulta transforma los datos de entrada para generar datos de salida. 
+4. Descargue y revise el archivo de entrada de ejemplo (**input.log**) ubicado en: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log](https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log)
 5. Crear un contenedor de blobs denominado **adfgetstarted** en Azure Blob Storage. 
 6. Cargue el archivo **partitionweblogs.hql** en la carpeta **script** del contenedor **adfgetstarted**. Use herramientas como el [Explorador de Microsoft Azure Storage](http://storageexplorer.com/). 
 7. Cargue el archivo **input.log** en la carpeta **inputdata** del contenedor **adfgetstarted**. 
 
 Una vez que se cumplan los requisitos previos, seleccione uno de los siguientes SDK o herramientas para realizar el tutorial: 
 
-- [portal de Azure](data-factory-build-your-first-pipeline-using-editor.md)
+- [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
 - [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Plantilla de Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)

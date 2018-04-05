@@ -1,23 +1,23 @@
 ---
 title: 'Tareas del responsable de equipo del Proceso de ciencia de datos en equipo: Azure | Microsoft Docs'
 description: Un esquema de las tareas de un responsable de equipo en un proyecto de ciencia de datos en equipo.
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev;
-ms.openlocfilehash: 58e8bfeb547fbcd7f472fbed50073b1ca3176b72
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.author: bradsev
+ms.openlocfilehash: 85589dfd60a32a28cecf427a7f5668dc36f8f5f2
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="team-lead-tasks"></a>Tareas del responsable de equipo
 
@@ -64,7 +64,7 @@ Los nombres especificados para los directorios y repositorios de este tutorial s
 En cualquier caso, los responsables de equipo deben dejar que los miembros de su equipo sepan qué repositorios de plantillas y utilidades deben adoptar cuando vayan a configurar y clonar los repositorios de proyectos y utilidades. Los responsables de proyecto deben seguir las indicaciones del artículo [Tareas del responsable de equipo en un equipo de ciencia de datos](project-lead-tasks.md) para crear repositorios de proyectos, bien dentro de proyectos de equipo independientes o dentro de un único proyecto de equipo. 
 
 
-## <a name="0-prerequisites"></a>0. Requisitos previos
+## <a name="0-prerequisites"></a>0. requisitos previos
 
 Para cumplir los requisitos previos, es necesario realizar las tareas asignadas al administrador del grupo que se describen en [Tareas del administrador del grupo en un equipo de ciencia de datos](group-manager-tasks.md). Para resumir aquí, se deben cumplir los siguientes requisitos antes de comenzar las tareas del responsable de equipo: 
 
@@ -208,7 +208,7 @@ Después de la clonación, se crean dos directorios **MyTeamProjectTemplate** (D
 
 Para copiar el contenido de la carpeta **GroupProjectTemplate** (D1) local en la carpeta **MyTeamProjectTemplate** (D3) local, ejecute uno de los siguientes scripts de shell: 
 
-####<a name="from-the-powershell-command-line-for-windows"></a>En la línea de comandos de PowerShell para Windows:        
+#### <a name="from-the-powershell-command-line-for-windows"></a>En la línea de comandos de PowerShell para Windows:       
 
     wget "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/TDSP/tdsp_local_copy_win.ps1" -outfile "tdsp_local_copy_win.ps1"
     .\tdsp_local_copy_win.ps1 2
@@ -216,7 +216,7 @@ Para copiar el contenido de la carpeta **GroupProjectTemplate** (D1) local en la
     
 ![16](./media/team-lead-tasks/team-leads-16-local_copy_team_lead_new.png)
 
-####<a name="from-the-linux-shell-for-the-linux-dsvm"></a>En el shell de Linux para la **DSVM de Linux**
+#### <a name="from-the-linux-shell-for-the-linux-dsvm"></a>En el shell de Linux para la **DSVM de Linux**
     
     wget "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/TDSP/tdsp_local_copy_linux.sh"
     bash tdsp_local_copy_linux.sh 2
@@ -388,7 +388,7 @@ Confirme que se ha montado correctamente una nueva unidad F en la máquina.
 
 **Cómo especificar manualmente la información de Azure File Storage:** si no tiene su información de Azure File Storage en un archivo de texto, puede seguir las instrucciones de la siguiente pantalla para escribir la suscripción necesaria, la cuenta de almacenamiento y la información de Azure File Storage:
 
-- Escriba **n**.
+- Entrada **n**.
 - Seleccione el índice del nombre de la suscripción donde se creó el almacenamiento de Azure File Storage en el paso anterior:
 
     ![41](./media/team-lead-tasks/team-leads-41-attach-s5-linux.png)

@@ -1,47 +1,31 @@
 ---
-title: "Administración de secretos en aplicaciones de Service Fabric | Microsoft Docs"
-description: "En este artículo se describe cómo proteger los valores de secreto en una aplicación de Service Fabric."
+title: Administración de los secretos en aplicaciones de Azure Service Fabric | Microsoft Docs
+description: Aprenda a proteger los valores de secreto en una aplicación de Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 94a67e45-7094-4fbd-9c88-51f4fc3c523a
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/02/2017
+ms.date: 03/21/2018
 ms.author: vturecek
-ms.openlocfilehash: bb40f841c6c2671621624e0599a5f3a36a36ab26
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 931667509a9aa5e898cd01ad26ff046e30acd3fe
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="managing-secrets-in-service-fabric-applications"></a>Administración de secretos en aplicaciones de Service Fabric
+# <a name="manage-secrets-in-service-fabric-applications"></a>Administración de los secretos en aplicaciones de Service Fabric
 Esta guía le lleva por los pasos para administrar secretos en una aplicación de Service Fabric. Los secretos pueden ser cualquier información confidencial, como cadenas de conexión de almacenamiento, contraseñas u otros valores que no se deben administrar en texto sin formato.
 
-En este guía se usa Azure Key Vault para administrar las claves y los secretos. Sin embargo, el *uso* de secretos en una aplicación es independiente de la plataforma de nube para permitir que las aplicaciones se implementen en un clúster hospedado en cualquier parte. 
+[Azure Key Vault][key-vault-get-started] se usa aquí como ubicación de almacenamiento seguro para los certificados y como forma de obtener los certificados instalados en clústeres de Service Fabric en Azure. Si no va a implementar en Azure, no es necesario usar Key Vault para administrar secretos en aplicaciones de Service Fabric. Sin embargo, el *uso* de secretos en una aplicación es independiente de la plataforma de nube para permitir que las aplicaciones se implementen en un clúster hospedado en cualquier parte. 
 
-## <a name="overview"></a>Información general
-La forma recomendada de administrar la configuración de servicio es mediante los [paquetes de configuración de servicio][config-package]. Los paquetes de configuración se actualizan mediante actualizaciones acumulativas administradas con validación de estado y reversión automática. Esto es preferible a la configuración global ya que reduce las posibilidades de una interrupción del servicio global. Los secretos cifrados no son ninguna excepción. Service Fabric presenta características integradas para cifrar y descifrar valores en un archivo Settings.xml de paquete de configuración mediante cifrado de certificados.
-
-En el diagrama siguiente se ilustra el flujo básico para la administración de secretos en una aplicación de Service Fabric:
-
-![información general de administración de secretos][overview]
-
-Hay cuatro pasos principales en este flujo:
-
-1. Obtener un certificado de cifrado de datos.
-2. Instalar el certificado en el clúster.
-3. Cifrar los valores de secreto al implementar una aplicación con el certificado e insértelos en un archivo de configuración Settings.xml del servicio.
-4. Leer los valores cifrados de Settings.xml y usar el mismo certificado de cifrado para descifrarlos. 
-
-[Azure Key Vault][key-vault-get-started] se usa aquí como ubicación de almacenamiento seguro para los certificados y como forma de obtener los certificados instalados en clústeres de Service Fabric en Azure. Si no va a implementar en Azure, no es necesario usar Key Vault para administrar secretos en aplicaciones de Service Fabric.
-
-## <a name="data-encipherment-certificate"></a>Certificado de cifrado de datos
+## <a name="obtain-a-data-encipherment-certificate"></a>Obtención de un certificado de cifrado de datos
 Un certificado de cifrado de datos se utiliza estrictamente para el cifrado y el descifrado de los valores de configuración en un archivo Settings.xml del servicio y no se usa para la autenticación o la forma del texto cifrado. El certificado debe cumplir los siguientes requisitos:
 
 * El certificado debe contener una clave privada.
@@ -58,7 +42,7 @@ Un certificado de cifrado de datos se utiliza estrictamente para el cifrado y el
 Este certificado debe instalarse en cada nodo del clúster. Se utilizará en tiempo de ejecución para descifrar los valores almacenados en el archivo Settings.xml de un servicio. Consulte [cómo crear un clúster mediante Azure Resource Manager][service-fabric-cluster-creation-via-arm] para ver las instrucciones de configuración. 
 
 ## <a name="encrypt-application-secrets"></a>Cifrado de los secretos de aplicación
-El SDK de Service Fabric incorpora funciones de cifrado y descifrado de secretos. Los valores de secreto se pueden cifrar en el momento de la compilación y luego descifrarse y leerse mediante programación en el código de servicio. 
+Al implementar una aplicación, cifre los valores de secreto con el certificado e insértelos en un archivo de configuración Settings.xml del servicio. El SDK de Service Fabric incorpora funciones de cifrado y descifrado de secretos. Los valores de secreto se pueden cifrar en el momento de la compilación y luego descifrarse y leerse mediante programación en el código de servicio. 
 
 El siguiente comando de PowerShell se usa para cifrar un secreto. Este comando solo cifra el valor; **no** firma el texto cifrado. Para producir texto cifrado para los valores de secreto, debe usar el mismo certificado de cifrado que está instalado en el clúster:
 
@@ -66,7 +50,7 @@ El siguiente comando de PowerShell se usa para cifrar un secreto. Este comando s
 Invoke-ServiceFabricEncryptText -CertStore -CertThumbprint "<thumbprint>" -Text "mysecret" -StoreLocation CurrentUser -StoreName My
 ```
 
-La cadena de base64 resultante contiene tanto el texto cifrado del secreto como la información sobre el certificado que se usó para cifrarlo.  La cadena codificada en base-64 se puede insertar en un parámetro en el archivo de configuración Settings.xml del servicio con el atributo `IsEncrypted` establecido en `true`:
+La cadena codificada en base64 resultante contiene tanto el texto cifrado del secreto, así como la información sobre el certificado que se usó para cifrarlo.  La cadena codificada en base-64 se puede insertar en un parámetro en el archivo de configuración Settings.xml del servicio con el atributo `IsEncrypted` establecido en `true`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -140,7 +124,7 @@ await fabricClient.ApplicationManager.CreateApplicationAsync(applicationDescript
 ```
 
 ## <a name="decrypt-secrets-from-service-code"></a>Descifrado de secretos desde el código de servicio
-Los servicios de Service Fabric se ejecutan en SERVICIO DE RED de forma predeterminada en Windows y no tienen acceso a los certificados instalados en el nodo sin algún tipo de configuración adicional.
+Para leer los valores cifrados de Settings.xml, puede descifrarlos con el certificado de cifrado utilizado para cifrar el secreto. Los servicios de Service Fabric se ejecutan en SERVICIO DE RED de forma predeterminada en Windows y no tienen acceso a los certificados instalados en el nodo sin algún tipo de configuración adicional.
 
 Al usar un certificado de cifrado de datos, deberá asegurarse de que la cuenta de SERVICIO DE RED o la cuenta de usuario con la que se ejecuta el servicio, tengan acceso a la clave privada del certificado. Service Fabric administrará la concesión del acceso para su servicio automáticamente si lo ha configurado para hacerlo así. Esta configuración se puede realizar en ApplicationManifest.xml definiendo usuarios y directivas de seguridad para los certificados. En el ejemplo siguiente, a la cuenta de SERVICIO DE RED se le concede acceso de lectura a un certificado definido por su huella digital:
 
@@ -176,7 +160,7 @@ SecureString mySecretValue = configPackage.Settings.Sections["MySettings"].Param
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Más información sobre la [ejecución de aplicaciones con distintos permisos de seguridad](service-fabric-application-runas-security.md)
+Más información sobre la [seguridad de aplicaciones y servicios](service-fabric-application-and-service-security.md)
 
 <!-- Links -->
 [key-vault-get-started]:../key-vault/key-vault-get-started.md

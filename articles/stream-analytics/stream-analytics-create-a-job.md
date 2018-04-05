@@ -1,12 +1,11 @@
 ---
-title: "Creación de un trabajo de procesamiento de análisis de datos para Stream Analytics | Microsoft Docs"
-description: "Creación de un trabajo de procesamiento de análisis de datos para Stream Analytics | segmento de ruta de aprendizaje."
-keywords: "procesamiento de análisis de datos"
-documentationcenter: 
+title: Creación de un trabajo de procesamiento de análisis de datos para Stream Analytics | Microsoft Docs
+description: Creación de un trabajo de procesamiento de análisis de datos para Stream Analytics | segmento de ruta de aprendizaje.
+keywords: procesamiento de análisis de datos
+documentationcenter: ''
 services: stream-analytics
-author: samacha
-manager: jhubbard
-editor: cgronlun
+author: jseb225
+manager: ryanw
 ms.assetid: e825fbcf-69e9-443f-b402-3b7a4568f415
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: 98784783beccc19df916920fc41364a23e6bae11
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: jeanb
+ms.openlocfilehash: 03f21c076624ee758d313c4f58e29c616226de57
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-create-a-data-analytics-processing-job-for-stream-analytics"></a>Creación de un trabajo de procesamiento de análisis de datos para Stream Analytics
 El recurso de nivel superior en Azure Stream Analytics es un trabajo de Stream Analytics.  Consta de uno o varios orígenes de datos de entrada, una consulta que expresa la transformación de datos y uno o más destinos de salida en los que se escriben los resultados. Juntos, permiten al usuario realizar procesamiento de análisis de datos para escenarios de streaming de datos.
@@ -47,7 +46,7 @@ La creación del trabajo del Stream Analytics puede tardar unos minutos. Para co
 ## <a name="get-help"></a>Obtención de ayuda
 Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Introducción a Azure Stream Analytics](stream-analytics-introduction.md)
 * [Introducción al uso de Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Escalación de trabajos de Azure Stream Analytics](stream-analytics-scale-jobs.md)

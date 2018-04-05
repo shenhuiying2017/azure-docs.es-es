@@ -1,9 +1,9 @@
 ---
 title: Carga de datos para trabajos de Hadoop en HDInsight | Microsoft Docs
-description: "Aprenda a cargar datos en HDInsight y a obtener acceso a ellos para trabajos de Hadoop con la CLI de Azure, el Explorador de Azure Storage, Azure PowerShell, la línea de comandos de Hadoop o Sqoop."
-keywords: "extracción, transformación y carga de datos de hadoop, obtención de datos en hadoop, carga de datos de hadoop"
+description: Aprenda a cargar datos en HDInsight y a obtener acceso a ellos para trabajos de Hadoop con la CLI de Azure, el Explorador de Azure Storage, Azure PowerShell, la línea de comandos de Hadoop o Sqoop.
+keywords: extracción, transformación y carga de datos de hadoop, obtención de datos en hadoop, carga de datos de hadoop
 services: hdinsight,storage
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: jgao
-ms.openlocfilehash: cfe1b6bee9bc1f093b239f8f4acc523e47ad5d1a
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: ddb6291cdff7e2b65f54e89196c2b07dd6e4aaff
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="upload-data-for-hadoop-jobs-in-hdinsight"></a>Carga de datos para trabajos de Hadoop en HDInsight
 
@@ -188,7 +188,7 @@ También hay varias aplicaciones que proporcionan una interfaz gráfica para tra
 
 | Cliente | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
-| [Microsoft Visual Studio Tools para HDInsight](hadoop/apache-hadoop-visual-studio-tools-get-started.md#navigate-the-linked-resources) |✔ |✔ |✔ |
+| [Microsoft Visual Studio Tools para HDInsight](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources) |✔ |✔ |✔ |
 | [Explorador de Azure Storage](http://storageexplorer.com/) |✔ |✔ |✔ |
 | [Cloud Storage Studio 2](http://www.cerebrata.com/Products/CloudStorageStudio/) | | |✔ |
 | [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) | | |✔ |
@@ -196,10 +196,10 @@ También hay varias aplicaciones que proporcionan una interfaz gráfica para tra
 | [Cyberduck](https://cyberduck.io/) | |✔ |✔ |
 
 #### <a name="visual-studio-tools-for-hdinsight"></a>Visual Studio Tools para HDInsight
-Para obtener más información, consulte [Navegación por los recursos vinculados](hadoop/apache-hadoop-visual-studio-tools-get-started.md#navigate-the-linked-resources).
+Para obtener más información, consulte [Navegación por los recursos vinculados](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources).
 
 #### <a id="storageexplorer"></a>Explorador de Azure Storage
-*Explorador de Azure Storage* es una práctica herramienta para inspeccionar y modificar los datos de blobs. Se trata de una herramienta gratuita que se puede descargar de [http://storageexplorer.com/](http://storageexplorer.com/). El código fuente también está disponible en este vínculo.
+*Explorador de Azure Storage* es una práctica herramienta para inspeccionar y modificar los datos de blobs. Se trata de una herramienta gratuita de código abierto que se puede descargar de [http://storageexplorer.com/](http://storageexplorer.com/). El código fuente también está disponible en este vínculo.
 
 Antes de usar la herramienta, debe saber el nombre y la clave de la cuenta de almacenamiento de Azure. Para obtener instrucciones para lograr esta información, vea la sección "Vista, copia y regeneración de las claves de acceso de almacenamiento" de [Creación, administración o eliminación de una cuenta de almacenamiento][azure-create-storage-account].
 
@@ -280,7 +280,7 @@ hadoop -fs -D fs.azure.write.request.size=4194304 -copyFromLocal test_large_file
 
 También puede aumentar el valor de `fs.azure.write.request.size` globalmente mediante Ambari. Los siguientes pasos se pueden usar para cambiar el valor en la IU web de Ambari:
 
-1. En el explorador, vaya a la IU web de Ambari para el clúster. La puede encontrar en https://CLUSTERNAME.azurehdinsight.net, donde **CLUSTERNAME** es el nombre del clúster.
+1. En el explorador, vaya a la IU web de Ambari para el clúster. Se trata de https://CLUSTERNAME.azurehdinsight.net, donde **CLUSTERNAME** es el nombre del clúster.
 
     Cuando se le solicite, escriba el nombre de usuario y la contraseña de administrador para el clúster.
 2. En el lado izquierdo de la pantalla, seleccione **HDFS** y luego seleccione la pestaña **Configs** (Configuraciones).
@@ -291,7 +291,7 @@ También puede aumentar el valor de `fs.azure.write.request.size` globalmente me
 
 Para más información sobre el uso de Ambari, consulte [Administración de clústeres de HDInsight con la interfaz de usuario web de Ambari](hdinsight-hadoop-manage-ambari.md).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Ahora que ya sabe cómo enviar datos a HDInsight, consulte los artículos siguientes para aprender a realizar el análisis:
 
 * [Introducción a Azure HDInsight][hdinsight-get-started]

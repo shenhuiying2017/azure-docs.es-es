@@ -1,24 +1,24 @@
 ---
 title: P+F sobre Azure Resource Health | Microsoft Docs
-description: "Introducción a Azure Resource Health"
+description: Introducción a Azure Resource Health
 services: Resource health
 documentationcenter: dev-center-name
 author: BernardoAMunoz
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 85cc88a4-80fd-4b9b-a30a-34ff3782855f
 ms.service: service-health
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Supportability
-ms.date: 07/05/2017
+ms.date: 03/27/2018
 ms.author: BernardoAMunoz
-ms.openlocfilehash: 692d03ad80989a969a73b15bb9042a01c286d1ec
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 2a0758f5db381f721120cbc1c018a491c018aa8d
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-resource-health-faq"></a>P+F sobre Azure Resource Health
 Aprenda las respuestas a las preguntas más frecuentes sobre Azure Resource Health.
@@ -81,12 +81,12 @@ Resource Health está disponible en todas las geoáreas de Azure, excepto en las
 - Centro de Alemania
 - Noreste de Alemania
 
-## <a name="how-is-resource-health-different-from-the-service-health-dashboard-or-the-azure-portal-service-notifications"></a>¿Qué diferencia hay entre Resource Health y el panel de estado del servicio o las notificaciones del servicio Azure Portal?
-La información que Resource Health proporciona es más específica que la que proporciona el panel de estado del servicio de Azure.
+## <a name="how-is-resource-health-different-from-azure-status-or-the-service-health-dashboard"></a>¿Cuál es la diferencia entre Resource Health, estado de Azure y el panel de Service Health?
+La información que Resource Health proporciona es más específica que la que proporciona el estado de Azure o el panel de Service Health.
 
-Mientras que las notificaciones del servicio del portal y [Estado de Azure](https://status.azure.com) le informan sobre problemas de servicio que afectan a un amplio conjunto de clientes (por ejemplo, una región de Azure), Resource Health expone eventos más pormenorizados que solo afectan a un recurso específico. Por ejemplo, si un host se reinicia de improviso, Resource Health solo alerta a los clientes cuyas máquinas virtuales se ejecutaban en ese host.
+Mientras que el [estado de Azure](https://status.azure.com) y el panel de Service Health le informan sobre problemas de servicio que afectan a un amplio conjunto de clientes (por ejemplo, una región de Azure), Resource Health expone eventos más pormenorizados que solo afectan a un recurso específico. Por ejemplo, si un host se reinicia de improviso, Resource Health solo alerta a los clientes cuyas máquinas virtuales se ejecutaban en ese host.
 
-Es importante tener en cuenta que, para proporcionar visibilidad completa de los eventos que afectan a los recursos, Resource Health también expone los eventos publicados en las notificaciones del servicio y el panel de estado del servicio.
+Es importante tener en cuenta que, para proporcionar visibilidad completa de los eventos que afectan a los recursos, Resource Health también expone los eventos publicados en el panel de Service Health.
 
 ## <a name="do-i-need-to-activate-resource-health-for-each-resource"></a>¿Es necesario activar Resource Health para cada recurso?
 No, la información de estado está disponible para todos los tipos de recursos a través de Resource Health. 
@@ -100,7 +100,7 @@ Sí.  Azure Resource Health es gratuito.
 ## <a name="what-are-the-recommendations-that-resource-health-provides"></a>¿Qué recomendaciones proporciona Resource Health?
 Según el estado, Resource Health proporciona recomendaciones con el objetivo de disminuir el tiempo dedicado a solucionar problemas. En el caso de los recursos disponibles, las recomendaciones se centran en cómo solucionar los problemas más comunes que encuentran los clientes. Si el recurso no está disponible debido a un evento no planeado de Azure, el foco estará en ayudarle durante el proceso de recuperación y después de este. 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Más información sobre Resource Health:
 -  [Información general sobre Azure Resource Health](Resource-health-overview.md)

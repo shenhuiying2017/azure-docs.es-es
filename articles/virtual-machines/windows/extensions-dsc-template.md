@@ -1,11 +1,11 @@
 ---
-title: "Extensión Desired State Configuration con plantillas de Azure Resource Manager | Microsoft Docs"
-description: "Obtenga información sobre la definición de la plantilla de Resource Manager para la extensión Desired State Configuration (DSC) en Azure."
+title: Extensión Desired State Configuration con plantillas de Azure Resource Manager | Microsoft Docs
+description: Obtenga información sobre la definición de la plantilla de Resource Manager para la extensión Desired State Configuration (DSC) en Azure.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: mgreenegit
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 keywords: dsc
 ms.assetid: b5402e5a-1768-4075-8c19-b7f7402687af
@@ -14,99 +14,121 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
-ms.date: 02/02/2018
+ms.date: 03/22/2018
 ms.author: migreene
-ms.openlocfilehash: 0f1c53c9eafcd96e49232b75d46ef34537a1160f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: ea259fc316827872cb1df8bcec385dddf8d2a461
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Extensión Desired State Configuration con plantillas de Azure Resource Manager
 
-En este artículo se describe la plantilla de Azure Resource Manager para el [controlador de la extensión Desired State Configuration (DSC)](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+En este artículo se describe la plantilla de Azure Resource Manager para el [controlador de la extensión Desired State Configuration (DSC)](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 > [!NOTE]
 > Podría encontrar ejemplos de esquema levemente distintos. El cambio en el esquema ocurrió en la versión de octubre de 2016. Para detalles, consulte [Actualización desde el formato anterior](#update-from-the-previous-format).
 
 ## <a name="template-example-for-a-windows-vm"></a>Ejemplo de plantilla para una máquina virtual de Windows
 
-El fragmento de código siguiente corresponde a la sección **Resource** de la plantilla. La extensión DSC hereda las propiedades de extensión predeterminadas. Para más información, consulte la [clase VirtualMachineExtension](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension?view=azure-dotnet.).
+El fragmento de código siguiente corresponde a la sección **Resource** de la plantilla.
+La extensión DSC hereda las propiedades de extensión predeterminadas.
+Para más información, consulte la [clase VirtualMachineExtension](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension?view=azure-dotnet.).
 
 ```json
-            "name": "Microsoft.Powershell.DSC",
-            "type": "extensions",
-             "location": "[resourceGroup().location]",
-             "apiVersion": "2015-06-15",
-             "dependsOn": [
-                  "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
-              ],
-              "properties": {
-                  "publisher": "Microsoft.Powershell",
-                  "type": "DSC",
-                  "typeHandlerVersion": "2.72",
-                  "autoUpgradeMinorVersion": true,
-                  "forceUpdateTag": "[parameters('dscExtensionUpdateTagVersion')]",
-                  "settings": {
-                    "configurationArguments": {
-                        {
-                            "Name": "RegistrationKey",
-                            "Value": {
-                                "UserName": "PLACEHOLDER_DONOTUSE",
-                                "Password": "PrivateSettingsRef:registrationKeyPrivate"
-                            },
+{
+    "type": "Microsoft.Compute/virtualMachines/extensions",
+    "name": "[concat(parameters('VMName'),'/Microsoft.Powershell.DSC')]",
+    "apiVersion": "2017-12-01",
+    "location": "[resourceGroup().location]",
+    "dependsOn": [
+        "[concat('Microsoft.Compute/virtualMachines/', parameters('VMName'))]"
+    ],
+    "properties": {
+        "publisher": "Microsoft.Powershell",
+        "type": "DSC",
+        "typeHandlerVersion": "2.75",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+            "protectedSettings": {
+            "Items": {
+                        "registrationKeyPrivate": "registrationKey"
+            }
+            },
+            "publicSettings": {
+                "configurationArguments": [
+                    {
+                        "Name": "RegistrationKey",
+                        "Value": {
+                            "UserName": "PLACEHOLDER_DONOTUSE",
+                            "Password": "PrivateSettingsRef:registrationKeyPrivate"
                         },
-                        "RegistrationUrl" : "[parameters('registrationUrl1')]",
-                        "NodeConfigurationName" : "nodeConfigurationNameValue1"
-                        }
-                        },
-                        "protectedSettings": {
-                            "Items": {
-                                        "registrationKeyPrivate": "[parameters('registrationKey1']"
-                                    }
-                        }
+                    },
+                    {
+                        "RegistrationUrl" : "registrationUrl",
+                    },
+                    {
+                        "NodeConfigurationName" : "nodeConfigurationName"
                     }
+                ]
+            }
+        },
+    }
+}
 ```
 
 ## <a name="template-example-for-windows-virtual-machine-scale-sets"></a>Ejemplo de plantilla para conjuntos de escalado de máquinas virtuales Windows
 
-Un nodo del conjunto de escalado de máquinas virtuales tiene una sección **properties** que tiene un atributo **VirtualMachineProfile, extensionProfile**. En **extensions**, agregue DSC.
+Un nodo del conjunto de escalado de máquinas virtuales tiene una sección **properties** que tiene un atributo **VirtualMachineProfile, extensionProfile**.
+En **extensiones**, agregue los detalles para la extensión DSC.
 
-La extensión DSC hereda las propiedades de extensión predeterminadas. Para más información, consulte la [clase VirtualMachineScaleSetExtension](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension?view=azure-dotnet).
+La extensión DSC hereda las propiedades de extensión predeterminadas.
+Para más información, consulte la [clase VirtualMachineScaleSetExtension](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension?view=azure-dotnet).
 
 ```json
 "extensionProfile": {
-            "extensions": [
-                {
-                    "name": "Microsoft.Powershell.DSC",
-                    "properties": {
-                        "publisher": "Microsoft.Powershell",
-                        "type": "DSC",
-                        "typeHandlerVersion": "2.72",
-                        "autoUpgradeMinorVersion": true,
-                        "forceUpdateTag": "[parameters('DscExtensionUpdateTagVersion')]",
-                        "settings": {
-                            "configurationArguments": {
-                                {
-                                    "Name": "RegistrationKey",
-                                    "Value": {
-                                        "UserName": "PLACEHOLDER_DONOTUSE",
-                                        "Password": "PrivateSettingsRef:registrationKeyPrivate"
-                                    },
-                                },
-                                "RegistrationUrl" : "[parameters('registrationUrl1')]",
-                                "NodeConfigurationName" : "nodeConfigurationNameValue1"
-                        }
-                        },
-                        "protectedSettings": {
-                            "Items": {
-                                        "registrationKeyPrivate": "[parameters('registrationKey1']"
-                                    }
-                        }
+    "extensions": [
+        {
+            "type": "Microsoft.Compute/virtualMachines/extensions",
+            "name": "[concat(parameters('VMName'),'/Microsoft.Powershell.DSC')]",
+            "apiVersion": "2017-12-01",
+            "location": "[resourceGroup().location]",
+            "dependsOn": [
+                "[concat('Microsoft.Compute/virtualMachines/', parameters('VMName'))]"
+            ],
+            "properties": {
+                "publisher": "Microsoft.Powershell",
+                "type": "DSC",
+                "typeHandlerVersion": "2.75",
+                "autoUpgradeMinorVersion": true,
+                "settings": {
+                    "protectedSettings": {
+                    "Items": {
+                                "registrationKeyPrivate": "registrationKey"
                     }
-                ]
+                    },
+                    "publicSettings": {
+                        "configurationArguments": [
+                            {
+                                "Name": "RegistrationKey",
+                                "Value": {
+                                    "UserName": "PLACEHOLDER_DONOTUSE",
+                                    "Password": "PrivateSettingsRef:registrationKeyPrivate"
+                                },
+                            },
+                            {
+                                "RegistrationUrl" : "registrationUrl",
+                            },
+                            {
+                                "NodeConfigurationName" : "nodeConfigurationName"
+                            }
+                        ]
+                    }
+                },
             }
         }
+    ]
+}
 ```
 
 ## <a name="detailed-settings-information"></a>Información de configuración detallada
@@ -175,7 +197,8 @@ Para una lista de los argumentos disponibles para el script de configuración pr
 
 ## <a name="default-configuration-script"></a>Script de configuración predeterminada
 
-Para más información sobre los valores siguientes, consulte [Configuración básica del administración de configuración local](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig#basic-settings). Puede usar el script de configuración predeterminada de la extensión DSC para configurar solo las propiedades de LCM que aparecen en la tabla siguiente.
+Para más información sobre los valores siguientes, consulte [Configuración básica del administración de configuración local](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig#basic-settings).
+Puede usar el script de configuración predeterminada de la extensión DSC para configurar solo las propiedades de LCM que aparecen en la tabla siguiente.
 
 | Nombre de propiedad | type | DESCRIPCIÓN |
 | --- | --- | --- |
@@ -191,7 +214,10 @@ Para más información sobre los valores siguientes, consulte [Configuración b�
 
 ## <a name="settings-vs-protectedsettings"></a>Settings frente a ProtectedSettings
 
-Todas las configuraciones se guardan en un archivo de texto de configuración en la máquina virtual. Las propiedades que aparece en **settings** son propiedades públicas. Las propiedades públicas no están cifradas en el archivo de texto de configuración. Las propiedades que aparecen en **protectedSettings** se cifran con un certificado y no aparecen en texto sin formato en el archivo de configuración de la máquina virtual.
+Todas las configuraciones se guardan en un archivo de texto de configuración en la máquina virtual.
+Las propiedades que aparece en **settings** son propiedades públicas.
+Las propiedades públicas no están cifradas en el archivo de texto de configuración.
+Las propiedades que aparecen en **protectedSettings** se cifran con un certificado y no aparecen en texto sin formato en el archivo de configuración de la máquina virtual.
 
 Si la configuración necesita credenciales, puede incluirlas en **protectedSettings**:
 
@@ -208,7 +234,9 @@ Si la configuración necesita credenciales, puede incluirlas en **protectedSetti
 
 ## <a name="example-configuration-script"></a>Script de configuración de ejemplo
 
-En el ejemplo siguiente se muestra el comportamiento predeterminado de la extensión DSC, que consiste en proporcionar la configuración de los metadatos al LCM y registrarse en el servicio de DSC de Automatización. Los argumentos de configuración son obligatorios.  Los argumentos de configuración se transfieren al script de configuración predeterminada para establecer los metadatos del LCM.
+En el ejemplo siguiente se muestra el comportamiento predeterminado de la extensión DSC, que consiste en proporcionar la configuración de los metadatos al LCM y registrarse en el servicio de DSC de Automatización.
+Los argumentos de configuración son obligatorios.
+Los argumentos de configuración se transfieren al script de configuración predeterminada para establecer los metadatos del LCM.
 
 ```json
 "settings": {
@@ -233,7 +261,10 @@ En el ejemplo siguiente se muestra el comportamiento predeterminado de la extens
 
 ## <a name="example-using-the-configuration-script-in-azure-storage"></a>Ejemplo con el script de configuración en Azure Storage
 
-El ejemplo siguiente proviene de la [información general del controlador de la extensión DSC](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Este ejemplo usa plantillas de Resource Manager en lugar de cmdlets para implementar la extensión. Guarde la configuración IisInstall.ps1, colóquela en un archivo .zip y cargue el archivo en una dirección URL accesible. Este ejemplo usa Azure Blob Storage, pero puede descargar los archivos .zip desde cualquier ubicación arbitraria.
+El ejemplo siguiente proviene de la [información general del controlador de la extensión DSC](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Este ejemplo usa plantillas de Resource Manager en lugar de cmdlets para implementar la extensión.
+Guarde la configuración IisInstall.ps1, colóquela en un archivo .zip y cargue el archivo en una dirección URL accesible.
+Este ejemplo usa Azure Blob Storage, pero puede descargar los archivos .zip desde cualquier ubicación arbitraria.
 
 En la plantilla de Resource Manager, el código siguiente indica a la máquina virtual que descargue el archivo correcto y, luego, ejecute la función de PowerShell adecuada:
 
@@ -252,7 +283,8 @@ En la plantilla de Resource Manager, el código siguiente indica a la máquina v
 
 ## <a name="update-from-a-previous-format"></a>Actualización desde un formato anterior
 
-Cualquier configuración en el formato anterior de la extensión (y que tenga las propiedades públicas **ModulesUrl**, **ConfigurationFunction**, **SasToken** o **Properties**) se adapta automáticamente al formato actual de la extensión. Se ejecuta tal como lo hacía antes.
+Cualquier configuración en el formato anterior de la extensión (y que tenga las propiedades públicas **ModulesUrl**, **ConfigurationFunction**, **SasToken** o **Properties**) se adapta automáticamente al formato actual de la extensión.
+Se ejecuta tal como lo hacía antes.
 
 El esquema siguiente muestra el aspecto que tenía el esquema de configuración anterior:
 
@@ -302,7 +334,9 @@ Así se adapta el formato anterior al actual:
 
 ## <a name="troubleshooting---error-code-1100"></a>Solución de problemas: código de error 1100
 
-El código de error 1100 indica un problema con la entrada del usuario a la extensión DSC. El texto de estos errores varía y puede cambiar. Esto son algunos de los errores que pueden surgir y cómo puede corregirlos.
+El código de error 1100 indica un problema con la entrada del usuario a la extensión DSC.
+El texto de estos errores varía y puede cambiar.
+Esto son algunos de los errores que pueden surgir y cómo puede corregirlos.
 
 ### <a name="invalid-values"></a>Valores no válidos
 
@@ -313,7 +347,8 @@ Los únicos valores posibles son: and "latest" (WmfVersion es '{0}'. Los únicos
 
 **Problema**: Se proporcionó un valor no permitido.
 
-**Solución**: Cambie el valor no válido a un valor válido. Para más información, consulte la tabla que aparece en [Detalles](#details).
+**Solución**: Cambie el valor no válido a un valor válido.
+Para más información, consulte la tabla que aparece en [Detalles](#details).
 
 ### <a name="invalid-url"></a>Dirección URL no válida
 
@@ -321,7 +356,8 @@ Los únicos valores posibles son: and "latest" (WmfVersion es '{0}'. Los únicos
 
 **Problema**: Se proporcionó una dirección URL no válida.
 
-**Solución**: Revise todas las direcciones URL proporcionadas. Asegúrese de que todas las direcciones URL se resuelvan en ubicaciones válidas a las que la extensión pueda acceder en la máquina remota.
+**Solución**: Revise todas las direcciones URL proporcionadas.
+Asegúrese de que todas las direcciones URL se resuelvan en ubicaciones válidas a las que la extensión pueda acceder en la máquina remota.
 
 ### <a name="invalid-configurationargument-type"></a>Tipo de ConfigurationArgument no válido
 
@@ -329,7 +365,8 @@ Los únicos valores posibles son: and "latest" (WmfVersion es '{0}'. Los únicos
 
 **Problema**: La propiedad *ConfigurationArguments* no se puede resolver en un objeto **Hashtable**.
 
-**Solución**: Convierta la propiedad *ConfigurationArguments* en **Hashtable**. Siga el formato proporcionado en el ejemplo anterior. Esté atento a las comillas, comas y llaves.
+**Solución**: Convierta la propiedad *ConfigurationArguments* en **Hashtable**.
+Siga el formato proporcionado en el ejemplo anterior. Esté atento a las comillas, comas y llaves.
 
 ### <a name="duplicate-configurationarguments"></a>ConfigurationArguments duplicadas
 
@@ -359,7 +396,7 @@ Los únicos valores posibles son: and "latest" (WmfVersion es '{0}'. Los únicos
 - Proporcione la propiedad que falta.
 - Quite la propiedad que necesita la propiedad que falta.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * Obtenga información sobre el [uso de los conjuntos de escalado de máquinas virtuales con la extensión DSC de Azure](../../virtual-machine-scale-sets/virtual-machine-scale-sets-dsc.md).
 * Encuentre más detalles sobre la [administración segura de credenciales de DSC](extensions-dsc-credentials.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

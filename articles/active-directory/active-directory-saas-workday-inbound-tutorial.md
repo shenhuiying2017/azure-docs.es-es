@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: 976d7e7cb304a24f235e51952ce04826776e2789
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 5c2c39db7ab89b06915c014778977915cca15190
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configuración de Workday para el aprovisionamiento automático de usuarios
 
@@ -397,9 +397,9 @@ Una vez instalado el agente, ejecute los siguientes comandos de PowerShell para 
 
 **Comando n.º 1**
 
-> cd C:\\Archivos de programa\\Microsoft Azure Active Directory Synchronization Agent\\Modules\\AADSyncAgent
+> cd "C:\Archivos de programa\Microsoft Azure AD Connect Provisioning Agent\Modules\AADSyncAgent" Agent\\Modules\\AADSyncAgent
 
-> import-module AADSyncAgent.psd1
+> Import-Module "C:\Archivos de programa\Microsoft Azure AD Connect Provisioning Agent\Modules\AADSyncAgent\AADSyncAgent.psd1"
 
 **Comando n.º 2**
 
@@ -416,6 +416,9 @@ Una vez instalado el agente, ejecute los siguientes comandos de PowerShell para 
 
 >[!IMPORTANT]
 >Actualmente hay un problema conocido con las credenciales de administrador global y es que no funcionan si usan un dominio personalizado (por ejemplo, admin@contoso.com). Como solución alternativa, cree y use una cuenta de administrador global con un dominio onmicrosoft.com (por ejemplo, admin@contoso.onmicrosoft.com).
+
+>[!IMPORTANT]
+>Actualmente hay un problema conocido: las credenciales de administrador global no funcionan si tienen habilitada la autenticación multifactor. Como alternativa, deshabilite la autenticación multifactor para el administrador global.
 
 
 **Comando n.º 4**

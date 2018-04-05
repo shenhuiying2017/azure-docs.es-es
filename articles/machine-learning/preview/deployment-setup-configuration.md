@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/6/2017
-ms.openlocfilehash: d231fd525d310d2496c9ace40808b7deab0dd48f
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 0859031ac26b061861aa51dce1093f2fe4350935
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="model-management-setup"></a>Instalación de Administración de modelos
 
@@ -154,12 +154,9 @@ Para usar una cuenta existente utilice el comando siguiente:
 az ml account modelmanagement set -n [your account name] -g [resource group it was created in]
 ```
 
-### <a name="deploy-your-model"></a>Implementación del modelo
-Ahora está listo para implementar el modelo guardado como un servicio web. 
-
-```azurecli
-az ml service create realtime --model-file [model file/folder path] -f [scoring file e.g. score.py] -n [your service name] -s [schema file e.g. service_schema.json] -r [runtime for the Docker container e.g. spark-py or python] -c [conda dependencies file for additional python packages]
-```
+Como resultado de este proceso, el entorno está preparado y se ha creado la cuenta de administración del modelo para proporcionar las características necesarias para administrar e implementar modelos de Machine Learning (vea [Administración de modelos de Azure Machine Learning](model-management-overview.md) para obtener información general).
 
 ## <a name="next-steps"></a>Pasos siguientes
-Pruebe uno de los muchos ejemplos en la galería.
+
+* Para obtener instrucciones sobre cómo implementar servicios web para que se ejecuten en una máquina local o en un clúster, consulte [Implementación de un modelo de Machine Learning como un servicio web](model-management-service-deploy.md).
+* Pruebe uno de los muchos ejemplos en la galería.

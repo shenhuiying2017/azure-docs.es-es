@@ -1,6 +1,6 @@
 ---
 title: Grupos de disponibilidad de SQL Server - Azure Virtual Machines - Tutorial | Microsoft Docs
-description: "Este tutorial muestra cómo crear un grupo de disponibilidad de SQL Server AlwaysOn en Azure Virtual Machines."
+description: Este tutorial muestra cómo crear un grupo de disponibilidad de SQL Server AlwaysOn en Azure Virtual Machines.
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: 70e483f8b64648200bd6f0898a2877c2bf95e590
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: fe79c6e6344bef8f25ae2e343e3301959c4e0ae5
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Configuración manual de grupos de disponibilidad AlwaysOn en máquinas virtuales de Azure
 
@@ -356,7 +356,7 @@ En Azure Virtual Machines, un grupo de disponibilidad de SQL Server necesita un 
    | **Red virtual** |Use el nombre de la red virtual de Azure. |
    | **Subred** |Utilice el nombre de la subred en la que se encuentra la máquina virtual.  |
    | **Asignación de dirección IP** |estática |
-   | **Dirección IP** |Use una dirección disponible en la subred. |
+   | **Dirección IP** |Use una dirección disponible en la subred. Tenga en cuenta que esto es diferente de la dirección IP del clúster |
    | **Suscripción** |Utilice la misma suscripción que la de la máquina virtual. |
    | **Ubicación** |Use la misma ubicación que la de la máquina virtual. |
 
@@ -497,6 +497,6 @@ La conexión SQLCMD se establece automáticamente con la instancia de SQL Server
 
 <!--**Next steps**: *Reiterate what users have done, and give them interesting and useful next steps so they want to go on.*-->
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - [Agregar una dirección IP a un equilibrador de carga para un segundo grupo de disponibilidad](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md#Add-IP).

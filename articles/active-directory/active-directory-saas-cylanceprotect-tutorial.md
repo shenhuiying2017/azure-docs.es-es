@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 03/15/2018
 ms.author: jeedes
-ms.openlocfilehash: 3b0afd52ccfa3aa637a64e57601cd5f43fe8df10
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: a4b8cbbe3d75702f38b5060957aff9f5c30e1daa
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cylanceprotect"></a>Tutorial: Integración de Azure Active Directory con CylancePROTECT
 
@@ -138,7 +138,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configuración de CylancePROTECT](./media/active-directory-saas-cylanceprotect-tutorial/tutorial_cylanceprotect_configure.png) 
 
-7. Para configurar el inicio de sesión único en **CylancePROTECT**, es preciso enviar los datos descargados de **Certificado (Base64), Dirección URL de cierre de sesión, SAML Entity ID (Identificador de identidad de SAML) y SAML Single Sign-On Service URL (Dirección URL del servicio de inicio de sesión único de SAML)** al [equipo de soporte técnico de CylancePROTECT](mailto:Ibrahim.nafea@toyota.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+7. Para configurar el inicio de sesión único en **CylancePROTECT**, es preciso enviar los datos descargados de **Certificado (Base64), Dirección URL de cierre de sesión, SAML Entity ID (Identificador de identidad de SAML) y SAML Single Sign-On Service URL (Dirección URL del servicio de inicio de sesión único de SAML)** al administrador de la consola. Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 > [!TIP]
 > Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -177,7 +177,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
   
 ### <a name="create-a-cylanceprotect-test-user"></a>Creación de un usuario de prueba en CylancePROTECT
 
-En esta sección, creará un usuario llamado Britta Simon en CylancePROTECT. Póngase en contacto con el [equipo de soporte técnico de CylancePROTECT](mailto:Ibrahim.nafea@toyota.com) para agregar los usuarios en la plataforma de CylancePROTECT. El titular de la cuenta de Azure Active Directory recibirá un mensaje de correo y seguirá un vínculo para confirmar su cuenta antes de que se active.
+En esta sección, creará un usuario llamado Britta Simon en CylancePROTECT. Póngase en contacto con el administrador de la consola para agregar los usuarios en la plataforma de CylancePROTECT. El titular de la cuenta de Azure Active Directory recibirá un mensaje de correo y seguirá un vínculo para confirmar su cuenta antes de que se active.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 

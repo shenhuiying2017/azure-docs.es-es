@@ -1,12 +1,12 @@
 ---
-title: "¿Qué es Azure Backup? | Microsoft Docs"
-description: "Use Azure Backup para realizar copias de seguridad y restaurar los datos y cargas de trabajo de servidores de Windows, estaciones de trabajo de Windows, servidores de System Center DPM y máquinas virtuales de Azure."
+title: ¿Qué es Azure Backup? | Microsoft Docs
+description: Use Azure Backup para realizar copias de seguridad y restaurar los datos y cargas de trabajo de servidores de Windows, estaciones de trabajo de Windows, servidores de System Center DPM y máquinas virtuales de Azure.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
-keywords: "copia de seguridad y restauración; servicios de recuperación; soluciones de copia de seguridad"
+editor: ''
+keywords: copia de seguridad y restauración; servicios de recuperación; soluciones de copia de seguridad
 ms.assetid: 0d2a7f08-8ade-443a-93af-440cbf7c36c4
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -16,11 +16,11 @@ ms.topic: overview
 ms.date: 3/1/2018
 ms.author: markgal;trinadhk;anuragm
 ms.custom: mvc
-ms.openlocfilehash: 600c4a29d7d7daabbbf6d1825671d109ea499c4b
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 00ed2a64c672e1d2ae9a0037905a544b6c4424b7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Introducción a las características de Azure Backup
 Azure Backup es el servicio de Azure que puede usar para realizar una copia de seguridad de los datos (protegerlos) y recuperarlos en la nube de Microsoft. Reemplaza su solución de copia de seguridad local o remota existente por una solución confiable, segura y rentable basada en la nube. Azure Backup ofrece varios componentes que se descargan e implementan en el equipo o servidor adecuados, o en la nube. El componente, o agente, que se implemente depende de lo que quiera proteger. Todos los componentes de Azure Backup (sin importar si va a proteger los datos de forma local o en la nube) se pueden usar para realizar una copia de seguridad de datos en un almacén de Azure Recovery Services. Para más información sobre qué componente usar para proteger datos, aplicaciones o cargas de trabajo específicos, consulte la [tabla de componentes de Azure Backup](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (más adelante en este artículo).
@@ -34,7 +34,7 @@ Las soluciones de copia de seguridad tradicionales han evolucionado para tratar 
 
 **Escalado ilimitado**: Azure Backup usa la eficacia subyacente y la escala ilimitada de la nube de Azure para proporcionar alta disponibilidad, sin sobrecarga de mantenimiento o supervisión. Puede configurar alertas para proporcionar información sobre los eventos, pero no tiene que preocuparse por la alta disponibilidad de los datos en la nube.
 
-**Varias opciones de almacenamiento**: un aspecto de alta disponibilidad es la replicación del almacenamiento. Azure Backup ofrece dos tipos de replicación: [almacenamiento con redundancia local](../storage/common/storage-redundancy.md#locally-redundant-storage) y [almacenamiento con redundancia geográfica](../storage/common/storage-redundancy.md#geo-redundant-storage). Elija la opción de almacenamiento de copia de seguridad más acorde con sus necesidades:
+**Varias opciones de almacenamiento**: un aspecto de alta disponibilidad es la replicación del almacenamiento. Azure Backup ofrece dos tipos de replicación: [almacenamiento con redundancia local](../storage/common/storage-redundancy-lrs.md) y [almacenamiento con redundancia geográfica](../storage/common/storage-redundancy-grs.md). Elija la opción de almacenamiento de copia de seguridad más acorde con sus necesidades:
 
 * El almacenamiento con redundancia local (LRS) replica los datos tres veces (crea tres copias de los datos) en una unidad de escalado de almacenamiento de un centro de datos. Todas las copias de los datos se encuentran en la misma región. LRS es una opción de bajo costo para proteger los datos contra errores de hardware local.
 
@@ -219,7 +219,7 @@ Algunos ejemplos comunes de instancias protegidas son máquinas virtuales, servi
 
 
 ## <a name="what-is-a-recovery-services-vault"></a>¿Qué es un almacén de Recovery Services?
-Un almacén de Recovery Services es una entidad de almacenamiento en línea en Azure que se usa para contener datos, como copias de seguridad, puntos de recuperación y directivas de copia de seguridad. Puede usar almacenes de Recovery Services para almacenar datos de copia de seguridad de servicios de Azure, y de servidores y estaciones de trabajo locales. Los almacenes de Recovery Services facilitan la tarea de organizar los datos de copia de seguridad, al mismo tiempo que reduce al mínimo su sobrecarga administrativa. En cada suscripción de Azure, es posible crear un máximo de 25 almacenes de Recovery Services por región de Azure. Al pensar en dónde almacenar los datos, no todas las regiones son iguales. Para obtener información acerca de los emparejamientos de regiones y ver otras consideraciones de almacenamiento, consulte [Almacenamiento con redundancia geográfica](../storage/common/storage-redundancy.md#geo-redundant-storage).
+Un almacén de Recovery Services es una entidad de almacenamiento en línea en Azure que se usa para contener datos, como copias de seguridad, puntos de recuperación y directivas de copia de seguridad. Puede usar almacenes de Recovery Services para almacenar datos de copia de seguridad de servicios de Azure, y de servidores y estaciones de trabajo locales. Los almacenes de Recovery Services facilitan la tarea de organizar los datos de copia de seguridad, al mismo tiempo que reduce al mínimo su sobrecarga administrativa. En cada suscripción de Azure, es posible crear un máximo de 25 almacenes de Recovery Services por región de Azure. Al pensar en dónde almacenar los datos, no todas las regiones son iguales. Para obtener información acerca de los emparejamientos de regiones y ver otras consideraciones de almacenamiento, consulte [Almacenamiento con redundancia geográfica](../storage/common/storage-redundancy-grs.md).
 
 Los almacenes de Backup, que se basaban en Azure Service Manager, fueron la primera versión del almacén. Los almacenes de Recovery Services, que agregan características del modelo de Azure Resource Manager, son la segunda versión del almacén. Consulte el [artículo de introducción al almacén de Recovery Services](backup-azure-recovery-services-vault-overview.md) para una descripción completa de las diferencias en cuanto a características. Ya no se pueden crear almacenes de Backup y todos los almacenes de Backup existentes se han actualizado a almacenes de Recovery Services. Puede usar Azure Portal para administrar los almacenes que se actualizaron a almacenes de Recovery Services.
 

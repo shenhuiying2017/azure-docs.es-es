@@ -1,9 +1,9 @@
 ---
-title: "Creación de alertas para los servicios de Azure | Microsoft Docs"
-description: "Desencadenamiento de correos electrónicos y notificaciones, y llamadas a direcciones URL de sitios web (webhooks) o a la automatización cuando se cumplen las condiciones especificadas."
+title: Creación de alertas para los servicios de Azure | Microsoft Docs
+description: Desencadenamiento de correos electrónicos y notificaciones, y llamadas a direcciones URL de sitios web (webhooks) o a la automatización cuando se cumplen las condiciones especificadas.
 author: rboucher
 manager: carmonm
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: d26ab15b-7b7e-42a9-81c8-3ce9ead5d252
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2016
 ms.author: robb
-ms.openlocfilehash: d3fca8675c1f15b8fd0f952cfbf520f5c68478b3
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 03026ee8bedd5277b2bb6cf28dabafabf207b0ae
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="create-metric-alerts-in-azure-monitor-for-azure-services---powershell"></a>Creación de alertas de métricas en Azure Monitor para servicios de Azure: PowerShell
+# <a name="create-classic-metric-alerts-in-azure-monitor-for-azure-services---powershell"></a>Creación de alertas de métricas clásicas en Azure Monitor para servicios de Azure: PowerShell
 > [!div class="op_single_selector"]
 > * [Portal](insights-alerts-portal.md)
 > * [PowerShell](insights-alerts-powershell.md)
@@ -29,12 +29,18 @@ ms.lasthandoff: 12/21/2017
 >
 
 ## <a name="overview"></a>Información general
+
+> [!NOTE]
+> En este artículo se describe cómo crear alertas de métricas antiguas. Azure Monitor admite ahora [nuevas y mejores alertas de métricas](monitoring-near-real-time-metric-alerts.md). Estas alertas pueden supervisar varias métricas y permiten alertas relacionadas con métricas de dimensiones. Próximamente estará disponible la compatibilidad de PowerShell con alertas de métricas más recientes.
+>
+>
+
 En este artículo se muestra cómo configurar alertas de métricas de Azure con PowerShell.  
 
 Puede recibir una alerta basada en las métricas de supervisión para los servicios de Azure o los eventos sobre ellos.
 
 * **Valores de métrica** : la alerta se desencadena cuando el valor de una métrica específica cruza un umbral asignado en cualquier dirección. Es decir, se desencadena tanto la primera vez que se cumple la condición como después, cuando dicha condición ya deja de cumplirse.    
-* **Eventos de registro de actividades**: una alerta puede desencadenarse con *cada* evento o solo cuando se producen ciertos eventos concretos. Para obtener más información sobre las alertas de registro de actividad, [haga clic aquí](monitoring-activity-log-alerts.md).
+* **Eventos de registro de actividades**: una alerta puede desencadenarse con *cada* evento o solo cuando se producen un determinado evento. Para obtener más información sobre las alertas de registro de actividad, [haga clic aquí](monitoring-activity-log-alerts.md).
 
 Puede configurar una alerta de métrica para hacer lo siguiente cuando se desencadena:
 
@@ -45,7 +51,7 @@ Puede configurar una alerta de métrica para hacer lo siguiente cuando se desenc
 
 Puede obtener información sobre las reglas de alerta y configurarlas mediante:
 
-* [Portal de Azure](insights-alerts-portal.md)
+* [Azure Portal](insights-alerts-portal.md)
 * [PowerShell](insights-alerts-powershell.md)
 * [Interfaz de la línea de comandos (CLI)](insights-alerts-command-line-interface.md)
 * [API de REST de Azure Monitor](https://msdn.microsoft.com/library/azure/dn931945.aspx)

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
 ms.author: billmath
-ms.openlocfilehash: 67f6ca36c334a60b634094f07e5d9696a6961eb8
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d026009151f85a01f14ce4dd8a510f60ff407da1
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Inicio de sesión único de conexión directa de Azure Active Directory: Guía de inicio rápido
 
@@ -32,7 +32,7 @@ Para implementar SSO de conexión directa, siga estos pasos.
 
 Asegúrese de que se cumplen los siguientes requisitos previos:
 
-* **Configure el servidor de Azure AD Connect**: si usa la [autenticación de paso a través](active-directory-aadconnect-pass-through-authentication.md) como método de inicio de sesión, no es necesaria ninguna otra comprobación de requisitos previos. Si va a usar la [sincronización de hash de contraseña](active-directory-aadconnectsync-implement-password-synchronization.md) como método de inicio de sesión y hay un firewall entre Azure AD Connect y Azure AD, asegúrese de que:
+* **Configure el servidor de Azure AD Connect**: si usa la [autenticación de paso a través](active-directory-aadconnect-pass-through-authentication.md) como método de inicio de sesión, no es necesaria ninguna otra comprobación de requisitos previos. Si va a usar la [sincronización de hash de contraseña](active-directory-aadconnectsync-implement-password-hash-synchronization.md) como método de inicio de sesión y hay un firewall entre Azure AD Connect y Azure AD, asegúrese de que:
    - Usa Azure AD Connect 1.1.644.0 o cualquier versión posterior. 
    - Si el firewall o el proxy permiten la creación de listas blancas con DNS, cree una lista blanca para las conexiones a las direcciones URL **\*.msappproxy.net** en el puerto 443. En caso contrario, permita el acceso a los [intervalos de direcciones IP del centro de datos de Azure](https://www.microsoft.com/download/details.aspx?id=41653), que se actualizan cada semana. Este requisito solo es aplicable cuando se habilita la característica. No es necesario para los inicios de sesión de usuarios reales.
 

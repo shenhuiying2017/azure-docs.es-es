@@ -1,24 +1,24 @@
 ---
 title: Instrucciones para implementar Windows Server Active Directory en Azure Virtual Machines | Microsoft Azure
-description: "Si sabe cómo implementar servicios de dominio de Active Directory y los servicios de federación de AD de forma local, aprenda cómo funcionan en máquinas virtuales de Azure."
+description: Si sabe cómo implementar servicios de dominio de Active Directory y los servicios de federación de AD de forma local, aprenda cómo funcionan en máquinas virtuales de Azure.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: femila
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 04df4c46-e6b6-4754-960a-57b823d617fa
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/26/2017
+ms.date: 03/20/2018
 ms.author: femila
-ms.openlocfilehash: 7a56876dfa545d273807444b105de3645dd79d34
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: c2d58e056cdb285be51d259492e11e6ae37b253e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="guidelines-for-deploying-windows-server-active-directory-on-azure-virtual-machines"></a>Directrices para implementar Windows Server Active Directory en máquinas virtuales de Microsoft Azure
 Este artículo explica las importantes diferencias entre implementar Windows Server Active Directory Domain Services (ADDS) y Servicios de federación de Active Directory (ADFS) localmente en comparación con la implementación en máquinas virtuales de Microsoft Azure.
@@ -71,8 +71,10 @@ Consulte [Virtual Network](http://azure.microsoft.com/documentation/services/vir
 > 
 > 
 
-### <a name="static-ip-addresses-must-be-configured-with-azure-powershell"></a>Las direcciones IP estáticas se deben configurar con Azure PowerShell.
-Las direcciones dinámicas se asignan de forma predeterminada, pero use el cmdlet Set-AzureStaticVNetIP para asignar una dirección IP estática en su lugar. Eso permitirá establecer una dirección IP estática que se mantendrá durante la recuperación del servicio y el cierre y reinicio de la máquina virtual. Para más información, consulte [Static internal IP address for virtual machines (Dirección IP estática interna para máquinas virtuales)](http://azure.microsoft.com/blog/static-internal-ip-address-for-virtual-machines/).
+### <a name="static-ip-addresses-can-be-configured-with-azure-powershell"></a>Las direcciones IP estáticas se pueden configurar con Azure PowerShell
+Las direcciones dinámicas se asignan de manera predeterminada. No obstante, use el cmdlet Set-AzureStaticVNetIP si quiere asignar una dirección IP estática en su lugar. Dicho cmdlet establece una dirección IP estática que se mantendrá durante la recuperación del servicio, así como durante el cierre y el reinicio de la máquina virtual. Para más información, consulte [Static internal IP address for virtual machines (Dirección IP estática interna para máquinas virtuales)](http://azure.microsoft.com/blog/static-internal-ip-address-for-virtual-machines/). También puede configurar una dirección IP estática al crear la máquina virtual en Azure Portal, tal y como se muestra a continuación. Para obtener más información, consulte [Creación de una máquina virtual con una dirección IP pública estática mediante Azure Portal](../virtual-network/virtual-network-deploy-static-pip-arm-portal.md).
+
+![captura de pantalla del paso para agregar una dirección IP estática al crear una máquina virtual](media/active-directory-deploying-ws-ad-guidelines/static-ip.png)
 
 ## <a name="BKMK_Glossary"></a>Términos y definiciones
 La siguiente es una lista no exhaustiva de términos para diversas tecnologías de Azure a las que se hará referencia en este artículo.
@@ -408,7 +410,7 @@ Debe decidir si desea implementar controladores de dominio de solo lectura o de 
 
 Azure no presenta el riesgo de la seguridad física de una sucursal, pero los RODC siguen siendo más rentables ya que las características que proporcionan son adecuadas para estos entornos aunque por motivos muy diferentes. Por ejemplo, los RODC no generan ninguna replicación de salida y podrá rellenar selectivamente secretos (contraseñas). Como inconveniente, la falta de estos secretos puede requerir un tráfico de salida a petición para validarlos cuando un usuario o equipo se autentica. Pero los secretos se pueden rellenar previamente de forma selectiva y almacenarlos en caché.
 
-Los RODC proporcionan una ventaja adicional en relación con los datos de alto impacto de negocio (HBI) y los de información de identificación personal (PII) porque se pueden agregar atributos que contengan datos confidenciales al conjunto de atributos filtrados (FAS) de RODC. Este conjunto es un conjunto personalizable de atributos que no se replican en los RODC. Puede utilizar este conjunto como medida de seguridad en caso de que no se le permita o no desee almacenar datos de alto impacto de negocio o información de identificación personal en Azure. Para más información, consulte [RODC filtered attribute set (Conjunto de atributos filtrados de RODC) en [(https://technet.microsoft.com/library/cc753459)]
+Los RODC proporcionan una ventaja adicional en relación con los datos de alto impacto de negocio (HBI) y los de información de identificación personal (PII) porque se pueden agregar atributos que contengan datos confidenciales al conjunto de atributos filtrados (FAS) de RODC. Este conjunto es un conjunto personalizable de atributos que no se replican en los RODC. Puede utilizar este conjunto como medida de seguridad en caso de que no se le permita o no desee almacenar datos de alto impacto de negocio o información de identificación personal en Azure. Para obtener más información, consulte [conjunto de atributos con filtro RODC (https://technet.microsoft.com/library/cc753459)].
 
 Asegúrese de que las aplicaciones sean compatibles con los RODC que planea utilizar. Muchas aplicaciones habilitadas para Windows Server Active Directory funcionan bien con los RODC, pero algunas de ellas pueden realizar su función de forma ineficaz o se pueden producir errores si no tiene acceso a un controlador de dominio de escritura. Para obtener más información, consulte la [guía de compatibilidad de aplicaciones con controladores de dominio de solo lectura](https://technet.microsoft.com/library/cc755190).
 

@@ -3,17 +3,17 @@ title: Servicio Azure SQL Database | Microsoft Docs
 description: Obtenga información acerca de los niveles de servicio para las bases de datos de grupo y únicas a fin de proporcionar niveles de rendimiento y tamaños de almacenamiento.
 services: sql-database
 author: CarlRabeler
-manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 03/21/2018
+manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: 6153616de763eee1b20fff40d38816eca8b455de
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 3fe7add4ad4c5563a6307db0dec27c658913429b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="what-are-azure-sql-database-service-tiers"></a>¿Qué son los niveles de servicio de Azure SQL Database?
 
@@ -33,7 +33,8 @@ La selección de un nivel de servicio depende sobre todo de los requisitos de co
 |CPU|Bajo|Bajo, medio, alto|Medio, alto|
 |Rendimiento de E/S (aproximado) |2,5 IOPS por DTU  | 2,5 IOPS por DTU | 48 IOPS por DTU|
 |Latencia de E/S (aproximada)|5 ms (lectura), 10 ms (escritura)|5 ms (lectura), 10 ms (escritura)|2 ms (lectura/escritura)|
-|Indexación de almacén de columnas y OLTP en memoria|N/D|N/D|Compatible|
+|Índice de almacén de columnas |N/D|S3 y versiones posteriores|Compatible|
+|OLTP en memoria (optimización en memoria|N/D|N/D|Compatible|
 |||||
 
 ## <a name="performance-level-and-storage-size-limits"></a>Límites de nivel de rendimiento y de tamaño de almacenamiento

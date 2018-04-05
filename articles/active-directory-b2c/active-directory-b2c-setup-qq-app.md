@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C: configuración de QQ | Microsoft Docs"
-description: "Proporcione funciones de registro e inicio de sesión a los consumidores con cuentas de QQ en las aplicaciones protegidas por Azure Active Directory B2C."
+title: 'Azure Active Directory B2C: configuración de QQ | Microsoft Docs'
+description: Proporcione funciones de registro e inicio de sesión a los consumidores con cuentas de QQ en las aplicaciones protegidas por Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: 
-author: parakhj
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: 18c2cf94-8004-4de1-81c2-e45be65ce12d
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 3/26/2017
-ms.author: parakhj
-ms.openlocfilehash: d4cc26d4f206baf9137feae0825b1f9fa5a7c8d6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 12daed5f90e2b073a7520c061f18761baaed5c03
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-qq-accounts"></a>Azure Active Directory B2C: provisión de registro e inicio de sesión a los usuarios con cuentas de QQ
 
@@ -28,7 +25,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="create-a-qq-application"></a>Creación de una aplicación de QQ
 
-Para usar QQ como proveedor de identidades en Azure Active Directory (Azure AD) B2C, debe crear una aplicación de Google+ y suministrarle los parámetros correctos. Necesita una cuenta de QQ para hacerlo. Si no tiene una, puede obtenerla en [https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033](https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033).
+Para usar QQ como proveedor de identidades en Azure Active Directory (Azure AD) B2C, debe crear una aplicación de Google+ y suministrarle los parámetros correctos. Necesita una cuenta de QQ para hacerlo. Si no tiene, puede obtenerla en [https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033](https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033).
 
 ### <a name="register-for-the-qq-developer-program"></a>Registro para el programa para desarrolladores de QQ
 

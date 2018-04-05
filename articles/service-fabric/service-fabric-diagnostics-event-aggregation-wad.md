@@ -1,24 +1,24 @@
 ---
-title: "Agregación de eventos de Azure Service Fabric con Azure Diagnostics de Windows | Microsoft Docs"
-description: "Obtenga información sobre la agregación y la recopilación de eventos con WAD para la supervisión y el diagnóstico de clústeres de Azure Service Fabric."
+title: Agregación de eventos de Azure Service Fabric con Azure Diagnostics de Windows | Microsoft Docs
+description: Obtenga información sobre la agregación y la recopilación de eventos con WAD para la supervisión y el diagnóstico de clústeres de Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: srrengar
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/02/2017
-ms.author: dekapur
-ms.openlocfilehash: 8e6c82aa60544d672bb249d589b63d55b48309fe
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.date: 03/19/2018
+ms.author: dekapur;srrengar
+ms.openlocfilehash: ede128d23ca73dc46f2d4dc4b1dd4b1f83a2bc3f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Recopilación y agregación de eventos con Azure Diagnostics de Windows
 > [!div class="op_single_selector"]
@@ -31,11 +31,11 @@ Cuando se ejecuta un clúster de Azure Service Fabric, es conveniente recopilar 
 
 Uno de los métodos para cargar y recopilar registros es usar la extensión Azure Diagnostics de Windows (WAD), que carga registros en Azure Storage, y también tiene la opción de enviar registros a Azure Application Insights o Event Hubs. También puede usar un proceso externo para leer los eventos desde el almacenamiento y colocarlos en un producto de plataforma de análisis, como [Log Analytics de OMS](../log-analytics/log-analytics-service-fabric.md) u otra solución de análisis de registros.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Estas herramientas se usan para realizar algunas de las operaciones que se describen en este documento:
 
 * [Diagnósticos de Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) (relacionado con Azure Cloud Services, aunque con información y ejemplos adecuados)
-* [Administrador de recursos de Azure](../azure-resource-manager/resource-group-overview.md)
+* [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 * [Azure PowerShell](/powershell/azure/overview)
 * [Cliente de Azure Resource Manager](https://github.com/projectkudu/ARMClient)
 * [Plantilla de Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -170,67 +170,87 @@ Luego, actualice la sección `VirtualMachineProfile` del archivo template.json. 
 
 Después de modificar el archivo template.json tal como se indicó, vuelva a publicar la plantilla de Resource Manager. En caso de que la plantilla se haya exportado, si ejecuta el archivo deploy.ps1 , se vuelve a publicar dicha plantilla. Después de realizar la implementación, asegúrese de que el estado **ProvisioningState** sea **Correcto**.
 
-## <a name="collect-health-and-load-events"></a>Recopilar eventos de mantenimiento y carga
+> [!TIP]
+> Si va a implementar contenedores en el clúster, habilite WAD para recopilar estadísticas de Docker. Para ello, agregue lo siguiente a la sección **WadCfg > DiagnosticMonitorConfiguration**.
+>
+>```json
+>"DockerSources": {
+>    "Stats": {
+>        "enabled": true,
+>        "sampleRate": "PT1M"
+>    }
+>},
+>```
 
-A partir de la versión 5.4 de Service Fabric, los eventos de métricas de carga y estado de mantenimiento están disponibles para su recopilación. Estos eventos reflejan los eventos generados por el sistema o por el código mediante las API de generación de informes de estado de mantenimiento o carga como [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) o [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx). Esto permite agregar y ver el estado de mantenimiento del sistema en el tiempo, y generar alertas basadas en eventos de estado de mantenimiento o carga. Para ver estos eventos en el Visor de eventos de diagnóstico de Visual Studio, agregue "Microsoft-ServiceFabric:4:0x4000000000000008" a la lista de proveedores de ETW.
+## <a name="log-collection-configurations"></a>Configuraciones de recopilación de registros
+Los registros de los canales adicionales también están disponibles para la recopilación, estas son algunas de las configuraciones más comunes que puede realizar en la plantilla para los clústeres que se ejecutan en Azure.
 
-Para recopilar los eventos en el clúster, modifique `scheduledTransferKeywordFilter` en el WadCfg de la plantilla de Resource Manager a `4611686018427387912`.
+* Canal operativo, básico: operaciones de alto nivel, habilitadas de manera predeterminada, que realiza Service Fabric y el clúster, incluidos eventos para un nodo próximo, una nueva aplicación que se implementa o la reversión de una actualización, etc. Para obtener una lista de eventos, consulte los [eventos de canal operativo](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-diagnostics-event-generation-operational).
+  
+```json
+      scheduledTransferKeywordFilter: "4611686018427387904"
+  ```
+* Canal operativo, detallado: esto incluye informes de estado y decisiones de equilibrio de carga, además de todos los elementos de canal operativo básico. Estos eventos son generados por el sistema o por el código mediante las API de generación de informes de estado de mantenimiento o carga, como [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) o [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx). Para ver estos eventos en el Visor de eventos de diagnóstico de Visual Studio, agregue "Microsoft-ServiceFabric:4:0x4000000000000008" a la lista de proveedores de ETW.
 
 ```json
-  "EtwManifestProviderConfiguration": [
-    {
-      "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
-      "scheduledTransferLogLevelFilter": "Information",
-      "scheduledTransferKeywordFilter": "4611686018427387912",
-      "scheduledTransferPeriod": "PT5M",
-      "DefaultEvents": {
-        "eventDestination": "ServiceFabricSystemEventTable"
-      }
-    }
-```
+      scheduledTransferKeywordFilter: "4611686018427387912"
+  ```
 
-## <a name="collect-reverse-proxy-events"></a>Recopilación de eventos de proxy inverso
-
-A partir de la versión 5.7 de Service Fabric, los eventos de [proxy inverso](service-fabric-reverseproxy.md) están disponibles para la recopilación a través de los canales de datos y mensajería. 
-
-El proxy inverso inserta solo eventos de error a través del canal principal de datos y mensajería, lo que refleja problemas críticos y errores de procesamiento de la solicitud. El canal detallado contiene eventos detallados de todas las solicitudes procesadas por el proxy inverso. 
-
-Para ver estos eventos de error en el Visor de eventos de diagnóstico de Visual Studio, agregue "Microsoft-ServiceFabric:4:0x4000000000000010" a la lista de proveedores de ETW. Para ver toda la telemetría de solicitud, actualice la entrada de Microsoft-ServiceFabric en la lista de proveedores de ETW a "Microsoft-ServiceFabric:4:0x4000000000000020".
-
-Para los clústeres que se ejecutan en Azure:
-
-Para recopilar los seguimientos en el canal de mensajería y datos principal, modifique el valor `scheduledTransferKeywordFilter` en el WadCfg de la plantilla de Resource Manager a `4611686018427387920`.
+* Canal de datos y mensajería, básico: registros y eventos críticos generados en la ruta de acceso a mensajería (actualmente solo ReverseProxy) y a datos, además de los registros del canal operativo detallado. Estos eventos son errores de procesamiento de solicitudes y otros problemas críticos en ReverseProxy y en las solicitudes procesadas. **Esta es nuestra recomendación para el registro completo**. Para ver estos eventos en el Visor de eventos de diagnóstico de Visual Studio, agregue "Microsoft-ServiceFabric:4:0x4000000000000010" a la lista de proveedores de ETW.
 
 ```json
-  "EtwManifestProviderConfiguration": [
-    {
-      "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
-      "scheduledTransferLogLevelFilter": "Information",
-      "scheduledTransferKeywordFilter": "4611686018427387920",
-      "scheduledTransferPeriod": "PT5M",
-      "DefaultEvents": {
-        "eventDestination": "ServiceFabricSystemEventTable"
-      }
-    }
-```
+      scheduledTransferKeywordFilter: "4611686018427387928"
+  ```
 
-Para recopilar todos los eventos de procesamiento de solicitudes, active el canal detallado de datos y mensajería cambiando el valor `scheduledTransferKeywordFilter` en el WadCfg de la plantilla de Resource Manager a `4611686018427387936`.
+* Canal de datos y mensajería, detallado: canal detallado que contiene todos los registros no críticos de datos y mensajería del clúster, y el canal operativo detallado. Para obtener información sobre solución de problemas de todos los eventos de proxy inverso, consulte la [Guía de diagnóstico de proxy inverso](service-fabric-reverse-proxy-diagnostics.md).  Para ver estos eventos en el Visor de eventos de diagnóstico de Visual Studio, agregue "Microsoft-ServiceFabric:4:0x4000000000000020" a la lista de proveedores de ETW.
 
 ```json
-  "EtwManifestProviderConfiguration": [
-    {
-      "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
-      "scheduledTransferLogLevelFilter": "Information",
-      "scheduledTransferKeywordFilter": "4611686018427387936",
-      "scheduledTransferPeriod": "PT5M",
-      "DefaultEvents": {
-        "eventDestination": "ServiceFabricSystemEventTable"
-      }
-    }
-```
+      scheduledTransferKeywordFilter: "4611686018427387944"
+  ```
 
-La habilitación de la recopilación de eventos desde este canal detallado provoca la generación rápida de muchos seguimientos, lo que puede consumir capacidad de almacenamiento. Solo active esta opción cuando sea absolutamente necesario.
-Para obtener información sobre solución de problemas de los eventos de proxy inverso, consulte la [Guía de diagnóstico de proxy inverso](service-fabric-reverse-proxy-diagnostics.md).
+>[!NOTE]
+>Este canal tiene un volumen muy grande de eventos; permitir la recopilación desde este canal detallado provoca la generación rápida de muchos seguimientos, lo que puede consumir capacidad de almacenamiento. Solo active esta opción si es absolutamente necesario.
+
+
+Para habilitar el **Canal de datos y mensajería básico**, nuestra recomendación para el registro completo, `EtwManifestProviderConfiguration` en `WadCfg` de la plantilla se vería similar al siguiente:
+
+```json
+  "WadCfg": {
+        "DiagnosticMonitorConfiguration": {
+          "overallQuotaInMB": "50000",
+          "EtwProviders": {
+            "EtwEventSourceProviderConfiguration": [
+              {
+                "provider": "Microsoft-ServiceFabric-Actors",
+                "scheduledTransferKeywordFilter": "1",
+                "scheduledTransferPeriod": "PT5M",
+                "DefaultEvents": {
+                  "eventDestination": "ServiceFabricReliableActorEventTable"
+                }
+              },
+              {
+                "provider": "Microsoft-ServiceFabric-Services",
+                "scheduledTransferPeriod": "PT5M",
+                "DefaultEvents": {
+                  "eventDestination": "ServiceFabricReliableServiceEventTable"
+                }
+              }
+            ],
+            "EtwManifestProviderConfiguration": [
+              {
+                "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
+                "scheduledTransferLogLevelFilter": "Information",
+                "scheduledTransferKeywordFilter": "4611686018427387928",
+                "scheduledTransferPeriod": "PT5M",
+                "DefaultEvents": {
+                  "eventDestination": "ServiceFabricSystemEventTable"
+                }
+              }
+            ]
+          }
+        }
+      },
+```
 
 ## <a name="collect-from-new-eventsource-channels"></a>Recopilar desde canales EventSource nuevos
 

@@ -2,10 +2,10 @@
 title: Uso de Azure API Management con redes virtuales internas | Microsoft Docs
 description: Aprenda a instalar y configurar Azure API Management en una red virtual interna.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: kjoshi
-editor: 
+editor: ''
 ms.assetid: dac28ccf-2550-45a5-89cf-192d87369bc3
 ms.service: api-management
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apimpm
-ms.openlocfilehash: cf062cfcbbb2454adf20a06c31c81a60f6f5719f
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: be4aa45c919f579355c6ac6c5682c1537e9cc0cb
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Uso del servicio Azure API Management con una red virtual interna
 Con Azure Virtual Network, Azure API Management puede administrar las API que no están accesibles desde Internet. Para establecer la conexión, hay una serie de tecnologías de VPN disponibles. API Management puede implementarse de dos modos en una red virtual:
@@ -72,7 +72,7 @@ También puede habilitar la conectividad de la red virtual utilizando cmdlets de
 Cuando API Management está en modo de red virtual externa, el DNS está administrado por Azure. En el modo de red virtual interna, es usted quien tiene que administrar su propio enrutamiento.
 
 > [!NOTE]
-> El servicio API Management no escucha las solicitudes procedentes de direcciones IP. Solo responde a las solicitudes dirigidas al nombre de host establecido en los puntos de conexión de servicio. Estos puntos de conexión pueden ser la puerta de enlace, el portal del desarrollador, Azure Portal, el punto de conexión de administración directa y Git.
+> El servicio API Management no escucha las solicitudes procedentes de direcciones IP. Solo responde a las solicitudes dirigidas al nombre de host establecido en los puntos de conexión de servicio. Estos puntos de conexión pueden ser la puerta de enlace, Azure Portal y el portal del desarrollador, el punto de conexión de administración directa y GIT.
 
 ### <a name="access-on-default-host-names"></a>Acceso de nombres de host predeterminados
 Cuando se crea un servicio de API Management (por ejemplo, "contoso"), los siguientes puntos de conexión de servicio se configuran de forma predeterminada:

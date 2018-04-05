@@ -1,24 +1,24 @@
 ---
 title: Conceptos de seguridad de IoT Hub de Azure | Microsoft Docs
-description: "Guía del desarrollador: se explica cómo controlar el acceso a IoT Hub para aplicaciones de dispositivo y de back-end. Además, incluye información sobre los tokens de seguridad y la compatibilidad con certificados X.509."
+description: 'Guía del desarrollador: se explica cómo controlar el acceso a IoT Hub para aplicaciones de dispositivo y de back-end. Además, incluye información sobre los tokens de seguridad y la compatibilidad con certificados X.509.'
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 45631e70-865b-4e06-bb1d-aae1175a52ba
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/29/2018
+ms.date: 02/12/2018
 ms.author: dobett
-ms.openlocfilehash: 4f75c5725046fb5e0348c405092edcc65c2d8129
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e7e45a6af0857520eec27263281a0f0a43b30013
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="control-access-to-iot-hub"></a>Control del acceso a IoT Hub
 
@@ -206,12 +206,12 @@ public static string generateSasToken(string resourceUri, string key, string pol
     TimeSpan fromEpochStart = DateTime.UtcNow - new DateTime(1970, 1, 1);
     string expiry = Convert.ToString((int)fromEpochStart.TotalSeconds + expiryInSeconds);
 
-    string stringToSign = WebUtility.UrlEncode(resourceUri).ToLower() + "\n" + expiry;
+    string stringToSign = WebUtility.UrlEncode(resourceUri) + "\n" + expiry;
 
     HMACSHA256 hmac = new HMACSHA256(Convert.FromBase64String(key));
     string signature = Convert.ToBase64String(hmac.ComputeHash(Encoding.UTF8.GetBytes(stringToSign)));
 
-    string token = String.Format(CultureInfo.InvariantCulture, "SharedAccessSignature sr={0}&sig={1}&se={2}", WebUtility.UrlEncode(resourceUri).ToLower(), WebUtility.UrlEncode(signature), expiry);
+    string token = String.Format(CultureInfo.InvariantCulture, "SharedAccessSignature sr={0}&sig={1}&se={2}", WebUtility.UrlEncode(resourceUri), WebUtility.UrlEncode(signature), expiry);
 
     if (!String.IsNullOrEmpty(policyName))
     {
@@ -338,13 +338,17 @@ El resultado, que concedería acceso para leer todas las identidades del disposi
 
 ## <a name="supported-x509-certificates"></a>Certificados X.509 compatibles
 
-Puede usar cualquier certificado X.509 para autenticar dispositivos con IoT Hub. Los certificados incluyen:
+Puede usar cualquier certificado X.509 para autenticar un dispositivo en IoT Hub, cargando ya sea una huella digital del certificado o una entidad de certificación (CA) a Azure IoT Azure. La autenticación mediante huellas digitales de certificado solo comprueba que la huella digital presentada coincida con la huella digital configurada. La autenticación mediante la entidad de certificación valida la cadena de certificados. 
 
-* **Un certificado X.509 existente**. Puede que un dispositivo ya tenga un certificado X.509 asociado. El dispositivo puede usar este certificado para autenticarse con IoT Hub.
-* **Un certificado X-509 autofirmado y generado automáticamente**. Un fabricante de dispositivos o implementador interno pueden generar estos certificados y almacenar la clave privada correspondiente (y el certificado) en el dispositivo. Puede usar herramientas como [OpenSSL][lnk-openssl] y la utilidad [Windows SelfSignedCertificate][lnk-selfsigned] para este propósito.
-* **Certificado X.509 firmado por una CA**. Puede utilizar un certificado X.509 generado y firmado por una entidad de certificación (CA) con el objetivo de identificar un dispositivo y autenticarlo con IoT Hub. IoT Hub solo comprueba que la huella digital presentada coincide con la configurada. IoT Hub no valida la cadena de certificados.
+Los certificados admitidos incluyen:
+
+* **Un certificado X.509 existente**. Puede que un dispositivo ya tenga un certificado X.509 asociado. El dispositivo puede usar este certificado para autenticarse con IoT Hub. Funciona con la autenticación por huella digital o CA. 
+* **Certificado X.509 firmado por una CA**. Puede utilizar un certificado X.509 generado y firmado por una entidad de certificación (CA) con el objetivo de identificar un dispositivo y autenticarlo con IoT Hub. Funciona con la autenticación por huella digital o CA.
+* **Un certificado X-509 autofirmado y generado automáticamente**. Un fabricante de dispositivos o implementador interno pueden generar estos certificados y almacenar la clave privada correspondiente (y el certificado) en el dispositivo. Puede usar herramientas como [OpenSSL][lnk-openssl] y la utilidad [Windows SelfSignedCertificate][lnk-selfsigned] para este propósito. Solo funciona con la autenticación por huella digital. 
 
 Un dispositivo puede usar un token de seguridad o un certificado X.509 para realizar la autenticación, pero no ambos.
+
+Para obtener más información sobre la autenticación mediante la entidad de certificación, consulte [Explicación de los conceptos de certificados de entidad de certificación X.509 en el sector de IoT](iot-hub-x509ca-concept.md).
 
 ### <a name="register-an-x509-certificate-for-a-device"></a>Registro de certificados X.509 en un dispositivo
 
@@ -354,10 +358,7 @@ El [SDK de servicios IoT de Azure para C#][lnk-service-sdk] (versión 1.0.8 o po
 
 La clase **RegistryManager** permite registrar dispositivos mediante programación. En concreto, los métodos **AddDeviceAsync** y **UpdateDeviceAsync** le permiten registrar y actualizar un dispositivo en el registro de identidad de IoT Hub. Estos dos métodos toman una instancia **Device** como entrada. La clase **Device** incluye una propiedad **Authentication** que permite al usuario especificar huellas digitales de certificados X.509 principales y secundarias. La huella digital representa un hash SHA-1 del certificado X.509 (que se almacena mediante codificación DER binaria). Los usuarios tienen la opción de especificar una huella digital principal o secundaria, o ambas. Las huellas digitales principales y secundarias se admiten para poder controlar los escenarios de sustitución de certificados.
 
-> [!NOTE]
-> IoT Hub no necesita el certificado X.509 completo ni tampoco lo almacena, solo requiere la huella digital.
-
-A continuación, veremos un fragmento de código C\# de ejemplo para registrar un dispositivo mediante un certificado X.509:
+A continuación, veremos un fragmento de código C\# de ejemplo para registrar un dispositivo mediante una huella digital de certificado X.509:
 
 ```csharp
 var device = new Device(deviceId)
@@ -441,7 +442,7 @@ Otros temas de referencia en la guía del desarrollador de IoT Hub son los sigui
 * En [Lenguaje de consulta de IoT Hub][lnk-query], se describe el lenguaje de consulta que se puede usar para recuperar información de IoT Hub sobre los trabajos y dispositivos gemelos.
 * En [Compatibilidad con MQTT de IoT Hub][lnk-devguide-mqtt], se proporciona más información sobre la compatibilidad de IoT Hub con el protocolo MQTT.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Ahora que ha aprendido a controlar el acceso a IoT Hub, puede interesarle los siguientes temas de la Guía del desarrollador de IoT Hub:
 

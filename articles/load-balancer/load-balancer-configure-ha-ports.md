@@ -1,32 +1,32 @@
 ---
-title: "Configuración de puertos de alta disponibilidad para Azure Load Balancer | Microsoft Docs"
-description: "Aprenda a usar los puertos de alta disponibilidad para el tráfico interno de equilibrio de carga en todos los puertos."
+title: Configuración de puertos de alta disponibilidad para Azure Load Balancer | Microsoft Docs
+description: Aprenda a usar los puertos de alta disponibilidad para el tráfico interno de equilibrio de carga en todos los puertos.
 services: load-balancer
 documentationcenter: na
 author: rdhillon
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/02/2017
+ms.date: 03/21/20178
 ms.author: kumud
-ms.openlocfilehash: 36bc3d7a35f41384706cbc7101457d00848639b2
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7f7f8e254e0ed0556446e7b08eaf46ec59977f62
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-high-availability-ports-for-an-internal-load-balancer"></a>Configuración de los puertos de alta disponibilidad para un equilibrador de carga interno
 
 En este artículo se proporciona un ejemplo de implementación de los puertos de alta disponibilidad en un equilibrador de carga interno. Para obtener más información sobre las configuraciones específicas de aplicaciones virtuales de red, consulte los sitios web del proveedor correspondiente.
 
 >[!NOTE]
-> La característica de puertos de alta disponibilidad actualmente está en versión preliminar. Durante la versión preliminar, es posible que la característica no tenga el mismo nivel de disponibilidad y confiabilidad que las características que se encuentran en las versiones de disponibilidad general. Para obtener más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>Azure Load Balancer admite dos tipos diferentes: Básico y Estándar. En este artículo se describe Load Balancer Estándar. Para más información acerca de Load Balancer Básico, consulte [Introducción a Azure Load Balancer Básico (versión preliminar)](load-balancer-overview.md).
 
 En la ilustración se muestra la configuración del ejemplo de implementación siguiente que se describe en este artículo:
 

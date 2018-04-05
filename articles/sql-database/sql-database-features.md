@@ -6,14 +6,14 @@ author: jovanpop-msft
 ms.reviewer: bonova, carlrab
 ms.service: sql-database
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/21/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: 4c50adeef0d6e811af6e144aa7351d9b65c1bd76
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 842c65987dc97872751071dbcf138794a14940e2
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Comparación de funciones: Azure SQL Database frente a SQL Server 
 
@@ -34,7 +34,7 @@ En las tablas siguientes se enumeran las características principales de SQL Ser
 | [Grupos de disponibilidad AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | Cada base de datos incluye [alta disponibilidad](sql-database-high-availability.md). La recuperación ante desastres se explica en [Información general sobre continuidad empresarial con Azure SQL Database](sql-database-business-continuity.md) | Cada base de datos incluye [alta disponibilidad](sql-database-high-availability.md). La recuperación ante desastres se explica en [Información general sobre continuidad empresarial con Azure SQL Database](sql-database-business-continuity.md) |
 | [Conectar una base de datos](https://docs.microsoft.com/sql/relational-databases/databases/attach-a-database) | Sin  | Sin  |
 | [Roles de la aplicación](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/application-roles) | Sí | Sí |
-|[Auditoría](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | [Sí](sql-database-auditing.md)| Sí; consulte el artículo sobre las [diferencias de auditoría](sql-database-managed-instance-transact-sql-information.md#auditing) |
+|[Auditoría](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | [Sí](sql-database-auditing.md)| [Sí](sql-database-managed-instance-auditing.md) |
 | [Copias de seguridad automáticas](sql-database-automated-backups.md) | Sí | Sí |
 | [Ajuste automático (forzar el plan)](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning)| [Sí](sql-database-automatic-tuning.md)| [Sí](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning) |
 | [Ajuste automático (índices)](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning)| [Sí](sql-database-automatic-tuning.md)| Sin  |
@@ -45,7 +45,7 @@ En las tablas siguientes se enumeran las características principales de SQL Ser
 | [Captura de datos modificados](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | Sin  | Sí |
 | [Seguimiento de cambios](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) | Sí |Sí |
 | [Instrucciones de intercalación](https://docs.microsoft.com/sql/t-sql/statements/collations) | Sí | Sí |
-| [Índices de almacén de columnas](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) | Sí; [solo en Premium Edition](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview). |Sí |
+| [Índices de almacén de columnas](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) | Sí: [plan Premium y Estándar (S3 y versiones posteriores)](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) |Sí |
 | [Common Language Runtime (CLR)](https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | Sin  | Sí; consulte el artículo sobre las [diferencias de CLR](sql-database-managed-instance-transact-sql-information.md#clr) |
 | [Bases de datos independientes](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) | Sí | Sí |
 | [Usuarios contenidos](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable) | Sí | Sí |
@@ -91,6 +91,11 @@ En las tablas siguientes se enumeran las características principales de SQL Ser
 | [Registro mínimo durante la importación en bloque](https://docs.microsoft.com/sql/relational-databases/import-export/prerequisites-for-minimal-logging-in-bulk-import) | Sin  | Sin  |
 | [Modificación de datos del sistema](https://docs.microsoft.com/sql/relational-databases/databases/system-databases) | Sin  | Sí |
 | [Operaciones de índice en línea](https://docs.microsoft.com/sql/relational-databases/indexes/perform-index-operations-online) | Sí | Sí |
+| [OPENDATASOURCE](https://docs.microsoft.com/sql/t-sql/functions/opendatasource-transact-sql)|Sin |Sí; consulte el artículo sobre [diferencias de T-SQL](sql-database-managed-instance-transact-sql-information.md)|
+| [OPENJSON](https://docs.microsoft.com/sql/t-sql/functions/openjson-transact-sql)|Sí|Sí|
+| [OPENQUERY](https://docs.microsoft.com/sql/t-sql/functions/openquery-transact-sql)|Sin |Sí; consulte el artículo sobre [diferencias de T-SQL](sql-database-managed-instance-transact-sql-information.md)|
+| [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql)|Sin |Sí; consulte el artículo sobre [diferencias de T-SQL](sql-database-managed-instance-transact-sql-information.md)|
+| [OPENXML](https://docs.microsoft.com/sql/t-sql/functions/openxml-transact-sql)|Sí|Sí|
 | [Operadores](https://docs.microsoft.com/sql/t-sql/language-elements/operators-transact-sql) | La mayoría; consulte el artículo sobre operadores. |Sí; consulte el artículo sobre [diferencias de T-SQL](sql-database-managed-instance-transact-sql-information.md) |
 | [Creación de particiones](https://docs.microsoft.com/sql/relational-databases/partitions/partitioned-tables-and-indexes) | Sí | Sí |
 | [Restauración de base de datos a un momento dado](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-sql-server-database-to-a-point-in-time-full-recovery-model) | Sí; consulte el artículo sobre [recuperación SQL Database](sql-database-recovery-using-backups.md#point-in-time-restore) | Sí; consulte el artículo sobre [recuperación SQL Database](sql-database-recovery-using-backups.md#point-in-time-restore) |
@@ -128,6 +133,7 @@ En las tablas siguientes se enumeran las características principales de SQL Ser
 | [Vistas de catálogo del sistema](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/catalog-views-transact-sql) | Algunas; consulte el artículo sobre vistas. | Sí; consulte el artículo sobre [diferencias de T-SQL](sql-database-managed-instance-transact-sql-information.md) |
 | [Tablas temporales](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql#database-scoped-global-temporary-tables-azure-sql-database) | Tablas temporales globales locales y de ámbito de base de datos | Tablas temporales globales locales y de ámbito de instancia |
 | [Tablas temporales](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables) | Sí | Sí |
+|Detección de amenazas|  [Sí](sql-database-threat-detection.md)|[Sí](sql-database-managed-instance-threat-detection.md)|
 | [Marcas de seguimiento](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql) | Sin  | Sin  |
 | [Variables](https://docs.microsoft.com/sql/t-sql/language-elements/variables-transact-sql) | Sí | Sí |
 | [Cifrado de datos transparente (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) | Sí | No, no en versión preliminar pública |

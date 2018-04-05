@@ -1,12 +1,12 @@
 ---
 title: Copia de seguridad de archivos y carpetas de Windows en Azure (Resource Manager) | Microsoft Docs
-description: "Aprenda a realizar una copia de seguridad de los archivos y las carpetas de Windows en Azure en una implementación de Resource Manager."
+description: Aprenda a realizar una copia de seguridad de los archivos y las carpetas de Windows en Azure en una implementación de Resource Manager.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
-keywords: "cómo realizar copias de seguridad; cómo realizar una copia de seguridad; copia de seguridad de archivos y carpetas"
+editor: ''
+keywords: cómo realizar copias de seguridad; cómo realizar una copia de seguridad; copia de seguridad de archivos y carpetas
 ms.assetid: 5b15ebf1-2214-4722-b937-96e2be8872bb
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 8/15/2017
 ms.author: markgal;
-ms.openlocfilehash: bb631eff77932b6bdcf858256c47c9d7381a58c1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 55f83bda1a9de9274194ec220fa9a4a5c8b7f0fb
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="first-look-back-up-files-and-folders-in-resource-manager-deployment"></a>Primer análisis: Copia de seguridad de archivos y carpetas en la implementación de Resource Manager
 En este artículo se explica cómo realizar una copia de seguridad de los archivos y las carpetas de Windows Server (o equipo Windows) en Azure mediante una implementación de Resource Manager. Es un tutorial diseñado para guiarle por los aspectos básicos. Si desea empezar a usar Azure Backup, está en el lugar correcto.
@@ -87,7 +87,7 @@ Cuando cree un almacén de Recovery Services, asegúrese de que la configuració
 
     ![opciones de configuración de almacenamiento](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
-    De forma predeterminada, el almacén tiene almacenamiento con redundancia geográfica. Si usa Azure como punto de conexión de almacenamiento de copia de seguridad principal, siga utilizando **Redundancia geográfica**. Si no utiliza Azure como punto de conexión de almacenamiento de copia de seguridad principal, elija **Redundancia local** para reducir los costes de almacenamiento de Azure. En esta página de [información general sobre la redundancia del almacenamiento](../storage/common/storage-redundancy.md) encontrará más información sobre las opciones de almacenamiento con [redundancia geográfica](../storage/common/storage-redundancy.md#geo-redundant-storage) y [redundancia local](../storage/common/storage-redundancy.md#locally-redundant-storage).
+    De forma predeterminada, el almacén tiene almacenamiento con redundancia geográfica. Si usa Azure como punto de conexión de almacenamiento de copia de seguridad principal, siga utilizando **Redundancia geográfica**. Si no utiliza Azure como punto de conexión de almacenamiento de copia de seguridad principal, elija **Redundancia local** para reducir los costes de almacenamiento de Azure. En esta página de [información general sobre la redundancia del almacenamiento](../storage/common/storage-redundancy.md) encontrará más información sobre las opciones de almacenamiento con [redundancia geográfica](../storage/common/storage-redundancy-grs.md) y [redundancia local](../storage/common/storage-redundancy-lrs.md).
 
 Ahora que ha creado un almacén, configúrelo para realizar copias de seguridad de archivos y carpetas.
 
@@ -224,7 +224,7 @@ Una vez que finalice la copia de seguridad inicial, el estado **Trabajo completa
 ## <a name="questions"></a>¿Tiene preguntas?
 Si tiene alguna pregunta o hay alguna característica que le gustaría que se incluyera, [envíenos sus comentarios](http://aka.ms/azurebackup_feedback).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Obtenga más información acerca de cómo [realizar copias de seguridad de máquinas Windows](backup-configure-vault.md).
 * Ahora que ha realizado una copia de seguridad de los archivos y las carpetas, puede [administrar los almacenes y servidores](backup-azure-manage-windows-server.md).
 * Si necesita restaurar una copia de seguridad, use este artículo: [Restaurar archivos en una máquina de Windows Server o del Cliente de Windows](backup-azure-restore-windows-server.md).

@@ -1,11 +1,11 @@
 ---
-title: "Supervisión mediante programación de una factoría de datos de Azure | Microsoft Docs"
-description: "Aprenda a supervisar una canalización en una factoría de datos mediante distintos kits de desarrollo de software (SDK)."
+title: Supervisión mediante programación de una factoría de datos de Azure | Microsoft Docs
+description: Aprenda a supervisar una canalización en una factoría de datos mediante distintos kits de desarrollo de software (SDK).
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: douglaslMS
-manager: jhubbard
-editor: 
+manager: craigg
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,17 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: douglasl
-ms.openlocfilehash: 95934de9b84270ff112489a7b67f622dad609970
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 87e69349245c5f67e23022e3a45ed798400e6a2c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="programmatically-monitor-an-azure-data-factory"></a>Supervisión mediante programación de una factoría de datos de Azure
 En este artículo se describe cómo supervisar una canalización de una factoría de datos mediante distintos kits de desarrollo de software (SDK). 
 
 > [!NOTE]
 > Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, consulte [Supervisión y administración de canalizaciones en Data Factory, versión 1](v1/data-factory-monitor-manage-pipelines.md).
+
+## <a name="data-range"></a>Intervalo de datos
+
+Data Factory solo almacena los datos de ejecución de canalización durante 45 días. Al consultar mediante programación los datos sobre las ejecuciones de canalización de Data Factory (por ejemplo, con el comando de PowerShell `Get-AzureRmDataFactoryV2PipelineRun`) no hay ninguna fecha máxima para los parámetros opcionales `LastUpdatedAfter` y `LastUpdatedBefore`. Pero si consulta los datos del año pasado, por ejemplo, la consulta no devuelve un error, sino solo los datos de ejecución de canalización de los últimos 45 días.
+
+Si desea conservar los datos de ejecución de canalización durante más de 45 días, configure su propio registro de diagnóstico con [Azure Monitor](monitor-using-azure-monitor.md).
 
 ## <a name="net"></a>.NET
 Para ver un tutorial completo sobre cómo crear y supervisar una canalización mediante el SDK. de NET, consulte [Creación de una factoría de datos y una canalización con SDK de .NET](quickstart-create-data-factory-dot-net.md).

@@ -1,18 +1,18 @@
 ---
-title: "Actualización de un registro clásico de Azure Container Registry"
-description: "Benefíciese del conjunto de características ampliado de los registros de contenedores administrados Básico, Estándar y Premium mediante la actualización de su registro de contenedor clásico no administrado."
+title: Actualización de un registro clásico de Azure Container Registry
+description: Benefíciese del conjunto de características ampliado de los registros de contenedores administrados Básico, Estándar y Premium mediante la actualización de su registro de contenedor clásico no administrado.
 services: container-registry
 author: mmacy
 manager: timlt
 ms.service: container-registry
 ms.topic: article
-ms.date: 12/20/2017
+ms.date: 03/15/2018
 ms.author: marsma
-ms.openlocfilehash: 19090bb69d7165c1e904450dc93b925e23e44782
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: c5a61941bab2aa49cd8205e0a07dd2b5f7378ce9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="upgrade-a-classic-container-registry"></a>Actualización de un registro clásico
 
@@ -29,14 +29,16 @@ Los registros administrados proporcionan:
 * [Replicación geográfica](container-registry-geo-replication.md)
 * [Webhooks](container-registry-webhook.md)
 
-Lo más importante es que un registro clásico depende de la cuenta de almacenamiento que Azure aprovisionó automáticamente en su suscripción cuando creó el registro. En cambio, las SKU de los niveles Básico, Estándar y Premium se benefician del *almacenamiento administrado*. Es decir, Azure administra de forma transparente el almacenamiento de las imágenes por usted; no se crea una cuenta de almacenamiento diferente en su propia suscripción.
+Lo más importante es que un registro clásico depende de la cuenta de almacenamiento que Azure aprovisiona automáticamente en su suscripción cuando crea el registro. Por el contrario, las SKU Basic, Standard y Premium aprovechan las [características de almacenamiento avanzadas](container-registry-storage.md) de Azure, para lo cual controlan de manera transparente el almacenamiento de las imágenes por usted. No se crea otra cuenta de almacenamiento en su propia suscripción.
 
 El almacenamiento de registros administrados proporciona las siguientes ventajas:
 
-* Las imágenes de contenedor se [cifran en reposo](../storage/common/storage-service-encryption.md).
-* Las imágenes se almacenan mediante el [almacenamiento con redundancia geográfica](../storage/common/storage-redundancy.md#geo-redundant-storage), lo que garantiza la copia de seguridad de las imágenes con replicación en varias regiones.
+* Las imágenes de contenedor se [cifran en reposo](container-registry-storage.md#encryption-at-rest).
+* Las imágenes se almacenan mediante el [almacenamiento con redundancia geográfica](container-registry-storage.md#geo-redundant-storage), lo que garantiza la copia de seguridad de las imágenes con replicación en varias regiones.
 * Capacidad de [cambiar de SKU](container-registry-skus.md#changing-skus) con libertad, lo que aumenta el rendimiento al elegir una SKU de nivel superior. Con cada SKU, ACR puede cumplir los requisitos de rendimiento a medida que aumentan sus necesidades.
 * El modelo de seguridad unificado para el registro y su almacenamiento ofrece una administración de derechos simplificada. Administrar permisos solo para el registro de contenedor, sin tener que administrar permisos para una cuenta de almacenamiento independiente.
+
+Para obtener más detalles sobre el almacenamiento de imágenes en ACR, consulte [Almacenamiento de imágenes de contenedor en Azure Container Registry](container-registry-storage.md).
 
 ## <a name="migration-considerations"></a>Consideraciones sobre la migración
 
@@ -112,7 +114,7 @@ Una vez completada la migración, el **Estado de aprovisionamiento** indica *Cor
 
 ![Estado de finalización de la actualización del registro clásico en la interfaz de usuario de Azure Portal][update-classic-04-updated]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Una vez actualizado un registro clásico a Básico, Estándar o Premium, Azure deja de usar la cuenta de almacenamiento que originalmente almacenaba el registro clásico. Para reducir los costos, considere la posibilidad de eliminar la cuenta de almacenamiento o el contenedor de blobs de la cuenta que contiene las imágenes de contenedor anteriores.
 

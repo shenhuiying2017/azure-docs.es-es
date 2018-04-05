@@ -1,8 +1,8 @@
 ---
-title: "Preguntas más frecuentes sobre SQL Server en máquinas virtuales Linux de Azure | Microsoft Docs"
-description: "En este artículo se brindan respuestas a las preguntas más frecuentes sobre cómo ejecutar SQL Server en máquinas virtuales Linux de Azure."
+title: Preguntas más frecuentes sobre SQL Server en máquinas virtuales Linux de Azure | Microsoft Docs
+description: En este artículo se brindan respuestas a las preguntas más frecuentes sobre cómo ejecutar SQL Server en máquinas virtuales Linux de Azure.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rothja
 manager: jhubbard
 tags: azure-service-management
@@ -12,11 +12,11 @@ ms.topic: troubleshooting
 ms.workload: iaas-sql-server
 ms.date: 12/13/2017
 ms.author: jroth
-ms.openlocfilehash: 8b556b01aa47aeb3588138dfa61e517c00dc44dc
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 56a0629249cdb5f0f098d2b7b6d36b3fbb215009
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-linux-azure-virtual-machines"></a>Preguntas más frecuentes para SQL Server en máquinas virtuales Linux de Azure
 
@@ -71,13 +71,17 @@ En este artículo se proporcionan respuestas a algunas de las preguntas más com
 
 1. **¿Puedo cambiar una máquina virtual para usar mi propia licencia de SQL Server si se ha creado desde una de las imágenes de la galería de pago por uso?**
 
-   No. No puede cambiar de licencias de pago por minuto a usar su propia licencia. Debe crear una máquina virtual Linux nueva, instalar SQL Server y migrar los datos. Consulte la pregunta anterior para más detalles sobre cómo traer su propia licencia.
+   Nº No puede cambiar de licencias de pago por segundo a usar su propia licencia. Debe crear una máquina virtual Linux nueva, instalar SQL Server y migrar los datos. Consulte la pregunta anterior para más detalles sobre cómo traer su propia licencia.
 
 ## <a name="administration"></a>Administración
 
 1. **¿Puedo administrar una máquina virtual Linux de SQL Server con SQL Server Management Studio (SSMS)?**
 
    Sí, pero SSMS es actualmente una herramienta solo para Windows. Debe conectarse de forma remota desde una máquina Windows para usar SSMS con máquinas virtuales Linux de SQL Server. La nueva herramienta [mssql-conf](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf) puede realizar muchas tareas administrativas de forma local en Linux. Para obtener una vista previa de una herramienta de administración de base de datos multiplataforma, consulte [SQL Server Operations Studio (versión preliminar)](https://docs.microsoft.com/sql/sql-operations-studio/what-is).
+
+1. **¿Puedo quitar SQL Server por completo de una VM de SQL?**
+
+   Sí, pero se le seguirá cobrando por la VM de SQL como se describe en [Orientación de precios de SQL Server para máquinas virtuales de Azure](../../windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2fsql%2ftoc.json). Si ya no necesita SQL Server, puede implementar una nueva máquina virtual y migrar los datos y aplicaciones a la nueva máquina virtual. Después, puede quitar la máquina virtual de SQL Server.
 
 ## <a name="updating-and-patching"></a>Actualizaciones y revisiones
 

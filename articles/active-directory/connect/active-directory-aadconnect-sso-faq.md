@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/22/2018
 ms.author: billmath
-ms.openlocfilehash: 8a91960f150e9298515cd52fe192ec1abdd89f9c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 819d8ce9793f785726f55a89d49d08d818401b33
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Preguntas más frecuentes sobre el inicio de sesión único de conexión directa de Azure Active Directory
 
@@ -26,7 +26,7 @@ En este artículo se ofrece respuesta a las preguntas más frecuentes sobre el i
 
 ## <a name="what-sign-in-methods-do-seamless-sso-work-with"></a>¿Con qué métodos de inicio de sesión funciona el SSO de conexión directa?
 
-SSO de conexión directa se puede combinar con los métodos de inicio de sesión mediante [sincronización de hash de contraseñas](active-directory-aadconnectsync-implement-password-synchronization.md) o [autenticación de paso a través](active-directory-aadconnect-pass-through-authentication.md). Pero esta característica no se puede usar con los Servicios de federación de Active Directory (AD FS).
+SSO de conexión directa se puede combinar con los métodos de inicio de sesión mediante [sincronización de hash de contraseñas](active-directory-aadconnectsync-implement-password-hash-synchronization.md) o [autenticación de paso a través](active-directory-aadconnect-pass-through-authentication.md). Pero esta característica no se puede usar con los Servicios de federación de Active Directory (AD FS).
 
 ## <a name="is-seamless-sso-a-free-feature"></a>¿SSO de conexión directa es una característica gratuita?
 
@@ -38,16 +38,23 @@ Nº El inicio de sesión único de conexión directa solo está disponible en la
 
 ## <a name="what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso"></a>¿Qué aplicaciones aprovechan la funcionalidad de parámetro `domain_hint` o `login_hint` de SSO de conexión directa?
 
-La siguiente es una lista parcial de las aplicaciones que envían estos parámetros a Azure AD y, por lo tanto, proporciona a los usuarios una experiencia de inicio de sesión silenciosa con SSO de conexión directa:
+La siguiente es una lista parcial de las aplicaciones que envían estos parámetros a Azure AD y, por lo tanto, proporciona a los usuarios una experiencia de inicio de sesión silenciosa con SSO de conexión directa (es decir, los usuarios no tendrán que especificar su nombre de usuario):
 
 | Nombre de la aplicación | La dirección URL de la aplicación que se va a usar |
 | -- | -- |
 | Panel de acceso | myapps.microsoft.com/contoso.com |
 | Outlook en la Web | outlook.office365.com/contoso.com |
 
-En la tabla anterior, reemplace "contoso.com" por el nombre de dominio para obtener las direcciones URL de aplicación correctas para el inquilino.
+Además, los usuarios obtienen una experiencia de inicio de sesión silenciosa si una aplicación envía solicitudes de inicio de sesión a los puntos de conexión con inquilino de Azure AD; es decir, https://login.microsoftonline.com/contoso.com/<..> o https://login.microsoftonline.com/<tenant_ID>/<..>, en lugar del punto de conexión común de Azure AD; es decir, https://login.microsoftonline.com/common/<...>. A continuación se incluye una lista no exhaustiva de aplicaciones que hacen estos tipos de solicitudes de inicio de sesión.
 
-Si tiene otras aplicaciones que le interesen, indíquelo en la sección de comentarios.
+| Nombre de la aplicación | La dirección URL de la aplicación que se va a usar |
+| -- | -- |
+| SharePoint Online | contoso.sharepoint.com |
+| Azure Portal | portal.azure.com/contoso.com |
+
+En las tablas anteriores, reemplace "contoso.com" por el nombre de dominio para obtener las direcciones URL de aplicación correctas para el inquilino.
+
+Si quiere que otras aplicaciones utilicen la experiencia de inicio de sesión silenciosa, comuníquenoslo en la sección de comentarios.
 
 ## <a name="does-seamless-sso-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>¿SSO de conexión directa admite `Alternate ID` como nombre de usuario en lugar de `userPrincipalName`?
 

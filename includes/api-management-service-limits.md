@@ -1,10 +1,32 @@
+---
+title: archivo de inclusión
+description: archivo de inclusión
+services: api-management
+author: vladvino
+ms.assetid: 1b813833-39c8-46be-8666-fd0960cfbf04
+ms.service: api-management
+ms.topic: include
+ms.date: 03/22/2018
+ms.author: vlvinogr
+ms.custom: include file
+ms.openlocfilehash: bee289da3f18edd0cb425f3d9acde084567a3b13
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 03/28/2018
+---
 | Recurso | Límite |
 | --- | --- |
-| Llamadas a API (por unidad de escala) |32 millones al día <sup>1</sup> |
-| Transferencia de datos (por unidad de escala) |161 GB al día<sup>1</sup> |
-| Memoria caché |5 GB<sup>1</sup> |
-| Unidades de escala |Sin límites<sup>1</sup> |
-| Integración de Azure Active Directory |Cuentas de usuario sin límites<sup>1</sup> |
+| Unidades de escala | 10 por región<sup>1</sup> |
+| Memoria caché | 5 GB por unidad<sup>1</sup> |
+| Conexiones simultáneas de back-end<sup>2</sup> por autoridad HTTP | 2048 por unidad<sup>3</sup> |
+| Tamaño máximo de respuestas en caché | 10 MB |
+| Número máximo de dominios de puerta de enlace personalizada | 20 por instancia de servicio<sup>4</sup> |
 
-<sup>1</sup>Los límites de Administración de API son diferentes para cada nivel de precios. Para ver los niveles de precios y sus límites asociados y opciones de escalado, consulte [Precios de Administración de API](https://azure.microsoft.com/pricing/details/api-management/).
+
+<sup>1</sup>Los límites de Administración de API son diferentes para cada nivel de precios. Para ver los planes de tarifa y sus límites de escalado, vaya a [Precios de API Management](https://azure.microsoft.com/pricing/details/api-management/).
+<sup>2</sup> Las conexiones se agrupan y se vuelven a utilizar, a menos que el back-end las cierre explícitamente.
+<sup>3</sup> Por unidad de niveles Básico, Estándar y Premium. El nivel de desarrollador está limitado a 1024.
+<sup>4</sup> Disponible solo en el nivel Premium.
+
 

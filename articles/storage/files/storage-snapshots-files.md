@@ -1,6 +1,6 @@
 ---
-title: "Información general de las instantáneas de recurso compartido de Azure Files (versión preliminar) | Microsoft Docs"
-description: "Una instantánea de recurso compartido es una versión de solo lectura de un recurso compartido de Azure Files que se usa en un momento dado como método para realizar una copia de seguridad del recurso compartido."
+title: Información general de las instantáneas de recurso compartido de Azure Files (versión preliminar) | Microsoft Docs
+description: Una instantánea de recurso compartido es una versión de solo lectura de un recurso compartido de Azure Files que se usa en un momento dado como método para realizar una copia de seguridad del recurso compartido.
 services: storage
 documentationcenter: .net
 author: RenaShahMSFT
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: renash
-ms.openlocfilehash: c309804f33fc0e5b2091e18dfe5fe3c9849a2709
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 671e3737a620d85c732a091d5a62f35f35c1d515
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="overview-of-share-snapshots-for-azure-files-preview"></a>Información general de las instantáneas de recurso compartido de Azure Files (versión preliminar)
-Azure Files proporciona la funcionalidad de tomar instantáneas de recurso compartido de recursos compartidos de archivos. Las instantáneas de recursos compartidos (versión preliminar) capturan el estado del recurso compartido en ese momento dado. En este artículo se describen las funcionalidades que proporcionan las instantáneas de recurso compartido y cómo se puede sacar provecho de ellas en el caso de uso personalizado.
+# <a name="overview-of-share-snapshots-for-azure-files"></a>Información general de las instantáneas de recurso compartido de Azure Files 
+Azure Files proporciona la funcionalidad de tomar instantáneas de recurso compartido de recursos compartidos de archivos. Las instantáneas de recursos compartidos capturan el estado del recurso compartido en ese momento dado. En este artículo se describen las funcionalidades que proporcionan las instantáneas de recurso compartido y cómo se puede sacar provecho de ellas en el caso de uso personalizado.
 
 
 ## <a name="when-to-use-share-snapshots"></a>Cuándo usar instantáneas de recursos compartidos
@@ -48,7 +48,7 @@ Una vez se crea la instantánea de recurso compartido, puede leerla, copiarla o 
 
 En el nivel del recurso compartido de archivos se proporciona la funcionalidad de la instantánea de recurso compartido. En cambio, en el nivel de archivos individual se proporciona la opción de recuperación que le permitirá restaurar archivos individuales. Puede restaurar un recurso compartido de archivos completo mediante el SMB, la API de REST, el portal, la biblioteca cliente o con las herramientas de PowerShell o CLI.
 
-Una instantánea de recurso compartido de un recurso compartido de archivos es idéntica a su recurso compartido de archivos base. La única diferencia es que se anexa un valor **DateTime** al URI del recurso compartido para indicar el momento en que se tomó la instantánea de recurso compartido. Por ejemplo, si un URI de recurso compartido de archivos es http://storagesample.core.file.windows.net/myshare, el URI de instantánea de recurso compartido es similar a:
+Una instantánea de recurso compartido de un recurso compartido de archivos es idéntica a su recurso compartido de archivos base. La única diferencia es que se anexa un valor **DateTime** al URI del recurso compartido para indicar el momento en que se tomó la instantánea de recurso compartido. Por ejemplo, si el URI de un recurso compartido de archivos es http://storagesample.core.file.windows.net/myshare, el URI de instantánea es similar a:
 ```
 http://storagesample.core.file.windows.net/myshare?snapshot=2011-03-09T01:42:34.9360000Z
 ```
@@ -96,7 +96,7 @@ Antes de implementar el programador de la instantánea de recurso compartido, te
 
 Las instantáneas de recurso compartido solo proporcionan protección a nivel de archivo. Recuerde que las instantáneas de recurso compartido no previenen eliminaciones que se hayan producido por errores involuntarios en un recurso compartido de archivos o en una cuenta de almacenamiento. Le recomendamos que bloquee la cuenta de almacenamiento o el grupo de recursos para protegerlos de eliminaciones accidentales.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Trabajar con instantáneas de recurso compartido](storage-how-to-use-files-snapshots.md)
-* [Preguntas más frecuentes sobre instantáneas de recurso compartido](storage-files-faq.md)
+* [Preguntas más frecuentes sobre instantáneas de recurso compartido](storage-files-faq.md#share-snapshots)
 

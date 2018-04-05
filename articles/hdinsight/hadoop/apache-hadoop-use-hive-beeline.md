@@ -2,7 +2,7 @@
 title: Uso de Beeline con Apache Hive - Azure HDInsight | Microsoft Docs
 description: Aprenda a usar el cliente de Beeline para ejecutar consultas de Hive con Hadoop en HDInsight. Beeline es una utilidad para trabajar con HiveServer2 sobre JDBC.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/02/2018
+ms.date: 03/26/2018
 ms.author: larryfr
-ms.openlocfilehash: 5d4e9d6ffb7fa0c2e4b69c5b534f0078aec5f68c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f2beb42f51bbbf65abe7bb6d95579106cdf1857a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-the-beeline-client-with-apache-hive"></a>Usar el cliente de Beeline con Apache Hive
 
@@ -110,7 +110,7 @@ Beeline es un cliente de Hive que se incluye en los nodos principales del clúst
         | sessionpagevieworder  | bigint     |          |
         +-----------------------+------------+----------+--+
 
-    Esta información describe las columnas de la tabla. Aunque podríamos realizar algunas consultas en estos datos, vamos a crear esta vez una nueva tabla para demostrar cómo cargar datos en Hive y aplicar un esquema.
+    Esta información describe las columnas de la tabla.
 
 4. Escriba las siguientes instrucciones para crear una tabla denominada **log4jLogs** con los datos de ejemplo proporcionados con el clúster de HDInsight:
 

@@ -1,24 +1,24 @@
 ---
-title: "Obtención de información acerca de los últimos lanzamientos de SO invitado de Azure | Microsoft Docs"
-description: "Noticias sobre los lanzamientos más recientes y compatibilidad con el SO invitado de Azure Cloud Services."
+title: Obtención de información acerca de los últimos lanzamientos de SO invitado de Azure | Microsoft Docs
+description: Noticias sobre los lanzamientos más recientes y compatibilidad con el SO invitado de Azure Cloud Services.
 services: cloud-services
 documentationcenter: na
 author: raiye
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 6306cafe-1153-44c7-8554-623b03d59a34
 ms.service: cloud-services
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 2/27/2018
+ms.date: 3/19/2018
 ms.author: raiye
-ms.openlocfilehash: dac0efdb1ce76ad6f143479782f164d3304aeaf3
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 0456bf8d8cdd84078d12c3fc0f48d16b0370cddd
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Matriz de compatibilidad del SDK y versiones del SO invitado de Azure
 Proporciona información actualizada sobre los lanzamientos del SO invitado de Azure más recientes para Cloud Services. Esta información le ayuda a planear la ruta de actualización antes de que se deshabilite un SO invitado. Si configura los roles para utilizar actualizaciones *automáticas* del SO invitado como se describe en la documentación sobre la [configuración de actualización del SO invitado de Azure][Azure Guest OS Update Settings], no es fundamental que lea esta página.
@@ -42,6 +42,9 @@ Proporciona información actualizada sobre los lanzamientos del SO invitado de A
 ¿No sabe en qué consiste exactamente el SO invitado o cómo funcionan las versiones de este? Lea [esta](#how-it-works) sección.
 
 ## <a name="news-updates"></a>Actualizaciones de noticias
+###### <a name="march-19-2018"></a>**19 de marzo de 2018**
+Se ha publicado el SO invitado de febrero.
+
 ###### <a name="january-29-2018"></a>**29 de enero de 2018**
 El sistema operativo invitado de enero se ha publicado para las familias de SO 2 (WA-GUEST-OS-2.70_201801-01) y 3 (WA-GUEST-OS-3.57_201801-01).
 
@@ -72,12 +75,6 @@ Se ha publicado el SO invitado de julio.
 ###### <a name="july-19-2017"></a>**19 de julio de 2017**
 La implementación del SO invitado del mes de julio comienza el 19 de julio y está previsto que se lance el 8 de agosto.
 
-###### <a name="july-7-2017"></a>**7 de julio de 2017**
-Se ha publicado el SO invitado de junio.
-
-###### <a name="june-16-2017"></a>**16 de junio de 2017**
-La implementación del SO invitado del mes de junio comienza el 16 de junio y está previsto que se lance el 11 de julio.
-
 
 ## <a name="releases"></a>Lanzamientos
 ## <a name="family-5-releases"></a>Lanzamientos de la familia 5
@@ -93,8 +90,9 @@ Versión de .NET Framework instalada: 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
 
 | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación | Fecha de expiración |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-5.16_201802-01 |12 de marzo de 2018 |Post 5.18 |TBD |
 | WA-GUEST-OS-5.15_201801-01 |4 de enero de 2018 |Post 5.17 |TBD |
-| WA-GUEST-OS-5.14_201712-01 |4 de enero de 2018 |Post 5.16 |TBD |
+|~~WA-GUEST-OS-5.14_201712-01~~ |4 de enero de 2018 |12 de marzo de 2018 |TBD |
 |~~WA-GUEST-OS-5.13_201711-01~~ |14 de diciembre de 2017 |4 de enero de 2018|TBD |
 |~~WA-GUEST-OS-5.12_201710-02~~ |8 de noviembre de 2017 |4 de enero de 2018 |TBD |
 |~~WA-GUEST-OS-5.11_201709-01~~ |6 de octubre de 2017 |14 de diciembre de 2017 |TBD |
@@ -118,8 +116,9 @@ Versión de .NET Framework instalada: 4.0, 4.5, 4.5.1, 4.5.2
 
 | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación | Fecha de expiración |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-4.51_201802-01 |12 de marzo de 2018 |Post 4.53 |TBD |
 | WA-GUEST-OS-4.50_201801-01 |4 de enero de 2018 |Post 4.52 |TBD |
-| WA-GUEST-OS-4.49_201712-01 |4 de enero de 2018 |Post 4.51 |TBD |
+|~~WA-GUEST-OS-4.49_201712-01~~ |4 de enero de 2018 |12 de marzo de 2018 |TBD |
 |~~WA-GUEST-OS-4.48_201711-01~~ |14 de diciembre de 2017 |4 de enero de 2018 |TBD |
 |~~WA-GUEST-OS-4.47_201710-02~~ |8 de noviembre de 2017 |4 de enero de 2018 |TBD |
 |~~WA-GUEST-OS-4.46_201709-01~~ |6 de octubre de 2017 |14 de diciembre de 2017 |TBD |
@@ -143,8 +142,9 @@ Versión de .NET Framework instalada: 4.0, 4.5, 4.5.1, 4.5.2
 
 | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación | Fecha de expiración |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-3.58_201802-01 |19 de marzo de 2018 |POST 3.60 |TBD |
 | WA-GUEST-OS-3.57_201801-01 |29 de enero de 2018 |Post 3.59 |TBD |
-| WA-GUEST-OS-3.56_201712-01 |4 de enero de 2018 |Post 3.58 |TBD |
+|~~WA-GUEST-OS-3.56_201712-01~~ |4 de enero de 2018 |19 de marzo de 2018 |TBD |
 |~~WA-GUEST-OS-3.55_201711-01~~ |14 de diciembre de 2017 |29 de enero de 2018 |TBD |
 |~~WA-GUEST-OS-3.54_201710-02~~ |8 de noviembre de 2017 |4 de enero de 2018 |TBD |
 |~~WA-GUEST-OS-3.53_201709-01~~ |6 de octubre de 2017 |14 de diciembre de 2017 |TBD |
@@ -168,8 +168,9 @@ Versión de .NET Framework instalada: 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
 | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación | Fecha de expiración |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-2.71_201802-01 |12 de marzo de 2018 |Post 2.73 |TBD |
 | WA-GUEST-OS-2.70_201801-01 |29 de enero de 2018 |Post 2.72 |TBD |
-| WA-GUEST-OS-2.69_201712-01 |4 de enero de 2018 |Post 2.71 |TBD |
+|~~WA-GUEST-OS-2.69_201712-01~~ |4 de enero de 2018 |12 de marzo de 2018 |TBD |
 |~~WA-GUEST-OS-2.68_201711-01~~ |14 de diciembre de 2017 |29 de enero de 2018 |TBD |
 |~~WA-GUEST-OS-2.67_201710-02~~ |8 de noviembre de 2017 |4 de enero de 2018 |TBD |
 |~~WA-GUEST-OS-2.66_201709-01~~ |6 de octubre de 2017 |14 de diciembre de 2017 |TBD |

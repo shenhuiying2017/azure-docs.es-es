@@ -1,24 +1,24 @@
 ---
-title: "Preguntas más frecuentes acerca de Azure ExpressRoute | Microsoft Docs"
-description: "P+F de ExpressRoute contiene información sobre servicios de Azure compatibles, costes, datos y conexiones, SLA, proveedores y ubicaciones, ancho de banda e información técnica adicional."
+title: Preguntas más frecuentes acerca de Azure ExpressRoute | Microsoft Docs
+description: P+F de ExpressRoute contiene información sobre servicios de Azure compatibles, costes, datos y conexiones, SLA, proveedores y ubicaciones, ancho de banda e información técnica adicional.
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 09b17bc4-d0b3-4ab0-8c14-eed730e1446e
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/17/2018
+ms.date: 03/28/2018
 ms.author: cherylmc
-ms.openlocfilehash: 62e532f3750adf8f4defe3e8f8aabe5b9f0446a0
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 3f33703ec86f131d18c89cf4b29514c5002349d1
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="expressroute-faq"></a>P+F de ExpressRoute
 
@@ -340,7 +340,10 @@ Vea [Asociados de ExpressRoute y ubicaciones](expressroute-locations.md) para ob
 
 ### <a name="can-i-access-office-365-over-the-internet-even-if-expressroute-was-configured-for-my-organization"></a>¿Es posible obtener acceso a Office 365 por Internet incluso si ExpressRoute se ha configurado ExpressRoute para mi organización?
 
-Sí. Es posible obtener acceso a los extremos de servicio de Office 365 a través de Internet a pesar de que se haya configurado ExpressRoute para su red. Si está en una ubicación que está configurada para conectarse a servicios de Office 365 a través de ExpressRoute, se conectará a través de ExpressRoute.
+Sí. Es posible obtener acceso a los extremos de servicio de Office 365 a través de Internet a pesar de que se haya configurado ExpressRoute para su red. Compruebe con el equipo de red de su organización si la red en la ubicación está configurada para conectarse a servicios de Office 365 a través de ExpressRoute.
+
+### <a name="how-can-i-plan-for-high-availability-for-office-365-network-traffic-on-azure-expressroute"></a>¿Cómo planifico la alta disponibilidad para el tráfico de red de Office 365 en Azure ExpressRoute?
+Consulte la recomendación que aparece en [Alta disponibilidad y conmutación por error con Azure ExpressRoute](https://aka.ms/erhighavailability).
 
 ### <a name="can-i-access-office-365-us-government-community-gcc-services-over-an-azure-us-government-expressroute-circuit"></a>¿Puedo acceder a servicios de Office 365 US Government Community (GCC) a través de un circuito de ExpressRoute de Azure Gobierno de EE. UU.?
 

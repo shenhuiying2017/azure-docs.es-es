@@ -1,8 +1,8 @@
 ---
-title: "Guía de publicación de Cortana Intelligence en AppSource | Documentos de Microsoft"
-description: "Como asociado de Microsoft, estos son los pasos que debe seguir para publicar su solución Cortana Intelligence en AppSource."
+title: Guía de publicación de Cortana Intelligence en AppSource | Documentos de Microsoft
+description: Como asociado de Microsoft, estos son los pasos que debe seguir para publicar su solución Cortana Intelligence en AppSource.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: AnupamMicrosoft
 manager: jhubbard
 editor: cgronlun
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
-ms.author: anupams;v-bruham;garye
-ms.openlocfilehash: 9f867641b77c8148c1d6cbf2913da9c1f5ce5b71
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: anupams
+ms.openlocfilehash: 1a5671eda967c1bba585d31b001bb465526709f3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="cortana-intelligence-appsource-publishing-guide"></a>Guía de publicación de Cortana Intelligence en AppSource
 

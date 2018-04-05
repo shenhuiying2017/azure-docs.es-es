@@ -1,11 +1,12 @@
 ---
-title: "Consumo de un servicio web Machine Learning con una plantilla de aplicación web | Microsoft Docs"
-description: "Use una plantilla de aplicación web en Azure Marketplace para consumir un servicio web predictivo en Azure Machine Learning."
-keywords: "servicio web,operacionalización,API de REST,aprendizaje automático"
+title: Consumo de un servicio web Machine Learning con una plantilla de aplicación web | Microsoft Docs
+description: Use una plantilla de aplicación web en Azure Marketplace para consumir un servicio web predictivo en Azure Machine Learning.
+keywords: servicio web,operacionalización,API de REST,aprendizaje automático
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
 editor: cgronlun
 ms.assetid: e0d71683-61b9-4675-8df5-09ddc2f0d92d
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: raymondl
-ms.openlocfilehash: f7efa647fa6afc247509cd4a52066c0459f75ca3
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 81b89a1f8a053fd3b1d0d6a0a1bcc5c67d2ba728
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="consume-an-azure-machine-learning-web-service-by-using-a-web-app-template"></a>Consumo de un servicio web Azure Machine Learning con una plantilla de aplicación web
 
@@ -83,7 +83,7 @@ Siga estos pasos para usar la plantilla de aplicación web de RRS, tal como se i
      
    ![Crear una aplicación web][image5]
 
-4. Cuando Azure termine de implementar la aplicación web, seleccione la **dirección URL** en la página de configuración de la aplicación web en Azure o escriba la dirección URL en un explorador web. Por ejemplo, escriba **http://carprediction.azurewebsites.net**.
+4. Cuando Azure termine de implementar la aplicación web, seleccione la **dirección URL** en la página de configuración de la aplicación web en Azure o escriba la dirección URL en un explorador web. Por ejemplo, escriba: **http://carprediction.azurewebsites.net**.
 5. Cuando se ejecute la aplicación web por primera vez, le pedirá la **dirección URL del mensaje de API** y la **clave de API**. Escriba los valores que guardó anteriormente (URI de solicitud y Clave de API, respectivamente). Seleccione **Submit** (Enviar).
      
    ![Escriba el URI del mensaje y la clave de API][image6]

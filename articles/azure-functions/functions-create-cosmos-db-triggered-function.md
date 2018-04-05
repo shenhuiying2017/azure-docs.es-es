@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/07/2017
+ms.date: 03/27/2018
 ms.author: glenga
-ms.custom: ''
-ms.openlocfilehash: 435c4bf1c2619e91bbdd089375914ce06fdac6c7
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.custom: cc996988-fb4f-47
+ms.openlocfilehash: 60836bd88335dc5c58423bad94b6a95e9782c474
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Creación de una función desencadenada por Azure Cosmos DB
 
@@ -33,8 +33,6 @@ Aprenda a crear una función que se desencadena cuando se agregan o se cambian d
 Para completar este tutorial:
 
 + Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
-
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
 ## <a name="create-an-azure-function-app"></a>Creación de una Function App de Azure
 

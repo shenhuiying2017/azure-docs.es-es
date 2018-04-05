@@ -1,9 +1,9 @@
 ---
-title: "Introducción a Azure Monitor | Microsoft Docs"
-description: "Comience a utilizar Azure Monitor para comprender mejor el funcionamiento de los recursos y realizar acciones en función de los datos."
+title: Introducción a Azure Monitor | Microsoft Docs
+description: Comience a utilizar Azure Monitor para comprender mejor el funcionamiento de los recursos y realizar acciones en función de los datos.
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: ce2930aa-fc41-4b81-b0cb-e7ea922467e1
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: johnkem
-ms.openlocfilehash: 9c352c67aa0e9392c9e9d68822abeb27344bd8b7
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 69ec5392f034ffe94315c17366a9242d86c69d6d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="get-started-with-azure-monitor"></a>Introducción a Azure Monitor
 Azure Monitor es el servicio de plataforma que proporciona un único origen para la supervisión de recursos de Azure. Con Azure Monitor, puede visualizar, consultar, enrutar y archivar las métricas y los registros procedentes de los recursos de Azure, así como tomar medidas relacionadas. Para trabajar con estos datos, use Azure Portal, los [cmdlets de PowerShell de Monitor](insights-powershell-samples.md), la [CLI multiplataforma](insights-cli-samples.md) o las [API REST de Azure Monitor](https://msdn.microsoft.com/library/dn931943.aspx). En este artículo se describen algunos de los componentes clave de Azure Monitor, usando el portal con fines de demostración.
@@ -39,7 +39,7 @@ Azure Monitor es el servicio de plataforma que proporciona un único origen para
     En el [**registro de actividades**](monitoring-overview-activity-logs.md) se describen todas las operaciones realizadas en los recursos de su suscripción. Con el registro de actividades, se pueden determinar los interrogantes "qué, quién y cuándo" de las operaciones de creación, actualización o eliminación en los recursos de la suscripción. Por ejemplo, en el Registro de actividades consta cuándo se ha detenido una aplicación web y quién lo ha hecho. Los eventos de registro de actividades se almacenan en la plataforma y están disponibles para consulta durante 90 días.
 
     Puede crear y guardar las consultas para los filtros comunes y luego anclar las consultas más importantes en un panel del portal, por lo que siempre sabrá si se han producido eventos que cumplen los criterios.
-4. Filtre la vista de un grupo de recursos concreto durante la última semana y luego haga clic en el botón **Guardar** .
+4. Filtre la vista de un grupo de recursos concreto durante la última semana y luego haga clic en el botón **Guardar** . Asigne un nombre a la consulta. 
 
     ![Guardar consulta de registro de actividad](./media/monitoring-get-started/monitor-act-log-save.png)
 5. Ahora haga clic en el botón **Anclar** .
@@ -100,5 +100,5 @@ Si sigue estos pasos y ancla todos los iconos pertinentes a un panel, puede crea
 
 ![Panel de Azure Monitor](./media/monitoring-get-started/monitor-final-dash.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Lea la [información general sobre Azure Monitor](monitoring-overview.md)

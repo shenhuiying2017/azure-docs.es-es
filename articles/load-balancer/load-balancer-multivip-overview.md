@@ -1,34 +1,32 @@
 ---
 title: Varios servidores front-end para Azure Load Balancer | Microsoft Docs
-description: "Introducción a varios servidores front-end en Azure Load Balancer"
+description: Introducción a varios servidores front-end en Azure Load Balancer
 services: load-balancer
 documentationcenter: na
 author: chkuhtz
 manager: narayan
-editor: 
+editor: ''
 ms.assetid: 748e50cd-3087-4c2e-a9e1-ac0ecce4f869
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 03/22/2018
 ms.author: chkuhtz
-ms.openlocfilehash: e4c77f3b9bd53df632a433532376eb859969a036
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: cf8fa396e0518e1c847225dfc1d8f91c3421bd11
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Varios servidores front-end para Azure Load Balancer
-
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Azure Load Balancer permite utilizar servicios de equilibrio de carga en varios puertos, varias direcciones IP, o en ambos. Puede usar las definiciones de equilibrador de carga públicas e internas para flujos de equilibrio de carga entre un conjunto de máquinas virtuales.
 
 En este artículo se describen los fundamentos de esta capacidad, los conceptos importantes y las restricciones. Si solo desea exponer los servicios en una dirección IP, puede encontrar instrucciones simplificadas para configuraciones [públicas](load-balancer-get-started-internet-portal.md) o [internas](load-balancer-get-started-ilb-arm-portal.md) del equilibrador de carga. Agregar varios servidores front-end es una acción incremental de la configuración de un único front-end. Mediante los conceptos de este artículo, puede expandir una configuración simplificada en cualquier momento.
 
-Al definir un Azure Load Balancer, las configuraciones front-end y back-end están conectadas con reglas. El sondeo de estado a que hace referencia la regla se utiliza para determinar cómo se envían nuevos flujos a un nodo en el grupo de back-end. El front-end se define mediante una configuración IP de font-end (también llamada VIP), que es una tupla de 3 elementos formada por una dirección IP (pública o interna), un protocolo de transporte (UDP o TCP) y un número de puerto de la regla de equilibrio de carga. Una DIP es una dirección IP de un NIC virtual de Azure conectado a una máquina virtual en el grupo de back-end.
+Al definir un Azure Load Balancer, las configuraciones de un grupo de servidores front-end y back-end están conectadas con reglas. El sondeo de estado a que hace referencia la regla se utiliza para determinar cómo se envían nuevos flujos a un nodo en el grupo de back-end. El front-end (también llamada VIP) se define mediante una tupla de 3 elementos formada por una dirección IP (pública o interna), un protocolo de transporte (UDP o TCP) y un número de puerto de la regla de equilibrio de carga. El grupo de servidores back-end es una colección de configuraciones de IP de máquinas virtuales (parte del recurso NIC) que hace referencia al grupo de servidores back-end de Load Balancer.
 
 La tabla siguiente contiene algunas configuraciones de front-end de ejemplo:
 
@@ -134,6 +132,10 @@ El tipo de regla de dirección IP flotante es el fundamento de varios modelos de
 ## <a name="limitations"></a>Limitaciones
 
 * Solo se admiten configuraciones de varios servidores front-end con máquinas virtuales de IaaS.
-* Con la regla de dirección IP flotante, la aplicación debe utilizar la DIP para los flujos salientes. Si la aplicación se enlaza a la dirección IP del front-end configurada en la interfaz de bucle invertido en el sistema operativo invitado, entonces SNAT no está disponible para volver a escribir el flujo de salida y, por tanto, se produce un error en el flujo.
+* Con la regla de dirección IP flotante, la aplicación debe utilizar la configuración IP principal para los flujos salientes. Si la aplicación se enlaza a la dirección IP del front-end configurada en la interfaz de bucle invertido en el sistema operativo invitado, entonces SNAT de Azure no está disponible para volver a escribir el flujo de salida y, por tanto, se produce un error en el flujo.
 * Las direcciones IP públicas repercuten en la facturación. Para obtener más información, vea [Precios de las direcciones IP](https://azure.microsoft.com/pricing/details/ip-addresses/)
 * Se aplican los límites de suscripción. Para más información, vea los [límites de servicio](../azure-subscription-service-limits.md#networking-limits) .
+
+## <a name="next-steps"></a>Pasos siguientes
+
+- Revise [Conexiones salientes](load-balancer-outbound-connections.md) para entender el impacto de varios front-ends en el comportamiento de conexión de salida.

@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 03/23/2018
 ms.author: tomfitz
-ms.openlocfilehash: 4709ee707aa67c8de531b2b3e0b58dbed5c2667b
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 94f11504597c127d505d103a417c3d78744d99d1
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción
 
@@ -87,6 +87,11 @@ Hay algunos pasos importantes que deben realizarse antes de mover un recurso. Pu
   az provider register --namespace Microsoft.Batch
   ```
 
+4. La cuenta que mueve los recursos debe tener al menos los permisos siguientes:
+
+   * **Microsoft.Resources/subscriptions/resourceGroups/moveResources/action** en el grupo de recursos de origen.
+   * **Microsoft.Resources/subscriptions/resourceGroups/write** en el grupo de recursos de destino.
+
 ## <a name="when-to-call-support"></a>Al llamar al soporte técnico
 
 Puede trasladar la mayoría de los recursos a través de las operaciones de autoservicio que se muestran en este artículo. Utilice las operaciones de autoservicio para:
@@ -104,7 +109,8 @@ Póngase en contacto con [soporte técnico](https://portal.azure.com/#blade/Micr
 Los servicios que permiten el traslado a un nuevo grupo de recursos y a una nueva suscripción son:
 
 * API Management
-* App Service apps (Web Apps) - consulte las [limitaciones de App Service](#app-service-limitations)
+* Aplicaciones de App Service (aplicaciones web) - consulte las [limitaciones de App Service](#app-service-limitations)
+* App Service Certificate
 * Application Insights
 * Automation
 * Azure Cosmos DB
@@ -193,7 +199,9 @@ No puede mover una red virtual a otra suscripción distinta si la red virtual co
 
 ## <a name="app-service-limitations"></a>limitaciones de App Service
 
-Las limitaciones para mover recursos de App Service son diferentes en función de si los recursos se mueven dentro de una suscripción o a una nueva.
+Las limitaciones para mover recursos de App Service son diferentes en función de si los recursos se mueven dentro de una suscripción o a una nueva. 
+
+Las limitaciones descritas en las siguientes secciones se aplican a los certificados cargados, no a instancias de App Service Certificate. Puede mover instancias de App Service Certificate a un nuevo grupo de recursos o suscripción sin ninguna limitación. Si tiene varias aplicaciones web que utilizan la misma instancia de App Service Certificate, mueva primero todas las aplicaciones web, a continuación, mueva el certificado.
 
 ### <a name="moving-within-the-same-subscription"></a>Moverlos dentro de la misma suscripción
 

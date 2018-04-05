@@ -6,13 +6,13 @@ manager: syadav
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/22/2018
 ms.author: muralikk
-ms.openlocfilehash: d096d6fd4664fecc9c759d683ed79e76cda9b6af
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: cc36fdde962ec44d679dc0e96f440b0437a84fa8
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Uso del servicio Microsoft Azure Import/Export para transferir datos a Azure Storage
 En este artículo, se proporcionan instrucciones detalladas sobre el uso del servicio Azure Import/Export para transferir de forma segura grandes cantidades de datos a Azure Blob Storage y Azure Files mediante el envío de unidades de disco duro a un centro de datos de Azure. También se puede usar este servicio para transferir datos desde Azure Storage hasta las unidades de disco duro y enviarlas al sitio local. Es posible importar los datos de una sola unidad de disco SATA interna a Azure Blob Storage o Azure Files. 
@@ -151,7 +151,7 @@ En los trabajos de exportación, después de copiar los datos en las unidades, e
 ### <a name="operating-system"></a>Sistema operativo
 Puede utilizar uno de los siguientes sistemas operativos de 64 bits para preparar la unidad de disco duro mediante la herramienta WAImportExport antes de enviarla a Azure:
 
-Windows 7 Enterprise, Windows 7 Ultimate, Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise, Windows 10<sup>1</sup>, Windows Server 2008 R2, Windows Server 2012 y Windows Server 2012 R2. Todos estos sistemas operativos admiten el cifrado de unidad BitLocker.
+Windows 7 Enterprise, Windows 7 Ultimate, Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise, Windows 10, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2. Todos estos sistemas operativos admiten el cifrado de unidad BitLocker.
 
 ### <a name="locations"></a>Ubicaciones
 El servicio Azure Import/Export permite copiar datos en todas las cuentas de almacenamiento de Azure público como origen y destino. Las unidades de disco duro se pueden enviar a una de las ubicaciones de la lista. Si la cuenta de almacenamiento se encuentra en una ubicación de Azure pública que no se especifica aquí, se proporcionará una ubicación de envío alternativa al crear el trabajo mediante Azure Portal o la API de REST de Import/Export.

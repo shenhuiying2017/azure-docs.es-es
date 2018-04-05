@@ -1,12 +1,12 @@
 ---
 title: Uso de Azure Functions para realizar una tarea de limpieza de base de datos | Microsoft Docs
-description: "Use Azure Functions para programar una tarea que se conecte a Azure SQL Database a fin de limpiar filas de forma periódica."
+description: Use Azure Functions para programar una tarea que se conecte a Azure SQL Database a fin de limpiar filas de forma periódica.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.service: functions
 ms.devlang: multiple
@@ -15,18 +15,18 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/22/2017
 ms.author: glenga
-ms.openlocfilehash: 9d8261a22f5ea9ce61bcdc79d24a6c054597039b
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 2947fc6da0c4559e81cf97255b8375b020e0b657
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Uso de Azure Functions para conectarse a una base de datos de Azure SQL Database
-En este tema se indica cómo usar Azure Functions para crear un trabajo programado que limpie hileras de una tabla en Azure SQL Database. La nueva función C# se crea a partir de una plantilla de desencadenador de temporizador predefinida de Azure Portal. Para que este escenario sea posible, también debe establecer una cadena de conexión de base de datos como una configuración de aplicación en la aplicación de función. En este escenario se utiliza una operación masiva en la base de datos. 
+En este tema se indica cómo usar Azure Functions para crear un trabajo programado que limpie hileras de una tabla en Azure SQL Database. La nueva función de script de C# se crea a partir de una plantilla de desencadenador de temporizador predefinida de Azure Portal. Para que este escenario sea posible, también debe establecer una cadena de conexión de base de datos como una configuración de aplicación en la aplicación de función. En este escenario se utiliza una operación masiva en la base de datos. 
 
 Para que la función procese operaciones individuales de creación, lectura, actualización y eliminación (CRUD) en una tabla de Mobile Apps, debería usar en su lugar [enlaces de Mobile Apps](functions-bindings-mobile-apps.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 + En este tema se usa una función desencadenada por un temporizador. Efectúe los pasos del tema [Cree una función en Azure que se desencadena mediante un temporizador](functions-create-scheduled-function.md) para crear una versión en C# de esta función.   
 
@@ -36,11 +36,11 @@ Para que la función procese operaciones individuales de creación, lectura, act
 
 Deberá obtener la cadena de conexión de la base de datos que creó una vez concluidos los pasos de [Creación de una instancia de Azure SQL Database en Azure Portal](../sql-database/sql-database-get-started-portal.md).
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
  
 3. Seleccione **SQL Database** en el menú de la izquierda y seleccione la base de datos en la página **SQL Database**.
 
-4. Seleccione **Mostrar las cadenas de conexión de la base de datos** y copie la cadena de conexión de **ADO.NET** completa.
+4. Seleccione **Mostrar las cadenas de conexión de la base de datos** y copie la cadena de conexión de **ADO.NET** completa. 
 
     ![Copie la cadena de conexión de ADO.NET.](./media/functions-scenario-database-table-cleanup/adonet-connection-string.png)
 
@@ -64,20 +64,22 @@ Una aplicación de función hospeda la ejecución de sus funciones en Azure. Se 
     | **Valor** | Cadena copiada  | Pegue la cadena de conexión que copió en la sección anterior y reemplace los marcadores de posición `{your_username}` y `{your_password}` por valores reales. |
     | **Tipo** | SQL Database | Use la conexión predeterminada de SQL Database. |   
 
-3. Haga clic en **Guardar**.
+3. Haga clic en **Save**(Guardar).
 
 Ahora, puede agregar el código de función de C# que conecta con SQL Database.
 
 ## <a name="update-your-function-code"></a>Actualización del código de función
 
-1. En la aplicación de función, seleccione la función desencadenada por temporizador.
+1. En la aplicación de función del portal, seleccione la función desencadenada por temporizador.
  
-3. Agregue las siguientes referencias de ensamblado en la parte superior del código de función existente:
+3. Agregue las siguientes referencias de ensamblado en la parte superior del código de función de script de C# existente:
 
     ```cs
     #r "System.Configuration"
     #r "System.Data"
     ```
+    >[!NOTE]
+    >El código de estos ejemplos son scripts de C# del portal. Cuando desarrolla una función en C# precompilada localmente, en su lugar, debe agregar referencias a estos ensamblados en su proyecto local.  
 
 3. Agregue las siguientes instrucciones `using` a la función:
     ```cs
@@ -122,8 +124,7 @@ A continuación, obtenga información sobre cómo usar Functions con Logic Apps 
 
 Para obtener más función sobre Functions, consulte los siguientes temas:
 
-* 
-              [Referencia para desarrolladores de Azure Functions](functions-reference.md)  
-contiene las referencias del programador para codificar funciones y definir desencadenadores y enlaces.
+* [Referencia para desarrolladores de Azure Functions](functions-reference.md)  
+  contiene las referencias del programador para codificar funciones y definir desencadenadores y enlaces.
 * [Prueba de Azure Functions](functions-test-a-function.md)  
   describe las diversas herramientas y técnicas para probar sus funciones.  

@@ -1,6 +1,6 @@
 ---
-title: "Integración de ILB App Service Environment con una puerta de enlace de aplicaciones"
-description: "Tutorial sobre la integración de una aplicación de ILB App Service Environment con una puerta de enlace de aplicaciones"
+title: Integración de ILB App Service Environment con una puerta de enlace de aplicaciones
+description: Tutorial sobre la integración de una aplicación de ILB App Service Environment con una puerta de enlace de aplicaciones
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: ccompy
-ms.openlocfilehash: d56eab79c3b3f6b37dc39d8e4bea0d5b7759631a
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: c64b686d7a9016b3834096ebc88179db8972098f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="integrate-your-ilb-app-service-environment-with-an-application-gateway"></a>Integración de ILB App Service Environment con una puerta de enlace de aplicaciones #
 
-[Azure App Service Environment (ASE) para PowerApps](./intro.md) es una implementación de Azure App Service en la subred una red virtual de Azure de cliente. Se puede implementar con un punto de conexión público o privado para el acceso a las aplicaciones. La implementación de App Service Environment con un punto de conexión privado (es decir, un equilibrador de carga interno) se denomina ILB App Service Environment.  
+[App Service Environment](./intro.md) es una implementación de Azure App Service en la subred de una red virtual de Azure de cliente. Se puede implementar con un punto de conexión público o privado para el acceso a las aplicaciones. La implementación de App Service Environment con un punto de conexión privado (es decir, un equilibrador de carga interno) se denomina ILB App Service Environment.  
 
 Azure Application Gateway es una aplicación virtual que ofrece un equilibrio de carga de nivel 7, descarga de SSL y protección mediante firewall de aplicaciones web (WAF). Puede escuchar en una dirección IP pública y enrutar el tráfico hacia el punto de conexión de la aplicación. 
 

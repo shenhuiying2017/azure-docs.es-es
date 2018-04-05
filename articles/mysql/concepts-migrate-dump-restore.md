@@ -1,6 +1,6 @@
 ---
-title: "Migración de la base de datos MySQL a Azure Database for MySQL mediante el volcado y la restauración"
-description: "En este artículo se explican dos maneras comunes de realizar una copia de seguridad de las bases de datos y restaurarlas en Azure Database for MySQL, con herramientas como mysqldump, MySQL Workbench y PHPMyAdmin."
+title: Migración de la base de datos MySQL a Azure Database for MySQL mediante el volcado y la restauración
+description: En este artículo se explican dos maneras comunes de realizar una copia de seguridad de las bases de datos y restaurarlas en Azure Database for MySQL, con herramientas como mysqldump, MySQL Workbench y PHPMyAdmin.
 services: mysql
 author: ajlam
 ms.author: andrela
@@ -8,12 +8,12 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: 0c5a6b6d971d434a52bf80da6b34d7f6949589bc
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 03/20/2018
+ms.openlocfilehash: ef35ee881923c69d41b79fd6cb8464c695c614f9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>Migre su Base de datos MySQL a Azure Database for MySQL mediante el volcado y la restauración.
 En este artículo se explican dos formas habituales de hacer una copia de seguridad y restaurar bases de datos en Azure Database for MySQL.
@@ -87,10 +87,12 @@ $ mysqldump -u root -p --all-databases > alldb_backup.sql
 ## <a name="create-a-database-on-the-target-azure-database-for-mysql-server"></a>Creación de una base de datos en el servidor de destino de Azure Database for MySQL
 Cree una base de datos vacía en el servidor de destino de Azure Database for MySQL donde se van a migrar los datos. Use una herramienta como MySQL Workbench, Toad o Navicat para crear la base de datos. La base de datos puede tener el mismo nombre que la base de datos que contiene los datos volcados, o puede crear una base de datos con un nombre diferente.
 
-Para conectarse, busque la información de conexión en la página de propiedades de su instancia de Azure Database for MySQL.
-![Búsqueda de la información de conexión en Azure Portal](./media/concepts-migrate-dump-restore/1_server-properties-name-login.png)
+Para conectarse, busque la información de conexión en la página **Introducción** de su instancia de Azure Database for MySQL.
+
+![Obtención de la información de conexión en Azure Portal](./media/concepts-migrate-dump-restore/1_server-overview-name-login.png)
 
 Agregue la información de conexión a MySQL Workbench.
+
 ![Cadena de conexión de MySQL Workbench](./media/concepts-migrate-dump-restore/2_setup-new-connection.png)
 
 
@@ -122,5 +124,5 @@ La importación de la base de datos es similar a la exportación. Haga lo siguie
 - Use el botón **Browse** (Examinar) para buscar el archivo de base de datos. 
 - Haga clic en **Go** (Ir) para exportar la copia de seguridad, ejecutar los comandos SQL y volver a crear la base de datos.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Conexión de aplicaciones a Azure Database for MySQL](./howto-connection-string.md)

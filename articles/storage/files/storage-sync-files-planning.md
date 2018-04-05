@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 5f42bee31e3bc1a23c9b0c6de9d6748e23c94713
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 401542bf61aa27138d26cce522e24078503b77e0
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planeamiento de una implementación de Azure File Sync (versión preliminar)
 Use Azure File Sync (versión preliminar) para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -160,9 +160,14 @@ Azure File Sync solo está disponible en las siguientes regiones en versión pre
 |--------|---------------------|
 | Australia Oriental | Nueva Gales del Sur |
 | Centro de Canadá | Toronto |
+| Central EE. UU: | Iowa |
+| Asia oriental | Hong Kong |
 | Este de EE. UU | Virginia |
+| Este de EE. UU. 2 | Virginia |
+| Europa del Norte | Irlanda |
 | Sudeste asiático | Singapur |
 | Sur del Reino Unido 2 | Londres |
+| Centro occidental de EE. UU. |
 | Europa occidental | Países Bajos |
 | Oeste de EE. UU | California |
 
@@ -172,6 +177,7 @@ En la versión preliminar, solo se admite la sincronización con recursos compar
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
+* [Tenga en cuenta los valores de proxy y firewall](storage-sync-files-firewall-and-proxy.md)
 * [Planeamiento de una implementación de Azure Files](storage-files-planning.md)
 * [Implementación de Azure Files](storage-files-deployment-guide.md)
 * [Implementación de Azure File Sync](storage-sync-files-deployment-guide.md)

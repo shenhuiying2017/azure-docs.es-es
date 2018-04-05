@@ -1,11 +1,11 @@
 ---
-title: "Administración de dispositivos con IoT Hub de Azure | Microsoft Docs"
-description: "Información general sobre la administración de dispositivos con IoT Hub de Azure: ciclo de vida del dispositivo empresarial y patrones de administración de dispositivos como, reinicio, restablecimiento de fábrica, actualización de firmware, configuración, dispositivos gemelos, consultas y trabajos."
+title: Administración de dispositivos con IoT Hub de Azure | Microsoft Docs
+description: 'Información general sobre la administración de dispositivos con IoT Hub de Azure: ciclo de vida del dispositivo empresarial y patrones de administración de dispositivos como, reinicio, restablecimiento de fábrica, actualización de firmware, configuración, dispositivos gemelos, consultas y trabajos.'
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: bzurcher
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: a367e715-55f6-4593-bd68-7863cbf0eb81
 ms.service: iot-hub
 ms.devlang: na
@@ -14,15 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: briz
-ms.openlocfilehash: 458b316ba76ff7cace56eb21eaf105233e508741
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 4fe4328314e23bbd1ace13e935f82336e1e602a9
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="overview-of-device-management-with-iot-hub"></a>Información general sobre la administración de dispositivos con IoT Hub
-## <a name="introduction"></a>Introducción
+
 Azure IoT Hub proporciona características y un modelo de extensibilidad que permiten a los desarrolladores de back-end y de dispositivos generar soluciones sólidas de administración de dispositivos. Los dispositivos incluyen sensores restringidos y microcontroladores para un solo fin, así como puertas de enlace eficaces que enrutan las comunicaciones para grupos de dispositivos.  Además, las condiciones de uso y los requisitos de los operadores de IoT varían considerablemente de un sector a otro.  A pesar de esta variación, la administración de dispositivos con Azure IoT Hub proporciona las funcionalidades, las bibliotecas de código y los patrones adecuados para un conjunto diverso de dispositivos y usuarios finales.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 Una parte fundamental de la creación de una solución de IoT empresarial adecuada es contar con una estrategia relativa al modo en que los operadores controlan la administración continua de su conjunto de dispositivos. Los operadores de IoT requieren herramientas y aplicaciones sencillas y confiables que les permitan centrarse en los aspectos más estratégicos de sus trabajos. Este artículo ofrece:
 

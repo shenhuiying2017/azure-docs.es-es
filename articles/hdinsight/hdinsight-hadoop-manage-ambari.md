@@ -1,8 +1,8 @@
 ---
-title: "Supervisión y administración de clústeres de Azure HDInsight mediante la interfaz de usuario web de Ambari | Microsoft Docs"
-description: "Aprenda a usar Ambari para supervisar y administrar clústeres de HDInsight basado en Linux. Con este documento aprende a usar la interfaz de usuario web de Ambari incluida con clústeres de HDInsight."
+title: Supervisión y administración de clústeres de Azure HDInsight mediante la interfaz de usuario web de Ambari | Microsoft Docs
+description: Aprenda a usar Ambari para supervisar y administrar clústeres de HDInsight basado en Linux. Con este documento aprende a usar la interfaz de usuario web de Ambari incluida con clústeres de HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/04/2018
+ms.date: 03/23/2018
 ms.author: larryfr
-ms.openlocfilehash: dc1265c7af011b92a9f862cf2e91b47c3998b2e4
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 922dfd475f27f182d8958887087fc2f4945cc43a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-ambari-web-ui"></a>Administración de clústeres de HDInsight con la interfaz de usuario web de Ambari
 
@@ -41,7 +41,7 @@ La interfaz de usuario web de Ambari se proporciona de forma predeterminada con 
 
 ## <a name="connectivity"></a>Conectividad
 
-La interfaz de usuario web de Ambari está disponible en el clúster de HDInsight en HTTPS://CLUSTERNAME.azurehdidnsight.net, donde **CLUSTERNAME** es el nombre del clúster.
+La interfaz de usuario web de Ambari está disponible en el clúster de HDInsight en HTTPS://CLUSTERNAME.azurehdinsight.net, donde **CLUSTERNAME** es el nombre del clúster.
 
 > [!IMPORTANT]
 > La conexión a Ambari en HDInsight requiere HTTPS. Cuando se le solicite autenticación, use el nombre de la cuenta de administrador y la contraseña que proporcionó cuando se creó el clúster.
@@ -246,6 +246,6 @@ Las operaciones de Ambari siguientes no son compatibles con HDInsight:
 
 * __Migración del servicio Recopilador de métricas__. Cuando se ve información en el servicio Recopilador de métricas, una de las acciones disponibles en el menú Acciones del servicio es la __migración del recopilador de métricas__. Esto no es compatible con HDInsight.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Obtenga información sobre cómo usar la [API de REST Ambari](hdinsight-hadoop-manage-ambari-rest-api.md) con HDInsight.

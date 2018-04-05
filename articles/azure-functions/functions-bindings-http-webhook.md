@@ -3,7 +3,7 @@ title: Enlaces HTTP y webhook en Azure Functions
 description: Descubra cómo utilizar desencadenadores y enlaces HTTP y webhook en Azure Functions.
 services: functions
 documentationcenter: na
-author: mattchenderson
+author: tdykstra
 manager: cfowler
 editor: ''
 tags: ''
@@ -14,12 +14,12 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
-ms.author: mahender
-ms.openlocfilehash: a46177183035a53128c5341a3ce4c63dbc3a7497
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.author: tdykstra
+ms.openlocfilehash: 94a039ab1973cbd4112ddd0cd7548baa69924d26
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Enlaces HTTP y webhook en Azure Functions
 
@@ -536,7 +536,7 @@ La autorización de webhook se controla mediante el componente receptor de webho
 
 ## <a name="trigger---limits"></a>Desencadenador: límites
 
-La longitud de la solicitud HTTP está limitada a 100 000 (102 400) bytes y la longitud de la dirección URL, a 4000 (4096) bytes. El elemento `httpRuntime` del [archivo Web.config](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config) especifica estos límites.
+La longitud de la solicitud HTTP está limitada a 100 MB (104 857 600) bytes, y la longitud de la dirección URL, a 4 KB (4096 bytes). El elemento `httpRuntime` del [archivo Web.config](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config) especifica estos límites.
 
 Si una función que utiliza el desencadenador HTTP no se completa en menos de 2,5 minutos, la puerta de enlace agotará el tiempo de espera y devolverá un error HTTP 502. La función seguirá ejecutándose, pero no podrá devolver una respuesta HTTP. En el caso de funciones de ejecución prolongada, se recomienda que siga patrones asincrónicos y que devuelva una ubicación donde pueda hacer ping con el estado de la solicitud. Para más información sobre cuánto tiempo se puede ejecutar una función, consulte [Escalado y hospedaje: Plan de consumo](functions-scale.md#consumption-plan). 
 

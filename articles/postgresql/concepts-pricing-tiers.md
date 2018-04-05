@@ -1,6 +1,6 @@
 ---
 title: Planes de tarifa de Azure Database for PostgreSQL
-description: "En este artículo, se describen los planes de tarifa de Azure Database for PostgreSQL."
+description: En este artículo, se describen los planes de tarifa de Azure Database for PostgreSQL.
 services: postgresql
 author: jan-eng
 ms.author: janeng
@@ -8,12 +8,12 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: ee75af9b1d7b77799fe02d87da257ff73bc567e6
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 03/20/2018
+ms.openlocfilehash: 21f8eb795aa1675e2bbd5284f88b39c76ad59228
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Planes de tarifa de Azure Database for PostgreSQL
 
@@ -22,7 +22,7 @@ Un servidor de Azure Database for PostgreSQL se puede crear en tres planes de ta
 |    | **Básico** | **Uso general** | **Memoria optimizada** |
 |:---|:----------|:--------------------|:---------------------|
 | Generación de procesos | Gen 4, Gen 5 | Gen 4, Gen 5 | Gen 5 |
-| Núcleos virtuales | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16, 32 |
+| Núcleos virtuales | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
 | Memoria por núcleo virtual | 1x | 2x Básico | 2x Uso general |
 | Tamaño de almacenamiento | De 5 GB a 1 TB | De 5 GB a 1 TB | De 5 GB a 1 TB |
 | Tipo de almacenamiento | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
@@ -40,7 +40,32 @@ Después de crear un servidor, el número de núcleos virtuales se puede aumenta
 
 ## <a name="compute-generations-vcores-and-memory"></a>Generaciones de procesos, núcleos virtuales y memoria
 
-Los recursos de proceso se proporcionan como núcleos virtuales, que representan la CPU lógica del hardware subyacente. Actualmente, se ofrecen dos generaciones de procesos para elegir: Gen 4 y Gen 5. Las CPU lógicas Gen 4 se basan en los procesadores Intel E5-2673 v3 (Haswell) de 2.4 GHz. Las CPU lógicas Gen 5 se basan en los procesadores Intel E5-2673 v4 (Broadwell) de 2.3 GHz.
+Los recursos de proceso se proporcionan como núcleos virtuales, que representan la CPU lógica del hardware subyacente. Actualmente, se ofrecen dos generaciones de procesos para elegir: Gen 4 y Gen 5. Las CPU lógicas Gen 4 se basan en los procesadores Intel E5-2673 v3 (Haswell) de 2.4 GHz. Las CPU lógicas Gen 5 se basan en los procesadores Intel E5-2673 v4 (Broadwell) de 2.3 GHz. Las CPU lógicas Gen 4 y Gen 5 están disponibles en las siguientes regiones ("X" denota disponible): 
+
+| **Región de Azure** | **Generación 4** | **Generación 5** |
+|:---|:----------:|:--------------------:|
+| Central EE. UU: |  | X |
+| Este de EE. UU | X | X |
+| Este de EE. UU. 2 | X |  |
+| Centro-Norte de EE. UU | X |  |
+| Centro-Sur de EE. UU | X |  |
+| Oeste de EE. UU | X | X |
+| Oeste de EE. UU. 2 |  | X |
+| Centro de Canadá | X | X |
+| Este de Canadá | X | X |
+| Sur de Brasil | X |  |
+| Europa del Norte | X | X |
+| Europa occidental | X | X |
+| Oeste de Reino Unido |  | X |
+| Sur del Reino Unido 2 |  | X |
+| Asia oriental | X |  |
+| Sudeste asiático | X |  |
+| Australia Oriental |  | X |
+| India Central | X |  |
+| Oeste de la India | X |  |
+| Este de Japón | X |  |
+| Oeste de Japón | X |  |
+| Corea del Sur |  | X |
 
 Según el plan de tarifa, cada núcleo virtual se aprovisiona con una cantidad específica de memoria. Al aumentar o reducir el número de núcleos virtuales para el servidor, la memoria aumenta o disminuye proporcionalmente. El plan Uso general proporciona el doble de memoria por núcleo virtual en comparación con el plan Básico. El plan Memoria optimizada proporciona el doble de memoria en comparación con el plan Uso general.
 

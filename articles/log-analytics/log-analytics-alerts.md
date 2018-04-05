@@ -1,8 +1,8 @@
 ---
-title: "Información sobre las alertas en Azure Log Analytics | Microsoft Docs"
-description: "Las alertas de Log Analytics identifican información importante en el repositorio de OMS y pueden avisarle proactivamente de problemas o invocar acciones para intentar corregirlos.  En este artículo se describen los diferentes tipos de reglas de alerta y cómo se definen."
+title: Información sobre las alertas en Azure Log Analytics | Microsoft Docs
+description: Las alertas de Log Analytics identifican información importante en el repositorio de OMS y pueden avisarle proactivamente de problemas o invocar acciones para intentar corregirlos.  En este artículo se describen los diferentes tipos de reglas de alerta y cómo se definen.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/05/2018
 ms.author: bwren
-ms.openlocfilehash: 07e8312d5e113eeb9016dcc832b1cf66f8001c5f
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.openlocfilehash: ece2e7eeb53aebbb18bce4bb34e03307b0aea74c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="understanding-alerts-in-log-analytics"></a>Información sobre alertas en Log Analytics
 
@@ -102,7 +102,7 @@ Por ejemplo, si quiere emitir una alerta cuando el rendimiento del procesador su
 
     Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90
 
-Si quiere emitir una alerta cuando el rendimiento medio del procesador supere el 90 % durante un determinado período de tiempo, puede utilizar una consulta como la siguiente con el [comando measure](log-analytics-search-reference.md#commands) y con el umbral de la regla de alerta **greater than 0** (mayor que 0).
+Si quiere emitir una alerta cuando el rendimiento medio del procesador supere el 90 % durante un determinado período de tiempo, puede utilizar una consulta con el comando `measure`, como el siguiente, con el umbral de la regla de alerta **greater than 0** (mayor que 0).
 
     Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) by Computer | where AggregatedValue>90
 
@@ -119,7 +119,7 @@ Si quiere emitir una alerta cuando el rendimiento medio del procesador supere el
 Las reglas de alertas para **unidades métricas** crean una alerta para cada objeto de una consulta con un valor que supera un umbral especificado.  Presentan las siguientes diferencias con respecto a las reglas de alerta para **número de resultados**.
 
 #### <a name="log-search"></a>Búsqueda de registros
-Aunque puede usar cualquier consulta para una regla de alerta para **número de resultados**, existen requisitos específicos de la consulta para una regla de alerta para unidades métricas.  Debe incluir un [comando Measure](log-analytics-search-reference.md#commands) para agrupar los resultados según un campo concreto. Este comando debe incluir los siguientes elementos.
+Aunque puede usar cualquier consulta para una regla de alerta para **número de resultados**, existen requisitos específicos de la consulta para una regla de alerta para unidades métricas.  Debe incluir un comando `measure` para agrupar los resultados según un campo concreto. Este comando debe incluir los siguientes elementos.
 
 - **Función de agregado**.  Determina el cálculo que se lleva a cabo y potencialmente un campo numérico para agregar.  Por ejemplo, **count()** devolverá el número de registros de la consulta y **avg(CounterValue)**, el promedio del campo CounterValue durante el intervalo.
 - **Campo de grupo**.  Se crea un registro con un valor agregado para cada instancia de este campo y se puede generar una alerta para cada una.  Por ejemplo, si desea generar una alerta para cada equipo, usaría **by Computer** (por Equipo).   
@@ -164,7 +164,7 @@ Los registros de alerta creados por reglas de alerta en Log Analytics tienen un 
 Hay otros tipos de registros de alerta creados por la [solución de Administración de alertas](log-analytics-solution-alert-management.md) y las [exportaciones de Power BI](log-analytics-powerbi.md).  Estos tienen todos un **Tipo** de **Alerta** pero se distinguen por sus valores en **SourceSystem**.
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Instale la [solución Alert Management](log-analytics-solution-alert-management.md) para analizar las alertas creadas en Log Analytics junto con las alertas recopiladas desde System Center Operations Manager.
 * Obtenga más información sobre las [búsquedas de registros](log-analytics-log-searches.md) que pueden generar alertas.
 * Complete un tutorial para [configurar un webhook](log-analytics-alerts-webhooks.md) con una regla de alerta.  

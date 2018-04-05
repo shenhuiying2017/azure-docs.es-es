@@ -1,24 +1,24 @@
 ---
-title: "Solución Azure Networking Analytics de Log Analytics | Microsoft Docs"
-description: "Puede usar la solución Azure Networking Analytics en Log Analytics para revisar los registros de los grupos de seguridad de red de Azure y los registros de Azure Application Gateway."
+title: Solución Azure Networking Analytics de Log Analytics | Microsoft Docs
+description: Puede usar la solución Azure Networking Analytics en Log Analytics para revisar los registros de los grupos de seguridad de red de Azure y los registros de Azure Application Gateway.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: richrundmsft
 manager: ewinner
-editor: 
+editor: ''
 ms.assetid: 66a3b8a1-6c55-4533-9538-cad60c18f28b
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2017
+ms.date: 03/20/2018
 ms.author: richrund
-ms.openlocfilehash: 06b67322b3812a668a515ecc357171ede1d85441
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 17dadd784d59a2cc0cab6ffbae144010f896b296
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-networking-monitoring-solutions-in-log-analytics"></a>Soluciones de supervisión de redes de Azure en Log Analytics
 
@@ -211,9 +211,9 @@ Para usar las soluciones actualizadas:
 
     | En lugar de: | Uso: |
     | --- | --- |
-    |`Type=NetworkApplicationgateways OperationName=ApplicationGatewayAccess`| `Type=AzureDiagnostics ResourceType=APPLICATIONGATEWAYS OperationName=ApplicationGatewayAccess` |
-    |`Type=NetworkApplicationgateways OperationName=ApplicationGatewayPerformance` | `Type=AzureDiagnostics ResourceType=APPLICATIONGATEWAYS OperationName=ApplicationGatewayPerformance` |
-    | `Type=NetworkSecuritygroups` | `Type=AzureDiagnostics ResourceType=NETWORKSECURITYGROUPS` |
+    | NetworkApplicationgateways &#124; donde OperationName=="ApplicationGatewayAccess" | AzureDiagnostics &#124; donde ResourceType="APPLICATIONGATEWAYS" y OperationName=="ApplicationGatewayAccess" |
+    | NetworkApplicationgateways &#124; donde OperationName=="ApplicationGatewayPerformance" | AzureDiagnostics &#124; donde ResourceType=="APPLICATIONGATEWAYS" y OperationName=ApplicationGatewayPerformance |
+    | NetworkSecuritygroups | AzureDiagnostics &#124; donde ResourceType=="NETWORKSECURITYGROUPS" |
 
    + Para todos los campos que tengan un sufijo \_s, \_d o \_g en el nombre, cambie el primer carácter a minúsculas.
    + Para todos los campos que tengan un sufijo \_o en el nombre, los datos se dividen en campos individuales según los nombres de campo anidados.
@@ -222,7 +222,7 @@ Para usar las soluciones actualizadas:
 
 Los datos recopilados antes del cambio no aparecen en la nueva solución. Puede seguir consultando estos datos con el tipo y los nombres de campo anteriores.
 
-## <a name="troubleshooting"></a>Solución de problemas
+## <a name="troubleshooting"></a>solución de problemas
 [!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes

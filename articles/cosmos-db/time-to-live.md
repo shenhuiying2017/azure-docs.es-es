@@ -1,12 +1,12 @@
 ---
-title: "Hacer que caduquen datos en Azure Cosmos DB con período de vida | Microsoft Docs"
-description: "Con TTL, Microsoft Azure Cosmos DB ofrece la posibilidad de que los documentos se purguen automáticamente del sistema tras un período de tiempo."
+title: Hacer que caduquen datos en Azure Cosmos DB con período de vida | Microsoft Docs
+description: Con TTL, Microsoft Azure Cosmos DB ofrece la posibilidad de que los documentos se purguen automáticamente del sistema tras un período de tiempo.
 services: cosmos-db
-documentationcenter: 
-keywords: "período de vida"
+documentationcenter: ''
+keywords: período de vida
 author: arramac
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 25fcbbda-71f7-414a-bf57-d8671358ca3f
 ms.service: cosmos-db
 ms.devlang: multiple
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2017
 ms.author: arramac
-ms.openlocfilehash: 3737a240d92d9420bac7d42475622182fb425a2b
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 6f8ce4e270b94bf1043c27ba879878e20372ffe7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>Hacer que caduquen automáticamente los datos de colecciones de Azure Cosmos DB con período de vida
 Las aplicaciones pueden generar y almacenar enormes cantidades de datos. Algunos de estos datos, como los datos de eventos, los registros y la información de sesión de usuario que se generan automáticamente, solo son útiles durante un tiempo finito. Una vez que los datos se convierten en un excedente para las necesidades de la aplicación, es seguro purgarlos para así reducir sus necesidades de almacenamiento.
@@ -176,6 +176,6 @@ TTL se aplica a todo el documento. Si quiere que solo una parte de un documento 
 
 Sí. La colección necesita tener el [conjunto de directiva de indexación](indexing-policies.md) establecido en diferido o coherente. Si se intenta establecer DefaultTTL en una colección con la indexación definida como ninguna, se producirá un error, puesto que está intentando desactivar la indexación en una colección que tiene un valor de DefaultTTL ya establecido.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre Azure Cosmos DB, consulte la página de [*documentación*](https://azure.microsoft.com/documentation/services/cosmos-db/) del servicio.
 

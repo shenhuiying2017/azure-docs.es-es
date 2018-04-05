@@ -10,13 +10,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2018
+ms.date: 3/20/2018
 ms.author: rithorn
-ms.openlocfilehash: a86fc568a0c7f4ada0b853cda8a7b2e06ed7dfcb
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: db472345bacda916f1b1664ed7803978ab235a2a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organización de los recursos con grupos de administración de Azure 
 
@@ -24,15 +24,13 @@ Si su organización tiene varias suscripciones, puede que necesite una manera de
 
 La característica de grupo de administración está disponible en versión preliminar pública. Para empezar a usar los grupos de administración, inicie sesión en [Azure Portal](https://portal.azure.com) y busque **Grupos de administración** en la sección **Todos los servicios**. 
 
-La compatibilidad de Azure Policy con los grupos de administración no está disponible todavía en la versión preliminar pública, se lanzará en las próximas semanas.  
-
 A modo de ejemplo, puede aplicar directivas a un grupo de administración que limite las regiones disponibles para la creación de máquinas virtuales. Esta directiva se aplicaría a todos los grupos de administración, las suscripciones y los recursos de ese grupo de administración, al permitir únicamente que se creen máquinas virtuales en esa región.
 
 ## <a name="hierarchy-of-management-groups-and-subscriptions"></a>Jerarquía de los grupos de administración y las suscripciones 
 
 Puede compilar una estructura flexible de grupos de administración y suscripciones para organizar los recursos en una jerarquía para una administración unificada de las directivas y el acceso. El siguiente diagrama muestra un ejemplo de jerarquía que consta de grupos de administración y suscripciones organizados por departamentos.    
 
-![Jerarquía](media/management-groups/MG_overview.png)
+![árbol](media/management-groups/MG_overview.png)
 
 Al crear una jerarquía agrupada por departamentos, es posible asignar roles de [control de acceso basado en rol (RBAC) de Azure](../active-directory/role-based-access-control-what-is.md) que *hereden* en los departamentos de ese grupo de administración. Gracias a los grupos de administración, se reduce la carga de trabajo y el riesgo de errores, ya que el rol solo se asigna una vez. 
 
@@ -42,6 +40,14 @@ Al crear una jerarquía agrupada por departamentos, es posible asignar roles de 
     - Este límite no incluye el nivel raíz o de suscripción.
 - Cada grupo de administración admite solo un elemento primario.
 - Cada grupo de administración puede tener varios elementos secundarios. 
+
+### <a name="preview-subscription-visibility-limitation"></a>Limitación de visibilidad de la suscripción de la versión preliminar 
+Actualmente hay una limitación en la versión preliminar por la que no es posible ver las suscripciones para las que ha heredado el acceso. El acceso se hereda con la suscripción, pero Azure Resource Manager aún no puede asignar el acceso de herencia.  
+
+El uso de la API REST para obtener información acerca de la suscripción devuelve detalles siempre y cuando tenga acceso, pero en Azure Portal y Azure Powershell no se muestran las suscripciones. 
+
+Se está trabajando en este elemento y se resolverá antes de que los grupos de administración se anuncien como "Disponibilidad general".  
+
 
 ## <a name="root-management-group-for-each-directory"></a>Un grupo de administración raíz para cada directorio
 

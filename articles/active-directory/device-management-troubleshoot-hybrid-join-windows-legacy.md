@@ -1,8 +1,8 @@
 ---
-title: "Solución de problemas de dispositivos híbridos de nivel inferior unidos a Azure Active Directory | Microsoft Docs"
-description: "Solución de problemas de dispositivos híbridos de nivel inferior unidos a Azure Active Directory"
+title: Solución de problemas de dispositivos híbridos de nivel inferior unidos a Azure Active Directory | Microsoft Docs
+description: Solución de problemas de dispositivos híbridos de nivel inferior unidos a Azure Active Directory
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 03/20/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: ecf77a614922ef58cdfb2b2c8174f66e01ea9b46
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 0d21a8848222c4b09723e22d2d51ec43b2154553
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Solución de problemas de dispositivos híbridos de nivel inferior unidos a Azure Active Directory 
 
@@ -88,10 +88,10 @@ Si la unión a Azure AD híbrido no se realiza correctamente, el cuadro de diál
     
     2. Si, por cualquier motivo, Autoworkplace.exe no puede autenticarse de forma silenciosa con Azure AD o AD FS. Algunos posibles motivos pueden ser los problemas de conectividad de red saliente a las direcciones URL de Azure AD (compruebe los requisitos previos) o si la autenticación multifactor está habilitada o configurada para el usuario, pero WIAORMUTLIAUTHN no está configurado en el servidor de federación (compruebe los pasos de la configuración). Otra posibilidad es que la página de detección de dominio de inicio (HRD) esté esperando a la interacción del usuario e impida que Autoworkplace.exe obtenga de forma silenciosa un token.
     
-    3. Si la organización usa el inicio de sesión único de conexión directa de Azure AD, las siguientes direcciones URL no aparecen en la configuración de la intranet de Internet Explorer del dispositivo:
+    3. Si la organización usa el inicio de sesión único de conexión directa de Azure AD, la siguiente dirección URL no aparece en la configuración de la intranet de Internet Explorer del dispositivo:
     
        - https://autologon.microsoftazuread-sso.com
-       - https://aadg.windows.net.nsatc.net
+
     
        y la opción "Permitir actualizaciones en la barra de estado a través de script" debe estar habilitada para la zona de la intranet.
 
@@ -119,6 +119,6 @@ También puede encontrar la información de estado en el registro de eventos en 
 
   - Un usuario ha alcanzado el límite de dispositivos. 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Si tiene preguntas, consulte las [preguntas más frecuentes sobre la administración de dispositivos](device-management-faq.md).  

@@ -1,11 +1,11 @@
 ---
 title: Preguntas frecuentes sobre Microsoft Azure Service Fabric | Microsoft Docs
-description: "Preguntas más frecuentes acerca de Service Fabric y sus respuestas"
+description: Preguntas más frecuentes acerca de Service Fabric y sus respuestas
 services: service-fabric
 documentationcenter: .net
 author: chackdan
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 5a179703-ff0c-4b8e-98cd-377253295d12
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: facbb980f57b4e70c34b238a8b8fbd988cb20d57
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0ecce5581e8f14a02ad0ad618a226f4671e92f4b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Preguntas frecuentes sobre Service Fabric
 
@@ -89,17 +89,7 @@ Mientras trabajamos en una experiencia mejorada, por el momento, el usuario es e
 ### <a name="can-i-encrypt-attached-data-disks-in-a-cluster-node-type-virtual-machine-scale-set"></a>¿Se pueden cifrar los discos de datos asociados en un tipo de nodo de clúster (conjunto de escalado de máquinas virtuales)?
 Sí.  Para más información, consulte [Creación de un clúster con discos de datos asociados](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks), [Encrypt disks (PowerShell)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md) (Cifrado de discos [PowerShell]) y [Encrypt disks (CLI)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-cli.md) (Cifrado de discos [CLI]).
 
-## <a name="container-support"></a>Compatibilidad con contenedores
-
-### <a name="why-are-my-containers-that-are-deployed-to-sf-unable-to-resolve-dns-addresses"></a>¿Por qué los contenedores que se implementan en SF no pueden resolver direcciones DNS?
-
-Este problema se ha informado en los clústeres de la versión 5.6.204.9494 
-
-**Mitigación**: siga [este documento](service-fabric-dnsservice.md) para habilitar el servicio Service Fabric de DNS en el clúster.
-
-**Solución**: actualice a una versión de clúster admitida superior a la 5.6.204.9494, cuando esté disponible. Si el clúster está establecido en actualizaciones automáticas, se actualizará automáticamente a la versión en este problema está corregido.
-
-  
+ 
 ## <a name="application-design"></a>Diseño de aplicaciones
 
 ### <a name="whats-the-best-way-to-query-data-across-partitions-of-a-reliable-collection"></a>¿Cuál es la mejor forma de consultar datos entre las particiones de una instancia de Reliable Collection?
@@ -146,10 +136,12 @@ Los contenedores ofrecen una manera sencilla de empaquetar servicios y sus depen
 
 ### <a name="are-you-planning-to-open-source-service-fabric"></a>¿Tienen previsto abrir el código de Service Fabric?
 
-Está previsto a abrir el código de los marcos de Reliable Services y Reliable Actors en GitHub, y se aceptarán las contribuciones de la comunidad a los proyectos. Siga el [blog de Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/) para más información cuando se anuncie.
+Tenemos partes de código abierto de Service Fabric ([marco de Reliable Services](https://github.com/Azure/service-fabric-services-and-actors-dotnet), [marco de Reliable Actors](https://github.com/Azure/service-fabric-services-and-actors-dotnet), [bibliotecas de integración de ASP.NET Core](https://github.com/Azure/service-fabric-aspnetcore), [ Service Fabric Explorer](https://github.com/Azure/service-fabric-explorer) y [Service Fabric CLI](https://github.com/Azure/service-fabric-cli)) en GitHub y se aceptan contribuciones de la comunidad a estos proyectos. 
 
-Actualmente no está previsto abrir el código del entorno de tiempo de ejecución de Service Fabric.
+Se [anunció recientemente](https://blogs.msdn.microsoft.com/azureservicefabric/2018/03/14/service-fabric-is-going-open-source/) que tenemos previsto ofrece el runtime de Service Fabric en código abierto. En este momento, tenemos el [repositorio de Service Fabric](https://github.com/Microsoft/service-fabric/) en GitHub con la compilación de Linux y herramientas de prueba, lo que significa que puede clonar el repositorio, compilar Service Fabric para Linux, ejecutar pruebas básicas, abrir problemas y enviar solicitudes de incorporación de cambios. Estamos trabajando para también migrar el entorno de compilación de Windows, junto con un entorno completo de integración continua.
 
-## <a name="next-steps"></a>pasos siguientes
+Siga el [blog de Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/) para más información cuando se anuncie.
+
+## <a name="next-steps"></a>Pasos siguientes
 
 - [Obtenga información sobre conceptos fundamentales de Service Fabric y procedimientos recomendados](https://mva.microsoft.com/en-us/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965)

@@ -1,16 +1,16 @@
 ---
-ms.assetid: 
-title: "Eliminación temporal de Azure Key Vault | Microsoft Docs"
+ms.assetid: ''
+title: Eliminación temporal de Azure Key Vault | Microsoft Docs
 ms.service: key-vault
 author: lleonard-msft
 ms.author: alleonar
 manager: mbaldwin
 ms.date: 09/25/2017
-ms.openlocfilehash: 01357e4fdb9b6f27e9baf5f5c8e4c7d6b582ad35
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 6a3573cf31418309a31126b2a0c6a43ea2e0c745
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Información general sobre la eliminación temporal de Azure Key Vault
 
@@ -68,7 +68,14 @@ La purga permanente de una instancia de Key Vault es posible a través de una op
 
 Se da una excepción a esta circunstancia cuando la suscripción de Azure se ha marcado como *no eliminable*. En este caso, solo el servicio puede realizar la eliminación real, y lo hace como un proceso programado. 
 
-## <a name="next-steps"></a>pasos siguientes
+### <a name="billing-implications"></a>Implicaciones de facturación
+
+En general, cuando un objeto (un almacén de claves, una clave o un secreto) está en estado eliminado, solo existen dos operaciones posibles: "purgarlo" y "recuperarlo". Se producirá un error en el resto de operaciones. Por consiguiente, aunque el objeto exista, no se puede realizar ninguna operación y, por tanto, no se producirá ningún uso ni ninguna factura. Sin embargo, existen las siguientes excepciones:
+
+- las acciones "purgar" y "recuperar" contarán para las operaciones normales del almacén de claves y se facturarán.
+- Si el objeto es una clave HSM, se aplicará el cargo de "Clave HSM protegida" por versión de clave al mes si se ha utilizado una versión de la clave en los últimos 30 días. Después, como el objeto está en estado eliminado, no podrá realizarse ninguna operación en él, por lo que no se aplicará ningún cargo.
+
+## <a name="next-steps"></a>Pasos siguientes
 
 Las dos guías siguientes ofrecen los escenarios de uso principal para uso de la eliminación temporal.
 

@@ -1,18 +1,18 @@
 ---
-title: "Acerca de las redes en Azure para la recuperación ante desastres de Azure mediante Azure Site Recovery | Microsoft Docs"
-description: "Proporciona información general de las redes para la replicación de máquinas virtuales de Azure mediante Azure Site Recovery."
+title: Acerca de las redes en Azure para la recuperación ante desastres de Azure mediante Azure Site Recovery | Microsoft Docs
+description: Proporciona información general de las redes para la replicación de máquinas virtuales de Azure mediante Azure Site Recovery.
 services: site-recovery
 author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/08/2018
+ms.date: 03/26/2018
 ms.author: sujayt
-ms.openlocfilehash: 5ce85761df4e0ad62c22a829f67464a3145fd827
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 48be55632d9c1bece3f1a6e4f9ac12a68f9cb7ab
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Acerca de las redes en Azure para la replicación de Azure
 
@@ -154,9 +154,10 @@ Para las conexiones que tienen lugar entre la ubicación de destino y la ubicaci
 ### <a name="expressroute-configuration"></a>Configuración de ExpressRoute
 Siga estos procedimientos recomendados para la configuración de ExpressRoute:
 
-- Debe crear un circuito ExpressRoute en las regiones de origen y de destino. Luego, debe crear una conexión entre:
-  - La red virtual de origen y el circuito ExpressRoute.
-  - La red virtual de destino y el circuito ExpressRoute.
+- Cree un circuito ExpressRoute en las regiones de origen y de destino. Luego, debe crear una conexión entre:
+    - La red virtual de origen y la red local, a través del circuito de ExpressRoute en la región de origen.
+    - La red virtual de destino y la red local, a través del circuito de ExpressRoute en la región de destino.
+
 
 - Como parte del estándar de ExpressRoute, puede crear circuitos en la misma región geopolítica. Para crear circuitos ExpressRoute en distintas regiones geopolíticas, se requiere Azure ExpressRoute Premium, lo que implica un costo incremental. (Si ya usa ExpressRoute Premium, no existen costos adicionales). Para más información, consulte el [documento de ubicaciones de ExpressRoute](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) y el artículo sobre [precios de ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute/).
 
@@ -167,5 +168,5 @@ Siga estos procedimientos recomendados para la configuración de ExpressRoute:
  >[!IMPORTANT]
  > Si la región principal está completamente inactiva, la operación de desconexión podría dar error, lo que impedirá que la red virtual de destino obtenga conectividad de ExpressRoute.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Comience a proteger las cargas de trabajo mediante la [replicación de máquinas virtuales de Azure](site-recovery-azure-to-azure.md).

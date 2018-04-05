@@ -1,6 +1,6 @@
 ---
-title: "Supervisión de los registros de acceso, los registros de rendimiento, el mantenimiento del back-end y las métricas de Application Gateway | Microsoft Docs"
-description: "Obtenga información acerca de cómo habilitar y administrar registros de acceso y registros de rendimiento para Application Gateway."
+title: Supervisión de los registros de acceso, los registros de rendimiento, el mantenimiento del back-end y las métricas de Application Gateway | Microsoft Docs
+description: Obtenga información acerca de cómo habilitar y administrar registros de acceso y registros de rendimiento para Application Gateway.
 services: application-gateway
 documentationcenter: na
 author: amitsriva
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/17/2017
+ms.date: 3/23/2018
 ms.author: amitsriva
-ms.openlocfilehash: 12c252340b82aba5ee69b12db83353750782e7c5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 885ae8b97175cac4cd29793eb0a935e81d54d0e4
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Mantenimiento del back-end, registro de diagnóstico y métricas de Application Gateway
 
@@ -27,7 +27,7 @@ Con Azure Application Gateway, puede supervisar los recursos de las siguientes m
 
 * [Mantenimiento del back-end](#back-end-health): Application Gateway permite supervisar el mantenimiento de los servidores en los grupos de back-end a través de Azure Portal y de PowerShell. El mantenimiento de los grupos de back-end también se puede encontrar en los registros de diagnóstico de rendimiento.
 
-* [Registros](#diagnostic-logs): permiten que un recurso guarde o consuma datos de rendimiento, acceso u otros con fines de supervisión.
+* [Registros](#diagnostic-logging): permiten que un recurso guarde o consuma datos de rendimiento, acceso u otros con fines de supervisión.
 
 * [Métricas](#metrics): en estos momentos, Application Gateway tiene una métrica. Esta métrica mide el rendimiento de la puerta de enlace de aplicaciones en bytes por segundo.
 
@@ -152,9 +152,9 @@ El registro de actividades se habilita automáticamente para todos los recursos 
 
    ![Inicio del proceso de configuración][2]
 
-4. En Operations Management Suite (OMS), elija un área de trabajo existente o cree uno. Este ejemplo utiliza una existente.
+4. Seleccione un área de trabajo de Log Analytics existente o cree una. Este ejemplo utiliza una existente.
 
-   ![Opciones para áreas de trabajo OMS][3]
+   ![Opciones para áreas de trabajo de Log Analytics][3]
 
 5. Confirme la configuración y haga clic en **Guardar**.
 
@@ -169,14 +169,14 @@ Azure genera el registro de actividad de forma predeterminada. Los registros se 
 El registro de acceso solo se genera si lo habilitó para cada instancia de Application Gateway, tal y como se indicó en los pasos anteriores. Los datos se almacenan en la cuenta de almacenamiento que especificó cuando habilitó el registro. Cada acceso de Application Gateway se registra en formato JSON, tal y como se muestra en el ejemplo siguiente:
 
 
-|Valor  |Descripción  |
+|Valor  |DESCRIPCIÓN  |
 |---------|---------|
 |instanceId     | Instancia de Application Gateway que atendió la solicitud.        |
 |clientIP     | IP de origen de la solicitud.        |
 |clientPort     | Puerto de origen de la solicitud.       |
 |httpMethod     | Método HTTP utilizado por la solicitud.       |
 |requestUri     | URI de la solicitud recibida.        |
-|RequestQuery     | **Server-Routed**: instancia del grupo de back-end al que se envió la solicitud. </br> **X-AzureApplicationGateway-LOG-ID**: identificador de correlación utilizado para la solicitud. Se puede utilizar para solucionar problemas de tráfico en los servidores back-end. </br>**SERVER-STATUS**: código de respuesta HTTP que Application Gateway recibió del back-end.       |
+|RequestQuery     | **Server-Routed**: instancia del grupo de back-end al que se envió la solicitud.</br>**X-AzureApplicationGateway-LOG-ID**: identificador de correlación utilizado para la solicitud. Se puede utilizar para solucionar problemas de tráfico en los servidores back-end. </br>**SERVER-STATUS**: código de respuesta HTTP que Application Gateway recibió del back-end.       |
 |UserAgent     | Agente de usuario del encabezado de solicitud HTTP.        |
 |httpStatus     | Código de estado HTTP que se devuelve al cliente desde Application Gateway.       |
 |HttpVersion     | Versión HTTP de la solicitud.        |
@@ -213,7 +213,7 @@ El registro de acceso solo se genera si lo habilitó para cada instancia de Appl
 El registro de rendimiento solo se genera si lo habilitó para cada instancia de Application Gateway, tal y como se indicó en los pasos anteriores. Los datos se almacenan en la cuenta de almacenamiento que especificó cuando habilitó el registro. Los datos de registro de rendimiento se generan en intervalos de 1 minuto. Se registran los datos siguientes:
 
 
-|Valor  |Descripción  |
+|Valor  |DESCRIPCIÓN  |
 |---------|---------|
 |instanceId     |  Instancia de Application Gateway para la que se van a generar los datos. Si hay varias instancias de Application Gateway, hay una fila por cada instancia.        |
 |healthyHostCount     | Número de hosts con un mantenimiento correcto en el grupo de back-end.        |
@@ -250,7 +250,7 @@ El registro de rendimiento solo se genera si lo habilitó para cada instancia de
 El registro de firewall solo se genera si lo habilitó para cada instancia de Application Gateway, tal y como se indicó en los pasos anteriores. Este registro también requiere que el firewall de aplicaciones web esté configurado en una instancia de Application Gateway. Los datos se almacenan en la cuenta de almacenamiento que especificó cuando habilitó el registro. Se registran los datos siguientes:
 
 
-|Valor  |Descripción  |
+|Valor  |DESCRIPCIÓN  |
 |---------|---------|
 |instanceId     | Instancia de Application Gateway para la que se van a generar los datos de firewall. Si hay varias instancias de Application Gateway, hay una fila por cada instancia.         |
 |clientIp     |   IP de origen de la solicitud.      |
@@ -316,13 +316,25 @@ También puede conectarse a la cuenta de almacenamiento y recuperar las entradas
 
 ## <a name="metrics"></a>Métricas
 
-Las métricas son una característica de determinados recursos de Azure en los que puede ver contadores de rendimiento en el portal. En el caso de Application Gateway, actualmente hay disponible una métrica. Esta métrica es la de rendimiento y puede consultarse en el portal. Navegue a una instancia de Application Gateway y haga clic en **Métricas**. Para ver los valores, seleccione el rendimiento en la sección **Métricas disponibles**. En la siguiente imagen, puede ver un ejemplo con los filtros que puede usar para mostrar los datos en los diferentes intervalos de tiempo.
+Las métricas son una característica de determinados recursos de Azure en los que puede ver contadores de rendimiento en el portal. Para Application Gateway, están disponibles las métricas siguientes:
 
-![Vista de métrica con filtros][5]
+- Conexiones actuales
+- Solicitudes con error
+- Recuento de hosts con estado correcto
+- Estado de respuesta
+- Throughput
+- Total de solicitudes
+- Recuento de hosts con estado incorrecto
+
+Navegue a una puerta de enlace de aplicación y, en **Supervisión** haga clic en **Métricas**. Para ver los valores disponibles, seleccione la lista desplegable **MÉTRICA**.
+
+En la siguiente imagen, verá un ejemplo con tres métricas que se muestran para los últimos 30 minutos:
+
+[![](media/application-gateway-diagnostics/figure5.png "Vista de métrica")](media/application-gateway-diagnostics/figure5-lb.png#lightbox)
 
 Para ver una lista de métricas actuales, consulte el artículo de [métricas compatibles con Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md).
 
-### <a name="alert-rules"></a>Las reglas de alertas
+### <a name="alert-rules"></a>Reglas de alertas
 
 Puede iniciar las reglas de alerta en función de las métricas de un recurso. Por ejemplo, una alerta puede llamar a un webhook o enviar un correo electrónico a un administrador si el rendimiento de la puerta de enlace de aplicaciones es superior, igual o inferior a un umbral durante un período especificado.
 
@@ -336,7 +348,7 @@ En el ejemplo siguiente, se explica paso a paso cómo crear una regla de alerta 
 
    * En el selector **Condición**, seleccione uno de los cuatro valores: **Mayor que**, **Mayor o igual que**, **Menor que** o **Menor o igual que**.
 
-   * En el selector **Período**, seleccione un período de 5 minutos a 6 horas.
+   * En el selector **Período**, seleccione un período de cinco minutos a seis horas.
 
    * Al seleccionar **Lectores, colaboradores y propietarios de correo electrónico**, el correo electrónico puede ser dinámico según los usuarios que tengan acceso a ese recurso. De lo contrario, puede proporcionar una lista separada por comas de los usuarios en el cuadro de texto **Correos electrónicos de administrador adicionales**.
 

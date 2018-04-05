@@ -1,11 +1,11 @@
 ---
-title: "Actualización de firmware de dispositivos con Azure IoT Hub (Java/Java) | Microsoft Docs"
-description: "Describe cómo usar la administración de dispositivos en IoT Hub de Azure para iniciar una actualización de firmware del dispositivo. El SDK de dispositivo IoT de Azure para Java se usa para implementar un aplicación de dispositivo simulado y una aplicación de servicio que desencadene la actualización del firmware."
+title: Actualización de firmware de dispositivos con Azure IoT Hub (Java/Java) | Microsoft Docs
+description: Describe cómo usar la administración de dispositivos en IoT Hub de Azure para iniciar una actualización de firmware del dispositivo. El SDK de dispositivo IoT de Azure para Java se usa para implementar un aplicación de dispositivo simulado y una aplicación de servicio que desencadene la actualización del firmware.
 services: iot-hub
 documentationcenter: java
 author: msebolt
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 70b84258-bc9f-43b1-b7cf-de1bb715f2cf
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,16 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2017
 ms.author: v-masebo
-ms.openlocfilehash: 024c2e9bf580f97b412a85913ca29d757872556a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 19d9cc6722d65d8bcd76d73fda0f24a598479647
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-device-management-to-initiate-a-device-firmware-update-javajava"></a>Use la administración de dispositivos para iniciar una actualización de firmware de los dispositivos (Java/Java)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
 
 En el tutorial de [Introducción a la administración de dispositivos][lnk-dm-getstarted], vimos cómo usar los primitivos de [dispositivo gemelo][lnk-devtwin] y [métodos directos][lnk-c2dmethod] para reiniciar de forma remota un dispositivo. Este tutorial emplea los mismos tipos primitivos de IoT Hub. Además, proporciona orientación y muestra cómo realizar una actualización de firmware simulada de extremo a extremo.  Este patrón se usa en la implementación de actualizaciones de firmware del [ejemplo de implementación de dispositivos Raspberry Pi][lnk-rpi-implementation].
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 En este tutorial se muestra cómo realizar las siguientes acciones:
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 03/23/2018
+ms.date: 03/27/2018
 ms.author: alehall
-ms.openlocfilehash: 94b09b824becc8a67adf4edfd2d4b44496a6169c
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: c43edc6673c42a8b69bfa296e288e77adee4d0af
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="tutorial-stream-data-into-azure-databricks-using-event-hubs"></a>Tutorial: Transmisión de datos a Azure Databricks con Event Hubs
 
@@ -356,7 +356,7 @@ Ahora, la salida será similar al siguiente fragmento de código:
     ...
     ...
 
-Eso es todo. Con Azure Databricks, ha transmitido correctamente datos a Azure Event Hubs casi en tiempo real. A continuación, ha consumido los datos de la transmisión mediante el conector de Event Hubs para Apache Spark.
+Eso es todo. Con Azure Databricks, ha transmitido correctamente datos a Azure Event Hubs casi en tiempo real. A continuación, ha consumido los datos de la transmisión mediante el conector de Event Hubs para Apache Spark. Para más información sobre cómo usar el conector de Event Hubs para Spark, consulte la [documentación del conector](https://github.com/Azure/azure-event-hubs-spark/tree/master/docs).
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

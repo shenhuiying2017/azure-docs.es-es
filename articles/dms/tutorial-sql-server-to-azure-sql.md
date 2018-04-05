@@ -1,21 +1,21 @@
 ---
 title: Uso de Azure Database Migration Service para migrar bases de datos de SQL Server a Azure SQL Database | Microsoft Docs
-description: "En este artículo, se describe información sobre cómo migrar bases de datos de instancias locales de SQL Server a Azure SQL Database mediante Azure Database Migration Service."
+description: En este artículo, se describe información sobre cómo migrar bases de datos de instancias locales de SQL Server a Azure SQL Database mediante Azure Database Migration Service.
 services: dms
 author: HJToland3
 ms.author: jtoland
 manager: jhubbard
-ms.reviewer: 
+ms.reviewer: ''
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 01/24/2018
-ms.openlocfilehash: 8dc8b4db80d5e319fad0b681924ab5a8e5642b2e
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.date: 03/29/2018
+ms.openlocfilehash: b16c3666b932beb771c51bb8dec3ebd5fa36e8a0
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="migrate-sql-server-to-azure-sql-database"></a>Migración de SQL Server a Azure SQL Database
 Puede usar Azure Database Migration Service para migrar las bases de datos de una instancia de SQL Server local a Azure SQL Database. En este tutorial, migrará la base de datos **Adventureworks2012** restaurada en una instancia local de SQL Server 2016 (o posterior) a una instancia de Azure SQL Database mediante Azure Database Migration Service.
@@ -39,7 +39,8 @@ Para completar este tutorial, necesita:
 - Crear una red virtual para Azure Database Migration Service mediante el modelo de implementación de Azure Resource Manager, que proporciona conectividad de sitio a sitio a los servidores de origen local utilizando [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 - Asegúrese de que el grupo de seguridad de red de Azure Virtual Network (VNET) no bloquea los puertos de comunicación 443, 53, 9354, 445 y 12000. Para obtener información más detallada sobre el filtrado de tráfico con NSG de Azure VNET, vea el artículo [Filtrado del tráfico de red con grupos de seguridad de red](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg).
 - Configurar su [Firewall de Windows para acceder al motor de base de datos](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
-- Abrir Firewall de Windows para permitir que Azure Database Migration Service acceda a la instancia de SQL Server de origen.
+- Abra el Firewall de Windows para permitir que Azure Database Migration Service acceda a la instancia de SQL Server de origen que, de manera predeterminada, es el puerto TCP 1433.
+- Si se ejecutan varias instancias con nombre de SQL Server con puertos dinámicos, puede que quiera habilitar el servicio SQL Browser y permitir el acceso al puerto UDP 1434 a través de los firewalls para que Azure Database Migration Service pueda conectarse a una instancia con nombre en el servidor de origen.
 - Cuando se usa un dispositivo de firewall frente a las bases de datos de origen, puede que sea necesario agregar reglas de firewall para permitir que Azure Database Migration Service acceda a las bases de datos de origen para realizar la migración.
 - Crear una [regla de firewall](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-firewall-configure) a nivel de servidor para que el servidor de Azure SQL Database permita a Azure Database Migration Service acceder a las bases de datos de destino. Proporcionar el intervalo de subred de la red virtual usada para Azure Database Migration Service.
 - Asegurarse de que las credenciales usadas para conectarse a la instancia de SQL Server de origen tenga permisos [CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql).

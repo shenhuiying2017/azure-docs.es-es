@@ -1,10 +1,10 @@
 ---
-title: "Notas de la versión de SDK de Azure para .NET 2.9"
-description: "Notas de la versión de SDK de Azure para .NET 2.9"
+title: Notas de la versión de SDK de Azure para .NET 2.9
+description: Notas de la versión de SDK de Azure para .NET 2.9
 services: app-service\web
 documentationcenter: .net
 author: chrissfanos
-editor: 
+editor: ''
 ms.assetid: c83d815b-fc19-4260-821e-7d2a7206dffc
 ms.service: app-service
 ms.devlang: multiple
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 02/24/2017
 ms.author: juliako
-ms.openlocfilehash: 199f0906f73d693d7cd4b73c928f23ae83b99596
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a62268cee0750c544703fb4c3f7e91238e26b872
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-sdk-for-net-29-release-notes"></a>Notas de la versión de SDK de Azure para .NET 2.9
 
 Este tema incluye notas de la versión para las versiones 2.9 y 2.9.6 del SDK de Azure para. NET.
 
-##<a name="azure-sdk-for-net-296-release-summary"></a>Resumen de la versión de SDK de Azure para .NET 2.9.6.
+## <a name="azure-sdk-for-net-296-release-summary"></a>Resumen de la versión de SDK de Azure para .NET 2.9.6.
 
 Fecha de lanzamiento: 16/11/2016
  
@@ -72,7 +72,7 @@ Esta actualización incluye las correcciones de errores siguientes:
 
 Esta actualización incluye la siguiente característica nueva:
 
-* Compatibilidad con Servicios de aplicaciones secundarios en la pestaña "Servicios" del cuadro de diálogo de aprovisionamiento de Servicio de aplicaciones. 
+* Compatibilidad con Servicios de aplicaciones secundarios en la pestaña "Servicios" del cuadro de diálogo de aprovisionamiento de App Service. 
 
 ## <a name="azure-data-lake-tools-for-visual-studio-2015-update-2"></a>Azure Data Lake Tools para Visual Studio 2015 Update 2
 Esta actualización incluye lo siguiente:

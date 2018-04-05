@@ -16,15 +16,55 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: 52be84b73e70a02c43ef71917dc272060d82b42d
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 4dd908908877a222c708c9b2ab6255ab9a4b414a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Preguntas frecuentes sobre los conjuntos de escalado de máquinas virtuales de Azure
 
 Obtenga respuestas a preguntas frecuentes sobre los conjuntos de escalado de máquinas virtuales en Azure.
+
+## <a name="top-frequently-asked-questions-for-scale-sets"></a>Preguntas más frecuentes sobre los conjuntos de escalado
+**P.** ¿Cuántas máquinas virtuales puede contener un conjunto de escalado?
+
+**R.** Un conjunto de escalado puede tener entre 0 y 1000 máquinas virtuales basadas en imágenes de plataforma, o entre 0 y 300 basadas en imágenes personalizadas. 
+
+**P.** ¿Se admiten discos de datos en los conjuntos de escalado?
+
+**R.** Sí. Un conjunto de escalado puede definir una configuración de discos de datos conectados que se aplica a todas las máquinas virtuales del conjunto. Para más información, consulte [Conjuntos de escalado de máquinas virtuales de Azure y discos de datos conectados](virtual-machine-scale-sets-attached-disks.md). Otras opciones para almacenar datos son las siguientes:
+
+* Archivos de Azure (unidades compartidas SMB)
+* Unidad de sistema operativo
+* Unidad temporal (local, sin el respaldo de Azure Storage)
+* Servicio de datos de Azure (por ejemplo, tablas y blobs de Azure)
+* Servicio de datos externos (por ejemplo, una base de datos remota)
+
+**P.** ¿Qué regiones de Azure admiten conjuntos de escalado?
+
+**R.** Todas las regiones admiten conjuntos de escalado.
+
+**P.** ¿Cómo se crea un conjunto de escalado con una imagen personalizada?
+
+**R.** Cree un disco administrado basado en el VHD de su imagen personalizada y cree una referencia a él en la plantilla del conjunto de escalado. [Este es un ejemplo](https://github.com/chagarw/MDPP/tree/master/101-vmss-custom-os).
+
+**P.** Si reduzco la capacidad de mi conjunto de escalado de 20 a 15, ¿qué máquinas virtuales se quitan?
+
+**R.** Las máquinas virtuales se quitan uniformemente del conjunto de escalado tanto en los dominios de actualización como en los dominios de error para maximizar su disponibilidad. Primero se quitan las máquinas virtuales que tengan los identificadores más altos.
+
+**P.** ¿Y si después se aumenta la capacidad de 15 a 18?
+
+**R.** Si aumenta la capacidad a 18, se crearán 3 máquinas virtuales. Cada vez, el identificador de la instancia de máquina virtual se aumenta a partir del mayor valor anterior (por ejemplo, 20, 21 y 22). Las máquinas virtuales están equilibradas entre los dominios de error y los dominios de actualización.
+
+**P.** Si se usan varias extensiones en un conjunto de escalado, ¿se puede exigir una secuencia de ejecución?
+
+**R.** No directamente, pero en el caso de la extensión customScript, el script puede esperar hasta que finalice otra extensión. Encontrará más instrucciones acerca de la secuenciación de extensiones en la siguiente entrada de blog: [Extension Sequencing in Azure virtual machine scale sets](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/)(Secuenciación de extensiones en conjuntos de escalado de máquinas virtuales de Azure).
+
+**P.** ¿Funcionan los conjuntos de escalado con los conjuntos de disponibilidad de Azure?
+
+**R.** Sí. Un conjunto de escalado es un conjunto de disponibilidad implícita con cinco dominios de error y cinco dominios de actualización. Los conjuntos de escalado de más de 100 máquinas virtuales abarcan varios *grupos de ubicación*, que son equivalentes a varios conjuntos de disponibilidad. Para más información, consulte [Uso de grandes conjuntos de escalado de máquinas virtuales](virtual-machine-scale-sets-placement-groups.md). Puede existir un conjunto de disponibilidad de máquinas virtuales en la misma red virtual que un conjunto de escalado de máquinas virtuales. Una configuración común consiste en colocar máquinas virtuales de nodos de control (que a menudo necesitan una configuración única) en un conjunto de disponibilidad y nodos de datos en el conjunto de escalado.
+
 
 ## <a name="autoscale"></a>Escalado automático
 
@@ -558,7 +598,7 @@ Para crear un conjunto de escalado de máquina virtual con una configuración de
 
 ### <a name="how-can-i-configure-a-scale-set-to-assign-a-public-ip-address-to-each-vm"></a>¿Cómo puedo configurar conjunto de escalado para asignar una dirección IP pública a cada máquina virtual?
 
-Para crear un conjunto de escalado de máquina virtual que asigne una dirección IP pública a cada máquina virtual, asegúrese de que la versión de API del recurso Microsoft.Compute/virtualMAchineScaleSets es 2017-03-30 y agregue un paquete JSON _publicipaddressconfiguration_ a la sección ipConfigurations del conjunto de escalado. Ejemplo:
+Para crear un conjunto de escalado de máquina virtual que asigne una dirección IP pública a cada máquina virtual, asegúrese de que la versión de API del recurso Microsoft.Compute/virtualMachineScaleSets sea 2017-03-30 y agregue un paquete JSON _publicipaddressconfiguration_ a la sección ipConfigurations del conjunto de escalado. Ejemplo:
 
 ```json
     "publicipaddressconfiguration": {

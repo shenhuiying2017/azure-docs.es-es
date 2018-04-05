@@ -1,11 +1,11 @@
 ---
-title: "Opciones de depuración de servicios en la nube de Azure | Microsoft Docs"
-description: "Depuración de servicios en la nube de Azure"
+title: Opciones de depuración de servicios en la nube de Azure | Microsoft Docs
+description: Depuración de servicios en la nube de Azure
 services: visual-studio-online
 documentationcenter: n/a
 author: mikejo
-manager: ghogen
-editor: 
+manager: douge
+editor: ''
 ms.assetid: 80755da7-8350-4f5c-97ce-2962beabb36d
 ms.service: visual-studio-online
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/18/2017
 ms.author: mikejo
-ms.openlocfilehash: 0ba0871cdc522cb1ffbafa617181931fe6fd5b59
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3d559bea8043ebcde9ffc655b617f711bfe0ea7f
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="learn-the-various-ways-to-debug-an-azure-cloud-service"></a>Más información sobre las diversas maneras de depurar un servicio en la nube de Azure
 Este artículo contiene vínculos a las diversas maneras de depurar un servicio en la nube de Azure. 
@@ -32,5 +32,5 @@ Si usa Visual Studio Enterprise para escribir roles destinados a .NET Framework 
 ## <a name="remote-debugging"></a>Depuración remota 
 Puede habilitar la depuración remota en los servicios en la nube cuando implementa el servicio en la nube desde Visual Studio. Si elige habilitar la depuración remota para una implementación, los servicios de depuración remota se instalan en las máquinas virtuales que ejecutan cada instancia de rol. Estos servicios, como `msvsmon.exe`, no afectan al rendimiento ni al resultado en cuanto a costos adicionales. Para obtener más información, consulte [Depuración de un servicio en la nube en Azure](vs-azure-tools-debug-cloud-services-virtual-machines.md#debug-a-cloud-service-in-azure).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 - [Depurar una máquina virtual o un servicio en la nube de Azure en Visual Studio](./vs-azure-tools-debug-cloud-services-virtual-machines.md): Obtenga información sobre cómo depurar los servicios en la nube de Azure.

@@ -2,10 +2,10 @@
 title: Sesiones de mensajes de Azure Service Bus | Microsoft Docs
 description: Administre secuencias de mensajes de Azure Service Bus con sesiones.
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: sethm
-ms.openlocfilehash: 7a594e5951f6e90c9151fbaf231675d6ed091d1f
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 551432cd13c16fdd5423c46ed9c6f740353808f8
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>Sesiones de mensajes: primero en entrar, primero en salir (FIFO) 
 
@@ -53,13 +53,7 @@ El bloqueo se libera cuando se llama a **Close** o **CloseAsync**, o cuando el b
 
 Cuando varios receptores simultáneos se extraen de la cola, los mensajes que pertenecen a una sesión determinada se envían al receptor específico que actualmente mantiene el bloqueo en esa sesión. Con esa operación, una secuencia de mensajes intercalados que reside en una cola o suscripción se demultiplexa limpiamente en receptores diferentes, y esos receptores también pueden encontrarse en distintas máquinas cliente, puesto que la administración del bloqueo tiene lugar en el servidor, dentro de Service Bus.
 
-Una cola, sin embargo, sigue siendo una cola: no hay acceso aleatorio. Si varios receptores simultáneos esperan para aceptar sesiones específicas o esperan mensajes de sesiones específicas y hay un mensaje en la parte superior de una cola que pertenece a una sesión que ningún receptor todavía ha reclamado, las entregas se mantienen hasta que un receptor de la sesión reclame esa sesión.
-
-La ilustración anterior muestra tres receptores de sesión simultáneos, los cuales deben tomar todos activamente los mensajes de la cola para que cada receptor avance. La sesión anterior con `SessionId` = 4 no tiene ningún cliente propietario activo, lo que significa que no se entregan mensajes a nadie hasta que un receptor de sesión propietario creado recientemente tome ese mensaje.
-
-Si bien esta situación puede parecer restrictiva, un único proceso de receptor puede controlar muchas sesiones simultáneas a la vez de forma fácil, en especial cuando se escriben con código estrictamente asincrónico; apañárselas con varias docenas de sesiones simultáneas es en realidad automático con el modelo de devolución de llamada.
-
-La estrategia para controlar muchas sesiones simultáneas, en la que cada sesión solo recibe mensajes de forma esporádica, es descartar la sesión tras algún tiempo de inactividad y reanudar el procesamiento cuando la sesión se acepte tan pronto llegue la próxima sesión.
+La ilustración anterior muestra tres receptores de sesiones simultáneas. Una sesión con `SessionId` = 4 no tiene ningún cliente activo, propietario, lo que significa que no se entregan mensajes de esta sesión concreta. Una sesión actúa de muchas maneras, como de subcola.
 
 El bloqueo de sesión mantenido por el receptor de sesión sirve de protección para los bloqueos de mensaje usados en el modo de usado en el modo de liquidación *bloqueo de inspección*. Un receptor no puede tener dos mensajes simultáneamente "en proceso", sino que los mensajes se deben procesar en orden. Solo se puede obtener un nuevo mensaje cuando el mensaje anterior ha finalizado o es fallido. Abandonar un mensaje hace que el mismo mensaje se sirva de nuevo en la siguiente operación de recepción.
 
@@ -79,7 +73,7 @@ Todas las sesiones existentes de una cola o suscripción se pueden enumerar con 
 
 El estado de sesión mantenido en una cola o en que una suscripción se tiene en cuenta en la cuota de almacenamiento de esa entidad. Cuando la aplicación se termina con una sesión, se recomienda por lo tanto que dicha aplicación limpie su estado retenido para evitar costos de administración externos.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - [Un ejemplo completo](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingQueueClient) de enviar y recibir mensajes basados en sesión de colas de Service Bus mediante la biblioteca .NET Standard.
 - [Un ejemplo](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/Sessions) que usa el cliente de .NET Framework para controlar los mensajes basados en la sesión. 

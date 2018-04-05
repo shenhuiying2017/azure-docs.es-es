@@ -1,19 +1,19 @@
 ---
-title: "Implementación continua de Jenkins con Kubernetes en Azure Container Service"
-description: "Cómo automatizar un proceso de implementación continua con Jenkins para implementar y actualizar una aplicación en contenedor en Kubernetes en Azure Container Service"
+title: Implementación continua de Jenkins con Kubernetes en Azure Container Service
+description: Cómo automatizar un proceso de implementación continua con Jenkins para implementar y actualizar una aplicación en contenedor en Kubernetes en Azure Container Service
 services: container-service
 author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 03/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 1293fda45602203570a0f7f75481f67bdcb6edf3
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 8238e0f55b88e4fa207357630aa4228250c33249
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="continuous-deployment-with-jenkins-and-azure-container-service"></a>Implementación continua con Jenkins y Azure Container Service
 
@@ -160,6 +160,20 @@ Open a browser to http://52.166.118.64:8080
 Enter the following to Unlock Jenkins:
 667e24bba78f4de6b51d330ad89ec6c6
 ```
+
+Si tiene problemas al iniciar sesión en Jenkins, cree una sesión de SSH con la VM de Jenkins y reinicie el servicio de Jenkins. La dirección IP de la VM es la misma dirección que ha proporcionado el script de compilación. Un nombre de usuario administrador para la VM es `azureuser`.
+
+```bash
+ssh azureuser@52.166.118.64
+```
+
+Reinicie el servicio de Jenkins.
+
+```bash
+sudo service jenkins restart
+```
+
+Actualice el explorador, debería presentarse el formulario de inicio de sesión de Jenkins.
 
 ## <a name="jenkins-environment-variables"></a>Variables de entorno de Jenkins
 

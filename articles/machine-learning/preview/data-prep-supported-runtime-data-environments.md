@@ -25,10 +25,10 @@ Cuando el código está carga datos con orígenes de datos de Azure Machine Lear
 |---------|---------|---------|---------|---------|
 |Python local    |     Compatible    |No compatible         | No compatible        |         |
 |Docker (máquina virtual Linux) Python     |Compatible solo en los archivos de proyecto*         | No compatible        |        No compatible |         |
-|Docker (máquina virtual Linux) PySpark     |Compatible solo en los archivos de proyecto*     |Compatible         | Compatible \**        |         |
+|Docker (máquina virtual Linux) PySpark     |Compatible solo en los archivos de proyecto*     |Compatible         | Compatible \*\*        |         |
 |Azure Data Science Virtual Machine Python     |Compatible solo en los archivos de proyecto*         |No compatible         |No compatible         |         |
 |Azure Data Science Virtual Machine PySPark     | Compatible solo en los archivos de proyecto*        |No compatible         |No compatible         |         |
-|Azure HDInsight PySpark     | No compatible        |Compatible         |Compatible \**         |         |
+|Azure HDInsight PySpark     | No compatible        |Compatible         |Compatible \*\*         |         |
 |Azure HDInsight Python     | No compatible        | No compatible        | No compatible        |         |
 
 Actualmente, Azure Data Lake Store no es compatible con ningún destino de proceso.

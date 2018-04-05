@@ -1,11 +1,11 @@
 ---
-title: "Qué hacer en caso de una interrupción del servicio de Azure que afecte a Azure Cloud Services | Microsoft Docs"
-description: "Descubra qué hacer en caso de que se produzca una interrupción del servicio de Azure que afecte a Azure Cloud Services."
+title: Qué hacer en caso de una interrupción del servicio de Azure que afecte a Azure Cloud Services | Microsoft Docs
+description: Descubra qué hacer en caso de que se produzca una interrupción del servicio de Azure que afecte a Azure Cloud Services.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: mmccrory
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: e52634ab-003d-4f1e-85fa-794f6cd12ce4
 ms.service: cloud-services
 ms.workload: cloud-services
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: mmccrory
-ms.openlocfilehash: db6a980b85ea5ef8cbbba4ba5a36f9d033739df1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7028417c95aa6969793c00d0bb270c96e56164fb
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="what-to-do-in-the-event-of-an-azure-service-disruption-that-impacts-azure-cloud-services"></a>Qué hacer en caso de una interrupción del servicio de Azure que afecte a Azure Cloud Services
 En Microsoft, hacemos todo lo posible para garantizar que nuestros servicios estén siempre disponibles cuando los necesite. En ocasiones, debido a factores externos que escapan de nuestro control, se producen interrupciones de servicio no planeadas.
@@ -30,7 +30,7 @@ Azure ya integra en su plataforma muchas características que admiten aplicacion
 En este artículo se expone un escenario real de recuperación ante desastres en el que toda una región experimenta una interrupción debido a un desastre natural importante o a una interrupción del servicio generalizada. Se trata de casos muy infrecuentes, pero debe estar preparado para la posibilidad de que se produzca una interrupción en toda una región. Si una región completa experimenta una interrupción del servicio, las copias con redundancia local de los datos estarían temporalmente no disponibles. Si ha habilitado la replicación geográfica, se almacenan en una región distinta tres copias adicionales de los blobs y las tablas de Azure Storage. En caso de una interrupción completa en una región o de un desastre en el que la región primaria no sea recuperable, Azure reasignará todas las entradas DNS a la región de replicación geográfica.
 
 > [!NOTE]
-> Tenga en cuenta que no tiene ningún control sobre este proceso y que solo se producirá si se da una interrupción del servicio en todo el centro de datos. Por este motivo, también debe confiar en otras estrategias de copia de seguridad específicas de la aplicación para lograr el máximo nivel de disponibilidad. Para más información, consulte [Recuperación ante desastres y alta disponibilidad para aplicaciones creadas en Microsoft Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md). Si desea poder influir sobre su propia conmutación por error, plantéese usar un [almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS)](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage), el cual crea una copia de solo lectura de sus datos en otra región.
+> Tenga en cuenta que no tiene ningún control sobre este proceso y que solo se producirá si se da una interrupción del servicio en todo el centro de datos. Por este motivo, también debe confiar en otras estrategias de copia de seguridad específicas de la aplicación para lograr el máximo nivel de disponibilidad. Para más información, consulte [Recuperación ante desastres y alta disponibilidad para aplicaciones creadas en Microsoft Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md). Si desea poder influir sobre su propia conmutación por error, plantéese usar un [almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS)](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage), el cual crea una copia de solo lectura de sus datos en otra región.
 >
 >
 
@@ -49,7 +49,7 @@ Para más información sobre cómo crear e implementar una aplicación de servic
 
 En función de los orígenes de datos de la aplicación, es posible que deba comprobar los procedimientos de recuperación para el origen de datos de su aplicación.
 
-* Para los orígenes de datos de Azure Storage, consulte [Replicación de Azure Storage](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage) a fin de ver las opciones disponibles según el modelo de replicación elegido para su aplicación.
+* Para los orígenes de datos de Azure Storage, consulte [Replicación de Azure Storage](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) a fin de ver las opciones disponibles según el modelo de replicación elegido para su aplicación.
 * Para los orígenes de SQL Database, consulte [Información general: continuidad del negocio en la nube y recuperación ante desastres con SQL Database](../sql-database/sql-database-business-continuity.md) a fin de ver las opciones disponibles según el modelo de replicación elegido para su aplicación.
 
 

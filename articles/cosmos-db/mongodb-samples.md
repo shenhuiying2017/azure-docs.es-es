@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/22/2017
+ms.date: 03/23/2018
 ms.author: anhoh
-ms.openlocfilehash: 3d4b3bf36bdc93fdd1a65f5c8fdcfe2237d23aa9
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 1571ed8bc3146a6351d0010a9f072cad986d6dc7
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="build-an-azure-cosmos-db-api-for-mongodb-app-using-nodejs"></a>Creación de una aplicación de Azure Cosmos DB: API para MongoDB con Node.js
 > [!div class="op_single_selector"]
@@ -108,6 +108,44 @@ Para usar este ejemplo, tendrá que:
     );
     };
     
+    MongoClient.connect(url, function(err, client) {
+    assert.equal(null, err);
+    var db = client.db('familiesdb');
+    insertDocument(db, function() {
+        findFamilies(db, function() {
+        updateFamilies(db, function() {
+            removeFamilies(db, function() {
+                client.close();
+            });
+        });
+        });
+    });
+    });
+    ```
+    
+    **Opcional**: si usa el **controlador Node.js 2.2 de MongoDB**, reemplace el fragmento de código siguiente:
+
+    Original:
+
+    ```nodejs
+    MongoClient.connect(url, function(err, client) {
+    assert.equal(null, err);
+    var db = client.db('familiesdb');
+    insertDocument(db, function() {
+        findFamilies(db, function() {
+        updateFamilies(db, function() {
+            removeFamilies(db, function() {
+                client.close();
+            });
+        });
+        });
+    });
+    });
+    ```
+    
+    Se debe reemplazar por:
+
+    ```nodejs
     MongoClient.connect(url, function(err, db) {
     assert.equal(null, err);
     insertDocument(db, function() {
@@ -121,8 +159,17 @@ Para usar este ejemplo, tendrá que:
     });
     });
     ```
-
+    
 2. Modifique las siguientes variables en el archivo *app.js* según la configuración de la cuenta (aprenda a buscar la [cadena de conexión](connect-mongodb-account.md)):
+
+    > [!IMPORTANT]
+    > El **controlador Node.js 3.0 de MongoDB** requiere la codificación de caracteres especiales en la contraseña de Cosmos DB. Asegúrese de codificar los caracteres "=" como %3D
+    >
+    > Ejemplo: la contraseña *jm1HbNdLg5zxEuyD86ajvINRFrFCUX0bIWP15ATK3BvSv==* se codifica como *jm1HbNdLg5zxEuyD86ajvINRFrFCUX0bIWP15ATK3BvSv%3D%3D*
+    >
+    > El **controlador Node.js 2.2 de MongoDB** no requiere la codificación de caracteres especiales en la contraseña de Cosmos DB.
+    >
+    >
    
     ```nodejs
     var url = 'mongodb://<endpoint>:<password>@<endpoint>.documents.azure.com:10255/?ssl=true';

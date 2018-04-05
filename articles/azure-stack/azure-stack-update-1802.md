@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 03/20/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 247f13717971d3660b3ec0ee94821bd593c5fed0
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 71862463a62f11a4f2cea7dfcc60961331ded377
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-stack-1802-update"></a>Actualización 1802 de Azure Stack
 
@@ -103,7 +103,7 @@ Los siguientes son problemas conocidos posteriores a la instalación de la compi
 
 #### <a name="portal"></a>Portal
 - No está disponible la posibilidad de [abrir una nueva solicitud de soporte técnico desde la lista desplegable](azure-stack-manage-portals.md#quick-access-to-help-and-support) del portal de administración. En su lugar, use el siguiente vínculo:     
-    - Para los sistemas integrados de Azure Stack, use https://aka.ms/newsupportrequest.
+    - Para sistemas integrados de Azure Stack. use https://aka.ms/newsupportrequest.
 
 - <!-- 2050709 --> In the admin portal, it is not possible to edit storage metrics for Blob service, Table service, or Queue service. When you go to Storage, and then select the blob, table, or queue service tile, a new blade opens that displays a metrics chart for that service. If you then select Edit from the top of the metrics chart tile, the Edit Chart blade opens but does not display options to edit metrics.
 
@@ -123,6 +123,13 @@ Los siguientes son problemas conocidos posteriores a la instalación de la compi
     - *ERROR - Template for FaultType ResourceProviderTimeout is missing.* (ERROR: falta la plantilla de FaultType ResourceProviderTimeout)
 
     Esta alerta puede omitirse sin problemas. 
+
+- <!-- 2253274 --> In the admin and user portals, the Settings blade for vNet Subnets fails to load. As a workaround, use PowerShell and the [Get-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig?view=azurermps-5.5.0) cmdlet to view and  manage this information.
+
+- En el portal de administración y el portal de usuarios, la hoja de introducción no puede cargarse al seleccionar la hoja de introducción para las cuentas de almacenamiento que se crearon con una versión anterior de la API (por ejemplo: 15-06-2015). Esto incluye las cuentas de almacenamiento del sistema como **updateadminaccount** que se usan durante la revisión y actualización. 
+
+  Como alternativa, use PowerShell para ejecutar el script **Start-ResourceSynchronization.ps1** para restaurar el acceso a los detalles de la cuenta de almacenamiento. [El script está disponible desde GitHub]( https://github.com/Azure/AzureStack-Tools/tree/master/Support/scripts) y debe ejecutarse con las credenciales de administrador del servicio en el punto de conexión privilegiado. 
+
 
 #### <a name="health-and-monitoring"></a>Estado y supervisión
 No hay ningún problema conocido después de actualizar a 1802.

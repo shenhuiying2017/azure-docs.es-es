@@ -1,12 +1,12 @@
 ---
 title: Eventos programados para VM Windows en Azure| Microsoft Docs
-description: "Eventos programados mediante el servicio Azure Metadata para las máquinas virtuales Windows."
+description: Eventos programados mediante el servicio Azure Metadata para las máquinas virtuales Windows.
 services: virtual-machines-windows, virtual-machines-linux, cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: ericrad
 manager: timlt
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 28d8e1f2-8e61-4fbe-bfe8-80a68443baba
 ms.service: virtual-machines-windows
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: 8f78f476e28ec04acfea9fe45d57a4c18d5db678
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 4740f3f189746a9ea0956d832678858b0528311e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Servicio Azure Metadata: Scheduled Events para Windows VM
 
@@ -118,7 +118,7 @@ En caso de que haya eventos programados, la respuesta contiene una matriz de eve
 | ResourceType | Es el tipo de recurso al que afecta este evento. <br><br> Valores: <ul><li>`VirtualMachine`|
 | Recursos| Es la lista de recursos a la que afecta este evento. Se garantiza que contenga máquinas de un [dominio de actualización](manage-availability.md) como máximo, pero puede no contener todas las máquinas en el dominio. <br><br> Ejemplo: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | Estado de evento | Es el estado de este evento. <br><br> Valores: <ul><li>`Scheduled`: este evento está programado para iniciarse después de la hora especificada en la propiedad `NotBefore`.<li>`Started`: este evento se ha iniciado.</ul> Nunca se proporcionan `Completed` ni ningún estado similar; el evento ya no se devolverá cuando finalice.
-| NotBefore| Hora a partir de la que puede iniciarse este evento. <br><br> Ejemplo: <br><ul><li> 2016-09-19T18:29:47Z  |
+| NotBefore| Hora a partir de la que puede iniciarse este evento. <br><br> Ejemplo: <br><ul><li> Lunes, 19 de septiembre de 2016, 18:29:47 GMT  |
 
 ### <a name="event-scheduling"></a>Programación de eventos
 Cada evento se programa una cantidad mínima de tiempo en el futuro en función del tipo de evento. Este tiempo se refleja en la propiedad `NotBefore` de un evento. 
@@ -220,7 +220,7 @@ foreach($event in $scheduledEvents.Events)
 }
 ``` 
 
-## <a name="next-steps"></a>pasos siguientes 
+## <a name="next-steps"></a>Pasos siguientes 
 
 - Vea una [demostración de Scheduled Events](https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Scheduled-Events-to-Prepare-for-VM-Maintenance) en Azure el viernes. 
 - Revise los ejemplos de código de Eventos programados en el [repositorio de Eventos programados de metadatos de instancia de Azure de GitHub](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm)

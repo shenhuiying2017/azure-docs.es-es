@@ -1,12 +1,12 @@
 ---
-title: "Solución de problemas de Storm mediante Azure HDInsight | Microsoft Docs"
-description: "Obtenga respuestas a las preguntas comunes sobre cómo usar con Apache Storm con Azure HDInsight."
-keywords: "Azure HDInsight, Storm, preguntas más frecuentes, guía de solución de problemas, problemas comunes"
+title: Solución de problemas de Storm mediante Azure HDInsight | Microsoft Docs
+description: Obtenga respuestas a las preguntas comunes sobre cómo usar con Apache Storm con Azure HDInsight.
+keywords: Azure HDInsight, Storm, preguntas más frecuentes, guía de solución de problemas, problemas comunes
 services: Azure HDInsight
 documentationcenter: na
 author: raviperi
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 74E51183-3EF4-4C67-AA60-6E12FAC999B5
 ms.service: multiple
 ms.workload: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/2/2017
 ms.author: raviperi
-ms.openlocfilehash: c0295af2e71d891d07dad7012b7a27402c375178
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 6ee408b32650fe0f0e0b66294896756732a2ca5b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshoot-storm-by-using-azure-hdinsight"></a>Solución de problemas de Storm mediante Azure HDInsight
 
@@ -71,7 +71,7 @@ El comando export escribe los metadatos en una ruta de acceso del Sistema de arc
     ```
 
 #### <a name="import-offset-metadata"></a>Importación de los metadatos de desplazamiento
-1. Use SSH para ir al clúster de ZooKeeper en el clúster desde el que se debe exportar el desplazamiento de punto de control.
+1. Use SSH para ir al clúster de ZooKeeper en el clúster desde el que se debe importar el desplazamiento de punto de control.
 2. Ejecute el comando siguiente (después de actualizar la cadena de versión de hdp) para importar los datos de desplazamiento de ZooKeeper desde la ruta de acceso de HDFS /stormmetadata/zkdata al servidor de ZooKeeper en el clúster de destino:
 
     ```apache
@@ -79,7 +79,7 @@ El comando export escribe los metadatos en una ruta de acceso del Sistema de arc
     ```
    
 #### <a name="delete-offset-metadata-so-that-topologies-can-start-processing-data-from-the-beginning-or-from-a-timestamp-that-the-user-chooses"></a>Elimine los metadatos de desplazamiento para que las topologías puedan empezar a procesar los datos desde el principio o desde una marca de tiempo que elija el usuario.
-1. Use SSH para ir al clúster de ZooKeeper en el clúster desde el que se debe exportar el desplazamiento de punto de control.
+1. Use SSH para ir al clúster de ZooKeeper en el clúster desde el que se debe eliminar el desplazamiento de punto de control.
 2. Ejecute el comando siguiente (después de actualizar la cadena de versión de HDP) para eliminar todos los datos de desplazamiento de ZooKeeper del clúster actual:
 
     ```apache

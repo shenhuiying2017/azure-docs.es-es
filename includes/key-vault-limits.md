@@ -5,6 +5,10 @@ Transacciones clave (N.º máximo de transacciones permitidas en 10 segundos, po
 |2048 bits de RSA|5|1000|10|2000|
 |3072 bits de RSA|5|250|10|500|
 |4096 bits de RSA|5|125|10|250|
+|ECC P-256|5|1000|10|2000|
+|ECC P-384|5|1000|10|2000|
+|ECC P-521|5|1000|10|2000|
+|ECC SECP256K1|5|1000|10|2000|
 |
 
 Secretos, claves de cuentas de almacenamiento administradas y transacciones de almacén:

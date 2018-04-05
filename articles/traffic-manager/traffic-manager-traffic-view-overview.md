@@ -1,31 +1,28 @@
 ---
 title: Traffic View en Azure Traffic Manager | Microsoft Docs
-description: "Introducción a Traffic View de Traffic Manager"
+description: Introducción a Traffic View de Traffic Manager
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
-manager: timlt
-editor: 
-tags: 
-ms.assetid: 
+manager: jeconnoc
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 11/11/2017
+ms.date: 03/16/2018
 ms.author: kumud
-ms.custom: 
-ms.openlocfilehash: 6b4378cb293824702dd52dcdeb86619f957b83ea
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.custom: ''
+ms.openlocfilehash: 7ce51017fdee92e5589c06b398c9650930d5436d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="traffic-manager-traffic-view"></a>Traffic View de Traffic Manager
-
->[!NOTE]
->La característica Traffic View de Traffic Manager está en versión preliminar pública y es posible que no tenga el mismo nivel de disponibilidad y confiabilidad que las características que están en versión de disponibilidad general. Esta característica no se admite, puede tener funcionalidades limitadas y no estar disponible en todas las ubicaciones de Azure. Para obtener las notificaciones más recientes acerca de la disponibilidad y el estado de esta característica, consulte la página de [actualizaciones de Azure Traffic Manager](https://azure.microsoft.com/updates/?product=traffic-manager).
 
 Traffic Manager proporciona enrutamiento en el nivel de DNS para que los usuarios finales sean dirigidos a puntos de conexión en buen estado en función del método de enrutamiento especificado cuando creó el perfil. Vista de tráfico proporciona a Traffic Manager una visión de las bases de usuarios (en un nivel de granularidad de resolución DNS) y su patrón de tráfico. Cuando se habilita Traffic View, esta información se procesa para proporcionarle detalles sobre lo que actuar. 
 
@@ -43,7 +40,7 @@ Traffic View funciona haciendo que Traffic Manager busque las consultas entrante
 En el paso siguiente, Traffic Manager correlaciona la región de la base de usuarios con la asignación de región de Azure con las tablas de información de latencia de red que mantiene para diferentes redes de usuario final para conocer la latencia media que experimentan los usuarios de esas regiones cuando se conectan a regiones de Azure. Todos estos cálculos se combinan en el nivel de dirección IP de resolución DNS local antes de presentarse. Puede utilizar la información de varias maneras.
 
 >[!NOTE]
->La latencia descrita en Vista de tráfico es una latencia representativa entre el usuario final y las regiones de Azure a las que se habían conectado y no es la latencia de búsqueda DNS.
+>La latencia descrita en Vista de tráfico es una latencia representativa entre el usuario final y las regiones de Azure a las que se habían conectado y no es la latencia de búsqueda DNS. Vista de tráfico hace una estimación de mejor esfuerzo de la latencia entre la resolución DNS local y la región de Azure a la que se enrutó la consulta; si no hay suficientes datos disponibles, la latencia devuelta será nula. 
 
 ## <a name="visual-overview"></a>Información general visual
 
@@ -61,12 +58,12 @@ Si mantiene el mouse sobre una ubicación de la resolución DNS en el mapa, se m
 
 ### <a name="endpoint-information"></a>Información de punto de conexión
 
-Las regiones de Azure en las que residen los puntos de conexión se muestran como puntos azules en el mapa. Haga clic en cualquier punto de conexión para ver las diferentes ubicaciones (según la resolución DNS usada) desde donde se dirigió el tráfico a ese punto de conexión. Las conexiones se muestran como una línea entre el punto de conexión y la ubicación de la resolución DNS y están coloreadas de acuerdo con la latencia representativa entre ese par. Además, puede ver el nombre del punto de conexión, la región de Azure en la que se ejecuta y el volumen total de solicitudes que se dirigen a él mediante este perfil de Traffic Manager.
+Las regiones de Azure en las que residen los puntos de conexión se muestran como puntos azules en el mapa. Si el punto de conexión es externo y no tiene una región de Azure asignada, se muestra en la parte superior del mapa. Haga clic en cualquier punto de conexión para ver las diferentes ubicaciones (según la resolución DNS usada) desde donde se dirigió el tráfico a ese punto de conexión. Las conexiones se muestran como una línea entre el punto de conexión y la ubicación de la resolución DNS y están coloreadas de acuerdo con la latencia representativa entre ese par. Además, puede ver el nombre del punto de conexión, la región de Azure en la que se ejecuta y el volumen total de solicitudes que se dirigen a él mediante este perfil de Traffic Manager.
 
 
 ## <a name="tabular-listing-and-raw-data-download"></a>Lista tabular y descarga de datos sin procesar
 
-Puede ver los datos de Vista de tráfico en un formato tabular en Azure Portal. Hay una entrada para cada dirección IP de resolución DNS/par de punto de conexión que muestra la ubicación geográfica de la resolución DNS (si está disponible), el nombre de la región de Azure en el que se encuentra el punto de conexión, el volumen de solicitudes asociadas con esa resolución DNS y la latencia representativa asociada a los usuarios finales con ese DNS (si está disponible). También puede descargar los datos de Vista de tráfico como un archivo CSV que puede usarse como parte de un flujo de trabajo de análisis de su elección.
+Puede ver los datos de Vista de tráfico en un formato tabular en Azure Portal. Hay una entrada para cada dirección IP de resolución DNS/par de punto de conexión que muestra la dirección IP de la resolución DNS, el nombre y la ubicación geográfica de la región de Azure en el que se encuentra el punto de conexión (si está disponible), el volumen de solicitudes asociadas con esa resolución DNS a ese punto de conexión y la latencia representativa asociada a los usuarios finales con ese DNS (si está disponible). También puede descargar los datos de Vista de tráfico como un archivo CSV que puede usarse como parte de un flujo de trabajo de análisis de su elección.
 
 ## <a name="billing"></a>Facturación
 
@@ -77,5 +74,5 @@ Cuando use Traffic View, se le facturará en función del número de puntos de d
 
 - Aprenda [cómo funciona el Administrador de tráfico](traffic-manager-overview.md)
 - Aprenda más sobre los [métodos de enrutamiento de tráfico](traffic-manager-routing-methods.md) que admite el Administrador de tráfico.
-- Aprenda a [crear un perfil de Administrador de tráfico](traffic-manager-create-profile.md)
+- Aprenda a [crear un perfil del Administrador de tráfico](traffic-manager-create-profile.md)
 

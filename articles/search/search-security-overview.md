@@ -1,24 +1,24 @@
 ---
-title: "Protección de datos y operaciones en Azure Search | Microsoft Docs"
-description: "La seguridad de Azure Search se basa en el cumplimiento de SOC 2, el cifrado, la autenticación y el acceso a identidades mediante identificadores de seguridad de usuarios y grupos en los filtros de Azure Search."
+title: Protección de datos y operaciones en Azure Search | Microsoft Docs
+description: La seguridad de Azure Search se basa en el cumplimiento de SOC 2, el cifrado, la autenticación y el acceso a identidades mediante identificadores de seguridad de usuarios y grupos en los filtros de Azure Search.
 services: search
-documentationcenter: 
+documentationcenter: ''
 author: HeidiSteen
 manager: cgronlun
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: search
-ms.devlang: 
+ms.devlang: ''
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 01/19/2018
 ms.author: heidist
-ms.openlocfilehash: c3aa4883e33b1f3494f8502fe7f8b12f7d64a72f
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 35f875e5f6345b9ebb9abc4deb71b7bf9c78907d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="security-and-controlled-access-in-azure-search"></a>Seguridad y acceso controlado en Azure Search
 
@@ -57,29 +57,16 @@ Todos los servicios de Azure admiten controles de acceso basado en roles (RBAC) 
 
 ## <a name="service-access-and-authentication"></a>Autenticación y acceso al servicio
 
-Mientras Azure Search hereda las medidas de seguridad de la plataforma Azure, también proporciona su propia autenticación basada en claves. El tipo de clave (administrador o consulta) determina el nivel de acceso. El envío de una clave válida se considera una prueba de que la solicitud se origina desde una entidad de confianza. 
+Mientras Azure Search hereda las medidas de seguridad de la plataforma Azure, también proporciona su propia autenticación basada en claves. Una clave de API es una cadena que se compone de letras y números generados aleatoriamente. El tipo de clave (administrador o consulta) determina el nivel de acceso. El envío de una clave válida se considera una prueba de que la solicitud se origina desde una entidad de confianza. Se usan dos tipos de claves para obtener acceso a su servicio de búsqueda:
 
-Se requiere autenticación en cada solicitud, y cada solicitud se compone de una clave obligatoria, una operación y un objeto. Cuando se encadenan, los dos niveles de permisos (completo y de solo lectura) y el contexto son suficientes para proporcionar seguridad en la gama completa de las operaciones del servicio. 
+* Administración (válida para cualquier operación de lectura y escritura en el servicio)
+* Consulta (válida para operaciones de solo lectura, como las consultas en un índice)
 
-|Clave|DESCRIPCIÓN|límites|  
-|---------|-----------------|------------|  
-|Administración|Concede derechos completos para todas las operaciones, incluida la capacidad para administrar el servicio, crear y eliminar índices, indexadores y orígenes de datos.<br /><br /> Dos **claves de api** de administración, conocidas como claves *principal* y *secundaria* en el portal, que se generan cuando se crea el servicio y pueden volver a generarse individualmente a petición. Tener dos claves le permite la rotación de una clave mientras se usa la segunda clave para un acceso continuado al servicio.<br /><br /> Las claves de administración solo se especifican en los encabezados de la solicitud HTTP. No se puede colocar una clave de API de administración en una dirección URL.|Máximo 2 por servicio|  
-|Consultar|Conceden acceso de solo lectura a índices y documentos y, normalmente, se distribuyen entre las aplicaciones cliente que emiten solicitudes de búsqueda.<br /><br /> Las claves de consulta se crean bajo petición. Puede crearlas manualmente en el portal o mediante programación con la [API de REST de administración](https://docs.microsoft.com/rest/api/searchmanagement/).<br /><br /> Las claves de consulta se pueden especificar en un encabezado de solicitud HTTP para operaciones de búsqueda y sugerencias. Como alternativa, puede pasar una clave de consulta como un parámetro en una dirección URL. En función de cómo formule la solicitud la aplicación cliente, puede resultar más fácil pasar la clave como un parámetro de consulta:<br /><br /> `GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2016-09-01&api-key=A8DA81E03F809FE166ADDB183E9ED84D`|50 por servicio|  
+Las claves de administración se crean cuando se aprovisiona el servicio. Hay dos claves de administración, designadas como *principal* y *secundaria*, pero en realidad son intercambiables. Todos los servicios tienen dos claves de administración, con el fin de que se pueda dejar de usar una de ellas sin perder el acceso al servicio. Puede volver a generar cualquiera de las claves de administración, pero no puede agregarla al recuento total de claves de administración. Hay un máximo de dos claves de administración por servicio de búsqueda.
 
- Visualmente, no hay distinción entre las claves de administración y de consulta. Ambas claves son cadenas formadas por 32 caracteres alfanuméricos generados aleatoriamente. Si necesita saber qué tipo de clave se especifica en la aplicación, puede [comprobar los valores de las claves en el portal](https://portal.azure.com) o usar la [API de REST](https://docs.microsoft.com/rest/api/searchmanagement/) para devolver el valor y el tipo de clave.  
+Las claves de consulta se crean a medida que son necesarias y están diseñadas para las aplicaciones cliente que llaman directamente a Azure Search. Puede crear hasta 50 claves de consulta. En el código de la aplicación, especifique la dirección URL de búsqueda y una clave de API de consulta para permitir el acceso de solo lectura al servicio. El código de aplicación también especifica el índice que utiliza la aplicación. Juntos, el punto de conexión, una clave de API para el acceso de solo lectura y un índice de destino definen el nivel de acceso y ámbito de la conexión desde la aplicación cliente.
 
-> [!NOTE]  
->  Se considera una práctica poco segura pasar datos confidenciales, como una `api-key` en el identificador URI de la solicitud. Por este motivo, Azure Search solo acepta una clave de consulta, como una `api-key`, en la cadena de consulta y debe evitar hacerlo a menos que el contenido del índice deba estar disponible públicamente. Como regla general, se recomienda pasar la `api-key` como un encabezado de solicitud.  
-
-### <a name="how-to-find-the-access-keys-for-your-service"></a>Cómo buscar las claves de acceso del servicio
-
-Puede obtener las claves de acceso en el portal o mediante la [API de REST de administración](https://docs.microsoft.com/rest/api/searchmanagement/). Para más información, consulte [Administración de claves](search-manage.md#manage-api-keys).
-
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
-2. Obtenga la lista de los [servicios de búsqueda](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) de su suscripción.
-3. Seleccione el servicio y, en la página de servicio, seleccione **Configuración** >**Claves** para ver las claves de administración y de consulta.
-
-![Página del portal, configuración, sección claves](media/search-security-overview/settings-keys.png)
+Se requiere autenticación en cada solicitud, y cada solicitud se compone de una clave obligatoria, una operación y un objeto. Cuando se encadenan, los dos niveles de permisos (completo y de solo lectura) y el contexto (por ejemplo, una operación de consulta en un índice) son suficientes para proporcionar seguridad en la gama completa de las operaciones del servicio. Para más información acerca de las claves, vea [Create and manage api-keys](search-security-api-keys.md) (Creación y administración de claves de API).
 
 ## <a name="index-access"></a>Acceso a los índices
 
@@ -123,7 +110,7 @@ En la tabla siguiente se resumen las operaciones permitidas en Azure Search y la
 | Consultar un índice | Clave de administrador o de consulta (RBAC no es aplicable) |
 | Consultar la información del sistema, como devolver estadísticas, recuentos y listas de objetos. | Clave de administración, RBAC en el recurso (propietario, colaborador y lector) |
 | Administrar claves de administración | Clave de administración, RBAC propietario o colaborador en el recurso |
-| Administrar claves de consulta |  Clave de administración, RBAC propietario o colaborador en el recurso Un lector de RBAC puede ver las claves de consulta. |
+| Administrar claves de consulta |  Clave de administración, RBAC propietario o colaborador en el recurso  |
 
 
 ## <a name="see-also"></a>Otras referencias

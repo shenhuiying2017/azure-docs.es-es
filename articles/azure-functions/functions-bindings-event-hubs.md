@@ -3,7 +3,7 @@ title: Enlaces de Azure Event Hubs para Azure Functions
 description: Descubra cómo usar los enlaces de Azure Event Hubs de Azure Functions.
 services: functions
 documentationcenter: na
-author: wesmc7777
+author: tdykstra
 manager: cfowler
 editor: ''
 tags: ''
@@ -15,12 +15,12 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
-ms.author: wesmc
-ms.openlocfilehash: 87a7d25e1095fe1511c86dc56375c02f06f51b73
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.author: tdykstra
+ms.openlocfilehash: 44dbe4c3157b1b765004975a6f04e3a96b477846
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Enlaces de Azure Event Hubs para Azure Functions
 
@@ -30,7 +30,7 @@ En este artículo se explica cómo usar enlaces de [Azure Event Hubs](../event-h
 
 ## <a name="packages"></a>Paquetes
 
-Los enlaces de Event Hubs se proporcionan en el paquete NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus). El código fuente del paquete se encuentra en el repositorio [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/) de GitHub.
+Para Azure Functions versión 1.x, los enlaces de Event Hubs se proporcionan en el paquete NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus). Para Functions 2.x, use el paquete [Microsoft.Azure.WebJobs.Extensions.EventHubs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs). El código fuente del paquete se encuentra en el repositorio [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/) de GitHub.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
@@ -203,6 +203,34 @@ module.exports = function (context, myEventHubMessage) {
 };
 ```
 
+Para recibir eventos en un lote, defina `cardinality` como `many` en el archivo *function.json*:
+
+
+```json
+{
+  "type": "eventHubTrigger",
+  "name": "eventHubMessages",
+  "direction": "in",
+  "path": "MyEventHub",
+  "cardinality": "many",
+  "connection": "myEventHubReadConnectionAppSetting"
+}
+```
+
+Este es el código de JavaScript:
+
+```javascript
+module.exports = function (context, eventHubMessages) {
+    context.log(`JavaScript eventhub trigger function called for message array ${eventHubMessages}`);
+    
+    eventHubMessages.forEach(message => {
+        context.log(`Processed message ${message}`);
+    });
+
+    context.done();
+};
+```
+
 ## <a name="trigger---attributes"></a>Desencadenador: atributos
 
 En las [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el atributo [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs).
@@ -230,6 +258,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |**name** | N/D | Nombre de la variable que representa el elemento de evento en el código de la función. | 
 |**path** |**EventHubName** | El nombre del centro de eventos. | 
 |**consumerGroup** |**ConsumerGroup** | Una propiedad opcional que establece el [grupo de consumidores](../event-hubs/event-hubs-features.md#event-consumers) que se usará para suscribirse a los eventos del centro. Si se pasa por alto, se utilizará el grupo de consumidores `$Default`. | 
+|**cardinalidad** | N/D | Para JavaScript. Defínalo como `many` para permitir el procesamiento por lotes.  Si se omite o se define como `one`, se pasa un único mensaje a la función. | 
 |**conexión** |**Connection** | El nombre de una configuración de aplicación que contenga la cadena de conexión para el espacio de nombres del centro de eventos. Copie esta cadena de conexión haciendo clic en el botón **Información de conexión** del [espacio de nombres](../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace), no del propio centro de eventos. Esta cadena de conexión debe tener al menos permisos de lectura para activar el desencadenador.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

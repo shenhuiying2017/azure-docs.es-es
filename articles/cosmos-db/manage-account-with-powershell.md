@@ -1,13 +1,13 @@
 ---
-title: "Azure Automation Cosmos DB: administración con Powershell | Microsoft Docs"
+title: 'Azure Automation Cosmos DB: administración con Powershell | Microsoft Docs'
 description: Use Azure Powershell para administrar las cuentas de Azure Cosmos DB.
 services: cosmos-db
 author: dmakwana
 manager: jhubbard
-editor: 
+editor: ''
 tags: azure-resource-manager
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/21/2017
 ms.author: dimakwan
-ms.openlocfilehash: d2436ad639c53360f4d1afde99d668285b606aa9
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 12c7800ee2a823cca5394841cae86eeacc20fb1b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="create-an-azure-cosmos-db-account-using-powershell"></a>Creación de una cuenta de Azure Cosmos DB mediante PowerShell
 
@@ -192,7 +192,7 @@ Ejemplo:
     $failoverPolicies = @(@{"locationName"="East US"; "failoverPriority"=0},@{"locationName"="West US"; "failoverPriority"=1})
     Invoke-AzureRmResourceAction -Action failoverPriorityChange -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test" -Parameters @{"failoverPolicies"=$failoverPolicies}
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * Para conectarse con .NET, consulte [Conexión y consultas con .NET](create-sql-api-dotnet.md).
 * Para conectarse con Node.js, consulte [Conexión y consultas con Node.js y una aplicación de MongoDB](create-mongodb-nodejs.md).
@@ -203,4 +203,4 @@ Ejemplo:
 [distribute-data-globally]: distribute-data-globally.md
 [azure-resource-groups]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups
 [azure-resource-tags]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
-[rp-rest-api]: https://docs.microsoft.com/rest/api/documentdbresourceprovider/
+[rp-rest-api]: https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/

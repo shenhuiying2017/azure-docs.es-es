@@ -1,11 +1,11 @@
 ---
-title: "Preguntas más frecuentes sobre SQL Server en Microsoft Azure Virtual Machines | Microsoft Docs"
-description: "Este artículo brinda respuestas a las preguntas más frecuentes sobre cómo ejecutar SQL Server en Máquinas virtuales de Azure."
+title: Preguntas más frecuentes sobre SQL Server en Microsoft Azure Virtual Machines | Microsoft Docs
+description: Este artículo brinda respuestas a las preguntas más frecuentes sobre cómo ejecutar SQL Server en Máquinas virtuales de Azure.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: v-shysun
 manager: felixwu
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.service: virtual-machines-sql
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 12/14/2017
+ms.date: 03/20/2018
 ms.author: v-shysun
-ms.openlocfilehash: 141dd1fe9e727f430b7c45dbb798f5471167c355
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 42a82a59d0cf786e80b93f124cbe04007b2a4704
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-windows-azure-virtual-machines"></a>Preguntas más frecuentes para SQL Server en Microsoft Azure Virtual Machines
 
@@ -48,15 +48,19 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más comunes 
 
    Sí. Azure solo mantiene una imagen por edición y versión principal. Por ejemplo, cuando se lanza un nuevo Service Pack de SQL Server, Azure agrega una nueva imagen a la galería para dicho Service Pack. La imagen SQL Server para el Service Pack anterior se quita inmediatamente de Azure Portal. Sin embargo, todavía está disponible desde PowerShell para su aprovisionamiento durante los tres meses siguientes. Transcurridos tres meses, la imagen del Service Pack anterior dejará de estar disponible. Esta directiva de eliminación también se aplicaría si una versión de SQL Server no recibe soporte técnico cuando llega al final de su ciclo de vida.
 
+1. **¿Puedo crear una imagen de disco duro virtual a partir de una VM de SQL Server?**
+
+   Sí, pero debe tener en cuenta algunas consideraciones. Si implementa este VHD en una nueva VM en Azure, no accede a la sección de configuración de SQL Server del portal. A continuación, debe administrar las opciones de configuración de SQL Server a través de PowerShell. Además, se le cobrará según la tarifa de VM de SQL en la que se basaba originalmente la imagen. Esto ocurre incluso si quita SQL Server del disco duro virtual antes de implementar. 
+
 1. **¿Es posible configurar configuraciones que no aparecen en la galería de máquinas virtuales (por ejemplo, Windows 2008 R2 + SQL Server 2012)?**
 
-   No. En el caso de las imágenes de la galería de máquinas virtuales que incluyen SQL Server, debe seleccionar una de las imágenes que se proporcionan.
+   Nº En el caso de las imágenes de la galería de máquinas virtuales que incluyen SQL Server, debe seleccionar una de las imágenes que se proporcionan.
 
 ## <a name="creation"></a>Creación
 
 1. **¿Cómo puedo crear una máquina virtual de Azure con SQL Server?**
 
-   La solución más simple es crear una máquina virtual que incluya SQL Server. Para ver un tutorial sobre cómo suscribirse a Azure y crear una máquina virtual de SQL desde el portal, consulte [Aprovisionamiento de una máquina virtual de SQL Server en Azure Portal](virtual-machines-windows-portal-sql-server-provision.md). Puede seleccionar una imagen de máquina virtual que use licencias de SQL Server de pago por minuto o puede utilizar una imagen que le permita traer su propia licencia de SQL Server. También tiene la opción de instalar manualmente SQL Server en una máquina virtual con una edición de licencia libre (Developer o Express) o reutilizando una licencia local. Si trae su propia licencia, debe disponer de [Movilidad de Licencias a través de Software Assurance en Azure](https://azure.microsoft.com/pricing/license-mobility/). Para más información, vea [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Orientación de precios de máquinas virtuales de SQL Server Azure).
+   La solución más simple es crear una máquina virtual que incluya SQL Server. Para ver un tutorial sobre cómo suscribirse a Azure y crear una máquina virtual de SQL desde el portal, consulte [Aprovisionamiento de una máquina virtual de SQL Server en Azure Portal](virtual-machines-windows-portal-sql-server-provision.md). Puede seleccionar una imagen de máquina virtual que use licencias de SQL Server de pago por segundo o puede utilizar una imagen que le permita traer su propia licencia de SQL Server. También tiene la opción de instalar manualmente SQL Server en una máquina virtual con una edición de licencia libre (Developer o Express) o reutilizando una licencia local. Si trae su propia licencia, debe disponer de [Movilidad de Licencias a través de Software Assurance en Azure](https://azure.microsoft.com/pricing/license-mobility/). Para más información, vea [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Orientación de precios de máquinas virtuales de SQL Server Azure).
 
 1. **¿Cómo puedo migrar mi base de datos local de SQL Server a la nube?**
 
@@ -70,7 +74,7 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más comunes 
 
 1. **¿Puedo cambiar una máquina virtual para usar mi propia licencia de SQL Server si se ha creado desde una de las imágenes de la galería de pago por uso?**
 
-   No. No puede cambiar de licencias de pago por minuto a usar su propia licencia. Cree una máquina virtual de Azure nueva usando una de las [imágenes BYOL](virtual-machines-windows-sql-server-iaas-overview.md#BYOL) y, luego, migre las bases de datos al nuevo servidor con las [técnicas de migración de datos](virtual-machines-windows-migrate-sql.md) estándar.
+   Nº No puede cambiar de licencias de pago por segundo a usar su propia licencia. Cree una máquina virtual de Azure nueva usando una de las [imágenes BYOL](virtual-machines-windows-sql-server-iaas-overview.md#BYOL) y, luego, migre las bases de datos al nuevo servidor con las [técnicas de migración de datos](virtual-machines-windows-migrate-sql.md) estándar.
 
 1. **¿Tengo que pagar para obtener una licencia de SQL Server en una máquina virtual de Azure si solo se usa para conmutación por error o en modo en espera?**
 
@@ -85,15 +89,16 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más comunes 
 
 1. **¿Puedo desinstalar la instancia predeterminada de SQL Server?**
 
-   Sí. Pero hay algunas consideraciones. Como se mencionó en la respuesta anterior, las características que dependen de la [Extensión del Agente de IaaS de SQL Server](virtual-machines-windows-sql-server-agent-extension.md) solo funcionan en la instancia predeterminada. Si desinstala la instancia predeterminada, la extensión continúa buscándola y puede generar errores de registro de eventos. Estos errores son de los dos orígenes siguientes: **Administración de credenciales de Microsoft SQL Server** y **Agente de IaaS de Microsoft SQL Server**. Es posible que uno de los errores sea similar al siguiente:
+   Sí, pero debe tener en cuenta algunas consideraciones. Como se mencionó en la respuesta anterior, las características que dependen de la [Extensión del Agente de IaaS de SQL Server](virtual-machines-windows-sql-server-agent-extension.md) solo funcionan en la instancia predeterminada. Si desinstala la instancia predeterminada, la extensión continúa buscándola y puede generar errores de registro de eventos. Estos errores son de los dos orígenes siguientes: **Administración de credenciales de Microsoft SQL Server** y **Agente de IaaS de Microsoft SQL Server**. Es posible que uno de los errores sea similar al siguiente:
 
       Se ha producido un error relacionado con la red o específico de la instancia al establecer una conexión en SQL Server. No se encontró el servidor o no era accesible.
 
    Si decide desinstalar la instancia predeterminada, desinstale también la [Extensión del Agente de IaaS de SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
-   
-   >[!NOTE]
-   >Una máquina virtual de Azure de SQL Server se factura como se describe en [Orientación de precios de SQL Server para máquinas virtuales de Azure](virtual-machines-windows-sql-server-pricing-guidance.md). Si quita SQL Server, los cargos de uso continúan. Si ya no necesita SQL Server, puede implementar una nueva máquina virtual y migrar los datos y aplicaciones a la nueva máquina virtual. Después, puede quitar la máquina virtual de SQL Server.
 
+1. **¿Puedo quitar SQL Server por completo de una VM de SQL?**
+
+   Sí, pero se le seguirá cobrando por la VM de SQL como se describe en [Orientación de precios de SQL Server para máquinas virtuales de Azure](virtual-machines-windows-sql-server-pricing-guidance.md). Si ya no necesita SQL Server, puede implementar una nueva máquina virtual y migrar los datos y aplicaciones a la nueva máquina virtual. Después, puede quitar la máquina virtual de SQL Server.
+   
 ## <a name="updating-and-patching"></a>Actualizaciones y revisiones
 
 1. **¿Cómo actualizo a una nueva versión o edición de SQL Server en una máquina virtual de Azure?**

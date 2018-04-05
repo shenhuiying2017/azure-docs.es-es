@@ -1,11 +1,11 @@
 ---
-title: "Configuración de la telemetría de Azure Media Services con REST | Microsoft Docs"
-description: "En este artículo se muestra cómo usar la telemetría de Azure Media Services mediante la API de REST."
+title: Configuración de la telemetría de Azure Media Services con REST | Microsoft Docs
+description: En este artículo se muestra cómo usar la telemetría de Azure Media Services mediante la API de REST.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: e1a314fb-cc05-4a82-a41b-d1c9888aab09
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.openlocfilehash: 7d785c6eb9a9e16ae4853cded3c7c142080c7a09
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: abd093a0b8408e9dcffd4eb9765a767f78fd6fc1
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configuring-azure-media-services-telemetry-with-rest"></a>Configuración de la telemetría de Azure Media Services con REST
 
@@ -33,7 +33,7 @@ Los pasos descritos en este tema son:
 - Obtener los puntos de conexión de notificación
 - Crear un punto de conexión de notificación para la supervisión 
 
-    Para crear un punto de conexión de notificación, establezca EndPointType en AzureTable (2) y endPontAddress en la tabla de almacenamiento (por ejemplo, https://telemetryvalidationstore.table.core.windows.net/).
+    Para crear un punto de conexión de notificación, establezca EndPointType en AzureTable (2) y endPontAddress en la tabla de almacenamiento (por ejemplo, https://telemetryvalidationstore.table.core.windows.net/)).
   
 - Obtener las configuraciones de supervisión
 
@@ -45,7 +45,7 @@ Los pasos descritos en este tema son:
  
 ## <a name="get-the-storage-account-associated-with-a-media-services-account"></a>Obtener la cuenta de almacenamiento asociada con la cuenta de Media Services
 
-###<a name="request"></a>Solicitud
+### <a name="request"></a>Solicitud
 
     GET https://wamsbnp1clus001rest-hs.cloudapp.net/api/StorageAccounts HTTP/1.1
     x-ms-version: 2.13
@@ -73,7 +73,7 @@ Los pasos descritos en este tema son:
 
 ## <a name="get-the-notification-endpoints"></a>Obtener los puntos de conexión de notificación
 
-###<a name="request"></a>Solicitud
+### <a name="request"></a>Solicitud
 
     GET https://wamsbnp1clus001rest-hs.cloudapp.net/api/NotificationEndPoints HTTP/1.1
     x-ms-version: 2.13
@@ -83,7 +83,7 @@ Los pasos descritos en este tema son:
     Authorization: (redacted)
     Host: wamsbnp1clus001rest-hs.cloudapp.net
     
-###<a name="response"></a>Response
+### <a name="response"></a>Response
     HTTP/1.1 200 OK
     Cache-Control: no-cache
     Content-Length: 20
@@ -106,7 +106,7 @@ Los pasos descritos en este tema son:
  
 ## <a name="create-a-notification-endpoint-for-monitoring"></a>Crear un punto de conexión de notificación para la supervisión
 
-###<a name="request"></a>Solicitud
+### <a name="request"></a>Solicitud
 
     POST https://wamsbnp1clus001rest-hs.cloudapp.net/api/NotificationEndPoints HTTP/1.1
     x-ms-version: 2.13
@@ -125,9 +125,9 @@ Los pasos descritos en este tema son:
     }
 
 >[!NOTE]
->No olvide cambiar el valor de https://telemetryvalidationstore.table.core.windows.net en la cuenta de almacenamiento.
+>No olvide cambiar el valor "https://telemetryvalidationstore.table.core.windows.net" a su cuenta de almacenamiento.
 
-###<a name="response"></a>Response
+### <a name="response"></a>Response
 
     HTTP/1.1 201 Created
     Cache-Control: no-cache
@@ -158,7 +158,7 @@ Los pasos descritos en este tema son:
     Authorization: (redacted)
     Host: wamsbnp1clus001rest-hs.cloudapp.net
 
-###<a name="response"></a>Response
+### <a name="response"></a>Response
     
     HTTP/1.1 200 OK
     Cache-Control: no-cache
@@ -221,7 +221,7 @@ Los pasos descritos en este tema son:
 
 ## <a name="stop-telemetry"></a>Detención de la telemetría
 
-###<a name="request"></a>Solicitud
+### <a name="request"></a>Solicitud
 
     DELETE https://wamsbnp1clus001rest-hs.cloudapp.net/api/MonitoringConfigurations('nb%3Amcid%3AUUID%3A1a8931ae-799f-45fd-8aeb-9641740295c2')
     x-ms-version: 2.13

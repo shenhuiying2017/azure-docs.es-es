@@ -1,11 +1,11 @@
 ---
-title: "Especificación de los puntos de conexión de servicio de Service Fabric | Microsoft Docs"
-description: "Cómo describir los recursos de punto de conexión en un manifiesto de servicio, incluida la configuración de puntos de conexión HTTPS"
+title: Especificación de los puntos de conexión de servicio de Service Fabric | Microsoft Docs
+description: Cómo describir los recursos de punto de conexión en un manifiesto de servicio, incluida la configuración de puntos de conexión HTTPS
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: da36cbdb-6531-4dae-88e8-a311ab71520d
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 6fa425829e8da294c8db3d64c3d8fd202c74375a
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: a028471871754c2b9c3981ec13f5788643675a77
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Especificación de los recursos en un manifiesto de servicio
 ## <a name="overview"></a>Información general
@@ -154,7 +154,7 @@ En los clústeres de Linux, el valor predeterminado del almacén **MY** es la ca
 
 ## <a name="overriding-endpoints-in-servicemanifestxml"></a>Invalidación de Endpoints en ServiceManifest.xml
 
-En ApplicationManifest, agregue una sección denominada ResourceOverrides que será un elemento del mismo nivel que la sección ConfigOverrides. En esta sección puede especificar la invalidación de la sección Endpoints en la sección de recursos especificada en el manifiesto del servicio.
+En ApplicationManifest, agregue una sección denominada ResourceOverrides que será un elemento del mismo nivel que la sección ConfigOverrides. En esta sección puede especificar la invalidación de la sección Endpoints en la sección de recursos especificada en el manifiesto del servicio. Se admite el reemplazo de puntos de conexión en el entorno en tiempo de ejecución 5.7.217/SDK 2.7.217 y versiones posteriores.
 
 Para invalidar Endpoint en ServiceManifest mediante ApplicationParameters cambie ApplicationManifest como se indica a continuación:
 

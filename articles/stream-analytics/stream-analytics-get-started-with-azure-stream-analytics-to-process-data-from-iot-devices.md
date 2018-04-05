@@ -1,12 +1,11 @@
 ---
 title: Secuencias de datos en tiempo real de IoT y Azure Stream Analytics | Documentos de Microsoft
-description: "Flujos de datos y SensorTags de IoT con análisis de transmisiones y procesamiento de datos en tiempo real"
-keywords: "solución de IoT, introducción a IoT"
+description: Flujos de datos y SensorTags de IoT con análisis de transmisiones y procesamiento de datos en tiempo real
+keywords: solución de IoT, introducción a IoT
 services: stream-analytics
-documentationcenter: 
+documentationcenter: ''
 author: SnehaGunda
-manager: jhubbard
-editor: cgronlun
+manager: ryanw
 ms.assetid: 3e829055-75ed-469f-91f5-f0dc95046bdb
 ms.service: stream-analytics
 ms.devlang: na
@@ -15,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: sngun
-ms.openlocfilehash: a4b2fda6c5cc5ea341618ec5fa8638a5c887bf84
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 52b05d4daf75d81402d7c72cd05f3819a3456171
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>Introducción a Azure Stream Analytics para el procesamiento de datos desde dispositivos de IoT
 En este tutorial, aprenderá a crear una lógica de procesamiento de transmisiones para recopilar datos desde dispositivos de Internet de las cosas (IoT). Usaremos un caso de uso real de Internet de las cosas para mostrar cómo puede crear una solución de forma rápida y económica.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 * [Suscripción de Azure](https://azure.microsoft.com/pricing/free-trial/)
 * Archivos de datos y consultas de ejemplo que se pueden descargar desde [GitHub](https://aka.ms/azure-stream-analytics-get-started-iot)
 

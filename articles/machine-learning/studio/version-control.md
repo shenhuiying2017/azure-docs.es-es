@@ -1,11 +1,12 @@
 ---
 title: ALM en Azure Machine Learning| Microsoft Docs
-description: "Aplicar procedimientos recomendados de administración del ciclo de vida de las aplicaciones en Azure Machine Learning Studio"
-keywords: "ALM, AML, Azure ML, administración del ciclo de vida de las aplicaciones, control de versiones"
+description: Aplicar procedimientos recomendados de administración del ciclo de vida de las aplicaciones en Azure Machine Learning Studio
+keywords: ALM, AML, Azure ML, administración del ciclo de vida de las aplicaciones, control de versiones
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: hning86
-manager: jhubbard
+ms.author: haining
+manager: mwinkle
 editor: cgronlun
 ms.assetid: 1be6577d-f2c7-425b-b6b9-d5038e52b395
 ms.service: machine-learning
@@ -14,21 +15,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2016
-ms.author: haining
-ms.openlocfilehash: 9d1fcc761115c64fafb811d6ca1c2389babfdc15
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 50a93d439f6d6815113d93e0dece7b512b9defe7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="application-lifecycle-management-in-azure-machine-learning-studio"></a>Administración del ciclo de vida de las aplicaciones en Azure Machine Learning Studio
 Azure Machine Learning Studio es una herramienta para desarrollar experimentos de Machine Learning y que se hacen operativos en la plataforma de nube de Azure. Es como IDE de Visual Studio y servicio en la nube escalable combinados en una sola plataforma. Es posible incorporar a Azure Machine Learning Studio prácticas de administración del ciclo de vida de las aplicaciones (ALM) estándar, desde el control de versiones de diversos recursos a la ejecución e implementación automatizadas. En este artículo se analizan algunas de las opciones y enfoques.
 
 ## <a name="versioning-experiment"></a>Control de versiones del experimento
-Se recomiendan dos formas de aplicar el control de versiones a los experimentos. Puede confiar en el historial de ejecución integrado o exportar el experimento en formato de notación de objetos JavaScript (JSON) y administrarlo de forma externa. Cada enfoque tiene sus ventajas e inconvenientes.
+Se recomiendan dos formas de aplicar el control de versiones a los experimentos. Puede confiar en el historial de ejecución integrado o exportar el experimento en formato JSON y administrarlo de forma externa. Cada enfoque tiene sus ventajas e inconvenientes.
 
 ### <a name="experiment-snapshots-using-run-history"></a>Instantáneas del experimento mediante el historial de ejecución
-En el modelo de ejecución del experimento de aprendizaje de Azure Machine Learning Studio, cada vez que hace clic en el botón **Ejecutar** del editor de experimentos, se envía una instantánea inmutable del experimento al programador de trabajos. Si desea ver esta lista de instantáneas, haga clic en el botón **Historial de ejecución** en la barra de comandos de la vista del editor de experimentos.
+En el modelo de ejecución del experimento de aprendizaje de Azure Machine Learning Studio, se envía una instantánea inmutable del experimento al programador de trabajos cada vez que hace clic en el botón **Ejecutar** del editor de experimentos. Para ver esta lista de instantáneas, haga clic en **Historial de ejecución** en la barra de comandos de la vista del editor de experimentos.
 
 ![Botón Historial de ejecución](./media/version-control/runhistory.png)
 
@@ -36,7 +36,7 @@ A continuación, puede abrir la instantánea en modo de bloqueo haciendo clic en
 
 ![Lista del historial de ejecuciones](./media/version-control/runhistorylist.png)
 
-Una vez que se abre, puede guardar el experimento de la instantánea como experimento nuevo para luego modificarlo. Si la instantánea del experimento contiene recursos como modelo entrenado, transformación o un conjunto de datos que tienen versiones actualizadas, la instantánea conserva las referencias a la versión original cuando se tomó. Si guarda la instantánea bloqueada como experimento nuevo, Azure Machine Learning Studio detecta la existencia de una versión más reciente de estos recursos y los actualiza automáticamente en el experimento nuevo.
+Una vez que se abre, puede guardar el experimento de la instantánea como experimento nuevo para luego modificarlo. Si la instantánea del experimento contiene recursos como modelos entrenados, transformaciones o conjuntos de datos que tienen versiones actualizadas, la instantánea conserva las referencias a la versión original cuando se tomó. Si guarda la instantánea bloqueada como experimento nuevo, Azure Machine Learning Studio detecta la existencia de una versión más reciente de estos recursos y los actualiza automáticamente en el experimento nuevo.
 
 Si elimina el experimento, se eliminan todas las instantáneas de dicho experimento.
 
@@ -46,19 +46,19 @@ Las instantáneas del historial de ejecución conservan una versión inmutable d
 El archivo JSON es una representación textual del gráfico del experimento, en la que podría incluirse una referencia a los recursos del área de trabajo, como un conjunto de datos o un modelo entrenado. No contiene una versión serializada del recurso. Si intenta importar el documento JSON de nuevo al área de trabajo, esos recursos a los que se hace referencia ya deben existir con los mismos identificadores de recurso a los que se hace referencia en el experimento. En caso contrario, no podrá tener acceso al experimento importado.
 
 ## <a name="versioning-trained-model"></a>Control de versiones de un modelo entrenado
-Un modelo entrenado en Azure Machine Learning se serializa en un formato conocido como archivo .iLearner y se almacena en la cuenta de Azure Blob Storage asociada al área de trabajo. Una forma de obtener una copia del archivo .iLearner es a través de la API de reentrenamiento. En [este artículo](retrain-models-programmatically.md) se explica cómo funciona la API de reentrenamiento. Pasos de alto nivel:
+Un modelo entrenado en Azure Machine Learning se serializa en un formato conocido como archivo iLearner (`.iLearner`) y se almacena en la cuenta de Azure Blob Storage asociada al área de trabajo. Una forma de obtener una copia del archivo iLearner es a través de la API de reentrenamiento. En [este artículo](retrain-models-programmatically.md) se explica cómo funciona la API de reentrenamiento. Pasos de alto nivel:
 
 1. Actualice el experimento de entrenamiento.
 2. Agregue un puerto de salida de servicio web al módulo Entrenar modelo o al módulo que produce el modelo entrenado, como el módulo Optimizar el modelo Hiperparámetros o Crear modelo R.
 3. Ejecute el experimento de entrenamiento y, a continuación, impleméntelo como servicio web de entrenamiento de modelos.
-4. Llame al punto de conexión BES del servicio web de entrenamiento y especifique el nombre de archivo .iLearner deseado y la ubicación de la cuenta de Blob Storage donde se almacenará.
-5. Recopile el archivo .iLearner producido una vez finalizada la llamada a BES.
+4. Llame al punto de conexión BES del servicio web de entrenamiento y especifique el nombre de archivo iLearner deseado y la ubicación de la cuenta de Blob Storage donde se almacenará.
+5. Recopile el archivo iLearner producido una vez finalizada la llamada a BES.
 
-Otra forma de recuperar el archivo .iLearner es a través del commandlet [*Download-AmlExperimentNodeOutput*](https://github.com/hning86/azuremlps#download-amlexperimentnodeoutput) de PowerShell. Esto podría ser más fácil si solo desea obtener una copia del archivo .iLearner sin necesidad de volver a entrenar el modelo de manera programática.
+Otra forma de recuperar el archivo iLearner es a través del commandlet [*Download-AmlExperimentNodeOutput*](https://github.com/hning86/azuremlps#download-amlexperimentnodeoutput) de PowerShell. Esto podría ser más fácil si solo desea obtener una copia del archivo .iLearner sin necesidad de reciclar el modelo de manera programática.
 
-Una vez que tiene el archivo .iLearner que contiene el modelo entrado, puede emplear su propia estrategia de control de versiones. La estrategia puede ser tan simple como aplicar un prefijo o postfijo como una convención de nomenclatura y solo dejar el archivo .iLearner en Blob Storage, o bien como copiarlo e importarlo en el sistema de control de versiones.
+Una vez que tiene el archivo iLearner que contiene el modelo entrenado, puede emplear su propia estrategia de control de versiones. La estrategia puede ser tan simple como aplicar un prefijo o postfijo como una convención de nomenclatura y solo dejar el archivo iLearner en Blob Storage, o bien copiarlo e importarlo en el sistema de control de versiones.
 
-El archivo .iLearner guardado se puede usar para puntuar a través de servicios web implementados.
+El archivo iLearner guardado se puede usar para puntuar a través de servicios web implementados.
 
 ## <a name="versioning-web-service"></a>Control de versiones de un servicio web
 Puede implementar dos tipos de servicios web a partir de un experimento de Azure Machine Learning. El servicio web clásico está estrechamente vinculado con el experimento, así como con el área de trabajo. El nuevo servicio web usa el marco de Azure Resource Manager y ya no está vinculado con el área de trabajo ni el experimento original.
@@ -75,7 +75,7 @@ Para aplicar control de versiones a un servicio web clásico, puede aprovechar l
 
 Con el tiempo, es posible que se creen muchos puntos de conexión en el mismo servicio web. Cada uno de ellos representa una copia a un momento dado del experimento que contiene la versión a un momento dado del modelo entrenado. Podrás usar entonces lógica externa para determinar el punto de conexión al que llamar, lo que efectivamente significa seleccionar una versión del modelo entrenado para la ejecución de la puntuación.
 
-También puede crear muchos puntos de conexión de servicio web idénticos y, a continuación, aplicar revisiones de diversas versiones del archivo .iLearner al punto de conexión para lograr un efecto similar. En [este artículo](create-models-and-endpoints-with-powershell.md) se explica con más detalla cómo hacerlo.
+También puede crear muchos puntos de conexión de servicio web idénticos y, a continuación, aplicar revisiones de diversas versiones del archivo iLearner al punto de conexión para lograr un efecto similar. En [este artículo](create-models-and-endpoints-with-powershell.md) se explica con más detalla cómo hacerlo.
 
 ### <a name="new-web-service"></a>Servicio web nuevo
 Si crea un nuevo servicio web basado en Azure Resource Manager, la construcción del punto de conexión dejará de estar disponible. En su lugar, puede generar archivos de definición del servicio web (WSD), en formato JSON, a partir de su experimento predictivo mediante el commandlet [Export-AmlWebServiceDefinitionFromExperiment](https://github.com/hning86/azuremlps#export-amlwebservicedefinitionfromexperiment) de PowerShell, o bien mediante el commandlet [*Export-AzureRmMlWebservice*](https://msdn.microsoft.com/library/azure/mt767935.aspx) de PowerShell a partir de un servicio web ya implementado basado en Resource Manager.

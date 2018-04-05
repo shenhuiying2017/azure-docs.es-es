@@ -1,11 +1,11 @@
 ---
-title: "API de facturación de Azure | Microsoft Docs"
-description: "Obtenga información sobre las API de RateCard y de uso de facturación de Azure que se usan para proporcionar información sobre el consumo de recursos y tendencias de Azure."
-services: 
-documentationcenter: 
-author: BryanLa
+title: API de facturación de Azure | Microsoft Docs
+description: Obtenga información sobre las API de RateCard y de uso de facturación de Azure que se usan para proporcionar información sobre el consumo de recursos y tendencias de Azure.
+services: ''
+documentationcenter: ''
+author: tonguyen
 manager: tonguyen
-editor: 
+editor: ''
 tags: billing
 ms.assetid: 3e817b43-0696-400c-a02e-47b7817f9b77
 ms.service: billing
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 10/9/2017
 ms.author: mobandyo;bryanla
-ms.openlocfilehash: 26217d6f4e14166a89fbb561cb12d0af78ae6f4d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f0e546095ca1079ccc59c51b9b5230be04415eb5
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="use-azure-billing-apis-to-programmatically-get-insight-into-your-azure-usage"></a>Use las API de facturación de Azure para obtener información mediante programación sobre cómo usa Azure
 Use las API de facturación de Azure para extraer datos de uso y de recursos e incorporarlos en las herramientas de análisis de datos de su preferencia. Las API de RateCard y de uso de recursos de Azure pueden ayudarlo a predecir y administrar los costos de forma precisa. Las API se implementan como proveedor de recursos, como parte de la familia de API expuesta por Azure Resource Manager.  
@@ -73,5 +73,5 @@ Use la [API de RateCard de recursos de Azure](https://msdn.microsoft.com/library
 
 * Para más información sobre Azure Resource Manager, vea [Información general de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). 
 
-* Para más información sobre el conjunto de herramientas necesarias para ayudarlo a comprender el gasto en la nube, consulte el artículo de Gartner [Guía de mercado para las herramientas de administración financiera de IT (ITFM)](http://www.gartner.com/technology/reprints.do?id=1-212F7AL&ct=140909&st=sb).
+* Para más información sobre el conjunto de herramientas necesarias para ayudarlo a comprender el gasto en la nube, consulte el artículo de Gartner [Market Guide for IT Financial Management (ITFM) Tools](http://www.gartner.com/technology/reprints.do?id=1-212F7AL&ct=140909&st=sb) (Guía de mercado para las herramientas de administración financiera de IT [ITFM]).
 

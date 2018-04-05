@@ -1,32 +1,32 @@
 ---
-title: "Claves únicas en Azure Cosmos DB | Microsoft Docs"
-description: "Obtenga información acerca de cómo usar las claves únicas en la base de datos de Azure Cosmos DB."
+title: Claves únicas en Azure Cosmos DB | Microsoft Docs
+description: Obtenga información acerca de cómo usar las claves únicas en la base de datos de Azure Cosmos DB.
 services: cosmos-db
-keywords: "restricción de clave única, infracción de restricción de clave única"
+keywords: restricción de clave única, infracción de restricción de clave única
 author: rafats
 manager: jhubbard
 editor: monicar
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: b15d5041-22dd-491e-a8d5-a3d18fa6517d
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 03/21/2018
 ms.author: rafats
-ms.openlocfilehash: c530b34edf9bfa0651b7b114dcf7e8add0d906ed
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 0c80ee13298c2c749c5f7eb7e55d1d77a8d6a34e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Claves únicas en Azure Cosmos DB
 
 Las claves únicas proporcionan a los desarrolladores la capacidad de agregar una capa de integridad de datos a su base de datos. Al crear una directiva de clave única al crear un contenedor, se garantiza la unicidad de uno o más valores por [clave de partición](partition-data.md). Una vez creado un contenedor con una directiva de clave única, impide la creación de cualquier elemento nuevo o actualizado con valores que dupliquen los valores especificados por la restricción de clave única.   
 
 > [!NOTE]
-> Las claves únicas se admiten en las versiones más recientes de los SDK de SQL de [.NET](sql-api-sdk-dotnet.md) y [.NET Core](sql-api-sdk-dotnet-core.md) y de la [API de MongoDB](mongodb-feature-support.md#unique-indexes). Table API y API Graph no admiten claves únicas en este momento. 
+> Las claves únicas se admiten en las versiones más recientes de los SDK de SQL de [.NET](sql-api-sdk-dotnet.md) y [.NET Core](sql-api-sdk-dotnet-core.md) y de la [API de MongoDB](mongodb-feature-support.md#unique-indexes). Table API y Graph API no admiten claves únicas en este momento. 
 > 
 >
 
@@ -58,7 +58,7 @@ Cuando se crea un contenedor con una directiva de clave única, esta directiva n
 
 En cada clave única se puede incluir un máximo de 16 valores de ruta de acceso (por ejemplo /firstName, /lastName, /address/zipCode, etc.). 
 
-Cada directiva de clave única puede tener un máximo de 10 restricciones o combinaciones de clave única. Por lo tanto, el ejemplo anterior que usa el nombre, el apellido y la dirección de correo electrónico es solo una restricción, y utiliza tres de las 16 posibles rutas de acceso disponibles. 
+Cada directiva de clave única puede tener un máximo de 10 combinaciones o restricciones de clave única, y las rutas de acceso combinadas para todas las propiedades de índice únicas no deben superar los 60 caracteres. Por lo tanto, el ejemplo anterior que usa el nombre, el apellido y la dirección de correo electrónico es solo una restricción, y utiliza tres de las 16 posibles rutas de acceso disponibles. 
 
 Los cargos por unidad de solicitud para crear, actualizar y eliminar un elemento son ligeramente superiores cuando hay una directiva de clave única en el contenedor. 
 
@@ -133,7 +133,7 @@ El ejemplo de comando siguiente muestra cómo crear un índice único en los cam
 db.users.createIndex( { firstName: 1, lastName: 1, email: 1 }, { unique: true } )
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este artículo, ha aprendido a crear claves únicas para los elementos de una base de datos. Si está creando un contenedor por primera vez, consulte [Partición y escalado en Azure Cosmos DB](partition-data.md) pues las claves únicas y las claves de partición dependen unas de otras. 
 

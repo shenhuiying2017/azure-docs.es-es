@@ -1,21 +1,21 @@
 ---
-title: "Matriz de compatibilidad de Azure Site Recovery para la replicación de Azure a Azure | Microsoft Docs"
-description: "Se resumen los sistemas operativos compatibles y las configuraciones para la replicación de Azure Site Recovery de máquinas virtuales (VM) de Azure de una región a otra en caso de que sea necesario realizar una recuperación ante desastres."
+title: Matriz de compatibilidad de Azure Site Recovery para la replicación de Azure a Azure | Microsoft Docs
+description: Se resumen los sistemas operativos compatibles y las configuraciones para la replicación de Azure Site Recovery de máquinas virtuales (VM) de Azure de una región a otra en caso de que sea necesario realizar una recuperación ante desastres.
 services: site-recovery
 author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 03/24/2018
 ms.author: sujayt
-ms.openlocfilehash: 4383286285f02bad1645344fab43f8b6bdb145cb
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 30ee269b3f484256001af211181a517821d79617
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Matriz de compatibilidad de Azure Site Recovery para la replicación de Azure a Azure
+# <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matriz de compatibilidad para replicar desde una región de Azure a otra
 
 
 >[!NOTE]
@@ -28,7 +28,7 @@ En este artículo se resumen las configuraciones y los componentes admitidos en 
 
 **Interfaz de usuario** |  **Se admite/no se admite**
 --- | ---
-**portal de Azure** | Compatible
+**Azure Portal** | Compatible
 **Portal clásico** | No compatible
 **PowerShell** | No se admite actualmente.
 **API de REST** | No se admite actualmente.
@@ -133,7 +133,7 @@ China | China (Este) y China (Norte)
 
 **Configuración** | **No admite/no se admite** | **Comentarios:**
 --- | --- | ---
-Tamaño | Cualquier tamaño de máquina virtual de Azure con 2 núcleos de CPU y 1 GB de RAM | Consulte los [tamaños de máquina virtual de Azure](../virtual-machines/windows/sizes.md)
+Tamaño | Cualquier tamaño de máquina virtual de Azure con al menos 2 núcleos de CPU y 1 GB de RAM | Consulte los [tamaños de máquina virtual de Azure](../virtual-machines/windows/sizes.md)
 Conjuntos de disponibilidad | Compatible | Si usa la opción predeterminada durante el paso para habilitar la replicación en el portal, el conjunto de disponibilidad se crea automáticamente en función de la configuración de la región de origen. Puede cambiar el conjunto de disponibilidad de destino en "Elemento replicado > Configuración > Compute and Network (Proceso y red) > Conjunto de disponibilidad" en cualquier momento.
 Máquinas virtuales con ventaja de uso híbrido (HUB) | Compatible | Si la máquina virtual de origen tiene habilitada una licencia HUB, en la conmutación por error de prueba o la máquina virtual de conmutación por error también se usa la licencia HUB.
 Conjuntos de escalado de máquinas virtuales | No compatible |
@@ -148,7 +148,7 @@ Máquinas virtuales migradas con Site Recovery | Compatible | Si es una máquina
 --- | --- | ---
 Tamaño de disco máximo del sistema operativo | 2048 GB | Consulte [Discos usados por las máquinas virtuales](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms).
 Tamaño máximo del disco de datos | 4095 GB | Consulte [Discos usados por las máquinas virtuales](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms).
-Número de discos de datos | Hasta 64, que es el admitido por un tamaño de máquina virtual específico de Azure. | Consulte los [tamaños de máquina virtual de Azure](../virtual-machines/windows/sizes.md)
+Número de discos de datos | Hasta 64, que es el admitido por un tamaño de máquina virtual específico de Azure | Consulte los [tamaños de máquina virtual de Azure](../virtual-machines/windows/sizes.md)
 Disco temporal | Siempre se excluyen de la replicación | El disco temporal se excluye de la replicación siempre. Como recomienda Azure, no se deben colocar los datos persistentes en los discos temporales. Consulte [Discos temporales en máquinas virtuales de Azure](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk) para más información.
 Velocidad de cambio de datos en el disco | Máximo de 10 MBps por disco de almacenamiento premium y 2 MBps por disco de almacenamiento estándar | Si la velocidad media de cambio de los datos en el disco supera los 10 MBps (para premium) y 2 MBps (para estándar) de forma continua, la replicación no mantendrá el ritmo. Sin embargo, si es una ráfaga de datos ocasional y la velocidad de cambio de los datos es superior a 10 MBps (para premium) y 2 MBps (para estándar) durante algún tiempo y desciende, la replicación mantendrá el ritmo. En este caso, podría ver puntos de recuperación ligeramente retrasados.
 Discos en cuentas de almacenamiento estándar | Compatible |
@@ -174,12 +174,12 @@ Cuentas de almacenamiento de uso general V2 (capas de acceso frecuente y esporá
 ## <a name="support-for-network-configuration"></a>Compatibilidad con la configuración de red
 **Configuración** | **No admite/no se admite** | **Comentarios:**
 --- | --- | ---
-Tarjeta de interfaz de red (NIC) | Hasta el número máximo de NIC admitidas por un tamaño específico de máquina virtual de Azure. | Las NIC se crean cuando la máquina virtual se crea como parte de la operación de conmutación por error o conmutación por error de prueba. El número de tarjetas NIC en la máquina virtual de conmutación por error viene determinado por el número de tarjetas NIC que haya en la máquina virtual de origen en el momento de habilitar la replicación. El hecho de agregar o quitar tarjetas NIC después de habilitar la replicación, no influye sobre el número de tarjetas NIC en la máquina virtual de conmutación por error.
+Tarjeta de interfaz de red (NIC) | Hasta el número máximo de NIC admitidas por un tamaño específico de máquina virtual de Azure | Las NIC se crean cuando la máquina virtual se crea como parte de la operación de conmutación por error o conmutación por error de prueba. El número de tarjetas NIC en la máquina virtual de conmutación por error viene determinado por el número de tarjetas NIC que haya en la máquina virtual de origen en el momento de habilitar la replicación. El hecho de agregar o quitar tarjetas NIC después de habilitar la replicación, no influye sobre el número de tarjetas NIC en la máquina virtual de conmutación por error.
 Equilibrador de carga de Internet | Compatible | Deberá asociar el equilibrador de carga configurado previamente con un script de automatización de Azure de un plan de recuperación.
 Equilibrador de carga interno | Compatible | Deberá asociar el equilibrador de carga configurado previamente con un script de automatización de Azure de un plan de recuperación.
 Dirección IP pública| Compatible | Deberá asociar a la NIC una IP pública ya existente o una nueva mediante un script de automatización de Azure de un plan de recuperación.
 NSG en NIC (Resource Manager)| Compatible | Deberá asociar el NSG a la NIC con un script de automatización de Azure de un plan de recuperación.  
-NSG en una subred (Resource Manager y modelo clásico)| Compatible | Deberá asociar el NSG a la NIC con un script de automatización de Azure de un plan de recuperación.
+NSG en una subred (Resource Manager y modelo clásico)| Compatible | Deberá asociar el NSG al subconjunto con un script de automatización de Azure en un plan de recuperación.
 NSG en una máquina virtual (modelo clásico)| Compatible | Deberá asociar el NSG a la NIC con un script de automatización de Azure de un plan de recuperación.
 IP reservada (IP estática)/retener la IP de origen | Compatible | Si la NIC de la máquina virtual de origen tiene una configuración de IP estática y la subred de destino tiene la misma IP disponible, se asigna a la máquina virtual de conmutación por error. Si la subred de destino no tiene la misma IP disponible, una de las direcciones IP disponibles de la subred se reserva para esta máquina virtual. Puede especificar una IP fija de su elección en "Elemento replicado > Configuración > Compute and Network (Proceso y red) > Interfaces de red". Puede seleccionar la NIC y especificar la subred y la dirección IP de su elección.
 IP dinámica| Compatible | Si la NIC de la máquina virtual de origen tiene una configuración de IP dinámica, la NIC de la máquina virtual de conmutación por error es también dinámica de forma predeterminada. Puede especificar una IP fija de su elección en "Elemento replicado > Configuración > Compute and Network (Proceso y red) > Interfaces de red". Puede seleccionar la NIC y especificar la subred y la dirección IP de su elección.
@@ -192,6 +192,6 @@ VPN de sitio a sitio local (con o sin ExpressRoute)| Compatible | Asegúrese de 
 Conexión de red virtual a red virtual | Compatible | Consulte el [documento de instrucciones sobre redes](site-recovery-azure-to-azure-networking-guidance.md).  
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 - Aprenda más en las [instrucciones sobre redes para replicar máquinas virtuales de Azure](site-recovery-azure-to-azure-networking-guidance.md).
 - Comience a proteger las cargas de trabajo mediante la [replicación de máquinas virtuales de Azure](site-recovery-azure-to-azure.md).

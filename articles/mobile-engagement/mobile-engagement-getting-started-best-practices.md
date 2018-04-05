@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement - Guía de introducción con prácticas recomendadas"
-description: "Guía de introducción para Azure Mobile Engagement y prácticas recomendadas para la incorporación"
+title: Azure Mobile Engagement - Guía de introducción con prácticas recomendadas
+description: Guía de introducción para Azure Mobile Engagement y prácticas recomendadas para la incorporación
 services: mobile-engagement
 documentationcenter: mobile
 author: wesmc7777
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: dfce1183-6398-466e-aa7e-ed702fb52818
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 10/04/2016
 ms.author: wesmc;ricksal
-ms.openlocfilehash: 0cb54f6c4b84597fbc21fa691f88f6f7a37beedd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cf9dc5febeae27473d2adb8a024536b945bb9d13
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-mobile-engagement---getting-started-guide-with-best-practices"></a>Azure Mobile Engagement - Guía de introducción con prácticas recomendadas
+> [!IMPORTANT]
+> Azure Mobile Engagement se retira el 31 de marzo de 2018. Esta página se eliminará poco después.
+> 
+
 ## <a name="overview"></a>Información general
 **La pantalla del móvil es un espacio repleto:** en 2013, un estudio reveló que un dispositivo móvil medio tenía 27 aplicaciones instaladas. Los usuarios solían pasar normalmente unas 30 horas al mes en sus aplicaciones. La mayor parte de este tiempo se dedicaba a las redes sociales y a los juegos (unas 20 horas). En 2014, el mercado de Android tenía alrededor de 1,5 millones de aplicaciones entre las que podían elegir los usuarios. La tienda de Apple contenía aproximadamente 1,2 millones de aplicaciones. El uso de aplicaciones móviles sigue aumentando a medida que los desarrolladores compiten en este mercado en expansión. 
 

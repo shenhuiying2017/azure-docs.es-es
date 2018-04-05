@@ -42,7 +42,7 @@ Nº
 
 **¿Hay alguna limitación de escala para los clientes que usen discos administrados?**
 
-Managed Disks elimina los límites asociados a las cuentas de almacenamiento. Aun así, el número de discos administrados por suscripción está limitado a 2000 de forma predeterminada. Puede llamar al soporte técnico para aumentar este número.
+Managed Disks elimina los límites asociados a las cuentas de almacenamiento. Sin embargo, el límite máximo (y también el límite predeterminado) es de 10 000 discos administrados por región y por tipo de disco para una suscripción.
 
 **¿Puedo tomar una instantánea incremental de un disco administrado?**
 

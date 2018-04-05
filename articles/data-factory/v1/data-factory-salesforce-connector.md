@@ -2,10 +2,9 @@
 title: Movimiento de datos de Salesforce mediante el uso de Data Factory | Microsoft Docs
 description: Aprenda a mover datos de Salesforce usando Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: dbe3bfd6-fa6a-491a-9638-3a9a10d396d1
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 9e678e947a686b5a672af13cb0f0e60b4a272de9
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: d4c679722e36eb9533b65037a488fb9af9a5bc80
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Movimiento de datos de Salesforce mediante el uso de Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -72,8 +71,8 @@ En la tabla siguiente se proporciona la descripción de los elementos JSON espec
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
 | Tipo |La propiedad type debe establecerse en: **Salesforce**. |Sí |
-| environmentUrl | Especifique la URL de la instancia de Salesforce. <br><br> - La dirección predeterminada es "https://login.salesforce.com". <br> - Para copiar los datos desde el espacio aislado, especifique "https://test.salesforce.com". <br> - Para copiar datos del dominio personalizado, especifique, por ejemplo, "https://[dominio].my.salesforce.com". |Sin  |
-| Nombre de usuario |Especifique el nombre de usuario de la cuenta de usuario. |Sí |
+| environmentUrl | Especifique la URL de la instancia de Salesforce. <br><br> - El valor predeterminado es "https://login.salesforce.com". <br> - Para copiar datos desde el espacio aislado, especifique "https://test.salesforce.com". <br> - Para copiar datos del dominio personalizado, especifique, por ejemplo, "https://[dominio].my.salesforce.com". |Sin  |
+| nombre de usuario |Especifique el nombre de usuario de la cuenta de usuario. |Sí |
 | contraseña |Especifique la contraseña para la cuenta de usuario. |Sí |
 | securityToken |Especifique el token de seguridad para la cuenta de usuario. Consulte [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) (Obtención de un token de seguridad) para ver instrucciones sobre cómo restablecer u obtener un token de seguridad. Para más información acerca de los tokens de seguridad en general, consulte [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)(Seguridad y la API). |Sí |
 

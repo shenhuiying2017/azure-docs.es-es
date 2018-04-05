@@ -1,23 +1,23 @@
 ---
 title: Copia de seguridad de archivos de Azure a Azure
-description: "En este artículo se detalla cómo realizar una copia de seguridad de los recursos compartidos de archivos de Azure y cómo restaurarlos, y se explican las tareas de administración."
+description: En este artículo se detalla cómo realizar una copia de seguridad de los recursos compartidos de archivos de Azure y cómo restaurarlos, y se explican las tareas de administración.
 services: backup
 keywords: No agregue ni edite palabras clave sin consultar a su responsable de SEO Champ.
 author: markgalioto
 ms.author: markgal
-ms.date: 2/21/2018
+ms.date: 3/23/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: b9bf1582aa1c1b8878b8426f60a18282598eb2b9
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: ba457daca030d3219fe32177b0b5f8b5565ff544
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="back-up-azure-file-shares"></a>Copia de seguridad de recursos compartidos de archivos de Azure
+# <a name="back-up-azure-file-shares-preview"></a>Copia de seguridad de recursos compartidos de archivos de Azure (versión preliminar)
 
-En este artículo se detalla cómo realizar una copia de seguridad de los [recursos compartidos de archivos de Azure](../storage/files/storage-files-introduction.md).
+En este artículo se explica cómo usar Azure Portal para crear una copia de seguridad y restaurar [recursos compartidos de archivos de Azure](../storage/files/storage-files-introduction.md) en Azure.
 
 En esta guía, aprenderá a:
 > [!div class="checklist"]
@@ -30,6 +30,16 @@ En esta guía, aprenderá a:
 
 ## <a name="prerequisites"></a>requisitos previos
 Antes de realizar una copia de seguridad de un recurso compartido de archivos de Azure, asegúrese de que dispone de uno de los [tipos de cuenta de almacenamiento admitidos](troubleshoot-azure-files.md#preview-boundaries). Cuando haya comprobado esto, puede proteger los recursos compartidos de archivos.
+
+## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Limitaciones de la copia de seguridad de recursos compartidos de archivos de Azure en la versión preliminar
+Azure Files Backup se encuentra en versión preliminar. Tenga en cuenta las siguientes limitaciones en la versión preliminar:
+- No se pueden proteger los recursos compartidos de archivos de cuentas de Storage con replicación de [almacenamiento con redundancia de zona (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) o de [almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS)](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage).
+- No se pueden proteger los recursos compartidos de archivos de cuentas de Storage que tengan las redes virtuales habilitadas.
+- Ni PowerShell ni la CLI están disponibles para proteger Azure Files.
+- El número máximo de copias de seguridad programadas al día es una.
+- El número máximo de copias de seguridad a petición al día es cuatro.
+- Use los [bloqueos de recursos](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) de la cuenta de almacenamiento para impedir la eliminación accidental de copias de seguridad del almacén de Recovery Services.
+- No elimine las instantáneas que crea Azure Backup. La eliminación de instantáneas puede provocar la pérdida de puntos de recuperación o errores de restauración. 
 
 ## <a name="configuring-azure-file-shares-backup"></a>Configuración de la copia de seguridad de recursos compartidos de archivos de Azure
 

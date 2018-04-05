@@ -8,15 +8,15 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 193003cef0aed464596e913c0df86e6123292b9f
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: e484dac645ff2e5867d2e652c389a9950e8bac12
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 Azure realiza periódicamente actualizaciones para mejorar la confiabilidad, el rendimiento y la seguridad de la infraestructura host de las máquinas virtuales. Estas actualizaciones van desde la aplicación de revisiones a componentes de software en el entorno de hospedaje (sistema operativo, hipervisor y varios agentes implementados en el host), hasta la retirada de hardware, pasando por la actualización de los componentes de red. La mayoría de estas actualizaciones se realizan sin afectar a las máquinas virtuales hospedadas. Sin embargo, hay casos en los que las actualizaciones tienen un impacto:
 
-- Si el mantenimiento no requiere un reinicio, Azure usa la migración en contexto para pausar la máquina virtual mientras se actualiza el host.
+- Si es posible una actualización sin reinicio, Azure utiliza un mantenimiento que conserva la memoria para pausar la VM mientras se actualiza el host o la VM se mueve a un host que ya está actualizado.
 
 - Si el mantenimiento requiere un reinicio, el usuario recibe un aviso de cuándo está programado el mantenimiento. En estos casos, se le asigna también un período de tiempo donde puede iniciar el mantenimiento a la hora que le sea más conveniente.
 
@@ -26,13 +26,13 @@ Las aplicaciones que se ejecutan en una máquina virtual pueden recopilar inform
 
 Para obtener información de procedimientos sobre la administración del mantenimiento planeado, vea "Control de las notificaciones de mantenimiento planeadas" para [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) o [Windows](../articles/virtual-machines/windows/maintenance-notifications.md).
 
-## <a name="in-place-vm-migration"></a>Migración de máquina virtual en contexto
+## <a name="memory-preserving-maintenance"></a>Mantenimiento con conservación de memoria
 
-Cuando no es necesario reiniciar después de una actualización, se usa una migración en vivo en contexto. Durante la actualización, la máquina virtual se pausa durante unos 30 segundos, conservando la memoria RAM, mientras el entorno de hospedaje aplica las actualizaciones y las revisiones necesarias. A continuación, se reanuda la máquina virtual y su reloj se sincroniza automáticamente.
+Cuando las actualizaciones no requieren un reinicio completo, se utilizan mecanismos de mantenimiento de conservación de memoria para limitar el impacto en la máquina virtual. La máquina virtual se pausa durante un máximo de 30 segundos, conservando la memoria RAM, mientras el entorno de hospedaje aplica las actualizaciones y las revisiones necesarias o mueve la VM a un host que ya está actualizado. A continuación, se reanuda la máquina virtual y su reloj se sincroniza automáticamente. 
 
 En las máquinas virtuales de conjuntos de disponibilidad, los dominios de actualización se actualizan de uno en uno. Todas las máquinas virtuales de un dominio de actualización (UD) se pausan, se actualizan y luego se reanudan antes de que el mantenimiento planeado se mueva al siguiente UD.
 
-Algunas aplicaciones pueden resultar afectadas por estos tipos de actualizaciones. Las aplicaciones que realizan procesamiento de eventos en tiempo real, como transcodificación y streaming multimedia, o los escenarios de redes de alto rendimiento podrían no estar diseñados para tolerar una pausa de 30 segundos. <!-- sooooo, what should they do? --> 
+Algunas aplicaciones pueden resultar afectadas por estos tipos de actualizaciones. Las aplicaciones que realizan procesamiento de eventos en tiempo real, como transcodificación y streaming multimedia, o los escenarios de redes de alto rendimiento podrían no estar diseñados para tolerar una pausa de 30 segundos. <!-- sooooo, what should they do? --> En caso de que la VM se mueva a otro host, puede que algunas cargas de trabajo sensibles sufran una pequeña degradación del rendimiento en los pocos minutos anteriores a la pausa de la máquina virtual. 
 
 
 ## <a name="maintenance-requiring-a-reboot"></a>Mantenimiento que requiere un reinicio
@@ -47,9 +47,11 @@ Si inicia el mantenimiento de autoservicio y hay un error durante el proceso, la
 
 Cuando ha transcurrido la ventana de autoservicio, comienza la **ventana de mantenimiento programado**. Durante esta ventana de tiempo, puede seguir realizando consultas dentro de la ventana de mantenimiento, pero ya no podrá iniciar el mantenimiento usted mismo.
 
+Para obtener información sobre la administración del mantenimiento que requiere reinicio, consulte "Control de las notificaciones de mantenimiento planeado de máquinas virtuales" [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) o [Windows](../articles/virtual-machines/windows/maintenance-notifications.md). 
+
 ## <a name="availability-considerations-during-planned-maintenance"></a>Consideraciones sobre disponibilidad durante el mantenimiento planeado 
 
-Si decide esperar a la ventana de mantenimiento programado, hay algunas cosas que debe tener en cuenta para mantener la disponibilidad más elevada de sus máquinas virtuales. 
+Si decide esperar a la ventana de mantenimiento programado, hay algunas cosas que debe tener en cuenta para mantener la máxima disponibilidad de sus VM. 
 
 ### <a name="paired-regions"></a>Regiones emparejadas
 

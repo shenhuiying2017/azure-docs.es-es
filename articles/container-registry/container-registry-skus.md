@@ -1,18 +1,18 @@
 ---
 title: SKU de Azure Container Registry
-description: "Comparación de los diferentes niveles de servicio disponibles en Azure Container Registry."
+description: Comparación de los diferentes niveles de servicio disponibles en Azure Container Registry.
 services: container-registry
 author: mmacy
 manager: timlt
 ms.service: container-registry
 ms.topic: article
-ms.date: 12/20/2017
+ms.date: 03/15/2018
 ms.author: marsma
-ms.openlocfilehash: 15179fa3e3567f92a5eae69ba9a684addc3138dd
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: c9b8e072b5ccd89c27d9c46407e472d6bf1e1e84
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-container-registry-skus"></a>SKU de Azure Container Registry
 
@@ -37,11 +37,11 @@ Las SKU Básico, Estándar y Premium se conocen colectivamente como registros *a
 
 ### <a name="managed-basic-standard-premium"></a>Administrados (Básico, Estándar y Premium)
 
-Los registros administrados están respaldados por una cuenta de Azure Storage administrada por Azure. Es decir, la cuenta de almacenamiento que almacena las imágenes no aparece en su suscripción de Azure. El uso de uno de las SKU de registro administrado tiene varias ventajas que se analizan en profundidad en [Actualización de un registro clásico][container-registry-upgrade]. En este artículo se centra en las SKU de registro administrado y sus capacidades.
+Los registros administrados aprovechan el almacenamiento de imágenes administrado totalmente por Azure. Es decir, una cuenta de almacenamiento que almacena las imágenes no aparece en su suscripción a Azure. El uso de una de las SKU de registro administrado tiene varias ventajas que se analizan en profundidad en [Almacenamiento de imágenes de contenedor en Azure Container Registry][container-registry-storage]. En este artículo se centra en las SKU de registro administrado y sus capacidades.
 
 ### <a name="unmanaged-classic"></a>No administrados (clásicos)
 
-Los registros clásicos son "no administrados" en el sentido de que la cuenta de almacenamiento que respalda a un registro clásico se encuentra en *su* suscripción de Azure. Por lo tanto, usted es responsable de la administración de la cuenta de almacenamiento en el que se almacenan las imágenes de contenedor. Con los registros no administrados, no se puede cambiar entre las SKU a medida que sus necesidades cambian (excepto [actualizar][container-registry-upgrade] a un registro administrado), y varias características de los registros administrados no están disponibles (por ejemplo, la eliminación de imágenes de contenedor, [la replicación geográfica][container-registry-geo-replication] y [los webhooks][container-registry-webhook]).
+Los registros clásicos son "no administrados" en el sentido de que la cuenta de almacenamiento que respalda a un registro clásico se encuentra en *su* suscripción de Azure. Por lo tanto, usted es responsable de la administración de la cuenta de almacenamiento en el que se almacenan las imágenes de contenedor. Con los registros no administrados, no puede cambiar entre las SKU a medida que sus necesidades cambian (excepto [actualizar][container-registry-upgrade] a un registro administrado), y varias características de los registros administrados no están disponibles (por ejemplo, la eliminación de imágenes de contenedor, [la replicación geográfica][container-registry-geo-replication] y [los webhooks][container-registry-webhook]).
 
 Para más información acerca de cómo actualizar un registro clásico a uno de SKU administradas, consulte [Actualización de un registro clásico][container-registry-upgrade].
 
@@ -81,7 +81,7 @@ Para información más detallada acerca de cómo actualizar un registro clásico
 
 Para más información acerca de cómo precios para cada una de las SKU de Azure Container Registry, consulte [Precios de Container Registry][container-registry-pricing].
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 **Mapa de ruta de Azure Container Registry**
 
@@ -103,4 +103,5 @@ Envíe y vote las sugerencias de nuevas características de [UserVoice en ACR][c
 [az-acr-update]: /cli/azure/acr#az_acr_update
 [container-registry-geo-replication]: container-registry-geo-replication.md
 [container-registry-upgrade]: container-registry-upgrade.md
+[container-registry-storage]: container-registry-storage.md
 [container-registry-webhook]: container-registry-webhook.md

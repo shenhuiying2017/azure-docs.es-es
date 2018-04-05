@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/14/2018
+ms.date: 03/22/2018
 ms.author: kumud
-ms.openlocfilehash: 7a307a598bd71369615b30476d387c06f473c397
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: ec13109173f89b53e32f903febcec13c7f38c574
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="outbound-connections-classic"></a>Conexiones salientes (clásico)
 
@@ -60,7 +60,7 @@ El [algoritmo utilizado para la asignación previa de puertos efímeros](#epheme
 
 En este escenario, la máquina virtual tiene una dirección IP pública a nivel de instancia (ILPIP) asignada. En lo que se refiere a las conexiones salientes, no importa si la máquina virtual tiene un punto de conexión con equilibrio de carga o no. Este escenario tiene prioridad sobre las demás. Cuando se usa una ILPIP, la máquina virtual la usa en todos los flujos de salida.  
 
-No se usa el enmascaramiento de puertos (PAT) y la máquina dispone de todos los puertos efímeros para su uso.
+Una dirección IP pública asignada a una máquina virtual es una relación 1:1 (en lugar de 1:muchos) y se implementa como NAT de 1:1 sin estado.  No se usa el enmascaramiento de puertos (PAT) y la máquina dispone de todos los puertos efímeros para su uso.
 
 Si la aplicación inicia muchos flujos de salida y experimenta el agotamiento de puertos SNAT, considere la posibilidad de asignar una [ILPIP para mitigar las restricciones de SNAT](#assignilpip). Revise la sección [Administración de agotamiento de SNAT](#snatexhaust) en su totalidad.
 
@@ -123,6 +123,18 @@ El cambio de tamaño de la implementación puede afectar a algunos de los flujos
 
 Si el tamaño de la implementación se reduce y pasa a un nivel inferior, aumenta el número de puertos SNAT disponibles. En este caso, los puertos SNAT asignados existentes y sus flujos respectivos no se ven afectados.
 
+Las asignaciones de puertos SNAT son específicas del protocolo de transporte IP (TCP y UDP se mantienen por separado) y se liberan en las siguientes condiciones:
+
+### <a name="tcp-snat-port-release"></a>Liberación del puerto TCP SNAT
+
+- Si tanto el cliente como el servidor envían FIN/ACK, el puerto SNAT se liberará después de 240 segundos.
+- Si se ve un RST, el puerto SNAT se liberará después de 15 segundos.
+- se alcanzó el tiempo de espera inactivo
+
+### <a name="udp-snat-port-release"></a>Liberación del puerto UDP SNAT
+
+- se alcanzó el tiempo de espera inactivo
+
 ## <a name="problemsolving"></a> Solución de problemas 
 
 Esta sección está diseñada para ayudar a mitigar el agotamiento de SNAT y otros escenarios que pueden producirse con las conexiones salientes en Azure.
@@ -170,3 +182,4 @@ Mediante el comando nslookup, puede enviar una consulta DNS del nombre myip.open
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Obtenga más información sobre [Load Balancer](load-balancer-overview.md), utilizado en las implementaciones de Resource Manager.
+- Conozca más sobre los escenarios de [conexión saliente](load-balancer-outbound-connections.md) disponibles en las implementaciones de Resource Manager.

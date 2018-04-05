@@ -1,11 +1,11 @@
 ---
 title: Tipos de recursos que compatibles con Azure Resource Health | Microsoft Docs
-description: "Tipos de recursos que se admiten a través de Azure Resource Health"
+description: Tipos de recursos que se admiten a través de Azure Resource Health
 services: Resource health
-documentationcenter: 
+documentationcenter: ''
 author: BernardoAMunoz
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 85cc88a4-80fd-4b9b-a30a-34ff3782855f
 ms.service: service-health
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 10/09/2017
 ms.author: BernardoAMunoz
-ms.openlocfilehash: b67e72af8a34799af97cd46f968636050f4ce485
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 0694c45363eb2534416f1dad59196ecfa1dacd17
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Tipos de recursos y comprobaciones de estado en Azure Resource Health
 A continuación se muestra una lista completa de todas las comprobaciones que se ejecutan a través de Resource Health por tipos de recursos.
@@ -121,6 +121,6 @@ A continuación se muestra una lista completa de todas las comprobaciones que se
 |<ul><li>¿Está el servidor en funcionamiento?</li><li>¿Se ejecuta Internet Information Server?</li><li>¿Funciona el equilibrador de carga?</li><li>¿Se puede acceder a la aplicación web desde el centro de datos?</li><li>¿Hospeda la cuenta de almacenamiento el contenido del sitio disponible?</li></ul>|
 
 # <a name="next-steps"></a>Pasos siguientes
--  Consulte la [introducción a Azure Service Health](service-health-overview.md) y la [introducción a Azure Resource Health](resource-health-overview.md) para más información sobre ellos. 
+-  Consulte la [introducción al panel de Azure Service Health](service-health-overview.md) y la [introducción a Azure Resource Health](resource-health-overview.md) para más información sobre ellos. 
 -  [Preguntas más frecuentes sobre Azure Resource Health](resource-health-faq.md)
-- Configure alertas de forma que se le notifiquen los problemas de estado. Para más información, consulte el artículo de [configuración de alertas para Service Health](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md). 
+- Configure alertas de forma que se le notifiquen los problemas de estado. Para más información, consulte el artículo de [configuración de alertas para eventos de Service Health](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md). 

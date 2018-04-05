@@ -12,76 +12,72 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/26/2018
 ms.author: jeffgilb
-ms.reviewer: wfayed
-ms.openlocfilehash: 27bd44f936e19890526c0834e14084647dcec086
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.reviewer: avishwan
+ms.openlocfilehash: 1dc3d9a96b9b27927cc8cc66b5e80987fba4f8ea
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="register-azure-stack-with-azure"></a>Registro de Azure Stack con Azure
-Puede registrar Azure Stack en Azure para descargar elementos de Marketplace de Azure y configurar informes de datos comerciales para Microsoft. Después de registrar Azure Stack, se informa del uso al sistema de comercio de Azure. Puede verlo en la suscripción que usó para el registro.
+Registrar [Azure Stack](azure-stack-poc.md) en Azure le permite descargar elementos de Marketplace de Azure y configurar informes de datos comerciales para Microsoft. Después de registrar Azure Stack, el uso se informa a Azure Commerce, y puede verlo en la suscripción usada para el registro. 
 
 > [!IMPORTANT]
 > Si elige el modelo de facturación de pago por uso, el registro es obligatorio. De lo contrario, infringirá los términos de la licencia de la implementación de Azure Stack, ya que no hay otra forma de informar acerca del uso.
 
-## <a name="before-you-register-azure-stack-with-azure"></a>Antes de registrar Azure Stack en Azure
+## <a name="prerequisites"></a>requisitos previos
 Antes de registrar Azure Stack con Azure, debe tener:
 
 - El identificador de suscripción de una suscripción de Azure. Para obtener el identificador, inicie sesión en Azure, haga clic en **Más servicios** > **Suscripciones**, haga clic en la suscripción que desee usar y, en **Essentials**, encontrará el identificador de la suscripción. 
 
   > [!NOTE]
-  > Las suscripciones en la nube en los gobiernos de China, Alemania y EE. UU. no se admiten actualmente. 
+  > Las suscripciones en la nube en los gobiernos de China, Alemania y EE. UU. no se admiten actualmente. 
 
 - El nombre de usuario y la contraseña de una cuenta que sea propietaria de la suscripción (se admiten las cuentas MSA/2FA)
-- *No es necesario a partir de la versión de actualización 1712 de Azure Stack (180106.1)*: Azure AD para la suscripción de Azure. Puede encontrar este directorio en Azure manteniendo el mouse sobre su avatar en la esquina superior derecha de Azure Portal. 
-- Haber registrado el proveedor de recursos de Azure Stack (para más información, consulte la sección Registro de un proveedor de recursos de Azure Stack)
+- Haber registrado el proveedor de recursos de Azure Stack (para más información, consulte la sección Registro de un proveedor de recursos de Azure Stack).
 
 Si no tiene una suscripción de Azure que cumpla estos requisitos, puede [crear una cuenta gratuita de Azure aquí](https://azure.microsoft.com/free/?b=17.06). El registro de Azure Stack no supone ningún costo en su suscripción de Azure.
 
 ### <a name="bkmk_powershell"></a>Instalación de PowerShell para Azure Stack
-Para registrar el sistema en Azure, es preciso usar la versión más reciente de PowerShell para Azure Stack.
+Para registrarse en Azure, es preciso usar la versión más reciente de PowerShell para Azure Stack.
 
 Si no está instalado aún, [instale PowerShell para Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-install). 
 
 ### <a name="bkmk_tools"></a>Descarga de las herramientas de Azure Stack
 El repositorio de GitHub de las herramientas de Azure Stack contiene módulos de PowerShell que admiten la funcionalidad de Azure Stack; lo que incluye la funcionalidad de registro. Durante el proceso de registro tendrá que importar y usar el módulo de PowerShell RegisterWithAzure.psm1, que se encuentra en el repositorio de herramientas de Azure Stack, para registrar la instancia de Azure Stack en Azure. 
 
-```powershell
-# Change directory to the root directory. 
-cd \
-
-# Download the tools archive.
-  [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
-  invoke-webrequest `
-  https://github.com/Azure/AzureStack-Tools/archive/master.zip `
-  -OutFile master.zip
-
-# Expand the downloaded files.
-  expand-archive master.zip `
-  -DestinationPath . `
-  -Force
-
-# Change to the tools directory.
-  cd AzureStack-Tools-master
-```
+Para asegurarse de que usa la versión más reciente, debe eliminar las versiones existentes de las herramientas de Azure Stack y [descargar la versión más reciente de GitHub](azure-stack-powershell-download.md) antes de registrarse en Azure.
 
 ## <a name="register-azure-stack-in-connected-environments"></a>Registro de Azure Stack en entornos conectados
 Los entornos conectados pueden acceder a Internet y a Azure. Para estos entornos, es preciso registrar el proveedor de recursos de Azure Stack en Azure y, después, configurar el modelo de facturación.
 
+> [!NOTE]
+> Todos estos pasos se deben ejecutar desde un equipo que tenga acceso al punto de conexión con privilegios. 
+
 ### <a name="register-the-azure-stack-resource-provider"></a>Registro del proveedor de recursos de Azure Stack
 Para registrar el proveedor de recursos de Azure Stack en Azure, inicie Powershell ISE como administrador y utilice los siguientes comandos de PowerShell. Estos comandos:
-- Le solicitarán que inicie sesión como propietario de la suscripción de Azure que se va a usar y que establezca el parámetro `EnvironmentName` en **AzureCloud**.
+- Le solicitarán que inicie sesión como propietario de la suscripción de Azure que se va a usar y que establezca el parámetro **EnvironmentName** en **AzureCloud**.
 - Registrarán el proveedor de recursos de Azure **Microsoft.AzureStack**.
 
-PowerShell que se ejecuta:
+1. Agregue la cuenta de Azure que usará para registrar Azure Stack. Para agregar la cuenta, ejecute el cmdlet **Add-AzureRmAccount**. Se le pedirá que escriba sus credenciales de cuenta de administrador global de Azure, y puede que tenga que utilizar la autenticación en dos fases en función de la configuración de la cuenta.
 
-```powershell
-Login-AzureRmAccount -EnvironmentName "AzureCloud"
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack 
-```
+   ```Powershell
+      Add-AzureRmAccount -EnvironmentName AzureCloud
+   ```
+
+2. Si tiene varias suscripciones, ejecute el siguiente comando para seleccionar la suscripción con la que quiera trabajar:  
+
+   ```powershell
+      Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
+   ```
+
+3. Ejecute el siguiente comando para registrar el proveedor de recursos de Azure Stack en su suscripción de Azure:
+
+   ```Powershell
+   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
+   ```
 
 ### <a name="register-azure-stack-with-azure-using-the-pay-as-you-use-billing-model"></a>Registro de Azure Stack en Azure mediante el modelo de facturación de pago por uso
 Use estos pasos para registrar Azure Stack en Azure mediante el modelo de facturación de pago por uso.
@@ -99,7 +95,7 @@ PowerShell que se ejecuta:
 
 ```powershell
 $AzureContext = Get-AzureRmContext
-$CloudAdminCred = Get-Credential -UserName <Azure subscription owner>  -Message "Enter the cloud domain credentials to access the privileged endpoint"
+$CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials>  -Message "Enter the credentials to access the privileged endpoint"
 Set-AzsRegistration `
     -CloudAdminCredential $CloudAdminCred `
     -PrivilegedEndpoint <PrivilegedEndPoint computer name> `
@@ -108,7 +104,7 @@ Set-AzsRegistration `
 
 |.|DESCRIPCIÓN|
 |-----|-----|
-|CloudAdminCredential|Objeto de PowerShell que contiene información de las credenciales (nombre de usuario y contraseña) del propietario de la suscripción de Azure.|
+|CloudAdminCredential|Objeto de PowerShell que contiene información de las credenciales (nombre de usuario y contraseña) utilizadas para acceder al punto de conexión con privilegios.|
 |PrivilegedEndpoint|Es una consola remota de PowerShell previamente configurada que proporciona funcionalidades tales como la recopilación de registros y otras tareas posteriores a la implementación. Para más información, consulte el artículo acerca del [uso del punto de conexión con privilegios](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint#access-the-privileged-endpoint).|
 |BillingModel|Es el modelo de facturación que usa la suscripción. Los valores que se permiten en este parámetro son: Capacity, PayAsYouUse y Development.|
 
@@ -118,7 +114,7 @@ Siga las mismas instrucciones que usó para realizar el registro mediante el mod
 PowerShell que se ejecuta:
 ```powershell
 $AzureContext = Get-AzureRmContext
-$CloudAdminCred = Get-Credential -UserName <Azure subscription owner>  -Message "Enter the cloud domain credentials to access the privileged endpoint"
+$CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials>  -Message "Enter the credentials to access the privileged endpoint"
 Set-AzsRegistration `
     -CloudAdminCredential $CloudAdminCred `
     -PrivilegedEndpoint <PrivilegedEndPoint computer name> `
@@ -197,22 +193,6 @@ Si desea cambiar el modelo de facturación o las características de redifusión
 ```powershell
 Set-AzsRegistration -CloudAdminCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel PayAsYouUse
 ```
-
-## <a name="remove-a-registered-resource"></a>Eliminación de un recurso registrado
-Si desea eliminar un registro, debe usar el cmdlet **UnRegister-AzsEnvironment** y pasar el nombre del recurso de registro o el token de registro que usó para **Register-AzsEnvironment**.
-
-Para quitar un registro que usa un nombre de recurso:
-
-```Powershell    
-UnRegister-AzsEnvironment -RegistrationName "*Name of the registration resource*"
-```
-Para quitar un registro que usa un token de registro:
-
-```Powershell
-$registrationToken = "*Your copied registration token*"
-UnRegister-AzsEnvironment -RegistrationToken $registrationToken
-```
-
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Integración de supervisión externa](azure-stack-integrate-monitor.md)
+[Descargar elementos de Marketplace desde Azure](azure-stack-download-azure-marketplace-item.md)

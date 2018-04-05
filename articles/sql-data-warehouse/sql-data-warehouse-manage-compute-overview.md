@@ -1,11 +1,11 @@
 ---
-title: "Administración de recursos de proceso en Azure SQL Data Warehouse | Microsoft Docs"
-description: "Conozca las funcionalidades de escalado horizontal del rendimiento en Azure SQL Data Warehouse. Puede escalar horizontalmente mediante el ajuste de las DWU o detener el almacén de datos para reducir los costos."
+title: Administración de recursos de proceso en Azure SQL Data Warehouse | Microsoft Docs
+description: Conozca las funcionalidades de escalado horizontal del rendimiento en Azure SQL Data Warehouse. Puede escalar horizontalmente mediante el ajuste de las DWU o detener el almacén de datos para reducir los costos.
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
 manager: johnmac
-editor: 
+editor: ''
 ms.assetid: e13a82b0-abfe-429f-ac3c-f2b6789a70c6
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 02/20/2018
 ms.author: elbutter
-ms.openlocfilehash: 7e6ae6e59b53dd79dab5e2504cf7a43a30e55353
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c34e37f0c6393c65d4b60705012769608bb7395b
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="manage-compute-in-azure-sql-data-warehouse"></a>Administración de proceso en Azure SQL Data Warehouse
 Aprenda sobre la administración de recursos de proceso en Azure SQL Data Warehouse. Para reducir los costos detenga el almacén de datos o escálelo para satisfacer las demandas de rendimiento. 
@@ -40,14 +40,14 @@ En la tabla siguiente se muestra cómo cambia el número de distribuciones por n
 | ---- | ------------------ | ---------------------------- |
 | 100  | 1                  | 60                           |
 | 200  | 2                  | 30                           |
-| 300  | 3                  | 20                            |
+| 300  | 3                  | 20                           |
 | 400  | 4                  | 15                           |
 | 500  | 5                  | 12                           |
 | 600  | 6                  | 10                           |
 | 1000 | 10                 | 6                            |
 | 1200 | 12                 | 5                            |
 | 1.500 | 15                 | 4                            |
-| 2000 | 20                  | 3                            |
+| 2000 | 20                 | 3                            |
 | 3000 | 30                 | 2                            |
 | 6000 | 60                 | 1                            |
 
@@ -110,7 +110,7 @@ Para automatizar las operaciones de administración de proceso, consulte [Admini
 
 Cada una de las operaciones de escalado horizontal, pausar y reanudación puede tardar varios minutos en completarse. Si va a escalar, pausar o reanudar automáticamente, se recomienda implementar una lógica para garantizar que determinadas operaciones se hayan completado antes de continuar con otra acción. La comprobación del estado del almacenamiento de datos a través de varios puntos de conexión le permite implementar correctamente la automatización de tales operaciones. 
 
-Para comprobar el estado del almacenamiento de datos, consulte la guía de inicio rápido de [PowerShell](quickstart-scale-compute-powershell.md#check-database-state) o [T-SQL](quickstart-scale-compute-tsql.md#check-database-state). También puede comprobar el estado del almacenamiento de datos con una [REST API](sql-data-warehouse-manage-compute-rest-api.md#check-database-state).
+Para comprobar el estado del almacenamiento de datos, consulte la guía de inicio rápido de [PowerShell](quickstart-scale-compute-powershell.md#check-data-warehouse-state) o [T-SQL](quickstart-scale-compute-tsql.md#check-data-warehouse-state). También puede comprobar el estado del almacenamiento de datos con una [REST API](sql-data-warehouse-manage-compute-rest-api.md#check-database-state).
 
 
 ## <a name="permissions"></a>Permisos
@@ -118,5 +118,5 @@ Para comprobar el estado del almacenamiento de datos, consulte la guía de inici
 Para escalar el almacenamiento de datos, se requieren los permisos descritos en [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse.md).  Para pausar y reanudar, se requiere el permiso [Colaborador de base de datos SQL](../active-directory/role-based-access-built-in-roles.md#sql-db-contributor), en concreto Microsoft.Sql/servers/databases/action.
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Otro aspecto de la administración de recursos de proceso es la asignación de diferentes recursos de proceso para consultas individuales. Para más información, consulte [Clases de recursos para la administración de cargas de trabajo](resource-classes-for-workload-management.md).

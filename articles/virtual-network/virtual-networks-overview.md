@@ -1,11 +1,11 @@
 ---
 title: Azure Virtual Network | Microsoft Docs
-description: "Más información sobre las características y conceptos de Azure Virtual Network."
+description: Más información sobre las características y conceptos de Azure Virtual Network.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 9633de4b-a867-4ddf-be3c-a332edf02e24
 ms.service: virtual-network
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/1/2018
 ms.author: jdial
-ms.openlocfilehash: fadc1994cd930df36387a5bfb302c00d66f74fad
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 8d02afcc590482fdca4705ac582d85bb985dd3c2
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="what-is-azure-virtual-network"></a>¿Qué es Azure Virtual Network?
 
@@ -32,7 +32,7 @@ Azure Virtual Network proporciona las siguientes funcionalidades generales:
 - **[Conectividad de redes virtuales:](#connect-vnets)** las redes virtuales se pueden conectar entre sí, lo que permite que los recursos de cualquier red virtual se comuniquen con los recursos de cualquier otra red virtual.
 - **[Conectividad local:](#connect-on-premises)** una red virtual puede estar conectada a una red local, lo que permite que los recursos se comuniquen entre sí.
 - **[Filtrado de tráfico:](#filtering)** puede filtrar el tráfico de red hacia y desde los recursos de una red virtual mediante el puerto y la dirección IP de origen, el puerto y la dirección IP de destino, y el protocolo.
-- **[Enrutamiento:](#routing)** de manera opcional, puede invalidar el enrutamiento predeterminado de Azure mediante la configuración de sus propias rutas, o bien mediante la propagación de rutas BGP a través de una puerta de enlace de red.
+- **[Enrutamiento:](#routing)** de manera opcional, puede invalidar el enrutamiento predeterminado de Azure mediante la configuración de sus propias rutas, o bien mediante la propagación de rutas Border Gateway Protocol (BGP) a través de una puerta de enlace de red.
 
 ## <a name = "isolation"></a>Aislamiento de red y segmentación
 

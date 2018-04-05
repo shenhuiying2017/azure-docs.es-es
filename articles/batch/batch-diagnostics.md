@@ -1,11 +1,11 @@
 ---
-title: "Habilitación del registro de diagnóstico en eventos de Batch - Azure | Microsoft Docs"
-description: "Registre y analice los eventos de registro de diagnóstico de los recursos de la cuenta de Azure Batch como tareas y grupos."
+title: Habilitación del registro de diagnóstico en eventos de Batch - Azure | Microsoft Docs
+description: Registre y analice los eventos de registro de diagnóstico de los recursos de la cuenta de Azure Batch como tareas y grupos.
 services: batch
-documentationcenter: 
-author: tamram
-manager: timlt
-editor: 
+documentationcenter: ''
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: e14e611d-12cd-4671-91dc-bc506dc853e5
 ms.service: batch
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 ms.date: 05/22/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b7bc6fd9921ab0f2374ace33ea5c1ab93a78f860
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c41c8c9f8fd9302c610ce356b0485e33ea3c967d
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="log-events-for-diagnostic-evaluation-and-monitoring-of-batch-solutions"></a>Eventos de registro para la evaluación de diagnósticos y la supervisión de soluciones de Batch
 
@@ -30,7 +30,7 @@ Como ocurre con muchos de los servicios de Azure, el servicio Batch emite evento
 > 
 > 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 * [Una cuenta de Azure Batch](batch-account-create-portal.md)
 * [Una cuenta de Azure Storage](../storage/common/storage-create-storage-account.md#create-a-storage-account)
   
@@ -92,7 +92,7 @@ Actualmente, el servicio Batch emite los siguientes eventos del registro del ser
 ## <a name="next-steps"></a>Pasos siguientes
 Además de almacenar los eventos de registro de diagnóstico en una cuenta de Azure Storage, los eventos del registro del servicio Batch también se pueden transmitir a un [Centro de eventos de Azure](../event-hubs/event-hubs-what-is-event-hubs.md) y enviarlos a [Azure Log Analytics](../log-analytics/log-analytics-overview.md).
 
-* [Transmita registros de diagnóstico de Azure a centros de eventos](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)
+* [Transmita registros de diagnóstico de Azure a Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)
   
   Transmita eventos de diagnóstico de Batch al servicio de entrada de datos altamente escalable, Event Hubs. Event Hubs puede ingerir millones de eventos por segundo, que posteriormente se pueden transformar y almacenar con cualquier proveedor de análisis en tiempo real.
 * [Análisis de los registros de diagnóstico de Azure mediante Log Analytics](../log-analytics/log-analytics-azure-storage.md)

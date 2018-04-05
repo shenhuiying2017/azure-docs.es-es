@@ -3,22 +3,19 @@ title: 'Application Insights para resolver problemas de las directivas personali
 description: cómo configurar Application Insights para realizar el seguimiento de la ejecución de las directivas personalizadas
 services: active-directory-b2c
 documentationcenter: ''
-author: saeedakhter-msft
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: 658c597e-3787-465e-b377-26aebc94e46d
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 08/04/2017
-ms.author: saeda
-ms.openlocfilehash: 4f71380917a5a29497da9831791cd9f86ec4c8ca
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.author: davidmu
+ms.openlocfilehash: 3e27976b02ee75083b07ca2e4f0c06e19502d1f5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-collecting-logs"></a>Azure Active Directory B2C: Collecting Logs (Azure Active Directory B2C: recopilación de registros)
 
@@ -104,7 +101,7 @@ Las entradas pueden ser largas.  Exporte a un archivo CSV para realizar un exame
 Puede obtener más información sobre estas herramientas de Analytics [aquí](https://docs.microsoft.com/azure/application-insights/app-insights-analytics).
 
 >[!NOTE]
->La Comunidad ha desarrollado un visor de recorrido de usuario para ayudar a los desarrolladores de identidad.  No está admitido por Microsoft y está disponible estrictamente tal cual.  Lee de la instancia de Application Insights y proporciona una vista bien estructurada de los eventos de recorrido de usuario.  Proporciona el código fuente para implementarlo en su propia solución.
+>La Comunidad ha desarrollado un visor de recorrido de usuario para ayudar a los desarrolladores de identidad.  No está admitido por Microsoft y está disponible estrictamente tal cual.  Lee de la instancia de Application Insights y proporciona una vista bien estructurada de los eventos de recorrido del usuario.  Proporciona el código fuente para implementarlo en su propia solución.
 
 La versión del visor que lee los eventos de Application Insights se encuentra [aquí](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/wingtipgamesb2c/src/WingTipUserJourneyPlayerWebApplication).
 

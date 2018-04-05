@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/12/2018
+ms.date: 03/27/2018
 ms.author: danis
-ms.openlocfilehash: 5174e599f12314a657d142304ffec18fbff847b1
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 5c0b7224d0f534661950117813e1a4f348810853
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="oms-virtual-machine-extension-for-linux"></a>Extensión de máquina virtual de OMS para Linux
 
@@ -195,10 +195,11 @@ El resultado de la ejecución de las extensiones se registra en el archivo sigui
 
 | Código de error | Significado | Acción posible |
 | :---: | --- | --- |
+| 9 | Habilitar llamado antes de tiempo | [Actualice el agente de Linux de Azure](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) a la versión más reciente disponible. |
 | 10 | La máquina virtual ya está conectada a un área de trabajo de Log Analytics | Para conectar la máquina virtual al área de trabajo especificada en el esquema de extensión, establezca stopOnMultipleConnections en false en la configuración pública o quite esta propiedad. Esta máquina virtual se factura una vez por cada área de trabajo a la que se conecta. |
 | 11 | Configuración no válida proporcionada a la extensión | Siga los ejemplos anteriores para configurar todos los valores de propiedad necesarios para la implementación. |
 | 12 | El administrador de paquetes de dpkg está bloqueado | Asegúrese de que todas las operaciones de actualización de dpkg en el equipo han finalizado e intente de nuevo. |
-| 20  | Habilitar llamado antes de tiempo | [Actualice el agente de Linux de Azure](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) a la versión más reciente disponible. |
+| 20 | Error al instalar el paquete de SCX |
 | 51 | Esta extensión no se admite en el sistema operativo de la máquina virtual | |
 | 55 | No se puede conectar con el servicio Microsoft Operations Management Suite | Compruebe que el sistema tiene acceso a Internet o que se ha proporcionado un servidor proxy HTTP válido. Además, compruebe la validez del identificador del área de trabajo. |
 

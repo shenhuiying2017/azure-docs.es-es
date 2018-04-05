@@ -1,8 +1,8 @@
 ---
-title: "Mapa de aplicación en Azure Application Insights | Microsoft Docs"
-description: "Supervisión de topologías de aplicaciones complejas con el mapa de aplicación"
+title: Mapa de aplicación en Azure Application Insights | Microsoft Docs
+description: Supervisión de topologías de aplicaciones complejas con el mapa de aplicación
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: SoubhagyaDash
 manager: carmonm
 ms.assetid: 3bf37fe9-70d7-4229-98d6-4f624d256c36
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 3bbed59bf93eab5e729fbdd3ccae04599ac47081
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 4b95cd947cd977208dee32d18fbc6a1fb099ff3b
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mapa de aplicación: evaluación de prioridades de aplicaciones distribuidas
 El mapa de aplicación le ayuda a detectar los cuellos de botella en el rendimiento o las zonas activas con error en todos los componentes de la aplicación distribuida. Cada nodo del mapa representa un componente de aplicación o sus dependencias, e incluye el KPI de mantenimiento y el estado de alerta. Puede hacer clic a través de cualquier componente para ver un diagnóstico más detallado, como los eventos de Application Insights. Si su aplicación usa los servicios de Azure, también puede hacer clic por los diagnósticos de Azure, como las recomendaciones SQL Database Advisor.
@@ -37,7 +37,7 @@ Habilite "Mapa de aplicación compuesto" en la [lista de versiones preliminares]
 ![Habilitar el mapa de versión preliminar](media/app-insights-app-map/preview-from-classic.png)
 
 >[!Note]
-Esta versión preliminar reemplaza a la versión preliminar anterior de "Mapa de aplicación de varios roles". En este momento, úsela para ver la topología entera a lo largo de varios niveles de dependencias de componentes de aplicación. Envíenos sus comentarios. Iremos agregando más funcionalidades similares a las que admite el mapa clásico.
+Esta versión preliminar reemplaza a la versión preliminar anterior de "Asignación de aplicaciones de varios roles". En este momento, úsela para ver la topología entera a lo largo de varios niveles de dependencias de componentes de aplicación. Envíenos sus comentarios. Iremos agregando más funcionalidades similares a las que admite el mapa clásico.
 
 Puede ver la topología de aplicación completa a lo largo de varios niveles de componentes de aplicación relacionados. Los componentes podrían ser diferentes recursos de Application Insights o distintos roles de un único recurso. Para encontrar componentes, el mapa de aplicación sigue las llamadas de dependencia HTTP entre los servidores con el SDK de Application Insights instalado. 
 
@@ -142,4 +142,4 @@ Proporcione sus comentarios mediante la opción de comentarios del portal.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [portal de Azure](https://portal.azure.com)
+* [Azure Portal](https://portal.azure.com)

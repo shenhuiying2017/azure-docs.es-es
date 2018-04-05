@@ -1,6 +1,6 @@
 ---
-title: "Replicación de datos en Azure Storage | Microsoft Docs"
-description: "Los datos de su cuenta de Microsoft Azure Storage se replican para garantizar la durabilidad y la alta disponibilidad. Entre las opciones de replicación se incluyen el almacenamiento con redundancia local (LRS), el almacenamiento con redundancia de zona (ZRS), el almacenamiento con redundancia geográfica (GRS) y el almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS)."
+title: Replicación de datos en Azure Storage | Microsoft Docs
+description: Los datos de su cuenta de Microsoft Azure Storage se replican para garantizar la durabilidad y la alta disponibilidad. Entre las opciones de replicación se incluyen el almacenamiento con redundancia local (LRS), el almacenamiento con redundancia de zona (ZRS), el almacenamiento con redundancia geográfica (GRS) y el almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS).
 services: storage
 author: tamram
 manager: jeconnoc
@@ -9,11 +9,11 @@ ms.workload: storage
 ms.topic: article
 ms.date: 01/21/2018
 ms.author: tamram
-ms.openlocfilehash: 18d0e8bc6cc1559f9ae1a1a4457aa85d2a206597
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 600b66af3b7da24c5a40d09d5cdf76f2d5be67ac
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-storage-replication"></a>Replicación de Azure Storage
 
@@ -30,7 +30,7 @@ Cuando cree una cuenta de almacenamiento, puede seleccionar una de las siguiente
 * [Almacenamiento con redundancia geográfica (GRS)](#geo-redundant-storage)
 * [Almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS).](#read-access-geo-redundant-storage)
 
-El almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS) es la opción predeterminada cuando crea una cuenta de almacenamiento.
+El almacenamiento con redundancia local (LRS) es la opción predeterminada cuando crea una cuenta de almacenamiento.
 
 En la tabla siguiente se proporciona una breve descripción de las diferencias entre los tipos LRS, ZRS, GRS y RA-GRS. Las secciones siguientes de este artículo tratan cada tipo de replicación con más detalle.
 
@@ -143,7 +143,7 @@ Actualmente, ZRS no admite la replicación geográfica. Si su escenario requiere
 #### <a name="10-what-happens-when-one-or-more-zrs-zones-go-down"></a>10. ¿Qué ocurre cuando una o más zonas de ZRS dejan de funcionar? 
 Cuando la primera zona deja de funcionar, ZRS continúa escribiendo las réplicas de los datos entre las dos zonas restantes de la región. Si una segunda zona deja de funcionar, el acceso de lectura y escritura no estará disponible hasta que al menos dos zonas vuelvan a estar en funcionamiento. 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Diseño de aplicaciones de alta disponibilidad mediante RA-GRS](../storage-designing-ha-apps-with-ragrs.md)
 * [Precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/)
 * [Acerca de las cuentas de almacenamiento de Azure](../storage-create-storage-account.md)

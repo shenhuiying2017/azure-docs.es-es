@@ -2,23 +2,23 @@
 title: Historial de versiones de conectores | Microsoft Docs
 description: En este tema se incluyen todas las versiones de los conectores para Forefront Identity Manager (FIM) y Microsoft Identity Manager (MIM).
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 6a0c66ab-55df-4669-a0c7-1fe1a091a7f9
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/06/2017
-ms.author: billmath
-ms.openlocfilehash: 5b43284a86a7e5d4cdbf50a29d73f970c9ad9d58
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.date: 03/22/2018
+ms.author: davidste
+ms.openlocfilehash: 5b13338646abda7eefec44c42dc0159e9338adfa
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="connector-version-release-history"></a>Historial de versiones de conectores
 Los conectores de Forefront Identity Manager (FIM) y Microsoft Identity Manager (MIM) se actualizan con frecuencia.
@@ -34,9 +34,26 @@ Vínculos relacionados:
 * [Descargar los últimos conectores](http://go.microsoft.com/fwlink/?LinkId=717495)
 * [conector LDAP genérico](active-directory-aadconnectsync-connector-genericldap.md)
 * [conector SQL genérico](active-directory-aadconnectsync-connector-genericsql.md)
-* [conector de servicios web](http://go.microsoft.com/fwlink/?LinkID=226245)
+* [conector de servicios web](https://docs.microsoft.com/en-us/microsoft-identity-manager/reference/microsoft-identity-manager-2016-ma-ws)
 * [conector PowerShell](active-directory-aadconnectsync-connector-powershell.md)
 * [conector Lotus Domino](active-directory-aadconnectsync-connector-domino.md)
+
+
+## <a name="118300"></a>1.1.830.0
+
+### <a name="fixed-issues"></a>Problemas corregidos:
+* Se ha resuelto ConnectorsLog System.Diagnostics.EventLogInternal.InternalWriteEvent (mensaje que indica que un dispositivo conectado al sistema no funciona).
+* En esta versión de conectores, deberá actualizar las redirecciones de enlace desde 3.3.0.0-4.1.3.0 a 4.1.4.0 en miiserver.exe.config.
+* Servicios Web genéricos:
+    * Se ha resuelto el problema que impedía guardar la respuesta JSON válida en la herramienta de configuración.
+* SQL genérico:
+    * La exportación siempre genera consultas de actualización únicamente para la operación de eliminación. Se ha agregado para generar una consulta de eliminación.
+    * Se corrigió la consulta SQL que obtiene objetos para la operación de importación diferencial, si la "estrategia diferencial" es "Change Tracking". En la limitación conocida de esta implementación: la importación diferencial con el modo "Change Tracking" no realiza el seguimiento de cambios en los atributos con varios valores.
+    * Se ha agregado la posibilidad de generar una consulta de eliminación para el siguiente caso: cuando es necesario eliminar el último valor del atributo con varios valores y esta fila no contiene ningún otro dato excepto el valor que es necesario eliminar.
+    * Tratamiento de System.ArgumentException cuando SP implementa los parámetros de salida. 
+    * Consulta incorrecta para realizar la operación de exportación en el campo que tiene el tipo varbinary(max).
+    * El problema con la variable parameterList se inicializó dos veces (en las funciones ExportAttributes y GetQueryForMultiValue).
+
 
 ## <a name="116490-aadconnect-116490"></a>1.1.649.0 (AADConnect 1.1.649.0)
 
@@ -80,6 +97,8 @@ Vínculos relacionados:
   * La herramienta Wsconfig no convirtió correctamente la matriz JSON de "solicitud de ejemplo" para el método del servicio REST. Esto generó problemas de serialización de esta matriz JSON para la solicitud de REST.
   * La herramienta de configuración del conector de servicio web no admite el uso de espacios en nombres de atributo JSON 
     * Se puede agregar manualmente un patrón de sustitución al archivo WSConfigTool.exe.config, p. ej., ```<appSettings> <add key=”JSONSpaceNamePattern” value="__" /> </appSettings>```
+> [!NOTE]
+> Se necesita la clave de JSONSpaceNamePattern, ya que para la exportación recibirá un mensaje de error que indica que no se admite un nombre vacío. 
 
 * Lotus Notes:
   * Cuando la opción **Allow custom certifiers for Organization/Organizational Units** (Permitir certificadores personalizados para la organización/unidades organizativas) está deshabilitada, el conector produce un error durante la exportación (Actualización) Después del flujo de exportación, se exportan todos los atributos a Domino, pero en el momento de la exportación se devuelve una excepción KeyNotFoundException a Sync. 
@@ -244,7 +263,7 @@ Para actualizar la definición:
 * Después de que se haya obtenido acceso a todas las pestañas de propiedades, haga clic en el botón Aceptar para guardar los cambios.
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre la configuración de la [Sincronización de Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).

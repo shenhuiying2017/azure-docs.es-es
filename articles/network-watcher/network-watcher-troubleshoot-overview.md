@@ -1,11 +1,11 @@
 ---
-title: "Introducción a la solución de problemas de recursos en Azure Network Watcher | Microsoft Docs"
-description: "En esta página se proporciona una introducción a las funcionalidades de solución de problemas de recursos en Network Watcher."
+title: Introducción a la solución de problemas de recursos en Azure Network Watcher | Microsoft Docs
+description: En esta página se proporciona una introducción a las funcionalidades de solución de problemas de recursos en Network Watcher.
 services: network-watcher
 documentationcenter: na
 author: jimdial
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: c1145cd6-d1cf-4770-b1cc-eaf0464cc315
 ms.service: network-watcher
 ms.devlang: na
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: a37c92e1aa58184ed29185742ec727c120fe593f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 646caa5e4aacd58377c0a2b5985a69277d00cec3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introducción a la solución de problemas de recursos en Azure Network Watcher
 
-Las puertas de enlace de red virtual proporcionan conectividad entre recursos locales y otras redes virtuales dentro de Azure. La supervisión de estas puertas de enlace y sus conexiones es esencial para garantizar la continuidad de la comunicación. Network Watcher proporciona la funcionalidad para solucionar problemas con las puertas de enlace de red virtual y las conexiones. Se puede llamar mediante el portal, PowerShell, la CLI o la API de REST. Cuando se llama, Network Watcher diagnostica el estado de la puerta de enlace de red virtual o la conexión y devuelve los resultados pertinentes. Esta solicitud es una transacción de larga duración; los resultados se devuelven cuando se completa el diagnóstico.
+Las puertas de enlace de red virtual proporcionan conectividad entre recursos locales y otras redes virtuales dentro de Azure. La supervisión de puertas de enlace y sus conexiones es esencial para garantizar la continuidad de la comunicación. Network Watcher proporciona la funcionalidad para solucionar problemas con las puertas de enlace y las conexiones. Esta funcionalidad puede llamarse mediante el portal, PowerShell, la CLI de Azure o la API de REST. Cuando se llama, Network Watcher diagnostica el estado de la puerta de enlace o la conexión y devuelve los resultados pertinentes. La solicitud es una transacción de larga ejecución. Una vez completado el diagnóstico, se devuelven los resultados.
 
 ![portal][2]
 
@@ -51,14 +51,14 @@ En las siguientes tablas se muestran los diferentes tipos de error (id bajo resu
 | Tipo de error | Motivo | Registro|
 |---|---|---|
 | NoFault | Cuando no se detecta ningún error. |Sí|
-| GatewayNotFound | No se encuentra la puerta de enlace o no está aprovisionada. |No|
-| PlannedMaintenance |  La instancia de puerta de enlace está en mantenimiento.  |No|
-| UserDrivenUpdate | Cuando hay una actualización del usuario en curso. Podría tratarse de una operación de cambio de tamaño. | No |
-| VipUnResponsive | No se puede alcanzar la instancia principal de la puerta de enlace. Esto sucede cuando se produce un error en el sondeo de estado. | No |
-| PlatformInActive | Hay un problema con la plataforma. | No|
-| ServiceNotRunning | No se está ejecutando el servicio subyacente. | No|
-| NoConnectionsFoundForGateway | No existe ninguna conexión en la puerta de enlace. Esto es solo una advertencia.| No|
-| ConnectionsNotConnected | Las conexiones no están conectadas. Esto es solo una advertencia.| Sí|
+| GatewayNotFound | No se encuentra la puerta de enlace o no está aprovisionada. |Sin |
+| PlannedMaintenance |  La instancia de puerta de enlace está en mantenimiento.  |Sin |
+| UserDrivenUpdate | Este error se produce cuando hay una actualización del usuario en curso. Esta actualización podría tratarse de una operación de cambio de tamaño. | Sin  |
+| VipUnResponsive | Este error se produce cuando no se puede alcanzar la instancia principal de la puerta de enlace debido a un error de sondeo de estado. | Sin  |
+| PlatformInActive | Hay un problema con la plataforma. | Sin |
+| ServiceNotRunning | No se está ejecutando el servicio subyacente. | Sin |
+| NoConnectionsFoundForGateway | No existe ninguna conexión en la puerta de enlace. Este error es solo una advertencia.| Sin |
+| ConnectionsNotConnected | Las conexiones no están conectadas. Este error es solo una advertencia.| Sí|
 | GatewayCPUUsageExceeded | El uso de CPU de la puerta de enlace actual es >95 %. | Sí |
 
 ### <a name="connection"></a>Conexión
@@ -66,12 +66,12 @@ En las siguientes tablas se muestran los diferentes tipos de error (id bajo resu
 | Tipo de error | Motivo | Registro|
 |---|---|---|
 | NoFault | Cuando no se detecta ningún error. |Sí|
-| GatewayNotFound | No se encuentra la puerta de enlace o no está aprovisionada. |No|
-| PlannedMaintenance | La instancia de puerta de enlace está en mantenimiento.  |No|
-| UserDrivenUpdate | Cuando hay una actualización del usuario en curso. Podría tratarse de una operación de cambio de tamaño.  | No |
-| VipUnResponsive | No se puede alcanzar la instancia principal de la puerta de enlace. Sucede cuando se produce un error en el sondeo de estado. | No |
-| ConnectionEntityNotFound | Falta una configuración de conexión. | No |
-| ConnectionIsMarkedDisconnected | La conexión está marcada como "desconectada". |No|
+| GatewayNotFound | No se encuentra la puerta de enlace o no está aprovisionada. |Sin |
+| PlannedMaintenance | La instancia de puerta de enlace está en mantenimiento.  |Sin |
+| UserDrivenUpdate | Este error se produce cuando hay una actualización del usuario en curso. Esta actualización podría tratarse de una operación de cambio de tamaño.  | Sin  |
+| VipUnResponsive | Este error se produce cuando no se puede alcanzar la instancia principal de la puerta de enlace debido a un error de sondeo de estado. | Sin  |
+| ConnectionEntityNotFound | Falta una configuración de conexión. | Sin  |
+| ConnectionIsMarkedDisconnected | La conexión está marcada como "desconectada". |Sin |
 | ConnectionNotConfiguredOnGateway | El servicio subyacente no tiene configurada la conexión. | Sí |
 | ConnectionMarkedStandy | El servicio subyacente está marcado como en espera activa.| Sí|
 | Autenticación | Error de coincidencia de clave previamente compartida. | Sí|
@@ -81,13 +81,13 @@ En las siguientes tablas se muestran los diferentes tipos de error (id bajo resu
 
 ## <a name="supported-gateway-types"></a>Tipos de puerta de enlace admitidos
 
-En la lista siguiente se muestra qué puertas de enlace y conexiones son compatibles con la solución de problemas de Network Watcher.
+En la tabla siguiente se muestra qué puertas de enlace y conexiones son compatibles con la solución de problemas de Network Watcher.
+
 |  |  |
 |---------|---------|
 |**Tipos de puerta de enlace**   |         |
 |VPN      | Compatible        |
 |ExpressRoute | No compatible |
-|HyperNet | No compatible|
 |**Tipos de VPN** | |
 |Basado en ruta | Compatible|
 |Basado en directiva | No compatible|
@@ -95,7 +95,6 @@ En la lista siguiente se muestra qué puertas de enlace y conexiones son compati
 |IPSec| Compatible|
 |VNet2Vnet| Compatible|
 |ExpressRoute| No compatible|
-|HyperNet| No compatible|
 |VPNClient| No compatible|
 
 ## <a name="log-files"></a>Archivos de registro
@@ -212,7 +211,7 @@ Elapsed Time            330 sec
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Visite [Gateway troubleshooting - Azure portal](network-watcher-troubleshoot-manage-portal.md) (Solución de problemas de puerta de enlace: Azure Portal) para saber cómo diagnosticar las conexiones y las puertas de enlace de VPN a través del portal.
+Visite [Gateway troubleshooting - Azure portal](network-watcher-troubleshoot-manage-portal.md) (Solución de problemas de puerta de enlace: Azure Portal) para saber cómo diagnosticar las conexiones y VPN Gateway a través del portal.
 <!--Image references-->
 
 [1]: ./media/network-watcher-troubleshoot-overview/GatewayTenantWorkerLogs.png

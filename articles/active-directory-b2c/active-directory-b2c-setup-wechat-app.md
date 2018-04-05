@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C: configuración de WeChat | Microsoft Docs"
-description: "Proporcione funciones de registro e inicio de sesión a los consumidores con cuentas de WeChat en las aplicaciones protegidas por Azure Active Directory B2C."
+title: 'Azure Active Directory B2C: configuración de WeChat | Microsoft Docs'
+description: Proporcione funciones de registro e inicio de sesión a los consumidores con cuentas de WeChat en las aplicaciones protegidas por Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: 
-author: parakhj
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: d2424c66-ba68-4d82-847e-d137683527b0
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 3/26/2017
-ms.author: parakhj
-ms.openlocfilehash: 1cc1de1926edd28d09a3779da9595ef22491d0d9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: ca12c84042f92dafff67dc10ce6b56b77c0456eb
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-wechat-accounts"></a>Azure Active Directory B2C: provisión de registro e inicio de sesión a los usuarios con cuentas de WeChat
 
@@ -39,7 +36,7 @@ Para usar WeChat como proveedor de identidades en Azure Active Directory (Azure 
 5. Busque y copie el **id. de la aplicación** y la **clave de la aplicación**. Los necesitará más adelante.
 
 ## <a name="configure-wechat-as-an-identity-provider-in-your-tenant"></a>Configuración de WeChat como proveedor de identidades del inquilino
-1. Siga estos pasos para [ir a la hoja de características de B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) del Portal de Azure.
+1. Siga estos pasos para [ir a la hoja de características de B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) de Azure Portal.
 2. En la hoja de características B2C, haga clic en **Proveedores de identidades**.
 3. Haga clic en **+Agregar** en la parte superior de la hoja.
 4. Proporcione un **Nombre** descriptivo para la configuración del proveedor de identidades. Por ejemplo, escriba "WeChat".

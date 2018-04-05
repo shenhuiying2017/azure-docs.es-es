@@ -1,24 +1,19 @@
 ---
-title: "Configuración de direccionamiento IP para conectar tras la conmutación por error a Azure con Azure Site Recovery | Microsoft Docs"
-description: "Se describe cómo configurar el direccionamiento IP para conectarse a máquinas virtuales de Azure tras la conmutación por error desde el entorno local con Azure Site Recovery."
+title: Configuración de direccionamiento IP para conectar tras la conmutación por error a Azure con Azure Site Recovery | Microsoft Docs
+description: Se describe cómo configurar el direccionamiento IP para conectarse a máquinas virtuales de Azure tras la conmutación por error desde el entorno local con Azure Site Recovery.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: mayanknayar
 manager: carmonm
-editor: 
-ms.assetid: f02cdbea-0940-48bf-9fa5-f38d9e584fae
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 02/27/2018
+ms.date: 03/24/2018
 ms.author: manayar
-ms.openlocfilehash: b9aeaf1dc6d471ba993dd470403ba60ce68153fc
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: e74ad30ea8c4be994c1c67735ee91ef8c033b9b3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="set-up-ip-addressing-to-connect-after-failover-to-azure"></a>Configuración del direccionamiento IP para conectarse tras la conmutación por error a Azure
 
@@ -51,7 +46,7 @@ Site Recovery ofrece la posibilidad de conservar las direcciones IP fijas al con
 
 Veamos un ejemplo para una conmutación por error en Azure con una empresa ficticia, Woodgrove Bank.
 
-- Woodgrove Bank hospeda las aplicaciones empresariales en un sitio local y las aplicaciones móviles, en Azure.
+- Woodgrove Bank hospeda las aplicaciones empresariales en un sitio local. y las aplicaciones móviles, en Azure.
 - Hay conectividad de sitio a sitio de VPN entre la red perimetral local y la red virtual de Azure. Debido a la conexión VPN, la red virtual de Azure aparece como extensión de la red local.
 - Woodgrave quiere replicar las cargas de trabajo locales en Azure con Site Recovery.
  - Woodgrove tiene aplicaciones que dependen de direcciones IP codificadas de forma rígida, por lo que necesitan conservar las direcciones IP para las aplicaciones después de la conmutación por error en Azure.
@@ -88,5 +83,5 @@ Además de la conexión de red virtual a red virtual, después de la conmutació
 
 En esta [entrada de blog](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) se explica cómo configurar la infraestructura de red de Azure cuando no hay que conservar las direcciones IP después de la conmutación por error. Comienza con una descripción de la aplicación, se examina cómo configurar redes en local y en Azure y se concluye con información sobre la ejecución de las conmutaciones por error.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Ejecución de una conmutación por error](site-recovery-failover.md)

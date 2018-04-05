@@ -1,16 +1,16 @@
 ---
-title: "Arquitectura de replicación de Hyper-V en Azure con Azure Site Recovery | Microsoft Docs"
-description: "En este artículo se proporciona información general sobre los componentes y la arquitectura usados al replicar máquinas virtuales de Hyper-V locales (sin VMM) en Azure con el servicio Azure Site Recovery."
+title: Arquitectura de replicación de Hyper-V en Azure con Azure Site Recovery | Microsoft Docs
+description: En este artículo se proporciona información general sobre los componentes y la arquitectura usados al replicar máquinas virtuales de Hyper-V locales (sin VMM) en Azure con el servicio Azure Site Recovery.
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 03/194/2018
 ms.author: raynew
-ms.openlocfilehash: dd3dcf325ed5a628c98ac63683440e1796aa8c3f
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 978d290287a4ff8875eea7e93f003c78e7177dae
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="hyper-v-to-azure-replication-architecture"></a>Arquitectura de replicación de Hyper-V en Azure
 
@@ -28,7 +28,7 @@ La tabla y el gráfico siguientes proporcionan una visión general de los compon
 **Componente** | **Requisito** | **Detalles**
 --- | --- | ---
 **Las tablas de Azure** | Suscripción de Azure, cuenta de Azure Storage y red de Azure. | Los datos replicados desde las cargas de trabajo de las máquinas virtuales locales se almacenan en la cuenta de almacenamiento. Las máquinas virtuales de Azure se crean con los datos de la carga de trabajo replicados cuando se produce la conmutación por error desde el sitio local.<br/><br/> Las máquinas virtuales de Azure se conectan a la red virtual de Azure cuando se crean.
-**Hyper-V** | Durante la implementación de Site Recovery, se recopilan los clústeres y los hosts de Hyper-V en los sitios de Hyper-V. Se instala el agente de Recovery Services y el Proveedor de Azure Site Recovery en cada máquina Hyper-V. | El proveedor organiza la replicación con Site Recovery a través de Internet. El agente de Recovery Services se encarga de la replicación de datos.<br/><br/> Las comunicaciones del proveedor y el agente son seguras y cifradas. También se cifran los datos replicados en el almacenamiento de Azure.
+**Hyper-V** | Durante la implementación de Site Recovery, se recopilan los clústeres y los hosts de Hyper-V en los sitios de Hyper-V. Se instala el agente de Recovery Services y el Proveedor de Azure Site Recovery en cada host de Hyper-V independiente y en cada nodo de clúster de Hyper-V. | El proveedor organiza la replicación con Site Recovery a través de Internet. El agente de Recovery Services se encarga de la replicación de datos.<br/><br/> Las comunicaciones del proveedor y el agente son seguras y cifradas. También se cifran los datos replicados en el almacenamiento de Azure.
 **Máquinas virtuales de Hyper-V** | Una o varias máquinas virtuales en ejecución en Hyper-V. | No es necesario instalar nada explícitamente en las máquinas virtuales.
 
 
@@ -46,7 +46,7 @@ La tabla y gráfico siguientes proporcionan una visión general de los component
 --- | --- | ---
 **Las tablas de Azure** | Suscripción de Azure, cuenta de Azure Storage y red de Azure. | Los datos replicados desde las cargas de trabajo de las máquinas virtuales locales se almacenan en la cuenta de almacenamiento. Las máquinas virtuales de Azure se crean con los datos replicados cuando se produce la conmutación por error desde el sitio local.<br/><br/> Las máquinas virtuales de Azure se conectan a la red virtual de Azure cuando se crean.
 **Servidor VMM** | El servidor de VMM tiene una o varias nubes que contienen hosts de Hyper-V. | Se instala el Proveedor de Site Recovery en el servidor VMM para orquestar la replicación con Site Recovery, y se registra el servidor en el almacén de Recovery Services.
-**Host de Hyper-V** | Uno o más hosts o clústeres de Hyper-V administrados por VMM. |  Se instala el agente de Recovery Services en cada miembro del clúster o host.
+**Host de Hyper-V** | Uno o más hosts o clústeres de Hyper-V administrados por VMM. |  Se instala el agente de Recovery Services en cada nodo del clúster o host de Hyper-V.
 **Máquinas virtuales de Hyper-V** | Una o varias máquinas virtuales en un servidor host de Hyper-V. | No es necesario instalar nada explícitamente en las máquinas virtuales.
 **Redes** | Redes lógicas y de máquinas virtuales configuradas en el servidor de VMM. La red de máquinas virtuales debe estar vinculada a una red lógica asociada con la nube. | Las redes de máquinas virtuales se asignan a las redes virtuales de Azure. Cuando se crean máquinas virtuales de Azure después de la conmutación por error, se agregan a la red de Azure que está asignada a la red de máquinas virtuales.
 
@@ -139,7 +139,7 @@ Una vez que la infraestructura local está activa y ejecutándose, puede conmuta
 
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 
 Siga [este tutorial](tutorial-prepare-azure.md) para empezar con la replicación de Hyper-V en Azure.

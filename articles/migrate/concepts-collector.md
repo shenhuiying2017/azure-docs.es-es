@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: 49f3d5ba55a9c1abfcd6dcb50058ed7a001a2eec
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: ea2367a6e1facfbe6a36cb145e258491a1c99517
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="collector-appliance"></a>Aplicación del recopilador
 
@@ -172,6 +172,15 @@ En la tabla siguiente se enumeran los contadores de rendimiento que se recopilan
 El recopilador solo detecta los datos de la máquina y los envía al proyecto. El proyecto puede tardar más tiempo antes de que se muestren los datos detectados en el portal y pueda empezar a crear una valoración.
 
 En función del número de máquinas virtuales en el ámbito seleccionado, se tarda hasta 15 minutos en enviar los metadatos estáticos al proyecto. Una vez que los metadatos estáticos estén disponibles en el portal, podrá ver la lista de máquinas en el portal y comenzar a crear grupos. No se puede crear una valoración hasta que finalice el trabajo de recopilación y el proyecto haya procesado los datos. Una vez completado el trabajo de recopilación en el recopilador, puede tardar hasta una hora para que los datos de rendimiento estén disponibles en el portal, en función del número de máquinas virtuales en el ámbito seleccionado.
+
+## <a name="locking-down-the-collector-appliance"></a>Bloqueo de la aplicación del recopilador
+Se recomienda ejecutar actualizaciones continuas de Windows en la aplicación del recopilador. Si no se actualiza un recopilador durante 45 días, el recopilador se iniciará apagando automáticamente la máquina. Si se está ejecutando una detección, la máquina no se desactivará, incluso si ya transcurrió su plazo de 45 días. Cuando el trabajo de detección se haya completado, se desactivará la máquina. Si usa el recopilador durante más de 45 días, se recomienda mantener la máquina actualizada en todo momento mediante la ejecución de Windows Update.
+
+También se recomienda realizar los siguientes pasos para proteger su aplicación:
+1. No pierda ni comparta las contraseñas del administrador con partes no autorizadas.
+2. Apagar la aplicación cuando no se esté usando.
+3. Colocar la aplicación en una red protegida.
+4. Una vez completado el trabajo de migración, elimine la instancia de la aplicación. Asegúrese de eliminar también los archivos de copia de seguridad del disco (VMDK), ya que es posible que dichos discos tenga las credenciales de vCenter en caché.
 
 ## <a name="how-to-upgrade-collector"></a>Procedimiento para actualizar el recopilador
 

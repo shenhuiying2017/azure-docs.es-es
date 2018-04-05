@@ -1,8 +1,8 @@
 ---
-title: "Depuración de código C# definido por el usuario para trabajos con error de U-SQL de Azure Data Lake | Microsoft Docs"
-description: "Aprenda a depurar vértices U-SQL con error mediante Herramientas de Azure Data Lake para Visual Studio."
+title: Depuración de código C# definido por el usuario para trabajos con error de U-SQL de Azure Data Lake | Microsoft Docs
+description: Aprenda a depurar vértices U-SQL con error mediante Herramientas de Azure Data Lake para Visual Studio.
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: yanancai
 manager: jhubbard
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/31/2017
 ms.author: yanacai
-ms.openlocfilehash: 739d46753729b70a24dbd3d6e2d78f8513e143e6
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: b614583079347c2634f8d03531517d1d32c75132
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>Depuración de código C# definido por el usuario para trabajos de U-SQL con errores
 
@@ -41,7 +41,7 @@ Al abrir un trabajo erróneo en Herramientas de Azure Data Lake para Visual Stud
 
 1. Haga clic en **Descargar** para descargar todos los flujos de entrada y recursos necesarios. Si la descarga no se completa, haga clic en **Reintentar**.
 
-2. Haga clic en **Abrir** después de que finalice la descarga para generar el entorno de depuración local. Se creará y abrirá automáticamente una nueva instancia de Visual Studio con una solución de depuración.
+2. Haga clic en **Abrir** después de que finalice la descarga para generar el entorno de depuración local. Se abrirá una nueva solución de depuración y, si ya tiene una solución abierta en Visual Studio, asegúrese de guardarla y cerrarla antes de depurar.
 
 ![Descarga de vértices para depuración de trabajos U-SQL de Azure Data Lake Analytics en Visual Studio](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-download-vertex.png)
 

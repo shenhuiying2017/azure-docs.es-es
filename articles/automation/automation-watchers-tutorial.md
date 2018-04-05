@@ -1,24 +1,17 @@
 ---
-title: "Creación de una tarea de monitor de la cuenta de Azure Automation | Microsoft Docs"
-description: "Obtenga información acerca de cómo crear una tarea de monitor de la cuenta de Azure Automation para inspeccionar los nuevos archivos que se creen en una carpeta."
+title: Creación de una tarea de monitor de la cuenta de Azure Automation
+description: Obtenga información acerca de cómo crear una tarea de monitor de la cuenta de Azure Automation para inspeccionar los nuevos archivos que se creen en una carpeta.
 services: automation
-documentationcenter: 
-author: eamonoreilly
-manager: 
-editor: 
-ms.assetid: 0dd95270-761f-448e-af48-c8b1e82cd821
 ms.service: automation
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 12/11/2017
+author: eamonoreilly
 ms.author: eamono
-ms.openlocfilehash: 294faa48f9840919b087594835706bad8048d45b
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.topic: article
+ms.date: 03/19/2017
+ms.openlocfilehash: 8cd5f77d9711ffc95e6a55e97297a23fd87c6bb7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-an-azure-automation-watcher-tasks-to-track-file-changes-on-a-local-machine"></a>Creación de tareas de monitor de Azure Automation para realizar un seguimiento de los cambios de archivo en un equipo local
 
@@ -28,7 +21,7 @@ En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 > * Importar un runbook de monitor
-> * Crear una variable de Automation
+> * Creación de una variable de Automation
 > * Crear un runbook de acción
 > * Crear una tarea de monitor
 > * Desencadenar un monitor
@@ -142,7 +135,7 @@ Message is Process new file...
 Passed in data is @{FileName=D:\examplefiles\ExampleFile1.txt; Length=0}
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial aprendió lo siguiente:
 

@@ -1,12 +1,12 @@
 ---
-title: "Introducción a la API Table de Azure Cosmos DB | Microsoft Docs"
-description: "Obtenga información sobre cómo puede usar Azure Cosmos DB para almacenar y consultar grandes volúmenes de datos de pares clave-valor con latencia baja mediante las populares API MongoDB de OSS."
+title: Introducción a la API Table de Azure Cosmos DB | Microsoft Docs
+description: Obtenga información sobre cómo puede usar Azure Cosmos DB para almacenar y consultar grandes volúmenes de datos de pares clave-valor con latencia baja mediante las populares API MongoDB de OSS.
 services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: monicar
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/20/2017
 ms.author: mimig
-ms.openlocfilehash: 7e116400f55375afe1e57abc6dadae0536cdfceb
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: ee5ceb29a3782967b0b9682a4b1f3d69cffd0e03
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/29/2018
 ---
-# <a name="introduction-to-azure-cosmos-db-table-api"></a>Introducción a Table API de Azure Cosmos DB
+# <a name="introduction-to-azure-cosmos-db-table-api"></a>Introducción a la API Table de Azure Cosmos DB
 
 [Azure Cosmos DB](introduction.md) proporciona Table API para aplicaciones escritas para Azure Table Storage y que necesitan funcionalidades premium como:
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 01/23/2018
 
 Las aplicaciones escritas para Azure Table Storage pueden migrarse a Azure Cosmos DB mediante la API Table sin realizar ningún cambio en el código y pueden sacar provecho de las funcionalidades premium. Table API tiene SDK de cliente disponibles para .NET, Java, Python y Node.js.
 
-Se recomienda ver el vídeo siguiente, donde Aravind Ramachandran explica cómo empezar a usar la API Table de Azure Cosmos DB:
+Se recomienda ver el vídeo siguiente, donde Aravind Krishna explica cómo empezar a usar Table API de Azure Cosmos DB:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Table-API-for-Azure-Cosmos-DB/player]
 > 
@@ -60,7 +60,7 @@ Crear una cuenta de Azure Cosmos DB en [Azure Portal](https://portal.azure.com).
 > Si ha creado una cuenta de Table API durante la versión preliminar, cree una [nueva cuenta de Table API](create-table-dotnet.md#create-a-database-account) para trabajar con los SDK de Table API disponibles con carácter general.
 >
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Estas son algunas sugerencias para comenzar:
 * [Creación de una aplicación .NET con la API Table](create-table-dotnet.md)

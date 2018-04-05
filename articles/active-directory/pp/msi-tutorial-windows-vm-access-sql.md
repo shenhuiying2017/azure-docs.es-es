@@ -1,8 +1,8 @@
 ---
-title: "Uso de Managed Service Identity (MSI) de máquina virtual Windows para acceder a Azure SQL"
-description: "Tutorial que indica cómo usar Managed Service Identity (MSI) en una máquina virtual Windows para acceder a Azure SQL."
+title: Uso de Managed Service Identity (MSI) de máquina virtual Windows para acceder a Azure SQL
+description: Tutorial que indica cómo usar Managed Service Identity (MSI) en una máquina virtual Windows para acceder a Azure SQL.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: daveba
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: skwan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: b5bab684a7b188d1dc2e1f1f29a772aab8955e43
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1ac3c341f7ffc1911fc063202c043351e412843f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-sql"></a>Uso de Managed Service Identity (MSI) en una máquina virtual Windows para acceder a Azure SQL
 
@@ -46,7 +46,7 @@ Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azur
 En este tutorial, se crea una nueva máquina virtual Windows.  También puede habilitar MSI en una máquina virtual existente.
 
 1.  Haga clic en **Crear un recurso** en la esquina superior izquierda de Azure Portal.
-2.  Seleccione **Compute**y, después, seleccione **Windows Server 2016 Datacenter**. 
+2.  Seleccione **Compute** y, después, seleccione **Windows Server 2016 Datacenter**. 
 3.  Escriba la información de la máquina virtual. El **nombre de usuario** y la **contraseña** creados aquí son las credenciales que se usan para iniciar sesión en la máquina virtual.
 4.  Elija la **suscripción** adecuada de la máquina virtual en la lista desplegable.
 5.  Para seleccionar un nuevo **grupo de recursos** en el que crear la máquina virtual, elija **Crear nuevo**. Cuando haya terminado, haga clic en **Aceptar**.
@@ -137,7 +137,7 @@ b83305de-f496-49ca-9427-e77512f6cc64 0b67a6d6-6090-4ab4-b423-d6edda8e5d9f DevTes
 
 ### <a name="enable-azure-ad-authentication-for-the-sql-server"></a>Habilite la autenticación de Azure AD para el servidor SQL
 
-Ahora que ha creado el grupo y agregado la identidad MSI de la máquina virtual a la pertenencia, puede [configurar la autenticación de Azure AD para el servidor SQL](~/articles/sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-server) mediante los siguientes pasos:
+Ahora que ha creado el grupo y agregado la identidad MSI de la máquina virtual a la pertenencia, puede [configurar la autenticación de Azure AD para el servidor SQL](~/articles/sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance) mediante los siguientes pasos:
 
 1.  En Azure Portal, seleccione **Servidores SQL Server** en el panel de navegación izquierdo.
 2.  Haga clic en el servidor SQL para habilitarlo para la autenticación de Azure AD.
@@ -183,7 +183,7 @@ El código que se ejecuta en la máquina virtual ahora puede obtener un token de
 
 Azure SQL admite de forma nativa la autenticación de Azure AD, por lo que puede aceptar directamente los tokens de acceso obtenidos mediante MSI.  Se usa el método **token de acceso** para la creación de una conexión a SQL.  Forma parte de la integración de Azure SQL con Azure AD y es diferente de proporcionar las credenciales en la cadena de conexión.
 
-Este es un ejemplo de código .Net para abrir una conexión a SQL con un token de acceso.  Este código debe ejecutarse en la máquina virtual para poder acceder al punto de conexión de la identidad MSI de la máquina virtual.  Se requiere **.NET framework 4.6** o posterior para usar el método de token de acceso.  Reemplace los valores de SQL-SERVERNAME y DATABASE en consecuencia.  Tenga en cuenta que el identificador de recurso de Azure SQL es "https://database.windows.net/".
+Este es un ejemplo de código .Net para abrir una conexión a SQL con un token de acceso.  Este código debe ejecutarse en la máquina virtual para poder acceder al punto de conexión de la identidad MSI de la máquina virtual.  Se requiere **.NET framework 4.6** o posterior para usar el método de token de acceso.  Reemplace los valores de SQL-SERVERNAME y DATABASE en consecuencia.  Tenga en cuenta el identificador de recurso para Azure SQL es "https://database.windows.net/".
 
 ```csharp
 using System.Net;

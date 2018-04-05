@@ -1,11 +1,11 @@
 ---
 title: 'Tutorial: Uso de la biblioteca de cliente de Azure Batch para .NET | Microsoft Docs'
-description: "Aprenda los conceptos básicos de Azure Batch y cree una solución sencilla mediante .NET."
+description: Aprenda los conceptos básicos de Azure Batch y cree una solución sencilla mediante .NET.
 services: batch
 documentationcenter: .net
-author: tamram
-manager: timlt
-editor: 
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: 76cb9807-cbc1-405a-8136-d1e53e66e82b
 ms.service: batch
 ms.devlang: dotnet
@@ -13,13 +13,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
 ms.date: 06/28/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 83f751c6b5e44705509804e6872bb16d7c2e1d18
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 9968d18f9e27d7a138831394658b40a483b66709
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="get-started-building-solutions-with-the-batch-client-library-for-net"></a>Introducción a la creación de soluciones con la biblioteca de cliente de Batch para .NET
 
@@ -34,7 +34,7 @@ En este artículo, se explican los aspectos básicos de [Azure Batch][azure_batc
 
 ![Flujo de trabajo de soluciones de Batch (básico)][11]<br/>
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 En este artículo se asume que tiene conocimientos prácticos de C# y Visual Studio. También se asume que puede cumplir los requisitos para la creación de cuentas que se especifican a continuación en Azure y los servicios Batch y Storage.
 
 ### <a name="accounts"></a>Cuentas
@@ -123,7 +123,7 @@ En las secciones siguientes, se desglosarán los pasos que lleva a cabo la aplic
 
 Para comenzar con el paso 1, vaya a la parte superior del método `MainAsync` en el archivo `Program.cs` del proyecto *DotNetTutorial*. Los pasos que se describen a continuación siguen aproximadamente la progresión de las llamadas al método en `MainAsync`.
 
-## <a name="step-1-create-storage-containers"></a>Paso 1: Crear contenedores de Almacenamiento
+## <a name="step-1-create-storage-containers"></a>Paso 1: Crear contenedores de Storage
 ![Crear contenedores en Azure Storage][1]
 <br/>
 

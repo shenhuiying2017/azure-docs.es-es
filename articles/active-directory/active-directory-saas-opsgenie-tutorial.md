@@ -1,23 +1,23 @@
 ---
-title: "Tutorial: Integración de Azure Active Directory con OpsGenie | Microsoft Docs"
-description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y OpsGenie."
+title: 'Tutorial: Integración de Azure Active Directory con OpsGenie | Microsoft Docs'
+description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y OpsGenie.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.assetid: 41b59b22-a61d-4fe6-ab0d-6c3991d1375f
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/28/2017
+ms.date: 03/28/2018
 ms.author: jeedes
-ms.openlocfilehash: b0d8fa13c13ad8d4a85cb482bcd7e440006f0437
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b0cd54c7750e85eb7b4e1ba6be309c585d5a7b4e
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-opsgenie"></a>Tutorial: Integración de Azure Active Directory con OpsGenie
 
@@ -31,7 +31,7 @@ La integración de OpsGenie con Azure AD le proporciona las siguientes ventajas:
 
 Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para configurar la integración de Azure AD con OpsGenie, necesita los siguientes elementos:
 
@@ -47,7 +47,7 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 - Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descripción del escenario
-En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. La situación descrita en este tutorial consta de dos bloques de creación principales:
+En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
 1. Adición de OpsGenie desde la galería
 2. Configuración y comprobación del inicio de sesión único de Azure AD
@@ -63,11 +63,11 @@ Para configurar la integración de OpsGenie en Azure AD, deberá agregar OpsGeni
 
 2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
-    ![Aplicaciones][2]
+    ![APLICACIONES][2]
     
 3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
-    ![Aplicaciones][3]
+    ![APLICACIONES][3]
 
 4. En el cuadro de búsqueda, escriba **OpsGenie**.
 
@@ -86,7 +86,7 @@ Para establecer la relación de vínculo, asigne el valor de **nombre de usuario
 
 Para configurar y probar el inicio de sesión único de Azure AD con OpsGenie, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
+1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
 2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
 3. **[Creación de un usuario de prueba de OpsGenie](#creating-a-opsgenie-test-user)**: el objetivo es tener un homólogo de Britta Simon en OpsGenie que esté vinculado a la representación del usuario en Azure AD.
 4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
@@ -112,17 +112,33 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el port
 
     En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL: `https://app.opsgenie.com/auth/login`
 
-4. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
-
-    ![Configurar inicio de sesión único](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_certificate.png) 
-
-5. Haga clic en el botón **Guardar** .
+4. Haga clic en el botón **Guardar** .
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-opsgenie-tutorial/tutorial_general_400.png)
 
-6. En la sección **Configuración de OpsGenie**, haga clic en **Configurar OpsGenie** para abrir la ventana **Configurar inicio de sesión**. Copie la **URL del servicio de inicio de sesión único de SAML, el identificador de entidad de SAML y la dirección URL de cierre de sesión** de la sección **Referencia rápida**.
+5. En la sección **Configuración de OpsGenie**, haga clic en **Configurar OpsGenie** para abrir la ventana **Configurar inicio de sesión**. Copie la **dirección URL del servicio de inicio de sesión único de SAML** de la sección Referencia rápida.
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_configure.png) 
+    ![Configurar inicio de sesión único](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_configure.png)
+
+6. Para generar la **dirección URL de Metadatos**, lleve a cabo los pasos siguientes:
+
+    a. Haga clic en **Registros de aplicaciones**.
+    
+    ![Configurar inicio de sesión único](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_appregistrations.png)
+   
+    b. Haga clic en **Puntos de conexión** para abrir el cuadro de diálogo **Puntos de conexión**.  
+    
+    ![Configurar inicio de sesión único](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_endpointicon.png)
+
+    c. Haga clic en el botón Copiar para copiar la dirección URL del **DOCUMENTO DE METADATOS DE FEDERACIÓN** y péguela en el Bloc de notas.
+    
+    ![Configurar inicio de sesión único](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_endpoint.png)
+     
+    d. Ahora, vaya a la página de propiedades de **OpsGenie** y copie el **Identificador de la aplicación** con el botón **Copiar** y péguelo en el bloc de notas.
+ 
+    ![Configurar inicio de sesión único](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_appid.png)
+
+    e. Genere la **Dirección URL de metadatos** con el patrón siguiente: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
 
 7. Abra otra instancia del explorador y después inicie sesión en OpsGenie como administrador.
 
@@ -142,9 +158,9 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el port
    
     ![Configuración de OpsGenie](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_09.png)
     
-    a. Pegue la **dirección URL del servicio de inicio de sesión** que ha copiado de Azure Portal en el cuadro de texto **SAML 2.0 Endpoint** (Punto de conexión de SAML 2.0).
+    a. En el cuadro de texto **SAML 2.0 Endpoint** (Punto de conexión SAML 2.0), pegue el valor de la **dirección URL del servicio de inicio de sesión único** que ha copiado de Azure Portal.
     
-    b. Abra el certificado codificado en base 64 descargado en el Bloc de notas, copie su contenido en el Portapapeles y, a continuación, péguelo en el cuadro de texto **Certificado X.500**.
+    b. En el cuadro de texto **URL de metadatos**, pegue la **dirección URL de metadatos** que ha copiado de Azure Portal.
     
     c. Haga clic en **Guardar cambios**.
 
@@ -181,7 +197,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     c. Seleccione **Mostrar contraseña** y anote el valor del cuadro **Contraseña**.
 
-    d. Haga clic en **Crear**.
+    d. Haga clic en **Create**(Crear).
  
 ### <a name="creating-a-opsgenie-test-user"></a>Creación de un usuario de prueba de OpsGenie
 
@@ -203,7 +219,7 @@ El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon 
    
    b. En el cuadro de texto **Nombre completo**, escriba **Britta Simon**.
    
-   c. Haga clic en **Guardar**. 
+   c. Haga clic en **Save**(Guardar). 
 
 >[!NOTE]
 >Britta recibirá un correo electrónico con instrucciones sobre cómo configurar su perfil.
@@ -216,7 +232,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 **Para asignar a Britta Simon a OpsGenie, realice los pasos siguientes:**
 
-1. En Azure Portal, abra la vista de aplicaciones, vaya a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego, haga clic en **Todas las aplicaciones**.
+1. En Azure Portal, abra la vista de aplicaciones, navegue a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego haga clic en **Todas las aplicaciones**.
 
     ![Asignar usuario][201] 
 

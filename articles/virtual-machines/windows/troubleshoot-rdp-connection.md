@@ -1,12 +1,12 @@
 ---
-title: "No es posible conectarse mediante RDP a una máquina virtual Windows en Azure | Microsoft Docs"
-description: "Solución de problemas cuando no se puede conectar a la máquina virtual Windows en Azure mediante Escritorio remoto"
-keywords: "Error de escritorio remoto, error de conexión del escritorio remoto, no se puede conectar a la máquina virtual, solución de problemas con el escritorio remoto"
+title: No es posible conectarse mediante RDP a una máquina virtual Windows en Azure | Microsoft Docs
+description: Solución de problemas cuando no se puede conectar a la máquina virtual Windows en Azure mediante Escritorio remoto
+keywords: Error de escritorio remoto, error de conexión del escritorio remoto, no se puede conectar a la máquina virtual, solución de problemas con el escritorio remoto
 services: virtual-machines-windows
-documentationcenter: 
-author: genlin
+documentationcenter: ''
+author: danielsollondon
 manager: timlt
-editor: 
+editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.assetid: 0d740f8e-98b8-4e55-bb02-520f604f5b18
 ms.service: virtual-machines-windows
@@ -14,13 +14,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
-ms.author: genli
-ms.openlocfilehash: 4731a34d143d402372aaff7c03f95dbf0bb508a4
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.date: 03/23/2018
+ms.author: danis
+ms.openlocfilehash: e2b792743f1b4ba458cff111ab6dd888b0c26d93
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Solución de problemas de conexiones del Escritorio remoto a una máquina virtual de Azure
 La conexión de Protocolo de escritorio remoto (RDP) a la máquina virtual (VM) de Azure basada en Windows puede presentar errores por varios motivos que le impedirán acceder a la máquina virtual. El problema puede originar en el servicio de Escritorio remoto de la máquina virtual, la conexión de red o el cliente de Escritorio remoto en el equipo host. Este artículo le guía por algunos de los métodos más comunes para resolver problemas de conexión de RDP. 
@@ -77,7 +77,7 @@ Después de cada paso de solución de problemas, intente conectarse de nuevo a l
     Seleccione la máquina virtual en Azure Portal. Desplácese hacia abajo en el panel de configuración a la sección **Soporte y solución de problemas** cerca de la parte inferior de la lista. Haga clic en el botón **Estado de los recursos**. Una máquina virtual correcta se notifica como **Disponible**:
    
     ![Comprobación del estado del recurso de máquina virtual en Azure Portal](./media/troubleshoot-rdp-connection/check-resource-health.png)
-6. **Restablezca las credenciales de usuario**. En este paso para solucionar problemas se restablece la contraseña en una cuenta de administrador local cuando no está seguro de las credenciales o las ha olvidado.
+6. **Restablezca las credenciales de usuario**. En este paso para solucionar problemas se restablece la contraseña en una cuenta de administrador local cuando no está seguro de las credenciales o las ha olvidado.  Una vez que haya iniciado sesión en la máquina virtual, debe restablecer la contraseña para ese usuario.
    
     Seleccione la máquina virtual en Azure Portal. Desplácese hacia abajo en el panel de configuración a la sección **Soporte y solución de problemas** cerca de la parte inferior de la lista. Haga clic en el botón **Restablecer contraseña**. Asegúrese de que el **Modo** está establecido en **Restablecer contraseña** y, después, escriba su nombre de usuario y una nueva contraseña. Finalmente, haga clic en el botón **Actualizar**:
    
@@ -207,7 +207,7 @@ Después de cada paso de solución de problemas, intente volver a conectarse a l
     Seleccione la máquina virtual en Azure Portal. Desplácese hacia abajo en el panel de configuración a la sección **Soporte y solución de problemas** cerca de la parte inferior de la lista. Haga clic en el botón **Estado de los recursos**. Una máquina virtual correcta se notifica como **Disponible**:
    
     ![Comprobación del estado del recurso de máquina virtual en Azure Portal](./media/troubleshoot-rdp-connection/classic-check-resource-health.png)
-5. **Restablezca las credenciales de usuario**. En este paso para solucionar problemas se restablece la contraseña en la cuenta de administrador local que haya especificado cuando no está seguro de las credenciales o las haya olvidado.
+5. **Restablezca las credenciales de usuario**. En este paso para solucionar problemas se restablece la contraseña en la cuenta de administrador local que haya especificado cuando no está seguro de las credenciales o las haya olvidado.  Una vez que haya iniciado sesión en la máquina virtual, debe restablecer la contraseña para ese usuario.
    
     Seleccione la máquina virtual en Azure Portal. Desplácese hacia abajo en el panel de configuración a la sección **Soporte y solución de problemas** cerca de la parte inferior de la lista. Haga clic en el botón **Restablecer contraseña**. Escriba su nombre de usuario y una nueva contraseña. Finalmente, haga clic en el botón **Guardar**:
    

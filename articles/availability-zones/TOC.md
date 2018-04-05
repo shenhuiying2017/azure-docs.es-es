@@ -25,9 +25,15 @@
 ### Load Balancer
 #### [¿Qué es Load Balancer?](../load-balancer/load-balancer-standard-overview.md)
 #### [Load Balancer estándar y zonas de disponibilidad](../load-balancer/load-balancer-standard-availability-zones.md)
-#### [Creación de un estándar público de equilibrador de carga con redundancia de zonas con Azure Portal](../load-balancer/load-balancer-get-started-internet-az-portal.md)
-#### [Creación de un estándar de equilibrador de carga con redundancia de zonas con PowerShell](../load-balancer/load-balancer-get-started-internet-az-powershell.md)
-#### [Creación de un estándar público de equilibrador de carga con redundancia de zonas con la CLI](../load-balancer/load-balancer-get-started-internet-az-cli.md)
+
+#### [Creación de una instancia de Load Balancer Estándar pública con redundancia de zonas](../load-balancer/load-balancer-get-started-internet-az-portal.md)
+##### [Creación de una instancia de Load Balancer Estándar pública con redundancia de zonas (PowerShell)](../load-balancer/load-balancer-get-started-internet-az-powershell.md)
+##### [Creación de una instancia de Load Balancer Estándar pública con redundancia de zonas (CLI)](../load-balancer/load-balancer-get-started-internet-az-cli.md)
+#### [Creación de una instancia de Load Balancer Estándar pública zonal](../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-portal.md)
+##### [Creación de una instancia de Load Balancer Estándar pública zonal (PowerShell)](../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-powershell.md)
+##### [Creación de una instancia de Load Balancer Estándar pública con redundancia zonal (CLI)](../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-cli.md)
+#### [Equilibrio de carga de máquinas virtuales en distintas zonas de disponibilidad](../load-balancer/load-balancer-standard-public-availability-zones-portal.md)
+##### [Equilibrio de carga de máquinas virtuales en distintas zonas de disponibilidad con Azure (CLI)](../load-balancer/load-balancer-standard-public-zone-redundant-cli.md)
 
 ### [Dirección IP pública](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)
 
@@ -35,7 +41,7 @@
 #### [Zonas de disponibilidad con SQL Database](../sql-database/sql-database-high-availability.md#availability-zones)
 
 ### Storage
-#### [Almacenamiento con redundancia de zona](../storage/common/storage-redundancy.md#zone-redundant-storage)
+#### [Almacenamiento con redundancia de zona](../storage/common/storage-redundancy-zrs.md)
 
 # Recuperación ante desastres
 ## [Uso de Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/)

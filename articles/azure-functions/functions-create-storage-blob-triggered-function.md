@@ -1,26 +1,26 @@
 ---
-title: "Crear una función en Azure desencadenada por Blob Storage | Microsoft Docs"
-description: "Use Azure Functions para crear una función sin servidor que se invoca mediante elementos agregados a Azure Blob Storage."
+title: Crear una función en Azure desencadenada por Blob Storage | Microsoft Docs
+description: Use Azure Functions para crear una función sin servidor que se invoca mediante elementos agregados a Azure Blob Storage.
 services: azure-functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: d6bff41c-a624-40c1-bbc7-80590df29ded
 ms.service: functions
 ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/07/2017
+ms.date: 03/27/2018
 ms.author: glenga
-ms.custom: mvc
-ms.openlocfilehash: e34d3634b592efe4581135f9dee52bf77d7506cd
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.custom: mvc, cc996988-fb4f-47
+ms.openlocfilehash: 928ea1dbb68206e128f0593ba15cb48935ab1ccf
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="create-a-function-triggered-by-azure-blob-storage"></a>Crear una función desencadenada por Azure Blob Storage
 
@@ -28,12 +28,10 @@ Obtenga información sobre cómo crear una función que se desencadena cuando se
 
 ![Vea el mensaje en los registros.](./media/functions-create-storage-blob-triggered-function/function-app-in-portal-editor.png)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 + Descargue e instale el [Explorador de Microsoft Azure Storage](http://storageexplorer.com/).
 + Una suscripción de Azure. Si no tiene una, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
-
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
 ## <a name="create-an-azure-function-app"></a>Creación de una Function App de Azure
 
@@ -62,7 +60,7 @@ Después, cree una función en la nueva Function App.
     | Configuración | Valor sugerido | Descripción |
     |---|---|---|
     | **Name** | Único en la Function App | Nombre de la función desencadenada por este blob. |
-    | **Ruta de acceso**   | samples-workitems/{name}    | Ubicación de Blob Storage que se está supervisando. El nombre de archivo del blob se pasa en el enlace como parámetro _name_.  |
+    | **Path**   | samples-workitems/{name}    | Ubicación de Blob Storage que se está supervisando. El nombre de archivo del blob se pasa en el enlace como parámetro _name_.  |
     | **Conexión de la cuenta de almacenamiento** | AzureWebJobsStorage | Puede usar la conexión de cuenta de almacenamiento que ya usa la Function App o crear una nueva.  |
 
 3. Haga clic en **Crear** para crear la función.

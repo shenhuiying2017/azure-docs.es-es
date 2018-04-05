@@ -1,11 +1,11 @@
 ---
 title: Uso de la API de Engagement en Android
-description: "Último SDK de Android - Uso de la API de Engagement en Android"
+description: Último SDK de Android - Uso de la API de Engagement en Android
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 09b62659-82ae-4a55-8784-fca0b6b22eaf
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2016
 ms.author: piyushjo;ricksal
-ms.openlocfilehash: d353cd2fe47c54a0282cc5bb1b22b4a56e0cd82c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 79d0652be227dd6703a35d31409cf8e0d9c59519
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-use-the-engagement-api-on-android"></a>Uso de la API de Engagement en Android
+> [!IMPORTANT]
+> Azure Mobile Engagement se retira el 31 de marzo de 2018. Esta página se eliminará poco después.
+> 
+
 Este documento sirve de complemento al documento [Reporting Options with Engagement on Android](mobile-engagement-android-advanced-reporting.md)(Opciones de informes con Engagement en Android). En él se proporciona información detallada acerca de cómo usar la API de Engagement para informar de las estadísticas de la aplicación.
 
 Tenga en cuenta que si solamente desea que Engagement notifique las sesiones, actividades, bloqueos e información técnica de la aplicación, la forma más sencilla es hacer que todas las subclases `Activity` hereden de la clase `EngagementActivity` correspondiente.
@@ -237,7 +241,7 @@ Estos datos se pueden estructurar y usan la clase Bundle de Android (en realidad
             extras.putString("ref_click", "http://foobar.com/blog");
             EngagementAgent.getInstance(context).sendEvent("video_clicked", extras);
 
-### <a name="limits"></a>Límites
+### <a name="limits"></a>límites
 #### <a name="keys"></a>simétricas
 Cada clave de la `Bundle` debe coincidir con la siguiente expresión regular:
 
@@ -267,7 +271,7 @@ Este es un ejemplo de código para enviar el género y la fecha de nacimiento de
             appInfo.putString("expiration", "2016-12-07"); // December 7th 2016
             EngagementAgent.getInstance(context).sendAppInfo(appInfo);
 
-### <a name="limits"></a>Límites
+### <a name="limits"></a>límites
 #### <a name="keys"></a>simétricas
 Cada clave de la `Bundle` debe coincidir con la siguiente expresión regular:
 

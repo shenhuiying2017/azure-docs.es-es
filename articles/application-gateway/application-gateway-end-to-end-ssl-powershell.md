@@ -1,24 +1,22 @@
 ---
-title: "Configuración de SSL de un extremo a otro con Azure Application Gateway | Microsoft Docs"
-description: "En este artículo se describe cómo configurar SSL de un extremo a otro con Azure Application Gateway mediante PowerShell"
+title: Configuración de SSL de un extremo a otro con Azure Application Gateway
+description: En este artículo se describe cómo configurar SSL de un extremo a otro con Azure Application Gateway mediante PowerShell
 services: application-gateway
 documentationcenter: na
-author: davidmu1
-manager: timlt
-editor: tysonn
-ms.assetid: e6d80a33-4047-4538-8c83-e88876c8834e
+author: vhorne
+manager: jpconnock
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/19/2017
-ms.author: davidmu
-ms.openlocfilehash: df14d5c4572a250f9f8951ee3b86e87e6f652782
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 3/27/2018
+ms.author: victorh
+ms.openlocfilehash: 2de7086d7c26d5a655ad5998678f392126ea7e1d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>Configuración de SSL de un extremo a otro con Application Gateway mediante PowerShell
 
@@ -160,7 +158,8 @@ Se deben establecer todos los elementos de configuración antes de crear la puer
    5. Configure el certificado de la puerta de enlace de aplicaciones. Este certificado se usa para descifrar y volver a cifrar el tráfico de la puerta de enlace de aplicaciones.
 
    ```powershell
-   $cert = New-AzureRmApplicationGatewaySSLCertificate -Name cert01 -CertificateFile <full path to .pfx file> -Password <password for certificate file>
+   $password = ConvertTo-SecureString  <password for certificate file> -AsPlainText -Force 
+   $cert = New-AzureRmApplicationGatewaySSLCertificate -Name cert01 -CertificateFile <full path to .pfx file> -Password $password 
    ```
 
    > [!NOTE]
@@ -197,7 +196,7 @@ Se deben establecer todos los elementos de configuración antes de crear la puer
    $rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name 'rule01' -RuleType basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
    ```
 
-   10. Configure el tamaño de la instancia de la puerta de enlace de aplicaciones. Los tamaños disponibles son **Standard\_Small**, **Standard\_Medium** y **Standard\_Large**.  Para la capacidad, los valores disponibles son de **1** a **10**.
+   10. Configure el tamaño de la instancia de la Puerta de enlace de aplicaciones. Los tamaños disponibles son **Standard\_Small**, **Standard\_Medium** y **Standard\_Large**.  Para la capacidad, los valores disponibles son de **1** a **10**.
 
    ```powershell
    $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
@@ -253,7 +252,7 @@ Los pasos anteriores le han llevado por la creación de una aplicación con SSL 
 
 ## <a name="get-an-application-gateway-dns-name"></a>Obtención de un nombre DNS de una puerta de enlace de aplicaciones
 
-Una vez que se crea la puerta de enlace, el siguiente paso es configurar el front-end para la comunicación. La puerta de enlace de aplicaciones requiere un nombre DNS asignado dinámicamente, que no es descriptivo, cuando se utiliza una dirección IP pública. Para asegurarse de que los usuarios finales puedan llegar a la puerta de enlace de aplicaciones, puede utilizar un registro CNAME para que apunte al punto de conexión público de dicha puerta. Para más información, consulte [Configuración de un nombre de dominio personalizado en Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). 
+Una vez creada la puerta de enlace, el siguiente paso consiste en configurar el front-end para la comunicación. La puerta de enlace de aplicaciones requiere un nombre DNS asignado dinámicamente, que no es descriptivo, cuando se utiliza una dirección IP pública. Para asegurarse de que los usuarios finales puedan llegar a la puerta de enlace de aplicaciones, puede utilizar un registro CNAME para que apunte al punto de conexión público de dicha puerta. Para más información, consulte [Configuración de un nombre de dominio personalizado en Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). 
 
 Para configurar un alias, recupere los detalles de la puerta de enlace de aplicaciones y su nombre de IP o DNS asociado mediante el elemento **PublicIPAddress** asociado a dicha puerta de enlace de aplicaciones. Utilice el nombre DNS de la puerta de enlace de aplicaciones para crear un registro CNAME, que hace que las dos aplicaciones web apunten a este nombre DNS. No se recomienda el uso de registros A, ya que la IP virtual puede cambiar al reiniciarse la puerta de enlace de aplicaciones.
 

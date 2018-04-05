@@ -1,12 +1,13 @@
 ---
 title: Aprenda a administrar los servicios web de AzureML mediante API Management | Microsoft Docs
-description: "Una guía que muestra cómo administrar los servicios web de AzureML mediante la Administración de API."
-keywords: "aprendizaje automático, administración de api"
+description: Una guía que muestra cómo administrar los servicios web de AzureML mediante la Administración de API.
+keywords: aprendizaje automático, administración de api
 services: machine-learning
-documentationcenter: 
-author: roalexan
-manager: jhubbard
-editor: 
+documentationcenter: ''
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
+editor: cgronlun
 ms.assetid: 05150ae1-5b6a-4d25-ac67-fb2f24a68e8d
 ms.service: machine-learning
 ms.workload: data-services
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
-ms.author: roalexan
-ms.openlocfilehash: b2c9f53de1abd2aea5fabbefecc5bbb144148a7b
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: fe916df286b0e50430464b3f2f8837b898abb827
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="learn-how-to-manage-azureml-web-services-using-api-management"></a>Aprenda a administrar los servicios de web de AzureML mediante la Administración de API
 ## <a name="overview"></a>Información general
@@ -31,7 +31,7 @@ Azure API Management es un servicio de Azure que le permite administrar los extr
 ## <a name="what-is-azureml"></a>¿Qué es AzureML?
 AzureML es un servicio de Azure para el aprendizaje automático que permite crear, implementar y compartir fácilmente las soluciones de análisis avanzado. Haga clic en [aquí](https://azure.microsoft.com/services/machine-learning/) para obtener información detallada sobre AzureML.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Para completar a esta guía, necesita:
 
 * Una cuenta de Azure. Si no tiene una cuenta de Azure, haga clic [aquí](https://azure.microsoft.com/pricing/free-trial/) para obtener más información sobre cómo crear una cuenta de evaluación gratuita.
@@ -42,15 +42,15 @@ Para completar a esta guía, necesita:
 
 Puede administrar el servicio web Azure Machine Learning con una instancia de API Management.
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. Seleccione **+ Crear un recurso**.
 3. En el cuadro Buscar, escriba "API management" y, a continuación, seleccione el recurso "API management".
-4. Haga clic en **Crear**.
+4. Haga clic en **Create**(Crear).
 5. El valor de **Nombre** se usará para crear una dirección URL única (en este ejemplo se utiliza "demoazureml").
 6. Seleccione los valores de **Suscripción**, **Grupo de recursos** y **Ubicación** de la instancia de servicio.
 7. Especifique el valor de **Nombre de organización** (en este ejemplo se utiliza "demoazureml").
 8. Escriba su **correo electrónico de administrador**: esta dirección de correo electrónico se utilizará para las notificaciones desde el sistema de API Management.
-9. Haga clic en **Crear**.
+9. Haga clic en **Create**(Crear).
 
 El nuevo servicio puede tardar hasta 30 minutos en crearse.
 
@@ -73,7 +73,7 @@ Para crear la API:
 4. Especifique un **Sufijo de URL de API web". Esto se convertirá en la última parte de la dirección URL que los clientes usarán para enviar solicitudes a la instancia del servicio (en este ejemplo se utiliza "azureml-demo").
 5. En **Web API URL scheme** (Esquema de URL de API web), seleccione **HTTPS**.
 6. For **Products** (Productos), seleccione **Starter** (Motor de arranque).
-7. Haga clic en **Guardar**.
+7. Haga clic en **Save**(Guardar).
 
 
 ## <a name="add-the-operations"></a>Adición de operaciones
@@ -110,7 +110,7 @@ En primer lugar, cree una operación para el servicio RRS de AzureML:
 3. En **Modelo de URL**, escriba "`/workspaces/{workspace}/services/{service}/jobs?api-version={apiversion}`".
 4. Escriba un **nombre para mostrar** (en este ejemplo se usa "BES Submit").
 5. Haga clic en **Respuestas** > **AGREGAR** a la izquierda y seleccione **200 Aceptar**.
-6. Haga clic en **Guardar**.
+6. Haga clic en **Save**(Guardar).
 
 ### <a name="start-a-batch-execution-job"></a>Inicio de un trabajo de ejecución por lotes
 
@@ -119,7 +119,7 @@ En primer lugar, cree una operación para el servicio RRS de AzureML:
 3. En **Verbo HTTP**, escriba "`/workspaces/{workspace}/services/{service}/jobs/{jobid}/start?api-version={apiversion}`".
 4. Escriba un **nombre para mostrar** (en este ejemplo se usa "BES Start").
 6. Haga clic en **Respuestas** > **AGREGAR** a la izquierda y seleccione **200 Aceptar**.
-7. Haga clic en **Guardar**.
+7. Haga clic en **Save**(Guardar).
 
 ### <a name="get-the-status-or-result-of-a-batch-execution-job"></a>Obtener el estado o el resultado de un trabajo de ejecución por lotes
 
@@ -128,7 +128,7 @@ En primer lugar, cree una operación para el servicio RRS de AzureML:
 3. En **Modelo de URL**, escriba "`/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}`".
 4. Escriba un **nombre para mostrar** (en este ejemplo se usa "BES Status").
 6. Haga clic en **Respuestas** > **AGREGAR** a la izquierda y seleccione **200 Aceptar**.
-7. Haga clic en **Guardar**.
+7. Haga clic en **Save**(Guardar).
 
 ### <a name="delete-a-batch-execution-job"></a>Eliminación de un trabajo de ejecución por lotes
 
@@ -137,7 +137,7 @@ En primer lugar, cree una operación para el servicio RRS de AzureML:
 3. En **Modelo de URL**, escriba "`/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}`".
 4. Escriba un **nombre para mostrar** (en este ejemplo se usa "BES Delete").
 5. Haga clic en **Respuestas** > **AGREGAR** a la izquierda y seleccione **200 Aceptar**.
-6. Haga clic en **Guardar**.
+6. Haga clic en **Save**(Guardar).
 
 ## <a name="call-an-operation-from-the-developer-portal"></a>Llamada a una operación desde el portal para desarrolladores
 
@@ -173,7 +173,7 @@ Después de invocar una operación, el portal para desarrolladores mostrará el 
 
 ## <a name="appendix-a---creating-and-testing-a-simple-azureml-web-service"></a>Apéndice A: Creación y prueba de un servicio web sencillo de AzureML
 ### <a name="creating-the-experiment"></a>Creación del experimento
-A continuación se muestran los pasos para crear un experimento de Aprendizaje automático de Azure sencillo e implementarlo como un servicio web. El servicio web toma como entrada una columna de texto arbitrario de entrada y devuelve un conjunto de características representadas como números enteros. Por ejemplo:
+A continuación se muestran los pasos para crear un experimento de Aprendizaje automático de Azure sencillo e implementarlo como un servicio web. El servicio web toma como entrada una columna de texto arbitrario de entrada y devuelve un conjunto de características representadas como números enteros. Por ejemplo: 
 
 | Texto | Texto con hash |
 | --- | --- |

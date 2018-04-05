@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: jdial
-ms.openlocfilehash: 9fc44fdd6ce01452ffc2506c599e3d05aa0803e1
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: ffb13d1190535dacbe3a0781a1d3b425a970d26e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="traffic-analytics"></a>Análisis de tráfico
+# <a name="traffic-analytics"></a>Análisis del tráfico
 
-Análisis de tráfico es una solución basada en la nube, que proporciona visibilidad de la actividad de usuarios y aplicaciones en las redes en la nube. Análisis de tráfico permite analizar los registros de flujo del grupo de seguridad de Network Watcher para proporcionar información sobre el flujo de tráfico en la nube de Azure. Con Análisis de tráfico, puede:
+Análisis de tráfico es una solución basada en la nube, que proporciona visibilidad de la actividad de usuarios y aplicaciones en las redes en la nube. Análisis de tráfico permite analizar los registros de flujo del grupo de seguridad de red (NSG) de Network Watcher para proporcionar información sobre el flujo de tráfico en la nube de Azure. Con Análisis de tráfico, puede:
 
 - Visualizar la actividad de la red en las suscripciones de Azure e identificar las zonas activas.
 - Identificar las amenazas de seguridad y proteger la red, con información sobre puertos abiertos, aplicaciones que intentan acceder a Internet y máquinas virtuales (VM) que se conectan a redes no autorizadas.
@@ -39,8 +39,8 @@ Las redes virtuales de Azure tienen registros de flujos de grupos de seguridad d
 ## <a name="key-components"></a>Componentes claves 
 
 - **Grupo de seguridad de red (NSG)**: contiene una lista de reglas de seguridad que permiten o deniegan el tráfico de red a recursos conectados a Azure Virtual Network. Los grupos de seguridad de red se pueden asociar a subredes, máquinas virtuales individuales (clásicas) o interfaces de red (NIC) individuales conectadas a máquinas virtuales (Resource Manager). Para más información, consulte [Introducción a los grupos de seguridad de red](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- **Los registros de flujo del grupo de seguridad de red** le permiten visualizar información sobre el tráfico IP de entrada y salida mediante un grupo de seguridad de red. Estos registros de flujo se escriben en formato JSON y muestran los flujos de entrada y salida en función de cada regla, la NIC a la que se aplica el flujo, información de 5-tupla sobre el flujo (dirección IP de origen o destino, puerto de origen o destino y protocolo), y si se permitió o denegó el tráfico. Para más información acerca de los registros de flujos de un grupo de seguridad de red, consulte [Introducción a los registros de flujo de grupos de seguridad de red](network-watcher-nsg-flow-logging-overview.md).
-- **Log Analytics**: servicio de Azure que recopila datos de supervisión y almacena los datos en un repositorio central. Estos datos pueden incluir eventos, datos de rendimiento o datos personalizados proporcionados mediante la API de Azure. Una vez recopilados, los datos están disponibles para las alertas, el análisis y la exportación. Las aplicaciones de supervisión como Network Performance Monitor y Análisis de tráfico, se crean usando Log Analytics como base. Para más información, consulte [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- Los **registros de flujo del grupo de seguridad de red (NSG)** le permiten visualizar información sobre el tráfico IP de entrada y salida mediante un grupo de seguridad de red. Estos registros de flujo se escriben en formato JSON y muestran los flujos de entrada y salida en función de cada regla, la NIC a la que se aplica el flujo, información de 5-tupla sobre el flujo (dirección IP de origen o destino, puerto de origen o destino y protocolo), y si se permitió o denegó el tráfico. Para más información acerca de los registros de flujos de un grupo de seguridad de red, consulte [Introducción a los registros de flujo de grupos de seguridad de red](network-watcher-nsg-flow-logging-overview.md).
+- **Log Analytics**: servicio de Azure que recopila datos de supervisión y almacena los datos en un repositorio central. Estos datos pueden incluir eventos, datos de rendimiento o datos personalizados proporcionados mediante la API de Azure. Una vez recopilados, los datos están disponibles para las alertas, el análisis y la exportación. Las aplicaciones de supervisión, como Network Performance Monitor y Análisis de tráfico, se crean usando Log Analytics como base. Para más información, consulte [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - **Área de trabajo de Log Analytics**: una instancia de Log Analytics en la que se almacenan los datos que pertenecen a una cuenta de Azure. Para más información acerca de las áreas de trabajo de Log Analytics, consulte [Creación de un área de trabajo de Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - **Network Watcher** es un servicio regional que permite supervisar y diagnosticar problemas en un nivel de escenario de red en Azure. Puede activar y desactivar los registros de flujo del grupo de seguridad de red con Network Watcher. Para más información, consulte [Network Watcher](network-watcher-monitoring-overview.md#network-watcher).
 
@@ -52,13 +52,13 @@ Análisis de tráfico examina los registros de flujo sin formato del grupo de se
 
 ## <a name="supported-regions"></a>Regiones admitidas
 
-Análisis de tráfico está disponible en versión preliminar. Las características de la versión preliminar no tienen el mismo nivel de disponibilidad y confiabilidad que las características de la versión general.  Mientras está en versión preliminar, puede usar Análisis de tráfico para grupos de seguridad de red en cualquiera de las siguientes regiones: Centro-oeste de EE. UU., Este de EE. UU., Este de EE. UU. 2, Centro y norte de EE. UU., Centro y Sur de EE. UU., Centro de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2, Europa Occidental, Europa del Norte, Oeste de Reino Unido, Sur de Reino Unido, Este de Australia y Sudeste de Australia. El área de trabajo de Log Analytics debe existir en las regiones Centro-oeste de EE. UU., Este de EE. UU., Europa Occidental, Sudeste de Australia o Sur de Reino Unido.
+Análisis de tráfico está disponible en versión preliminar. Las características de la versión preliminar no tienen el mismo nivel de disponibilidad y confiabilidad que las características de la versión general.  Si bien se encuentra en versión preliminar, puede usar Análisis de tráfico para grupos de seguridad de red en cualquiera de las siguientes regiones: Centro-oeste de EE. UU., Este de EE. UU., Este de EE. UU. 2, Centro y norte de EE. UU., Centro y Sur de EE. UU., Centro de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2, Europa Occidental, Europa del Norte, Oeste de Reino Unido, Sur de Reino Unido, Este de Australia y Sudeste de Australia. El área de trabajo de Log Analytics debe existir en las regiones Centro-oeste de EE. UU., Este de EE. UU., Europa Occidental, Sudeste de Australia o Sur de Reino Unido.
 
 ## <a name="prerequisites"></a>requisitos previos
 
 ### <a name="enable-network-watcher"></a>Habilitación de Network Watcher 
 
-Para analizar el tráfico, debe tener una instancia de Network Watcher existente, o [habilitar una instancia de esta](network-watcher-create.md) en cada región en la que haya grupos de seguridad de red de los que desee analizar el tráfico. Análisis de tráfico se puede habilitar para los grupos de seguridad de red hospedados en cualquiera de las [regiones admitidas](#supported-regions).
+Para analizar el tráfico, debe tener una instancia de Network Watcher existente, o [habilitar una instancia de Network Watcher](network-watcher-create.md) en cada región en la que haya grupos de seguridad de red donde desee analizar el tráfico. Análisis de tráfico se puede habilitar para los grupos de seguridad de red hospedados en cualquiera de las [regiones admitidas](#supported-regions).
 
 ### <a name="re-register-the-network-resource-provider"></a>Volver a registrar el proveedor de recursos de red 
 
@@ -107,7 +107,7 @@ Seleccione las opciones siguientes, tal y como se muestra en la imagen:
 4. Seleccione *Activo* en **Estado de Análisis de tráfico**.
 5. Seleccione un área de trabajo de Log Analytics (OMS) existente o seleccione **Crear área de trabajo nueva** para crear una. Análisis de tráfico usa un área de trabajo de Log Analytics para almacenar los datos agregados e indexados que se emplean posteriormente para generar los análisis. Si selecciona un área de trabajo existente, esta debe estar en una de las [regiones admitidas](#traffic-analytics-supported-regions) y se debe haber actualizado al nuevo lenguaje de consulta. Si no desea actualizar un área de trabajo existente, o no tiene ninguna en una región admitida, cree una nueva. Para más información sobre los lenguajes de consulta, consulte [Actualización de Azure Log Analytics para la nueva búsqueda de registros](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
-    No es necesario que el área de trabajo de Log Analytics (OMS) que hospeda la solución Análisis de tráfico y los grupos de seguridad de red estén en la misma región. Por ejemplo, puede tener Análisis de tráfico en un área de trabajo de la región Europa Occidental y, en cambio, tener los grupos de seguridad de red en las regiones Este de EE. UU. y Oeste de EE. UU. Se pueden configurar varios grupos de seguridad de red en la misma área de trabajo.
+    No es necesario que el área de trabajo de Log Analytics que hospeda la solución Análisis de tráfico y los grupos de seguridad de red estén en la misma región. Por ejemplo, puede tener Análisis de tráfico en un área de trabajo de la región Europa Occidental y, en cambio, tener los grupos de seguridad de red en las regiones Este de EE. UU. y Oeste de EE. UU. Se pueden configurar varios grupos de seguridad de red en la misma área de trabajo.
 6. Seleccione **Guardar**.
 
     ![Selección de cuenta de almacenamiento, área de trabajo de Log Analytics y habilitación de Análisis de tráfico](media/traffic-analytics/selection-of-storage-account-log-analytics-workspace-and-traffic-analytics-enablement.png)

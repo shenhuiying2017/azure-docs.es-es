@@ -1,11 +1,11 @@
 ---
-title: "Streaming en vivo con Azure Media Services para crear transmisiones con velocidad de bits múltiple | Microsoft Docs"
-description: "En este tema se describe cómo configurar un canal que recibe una transmisión en vivo de una sola velocidad de bits desde un codificador local y, a continuación, realiza la codificación en directo a una transmisión de velocidad de bits adaptable con Media Services. Posteriormente, la secuencia se puede enviar a aplicaciones de reproducción cliente a través de uno o más puntos de conexión de streaming, mediante uno de los siguientes protocolos de streaming adaptable: HLS, Smooth Stream y MPEG DASH."
+title: Streaming en vivo con Azure Media Services para crear transmisiones con velocidad de bits múltiple | Microsoft Docs
+description: 'En este tema se describe cómo configurar un canal que recibe una transmisión en vivo de una sola velocidad de bits desde un codificador local y, a continuación, realiza la codificación en directo a una transmisión de velocidad de bits adaptable con Media Services. Posteriormente, la secuencia se puede enviar a aplicaciones de reproducción cliente a través de uno o más puntos de conexión de streaming, mediante uno de los siguientes protocolos de streaming adaptable: HLS, Smooth Stream y MPEG DASH.'
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: anilmur
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 30ce6556-b0ff-46d8-a15d-5f10e4c360e2
 ms.service: media-services
 ms.workload: media
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: f7cd457fe0660718c3939d39ec1825009c5e4d17
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 9d89849bb982804515b21de8c251859591dbf6ce
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Streaming en vivo con Azure Media Services para crear transmisiones con velocidad de bits múltiple
+
+> [!NOTE]
+> A partir del 12 de mayo de 2018, los canales en directo ya no admitirán el protocolo de ingesta de secuencia de transporte RTP/MPEG-2. Migre de RTP/MPEG-2 a RTMP o protocolos de ingeesta de MP4 fragmentado (Smooth Streaming).
+
 ## <a name="overview"></a>Información general
 En Azure Media Services (AMS), un **canal** representa una canalización para procesar contenido de streaming en vivo. Los **canales** reciben el flujo de entrada en directo de dos maneras posibles:
 
@@ -45,7 +49,7 @@ A partir de la versión 2.10 de Media Services, al crear un canal, puede especif
 > 
 
 ## <a name="billing-implications"></a>Implicaciones de facturación
-Un canal de codificación en directo comienza la facturación tan pronto como su estado realiza la transición a "En ejecución" a través de la API.   También puede ver el estado en Azure Portal o en la herramienta del Explorador de Azure Media Services (http://aka.ms/amse).
+Un canal de codificación en directo comienza la facturación tan pronto como su estado realiza la transición a "En ejecución" a través de la API.   También puede ver el estado en Azure Portal o en la herramienta del Explorador de Azure Media Services (http://aka.ms/amse)).
 
 En la tabla siguiente se muestra cómo se asignan los estados del canal a los estados de facturación en la API y Azure Portal. Tenga en cuenta que los estados son ligeramente diferentes entre la API y la experiencia de usuario del portal. En cuanto un canal se encuentre en el estado "En ejecución" a través de la API, o en el estado "Listo" o "Streaming" en Azure Portal, la facturación estará activa.
 Para hacer que el canal deje de facturarle, tendrá que detener el canal a través de la API o en Azure Portal.
@@ -217,7 +221,7 @@ Puede obtener la dirección URL de vista previa al crear el canal. Para obtenerl
 Una vez que el canal empieza a consumir datos, puede obtener una vista previa de la secuencia.
 
 > [!NOTE]
-> Actualmente la secuencia de vista previa solo se puede entregar en formato MP4 fragmentado (Smooth Streaming), independientemente del tipo de entrada especificado. Puede usar el reproductor [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) para probar el formato Smooth Stream. También puede usar un reproductor hospedado en Azure Portal para ver la transmisión.
+> Actualmente la secuencia de vista previa solo se puede entregar en formato MP4 fragmentado (Smooth Streaming), independientemente del tipo de entrada especificado. Puede usar el reproductor [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) para probar el streaming con velocidad de transmisión adaptable. También puede usar un reproductor hospedado en Azure Portal para ver la transmisión.
 > 
 > 
 
@@ -381,7 +385,7 @@ En la tabla siguiente se muestra cómo se asignan los estados del canal al modo 
 * De forma predeterminada solo puede agregar 5 canales a su cuenta de Media Services. Esta es una cuota de advertencia a todas las cuentas nuevas. Para obtener más información, consulte [Cuotas y limitaciones](media-services-quotas-and-limitations.md).
 * No se puede cambiar el protocolo de entrada mientras el canal o sus programas asociados se están ejecutando. Si necesita diferentes protocolos, debe crear canales independientes para cada protocolo de entrada.
 * Solo se le cobrará cuando el canal esté en estado **En ejecución** . Para obtener más información, consulte [esta](media-services-manage-live-encoder-enabled-channels.md#states) sección.
-* Actualmente, la duración máxima recomendada de un evento en directo es de 8 horas. Si necesita ejecutar un canal durante periodos más prolongados, póngase en contacto con amslived@microsoft.com.
+* Actualmente, la duración máxima recomendada de un evento en directo es de 8 horas. Si necesita ejecutar un canal durante períodos más prolongados, póngase en contacto con amslived@microsoft.com.
 * Asegúrese de que el punto de conexión de streaming desde el que va a transmitir el contenido tenga el estado **En ejecución**.
 * Al introducir varias pistas de idioma y realizar codificación en directo con Azure, solo se admite RTP como entrada de varios idiomas. Puede definir hasta ocho secuencias de audio con MPEG-2 TS a través de RTP. Actualmente no se admite la introducción de varias pistas de audio con Smooth Streaming ni RTMP. Al realizar la codificación en directo con [codificaciones en directo locales](media-services-live-streaming-with-onprem-encoders.md), no hay ninguna limitación de este tipo porque todo lo que se envía a AMS pasa a través de un canal sin más procesamiento.
 * El valor predeterminado de codificación usa la noción de "velocidad de fotogramas máxima" de 30 fps. Por tanto, si la entrada es de 60fps 59.97i, los fotogramas de entrada se quitan o se elimina su entrelazado a 30/29.97 fps. Si la entrada es 50fps/50i, los fotogramas de entrada se quitan o se elimina su entrelazado a 25 fps. Si la entrada es de 25 fps, la salida permanece a 25 fps.

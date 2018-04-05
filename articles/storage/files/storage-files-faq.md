@@ -1,23 +1,23 @@
 ---
-title: "Preguntas más frecuentes sobre Azure Files | Microsoft Docs"
+title: Preguntas más frecuentes sobre Azure Files | Microsoft Docs
 description: Obtenga respuestas a algunas preguntas frecuentes sobre Azure Files.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: RenaShahMSFT
 manager: aungoo
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 12/04/2017
 ms.author: renash
-ms.openlocfilehash: 8762b2cca03f4c95f7543803a024bff4573927a1
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e203787bffa80b324508f7df8f8e7a8c62355695
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="frequently-asked-questions-about-azure-files"></a>Preguntas más frecuentes sobre Azure Files
 [Azure Files](storage-files-introduction.md) le ofrece recursos compartidos de archivos en la nube totalmente administrados, a los que se puede obtener acceso mediante el protocolo de [Bloque de mensajes del servidor (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) estándar, también conocido como Sistema de archivos de Internet común o CIFS. Los recursos compartidos de archivos de Azure se pueden montar simultáneamente en implementaciones de Windows, Linux y macOS en la nube o locales. También puede almacenar en caché recursos compartidos de archivos de Azure en equipos de Windows Server mediante el uso de Azure File Sync (versión preliminar) para tener un acceso rápido cerca de donde se usan los datos.
@@ -232,7 +232,7 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
 ## <a name="backup"></a>Backup
 * <a id="backup-share"></a>
 **¿Cómo puedo realizar una copia de seguridad de mi recurso compartido de archivos de Azure?**  
-    Puede usar [instantáneas periódicas de recursos compartidos (versión preliminar)](storage-how-to-use-files-snapshots.md) para evitar cualquier eliminación accidental. También puede usar AzCopy, Robocopy o una herramienta de copia de seguridad de terceros que pueda hacer una copia de seguridad de un recurso compartido de archivos montado. 
+    Puede usar [instantáneas periódicas de recursos compartidos](storage-snapshots-files.md) para evitar cualquier eliminación accidental. También puede usar AzCopy, Robocopy o una herramienta de copia de seguridad de terceros que pueda hacer una copia de seguridad de un recurso compartido de archivos montado. 
 
 ## <a name="share-snapshots"></a>Instantáneas de recursos compartido
 ### <a name="share-snapshots-general"></a>Instantáneas de recurso compartido: general
@@ -255,6 +255,10 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
 * <a id="snapshot-limits"></a>
 **¿Hay límites en el número de instantáneas de recurso compartido que se pueden usar?**  
     Sí. Azure Files puede retener un máximo de 200 instantáneas de recurso compartido. Las instantáneas de recurso compartido no cuentan en la cuota del recurso compartido, así que no hay ningún límite de recurso compartido en el espacio total usado por todas las instantáneas de recurso compartido. Los límites de cuenta de almacenamiento se siguen aplicando. Una vez que llegue a las 200 instantáneas de recurso compartido, debe eliminar las instantáneas más antiguas para poder crear otras.
+* <a id="snapshot-cost"></a>
+**¿Cuánto cuestan las instantáneas de recurso compartido?**  
+    El costo de transacciones estándar y de almacenamiento estándar se aplicará a la instantánea. Las instantáneas tienen una naturaleza incremental. La instantánea de base es el recurso compartido mismo. Todas las instantáneas siguientes son incrementales y solo almacenarán la diferencia de la instantánea anterior. Esto significa que los cambios diferenciales que se verán en la factura será mínimos si la renovación de la carga de trabajo es mínima. Vea la [página de precios](https://azure.microsoft.com/en-us/pricing/details/storage/files/) para obtener información sobre precios estándar de Azure Files. En la actualidad, la manera de ver el tamaño consumido por instantánea de recurso compartido es comparando la capacidad facturada con la capacidad usada. Estamos trabajando en herramientas para mejorar los informes.
+
 
 ### <a name="create-share-snapshots"></a>Creación de instantáneas de recurso compartido
 * <a id="file-snaphsots"></a>

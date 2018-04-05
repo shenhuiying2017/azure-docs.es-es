@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
-ms.openlocfilehash: 5d6d81678d1b3c63b52b34e79979d06fdc981ad0
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 8905b708101e78691c14168edf7afd659afa92a4
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="mount-an-azure-file-share-and-access-the-share-in-windows"></a>Montaje de un recurso compartido de archivos de Azure y acceso al recurso compartido en Windows
 [Azure Files](storage-files-introduction.md) es el sencillo sistema de archivos en la nube de Microsoft. Los recursos compartidos de archivos de Azure se pueden montar en Windows y Windows Server. En este artículo se muestran tres maneras diferentes para montar un recurso compartido de archivos de Azure en Windows: con la interfaz del explorador de archivos, a través de PowerShell y mediante el símbolo del sistema. 
@@ -86,7 +86,7 @@ Una vez que se han almacenado las credenciales, ya no tiene que proporcionarlas 
     
     ![Captura de pantalla del menú desplegable "Conectar a unidad de red"](./media/storage-how-to-use-files-windows/1_MountOnWindows10.png)
 
-3. **Copie la ruta de acceso UNC desde el panel "Conectar" de Azure Portal**: una descripción detallada de cómo buscar esta información puede encontrarse [aquí](storage-how-to-use-files-portal.md#connect-to-file-share).
+3. **Copie la ruta de acceso UNC del panel Conectar en Azure Portal.** 
 
     ![Ruta de acceso UNC en el panel Conectar de Azure Files](./media/storage-how-to-use-files-windows/portal_netuse_connect.png)
 

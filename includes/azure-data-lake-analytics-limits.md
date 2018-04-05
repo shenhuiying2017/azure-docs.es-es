@@ -2,7 +2,7 @@ Análisis de Data Lake facilita la compleja tarea de administrar infraestructura
 
 | **Recurso** | **Límite predeterminado** | **Comentarios** |
 | --- | --- | --- |
-| Número máximo de trabajos simultáneos |20 | | |
-| Número máximo de unidades de análisis por cuenta |250 | Use cualquier combinación de hasta un máximo de 250 unidades de análisis entre 20 trabajos. |
+| Número máximo de trabajos simultáneos |20 | |
+| Número máximo de unidades de análisis por cuenta |250 | Use cualquier combinación de hasta un máximo de 250 unidades de análisis entre 20 trabajos.  Si quiere aumentar este límite, póngase en contacto con el soporte técnico de Microsoft. |
 | Tamaño máximo del script para el envío de trabajos | 3 MB | |
-
+| Número máximo de cuentas de ADLA por región y suscripción | 5 | Si quiere aumentar este límite, póngase en contacto con el soporte técnico de Microsoft. |

@@ -1,6 +1,6 @@
 ---
 title: Reliable Actors en Service Fabric | Microsoft Docs
-description: "Describe cómo Reliable Actors se superpone encima de Reliable Services y usa las características de la plataforma Service Fabric."
+description: Describe cómo Reliable Actors se superpone encima de Reliable Services y usa las características de la plataforma Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 3/9/2018
 ms.author: vturecek
-ms.openlocfilehash: ee248cb656eeb54e259ff1adf45080a207b5a866
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 088f56f33c85d3c590acf4a2eaa660a9d586f7ec
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-reliable-actors-use-the-service-fabric-platform"></a>Uso de la plataforma Service Fabric por parte de actores confiables
 En este artículo se explica cómo funciona Reliable Actors en la plataforma de Azure Service Fabric. Reliable Actors se ejecuta en un marco de trabajo que se hospeda en la implementación de un servicio de confianza con estado llamado *servicio de actor*. El servicio de actor contiene todos los componentes necesarios para administrar el ciclo de vida y el envío de mensajes de sus actores:
@@ -42,282 +42,10 @@ En Reliable Services, el servicio hereda la clase `StatefulService`. Esta clase 
 * Funcionalidad compartida para todos los actores, por ejemplo, un interruptor.
 * Llamadas de procedimiento remoto en el propio servicio de actor y en cada actor individual.
 
-### <a name="using-the-actor-service"></a>Uso del servicio de actor
-Las instancias de actor tienen acceso al servicio de actor en que se ejecutan. A través del servicio de actor, las instancias de actor pueden obtener el contexto de servicio mediante programación. El contexto de servicio tiene el identificador de partición, el nombre del servicio, el nombre de la aplicación y otra información específica de la plataforma de Service Fabric:
+> [!NOTE]
+> Los servicios sin estado no son compatibles actualmente en Java/Linux.
 
-```csharp
-Task MyActorMethod()
-{
-    Guid partitionId = this.ActorService.Context.PartitionId;
-    string serviceTypeName = this.ActorService.Context.ServiceTypeName;
-    Uri serviceInstanceName = this.ActorService.Context.ServiceName;
-    string applicationInstanceName = this.ActorService.Context.CodePackageActivationContext.ApplicationName;
-}
-```
-```Java
-CompletableFuture<?> MyActorMethod()
-{
-    UUID partitionId = this.getActorService().getServiceContext().getPartitionId();
-    String serviceTypeName = this.getActorService().getServiceContext().getServiceTypeName();
-    URI serviceInstanceName = this.getActorService().getServiceContext().getServiceName();
-    String applicationInstanceName = this.getActorService().getServiceContext().getCodePackageActivationContext().getApplicationName();
-}
-```
-
-
-Del mismo modo que ocurre con todos los Reliable Services, el servicio de actor se debe registrar con un tipo de servicio en el tiempo de ejecución de Service Fabric. Con el fin de que el servicio de actor ejecute las instancias de actor, el tipo de actor también se debe registrar con el servicio de actor. El método de registro `ActorRuntime` realiza este trabajo para los actores. En el caso más simple, puede registrar el tipo de actor y se usará implícitamente el servicio de actor con configuración predeterminada:
-
-```csharp
-static class Program
-{
-    private static void Main()
-    {
-        ActorRuntime.RegisterActorAsync<MyActor>().GetAwaiter().GetResult();
-
-        Thread.Sleep(Timeout.Infinite);
-    }
-}
-```
-
-Como alternativa, puede usar una expresión lambda para construir el servicio de actor. Después puede configurar el servicio de actor, así como también construir de manera explícita las instancias de actor, donde puede insertar dependencias en su actor a través de su constructor:
-
-```csharp
-static class Program
-{
-    private static void Main()
-    {
-        ActorRuntime.RegisterActorAsync<MyActor>(
-            (context, actorType) => new ActorService(context, actorType, () => new MyActor()))
-            .GetAwaiter().GetResult();
-
-        Thread.Sleep(Timeout.Infinite);
-    }
-}
-```
-```Java
-static class Program
-{
-    private static void Main()
-    {
-      ActorRuntime.registerActorAsync(
-              MyActor.class,
-              (context, actorTypeInfo) -> new FabricActorService(context, actorTypeInfo),
-              timeout);
-
-        Thread.sleep(Long.MAX_VALUE);
-    }
-}
-```
-
-### <a name="actor-service-methods"></a>Métodos de servicio de actor
-El servicio de actor implementa `IActorService` (C#) o `ActorService` (Java), que, a su vez, implementa `IService` (C#) o `Service` (Java). Esta es la interfaz que usa el servicio remoto de Reliable Services, que permite llamadas de procedimiento remoto en los métodos de servicio. Contiene métodos de nivel de servicio a los que se puede llamar de manera remota a través del servicio remoto.
-
-#### <a name="enumerating-actors"></a>Enumeración de los actores
-El servicio de actor permite que un cliente enumere los metadatos sobre los actores que el servicio hospeda. Debido a que el servicio de actor es un servicio con estado particionado, la enumeración se realiza por partición. Dado que cada partición puede contener muchos actores, la enumeración se devuelve como un conjunto de resultados paginados. Las páginas entran en bucle hasta que se leen todas. El siguiente ejemplo muestra cómo crear una lista de todos los actores activos en una partición de un servicio de actor:
-
-```csharp
-IActorService actorServiceProxy = ActorServiceProxy.Create(
-    new Uri("fabric:/MyApp/MyService"), partitionKey);
-
-ContinuationToken continuationToken = null;
-List<ActorInformation> activeActors = new List<ActorInformation>();
-
-do
-{
-    PagedResult<ActorInformation> page = await actorServiceProxy.GetActorsAsync(continuationToken, cancellationToken);
-
-    activeActors.AddRange(page.Items.Where(x => x.IsActive));
-
-    continuationToken = page.ContinuationToken;
-}
-while (continuationToken != null);
-```
-
-```Java
-ActorService actorServiceProxy = ActorServiceProxy.create(
-    new URI("fabric:/MyApp/MyService"), partitionKey);
-
-ContinuationToken continuationToken = null;
-List<ActorInformation> activeActors = new ArrayList<ActorInformation>();
-
-do
-{
-    PagedResult<ActorInformation> page = actorServiceProxy.getActorsAsync(continuationToken);
-
-    while(ActorInformation x: page.getItems())
-    {
-         if(x.isActive()){
-              activeActors.add(x);
-         }
-    }
-
-    continuationToken = page.getContinuationToken();
-}
-while (continuationToken != null);
-```
-
-#### <a name="deleting-actors"></a>Eliminación de actores
-El servicio de actor también proporciona una función para eliminar actores:
-
-```csharp
-ActorId actorToDelete = new ActorId(id);
-
-IActorService myActorServiceProxy = ActorServiceProxy.Create(
-    new Uri("fabric:/MyApp/MyService"), actorToDelete);
-
-await myActorServiceProxy.DeleteActorAsync(actorToDelete, cancellationToken)
-```
-```Java
-ActorId actorToDelete = new ActorId(id);
-
-ActorService myActorServiceProxy = ActorServiceProxy.create(
-    new URI("fabric:/MyApp/MyService"), actorToDelete);
-
-myActorServiceProxy.deleteActorAsync(actorToDelete);
-```
-
-Si desea más información sobre cómo eliminar actores y su estado, vea la [documentación sobre el ciclo de vida de un actor](service-fabric-reliable-actors-lifecycle.md).
-
-### <a name="custom-actor-service"></a>Servicio de actor personalizado
-Mediante el uso de la expresión lambda del registro de actor, puede registrar su propio servicio de actor personalizado que deriva de `ActorService` (C#) y `FabricActorService` (Java). En este servicio de actor personalizado, puede implementar su propia funcionalidad de nivel de servicio mediante la escritura de una clase de servicio que hereda `ActorService` (C#) o `FabricActorService` (Java). Un servicio de actor personalizado hereda toda la funcionalidad de tiempo de ejecución de los actores de `ActorService` (C#) o `FabricActorService` (Java) y se puede usar para implementar sus propios métodos de servicio.
-
-```csharp
-class MyActorService : ActorService
-{
-    public MyActorService(StatefulServiceContext context, ActorTypeInformation typeInfo, Func<ActorBase> newActor)
-        : base(context, typeInfo, newActor)
-    { }
-}
-```
-```Java
-class MyActorService extends FabricActorService
-{
-    public MyActorService(StatefulServiceContext context, ActorTypeInformation typeInfo, BiFunction<FabricActorService, ActorId, ActorBase> newActor)
-    {
-         super(context, typeInfo, newActor);
-    }
-}
-```
-
-```csharp
-static class Program
-{
-    private static void Main()
-    {
-        ActorRuntime.RegisterActorAsync<MyActor>(
-            (context, actorType) => new MyActorService(context, actorType, () => new MyActor()))
-            .GetAwaiter().GetResult();
-
-        Thread.Sleep(Timeout.Infinite);
-    }
-}
-```
-```Java
-public class Program
-{
-    public static void main(String[] args)
-    {
-        ActorRuntime.registerActorAsync(
-                MyActor.class,
-                (context, actorTypeInfo) -> new FabricActorService(context, actorTypeInfo),
-                timeout);
-        Thread.sleep(Long.MAX_VALUE);
-    }
-}
-```
-
-#### <a name="implementing-actor-backup-and-restore"></a>Implementación de la copia de seguridad y restauración de los actores
- En el siguiente ejemplo, el servicio de actor personalizado expone un método para crear una copia de seguridad de los datos de actor mediante el uso del agente de escucha remoto que ya se encuentra presente en `ActorService`:
-
-```csharp
-public interface IMyActorService : IService
-{
-    Task BackupActorsAsync();
-}
-
-class MyActorService : ActorService, IMyActorService
-{
-    public MyActorService(StatefulServiceContext context, ActorTypeInformation typeInfo, Func<ActorBase> newActor)
-        : base(context, typeInfo, newActor)
-    { }
-
-    public Task BackupActorsAsync()
-    {
-        return this.BackupAsync(new BackupDescription(PerformBackupAsync));
-    }
-
-    private async Task<bool> PerformBackupAsync(BackupInfo backupInfo, CancellationToken cancellationToken)
-    {
-        try
-        {
-           // store the contents of backupInfo.Directory
-           return true;
-        }
-        finally
-        {
-           Directory.Delete(backupInfo.Directory, recursive: true);
-        }
-    }
-}
-```
-```Java
-public interface MyActorService extends Service
-{
-    CompletableFuture<?> backupActorsAsync();
-}
-
-class MyActorServiceImpl extends ActorService implements MyActorService
-{
-    public MyActorService(StatefulServiceContext context, ActorTypeInformation typeInfo, Func<FabricActorService, ActorId, ActorBase> newActor)
-    {
-       super(context, typeInfo, newActor);
-    }
-
-    public CompletableFuture backupActorsAsync()
-    {
-        return this.backupAsync(new BackupDescription((backupInfo, cancellationToken) -> performBackupAsync(backupInfo, cancellationToken)));
-    }
-
-    private CompletableFuture<Boolean> performBackupAsync(BackupInfo backupInfo, CancellationToken cancellationToken)
-    {
-        try
-        {
-           // store the contents of backupInfo.Directory
-           return true;
-        }
-        finally
-        {
-           deleteDirectory(backupInfo.Directory)
-        }
-    }
-
-    void deleteDirectory(File file) {
-        File[] contents = file.listFiles();
-        if (contents != null) {
-            for (File f : contents) {
-               deleteDirectory(f);
-             }
-        }
-        file.delete();
-    }
-}
-```
-
-
-En este ejemplo, `IMyActorService` es un contrato remoto que implementa `IService` (C#) y `Service` (Java) y, luego, lo implementa `MyActorService`. Si agrega este contrato remoto, los métodos de `IMyActorService` ahora también están a disposición de un cliente si se crea un proxy remoto a través de `ActorServiceProxy`:
-
-```csharp
-IMyActorService myActorServiceProxy = ActorServiceProxy.Create<IMyActorService>(
-    new Uri("fabric:/MyApp/MyService"), ActorId.CreateRandom());
-
-await myActorServiceProxy.BackupActorsAsync();
-```
-```Java
-MyActorService myActorServiceProxy = ActorServiceProxy.create(MyActorService.class,
-    new URI("fabric:/MyApp/MyService"), actorId);
-
-myActorServiceProxy.backupActorsAsync();
-```
+Para obtener más información, consulte [Implementing service-level features in your actor service](service-fabric-reliable-actors-using.md) (Implementación de características de nivel de servicio en el servicio de actor).
 
 ## <a name="application-model"></a>Modelo de aplicación
 Los servicios de actor son Reliable Services, por lo que el modelo de aplicación es el mismo. Sin embargo, las herramientas de generación del marco de trabajo de actor generan algunos de los archivos del modelo de aplicación por usted.
@@ -369,34 +97,6 @@ ActorProxyBase.create(MyActor.class, new ActorId(1234));
 
 Cuando se usan GUID/UUID y cadenas, se aplica un algoritmo hash a los valores en un Int64. Sin embargo, cuando se brinda explícitamente un valor Int64 a una clase `ActorId`, el valor Int64 se asignará directamente a una partición sin otra aplicación del algoritmo hash. Puede usar esta técnica para controlar en qué partición se ubican los actores.
 
-## <a name="actor-using-remoting-v2-stack"></a>Actor que utiliza la pila de comunicación remota V2
-Con el paquete de NuGet 2.8, los usuarios ahora pueden utilizar la pila de comunicación remota V2, que tiene un mejor rendimiento y proporciona características como la serialización personalizada. La comunicación remota V2 no es compatible con la pila de comunicación remota existente (en adelante, la llamaremos la pila de comunicación remota V1).
-
-Los cambios siguientes son necesarios para usar la pila de comunicación remota V2.
- 1. Agregue el siguiente atributo de ensamblado en las interfaces de actor.
-   ```csharp
-   [assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.V2Listener,RemotingClient = RemotingClient.V2Client)]
-   ```
-
- 2. Compile y actualice los proyectos ActorService y Actor Client para empezar a usar la pila V2.
-
-### <a name="actor-service-upgrade-to-remoting-v2-stack-without-impacting-service-availability"></a>Actualización del servicio de actor a la pila de comunicación remota V2 sin afectar a la disponibilidad del servicio
-Este cambio consiste en una actualización en dos pasos. Siga los pasos en la misma secuencia que se muestra.
-
-1.  Agregue el siguiente atributo de ensamblado en las interfaces de actor. Este atributo iniciará dos agentes de escucha para ActorService, el agente de escucha V1 (existente) y V2. Actualice ActorService con este cambio.
-
-  ```csharp
-  [assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.CompatListener,RemotingClient = RemotingClient.V2Client)]
-  ```
-
-2. Actualice ActorClients después de completar la actualización anterior.
-Este paso se asegura de que el proxy del actor use la pila de comunicación remota V2.
-
-3. Este paso es opcional. Cambie el atributo anterior para quitar el agente de escucha V1.
-
-    ```csharp
-    [assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.V2Listener,RemotingClient = RemotingClient.V2Client)]
-    ```
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Administración de estados de los actores](service-fabric-reliable-actors-state-management.md)

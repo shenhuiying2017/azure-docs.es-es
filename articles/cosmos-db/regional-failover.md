@@ -1,25 +1,25 @@
 ---
-title: "Conmutación por error regional en Azure Cosmos DB | Microsoft Docs"
-description: "Obtenga información sobre el modo en que funciona la conmutación por error manual y automática con Azure Cosmos DB."
+title: Conmutación por error regional en Azure Cosmos DB | Microsoft Docs
+description: Obtenga información sobre el modo en que funciona la conmutación por error manual y automática con Azure Cosmos DB.
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: arramac
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 446e2580-ff49-4485-8e53-ae34e08d997f
 ms.service: cosmos-db
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/17/2017
+ms.date: 03/27/2018
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3a8b32440ce3ec6cd2da7aaccf218a94e0ee3e77
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 8da3e2c970ab1e60e3396cb0aaeaba64dba1713c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="automatic-regional-failover-for-business-continuity-in-azure-cosmos-db"></a>Conmutación por error regional automática para la continuidad empresarial en Azure Cosmos DB
 Azure Cosmos DB simplifica la distribución global de datos gracias a que ofrece [cuentas de base de datos de varias regiones](distribute-data-globally.md) completamente administradas que proporcionan un claro equilibrio entre coherencia, disponibilidad y rendimiento, todo ello con sus garantías correspondientes. Las cuentas de Cosmos DB ofrecen alta disponibilidad, latencias de ms de un solo dígito, varios [niveles de coherencia bien definidos](consistency-levels.md), conmutación por error regional transparente con API de hospedaje múltiple, y la posibilidad de escalar elásticamente el rendimiento y el almacenamiento en todo el mundo. 
@@ -30,9 +30,10 @@ Cosmos DB admite tanto las conmutaciones por error definidas por directivas como
 * Funcionamiento de las conmutaciones por error automáticas en Cosmos DB y efectos del bloqueo de un centro de datos
 * Uso de las conmutaciones por error manuales en arquitecturas de aplicación
 
-También obtendrá más información sobre las conmutaciones por error en este vídeo de Azure Friday con Scott Hanselman y el administrador de ingeniería principal Karthik Raman.
+También puede obtener información acerca de conmutaciones por error regionales en este vídeo de Andrew Liu, administrador de programas de Azure Cosmos DB, que muestra las características de distribución global, incluida la conmutación por error regional.
 
->[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Planet-Scale-NoSQL-with-DocumentDB/player]  
+>[!VIDEO https://www.youtube.com/embed/1D06yjTVxt8]
+>
 
 ## <a id="ConfigureMultiRegionApplications"></a>Configuración de aplicaciones de varias regiones
 Antes de profundizar en los modos de conmutación por error, veremos cómo puede configurar una aplicación para que aproveche las ventajas que ofrece la disponibilidad de varias regiones y para que sea resistente en caso de una conmutación por error regional.

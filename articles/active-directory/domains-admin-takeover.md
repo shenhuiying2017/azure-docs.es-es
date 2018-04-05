@@ -1,11 +1,11 @@
 ---
-title: "Adquisición por parte del administrador de un directorio no autorizado o un inquilino paralelo en Azure Active Directory | Microsoft Docs"
-description: "Adquisición de un nombre de dominio DNS en un directorio no administrado (inquilino paralelo) en Azure Active Directory."
+title: Adquisición por parte del administrador de un directorio no autorizado o un inquilino paralelo en Azure Active Directory | Microsoft Docs
+description: Adquisición de un nombre de dominio DNS en un directorio no administrado (inquilino paralelo) en Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: b9f01876-29d1-4ab8-8b74-04d43d532f4b
 ms.service: active-directory
 ms.devlang: na
@@ -16,11 +16,11 @@ ms.date: 11/14/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: f18e5883fca9291eb1447c1eebfe0883936fe84f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 16f5c515231f486e3576b95a0d103d2fa34842ff
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Adquisición de un directorio no administrado como administrador en Azure Active Directory
 En este artículo se describen dos maneras de adquirir un nombre de dominio DNS en un directorio no administrado en Azure Active Directory (Azure AD). Cuando un usuario de autoservicio se regista en un servicio en la nube que usa Azure AD, se agrega a un directorio de Azure AD no administrado en función del dominio de su correo electrónico. Para más información sobre el registro de autoservicio o "viral" en un servicio, consulte [¿Qué es el registro de autoservicio de Azure Active Directory?]()
@@ -76,7 +76,7 @@ Después de completar los pasos anteriores, ya es el administrador global del in
 
 ## <a name="external-admin-takeover"></a>Adquisición de administración externa
 
-Si ya administra un inquilino con los servicios de Azure u Office 365, no puede agregar un nombre de dominio personalizado si ya se comprobó en otro inquilino de Azure AD. Sin embargo, desde el inquilino administrado en Azure AD puede adquirir un inquilino no administrado como una adquisición de administración externa. El procedimiento general sigue lo que se indica en el artículo [Incorporación de un dominio personalizado a Azure AD](add-custom-domain.md).
+Si ya administra un inquilino con los servicios de Azure u Office 365, no puede agregar ningún nombre de dominio personalizado si ya se comprobó en otro inquilino de Azure AD. Sin embargo, desde el inquilino administrado en Azure AD puede adquirir un inquilino no administrado como una adquisición de administración externa. El procedimiento general sigue lo que se indica en el artículo [Incorporación de un dominio personalizado a Azure AD](add-custom-domain.md).
 
 Cuando se comprueba la propiedad del nombre de dominio, Azure AD quita el nombre de dominio del inquilino no administrado y lo mueve al inquilino existente. La adquisición de administración externa de un directorio no administrado requiere el mismo proceso de validación de TXT de DNS que la adquisición de administración interna. La diferencia es que los siguientes elementos también se mueven con el nombre de dominio:
 
@@ -143,7 +143,7 @@ cmdlet | Uso
     Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord
   ````
 
-4. Copie el valor (el desafío) que se devuelve desde este comando. Por ejemplo:
+4. Copie el valor (el desafío) que se devuelve desde este comando. Por ejemplo: 
   ````
     MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
   ````
@@ -154,7 +154,7 @@ cmdlet | Uso
     Confirm-MsolEmailVerifiedDomain -DomainName *your_domain_name*
   ````
   
-  Por ejemplo:
+  Por ejemplo: 
   
   ````
     Confirm-MsolEmailVerifiedDomain -DomainName contoso.com
@@ -164,7 +164,7 @@ Un desafío correcto le devuelve el mensaje sin errores.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Incorporación de su nombre de dominio personalizado a Azure Active Directory](add-custom-domain.md)
-* [Cómo instalar y configurar Azure PowerShell](/powershell/azure/overview)
+* [Instalación y configuración de Azure PowerShell](/powershell/azure/overview)
 * [Azure PowerShell](/powershell/azure/overview)
 * [Referencia de cmdlets de Azure](/powershell/azure/get-started-azureps)
 * [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)

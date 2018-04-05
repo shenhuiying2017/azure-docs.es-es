@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: alekseys
-ms.openlocfilehash: 9f1b6359d9fb58ad66b4d314f2bb14da34b98613
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 22ae56d9ebb2ea39acbd9f4536ef9ea5508b9867
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="mongodb-api-support-for-mongodb-features-and-syntax"></a>Compatibilidad de la API de MongoDB con la sintaxis y las características de MongoDB
 
 Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Puede comunicarse con la API de MongoDB de la base de datos través de todos los [controladores](https://docs.mongodb.org/ecosystem/drivers) de cliente de MongoDB de código abierto. La API de MongoDB permite el uso de los controladores de cliente existentes mediante la adhesión al [protocolo de conexión](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol) de MongoDB.
 
-Mediante la API de Azure Cosmos DB MongoDB, puede disfrutar de las ventajas de las API de MongoDB a las que está acostumbrado, con todas las funcionalidades empresariales de Azure Cosmos DB: [distribución global](distribute-data-globally.md), [particionamiento automático](partition-data.md), garantías de disponibilidad y latencia, indexación automática de cada campo, el cifrado en reposo, copias de seguridad y mucho más.
+Con la API de Azure Cosmos DB MongoDB, puede disfrutar de las ventajas de las API de MongoDB a las que está acostumbrado, con todas las funcionalidades empresariales que ofrece Azure Cosmos DB: [distribución global](distribute-data-globally.md), [particionamiento automático](partition-data.md), garantías de disponibilidad y latencia, indexación automática de cada campo, cifrado en reposo, copias de seguridad y mucho más.
 
 ## <a name="mongodb-query-language-support"></a>Compatibilidad con lenguajes de consulta de MongoDB
 
@@ -92,6 +92,7 @@ Azure DB Cosmos es compatible con la canalización de agregación en la versión
 - $lookup
 - $out
 - $count
+- $addFields
 
 ### <a name="aggregation-expressions"></a>Expresiones de agregación
 

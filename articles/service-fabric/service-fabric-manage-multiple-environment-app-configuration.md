@@ -1,24 +1,24 @@
 ---
-title: "Administración de aplicaciones en varios entornos en Azure Service Fabric | Microsoft Docs"
-description: "Las aplicaciones de Service Fabric se pueden ejecutar en clústeres cuyo tamaño oscila entre una y miles de máquinas. En algunos casos, deseará configurar su aplicación de forma diferente para cada uno de los entornos. Este artículo explica cómo definir distintos parámetros de aplicación por entorno."
+title: Administración de aplicaciones en varios entornos en Azure Service Fabric | Microsoft Docs
+description: Las aplicaciones de Service Fabric se pueden ejecutar en clústeres cuyo tamaño oscila entre una y miles de máquinas. En algunos casos, deseará configurar su aplicación de forma diferente para cada uno de los entornos. Este artículo explica cómo definir distintos parámetros de aplicación por entorno.
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
 manager: msfussell
-editor: 
+editor: ''
 ms.assetid: f406eac9-7271-4c37-a0d3-0a2957b60537
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/09/2017
+ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: 6bc986236d50106485dce151f1f74622f56400c5
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a3d0770d3b9c8702dbe4dac86f86030bea4090c0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="manage-applications-for-multiple-environments"></a>Administración de aplicaciones en varios entornos
 
@@ -52,7 +52,7 @@ Al crear instancias de aplicación con nombre en Service Fabric, tiene la opció
   - Mediante sfctl, el comando [`sfctl application create`](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-sfctl-application#sfctl-application-create) acepta parámetros como una cadena JSON. El script install.sh script usa sfctl.
   - Visual Studio proporciona un conjunto de archivos de parámetros en la carpeta de parámetros del proyecto de aplicación. Estos archivos de parámetros se usan al publicar desde Visual Studio, mediante Visual Studio Team Service o Team Foundation Server. En Visual Studio, los archivos de parámetros se van a pasar al script Deploy-FabricApplication.ps1.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En los artículos siguientes se muestra cómo usar algunos de los conceptos aquí descritos:
 
 - [How to specify environment variables for services in Service Fabric](service-fabric-how-to-specify-environment-variables.md) (Especificación de variables de entorno para servicios en Service Fabric)

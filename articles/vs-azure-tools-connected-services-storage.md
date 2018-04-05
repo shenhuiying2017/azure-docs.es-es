@@ -1,11 +1,11 @@
 ---
-title: "Adición de Azure Storage con Servicios conectados en Visual Studio | Microsoft Docs"
-description: "Adición de almacenamiento de Azure a la aplicación mediante el cuadro de diálogo Agregar servicios conectados de Visual Studio"
+title: Adición de Azure Storage con Servicios conectados en Visual Studio | Microsoft Docs
+description: Adición de Azure Storage a la aplicación mediante el cuadro de diálogo Agregar servicios conectados de Visual Studio
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
-manager: ghogen
-editor: 
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: 521ec044-ad4b-4828-8864-01decde2e758
 ms.service: storage
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2017
-ms.author: kraigb
-ms.openlocfilehash: 35638083cd75e1b751d00a9c8163a3bc7480f0cd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: ghogen
+ms.openlocfilehash: 3252d022222e1c31491a6b111e5e96f8c62ca915
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="adding-azure-storage-by-using-visual-studio-connected-services"></a>Adición de almacenamiento de Azure mediante Servicios conectados de Visual Studio
 Con Visual Studio, puede conectar cualquiera de lo siguiente a Azure Storage mediante el uso del cuadro de diálogo **Add Connected Services** (Agregar servicios conectados):
@@ -33,7 +33,7 @@ La funcionalidad del servicio conectado agrega todo el código de conexión y la
 
 Cuando se completa, el cuadro de diálogo **Add Connected Services** (Agregar servicios conectados) muestra automáticamente documentación que detalla los pasos necesarios para empezar a trabajar con el almacenamiento de blobs, colas y tablas.
 
-## <a name="connect-to-azure-storage-using-the-connected-services-dialog"></a>Conexión con Almacenamiento de Azure mediante el cuadro de diálogo Servicios conectados
+## <a name="connect-to-azure-storage-using-the-connected-services-dialog"></a>Conexión con Azure Storage mediante el cuadro de diálogo Servicios conectados
 1. Abra el proyecto en Visual Studio.
 
 1. En el **Explorador de soluciones**, haga clic con el botón derecho en el nodo **Servicios conectados** y, en el menú contextual, seleccione **Agregar servicio conectado**.
@@ -71,6 +71,6 @@ Cuando haya terminado con el cuadro de diálogo, Visual Studio agrega referencia
 - Proyecto de trabajo web - [¿Qué ha ocurrido? - Proyectos de trabajo web](visual-studio/vs-storage-webjobs-what-happened.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
-- [Foro de MSDN: Almacenamiento de Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
+- [Foro de MSDN: Azure Storage](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
 - [Blog del equipo de Microsoft Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/)
-- [Documentación de Almacenamiento de Azure](https://docs.microsoft.com/azure/storage/)
+- [Documentación de Azure Storage](https://docs.microsoft.com/azure/storage/)

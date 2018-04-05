@@ -1,28 +1,28 @@
 ---
-title: "Uso de tareas de instancias múltiples para ejecutar aplicaciones de MPI: Azure Batch | Microsoft Docs"
-description: "Obtenga información sobre cómo ejecutar aplicaciones de Interfaz de paso de mensajes (MPI) con el tipo de tarea de instancias múltiples en Lote de Azure."
+title: 'Uso de tareas de instancias múltiples para ejecutar aplicaciones de MPI: Azure Batch | Microsoft Docs'
+description: Obtenga información sobre cómo ejecutar aplicaciones de Interfaz de paso de mensajes (MPI) con el tipo de tarea de instancias múltiples en Azure Batch.
 services: batch
-documentationcenter: .net
-author: tamram
-manager: timlt
-editor: 
+documentationcenter: ''
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: 83e34bd7-a027-4b1b-8314-759384719327
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: 5/22/2017
-ms.author: tamram
+ms.tgt_pltfrm: ''
+ms.date: 5/22/2017
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 01da017587aed7c0f2415786fdcbf6f64024cbe3
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 0fb5ea21c6403369cbcb60df58c0f70a57a61d4e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>Uso de tareas de instancias múltiples para ejecutar aplicaciones de la Interfaz de paso de mensajes (MPI) en Batch
 
-Las tareas de instancias múltiples le permiten ejecutar una tarea de Lote de Azure en varios nodos de proceso al mismo tiempo. Estas tareas permiten escenarios de informática de alto rendimiento como las aplicaciones de interfaz de paso de mensajes (MPI) en Lote. En este artículo, aprenderá a ejecutar tareas de instancias múltiples mediante la biblioteca [.NET de Batch][api_net].
+Las tareas de instancias múltiples le permiten ejecutar una tarea de Azure Batch en varios nodos de proceso al mismo tiempo. Estas tareas permiten escenarios de informática de alto rendimiento como las aplicaciones de interfaz de paso de mensajes (MPI) en Batch. En este artículo, aprenderá a ejecutar tareas de instancias múltiples mediante la biblioteca [.NET de Batch][api_net].
 
 > [!NOTE]
 > Aunque los ejemplos de este artículo se centran en .NET de Batch, MS-MPI y los nodos de proceso de Windows, los conceptos de tareas de múltiples instancias aquí tratados son aplicables a otras plataformas y tecnologías (Python e Intel MPI en nodos de Linux, por ejemplo).
@@ -30,11 +30,11 @@ Las tareas de instancias múltiples le permiten ejecutar una tarea de Lote de Az
 >
 
 ## <a name="multi-instance-task-overview"></a>Información general de las tareas de instancias múltiples
-En Lote, cada tarea se ejecuta normalmente en un solo nodo de proceso: se envían varias tareas a un trabajo y el servicio Lote programa la ejecución de cada tarea en un nodo. No obstante, si establece la **configuración de instancias múltiples** en una tarea, le estará diciendo a Batch que cree una tarea principal y varias tareas secundarias que se ejecutarán después en varios nodos.
+En Batch, cada tarea se ejecuta normalmente en un solo nodo de proceso: se envían varias tareas a un trabajo y el servicio Batch programa la ejecución de cada tarea en un nodo. No obstante, si establece la **configuración de instancias múltiples** en una tarea, le estará diciendo a Batch que cree una tarea principal y varias tareas secundarias que se ejecutarán después en varios nodos.
 
 ![Información general de las tareas de instancias múltiples][1]
 
-Al enviar una tarea con configuración de instancias múltiples a un trabajo, el servicio Lote realiza  varios pasos que son específicos de las tareas de instancias múltiples:
+Al enviar una tarea con configuración de instancias múltiples a un trabajo, el servicio Batch realiza  varios pasos que son específicos de las tareas de instancias múltiples:
 
 1. El servicio Batch crea una tarea **principal** y varias tareas **secundarias** en función de la configuración de instancias múltiples definida. El número total de tareas (principales y todas las subtareas) coincide con el número de **instancias** (nodos de proceso) especificado en la configuración de múltiples instancias.
 2. Batch designa uno de los nodos de proceso como el **maestro**, y programa la tarea principal para que se ejecute en el maestro. Programa las subtareas para que se ejecuten en el resto de los nodos de proceso asignados a la tarea de múltiples instancias, una subtarea por nodo.
@@ -49,6 +49,10 @@ Al enviar una tarea con configuración de instancias múltiples a un trabajo, el
 
 ## <a name="requirements-for-multi-instance-tasks"></a>Requisitos de las tareas de instancias múltiples
 Las tareas de múltiples instancias requieren un grupo con la **comunicación ente nodos habilitada** y la **ejecución simultánea de tareas deshabilitada**. Para deshabilitar la ejecución de tareas simultáneas, establezca la propiedad [CloudPool.MaxTasksPerComputeNode](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool#Microsoft_Azure_Batch_CloudPool_MaxTasksPerComputeNode) en 1.
+
+> [!NOTE]
+> Batch [limita](batch-quota-limit.md#other-limits) el tamaño de un grupo que tiene habilitada la comunicación entre nodos.
+
 
 Este fragmento de código muestra cómo crear un grupo para tareas de varias instancias mediante la biblioteca de .NET de Batch.
 
@@ -107,12 +111,11 @@ Consulte los tamaños compatibles con RDMA en los siguientes artículos:
   * [Tamaños de las máquinas virtuales en Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Windows)
 
 > [!NOTE]
-> Para sacar el máximo provecho a RDMA en los [nodos de proceso de Linux](batch-linux-nodes.md), debe utilizar **Intel MPI** en esos nodos. Para obtener más información sobre los grupos de CloudServiceConfiguration y VirtualMachineConfiguration, consulte la sección [Grupo](batch-api-basics.md) de la información general sobre las características de Batch.
->
+> Para sacar el máximo provecho a RDMA en los [nodos de proceso de Linux](batch-linux-nodes.md), debe utilizar **Intel MPI** en esos nodos. 
 >
 
-## <a name="create-a-multi-instance-task-with-batch-net"></a>Creación de una tarea de instancias múltiples con .NET de Lote
-Ahora que hemos analizado los requisitos de grupo y la instalación del paquete MPI, vamos a crear la tarea de instancias múltiples. En este fragmento de código, creamos una instancia de [CloudTask][net_task] estándar y luego configuramos su propiedad [MultiInstanceSettings][net_multiinstance_prop]. Como se mencionó anteriormente, la tarea de instancias múltiples no es un tipo de tarea distinto, sino una tarea de Lote estándar configurada con la opción de instancias múltiples.
+## <a name="create-a-multi-instance-task-with-batch-net"></a>Creación de una tarea de instancias múltiples con .NET de Batch
+Ahora que hemos analizado los requisitos de grupo y la instalación del paquete MPI, vamos a crear la tarea de instancias múltiples. En este fragmento de código, creamos una instancia de [CloudTask][net_task] estándar y luego configuramos su propiedad [MultiInstanceSettings][net_multiinstance_prop]. Como se mencionó anteriormente, la tarea de instancias múltiples no es un tipo de tarea distinto, sino una tarea de Batch estándar configurada con la opción de instancias múltiples.
 
 ```csharp
 // Create the multi-instance task. Its command line is the "application command"
@@ -153,7 +156,7 @@ Cuando se envía una tarea de múltiples instancias, el servicio Batch designa u
 ## <a name="coordination-command"></a>comando de coordinación
 El **comando de coordinación** ejecuta tanto tareas principales como subtareas.
 
-La invocación del comando de coordinación se bloquea: el servicio Lote no ejecuta el comando de aplicación hasta que el comando de coordinación se ha devuelto correctamente para todas las subtareas. Por lo tanto, el comando de coordinación debe iniciar los servicios en segundo plano necesarios, comprobar que están listos para utilizarse y luego cerrarse. Por ejemplo, este comando de coordinación para una solución que utiliza la versión 7 de MS-MPI inicia el servicio SMPD en el nodo y luego se cierra:
+La invocación del comando de coordinación se bloquea: el servicio Batch no ejecuta el comando de aplicación hasta que el comando de coordinación se ha devuelto correctamente para todas las subtareas. Por lo tanto, el comando de coordinación debe iniciar los servicios en segundo plano necesarios, comprobar que están listos para utilizarse y luego cerrarse. Por ejemplo, este comando de coordinación para una solución que utiliza la versión 7 de MS-MPI inicia el servicio SMPD en el nodo y luego se cierra:
 
 ```
 cmd /c start cmd /c ""%MSMPI_BIN%\smpd.exe"" -d
@@ -211,7 +214,7 @@ La duración de la tarea principal controla la duración de toda la tarea de ins
 
 Si se produce un error en alguna de las subtareas, por ejemplo, se cierra con un código de error distinto de cero, la tarea de instancias múltiples entera dará error. Entonces la tarea de instancias múltiples se termina y se reintenta, hasta su límite de reintento.
 
-Cuando se elimina una tarea de instancias múltiples, el servicio Lote también elimina la tarea principal y todas las subtareas. Todos los directorios de subtarea y sus archivos se eliminan de los nodos de proceso, igual que en el caso de una tarea estándar.
+Cuando se elimina una tarea de instancias múltiples, el servicio Batch también elimina la tarea principal y todas las subtareas. Todos los directorios de subtarea y sus archivos se eliminan de los nodos de proceso, igual que en el caso de una tarea estándar.
 
 Los valores de [TaskConstraints][net_taskconstraints] para una tarea de instancias múltiples, como las propiedades [MaxTaskRetryCount][net_taskconstraint_maxretry], [MaxWallClockTime][net_taskconstraint_maxwallclock] y [RetentionTime][net_taskconstraint_retention], se respetan ya que son para una tarea estándar, y se aplican a la tarea principal y a todas las subtareas. Sin embargo, si cambia la propiedad [RetentionTime][net_taskconstraint_retention] después de agregar la tarea de instancias múltiples al trabajo, este cambio solo se aplica a la tarea principal. Todas las subtareas seguirán usando la propiedad [RetentionTime][net_taskconstraint_retention] original.
 

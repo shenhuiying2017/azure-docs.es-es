@@ -2,7 +2,7 @@
 title: Usar el explorador de trabajos y la vista de trabajo para trabajos de Azure Data Lake Analytics | Microsoft Docs
 description: 'Aprenda a usar el explorador de trabajos y la vista de trabajo para trabajos de Azure Data Lake Analytics. '
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/02/2017
 ms.author: jgao
-ms.openlocfilehash: 8f1729f84a4fde2a56427a41b356d6263818519e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cc9048566dd58733cd86aac0f9836763fa095843
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics-jobs"></a>Usar el explorador de trabajos y la vista de trabajo para trabajos de Azure Data Lake Analytics
 El servicio Azure Data Lake Analytics archiva los trabajos enviados en un [almacén de consultas](#query-store). En este artículo aprenderá a utilizar el explorador de trabajos y la vista de trabajo de Azure Data Lake Tools para Visual Studio para encontrar la información histórica del trabajo. 
 
 De forma predeterminada, el servicio Data Lake Analytics archiva los trabajos durante 30 días. El período de expiración se puede configurar desde Azure Portal configurando la directiva de caducidad personalizada. No podrá acceder a la información de trabajo tras la expiración. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Vea [Data Lake Tools for Visual Studio prerequisites](data-lake-analytics-data-lake-tools-get-started.md#prerequisites) (Requisitos previos de Data Lake Tools para Visual Studio).
 
 ## <a name="open-the-job-browser"></a>Abra el explorador de trabajos

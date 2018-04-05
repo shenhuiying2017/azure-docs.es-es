@@ -4,7 +4,7 @@ description: Obtenga información sobre la configuración de VPN Gateway para la
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: ae665bc5-0089-45d0-a0d5-bc0ab4e79899
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/05/2018
+ms.date: 03/20/2018
 ms.author: cherylmc
-ms.openlocfilehash: e4f02e2b001b6821e732cead660aa0b758f1133e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: dfa116981cb0ce912ee83fade54f2502262178bc
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>Acerca de la configuración de VPN Gateway
 
@@ -28,7 +28,9 @@ Una puerta de enlace de VPN es un tipo de puerta de enlace de red virtual que en
 Una conexión de puerta de enlace de VPN se basa en la configuración de varios recursos, cada uno de los cuales contiene valores configurables. Las secciones de este artículo tratan los recursos y la configuración relacionados con una puerta de enlace de VPN para una red virtual creada en el modelo de implementación de Resource Manager. Puede encontrar las descripciones y los diagramas de topología de cada solución de conexión en el artículo [Acerca de VPN Gateway](vpn-gateway-about-vpngateways.md).
 
 >[!NOTE]
-> Los valores de este artículo se aplican a las puertas de enlace de red virtual que usan -GatewayType "Vpn". Este es el motivo por el que se denominan puertas de enlace VPN. Para los valores que se aplican a -GatewayType "ExpressRoute", consulte [Acerca de las puertas de enlace de red virtual para ExpressRoute](../expressroute/expressroute-about-virtual-network-gateways.md). Los valores para las puertas de enlace de ExpressRoute no son los mismos valores que se usan para las puertas de enlace VPN.
+> Los valores de este artículo se aplican a las puertas de enlace de red virtual que usan -GatewayType "Vpn". Por este motivo, estas puertas de enlace de red virtual se conocen como puertas de enlace VPN. Los valores para las puertas de enlace de ExpressRoute no son los mismos valores que se usan para las puertas de enlace VPN.
+>
+>Para los valores que se aplican a -GatewayType "ExpressRoute", consulte [Acerca de las puertas de enlace de red virtual para ExpressRoute](../expressroute/expressroute-about-virtual-network-gateways.md).
 >
 >
 
@@ -55,7 +57,7 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 [!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
-### <a name="configure-the-gateway-sku"></a>Configuración de la SKU de puerta de enlace
+### <a name="configure-a-gateway-sku"></a>Configuración de una SKU de puerta de enlace
 
 #### <a name="azure-portal"></a>Azure Portal
 
@@ -63,24 +65,35 @@ Si usa Azure Portal para crear una puerta de enlace de red virtual de Resource M
 
 #### <a name="powershell"></a>PowerShell
 
-En el siguiente ejemplo de PowerShell se especifica `-GatewaySku` como VpnGw1.
+En el siguiente ejemplo de PowerShell se especifica `-GatewaySku` como VpnGw1. Al usar PowerShell para crear una puerta de enlace, antes debe crear la configuración de IP y, después, usar una variable para hacer referencia a ella. En este ejemplo, la variable de configuración es $gwipconfig.
 
 ```powershell
-New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
--Location 'West US' -IpConfigurations $gwipconfig -GatewaySku VpnGw1 `
+New-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
+-Location 'US East' -IpConfigurations $gwipconfig -GatewaySku VpnGw1 `
 -GatewayType Vpn -VpnType RouteBased
 ```
 
-#### <a name="resize"></a>Cambio de tamaño de una SKU de puerta de enlace
+#### <a name="azure-cli"></a>Azure CLI
 
-Si quiere actualizar la SKU de su puerta de enlace a una SKU más eficaz, puede usar el cmdlet `Resize-AzureRmVirtualNetworkGateway` de PowerShell. También puede cambiar a una versión anterior del tamaño de la SKU de puerta de enlace con este cmdlet.
-
-En el siguiente ejemplo de PowerShell se muestra una SKU de puerta de enlace cuyo tamaño se ha cambiado a VpnGw2.
-
-```powershell
-$gw = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
-Resize-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku VpnGw2
+```azurecli
+az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWPIP --resource-group TestRG1 --vnet VNet1 --gateway-type Vpn --vpn-type RouteBased --sku VpnGw1 --no-wait
 ```
+
+###  <a name="resizechange"></a>Cambiar el tamaño o cambiar una SKU
+
+Cambiar el tamaño de una SKU de puerta de enlace es bastante fácil. Tendrá muy poco tiempo de inactividad mientras cambia el tamaño de la puerta de enlace. Sin embargo, hay reglas en relación con el cambio de tamaño:
+
+1. Puede cambiar el tamaño entre las SKU de VpnGw1, VpnGw2 y VpnGw3.
+2. Si trabaja con las SKU de puerta de enlace antiguas, puede cambiar el tamaño entre las SKU Básica, Estándar y HighPerformance.
+3. Sin embargo **no puede** cambiar el tamaño de las SKU de Básica/Estándar/HighPerformance a las nuevas SKU de VpnGw1/VpnGw2/VpnGw3. En su lugar, debe [cambiar](#change) a las SKU nuevas.
+
+#### <a name="resizegwsku"></a>Cambiar el tamaño de una puerta de enlace
+
+[!INCLUDE [Resize a SKU](../../includes/vpn-gateway-gwsku-resize-include.md)]
+
+####  <a name="change"></a>Cambiar de una SKU anterior (heredada) anterior a una nueva
+
+[!INCLUDE [Change a SKU](../../includes/vpn-gateway-gwsku-change-legacy-sku-include.md)]
 
 ## <a name="connectiontype"></a>Tipos de conexión
 
@@ -150,7 +163,7 @@ New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
 
 A veces es necesario modificar la configuración de la puerta de enlace de red local. Por ejemplo, al agregar o modificar el intervalo de direcciones, o si cambia la dirección IP del dispositivo VPN. Vea [Modificación de la configuración de la puerta de enlace de red local mediante PowerShell](vpn-gateway-modify-local-network-gateway.md).
 
-## <a name="resources"></a>API de REST y cmdlets de PowerShell
+## <a name="resources">API de REST, cmdlets de PowerShell y CLI</a>
 
 Para más información sobre los recursos técnicos y los requisitos de sintaxis específicos para usar las API de REST y los cmdlets de PowerShell para configuraciones de VPN Gateway, consulte las páginas siguientes:
 

@@ -1,24 +1,18 @@
 ---
-title: "Migración de una cuenta de Automation y sus recursos | Microsoft Docs"
-description: "En este artículo se describe cómo mover una cuenta de Automation en Azure Automation y sus recursos relacionados correspondientes de una suscripción a otra."
+title: Migración de una cuenta de Automation y sus recursos
+description: En este artículo se describe cómo mover una cuenta de Automation en Azure Automation y sus recursos relacionados correspondientes de una suscripción a otra.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: tysonn
-ms.assetid: 9c2db4a2-f324-48dc-8ce7-3343bf7230d5
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/29/2017
-ms.author: magoedte
-ms.openlocfilehash: 40567d1b1f450c499715682cf8c22f0c79c7d0c7
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+manager: carmonm
+ms.openlocfilehash: a9e76634a7392bca93ba06749741505e7b34cb41
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="migrate-automation-account-and-resources"></a>Migrar una cuenta de Automation y sus recursos
 Para las cuentas de Automation y los recursos asociados (es decir, recursos, runbooks, módulos, etc.) que creó en Azure Portal y que desea migrar de un grupo de recursos a otro o de una suscripción a otra, puede hacerlo fácilmente con la característica de [mover recursos](../azure-resource-manager/resource-group-move-resources.md), disponible en Azure Portal. Pero, antes de llevar esto a cabo, conviene revisar la siguiente [lista de comprobación antes de mover recursos](../azure-resource-manager/resource-group-move-resources.md#checklist-before-moving-resources) y, además, la siguiente lista específica de Automation.  
@@ -61,7 +55,7 @@ Para moverlos a una nueva suscripción, especifique un valor para el parámetro 
 
 Al igual que en el ejemplo anterior, se le pide que confirme el movimiento. 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Para más información sobre cómo mover recursos a un nuevo grupo de recursos o a una nueva suscripción, consulte [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](../azure-resource-manager/resource-group-move-resources.md)
 * Para más información sobre el control de acceso basado en rol, consulte [Control de acceso basado en rol en Azure Automation](automation-role-based-access-control.md).
 * Para más información sobre los cmdlets de PowerShell que permiten administrar su suscripción, vea [Uso de Azure PowerShell con Azure Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md)

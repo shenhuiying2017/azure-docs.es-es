@@ -1,24 +1,24 @@
 ---
-title: "Implementación de una aplicación de Node.js que usa MongoDB | Microsoft Docs"
-description: "Tutorial sobre cómo empaquetar varios ejecutables invitados para implementarlos en un clúster de Azure Service Fabric"
+title: Implementación de una aplicación de Node.js que usa MongoDB en Azure Service Fabric| Microsoft Docs
+description: Tutorial sobre cómo empaquetar varios ejecutables invitados para implementarlos en un clúster de Azure Service Fabric
 services: service-fabric
 documentationcenter: .net
-author: msfussell
+author: mikkelhegn
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: b76bb756-c1ba-49f9-9666-e9807cf8f92f
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/02/2017
-ms.author: msfussell;mikhegn
-ms.openlocfilehash: d7a37d7c04f85e9031cab52fa86026e56315c882
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.date: 02/23/2018
+ms.author: mikhegn
+ms.openlocfilehash: 4987cc271a3e3d8a1a69c4c7fbd213d73ca2eb96
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="deploy-multiple-guest-executables"></a>Implementación de varios ejecutables invitados
 En este artículo se muestra cómo empaquetar e implementar varios ejecutables invitados en Azure Service Fabric. Para crear e implementar un solo paquete de Service Fabric, lea el artículo sobre cómo [implementar un ejecutable invitado en Service Fabric](service-fabric-deploy-existing-app.md).
@@ -27,7 +27,7 @@ Aunque este tutorial muestra cómo implementar una aplicación con un front-end 
 
 Puede utilizar Visual Studio para generar el paquete de aplicación que contiene varios ejecutables invitados. Consulte [Uso de Visual Studio para empaquetar un ejecutable existente](service-fabric-deploy-existing-app.md). Después de haber agregado el primer ejecutable invitado, haga clic con el botón derecho en el proyecto de aplicación y seleccione el **Agregar->Nuevo servicio de Service Fabric** para agregar el segundo proyecto ejecutable invitado a la solución. Nota: Si decide vincular el origen en el proyecto de Visual Studio, mediante la compilación de la solución de Visual Studio, se asegurará de que el paquete de aplicación esté actualizado con los cambios en el origen. 
 
-## <a name="samples"></a>Muestras
+## <a name="samples"></a>Ejemplos
 * [Ejemplo para empaquetar e implementar un archivo ejecutable invitado](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Ejemplo de dos ejecutables invitados (C# y Node.js) que se comunican a través del servicio de nombres con REST](https://github.com/Azure-Samples/service-fabric-containers)
 

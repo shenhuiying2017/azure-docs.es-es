@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: rajanaki
-ms.openlocfilehash: 47056c85c6cb66a7fa28d623a4472b827d970dab
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4171a904626d3b624b39b8a3a261df0d342012df
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Reprotección de máquinas virtuales de Azure conmutadas por error en la región principal
 
@@ -57,7 +57,8 @@ Puede personalizar las siguientes propiedades de la máquina virtual de destino 
 |---------|---------|
 |Grupo de recursos de destino     | Modifique el grupo de recursos de destino en que se crea la máquina virtual. Como parte de la reprotección, se elimina la máquina virtual de destino. Puede elegir un grupo de recursos nuevo en el que crear la máquina virtual tras la conmutación por error.        |
 |Red virtual de destino     | No se puede cambiar la red de destino durante el trabajo de reprotección. Para cambiar la red, vuelva a hacer la asignación de red.         |
-|Almacenamiento de destino     | Puede cambiar la cuenta de almacenamiento que la máquina virtual usa tras la conmutación por error.         |
+|Almacenamiento de destino (la VM secundaria no utiliza discos administrados)     | Puede cambiar la cuenta de almacenamiento que la máquina virtual usa tras la conmutación por error.         |
+|Discos administrados de réplica (la VM secundaria utiliza discos administrados)    | Site Recovery crea discos administrado de réplica en la región principal para crear el reflejo de discos administrados de la VM secundaria.         | 
 |Almacenamiento en caché     | Puede especificar una cuenta de almacenamiento en caché para usarla durante la replicación. De forma predeterminada, se crea una cuenta de almacenamiento en caché en caso de que no exista.         |
 |Conjunto de disponibilidad     |Si la máquina virtual de la región secundaria forma parte de un conjunto de disponibilidad, puede elegir un conjunto de disponibilidad para la máquina virtual de destino en la región principal. De forma predeterminada, Site Recovery intenta encontrar el conjunto de disponibilidad existente en la región principal para usarlo. Durante la personalización, puede especificar un nuevo conjunto de disponibilidad.         |
 
@@ -68,7 +69,8 @@ De forma predeterminada, sucede lo siguiente:
 
 1. Se crea una cuenta de almacenamiento en caché en la región principal.
 2. Si la cuenta de almacenamiento de destino (la cuenta de almacenamiento original de la región principal) no existe, se crea una. El nombre asignado para la cuenta de almacenamiento se corresponde con el nombre de la cuenta de almacenamiento que usa la máquina virtual secundaria, con el sufijo "asr".
-3. Si el conjunto de disponibilidad de destino no existe, se crea uno como parte del trabajo de reprotección, en caso de que sea necesario. Si personalizó la configuración de reprotección, entonces se usa el conjunto seleccionado.
+3. Si la máquina virtual utiliza discos administrados, los discos administrados de réplica se crean en la región principal para almacenar los datos replicados de discos de la máquina virtual secundaria. 
+4. Si el conjunto de disponibilidad de destino no existe, se crea uno como parte del trabajo de reprotección, en caso de que sea necesario. Si personalizó la configuración de reprotección, entonces se usa el conjunto seleccionado.
 
 Cuando se desencadena un trabajo de reprotección y la máquina virtual de destino ya existe, ocurre lo siguiente:
 

@@ -1,25 +1,24 @@
 ---
-title: "Guía de solución de problemas de Azure Stream Analytics | Microsoft Docs"
-description: "Solución de problemas de los trabajos de Stream Analytics"
-keywords: "guía de solución de problemas"
-documentationcenter: 
+title: Guía de solución de problemas de Azure Stream Analytics | Microsoft Docs
+description: Solución de problemas de los trabajos de Stream Analytics
+keywords: guía de solución de problemas
+documentationcenter: ''
 services: stream-analytics
-author: samacha
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 
+author: jseb225
+manager: ryanw
+ms.assetid: ''
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
-ms.author: samacha
-ms.openlocfilehash: dcff312e4a282b15e76ea32aadb1981a496a2446
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: 87e8b99cb2774966ce22c76e1afed6a754749e9d
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="troubleshooting-guide-for-azure-stream-analytics"></a>Guía de solución de problemas de Azure Stream Analytics
 
@@ -86,14 +85,14 @@ Para obtener mejores resultados en la solución de problemas de los trabajos de 
 11. Abra un caso de soporte técnico:
     - Por último, si todo lo demás no funciona, abra un caso de soporte técnico de Microsoft con el id. de suscripción que contiene el trabajo.
 
-## <a name="get-help"></a>Obtener ayuda
+## <a name="get-help"></a>Obtención de ayuda
 
-Para obtener ayuda adicional, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Introducción al Análisis de transmisiones de Azure](stream-analytics-introduction.md)
+* [Introducción a Azure Stream Analytics](stream-analytics-introduction.md)
 * [Introducción al uso de Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Escalación de trabajos de Análisis de transmisiones de Azure](stream-analytics-scale-jobs.md)
-* [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Escalación de trabajos de Azure Stream Analytics](stream-analytics-scale-jobs.md)
+* [Referencia del lenguaje de consulta de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Referencia de API de REST de administración de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)

@@ -1,12 +1,12 @@
 ---
-title: "Patrón de diseño de Azure Cosmos DB: aplicaciones de redes sociales | Microsoft Docs"
-description: "Obtenga información sobre un patrón de diseño para redes sociales con la flexibilidad de almacenamiento de Azure Cosmos DB y otros servicios de Azure."
+title: 'Patrón de diseño de Azure Cosmos DB: aplicaciones de redes sociales | Microsoft Docs'
+description: Obtenga información sobre un patrón de diseño para redes sociales con la flexibilidad de almacenamiento de Azure Cosmos DB y otros servicios de Azure.
 keywords: aplicaciones de redes sociales
 services: cosmos-db
 author: ealsur
 manager: jhubbard
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: 2dbf83a7-512a-4993-bf1b-ea7d72e095d9
 ms.service: cosmos-db
 ms.workload: data-services
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2017
 ms.author: mimig
-ms.openlocfilehash: c89b2db6d5a80f184ca98ef757605272d385a81c
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: d223187ab1f8338c57e6aa32903ea9b762393ab5
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Redes sociales y Azure Cosmos DB
 Vivir en una sociedad enormemente interconectada significa que, en algún momento de la vida, uno formará parte de una **red social**. Las redes sociales se usan para mantenerse en contacto con amigos, compañeros de trabajo y familiares y, a veces, para compartir intereses comunes con otras personas.
@@ -43,7 +43,7 @@ No me malinterpreten, he trabajado con bases de datos SQL toda mi vida y me pare
 Por supuesto, podríamos usar una instancia de SQL enorme con capacidad suficiente para resolver miles de consultas con las combinaciones necesarias para servir el contenido, pero ¿por qué habríamos de hacerlo cuando existe una solución más sencilla?
 
 ## <a name="the-nosql-road"></a>La vía NoSQL
-Este artículo lo ayudará a modelar los datos de su plataforma social con una base de datos NoSQL de Azure, [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), de una manera rentable y aprovechando otras funciones de Azure Cosmos DB, como la [API Graph de Gremlin](../cosmos-db/graph-introduction.md). Con un enfoque [NoSQL](https://en.wikipedia.org/wiki/NoSQL), almacenamiento de datos en formato JSON y la aplicación de [desnormalización](https://en.wikipedia.org/wiki/Denormalization), nuestra publicación, que antes era complicada, ahora puede transformarse en un único [documento](https://en.wikipedia.org/wiki/Document-oriented_database):
+Este artículo lo ayudará a modelar los datos de su plataforma social con una base de datos NoSQL de Azure, [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), de una manera rentable y aprovechando otras funciones de Azure Cosmos DB, como [Graph API de Gremlin](../cosmos-db/graph-introduction.md). Con un enfoque [NoSQL](https://en.wikipedia.org/wiki/NoSQL), almacenamiento de datos en formato JSON y la aplicación de [desnormalización](https://en.wikipedia.org/wiki/Denormalization), nuestra publicación, que antes era complicada, ahora puede transformarse en un único [documento](https://en.wikipedia.org/wiki/Document-oriented_database):
 
 
     {
@@ -134,7 +134,7 @@ Para solucionar esto, podemos adoptar un enfoque mixto. Como parte del documento
         "totalPoints":11342
     }
 
-Y el gráfico real de los seguidores puede almacenarse con [API Graph de Gremlin](../cosmos-db/graph-introduction.md) de Azure Cosmos DB, para crear [vértices](http://mathworld.wolfram.com/GraphVertex.html) para cada usuario y [bordes](http://mathworld.wolfram.com/GraphEdge.html) que mantienen relaciones del tipo "A sigue a B". La API Graph le permite no solo obtener los seguidores de un determinado usuario, sino también crear consultas más complejas que incluso permiten sugerir personas en común. Si se agregan al gráfico de las categorías de contenido que gustan o encantan a los individuos, podemos comenzar a componer escenarios que incluyen detección inteligente de contenido, sugerencias de contenido que gustan a las personas a las que seguimos o encontrar personas con quienes puede que tengamos mucho en común.
+Y el grafo real de los seguidores puede almacenarse con [Graph API de Gremlin](../cosmos-db/graph-introduction.md) de Azure Cosmos DB, para crear [vértices](http://mathworld.wolfram.com/GraphVertex.html) para cada usuario y [bordes](http://mathworld.wolfram.com/GraphEdge.html) que mantienen relaciones del tipo "A sigue a B". Graph API le permite no solo obtener los seguidores de un determinado usuario, sino también crear consultas más complejas que incluso permiten sugerir personas en común. Si se agregan al gráfico de las categorías de contenido que gustan o encantan a los individuos, podemos comenzar a componer escenarios que incluyen detección inteligente de contenido, sugerencias de contenido que gustan a las personas a las que seguimos o encontrar personas con quienes puede que tengamos mucho en común.
 
 El documento de Estadísticas de usuario se sigue pudiendo usar para crear tarjetas en la interfaz de usuario o vistas previas rápidas de los perfiles.
 
@@ -229,7 +229,7 @@ Cosmos DB admite la [creación de particiones dinámica](https://azure.microsoft
 
 Un punto interesante que vale la pena mencionar es que Cosmos DB ejecutará las consultas (incluidas las [agregaciones](https://azure.microsoft.com/blog/planet-scale-aggregates-with-azure-documentdb/)) en todas las particiones de forma transparente, por lo que no necesita agregar ninguna lógico a medida que crecen los datos.
 
-Con el tiempo, a la larga el tráfico crecerá y su consumo de recursos (que se mide en [RU](request-units.md) o unidades de solicitud) aumentará. Leerá y escribirá con más frecuencia a medida que crece la base de usuarios y ellos comenzarán a crear y leer más contenido; la capacidad de **escalar el rendimiento** resulta vital. Aumentar las unidades de solicitud es muy simple: podemos hacerlo con algunos clics en Azure Portal o a través de la [emisión de comandos mediante la API](https://docs.microsoft.com/rest/api/documentdb/replace-an-offer).
+Con el tiempo, a la larga el tráfico crecerá y su consumo de recursos (que se mide en [RU](request-units.md) o unidades de solicitud) aumentará. Leerá y escribirá con más frecuencia a medida que crece la base de usuarios y ellos comenzarán a crear y leer más contenido; la capacidad de **escalar el rendimiento** resulta vital. Aumentar las unidades de solicitud es muy simple: podemos hacerlo con algunos clics en Azure Portal o a través de la [emisión de comandos mediante la API](https://docs.microsoft.com/rest/api/cosmos-db/replace-an-offer).
 
 ![Escalado vertical y definición de una clave de partición](./media/social-media-apps/social-media-apps-scaling.png)
 
@@ -250,5 +250,5 @@ Este artículo trata de ofrecer alternativas de bajo costo y excelentes resultad
 
 La verdad es que no hay ninguna fórmula milagrosa para este tipo de escenarios, sino que es la sinergia creada mediante la combinación de excelentes servicios lo que nos permite crear grandes experiencias: la velocidad y la libertad de Azure Cosmos DB para proporcionar una gran aplicación social; la inteligencia de una solución de búsqueda de primera clase como Azure Search; la flexibilidad de Azure App Services para hospedar aplicaciones independientes del lenguaje y eficaces procesos en segundo plano; los ampliables Azure Storage y Azure SQL Database para guardar enormes cantidades de datos; y la potencia analítica de Azure Machine Learning para crear conocimiento e inteligencia que proporcionen información a nuestros procesos y nos ayuden a suministrar el contenido correcto a los usuarios adecuados.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre los casos de uso de Cosmos DB, consulte [Casos de uso comunes de Cosmos DB](use-cases.md).

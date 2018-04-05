@@ -1,13 +1,13 @@
 ---
-title: "Autorización de usuarios para vistas de Ambari: Azure HDInsight | Microsoft Docs"
-description: "Cómo administrar los permisos de usuarios y grupos de Ambari en los clústeres de HDInsight unidos a un dominio."
+title: 'Autorización de usuarios para vistas de Ambari: Azure HDInsight | Microsoft Docs'
+description: Cómo administrar los permisos de usuarios y grupos de Ambari en los clústeres de HDInsight unidos a un dominio.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: maxluk
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.workload: big-data
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: e8c1ff23ee00e15325a82e1df0f4643ec429b119
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: f4dfb51cf344d1ec51363ef3a9f74c1ca59119a6
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="authorize-users-for-ambari-views"></a>Autorización de usuarios para vistas de Ambari
 
@@ -122,7 +122,7 @@ La vista List (Lista) proporciona funcionalidades de edición rápidas en dos ca
 
     ![Vista de lista de roles: usuarios](./media/hdinsight-authorize-users-to-ambari/roles-list-view-users.png)
 
-* La categoría Groups (Grupos) de la vista List (Lista) muestra todos los grupos y los roles asignados a cada grupo. En el ejemplo, la lista de grupos se sincroniza desde los grupos de Azure AD especificados en la propiedad **Access user group** (Grupo de usuarios con acceso) de la configuración del dominio del clúster. Vea [Creación de un clúster de HDInsight](./domain-joined/apache-domain-joined-configure.md#create-an-hdinsight-cluster-in-the-vnet).
+* La categoría Groups (Grupos) de la vista List (Lista) muestra todos los grupos y los roles asignados a cada grupo. En el ejemplo, la lista de grupos se sincroniza desde los grupos de Azure AD especificados en la propiedad **Access user group** (Grupo de usuarios con acceso) de la configuración del dominio del clúster. Consulte [Creación de un clúster de HDInsight unido a un dominio](/domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-a-domain-joined-hdinsight-cluster).
 
     ![Vista de lista de roles: grupos](./media/hdinsight-authorize-users-to-ambari/roles-list-view-groups.png)
 
@@ -140,7 +140,7 @@ Se ha asignado al usuario del dominio de Azure AD "hiveuser2" el rol *Cluster Us
 
 ![Usuario con rol de usuario del clúster](./media/hdinsight-authorize-users-to-ambari/user-cluster-user-role.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Configuración de directivas de Hive en HDInsight unido a un dominio](./domain-joined/apache-domain-joined-run-hive.md)
 * [Administración de clústeres de HDInsight unidos a dominio](./domain-joined/apache-domain-joined-manage.md)

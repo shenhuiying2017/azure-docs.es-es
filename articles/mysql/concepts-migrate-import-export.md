@@ -1,6 +1,6 @@
 ---
-title: "Importación y exportación en Azure Database for MySQL"
-description: "Este artículo explica las formas habituales de importar y exportar bases de datos en Azure Database for MySQL, mediante herramientas como MySQL Workbench."
+title: Importación y exportación en Azure Database for MySQL
+description: Este artículo explica las formas habituales de importar y exportar bases de datos en Azure Database for MySQL, mediante herramientas como MySQL Workbench.
 services: mysql
 author: ajlam
 ms.author: andrela
@@ -8,12 +8,12 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: f15811cd44e405ee33d9ba3d565c2982e71a80c0
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 03/20/2018
+ms.openlocfilehash: 74b8c6afc5167225414f467f76f08c0e53bbade5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="migrate-your-mysql-database-by-using-import-and-export"></a>Migración de la base de datos de MySQL mediante importación y exportación
 En este artículo se explican dos métodos habituales para importar y exportar datos a un servidor de Azure Database for MySQL mediante el uso de MySQL Workbench. 
@@ -33,9 +33,9 @@ No es necesario mover los archivos de importación y exportación a ninguna ubic
 ## <a name="create-a-database-on-the-azure-database-for-mysql-server"></a>Creación de una base de datos en el servidor de Azure Database for MySQL
 Cree una base de datos vacía en el servidor de Azure Database for MySQL donde desea migrar los datos. Use una herramienta como MySQL Workbench, Toad o Navicat para crear la base de datos. La base de datos puede tener el mismo nombre que la base de datos que contiene los datos volcados, o puede crear una base de datos con un nombre diferente.
 
-Para conectarse, busque la información de conexión en el panel de **propiedades** de Azure Database for MySQL.
+Para conectarse, busque la información de conexión en la página **Introducción** de su instancia de Azure Database for MySQL.
 
-![Obtención de la información de conexión en Azure Portal](./media/concepts-migrate-import-export/1_server-properties-name-login.png)
+![Obtención de la información de conexión en Azure Portal](./media/concepts-migrate-import-export/1_server-overview-name-login.png)
 
 Agregue la información de conexión a MySQL Workbench.
 
@@ -112,5 +112,5 @@ Puede usar la pestaña **Importación de datos** para importar o restaurar los d
 1. Elija la carpeta de proyecto o archivo SQL independiente, elija el esquema en el que se importarán los datos o elija **Nuevo** para definir un nuevo esquema. 
 2. Haga clic en **Iniciar importación** para comenzar el proceso de importación.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para conocer otro método de migración, consulte [Migración de la Base de datos MySQL mediante el volcado y la restauración en Azure Database for MySQL](concepts-migrate-dump-restore.md). 

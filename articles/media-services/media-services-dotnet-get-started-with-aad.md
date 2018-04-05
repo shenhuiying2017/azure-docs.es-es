@@ -1,32 +1,32 @@
 ---
-title: "Uso de la autenticación de Azure AD para acceder a la API de Azure Media Services con .NET | Microsoft Docs"
-description: "En este tema se explica cómo usar la autenticación de Azure Active Directory (Azure AD) para acceder a la API de Azure Media Services (AMS) con .NET"
+title: Uso de la autenticación de Azure AD para acceder a la API de Azure Media Services con .NET | Microsoft Docs
+description: En este tema se explica cómo usar la autenticación de Azure Active Directory (Azure AD) para acceder a la API de Azure Media Services (AMS) con .NET
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/17/2017
+ms.date: 03/27/2018
 ms.author: juliako
-ms.openlocfilehash: a9355200a05a3aa1b494b76977d38ddc42bfe179
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8817bb0da526769470e96b63b9c80620309757bf
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="use-azure-ad-authentication-to-access-azure-media-services-api-with-net"></a>Uso de la autenticación de Azure AD para acceder a la API de Azure Media Services con .NET
 
 A partir de windowsazure.mediaservices 4.0.0.4, Azure Media Services admite la autenticación basada en Azure Active Directory (Azure AD). En este tema se explica cómo usar la autenticación de Azure AD para acceder a la API de Azure Media Services con Microsoft .NET.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 - Una cuenta de Azure. Para más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/). 
-- Una cuenta de Servicios multimedia. Para más información, vea [Creación de una cuenta de Azure Media Services mediante Azure Portal](media-services-portal-create-account.md).
+- Una cuenta de Media Services. Para más información, vea [Creación de una cuenta de Azure Media Services mediante Azure Portal](media-services-portal-create-account.md).
 - El último paquete [NuGet](https://www.nuget.org/packages/windowsazure.mediaservices).
 - Familiarícese con el tema de [información general sobre el acceso a la API de Azure Media Services con la autenticación de AAD](media-services-use-aad-auth-to-access-ams-api.md). 
 
@@ -36,7 +36,7 @@ Si usa la autenticación de Azure AD con Azure Media Services, puede autenticars
 - **Autenticación de entidad de servicio** autentica un servicio. Las aplicaciones que normalmente utilizan este método de autenticación son aplicaciones que ejecutan servicios de demonio, servicios de nivel intermedio o trabajos programados, como Web Apps, Function Apps, Logic Apps, API o microservicios.
 
 >[!IMPORTANT]
->Azure Media Services actualmente admite un modelo de autenticación de Azure Access Control Service. Pero la autenticación de Access Control dejará de usarse el 1 de junio de 2018. Se recomienda migrar tan pronto como sea posible a un modelo de autenticación de Azure Active Directory.
+>Azure Media Services actualmente admite un modelo de autenticación de Azure Access Control Service. Pero la autorización de Access Control dejará de usarse el 22 de junio de 2018. Se recomienda migrar tan pronto como sea posible a un modelo de autenticación de Azure Active Directory.
 
 ## <a name="get-an-azure-ad-access-token"></a>Obtención de un token de acceso de Azure AD
 
@@ -73,7 +73,7 @@ También tiene la opción de sustituir la implementación predeterminada de **Az
 Para conectarse a la API de Azure Media Services mediante la opción de autenticación de usuario, la aplicación cliente debe solicitar un token de Azure AD con el uso de los siguientes parámetros:  
 
 - Punto de conexión de inquilino de Azure AD. La información del inquilino se puede recuperar desde Azure Portal. Mantenga el puntero sobre el usuario que inició sesión en la esquina superior derecha.
-- URI del recurso de Media Services
+- URI del recurso de Media Services.
 - Id. de cliente de aplicación de Media Services (nativo) 
 - URI de redireccionamiento de aplicación de Media Services (nativo) 
 

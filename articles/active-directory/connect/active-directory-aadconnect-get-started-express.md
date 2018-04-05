@@ -1,8 +1,8 @@
 ---
-title: "Azure AD Connect: introducción al uso de la configuración rápida | Microsoft Docs"
-description: "Obtenga información acerca de cómo descargar, instalar y ejecutar el asistente para instalación de Azure AD Connect."
+title: 'Azure AD Connect: introducción al uso de la configuración rápida | Microsoft Docs'
+description: Obtenga información acerca de cómo descargar, instalar y ejecutar el asistente para instalación de Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
 editor: curtand
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/03/2018
+ms.date: 03/21/2018
 ms.author: billmath
-ms.openlocfilehash: 15101e1edb483f49c7570a5d4eab66865bbceb87
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 46fc01bfd7fada529ff1416e8ad46d2ea34792bd
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>Introducción a Azure AD Connect mediante la configuración rápida
 Se utiliza la **Configuración rápida** de Azure AD Connect cuando se dispone de una topología de bosque único y de [sincronización de contraseña](active-directory-aadconnectsync-implement-password-synchronization.md) para la autenticación. **Configuración rápida** es la opción predeterminada y se utiliza en los escenarios implementados más habituales. Ya solo le faltan uno cuantos clics para extender su directorio local a la nube.
@@ -45,6 +45,7 @@ Puede ver estos pasos de acción en la sección [Vídeos](#videos) .
    Si ve esta página, revise los dominios marcados como **Not Added** (Sin agregar) y **Not Verified** (Sin comprobar). Asegúrese de que los dominios que usa se han comprobado en Azure AD. Cuando haya comprobado los dominios, haga clic en el símbolo de actualización.
 8. En la pantalla Listo para configurar, haga clic en **Instalar**.
    * En la página Listo para configurar, puede desactivar la casilla **Inicie el proceso de sincronización en cuanto se complete la configuración**. Si quiere realizar alguna configuración adicional, por ejemplo, el [filtrado](active-directory-aadconnectsync-configure-filtering.md), desactive esta casilla. Si desactiva esta opción, el asistente configura la sincronización, pero deja el programador deshabilitado,  y no se ejecuta hasta que lo habilite manualmente [volviendo a ejecutar el Asistente para la instalación](active-directory-aadconnectsync-installation-wizard.md).
+   * Si deja la casilla **Inicie el proceso de sincronización cuando se complete la configuración** habilitada, se desencadenará de inmediato una sincronización completa en Azure AD de todos los usuarios, grupos y contactos. 
    * Si tiene Exchange en su entorno de Active Directory local, también dispone de la opción para habilitar una [**implementación híbrida de Exchange**](https://technet.microsoft.com/library/jj200581.aspx). Habilite esta opción si planea tener buzones de Exchange tanto en la nube como locales de manera simultánea.
      ![Listo para configurar Azure AD Connect](./media/active-directory-aadconnect-get-started-express/readytoconfigure.png)
 9. Una vez completada la instalación, haga clic en **Salir**.
@@ -57,7 +58,7 @@ Para ver un vídeo sobre el uso de la instalación rápida, consulte:
 >
 >
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Ahora que ha instalado Azure AD Connect, puede [comprobar la instalación y asignar licencias](active-directory-aadconnect-whats-next.md).
 
 Para aprender más acerca de estas características que se habilitaron con la instalación, consulte la información sobre: [actualización automática](active-directory-aadconnect-feature-automatic-upgrade.md), [cómo evitar eliminaciones accidentales](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) y [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health-sync.md).

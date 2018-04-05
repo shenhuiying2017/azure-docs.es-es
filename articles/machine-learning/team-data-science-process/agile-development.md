@@ -1,23 +1,23 @@
 ---
 title: Desarrollo de Agile de proyectos de ciencia de datos - Azure Machine Learning | Microsoft Docs
-description: "Forma en que los desarrolladores pueden ejecutar un proyecto de ciencia de datos de forma sistemática, con control de versiones y en colaboración dentro de un equipo de proyecto mediante el Proceso de ciencia de los datos en equipos."
-documentationcenter: 
+description: Forma en que los desarrolladores pueden ejecutar un proyecto de ciencia de datos de forma sistemática, con control de versiones y en colaboración dentro de un equipo de proyecto mediante el Proceso de ciencia de los datos en equipos.
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
-ms.author: bradsev;
-ms.openlocfilehash: 686f751b241d49d116948711c683f4b504d5d5f9
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.author: bradsev
+ms.openlocfilehash: dbaf2df0f5572c9b269000c741f1d736a7521d73
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="agile-development-of-data-science-projects"></a>Desarrollo de Agile de proyectos de ciencia de datos
 
@@ -185,7 +185,7 @@ En [Collaborative coding with Git](collaborative-coding-with-git.md) (Codificaci
 A continuación se muestran vínculos adicionales a los recursos de los procesos de Agile.
 
 - Proceso de Agile   [https://www.visualstudio.com/en-us/docs/work/guidance/agile-process](https://www.visualstudio.com/en-us/docs/work/guidance/agile-process)
-- Flujo de trabajo y tipos de elementos de trabajo de proceso de Agile  [https://www.visualstudio.com/en-us/docs/work/guidance/agile-process-workflow](https://www.visualstudio.com/en-us/docs/work/guidance/agile-process-workflow)
+- Flujo de trabajo y tipos de elemento de trabajo de procesos de Agile   [https://www.visualstudio.com/en-us/docs/work/guidance/agile-process-workflow](https://www.visualstudio.com/en-us/docs/work/guidance/agile-process-workflow)
 
 
 También se proporcionan tutoriales que muestran todos los pasos del proceso en **escenarios concretos**. Se enumeran y enlazan con descripciones en miniatura en los [tutoriales de ejemplo](walkthroughs.md). En ellos se ilustra cómo combinar herramientas y servicios locales y en la nube en un flujo de trabajo o canalización para crear una aplicación inteligente. 

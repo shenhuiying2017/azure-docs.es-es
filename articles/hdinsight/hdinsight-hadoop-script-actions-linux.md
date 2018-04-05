@@ -1,8 +1,8 @@
 ---
 title: Desarrollo de acciones de script con HDInsight basado en Linux (Azure) | Microsoft Docs
-description: "Obtenga información sobre cómo usar scripts de Bash para personalizar clústeres de HDInsight basado en Linux. La característica de acción de script de HDInsight le permite ejecutar scripts durante o después de la creación del clúster. Los scripts se pueden usar para cambiar la configuración de clúster o instalar software adicional."
+description: Obtenga información sobre cómo usar scripts de Bash para personalizar clústeres de HDInsight basado en Linux. La característica de acción de script de HDInsight le permite ejecutar scripts durante o después de la creación del clúster. Los scripts se pueden usar para cambiar la configuración de clúster o instalar software adicional.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: larryfr
-ms.openlocfilehash: ddf5db3e61633c45e388e161e165637521803094
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 5074345533f0fdb0c72bf319646ad614632d1940
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="script-action-development-with-hdinsight"></a>Desarrollo de la acción de script con HDInsight
 
@@ -168,7 +168,7 @@ De forma predeterminada, `echo` enviará la cadena a STDOUT. Para dirigirla a ST
 >&2 echo "An error occurred installing Foo"
 ```
 
-Esto redirige la información escrita en STDOUT a STDERR (2). Para obtener más información sobre la redirección de E/S, consulte [http://www.tldp.org/LDP/abs/html/io-redirection.html](http://www.tldp.org/LDP/abs/html/io-redirection.html).
+Esto redirige la información escrita en STDOUT a STDERR (2). Para obtener más información sobre el redireccionamiento de E/S, consulte [http://www.tldp.org/LDP/abs/html/io-redirection.html](http://www.tldp.org/LDP/abs/html/io-redirection.html).
 
 Para obtener más información sobre la visualización de información registrada por las acciones de script, consulte [Personalización de clústeres de HDInsight mediante la acción de scripts (Linux)](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting)
 

@@ -1,25 +1,25 @@
 ---
-title: "Instalación de paquetes de aplicaciones en nodos de proceso - Azure Batch | Microsoft Docs"
-description: "Utilice la característica paquetes de aplicación de Azure Batch para administrar fácilmente varias aplicaciones y versiones para la instalación en nodos de proceso de Batch."
+title: Instalación de paquetes de aplicaciones en nodos de proceso - Azure Batch | Microsoft Docs
+description: Utilice la característica paquetes de aplicación de Azure Batch para administrar fácilmente varias aplicaciones y versiones para la instalación en nodos de proceso de Batch.
 services: batch
 documentationcenter: .net
-author: tamram
-manager: timlt
-editor: 
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: 3b6044b7-5f65-4a27-9d43-71e1863d16cf
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 07/20/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 86b5f10cbd79227ccc6acb2004e449f426a6cbd8
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 440f7eba99e5fa02a597ae62d5d14329f5e50af7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Implementación de aplicaciones en nodos de proceso con paquetes de aplicaciones de Batch
 
@@ -52,7 +52,7 @@ En Azure Batch, una *aplicación* hace referencia a un conjunto de archivos bina
 
 ![Diagrama de alto nivel de aplicaciones y paquetes de aplicación][1]
 
-### <a name="applications"></a>Aplicaciones
+### <a name="applications"></a>APLICACIONES
 Una aplicación en Batch contiene uno o más paquetes de aplicación y especifica las opciones de configuración de la aplicación. Por ejemplo, una aplicación puede especificar la versión predeterminada del paquete de aplicación que se instala en los nodos de proceso y si sus paquetes se pueden actualizar o eliminar.
 
 ### <a name="application-packages"></a>paquetes de aplicación
@@ -184,7 +184,7 @@ Para actualizar o eliminar un paquete de aplicación existente, abra la hoja de 
 
 ![Actualizar o eliminar paquete en Azure Portal][7]
 
-**Actualización**
+**Actualizar**
 
 Al hacer clic en **Actualizar**, se muestra la hoja *Actualizar paquete*. Esta hoja es similar a la hoja *New application package* (Nuevo paquete de aplicación). Sin embargo, solo está habilitado el campo de selección de paquete, lo que permite especificar un nuevo archivo ZIP para cargarlo.
 
@@ -262,7 +262,7 @@ Windows:
 AZ_BATCH_APP_PACKAGE_APPLICATIONID#version
 ```
 
-En los nodos de Linux, el formato es ligeramente diferente. Los puntos (.), guiones (-) y signos de número (##) se convierten en caracteres de subrayado en la variable de entorno. Además, tenga en cuenta que se conserva el caso del identificador de la aplicación. Por ejemplo:
+En los nodos de Linux, el formato es ligeramente diferente. Los puntos (.), guiones (-) y signos de número (##) se convierten en caracteres de subrayado en la variable de entorno. Además, tenga en cuenta que se conserva el caso del identificador de la aplicación. Por ejemplo: 
 
 ```
 Linux:

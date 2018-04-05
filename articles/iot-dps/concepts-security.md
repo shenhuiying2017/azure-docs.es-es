@@ -1,26 +1,26 @@
 ---
 title: Conceptos de seguridad del servicio Azure IoT Hub Device Provisioning | Microsoft Docs
-description: "Describe conceptos del aprovisionamiento de la seguridad específicos de dispositivos con el servicio Azure IoT Hub Device Provisioning"
+description: Describe conceptos del aprovisionamiento de la seguridad específicos de dispositivos con el servicio Azure IoT Hub Device Provisioning
 services: iot-dps
-keywords: 
+keywords: ''
 author: nberdy
 ms.author: nberdy
-ms.date: 09/05/2017
+ms.date: 03/27/2018
 ms.topic: article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: ab2bfff571af659552eef8117de041ca6367ce56
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 5e35a802349bd85b50a13a3d9a7e0c78945937bd
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="iot-hub-device-provisioning-service-security-concepts"></a>Conceptos de seguridad del servicio Azure IoT Hub Device Provisioning 
 
-IoT Hub Device Provisioning es un servicio auxiliar de IoT Hub que se utiliza para configurar el aprovisionamiento de dispositivos sin interacción de un centro IoT especificado. Con el servicio Device Provisioning puede aprovisionar millones de dispositivos de forma segura y escalable. Este artículo proporciona información general sobre conceptos de *seguridad* implicados en el aprovisionamiento de dispositivos. Este artículo es apropiado para todas las personas implicadas en la preparación de un dispositivo para la implementación.
+IoT Hub Device Provisioning es un servicio auxiliar de IoT Hub que se utiliza para configurar el aprovisionamiento de dispositivos sin interacción de un centro IoT especificado. Con el servicio Device Provisioning pueden aprovisionar millones de dispositivos de forma segura y escalable. Este artículo proporciona información general sobre conceptos de *seguridad* implicados en el aprovisionamiento de dispositivos. Este artículo es apropiado para todas las personas implicadas en la preparación de un dispositivo para la implementación.
 
 ## <a name="attestation-mechanism"></a>Mecanismo de atestación
 
@@ -31,7 +31,7 @@ El mecanismo de atestación es el método utilizado para confirmar la identidad 
 
 El servicio Device Provisioning admite dos formas de atestación:
 * **Certificados X.509** basado en el flujo de autenticación de certificados X.509 estándar.
-* **Tokens de SAS** basado en un desafío nonce que usa el estándar TPM para las claves. Esto no requiere un módulo de plataforma segura (TPM) físico en el dispositivo, pero el servicio espera atestar usando la clave de aprobación para cada [especificación de TPM](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/).
+* **Módulo de plataforma segura (TPM)** basado en un desafío nonce, utilizando el estándar TPM para las claves para presentar un token de Firma de acceso compartido (SAS) firmado. Esto no requiere un módulo de plataforma segura (TPM) físico en el dispositivo, pero el servicio espera atestar usando la clave de aprobación para cada [especificación de TPM](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/).
 
 ## <a name="hardware-security-module"></a>Módulo de seguridad de hardware
 
@@ -42,13 +42,13 @@ El módulo de seguridad de hardware, o HSM, se usa para el almacenamiento seguro
 
 Los secretos de dispositivo también pueden almacenarse con software (en memoria), pero es una forma menos segura de almacenamiento que un módulo.
 
-## <a name="trusted-platform-module-tpm"></a>Módulo de plataforma segura (TPM)
+## <a name="trusted-platform-module"></a>Módulo de plataforma segura (TPM)
 
 Un módulo de plataforma segura puede hacer referencia a un estándar para almacenar de forma segura las claves usadas para autenticar la plataforma, o puede hacer referencia a la interfaz de E/S que se utiliza para interactuar con los módulos que implementan el estándar. Los módulos de plataforma segura pueden existir como hardware discreto, hardware integrado, basados en firmware o basados en software. Más información sobre [TPM y atestación con TPM](/windows-server/identity/ad-ds/manage/component-updates/tpm-key-attestation). El servicio Device Provisioning solo admite TPM 2.0.
 
 ### <a name="endorsement-key"></a>Clave de aprobación
 
-La clave de aprobación es una clave asimétrica que se encuentra dentro del módulo de plataforma segura (TPM) que se generó internamente o se insertó en el momento de la fabricación y es único para cada TPM. La clave de aprobación no se puede cambiar ni quitar. La parte privada de la clave de aprobación nunca se difunde fuera del módulo de plataforma segura, mientras que la parte pública se utiliza para reconocer un módulo auténtico. Más información sobre la [clave de aprobación](https://technet.microsoft.com/library/cc770443(v=ws.11).aspx).
+La clave de aprobación es una clave asimétrica que se encuentra dentro del módulo de plataforma segura que se generó internamente o se insertó en el momento de la fabricación y es único para cada TPM. La clave de aprobación no se puede cambiar ni quitar. La parte privada de la clave de aprobación nunca se difunde fuera del módulo de plataforma segura, mientras que la parte pública se utiliza para reconocer un módulo auténtico. Más información sobre la [clave de aprobación](https://technet.microsoft.com/library/cc770443(v=ws.11).aspx).
 
 ### <a name="storage-root-key"></a>Clave raíz de almacenamiento
 
@@ -76,10 +76,10 @@ El certificado de hoja, o certificado de entidad final, identifica al titular de
 
 El servicio de aprovisionamiento expone dos tipos de entrada de inscripción que puede usar para controlar el acceso de los dispositivos que usan el mecanismo de atestación de X.509:  
 
-- Las entradas de [inscripción individual](./concepts-service.md#individual-enrollment) se configuran con el certificado de dispositivo asociado a un dispositivo específico. Estas entradas controlan la inscripción para dispositivos específicos.
-- Las entradas de [grupo de inscripción](./concepts-service.md#enrollment-group) están asociadas con un certificado de CA raíz o intermedio específico. Estas entradas controlan la inscripción para todos los dispositivos que tienen ese certificado intermedio o raíz en su cadena de certificados. 
+- Las entradas de [inscripción individual](./concepts-service.md#individual-enrollment) se configuran con el certificado de dispositivo asociado a un dispositivo específico. Estas entradas controlan las inscripciones para dispositivos específicos.
+- Las entradas de [grupo de inscripción](./concepts-service.md#enrollment-group) están asociadas con un certificado de CA raíz o intermedio específico. Estas entradas controlan las inscripciones para todos los dispositivos que tienen ese certificado intermedio o raíz en su cadena de certificados. 
 
-Cuando un dispositivo se conecta al servicio de aprovisionamiento, el servicio da prioridad a las entradas de inscripción más específicas sobre las entradas de inscripción menos específicas. Es decir, si existe una inscripción individual para el dispositivo, el servicio de aprovisionamiento aplica a esa entrada. Si no hay ninguna inscripción individual para el dispositivo y existe un grupo de inscripción para el primer certificado intermedio en la cadena de certificados del dispositivo, el servicio aplica a esa entrada, y así sucesivamente hacia arriba en la cadena a la raíz. El servicio aplica la primera entrada aplicable que encuentra de forma que:
+Cuando un dispositivo se conecta al servicio de aprovisionamiento, el servicio da prioridad a las entradas de inscripción más específicas sobre las entradas de inscripción menos específicas. Es decir, si existe una inscripción individual para el dispositivo, el servicio de aprovisionamiento aplica a esa entrada. Si no hay ninguna inscripción individual para el dispositivo y existe un grupo de inscripción para el primer certificado intermedio en la cadena de certificados del dispositivo, el servicio aplica a esa entrada, y así sucesivamente hacia arriba en la cadena hasta la raíz. El servicio aplica la primera entrada aplicable que encuentra de forma que:
 
 - Si la primera entrada de inscripción que se encuentra está habilitada, el servicio aprovisiona el dispositivo.
 - Si la primera entrada de inscripción que se encuentra está deshabilitada, el servicio no aprovisiona el dispositivo.  

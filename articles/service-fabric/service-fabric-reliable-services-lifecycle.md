@@ -1,12 +1,12 @@
 ---
-title: "Información general del ciclo de vida de Reliable Services de Azure Service Fabric | Microsoft Docs"
-description: "Obtenga más información sobre los distintos eventos de ciclo de vida en los servicios de Reliable Services de Service Fabric"
+title: Información general del ciclo de vida de Reliable Services de Azure Service Fabric | Microsoft Docs
+description: Obtenga más información sobre los distintos eventos de ciclo de vida en los servicios de Reliable Services de Service Fabric
 services: Service-Fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
 editor: vturecek;
-ms.assetid: 
+ms.assetid: ''
 ms.service: Service-Fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: ebfe23ea1e07e7578e8bd352a482ecb1016829de
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 9cb017997c528c987403186097599a721ee591bc
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="reliable-services-lifecycle-overview"></a>Información general del ciclo de vida de Reliable Services
 > [!div class="op_single_selector"]
@@ -47,7 +47,7 @@ El ciclo de vida de un servicio sin estado es sencillo. Este es el orden de los 
 2. A continuación, suceden dos cosas simultáneamente:
     - Se invoca `StatelessService.CreateServiceInstanceListeners()` y se abren los agentes de escucha devueltos. Se llama a `ICommunicationListener.OpenAsync()` en cada uno de los agentes de escucha.
     - Se llama al método `StatelessService.RunAsync()` del servicio.
-3. Si está presente, se llama al método `StatelessService.OnOpenAsync()` del servicio. Esta llamada es una invalidación poco habitual, pero está disponible.
+3. Si está presente, se llama al método `StatelessService.OnOpenAsync()` del servicio. Esta llamada es una invalidación poco habitual, pero está disponible. En este momento, se pueden iniciar las tareas de inicialización del servicio ampliado.
 
 Tenga en cuenta que no hay ninguna ordenación entre las llamadas para crear y abrir los agentes de escucha y **RunAsync**. Los agentes de escucha se pueden abrir antes de iniciar **RunAsync**. De forma similar, se puede invocar **RunAsync** antes de que se abran o incluso de que se construyan los agentes de escucha de comunicación. Si se necesita cualquier sincronización, se deja como un ejercicio para el implementador. Estas son algunas de las soluciones habituales:
 
@@ -63,7 +63,7 @@ Al cerrar un servicio sin estado, se sigue el mismo patrón, solo que en orden i
 1. En paralelo:
     - Todos los agentes de escucha abiertos se cierran. Se llama a `ICommunicationListener.CloseAsync()` en cada uno de los agentes de escucha.
     - Se cancela el token de cancelación que se pasó a `RunAsync()`. La comprobación de la propiedad `IsCancellationRequested` del token de cancelación devuelve el valor True y, si se llama al método `ThrowIfCancellationRequested` del token, se inicia una excepción `OperationCanceledException`.
-2. Una vez que `CloseAsync()` finaliza en cada agente de escucha y tras finalizar también `RunAsync()`, se llama al método `StatelessService.OnCloseAsync()` del servicio, si está presente. No es habitual que se invalide `StatelessService.OnCloseAsync()`.
+2. Una vez que `CloseAsync()` finaliza en cada agente de escucha y tras finalizar también `RunAsync()`, se llama al método `StatelessService.OnCloseAsync()` del servicio, si está presente.  Se llama a OnCloseAsync cuando la instancia de servicio sin estado se va a apagar correctamente. Esto puede ocurrir cuando se está actualizando el código de servicio, cuando se está moviendo la instancia de servicio debido al equilibrio de carga o se detecta un error transitorio. No es frecuente invalidar `StatelessService.OnCloseAsync()`, pero puede utilizarse para cerrar de manera segura los recursos, detener el procesamiento en segundo plano, terminar de guardar el estado externo o cerrar las conexiones existentes.
 3. Una vez finalizado `StatelessService.OnCloseAsync()`, se destruye el objeto de servicio.
 
 ## <a name="stateful-service-startup"></a>Inicio de un servicio con estado
@@ -128,10 +128,10 @@ Administrar las excepciones que proceden del uso de `ReliableCollections` junto 
   - Un servicio puede completar `RunAsync()` correctamente y volver desde este. La finalización no es una condición de error. La finalización de `RunAsync()` indica que el trabajo en segundo plano del servicio ha finalizado. En el caso de los servicios con estado de Reliable Services, se llamaría de nuevo a `RunAsync()` si la réplica se degradara de la categoría principal a la secundaria y se promoviera de nuevo a la categoría principal.
   - Si un servicio sale de `RunAsync()` iniciando una excepción inesperada, se considera un error. El objeto de servicio se cierra y se notifica el error de estado.
   - Aunque no hay un límite de tiempo para que se devuelvan resultados de estos métodos, se pierde inmediatamente la posibilidad de escribir en Reliable Collections y, por lo tanto, no se puede realizar ningún trabajo real. Se recomienda que devuelva resultados lo antes posible tras recibir la solicitud de cancelación. Si su servicio no responde a estas llamadas a la API en un intervalo de tiempo razonable, Service Fabric puede forzar la finalización del servicio. Esto solo suele pasar durante las actualizaciones de aplicación o cuando se elimina un servicio. Este tiempo de espera es de 15 minutos de manera predeterminada.
-  - Los errores en la ruta `OnCloseAsync()` dan como resultado una llamada a `OnAbort()`, que es una oportunidad como último recurso para hacer todo lo posible para que el servicio limpie y libere cualquier recurso que haya reclamado.
+  - Los errores en la ruta `OnCloseAsync()` dan como resultado una llamada a `OnAbort()`, que es una oportunidad como último recurso para hacer todo lo posible para que el servicio limpie y libere cualquier recurso que haya reclamado. Normalmente se llama cuando se detecta un error permanente en el nodo o cuando Service Fabric no puede administrar el ciclo de vida de la instancia de servicio debido a errores internos.
+  - Se llama a `OnChangeRoleAsync()` cuando la réplica del servicio con estado cambia de rol, por ejemplo, a principal o secundario. Las réplicas principales reciben el estado de escritura (se les permite crear y escribir en Reliable Collections). Las réplicas secundarias reciben el estado de lectura (solo pueden leer desde Reliable Collections existentes). La mayoría del trabajo en un servicio con estado se lleva a cabo en la réplica principal. Las réplicas secundarias pueden realizar validación de solo lectura, generación de informes, minería de datos u otros trabajos de solo lectura.
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Introducción a Reliable Services](service-fabric-reliable-services-introduction.md)
 - [Introducción a Reliable Services de Service Fabric de Microsoft Azure](service-fabric-reliable-services-quick-start.md)
-- [Uso avanzado de Reliable Services](service-fabric-reliable-services-advanced-usage.md)
 - [Réplicas e instancias](service-fabric-concepts-replica-lifecycle.md)

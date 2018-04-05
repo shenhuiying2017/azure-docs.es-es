@@ -1,11 +1,10 @@
 ---
 title: Movimiento de datos de una tabla web mediante Azure Data Factory | Microsoft Docs
-description: "Obtenga información sobre cómo mover datos de una tabla de una página web mediante Azure Data Factory."
+description: Obtenga información sobre cómo mover datos de una tabla de una página web mediante Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: f54a26a4-baa4-4255-9791-5a8f935898e2
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4f2005e753e1892989fd902cb259bd5545f1e9a4
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 8f35a2bec410eccc59a19e5b82b9e109b15f0738
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>Movimiento de datos de un origen de tabla web mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,7 +35,7 @@ Factoría de datos solo admite actualmente el movimiento de datos desde una tabl
 > [!IMPORTANT]
 > Actualmente, este conector web solo permite extraer contenido de tablas de una página HTML. Para recuperar datos de un punto de conexión HTTP/s, utilice el [conector HTTP](data-factory-http-connector.md) en su lugar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para utilizar este conector de tabla web, debe configurar Integration Runtime autohospedado (también conocido como Data Management Gateway) y configurar la propiedad `gatewayName` en el servicio vinculado del receptor. Por ejemplo, para copiar de la tabla web a Azure Blob Storage, configure el servicio vinculado de Azure Storage de la siguiente manera:
 
@@ -72,7 +71,7 @@ En las secciones siguientes, se proporcionan detalles sobre las propiedades JSON
 ## <a name="linked-service-properties"></a>Propiedades del servicio vinculado
 En la tabla siguiente se proporciona la descripción de los elementos JSON específicos del servicio vinculado de Web.
 
-| Propiedad | DESCRIPCIÓN | Requerido |
+| Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
 | Tipo |La propiedad type debe establecerse en: **Web** |Sí |
 | URL |Dirección URL para el origen de Web |Sí |
@@ -100,7 +99,7 @@ Para una lista completa de las secciones y propiedades disponibles para definir 
 
 La sección **typeProperties** es diferente en cada tipo de conjunto de datos y proporciona información acerca de la ubicación de los datos en el almacén de datos. La sección typeProperties del conjunto de datos de tipo **WebTable** tiene las propiedades siguientes:
 
-| Propiedad | DESCRIPCIÓN | Requerido |
+| Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | Tipo |Tipo del conjunto de datos. Debe establecerse en **WebTable** |Sí |
 | path |Dirección URL relativa al recurso que contiene la tabla. |Nº Cuando no se especifica la ruta de acceso, se solo se usa la dirección URL especificada en la definición de servicio vinculado. |
@@ -290,11 +289,11 @@ Consulte [Propiedades de tipo WebSource](#copy-activity-type-properties) para ob
 2. Haga clic en **Nueva consulta** en la barra de herramientas, elija **De otros orígenes** y haga clic en **Desde Web**.
 
     ![Menú de Power Query](./media/data-factory-web-table-connector/PowerQuery-Menu.png)
-3. En el cuadro de diálogo **Desde Web**, escriba la **dirección URL** que se use en el JSON del servicio vinculado (por ejemplo: https://en.wikipedia.org/wiki/) junto con la ruta de acceso que se especifique para el conjunto de datos (por ejemplo: AFI%27s_100_Years...100_Movies) y haga clic en **Aceptar**.
+3. En el cuadro de diálogo **Desde Web**, escriba la **dirección URL** que se use en el JSON del servicio vinculado (por ejemplo: https://en.wikipedia.org/wiki/)) junto con la ruta de acceso que se especifique para el conjunto de datos (por ejemplo: AFI%27s_100_Years...100_Movies) y haga clic en **Aceptar**.
 
     ![Cuadro de diálogo Desde Web](./media/data-factory-web-table-connector/FromWeb-DialogBox.png)
 
-    Dirección URL usada en este ejemplo: https://en.wikipedia.org/wiki/AFI%27s_100_Years...100_Movies
+    Dirección URL que se usa en este ejemplo: https://en.wikipedia.org/wiki/AFI%27s_100_Years...100_Movies
 4. Si ve el cuadro de diálogo **Acceso a contenido web**, seleccione la **dirección URL** correcta, la **autenticación** y haga clic en **Conectar**.
 
    ![Cuadro de diálogo Acceso a contenido web](./media/data-factory-web-table-connector/AccessWebContentDialog.png)

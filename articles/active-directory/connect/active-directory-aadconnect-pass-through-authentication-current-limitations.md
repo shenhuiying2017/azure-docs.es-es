@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 03/22/2018
 ms.author: billmath
-ms.openlocfilehash: 3e533b8b23c095a3de845d9b26a96aea9d8ee086
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 680e9967010771b8e3651c6f4eed81237f8fb4c3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Autenticación de paso a través de Azure Active Directory: limitaciones actuales
 
@@ -50,7 +50,7 @@ Los siguientes escenarios _no_ son compatibles:
 - El Programa de inscripción de dispositivos de Apple (DEP de Apple) mediante el Asistente para configuración de iOS no admite la autenticación moderna. Al inscribir dispositivos de DEP de Apple en Intune para dominios administrados que usan la autenticación de paso a través, se producirá un error. Como alternativa, considere la posibilidad de usar la [aplicación de Portal de empresa](https://blogs.technet.microsoft.com/intunesupport/2018/02/08/support-for-multi-token-dep-and-authentication-with-company-portal/).
 
 >[!IMPORTANT]
->Como solución alternativa _solo_ para escenarios no admitidos, habilite la sincronización de hash de contraseñas en la página [Características opcionales](active-directory-aadconnect-get-started-custom.md#optional-features) del asistente de Azure AD Connect.
+>Como solución alternativa _solo_ para escenarios no admitidos, habilite la sincronización de hash de contraseñas en la página [Características opcionales](active-directory-aadconnect-get-started-custom.md#optional-features) del asistente de Azure AD Connect. Cuando los usuarios inician sesión en las aplicaciones que aparecen en la sección "Escenarios no admitidos" sección, los agentes de autenticación de paso a través _no_ controlan dichas solicitudes específicas y, por tanto, no se registran en los [Registros de autenticación de paso a través](active-directory-aadconnect-troubleshoot-pass-through-authentication.md#collecting-pass-through-authentication-agent-logs).
 
 >[!NOTE]
 Habilitar la sincronización de hash de contraseña le proporciona la opción de autenticación mediante conmutación por error si se interrumpe la infraestructura local. Esta conmutación por error de la autenticación de paso a través a la sincronización de hash de contraseña de Active Directory no es automática. Deberá cambiar el método de inicio de sesión manualmente con Azure AD Connect. Si el servidor que ejecuta Azure AD Connect deja de funcionar, necesitará la ayuda de Soporte técnico de Microsoft para desactivar la autenticación de paso a través.

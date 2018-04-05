@@ -1,10 +1,11 @@
 ---
 title: 'Paso 2: Carga de datos en un experimento de Machine Learning | Microsoft Docs'
-description: "Paso 2 del tutorial Desarrollo de una solución predictiva: carga de datos públicos almacenados en Estudio de aprendizaje automático de Azure."
+description: 'Paso 2 del tutorial Desarrollo de una solución predictiva: carga de datos públicos almacenados en Azure Machine Learning Studio.'
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 9f4bc52e-9919-4dea-90ea-5cf7cc506d85
 ms.service: machine-learning
@@ -12,18 +13,16 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/23/2017
-ms.author: garye
-ms.openlocfilehash: 469c94f6115f99bc4cf067e9c8f0e55c64990358
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f482b1273f83f5ae5bb4f1e64609767ee0c5fe32
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="walkthrough-step-2-upload-existing-data-into-an-azure-machine-learning-experiment"></a>Paso 2 del tutorial: Carga de los datos existentes en un experimento de Aprendizaje automático de Azure
-Este es el segundo paso del tutorial [Desarrollo de una solución de análisis predictiva para la evaluación del riesgo de crédito en Aprendizaje automático de Azure](walkthrough-develop-predictive-solution.md)
+# <a name="walkthrough-step-2-upload-existing-data-into-an-azure-machine-learning-experiment"></a>Paso 2 del tutorial: Carga de los datos existentes en un experimento de Azure Machine Learning
+Este es el segundo paso del tutorial [Desarrollo de una solución de análisis predictiva para la evaluación del riesgo de crédito en Azure Machine Learning](walkthrough-develop-predictive-solution.md)
 
-1. [Creación de un área de trabajo de Aprendizaje automático](walkthrough-1-create-ml-workspace.md)
+1. [Creación de un área de trabajo de Machine Learning](walkthrough-1-create-ml-workspace.md)
 2. **Carga de los datos existentes**
 3. [Crear un experimento nuevo](walkthrough-3-create-new-experiment.md)
 4. [Entrenamiento y evaluación de los modelos](walkthrough-4-train-and-evaluate-models.md)
@@ -51,7 +50,7 @@ Una forma sencilla de hacerlo al formar el modelo en nuestro experimento es dupl
 
 
 ## <a name="convert-the-dataset-format"></a>Conversión del formato del conjunto de datos
-El conjunto de datos original utiliza un formato separado por espacios en blanco. Estudio de aprendizaje automático funciona mejor con un archivo de valores delimitados por comas (CSV), así que vamos a convertir el conjunto de datos y reemplazar los espacios por comas.  
+El conjunto de datos original utiliza un formato separado por espacios en blanco. Machine Learning Studio funciona mejor con un archivo de valores delimitados por comas (CSV), así que vamos a convertir el conjunto de datos y reemplazar los espacios por comas.  
 
 Hay muchas maneras de convertir los datos. En primer lugar, es posible convertirlos con el siguiente comando de Windows PowerShell:   
 
@@ -63,8 +62,8 @@ También se puede hacer con el comando sed de Unix:
 
 En cualquier caso, se creará una versión separada por comas de los datos en un archivo denominado **german.csv** que usaremos en nuestro experimento.
 
-## <a name="upload-the-dataset-to-machine-learning-studio"></a>Carga del conjunto de datos en Estudio de aprendizaje automático
-Una vez que los datos se han convertido al formato CSV, debemos cargarlos en el Estudio de aprendizaje automático. 
+## <a name="upload-the-dataset-to-machine-learning-studio"></a>Carga del conjunto de datos en Machine Learning Studio
+Una vez que los datos se han convertido al formato CSV, debemos cargarlos en Machine Learning Studio. 
 
 1. Abra la página principal de Machine Learning Studio ([https://studio.azureml.net](https://studio.azureml.net)). 
 

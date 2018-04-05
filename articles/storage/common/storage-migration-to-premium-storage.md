@@ -1,6 +1,6 @@
 ---
-title: "Migración de máquinas virtuales a Azure Premium Storage | Microsoft Docs"
-description: "Migre las máquinas virtuales existentes a Azure Premium Storage. Premium Storage le ofrece compatibilidad con discos de alto rendimiento y baja latencia para cargas de trabajo con un uso intensivo de E/S, que se ejecutan en Azure Virtual Machines."
+title: Migración de máquinas virtuales a Azure Premium Storage | Microsoft Docs
+description: Migre las máquinas virtuales existentes a Azure Premium Storage. Premium Storage le ofrece compatibilidad con discos de alto rendimiento y baja latencia para cargas de trabajo con un uso intensivo de E/S, que se ejecutan en Azure Virtual Machines.
 services: storage
 documentationcenter: na
 author: yuemlu
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: yuemlu
 ms.openlocfilehash: 36ff73d36c752fb342dcfff2360b4f6f7013740e
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Migración a Azure Premium Storage (discos no administrados)
 
@@ -153,7 +153,7 @@ Si tiene en Azure discos de datos para migrarlos, debe asegurarse de que las má
 
 Siga los pasos que se describen a continuación para copiar un VHD a Azure Premium Storage y registrarlo como disco de datos aprovisionado.
 
-#### <a name="step-2-create-the-destination-for-your-vhd"></a>Paso 2: Crear el destino para el disco duro virtual
+#### <a name="step-2-create-the-destination-for-your-vhd"></a>Paso 2. Crear el destino para el disco duro virtual
 Cree una cuenta de almacenamiento para mantener los discos duros virtuales. Tenga en cuenta los siguientes aspectos al planear dónde almacenar los discos duros virtuales:
 
 * La cuenta de Premium Storage de destino.
@@ -163,7 +163,7 @@ Cree una cuenta de almacenamiento para mantener los discos duros virtuales. Teng
 En cuanto a los discos de datos, puede optar por mantener algunos en una cuenta de almacenamiento estándar (por ejemplo, los discos que menos se calienten), pero se recomienda encarecidamente mover todos los datos de la carga de trabajo de producción para usar Premium Storage.
 
 #### <a name="copy-vhd-with-azcopy-or-powershell"></a>Paso 3. Copiar un VHD con AzCopy o PowerShell
-Para procesar cualquiera de estas dos opciones será preciso que busque la ruta de acceso del contenedor y la clave de la cuenta de almacenamiento. Tanto una como otra pueden encontrarse en **Azure Portal** > **Storage**. La dirección URL del contenedor será similar a esta: "https://myaccount.blob.core.windows.net/mycontainer/".
+Para procesar cualquiera de estas dos opciones será preciso que busque la ruta de acceso del contenedor y la clave de la cuenta de almacenamiento. Tanto una como otra pueden encontrarse en **Azure Portal** > **Storage**. La dirección URL del contenedor será similar a "https://myaccount.blob.core.windows.net/mycontainer/".
 
 ##### <a name="option-1-copy-a-vhd-with-azcopy-asynchronous-copy"></a>Opción 1: Copiar un VHD con AzCopy (copia asincrónica)
 Con AzCopy resulta muy fácil cargar el VHD a través de Internet. Dependiendo del tamaño de los discos duros virtuales, esto puede tardar tiempo. Recuerde comprobar los límites de entrada/salida de la cuenta de almacenamiento cuando use esta opción. Vea [Objetivos de escalabilidad y rendimiento del almacenamiento en Azure](storage-scalability-targets.md) para obtener detalles.
@@ -239,7 +239,7 @@ Si va a migrar un disco duro virtual desde un almacenamiento en la nube que no e
 ##### <a name="copy-a-vhd-from-on-premises"></a>Copia de un VHD desde un entorno local
 Si va a migrar un VHD desde un entorno local, necesitará la ruta de acceso de origen completa en la que se almacena. Dicha ruta puede ser la ubicación de un servidor o un recurso compartido de archivos.
 
-#### <a name="step-2-create-the-destination-for-your-vhd"></a>Paso 2: Crear el destino para el disco duro virtual
+#### <a name="step-2-create-the-destination-for-your-vhd"></a>Paso 2. Crear el destino para el disco duro virtual
 Cree una cuenta de almacenamiento para mantener los discos duros virtuales. Tenga en cuenta los siguientes aspectos al planear dónde almacenar los discos duros virtuales:
 
 * La cuenta de almacenamiento de destino puede ser un almacenamiento estándar o premium, según cuáles sean los requisitos de la aplicación.
@@ -248,7 +248,7 @@ Cree una cuenta de almacenamiento para mantener los discos duros virtuales. Teng
 
 Se recomienda encarecidamente mover todos los datos de la carga de trabajo de producción para usar Premium Storage.
 
-#### <a name="step-3-upload-the-vhd-to-azure-storage"></a>Paso 3: Cargar el VHD en Azure Storage
+#### <a name="step-3-upload-the-vhd-to-azure-storage"></a>Paso 3. Cargar el VHD en Azure Storage
 Una vez que el VHD se encuentra en el directorio local, se puede utilizar AzCopy o Azure PowerShell para cargar el archivo .vhd en Azure Storage. A continuación se explican ambas opciones:
 
 ##### <a name="option-1-using-azure-powershell-add-azurevhd-to-upload-the-vhd-file"></a>Opción 1: Uso del cmdlet Add-AzureVhd de Azure PowerShell para cargar el archivo .vhd
@@ -755,7 +755,7 @@ Para ajustar la aplicación para mejorar el rendimiento de disco, consulte [Opti
 ### <a name="application-migrations"></a>Migraciones de aplicaciones
 Las bases de datos y otras aplicaciones complejas pueden requerir pasos especiales tal y como defina el proveedor de la aplicación para la migración. Consulte la documentación de la aplicación correspondiente. Por ejemplo, las bases de datos normalmente se pueden migrar mediante copia de seguridad y restauración.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Vea los siguientes recursos para conocer otros escenarios específicos de migración de máquinas virtuales.
 
 * [Migrar Azure Virtual Machines entre cuentas de almacenamiento](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)

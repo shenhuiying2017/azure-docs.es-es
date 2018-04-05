@@ -1,11 +1,12 @@
 ---
-title: "Uso de la regresión lineal en Machine Learning | Microsoft Docs"
-description: "Una comparación de los modelos de regresión lineal en Excel y en Estudio de aprendizaje automático de Azure"
-metakeywords: 
+title: Uso de la regresión lineal en Machine Learning | Microsoft Docs
+description: Una comparación de los modelos de regresión lineal en Excel y en Azure Machine Learning Studio
+metakeywords: ''
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 417ae6ab-de4f-4bdd-957a-d96133234656
 ms.service: machine-learning
@@ -14,15 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: kbaroni;garye
-ms.openlocfilehash: 218f2b141e3551180a2152570f99fdb427980dd7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ea5a2720542217d3bb6a0a2b1309312fb74a953
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="using-linear-regression-in-azure-machine-learning"></a>Uso de regresión lineal en Aprendizaje automático de Azure
-> *Kate Baroni* y *Ben Boatman* son arquitectos de soluciones para empresas del Centro de Excelencia de Perspectivas sobre los datos de Microsoft. En este artículo, se describe su experiencia al migrar un conjunto existente de análisis de regresión a una solución basada en la nube mediante Aprendizaje automático (ML) de Azure. 
+# <a name="using-linear-regression-in-azure-machine-learning"></a>Uso de regresión lineal en Azure Machine Learning
+> *Kate Baroni* y *Ben Boatman* son arquitectos de soluciones para empresas del Centro de Excelencia de Perspectivas sobre los datos de Microsoft. En este artículo, se describe su experiencia al migrar un conjunto existente de análisis de regresión a una solución basada en la nube mediante Machine Learning (ML) de Azure. 
 > 
 > 
 
@@ -48,7 +48,7 @@ La regresión de Excel utilizaba el modelo de regresión lineal estándar de Exc
 
 Calculamos el *porcentaje de error medio absoluto* y se utilizó como medida de rendimiento para el modelo. Tardamos 3 meses en conseguir un modelo operativo con Excel. Aplicamos gran parte de lo aprendido al experimento con Machine Learning Studio, lo que, en última instancia, era una ventaja a la hora de conocer los requisitos.
 
-### <a name="create-comparable-experiment-in-azure-machine-learning"></a>Creación de un experimento comparable en Aprendizaje automático de Azure
+### <a name="create-comparable-experiment-in-azure-machine-learning"></a>Creación de un experimento comparable en Azure Machine Learning
 Seguimos estos pasos para crear nuestro experimento en Machine Learning Studio: 
 
 1. Cargamos el conjunto de datos como un archivo csv en Machine Learning Studio (archivo muy pequeño).
@@ -112,7 +112,7 @@ La sección *Panel de servicios web* incluye un libro de Excel descargable. El l
 
 ![][1]
 
-Con el libro abierto, copie los parámetros predefinidos en la sección de parámetros de color azul, como se muestra a continuación. Una vez que se especifican los parámetros, Excel llama al servicio web Machine Learning y las etiquetas puntuadas previstas se mostrarán en la sección de valores de predicción de color verde. El libro continuará creando predicciones para los parámetros basándose en el modelo entrenado para todos los elementos de fila especificados en los parámetros. Para obtener más información sobre cómo usar esta característica, consulte [Consumo de un servicio web de Aprendizaje automático de Azure de Excel](consuming-from-excel.md). 
+Con el libro abierto, copie los parámetros predefinidos en la sección de parámetros de color azul, como se muestra a continuación. Una vez que se especifican los parámetros, Excel llama al servicio web Machine Learning y las etiquetas puntuadas previstas se mostrarán en la sección de valores de predicción de color verde. El libro continuará creando predicciones para los parámetros basándose en el modelo entrenado para todos los elementos de fila especificados en los parámetros. Para obtener más información sobre cómo usar esta característica, consulte [Consumo de un servicio web de Azure Machine Learning de Excel](consuming-from-excel.md). 
 
 ![][2]
 
@@ -131,7 +131,7 @@ Si desea experimentar con regresión, un buen conjunto de datos para probar es e
 | Regresión lineal (ordinaria de mínimos cuadrados) |1,428273 |1,984461 |0,163767 |0,042074 |0,957926 |
 
 ## <a name="key-takeaways"></a>Puntos clave
-Hemos aprendido mucho al ejecutar experimentos de regresión en Excel y en Aprendizaje automático de Azure de forma paralela. El hecho de crear un modelo de línea de base en Excel y compararlo con modelos usando la [regresión lineal][linear-regression] de Machine Learning nos permitió aprender sobre Azure Machine Learning. Además, descubrimos oportunidades para mejorar la selección de datos y el modelo de rendimiento. 
+Hemos aprendido mucho al ejecutar experimentos de regresión en Excel y en Azure Machine Learning de forma paralela. El hecho de crear un modelo de línea de base en Excel y compararlo con modelos usando la [regresión lineal][linear-regression] de Machine Learning nos permitió aprender sobre Azure Machine Learning. Además, descubrimos oportunidades para mejorar la selección de datos y el modelo de rendimiento. 
 
 También descubrimos que es aconsejable utilizar la [Selección de características basada en filtros][filter-based-feature-selection] para acelerar los proyectos futuros de predicción. Al aplicar la selección de características a los datos, se puede crear un modelo mejorado en Machine Learning con un mejor rendimiento general. 
 
@@ -140,9 +140,9 @@ La capacidad de transferir sistemáticamente la predicción analítica de previs
 ## <a name="resources"></a>Recursos
 A continuación, encontrará algunos recursos que le ayudarán a trabajar con la regresión: 
 
-* Regresión en Excel. Si nunca ha intentado realizar la regresión en Excel, este tutorial le facilitará el trabajo: [http://www.excel-easy.com/examples/regression.html](http://www.excel-easy.com/examples/regression.html)
+* Regresión en Excel. Si nunca ha probado Regresión en Excel, este tutorial le enseñará a usarla fácilmente: [http://www.excel-easy.com/examples/regression.html](http://www.excel-easy.com/examples/regression.html)
 * Regresión frente a previsión. Tyler Chessman escribió un artículo de blog que explica cómo realizar una serie de previsiones de tiempo en Excel. [http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts](http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts) 
-* Regresión lineal ordinaria con mínimos cuadrados: errores, problemas y riesgos. Introducción y análisis sobre la regresión: [http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ ](http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
+* Regresión lineal ordinaria con mínimos cuadrados: errores, problemas y riesgos. Para obtener una introducción y una explicación de Regresión, consulte: [http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ ](http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
 
 [1]: ./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-1.png
 [2]: ./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-2.png

@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/15/2018
 ms.author: raynew
-ms.openlocfilehash: 7e556bff2e9ebdd1efc969660cc8b4a33f3adcdb
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 345b73db423c6e12b56bb3308f7700917a372dda
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Preguntas frecuentes: replicación de VMware en Azure
 
@@ -48,6 +48,13 @@ Si es administrador de una suscripción, ya tiene los permisos de replicación q
 
 ### <a name="what-do-i-need-on-premises"></a>¿Qué necesito tener en el entorno local?
 En el entorno local, necesita los componentes de Site Recovery, instalados en una sola máquina virtual de VMware. También necesita una infraestructura de VMware, con al menos un host ESXi, y le recomendamos que tenga un servidor vCenter. Además, necesita una o varias máquinas virtuales de VMware para realizar la replicación. [Más información](vmware-azure-architecture.md) sobre la arquitectura de VMware en Azure.
+
+El servidor de configuración local se puede implementar de una de las dos maneras siguientes:
+
+1. Implementarlo mediante una plantilla de máquina virtual con el servidor de configuración preinstalado. [Obtenga más información aquí.](vmware-azure-tutorial.md#download-the-vm-template)
+2. Implementarlo con el programa de instalación en una máquina de Windows Server 2016 de su elección. [Obtenga más información aquí.](physical-azure-disaster-recovery.md#set-up-the-source-environment)
+
+Para conocer los pasos necesarios para implementar el servidor de configuración en sus propias máquinas de Windows Server, en el objetivo Protección de habilitar la protección, elija **To Azure > Not virtualized/Others** (A Azure > No virtualizados/Otros).
 
 ### <a name="where-do-on-premises-vms-replicate-to"></a>¿A dónde se replican las máquinas virtuales locales?
 Los datos se replican a Azure Storage. Cuando se ejecuta una conmutación por error, Site Recovery crea automáticamente máquinas virtuales de Azure a partir de la cuenta de almacenamiento.

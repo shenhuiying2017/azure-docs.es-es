@@ -1,11 +1,11 @@
 ---
 title: 'Interfaz de usuario de Azure Mobile Engagement: inicio'
-description: "Obtenga información acerca de cómo administrar sus aplicaciones y proyectos existentes mediante Azure Mobile Engagement"
+description: Obtenga información acerca de cómo administrar sus aplicaciones y proyectos existentes mediante Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: aff578d2-40f6-43e4-b0ea-7d2674cb28a1
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,14 +14,18 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 0f15cb975f57f6f5cab12d5118ff50a6fab14388
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c0379e51a30927af88367fc687d8f8ce66eb827f
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-manage-your-existing-application-and-projects"></a>Cómo administrar su aplicación y proyectos existentes
-Este artículo describe la página **Inicio** del portal de **Mobile Engagement**. Utilice el portal **Mobile Engagement** para supervisar y administrar sus aplicaciones móviles. Tenga en cuenta que, para comenzar a usar el portal, debe crear en primer lugar una cuenta de **Azure Mobile Engagement** . 
+> [!IMPORTANT]
+> Azure Mobile Engagement se retira el 31 de marzo de 2018. Esta página se eliminará poco después.
+> 
+
+En este artículo se describe la **página principal** del portal de **Mobile Engagement**. Utilice el portal **Mobile Engagement** para supervisar y administrar sus aplicaciones móviles. Tenga en cuenta que, para comenzar a usar el portal, debe crear en primer lugar una cuenta de **Azure Mobile Engagement** . 
 
 Para ir a la página principal, haga clic en **Inicio** en la parte superior izquierda de la página. Contiene la lista de todas las aplicaciones que forman parte de la colección seleccionada. En esta página solo verá una descripción general rápida de las aplicaciones.
 
@@ -42,7 +46,7 @@ Entre otras cosas, la información general de las aplicaciones incluye:
 * **Sesiones**: una sesión consiste en el uso individual de la aplicación por parte de un usuario, desde el momento en que comienza a usarla hasta que se detiene.
 * **Tendencias de sesiones**: evolución de las sesiones en las últimas dos semanas.
 
-Una vez que se hace clic en una aplicación, puede comenzar a supervisar y administrar las aplicaciones a través de la interfaz de usuario. Por ejemplo:    
+Una vez que se hace clic en una aplicación, puede comenzar a supervisar y administrar las aplicaciones a través de la interfaz de usuario. Por ejemplo:     
 
 * [Supervisión de datos en tiempo real sobre la aplicación](mobile-engagement-user-interface-monitor.md)
 * [Análisis de datos históricos sobre la aplicación](mobile-engagement-user-interface-analytics.md)
@@ -64,7 +68,7 @@ Haga clic en un proyecto para ver todas las aplicaciones que forman parte de est
 
 ![Home2][3]
 
-## <a name="see-also"></a>Consulte también
+## <a name="see-also"></a>Otras referencias
 * [Conceptos][Link 6]
 * [Guía de solución de problemas de servicios][Link 24]
 

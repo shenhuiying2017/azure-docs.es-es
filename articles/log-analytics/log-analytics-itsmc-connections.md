@@ -1,10 +1,10 @@
 ---
 title: Conexiones compatibles con IT Service Management Connector en Azure Log Analytics | Microsoft Docs
-description: "En este artículo se proporciona información sobre cómo conectar los productos y servicios de ITSM al Conector de Administración de servicios de TI (ITSMC) en Log Analytics de OMS para supervisar y administrar de forma centralizada los elementos de trabajo de ITSM."
-documentationcenter: 
+description: En este artículo se proporciona información sobre cómo conectar los productos y servicios de ITSM al Conector de Administración de servicios de TI (ITSMC) en Log Analytics de OMS para supervisar y administrar de forma centralizada los elementos de trabajo de ITSM.
+documentationcenter: ''
 author: JYOTHIRMAISURI
 manager: riyazp
-editor: 
+editor: ''
 ms.assetid: 8231b7ce-d67f-4237-afbf-465e2e397105
 ms.service: log-analytics
 ms.workload: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: v-jysur
-ms.openlocfilehash: e0cae844e8b7f3eab68ed02dbcd17f4d1cebfd25
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 35d04fabc66ede309fe91969c5bec3131a282afb
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Conectar productos o servicios de ITSM con el Conector de Administración de servicios de TI
 En este artículo se proporciona información sobre cómo configurar la conexión entre los productos y servicios de ITSM y el Conector de Administración de servicios de TI (ITSMC) en Log Analytics para administrar de forma centralizada los elementos de trabajo. Para obtener más información sobre ITSMC, vea [Información general](log-analytics-itsmc-overview.md).
@@ -103,7 +103,7 @@ Ejecute el script proporcionando los siguientes detalles necesarios:
 
 - Detalles de la suscripción de Azure
 - Definición de un nombre de grupo de recursos
-- La ubicación
+- Ubicación
 - Detalles del servidor de Service Manager (nombre del servidor, dominio, nombre de usuario y contraseña)
 - Prefijo de nombre de sitio de la aplicación web
 - Espacio de nombres de ServiceBus.
@@ -271,13 +271,7 @@ Cuando el usuario se crea correctamente, el estado de **Check Installation Check
 
 > [!NOTE]
 
-> Para permitir al usuario crear **alertas** y **eventos** en ServiceNow desde Azure:
-
-> - Asegúrese de que tiene el módulo de administración de eventos instalado en su instancia de ServiceNow.
-
-> - Agregue los roles siguientes al usuario de integración:
->      - evt_mgmt_integration
->      - evt_mgmt_operator  
+> El Conector ITSM puede enviar incidentes a ServiceNow sin otros módulos instalados en la instancia de ServiceNow. Si usa el módulo EventManagement en su instancia de ServiceNow y quiere crear eventos o alertas en ServiceNow mediante el conector, agregue los siguientes roles para el usuario de integración: - evt_mgmt_integration - evt_mgmt_operator  
 
 
 ## <a name="connect-provance-to-it-service-management-connector-in-azure"></a>Conectar Provance al Conector de Administración de servicios de TI en Azure
@@ -397,7 +391,7 @@ Para generar el identificador o clave de cliente para Cherwell, utilice el proce
     ![Identificador de usuario de Cherwell](./media/log-analytics-itsmc/itsmc-cherwell-client-id.png)
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
  - [Creación de elementos de trabajo de ITSM para alertas de Log Analytics](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-alerts)
  - [Creación de elementos de trabajo de ITSM a partir de los registros de Log Analytics](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-log-records)
  - [Creación de elementos de trabajo de ITSM a partir de alertas de Azure](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts)

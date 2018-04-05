@@ -1,6 +1,6 @@
 ---
-title: "Arquitectura de replicación de Azure en Azure en Azure Site Recovery | Microsoft Docs"
-description: "En este artículo se proporciona una visión general de los componentes y la arquitectura usados al replicar máquinas virtuales de Azure entre regiones de Azure mediante el servicio de Azure Site Recovery."
+title: Arquitectura de replicación de Azure en Azure en Azure Site Recovery | Microsoft Docs
+description: En este artículo se proporciona una visión general de los componentes y la arquitectura usados al replicar máquinas virtuales de Azure entre regiones de Azure mediante el servicio de Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 02/07/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 126f5c4db355af19a7151a267115127757b17599
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 111217e9335b16659c93da88731e0b7ce6d5fecd
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-to-azure-replication-architecture"></a>Arquitectura de replicación de Azure en Azure
 
@@ -28,7 +28,7 @@ En este artículo se describen la arquitectura que se usa al replicar, conmutar 
 ## <a name="architectural-components"></a>Componentes de la arquitectura
 
 En el siguiente gráfico se proporciona una visión de alto nivel de un entorno de máquina virtual de Azure en una región específica (en este ejemplo, la ubicación Este de EE. UU.). En un entorno de máquina virtual de Azure:
-- Las aplicaciones pueden ejecutarse en máquinas virtuales con discos repartidos entre cuentas de almacenamiento.
+- Las aplicaciones pueden ejecutarse en máquinas virtuales con discos administrados o no administrados entre cuentas de almacenamiento.
 - Las máquinas virtuales pueden incluirse en una o más subredes dentro de una red virtual.
 
 
@@ -49,7 +49,8 @@ Cuando se habilita la replicación de maquinas virtuales de Azure, los siguiente
 **Grupo de recursos de destino** | El grupo de recursos a los que pertenecen las máquinas virtuales replicadas después de la conmutación por error.
 **Red virtual de destino** | La red virtual en el que se encuentran las máquinas virtuales replicadas después de la conmutación por error. Se crea una asignación de red entre las redes virtuales de origen y de destino y viceversa.
 **Cuentas de almacenamiento en caché** | Antes de que los cambios en las máquinas virtuales de origen se repliquen en la cuenta de almacenamiento de destino, se realiza un seguimiento de ellos y se envían a la cuenta de almacenamiento en caché de la ubicación de origen. Este paso garantiza que las aplicaciones de producción que se ejecutan en la máquina virtual resulten mínimamente afectadas.
-**Cuentas de almacenamiento de destino**  | Las cuentas de almacenamiento de la ubicación de destino en la que se replican los datos.
+**Cuentas de almacenamiento de destino (si la VM de origen no utiliza discos administrados)**  | Las cuentas de almacenamiento de la ubicación de destino en la que se replican los datos.
+** Discos administrados de réplica (si la VM de origen está en discos administrados)**  | Los discos administrados en la ubicación de destino en la que se replican los datos.
 **Conjuntos de disponibilidad de destino**  | Los conjuntos de disponibilidad en los que se encuentran las máquinas virtuales replicadas tras la conmutación por error.
 
 ### <a name="step-2"></a>Paso 2
@@ -76,7 +77,7 @@ Si desea que las máquinas virtuales de Linux formen parte de un grupo de replic
 
 ### <a name="step-3"></a>Paso 3
 
-Una vez que la replicación continua está en curso, las escrituras en disco se transfieren inmediatamente a la cuenta de almacenamiento en caché. Site Recovery procesa los datos y los envía a la cuenta de almacenamiento de destino. Una vez procesados los datos, cada pocos minutos se generan los puntos de recuperación en la cuenta de almacenamiento de destino.
+Una vez que la replicación continua está en curso, las escrituras en disco se transfieren inmediatamente a la cuenta de almacenamiento en caché. Site Recovery procesa los datos y los envía a la cuenta de almacenamiento de destino o a los discos administrados de réplica. Una vez procesados los datos, cada pocos minutos se generan los puntos de recuperación en la cuenta de almacenamiento de destino.
 
 ## <a name="failover-process"></a>Proceso de conmutación por error
 
@@ -84,6 +85,6 @@ Cuando se inicia una conmutación por error, las máquinas virtuales se crean en
 
 ![Proceso de conmutación por error](./media/concepts-azure-to-azure-architecture/failover.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 [Replicación rápida](azure-to-azure-quickstart.md) de una máquina virtual de Azure a una región secundaria.

@@ -1,11 +1,10 @@
 ---
 title: Entornos de proceso compatibles con Azure Data Factory | Microsoft Docs
-description: "Obtenga información sobre los entornos de proceso que puede usar en las canalizaciones de Azure Data Factory (como Azure HDInsight) para transformar o procesar datos."
+description: Obtenga información sobre los entornos de proceso que puede usar en las canalizaciones de Azure Data Factory (como Azure HDInsight) para transformar o procesar datos.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: 6877a7e8-1a58-4cfb-bbd3-252ac72e4145
 ms.service: data-factory
 ms.workload: data-services
@@ -14,11 +13,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 410fb74d8f8ec6196bbd4cc19cc97704649b75c9
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 09568dcbbec90bcba2f2782072b83cc04d9e8a87
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Entornos de proceso compatibles con Azure Data Factory
 > [!NOTE]
@@ -51,7 +50,7 @@ Microsoft actualiza la lista de versiones compatibles de HDInsight con las corre
 Después del 15 de diciembre de 2017:
 
 - Ya no puede crear clústeres de la versión 3.3 (o versiones anteriores) de HDInsight basado en Linux mediante un servicio vinculado de HDInsight a petición en Data Factory versión 1. 
-- Si las propiedades [**osType** y **Version**](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) no se especifican explícitamente en la definición JSON de un servicio vinculado de HDInsight a petición de Data Factory versión 1, el valor predeterminado se modifica de **Version=3.1, osType=Windows** a **Version=\<versión predeterminada de HDI más reciente\>(https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#hadoop-components-available-with-different-hdinsight-versions), osType=Linux**.
+- Si no se especifican las propiedades [**osType** y **Version**](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) en la definición de JSON para un servicio existente vinculado a HDInsight a petición de Data Factory versión 1, el valor predeterminado cambia de **Version=3.1, osType=Windows** a **Version=\<última versión predeterminada de HDI\>(https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#hadoop-components-available-with-different-hdinsight-versions), osType=Linux**.
 
 Después del 31 de julio de 2018:
 
@@ -261,7 +260,7 @@ Puede crear un servicio vinculado de HDInsight para registrar su propio clúster
 | ----------------- | ---------------------------------------- | -------- |
 | Tipo              | Establezca la propiedad type en **HDInsight**. | Sí      |
 | clusterUri        | El URI del clúster de HDInsight.        | Sí      |
-| Nombre de usuario          | El nombre de la cuenta de usuario que se usará para conectarse a un clúster de HDInsight existente. | Sí      |
+| nombre de usuario          | El nombre de la cuenta de usuario que se usará para conectarse a un clúster de HDInsight existente. | Sí      |
 | contraseña          | Contraseña para la cuenta de usuario.   | Sí      |
 | linkedServiceName | El nombre del servicio vinculado de almacenamiento que hace referencia al almacenamiento de blobs que el clúster de HDInsight usa. <p>Actualmente, no puede especificar un servicio vinculado de Data Lake Store para esta propiedad. Si el clúster de HDInsight tiene acceso a Data Lake Store, puede acceder a los datos de Data Lake Store desde scripts de Hive o de Pig. </p> | Sí      |
 

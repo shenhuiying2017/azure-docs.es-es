@@ -1,9 +1,9 @@
 ---
-title: "Introducción a roles, permisos y seguridad con Azure Monitor | Microsoft Docs"
-description: "Obtenga información sobre cómo utilizar los permisos y los roles integrados de Azure Monitor para restringir el acceso a los recursos de supervisión."
+title: Introducción a roles, permisos y seguridad con Azure Monitor | Microsoft Docs
+description: Obtenga información sobre cómo utilizar los permisos y los roles integrados de Azure Monitor para restringir el acceso a los recursos de supervisión.
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 2686e53b-72f0-4312-bcd3-3dc1b4a9b912
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2017
 ms.author: johnkem
-ms.openlocfilehash: f8767073bb7a6723088bb2727346d23ec8872cd1
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 81f083b799e359f69605de22c30d3adc4480e44b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Introducción a roles, permisos y seguridad con Azure Monitor
 Muchos equipos necesitan regular estrictamente el acceso a los datos y la configuración de supervisión. Por ejemplo, si tiene miembros del equipo que trabajan exclusivamente en la supervisión (ingenieros de soporte técnico o ingenieros de operaciones de desarrollo) o si usa un proveedor de servicios administrados, puede concederles acceso solo a datos de supervisión, mientras restringe su capacidad para crear, modificar o eliminar recursos. En este artículo se explica cómo aplicar rápidamente un rol RBAC de supervisión integrado a un usuario en Azure o crear un rol personalizado propio para un usuario que necesita permisos de supervisión limitados. Después se describen las consideraciones de seguridad para los recursos relacionados con Azure Monitor y cómo puede limitar el acceso a los datos que contienen.
@@ -30,6 +30,7 @@ Los roles integrados en Azure Monitor están diseñados para ayudar a limitar el
 Las personas asignadas al rol Lector de supervisión pueden ver todos los datos de supervisión en una suscripción, pero no pueden modificar cualquier recurso o editar cualquier configuración relacionada con la supervisión de recursos. Este rol es adecuado para los usuarios de una organización, como los ingenieros de soporte técnico u operaciones que necesitan tener la capacidad de:
 
 * Ver paneles de supervisión en el portal y crear sus propios paneles de supervisión privados.
+* Ver las reglas de alerta definidas en [Alertas de Azure](monitoring-overview-unified-alerts.md)
 * Consultar métricas con la [API de REST de Azure Monitor](https://msdn.microsoft.com/library/azure/dn931930.aspx), los [cmdlets de PowerShell](insights-powershell-samples.md) o la [CLI multiplataforma](insights-cli-samples.md).
 * Consultar el registro de actividades a través del portal, la API de REST de Azure Monitor, los cmdlets de PowerShell o la CLI multiplataforma.
 * Ver la [configuración de diagnóstico](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) de un recurso.
@@ -55,7 +56,7 @@ Las personas asignadas al rol Colaborador de supervisión pueden ver todos los d
 * Publicar paneles de supervisión como un panel compartido.
 * Determinar la [configuración de diagnóstico](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) de un recurso.*
 * Establecer el [perfil de registro](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile) de una suscripción.*
-* Definir la configuración y actividad de alertas.
+* Establecer la configuración y la actividad de las reglas de alertas a través de [Alertas de Azure](monitoring-overview-unified-alerts.md).
 * Crear componentes y pruebas web de Application Insights.
 * Mostrar las claves compartidas del área de trabajo de Log Analytics.
 * Habilitar o deshabilitar Intelligence Pack de Log Analytics.
@@ -72,11 +73,11 @@ Las personas asignadas al rol Colaborador de supervisión pueden ver todos los d
 ## <a name="monitoring-permissions-and-custom-rbac-roles"></a>Roles RBAC personalizados y permisos de supervisión
 Si los roles integrados anteriores no satisfacen las necesidades exactas de su equipo, puede [crear un rol RBAC personalizado](../active-directory/role-based-access-control-custom-roles.md) con permisos más granulares. A continuación se muestran las operaciones comunes de RBAC de Azure Monitor con sus descripciones.
 
-| Operación | Descripción |
+| Operación | DESCRIPCIÓN |
 | --- | --- |
 | Microsoft.Insights/ActionGroups/[Read, Write, Delete] |Leer, escribir o eliminar grupos de acción. |
 | Microsoft.Insights/ActivityLogAlerts/[Read, Write, Delete] |Leer, escribir o eliminar alertas de registro de actividad. |
-| Microsoft.Insights/AlertRules/[Read, Write, Delete] |Leer, escribir o eliminar reglas de alertas (alertas de métricas). |
+| Microsoft.Insights/AlertRules/[Read, Write, Delete] |Leer, escribir o eliminar reglas de alertas (desde alertas clásicas). |
 | Microsoft.Insights/AlertRules/Incidents/Read |Enumerar los incidentes (historial de la regla de alerta desencadenada) de reglas de alerta. Solo se aplica en el portal. |
 | Microsoft.Insights/AutoscaleSettings/[Read, Write, Delete] |Configuración de escalado automático de lectura, escritura y eliminación. |
 | Microsoft.Insights/DiagnosticSettings/[Read, Write, Delete] |Configuración de diagnóstico de lectura, escritura y eliminación. |
@@ -86,10 +87,12 @@ Si los roles integrados anteriores no satisfacen las necesidades exactas de su e
 | Microsoft.Insights/ExtendedDiagnosticSettings/[Read, Write, Delete] | Leer, escribir o eliminar configuración de diagnóstico para registros de flujo de red. |
 | Microsoft.Insights/LogDefinitions/Read |Este permiso es necesario para los usuarios que necesitan acceder a registros de actividades a través del portal. |
 | Microsoft.Insights/LogProfiles/[Read, Write, Delete] |Leer, escribir o eliminar perfiles de registro (registro de actividad de streaming para la cuenta de almacenamiento o centro de eventos). |
-| Microsoft.Insights/MetricAlerts/[Read, Write, Delete] |Leer, escribir o eliminar alertas de métricas casi en tiempo real (versión preliminar pública). |
+| Microsoft.Insights/MetricAlerts/[Read, Write, Delete] |Leer, escribir o eliminar alertas de métricas casi en tiempo real |
 | Microsoft.Insights/MetricDefinitions/Read |Leer definiciones de métrica (lista de tipos de métricas disponibles para un recurso). |
 | Microsoft.Insights/Metrics/Read |Leer las métricas de un recurso. |
 | Microsoft.Insights/Register/Action |Registrar el proveedor de recursos de Azure Monitor. |
+| Microsoft.Insights/ScheduledQueryRules/[Read, Write, Delete] |Leer, escribir o eliminar alertas de registro de Application Insights. |
+
 
 
 > [!NOTE]
@@ -118,9 +121,9 @@ Los datos de supervisión, en particular los archivos de registro, pueden obtene
 2. Los registros de diagnóstico, que son registros emitidos por un recurso.
 3. Métricas, que emiten los recursos.
 
-Estos tres tipos de datos pueden almacenarse en una cuenta de almacenamiento o transmitirse a un centro de eventos, y ambos son recursos de Azure de uso general. Dado que son recursos de uso general, su creación, eliminación o el acceso a ellos constituyen una operación privilegiada que suele estar reservada a un administrador. Se recomienda utilizar los procedimientos siguientes para recursos relacionados con la supervisión para impedir el uso indebido:
+Estos tres tipos de datos pueden almacenarse en una cuenta de almacenamiento o transmitirse a un centro de eventos, y ambos son recursos de Azure de uso general. Dado que son recursos de uso general, su creación, eliminación o el acceso a ellos constituyen una operación privilegiada reservada a un administrador. Se recomienda utilizar los procedimientos siguientes para recursos relacionados con la supervisión para impedir el uso indebido:
 
-* Utilizar una cuenta de almacenamiento dedicada a datos de supervisión. Si necesita separar los datos de supervisión en varias cuentas de almacenamiento, nunca comparta el uso de una cuenta de almacenamiento entre los datos de supervisión y de otro tipo, ya que se podría conceder acceso accidentalmente a datos no relacionados con la supervisión a aquellos que solo necesitan tener acceso a datos que no son de supervisión (por ejemplo, un SIEM de terceros).
+* Utilizar una cuenta de almacenamiento dedicada a datos de supervisión. Si necesita separar los datos de supervisión en varias cuentas de almacenamiento, nunca comparta el uso de una cuenta de almacenamiento entre los datos de supervisión ni de otro tipo, ya que se podría conceder acceso accidentalmente a datos no relacionados con la supervisión a aquellos que solo necesitan tener acceso a datos que no son de supervisión (por ejemplo, SIEM de terceros).
 * Utilizar un espacio de nombres exclusivo y dedicado de Service Bus o Event Hubs en toda la configuración de diagnóstico, por la misma razón anterior.
 * Limitar el acceso a las cuentas de almacenamiento o a centros de eventos relacionados con la supervisión, manteniéndolos en un grupo de recursos independiente y [utilizar el ámbito](../active-directory/role-based-access-control-what-is.md#basics-of-access-management-in-azure) en los roles de supervisión para limitar el acceso a ese grupo de recursos exclusivamente.
 * No conceder nunca el permiso ListKeys para las cuentas de almacenamiento o los centros de eventos en el ámbito de la suscripción cuando un usuario solo necesita acceso a los datos de supervisión. En su lugar, conceder estos permisos al usuario en un ámbito de recurso o grupo de recursos (si tiene un grupo de recursos de supervisión dedicado).

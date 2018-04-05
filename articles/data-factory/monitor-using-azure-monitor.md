@@ -1,11 +1,11 @@
 ---
-title: "Supervisión de factorías de datos mediante Azure Monitor | Microsoft Docs"
-description: "Aprenda a utilizar Azure Monitor para supervisar las canalizaciones de factorías de datos mediante la habilitación de registros de diagnóstico con la información de Azure Data Factory."
+title: Supervisión de factorías de datos mediante Azure Monitor | Microsoft Docs
+description: Aprenda a utilizar Azure Monitor para supervisar las canalizaciones de factorías de datos mediante la habilitación de registros de diagnóstico con la información de Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: cae3c797171c3904f100ae3cdec47a31b06d3b31
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 8ab2e7cdc8472be9c0800eea5bef9322b0ed87f2
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="monitor-data-factories-using-azure-monitor"></a>Supervisión de factorías de datos mediante Azure Monitor | Microsoft Docs  
 Las aplicaciones de nube son complejas y tienen muchas partes móviles. La supervisión proporciona datos para garantizar que la aplicación permanece en funcionamiento en un estado correcto. También ayuda a evitar posibles problemas o a solucionar los existentes. Además, puede usar datos de supervisión para obtener un conocimiento más profundo sobre su aplicación. Este conocimiento puede ayudarle a mejorar el rendimiento o mantenimiento de la aplicación, o a automatizar acciones que de lo contrario requerirían intervención manual.
@@ -230,7 +230,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
     "identity": null
 }
 ```
-Más información aquí] (https://msdn.microsoft.com/en-us/library/azure/dn931932.aspx)
+(Consulte más información aquí: https://msdn.microsoft.com/en-us/library/azure/dn931932.aspx)
 
 ## <a name="schema-of-logs--events"></a>Esquema de registros y eventos
 
@@ -381,7 +381,7 @@ Más información aquí] (https://msdn.microsoft.com/en-us/library/azure/dn93193
 |start| string | Inicio de la activación del desencadenador en el intervalo de tiempo, formato UTC | `2017-06-26T20:55:29.5007959Z`|
 |status| string | Estado final de si el desencadenador se ha activado correctamente (correcto o erróneo) | `Succeeded`|
 
-### <a name="metrics"></a>Métricas
+## <a name="metrics"></a>Métricas
 
 Azure Monitor permite utilizar telemetría para obtener información sobre el rendimiento y el estado de las cargas de trabajo en Azure. El tipo de telemetría de datos de Azure más importante son las métricas (también denominadas contadores de rendimiento) emitidas por la mayoría de los recursos de Azure. Azure Monitor proporciona varias maneras de configurar y usar estas métricas para supervisar y solucionar problemas.
 
@@ -396,7 +396,52 @@ ADFV2 emite las siguientes métricas:
 | TriggerSucceededRuns | Métricas de ejecuciones de desencadenador realizadas correctamente  | Recuento    | Total                | Total de ejecuciones de desencadenador realizadas correctamente dentro de una ventana de minutos   |
 | TriggerFailedRuns    | Métricas de ejecuciones de desencadenador erróneas     | Recuento    | Total                | Total de ejecuciones de desencadenador erróneas dentro de una ventana de minutos      |
 
-Para acceder a las métricas, siga las instrucciones del artículo https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics. 
+Para obtener acceso a las métricas, siga las instrucciones del artículo: https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="alerts"></a>Alertas
+
+Puede generar alertas en función de métricas admitidas en Data Factory. Haga clic en el botón **Alertas** en la página **Supervisar** de Data Factory.
+
+![Opción de alertas](media/monitor-using-azure-monitor/alerts_image1.png)
+
+Lo lleva a la página **Alertas**.
+
+![Página de alertas](media/monitor-using-azure-monitor/alerts_image2.png)
+
+También puede iniciar sesión en Azure Portal y hacer clic en **Supervisar -&gt; Alertas** para ir a la página **Alertas** directamente.
+
+![Alertas en el menú del portal](media/monitor-using-azure-monitor/alerts_image3.png)
+
+### <a name="create-alerts"></a>Creación de alertas
+
+1.  Haga clic en **+ Nueva regla de alertas** para crear una nueva alerta.
+
+    ![Nueva alerta de reglas](media/monitor-using-azure-monitor/alerts_image4.png)
+
+2.  Defina **Alert condition** (Condición de la alerta).
+
+    > [!NOTE]
+    > Asegúrese de seleccionar **Todo** en **Filter by resource type** (Filtrar por tipo de recurso).
+
+    ![Condición de alerta, pantalla 1 de 3](media/monitor-using-azure-monitor/alerts_image5.png)
+
+    ![Condición de alerta, pantalla 2 de 3](media/monitor-using-azure-monitor/alerts_image6.png)
+
+    ![Condición de alerta, pantalla 3 de 3](media/monitor-using-azure-monitor/alerts_image7.png)
+
+3.  Defina los **Detalles de alertas**.
+
+    ![Detalles de alertas](media/monitor-using-azure-monitor/alerts_image8.png)
+
+4.  Defina el **Grupo de acciones**.
+
+    ![Grupo de acciones, pantalla 1 de 4](media/monitor-using-azure-monitor/alerts_image9.png)
+
+    ![Grupo de acciones, pantalla 2 de 4](media/monitor-using-azure-monitor/alerts_image10.png)
+
+    ![Grupo de acciones, pantalla 3 de 4](media/monitor-using-azure-monitor/alerts_image11.png)
+
+    ![Grupo de acciones, pantalla 4 de 4](media/monitor-using-azure-monitor/alerts_image12.png)
+
+## <a name="next-steps"></a>Pasos siguientes
 Consulte el artículo [Supervisión y administración de canalizaciones](monitor-programmatically.md) para obtener información sobre la supervisión y administración de canalizaciones mediante programación. 

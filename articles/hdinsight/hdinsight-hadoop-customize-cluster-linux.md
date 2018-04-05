@@ -1,8 +1,8 @@
 ---
-title: "Personalizar clústeres de HDInsight mediante acciones de script - Azure | Microsoft Docs"
-description: "Agregue componentes personalizados a clústeres de HDInsight basados en Linux mediante acciones de script. Las acciones de script son scripts de Bash que se pueden usar para personalizar la configuración del clúster o para agregar servicios adicionales y utilidades como Hue, Solr o R."
+title: Personalizar clústeres de HDInsight mediante acciones de script - Azure | Microsoft Docs
+description: Agregue componentes personalizados a clústeres de HDInsight basados en Linux mediante acciones de script. Las acciones de script son scripts de Bash que se pueden usar para personalizar la configuración del clúster o para agregar servicios adicionales y utilidades como Hue, Solr o R.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: larryfr
-ms.openlocfilehash: 42bf760b793f3c035a766c4d39524e03c1cbe6ee
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: bc8078a1681b8977a0748f633df02beb2f2bdc8a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>Personalización de clústeres de HDInsight basados en Linux mediante acciones de script
 
@@ -210,17 +210,19 @@ En esta sección se proporcionan ejemplos sobre las distintas maneras de usar ac
 
 ### <a name="use-a-script-action-from-azure-resource-manager-templates"></a>Uso de una acción de script desde las plantillas de Azure Resource Manager
 
-Las acciones de script pueden usarse con plantillas de Azure Resource Manager. Por ejemplo, vea [https://azure.microsoft.com/resources/templates/hdinsight-linux-run-script-action/](https://azure.microsoft.com/en-us/resources/templates/hdinsight-linux-run-script-action/).
+Las acciones de script pueden usarse con plantillas de Azure Resource Manager. Para obtener un ejemplo, consulte [https://azure.microsoft.com/resources/templates/hdinsight-linux-run-script-action/](https://azure.microsoft.com/en-us/resources/templates/hdinsight-linux-run-script-action/).
 
 En este ejemplo, la acción de script se agrega utilizando el código siguiente:
 
-    "scriptActions": [
-        {
-            "name": "setenvironmentvariable",
-            "uri": "[parameters('scriptActionUri')]",
-            "parameters": "headnode"
-        }
-    ]
+```json
+"scriptActions": [
+    {
+        "name": "setenvironmentvariable",
+        "uri": "[parameters('scriptActionUri')]",
+        "parameters": "headnode"
+    }
+]
+```
 
 Para obtener información sobre cómo implementar una plantilla, vea los siguientes documentos:
 
@@ -305,15 +307,21 @@ Antes de continuar, asegúrese de que ha instalado y configurado la CLI de Azure
 
 1. Para cambiar al modo Azure Resource Manager, use el siguiente comando de la línea de comandos:
 
-        azure config mode arm
+    ```bash
+    azure config mode arm
+    ```
 
 2. Use lo siguiente para autenticarse en su suscripción de Azure.
 
-        azure login
+    ```bash
+    azure login
+    ```
 
 3. Use el comando siguiente para aplicar una acción de script a un clúster en ejecución.
 
-        azure hdinsight script-action create <clustername> -g <resourcegroupname> -n <scriptname> -u <scriptURI> -t <nodetypes>
+    ```bash
+    azure hdinsight script-action create <clustername> -g <resourcegroupname> -n <scriptname> -u <scriptURI> -t <nodetypes>
+    ```
 
     Si omite los parámetros de este comando, se le solicitan. Si el script que especifica con `-u` acepta parámetros, puede especificarlos mediante el parámetro `-p`.
 
@@ -337,7 +345,7 @@ Consulte [Run Script Actions on a running cluster](https://msdn.microsoft.com/li
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-the-hdinsight-net-sdk"></a>Aplicación de una acción de script a un clúster en ejecución desde el SDK de .NET para HDInsight
 
-Si desea ver un ejemplo de uso del SDK de .NET para aplicar scripts a un clúster, consulte [https://github.com/Azure-Samples/hdinsight-dotnet-script-action](https://github.com/Azure-Samples/hdinsight-dotnet-script-action).
+Para obtener un ejemplo de uso del SDK de .NET para aplicar scripts a un clúster, consulte [https://github.com/Azure-Samples/hdinsight-dotnet-script-action](https://github.com/Azure-Samples/hdinsight-dotnet-script-action).
 
 ## <a name="view-history-promote-and-demote-script-actions"></a>Visualización del historial, promover y disminuir de nivel acciones de script
 
@@ -413,7 +421,7 @@ Hay dos tipos de componentes de código abierto que están disponibles en el ser
 > [!WARNING]
 > Los componentes proporcionados con el clúster de HDInsight son totalmente compatibles. Soporte técnico de Microsoft ayuda a aislar y a solucionar problemas relacionados con estos componentes.
 >
-> Los componentes personalizados reciben soporte técnico comercialmente razonable para ayudarle a solucionar el problema. El soporte técnico de Microsoft podría resolver el problema O pedirle que aborde los canales disponibles para las tecnologías de código abierto donde se encuentra la más amplia experiencia para esa tecnología. Por ejemplo, hay diversos sitios de la comunidad que se pueden usar, como el [foro de MSDN para HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Los proyectos de Apache también tienen sitios de proyecto en [http://apache.org](http://apache.org) (por ejemplo, [Hadoop](http://hadoop.apache.org/)).
+> Los componentes personalizados reciben soporte técnico comercialmente razonable para ayudarle a solucionar el problema. El soporte técnico de Microsoft podría resolver el problema O pedirle que aborde los canales disponibles para las tecnologías de código abierto donde se encuentra la más amplia experiencia para esa tecnología. Por ejemplo, hay diversos sitios de la comunidad que se pueden usar, como el [foro de MSDN para HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Los proyectos de Apache también tienen sitios de proyecto en [http://apache.org](http://apache.org), por ejemplo: [Hadoop](http://hadoop.apache.org/).
 
 El servicio HDInsight proporciona varias maneras de utilizar los componentes personalizados. Se aplica el mismo nivel de soporte técnico independientemente de cómo se use un componente o cómo se instale en el clúster. La siguiente lista describe las formas más comunes de usar los componentes personalizados en clústeres de HDInsight:
 
@@ -429,7 +437,7 @@ Puede usar la interfaz de usuario web de Ambari para ver la información registr
 
 ### <a name="using-the-ambari-web-ui"></a>Uso de la interfaz de usuario web de Ambari
 
-1. Abra https://CLUSTERNAME.azurehdinsight.net en el explorador. Reemplace CLUSTERNAME por el nombre del clúster de HDInsight.
+1. Abra el explorador y vaya a https://CLUSTERNAME.azurehdinsight.net. Reemplace CLUSTERNAME por el nombre del clúster de HDInsight.
 
     Cuando se le solicite, escriba el nombre de cuenta de administrador (admin) y la contraseña de administrador para el clúster. Es posible que tenga que volver a escribir las credenciales de administrador en un formulario web.
 
@@ -493,7 +501,7 @@ __Causa__: este error se produce si actualiza el cliente de Azure Storage de Pyt
 
 __Resolución__: para resolver este error, conéctese manualmente a cada nodo de clúster con `ssh` y use el comando siguiente para volver a instalar la versión correcta del cliente de almacenamiento:
 
-```
+```bash
 sudo pip install azure-storage==0.20.0
 ```
 
@@ -511,7 +519,7 @@ Hay dos excepciones:
 
     No se puede ejecutar ninguna acción de script nueva en este clúster debido al conflicto entre nombres de scripts existentes. Los nombres de script proporcionados en la creación del clúster deben ser únicos. Los scripts existentes se ejecutan con el cambio de tamaño.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Desarrollo de la acción de script con HDInsight](hdinsight-hadoop-script-actions-linux.md)
 * [Instalación y uso de Solr en clústeres de HDInsight](hdinsight-hadoop-solr-install-linux.md)

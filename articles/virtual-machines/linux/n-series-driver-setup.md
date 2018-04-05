@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/12/2018
+ms.date: 03/20/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7d353adcafed02832243277118da8480e54544ce
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d97afd2b5dccca64db2df7cb0d4f110987642cfb
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Instalación de controladores de GPU de NVIDIA en máquinas virtuales de la serie N con Linux
 
-Para aprovechar las funcionalidades de GPU de las máquinas virtuales de la serie N de Azure que ejecutan Linux, instale controladores de gráficos de NVIDIA compatibles. Este artículo proporciona pasos de instalación de controlador después de implementar una VM de la serie N. También está disponible la información de instalación del controlador para las [máquinas virtuales Windows](../windows/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Para aprovechar las funcionalidades de GPU de las máquinas virtuales de la serie N de Azure que ejecutan Linux, deben instalarse controladores de gráficos de NVIDIA. Este artículo proporciona pasos de instalación de controlador después de implementar una VM de la serie N. También está disponible la información de instalación del controlador para las [máquinas virtuales Windows](../windows/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Para conocer las especificaciones de máquina virtual de la serie N, las capacidades de almacenamiento y los detalles del disco, vea [Tamaño de máquinas virtuales para GPU Linux](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 
@@ -32,15 +32,12 @@ Para conocer las especificaciones de máquina virtual de la serie N, las capacid
 
 ## <a name="install-cuda-drivers-for-nc-ncv2-ncv3-and-nd-series-vms"></a>Instalación de controladores CUDA para las máquinas virtuales de las series NC, NCv2, NCv3 y ND
 
-Estos son los pasos para instalar controladores NVIDIA desde el kit de herramientas de NVIDIA CUDA en máquinas virtuales de la serie N. 
+Estos son los pasos para instalar controladores CUDA desde el kit de herramientas de NVIDIA CUDA en máquinas virtuales de la serie N. 
+
 
 Los desarrolladores de C y C++, si lo desean, pueden instalar el kit de herramientas completo para crear aplicaciones aceleradas por GPU. Para obtener más información, consulte la [guía de instalación de CUDA](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html).
 
-> [!NOTE]
-> Los vínculos de descarga de controladores de CUDA que se proporcionan aquí están actualizados en el momento de la publicación. Para ver los controladores de CUDA más recientes, visite el sitio web de [NVIDIA](https://developer.nvidia.com/cuda-zone).
->
-
-Para instalar el kit de herramientas de CUDA, realice una conexión SSH a cada máquina virtual. Para comprobar que el sistema dispone de una GPU compatible con CUDA, ejecute el siguiente comando:
+Para instalar los controladores de CUDA, realice una conexión SSH a cada máquina virtual. Para comprobar que el sistema dispone de una GPU compatible con CUDA, ejecute el siguiente comando:
 
 ```bash
 lspci | grep -i NVIDIA
@@ -162,16 +159,13 @@ La conectividad de red RDMA puede habilitarse en las máquinas virtuales de la s
 
 ### <a name="distributions"></a>Distribuciones
 
-Las máquinas virtuales de la serie N que puedan usar RDMA se implementan desde una imagen de Azure Marketplace que admita la conectividad RDMA en máquinas virtuales de la serie N:
+Las máquinas virtuales de la serie N que puedan usar RDMA se implementan desde cualquiera de las imágenes de Azure Marketplace que admita la conectividad RDMA en máquinas virtuales de la serie N:
   
 * **Ubuntu 16.04 LTS**: configure controladores RDMA en la máquina virtual y regístrese en Intel para descargar Intel MPI:
 
   [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]
 
-> [!NOTE]
-> Actualmente, no se recomiendan imágenes de HPC basadas en CentOS para la conectividad de RDMA en máquinas virtuales de la serie N. No se admite RDMA en el kernel de CentOS 7.4 más reciente que admite GPU NVIDIA.
-> 
-
+* **HPC basada en CentOS 7.4**: los controladores RDMA e Intel MPI 5.1 están instalados en la máquina virtual.
 
 ## <a name="install-grid-drivers-for-nv-series-vms"></a>Instalación de controladores GRID para máquinas virtuales de la serie NV
 
@@ -321,10 +315,10 @@ EndSection
  
 Además, actualice su sección `"Screen"` para usar este dispositivo.
  
-Encontrará el BusID ejecutando
+El BusID decimal puede encontrarse al ejecutar
 
 ```bash
-/usr/bin/nvidia-smi --query-gpu=pci.bus_id --format=csv | tail -1 | cut -d ':' -f 1
+echo $((16#`/usr/bin/nvidia-smi --query-gpu=pci.bus_id --format=csv | tail -1 | cut -d ':' -f 1`))
 ```
  
 El BusID puede cambiar cuando se reasigna o reinicia una máquina virtual. Por lo tanto, puede ser conveniente utilizar un script para actualizar el BusID en la configuración de X11 cuando se reinicie una máquina virtual. Por ejemplo: 

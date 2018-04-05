@@ -1,8 +1,8 @@
 ---
-title: "Compilación de una solución de IoT con Stream Analytics | Microsoft Docs"
-description: "Tutorial de introducción a la solución de IoT de Stream Analytics de un escenario de cabinas de peaje."
-keywords: "solución de IOT, funciones de ventana"
-documentationcenter: 
+title: Compilación de una solución de IoT con Stream Analytics | Microsoft Docs
+description: Tutorial de introducción a la solución de IoT de Stream Analytics de un escenario de cabinas de peaje.
+keywords: solución de IOT, funciones de ventana
+documentationcenter: ''
 services: stream-analytics
 author: SnehaGunda
 manager: kfile
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 01/12/2018
+ms.date: 03/21/2018
 ms.author: sngun
-ms.openlocfilehash: cc84a34a410a750ddf2acb8f19b3bb809d269098
-ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
+ms.openlocfilehash: 6ee2c1c4b1255b462f2974c111e626d62608de5c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Compilación de una solución de IoT con Stream Analytics
 
@@ -41,8 +41,7 @@ Para realizar este tutorial, deberá cumplir los siguientes requisitos previos:
 * Visual Studio 2017, 2015 o la versión gratuita de [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs.aspx)
 * [Una suscripción de Azure](https://azure.microsoft.com/pricing/free-trial/)
 * Privilegios administrativos en el equipo
-* Descarga de [TollApp.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TollApp/TollApp.zip) del Centro de descarga de Microsoft.
-* Opcional: código fuente del generador de eventos TollApp de [GitHub](https://aka.ms/azure-stream-analytics-toll-source)
+* Descargue el código fuente para el análisis de datos de sensor de TollApp desde el [repositorio de GitHub azure-stream-analytics.](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp). Este repositorio contiene los datos y las consultas de ejemplo que utilizará en las secciones siguientes. 
 
 ## <a name="scenario-introduction-hello-toll"></a>Introducción al escenario: peajes
 Una estación de peaje es un fenómeno común. Se encuentra en muchas autopistas, puentes y túneles de todo el mundo. Cada estación de peaje tiene varias cabinas. En cabinas manuales, se detiene y paga el peaje a un operador. En cabinas automatizadas, un sensor situado en la parte superior de cada cabina escanea una tarjeta RFID que está ubicada en el parabrisas del vehículo al pasar la cabina de peaje. Es fácil imaginar el paso de los vehículos a través de estos peajes como si fuera un flujo de eventos sobre los que se pueden realizar operaciones interesantes.

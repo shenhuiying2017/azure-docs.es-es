@@ -1,8 +1,8 @@
 ---
-title: "Configuración de directivas de Hive en HDInsight unido a un dominio - Azure | Microsoft Docs"
+title: Configuración de directivas de Hive en HDInsight unido a un dominio - Azure | Microsoft Docs
 description: Aprenda a...
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: saurinsh
 manager: jhubbard
 editor: cgronlun
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/25/2016
 ms.author: saurinsh
-ms.openlocfilehash: 35a74ffb6a30fe2ae7db686be5b6774800ce37b1
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 919a0a45c4c8c94b19ed1d602ed20df0afabd09a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configure-hive-policies-in-domain-joined-hdinsight"></a>Configurar directivas de Hive en HDInsight unido a un dominio
 Aprenda a configurar las directivas de Apache Ranger para Hive. En este artículo, cree dos directivas Ranger para restringir el acceso a hivesampletable. hivesampletable viene con los clústeres de HDInsight. Una vez configuradas las directivas, utilice Excel y el controlador ODBC para conectarse a las tablas de Hive en HDInsight.
@@ -45,10 +45,10 @@ Aprenda a configurar las directivas de Apache Ranger para Hive. En este artícul
     Actualmente, Ranger solo funciona con Yarn y Hive.
 
 ## <a name="create-domain-users"></a>Creación de usuarios del dominio
-En [Configure Domain-joined HDInsight clusters](apache-domain-joined-configure.md#optional-create-ad-users-and-groups) (Configuración de clústeres de HDInsight unidos a un dominio), ha creado hiveruser1 y hiveuser2. Para este tutorial usará las dos cuentas de usuario.
+Consulte [Creación de un clúster de HDInsight unido a un dominio](apache-domain-joined-configure-using-azure-adds.md#create-a-domain-joined-hdinsight-cluster), para obtener información sobre cómo crear hiveruser1 y hiveuser2. Para este tutorial, usará las dos cuentas de usuario.
 
 ## <a name="create-ranger-policies"></a>Creación de directivas de Ranger
-En esta sección, creará dos directivas Ranger para acceder a hivesampletable. Se concede el permiso select en un conjunto diferente de columnas. Ambos usuarios se crearon en [Configure Domain-joined HDInsight clusters](apache-domain-joined-configure.md#optional-create-ad-users-and-groups) (Configuración de clústeres de HDInsight unidos a un dominio).  En la siguiente sección probará las dos directivas en Excel.
+En esta sección, creará dos directivas Ranger para acceder a hivesampletable. Se concede el permiso select en un conjunto diferente de columnas. Ambos usuarios se crearon en [Creación de un clúster de HDInsight unido a un dominio](apache-domain-joined-configure-using-azure-adds.md#create-a-domain-joined-hdinsight-cluster). En la siguiente sección probará las dos directivas en Excel.
 
 **Para crear directivas de Ranger**
 
@@ -136,7 +136,7 @@ Para probar la segunda directiva (read-hivesampletable-devicemake) que creó en 
 
     Cuando termine, verá dos columnas de datos importados.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Para configurar un clúster de HDInsight unido a dominio, consulte [Configure Domain-joined HDInsight clusters](apache-domain-joined-configure.md) (Configuración de clústeres de HDInsight unidos a un dominio).
 * Para administrar un clúster de HDInsight unido a dominio, consulte [Manage Domain-joined HDInsight clusters](apache-domain-joined-manage.md) (Administración de clústeres de HDInsight unidos a un dominio).
 * Para ejecutar consultas de Hive mediante SSH en clústeres de HDInsight unidos a un dominio, consulte [Uso de SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).

@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 02/06/2018
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: f53a8641a50a6c968a6ba7b841e0e8f938b5d9f6
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 830f9c76d9d1bf11692fa9f2f5c49cbecdb69f25
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Protección de un servidor de archivos mediante Azure Site Recovery 
 
@@ -48,7 +48,7 @@ En el diagrama anterior, varios servidores de archivos, llamados miembros, parti
 
     * Puede usar este enfoque si las máquinas virtuales tienen configuraciones que no son compatibles con Site Recovery. Un ejemplo es un disco de clúster compartido, utilizado normalmente en entornos de servidor de archivos. DFSR también funciona correctamente en entornos de ancho de banda reducido con una tasa de renovación intermedia. Debe considerar el costo adicional de tener una máquina virtual de Azure continuamente en ejecución. 
 
-* **Uso de Azure File Sync para la replicación de archivos**: si planea usar la nube o ya utiliza una máquina virtual de Azure, puede usar File Sync. File Sync ofrece la sincronización de recursos compartidos de archivos en la nube totalmente administrados, a los que se puede acceder mediante el protocolo estándar [Server Message Block](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) (SMB) (Bloque de mensajes del servidor). Los recursos compartidos de archivos de Azure se pueden montar simultáneamente en implementaciones de Windows, Linux y macOS en la nube o locales. 
+* **Use Azure File Sync para la replicación de archivos**: si planea usar la nube o ya utiliza una máquina virtual de Azure, puede usar Azure File Sync. Azure File Sync ofrece la sincronización de recursos compartidos de archivos en la nube totalmente administrados, a los que se puede acceder mediante el protocolo estándar [Bloque de mensajes del servidor](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) (SMB). Los recursos compartidos de Azure Files se pueden montar simultáneamente en implementaciones de Windows, Linux y macOS en la nube o locales. 
 
 El siguiente diagrama le ayuda a determinar qué estrategia utilizar para su entorno de servidor de archivos.
 

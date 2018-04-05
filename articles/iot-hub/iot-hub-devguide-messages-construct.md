@@ -1,24 +1,24 @@
 ---
-title: "Información sobre el formato de mensaje de Azure IoT Hub | Microsoft Docs"
-description: "Guía del desarrollador: describe el formato y el contenido esperado de los mensajes de IoT Hub."
+title: Información sobre el formato de mensaje de Azure IoT Hub | Microsoft Docs
+description: 'Guía del desarrollador: describe el formato y el contenido esperado de los mensajes de IoT Hub.'
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 3fc5f1a3-3711-4611-9897-d4db079b4250
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/29/2018
+ms.date: 03/20/2018
 ms.author: dobett
-ms.openlocfilehash: 3d5b500964ee37dbd347858edd35812e1d217499
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 832010181059e2ec42834e54622f374c367c8d4f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Creación y lectura de mensajes de IoT Hub
 
@@ -50,6 +50,7 @@ En la siguiente tabla, aparece el conjunto de propiedades del sistema en los men
 | ConnectionDeviceId |Un identificador establecido por IoT Hub en los mensajes de dispositivo a nube. Contiene el **deviceId** del dispositivo que envió el mensaje. |
 | ConnectionDeviceGenerationId |Un identificador establecido por IoT Hub en los mensajes de dispositivo a nube. Contiene el valor **generationId** (como se indica en [Propiedades de identidad del dispositivo][lnk-device-properties]) del dispositivo que envió el mensaje. |
 | ConnectionAuthMethod |Un método de autenticación establecido por IoT Hub en los mensajes de dispositivo a nube. Esta propiedad contiene información sobre el método de autenticación usado para autenticar el dispositivo que envía el mensaje. Para más información, consulte la sección [Propiedades contra la suplantación][lnk-antispoofing]. |
+| CreationTimeUtc | Fecha y hora en la que se creó el mensaje en un dispositivo. Un dispositivo debe establecer explícitamente este valor. |
 
 ## <a name="message-size"></a>Tamaño del mensaje
 
@@ -61,7 +62,7 @@ IoT Hub mide el tamaño de los mensajes de una manera independiente del protocol
 
 Solamente se pueden usar caracteres ASCII para los valores y los nombres de propiedades, por lo que la longitud de las cadenas es igual al tamaño en bytes.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener información acerca de los límites de tamaño de mensaje IoT Hub, consulte [Cuotas y limitación de IoT Hub][lnk-quotas].
 

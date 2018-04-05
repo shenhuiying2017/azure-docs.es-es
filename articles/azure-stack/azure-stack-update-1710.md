@@ -1,11 +1,11 @@
 ---
-title: "Actualización de Azure Stack 1710 (compilación 20171020.1) | Microsoft Docs"
-description: "Obtenga información sobre el contenido de la actualización 1710 para los sistemas integrados de Azure Stack, los problemas conocidos y la ubicación dónde debe descargarse la actualización."
+title: Actualización de Azure Stack 1710 (compilación 20171020.1) | Microsoft Docs
+description: Obtenga información sobre el contenido de la actualización 1710 para los sistemas integrados de Azure Stack, los problemas conocidos y la ubicación dónde debe descargarse la actualización.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 135314fd-7add-4c8c-b02a-b03de93ee196
 ms.service: azure-stack
 ms.workload: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: mabrigg
 ms.openlocfilehash: 1a482f1d2f3eef8775bb7b64d4f6749f69fa5471
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-stack-1710-update-build-201710201"></a>Actualización de Azure Stack 1710 (compilación 20171020.1)
 
@@ -124,7 +124,7 @@ Esta sección contiene problemas conocidos posteriores a la instalación relacio
 
 Puede descargar el paquete de actualización 1710 [aquí](https://aka.ms/azurestackupdatedownload).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Para obtener una introducción a la administración de actualizaciones en Azure Stack, consulte [Introducción a la administración de actualizaciones en Azure Stack](azure-stack-updates.md).
 - Para obtener información acerca de cómo aplicar las actualizaciones, consulte [Aplicación de actualizaciones en Azure Stack](azure-stack-apply-updates.md).

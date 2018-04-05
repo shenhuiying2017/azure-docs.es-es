@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 03/21/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 04cfe3c4ac6011b9c3d31b7d4ac3c018c350d67b
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 5ade2a09d0729f48c075a5bcaa20bee079ead47d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="network-connectivity"></a>Conectividad de red
 En este artículo se ofrece información sobre la infraestructura de red de Azure Stack que le ayudará decidir cuál es la mejor forma de integrar Azure Stack en su entorno de red existente. 
@@ -67,7 +67,7 @@ Esta red /24 (254 direcciones IP de host) es particular de la región de Azure S
 Esta red /24 está dedicada a los componentes internos de Azure Stack para que puedan comunicarse e intercambiar datos entre ellos. Esta subred requiere direcciones IP enrutables pero se mantiene privada para la solución mediante el uso de listas de control de acceso (ACL). No se espera que se enrute más allá de los conmutadores de borde, excepto por un intervalo pequeño equivalente en tamaño a una red /27 que utilizan algunos de estos servicios cuando requieren acceso a recursos externos o a Internet. 
 
 ### <a name="public-infrastructure-network"></a>Red de la infraestructura pública
-Esta red /27 es el intervalo pequeño de la subred de infraestructura de Azure Stack mencionada anteriormente, no requiere direcciones IP públicas, pero sí requiere acceso a Internet a través de NAT o proxy transparente. Esta red se asignará al sistema de consola de recuperación de emergencia (ERCS), la máquina virtual de ERCS requiere acceso a Internet durante el registro a Azure y debe enrutarse a su red de administración para la solución de problemas.
+Esta red /27 es el intervalo pequeño de la subred de infraestructura de Azure Stack mencionada anteriormente, no requiere direcciones IP públicas, pero sí requiere acceso a Internet a través de NAT o proxy transparente. Esta red se asignará al sistema de consola de recuperación de emergencia (ERCS); la máquina virtual de ERCS requiere acceso a Internet durante el registro en Azure y durante las copias de seguridad de la infraestructura. La máquina virtual de ERCS debe ser enrutable a la red de administración con el fin de solucionar problemas.
 
 ### <a name="public-vip-network"></a>Red IP virtual pública
 La red IP virtual pública se asigna al controlador de red en Azure Stack. No es una red lógica en el conmutador. El equilibrador de carga de software utiliza el grupo de direcciones y asigna redes /32 a las cargas de trabajo de inquilino. En la tabla de enrutamiento de conmutador, estas direcciones IP /32 se publican como una ruta disponible a través de BGP. Esta red contiene las direcciones IP externas accesibles o públicas. La infraestructura de Azure Stack usa por lo menos ocho direcciones de esta red IP virtual pública, mientras que el resto lo utilizan las máquinas virtuales de inquilino. El tamaño de red en esta subred puede variar desde un mínimo de /26 (64 hosts) a un máximo de /22 (1022 hosts); le recomendamos que planee una red /24.

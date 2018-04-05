@@ -8,16 +8,14 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: 5ea3d1af6f8bb4a6c0ef45560d8707afc58f61b1
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: ca00736c6c42223a0fe6259da5ee2531c287de18
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Creación de una cuenta independiente de Azure Automation
-En este artículo se muestra cómo crear una cuenta de Azure Automation en el portal de Azure. Puede usar la cuenta de Automation del portal para evaluar y obtener información acerca de Automation sin usar soluciones de administración o integración adicionales con Azure Log Analytics en Operations Management Suite (OMS). Puede agregar estas soluciones de administración o realizar la integración con Log Analytics para disfrutar de una supervisión avanzada de los trabajos de runbook en cualquier momento en el futuro. 
+En este artículo se muestra cómo crear una cuenta de Azure Automation en el portal de Azure. Puede usar la cuenta de Automation del portal para evaluar y obtener información acerca de Automation sin usar soluciones de administración o integración adicionales con Azure Log Analytics. Puede agregar estas soluciones de administración o realizar la integración con Log Analytics para disfrutar de una supervisión avanzada de los trabajos de runbook en cualquier momento en el futuro. 
 
 Con una cuenta de Automation, podrá autenticar runbooks mediante la administración de recursos en Azure Resource Manager o en el modelo de implementación clásica.
 

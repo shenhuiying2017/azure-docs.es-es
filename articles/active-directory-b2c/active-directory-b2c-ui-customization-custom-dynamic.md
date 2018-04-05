@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C: personalización de la interfaz de usuario de Azure AD B2C dinámicamente utilizando directivas personalizadas"
-description: "Admisión de varias experiencias de personalización de marca con contenido HTML5/CSS que cambia dinámicamente en tiempo de ejecución."
+title: 'Azure Active Directory B2C: personalización de la interfaz de usuario de Azure AD B2C dinámicamente utilizando directivas personalizadas'
+description: Admisión de varias experiencias de personalización de marca con contenido HTML5/CSS que cambia dinámicamente en tiempo de ejecución.
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 09/20/2017
-ms.author: yoelh
-ms.openlocfilehash: 3a2310ae6266709df6677c55f11b15239c0425a2
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.author: davidmu
+ms.openlocfilehash: d8aaf0ef8cefdc0cb1c4ff3dec656d31c32f664f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: configuración de la interfaz de usuario con contenido dinámico utilizando directivas personalizadas
 Mediante el uso de las directivas personalizadas de Azure Active Directory B2C (Azure AD B2C), puede enviar un parámetro en una cadena de consulta. Al pasar dicho parámetro al punto de conexión HTML, puede cambiar de forma dinámica el contenido de la página. Por ejemplo, puede cambiar la imagen de fondo en la página de inicio de sesión o de registro de Azure AD B2C en función de un parámetro que se pasa desde la aplicación web o dispositivo móvil. 
@@ -121,7 +118,7 @@ La plantilla HTML5 personalizada se basa en la plantilla HTML5 integrada de Azur
 
 ### <a name="step-23-change-the-background-image"></a>Paso 2.3: Cambio de la imagen de fondo
 
-Ubique el elemento `<img>` que contiene el valor de `ID` *background_background_image*y reemplace el valor `src` con **https://kbdevstorage1.blob.core.windows.net/asset-blobs/19889_en_1** o cualquier otra imagen de fondo que desee utilizar.
+Ubique el elemento `<img>` que contiene el valor de `ID` *background_background_image* y reemplace el valor `src` por **https://kbdevstorage1.blob.core.windows.net/asset-blobs/19889_en_1** o cualquier otra imagen de fondo que quiera utilizar.
 
 ![Cambio del fondo de la página](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-static-background.png)
 

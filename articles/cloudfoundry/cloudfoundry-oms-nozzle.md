@@ -1,11 +1,11 @@
 ---
-title: "Implementación del inyector de Azure Log Analytics para la supervisión de Cloud Foundry | Microsoft Docs"
-description: "Guía paso a paso sobre cómo implementar el inyector de Cloud Foundry Loggregator para Azure Log Analytics. Use el inyector para supervisar las métricas de rendimiento y mantenimiento del sistema Cloud Foundry."
+title: Implementación del inyector de Azure Log Analytics para la supervisión de Cloud Foundry | Microsoft Docs
+description: Guía paso a paso sobre cómo implementar el inyector de Cloud Foundry Loggregator para Azure Log Analytics. Use el inyector para supervisar las métricas de rendimiento y mantenimiento del sistema Cloud Foundry.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: ningk
 manager: timlt
-editor: 
+editor: ''
 tags: Cloud-Foundry
 ms.assetid: 00c76c49-3738-494b-b70d-344d8efc0853
 ms.service: virtual-machines-linux
@@ -15,21 +15,21 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
-ms.openlocfilehash: 0d13d39d2921c51c537534a5b000564a9df91880
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b900a42196eedab89af8e55d71a336ed7adc45a4
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Implementar el inyector de Azure Log Analytics para la supervisión del sistema Cloud Foundry
 
-[Azure Log Analytics](https://azure.microsoft.com/services/log-analytics/) es un servicio de Microsoft [Operations Management Suite](https://docs.microsoft.com/azure/operations-management-suite/) (OMS). Sirve para recopilar y analizar los datos que se generan en los entornos tanto locales como en la nube.
+[Azure Log Analytics](https://azure.microsoft.com/services/log-analytics/) es un servicio de Azure. Sirve para recopilar y analizar los datos que se generan en los entornos tanto locales como en la nube.
 
 El inyector de Log Analytics es un componente de Cloud Foundry (CF) que reenvía las métricas del conjunto predeterminado de resultados de [Cloud Foundry Loggregator](https://docs.cloudfoundry.org/loggregator/architecture.html) a Log Analytics. Con el inyector, puede recopilar, ver y analizar las métricas de mantenimiento y rendimiento del sistema CF en varias implementaciones.
 
-En este documento, aprenderá a implementar el inyector en su entorno de CF y, después, tendrá acceso a los datos desde la consola de OMS de Log Analytics.
+En este documento, aprenderá a implementar el inyector en su entorno de CF y, después, tendrá acceso a los datos desde la consola de Log Analytics.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Los pasos siguientes son requisitos previos para implementar el inyector.
 
@@ -53,9 +53,9 @@ El inyector también necesita permiso de acceso al conjunto predeterminado de re
 
 Antes de configurar el cliente de línea de comandos de UAA, asegúrese de que Rubygems está instalado.
 
-### <a name="3-create-an-oms-workspace-in-azure"></a>3. Crear un área de trabajo de OMS en Azure
+### <a name="3-create-a-log-analytics-workspace-in-azure"></a>3. Creación de un área de trabajo de Log Analytics en Azure
 
-Puede crear el área de trabajo de OMS manualmente o con una plantilla. Cargue las vistas y alertas preconfiguradas de OMS después de terminar de implementar el inyector.
+Puede crear el área de trabajo de Log Analytics manualmente o con una plantilla. Cargue las vistas y alertas preconfiguradas de OMS después de terminar de implementar el inyector.
 
 Crear un área de trabajo manualmente:
 
@@ -70,7 +70,7 @@ Crear un área de trabajo manualmente:
 
 Para más información, consulte [Introducción a Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started).
 
-De forma alternativa, puede crear el área de trabajo de OMS con la plantilla de OMS. Con este método, la plantilla carga automáticamente las vistas y alertas de OMS preconfiguradas. Para más información, vea [Azure OMS Log Analytics solution for Cloud Foundry](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-cloudfoundry-solution) (Solución Azure Log Analytics de OMS para Cloud Foundry).
+De forma alternativa, puede crear el área de trabajo de Log Analytics con la plantilla de OMS. Con este método, la plantilla carga automáticamente las vistas y alertas de OMS preconfiguradas. Para más información, vea [Azure Log Analytics solution for Cloud Foundry](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-cloudfoundry-solution) (Solución Azure Log Analytics para Cloud Foundry).
 
 ## <a name="deploy-the-nozzle"></a>Implementar el inyector
 
@@ -118,14 +118,14 @@ cd oms-log-analytics-firehose-nozzle
 
 #### <a name="set-environment-variables"></a>Establecimiento de variables de entorno
 
-Ahora puede establecer las variables de entorno en el archivo manifest.yml en el directorio actual. A continuación, se muestra el manifiesto de la aplicación para el inyector. Reemplace los valores con información específica de su área de trabajo de OMS.
+Ahora puede establecer las variables de entorno en el archivo manifest.yml en el directorio actual. A continuación, se muestra el manifiesto de la aplicación para el inyector. Reemplace los valores con información específica de su área de trabajo de Log Analytics.
 
 ```
-OMS_WORKSPACE             : OMS workspace ID: open OMS portal from your OMS workspace, select Settings, and select connected sources.
-OMS_KEY                   : OMS key: open OMS portal from your OMS workspace, select Settings, and select connected sources.
-OMS_POST_TIMEOUT          : HTTP post timeout for sending events to OMS Log Analytics. The default is 10 seconds.
-OMS_BATCH_TIME            : Interval for posting a batch to OMS Log Analytics. The default is 10 seconds.
-OMS_MAX_MSG_NUM_PER_BATCH : The maximum number of messages in a batch to OMS Log Analytics. The default is 1000.
+OMS_WORKSPACE             : Log Analytics workspace ID: open OMS portal from your Log Analytics workspace, select Settings, and select connected sources.
+OMS_KEY                   : OMS key: open OMS portal from your Log Analytics workspace, select Settings, and select connected sources.
+OMS_POST_TIMEOUT          : HTTP post timeout for sending events to Log Analytics. The default is 10 seconds.
+OMS_BATCH_TIME            : Interval for posting a batch to Log Analytics. The default is 10 seconds.
+OMS_MAX_MSG_NUM_PER_BATCH : The maximum number of messages in a batch to Log Analytics. The default is 1000.
 API_ADDR                  : The API URL of the CF environment. For more information, see the preceding section, "Sign in to your CF deployment as an admin through CF CLI."
 DOPPLER_ADDR              : Loggregator's traffic controller URL. For more information, see the preceding section, "Sign in to your CF deployment as an admin through CF CLI."
 FIREHOSE_USER             : CF user you created in the preceding section, "Create a CF user and grant required privileges." This user has firehose and Cloud Controller admin access.
@@ -135,8 +135,8 @@ SKIP_SSL_VALIDATION       : If true, allows insecure connections to the UAA and 
 CF_ENVIRONMENT            : Enter any string value for identifying logs and metrics from different CF environments.
 IDLE_TIMEOUT              : The Keep Alive duration for the firehose consumer. The default is 60 seconds.
 LOG_LEVEL                 : The logging level of the Nozzle. Valid levels are DEBUG, INFO, and ERROR.
-LOG_EVENT_COUNT           : If true, the total count of events that the Nozzle has received and sent are logged to OMS Log Analytics as CounterEvents.
-LOG_EVENT_COUNT_INTERVAL  : The time interval of the logging event count to OMS Log Analytics. The default is 60 seconds.
+LOG_EVENT_COUNT           : If true, the total count of events that the Nozzle has received and sent are logged to Log Analytics as CounterEvents.
+LOG_EVENT_COUNT_INTERVAL  : The time interval of the logging event count to Log Analytics. The default is 60 seconds.
 ```
 
 ### <a name="push-the-application-from-your-development-computer"></a>Inserción de la aplicación desde el equipo de desarrollo
@@ -165,7 +165,7 @@ Asegúrese de que la aplicación de inyector de OMS se está ejecutando.
 
 ### <a name="1-import-the-oms-view"></a>1. Importe la vista de OMS
 
-Desde el portal de OMS, examine **Diseñador de vistas** > **Importar** > **Examinar** y seleccione uno de los archivos omsview. Por ejemplo, seleccione *Cloud Foundry.omsview* y guarde la vista. Ahora, se muestra un icono en la página de **información general** de OMS. Selecciónelo para ver las métricas visualizadas.
+Desde el portal de OMS, examine **Diseñador de vistas** > **Importar** > **Examinar** y seleccione uno de los archivos omsview. Por ejemplo, seleccione *Cloud Foundry.omsview* y guarde la vista. Ahora se muestra un icono en la página de **información general**. Selecciónelo para ver las métricas visualizadas.
 
 Puede personalizar estas vistas o crearlas a través del **Diseñador de vistas**.
 
@@ -175,7 +175,7 @@ Puede personalizar estas vistas o crearlas a través del **Diseñador de vistas*
 
 Puede [crear las alertas](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts) y personalizar las consultas y los valores de umbral según sea necesario. Estas son las alertas recomendadas:
 
-| Consulta de búsqueda                                                                  | Generación de alerta según | Descripción                                                                       |
+| Consulta de búsqueda                                                                  | Generación de alerta según | DESCRIPCIÓN                                                                       |
 | ----------------------------------------------------------------------------- | ----------------------- | --------------------------------------------------------------------------------- |
 | Type=CF_ValueMetric_CL Origin_s=bbs Name_s="Domain.cf-apps"                   | Número de resultados < 1   | **bbs.Domain.cf-apps** indica si el dominio cf-apps está actualizado. Significa que las solicitudes de aplicación de CF procedentes de Cloud Controller están sincronizadas con bbs.LRPsDesired (instancias de aplicación aptas para Diego) para su ejecución. Si no se obtienen datos, significa que el dominio cf-apps no está actualizado en el período de tiempo especificado. |
 | Type=CF_ValueMetric_CL Origin_s=rep Name_s=UnhealthyCell Value_d>1            | Número de resultados > 0   | En las celdas Diego, 0 indica un estado correcto y 1, incorrecto. Establezca la alerta si se detectan varias celdas Diego en estado incorrecto en el período de tiempo especificado. |
@@ -183,7 +183,7 @@ Puede [crear las alertas](https://docs.microsoft.com/azure/log-analytics/log-ana
 | Type=CF_ValueMetric_CL Origin_s=route_emitter Name_s=ConsulDownMode Value_d>0 | Número de resultados > 0   | Consul emite su estado periódicamente. 0 significa que el sistema está en buen estado y 1, que el emisor de ruta detecta que Consul está inactivo. |
 | Type=CF_CounterEvent_CL Origin_s=DopplerServer (Name_s="TruncatingBuffer.DroppedMessages" o Name_s="doppler.shedEnvelopes") Delta_d>0 | Número de resultados > 0 | Número diferencial de mensajes quitados intencionadamente por Doppler debido a la contrapresión. |
 | Type=CF_LogMessage_CL SourceType_s=LGR MessageType_s=ERR                      | Número de resultados > 0   | Loggregator emite el mensaje **LGR** para señalar que hay problemas con el proceso de registro. Un ejemplo de este problema es cuando la salida del mensaje de registro es demasiado alta. |
-| Type=CF_ValueMetric_CL Name_s=slowConsumerAlert                               | Número de resultados > 0   | Cuando el inyector recibe una alerta de consumidor lento de Loggregator, envía a OMS un ValueMetric de tipo **slowConsumerAlert**. |
+| Type=CF_ValueMetric_CL Name_s=slowConsumerAlert                               | Número de resultados > 0   | Cuando el inyector recibe una alerta de consumidor lento de Loggregator, envía a Log Analytics un valor de ValueMetric de tipo **slowConsumerAlert**. |
 | Type=CF_CounterEvent_CL Job_s=nozzle Name_s=eventsLost Delta_d>0              | Número de resultados > 0   | Si el número diferencial de eventos perdidos alcanza un umbral, significa que el inyector podría tener algún problema. |
 
 ## <a name="scale"></a>Escala
@@ -218,7 +218,7 @@ En la ventana de la CLI de CF, escriba lo siguiente:
 cf delete <App Name> -r
 ```
 
-Si elimina el inyector, los datos del portal de OMS no se quitan automáticamente. Expira en función de la configuración de retención de Log Analytics de OMS.
+Si elimina el inyector, los datos del portal de OMS no se quitan automáticamente. Expira en función de la configuración de retención de Log Analytics.
 
 ## <a name="support-and-feedback"></a>Soporte y comentarios
 

@@ -7,14 +7,14 @@ ms.reviewer: carlrab, bonova
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 03/19/2018
 ms.author: jovanpop
-manager: cguyer
-ms.openlocfilehash: 27be2b9a5f2b9aaf2d4464a6c927ec2a1694131a
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+manager: craigg
+ms.openlocfilehash: b633c3c4a4f476cb8e89afde8adeb94558643d4b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Diferencias de T-SQL en Instancia administrada de Azure SQL Database 
 
@@ -30,11 +30,11 @@ En esta sección se resumen las principales diferencias en la sintaxis de T-SQL 
 ### <a name="always-on-availability"></a>Disponibilidad Always-On
 
 La [alta disponibilidad](sql-database-high-availability.md) está integrada en Instancia administrada y no la pueden controlar los usuarios. No se admiten las siguientes instrucciones:
- - [CREATE ENDPOINT … FOR DATABASE_MIRRORING](https://docs.microsoft.com/sql/t-sql/statements/create-endpoint-transact-sql.md)
- - [CREATE AVAILABILITY GROUP](https://docs.microsoft.com/sql/t-sql/statements/create-availability-group-transact-sql.md)
- - [ALTER AVAILABILITY GROUP](https://docs.microsoft.com/sql/t-sql/statements/alter-availability-group-transact-sql.md)
- - [DROP AVAILABILITY GROUP](https://docs.microsoft.com/sql/t-sql/statements/drop-availability-group-transact-sql.md)
- - La cláusula [SET HADR](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-hadr.md) de la instrucción [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql)
+ - [CREATE ENDPOINT … FOR DATABASE_MIRRORING](https://docs.microsoft.com/sql/t-sql/statements/create-endpoint-transact-sql)
+ - [CREATE AVAILABILITY GROUP](https://docs.microsoft.com/sql/t-sql/statements/create-availability-group-transact-sql)
+ - [ALTER AVAILABILITY GROUP](https://docs.microsoft.com/sql/t-sql/statements/alter-availability-group-transact-sql)
+ - [DROP AVAILABILITY GROUP](https://docs.microsoft.com/sql/t-sql/statements/drop-availability-group-transact-sql)
+ - La cláusula [SET HADR](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-hadr) de la instrucción [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql)
 
 ### <a name="auditing"></a>Auditoría 
  
@@ -393,7 +393,11 @@ Las siguientes variables, funciones y vistas devuelven resultados diferentes:
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>Exceder el espacio de almacenamiento con archivos de base de datos pequeños
 
-Cada instancia administrada tiene hasta 35 TB de espacio de almacenamiento reservado y cada archivo de base de datos se coloca inicialmente en una unidad de asignación de almacenamiento de 128 GB. Las bases de datos con muchos archivos pequeños podrían colocarse en unidades de 128 GB que, en total, superan el límite de 35 TB. En este caso, no se pueden crear ni restaurar nuevas bases de datos, aunque el tamaño total de todas las bases de datos no alcance el límite de tamaño de la instancia. El error que se devuelve en ese caso podría no estar claro.
+Cada instancia administrada tiene hasta 35 TB de almacenamiento reservado para el espacio en disco premium de Azure, y cada archivo de base de datos se coloca en un disco físico independiente. Los posibles tamaños de disco son: 128 GB, 256 GB, 512 GB, 1 TB o 4 TB. El espacio no utilizado en el disco no se cobra, pero la suma total de los tamaños de disco Premium de Azure no puede superar los 35 TB. En algunos casos, una instancia administrada que no necesita 8 TB en total puede superar los 35 TB de límite de Azure en tamaño de almacenamiento debido a la fragmentación interna. 
+
+Por ejemplo, una Instancia administrada podría tener un archivo con un tamaño de 1,2 TB que use un disco de 4 TB y 248 archivos con 1 GB cada uno que se coloquen en 248 discos con un tamaño de 128 GB. En este ejemplo, el tamaño de almacenamiento total del disco es 1 x 4 TB + 248 x 128 GB = 35 TB. Sin embargo, el tamaño total de instancias reservadas para las bases de datos es 1 x 1,2 TB + 248 x 1 GB = 1,4 TB. Esto ilustra que, en determinadas circunstancias, debido a una distribución muy específica de archivos, una instancia administrada podría alcanzar un límite de almacenamiento en disco premium de Azure donde no lo espere. 
+
+No habría ningún error en las bases de datos existentes y pueden crecer sin ningún problema si no se agregan nuevos archivos, pero las bases de datos nuevas no se pueden crear ni restaurar porque no hay suficiente espacio para nuevas unidades de disco, incluso si el tamaño total de todas las bases de datos no alcanza el límite de tamaño de la instancia. El error que se devuelve en ese caso no está claro.
 
 ### <a name="incorrect-configuration-of-sas-key-during-database-restore"></a>Configuración incorrecta de la clave SAS durante la restauración de una base de datos
 

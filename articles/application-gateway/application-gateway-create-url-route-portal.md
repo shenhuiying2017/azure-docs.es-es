@@ -1,21 +1,20 @@
 ---
-title: "Creación de una puerta de enlace de aplicaciones con reglas de enrutamiento basadas en rutas de dirección URL con Azure Portal | Microsoft Docs"
-description: "Aprenda a crear reglas de enrutamiento basadas en rutas de dirección URL para una puerta de enlace de aplicaciones y un conjunto de escalado de máquinas virtuales mediante Azure Portal."
+title: Creación de una puerta de enlace de aplicaciones con reglas de enrutamiento basadas en rutas de dirección URL con Azure Portal
+description: Aprenda a crear reglas de enrutamiento basadas en rutas de dirección URL para una puerta de enlace de aplicaciones y un conjunto de escalado de máquinas virtuales mediante Azure Portal.
 services: application-gateway
-author: davidmu1
-manager: timlt
-editor: tysonn
+author: vhorne
+manager: jpconnock
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 01/26/2018
-ms.author: davidmu
-ms.openlocfilehash: 62063c42ab15a071a4500417a5d8adf6bfeac97f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.date: 3/26/2018
+ms.author: victorh
+ms.openlocfilehash: 4ffaeedf125b6f74aeb88e22248040c6c3ef001c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Creación de una puerta de enlace de aplicaciones con reglas de enrutamiento basadas en rutas de dirección URL con Azure Portal
 
@@ -34,9 +33,9 @@ En este artículo, aprenderá a:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="log-in-to-azure"></a>Inicie sesión en Azure.
+## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
 
-Inicie sesión en Azure Portal en: [http://portal.azure.com](http://portal.azure.com).
+Inicie sesión en Azure Portal en [http://portal.azure.com](http://portal.azure.com)
 
 ## <a name="create-an-application-gateway"></a>Creación de una puerta de enlace de aplicaciones
 
@@ -154,11 +153,11 @@ En este ejemplo, se crean tres máquinas virtuales que se usarán como servidore
 
     ![Registro de la dirección IP pública de la puerta de enlace de aplicaciones](./media/application-gateway-create-url-route-portal/application-gateway-record-ag-address.png)
 
-2. Copie la dirección IP pública y péguela en la barra de direcciones del explorador. Por ejemplo, http://http: / / 40.121.222.19.
+2. Copie la dirección IP pública y péguela en la barra de direcciones del explorador. Por ejemplo, http://http://40.121.222.19.
 
     ![Prueba de la dirección URL base en la puerta de enlace de aplicaciones](./media/application-gateway-create-url-route-portal/application-gateway-iistest.png)
 
-3. Cambie la dirección URL a http://&lt;dirección-ip&gt;:8080/video/test.htm, sustituyendo &lt;dirección-ip&gt; por su dirección IP y verá algo similar al ejemplo siguiente:
+3. Cambie la dirección URL a http://&lt;dirección-ip&gt;:8080/images/test.htm, sustituyendo &lt;dirección-ip&gt; por su dirección IP y verá algo similar al ejemplo siguiente:
 
     ![Prueba de la dirección URL de imágenes en la puerta de enlace de aplicaciones](./media/application-gateway-create-url-route-portal/application-gateway-iistest-images.png)
 
@@ -166,7 +165,7 @@ En este ejemplo, se crean tres máquinas virtuales que se usarán como servidore
 
     ![Prueba de la dirección URL de vídeo en la puerta de enlace de aplicaciones](./media/application-gateway-create-url-route-portal/application-gateway-iistest-video.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este artículo, ha aprendido cómo
 

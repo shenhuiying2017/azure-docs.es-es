@@ -1,6 +1,6 @@
 ---
-title: 'Alertas de registro en Azure Monitor: Alertas (versión preliminar) | Microsoft Docs'
-description: Desencadenamiento de correos electrónicos y notificaciones, y llamadas a direcciones URL de sitios web (webhooks) o a la automatización cuando se cumplen las condiciones de consulta compleja especificadas para Alertas de Azure (versión preliminar).
+title: 'Alertas de registro en Azure Monitor: Alertas | Microsoft Docs'
+description: Desencadenamiento de correos electrónicos y notificaciones, y llamadas a direcciones URL de sitios web (webhooks) o a la automatización cuando se cumplen las condiciones de consulta compleja especificadas para Alertas de Azure.
 author: msvijayn
 manager: kmadnani1
 editor: ''
@@ -12,35 +12,35 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2018
+ms.date: 03/17/2018
 ms.author: vinagara
-ms.openlocfilehash: 0cee8bf77e0facc12159b823152b8859ce5cedd8
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 5928bbcec08d6ba4ac0b0d03b66fa4bfc8f5e3d7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="log-alerts-in-azure-monitor---alerts-preview"></a>Alertas de registro en Azure Monitor: Alertas (versión preliminar)
-En este artículo se proporcionan detalles sobre cómo funcionan las reglas de alertas de consultas de Analytics en Alertas de Azure (versión preliminar) y se describen las diferencias entre los distintos tipos de reglas de alertas de registro. Para detalles de las alertas de métrica mediante los registros, consulte las [alertas de métricas casi en tiempo real](monitoring-near-real-time-metric-alerts.md)
+# <a name="log-alerts-in-azure-monitor---alerts"></a>Alertas de registro en Azure Monitor: Alertas 
+En este artículo se proporcionan detalles sobre cómo funcionan las reglas de alertas de consultas de Analytics en Alertas de Azure y se describen las diferencias entre los distintos tipos de reglas de alertas de registro. Para detalles de las alertas de métrica mediante los registros, consulte las [alertas de métricas casi en tiempo real](monitoring-near-real-time-metric-alerts.md)
 
-Actualmente, Alertas de Azure (versión preliminar) admite las alertas de registro en consultas de [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) y [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events).
+Actualmente, Alertas de Azure admite las alertas de registro en consultas de [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) y [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events).
 
 > [!WARNING]
 
-> Actualmente, la alerta de registro de Alertas de Azure (versión preliminar) no admite consultas entre áreas de trabajo ni entre aplicaciones.
+> Actualmente, la alerta de registro de Alertas de Azure no admite consultas entre áreas de trabajo ni entre aplicaciones. Así mismo, Alertas de registro de Application Insights está en versión preliminar pública, la funcionalidad y la experiencia del usuario están sujetas a cambios.
 
-Además, los usuarios pueden perfeccionar sus consultas en la plataforma de Analytics de su preferencia en Azure y luego *importarlas para usarlas en Alertas (versión preliminar) al guardar la consulta*. Pasos a seguir:
+Además, los usuarios pueden perfeccionar sus consultas en la plataforma de Analytics de su preferencia en Azure y luego *importarlas para usarlas en Alertas al guardar la consulta*. Pasos a seguir:
 - Para Application Insights: vaya al portal de Analytics, valide la consulta y sus resultados. Luego guárdela con un nombre único en *Consultas compartidas*.
 - Para Log Analytics: vaya a Búsqueda de registros, valide la consulta y sus resultados. Luego use Guardar con un nombre único en cualquier categoría.
 
-Entonces, cuando [cree una alerta de registro en Alertas (versión preliminar)](monitor-alerts-unified-usage.md), verá que la consulta guardada aparece como el tipo de señal **Registro (consulta guardada)**, tal como aparece en el ejemplo siguiente: ![Consulta guardada importada a Alertas](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog-new.png)
+Entonces, cuando [cree una alerta de registro en Alertas](monitor-alerts-unified-usage.md), verá que la consulta guardada aparece como el tipo de señal **Registro (consulta guardada)**, tal como aparece en el ejemplo siguiente: ![Consulta guardada importada a Alertas](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog-new.png)
 
 > [!NOTE]
 > Usar **Registro (consulta guardada)** genera una importación a Alertas. Por lo tanto, cualquier cambio que se realice después en Analytics no se reflejará en las reglas de alertas guardadas y viceversa.
 
 ## <a name="log-alert-rules"></a>Reglas de alertas de registro
 
-Las alertas creadas por Alertas de Azure (versión preliminar) para ejecutar automáticamente consultas de registros a intervalos regulares.  Si los resultados de la consulta de registros coinciden con determinados criterios, se crea un registro de alertas. Luego, la regla puede ejecutar automáticamente una o varias acciones para avisarle de manera proactiva de la alerta o invocar otro proceso, como enviar datos a una aplicación externa mediante [json based webhook](monitor-alerts-unified-log-webhook.md) con [Grupos de acciones](monitoring-action-groups.md). Diferentes tipos de reglas de alerta usan una lógica distinta para realizar este análisis.
+Las alertas creadas por Alertas de Azure para ejecutar automáticamente consultas de registros a intervalos regulares.  Si los resultados de la consulta de registros coinciden con determinados criterios, se crea un registro de alertas. Luego, la regla puede ejecutar automáticamente una o varias acciones para avisarle de manera proactiva de la alerta o invocar otro proceso, como enviar datos a una aplicación externa mediante [json based webhook](monitor-alerts-unified-log-webhook.md) con [Grupos de acciones](monitoring-action-groups.md). Diferentes tipos de reglas de alerta usan una lógica distinta para realizar este análisis.
 
 Las reglas de alerta se definen mediante los siguientes detalles:
 
@@ -118,7 +118,7 @@ En este ejemplo, se crearán alertas independientes para srv02 y srv03 porque ha
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Conocer las [acciones de webhook para alertas de registro](monitor-alerts-unified-log-webhook.md)
-* [Obtenga información general sobre Alertas de Azure (versión preliminar)](monitoring-overview-unified-alerts.md).
-* Obtenga información sobre cómo [utilizar Alertas de Azure (versión preliminar)](monitor-alerts-unified-usage.md).
+* [Obtenga información general acerca de Alertas de Azure](monitoring-overview-unified-alerts.md)
+* Obtenga información sobre cómo [utilizar Alertas de Azure](monitor-alerts-unified-usage.md)
 * Más información sobre [Application Insights](../application-insights/app-insights-analytics.md)
 * Más información sobre [Log Analytics](../log-analytics/log-analytics-overview.md).    

@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: lakasa
-ms.openlocfilehash: d9df2218acc218a796e502fa4e3b94573af86ca8
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1963d011462255d45de327ec17b7fad564d87654
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Cifrado del servicio Azure Storage para datos en reposo (versión preliminar)
 
@@ -52,7 +52,7 @@ R: El Cifrado del servicio Storage está habilitado de forma predeterminada en t
 
 **P: ¿Cómo cifro los datos de una cuenta de almacenamiento de Resource Manager?**
 
-R: El Cifrado del servicio Storage está habilitado de forma predeterminada para todas las cuentas de almacenamiento (clásicas y de Resource Manager). Sin embargo, no se cifran los datos existentes. Para cifrar los datos existentes, puede copiarlos con otro nombre o en otro contenedor y, luego, quitar las versiones sin cifrar. 
+R: el cifrado del servicio Storage está habilitado de manera predeterminada para todas las cuentas de almacenamiento (clásicas y de Resource Manager), y los archivos existentes en la cuenta de almacenamiento que creó antes de habilitar el cifrado se cifrarán con carácter retroactivo mediante un proceso de cifrado en segundo plano.
 
 **P: ¿Puedo crear cuentas de almacenamiento con Cifrado del servicio Storage habilitado mediante Azure PowerShell y la CLI de Azure?**
 

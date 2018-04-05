@@ -1,11 +1,11 @@
 ---
-title: "Integración del SDK de Android para Azure Mobile Engagement"
-description: "Procedimientos y actualizaciones más recientes para el SDK de Android para Azure Mobile Engagement"
+title: Integración del SDK de Android para Azure Mobile Engagement
+description: Procedimientos y actualizaciones más recientes para el SDK de Android para Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: d72b5014-a22b-4a7f-a470-d2b8145b5b86
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: piyushjo
-ms.openlocfilehash: 0282abbf44406cac89c13520bc2a4e375817ed1f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 21f9c1007c6b7dabc625555c66f267b2b7c579f8
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-integrate-gcm-with-mobile-engagement"></a>Integración de GCM con Mobile Engagement
+> [!IMPORTANT]
+> Azure Mobile Engagement se retira el 31 de marzo de 2018. Esta página se eliminará poco después.
+> 
+
 > [!IMPORTANT]
 > Debe seguir el procedimiento de integración descrito en el documento Integración de Engagement en Android antes de seguir con esta guía.
 > 
@@ -38,7 +42,7 @@ Las cargas GCM insertadas en el SDK siempre contienen la clave `azme` en el obje
 > 
 > 
 
-## <a name="create-a-google-cloud-messaging-project-with-api-key"></a>Creación de un proyecto del Servicio de mensajería en la nube de Google con clave de API
+## <a name="create-a-google-cloud-messaging-project-with-api-key"></a>Creación de un proyecto de Google Cloud Messaging con clave de API
 [!INCLUDE [mobile-engagement-enable-Google-cloud-messaging](../../includes/mobile-engagement-enable-google-cloud-messaging.md)]
 
 ## <a name="sdk-integration"></a>Integración de SDK

@@ -1,11 +1,11 @@
 ---
-title: "Administración de recursos de Azure Blob Storage con el Explorador de almacenamiento (versión preliminar) | Microsoft Docs"
-description: "Administración de blobs y contenedores de blobs de Azure con el Explorador de almacenamiento (versión preliminar)"
+title: Administración de recursos de Azure Blob Storage con el Explorador de almacenamiento (versión preliminar) | Microsoft Docs
+description: Administración de blobs y contenedores de blobs de Azure con el Explorador de Storage (versión preliminar)
 services: storage
 documentationcenter: na
 author: cawa
 manager: paulyuk
-editor: 
+editor: ''
 ms.assetid: 2f09e545-ec94-4d89-b96c-14783cc9d7a9
 ms.service: storage
 ms.devlang: multiple
@@ -14,34 +14,34 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: cawa
-ms.openlocfilehash: c23b87cca66df0834a31494be7d8657ff9f2a865
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 98a1016f78587b4139041f140634b98fa47edfd1
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="manage-azure-blob-storage-resources-with-storage-explorer-preview"></a>Administración de recursos de Almacenamiento de blobs de Azure con el Explorador de almacenamiento (versión preliminar)
+# <a name="manage-azure-blob-storage-resources-with-storage-explorer-preview"></a>Administración de recursos de Azure Blob Storage con el Explorador de Storage (versión preliminar)
 ## <a name="overview"></a>Información general
 [Azure Blob Storage](storage/blobs/storage-dotnet-how-to-use-blobs.md) es un servicio para almacenar grandes cantidades de datos no estructurados, como texto o datos binarios, a los que puede acceder desde cualquier lugar del mundo a través de HTTP o HTTPS.
-Puede usar el almacenamiento de blobs para exponer datos públicamente o para almacenar datos de la aplicación de manera privada. En este artículo, aprenderá a usar el Explorador de almacenamiento (versión preliminar) para trabajar con blobs y contenedores de blobs.
+Puede usar el almacenamiento de blobs para exponer datos públicamente o para almacenar datos de la aplicación de manera privada. En este artículo, aprenderá a usar el Explorador de Storage (versión preliminar) para trabajar con blobs y contenedores de blobs.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Para completar los pasos de este artículo, necesitará:
 
-* [Descargar e instalar el Explorador de almacenamiento (versión preliminar)](http://www.storageexplorer.com)
+* [Descargar e instalar el Explorador de Storage (versión preliminar)](http://www.storageexplorer.com)
 * [Conectarse a una cuenta de almacenamiento de Azure o a un servicio](vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
 
 ## <a name="create-a-blob-container"></a>Creación de un contenedor de blobs
 Todos los blobs deben residir en un contenedor de blobs, que no es más que una agrupación lógica de blobs. Una cuenta puede contener un número ilimitado de contenedores y cada contenedor puede almacenar un número ilimitado de blobs.
 
-Los siguientes pasos muestran cómo crear un contenedor de blob en el Explorador de almacenamiento (versión preliminar).
+Los siguientes pasos muestran cómo crear un contenedor de blob en el Explorador de Storage (versión preliminar).
 
-1. Abra el Explorador de almacenamiento (versión preliminar).
+1. Abra el Explorador de Storage (versión preliminar).
 2. En el panel izquierdo, expanda la cuenta de almacenamiento en la que desea crear el contenedor de blobs.
 3. Haga clic con el botón derecho en **Contenedores de blobs** y, en el menú contextual, seleccione **Crear contenedor de blobs**.
 
    ![Menú contextual Crear contenedores de blobs][0]
-4. Aparecerá un cuadro de texto debajo de la carpeta **Contenedores de blob** . Escriba el nombre del contenedor de blobs. Para ver una lista de reglas y restricciones en la nomenclatura de contenedores de blob, consulte la sección [Reglas de nomenclatura de contenedor](storage/blobs/storage-dotnet-how-to-use-blobs.md#create-a-container).
+4. Aparecerá un cuadro de texto debajo de la carpeta **Contenedores de blob** . Escriba el nombre del contenedor de blobs. Para obtener información sobre las reglas y restricciones en la nomenclatura de contenedores de blobs, consulte [Creación del contenedor y establecimiento de los permisos](storage/blobs/storage-quickstart-blobs-dotnet.md#create-the-container-and-set-permissions).
 
    ![Crear cuadro de texto Contenedores de blobs][1]
 5. Presione **ENTRAR** cuando termine para crear el contenedor de blobs o **Esc** para cancelar la operación. Una vez que el contenedor de blobs se haya creado correctamente, se mostrará en la carpeta **Contenedores de Blob** de la cuenta de almacenamiento seleccionada.
@@ -51,9 +51,9 @@ Los siguientes pasos muestran cómo crear un contenedor de blob en el Explorador
 ## <a name="view-a-blob-containers-contents"></a>Visualización del contenido de un contenedor de blobs
 Los contenedores de blobs contienen blobs y carpetas (que también contienen blobs).
 
-Los siguientes pasos muestran cómo ver el contenido de un contenedor de blobs en el Explorador de almacenamiento (versión preliminar):
+Los siguientes pasos muestran cómo ver el contenido de un contenedor de blobs en el Explorador de Storage (versión preliminar):
 
-1. Abra el Explorador de almacenamiento (versión preliminar).
+1. Abra el Explorador de Storage (versión preliminar).
 2. En el panel izquierdo, expanda la cuenta de almacenamiento que contiene el contenedor de blobs que desea ver.
 3. Expanda **Contenedores de blob**de la cuenta de almacenamiento.
 4. Haga clic con el botón derecho en el contenedor de blobs que desea ver y (en el menú contextual) seleccione **Abrir editor de contenedores de blobs**.
@@ -64,12 +64,12 @@ Los siguientes pasos muestran cómo ver el contenido de un contenedor de blobs e
 
    ![Editor de contenedor de blobs][3]
 
-## <a name="delete-a-blob-container"></a>Eliminación de contenedores de blobs
+## <a name="delete-a-blob-container"></a>un contenedor de blobs
 Los contenedores de blobs se pueden crear fácilmente y eliminarse según sea necesario. (Para ver cómo eliminar blobs individuales, consulte la sección [Administración de blobs de un contenedor de blobs](#managing-blobs-in-a-blob-container)).
 
-Los siguientes pasos muestran cómo eliminar un contenedor de blobs en el Explorador de almacenamiento (versión preliminar):
+Los siguientes pasos muestran cómo eliminar un contenedor de blobs en el Explorador de Storage (versión preliminar):
 
-1. Abra el Explorador de almacenamiento (versión preliminar).
+1. Abra el Explorador de Storage (versión preliminar).
 2. En el panel izquierdo, expanda la cuenta de almacenamiento que contiene el contenedor de blobs que desea ver.
 3. Expanda **Contenedores de blob**de la cuenta de almacenamiento.
 4. Haga clic con el botón derecho en el contenedor de blobs que desea eliminar y (en el menú contextual) seleccione **Eliminar**.
@@ -81,11 +81,11 @@ Los siguientes pasos muestran cómo eliminar un contenedor de blobs en el Explor
    ![Cuadro de diálogo de confirmación Eliminar contenedores de blobs][5]
 
 ## <a name="copy-a-blob-container"></a>Copia de un contenedor de blobs
-Explorador de almacenamiento (versión preliminar) permite copiar un contenedor de blobs en el Portapapeles y, a continuación, pegarlo en otra cuenta de almacenamiento. (Para ver cómo copiar blobs individuales, consulte la sección [Administración de blobs de un contenedor de blobs](#managing-blobs-in-a-blob-container)).
+Explorador de Storage (versión preliminar) permite copiar un contenedor de blobs en el Portapapeles y, a continuación, pegarlo en otra cuenta de almacenamiento. (Para ver cómo copiar blobs individuales, consulte la sección [Administración de blobs de un contenedor de blobs](#managing-blobs-in-a-blob-container)).
 
 Los siguientes pasos muestran cómo copiar un contenedor de blobs de una cuenta de almacenamiento a otra.
 
-1. Abra el Explorador de almacenamiento (versión preliminar).
+1. Abra el Explorador de Storage (versión preliminar).
 2. En el panel izquierdo, expanda la cuenta de almacenamiento que contiene el contenedor de blobs que desea copiar.
 3. Expanda **Contenedores de blob**de la cuenta de almacenamiento.
 4. Haga clic con el botón derecho en el contenedor de blobs que desea copiar y (en el menú contextual) seleccione **Copy Blob Container**(Copiar contenedor de blobs).
@@ -101,7 +101,7 @@ Esto significa que puede conceder permisos limitados de los clientes a objetos e
 
 Los siguientes pasos muestran cómo crear una SAS para un contenedor de blobs:
 
-1. Abra el Explorador de almacenamiento (versión preliminar).
+1. Abra el Explorador de Storage (versión preliminar).
 2. En el panel izquierdo, expanda la cuenta de almacenamiento que contiene el contenedor de blobs del que desea obtener una SAS.
 3. Expanda **Contenedores de blob**de la cuenta de almacenamiento.
 4. Haga clic con el botón derecho en el contenedor de blobs deseado y (en el menú contextual) seleccione **Get Shared Access Signature**(Obtener firma de acceso compartido).
@@ -120,7 +120,7 @@ Los siguientes pasos muestran cómo crear una SAS para un contenedor de blobs:
 ## <a name="manage-access-policies-for-a-blob-container"></a>Administración de directivas de acceso para un contenedor de blobs
 Los siguientes pasos muestran cómo administrar (agregar y quitar) las directivas de acceso de un contenedor de blobs:
 
-1. Abra el Explorador de almacenamiento (versión preliminar).
+1. Abra el Explorador de Storage (versión preliminar).
 2. En el panel izquierdo, expanda la cuenta de almacenamiento que contiene el contenedor de blobs cuyas directivas de acceso desea administrar.
 3. Expanda **Contenedores de blob**de la cuenta de almacenamiento.
 4. Seleccione el contenedor de blobs deseado y (en el menú contextual) seleccione **Manage Access Policies**(Administrar directivas de acceso).
@@ -140,7 +140,7 @@ De manera predeterminada, todos los contenedores de blobs se establecen en "Sin 
 
 Los siguientes pasos muestran cómo especificar un nivel de acceso público para un contenedor de blobs.
 
-1. Abra el Explorador de almacenamiento (versión preliminar).
+1. Abra el Explorador de Storage (versión preliminar).
 2. En el panel izquierdo, expanda la cuenta de almacenamiento que contiene el contenedor de blobs cuyas directivas de acceso desea administrar.
 3. Expanda **Contenedores de blob**de la cuenta de almacenamiento.
 4. Seleccione el contenedor de blobs deseado y (en el menú contextual) seleccione **Set Public Access Level**(Establecer nivel de acceso público).
@@ -156,7 +156,7 @@ Una vez que haya creado un contenedor de blobs, puede cargar un blob en él, des
 
 Los siguientes pasos muestran cómo administrar los blobs (y carpetas) en un contenedor de blobs.
 
-1. Abra el Explorador de almacenamiento (versión preliminar).
+1. Abra el Explorador de Storage (versión preliminar).
 2. En el panel izquierdo, expanda la cuenta de almacenamiento que contiene el contenedor de blobs que desea administrar.
 3. Expanda **Contenedores de blob**de la cuenta de almacenamiento.
 4. Haga doble clic en el contenedor de blobs que desea ver.
@@ -174,7 +174,7 @@ Los siguientes pasos muestran cómo administrar los blobs (y carpetas) en un con
      2. En el cuadro de diálogo **Cargar archivos**, seleccione el botón de puntos suspensivos (**...**) a la derecha del cuadro de texto **Archivos** para seleccionar los archivos que desea cargar.
 
         ![Opciones de Cargar archivos][16]
-     3. Especifique el **tipo de blob**. El artículo [Introducción a Azure Blob Storage mediante .NET](storage/blobs/storage-dotnet-how-to-use-blobs.md#blob-service-concepts) explica las diferencias entre los distintos tipos de blob.
+     3. Especifique el **tipo de blob**. Para obtener más información, consulte [Cree el contenedor y establezca los permisos](storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-the-container).
      4. Opcionalmente, especifique la carpeta de destino en la que se cargarán los archivos seleccionados. Si la carpeta de destino no existe, se creará.
      5. Seleccione **Cargar**.
    * **Cargar una carpeta en un contenedor de blobs**
@@ -185,7 +185,7 @@ Los siguientes pasos muestran cómo administrar los blobs (y carpetas) en un con
      2. En el cuadro de diálogo **Cargar carpeta**, seleccione el botón de puntos suspensivos (**...**) a la derecha del cuadro de texto **Carpeta** para seleccionar la carpeta cuyo contenido desea cargar.
 
         ![Opciones de Cargar carpeta][18]
-     3. Especifique el **tipo de blob**. El artículo [Introducción a Azure Blob Storage mediante .NET](storage/blobs/storage-dotnet-how-to-use-blobs.md#blob-service-concepts) explica las diferencias entre los distintos tipos de blob.
+     3. Especifique el **tipo de blob**. Para obtener más información, consulte [Cree el contenedor y establezca los permisos](storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-the-container).
      4. Opcionalmente, especifique la carpeta de destino en la que se cargará el contenido de la carpeta seleccionada. Si la carpeta de destino no existe, se creará.
      5. Seleccione **Cargar**.
    * **Descargar un blob en el equipo local**
@@ -212,7 +212,7 @@ Los siguientes pasos muestran cómo administrar los blobs (y carpetas) en un con
      3. Haga clic en **Sí** en el cuadro de diálogo de confirmación.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Ver las [notas de la versión y los vídeos más recientes del Explorador de almacenamiento (versión preliminar)](http://www.storageexplorer.com).
+* Ver las [notas de la versión y los vídeos más recientes del Explorador de Storage (versión preliminar)](http://www.storageexplorer.com).
 * Obtenga información acerca de cómo [crear aplicaciones con blobs, tablas, colas y archivos de Azure](https://azure.microsoft.com/documentation/services/storage/).
 
 [0]: ./media/vs-azure-tools-storage-explorer-blobs/blob-containers-create-context-menu.png

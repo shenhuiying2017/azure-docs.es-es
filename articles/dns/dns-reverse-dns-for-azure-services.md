@@ -1,6 +1,6 @@
 ---
 title: DNS inversos para servicios de Azure | Microsoft Docs
-description: "Aprenda a configurar búsquedas inversas de DNS para servicios hospedados en Azure"
+description: Aprenda a configurar búsquedas inversas de DNS para servicios hospedados en Azure
 services: dns
 documentationcenter: na
 author: KumudD
@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: kumud
-ms.openlocfilehash: 0c5d12e9d6b5ddbee2a930e4e537b8180b7a9c7b
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: bba2d75ed760a6e4eef2caacb0bb5924680b1f4b
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="configure-reverse-dns-for-services-hosted-in-azure"></a>Configuración de DNS inversos para servicios hospedados en Azure
 
@@ -209,7 +209,7 @@ Para quitar un propiedad de DNS inverso de un servicio en la nube existente:
 Set-AzureService –ServiceName "contosoapp1" –Description "App1 with Reverse DNS" –ReverseDnsFqdn ""
 ```
 
-## <a name="faq"></a>P+F
+## <a name="faq"></a>Preguntas más frecuentes
 
 ### <a name="how-much-do-reverse-dns-records-cost"></a>¿Cuánto cuestan los registros de DNS inversos?
 
@@ -221,7 +221,7 @@ Sí. Cuando haya configurado la propiedad de DNS inverso para el servicio de Azu
 
 ### <a name="are-default-reverse-dns-records-created-for-my-azure-services"></a>¿Se crean registros de DNS inverso predeterminados para mis servicios de Azure?
 
-No. El DNS inverso es una característica opcional. Si decide no configurarla, no se crea ningún registro de DNS inverso predeterminado.
+Nº El DNS inverso es una característica opcional. Si decide no configurarla, no se crea ningún registro de DNS inverso predeterminado.
 
 ### <a name="what-is-the-format-for-the-fully-qualified-domain-name-fqdn"></a>¿Cuál es el formato del nombre de dominio completo (FQDN)?
 
@@ -233,19 +233,19 @@ Cuando se produce un error en la comprobación de validación de DNS inverso, se
 
 ### <a name="can-i-configure-reverse-dns-for-azure-app-service"></a>¿Puedo configurar DNS inverso para Azure App Service?
 
-No. No se admite DNS inverso para Azure App Service.
+Nº No se admite DNS inverso para Azure App Service.
 
 ### <a name="can-i-configure-multiple-reverse-dns-records-for-my-azure-service"></a>¿Puedo configurar varios registros de DNS inversos para mi servicio de Azure?
 
-No. Azure admite un único registro de DNS inverso por cada servicio en la nube de Azure o PublicIpAddress.
+Nº Azure admite un único registro de DNS inverso por cada servicio en la nube de Azure o PublicIpAddress.
 
 ### <a name="can-i-configure-reverse-dns-for-ipv6-publicipaddress-resources"></a>¿Puedo configurar DNS inverso para los recursos de PublicIpAddress de IPv6?
 
-No. Azure admite un DNS inverso en la actualidad solo para los recursos de PublicIpAddress de IPv4 y Cloud Services.
+Nº Azure admite un DNS inverso en la actualidad solo para los recursos de PublicIpAddress de IPv4 y Cloud Services.
 
 ### <a name="can-i-send-emails-to-external-domains-from-my-azure-compute-services"></a>¿Puedo enviar correos electrónicos a dominios externos desde mis instancias de Azure Compute Services?
 
-No. [Azure Compute Services no admite el envío de correos electrónicos a dominios externos](https://blogs.msdn.microsoft.com/mast/2016/04/04/sending-e-mail-from-azure-compute-resource-to-external-domains/).
+La capacidad técnica para enviar correos electrónicos directamente desde una implementación de Azure depende del tipo de suscripción. Independientemente del tipo de suscripción, Microsoft recomienda el uso de servicios de retransmisión de correo electrónico de confianza para enviar el correo saliente. Para obtener más información, consulte [Enhanced Azure Security for sending Emails](https://blogs.msdn.microsoft.com/mast/2017/11/15/enhanced-azure-security-for-sending-emails-november-2017-update/) (Seguridad de Azure mejorada para el envío de correos electrónicos): actualización de noviembre de 2017.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

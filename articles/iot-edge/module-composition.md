@@ -6,14 +6,14 @@ keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 03/14/2018
+ms.date: 03/23/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 4b59a715919e38e68c3b7518932617e9950940e3
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7df566ced755e1e817b3107dac8f17e9f6e9b8e4
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="understand-how-iot-edge-modules-can-be-used-configured-and-reused---preview"></a>Descripción de cómo se pueden utilizar, configurar y reutilizar los módulos de IoT Edge (versión preliminar)
 
@@ -134,32 +134,21 @@ El origen especifica de dónde proceden los mensajes. Puede ser cualquiera de lo
 ### <a name="condition"></a>Condición
 La condición es opcional en una declaración de ruta. Si desea pasar todos los mensajes desde el receptor al origen, simplemente omita la cláusula **WHERE** por completo. También puede usar el [lenguaje de consulta de IoT Hub][lnk-iothub-query] para filtrar determinados mensajes o tipos de mensajes que cumplen la condición.
 
-Los mensajes de Azure IoT tienen el formato JSON y siempre tienen al menos un parámetro **body**. Por ejemplo: 
+Los mensajes que pasan entre módulos con IoT Edge tienen el mismo formato que los mensajes que pasan entre los dispositivos y Azure IoT Hub. Todos los mensajes tienen el formato JSON y tienen los parámetros **systemProperties**, **appProperties** y **body**. 
 
-```json
-"message": {
-    "body":{
-        "ambient":{
-            "temperature": 54.3421,
-            "humidity": 25
-        },
-        "machine":{
-            "status": "running",
-            "temperature": 62.2214
-        }
-    },
-    "appProperties":{
-        ...
-    }
-}
+Puede generar consultas en función de los tres parámetros con la sintaxis siguiente: 
+
+* Propiedades del sistema: `$<propertyName>` o `{$<propertyName>}`
+* Propiedades de la aplicación: `<propertyName>`
+* Propiedades del cuerpo: `$body.<propertyName>` 
+
+Para obtener ejemplos sobre cómo crear consultas para las propiedades de mensaje, consulte [Expresiones de consulta de rutas de mensajes de dispositivo a la nube](../iot-hub/iot-hub-devguide-query-language.md#device-to-cloud-message-routes-query-expressions).
+
+Un ejemplo que es específico de IoT Edge es cuando desea filtrar los mensajes recibidos en un dispositivo de puerta de enlace desde un dispositivo hoja. Los mensajes que proceden de los módulos contienen una propiedad del sistema denominada **connectionModuleId**. Así pues, si desea enrutar los mensajes desde dispositivos hoja directamente a IoT Hub, utilice la siguiente ruta para excluir mensajes de módulo:
+
+```sql
+FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO $upstream
 ```
-
-Dado este mensaje de ejemplo, hay una serie de condiciones que se pueden definir, como:
-* `WHERE $body.machine.status != "running"`
-* `WHERE $body.ambient.temperature <= 60 AND $body.machine.temperature >= 60`
-
-La condición también se puede utilizar para ordenar los tipos de mensajes, por ejemplo, en una puerta de enlace que desea enrutar los mensajes procedentes de dispositivos hoja. Los mensajes que proceden de los módulos contienen una propiedad específica denominada **connectionModuleId**. Así pues, si desea enrutar los mensajes desde dispositivos hoja directamente a IoT Hub, utilice la siguiente ruta para excluir mensajes de módulo:
-* `FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO $upstream`
 
 ### <a name="sink"></a>Receptor
 El receptor define dónde se envían los mensajes. Puede ser cualquiera de los siguientes valores:

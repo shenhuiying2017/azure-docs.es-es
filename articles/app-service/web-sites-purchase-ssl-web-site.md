@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: apurvajo;cephalin
-ms.openlocfilehash: 6c0125bf0bd22912a21372b5a7da6846e924e6cd
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 759bd1e8be8aaebbf98e1c02d67f3e56609354aa
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Compra y configuración de un certificado SSL para Azure App Service
 
@@ -42,8 +42,8 @@ Escriba un **nombre** descriptivo para su certificado SSL y especifique el **nom
 
 Seleccione la **suscripción**, el **grupo de recursos** y la **SKU de certificado**.
 
-> [!WARNING]
-> Los certificados de App Services solo pueden utilizarlas otras instancias de App Service en la misma suscripción.  
+> [!TIP]
+> Las instancias de App Service Certificate pueden usarse para cualquier servicio de Azure o que no sea de Azure, y no se limitan a App Services. Para ello, tiene que crear una copia PFX local de un certificado de App Service que pueda usar donde quiera. Para más información, consulte nuestra entrada de blog [Creating a local PFX copy of an App Service Certificate](https://blogs.msdn.microsoft.com/appserviceteam/2017/02/24/creating-a-local-pfx-copy-of-app-service-certificate/) (Creación de una copia PFX local de una instancia de App Service Certificate).
 >
 
 ## <a name="step-3---store-the-certificate-in-azure-key-vault"></a>Paso 3: Almacenamiento del certificado en Azure Key Vault

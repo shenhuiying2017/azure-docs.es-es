@@ -1,6 +1,6 @@
 ---
-title: "Inserción de una imagen de Docker en el registro privado de Azure"
-description: "Inserción y extracción de imágenes de Docker en un registro de contenedor privado de Azure mediante la CLI de Docker"
+title: Inserción de una imagen de Docker en el registro privado de Azure
+description: Inserción y extracción de imágenes de Docker en un registro de contenedor privado de Azure mediante la CLI de Docker
 services: container-registry
 author: stevelas
 manager: timlt
@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 21d1abfbb49eaeae654a600d35ab350b96a12fd3
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 8fc04ec77a101e08bfde22df76e845b87f8c316e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Inserción de la primera imagen en un registro de contenedor privado de Docker mediante la CLI de Docker
 
@@ -21,7 +21,7 @@ Un registro de contenedor de Azure almacena y administra imágenes privadas de c
 
 En los pasos siguientes, se descarga una [imagen de Nginx](https://store.docker.com/images/nginx) oficial desde el registro público de Docker Hub, se le asigna una etiqueta para el registro de contenedor de Azure privado, se le inserta en el registro y luego se extrae del registro.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 * **Registro de contenedor de Azure**: cree un registro de contenedor en la suscripción de Azure. Por ejemplo, use [Azure Portal](container-registry-get-started-portal.md) o la [CLI de Azure 2.0](container-registry-get-started-azure-cli.md).
 * **CLI de docker**: para configurar el equipo local como un host de Docker y tener acceso a los comandos de la CLI de Docker, instale [Docker](https://docs.docker.com/engine/installation/).
@@ -123,4 +123,8 @@ az acr repository delete --name myregistry --repository samples/nginx --tag late
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-¡Ahora que conoce los fundamentos, ya está listo para empezar a usar el registro! Por ejemplo, implemente imágenes de contenedor del registro en un clúster de [Azure Container Service (AKS)](../aks/tutorial-kubernetes-prepare-app.md).
+¡Ahora que conoce los fundamentos, ya está listo para empezar a usar el registro! Implementación de imágenes de contenedor del registro en:
+
+* [Azure Container Service (AKS)](../aks/tutorial-kubernetes-prepare-app.md)
+* [Azure Container Instances](../container-instances/container-instances-tutorial-prepare-app.md)
+* [Service Fabric](../service-fabric/service-fabric-tutorial-create-container-images.md)

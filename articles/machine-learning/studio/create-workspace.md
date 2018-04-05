@@ -1,22 +1,21 @@
 ---
-title: "Creación de un área de trabajo de Azure Machine Learning | Microsoft Docs"
-description: "Creación de un área de trabajo para Azure Machine Learning Studio"
+title: Creación de un área de trabajo de Azure Machine Learning | Microsoft Docs
+description: Creación de un área de trabajo para Azure Machine Learning Studio
 services: machine-learning
-author: garyericson
-manager: jhubbard
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: aa96b784-ac6c-44bc-a28a-85d49fbe90a2
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/07/2017
-ms.author: garye
-ms.reviewer: garyericson, jasonwhowell, MicrosoftDocs/mlreview
-ms.openlocfilehash: 7aad885b1643ddeb25e5d00a151005b8444315fa
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 8da10e474c62868ca109a44e7c66dc11ee62b6de
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-and-share-an-azure-machine-learning-workspace"></a>Creación y uso compartido de un área de trabajo de Azure Machine Learning
 Este menú vincula a temas en los que se describe cómo configurar los diversos entornos de ciencia de datos usados por el proceso de Cortana Analytics (CAPS).
@@ -46,11 +45,11 @@ Para usar Azure Machine Learning Studio, debe tener un área de trabajo de Machi
 
     ![Crear un área de trabajo](./media/create-workspace/create-new-workspace.png)
 
-5. Haga clic en **Crear**.
+5. Haga clic en **Create**(Crear).
 
 Una vez implementado el área de trabajo, puede abrirlo en Machine Learning Studio.
 
-1. Examine Machine Learning Studio en [https://studio.azureml.net/](https://studio.azureml.net/).
+1. Vaya a Machine Learning Studio en [https://studio.azureml.net/](https://studio.azureml.net/).
 
 2. Seleccione el área de trabajo en la esquina superior derecha.
 

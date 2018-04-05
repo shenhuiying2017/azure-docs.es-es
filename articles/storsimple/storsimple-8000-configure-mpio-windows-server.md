@@ -1,30 +1,30 @@
 ---
-title: "Configuración de MPIO para su dispositivo StorSimple | Microsoft Docs"
-description: "Describe cómo configurar E/S de múltiples rutas (MPIO) para el dispositivo StorSimple conectado a un host que ejecuta Windows Server 2012 R2."
+title: Configuración de MPIO para su dispositivo StorSimple | Microsoft Docs
+description: Describe cómo configurar E/S de múltiples rutas (MPIO) para el dispositivo StorSimple conectado a un host que ejecuta Windows Server 2012 R2.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/05/2017
+ms.date: 03/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 9fe3fa3a2df63d111de742ecb48b1469aad543cd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4f2b094604f486d283574f4669fcad6f72bd4431
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configure-multipath-io-for-your-storsimple-device"></a>Configurar E/S de múltiples rutas para el dispositivo StorSimple
 
 En este tutorial se describen los pasos que hay que seguir para instalar y usar la característica E/S de múltiples rutas (MPIO) en un host que ejecuta Windows Server 2012 R2 y que está conectado a un dispositivo físico StorSimple. Las instrucciones de este artículo se aplican solo a los dispositivos físicos de la serie StorSimple 8000. Actualmente, MPIO no se admite en StorSimple Cloud Appliance.
 
-Microsoft incorporó a Windows Server la compatibilidad con la característica de E/S de múltiples rutas (MPIO) para que sea más fácil crear configuraciones de SAN de alta disponibilidad y tolerancia a errores. MPIO usa componentes de ruta de acceso físicas redundantes (es decir, adaptadores, cables y conmutadores) para crear rutas de acceso lógicas entre el servidor y el dispositivo de almacenamiento. Si se produce un error de componente, lo que haría que la ruta de acceso lógica no funcionara, la lógica de múltiples rutas usa una ruta alternativa para E/S a fin de que las aplicaciones puedan seguir teniendo acceso a los datos. Además, en función de la configuración, MPIO puede mejorar el rendimiento al volver a equilibrar la carga entre estas rutas de acceso. Para más información, consulte [Introducción a E/S de múltiples rutas](https://technet.microsoft.com/library/cc725907.aspx "Introducción a E/S de múltiples rutas and features").
+Microsoft incorporó a Windows Server la compatibilidad con la característica de E/S de múltiples rutas (MPIO) para que sea más fácil crear configuraciones de red iSCSI de alta disponibilidad y tolerancia a errores. MPIO usa componentes de ruta de acceso físicas redundantes (es decir, adaptadores, cables y conmutadores) para crear rutas de acceso lógicas entre el servidor y el dispositivo de almacenamiento. Si se produce un error de componente, lo que haría que la ruta de acceso lógica no funcionara, la lógica de múltiples rutas usa una ruta alternativa para E/S a fin de que las aplicaciones puedan seguir teniendo acceso a los datos. Además, en función de la configuración, MPIO puede mejorar el rendimiento al volver a equilibrar la carga entre estas rutas de acceso. Para más información, consulte [Introducción a E/S de múltiples rutas](https://technet.microsoft.com/library/cc725907.aspx "Introducción a E/S de múltiples rutas and features").
 
 Para conseguir una alta disponibilidad de la solución StorSimple, es necesario que MPIO esté configurado en el dispositivo StorSimple. Cuando MPIO se instala en los servidores host que ejecutan Windows Server 2012 R2, dichos servidores tendrán tolerancia a errores de vínculo, red e interfaz.
 
@@ -57,10 +57,10 @@ Haga lo siguiente para instalar esta característica en el host de Windows Serve
 3. En el Asistente para **agregar roles y características**, siga estos pasos:
    
    1. En la página **Antes de comenzar**, haga clic en **Siguiente**.
-   2. En la página **Seleccionar tipo de instalación**, acepte la configuración predeterminada de **Instalación basada en características o en roles**. Haga clic en **Siguiente**.
+   2. En la página **Seleccionar tipo de instalación**, acepte la configuración predeterminada de **Instalación basada en características o en roles**. Haga clic en **Next**.
    
        ![Asistente para agregar roles y características 2](./media/storsimple-configure-mpio-windows-server/IC740999.png)
-   3. En la página **Seleccionar servidor de destino** y elija **Seleccionar un servidor del grupo de servidores**. El servidor host debería detectarse automáticamente. Haga clic en **Siguiente**.
+   3. En la página **Seleccionar servidor de destino** y elija **Seleccionar un servidor del grupo de servidores**. El servidor host debería detectarse automáticamente. Haga clic en **Next**.
    4. En la página **Seleccionar roles de servidor**, haga clic en **Siguiente**.
    5. En la página **Seleccionar características**, seleccione **E/S de múltiples rutas** y haga clic en **Siguiente**.
    
@@ -149,12 +149,12 @@ Después de configurar MPIO en Windows Server, los volúmenes creados en el disp
 
 ## <a name="step-4-configure-mpio-for-high-availability-and-load-balancing"></a>Paso 4: configurar MPIO para alta disponibilidad y equilibrio de carga
 
-En entornos de múltiples rutas basadas en alta disponibilidad y equilibrio de carga, hay que agregar manualmente varias sesiones para declarar las distintas rutas de acceso disponibles. Por ejemplo, si el host tiene dos interfaces conectadas a la SAN y el dispositivo también tiene otras dos interfaces conectadas a la SAN, serán necesarias cuatro sesiones configuradas con permutaciones de ruta de acceso adecuadas (solo se necesitarán dos sesiones si cada interfaz DATA e interfaz de host están en una subred IP diferente y no es enrutable).
+En entornos de múltiples rutas basadas en alta disponibilidad y equilibrio de carga, hay que agregar manualmente varias sesiones para declarar las distintas rutas de acceso disponibles. Por ejemplo, si el host tiene dos interfaces conectadas a la red iSCSI y el dispositivo también tiene otras dos interfaces conectadas a la red iSCSI, serán necesarias cuatro sesiones configuradas con permutaciones de ruta de acceso adecuadas (solo se necesitarán dos sesiones si cada interfaz DATA e interfaz de host están en una subred IP diferente y no es enrutable).
 
 **Se recomienda que haya al menos 8 sesiones paralelas activas entre el dispositivo y su host de aplicación.** Esto puede lograrse habilitando 4 interfaces de red en su sistema Windows Server. Use interfaces de red físicas o interfaces virtuales mediante las tecnologías de virtualización de red en el nivel de hardware o del sistema operativo en su host de Windows Server. Con las dos interfaces de red en el dispositivo, esta configuración tendría como resultado ocho sesiones activas. Esta configuración ayuda a optimizar el rendimiento del dispositivo y la nube.
 
 > [!IMPORTANT]
-> **Recomendamos no combinar interfaces de red de 1 GbE y de 10 GbE. Si usa dos interfaces de red, ambas deben ser de idéntico tipo.**
+> **Recomendamos no combinar interfaces de red de 1 GbE y de 10 GbE. Si usa dos interfaces de red, ambas deben ser de tipo idéntico.**
 
 Con el siguiente procedimiento explicamos cómo agregar las sesiones cuando un dispositivo StorSimple con dos interfaces de red está conectado a un host con dos interfaces de red. Le proporciona solo 4 sesiones. Siga este mismo procedimiento con un dispositivo de StorSimple con dos interfaces de red conectadas a un host con cuatro interfaces de red. Debe configurar 8 sesiones en lugar de las 4 que se describen aquí.
 
@@ -172,15 +172,15 @@ Con el siguiente procedimiento explicamos cómo agregar las sesiones cuando un d
 6. En el cuadro de diálogo **Configuración avanzada** :
    
    1. En la lista desplegable **Adaptador local**, seleccione **Iniciador iSCSI de Microsoft**.
-   2. En la lista desplegable **IP de iniciador** , seleccione la dirección IP del host.
-   3. En la lista desplegable **IP del portal de destino** , seleccione la dirección IP de la interfaz de datos habilitada en el dispositivo.
+   2. En la lista desplegable **IP de iniciador**, seleccione la dirección IP correspondiente a la primera interfaz en el host (interfaz iSCSI).
+   3. En la lista desplegable **IP del portal de destino**, seleccione la dirección IP de la primera interfaz de datos habilitada en el dispositivo.
    4. Haga clic en **Aceptar** para volver al cuadro de diálogo Propiedades del iniciador iSCSI.
 7. Haga clic en **Propiedades** y, en el cuadro de diálogo **Propiedades**, haga clic en **Agregar sesión**.
 8. En el cuadro de diálogo **Conectarse al destino**, active la casilla **Habilitar múltiples rutas** y, luego, haga clic en **Avanzadas**.
 9. En el cuadro de diálogo **Configuración avanzada** :
    
    1. En la lista desplegable **Adaptador local**, seleccione **Iniciador iSCSI de Microsoft**.
-   2. En la lista desplegable **IP de iniciador** , seleccione la dirección IP correspondiente a la segunda interfaz en el host.
+   2. En la lista desplegable **IP de iniciador**, seleccione la dirección IP correspondiente a la segunda interfaz iSCSI en el host.
    3. En la lista desplegable **IP del portal de destino** , seleccione la dirección IP de la segunda interfaz de datos habilitada en el dispositivo.
    4. Haga clic en **Aceptar** para volver al cuadro de diálogo **Propiedades del iniciador iSCSI**. Agregó una segunda sesión al destino.
 10. Repita los pasos 8, 9 y 10 para agregar más sesiones (rutas de acceso) al destino. Con dos interfaces en el host y dos en el dispositivo, puede agregar un total de cuatro sesiones.

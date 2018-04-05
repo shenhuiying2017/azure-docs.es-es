@@ -1,12 +1,12 @@
 ---
-title: "Azure AD Connect: selección del tipo de instalación | Microsoft Docs"
-description: "En este tema se explica cómo seleccionar el tipo de instalación que se usará para Azure AD Connect."
+title: 'Azure AD Connect: selección del tipo de instalación | Microsoft Docs'
+description: En este tema se explica cómo seleccionar el tipo de instalación que se usará para Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 9b7bcd5856ec94367edd586c28c781ac9569a792
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 76f1ce12ab149f57ec6e995d132de83105c5e0ca
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="select-which-installation-type-to-use-for-azure-ad-connect"></a>Selección del tipo de instalación que se usará para Azure AD Connect
 Azure AD Connect tiene dos tipos de instalación para la nueva instalación: rápida y personalizada. Este tema le ayudará a decidir qué opción utilizar durante la instalación.
@@ -34,7 +34,7 @@ Se da por supuesto que:
 
 Obtendrá:
 
-- [Sincronización de contraseñas](active-directory-aadconnectsync-implement-password-synchronization.md) desde entornos locales en Azure AD para inicios de sesión únicos.
+- [Sincronización de hash de contraseñas](active-directory-aadconnectsync-implement-password-hash-synchronization.md) desde entornos locales a Azure AD para inicios de sesión únicos.
 - Una configuración que sincroniza a los [usuarios, grupos, contactos y equipos de Windows 10](active-directory-aadconnectsync-understanding-default-configuration.md).
 - Sincronización de todos los objetos válidos en todos los dominios y todas las unidades organizativas.
 - La [actualización automática](active-directory-aadconnect-feature-automatic-upgrade.md) está habilitada para asegurarse de que se utilice siempre la última versión disponible.
@@ -71,5 +71,5 @@ Si actualmente utiliza Sincronización de Azure AD, puede seguir los [mismos pas
 ## <a name="migrate-from-fim2010-or-mim2016"></a>Migración desde FIM2010 o MIM2016
 Si actualmente utiliza Forefront Identity Manager 2010 o Microsoft Identity Manager 2016 con el conector de Azure AD, la única opción es una migración. Siga los pasos descritos en [migración oscilante](active-directory-aadconnect-upgrade-previous-version.md#swing-migration). En los pasos, reemplace cualquier mención de Sincronización de Azure AD con FIM2010/MIM2016.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Dependiendo de la opción seleccionada, use la tabla de contenido a la izquierda para encontrar su artículo con los pasos detallados.

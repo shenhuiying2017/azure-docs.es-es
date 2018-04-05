@@ -1,6 +1,6 @@
 ---
-title: "Introducción al ciclo de vida de los microservicios de Azure basados en actores | Microsoft Docs"
-description: "Explica el ciclo de vida de Reliable Actors de Service Fabric, la recolección de elementos no utilizados y la eliminación manual de actores y su estado"
+title: Introducción al ciclo de vida de los microservicios de Azure basados en actores | Microsoft Docs
+description: Explica el ciclo de vida de Reliable Actors de Service Fabric, la recolección de elementos no utilizados y la eliminación manual de actores y su estado
 services: service-fabric
 documentationcenter: .net
 author: amanbha
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/06/2017
 ms.author: amanbha
-ms.openlocfilehash: dd45acd75e1cf263029c869d88c87b28f56d50cc
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4abb1ea6e5c79a5280d6ca4ad96070603b81793a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>Ciclo de vida, recolección automática de elementos no utilizados y eliminación manual de actores
 Un actor se activa la primera vez que se realiza una llamada a cualquiera de sus métodos y se desactiva (el runtime de los actores recolecta los elementos no utilizados) si no se usa durante un periodo determinado. Un actor y su estado también se pueden eliminar manualmente en cualquier momento.
@@ -112,37 +112,8 @@ Además, se muestra el impacto de las llamadas a los métodos de actor, los reco
 
 Un actor nunca se recolectará como elemento no utilizado mientras se ejecuta uno de sus métodos, independientemente del tiempo que se dedique a la ejecución de ese método. Como se mencionó anteriormente, la ejecución de los métodos de interfaz del actor y las devoluciones de llamada del recordatorio impide la recolección al restablecer el tiempo de inactividad del actor a 0. La ejecución de devoluciones de llamada del temporizador no restablece el tiempo de inactividad a 0. Sin embargo, la recolección del actor como elemento no utilizado se aplaza hasta que la devolución de llamada del temporizador ha finalizado su ejecución.
 
-## <a name="deleting-actors-and-their-state"></a>Eliminación de actores y su estado
-La recolección de elementos no utilizados de actores desactivados solo elimina el objeto del actor, pero no los datos que se almacenan en el administrador de estados de un actor. Cuando se vuelve a activar un actor, sus datos se vuelven a poner disponibles mediante el administrador de estados. Es posible que, en los casos en que los actores almacenan datos en el administrador de estados y se desactivan, pero nunca se vuelven a activar, haya que limpiar los datos.
-
-El [servicio de actor](service-fabric-reliable-actors-platform.md) proporciona una función para eliminar actores desde un llamador remoto:
-
-```csharp
-ActorId actorToDelete = new ActorId(id);
-
-IActorService myActorServiceProxy = ActorServiceProxy.Create(
-    new Uri("fabric:/MyApp/MyService"), actorToDelete);
-
-await myActorServiceProxy.DeleteActorAsync(actorToDelete, cancellationToken)
-```
-```Java
-ActorId actorToDelete = new ActorId(id);
-
-ActorService myActorServiceProxy = ActorServiceProxy.create(
-    new Uri("fabric:/MyApp/MyService"), actorToDelete);
-
-myActorServiceProxy.deleteActorAsync(actorToDelete);
-```
-
-La eliminación de un actor tiene las siguientes consecuencias, con independencia de que esté activo o no en ese momento:
-
-* **Actor activo**
-  * El actor se quita de la lista de actores activos y se desactiva.
-  * Su estado se elimina permanentemente.
-* **Actor inactivo**
-  * Su estado se elimina permanentemente.
-
-Tenga en cuenta que un actor no puede llamar a Delete por sí mismo desde uno de sus métodos de actor. Esto se debe a que el actor no se puede eliminar mientras se está ejecutando en un contexto de llamada de actor, en el que runtime ha obtenido un bloqueo en la llamada de actor para exigir el acceso uniproceso.
+## <a name="manually-deleting-actors-and-their-state"></a>Eliminación manual de actores y su estado
+La recolección de elementos no utilizados de actores desactivados solo elimina el objeto del actor, pero no los datos que se almacenan en el administrador de estados de un actor. Cuando se vuelve a activar un actor, sus datos se vuelven a poner disponibles mediante el administrador de estados. Es posible que, en los casos en que los actores almacenan datos en el administrador de estados y se desactivan, pero nunca se vuelven a activar, haya que limpiar los datos.  Para obtener ejemplos de cómo eliminar actores, lea [Eliminar actores y su estado](service-fabric-reliable-actors-delete-actors.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Recordatorios y temporizadores de los actores](service-fabric-reliable-actors-timers-reminders.md)

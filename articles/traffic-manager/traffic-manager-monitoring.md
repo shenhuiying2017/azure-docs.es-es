@@ -1,11 +1,11 @@
 ---
-title: "Supervisión de puntos de conexión de Azure Traffic Manager y conmutación por error | Microsoft Docs"
-description: "Este artículo le puede ayudar a comprender la forma en que el Administrador de tráfico utiliza la supervisión de puntos de conexión y la conmutación por error automática de los puntos de conexión para permitir que los clientes de Azure implementen aplicaciones de alta disponibilidad"
+title: Supervisión de puntos de conexión de Azure Traffic Manager y conmutación por error | Microsoft Docs
+description: Este artículo le puede ayudar a comprender la forma en que el Administrador de tráfico utiliza la supervisión de puntos de conexión y la conmutación por error automática de los puntos de conexión para permitir que los clientes de Azure implementen aplicaciones de alta disponibilidad
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: kumudd
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: fff25ac3-d13a-4af9-8916-7c72e3d64bc7
 ms.service: traffic-manager
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/22/2017
 ms.author: kumud
-ms.openlocfilehash: 3b30aa04854b779c25582abafc0f9ebba65b71ba
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: c54454dd2e7b56820834e4f3cd7452be10d5ddca
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Supervisión de puntos de conexión de Traffic Manager
 
@@ -29,7 +29,7 @@ El Administrador de tráfico de Azure incluye la supervisión de puntos de conex
 Para configurar la supervisión de los puntos de conexión, debe especificar la siguiente configuración en el perfil del Administrador de tráfico:
 
 * **Protocolo**. Elija HTTP, HTTPS o TCP como el protocolo que utilizará Traffic Manager al sondear su punto de conexión para comprobar su estado. La supervisión HTTPS no comprueba si el certificado SSL es válido, solo comprueba que está presente.
-* **Puerto**. Elija el puerto que se usará para la solicitud.
+* **Port**. Elija el puerto que se usará para la solicitud.
 * **Ruta de acceso**. Esta opción de configuración solo es válida para los protocolos HTTP y HTTPS, para los que la configuración de la ruta de acceso especifica es necesaria. Si utiliza esta configuración para el protocolo de supervisión TCP se producirá un error. Para el protocolo TCP, proporcione la ruta de acceso relativa y el nombre de la página web o el archivo a los que accederá la supervisión. Una barra diagonal (/) es una entrada válida para la ruta de acceso relativa. Este valor implica que el archivo se encuentra en el directorio raíz (valor predeterminado).
 * **Intervalo de sondeo**. Este valor especifica la frecuencia con la que el agente de sondeo de Traffic Manager comprueba el estado de un punto de conexión. Puede especificar dos valores aquí: 30 segundos (sondeo normal) y 10 segundos (sondeo rápido). Si no se proporciona ningún valor, el perfil se establece en un valor predeterminado de 30 segundos. Visite la página [Precios de Traffic Manager](https://azure.microsoft.com/pricing/details/traffic-manager) para más información sobre precios del sondeo rápido.
 * **Número tolerado de errores**. Este valor especifica cuántos errores tolera un agente de sondeo de Traffic Manager antes de marcar un punto de conexión como en mal estado. Su valor puede oscilar entre 0 y 9. Un valor de 0 significa que un único error de supervisión puede dar lugar a que ese punto de conexión se marque como en mal estado. Si no se especifica ningún valor, el valor predeterminado será 3.
@@ -70,14 +70,17 @@ El estado de supervisión de un punto de conexión es un valor generado por Traf
 
 | Estado del perfil | Estado del extremo | Estado de supervisión de punto de conexión | Notas |
 | --- | --- | --- | --- |
-| Disabled |Enabled |Inactivo |El perfil se ha deshabilitado. Aunque el estado del punto de conexión es Habilitado, el estado del perfil (Deshabilitado) tiene preferencia. Los puntos de conexión en los perfiles Disabled no se supervisan. Se devuelve un código de respuesta NXDOMAIN para la consulta de DNS. |
+| Disabled |habilitado |Inactivo |El perfil se ha deshabilitado. Aunque el estado del punto de conexión es Habilitado, el estado del perfil (Deshabilitado) tiene preferencia. Los puntos de conexión en los perfiles Disabled no se supervisan. Se devuelve un código de respuesta NXDOMAIN para la consulta de DNS. |
 | &lt;cualquiera&gt; |Disabled |Disabled |Se ha deshabilitado el punto de conexión. Los puntos de conexión dehabilitados no se supervisan. El punto de conexión no se incluye en las respuestas DNS y, por tanto, no recibe tráfico. |
-| Enabled |Enabled |En línea |El punto de conexión se supervisa y su estado es correcto. Se incluye en las respuestas DNS y, por tanto, puede recibir tráfico. |
-| Enabled |Enabled |Degradado |Error en las comprobaciones de estado de supervisión de punto de conexión. El punto de conexión no se incluye en las respuestas DNS y no recibe tráfico. <br>Una excepción a esto se produce cuando se degradan todos los puntos de conexión, en cuyo caso todos ellos se consideran devueltos en la respuesta de la consulta).</br>|
-| habilitado |Enabled |CheckingEndpoint |El punto de conexión se supervisa, pero los resultados del primer sondeo no se han recibido todavía. CheckingEndpoint es un estado temporal que por lo general se produce inmediatamente después de agregar o habilitar un punto de conexión en el perfil. Un punto de conexión en este estado se incluye en las respuestas DNS y puede recibir tráfico. |
-| Enabled |Enabled |Stopped |El servicio en la nube o la aplicación web a los que apunta el punto de conexión no se están ejecutando. Compruebe la configuración de la aplicación web o del servicio en la nube. Esto también puede ocurrir si el punto de conexión es de tipo anidado y el perfil del secundario está deshabilitado o inactivo. <br>Un punto de conexión en estado Detenido no se supervisa. No se incluye en las respuestas DNS y, por tanto, no recibe tráfico. Una excepción a esto se produce cuando se degradan todos los puntos de conexión, en cuyo caso todos ellos se consideran devueltos en la respuesta de la consulta.</br>|
+| habilitado |habilitado |En línea |El punto de conexión se supervisa y su estado es correcto. Se incluye en las respuestas DNS y, por tanto, puede recibir tráfico. |
+| habilitado |habilitado |Degradado |Error en las comprobaciones de estado de supervisión de punto de conexión. El punto de conexión no se incluye en las respuestas DNS y no recibe tráfico. <br>Una excepción a esto se produce cuando se degradan todos los puntos de conexión, en cuyo caso todos ellos se consideran devueltos en la respuesta de la consulta).</br>|
+| habilitado |habilitado |CheckingEndpoint |El punto de conexión se supervisa, pero los resultados del primer sondeo no se han recibido todavía. CheckingEndpoint es un estado temporal que por lo general se produce inmediatamente después de agregar o habilitar un punto de conexión en el perfil. Un punto de conexión en este estado se incluye en las respuestas DNS y puede recibir tráfico. |
+| habilitado |habilitado |Stopped |El servicio en la nube o la aplicación web a los que apunta el punto de conexión no se están ejecutando. Compruebe la configuración de la aplicación web o del servicio en la nube. Esto también puede ocurrir si el punto de conexión es de tipo anidado y el perfil del secundario está deshabilitado o inactivo. <br>Un punto de conexión en estado Detenido no se supervisa. No se incluye en las respuestas DNS y, por tanto, no recibe tráfico. Una excepción a esto se produce cuando se degradan todos los puntos de conexión, en cuyo caso todos ellos se consideran devueltos en la respuesta de la consulta.</br>|
 
 Para obtener más información sobre cómo se calcula el valor de estado de supervisión del punto de conexión en el caso de puntos de conexión anidados, consulte [Perfiles anidados de Traffic Manager](traffic-manager-nested-profiles.md).
+
+>[!NOTE]
+> Un estado de supervisión de punto de conexión detenido puede ocurrir en App Service si la aplicación web no se ejecutan en el nivel estándar o superior. Para obtener más información, consulte [Integración de Traffic Manager con App Service](/azure/app-service/web-sites-traffic-manager).
 
 ### <a name="profile-monitor-status"></a>Estado de supervisión de perfiles
 
@@ -86,10 +89,10 @@ El estado de supervisión de perfiles es una combinación del estado del perfil 
 | Estado del perfil (según la configuración) | Estado de supervisión de punto de conexión | Estado de supervisión de perfiles | Notas |
 | --- | --- | --- | --- |
 | Disabled |&lt;cualquiera&gt; o un perfil sin puntos de conexión definidos. |Disabled |El perfil se ha deshabilitado. |
-| Enabled |El estado de al menos un punto de conexión es Degradado. |Degradado |Revise los valores del estado de los puntos de conexión individuales para determinar cuáles de ellos requieren mayor atención. |
-| Enabled |El estado de al menos un punto de conexión es En línea. Ningún punto de conexión tiene un estado Degradado. |En línea |El servicio acepta el tráfico. No se requiere ninguna acción adicional. |
-| Enabled |El estado de al menos un punto de conexión es CheckingEndpoint. Ningún punto de conexión está en estado En línea o Degradado. |CheckingEndpoints |Este estado de transición se produce cuando se crea o habilita un perfil. El estado del punto de conexión se comprueba por primera vez. |
-| Enabled |El estado de todos los puntos de conexión definidos en el perfil es Deshabilitado o Detenido, o el perfil no tiene ningún punto de conexión definido. |Inactivo |No hay puntos de conexión activos, pero el perfil está todavía habilitado. |
+| habilitado |El estado de al menos un punto de conexión es Degradado. |Degradado |Revise los valores del estado de los puntos de conexión individuales para determinar cuáles de ellos requieren mayor atención. |
+| habilitado |El estado de al menos un punto de conexión es En línea. Ningún punto de conexión tiene un estado Degradado. |En línea |El servicio acepta el tráfico. No se requiere ninguna acción adicional. |
+| habilitado |El estado de al menos un punto de conexión es CheckingEndpoint. Ningún punto de conexión está en estado En línea o Degradado. |CheckingEndpoints |Este estado de transición se produce cuando se crea o habilita un perfil. El estado del punto de conexión se comprueba por primera vez. |
+| habilitado |El estado de todos los puntos de conexión definidos en el perfil es Deshabilitado o Detenido, o el perfil no tiene ningún punto de conexión definido. |Inactivo |No hay puntos de conexión activos, pero el perfil está todavía habilitado. |
 
 ## <a name="endpoint-failover-and-recovery"></a>Conmutación por error y recuperación de un punto de conexión
 

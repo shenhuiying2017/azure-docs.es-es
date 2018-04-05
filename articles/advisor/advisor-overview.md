@@ -1,12 +1,12 @@
 ---
-title: "Introducción a Azure Advisor | Microsoft Docs"
+title: Introducción a Azure Advisor | Microsoft Docs
 description: Utilice Azure Advisor para optimizar las implementaciones de Azure.
 services: advisor
 documentationcenter: NA
 author: KumudD
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: advisor
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: a4096b11a828cf6676aa22b11c4dd4d75f3b0286
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 0aa97a7557706f0b704d4e31a84e9d356d1ad087
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="introduction-to-azure-advisor"></a>Introducción a Azure Advisor
 
@@ -43,9 +43,6 @@ El panel de Advisor muestra recomendaciones personalizadas para todas las suscri
 
   ![Tipos de recomendaciones de Advisor](./media/advisor-overview/advisor-dashboard.png)
 
-> [!NOTE]
-> Para utilizar Azure Advisor con una suscripción, debe iniciarse una suscripción *Propietario* en el panel de Advisor.  Esta acción registra la suscripción con Advisor.  Desde ese momento, cualquier suscripción *Propietario*, *Colaborador* o *Lector* puede acceder a las recomendaciones de Advisor para la suscripción. 
-
 Puede hacer clic en una categoría para ver la lista de recomendaciones dentro de esa categoría y seleccionar una recomendación para obtener más información sobre ella.  También puede aprender más sobre las acciones que puede llevar a cabo para aprovechar las ventajas de una oportunidad o resolver un problema.
 
 ![Categoría de recomendaciones de Advisor](./media/advisor-overview/advisor-ha-category-example.png) 
@@ -62,18 +59,18 @@ Puede acceder a Advisor mediante [Azure Portal](https://aka.ms/azureadvisordashb
 También puede ver las recomendaciones de Advisor a través de la interfaz de recursos de la máquina virtual. Seleccione una máquina virtual y después desplácese a las recomendaciones de Advisor en el menú. 
 
 ### <a name="what-permissions-do-i-need-to-access-advisor"></a>¿Qué permisos son necesarios para acceder a Advisor?
-
-Para obtener recomendaciones de Advisor para una suscripción, primero debe registrar su suscripción en dicha solución. Una suscripción se registra cuando un *Propietario*  de una suscripción inicia el panel de Advisor. Esta operación solo se realiza una vez. Una vez registrada la suscripción, puede acceder a las recomendaciones de Advisor como *Propietario*, *Contribuidor* o *Lector* para una suscripción.
+ 
+Puede acceder a las recomendaciones de Advisor como *Propietario*, *Contribuidor* o *Lector* de una suscripción.
 
 ### <a name="what-resources-does-advisor-provide-recommendations-for"></a>¿Para qué recursos Advisor ofrece recomendaciones?
 
-Advisor proporciona recomendaciones para máquinas virtuales, conjuntos de disponibilidad, puertas de enlace de aplicaciones, App Services, servidores SQL Server, bases de datos SQL y Redis Cache.
+Advisor proporciona recomendaciones para máquinas virtuales, conjuntos de disponibilidad, puertas de enlace de aplicaciones, App Services, servidores SQL Server y Redis Cache.
 
 ### <a name="can-i-postpone-or-dismiss-a-recommendation"></a>¿Se puede posponer o descartar una recomendación?
 
 Para posponer o descartar una recomendación, haga clic en el vínculo **Postpone** (Posponer). Puede especificar un tiempo de posposición o seleccionar **Never** (Nunca) para descartar la recomendación.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para aprender más sobre las recomendaciones de Advisor, consulte:
 

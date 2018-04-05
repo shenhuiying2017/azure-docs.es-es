@@ -1,11 +1,11 @@
 ---
-title: "Integración de Key Vault con SQL Server en máquinas virtuales Windows en Azure (Resource manager) | Microsoft Docs"
-description: "Aprenda a automatizar la configuración de cifrado de SQL Server para su uso con Azure Key Vault. Este tema explica cómo usar la integración de Azure Key Vault con máquinas virtuales de SQL Server creadas con Resource Manager."
+title: Integración de Key Vault con SQL Server en máquinas virtuales Windows en Azure (Resource manager) | Microsoft Docs
+description: Aprenda a automatizar la configuración de cifrado de SQL Server para su uso con Azure Key Vault. Este tema explica cómo usar la integración de Azure Key Vault con máquinas virtuales de SQL Server creadas con Resource Manager.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rothja
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: cd66dfb1-0e9b-4fb0-a471-9deaf4ab4ab8
 ms.service: virtual-machines-sql
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/23/2017
 ms.author: jroth
-ms.openlocfilehash: 2d24bb839368b4f7fff61f0696c79a00c03af917
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7df0bc4b74694baa6b1c8a30d0c126b248e51168
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-resource-manager"></a>Configurar la integración de Azure Key Vault para SQL Server en Azure Virtual Machines (Resource Manager)
 > [!div class="op_single_selector"]
@@ -55,6 +55,11 @@ En la hoja **Configuración de SQL Server**, haga clic en el botón **Editar** d
 ![Configuración de Almacén de claves de Azure de SQL para máquinas virtuales existentes](./media/virtual-machines-windows-ps-sql-keyvault/azure-sql-rm-akv-configuration.png)
 
 Cuando termine, haga clic en el botón **Aceptar** situado en la parte inferior de la hoja **Configuración de SQL Server** para guardar los cambios.
+
+> [!NOTE]
+> El nombre de la credencial que se cree aquí se asignará más tarde a un inicio de sesión de SQL. Esto permite que el inicio de sesión de SQL tenga acceso al almacén de claves. 
+>
+>
 
 > [!NOTE]
 > También puede usar una plantilla para configurar la integración de Almacén de claves de Azure. Para más información, consulte la [plantilla de inicio rápido de Azure para la integración de Azure Key Vault](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-existing-keyvault-update).

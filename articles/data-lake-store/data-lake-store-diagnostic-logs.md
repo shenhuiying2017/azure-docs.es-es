@@ -1,8 +1,8 @@
 ---
-title: "Ver registros de diagnóstico de Azure Data Lake Store | Microsoft Docs"
-description: "Sepa cómo configurar registros de diagnóstico y tener acceso a ellos para Azure Data Lake Store  "
+title: Ver registros de diagnóstico de Azure Data Lake Store | Microsoft Docs
+description: 'Sepa cómo configurar registros de diagnóstico y tener acceso a ellos para Azure Data Lake Store  '
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/21/2018
+ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: b58a4b215b13d2e57a69a94a60e3e37471c926c8
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 5f1fa378c8eea68181d4596700238d03f360c5d0
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-store"></a>Acceso a los registros de diagnóstico de Azure Data Lake Store
 Sepa cómo habilitar el registro de diagnósticos en su cuenta de Data Lake Store y cómo ver los registros recopilados relativos a su cuenta.
@@ -31,7 +31,7 @@ Las organizaciones pueden habilitar el registro de diagnósticos en sus cuentas 
 
 ## <a name="enable-diagnostic-logging-for-your-data-lake-store-account"></a>Habilitar el registro de diagnósticos en la cuenta de Data Lake Store
 1. Inicie sesión en el nuevo [Azure Portal](https://portal.azure.com).
-2. Abra la cuenta de Data Lake Store y, en la hoja de la cuenta de Data Lake Store, haga clic en **Configuración** y en **Registros de diagnóstico**.
+2. Abra la cuenta de Data Lake Store y, en la hoja de la cuenta de Data Lake Store, haga clic en **Registros de diagnóstico**.
 3. En la hoja **Registros de diagnóstico**, haga clic en **Activar diagnósticos**.
 
     ![Habilitar el registro de diagnóstico](./media/data-lake-store-diagnostic-logs/turn-on-diagnostics.png "Habilitar registros de diagnóstico")
@@ -150,6 +150,7 @@ Este es un ejemplo de una entrada en el registro de auditoría con formato JSON.
              "category": "Audit",
              "operationName": "SeOpenStream",
              "resultType": "0",
+             "resultSignature": "0",
              "correlationId": "381110fc03534e1cb99ec52376ceebdf;Append_BrEKAmg;25.66.9.145",
              "identity": "A9DAFFAF-FFEE-4BB5-A4A0-1B6CBBF24355",
              "properties": {"StreamName":"adl://<data_lake_store_account_name>.azuredatalakestore.net/logs.csv"}
@@ -167,6 +168,7 @@ Este es un ejemplo de una entrada en el registro de auditoría con formato JSON.
 | categoría |string |Categoría del registro. Por ejemplo, **Audit**. |
 | operationName |string |Nombre de la operación que se registra. Por ejemplo, getfilestatus. |
 | resultType |string |Estado de la operación. Por ejemplo, 200. |
+| resultSignature |string |Detalles adicionales sobre la operación. |
 | correlationId |string |Identificador del registro que se puede usar para agrupar un conjunto de entradas de registro relacionadas. |
 | identidad |Objeto |Identidad que ha generado el registro. |
 | propiedades |JSON |Vea más abajo para obtener más información. |

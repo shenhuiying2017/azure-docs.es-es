@@ -1,13 +1,13 @@
 ---
 title: Eventos programados para VM Linux en Azure| Microsoft Docs
-description: "Programe los eventos usando Azure Metadata Service para las máquinas virtuales Linux."
+description: Programe los eventos usando Azure Metadata Service para las máquinas virtuales Linux.
 services: virtual-machines-windows, virtual-machines-linux, cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: ericrad
 manager: timlt
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: e697a8f1160aff5774dc416c81819220c316707a
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: c87dd5bdbdc87bf238f34d145bd7380a61b90cb6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure Metadata Service: Scheduled Events (versión preliminar) para VM Linux
 
@@ -81,7 +81,7 @@ El servicio Scheduled Events tiene versiones. Las versiones son obligatorias; la
 > Versiones preliminares de Scheduled Events admitidas {más recientes} como la versión de API. Este formato ya no es compatible y dejará de utilizarse en el futuro.
 
 ### <a name="enabling-and-disabling-scheduled-events"></a>Habilitación y deshabilitación de Scheduled Events
-Scheduled Events está habilitado para su servicio la primera vez que realiza una solicitud de eventos. Debe esperar una respuesta diferida de hasta dos minutos en la primera llamada.
+Scheduled Events se habilita para un servicio la primera vez que se realiza una solicitud de eventos. Debe esperar hasta dos minutos de demora en la respuesta en la primera llamada.
 
 Scheduled Events está deshabilitado para su servicio si no realiza una solicitud durante 24 horas.
 
@@ -129,7 +129,7 @@ En caso de que haya eventos programados, la respuesta contiene una matriz de eve
 | ResourceType | Es el tipo de recurso al que este evento afecta. <br><br> Valores: <ul><li>`VirtualMachine`|
 | Recursos| Es la lista de recursos a los que este evento afecta. Se garantiza que contenga máquinas de un [dominio de actualización](manage-availability.md) como máximo, pero puede no contener todas las máquinas en dicho dominio. <br><br> Ejemplo: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | EventStatus | Es el estado de este evento. <br><br> Valores: <ul><li>`Scheduled`: este evento está programado para iniciarse después de la hora especificada en la propiedad `NotBefore`.<li>`Started`: este evento se ha iniciado.</ul> Ni `Completed` ni otro estado similar se han proporcionado antes. El evento ya no vuelve cuando finaliza el evento.
-| NotBefore| Hora a partir de la que puede iniciarse este evento. <br><br> Ejemplo: <br><ul><li> 2016-09-19T18:29:47Z  |
+| NotBefore| Hora a partir de la que puede iniciarse este evento. <br><br> Ejemplo: <br><ul><li> Lunes, 19 septiembre de 2016, 18:29:47 GMT  |
 
 ### <a name="event-scheduling"></a>Programación de eventos
 Cada evento se programa una cantidad mínima de tiempo en el futuro en función de su tipo. Este tiempo se refleja en la propiedad `NotBefore` de un evento. 
@@ -208,7 +208,7 @@ if __name__ == '__main__':
   sys.exit(0)
 ```
 
-## <a name="next-steps"></a>pasos siguientes 
+## <a name="next-steps"></a>Pasos siguientes 
 - Mire [Scheduled Events on Azure Friday](https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Scheduled-Events-to-Prepare-for-VM-Maintenance) (Scheduled Events en Azure Friday) para ver una demostración. 
 - Repase los ejemplos de código de Scheduled Events en [Azure Instance Metadata Scheduled Events GitHub repository](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm) (Repositorio GitHub de Scheduled Events de Azure Instance Metadata).
 - En [Instance Metadata Service](instance-metadata-service.md), puede obtener más información sobre las API disponibles.

@@ -1,11 +1,11 @@
 ---
-title: "Administración de Key Vault en Azure Stack mediante PowerShell | Microsoft Docs"
+title: Administración de Key Vault en Azure Stack mediante PowerShell | Microsoft Docs
 description: Aprenda a administrar Key Vault en Azure Stack mediante PowerShell
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 22B62A3B-B5A9-4B8C-81C9-DA461838FAE5
 ms.service: azure-stack
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: mabrigg
-ms.openlocfilehash: 6ee2ceff10d16456a6e8c6283f40fa594b3311bc
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 9dac59d74347e21bebaf7cb65d199711f45b29a9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="manage-key-vault-in-azure-stack-by-using-powershell"></a>Administración de Key Vault en Azure Stack mediante PowerShell
 
@@ -27,7 +27,7 @@ En este artículo, encontrará ayuda para empezar a crear y administrar Key Vaul
    - Almacenar y administrar claves criptográficas y secretos. 
    - Autorizar usuarios o aplicaciones para invocar operaciones en el almacén. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 * Debe suscribirse a una oferta que incluya el servicio Azure Key Vault.
 * [Instale PowerShell para Azure Stack](azure-stack-powershell-install.md).  
 * [Configure el entorno de PowerShell del usuario de Azure Stack](azure-stack-powershell-configure-user.md).
@@ -90,7 +90,7 @@ En implementaciones basadas en Servicios de federación de Active Directory (AD 
 $adUser = Get-ADUser -Filter "Name -eq '{Active directory user name}'"
 $objectSID = $adUser.SID.Value 
 
-#Set the key vault access policy
+# Set the key vault access policy
 Set-AzureRmKeyVaultAccessPolicy -VaultName "{key vault name}" -ResourceGroupName "{resource group name}" -ObjectId "{object SID}" -PermissionsToKeys {permissionsToKeys} -PermissionsToSecrets {permissionsToSecrets} -BypassObjectIdValidation 
 ```
 
@@ -111,10 +111,10 @@ El parámetro **Destination** (Destino) se utiliza para especificar que la clave
 
 ![Nueva clave](media/azure-stack-kv-manage-powershell/image5.png)
 
-Ahora puede hacer referencia a la clave creada utilizando su URI. Si crea o importa una clave con el mismo nombre que una clave existente, la clave original se actualiza con los valores que se especifican en la nueva clave. Puede acceder a la versión anterior utilizando el URI específico de la versión de la clave. Por ejemplo: 
+Ahora puede hacer referencia a la clave creada utilizando su URI. Si crea o importa una clave con el mismo nombre que una clave existente, la clave original se actualiza con los valores que se especifican en la nueva clave. Puede acceder a la versión anterior utilizando el URI específico de la versión de la clave. Por ejemplo:  
 
 * Use "https://vault10.vault.local.azurestack.external:443/keys/key01" para obtener siempre la versión actual. 
-* Use "https://vault010.vault.local.azurestack.external:443/keys/key01/d0b36ee2e3d14e9f967b8b6b1d38938a" para obtener esta versión concreta.
+* Use "https://vault010.vault.local.azurestack.external:443/keys/key01/d0b36ee2e3d14e9f967b8b6b1d38938a" para obtener esta versión específica.
 
 ### <a name="get-a-key"></a>Obtener una clave
 

@@ -1,11 +1,12 @@
 ---
-title: "¿Están sus datos preparados para la ciencia de datos? Evaluación de datos: Azure Machine Learning | Microsoft Docs"
-description: "Cuatro criterios que sus datos deben cumplir para estar listos para la ciencia de datos. Este vídeo presenta ejemplos concretos para facilitar la evaluación de datos básicos."
+title: '¿Están sus datos preparados para la ciencia de datos? Evaluación de datos: Azure Machine Learning | Microsoft Docs'
+description: Cuatro criterios que sus datos deben cumplir para estar listos para la ciencia de datos. Este vídeo presenta ejemplos concretos para facilitar la evaluación de datos básicos.
 keywords: datos pertinentes, evaluar los datos, preparar datos, criterios de datos, datos preparados
 services: machine-learning
 documentationcenter: na
-author: cjgronlund
-manager: jhubbard
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cjgronlund
 ms.assetid: d502062c-da70-4b21-9054-0bfd9902612e
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.author: cgronlun
-ms.openlocfilehash: 4ab9462c4cc4573717450ce48028807960cecee9
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.openlocfilehash: 2d9c66d89b82c63561b147f3d2537ba6ad07c511
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="is-your-data-ready-for-data-science"></a>¿Están sus datos preparados para la ciencia de datos?
 ## <a name="video-2-data-science-for-beginners-series"></a>Vídeo 2: serie Ciencia de datos para principiantes
@@ -47,9 +47,7 @@ Para obtener el máximo partido de la serie, véalos en orden. [Ir a la lista de
 Antes de que la ciencia de datos pueda proporcionar las respuestas que desea, tendrá que darle materia prima de gran calidad con la que trabajar. Al igual que al hacer una pizza, cuanto mejor sean los ingredientes con los que empiece, mejor será el producto final. 
 
 ## <a name="criteria-for-data"></a>Criterios para los datos
-Por tanto, en el caso de la ciencia de datos, hay algunos ingredientes que necesitamos recopilar.
-
-Necesitamos datos que sean:
+En ciencia de datos, hay ciertos ingredientes que deben extraerse juntos, como por ejemplo:
 
 * Pertinentes
 * Conectado
@@ -61,11 +59,11 @@ El primer ingrediente: necesitamos que los datos sean relevantes.
 
 ![Datos pertinentes frente a datos no pertinentes: evaluar los datos](./media/data-science-for-beginners-is-your-data-ready-for-data-science/relevant-and-irrelevant-data.png)
 
-Fíjese en la tabla de la izquierda. Hemos encontrado a siete personas fuera de los bares de Boston, medido su nivel de alcohol de sangre, el promedio de bateo de los Red Sox en su último partido y el precio de la leche en la tienda más cercana.
+En el lado izquierdo, la tabla presenta el nivel de alcohol en sangre de siete personas a las que se les hizo la prueba de alcoholemia fuera de un bar de Boston, el promedio de bateo de los Red Sox en su último partido y el precio de la leche en la tienda más cercana.
 
-Todos ellos son datos perfectamente legítimos. El único problema es que no son pertinentes. No hay ninguna relación obvia entre estos números. Si le di el precio actual de la leche y el promedio de bateo de los Red Sox, no hay forma de que pueda adivinar mi contenido de alcohol en sangre.
+Todos ellos son datos perfectamente legítimos. El único problema es que no son pertinentes. No hay ninguna relación obvia entre estos números. Si alguien le da el precio actual de la leche y el promedio de bateo de los Red Sox, no hay forma de que pueda adivinar su contenido de alcohol en sangre.
 
-Ahora observe la tabla de la derecha. Esta vez, medimos la masa corporal de cada persona y contamos el número de bebidas que consumieron.  Los números de cada fila ahora son pertinentes entre sí. Si le di mi masa corporal y el número de margaritas he bebido, podría realizar una estimación de mi contenido de alcohol en sangre.
+Ahora observe la tabla de la derecha. Esta vez, se midió la masa corporal de cada persona y contamos el número de bebidas que consumieron.  Los números de cada fila ahora son pertinentes entre sí. Si le di mi masa corporal y el número de margaritas he bebido, podría realizar una estimación de mi contenido de alcohol en sangre.
 
 ## <a name="do-you-have-connected-data"></a>¿Tiene datos conectados?
 El siguiente ingrediente son unos datos conectados.
@@ -76,38 +74,38 @@ Estos son algunos datos que afectan a la calidad de las hamburguesas: temperatur
 
 A la mayoría de los conjuntos de datos les faltan algunos valores. Es habitual tener espacios vacíos como estos y hay formas de trabajar para solucionarlos. Pero si faltan demasiados, los datos se empiezan a parecerse a un queso suizo.
 
-Si observa la tabla de la izquierda, faltan tantos datos que es difícil establecer cualquier tipo de relación entre la temperatura de la parrilla y el peso de la carne. Este es un ejemplo de datos desconectados.
+Si observa la tabla de la izquierda, faltan tantos datos que es difícil establecer cualquier tipo de relación entre la temperatura de la parrilla y el peso de la carne. En este ejemplo se muestran datos desconectados.
 
 Sin embargo, la tabla de la derecha está llena y completa; un ejemplo de datos conectados.
 
 ## <a name="is-your-data-accurate"></a>¿Son precisos los datos?
-El siguiente ingrediente que necesitamos es la precisión. Aquí hay 4 dianas a las que nos gustaría acertar con flechas.
+El siguiente ingrediente es la precisión. Estos son los cuatro objetivos que hay que alcanzar.
 
 ![Datos precisos frente a datos imprecisos: criterios de datos](./media/data-science-for-beginners-is-your-data-ready-for-data-science/inaccurate-vs-accurate-data.png)
 
-Mire la diana en la parte superior derecha. Tenemos una agrupación apretada justo en el blanco. Esto, por supuesto, es preciso. Curiosamente, en el lenguaje de la ciencia de datos, nuestro rendimiento en la diana inferior derecha también se considera preciso.
+Mire la diana en la parte superior derecha. Existe una agrupación apretada justo en el blanco. Esto, por supuesto, es preciso. Curiosamente, en el lenguaje de la ciencia de datos, el rendimiento en la diana inferior derecha también se considera preciso.
 
-Si señala el centro de estas flechas, verá que está muy cerca del blanco. Las flechas se reparten alrededor de la diana, por lo que se consideran imprecisas, pero están centradas alrededor del blanco, por lo que se consideran precisas.
+Si señaló el centro de estas flechas, verá que está muy cerca del blanco. Las flechas se reparten alrededor de la diana, por lo que se consideran imprecisas, pero están centradas alrededor del blanco, por lo que se consideran precisas.
 
-Ahora examinemos la diana superior izquierda. Aquí nuestras flechas dieron todas muy cerca, en una agrupación apretada. Son precisas, pero no lo son porque el centro está muy lejos del blanco. Y, por supuesto, las flechas en la diana inferior izquierda son inexactas e imprecisas. Este arquero necesita más práctica.
+Ahora examinemos la diana superior izquierda. Aquí las flechas dieron todas muy cerca, en una agrupación apretada. Son precisas, pero no lo son porque el centro está muy lejos del blanco. Las flechas en la diana inferior izquierda son inexactas e imprecisas. Este arquero necesita más práctica.
 
 ## <a name="do-you-have-enough-data-to-work-with"></a>¿Tiene suficientes datos con los que trabajar?
-Por último, el cuarto ingrediente: necesitamos tener suficientes datos.
+Por último, el cuarto ingrediente son datos suficientes.
 
 ![¿Tiene suficientes datos para el análisis? Evaluación de datos](./media/data-science-for-beginners-is-your-data-ready-for-data-science/barely-enough-data.png)
 
-Piense que cada punto de datos de la tabla es una pincelada en una pintura. Si solo tiene algunas, la pintura puede ser bastante difuminada; es difícil saber qué es.
+Piense que cada punto de datos de la tabla es una pincelada en una pintura. Si solo tiene algunas, la pintura puede ser difuminada; es difícil saber qué es.
 
 Si agrega algunas pinceladas más, la pintura empieza a estar un poco más nítida.
 
-Cuando ya casi haya suficiente pinceladas, puede ver lo suficiente para tomar algunas decisiones generales. ¿Es un lugar que me gustaría visitar? Parece soleado y con agua limpia; sí, ahí es a donde voy a ir de vacaciones.
+Cuando ya casi haya suficientes pinceladas, solo podrá ver lo suficiente como para tomar algunas decisiones generales. ¿Es un lugar que me gustaría visitar? Parece soleado y con agua limpia; sí, ahí es a donde voy a ir de vacaciones.
 
-A medida que agrega más datos, la imagen se vuelve más clara y puede tomar decisiones más detalladas. Ahora puedo ver los tres hoteles en la orilla izquierda. Me gustan mucho las características arquitectónicas del hotel en primer plano. Me quedaré en él, en el tercer piso.
+A medida que agrega más datos, la imagen se vuelve más clara y puede tomar decisiones más detalladas. Ahora puede ver los tres hoteles en la orilla izquierda. Puede percibir las características arquitectónicas del hotel en primer plano. Incluso puede elegir quedarse en la tercera planta debido a la vista.
 
-Con datos pertinentes, conectados, precisos y suficientes, tenemos todos los ingredientes que necesitamos para llevar a cabo ciencia de datos de gran calidad.
+Con datos pertinentes, conectados, precisos y suficientes, tiene todos los ingredientes necesarios para llevar a cabo ciencia de datos de gran calidad.
 
 Asegúrese de ver los otros cuatro vídeos de *Ciencia de datos para principiantes* en Microsoft Azure Machine Learning.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Prueba de su primer experimento de ciencia de datos con Machine Learning Studio](create-experiment.md)
 * [Introducción a Machine Learning en Microsoft Azure](what-is-machine-learning.md)

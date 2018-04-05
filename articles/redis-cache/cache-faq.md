@@ -1,11 +1,11 @@
 ---
-title: "Preguntas más frecuentes sobre Azure Redis Cache | Microsoft Docs"
-description: "Conozca las respuestas a preguntas comunes, patrones y prácticas recomendadas para Azure Redis Cache"
+title: Preguntas más frecuentes sobre Azure Redis Cache | Microsoft Docs
+description: Conozca las respuestas a preguntas comunes, patrones y prácticas recomendadas para Azure Redis Cache
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: c2c52b7d-b2d1-433a-b635-c20180e5cab2
 ms.service: cache
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: wesmc
-ms.openlocfilehash: 82c01419d65e00ddf27dfeb8fd444d5d3d81803c
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 66340e690e5a6ac3e440b8b4d26e1a8b2abab266
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-redis-cache-faq"></a>P+F de Azure Redis Cache
 Conozca las respuestas a preguntas comunes, patrones y prácticas recomendadas para Azure Redis Cache.
@@ -111,7 +111,7 @@ Las siguientes son consideraciones para elegir una oferta de caché.
 * **Clúster en Redis**: para crear memorias caché de más de 53 GB o particionar los datos entre varios nodos de Redis, puede usar la agrupación en clústeres Redis, disponible en el nivel Premium. Cada nodo consta de un par de caché principal/réplica para alta disponibilidad. Para más información, vea [Cómo configurar la agrupación en clústeres para una instancia Premium de Azure Redis Cache](cache-how-to-premium-clustering.md).
 * **Aislamiento de red y seguridad mejorado**: la implementación de Azure Virtual Network ofrece seguridad mejorada y aislamiento para su Azure Redis Cache, así como subredes, directivas de control de acceso y otras características para restringir aún más el acceso. Para más información, vea [Cómo configurar la compatibilidad de red virtual para Azure Redis Cache Premium](cache-how-to-premium-vnet.md).
 * **Configurar Redis**: tanto en los niveles Estándar como Premium, puede configurar Redis para las notificaciones de Keyspace.
-* **Número máximo de conexiones de cliente**: el nivel Premium la ofrece el número máximo de clientes que se pueden conectar a Redis, con un número mayor de conexiones para memorias caché de mayor tamaño. Para obtener más información, consulte [Precios de Azure Redis Cache](https://azure.microsoft.com/pricing/details/cache/).
+* **Número máximo de conexiones de cliente**: el nivel Premium la ofrece el número máximo de clientes que se pueden conectar a Redis, con un número mayor de conexiones para memorias caché de mayor tamaño. La agrupación en clústeres no aumenta el número de conexiones disponibles para una caché en clúster. Para obtener más información, consulte [Precios de Azure Redis Cache](https://azure.microsoft.com/pricing/details/cache/).
 * **Núcleo dedicado para el servidor Redis**: en el nivel Premium todos los tamaños de caché tienen un núcleo dedicado para Redis. En los niveles Básico/Estándar, el tamaño C1 y superiores tienen un núcleo dedicado para el servidor Redis.
 * **Redis es de subproceso único**, por tanto tener dos o más núcleos no proporciona una ventaja adicional sobre tener solo dos núcleos, pero las máquinas virtuales de mayor tamaño suelen tener más ancho de banda que las de menor tamaño. Si el servidor o el cliente de caché alcanza los límites del ancho de banda, recibirá los tiempos de espera del cliente.
 * **Mejoras de rendimiento**: las memorias caché en el nivel Premium se implementan en el hardware que tiene procesadores más rápidos y ofrecen un mejor rendimiento en comparación con el nivel Básico o Estándar. Las cachés de nivel Premium tienen un mayor rendimiento y latencias más bajas.

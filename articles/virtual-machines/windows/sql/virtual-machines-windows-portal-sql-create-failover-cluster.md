@@ -1,6 +1,6 @@
 ---
 title: 'FCI de SQL Server: Azure Virtual Machines | Microsoft Docs'
-description: "En este artículo se explica cómo crear una instancia de clúster de conmutación por error de SQL Server en Azure Virtual Machines."
+description: En este artículo se explica cómo crear una instancia de clúster de conmutación por error de SQL Server en Azure Virtual Machines.
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
@@ -14,13 +14,13 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 09/26/2017
+ms.date: 13/22/2018
 ms.author: mikeray
-ms.openlocfilehash: 8c957b1f2b4466ba68d81885fb014ad4026a47d2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: faa849fc53aa15a47e850a20531c4fa30544f750
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configuración de una instancia de clúster de conmutación por error de SQL Server en Azure Virtual Machines
 
@@ -46,6 +46,18 @@ El diagrama anterior muestra:
 Para más información acerca de S2D, consulte [Espacios de almacenamiento directo \(S2D\) de Windows Server 2016 Datacenter Edition](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview).
 
 S2D admite dos tipos de arquitecturas, convergidas e hiperconvergidas. La arquitectura de este documento es hiperconvergida. Las infraestructuras hiperconvergidas colocan el almacenamiento en los mismos servidores que hospedan la aplicación en clúster. En esta arquitectura, el almacenamiento se realiza en cada nodo de FCI de SQL Server.
+
+## <a name="licensing-and-pricing"></a>Licencias y precio
+
+En Azure Virtual Machines, puede obtener licencias de SQL Server mediante imágenes de VM de pago por uso (PAYG) o traiga su propia licencia (BYOL). El tipo de imagen que elija afecta a cómo se le cobra.
+
+Con las licencias PAYG, una instancia de clúster de conmutación por error (FCI) de SQL Server en Azure Virtual Machines incurre en cargos para todos los nodos de FCI, incluidos los nodos pasivos. Para obtener más información, consulte [Precios de máquinas virtuales SQL Server Enterprise](http://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/). 
+
+Los clientes con Contrato Enterprise con Software Assurance tienen derecho a utilizar un nodo FCI pasivo gratuito por cada nodo activo. Para aprovechar esta ventaja en Azure, use imágenes de VM BYOL y, a continuación, use la misma licencia en los nodos activos y pasivos de FCI. Para obtener más información, consulte [Contrato Enterprise](http://www.microsoft.com/en-us/Licensing/licensing-programs/enterprise.aspx).
+
+Para comparar las licencias de PAYG y BYOL para SQL Server en Azure Virtual Machines, consulte [Introducción a máquinas virtuales con SQL](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms).
+
+Para obtener información completa acerca de las licencias de SQL Server, consulte los [precios](http://www.microsoft.com/sql-server/sql-server-2017-pricing).
 
 ### <a name="example-azure-template"></a>Plantilla de Azure de ejemplo
 
@@ -123,7 +135,7 @@ Una vez que cumpla los requisitos previos, puede pasar a la creación de un clú
 
    Elija la imagen correcta en función de cómo desea pagar la licencia de SQL Server:
 
-   - **Pay per usage licensing** (Licencia de pago por uso): el costo por minuto de estas imágenes incluye la licencia de SQL Server:
+   - **Pay per usage licensing** (Licencia de pago por uso): el costo por segundo de estas imágenes incluye la licencia de SQL Server:
       - **SQL Server 2016 Enterprise en Windows Server Datacenter 2016**
       - **SQL Server 2016 Standard en Windows Server Datacenter 2016**
       - **SQL Server 2016 Developer en Windows Server Datacenter 2016**
@@ -266,7 +278,7 @@ Testigo en la nube es un nuevo tipo de testigo de quórum de clúster almacenado
 
 1. Guarde las claves de acceso y la dirección URL del contenedor.
 
-1. Configure el testigo de quórum de clúster del clúster de conmutación por error. Vea, [Configuración del testigo de quórum en la interfaz de usuario]. (http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) en la interfaz de usuario.
+1. Configure el testigo de quórum de clúster del clúster de conmutación por error. Consulte [Configure the quorum witness in the user interface] (Configurar el testigo de cuórum en la interfaz de usuario). (http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) en la UI.
 
 ### <a name="add-storage"></a>Agregue almacenamiento
 

@@ -1,12 +1,12 @@
 ---
 title: Registros de Azure Diagnostics | Microsoft Docs
-description: "Los clientes pueden habilitar el análisis de registros para la red CDN de Azure."
+description: Los clientes pueden habilitar el análisis de registros para la red CDN de Azure.
 services: cdn
-documentationcenter: 
-author: 
-manager: 
-editor: 
-ms.assetid: 
+documentationcenter: ''
+author: ''
+manager: ''
+editor: ''
+ms.assetid: ''
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
 ms.author: v-deasim
-ms.openlocfilehash: 7bb4eebc80d1c0fdcb9fb5d0f6bb7aeeeb3cb08d
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f9711f9cfaab1ef22da220a773689c95b1103970
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-diagnostic-logs"></a>Registros de diagnósticos de Azure
 
@@ -48,7 +48,7 @@ Para más información sobre los registros de diagnóstico, consulte [Registros 
 
 Siga los pasos siguientes para habilitar el registro con análisis básico de la red CDN:
 
-Inicie sesión en el [Portal de Azure](http://portal.azure.com). Si no se ha habilitado ya la red CDN para el flujo de trabajo, [habilítela](cdn-create-new-endpoint.md) antes de continuar.
+Inicie sesión en el [Azure Portal](http://portal.azure.com). Si no se ha habilitado ya la red CDN para el flujo de trabajo, [habilítela](cdn-create-new-endpoint.md) antes de continuar.
 
 1. En el portal, vaya a **Perfil de CDN**.
 2. Seleccione un perfil de CDN y luego seleccione el punto de conexión de CDN para el que desea habilitar **Registros de diagnóstico**.
@@ -95,7 +95,7 @@ Para usar Log Analytics de OMS para almacenar los registros, siga estos pasos:
 
     Cuando haya realizado la configuración de Log Analytics, compruebe que ha seleccionado **Análisis básico**.
 
-6. Haga clic en **Guardar**.
+6. Haga clic en **Save**(Guardar).
 
 7. Para ver la nueva área de trabajo de OMS, vaya al panel de Azure Portal y haga clic en el nombre del área de trabajo de Log Analytics. Haga clic en el icono de Portal de OMS para ver el área de trabajo en el repositorio de OMS. 
 
@@ -109,7 +109,7 @@ Para más información sobre los retrasos de los datos de registro, consulte [Re
 
 En los ejemplos siguientes se muestra cómo habilitar registros de diagnóstico mediante los cmdlets de Azure PowerShell.
 
-###<a name="enabling-diagnostic-logs-in-a-storage-account"></a>Habilitación de registros de diagnóstico en una cuenta de Storage
+### <a name="enabling-diagnostic-logs-in-a-storage-account"></a>Habilitación de registros de diagnóstico en una cuenta de Storage
 
 Inicio de sesión y selección de una suscripción:
 
@@ -288,7 +288,7 @@ Actualmente solo se ofrecen los registros de análisis básico que contienen mé
 En la tabla siguiente se muestra una lista de métricas disponibles en los registros de análisis básico. No todas las métricas están disponibles en todos los proveedores, si bien tales diferencias son mínimas. La tabla siguiente también muestra si una determinada métrica está disponible en un proveedor. Tenga en cuenta que las métricas solo están disponibles para esos puntos de conexión de CDN que contienen tráfico.
 
 
-|Métrica                     | Descripción   | Verizon  | Akamai 
+|Métrica                     | DESCRIPCIÓN   | Verizon  | Akamai 
 |---------------------------|---------------|---|---|
 | RequestCountTotal         |Número total de solicitudes durante este periodo| Sí  |Sí   |
 | RequestCountHttpStatus2xx |Recuento de todas las solicitudes que dieron lugar a un código HTTP 2xx (por ejemplo, 200, 202)              | Sí  |Sí   |
@@ -296,27 +296,27 @@ En la tabla siguiente se muestra una lista de métricas disponibles en los regis
 | RequestCountHttpStatus4xx |Recuento de todas las solicitudes que dieron lugar a un código HTTP 4xx (por ejemplo, 400, 404)               | Sí   |Sí   |
 | RequestCountHttpStatus5xx | Recuento de todas las solicitudes que dieron lugar a un código HTTP 5xx (por ejemplo, 500, 504)              | Sí  |Sí   |
 | RequestCountHttpStatusOthers |  Recuento de todos los demás códigos HTTP (fuera del intervalo 2xx-5xx) | Sí  |Sí   |
-| RequestCountHttpStatus200 | Recuento de todas las solicitudes que dieron lugar a una respuesta de código HTTP 200              |No   |Sí   |
-| RequestCountHttpStatus206 | Recuento de todas las solicitudes que dieron lugar a una respuesta de código HTTP 206              |No   |Sí   |
-| RequestCountHttpStatus302 | Recuento de todas las solicitudes que dieron lugar a una respuesta de código HTTP 302              |No   |Sí   |
-| RequestCountHttpStatus304 |  Recuento de todas las solicitudes que dieron lugar a una respuesta de código HTTP 304             |No   |Sí   |
-| RequestCountHttpStatus404 | Recuento de todas las solicitudes que dieron lugar a una respuesta de código HTTP 404              |No   |Sí   |
-| RequestCountCacheHit |Recuento de todas las solicitudes que dieron lugar a un acierto de caché. El recurso se atendió directamente desde el servidor POP al cliente.               | Sí  |No   |
-| RequestCountCacheMiss | Recuento de todas las solicitudes que dieron lugar a un error de caché. Esto significa que el recurso no se encontró en el servidor POP más cercano al cliente y, por tanto, se recupera del origen.              |Sí   | No  |
-| RequestCountCacheNoCache | Recuento de todas las solicitudes a un recurso a las que se les impide almacenarse en caché debido a una configuración de usuario en el servidor perimetral.              |Sí   | No  |
-| RequestCountCacheUncacheable | Recuento de todas las solicitudes a recursos cuyos encabezados Cache-Control y Expires impiden que se almacenen en caché. Estos encabezados indican que no se deben almacenar en caché en un servidor POP o por el cliente HTTP.                |Sí   |No   |
-| RequestCountCacheOthers | Recuento de todas las solicitudes con un estado de caché no cubierto por lo anterior.              |Sí   | No  |
+| RequestCountHttpStatus200 | Recuento de todas las solicitudes que dieron lugar a una respuesta de código HTTP 200              |Sin    |Sí   |
+| RequestCountHttpStatus206 | Recuento de todas las solicitudes que dieron lugar a una respuesta de código HTTP 206              |Sin    |Sí   |
+| RequestCountHttpStatus302 | Recuento de todas las solicitudes que dieron lugar a una respuesta de código HTTP 302              |Sin    |Sí   |
+| RequestCountHttpStatus304 |  Recuento de todas las solicitudes que dieron lugar a una respuesta de código HTTP 304             |Sin    |Sí   |
+| RequestCountHttpStatus404 | Recuento de todas las solicitudes que dieron lugar a una respuesta de código HTTP 404              |Sin    |Sí   |
+| RequestCountCacheHit |Recuento de todas las solicitudes que dieron lugar a un acierto de caché. El recurso se atendió directamente desde el servidor POP al cliente.               | Sí  |Sin    |
+| RequestCountCacheMiss | Recuento de todas las solicitudes que dieron lugar a un error de caché. Esto significa que el recurso no se encontró en el servidor POP más cercano al cliente y, por tanto, se recupera del origen.              |Sí   | Sin   |
+| RequestCountCacheNoCache | Recuento de todas las solicitudes a un recurso a las que se les impide almacenarse en caché debido a una configuración de usuario en el servidor perimetral.              |Sí   | Sin   |
+| RequestCountCacheUncacheable | Recuento de todas las solicitudes a recursos cuyos encabezados Cache-Control y Expires impiden que se almacenen en caché. Estos encabezados indican que no se deben almacenar en caché en un servidor POP o por el cliente HTTP.                |Sí   |Sin    |
+| RequestCountCacheOthers | Recuento de todas las solicitudes con un estado de caché no cubierto por lo anterior.              |Sí   | Sin   |
 | EgressTotal | Transferencia de datos salientes en GB              |Sí   |Sí   |
-| EgressHttpStatus2xx | Transferencia de datos salientes* para respuestas con códigos de estado HTTP 2xx en GB            |Sí   |No   |
-| EgressHttpStatus3xx | Transferencia de datos salientes para respuestas con códigos de estado HTTP 3xx en GB              |Sí   |No   |
-| EgressHttpStatus4xx | Transferencia de datos de salida para respuestas con códigos de estado HTTP 4xx en GB               |Sí   | No  |
-| EgressHttpStatus5xx | Transferencia de datos de salida para respuestas con códigos de estado HTTP 5xx en GB               |Sí   |  No |
-| EgressHttpStatusOthers | Transferencia de datos de salida para respuestas con otros códigos de estado HTTP en GB                |Sí   |No   |
-| EgressCacheHit |  Transferencia de datos de salida para respuestas que se entregaron directamente desde la caché de la red CDN en los servidores POP/perimetrales de la red CDN  |Sí   |  No |
-| EgressCacheMiss | Transferencia de datos de salida para respuestas que no se encontraron en el servidor POP más cercano y que se recuperaron del servidor de origen              |Sí   |  No |
-| EgressCacheNoCache | Transferencia de datos de salida para recursos a los que se les impide almacenarse en caché debido a una configuración de usuario en el servidor perimetral.                |Sí   |No   |
-| EgressCacheUncacheable | Transferencia de datos de salida para recursos cuyos encabezados Cache-Control o Expires impiden que se almacenen en caché. Indica que no se debería almacenar en caché en un servidor POP o por el cliente HTTP.                   |Sí   | No  |
-| EgressCacheOthers |  Transferencias de datos de salida para otros escenarios de caché.             |Sí   | No  |
+| EgressHttpStatus2xx | Transferencia de datos salientes* para respuestas con códigos de estado HTTP 2xx en GB            |Sí   |Sin    |
+| EgressHttpStatus3xx | Transferencia de datos salientes para respuestas con códigos de estado HTTP 3xx en GB              |Sí   |Sin    |
+| EgressHttpStatus4xx | Transferencia de datos de salida para respuestas con códigos de estado HTTP 4xx en GB               |Sí   | Sin   |
+| EgressHttpStatus5xx | Transferencia de datos de salida para respuestas con códigos de estado HTTP 5xx en GB               |Sí   |  Sin  |
+| EgressHttpStatusOthers | Transferencia de datos de salida para respuestas con otros códigos de estado HTTP en GB                |Sí   |Sin    |
+| EgressCacheHit |  Transferencia de datos de salida para respuestas que se entregaron directamente desde la caché de la red CDN en los servidores POP/perimetrales de la red CDN  |Sí   |  Sin  |
+| EgressCacheMiss | Transferencia de datos de salida para respuestas que no se encontraron en el servidor POP más cercano y que se recuperaron del servidor de origen              |Sí   |  Sin  |
+| EgressCacheNoCache | Transferencia de datos de salida para recursos a los que se les impide almacenarse en caché debido a una configuración de usuario en el servidor perimetral.                |Sí   |Sin    |
+| EgressCacheUncacheable | Transferencia de datos de salida para recursos cuyos encabezados Cache-Control o Expires impiden que se almacenen en caché. Indica que no se debería almacenar en caché en un servidor POP o por el cliente HTTP.                   |Sí   | Sin   |
+| EgressCacheOthers |  Transferencias de datos de salida para otros escenarios de caché.             |Sí   | Sin   |
 
 \*Con transferencia de datos de salida nos referimos al tráfico entregado al cliente desde los servidores POP de la red CDN.
 

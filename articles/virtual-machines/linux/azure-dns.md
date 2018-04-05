@@ -1,6 +1,6 @@
 ---
-title: "Opciones de resolución de nombres DNS para máquinas virtuales Linux en Azure"
-description: "Escenarios de resolución de nombres DNS para máquinas virtuales Linux en IaaS de Azure, incluidos los servicios DNS proporcionados y el servidor DNS externo híbrido y Bring Your Own DNS."
+title: Opciones de resolución de nombres DNS para máquinas virtuales Linux en Azure
+description: Escenarios de resolución de nombres DNS para máquinas virtuales Linux en IaaS de Azure, incluidos los servicios DNS proporcionados y el servidor DNS externo híbrido y Bring Your Own DNS.
 services: virtual-machines
 documentationcenter: na
 author: RicksterCDN
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2016
 ms.author: rclaus
-ms.openlocfilehash: cc06ee9305b4d3034154a0825c1aea53fe446f80
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a445de3e1bfbeb2cd2e5674418688d6bb610a3c2
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Opciones de resolución de nombres DNS para máquinas virtuales Linux en Azure
 Azure proporciona resolución de nombres DNS de forma predeterminada para todas las máquinas virtuales de una única red virtual. Puede implementar su propia solución de resolución de nombre DNS si configura sus propios servicios DNS en las máquinas virtuales hospedadas de Azure. Los siguientes escenarios deberían ayudarle a elegir cuál funciona mejor para su situación.
@@ -112,7 +112,7 @@ El archivo resolv.conf es autogenerado y no se debe editar. Los pasos específic
 2. Ejecute "netconfig update" para efectuar la actualización.
 
 **CentOS de Rogue Wave Software (anteriormente OpenLogic)** (usa NetworkManager)
-1. Agregue "echo "options timeout:1 attempts:5"" a "/etc/NetworkManager/dispatcher.d/11-dhclient".
+1. Agregue 'RES_OPTIONS="timeout:1 attempts:5"' a '/etc/sysconfig/network'.
 2. Ejecute "service network restart" para efectuar la actualización.
 
 ## <a name="name-resolution-using-your-own-dns-server"></a>Resolución de nombres mediante su propio servidor DNS

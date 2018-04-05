@@ -3,23 +3,23 @@ title: 'Guardar salidas de trabajos y tareas en Azure Storage con la biblioteca 
 description: Aprenda a usar la biblioteca de convenciones de archivo para .NET de Azure Batch para guardar las salidas de trabajos y tareas en Azure Storage, y ver las salidas guardadas en Azure Portal.
 services: batch
 documentationcenter: .net
-author: tamram
-manager: timlt
-editor: 
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: 16e12d0e-958c-46c2-a6b8-7843835d830e
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 06/16/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a9de327c20463469bc91d9720aa17333a36f919e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bbfb40b3740f9ea43df327a01ba6f4cf52d80457
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net-to-persist"></a>Guardar datos de trabajos y tareas en Azure Storage con la biblioteca de convenciones de archivo para .NET 
 
@@ -115,7 +115,7 @@ await taskOutputStorage.SaveAsync(TaskOutputKind.TaskPreview, "frame_low_res.jpg
 
 El parámetro `kind` del método [TaskOutputStorage](https://msdn.microsoft.com/library/microsoft.azure.batch.conventions.files.taskoutputstorage.aspx).[SaveAsync](https://msdn.microsoft.com/library/microsoft.azure.batch.conventions.files.taskoutputstorage.saveasync.aspx) permite clasificar los archivos guardados. Hay cuatro tipos predefinidos de [TaskOutputKind][net_taskoutputkind]: `TaskOutput`, `TaskPreview`, `TaskLog`, y `TaskIntermediate.`. También puede definir categorías personalizadas de salida.
 
-Estos tipos de salidas le permiten especificar qué tipo de salidas se deben mostrar cuándo se realiza una consulta a Lote relacionada con las salidas guardadas de una tarea dada. En otras palabras, cuando muestra las salidas de una tarea, puede filtrar la lista por uno de los tipos de salida. Por ejemplo, "dame la salida *preview* de la tarea *109*". Aparece más información sobre la presentación y recuperación de salidas en la sección [Recuperación de salidas](#retrieve-output) más adelante en el artículo.
+Estos tipos de salidas le permiten especificar qué tipo de salidas se deben mostrar cuándo se realiza una consulta a Batch relacionada con las salidas guardadas de una tarea dada. En otras palabras, cuando muestra las salidas de una tarea, puede filtrar la lista por uno de los tipos de salida. Por ejemplo, "dame la salida *preview* de la tarea *109*". Aparece más información sobre la presentación y recuperación de salidas en la sección [Recuperación de salidas](#retrieve-output) más adelante en el artículo.
 
 > [!TIP]
 > La variante de salida también determina en qué lugar de Azure Portal aparece un archivo determinado. Los archivos categorizados como *TaskOutput* aparecen en **Archivos de salida de tarea**, y los archivos *TaskLog*, en **Registros de tareas**.
@@ -178,7 +178,7 @@ El agente de nodo es un programa que se ejecuta en cada nodo del grupo y proporc
 
 ## <a name="retrieve-output-data"></a>Recuperación de datos de salidas
 
-Cuando recupera la salida guardada mediante la biblioteca de convenciones de archivos de Lote de Azure, lo hace basándose en las tareas y trabajos. Puede solicitar la salida de una tarea o trabajo determinado sin necesidad de conocer su ruta de acceso en Azure Storage o incluso sin conocer el nombre del archivo. En su lugar, puede solicitar archivos de salida por el identificador de tarea o trabajo.
+Cuando recupera la salida guardada mediante la biblioteca de convenciones de archivos de Azure Batch, lo hace basándose en las tareas y trabajos. Puede solicitar la salida de una tarea o trabajo determinado sin necesidad de conocer su ruta de acceso en Azure Storage o incluso sin conocer el nombre del archivo. En su lugar, puede solicitar archivos de salida por el identificador de tarea o trabajo.
 
 El fragmento de código siguiente procesa una iteración de las tareas de un trabajo, imprime información sobre los archivos de salida de la tarea y luego descarga los archivos desde Storage.
 
@@ -204,7 +204,7 @@ Azure Portal muestra los archivos de salidas y los registros de las tareas que s
 
 Para habilitar la presentación de los archivos de salidas en el portal, debe cumplir con los siguientes requisitos:
 
-1. [Vincular una cuenta de Almacenamiento de Azure](#requirement-linked-storage-account) a la cuenta de Lote.
+1. [Vincular una cuenta de Azure Storage](#requirement-linked-storage-account) a la cuenta de Batch.
 2. Cumplir las convenciones de nomenclatura predefinidas para los contenedores y archivos de almacenamiento al guardar salidas. Puede encontrar la definición de estas convenciones en el archivo [LÉAME][github_file_conventions_readme] de la biblioteca de convenciones de archivo. Si utiliza la biblioteca de [convenciones de archivo de Azure Batch][nuget_package] para guardar la salida, los archivos se guardarán según el estándar de convenciones de archivo.
 
 Para ver los archivos de salidas y registros de las tareas en Azure Portal, navegue hasta la tarea en cuya salida está interesado y, después, haga clic en **Archivos de salida guardados** o **Registros guardados**. Esta imagen muestra los **archivos de salida guardados** para la tarea con identificador "007":

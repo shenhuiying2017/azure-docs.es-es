@@ -1,11 +1,11 @@
 ---
 title: Copiar de datos con Azure SQL Data Warehouse como origen o destino mediante Data Factory | Microsoft Docs
-description: "Obtenga información sobre cómo copiar datos desde cualquier almacén de origen compatible a Azure SQL Data Warehouse o desde SQL Data Warehouse a cualquier almacén de receptores compatible mediante Data Factory."
+description: Obtenga información sobre cómo copiar datos desde cualquier almacén de origen compatible a Azure SQL Data Warehouse o desde SQL Data Warehouse a cualquier almacén de receptores compatible mediante Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: jingwang
-ms.openlocfilehash: 2601d386bdacbe005b2930a44db531a0b58fb7b5
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 5d284277f600465345be0058468192f2f5609d89
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copia de datos con Azure SQL Data Warehouse como origen o destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,7 +35,7 @@ Puede copiar datos con Azure SQL Data Warehouse como origen o destino a cualquie
 
 En concreto, este conector de Azure SQL Data Warehouse admite las siguientes funcionalidades:
 
-- Copiar datos mediante la **autenticación de SQL** y la **autenticación de token de aplicación de Azure Active Directory** con la entidad de servicio o la identidad de servicio administrada (MSI).
+- Copiar datos mediante la **autenticación de SQL** y la **autenticación de token de aplicación de Azure Active Directory** con la entidad de servicio o la Identidad de servicio administrada (MSI).
 - Como origen, recuperación de datos mediante consultas SQL o un procedimiento almacenado.
 - Como receptor, carga de datos mediante **PolyBase** o inserción masiva. Se **recomienda** el primero para mejorar el rendimiento de copia.
 
@@ -43,7 +43,7 @@ En concreto, este conector de Azure SQL Data Warehouse admite las siguientes fun
 > Tenga en cuenta que PolyBase solo es compatible con la autenticación de SQL, pero no con la de Azure Active Directory.
 
 > [!IMPORTANT]
-> Si copia datos usando el entorno de ejecución de integración de Azure, configure el [firewall de Azure SQL Server ](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) para [permitir que los servicios de Azure accedan al servidor](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Si copia datos usando el entorno de ejecución de integración de autohospedado, configure el firewall de Azure SQL Server para permitir el intervalo IP apropiado, incluida la IP de la máquina que se usa para conectarse a Azure SQL Database.
+> Si copia datos usando el entorno de ejecución de integración de Azure, configure el [firewall de Azure SQL Server ](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) para [permitir que los servicios de Azure accedan al servidor](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Si copia los datos usando Integration Runtime autohospedado, configure el firewall de Azure SQL Server para permitir el intervalo de direcciones IP apropiado, incluida la IP de la máquina que se usa para conectarse a Azure SQL Database.
 
 ## <a name="getting-started"></a>Introducción
 
@@ -64,11 +64,11 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Azure SQ
 | tenant | Especifique la información del inquilino (nombre de dominio o identificador de inquilino) en el que reside la aplicación. Para recuperarlo, mantenga el puntero del mouse en la esquina superior derecha de Azure Portal. | Sí, al utilizar la autenticación de AAD con la entidad de servicio. |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) (si el almacén de datos se encuentra en una red privada) o Azure Integration Runtime. Si no se especifica, se usará Azure Integration Runtime. |Sin  |
 
-En las secciones siguientes puede consultar requisitos previos y ejemplos de JSON para los distintos tipos de autenticación, respectivamente:
+Para los distintos tipos de autenticación, consulte las secciones siguientes sobre requisitos previos y ejemplos de JSON, respectivamente:
 
 - [Uso de la autenticación de SQL](#using-sql-authentication)
-- [Uso de la autenticación de entidad de servicio](#using-service-principal-authentication)
-- [Uso de la autenticación de identidades de servicio administradas](#using-managed-service-identity-authentication)
+- [Uso de la autenticación mediante tokens de aplicación de AAD: entidad de servicio](#using-service-principal-authentication)
+- [Uso de la autenticación mediante tokens de aplicación de AAD: identidad de servicio administrada](#using-managed-service-identity-authentication)
 
 ### <a name="using-sql-authentication"></a>Uso de la autenticación de SQL
 
@@ -103,7 +103,7 @@ Para usar la autenticación de token de aplicación de AAD basada en la entidad 
     - Clave de la aplicación
     - Id. de inquilino
 
-2. **[Aprovisione un administrador de Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#create-an-azure-ad-administrator-for-azure-sql-server)** para el servidor Azure SQL Server mediante Azure Portal si aún no lo ha hecho. El administrador AAD puede ser un usuario o un grupo AAD. Si concede al grupo con MSI un rol de administrador, omita el paso 3 y el 4, ya que el administrador tendría acceso total a la base de datos.
+2. **[Aprovisione un administrador de Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#create-an-azure-ad-administrator-for-azure-sql-server)** para el servidor Azure SQL Server mediante Azure Portal si aún no lo ha hecho. El administrador de AAD puede ser un usuario o un grupo de AAD. Si concede al grupo con MSI un rol de administrador, omita el paso 3 y el 4, ya que el administrador tendría acceso total a la base de datos.
 
 3. **Cree un usuario de base de datos independiente para la entidad de servicio** conectándolo al almacenamiento de datos en el que desea copiar los datos, o del que quiere copiarlos, con herramientas como SSMS, con una identidad de AAD que tenga, al menos, un permiso ALTER ANY USER y que ejecute el siguiente comando T-SQL. Obtenga más información sobre el usuario de base de datos independiente [aquí](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities).
     
@@ -120,7 +120,7 @@ Para usar la autenticación de token de aplicación de AAD basada en la entidad 
 5. En ADF, configure un servicio vinculado de Azure SQL Data Warehouse.
 
 
-**Ejemplo de servicio vinculado que usa la autenticación de entidad de servicio:**
+**Ejemplo de servicio vinculado que usa la autenticación de entidad de servicio**
 
 ```json
 {
@@ -149,7 +149,7 @@ Para usar la autenticación de token de aplicación de AAD basada en la entidad 
 
 ### <a name="using-managed-service-identity-authentication"></a>Uso de la autenticación de identidades de servicio administradas
 
-Una factoría de datos puede asociarse con una [identidad de servicio administrada (MSI)](data-factory-service-identity.md), que representa esta factoría de datos específica. Puede usar esta identidad de servicio para la autenticación de Azure SQL Data Warehouse, que permite que esta factoría designada acceda y copie datos del almacenamiento de datos o en el almacenamiento de datos.
+Una factoría de datos puede asociarse a una [identidad de servicio administrada (MSI)](data-factory-service-identity.md), que representa esta factoría de datos específica. Puede usar esta identidad de servicio para la autenticación de Azure SQL Data Warehouse, que permite que esta factoría designada acceda y copie datos del almacenamiento de datos o en el almacenamiento de datos.
 
 Para usar la autenticación de token de aplicación de AAD basada en MSI, siga estos pasos:
 
@@ -510,7 +510,7 @@ Si tiene datos de origen con filas mayores de 1 MB, puede dividir las tablas de 
 
 ### <a name="sql-data-warehouse-resource-class"></a>Clase de recursos de SQL Data Warehouse
 
-Para obtener el mejor rendimiento posible, considere la posibilidad de asignar una clase SQL Data Warehouse a través de PolyBase. Infórmese acerca de cómo hacerlo siguiendo las instrucciones en [Cambio de ejemplo de clase de recursos de usuario](../sql-data-warehouse/sql-data-warehouse-develop-concurrency.md#changing-user-resource-class-example).
+Para obtener el mejor rendimiento posible, considere la posibilidad de asignar una clase de recursos mayor al usuario que se está utilizando para cargar datos en SQL Data Warehouse a través de PolyBase.
 
 ### <a name="tablename-in-azure-sql-data-warehouse"></a>tableName en Azure SQL Data Warehouse
 
@@ -578,5 +578,5 @@ Al copiar datos con Azure SQL Data Warehouse como origen o destino, se utilizan 
 | varchar |String, Char[] |
 | xml |xml |
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Consulte los [almacenes de datos compatibles](copy-activity-overview.md##supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.
