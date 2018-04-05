@@ -3,8 +3,8 @@ title: Cambios realizados en un proyecto de MVC al conectarse a Azure AD | Micro
 description: Describe lo que sucede a su proyecto de MVC cuando se conecta a Azure AD mediante los servicios conectados de Visual Studio.
 services: active-directory
 documentationcenter: na
-author: kraigb
-manager: ghogen
+author: ghogen
+manager: douge
 editor: ''
 ms.assetid: 8b24adde-547e-4ffe-824a-2029ba210216
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vs-what-happened
 ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
-ms.author: kraigb
+ms.author: ghogen
 ms.custom: aaddev
-ms.openlocfilehash: b17c5fe500f3e2a8370ec5c4a09b62737d9afb84
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1925a32ce5745673c08af3f9cfe63090d4adfa23
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="what-happened-to-my-mvc-project-visual-studio-azure-active-directory-connected-service"></a>¿Qué ha ocurrido a mi proyecto MVC (servicio conectado a Azure Active Directory de Visual Studio)?
 
@@ -31,9 +31,9 @@ En este artículo se identifican los cambios exactos realizados en el proyecto A
 
 Para obtener información sobre cómo trabajar con el servicio conectado, vea [Introducción](vs-active-directory-dotnet-getting-started.md).
 
-## <a name="added-references"></a>Otras referencias
+## <a name="added-references"></a>Referencias agregadas
 
-Afecta al archivo de proyecto* (referencias de .NET) y `packages.config` (referencias de NuGet).
+Afecta al archivo de proyecto (referencias de .NET) y `packages.config` (referencias de NuGet).
 
 | type | Referencia |
 | --- | --- |
@@ -53,7 +53,7 @@ Referencias adicionales si ha seleccionado la opción **Leer datos de directorio
 | type | Referencia |
 | --- | --- |
 | .NET; NuGet | EntityFramework |
-| .NET        | EntityFramework.SqlServer (Visual Studio 2015 solo) |
+| .NET        | EntityFramework.SqlServer (solo Visual Studio 2015) |
 | .NET; NuGet | Microsoft.Azure.ActiveDirectory.GraphClient |
 | .NET; NuGet | Microsoft.Data.Edm |
 | .NET; NuGet | Microsoft.Data.OData |
@@ -62,7 +62,7 @@ Referencias adicionales si ha seleccionado la opción **Leer datos de directorio
 | .NET        | Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms (Visual Studio 2015 solo) |
 | .NET; NuGet | System.Spatial |
 
-Se quitan las referencias siguientes (los proyectos de ASP.NET 4, como en Visual Studio 2015):
+Se quitan las referencias siguientes (solo proyectos de ASP.NET 4, como en Visual Studio 2015):
 
 | type | Referencia |
 | --- | --- |
@@ -70,13 +70,13 @@ Se quitan las referencias siguientes (los proyectos de ASP.NET 4, como en Visual
 | .NET; NuGet | Microsoft.AspNet.Identity.EntityFramework |
 | .NET; NuGet | Microsoft.AspNet.Identity.Owin |
 
-## <a name="project-file-changes"></a>Cambios en el archivo del proyecto
+## <a name="project-file-changes"></a>Cambios del archivo de proyecto
 
 - Establezca la propiedad `IISExpressSSLPort` en un número distinto.
-- Establezca la propiedad `WebProject_DirectoryAccessLevelKey` en 0, o 1 si ha seleccionado la opción **Leer datos de directorio**.
+- Establezca la propiedad `WebProject_DirectoryAccessLevelKey` en 0 o 1 si ha seleccionado la opción **Leer datos de directorio**.
 - Establezca la propiedad `IISUrl` en `https://localhost:<port>/`, donde `<port>` coincide con el valor `IISExpressSSLPort`.
 
-## <a name="webconfig-or-appconfig-changes"></a>Cambios en web.config o app.config
+## <a name="webconfig-or-appconfig-changes"></a>Cambios de web.config o app.config
 
 - Se agregaron las siguientes entradas de configuración:
 
@@ -146,7 +146,7 @@ Cambios adicionales si seleccionó la opción **Leer datos de directorio**:
 
 ### <a name="file-backup-visual-studio-2015"></a>Copia de seguridad de archivos (Visual Studio 2015)
 
-Al agregar el servicio conectado, Visual Studio 2015 hace una copia de seguridad de los archivos cambiados y eliminados. Todos los archivos afectados se guardan en la carpeta `Backup/AzureAD`. Visual Studio 2017 no crea copias de seguridad.
+Al agregar el servicio conectado, Visual Studio 2015 hace una copia de seguridad de los archivos modificados y eliminados. Todos los archivos afectados se guardan en la carpeta `Backup/AzureAD`. Visual Studio 2017 no crea copias de seguridad.
 
 - `Startup.cs`
 - `App_Start\IdentityConfig.cs`
@@ -162,7 +162,7 @@ Al agregar el servicio conectado, Visual Studio 2015 hace una copia de seguridad
 - Se creó una aplicación de Azure AD en el dominio que seleccionó al agregar el servicio conectado.
 - Se actualizó la aplicación para incluir el permiso **Leer datos de directorio** si se seleccionó esta opción.
 
-[Obtenga más información acerca de Azure Active Directory](https://azure.microsoft.com/services/active-directory/).
+[Más información acerca de Azure Active Directory](https://azure.microsoft.com/services/active-directory/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

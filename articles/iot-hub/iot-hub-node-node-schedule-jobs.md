@@ -1,11 +1,11 @@
 ---
-title: "Cómo programar trabajos con IoT Hub de Azure | Microsoft Docs"
-description: "Cómo programar un trabajo de IoT Hub de Azure para invocar un método directo en varios dispositivos. El SDK de IoT de Azure para Node.js se usa para implementar la aplicación de dispositivo simulado y una aplicación de servicio para ejecutar el trabajo."
+title: Cómo programar trabajos con IoT Hub de Azure | Microsoft Docs
+description: Cómo programar un trabajo de IoT Hub de Azure para invocar un método directo en varios dispositivos. El SDK de IoT de Azure para Node.js se usa para implementar la aplicación de dispositivo simulado y una aplicación de servicio para ejecutar el trabajo.
 services: iot-hub
 documentationcenter: .net
 author: juanjperez
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 2233356e-b005-4765-ae41-3a4872bda943
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/06/2017
 ms.author: juanpere
-ms.openlocfilehash: e607f5db8b4f2a974cb172d4581dadefe7851275
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: e7e724de68e7078782e90a3f2eda9f7261638ea5
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="schedule-and-broadcast-jobs-node"></a>Programación y difusión de trabajos (Node)
 
@@ -37,6 +37,8 @@ Más información sobre estas funcionalidades en estos artículos:
 * Dispositivo gemelo y propiedades: [Introducción a los dispositivos gemelos][lnk-get-started-twin] y [Tutorial: Uso de las propiedades deseadas para configurar dispositivos][lnk-twin-props]
 * Métodos directos: [Guía del desarrollador de IoT Hub: métodos directos][lnk-dev-methods] y [Tutorial: Uso de métodos directos][lnk-c2d-methods]
 
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
+
 En este tutorial se muestra cómo realizar las siguientes acciones:
 
 * Crear una aplicación de dispositivo simulado de Node.js con un método directo que permita **lockDoor**, donde el back-end de la solución pueda llamar.
@@ -44,7 +46,7 @@ En este tutorial se muestra cómo realizar las siguientes acciones:
 
 Al final de este tutorial tendrá dos aplicaciones de Node.js:
 
-**simDevice.js**, que se conecta al centro de IoT con la identidad del dispositivo y recibe un método directo **lockDoor**.
+**simDevice.js**, que se conecta a IoT Hub con la identidad del dispositivo y recibe un método directo **lockDoor**.
 
 **scheduleJobService.js**, que llama a un método directo en la aplicación de dispositivo simulado y actualiza las propiedades deseadas del dispositivo gemelo mediante un trabajo.
 

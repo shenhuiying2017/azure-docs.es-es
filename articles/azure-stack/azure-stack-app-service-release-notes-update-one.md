@@ -1,5 +1,5 @@
 ---
-title: Actualización 1 de App Service en Azure Stack | Microsoft Docs
+title: Notas de la versión de la actualización 1 de App Service en Azure Stack | Microsoft Docs
 description: Conozca el contenido de la actualización 1 para App Service en Azure Stack, los problemas conocidos y la ubicación dónde debe descargarse.
 services: azure-stack
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 03/20/2018
 ms.author: anwestg
 ms.reviewer: brenduns
-ms.openlocfilehash: 0c33c8fdefbb27ba8414e58bed1b42ee7aaba88a
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 538d31f5b50ee22c06ba22c78e1aa92281a3b212
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="app-service-on-azure-stack-update-one-release-notes"></a>Notas de la versión de la actualización 1 de App Service en Azure Stack
+# <a name="app-service-on-azure-stack-update-1-release-notes"></a>Notas de la versión de App Service en la actualización 1 de Azure Stack
 
 *Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
@@ -39,7 +39,7 @@ El número de compilación de la actualización 1 de App Service en Azure Stack 
 ### <a name="prerequisites"></a>requisitos previos
 
 > [!IMPORTANT]
-> Azure App Service en Azure Stack requiere ahora un [certificado comodín con tres firmantes](azure-stack-app-service-before-you-get-started.md#get-certificates) debido a las mejoras en la forma en que se trata SSO para Kudu en este momento en Azure App Service.  El nuevo tema es ** *. sso.appservice.<region>. <domainname>.<extension>**
+> Las nuevas implementaciones de Azure App Service en Azure Stack requieren ahora un [certificado comodín con tres firmantes](azure-stack-app-service-before-you-get-started.md#get-certificates) debido a las mejoras en la forma en que se trata SSO para Kudu en este momento en Azure App Service.  El nuevo tema es ** *. sso.appservice.<region>. <domainname>.<extension>**
 >
 >
 
@@ -103,7 +103,13 @@ La actualización 1 de Azure App Service en Azure Stack incluye las siguientes c
 
 ### <a name="known-issues-with-the-deployment-process"></a>Problemas conocidos relacionados con el proceso de implementación
 
-- No hay ningún problema conocido para la implementación de la actualización 1 de Azure App Service en Azure Stack.
+- Errores de validación de certificados
+
+Algunos clientes han experimentado problemas al proporcionar los certificados al instalador de App Service al realizar la implementación sobre un sistema integrado, debido a la validación demasiado restrictiva del instalador.  El instalador de App Service se ha lanzado de nuevo, así que los clientes deben [descargar la versión actualizada](https://aka.ms/appsvconmasinstaller).  Si sigue experimentando problemas al validar los certificados con el instalador actualizado, póngase en contacto con el soporte técnico.
+
+- Problema al recuperar el certificado raíz de Azure Stack del sistema integrado
+
+Un error en Get-AzureStackRootCert.ps1 hizo que los clientes no pudieran recuperar el certificado raíz de Azure Stack al ejecutar el script en una máquina que no tiene instalado dicho certificado.  El script también se ha vuelto a lanzar, lo que resuelve el problema, y se solicita a los clientes que [descarguen los scripts auxiliares actualizados](https://aka.ms/appsvconmashelpers).  Si sigue experimentando problemas al recuperar el certificado raíz con el script actualizado, póngase en contacto con el soporte técnico.
 
 ### <a name="known-issues-with-the-update-process"></a>Problemas conocidos relacionados con el proceso de actualización
 
@@ -111,13 +117,91 @@ La actualización 1 de Azure App Service en Azure Stack incluye las siguientes c
 
 ### <a name="known-issues-post-installation"></a>Problemas conocidos (posteriores a la instalación)
 
-- No hay ningún problema conocido para la instalación de la actualización 1 de Azure App Service en Azure Stack.
+- El intercambio de espacios no funciona
+
+El intercambio de espacios del sitio se ha interrumpido en esta versión.  Para restaurar la funcionalidad, siga estos pasos:
+
+1. Modifique el grupo de seguridad de red ControllersNSG para **permitir** conexiones de Escritorio remoto a las instancias de controlador de App Service.  Reemplace AppService.local por el nombre del grupo de recursos en el que implementó App Service.
+
+    ```powershell
+      Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+
+      $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
+
+      $RuleConfig_Inbound_Rdp_3389 =  $nsg | Get-AzureRmNetworkSecurityRuleConfig -Name "Inbound_Rdp_3389"
+
+      Set-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg `
+        -Name $RuleConfig_Inbound_Rdp_3389.Name `
+        -Description "Inbound_Rdp_3389" `
+        -Access Allow `
+        -Protocol $RuleConfig_Inbound_Rdp_3389.Protocol `
+        -Direction $RuleConfig_Inbound_Rdp_3389.Direction `
+        -Priority $RuleConfig_Inbound_Rdp_3389.Priority `
+        -SourceAddressPrefix $RuleConfig_Inbound_Rdp_3389.SourceAddressPrefix `
+        -SourcePortRange $RuleConfig_Inbound_Rdp_3389.SourcePortRange `
+        -DestinationAddressPrefix $RuleConfig_Inbound_Rdp_3389.DestinationAddressPrefix `
+        -DestinationPortRange $RuleConfig_Inbound_Rdp_3389.DestinationPortRange
+
+      # Commit the changes back to NSG
+      Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
+      ```
+
+2. Vaya a **CN0-VM** en Virtual Machines en el portal del administrador de Azure Stack y haga clic en **Connect** (Conectar) para abrir una sesión de Escritorio remoto con la instancia de controlador.  Use las credenciales especificadas durante la implementación de App Service.
+3. Inicie **PowerShell como administrador** y ejecute el siguiente script:
+
+    ```powershell
+        Import-Module appservice
+
+        $sm = new-object Microsoft.Web.Hosting.SiteManager
+
+        if($sm.HostingConfiguration.SlotsPollWorkerForChangeNotificationStatus=$true)
+        {
+          $sm.HostingConfiguration.SlotsPollWorkerForChangeNotificationStatus=$false
+        #  'Slot swap mode reverted'
+        }
+        
+        # Confirm new setting is false
+        $sm.HostingConfiguration.SlotsPollWorkerForChangeNotificationStatus
+        
+        # Commit Changes
+        $sm.CommitChanges()
+
+        Get-AppServiceServer -ServerType ManagementServer | ForEach-Object Repair-AppServiceServer
+        
+    ```
+
+4. Cierre la sesión de Escritorio remoto.
+5. Revierta el grupo de seguridad de red ControllersNSG para **denegar** las conexiones de Escritorio remoto a las instancias de controlador de App Service.  Reemplace AppService.local por el nombre del grupo de recursos en el que implementó App Service.
+
+    ```powershell
+
+        Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+
+        $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
+
+        $RuleConfig_Inbound_Rdp_3389 =  $nsg | Get-AzureRmNetworkSecurityRuleConfig -Name "Inbound_Rdp_3389"
+
+        Set-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg `
+          -Name $RuleConfig_Inbound_Rdp_3389.Name `
+          -Description "Inbound_Rdp_3389" `
+          -Access Deny `
+          -Protocol $RuleConfig_Inbound_Rdp_3389.Protocol `
+          -Direction $RuleConfig_Inbound_Rdp_3389.Direction `
+          -Priority $RuleConfig_Inbound_Rdp_3389.Priority `
+          -SourceAddressPrefix $RuleConfig_Inbound_Rdp_3389.SourceAddressPrefix `
+          -SourcePortRange $RuleConfig_Inbound_Rdp_3389.SourcePortRange `
+          -DestinationAddressPrefix $RuleConfig_Inbound_Rdp_3389.DestinationAddressPrefix `
+          -DestinationPortRange $RuleConfig_Inbound_Rdp_3389.DestinationPortRange
+
+        # Commit the changes back to NSG
+        Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
+    ```
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Problemas conocidos para los administradores en la nube que trabajan con Azure App Service en Azure Stack
 
 Consulte la documentación de las [notas de la versión de Azure Stack 1802](azure-stack-update-1802.md)
 
-## <a name="see-also"></a>Otras referencias
+## <a name="next-steps"></a>Pasos siguientes
 
 - Para obtener información general de Azure App Service, consulte la [Información general de Azure App Service en Azure Stack](azure-stack-app-service-overview.md).
 - Para obtener más información acerca de cómo prepararse para implementar App Service en Azure Stack, consulte [Antes de empezar a trabajar con App Service en Azure Stack](azure-stack-app-service-before-you-get-started.md).

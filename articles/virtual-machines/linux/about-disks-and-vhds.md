@@ -1,20 +1,20 @@
 ---
-title: "Información acerca del almacenamiento de discos no administrados (blobs de página) y administrados de las VM de Linux de Microsoft Azure | Microsoft Docs"
-description: "Obtenga información acerca de los conceptos básicos del almacenamiento de discos no administrados (blobs de página) y administrados de las máquinas virtuales de Linux en Azure."
+title: Información acerca del almacenamiento de discos no administrados (blobs de página) y administrados de las VM de Linux de Microsoft Azure | Microsoft Docs
+description: Obtenga información acerca de los conceptos básicos del almacenamiento de discos no administrados (blobs de página) y administrados de las máquinas virtuales de Linux en Azure.
 services: virtual-machines
-author: iainfoulds
+author: roygara
 manager: jeconnoc
 ms.service: virtual-machines
 ms.workload: storage
 ms.tgt_pltfrm: linux
 ms.topic: article
 ms.date: 11/15/2017
-ms.author: iainfou
-ms.openlocfilehash: 107e332a0f8c9d5a84a74de685ca458fb29caa8b
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.author: rogarana
+ms.openlocfilehash: 3742b05bceea7aed556d06ab4460abaa08aca7d1
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="about-disks-storage-for-azure-linux-vms"></a>Acerca del almacenamiento de discos para VM de Linux en Azure
 Como cualquier otro equipo, las máquinas virtuales de Azure usan discos como un lugar para almacenar un sistema operativo, aplicaciones y datos. Todas las máquinas virtuales de Azure tienen al menos dos discos: un disco del sistema operativo Linux y un disco temporal. El disco del sistema operativo se crea a partir de una imagen y el disco del sistema operativo y la imagen son discos duros en realidad virtuales (VHD) almacenados en una cuenta de almacenamiento de Azure. Las máquinas virtuales también pueden tener uno o más discos de datos que también se almacenan en discos duros virtuales. 
@@ -53,7 +53,7 @@ Puede agregar discos de datos a una máquina virtual en cualquier momento **cone
 ## <a name="troubleshooting"></a>solución de problemas
 [!INCLUDE [virtual-machines-linux-lunzero](../../../includes/virtual-machines-linux-lunzero.md)]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Conecte un disco](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para agregar almacenamiento adicional para la máquina virtual.
 * [Cree una instantánea](snapshot-copy-managed-disk.md).
 * [Convierta la máquina virtual en discos administrados](convert-unmanaged-to-managed-disks.md).

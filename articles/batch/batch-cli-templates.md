@@ -1,21 +1,21 @@
 ---
-title: "Ejecute trabajos de Azure Batch de un extremo a otro sin escribir código (Versión preliminar) | Microsoft Docs"
+title: Ejecute trabajos de Azure Batch de un extremo a otro sin escribir código (Versión preliminar) | Microsoft Docs
 description: Cree archivos de plantilla para la CLI de Azure CLI a fin de crear grupos, trabajos y tareas de Batch.
 services: batch
 author: mscurrell
-manager: timlt
-ms.assetid: 
+manager: jeconnoc
+ms.assetid: ''
 ms.service: batch
 ms.devlang: na
 ms.topic: article
 ms.workload: big-compute
 ms.date: 12/18/2017
 ms.author: markscu
-ms.openlocfilehash: c2d4a33cd6c4c9db608a76b24935b474b551b291
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: c991a1535b82a76a3d0b9bdbf4ede8f3e22bc866
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer-preview"></a>Uso de plantillas y transferencia de archivos de la CLI de Azure Batch (versión preliminar)
 
@@ -259,7 +259,7 @@ Actualmente, solo se ha agregado la compatibilidad de transferencia de plantilla
 
 Pruebe la extensión Batch para la CLI de Azure y proporcione sus comentarios y sugerencias, ya sea en los comentarios de este artículo o a través del [foro de Azure Batch](https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Consulte el blog de plantillas de Batch: [Running Azure Batch jobs using the Azure CLI – no code required](https://azure.microsoft.com/en-us/blog/running-azure-batch-jobs-using-the-azure-cli-no-code-required/) (Ejecución de trabajos de Azure Batch mediante la CLI de Azure: sin necesidad de código).
 - La documentación detallada sobre la instalación y el uso, ejemplos y el código fuente está disponible en el [repositorio de GitHub de Azure](https://github.com/Azure/azure-batch-cli-extensions).

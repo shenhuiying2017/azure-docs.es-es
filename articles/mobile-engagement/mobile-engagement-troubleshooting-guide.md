@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement: Guía de solución de problemas"
-description: "Guía de solución de problemas de Azure Mobile Engagement"
+title: 'Azure Mobile Engagement: Guía de solución de problemas'
+description: Guía de solución de problemas de Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 31134a29-a513-4e5e-b626-f6cf6fe04769
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 93b5e3f4892f974bf9df28955956136528470e03
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1242b2b796821856561a82d4a585b26693aadadd
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-mobile-engagement---troubleshooting-guide"></a>Azure Mobile Engagement: guía de solución de problemas
+> [!IMPORTANT]
+> Azure Mobile Engagement se retira el 31 de marzo de 2018. Esta página se eliminará poco después.
+> 
+
 ## <a name="introduction"></a>Introducción
 La siguiente guía de solución de problemas le ayudará a comprender las causas de algunos problemas habituales y le permitirá solucionarlos por sí mismo. 
 
@@ -104,7 +108,7 @@ Probablemente, esto sucede durante las pruebas y si usa emuladores o algún marc
 ## <a name="getting-support"></a>Obtención de soporte técnico
 Si no puede resolver el problema por sí mismo, puede realizar lo siguiente:
 
-1. Buscar el problema en hilos existentes del foro de StackOverflow y el [foro de MSDN](https://social.msdn.microsoft.com/Forums/windows/en-US/home?forum=azuremobileengagement) ; si no lo encuentra, puede plantear una pregunta en ellos. 
+1. Buscar el problema en hilos existentes del foro de StackOverflow y el [foro de MSDN](https://social.msdn.microsoft.com/Forums/windows/en-US/home?forum=azuremobileengagement); si no lo encuentra, puede plantear una pregunta en ellos. 
 2. Si considera que falta una funcionalidad, agregue una solicitud o vote por ella en nuestro [foro de UserVoice](https://feedback.azure.com/forums/285737-mobile-engagement/)
 3. Si dispone de Servicio de soporte técnico de Microsoft, abra un incidente de soporte técnico con los siguientes detalles: 
    * Identificador de suscripción de Azure

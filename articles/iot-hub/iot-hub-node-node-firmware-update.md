@@ -1,11 +1,11 @@
 ---
-title: "Actualización de firmware de dispositivos con IoT Hub de Azure (Node) | Microsoft Docs"
-description: "Describe cómo usar la administración de dispositivos en IoT Hub de Azure para iniciar una actualización de firmware del dispositivo. Usará el SDK de IoT de Azure para Node.js para implementar la aplicación de dispositivo simulado y una aplicación de servicio que desencadena la actualización del firmware."
+title: Actualización de firmware de dispositivos con IoT Hub de Azure (Node) | Microsoft Docs
+description: Describe cómo usar la administración de dispositivos en IoT Hub de Azure para iniciar una actualización de firmware del dispositivo. Usará el SDK de IoT de Azure para Node.js para implementar la aplicación de dispositivo simulado y una aplicación de servicio que desencadena la actualización del firmware.
 services: iot-hub
 documentationcenter: .net
 author: juanjperez
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 70b84258-bc9f-43b1-b7cf-de1bb715f2cf
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,16 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/07/2017
 ms.author: juanpere
-ms.openlocfilehash: e169367592b25ea45c3d1017937316a3b3b538b8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e8ef556793534c9eb8300ee262a4b134960f862a
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-device-management-to-initiate-a-device-firmware-update-nodenode"></a>Use la administración de dispositivos para iniciar una actualización de firmware del dispositivo (Node/Node)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
 
 En el tutorial de [Introducción a la administración de dispositivos][lnk-dm-getstarted], vimos cómo usar los primitivos de [dispositivo gemelo][lnk-devtwin] y [métodos directos][lnk-c2dmethod] para reiniciar de forma remota un dispositivo. Este tutorial utiliza a los mismos tipos primitivos de IoT Hub. Además, proporciona orientación y muestra cómo realizar una actualización de firmware simulada de extremo a extremo.  Este patrón se utiliza en la implementación de actualización de firmware para el ejemplo de dispositivo Intel Edison.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 En este tutorial se muestra cómo realizar las siguientes acciones:
 

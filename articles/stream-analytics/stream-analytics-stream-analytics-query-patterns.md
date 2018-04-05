@@ -3,10 +3,9 @@ title: Ejemplos de consulta para patrones de uso comunes de Stream Analytics | M
 description: Patrones de consulta comunes de Azure Stream Analytics
 keywords: ejemplos de consultas
 services: stream-analytics
-documentationcenter: 
-author: samacha
-manager: jenniehubbard
-editor: cgronlun
+documentationcenter: ''
+author: jseb225
+manager: ryanw
 ms.assetid: 6b9a7d00-fbcc-42f6-9cbb-8bbf0bbd3d0e
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/08/2017
-ms.author: samacha
-ms.openlocfilehash: cb0a948416983f33a4ca8d9211a3a114ba011685
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.author: jeanb
+ms.openlocfilehash: 9632a77afff6ba47d6ce80457e02f1f6194362a1
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Ejemplos de consulta para patrones de uso comunes de Stream Analytics
 ## <a name="introduction"></a>Introducción
@@ -524,11 +523,11 @@ Por ejemplo, en un escenario de IoT de hornos domésticos, queremos generar una 
 | "2018-01-01T16:04:00" | "Oven1" | "power" |15 |
 | "2018-01-01T16:05:00" | "Oven1" | "temp" |30 |
 | "2018-01-01T16:05:00" | "Oven1" | "power" |8 |
-| "2018-01-01T16:06:00" | "Oven1" | "temp" |20  |
+| "2018-01-01T16:06:00" | "Oven1" | "temp" |20 |
 | "2018-01-01T16:06:00" | "Oven1" | "power" |8 |
-| "2018-01-01T16:07:00" | "Oven1" | "temp" |20  |
+| "2018-01-01T16:07:00" | "Oven1" | "temp" |20 |
 | "2018-01-01T16:07:00" | "Oven1" | "power" |8 |
-| "2018-01-01T16:08:00" | "Oven1" | "temp" |20  |
+| "2018-01-01T16:08:00" | "Oven1" | "temp" |20 |
 | "2018-01-01T16:08:00" | "Oven1" | "power" |8 |
 
 **Salida**:
@@ -536,8 +535,8 @@ Por ejemplo, en un escenario de IoT de hornos domésticos, queremos generar una 
 | eventTime | deviceId | temp | alertMessage | maxPowerDuringLast3mins |
 | --- | --- | --- | --- | --- | 
 | "2018-01-01T16:05:00" | "Oven1" |30 | "Elementos calefactores de cortocircuito" |15 |
-| "2018-01-01T16:06:00" | "Oven1" |20  | "Elementos calefactores de cortocircuito" |15 |
-| "2018-01-01T16:07:00" | "Oven1" |20  | "Elementos calefactores de cortocircuito" |15 |
+| "2018-01-01T16:06:00" | "Oven1" |20 | "Elementos calefactores de cortocircuito" |15 |
+| "2018-01-01T16:07:00" | "Oven1" |20 | "Elementos calefactores de cortocircuito" |15 |
 
 **Solución**:
 

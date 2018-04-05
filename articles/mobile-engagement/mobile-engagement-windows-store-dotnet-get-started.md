@@ -1,11 +1,11 @@
 ---
-title: "Introducción a Azure Mobile Engagement para aplicaciones universales de Windows"
-description: "Aprenda a usar Azure Mobile Engagement con análisis y notificaciones push para aplicaciones universales de Windows."
+title: Introducción a Azure Mobile Engagement para aplicaciones universales de Windows
+description: Aprenda a usar Azure Mobile Engagement con análisis y notificaciones push para aplicaciones universales de Windows.
 services: mobile-engagement
 documentationcenter: windows
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 48103867-7f64-4646-b019-42bd797d38e2
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/12/2016
 ms.author: piyushjo;ricksal
-ms.openlocfilehash: 40db7e4dd151ec391c754dc6d4145aeeb8058eca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4f1de1092458bfc12236802d829a2043dcc74540
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-windows-universal-apps"></a>Introducción a Azure Mobile Engagement para aplicaciones universales de Windows
+> [!IMPORTANT]
+> Azure Mobile Engagement se retira el 31 de marzo de 2018. Esta página se eliminará poco después.
+> 
+
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 En este tema se muestra cómo usar Azure Mobile Engagement para comprender el uso que hace de las aplicaciones y enviar notificaciones push a los usuarios segmentados de una aplicación Windows Universal.
@@ -29,7 +33,7 @@ En este tutorial se demuestra el escenario de difusión sencillo con Mobile Enga
 > [!NOTE]
 > El servicio Azure Mobile Engagement se retirará en marzo de 2018 y actualmente solo está disponible para los clientes existentes. Para más información, consulte [Mobile Engagement](https://azure.microsoft.com/en-us/services/mobile-engagement/).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 [!INCLUDE [Prereqs](../../includes/mobile-engagement-windows-store-prereqs.md)]
 
 ## <a name="set-up-mobile-engagement-for-your-windows-universal-app"></a>Configuración de Mobile Engagement para su aplicación universal de Windows
@@ -122,7 +126,7 @@ Para comenzar a enviar datos y asegurarse de que los usuarios estén activos, de
 >
 > Para **aplicaciones universales de Windows 10**, use el método recomendado en la sección "Método recomendado: sobrecarga de las clases Page" de [Informes avanzados con el SDK de Engagement para aplicaciones universales de Windows](mobile-engagement-windows-store-advanced-reporting.md), en lugar del que se mencionó anteriormente.
 
-## <a id="monitor"></a>Conexión de la aplicación con la supervisión en tiempo real
+## <a id="monitor"></a>Conectar la aplicación con la supervisión en tiempo real
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
 ## <a id="integrate-push"></a>Habilitación de las notificaciones de inserción y la mensajería en aplicación

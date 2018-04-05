@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: c36a3451dabbb0d08e5e475e0eec14f861bd41ce
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: efb24f5e55d7ba0077797d3f7d0f2177020f92b3
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>Creación, modificación o eliminación de una dirección IP pública
 
@@ -58,7 +58,7 @@ Las direcciones IP públicas tienen un precio simbólico. Para ver los precios, 
     |La suscripción|Sí|Debe existir en la misma [suscripción](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) que el recurso al cual desee asociar la dirección IP pública.|
     |Grupos de recursos|Sí|Puede existir en la misma suscripción que el [grupo de recursos](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) al cual desee asociar la dirección IP pública o en otra diferente.|
     |Ubicación|Sí|Debe existir en la misma [ubicación](https://azure.microsoft.com/regions), a la que también se hace referencia como región, que el recurso al que desea asociar la dirección IP pública.|
-    |Zona de disponibilidad| Sin  | Este ajuste solo aparece si selecciona una ubicación admitida. Para una lista de ubicaciones admitidas, consulte [Introducción a las zonas de disponibilidad](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Las zonas de disponibilidad están actualmente en versión preliminar. Antes de seleccionar una opción con zona o redundancia de zona, primero debe completar los pasos descritos en el [registro para la versión preliminar de zonas de disponibilidad](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#get-started-with-the-availability-zones-preview). Si seleccionó la SKU **básica**, la opción *Ninguna* se selecciona automáticamente. Si prefiere garantizar una zona específica, puede seleccionarla. Cualquiera de las opciones no tiene redundancia de zona. Si seleccionó la SKU **estándar**: la redundancia de zona se selecciona automáticamente y hace que la ruta de acceso de datos sea resistente a errores de zona. Si prefiere garantizar una zona específica, que no sea resistente a errores de zona, puede seleccionarla.
+    |Zona de disponibilidad| Sin  | Este ajuste solo aparece si selecciona una ubicación admitida. Para una lista de ubicaciones admitidas, consulte [Introducción a las zonas de disponibilidad](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Si seleccionó la SKU **básica**, la opción *Ninguna* se selecciona automáticamente. Si prefiere garantizar una zona específica, puede seleccionarla. Cualquiera de las opciones no tiene redundancia de zona. Si seleccionó la SKU **estándar**: la redundancia de zona se selecciona automáticamente y hace que la ruta de acceso de datos sea resistente a errores de zona. Si prefiere garantizar una zona específica, que no sea resistente a errores de zona, puede seleccionarla.
   
 
 **Comandos**

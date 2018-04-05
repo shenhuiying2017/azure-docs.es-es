@@ -1,11 +1,11 @@
 ---
-title: "Administración de roles en servicios en la nube de Azure con Visual Studio | Microsoft Docs"
-description: "Obtenga información sobre cómo agregar y quitar roles en los servicios en la nube de Azure con Visual Studio."
+title: Administración de roles en servicios en la nube de Azure con Visual Studio | Microsoft Docs
+description: Obtenga información sobre cómo agregar y quitar roles en los servicios en la nube de Azure con Visual Studio.
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
-manager: ghogen
-editor: 
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: 5ec9ae2e-8579-4e5d-999e-8ae05b629bd1
 ms.service: multiple
 ms.devlang: dotnet
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 03/21/2017
-ms.author: kraigb
-ms.openlocfilehash: 6ed857b857cf8c14506ca39725c214a7fea4fc95
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: ghogen
+ms.openlocfilehash: fb49eaa69f2265f6b312ecbdab1435e7c50236b8
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="managing-roles-in-azure-cloud-services-with-visual-studio"></a>Administración de roles en servicios en la nube de Azure con Visual Studio
 Una vez creado el servicio en la nube de Azure, puede agregarle nuevos roles o quitarle roles existentes. También puede importar un proyecto existente y convertirlo en un rol. Por ejemplo, puede importar una aplicación web ASP.NET y designarla como rol web.

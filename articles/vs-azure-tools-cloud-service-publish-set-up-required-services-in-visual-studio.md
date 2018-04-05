@@ -1,11 +1,11 @@
 ---
-title: "Preparación para publicar o implementar un servicio en la nube desde Visual Studio | Microsoft Docs"
-description: "Obtenga más información sobre los procedimientos para configurar los servicios de cuenta de almacenamiento y en la nube y establecer la configuración de la aplicación de Azure."
+title: Preparación para publicar o implementar un servicio en la nube desde Visual Studio | Microsoft Docs
+description: Obtenga más información sobre los procedimientos para configurar los servicios de cuenta de almacenamiento y en la nube y establecer la configuración de la aplicación de Azure.
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
-manager: ghogen
-editor: 
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: 92ee2f9e-ec49-4c7a-900d-620abe5e9d8a
 ms.service: multiple
 ms.devlang: dotnet
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/10/2017
-ms.author: kraigb
-ms.openlocfilehash: 5b2043ada193e5a08957656e153b58a61e7eba9e
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.author: ghogen
+ms.openlocfilehash: 8a7d6f114bfa10170cdfe7126e01a35b02affd20
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="prepare-to-publish-or-deploy-a-cloud-service-from-visual-studio"></a>Preparación para publicar o implementar un servicio en la nube desde Visual Studio
 
@@ -27,7 +27,7 @@ Para publicar un proyecto de servicio en la nube, debe configurar los siguientes
 * Un **servicio en la nube** para ejecutar sus roles en el entorno de Azure 
 * Una **cuenta de almacenamiento** que proporcione acceso a los servicios Blob, Queue y Table.
 
-## <a name="create-a-cloud-service"></a>Creación de un servicio en la nube
+## <a name="create-a-cloud-service"></a>un servicio en la nube
 
 Un servicio en la nube ejecuta los roles en el entorno de Azure. Puede crear un servicio en la nube en Visual Studio o a través de [Azure Portal](https://portal.azure.com/), como se describe en las secciones siguientes.
 
@@ -40,7 +40,7 @@ Un servicio en la nube ejecuta los roles en el entorno de Azure. Puede crear un 
 
 ### <a name="create-a-cloud-service-through-the-azure-portal"></a>Creación de un servicio en la nube en Azure Portal
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 1. Seleccione **Cloud Services (clásico)** en el lado izquierdo de la página.
 1. Seleccione **+ Agregar** y después proporcione la información necesaria (nombre DNS, suscripción, grupo de recursos y ubicación). No es necesario cargar un paquete en este momento, ya que lo hará más adelante en Visual Studio.
 1. Seleccione **Crear** para completar el proceso.
@@ -59,7 +59,7 @@ Una cuenta de almacenamiento proporciona acceso a los servicios Blob, Queue y Ta
 
 ### <a name="create-a-storage-account-through-the-azure-portal"></a>Creación de una cuenta de almacenamiento en Azure Portal
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 1. Seleccione **+ Nuevo** en el lado superior izquierdo.
 1. Seleccione **Storage** en "Azure Marketplace" y, después, **Cuenta de almacenamiento: blob, archivo, tabla, cola** en el lado derecho.
 1. Proporcione la información necesaria (nombre, modelo de implementación, etc.).

@@ -1,11 +1,11 @@
 ---
-title: "Configuración avanzada del SDK de Engagement para aplicaciones universales de Windows"
-description: "Opciones de configuración para Azure Mobile Engagement con aplicaciones universales de Windows"
+title: Configuración avanzada del SDK de Engagement para aplicaciones universales de Windows
+description: Opciones de configuración para Azure Mobile Engagement con aplicaciones universales de Windows
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 6d85dd5d-ac07-43ba-bbe4-e91c3a17690b
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: piyushjo;ricksal
-ms.openlocfilehash: cb9454212c94cf65093219c3d24c71277ede7877
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: c0f666a0dd3441dfe3de0e82953b78c139091672
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="advanced-configuration-for-windows-universal-apps-engagement-sdk"></a>Configuración avanzada del SDK de Engagement para aplicaciones universales de Windows
+> [!IMPORTANT]
+> Azure Mobile Engagement se retira el 31 de marzo de 2018. Esta página se eliminará poco después.
+> 
+
 > [!div class="op_single_selector"]
 > * [Windows universal](mobile-engagement-windows-store-advanced-configuration.md)
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
@@ -31,7 +35,7 @@ ms.lasthandoff: 12/21/2017
 
 Este procedimiento describe cómo configurar diversas opciones de configuración de aplicaciones de Android para Azure Mobile Engagement.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 [!INCLUDE [Prereqs](../../includes/mobile-engagement-windows-store-prereqs.md)]
 
 ## <a name="advanced-configuration"></a>Configuración avanzada

@@ -1,11 +1,11 @@
 ---
 title: Conceptos de trabajos de IoT Hub de Azure | Microsoft Docs
-description: "Guía de desarrollador: programación de trabajos para su ejecución en varios dispositivos conectados al centro de IoT Hub. Trabajos pueden actualizar las etiquetas y propiedades que desee y llamar a métodos directas en varios dispositivos."
+description: 'Guía de desarrollador: programación de trabajos para su ejecución en varios dispositivos conectados al centro de IoT Hub. Trabajos pueden actualizar las etiquetas y propiedades que desee y llamar a métodos directas en varios dispositivos.'
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: fe78458f-4f14-4358-ac83-4f7bd14ee8da
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,15 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 7e0af40b2fd5bbb12d5565765aae4026922aec5c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 367eb703465b2fbc6f1e06a383bc9df709cabe78
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Programación de trabajos en varios dispositivos
 
 Azure IoT Hub habilita cierto número de bloques de creación, como [etiquetas y propiedades de dispositivos gemelos][lnk-twin-devguide] y [métodos directos][lnk-dev-methods].  Normalmente, las aplicaciones de back-end permiten a los administradores y operadores de dispositivos actualizar e interactuar con dispositivos de IoT de forma masiva y a la hora programada.  Los trabajos ejecutan las actualizaciones de los dispositivos gemelos y los métodos directos con un conjunto de dispositivos a la hora programada.  Por ejemplo, un operador puede usar una aplicación de back-end que inicie y realice un seguimiento de un trabajo para reiniciar un conjunto de dispositivos en la compilación 43 y la planta 3 sin perturbar las operaciones de la creación.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 Le recomendamos que tenga en cuenta la posibilidad de usar trabajos cuando necesite programar y realizar un seguimiento del progreso de cualquiera de las siguientes actividades en un conjunto de dispositivos:
 
@@ -133,7 +135,7 @@ Otros temas de referencia en la guía del desarrollador de IoT Hub son los sigui
 * En [Lenguaje de consulta de IoT Hub para dispositivos gemelos, trabajos y enrutamiento de mensajes][lnk-query] se describe el lenguaje de consulta de IoT Hub. Use este lenguaje de consulta para recuperar información de IoT Hub sobre los trabajos y dispositivos gemelos.
 * En [Compatibilidad con MQTT de IoT Hub][lnk-devguide-mqtt], se proporciona más información sobre la compatibilidad de IoT Hub con el protocolo MQTT.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para probar algunos de los conceptos descritos en este artículo, vea el siguiente tutorial de IoT Hub:
 
 * [Schedule and broadcast jobs][lnk-jobs-tutorial] (Programación y difusión de trabajos)

@@ -1,11 +1,11 @@
 ---
-title: "¿Qué le ha ocurrido a mi proyecto WebJob (servicio conectado a Almacenamiento de Azure de Visual Studio)? | Microsoft Docs"
-description: "Describe lo que ha ocurrido en un proyecto WebJob de Azure después de conectarse a una cuenta de almacenamiento de Azure mediante los servicios conectados de Visual Studio"
+title: ¿Qué le ha ocurrido a mi proyecto WebJob (servicio conectado a Azure Storage de Visual Studio)? | Microsoft Docs
+description: Describe lo que ha ocurrido en un proyecto WebJob de Azure después de conectarse a una cuenta de almacenamiento de Azure mediante los servicios conectados de Visual Studio
 services: storage
-documentationcenter: 
-author: kraigb
-manager: ghogen
-editor: 
+documentationcenter: ''
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: 36ae7ff7-c22c-47eb-b220-049d61618c74
 ms.service: storage
 ms.workload: web
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: vs-what-happened
 ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
-ms.author: kraigb
-ms.openlocfilehash: 8891685a99c5ba366b74af0a21396d4a5e499835
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: ghogen
+ms.openlocfilehash: b7bebd7801e102b9a3173841ce2289ac575cd2e2
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
-# <a name="what-happened-to-my-webjob-project-visual-studio-azure-storage-connected-service"></a>¿Qué le ha ocurrido a mi proyecto WebJob (servicio conectado a Almacenamiento de Azure de Visual Studio)?
+# <a name="what-happened-to-my-webjob-project-visual-studio-azure-storage-connected-service"></a>¿Qué le ha ocurrido a mi proyecto WebJob (servicio conectado a Azure Storage de Visual Studio)?
 ## <a name="references-added"></a>Se han agregado referencias
-El paquete de NuGet de Almacenamiento de Azure se agregó al proyecto de Visual Studio o se actualizó en él.  
+El paquete de NuGet de Azure Storage se agregó al proyecto de Visual Studio o se actualizó en él.  
 Este paquete agrega las siguientes referencias. NET:
 
 * **Microsoft.Data.Edm**
@@ -34,8 +34,8 @@ Este paquete agrega las siguientes referencias. NET:
 * **System.Data**
 * **System.Spatial**
 
-## <a name="connection-string-for-azure-storage-added"></a>Se ha agregado la cadena de conexión para Almacenamiento de Azure.
+## <a name="connection-string-for-azure-storage-added"></a>Se ha agregado la cadena de conexión para Azure Storage.
 En el archivo App.config del proyecto, se actualizaron las entradas **AzureWebJobsStorage** y **AzureWebJobsDashboard** con la cadena y la clave de conexión de la cuenta de almacenamiento seleccionada.
 
-Para obtener más información, consulte [Recursos de documentación de WebJobs de Azure](http://go.microsoft.com/fwlink/?linkid=390226).
+Para obtener más información, consulte [Recursos de documentación de Azure WebJobs](http://go.microsoft.com/fwlink/?linkid=390226).
 

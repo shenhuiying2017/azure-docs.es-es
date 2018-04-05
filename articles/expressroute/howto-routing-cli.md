@@ -1,13 +1,13 @@
 ---
-title: "Configuración del enrutamiento de un circuito de Azure ExpressRoute: CLI | Microsoft Docs"
-description: "Este artículo le ayudará a crear y aprovisionar las configuraciones entre pares privados, públicos y de Microsoft de un circuito ExpressRoute. Este artículo también muestra cómo comprobar el estado, actualizar, o eliminar configuraciones entre pares en el circuito."
+title: 'Configuración del enrutamiento de un circuito de Azure ExpressRoute: CLI | Microsoft Docs'
+description: Este artículo le ayudará a crear y aprovisionar las configuraciones entre pares privados, públicos y de Microsoft de un circuito ExpressRoute. Este artículo también muestra cómo comprobar el estado, actualizar, o eliminar configuraciones entre pares en el circuito.
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2017
 ms.author: cherylmc
-ms.openlocfilehash: b54f7768e64e1689e5b25b94905beea6bd5471df
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: f4ad959de1425e828ce11fb658f8b5304e9d8775
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-and-modify-routing-for-an-expressroute-circuit-using-cli"></a>Creación y modificación del enrutamiento de un circuito ExpressRoute mediante la CLI
 
 Este artículo le ayuda a crear y administrar la configuración de enrutamiento de un circuito ExpressRoute en el modelo de implementación de Resource Manager mediante la CLI. También puede comprobar el estado de los emparejamientos de un circuito ExpressRoute, así como el modo de actualizarlos o eliminarlos y desaprovisionarlos. Si quiere usar un método diferente para trabajar con el circuito, seleccione un artículo de la lista siguiente:
 
 > [!div class="op_single_selector"]
-> * [Portal de Azure](expressroute-howto-routing-portal-resource-manager.md)
+> * [Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-routing-arm.md)
 > * [CLI de Azure](howto-routing-cli.md)
 > * [Vídeo: pares privados](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
@@ -55,8 +55,6 @@ Esta sección le ayuda a crear, obtener, actualizar y eliminar la configuración
 > 
 
 ### <a name="to-create-microsoft-peering"></a>Creación del emparejamiento de Microsoft
-
-[!INCLUDE [Premium](../../includes/expressroute-mspeering-premium-include.md)]
 
 1. Instale la versión más reciente de la CLI de Azure. Use la versión más reciente de la Interfaz de la línea de comandos de Azure (CLI)*. Revise los [requisitos previos](expressroute-prerequisites.md) y los [flujos de trabajo](expressroute-workflows.md) antes de comenzar la configuración.
 

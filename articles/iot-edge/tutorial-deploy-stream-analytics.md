@@ -1,19 +1,19 @@
 ---
-title: "Implementación de Azure Stream Analytics con Azure IoT Edge | Microsoft Docs"
-description: "Implementación de Azure Stream Analytics como módulo en un dispositivo perimetral"
+title: Implementación de Azure Stream Analytics con Azure IoT Edge | Microsoft Docs
+description: Implementación de Azure Stream Analytics como módulo en un dispositivo perimetral
 services: iot-edge
-keywords: 
-author: msebolt
+keywords: ''
+author: kgremban
 manager: timlt
-ms.author: v-masebo
+ms.author: kgremban
 ms.date: 11/28/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: f40fb81fc03e796b906db12bf3bf6904b27b46eb
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: c94652017216bd9c8ff319e0b19fa3597c75e81c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="deploy-azure-stream-analytics-as-an-iot-edge-module---preview"></a>Implementación de Azure Stream Analytics como un módulo de IoT Edge (versión preliminar)
 
@@ -36,7 +36,7 @@ En este tutorial, aprenderá a:
 > * Conectar el trabajo de Azure Stream Analytics nuevo con otros módulos de IoT Edge.
 > * Implemente el trabajo de Azure Stream Analytics en un dispositivo de IoT Edge.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 * Una instancia de IoT Hub. 
 * El dispositivo que creó y configuró en el tutorial de inicio rápido o en los artículos sobre la implementación de Azure IoT Edge en un dispositivo simulado en [Windows][lnk-tutorial1-win] o en [Linux][lnk-tutorial1-lin]. Debe conocer la clave de conexión del dispositivo y el identificador del dispositivo. 
@@ -172,7 +172,7 @@ Ya está listo para implementar el trabajo de Azure Stream Analytics en el dispo
     }
     ```
 
-9. Seleccione **Siguiente**.
+9. Seleccione **Next** (Siguiente).
 
 10. En el paso **Revisar plantilla**, seleccione **Enviar**.
 
@@ -204,7 +204,7 @@ Podrá observar que la temperatura de la máquina sube gradualmente hasta alcanz
    ![Registro de Docker][9]
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial ha configurado un contenedor de Azure Storage y un trabajo de Stream Analytics para analizar datos desde un dispositivo de IoT Edge. Luego, ha cargado un módulo Azure Stream Analytics personalizado para mover datos desde el dispositivo a un blob, a través del flujo de datos para su descarga. Para ver cómo Azure IoT Edge puede crear más soluciones para la empresa, siga con los otros tutoriales.
 

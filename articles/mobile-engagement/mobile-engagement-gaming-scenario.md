@@ -1,11 +1,11 @@
 ---
-title: "Implementación de Azure Mobile Engagement para una aplicación de juegos"
-description: "Escenario de aplicación de juegos para implementar Azure Mobile Engagement"
+title: Implementación de Azure Mobile Engagement para una aplicación de juegos
+description: Escenario de aplicación de juegos para implementar Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 2cafc044-4902-4058-8037-49399bf6bf7f
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,14 +14,18 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 0ca35a3d634db8eb5c63afacba046a35b8a3e7ed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 96e827b57e804cc91798859bc906e49046decede
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="implement-mobile-engagement-with-gaming-app"></a>Implementación de Mobile Engagement con una aplicación de juegos
 ## <a name="overview"></a>Información general
+> [!IMPORTANT]
+> Azure Mobile Engagement se retira el 31 de marzo de 2018. Esta página se eliminará poco después.
+> 
+
 Una nueva empresa de juegos ha lanzado una aplicación de juego de estrategia/juego de rol dedicada a la pesca. El juego lleva 6 meses en activo. Ha cosechado un gran éxito, con millones de descargas, y la retención es muy alta en comparación con otras aplicaciones de juego de nuevas empresas. En la reunión de revisión trimestral, las partes interesadas están de acuerdo en que necesitan aumentar los ingresos medios por usuario (ARPU). Los módulos premium en el juego están disponibles como ofertas especiales. Estos módulos de juego permiten a los usuarios actualizar la apariencia y el rendimiento de los sedales y los cebos o aparejos en el juego. Sin embargo, las ventas de módulos son muy bajas. Por tanto, deciden en primer lugar analizar la experiencia del cliente con una herramienta de análisis y después desarrollar un programa de compromiso para aumentar las ventas mediante la segmentación avanzada.
 
 Partiendo de [Azure Mobile Engagement: Guía de introducción con procedimientos recomendados](mobile-engagement-getting-started-best-practices.md) , crean una estrategia de compromiso.

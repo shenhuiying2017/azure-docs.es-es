@@ -16,10 +16,10 @@ ms.date: 03/22/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.openlocfilehash: b38e3cc45d14645611c0cd804f2bfa66047810f0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/02/2018
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>Validación de certificados PKI de Azure Stack
 La herramienta de comprobación de certificados de Azure Stack que se describe en este artículo la proporciona el OEM incluido con el archivo deploymentdata.json para validar que los [certificados PKI generados](azure-stack-get-pki-certs.md) son adecuados para la implementación previa. Los certificados se deben validar con tiempo suficiente para probarlos y volverlos a emitir si es necesario. 

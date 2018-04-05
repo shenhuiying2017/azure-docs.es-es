@@ -2,24 +2,19 @@
 title: Hoja de referencia rápida de Azure SQL Data Warehouse | Microsoft Docs
 description: Encuentre vínculos y procedimientos recomendados para crear rápidamente soluciones de Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
 author: acomet
 manager: jhubbard
-editor: ''
-ms.assetid: 51f1e444-9ef7-4e30-9a88-598946c45196
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: manage
-ms.date: 02/20/2018
+ms.topic: overview
+ms.component: design
+ms.date: 03/28/2018
 ms.author: acomet
-ms.openlocfilehash: c67d56ff63f70baa052be17c119d943c558d398f
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.reviewer: mausher,igorstan,jrj
+ms.openlocfilehash: 1e09dc2f3c7e7aa4ae98ef98a8957454a1beee6b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Hoja de referencia rápida de Azure SQL Data Warehouse
 En esta hoja de referencia, se proporcionan sugerencias útiles y procedimientos recomendados para la creación de soluciones de Azure SQL Data Warehouse. Antes de empezar, consulte los detalles de cada paso en [Azure SQL Data Warehouse Workload Patterns and Anti-Patterns](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns) (Patrones y antipatrones de la carga de trabajo de Azure SQL Data Warehouse), que explica qué es y qué no es SQL Data Warehouse.
@@ -152,6 +147,8 @@ Implemente con un clic sus radios en bases de datos SQL desde SQL Data Warehouse
 [particiones]:sql-data-warehouse-tables-partition.md
 [estadísticas]:sql-data-warehouse-tables-statistics.md
 [clases de recursos y simultaneidad]:resource-classes-for-workload-management.md
+[tablas replicadas]:design-guidance-for-replicated-tables.md
+[tablas distribuidas]:sql-data-warehouse-tables-distribute.md
 
 <!--MSDN references-->
 
@@ -160,8 +157,7 @@ Implemente con un clic sus radios en bases de datos SQL desde SQL Data Warehouse
 [typical architectures that take advantage of SQL Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/common-isv-application-patterns-using-azure-sql-data-warehouse/
 [is and is not]:https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns/
 [migración de datos]:https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/
-[tablas replicadas]:https://docs.microsoft.com/en-us/azure/sql-data-warehouse/design-guidance-for-replicated-tables
-[tablas distribuidas]:https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-tables-distribute
-[Azure Data Lake Store]: https://docs.microsoft.com/en-us/azure/data-factory/connector-azure-data-lake-store
-[sys.dm_pdw_nodes_db_partition_stats]: https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql
-[sys.dm_pdw_request_steps]:https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql
+
+[Azure Data Lake Store]: ../data-factory/connector-azure-data-lake-store.md
+[sys.dm_pdw_nodes_db_partition_stats]: /sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql
+[sys.dm_pdw_request_steps]:/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql

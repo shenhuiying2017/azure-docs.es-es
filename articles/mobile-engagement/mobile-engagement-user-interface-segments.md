@@ -1,11 +1,11 @@
 ---
 title: 'Interfaz de usuario de Azure Mobile Engagement: segmentos'
-description: "Obtenga información acerca de cómo crear y administrar los segmentos de usuarios para identificar patrones de uso mediante Azure Mobile Engagement"
+description: Obtenga información acerca de cómo crear y administrar los segmentos de usuarios para identificar patrones de uso mediante Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 6a4f2205-4a3c-406e-a04f-5e6f2a36653f
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 087f4a1fef420abe9669f8dfe2b84c7a847ce263
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 53c5b1b672a0d7212a3d298c3e411a9cc6ac0807
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-create-and-manage-segments-of-users-to-identify-usage-patterns"></a>Cómo crear y administrar los segmentos de usuarios para identificar patrones de uso
+> [!IMPORTANT]
+> Azure Mobile Engagement se retira el 31 de marzo de 2018. Esta página se eliminará poco después.
+> 
+
 En este artículo se describe la pestaña **SEGMENTOS** del portal **Mobile Engagement**. Utilice el portal **Mobile Engagement** para supervisar y administrar sus aplicaciones móviles.
 
 La sección de segmentos de la interfaz de usuario permite trabajar en la segmentación de los usuarios según los diferentes comportamientos y análisis que puede obtener de la aplicación y a los que también puede tener acceso a través de la API de segmentos. Los segmentos se calculan por primera vez 24 horas después de crearse y se vuelven a calcular cada 24 horas, según la información de análisis más reciente. Una vez que se calcula un segmento, muestra un gráfico de "Historial de día a día" cada día.

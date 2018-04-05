@@ -1,11 +1,11 @@
 ---
 title: 'Tutorial: uso del SDK de Azure Batch para Python | Microsoft Docs'
-description: "Aprenda los conceptos básicos de Azure Batch y cree una solución sencilla mediante Python."
+description: Aprenda los conceptos básicos de Azure Batch y cree una solución sencilla mediante Python.
 services: batch
 documentationcenter: python
-author: tamram
-manager: timlt
-editor: 
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: 42cae157-d43d-47f8-88f5-486ccfd334f4
 ms.service: batch
 ms.devlang: python
@@ -13,13 +13,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
 ms.date: 02/27/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bd5a977c10d3955639beb893cd7a37581b14f7c0
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: b620ff7d49b3e2712393de6124e31ff417220db2
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="get-started-with-the-batch-sdk-for-python"></a>Introducción al SDK de Batch para Python
 
@@ -34,7 +34,7 @@ Aprenda los conceptos básicos del cliente de [Azure Batch][azure_batch] y [Pyth
 
 ![Flujo de trabajo de soluciones de Batch (básico)][11]<br/>
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 En este artículo se considera que tiene conocimientos prácticos de Python y está familiarizado con Linux. También se asume que puede cumplir los requisitos para la creación de cuentas que se especifican a continuación en Azure y los servicios Batch y Storage.
 
 ### <a name="accounts"></a>Cuentas
@@ -87,7 +87,7 @@ O bien, puede instalar manualmente los paquetes de Python [azure-batch][pypi_bat
 `pip install azure-storage`
 
 > [!TIP]
-> Si utiliza una cuenta sin privilegios, es posible que necesite agregar a los comandos el prefijo `sudo`. Por ejemplo: `sudo pip install -r requirements.txt`. Para más información acerca de cómo instalar los paquetes de Python, consulte [Installing Packages][pypi_install] (Instalación de paquetes) en python.org.
+> Si utiliza una cuenta sin privilegios, es posible que necesite agregar a los comandos el prefijo `sudo`. Por ejemplo, `sudo pip install -r requirements.txt`. Para más información acerca de cómo instalar los paquetes de Python, consulte [Installing Packages][pypi_install] (Instalación de paquetes) en python.org.
 >
 >
 
@@ -147,7 +147,7 @@ Vaya a la siguiente línea en **python_tutorial_client.py** para comenzar con el
 if __name__ == '__main__':
 ```
 
-## <a name="step-1-create-storage-containers"></a>Paso 1: Crear contenedores de Almacenamiento
+## <a name="step-1-create-storage-containers"></a>Paso 1: Crear contenedores de Storage
 ![Crear contenedores en Azure Storage][1]
 <br/>
 

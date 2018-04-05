@@ -1,11 +1,11 @@
 ---
-title: "Información sobre la protección del acceso a los datos de Azure Cosmos DB | Microsoft Docs"
-description: "Obtenga información sobre los conceptos de control de acceso en Azure Cosmos DB, incluidas las claves maestras, las claves de solo lectura, los usuarios y los permisos."
+title: Información sobre la protección del acceso a los datos de Azure Cosmos DB | Microsoft Docs
+description: Obtenga información sobre los conceptos de control de acceso en Azure Cosmos DB, incluidas las claves maestras, las claves de solo lectura, los usuarios y los permisos.
 services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: monicar
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 8641225d-e839-4ba6-a6fd-d6314ae3a51c
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/24/2017
 ms.author: mimig
-ms.openlocfilehash: 383e04f91eec2f465b381ce30f2d6d24c488b731
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 771c4a539d240a6bfdc9770adc7cfada01571939
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="securing-access-to-azure-cosmos-db-data"></a>Protección del acceso a los datos de Azure Cosmos DB
 En este artículo se proporciona información general sobre la protección del acceso a los datos almacenados en [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
@@ -104,7 +104,7 @@ Este es un patrón de diseño típico para solicitar, generar y entregar tokens 
 
     ![Flujo de trabajo de tokens de recursos de Azure Cosmos DB](./media/secure-access-to-data/resourcekeyworkflow.png)
 
-La generación y administración de los tokens de recursos las controlan las bibliotecas de cliente de Cosmos DB nativas; sin embargo, si se usa REST, debe construir los encabezados de solicitud o autenticación. Para más información acerca de cómo crear encabezados de autenticación para REST, consulte [Access Control on Cosmos DB Resources](https://docs.microsoft.com/rest/api/documentdb/access-control-on-documentdb-resources) (Control de acceso en recursos de Cosmos DB) o [el código fuente de nuestros SDK](https://github.com/Azure/azure-documentdb-node/blob/master/source/lib/auth.js).
+La generación y administración de los tokens de recursos las controlan las bibliotecas de cliente de Cosmos DB nativas; sin embargo, si se usa REST, debe construir los encabezados de solicitud o autenticación. Para más información acerca de cómo crear encabezados de autenticación para REST, consulte [Access Control on Cosmos DB Resources](https://docs.microsoft.com/rest/api/cosmos-db/access-control-on-cosmosdb-resources) (Control de acceso en recursos de Cosmos DB) o [el código fuente de nuestros SDK](https://github.com/Azure/azure-documentdb-node/blob/master/source/lib/auth.js).
 
 Para ver un ejemplo de un servicio de nivel intermedio que se usa para generarlo o los tokens de recursos del agente, consulte la [aplicación ResourceTokenBroker](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker/Controllers).
 
@@ -182,4 +182,4 @@ DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 ## <a name="next-steps"></a>Pasos siguientes
 * Para más información acerca de la seguridad de las bases de datos de Cosmos DB, consulte [Cosmos DB: Database security](database-security.md) (Cosmos DB: seguridad de bases de datos).
 * Para información sobre cómo administrar las claves maestra y de solo lectura, consulte [Administración de una cuenta de Azure Cosmos DB](manage-account.md#keys).
-* Para aprender a construir tokens de autorización de Azure Cosmos DB, consulte [Access Control on Azure Cosmos DB Resources](https://docs.microsoft.com/rest/api/documentdb/access-control-on-documentdb-resources) (Control de acceso en recursos de Azure Cosmos DB).
+* Para aprender a construir tokens de autorización de Azure Cosmos DB, consulte [Access Control on Azure Cosmos DB Resources](https://docs.microsoft.com/rest/api/cosmos-db/access-control-on-cosmosdb-resources) (Control de acceso en recursos de Azure Cosmos DB).

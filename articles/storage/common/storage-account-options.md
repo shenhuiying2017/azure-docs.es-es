@@ -1,6 +1,6 @@
 ---
 title: Opciones de cuenta de Azure Storage | Microsoft Docs
-description: "Descripción de las opciones de uso de Azure Storage."
+description: Descripción de las opciones de uso de Azure Storage.
 services: storage
 author: jirwin
 manager: jwillis
@@ -9,11 +9,11 @@ ms.workload: storage
 ms.topic: get-started-article
 ms.date: 01/17/2018
 ms.author: jirwin
-ms.openlocfilehash: 2c69519b865169b477950bc8fa659d5ad9081bbf
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 75d1580df5e36b2c88939fde9077c5a1948f6348
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-storage-account-options"></a>Opciones de la cuenta de Azure Storage
 
@@ -218,7 +218,7 @@ Para supervisar las cuentas de almacenamiento existentes y recopilar estos datos
 Para más información, consulte [About Storage Analytics Metrics](https://msdn.microsoft.com/library/azure/hh343258.aspx) (Acerca de las métricas de Azure Storage Analytics) y [Storage Analytics Metrics Table Schema](https://msdn.microsoft.com/library/azure/hh343264.aspx) (Esquema de tabla de métricas de Storage Analytics)
 
 > [!NOTE]
-> Las cuentas de almacenamiento de blobs exponen el punto de conexión de Table service solo para el almacenamiento y el acceso a los datos de métricas de dicha cuenta. Las cuentas de almacenamiento con redundancia de zona (ZRS) admiten la recopilación de datos de métricas, mientras que las cuentas de almacenamiento clásicas de ZRS no lo admiten. Para más información acerca de ZRS, consulte [Almacenamiento con redundancia de zona](storage-redundancy.md#zone-redundant-storage). 
+> Las cuentas de almacenamiento de blobs exponen el punto de conexión de Table service solo para el almacenamiento y el acceso a los datos de métricas de dicha cuenta. 
 
 Para supervisar el consumo de almacenamiento de la cuenta de almacenamiento de blobs, es preciso habilitar las métricas de capacidad.
 Si está habilitado, los datos de capacidad se registran a diario en el servicio de blobs de una cuenta de almacenamiento y se registran como una entrada de tabla que se escribe en la tabla *$MetricsCapacityBlob*, en la misma cuenta de almacenamiento.

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 0887c50ea7da00859e370f60626eabb03fcc1f4b
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a2cb3d504abcd3f9c50df2427884d478ad2240c4
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights para páginas web
 Obtenga información sobre el rendimiento y la utilización de su página web o aplicación. Si agrega [Application Insights](app-insights-overview.md) al script de la página, obtendrá los intervalos de carga de la página y de las llamadas AJAX, recuentos y detalles sobre las excepciones del explorador y los errores de AJAX, así como usuarios y recuentos de sesiones. Todos estos datos se pueden segmentar por página, sistema operativo del cliente y versión del explorador, geolocalización y otras dimensiones. Puede establecer alertas sobre recuentos de errores o sobre cargas de página lentas. Y mediante la inserción de llamadas de seguimiento en el código de JavaScript, puede controlar cómo se utilizan las distintas características de la aplicación de la página web.
@@ -26,7 +26,7 @@ Puede utilizar Application Insights con cualquier página web, solo tiene que ag
 
 ![En portal.azure.com, abra el recurso de la aplicación y haga clic en el Explorador.](./media/app-insights-javascript/03.png)
 
-Necesita una suscripción a [Microsoft Azure](https://azure.com). Si su equipo tiene una suscripción organizativa, pida al propietario que le agregue su cuenta de Microsoft. El desarrollo y la utilización a pequeña escala no implica ningún costo.
+Necesita una suscripción a [Microsoft Azure](https://azure.com). Si su equipo tiene una suscripción organizativa, pida al propietario que le agregue su cuenta de Microsoft.
 
 ## <a name="set-up-application-insights-for-your-web-page"></a>Configuración de Application Insights para su página Web
 Agregue el fragmento de código del cargador a las páginas web, como se indica a continuación.

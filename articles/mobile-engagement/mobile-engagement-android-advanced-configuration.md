@@ -1,11 +1,11 @@
 ---
-title: "Configuración avanzada para el SDK de Android para Azure Mobile Engagement"
-description: "Describe las opciones de configuración avanzada, incluido el manifiesto de Android con el SDK de Android para Azure Mobile Engagement"
+title: Configuración avanzada para el SDK de Android para Azure Mobile Engagement
+description: Describe las opciones de configuración avanzada, incluido el manifiesto de Android con el SDK de Android para Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 37d2c09a-86fa-473d-8987-c7e35a0eb3e8
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: piyushjo;ricksal
-ms.openlocfilehash: 0301f71c76872714aa1bf727a6c21dd7a63db036
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 29a7bb7daae59e2034504ce27c9ba66755b11e4b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="advanced-configuration-for-azure-mobile-engagement-android-sdk"></a>Configuración avanzada para el SDK de Android para Azure Mobile Engagement
+> [!IMPORTANT]
+> Azure Mobile Engagement se retira el 31 de marzo de 2018. Esta página se eliminará poco después.
+> 
+
 > [!div class="op_single_selector"]
 > * [Windows universal](mobile-engagement-windows-store-advanced-configuration.md)
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
@@ -31,7 +35,7 @@ ms.lasthandoff: 12/21/2017
 
 Este procedimiento describe cómo configurar diversas opciones de configuración de aplicaciones de Android para Azure Mobile Engagement.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 [!INCLUDE [Prereqs](../../includes/mobile-engagement-android-prereqs.md)]
 
 ## <a name="permission-requirements"></a>Requisitos de permiso
@@ -44,9 +48,9 @@ El código de permiso debe ser similar al siguiente, donde se rellena el permiso
 
 | Permiso | Cuándo se usa |
 | --- | --- |
-| INTERNET |Obligatorio. Para informes básicos |
-| ACCESS_NETWORK_STATE |Obligatorio. Para informes básicos |
-| RECEIVE_BOOT_COMPLETED |Obligatorio. Para mostrar el centro de notificaciones tras el reinicio del dispositivo |
+| INTERNET |Necesario. Para informes básicos |
+| ACCESS_NETWORK_STATE |Necesario. Para informes básicos |
+| RECEIVE_BOOT_COMPLETED |Necesario. Para mostrar el centro de notificaciones tras el reinicio del dispositivo |
 | WAKE_LOCK |Se recomienda su uso. Habilita la recopilación de datos cuando se usa la conexión WiFi o cuando la pantalla está apagada |
 | VIBRATE |Opcional. Habilita la vibración cuando se reciben las notificaciones |
 | DOWNLOAD_WITHOUT_NOTIFICATION |Opcional. Habilita la notificación de panorama general de Android |

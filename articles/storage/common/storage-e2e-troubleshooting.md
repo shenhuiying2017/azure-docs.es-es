@@ -1,6 +1,6 @@
 ---
-title: "Solución de problemas de Azure Storage con diagnósticos y el analizador de mensajes | Microsoft Docs"
-description: "Tutorial en el que se explica cómo solucionar problemas totalmente por medio del análisis de Azure Storage, AzCopy y el analizador de mensajes de Microsoft."
+title: Solución de problemas de Azure Storage con diagnósticos y el analizador de mensajes | Microsoft Docs
+description: Tutorial en el que se explica cómo solucionar problemas totalmente por medio del análisis de Azure Storage, AzCopy y el analizador de mensajes de Microsoft.
 services: storage
 documentationcenter: dotnet
 author: tamram
@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
-ms.openlocfilehash: ee0e4671c31e97816576735b7bd2ee2f1629323e
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 324370ae18627a1985e6a40aec11ee2fa871e93b
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Solución de problemas integral con los registros y métricas de Azure Storage, AzCopy y el analizador de mensajes
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -35,9 +35,6 @@ Para solucionar problemas en aplicaciones cliente que usan Microsoft Azure Stora
   
   * **métricas de almacenamiento** realizan un seguimiento de las métricas de transacciones y de capacidad relativas a la cuenta de almacenamiento. Con las métricas, puede conocer el rendimiento de su aplicación basándose en diversas medidas. Vea [Esquema de las tablas de métricas de Storage Analytics](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema) para más información sobre los tipos de métricas de las que hace un seguimiento de Storage Analytics.
   * **registro de almacenamiento** deja constancia en un registro del servidor de cada solicitud realizada al servicio Azure Storage. Este registro hace un seguimiento de los datos detallados de cada solicitud, como la operación realizada, el estado de la operación y la información de latencia. Vea [Formato del registro de Storage Analytics](/rest/api/storageservices/Storage-Analytics-Log-Format) para más información sobre los datos de solicitud y de respuesta que se escriben en los registros de Storage Analytics.
-
-> [!NOTE]
-> Las cuentas de almacenamiento que tienen una replicación de tipo "Almacenamiento con redundancia de zona" (ZRS) son compatibles con las métricas y el registro. Las cuentas de almacenamiento de ZRS Classic no admiten ni las métricas ni el registro. Para obtener más información acerca de ZRS, consulte [Almacenamiento con redundancia de zona](storage-redundancy.md#zone-redundant-storage). 
 
 * **Azure Portal**. Puede configurar las métricas y el registro de su cuenta de almacenamiento en [Azure Portal](https://portal.azure.com). Asimismo, también puede ver diagramas y gráficos que le mostrarán el rendimiento de su aplicación conforme avanza el tiempo, así como configurar alertas que le avisarán si el rendimiento de su aplicación es diferente a lo esperado según lo establecido en una métrica específica.
   
@@ -171,7 +168,7 @@ Vea el tema sobre el [uso de las características de seguimiento de red](http://
 ## <a name="review-metrics-data-in-the-azure-portal"></a>Revisar los datos de las métricas en Azure Portal
 Una vez que la aplicación haya estado en ejecución durante un rato, puede revisar los gráficos de las métricas que aparezcan en [Azure Portal](https://portal.azure.com) para ver el rendimiento de su servicio.
 
-Primero, vaya a la cuenta de almacenamiento en Azure Portal. De forma predeterminada, se muestra un diagrama de supervisión con la métrica  **Porcentaje de operaciones correctas**  en la hoja de la cuenta. Si ha modificado el gráfico para mostrar diferentes métricas, agregue la métrica **Porcentaje de operaciones correctas**.
+Primero, vaya a la cuenta de almacenamiento en Azure Portal. De forma predeterminada, se muestra un diagrama de supervisión con la métrica **Porcentaje de operaciones correctas** en la hoja de la cuenta. Si ha modificado el gráfico para mostrar diferentes métricas, agregue la métrica **Porcentaje de operaciones correctas**.
 
 Ahora verá el **Porcentaje de operaciones correctas** en el diagrama de supervisión, junto con otras métricas que pueda haber agregado. En el escenario que pasaremos a examinar mediante el análisis de los registros del analizador de mensajes, podrá ver que la tasa de porcentaje de éxito es ligeramente inferior al 100 %.
 
@@ -363,7 +360,7 @@ Ahora que ya está familiarizado con el analizador de mensajes y su uso para ana
 | Intervalo de tiempo en los registros de servidor y red |#Timestamp   >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39 |Servidor, red |
 | Intervalo de tiempo en registros de servidor |AzureStorageLog.Timestamp   >= 2014-10-20T16:36:38 y AzureStorageLog.Timestamp <=   2014-10-20T16:36:39 |Server |
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre los escenarios de solución integral de problemas en Azure Storage, vea los siguientes recursos:
 
 * [Supervisión, diagnóstico y solución de problemas de Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md)

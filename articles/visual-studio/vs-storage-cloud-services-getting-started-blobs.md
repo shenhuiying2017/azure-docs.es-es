@@ -1,11 +1,11 @@
 ---
-title: "Introducción al almacenamiento de blobs y los servicios conectados de Visual Studio (servicios en la nube) | Microsoft Docs"
-description: "Cómo empezar a usar el almacenamiento de blobs de Azure en un proyecto de servicio en la nube en Visual Studio después de conectarse a una cuenta de almacenamiento mediante los servicios conectados de Visual Studio"
+title: Introducción al almacenamiento de blobs y los servicios conectados de Visual Studio (servicios en la nube) | Microsoft Docs
+description: Cómo empezar a usar el almacenamiento de blobs de Azure en un proyecto de servicio en la nube en Visual Studio después de conectarse a una cuenta de almacenamiento mediante los servicios conectados de Visual Studio
 services: storage
-documentationcenter: 
-author: kraigb
-manager: ghogen
-editor: 
+documentationcenter: ''
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: 1144a958-f75a-4466-bb21-320b7ae8f304
 ms.service: storage
 ms.workload: web
@@ -13,32 +13,32 @@ ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
-ms.author: kraigb
-ms.openlocfilehash: cf14880c70f90b01c5dffbfe434150581c2ec33b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: ghogen
+ms.openlocfilehash: 7c13e7d1f48365e9c1a345b1770d16724c5ed6a1
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
-# <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Introducción al almacenamiento de blobs de Azure y a los servicios conectados de Visual Studio (proyectos de servicios en la nube)
+# <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Introducción a Azure Blob Storage y a los servicios conectados de Visual Studio (proyectos de servicios en la nube)
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## <a name="overview"></a>Información general
-En este artículo se describe cómo empezar a usar el almacenamiento de blobs de Azure después de haber creado o hecho referencia a una cuenta de almacenamiento de Azure mediante el cuadro de diálogo **Agregar servicios conectados** en un proyecto de servicios en la nube de Visual Studio. Le mostraremos cómo obtener acceder a contenedores de blob y cómo crearlos, además de cómo realizar tareas comunes como cargar, enumerar y descargar blobs. Los ejemplos están escritos en C\# y usan la [biblioteca del cliente de Microsoft Azure Storage para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
+En este artículo se describe cómo empezar a usar Azure Blob Storage después de haber creado o hecho referencia a una cuenta de Azure Storage mediante el cuadro de diálogo **Agregar servicios conectados** en un proyecto de servicios en la nube de Visual Studio. Le mostraremos cómo obtener acceder a contenedores de blob y cómo crearlos, además de cómo realizar tareas comunes como cargar, enumerar y descargar blobs. Los ejemplos están escritos en C\# y usan la [biblioteca del cliente de Microsoft Azure Storage para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
-El almacenamiento de blobs de Azure es un servicio para almacenar grandes cantidades de datos no estructurados a los que puede obtenerse acceso desde cualquier lugar del mundo a través de HTTP o HTTPS. Un solo blob puede tener cualquier tamaño. Los blobs pueden tener forma de imágenes, archivos de audio y vídeo, archivos sin procesar y archivos de documentos.
+Azure Blob Storage es un servicio para almacenar grandes cantidades de datos no estructurados a los que puede obtenerse acceso desde cualquier lugar del mundo a través de HTTP o HTTPS. Un solo blob puede tener cualquier tamaño. Los blobs pueden tener forma de imágenes, archivos de audio y vídeo, archivos sin procesar y archivos de documentos.
 
 Al igual que los archivos residen en carpetas, los blobs de almacenamiento residen en contenedores. Después de haber creado un almacenamiento, puede crear uno o varios contenedores en el almacenamiento. Por ejemplo, en un almacenamiento llamado "Scrapbook", puede crear un contenedor llamado "images" para almacenar imágenes y otro llamado "audio" para almacenar archivos de audio. Una vez creados los contenedores, puede cargar archivos de blob individuales a ellos.
 
 * Para más información sobre la manipulación de blobs mediante programación, consulte [Introducción al Almacenamiento de blobs de Azure mediante .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md).
-* Para una información general sobre Almacenamiento de Azure, consulte [Documentación sobre Almacenamiento](https://azure.microsoft.com/documentation/services/storage/).
-* Para información general sobre los servicios en la nube de Azure, vea [Documentación sobre Servicios en la nube](https://azure.microsoft.com/documentation/services/cloud-services/).
+* Para una información general sobre Azure Storage, consulte [Documentación sobre Almacenamiento](https://azure.microsoft.com/documentation/services/storage/).
+* Para información general sobre Azure Cloud Services, vea [Documentación sobre Cloud Services](https://azure.microsoft.com/documentation/services/cloud-services/).
 * Para obtener más información acerca de la programación de aplicaciones ASP.NET, consulte [ASP.NET](http://www.asp.net).
 
 ## <a name="access-blob-containers-in-code"></a>Contenedores de blobs de acceso en el código
 Para obtener acceso mediante programación a los blobs de los proyectos del Servicio en la nube, deberá agregar los elementos siguientes, si no están presentes todavía.
 
-1. Agregue las siguientes declaraciones de espacio de nombres de código en la parte superior de todo archivo C# en el que desee obtener acceso al Almacenamiento de Azure mediante programación.
+1. Agregue las siguientes declaraciones de espacio de nombres de código en la parte superior de todo archivo C# en el que desee obtener acceso a Azure Storage mediante programación.
    
         using Microsoft.Framework.Configuration;
         using Microsoft.WindowsAzure.Storage;
@@ -65,7 +65,7 @@ Para obtener acceso mediante programación a los blobs de los proyectos del Serv
 
 ## <a name="create-a-container-in-code"></a>Crear un contenedor en código
 > [!NOTE]
-> Algunas API que realizan llamadas al almacenamiento de Azure en ASP.NET son asincrónicas. Vea [Programación asincrónica con Async y Await](http://msdn.microsoft.com/library/hh191443.aspx) para más información. En el código del siguiente ejemplo, se da por supuesto que se están usando métodos de programación asincrónica.
+> Algunas API que realizan llamadas a Azure Storage en ASP.NET son asincrónicas. Vea [Programación asincrónica con Async y Await](http://msdn.microsoft.com/library/hh191443.aspx) para más información. En el código del siguiente ejemplo, se da por supuesto que se están usando métodos de programación asincrónica.
 > 
 > 
 
@@ -86,7 +86,7 @@ Para poner los archivos del contenedor a disposición de todo el mundo, puede co
 Cualquier usuario de Internet puede ver los blobs de los contenedores públicos, pero solo es posible modificarlos o eliminarlos si se dispone de la clave de acceso apropiada.
 
 ## <a name="upload-a-blob-into-a-container"></a>Cargar un blob en un contenedor
-El almacenamiento de Azure admite blobs en bloques y en páginas. En la mayoría de los casos, se recomienda usar blobs en bloques.
+Azure Storage admite blobs en bloques y en páginas. En la mayoría de los casos, se recomienda usar blobs en bloques.
 
 Para cargar un archivo en un blob en bloques, obtenga una referencia de contenedor y utilícela para obtener una referencia de blob en bloques. Una vez que disponga de la referencia de blob, puede cargar cualquier secuencia de datos en ella llamando al método **UploadFromStream** . De este modo, se crea el blob si no existía anteriormente, o bien se sobrescribe si ya existía. En el siguiente ejemplo se muestra cómo cargar un blob en un contenedor creado anteriormente.
 

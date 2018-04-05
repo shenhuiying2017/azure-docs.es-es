@@ -1,11 +1,11 @@
 ---
-title: "Información general de API de exportación de Mobile Engagement"
-description: "Aprender los conceptos básicos sobre la exportación de datos sin procesar generados por los dispositivos del usuario para aprovecharlos en sus propias herramientas."
+title: Información general de API de exportación de Mobile Engagement
+description: Aprender los conceptos básicos sobre la exportación de datos sin procesar generados por los dispositivos del usuario para aprovecharlos en sus propias herramientas.
 services: mobile-engagement
 documentationcenter: mobile
 author: kpiteira
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 9380d47b-d7fa-4d4c-888f-97e6482196bb
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 04/26/2016
 ms.author: kapiteir
-ms.openlocfilehash: 346e0e480ff84ee849f135a7605d27df9e32f966
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c1dc8a34abf84be3d7f59d41c36d90c2a67e5d32
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="mobile-engagement-export-api-overview"></a>Información general de API de exportación de Mobile Engagement
+> [!IMPORTANT]
+> Azure Mobile Engagement se retira el 31 de marzo de 2018. Esta página se eliminará poco después.
+> 
+
 ## <a name="introduction"></a>Introducción
 Con en este documento aprenderá los conceptos básicos sobre la exportación de datos sin procesar generados por los dispositivos del usuario para aprovecharlos en sus propias herramientas.
 
@@ -29,10 +33,10 @@ La exportación de datos sin procesar desde Mobile Engagement requiere:
 
 * Configuración de autenticación de API para poder usar las API (consulte la [configuración manual de la autenticación](mobile-engagement-api-authentication-manual.md)),
 * Usar las API de REST o el [SDK de .net](mobile-engagement-dotnet-sdk-service-api.md),
-* Una cuenta de Almacenamiento de Azure.
+* Una cuenta de Azure Storage.
 
 > [!NOTE]
-> También recomendamos el excelente [Explorador de almacenamiento de Microsoft Azure](http://storageexplorer.com/), al menos durante la fase de desarrollo, ya que proporciona una IU fácil de usar para interactuar con Almacenamiento de Azure.
+> También recomendamos el excelente [Explorador de Microsoft Azure Storage](http://storageexplorer.com/), al menos durante la fase de desarrollo, ya que proporciona una IU fácil de usar para interactuar con Azure Storage.
 > 
 > 
 
@@ -45,7 +49,7 @@ Hay 2 tipos esenciales de exportación:
 
 La tabla siguiente describe exhaustivamente todas las exportaciones posibles:
 
-| Tipo de exportación | Tipo de datos | Descripción |
+| Tipo de exportación | Tipo de datos | DESCRIPCIÓN |
 | --- | --- | --- |
 | Instantánea |Insertar |Genera una exportación de comentarios de campañas de inserción por identificador de dispositivo o identificador de usuario |
 | Instantánea |Etiqueta |Genera una exportación de las etiquetas (información de la aplicación) asociadas a cada dispositivo |
@@ -62,7 +66,7 @@ Para exportar datos desde Mobile Engagement, tendrá que crear un **trabajo de e
 
 * El tipo de exportación (instantánea o histórico)
 * El tipo de datos,
-* El **contenedor de Almacenamiento de Azure** (incluida una SAS válida con acceso de escritura) donde se escribirá el resultado de la exportación.
+* El **contenedor de Azure Storage** (incluida una SAS válida con acceso de escritura) donde se escribirá el resultado de la exportación.
 * Por ejemplo, el parámetro de la dirección URL del contenedor podría ser https://[StorageAccountName].blob.core.windows.net/[ContainerName]?[SASWritePermissionsToken]  
 
 Aquí le mostramos un ejemplo real. https://testazmeexport.blob.core.windows.net/test1234azme?sv=2015-12-11&ss=b&srt=sco&sp=rwdlac&se=2016-12-17T04:59:26Z&st=2016-12-16T20:59:26Z&spr=https&sig=KRF3aVWjp2NEJDzjlmoplmu0M9HHlLdkBWRPAFmw90Q%3D

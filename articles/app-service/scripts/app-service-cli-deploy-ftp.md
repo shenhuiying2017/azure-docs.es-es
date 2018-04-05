@@ -1,11 +1,11 @@
 ---
-title: "Ejemplo de script de la CLI de Azure: creación de una aplicación web e implementación de archivos con FTP | Microsoft Docs"
-description: "Ejemplo de script de la CLI de Azure: creación de una aplicación web e implementación de archivos con FTP"
+title: 'Ejemplo de script de la CLI de Azure: creación de una aplicación web e implementación de archivos con FTP | Microsoft Docs'
+description: 'Ejemplo de script de la CLI de Azure: creación de una aplicación web e implementación de archivos con FTP'
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 tags: azure-service-management
 ms.service: app-service-web
 ms.workload: web
@@ -15,11 +15,11 @@ ms.topic: sample
 ms.date: 12/12/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: d8b4cc9c80f1e9e3743e615c205972d027eb726f
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 8be2bc575649febe7870129b5b4c9996d7de0728
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="create-a-web-app-and-deploy-files-with-ftp"></a>Creación de una aplicación web e implementación de archivos con FTP
 
@@ -43,10 +43,10 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 
 | Get-Help | Notas |
 |---|---|
-| [`az group create`](/cli/azure/group?view=azure-cli-latest#az_group_create) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
-| [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) | Crea un plan de App Service, |
-| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) | Crea una aplicación web de Azure. |
-| [`az webapp deployment list-publishing-profiles`](/cli/azure/webapp/deployment?view=azure-cli-latest#az_webapp_deployment_list_publishing_profiles) | Obtiene los detalles de los perfiles de implementación de aplicación web disponibles. |
+| [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
+| [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | Crea un plan de App Service, |
+| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Crea una aplicación web de Azure. |
+| [`az webapp deployment list-publishing-profiles`](/cli/azure/webapp/deployment?view=azure-cli-latest#az-webapp-deployment-list-publishing-profiles) | Obtiene los detalles de los perfiles de implementación de aplicación web disponibles. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -1,11 +1,11 @@
 ---
-title: "Introducción a Azure Mobile Engagement para Web Apps | Microsoft Docs"
-description: "Aprenda a usar Azure Mobile Engagement con análisis y notificaciones push para Web Apps."
+title: Introducción a Azure Mobile Engagement para Web Apps | Microsoft Docs
+description: Aprenda a usar Azure Mobile Engagement con análisis y notificaciones push para Web Apps.
 services: mobile-engagement
 documentationcenter: Mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 04afe53a-4caf-4c80-bd75-20cc630cd75c
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: js
 ms.topic: hero-article
 ms.date: 06/01/2016
 ms.author: piyushjo
-ms.openlocfilehash: abcb04e4e0a3ae4fdba3a4ded20b3846ac3b21e6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bb7a0e61b6d29c292642fd950aed7617de9b340d
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-web-apps"></a>Introducción a Azure Mobile Engagement para Web Apps
+> [!IMPORTANT]
+> Azure Mobile Engagement se retira el 31 de marzo de 2018. Esta página se eliminará poco después.
+> 
+
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 En este tema se muestra cómo usar Azure Mobile Engagement para conocer el uso de Aplicaciones web.
@@ -36,7 +40,7 @@ Este tutorial requiere lo siguiente:
 Este SDK web está en vista previa, solo admite Analytics por el momento y aún no admite el envío de notificaciones push desde el explorador o desde la aplicación. 
 
 > [!NOTE]
-> Para completar este tutorial, deberá tener una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-web-app-get-started).
+> Para completar este tutorial, deberá tener una cuenta de Azure activa. En caso de no tener cuenta, puede crear una de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-web-app-get-started).
 > 
 > 
 

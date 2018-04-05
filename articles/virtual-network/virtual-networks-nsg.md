@@ -1,6 +1,6 @@
 ---
 title: Grupos de seguridad de red en Azure | Microsoft Docs
-description: "Aprenda cómo aislar y controlar el flujo de tráfico dentro de las redes virtuales mediante el firewall distribuido de Azure y los grupos de seguridad de red."
+description: Aprenda cómo aislar y controlar el flujo de tráfico dentro de las redes virtuales mediante el firewall distribuido de Azure y los grupos de seguridad de red.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.openlocfilehash: bd15b7786552d21c8791eeb307aa8c87066b2bcd
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: c38223674061aa8c257e47b6208f890b7aef378d
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>Filtrado del tráfico de red con grupos de seguridad de red
 
@@ -123,10 +123,10 @@ Puede implementar los grupos de seguridad de red en el modelo de implementación
 
 | Herramienta de implementación | Clásico | Resource Manager |
 | --- | --- | --- |
-| Azure Portal   | Sin  | [Sí](virtual-networks-create-nsg-arm-pportal.md) |
-| PowerShell     | [Sí](virtual-networks-create-nsg-classic-ps.md) | [Sí](virtual-networks-create-nsg-arm-ps.md) |
-| CLI de Azure **V1**   | [Sí](virtual-networks-create-nsg-classic-cli.md) | [Sí](virtual-networks-create-nsg-arm-cli.md) |
-| CLI de Azure **V2**   | Sin  | [Sí](virtual-networks-create-nsg-arm-cli.md) |
+| Azure Portal   | Sí | [Sí](virtual-networks-create-nsg-arm-pportal.md) |
+| PowerShell     | [Sí](virtual-networks-create-nsg-classic-ps.md) | [Sí](tutorial-filter-network-traffic.md) |
+| CLI de Azure **V1**   | [Sí](virtual-networks-create-nsg-classic-cli.md) | [Sí](tutorial-filter-network-traffic-cli.md) |
+| CLI de Azure **V2**   | Sin  | [Sí](tutorial-filter-network-traffic-cli.md) |
 | Plantilla del Administrador de recursos de Azure   | Sin   | [Sí](virtual-networks-create-nsg-arm-template.md) |
 
 ## <a name="planning"></a>Planificación

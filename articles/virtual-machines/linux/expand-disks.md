@@ -1,24 +1,24 @@
 ---
-title: "Expansión de discos duros virtuales en máquinas virtuales Linux en Azure | Microsoft Docs"
-description: "Obtenga información sobre cómo expandir discos duros virtuales en una máquina virtual con Linux mediante la CLI de Azure 2.0."
+title: Expansión de discos duros virtuales en máquinas virtuales Linux en Azure | Microsoft Docs
+description: Obtenga información sobre cómo expandir discos duros virtuales en una máquina virtual con Linux mediante la CLI de Azure 2.0.
 services: virtual-machines-linux
-documentationcenter: 
-author: iainfoulds
+documentationcenter: ''
+author: roygara
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/13/2017
-ms.author: iainfou
-ms.openlocfilehash: f717aca4f68811b5973fcee8791ac7db3a66e74a
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.author: rogarana
+ms.openlocfilehash: c3dcd2f9c71b64ac48c2c7b6f51d2694d649c15e
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Expansión de discos duros virtuales en una máquina virtual Linux mediante la CLI de Azure
 Normalmente, el tamaño predeterminado del disco duro virtual del sistema operativo (SO) es de 30 GB en una máquina virtual Linux de Azure. Tiene la opción de [agregar discos de datos](add-disk.md) para proporcionar espacio de almacenamiento adicional, pero puede que también desee expandir un disco de datos existente. En este artículo se explica cómo expandir discos administrados para una máquina virtual con Linux mediante la utilización de la CLI de Azure 2.0. También puede expandir el disco del sistema operativo no administrado con la [CLI de Azure 1.0](expand-disks-nodejs.md).

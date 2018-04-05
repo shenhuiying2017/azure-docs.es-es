@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 03/30/2018
 ms.author: mabrigg
-ms.openlocfilehash: 2b306cc9dc9bbf435eb70315cc46e7faf4268b47
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 55fd212a895ed861cb5a9be0e4dae283e3cb5cfd
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="get-up-and-running-with-powershell-in-azure-stack"></a>Póngase a trabajar con PowerShell en Azure Stack
 
@@ -32,9 +32,6 @@ Este artículo es una versión comprimida de los pasos descritos en los artícul
 ## <a name="set-up-powershell-for-azure-active-directory-based-deployments"></a>Configuración de PowerShell para las implementaciones basadas en Azure Active Directory
 
 Inicie sesión en el Kit de desarrollo de Azure Stack o en un cliente externo basado en Windows, si está conectado a través de VPN. Abra una sesión de PowerShell ISE con privilegios elevados y, luego, ejecute el siguiente script. Asegúrese de actualizar las variables **TenantName**, **ArmEndpoint** y **GraphAudience** según sea necesario para la configuración del entorno:
-
-> [!IMPORTANT]
-> La versión del módulo de PowerShell AzureRM 1.2.11 incluye una lista de los últimos cambios. Para actualizar desde la versión 1.2.10, vea la [guía de migración](https://aka.ms/azspowershellmigration).
 
 ```powershell
 # Specify Azure Active Directory tenant name.

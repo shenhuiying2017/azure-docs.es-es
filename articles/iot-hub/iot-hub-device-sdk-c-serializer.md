@@ -14,14 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/06/2016
 ms.author: yizhon
-ms.openlocfilehash: da9a2dd8bad68c03bb75d1772cf9e5dc539892aa
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 04b5ebf6d8c568fbfd9b291bef95af973ec5d6d7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>SDK de dispositivo IoT de Azure para C: más información sobre el serializador
 En el [primer el artículo](iot-hub-device-sdk-c-intro.md) de esta serie se presentaba el **SDK de dispositivo IoT de Azure**. A este le siguió un artículo que proporcionaba una descripción más detallada de [**IoTHubClient**](iot-hub-device-sdk-c-iothubclient.md). En este artículo terminaremos de analizar el SDK y proporcionaremos una descripción más detallada del componente que queda: la biblioteca de **serializador** .
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 En el artículo de introducción se describía cómo usar la biblioteca de **serializador** para enviar eventos a IoT Hub y recibir mensajes de él. En este artículo ampliaremos esta discusión con una explicación más completa de cómo modelar los datos con el macrolenguaje de **serializador** . También incluiremos en él más detalles sobre cómo la biblioteca serializa los mensajes (y, en algunos casos, cómo se puede controlar el comportamiento de serialización). Asimismo, describiremos algunos parámetros que se pueden modificar que determinan el tamaño de los modelos que se crean.
 

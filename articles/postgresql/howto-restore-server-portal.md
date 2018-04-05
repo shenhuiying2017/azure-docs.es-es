@@ -1,6 +1,6 @@
 ---
-title: "Restauración de un servidor en Azure Database for PostgreSQL"
-description: "En este artículo se describe cómo restaurar un servidor en Azure Database for PostgreSQL mediante Azure Portal."
+title: Restauración de un servidor en Azure Database for PostgreSQL
+description: En este artículo se describe cómo restaurar un servidor en Azure Database for PostgreSQL mediante Azure Portal.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -8,14 +8,14 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: 7607a3e60eec39de61c785b8ff75a9f11fa02d0c
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.date: 04/01/2018
+ms.openlocfilehash: 0d67bf5625ee9037c5ec152c8ce8564235018e8e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-portal"></a>Copia de seguridad y restauración de un servidor en Azure Database for PostgreSQL mediante Azure Portal
+# <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-portal"></a>Copia de seguridad y restauración de un servidor en Azure Database for PostgreSQL mediante Azure Portal
 
 ## <a name="backup-happens-automatically"></a>Las copias de seguridad se realizan automáticamente
 Periódicamente, se realizan copias de seguridad de los servidores de Azure Database for PostgreSQL para habilitar las características de restauración. Con esta característica, puede restaurar el servidor y todas sus bases de datos en un servidor nuevo a un momento dado anterior.
@@ -45,7 +45,7 @@ En la captura de pantalla siguiente, se ha aumentado a 34 días.
 
 El período de retención de copia de seguridad rige durante cuánto tiempo se puede realizar una restauración a un momento dado, porque se basa en las copias de seguridad disponibles. La restauración a un momento dado se describe con más detalle en la sección siguiente. 
 
-## <a name="point-in-time-restore-in-the-azure-portal"></a>Restauración a un momento dado en Azure Portal
+## <a name="point-in-time-restore"></a>Restauración a un momento dado
 Azure Database for PostgreSQL permite restaurar el servidor a un momento dado y en una nueva copia del servidor. Puede usar este nuevo servidor para recuperar los datos o hacer que las aplicaciones cliente apunten a este nuevo servidor.
 
 Por ejemplo, si una tabla se quitó accidentalmente a mediodía de hoy, podría restaurar al momento justo antes de mediodía y recuperar la tabla y los datos que faltan desde esa copia nueva del servidor. La restauración a un momento dado se realiza en el nivel del servidor, no en el nivel de base de datos.
@@ -71,6 +71,22 @@ Los siguientes pasos restauran el servidor de ejemplo a un momento dado:
 
 >[!Note]
 >El nuevo servidor creado mediante restauración a un momento dado tiene el mismo nombre de inicio de sesión y contraseña de administrador del servidor que el servidor existente tenía en ese momento dado. Puede cambiar la contraseña en la página **Información general** del nuevo servidor.
+
+## <a name="geo-restore"></a>Restauración geográfica
+Si ha configurado el servidor para copias de seguridad con redundancia geográfica, se puede crear un nuevo servidor a partir de la copia de seguridad de ese servidor existente. Este nuevo servidor puede crearse en cualquier región en la que Azure Database for PostgreSQL esté disponible.  
+
+1. Seleccione el botón **Crear un recurso** (+) de la esquina superior izquierda del portal. Seleccione **Bases de datos** > **Azure Database for PostgreSQL**.
+
+   ![Opción "Azure Database for PostgreSQL"](./media/howto-restore-server-portal/1-navigate-to-postgres.png)
+
+2. En el menú desplegable **Seleccionar origen** del formulario, elija **Copia de seguridad**. Esta acción carga una lista de servidores que tienen habilitadas copias de seguridad con redundancia geográfica. Seleccione una de las copias de seguridad como origen del nuevo servidor.
+   ![Seleccionar origen: Copia de seguridad y lista de copias de seguridad con redundancia geográfica](./media/howto-restore-server-portal/2-georestore.png)
+
+3. Rellene el resto del formulario con sus preferencias. Puede seleccionar cualquier valor en **Ubicación**. Después de seleccionar la ubicación, seleccione un valor en **Plan de tarifa**. De forma predeterminada, se muestran los parámetros del servidor existente que se va a restaurar. Puede hacer clic en **Aceptar** sin realizar ningún cambio para heredar esa configuración. O bien, puede cambiar los valores de **Generación de procesos** (si está disponible en la región que haya elegido), **Núcleos virtuales**, **Período de retención de copia de seguridad** y **Opciones de redundancia de copia de seguridad**. No se permite cambiar el **Plan de tarifa** (Básico, Uso general o Memoria optimizada) ni el tamaño de **Almacenamiento** durante la restauración.
+
+>[!Note]
+>El nuevo servidor creado mediante restauración geográfica tiene el mismo nombre de inicio de sesión y contraseña de administrador del servidor que el servidor existente tenía cuando se inició la restauración. La contraseña se puede cambiar en la página **Información general** del nuevo servidor.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Más información acerca de las [copias de seguridad](concepts-backup.md) del servicio.

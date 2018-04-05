@@ -1,11 +1,11 @@
 ---
-title: "Introducción a las aplicaciones Android de Azure Mobile Engagement"
-description: "Aprenda a usar Azure Mobile Engagement con los análisis y las notificaciones de inserción para aplicaciones Android."
+title: Introducción a las aplicaciones Android de Azure Mobile Engagement
+description: Aprenda a usar Azure Mobile Engagement con los análisis y las notificaciones de inserción para aplicaciones Android.
 services: mobile-engagement
 documentationcenter: android
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 3c286c6d-cfef-4e3e-9b2c-715429fe82db
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,19 +14,24 @@ ms.devlang: Java
 ms.topic: hero-article
 ms.date: 08/10/2016
 ms.author: piyushjo;ricksal
-ms.openlocfilehash: 2c5d9c5458b77263a5d1da93e5305e61999f229f
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 4eda8129e03e4880e168f7c154c7236da028e81e
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-android-apps"></a>Introducción a Azure Mobile Engagement para aplicaciones Android
+> [!IMPORTANT]
+> Azure Mobile Engagement se retira el 31 de marzo de 2018. Esta página se eliminará poco después.
+> 
+
+
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 En este tema se muestra cómo usar Azure Mobile Engagement para comprender el uso de su aplicación y cómo enviar notificaciones push a los usuarios segmentados de una aplicación de Android.
 En este tutorial se demuestra el escenario de difusión sencillo con Mobile Engagement. En él, creará una aplicación vacía de Android que recopile datos básicos y reciba notificaciones push mediante Google Cloud Messaging (GCM).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Para completar este tutorial se requieren la [Herramientas para desarrolladores de Android](https://developer.android.com/sdk/index.html), que incluyen el entorno de desarrollo integrado de Android Studio y la última plataforma de Android.
 
 Descargue el [SDK de Android para Mobile Engagement](https://aka.ms/vq9mfn).
@@ -156,7 +161,7 @@ En la sección siguiente se instala la aplicación para recibirlos.
 
 [!INCLUDE [Send notification from portal](../../includes/mobile-engagement-android-send-push-from-portal.md)]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Vaya a [SDK de Android](mobile-engagement-android-sdk-overview.md) para obtener información detallada sobre la integración de SDK.
 
 <!-- Images. -->

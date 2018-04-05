@@ -1,11 +1,11 @@
 ---
-title: "Depuración de un servicio en la nube de Azure publicado con Visual Studio e IntelliTrace | Microsoft Docs"
-description: "Obtenga información sobre cómo depurar un servicio en la nube con Visual Studio e IntelliTrace"
+title: Depuración de un servicio en la nube de Azure publicado con Visual Studio e IntelliTrace | Microsoft Docs
+description: Obtenga información sobre cómo depurar un servicio en la nube con Visual Studio e IntelliTrace
 services: visual-studio-online
 documentationcenter: n/a
 author: mikejo
-manager: ghogen
-editor: 
+manager: douge
+editor: ''
 ms.assetid: 5e6662fc-b917-43ea-bf2b-4f2fc3d213dc
 ms.service: visual-studio-online
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/21/2017
 ms.author: mikejo
-ms.openlocfilehash: d33a8338b37f7479196449238388c7dbf391bbb6
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 2ca15bd5ffa88d2e8053decf5b81c265b1d9c6e1
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="debugging-a-published-azure-cloud-service-with-visual-studio-and-intellitrace"></a>Depuración de un servicio en la nube de Azure publicado con Visual Studio e IntelliTrace
 Con IntelliTrace, puede registrar información de depuración amplia para una instancia de rol cuando se ejecuta en Azure. Si necesita encontrar la causa de un problema, puede utilizar los registros de IntelliTrace para recorrer su código desde Visual Studio como si se estuviera ejecutando en Azure. De hecho, IntelliTrace graba datos de entorno y ejecución de código de clave  cuando su aplicación de Azure se ejecuta como servicio en la nube en Azure y le permite reproducir los datos grabados desde Visual Studio. 
@@ -61,7 +61,7 @@ Después de que el servicio en la nube de Azure se publica en Azure, puede deter
 ## <a name="download-intellitrace-logs-for-a-role-instance"></a>Descarga de registros de IntelliTrace para una instancia de rol
 Con Visual Studio, puede descargar registros de IntelliTrace para una instancia de rol si sigue estos pasos:
 
-1. En **Explorador de servidores**, expanda el nodo **Servicios en la nube** y ubique la instancia de rol cuyos registros desea descargar. 
+1. En **Explorador de servidores**, expanda el nodo **Cloud Services** y ubique la instancia de rol cuyos registros desea descargar. 
 
 1. Haga clic con el botón derecho en la instancia de rol y, en el menú contextual, seleccione **Ver registros de IntelliTrace**. 
 

@@ -1,11 +1,11 @@
 ---
-title: "Administración de cuentas de desarrollador mediante grupos en Azure API Management | Microsoft Docs"
-description: "Obtenga información acerca de cómo administrar cuentas de desarrollador mediante los grupos en Azure API Management."
+title: Administración de cuentas de desarrollador mediante grupos en Azure API Management | Microsoft Docs
+description: Obtenga información acerca de cómo administrar cuentas de desarrollador mediante los grupos en Azure API Management.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: f4e1f8a701b5584138b92526e0e65e28d45e7c04
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 184c8fff35a59715407989589d6d69b3dc2481e0
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>Creación y uso de grupos para administrar cuentas de desarrollador en Azure API Management
 En Administración de API, los grupos se usan para administrar la visibilidad de productos para los desarrolladores. Los productos son visibles en primer lugar para los grupos y luego los desarrolladores de dichos grupos pueden ver y suscribirse a los productos asociados a los grupos. 
@@ -32,7 +32,7 @@ Además de estos grupos del sistema, los administradores pueden crear grupos per
 
 En esta guía se muestra cómo los administradores de una instancia de API Management pueden agregar nuevos grupos y asociarlos a productos y desarrolladores.
 
-Además de crear y administrar grupos en el portal del editor, puede crear y administrar sus grupos mediante la entidad de [grupo](https://msdn.microsoft.com/library/azure/dn776329.aspx) de la API de REST de administración.
+Además de crear y administrar grupos en el portal del editor, puede crear y administrar sus grupos mediante la entidad de [grupo](https://docs.microsoft.com/en-us/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity) de la API de REST de administración.
 
 ## <a name="prerequisites"></a>requisitos previos
 
@@ -94,7 +94,7 @@ Una vez agregada, la asociación entre el desarrollador y el grupo se puede ver 
 ## <a name="next-steps"> </a>Pasos siguientes
 
 * Una vez agregado a un grupo, un desarrollador puede ver los productos asociados al grupo y suscribirse a ellos. Para obtener más información, consulte [Creación y publicación de un producto en Azure API Management][How create and publish a product in Azure API Management].
-* Además de crear y administrar grupos en el portal del editor, puede crear y administrar sus grupos mediante la entidad de [grupo](https://msdn.microsoft.com/library/azure/dn776329.aspx) de la API de REST de administración.
+* Además de crear y administrar grupos en el portal del editor, puede crear y administrar sus grupos mediante la entidad de [grupo](https://docs.microsoft.com/en-us/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity) de la API de REST de administración.
 
 [Create a group]: #create-group
 [Associate a group with a product]: #associate-group-product

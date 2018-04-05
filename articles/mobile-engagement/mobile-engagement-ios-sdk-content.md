@@ -1,11 +1,11 @@
 ---
 title: Contenido del SDK de iOS de Azure Mobile Engagement
-description: "Actualizaciones y procedimientos más recientes para el SDK de iOS para Azure Mobile Engagement"
+description: Actualizaciones y procedimientos más recientes para el SDK de iOS para Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: MehrdadMzfr
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 2566eeb6-be82-4d83-aaf6-ebdcb8841189
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: bdc96cd47ece6054184d167192ebec4cd4bd081c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cbb783b7b1a23cc62a7e214ce90374ba8c84b5d8
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="sdk-content"></a>Contenido del SDK
+> [!IMPORTANT]
+> Azure Mobile Engagement se retira el 31 de marzo de 2018. Esta página se eliminará poco después.
+> 
+
 En este documento se indica y describe el contenido del archivo SDK.
 
 ## <a name="engagement-sdk"></a>SDK de Engagement

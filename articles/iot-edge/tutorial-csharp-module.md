@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 03/14/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 95ca66f34548f86e25c1e7af331fa88797847906
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 11c737adb6578437a3708bb97397a24114e39585
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="develop-and-deploy-a-c-iot-edge-module-to-your-simulated-device---preview"></a>Desarrollar e implementar un módulo IoT Edge C# en su dispositivo simulado: versión preliminar
 
@@ -223,6 +223,7 @@ En los siguientes pasos puede ver cómo crear un módulo IoT Edge basado en .NET
    ```csh/sh
    docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
+   Para buscar el nombre de usuario, la contraseña y el servidor de inicio de sesión que se van a usar en este comando, vaya a [Azure Portal] (https://portal.azure.com). En **Todos los recursos**, haga clic en el icono para que Azure Container Registry abra sus propiedades y, después, haga clic en **Claves de acceso**. Copie los valores en los campos **Nombre de usuario**, **Contraseña** y **Servidor de inicio de sesión**. 
 
 2. En el explorador de VS Code, haga clic con el botón derecho en el archivo **module.json** y haga clic en **Build and Push IoT Edge module Docker image** (Compilar e insertar la imagen de Docker del módulo de IoT Edge). En el cuadro de lista desplegable emergente situado en la parte superior de la ventana de VS Code, seleccione la plataforma de contenedor, **amd64** para el contenedor de Linux o **windows-amd64** para el contenedor de Windows. A continuación, VS Code compila el código, pone `FilterModule.dll` en contenedores y lo inserta en el registro de contenedor especificado.
 

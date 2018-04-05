@@ -1,11 +1,11 @@
 ---
-title: "Guía de solución de problemas de Azure Mobile Engagement - API"
-description: "Guías de solución de problemas de Azure Mobile Engagement - API"
+title: Guía de solución de problemas de Azure Mobile Engagement - API
+description: Guías de solución de problemas de Azure Mobile Engagement - API
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 3efc8a52-2b74-4917-b887-815ae8277474
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 10/04/2016
 ms.author: piyushjo
-ms.openlocfilehash: a7ae0a83046f2d67b790f672dcd3ae261987357a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cda11c8d2f1d147a807083c5479d2b2cda65462c
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="troubleshooting-guide-for-api-issues"></a>Guía de solución de problemas de la API
+> [!IMPORTANT]
+> Azure Mobile Engagement se retira el 31 de marzo de 2018. Esta página se eliminará poco después.
+> 
+
 Los siguientes son posibles problemas que pueden producirse con cómo los administradores interactúan con Azure Mobile Engagement a través de las API.
 
 ## <a name="syntax-issues"></a>Problemas de sintaxis
@@ -45,7 +49,7 @@ Los siguientes son posibles problemas que pueden producirse con cómo los admini
 ### <a name="causes"></a>Causas
 * Confirmar que puede realizar la misma acción desde la interfaz de usuario de Azure Mobile Engagement muestra que ha integrado correctamente esta función de Azure Mobile Engagement con el SDK.
 
-### <a name="see-also"></a>Consulte también
+### <a name="see-also"></a>Otras referencias
 * [Documentación de la interfaz de usuario][Link 1]
 
 ## <a name="error-messages"></a>Mensajes de error
@@ -75,7 +79,7 @@ Los siguientes son posibles problemas que pueden producirse con cómo los admini
         503        Analytics not available yet (the requested information is not computed yet for an application).
         504        The server was not able to handle your request in a reasonable time (if you make multiple calls to an API very quickly, try to make one call at a time and spread the calls out over time).
 
-### <a name="see-also"></a>Consulte también
+### <a name="see-also"></a>Otras referencias
 * [Documentación de API: para errores detallados en cada API específica][Link 4]
 
 ## <a name="silent-failures"></a>Errores silenciosos
@@ -86,7 +90,7 @@ Los siguientes son posibles problemas que pueden producirse con cómo los admini
 * Muchos elementos se deshabilitarán en la interfaz de usuario de Azure Mobile Engagement si no se integran correctamente, pero se producirá un error silenciosamente a través de la API, por lo tanto, no olvide probar la misma funcionalidad desde la interfaz de usuario para ver si funciona.
 * Azure Mobile Engagement y muchas funciones avanzadas de Azure Mobile Engagement que está intentando usar necesitan integrarse individualmente en su aplicación con el SDK en pasos distintos para poder utilizarlas.
 
-### <a name="see-also"></a>Consulte también
+### <a name="see-also"></a>Otras referencias
 * [Guía de solución de problemas: SDK][Link 25]
 
 <!--Link references-->

@@ -1,11 +1,11 @@
 ---
 title: 'Interfaz de usuario de Azure Mobile Engagement: cobertura'
-description: "Obtenga información acerca de cómo llegar a los usuarios de su aplicación mediante notificaciones de inserción usando Azure Mobile Engagement"
+description: Obtenga información acerca de cómo llegar a los usuarios de su aplicación mediante notificaciones de inserción usando Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: d96e2590-08dd-4481-a352-2c18f26a1643
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: ce30456e41ff1a2f4824bcb64246ee115fdd1ef7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d999b83df7d9d467f08ce8ec72468c738e8acfa5
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-reach-out-to-the-users-of-your-application-with-push-notifications"></a>Cómo llegar a los usuarios de su aplicación mediante notificaciones de inserción
+> [!IMPORTANT]
+> Azure Mobile Engagement se retira el 31 de marzo de 2018. Esta página se eliminará poco después.
+> 
+
 En este artículo se describe la pestaña **ALCANCE** del portal de **Mobile Engagement**. Utilice el portal **Mobile Engagement** para supervisar y administrar sus aplicaciones móviles. Tenga en cuenta que, para comenzar a usar el portal, debe crear en primer lugar una cuenta de **Azure Mobile Engagement** . Para obtener más información, consulte [Crear una cuenta de Azure Mobile Engagement](mobile-engagement-create.md).
 
 La sección de cobertura de la interfaz de usuario es la herramienta de administración de campaña de inserción en la que puede crear/editar/activar/finalizar/supervisar y obtener estadísticas de las campañas de notificaciones de inserción y funciones a las que también se puede acceder a través de la API de cobertura (y algunos elementos de la API de inserción de bajo nivel). Recuerde que tanto si está utilizando las API o la interfaz de usuario, deberá integrar Azure Mobile Engagement y la cobertura en la aplicación para cada plataforma con el SDK para poder utilizar campañas de cobertura.

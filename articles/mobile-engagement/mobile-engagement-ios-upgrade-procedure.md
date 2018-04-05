@@ -1,11 +1,11 @@
 ---
-title: "Procedimiento de actualización del SDK de iOS de Azure Mobile Engagement | Microsoft Docs"
-description: "Actualizaciones y procedimientos más recientes para el SDK de iOS para Azure Mobile Engagement"
+title: Procedimiento de actualización del SDK de iOS de Azure Mobile Engagement | Microsoft Docs
+description: Actualizaciones y procedimientos más recientes para el SDK de iOS para Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 72a9e493-3f14-4e52-b6e2-0490fd04b184
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 12/13/2016
 ms.author: piyushjo
-ms.openlocfilehash: 37c7f133d079186f828d58cabce0d2a259efd085
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ac03593cf0c983297e583985a3e68ea6c17e39de
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="upgrade-procedures"></a>Procedimientos de actualización
+> [!IMPORTANT]
+> Azure Mobile Engagement se retira el 31 de marzo de 2018. Esta página se eliminará poco después.
+> 
+
 Si ya integró una versión anterior de Engagement en la aplicación, debería tener en cuenta los siguientes puntos a la hora de actualizar el SDK.
 
 Para cada nueva versión del SDK debe reemplazar primero (quitar y volver a importar en xcode) las carpetas EngagementSDK y EngagementReach.

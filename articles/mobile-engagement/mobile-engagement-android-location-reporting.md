@@ -1,11 +1,11 @@
 ---
-title: "Informes de ubicación para el SDK de Android para Azure Mobile Engagement"
-description: "Describe cómo configurar los informes de ubicación para el SDK de Android para Azure Mobile Engagement"
+title: Informes de ubicación para el SDK de Android para Azure Mobile Engagement
+description: Describe cómo configurar los informes de ubicación para el SDK de Android para Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 6cab5ed1-b767-46ac-9f0b-48a4e249d88c
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/12/2016
 ms.author: piyushjo;ricksal
-ms.openlocfilehash: 777d5719cce505b55dfb61c91dcac7e713b077a9
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 7978010bd92af18e3ab7c8ccab8dc682d7ef18df
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="location-reporting-for-azure-mobile-engagement-android-sdk"></a>Informes de ubicación para el SDK de Android para Azure Mobile Engagement
+> [!IMPORTANT]
+> Azure Mobile Engagement se retira el 31 de marzo de 2018. Esta página se eliminará poco después.
+> 
+
 > [!div class="op_single_selector"]
 > * [Android](mobile-engagement-android-integrate-engagement.md)
 > 
@@ -28,7 +32,7 @@ ms.lasthandoff: 12/21/2017
 
 Este tema describe cómo realizar informes de ubicación para la aplicación de Android.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 [!INCLUDE [Prereqs](../../includes/mobile-engagement-android-prereqs.md)]
 
 ## <a name="location-reporting"></a>Informes de ubicación

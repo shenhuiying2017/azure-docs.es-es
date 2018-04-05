@@ -1,25 +1,25 @@
 ---
-title: "Uso de las dependencias de las tareas para ejecutar tareas en función de la finalización de otras tareas: Azure Batch | Microsoft Docs"
-description: "Cree tareas que dependan de la finalización de otras para procesar grandes cargas de trabajo de macrodatos similares y de estilo MapReduce en Azure Batch."
+title: 'Uso de las dependencias de las tareas para ejecutar tareas en función de la finalización de otras tareas: Azure Batch | Microsoft Docs'
+description: Cree tareas que dependan de la finalización de otras para procesar grandes cargas de trabajo de macrodatos similares y de estilo MapReduce en Azure Batch.
 services: batch
 documentationcenter: .net
-author: tamram
-manager: timlt
-editor: 
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: b8d12db5-ca30-4c7d-993a-a05af9257210
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 05/22/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 465306d2de8d1dbe6ba1f0cd74be720b78a50de3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ba85e075c39251b0b3d7c4b8bc3f8d53a1afadf7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>Creación de dependencias de tareas para ejecutar las tareas que dependan de otras tareas
 
@@ -36,8 +36,8 @@ De forma predeterminada, las tareas dependientes están programadas para ejecuta
 
 Puede crear tareas que dependan de otras en una relación de una a una o una a varias. También puede crear una dependencia de intervalo, en la que una tarea depende de la finalización de un grupo de tareas dentro de un intervalo especificado de identificadores de tarea. Puede combinar estos tres escenarios básicos para crear relaciones de varios a varios.
 
-## <a name="task-dependencies-with-batch-net"></a>Dependencias de tareas con Lote de .NET
-En este artículo se describe cómo configurar las dependencias de tareas mediante la biblioteca de [.NET para Batch][net_msdn]. Primero le mostraremos cómo [habilitar la dependencia de tareas](#enable-task-dependencies) en sus trabajos y, después, le demostraremos cómo [configurar una tarea con dependencias](#create-dependent-tasks). También se describe cómo especificar una acción de dependencia para ejecutar tareas dependientes, si se produce un error en la principal. Por último, se tratarán los [escenarios de dependencia](#dependency-scenarios) compatibles con Lote.
+## <a name="task-dependencies-with-batch-net"></a>Dependencias de tareas con Batch .NET
+En este artículo se describe cómo configurar las dependencias de tareas mediante la biblioteca de [.NET para Batch][net_msdn]. Primero le mostraremos cómo [habilitar la dependencia de tareas](#enable-task-dependencies) en sus trabajos y, después, le demostraremos cómo [configurar una tarea con dependencias](#create-dependent-tasks). También se describe cómo especificar una acción de dependencia para ejecutar tareas dependientes, si se produce un error en la principal. Por último, se tratarán los [escenarios de dependencia](#dependency-scenarios) compatibles con Batch.
 
 ## <a name="enable-task-dependencies"></a>Habilitación de dependencias de tareas
 Para utilizar la dependencia de tareas en la aplicación Batch, antes es preciso configurar el trabajo para usar dependencias de tareas. En .NET para Batch, habilítelo en [CloudJob][net_cloudjob] estableciendo su propiedad [UsesTaskDependencies][net_usestaskdependencies] en `true`:
@@ -72,7 +72,7 @@ Este fragmento de código crea una tarea dependiente con el identificador de tar
 > 
 
 ## <a name="dependency-scenarios"></a>escenarios de dependencia
-Hay tres escenarios de dependencia de tareas básicos que puede usar en Lote de Azure: uno a uno, uno a varios y la dependencia de intervalo de identificadores de tarea. Estos se pueden combinar para proporcionar un cuarto escenario, varios a varios.
+Hay tres escenarios de dependencia de tareas básicos que puede usar en Azure Batch: uno a uno, uno a varios y la dependencia de intervalo de identificadores de tarea. Estos se pueden combinar para proporcionar un cuarto escenario, varios a varios.
 
 | Escenario&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Ejemplo |  |
 |:---:| --- | --- |
@@ -209,7 +209,7 @@ El proyecto de ejemplo [TaskDependencies][github_taskdependencies] es uno de los
 
 ## <a name="next-steps"></a>Pasos siguientes
 ### <a name="application-deployment"></a>Implementación de la aplicación
-La característica [paquetes de aplicación](batch-application-packages.md) de Lote proporciona una manera sencilla de implementar y de cambiar la versión de las aplicaciones que las tareas ejecutan en los nodos de proceso.
+La característica [paquetes de aplicación](batch-application-packages.md) de Batch proporciona una manera sencilla de implementar y de cambiar la versión de las aplicaciones que las tareas ejecutan en los nodos de proceso.
 
 ### <a name="installing-applications-and-staging-data"></a>Instalación de aplicaciones y datos de ensayo
 Consulte [Installing applications and staging data on Batch compute nodes][forum_post] (Instalación de aplicaciones y datos de ensayo en nodos de proceso de Batch) en el foro de Azure Batch para ver la información general sobre los métodos de preparación de los nodos para ejecutar tareas. Este artículo, escrito por uno de los miembros del equipo de Azure Batch, es una buena toma de contacto sobre las diferentes maneras de copiar aplicaciones, datos de entrada de tareas y otros archivos en los nodos de proceso.

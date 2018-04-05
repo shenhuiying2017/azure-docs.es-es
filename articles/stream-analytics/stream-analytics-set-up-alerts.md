@@ -1,12 +1,11 @@
 ---
-title: "Configuración de alertas para consultas en Stream Analytics | Microsoft Docs"
-description: "Descripción de las entradas del Análisis de transmisiones"
-keywords: "configuración de alertas"
+title: Configuración de alertas para consultas en Stream Analytics | Microsoft Docs
+description: Descripción de las entradas del Stream Analytics
+keywords: configuración de alertas
 services: stream-analytics
-documentationcenter: 
-author: samacha
-manager: jhubbard
-editor: cgronlun
+documentationcenter: ''
+author: jseb225
+manager: ryanw
 ms.assetid: 9952e2cf-b335-4a5c-8f45-8d3e1eda2e20
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/26/2017
-ms.author: samacha
-ms.openlocfilehash: cdbd7da36f3eb2795fc4548915ebbf18200ca44d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: b88d7e82ffcd2fab1845faf92f6d7a53b72cb54d
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
-# <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Configuración de alertas en Análisis de transmisiones de Azure
+# <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Configuración de alertas en Azure Stream Analytics
 ## <a name="introduction-monitor-page"></a>Introducción: Página de supervisión
 Puede configurar alertas para desencadenar una alerta cuando una métrica alcance una condición que especifique. Por ejemplo, puede configurar una alerta para una condición similar a la siguiente:
 
@@ -49,13 +48,13 @@ Las reglas se pueden configurar en las métricas a través del portal o se puede
 Para más información sobre la configuración de alertas en Azure Portal, consulte el artículo sobre la [recepción de notificaciones de alerta](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).  
 
 
-## <a name="get-help"></a>Obtener ayuda
-Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+## <a name="get-help"></a>Obtención de ayuda
+Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Introducción al Análisis de transmisiones de Azure](stream-analytics-introduction.md)
-* [Introducción al uso de Análisis de transmisiones de Azure](stream-analytics-get-started.md)
-* [Escalación de trabajos de Análisis de transmisiones de Azure](stream-analytics-scale-jobs.md)
-* [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Introducción a Azure Stream Analytics](stream-analytics-introduction.md)
+* [Introducción al uso de Azure Stream Analytics](stream-analytics-get-started.md)
+* [Escalación de trabajos de Azure Stream Analytics](stream-analytics-scale-jobs.md)
+* [Referencia del lenguaje de consulta de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Referencia de API de REST de administración de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

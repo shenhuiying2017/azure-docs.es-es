@@ -1,12 +1,11 @@
 ---
-title: "Stream Analytics: Rotación de las credenciales de inicio de sesión para entradas y salidas | Microsoft Docs"
-description: "Obtenga información acerca de cómo actualizar las credenciales para las entradas y salidas de Stream Analytics."
-keywords: "credenciales de inicio de sesión"
+title: 'Stream Analytics: Rotación de las credenciales de inicio de sesión para entradas y salidas | Microsoft Docs'
+description: Obtenga información acerca de cómo actualizar las credenciales para las entradas y salidas de Stream Analytics.
+keywords: credenciales de inicio de sesión
 services: stream-analytics
-documentationcenter: 
+documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-editor: cgronlun
 ms.assetid: 42ae83e1-cd33-49bb-a455-a39a7c151ea4
 ms.service: stream-analytics
 ms.devlang: na
@@ -15,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 01/11/2018
 ms.author: sngun
-ms.openlocfilehash: c1aded8fefc7b56acd2e9ff36bb2c9641665db76
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: d01e5d9f0bbfe6ca3ef8511aeb813cead3809f04
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="rotate-login-credentials-for-inputs-and-outputs-of-a-stream-analytics-job"></a>Rotación de las credenciales de inicio de sesión para entradas y salidas de un trabajo de Stream Analytics
 
@@ -86,7 +85,7 @@ Debe conectarse a la base de datos SQL para actualizar las credenciales de inici
 2. Seleccione **Hora de la última detención** y haga clic en **Iniciar**. Tenga en cuenta que la opción "Hora de la última detención" solo aparece si previamente ejecutó el trabajo y se generaron algunos resultados. El trabajo se reinicia en función de la hora del último valor de salida.
    ![Inicio del trabajo](media/stream-analytics-login-credentials-inputs-outputs/image5.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Introducción a Azure Stream Analytics](stream-analytics-introduction.md)
 * [Introducción al uso de Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Escalación de trabajos de Azure Stream Analytics](stream-analytics-scale-jobs.md)

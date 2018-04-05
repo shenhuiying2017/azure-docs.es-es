@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: arramac
-ms.openlocfilehash: a92d2ed1686765a54812ff82066bc30c1d48848d
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: c0ba9934afef6cb4d546e315c271cc19b6d3fa02
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Optimización del rendimiento de consultas con Azure Cosmos DB
 
@@ -138,7 +138,7 @@ Los encabezados de respuesta principales devueltos por la consulta incluyen los 
 | `x-ms-documentdb-query-metrics` | Las estadísticas de consulta para la ejecución. Es una cadena delimitada que contiene las estadísticas del tiempo empleado en las distintas fases de ejecución de consultas. Se devuelve si `x-ms-documentdb-populatequerymetrics` está establecido en `True`. | 
 | `x-ms-request-charge` | El número de [unidades de solicitud](request-units.md) usadas por la consulta. | 
 
-Para más información sobre los encabezados de solicitud y las opciones de la API de REST, consulte [Querying resources using the REST API](https://docs.microsoft.com/rest/api/documentdb/querying-documentdb-resources-using-the-rest-api) (Consulta de recursos mediante la API de REST).
+Para más información sobre los encabezados de solicitud y las opciones de la API de REST, consulte [Querying resources using the REST API](https://docs.microsoft.com/rest/api/cosmos-db/querying-cosmosdb-resources-using-the-rest-api) (Consulta de recursos mediante la API de REST).
 
 ## <a name="best-practices-for-query-performance"></a>Procedimientos recomendados para el rendimiento de consultas
 A continuación se muestran los factores más comunes que afectan al rendimiento de consultas de Azure Cosmos DB. Cada uno de estos temas se tratará con mayor detalle en este artículo.

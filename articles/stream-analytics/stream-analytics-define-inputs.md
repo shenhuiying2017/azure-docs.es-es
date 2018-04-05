@@ -1,12 +1,11 @@
 ---
-title: "Conexión de datos: entradas de flujo de datos desde una transmisión de eventos | Microsoft Docs"
-description: "Obtenga información sobre cómo configurar una conexión de datos a Stream Analytics que se denomina \"entradas\". Entre las entradas se incluyen una transmisión de datos de los eventos y también datos de referencia."
-keywords: "transmisión de datos, conexión de datos, transmisión de eventos"
+title: 'Conexión de datos: entradas de flujo de datos desde una transmisión de eventos | Microsoft Docs'
+description: Obtenga información sobre cómo configurar una conexión de datos a Stream Analytics que se denomina "entradas". Entre las entradas se incluyen una transmisión de datos de los eventos y también datos de referencia.
+keywords: transmisión de datos, conexión de datos, transmisión de eventos
 services: stream-analytics
-documentationcenter: 
+documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-editor: cgronlun
 ms.assetid: 8155823c-9dd8-4a6b-8393-34452d299b68
 ms.service: stream-analytics
 ms.devlang: na
@@ -15,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 12/11/2017
 ms.author: sngun
-ms.openlocfilehash: e8b55269e861dc010c911491d52973b674dd50ca
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 0ddc3187e9fc0664838dd07f781f4d7e2e4a7fe0
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="data-connection-learn-about-data-stream-inputs-from-events-to-stream-analytics"></a>Conexión de datos: obtenga información sobre las entradas de transmisiones de datos desde eventos para el Stream Analytics
 La conexión de datos a un trabajo de Stream Analytics es un flujo de eventos procedente de un origen de datos, que se denomina *entrada* del trabajo. Stream Analytics cuenta con integración de primera clase con orígenes de flujo de datos de Azure, como, por ejemplo, [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) y [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/). Estos orígenes de entrada pueden proceder de la misma suscripción de Azure que el trabajo de análisis o de otra suscripción.
@@ -53,7 +52,7 @@ Se debe configurar cada entrada de centro de eventos de Stream Analytics para qu
 ### <a name="configure-an-event-hub-as-a-data-stream-input"></a>Configuración de un centro de eventos como entrada de flujo de datos
 En la siguiente tabla se explica cada propiedad de la hoja **Nueva entrada** de Azure Portal cuando se configura un centro de eventos como entrada.
 
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 | --- | --- |
 | **Alias de entrada** |Nombre descriptivo que se usará en la consulta del trabajo para hacer referencia a esta entrada. |
 | **Espacio de nombres de Service Bus** |Espacio de nombres de Azure Service Bus, que es un contenedor para un conjunto de entidades de mensajería. Al crear un centro de eventos, también se crea un espacio de nombres de Service Bus. |
@@ -66,7 +65,7 @@ En la siguiente tabla se explica cada propiedad de la hoja **Nueva entrada** de 
 
 Cuando los datos proceden de un centro de eventos, puede acceder a los siguientes campos de metadatos en la consulta de Stream Analytics:
 
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 | --- | --- |
 | **EventProcessedUtcTime** |Fecha y hora en que se procesó el evento por Stream Analytics. |
 | **EventEnqueuedUtcTime** |Fecha y la hora en que el Centro de eventos recibió el evento. |
@@ -102,7 +101,7 @@ Se debe configurar cada entrada de IoT Hub de Stream Analytics para que tenga su
 ### <a name="configure-an-iot-hub-as-a-data-stream-input"></a>Configuración de una instancia de IoT Hub como entrada de flujo de datos
 En la siguiente tabla se explica cada propiedad de la hoja **Nueva entrada** de Azure Portal cuando se configura IoT Hub como entrada.
 
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 | --- | --- |
 | **Alias de entrada** |Nombre descriptivo que se usará en la consulta del trabajo para hacer referencia a esta entrada.|
 | **IoT Hub** |Nombre de la instancia de IoT Hub que se usa como entrada. |
@@ -116,7 +115,7 @@ En la siguiente tabla se explica cada propiedad de la hoja **Nueva entrada** de 
 
 Cuando los datos proceden de IoT Hub, puede acceder a los siguientes campos de metadatos en la consulta de Stream Analytics:
 
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 | --- | --- |
 | **EventProcessedUtcTime** |Fecha y la hora en que se produjo el evento. |
 | **EventEnqueuedUtcTime** |Fecha y hora en que el evento se recibió en IoT Hub. |
@@ -144,7 +143,7 @@ Las entradas con formato CSV *requieren* una fila de encabezado para definir los
 
 En la siguiente tabla se explica cada propiedad de la hoja **Nueva entrada** de Azure Portal cuando se configura Blob Storage como entrada.
 
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 | --- | --- |
 | **Alias de entrada** | Nombre descriptivo que se usará en la consulta del trabajo para hacer referencia a esta entrada. |
 | **Cuenta de almacenamiento** | Nombre de la cuenta de almacenamiento donde se encuentran los archivos de blob. |
@@ -159,7 +158,7 @@ En la siguiente tabla se explica cada propiedad de la hoja **Nueva entrada** de 
 
 Cuando los datos proceden de un origen de Blob Storage, puede acceder a los siguientes campos de metadatos en la consulta de Stream Analytics:
 
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 | --- | --- |
 | **BlobName** |Nombre del blob de entrada de donde procede el evento. |
 | **EventProcessedUtcTime** |Fecha y hora en que se procesó el evento por Stream Analytics. |
@@ -176,7 +175,7 @@ SELECT
 FROM Input
 ````
 
-## <a name="get-help"></a>Obtener ayuda
+## <a name="get-help"></a>Obtención de ayuda
 Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Pasos siguientes

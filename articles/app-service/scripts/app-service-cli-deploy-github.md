@@ -1,11 +1,11 @@
 ---
-title: "Ejemplo de script de la CLI de Azure: creación de una aplicación web con implementación desde GitHub | Microsoft Docs"
-description: "Ejemplo de script de la CLI de Azure: creación de una aplicación web con implementación desde GitHub"
+title: 'Ejemplo de script de la CLI de Azure: creación de una aplicación web con implementación desde GitHub | Microsoft Docs'
+description: 'Ejemplo de script de la CLI de Azure: creación de una aplicación web con implementación desde GitHub'
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 0205c991-0989-4ca3-bb41-237dcc964460
 ms.service: app-service-web
@@ -16,11 +16,11 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 36c9d8d6406c3de37fb2eaa7e400f27a857ea1fd
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 6cc4ae4a0b77aeb27c0fbde23dfd0dd65604ccf1
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="create-a-web-app-with-deployment-from-github"></a>Creación de una aplicación web con implementación desde GitHub
 
@@ -44,10 +44,10 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 
 | Get-Help | Notas |
 |---|---|
-| [`az group create`](/cli/azure/group?view=azure-cli-latest#az_group_create) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
-| [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) | Crea un plan de App Service, |
-| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) | Crea una aplicación web de Azure. |
-| [`az webapp deployment source config`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az_webapp_deployment_source_config) | Asocia una aplicación web de Azure con un repositorio de GIT o Mercurial. |
+| [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
+| [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | Crea un plan de App Service, |
+| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Crea una aplicación web de Azure. |
+| [`az webapp deployment source config`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config) | Asocia una aplicación web de Azure con un repositorio de GIT o Mercurial. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -1,11 +1,11 @@
 ---
 title: Publish-WebApplicationWebSite (script de Windows PowerShell) | Microsoft Docs
-description: "Aprenda a publicar un proyecto web en un sitio web de Azure. Este script crea los recursos necesarios en su suscripción de Azure si no existen."
+description: Aprenda a publicar un proyecto web en un sitio web de Azure. Este script crea los recursos necesarios en su suscripción de Azure si no existen.
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
-manager: ghogen
-editor: 
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: 63cfaa2d-f04d-40dc-8677-345385c278d5
 ms.service: multiple
 ms.devlang: dotnet
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
-ms.author: kraigb
-ms.openlocfilehash: 07d21b7ce6cd8aee1cff704d316e7a2ca8c00437
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: ghogen
+ms.openlocfilehash: aaa1f679b0368b0ca93305fe867a63f3971a788c
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="publish-webapplicationwebsite-windows-powershell-script"></a>Publicación de WebApplicationWebSite (script de Windows PowerShell)
 ## <a name="syntax"></a>Sintaxis
@@ -36,57 +36,57 @@ Publica un proyecto web en un sitio web de Azure. El script crea los recursos ne
 ## <a name="configuration"></a>Configuración
 La ruta de acceso al archivo de configuración JSON que describe los detalles de la implementación.
 
-| Parámetro | Valor predeterminado |
+| . | Valor predeterminado |
 | --- | --- |
-| Alias |Ninguna |
+| Alias |None |
 | ¿Necesario? |true |
 | Posición |con nombre |
-| Valor predeterminado |Ninguna |
+| Valor predeterminado |None |
 | ¿Aceptar la entrada de la canalización? |false |
 | ¿Aceptar caracteres comodín? |false |
 
 ## <a name="subscriptionname"></a>SubscriptionName
 Nombre de la suscripción de Azure en la que desea crear el sitio web.
 
-| Parámetro | Valor predeterminado |
+| . | Valor predeterminado |
 | --- | --- |
-| Alias |Ninguna |
+| Alias |None |
 | ¿Necesario? |false |
 | Posición |con nombre |
-| Valor predeterminado |Ninguna |
+| Valor predeterminado |None |
 | ¿Aceptar la entrada de la canalización? |false |
 | ¿Aceptar caracteres comodín? |false |
 
 ## <a name="webdeploypackage"></a>WebDeployPackage
-La ruta de acceso al paquete de implementación web para publicar en el sitio web. Puede crear este paquete mediante el Asistente de publicación web en Visual Studio. Para obtener más información, consulte [Introducción a Servicios en la nube de Azure y ASP.NET](http://go.microsoft.com/fwlink/p/?LinkID=623089).
+La ruta de acceso al paquete de implementación web para publicar en el sitio web. Puede crear este paquete mediante el Asistente de publicación web en Visual Studio. Para obtener más información, consulte [Introducción a Azure Cloud Services y ASP.NET](http://go.microsoft.com/fwlink/p/?LinkID=623089).
 
-| Parámetro | Valor predeterminado |
+| . | Valor predeterminado |
 | --- | --- |
-| Alias |Ninguna |
+| Alias |None |
 | ¿Necesario? |false |
 | Posición |con nombre |
-| Valor predeterminado |Ninguna |
+| Valor predeterminado |None |
 | ¿Aceptar la entrada de la canalización? |false |
 | ¿Aceptar caracteres comodín? |false |
 
 ## <a name="databaseserverpassword"></a>DatabaseServerPassword
 El nombre de usuario y la contraseña de la base de datos SQL en Azure.
 
-| Parámetro | Valor predeterminado |
+| . | Valor predeterminado |
 | --- | --- |
-| Alias |Ninguna |
+| Alias |None |
 | ¿Necesario? |false |
 | Posición |con nombre |
-| Valor predeterminado |Ninguna |
+| Valor predeterminado |None |
 | ¿Aceptar la entrada de la canalización? |false |
 | ¿Aceptar caracteres comodín? |false |
 
 ## <a name="sendhostmessagestooutput"></a>SendHostMessagesToOutput
 Si es true, imprimir mensajes del script a la secuencia de salida.
 
-| Parámetro | Valor predeterminado |
+| . | Valor predeterminado |
 | --- | --- |
-| Alias |Ninguna |
+| Alias |None |
 | ¿Necesario? |false |
 | Posición |con nombre |
 | Valor predeterminado |false |

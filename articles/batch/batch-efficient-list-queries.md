@@ -1,25 +1,25 @@
 ---
-title: "Diseño de consultas de lista eficaces: Azure Batch | Microsoft Docs"
-description: "Mejore el rendimiento filtrando las consultas cuando solicite información en recursos de Batch, como grupos, trabajos, tareas y nodos de proceso."
+title: 'Diseño de consultas de lista eficaces: Azure Batch | Microsoft Docs'
+description: Mejore el rendimiento filtrando las consultas cuando solicite información en recursos de Batch, como grupos, trabajos, tareas y nodos de proceso.
 services: batch
 documentationcenter: .net
-author: tamram
-manager: timlt
-editor: 
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: 031fefeb-248e-4d5a-9bc2-f07e46ddd30d
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 08/02/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a80b207f591bd888d4749287527013c5e554fb6e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 330350d6ac6838ea5b09763fe1f73fab1934710c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>Creación de consultas para enumerar los recursos de Batch con eficacia
 
@@ -59,7 +59,7 @@ IPagedEnumerable<CloudTask> completedTasks =
     batchClient.JobOperations.ListTasks("job-001", detailLevel);
 ```
 
-En este caso de ejemplo, si hay miles de tareas en el trabajo, los resultados de la segunda consulta normalmente se devolverán más rápido que en la primera consulta. [A continuación](#efficient-querying-in-batch-net)encontrará más información sobre el uso de ODATADetailLevel al enumerar elementos con la API de Lote de .NET.
+En este caso de ejemplo, si hay miles de tareas en el trabajo, los resultados de la segunda consulta normalmente se devolverán más rápido que en la primera consulta. [A continuación](#efficient-querying-in-batch-net)encontrará más información sobre el uso de ODATADetailLevel al enumerar elementos con la API de .NET para Batch.
 
 > [!IMPORTANT]
 > Es muy recomendable suministrar *siempre* un objeto ODATADetailLevel a las llamadas de la lista de la API de .NET para garantizar la máxima eficacia y rendimiento de su aplicación. La especificación de un nivel de detalle puede ayudarle a reducir los tiempos de respuesta del servicio de Batch, a mejorar la utilización de la red y a minimizar el uso de la memoria por parte de las aplicaciones cliente.
@@ -166,7 +166,7 @@ Los nombres de propiedades en las cadenas filter, select y expand *deben* reflej
 | [PoolOperations.ListPools][net_list_pools] |[Enumeración de los grupos de una cuenta][rest_list_pools] |
 
 ### <a name="mappings-for-select-strings"></a>Asignaciones de las cadenas select
-* **Tipos de .NET de Batch**: tipos de la API de .NET para Batch.
+* **Tipos de .NET de Batch**: tipos de la API de .NET de Batch.
 * **Entidades de la API de REST**: todas las páginas de esta columna contienen una o varias tablas que enumeran los nombres de propiedades de la API de REST para el tipo. Estos nombres de propiedades se usan al construir cadenas *select* . Estos mismos nombres se usarán al construir una cadena [ODATADetailLevel.SelectClause][odata_select].
 
 | Tipos de .NET de Batch | Entidades de la API de REST |
@@ -181,7 +181,7 @@ Los nombres de propiedades en las cadenas filter, select y expand *deben* reflej
 ## <a name="example-construct-a-filter-string"></a>Ejemplo: construcción de una cadena filter
 Al construir una cadena filter para [ODATADetailLevel.FilterClause][odata_filter], consulte la tabla en la sección "Asignaciones de las cadenas filter" para buscar la página de documentación de la API de REST correspondiente a la operación de lista que desea realizar. Encontrará las propiedades filtrables y sus operadores admitidos en la primera tabla de varias filas de dicha página. Por ejemplo, si desea recuperar todas las tareas cuyo código de salida era distinto de cero, en [Lista de las tareas asociadas a un trabajo][rest_list_tasks] esta fila especifica la cadena de propiedad aplicable y los operadores permitidos:
 
-| Propiedad | Operaciones permitidas | Tipo |
+| Propiedad | Operaciones permitidas | type |
 |:--- |:--- |:--- |
 | `executionInfo/exitCode` |`eq, ge, gt, le , lt` |`Int` |
 
@@ -192,7 +192,7 @@ Por lo tanto, la cadena filter para enumerar todas las tareas con un código de 
 ## <a name="example-construct-a-select-string"></a>Ejemplo: construcción de una cadena select
 Para construir [ODATADetailLevel.SelectClause][odata_select], consulte la tabla de "Asignaciones de las cadenas select" y navegue a la página de la API de REST correspondiente al tipo de entidad que vaya a enumerar. Encontrará las propiedades seleccionables y sus operadores admitidos en la primera tabla de varias filas de dicha página. Por ejemplo, si desea recuperar solo el identificador y la línea de comandos para cada tarea de una lista, encontrará estas filas en la tabla correspondiente en la página sobre cómo [obtener información acerca de una tarea][rest_get_task]:
 
-| Propiedad | Tipo | Notas |
+| Propiedad | type | Notas |
 |:--- |:--- |:--- |
 | `id` |`String` |`The ID of the task.` |
 | `commandLine` |`String` |`The command line of the task.` |
@@ -245,7 +245,7 @@ internal static ODATADetailLevel OnlyChangedAfter(DateTime time)
 
 ## <a name="next-steps"></a>Pasos siguientes
 ### <a name="parallel-node-tasks"></a>Tareas paralelas de nodo
-[Maximizar el uso de recursos de proceso de Lote de Azure con tareas simultáneas nodo](batch-parallel-node-tasks.md) es otro artículo relacionada con rendimiento de aplicaciones de Lote. Algunos tipos de cargas de trabajo pueden beneficiarse de la ejecución de tareas paralelas en una menor cantidad de nodos de proceso que, sin embargo, sean de mayor tamaño. Consulte la sección [Escenario de ejemplo](batch-parallel-node-tasks.md#example-scenario) en el artículo para obtener detalles sobre dicho escenario.
+[Maximizar el uso de recursos de proceso de Azure Batch con tareas simultáneas nodo](batch-parallel-node-tasks.md) es otro artículo relacionada con rendimiento de aplicaciones de Batch. Algunos tipos de cargas de trabajo pueden beneficiarse de la ejecución de tareas paralelas en una menor cantidad de nodos de proceso que, sin embargo, sean de mayor tamaño. Consulte la sección [Escenario de ejemplo](batch-parallel-node-tasks.md#example-scenario) en el artículo para obtener detalles sobre dicho escenario.
 
 ### <a name="batch-forum"></a>Foro de Batch
 El [foro de Azure Batch][forum] en MSDN es un lugar excelente para debatir y formular preguntas sobre el servicio. Lea los mensajes útiles publicados y envíe sus preguntas a medida que surjan mientras compila sus soluciones del servicio Batch.

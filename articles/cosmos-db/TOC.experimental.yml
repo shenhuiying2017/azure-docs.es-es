@@ -236,6 +236,8 @@ items:
                     href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md
           - name: Referencia
             items:
+              - name: Async Java
+                href: sql-api-sdk-async-java.md
               - name: Java
                 href: sql-api-sdk-java.md
               - name: .NET
@@ -249,15 +251,13 @@ items:
               - name: Python
                 href: sql-api-sdk-python.md
               - name: REST
-                href: /rest/api/documentdb/
+                href: /rest/api/cosmos-db/
               - name: Proveedor de recursos de REST
-                href: /rest/api/documentdbresourceprovider/
+                href: /rest/api/cosmos-db-resource-provider/
               - name: SQL
                 href: sql-api-sql-query-reference.md
           - name: Recursos
             items:
-              - name: Hoja de referencia rápida de gramática de SQL
-                href: sql-api-sql-query-cheat-sheet.md
               - name: Extensión de Visual Studio Code
                 href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
               - name: Documento sobre indexación independiente del esquema
@@ -306,10 +306,6 @@ items:
                     href: local-emulator.md
                   - name: Exportación de certificados
                     href: local-emulator-export-ssl-certificates.md
-          - name: Conceptos
-            items:
-              - name: Conceptos de Azure Cosmos DB
-                href: distribute-data-globally.md
           - name: Guías de procedimientos
             items:
               - name: Conexión a una cuenta de MongoDB
@@ -348,10 +344,6 @@ items:
                 href: tutorial-query-graph.md
               - name: 3 - Distribución global
                 href: tutorial-global-distribution-graph.md
-          - name: Conceptos
-            items:
-              - name: Conceptos de Azure Cosmos DB
-                href: distribute-data-globally.md
           - name: Guías de procedimientos
             items:
               - name: Integrate
@@ -458,6 +450,10 @@ items:
         href: time-to-live.md
   - name: Recursos
     items:
+      - name: Hoja de referencia rápida de consultas
+        href: query-cheat-sheet.md
+      - name: 20 días de sugerencias
+        href: 20-days-of-tips.md
       - name: Vídeos
         href: 'https://azure.microsoft.com/resources/videos/index/?services=cosmos-db'
       - name: Azure Roadmap
@@ -470,7 +466,5 @@ items:
         href: faq.md
       - name: Coherencia de los datos explicada a través del béisbol
         href: 'http://research.microsoft.com/apps/pubs/default.aspx?id=206913'
-      - name: 20 días de sugerencias
-        href: 20-days-of-tips.md
       - name: Solución de problemas de Azure Cosmos DB
         href: troubleshoot-azure-cosmosdb.md

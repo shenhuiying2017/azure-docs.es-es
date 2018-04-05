@@ -1,22 +1,22 @@
 ---
-title: "Variables de entorno del nodo de ejecución de Azure Batch | Microsoft Docs"
+title: Variables de entorno del nodo de ejecución de Azure Batch | Microsoft Docs
 description: Referencia de la variable de entorno de nodo de proceso para Azure Batch Analytics.
 services: batch
-author: tamram
-manager: timlt
-ms.assetid: 
+author: dlepow
+manager: jeconnoc
+ms.assetid: ''
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 05/05/2017
-ms.author: tamram
-ms.openlocfilehash: 29f642754430957e77ef68946f721f8e15dba065
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: danlep
+ms.openlocfilehash: ca8d6a6484cd1f145e7d807681bf2d012f2399e0
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-batch-compute-node-environment-variables"></a>Variables de entorno del nodo de ejecución de Azure Batch
 El [servicio Azure Batch](https://azure.microsoft.com/services/batch/) establece las siguientes variables del entorno en nodos de proceso. Puede hacer referencia a estas variables del entorno en líneas de comandos de la tarea y en los programas y secuencias de comandos que ejecutan las líneas de comandos.
@@ -37,7 +37,7 @@ Las líneas de comandos que ejecutan las tareas en nodos de proceso no se ejecut
 
 ## <a name="environment-variables"></a>Variables de entorno
 
-| Nombre de la variable                     | Descripción                                                              | Disponibilidad | Ejemplo |
+| Nombre de la variable                     | DESCRIPCIÓN                                                              | Disponibilidad | Ejemplo |
 |-----------------------------------|--------------------------------------------------------------------------|--------------|---------|
 | AZ_BATCH_ACCOUNT_NAME           | El nombre de la cuenta de Batch a la que pertenece la tarea.                  | Todas las tareas.   | mybatchaccount |
 | AZ_BATCH_CERTIFICATES_DIR       | Un directorio en el [directorio de trabajo de la tarea][files_dirs] en el que se almacenan los certificados para nodos de proceso de Linux. Tenga en cuenta que esta variable del entorno no se aplica a los nodos de proceso de Windows.                                                  | Todas las tareas.   |  /mnt/batch/tasks/workitems/batchjob001/job-1/task001/certs |

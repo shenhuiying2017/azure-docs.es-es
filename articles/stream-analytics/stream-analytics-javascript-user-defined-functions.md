@@ -1,24 +1,23 @@
 ---
 title: Funciones definidas por el usuario en JavaScript para Azure Stream Analytics | Microsoft Docs
-description: "Realizar mecánica de consultas avanzadas con funciones definidas por el usuario en JavaScript"
+description: Realizar mecánica de consultas avanzadas con funciones definidas por el usuario en JavaScript
 keywords: javascript, funciones definidas por el usuario, udf
 services: stream-analytics
-author: samacha
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 
+author: jseb225
+manager: ryanw
+ms.assetid: ''
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: e8c1c784a598416b478d1430258201053185fdee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: f2b14029ebea7f9cf1fa74a384ecbb72b08b7ad6
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-functions"></a>Funciones definidas por el usuario en JavaScript para Azure Stream Analytics
 Azure Stream Analytics admite funciones definidas por el usuario escritas en JavaScript. Con el conjunto completo de métodos **String**, **RegExp**, **Math**, **Array** y **Date** que proporciona JavaScript, las transformaciones de datos complejas con trabajos de Stream Analytics son más fáciles de crear.
@@ -87,9 +86,9 @@ Hay diferencias entre los tipos admitidos en el lenguaje de consultas de Stream 
 Stream Analytics | JavaScript
 --- | ---
 bigint | Number (JavaScript solamente puede representar enteros hasta 2^53 con precisión)
-DateTime | Date (JavaScript solo admite milisegundos)
+Datetime | Date (JavaScript solo admite milisegundos)
 double | Number
-nvarchar(MAX) | String
+nvarchar(MAX) | string
 Registro | Objeto
 Matriz | Matriz
 NULL | Null
@@ -101,14 +100,14 @@ Estas son las conversiones de JavaScript a Stream Analytics:
 JavaScript | Stream Analytics
 --- | ---
 Number | Bigint (si el número es round y entre long.MinValue y long.MaxValue, double en caso contrario)
-Date | DateTime
-String | nvarchar(MAX)
+Date | Datetime
+string | nvarchar(MAX)
 Objeto | Registro
 Matriz | Matriz
 Null, sin definir | NULL
 Cualquier otro tipo (por ejemplo, una función o un error) | No admitido (da lugar a un error en tiempo de ejecución)
 
-## <a name="troubleshooting"></a>Solución de problemas
+## <a name="troubleshooting"></a>solución de problemas
 Los errores en tiempo de ejecución de JavaScript se consideran graves y se presentan en el registro de actividad. Para recuperar el registro, en Azure Portal, vaya al trabajo y seleccione **Registro de actividad**.
 
 
@@ -138,12 +137,12 @@ FROM
     input PARTITION BY PARTITIONID
 ```
 
-## <a name="get-help"></a>Obtener ayuda
+## <a name="get-help"></a>Obtención de ayuda
 Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Introducción al Análisis de transmisiones de Azure](stream-analytics-introduction.md)
+* [Introducción a Azure Stream Analytics](stream-analytics-introduction.md)
 * [Introducción al uso de Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Escalación de trabajos de Análisis de transmisiones de Azure](stream-analytics-scale-jobs.md)
+* [Escalación de trabajos de Azure Stream Analytics](stream-analytics-scale-jobs.md)
 * [Referencia del lenguaje de consulta de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Referencia de API de REST de administración de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)

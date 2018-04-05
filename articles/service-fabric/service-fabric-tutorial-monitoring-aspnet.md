@@ -1,12 +1,12 @@
 ---
-title: "Supervisión y diagnóstico de servicios ASP.NET Core en Azure Service Fabric | Microsoft Docs"
-description: "En este tutorial, aprenderá a configurar la supervisión y el diagnóstico para una aplicación ASP.NET Core en Azure Service Fabric."
+title: Supervisión y diagnóstico de servicios ASP.NET Core en Azure Service Fabric | Microsoft Docs
+description: En este tutorial, aprenderá a configurar la supervisión y el diagnóstico para una aplicación ASP.NET Core en Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: tutorial
@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 09/14/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 0f51b52d9f4d5c8979ba636311e63089c11cd114
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 030c6fbfb5eb76a745a1089acab54e74ce7a01e3
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric"></a>Tutorial: Supervisión y diagnóstico de una aplicación ASP.NET Core en Service Fabric
 Este tutorial es la cuarta parte de una serie. Describe los pasos necesarios para configurar la supervisión y el diagnóstico de una aplicación ASP.NET Core que se ejecuta en un clúster de Service Fabric con Application Insights. Recopilaremos datos de telemetría de la aplicación desarrollada en la primera parte del tutorial, [Crear una aplicación de .NET Service Fabric](service-fabric-tutorial-create-dotnet-app.md). 
@@ -83,7 +83,7 @@ Asegúrese de seguir los pasos anteriores para **ambos** servicios de la aplicac
 
 ## <a name="add-the-microsoftapplicationinsightsservicefabricnative-nuget-to-the-services"></a>Agregue el paquete NuGet Microsoft.ApplicationInsights.ServiceFabric.Native a los servicios
 
-Application Insights tiene dos paquetes NuGet específicos de Service Fabric que se pueden usar, en función del escenario. Uno se usa con los servicios nativos de Service Fabric y el otro, con contenedores y archivos ejecutables invitados. En este caso, usaremos el paquete NuGet Microsoft.ApplicationInsights.ServiceFabric.Native para aprovechar la información del contexto de servicio que aporta. Para obtener más información sobre el SDK de Application Insights y los paquetes NuGet específicos de Service Fabric, consulte [Microsoft Application Insights for Service Fabric](https://github.com/Microsoft/ApplicationInsights-ServiceFabric/blob/develop/README.md) (Microsoft Application Insights para Service Fabric). 
+Application Insights tiene dos paquetes NuGet específicos de Service Fabric que se pueden usar, en función del escenario. Uno se usa con los servicios nativos de Service Fabric y el otro, con contenedores y archivos ejecutables invitados. En este caso, usaremos el paquete NuGet Microsoft.ApplicationInsights.ServiceFabric.Native para aprovechar la información del contexto de servicio que aporta. Para obtener más información sobre el SDK de Application Insights y los paquetes NuGet específicos de Service Fabric, consulte [Microsoft Application Insights for Service Fabric](https://github.com/Microsoft/ApplicationInsights-ServiceFabric/blob/master/README.md) (Microsoft Application Insights para Service Fabric). 
 
 Estos son los pasos necesarios para configurar el paquete NuGet:
 1. Haga clic con el botón derecho en la **solución 'Voting'**, en la parte superior del Explorador de soluciones, y, a continuación, en **Administrar paquetes NuGet para la solución...**.

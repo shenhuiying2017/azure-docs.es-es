@@ -1,11 +1,11 @@
 ---
-title: "Introducción al almacenamiento de colas y los servicios conectados de Visual Studio (servicios en la nube) | Microsoft Docs"
-description: "Cómo empezar a usar el almacenamiento de colas de Azure en un proyecto de servicio en la nube en Visual Studio, después de conectarse a una cuenta de almacenamiento mediante los servicios conectados de Visual Studio"
+title: Introducción al almacenamiento de colas y los servicios conectados de Visual Studio (servicios en la nube) | Microsoft Docs
+description: Cómo empezar a usar el almacenamiento de colas de Azure en un proyecto de servicio en la nube en Visual Studio, después de conectarse a una cuenta de almacenamiento mediante los servicios conectados de Visual Studio
 services: storage
-documentationcenter: 
-author: kraigb
-manager: ghogen
-editor: 
+documentationcenter: ''
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: da587aac-5e64-4e9a-8405-44cc1924881d
 ms.service: storage
 ms.workload: web
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
-ms.author: kraigb
-ms.openlocfilehash: 7a6e58a62b4cfbf99641559363dd0c860cdf8af2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: ghogen
+ms.openlocfilehash: ee4228db093b840940152fcad6dfba793dbc4772
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Introducción al almacenamiento de colas de Azure y a los servicios conectados de Visual Studio (proyectos de servicios en la nube)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -26,19 +26,19 @@ ms.lasthandoff: 10/11/2017
 ## <a name="overview"></a>Información general
 En este artículo se describe cómo empezar a usar Azure Queue Storage en Visual Studio después de crear una cuenta de almacenamiento de Azure en un proyecto de servicios en la nube mediante el cuadro de diálogo **Agregar servicios conectados** de Visual Studio, o después hacer referencia a una.
 
-Le mostraremos cómo crear una cola en el código. También le mostraremos cómo realizar operaciones básicas de cola, como agregar, modificar, leer y quitar mensajes de cola. Los ejemplos están escritos en código C# y usan la [biblioteca del cliente de almacenamiento de Microsoft Azure para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
+Le mostraremos cómo crear una cola en el código. También le mostraremos cómo realizar operaciones básicas de cola, como agregar, modificar, leer y quitar mensajes de cola. Los ejemplos están escritos en código C# y usan la [biblioteca del cliente de Microsoft Azure Storage para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
 La operación **Agregar servicios conectados** instala los paquetes de NuGet adecuados para tener acceso al almacenamiento de Azure en el proyecto y agrega la cadena de conexión para la cuenta de almacenamiento a los archivos de configuración del proyecto.
 
 * Consulte [Introducción al Almacenamiento en cola de Azure mediante .NET](../storage/queues/storage-dotnet-how-to-use-queues.md) para más información sobre la manipulación de colas en el código.
-* Vea [Documentación sobre Almacenamiento](https://azure.microsoft.com/documentation/services/storage/) para información general sobre Almacenamiento de Azure.
-* Vea [Documentación sobre Servicios en la nube](https://azure.microsoft.com/documentation/services/cloud-services/) para información general sobre los servicios en la nube de Azure.
+* Vea [Documentación sobre Almacenamiento](https://azure.microsoft.com/documentation/services/storage/) para información general sobre Azure Storage.
+* Vea [Documentación sobre Cloud Services](https://azure.microsoft.com/documentation/services/cloud-services/) para información general sobre Azure Cloud Services.
 * Vea [ASP.NET](http://www.asp.net) para más información sobre la programación de aplicaciones ASP.NET.
 
 El almacenamiento en cola de Azure es un servicio para almacenar grandes cantidades de mensajes a los que puede obtenerse acceso desde cualquier lugar del mundo a través de llamadas autenticadas con HTTP o HTTPS. Un único mensaje en cola puede tener un tamaño de hasta 64 KB y una cola puede contener millones de mensajes, hasta el límite de capacidad total de una cuenta de almacenamiento.
 
 ## <a name="access-queues-in-code"></a>Acceso a colas en el código
-Para obtener acceso a las colas en los proyectos de Servicios en la nube de Visual Studio, debe incluir los elementos siguientes en los archivos de código fuente de C# que tengan acceso al almacenamiento de colas de Azure.
+Para obtener acceso a las colas en los proyectos de Cloud Services de Visual Studio, debe incluir los elementos siguientes en los archivos de código fuente de C# que tengan acceso a Azure Queue Storage.
 
 1. Asegúrese de que las declaraciones del espacio de nombres de la parte superior del archivo de C# incluyen estas instrucciones **using** .
    
@@ -89,7 +89,7 @@ Su código puede quitar un mensaje de una cola en dos pasos.
 1. Llame a **GetMessage** para obtener el siguiente mensaje en una cola. Un mensaje devuelto por **GetMessage** se hace invisible a cualquier otro código de lectura de mensajes de esta cola. De forma predeterminada, este mensaje permanece invisible durante 30 segundos.
 2. Para terminar de quitar el mensaje de la cola, llame a **DeleteMessage**.
 
-Este proceso extracción de un mensaje que consta de dos pasos garantiza que si su código no puede procesar un mensaje a causa de un error de hardware o software, otra instancia de su código puede obtener el mismo mensaje e intentarlo de nuevo. El código siguiente llama a **DeleteMessage** justo después de haber procesado el mensaje.
+Este proceso de extracción de un mensaje que consta de dos pasos garantiza que si su código no puede procesar un mensaje a causa de un error de hardware o software, otra instancia de su código puede obtener el mismo mensaje e intentarlo de nuevo. El código siguiente llama a **DeleteMessage** justo después de haber procesado el mensaje.
 
     // Get the next message in the queue.
     CloudQueueMessage retrievedMessage = messageQueue.GetMessage();

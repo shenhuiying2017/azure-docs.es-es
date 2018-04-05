@@ -1,12 +1,11 @@
 ---
 title: Panel de Power BI en Azure Stream Analytics | Microsoft Docs
-description: "Utilice un panel de Power BI de streaming en tiempo real para reunir información de inteligencia empresarial y analizar grandes volúmenes de datos procedentes de un trabajo de Análisis de transmisiones."
-keywords: "panel de análisis, panel en tiempo real"
+description: Utilice un panel de Power BI de streaming en tiempo real para reunir información de inteligencia empresarial y analizar grandes volúmenes de datos procedentes de un trabajo de Stream Analytics.
+keywords: panel de análisis, panel en tiempo real
 services: stream-analytics
-documentationcenter: 
-author: samacha
-manager: jhubbard
-editor: cgronlun
+documentationcenter: ''
+author: jseb225
+manager: ryanw
 ms.assetid: fe8db732-4397-4e58-9313-fec9537aa2ad
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/27/2017
-ms.author: samacha
-ms.openlocfilehash: b446e2296f2747012849936b994c4a4a2044869e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: e1f1d960c312362e0e0cd6d2f83599c28c8c3f05
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics y Power BI: panel de análisis en tiempo real de flujo de datos
 Azure Stream Analytics permite aprovechar una de las principales herramientas de inteligencia empresarial, [Microsoft Power BI](https://powerbi.com/). En este artículo, aprenderá a crear herramientas de inteligencia empresarial personalizadas utilizando Power BI como salida para los trabajos de Azure Stream Analytics. También aprenderá a crear y usar un panel en tiempo real.
@@ -29,7 +28,7 @@ Este artículo continúa a partir del tutorial [Detección de fraudes en tiempo 
 Puede ver un [vídeo](https://www.youtube.com/watch?v=SGUpT-a99MA) que muestra este escenario.
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Antes de empezar, asegúrese de que dispone de lo siguiente:
 
@@ -72,7 +71,7 @@ En el tutorial de detección de fraudes en tiempo real, la salida se envía a Az
     > Se recomienda no crear explícitamente este conjunto de datos y la tabla en la cuenta de Power BI. Se crearán automáticamente cuando inicie el trabajo de Stream Analytics y este empiece a enviar salida a Power BI. Si la consulta de trabajo no genera ningún resultado, el conjunto de datos y la tabla no se crean.
     >
 
-8. Haga clic en **Crear**.
+8. Haga clic en **Create**(Crear).
 
 El conjunto de datos se crea con la siguiente configuración:
 
@@ -113,7 +112,7 @@ Para más información sobre conjuntos de datos de Power BI, consulte la referen
         WHERE CS1.SwitchNum != CS2.SwitchNum
         GROUP BY TumblingWindow(Duration(second, 1))
 
-4. Haga clic en **Guardar**.
+4. Haga clic en **Save**(Guardar).
 
 
 ## <a name="test-the-query"></a>Prueba de la consulta
@@ -142,7 +141,7 @@ Esta sección es opcional pero conveniente.
 
 3. En la hoja del trabajo, haga clic en **Iniciar**.
 
-    ![Inicio del trabajo de Análisis de transmisiones](./media/stream-analytics-power-bi-dashboard/stream-analytics-sa-job-start-output.png)
+    ![Inicio del trabajo de Stream Analytics](./media/stream-analytics-power-bi-dashboard/stream-analytics-sa-job-start-output.png)
 
 El trabajo de Stream Analytics empieza a buscar llamadas fraudulentas en el flujo entrante. También crea el conjunto de datos y la tabla en Power BI y empieza a enviarles datos sobre las llamadas fraudulentas.
 
@@ -173,13 +172,13 @@ El trabajo de Stream Analytics empieza a buscar llamadas fraudulentas en el fluj
 
     ![Detalles de visualización del nuevo icono](./media/stream-analytics-power-bi-dashboard/add-fraud.png)
 
-7. Haga clic en **Siguiente**.
+7. Haga clic en **Next**.
 
 8. Rellene detalles del icono, como el título y el subtítulo.
 
     ![Título y subtítulo del nuevo icono](./media/stream-analytics-power-bi-dashboard/pbi-new-tile-details.png)
 
-9. Haga clic en **Apply**.
+9. Haga clic en **Aplicar**.
 
     Ahora tiene un contador de fraudes.
 
@@ -217,7 +216,7 @@ Puede utilizar la siguiente ecuación para calcular el valor que asignar a la ve
 
 ![Ecuación 1](./media/stream-analytics-power-bi-dashboard/equation1.png)  
 
-Por ejemplo:
+Por ejemplo: 
 
 * Tiene 1000 dispositivos que envían datos a intervalos de un segundo.
 * Está usando Power BI Pro SKU que admite 1 000 000 de filas por hora.
@@ -249,12 +248,12 @@ De forma similar, si un trabajo intenta iniciarse después de que el token haya 
 
 Después de que la autorización se haya actualizado con Power BI, se mostrará una alerta verde en el área de autorización para indicar que el problema se ha resuelto.
 
-## <a name="get-help"></a>Obtener ayuda
-Para obtener ayuda adicional, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+## <a name="get-help"></a>Obtención de ayuda
+Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Introducción al Análisis de transmisiones de Azure](stream-analytics-introduction.md)
+* [Introducción a Azure Stream Analytics](stream-analytics-introduction.md)
 * [Introducción al uso de Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Escalación de trabajos de Análisis de transmisiones de Azure](stream-analytics-scale-jobs.md)
+* [Escalación de trabajos de Azure Stream Analytics](stream-analytics-scale-jobs.md)
 * [Referencia del lenguaje de consulta de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Referencia de API de REST de administración de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)

@@ -1,11 +1,11 @@
 ---
-title: "Implementación de Azure Mobile Engagement para una aplicación de medios"
-description: "Escenario de aplicación de medios para implementar Azure Mobile Engagement"
+title: Implementación de Azure Mobile Engagement para una aplicación de medios
+description: Escenario de aplicación de medios para implementar Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 48201cc8-4e04-485c-a8dc-d6406d23f3ed
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: c1591c3e436981e621830916cf0cdc4b7f395d7b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8e5d4585b47a4ca26b81b7168aa499f25722415a
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="implement-mobile-engagement-with-media-app"></a>Implementación de Mobile Engagement con una aplicación de medios
+> [!IMPORTANT]
+> Azure Mobile Engagement se retira el 31 de marzo de 2018. Esta página se eliminará poco después.
+> 
+
 ## <a name="overview"></a>Información general
 John es un encargado de proyectos móviles para una gran empresa de medios. Acaba de lanzar una nueva aplicación con un número muy elevado de descargas. Ha cumplido sus objetivos en lo que respecta a las descargas, pero la rentabilidad de la inversión (ROI) por usuario no los cumple. 
 

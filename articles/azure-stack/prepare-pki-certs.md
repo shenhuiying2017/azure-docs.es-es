@@ -16,10 +16,10 @@ ms.date: 03/22/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.openlocfilehash: dadb443f8b7739e3a18c0d3beb558d8c42e9d19c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/02/2018
 ---
 # <a name="prepare-azure-stack-pki-certificates-for-deployment"></a>Preparación de certificados PKI de Azure Stack para la implementación
 Los archivos de certificado [obtenidos de la entidad de certificación que eligió](azure-stack-get-pki-certs.md) deben importarse y exportarse con propiedades que coincidan con los requisitos de certificado de Azure Stack.

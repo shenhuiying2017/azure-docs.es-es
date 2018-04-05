@@ -1,12 +1,12 @@
 ---
-title: "Actualización del firmware de los dispositivos con Azure IoT Hub | Microsoft Docs"
-description: "Describe cómo usar la administración de dispositivos en IoT Hub de Azure para iniciar una actualización de firmware del dispositivo. El SDK de dispositivo IoT de Azure para .NET se usa para implementar una aplicación de dispositivo simulada, mientras que el SDK de servicio IoT de Azure para .NET se usa para implementar una aplicación de servicio que desencadena la actualización del firmware."
+title: Actualización del firmware de los dispositivos con Azure IoT Hub | Microsoft Docs
+description: Describe cómo usar la administración de dispositivos en IoT Hub de Azure para iniciar una actualización de firmware del dispositivo. El SDK de dispositivo IoT de Azure para .NET se usa para implementar una aplicación de dispositivo simulada, mientras que el SDK de servicio IoT de Azure para .NET se usa para implementar una aplicación de servicio que desencadena la actualización del firmware.
 services: iot-hub
 documentationcenter: .net
 author: JimacoMS2
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
@@ -14,17 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/19/2017
 ms.author: v-jamebr
-ms.openlocfilehash: bd0a227861d75dc66af8fb4865a17a3b6d0f70ba
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 984fd7516b5c05973c45891f4eda31c41a5a2be5
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-device-management-to-initiate-a-device-firmware-update-netnet"></a>Uso de la administración de dispositivos para iniciar una actualización de firmware de los dispositivos (. NET/.NET)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
 
 ## <a name="introduction"></a>Introducción
 En el tutorial de [Introducción a la administración de dispositivos][lnk-dm-getstarted], vimos cómo usar los primitivos de [dispositivo gemelo][lnk-devtwin] y [métodos directos][lnk-c2dmethod] para reiniciar de forma remota un dispositivo. Este tutorial emplea los mismos tipos primitivos de IoT Hub. Además, proporciona orientación y muestra cómo realizar una actualización de firmware simulada de extremo a extremo.  Este patrón se usa en la implementación de actualizaciones de firmware del [ejemplo de implementación de dispositivos Raspberry Pi][lnk-rpi-implementation].
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 En este tutorial se muestra cómo realizar las siguientes acciones:
 
@@ -51,7 +53,7 @@ Siga los pasos del artículo de [introducción a la administración de dispositi
 ## <a name="trigger-a-remote-firmware-update-on-the-device-using-a-direct-method"></a>Desencadenamiento de una actualización de firmware remota en el dispositivo con un método directo
 En esta sección, creará una aplicación de consola de .NET (mediante C#) que inicia una actualización de firmware remota en un dispositivo. La aplicación usa un método directo para iniciar la actualización y utiliza consultas de dispositivos gemelos para obtener periódicamente el estado de la actualización del firmware activa.
 
-1. En Visual Studio, agregue un proyecto de escritorio clásico de Windows de Visual C# a la solución actual mediante la plantilla de proyecto **Aplicación de consola**. Asigne al proyecto el nombre **TriggerFWUpdate**.
+1. En Visual Studio, agregue un proyecto de escritorio clásico de Windows de Visual C# a la solución actual mediante la plantilla de proyecto **Aplicación de consola** . Asigne al proyecto el nombre **TriggerFWUpdate**.
 
     ![Nuevo proyecto de escritorio clásico de Windows de Visual C#][img-createserviceapp]
 
@@ -59,14 +61,14 @@ En esta sección, creará una aplicación de consola de .NET (mediante C#) que i
 3. En la ventana **Administrador de paquetes NuGet**, seleccione **Examinar**, busque **microsoft.azure.devices**, seleccione **Instalar** para instalar el paquete **Microsoft.Azure.Devices** y acepte los términos de uso. Este procedimiento permite descargar, instalar y agregar una referencia al [paquete NuGet del SDK de dispositivo de IoT de Azure][lnk-nuget-service-sdk] y sus dependencias.
 
     ![Ventana del Administrador de paquetes NuGet][img-servicenuget]
-4. Agregue las siguientes instrucciones `using` al principio del archivo **Program.cs**:
+4. Agregue las siguientes instrucciones `using` al principio del archivo **Program.cs** :
 
     ```csharp   
     using Microsoft.Azure.Devices;
     using Microsoft.Azure.Devices.Shared;
     ```
 
-5. Agregue los campos siguientes a la clase **Program**. Reemplace los valores de varios marcadores de posición por la cadena de conexión de IoT Hub que creó en la sección anterior y por el identificador del dispositivo.
+5. Agregue los campos siguientes a la clase **Program** . Reemplace los valores de varios marcadores de posición por la cadena de conexión de IoT Hub que creó en la sección anterior y por el identificador del dispositivo.
    
     ```csharp   
     static RegistryManager registryManager;
@@ -103,7 +105,7 @@ En esta sección, creará una aplicación de consola de .NET (mediante C#) que i
     }
     ```
         
-7. Agregue el método siguiente a la clase **Program**:
+7. Agregue el método siguiente a la clase **Program** :
 
     ```csharp   
     public static async Task StartFirmwareUpdate()
@@ -122,7 +124,7 @@ En esta sección, creará una aplicación de consola de .NET (mediante C#) que i
     }
     ```
 
-8. Finalmente, agregue las líneas siguientes al método **Main**. Esto crea un administrador del registro con el que se lee el dispositivo gemelo, que inicia la tarea de sondeo en un subproceso de trabajo y que, después, desencadena la actualización del firmware.
+8. Finalmente, agregue las líneas siguientes al método **Main** . Esto crea un administrador del registro con el que se lee el dispositivo gemelo, que inicia la tarea de sondeo en un subproceso de trabajo y que, después, desencadena la actualización del firmware.
    
     ```csharp   
     registryManager = RegistryManager.CreateFromConnectionString(connString);
@@ -143,7 +145,7 @@ En esta sección:
 * Simulará una actualización de firmware desencadenada por un servicio back-end a través de un método directo
 * Usará las propiedades notificadas para habilitar consultas de dispositivos gemelos a fin de identificar los dispositivos y cuándo se actualizó su firmware por última vez.
 
-1. En Visual Studio, agregue un proyecto de escritorio clásico de Windows de Visual C# a la solución actual mediante la plantilla de proyecto **Aplicación de consola**. Asigne al proyecto el nombre **SimulateDeviceFWUpdate**.
+1. En Visual Studio, agregue un proyecto de escritorio clásico de Windows de Visual C# a la solución actual mediante la plantilla de proyecto **Aplicación de consola** . Asigne al proyecto el nombre **SimulateDeviceFWUpdate**.
    
     ![Nueva aplicación para dispositivo de Windows clásico de Visual C#][img-createdeviceapp]
     
@@ -151,7 +153,7 @@ En esta sección:
 3. En la ventana **Administrador de paquetes NuGet**, seleccione **Examinar** y busque **microsoft.azure.devices.client**. Seleccione **Instalar** para instalar el paquete **Microsoft.Azure.Devices.Client** y acepte las condiciones de uso. Este procedimiento permite descargar, instalar y agregar una referencia al paquete NuGet del [SDK de dispositivo Azure IoT][lnk-nuget-client-sdk] y sus dependencias.
    
     ![Ventana del Administrador de paquetes NuGet: aplicación cliente][img-clientnuget]
-4. Agregue las siguientes instrucciones `using` al principio del archivo **Program.cs**:
+4. Agregue las siguientes instrucciones `using` al principio del archivo **Program.cs** :
    
     ```csharp   
     using Newtonsoft.Json.Linq;
@@ -159,7 +161,7 @@ En esta sección:
     using Microsoft.Azure.Devices.Shared;
     ```
 
-5. Agregue los campos siguientes a la clase **Program**. Sustituya el valor del marcador de posición por la cadena de conexión del dispositivo que anotó en la sección **Creación de una identidad de dispositivo**.
+5. Agregue los campos siguientes a la clase **Program** . Sustituya el valor del marcador de posición por la cadena de conexión del dispositivo que anotó en la sección **Creación de una identidad de dispositivo**.
    
     ```csharp   
     static string DeviceConnectionString = "HostName=<yourIotHubName>.azure-devices.net;DeviceId=<yourIotDeviceName>;SharedAccessKey=<yourIotDeviceAccessKey>";

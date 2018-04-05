@@ -1,11 +1,11 @@
 ---
-title: "Integración del SDK de Android para Azure Mobile Engagement"
-description: "Procedimientos y actualizaciones más recientes para el SDK de Android para Azure Mobile Engagement"
+title: Integración del SDK de Android para Azure Mobile Engagement
+description: Procedimientos y actualizaciones más recientes para el SDK de Android para Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 11618586-c709-49ca-bcd8-745323ff1af6
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 1f047f93fa8bc852b28c86e91d0c007a94fb4299
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 77047cb1dc39fa3c05f58550ceea74e78396157f
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="upgrade-procedures"></a>Procedimientos de actualización
+> [!IMPORTANT]
+> Azure Mobile Engagement se retira el 31 de marzo de 2018. Esta página se eliminará poco después.
+> 
+
 Si ya integró una versión anterior de nuestro SDK en la aplicación, debería tener en cuenta los siguientes puntos a la hora de actualizar el SDK.
 
 Es posible que tenga que seguir varios procedimientos si se perdió varias versiones del SDK. Por ejemplo, si migra de la versión 1.4.0 a la versión 1.6.0, primero tiene que seguir el procedimiento "de la versión 1.4.0 a la versión 1.5.0" y, a continuación, el procedimiento "de la versión 1.5.0 a la versión 1.6.0".
@@ -169,7 +173,7 @@ Debe usar el método `EngagementAgent.init` en la actividad del iniciador, de la
             engagementConfiguration.setConnectionString("Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}");
             EngagementAgent.getInstance(this).init(engagementConfiguration);
 
-La cadena de conexión de la aplicación se muestra en el portal de Azure.
+La cadena de conexión de la aplicación se muestra en Azure Portal.
 
 Quite toda llamada a `CapptainAgent.configure`, puesto que `EngagementAgent.init` reemplaza ese método.
 

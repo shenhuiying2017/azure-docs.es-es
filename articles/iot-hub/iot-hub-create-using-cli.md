@@ -1,12 +1,12 @@
 ---
-title: "Creación de una instancia de IoT Hub mediante la CLI de Azure (az-py) | Microsoft Docs"
-description: "Creación de una instancia de Azure IoT Hub mediante la CLI de Azure 2.0 (az.py) multiplataforma."
+title: Creación de una instancia de IoT Hub mediante la CLI de Azure (az-py) | Microsoft Docs
+description: Creación de una instancia de Azure IoT Hub mediante la CLI de Azure 2.0 (az.py) multiplataforma.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: iot-hub
 ms.devlang: azurecli
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/16/2017
 ms.author: dobett
-ms.openlocfilehash: 161089159999a4a63a39b059e69a08b7a9297445
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: c89ecc31754d355d6469d54dcd45e1cc2ef106f0
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli-20"></a>Creación de una instancia de IoT Hub mediante la CLI de Azure 2.0
 
@@ -88,7 +88,6 @@ Use la CLI de Azure para crear un grupo de recursos y, luego, agregue una instan
 
 > [!NOTE]
 > El comando anterior crea una instancia de IoT Hub en el plan de tarifa S1 según el que factura. Para más información, consulte el artículo sobre los [precios de Azure IoT Hub][lnk-iot-pricing].
->
 >
 
 ## <a name="remove-an-iot-hub"></a>Eliminación de una instancia de IoT Hub

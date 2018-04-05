@@ -1,11 +1,11 @@
 ---
-title: "Características del motor de reglas de la red CDN de Azure | Microsoft Docs"
-description: "Documentación de referencia sobre las condiciones y características de coincidencia del motor de reglas de la red CDN de Azure."
+title: Características del motor de reglas de la red CDN de Azure | Microsoft Docs
+description: Documentación de referencia sobre las condiciones y características de coincidencia del motor de reglas de la red CDN de Azure.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: Lichard
 manager: akucer
-editor: 
+editor: ''
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
 ms.service: cdn
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.openlocfilehash: 949b957716af2d7dfd704b4fca48afb78d0fed1e
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 9f1a9343a657e076e94f6aa59fd03128ef488ac9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Características del motor de reglas de la red CDN de Azure
 En este tema se muestran descripciones detalladas de las características disponibles para el [motor de reglas](cdn-rules-engine.md)de Azure Content Delivery Network (CDN).
@@ -46,28 +46,28 @@ Estas características están diseñadas para personalizar cuándo y cómo se al
 NOMBRE | Propósito
 -----|--------
 [Parámetros de ancho de banda](#bandwidth-parameters) | Determina si los parámetros de limitación de ancho de banda (por ejemplo, ec_rate y ec_prebuf) están activos.
-[Limitación de ancho de banda](#bandwidth-throttling) | Limita el ancho de banda de la respuesta de los servidores perimetrales.
+[Limitación de ancho de banda](#bandwidth-throttling) | Limita el ancho de banda de la respuesta proporcionada por el punto de presencia (POP).
 [Omisión de la memoria caché](#bypass-cache) | Determina si la solicitud debe omitir el almacenamiento en caché.
-[Tratamiento de encabezados Cache-Control](#cache-control-header-treatment) | Controla la generación de encabezados `Cache-Control` mediante el servidor perimetral cuando está activa la característica externa Max-Age.
+[Tratamiento de encabezados Cache-Control](#cache-control-header-treatment) | Controla la generación de encabezados `Cache-Control` mediante el punto de presencia cuando está activa la característica externa de antigüedad máxima.
 [Cadena de consulta de clave de caché](#cache-key-query-string) | Determina si la clave de caché incluye o excluye los parámetros de cadena de consulta asociados a una solicitud.
 [Reescritura de clave de caché](#cache-key-rewrite) | Reescribe la clave de caché asociada a una solicitud.
-[Relleno de la memoria caché completa](#complete-cache-fill) | Determina lo que ocurre cuando una solicitud tiene como resultado un error de caché parcial en un servidor perimetral.
+[Relleno de la memoria caché completa](#complete-cache-fill) | Determina lo que ocurre cuando una solicitud tiene como resultado un error de caché parcial en un punto de presencia.
 [Comprimir tipos de archivo](#compress-file-types) | Define los formatos de los archivos que se van a comprimir en el servidor.
-[Max-Age interna predeterminada](#default-internal-max-age) | Determina el intervalo predeterminado de max-age para el servidor perimetral en la revalidación de caché del servidor de origen.
-[Tratamiento del encabezado Expires](#expires-header-treatment) | Controla la generación de encabezados `Expires` mediante el servidor perimetral cuando está activa la característica externa Max-Age.
-[Max-Age externa](#external-max-age) | Determina el intervalo de max-age para el explorador en la revalidación de caché del servidor de perimetral.
-[Forzar Max-Age interna](#force-internal-max-age) | Determina el intervalo de max-age para el servidor perimetral en la revalidación de caché del servidor de origen.
+[Max-Age interna predeterminada](#default-internal-max-age) | Determina el intervalo predeterminado de antigüedad máxima del punto de presencia en la revalidación de caché del servidor de origen.
+[Tratamiento del encabezado Expires](#expires-header-treatment) | Controla la generación de encabezados `Expires` mediante un punto de presencia cuando está activa la característica externa de antigüedad máxima.
+[Max-Age externa](#external-max-age) | Determina el intervalo de antigüedad máxima para el explorador en la revalidación de caché del punto de presencia.
+[Forzar Max-Age interna](#force-internal-max-age) | Determina el intervalo de antigüedad máxima del punto de presencia en la revalidación de caché del servidor de origen.
 [Compatibilidad de H.264 (descarga progresiva de HTTP)](#h264-support-http-progressive-download) | Determina los tipos de formatos de archivo H.264 que pueden usarse para transmitir contenido en streaming.
 [Respetar la solicitud de no almacenar en caché](#honor-no-cache-request) | Determina si las solicitudes de no almacenar en caché de un cliente HTTP se reenvían al servidor de origen.
 [Ignorar la opción de no almacenar en caché de origen](#ignore-origin-no-cache) | Determina si la CDN ignora determinadas directivas procedentes de un servidor de origen.
 [Ignorar intervalos que no se puedan satisfacer](#ignore-unsatisfiable-ranges) | Determina la respuesta que se devolverá a los clientes cuando una solicitud genere un código de estado "416 - No se puede satisfacer el intervalo solicitado".
-[Max-Stale interna](#internal-max-stale) | Controla cuánto tiempo después de la hora de expiración normal puede atenderse un recurso almacenado en caché desde un servidor perimetral cuando el servidor perimetral no puede volver a validar el recurso almacenado en caché con el servidor de origen.
+[Max-Stale interna](#internal-max-stale) | Controla cuánto tiempo después de la hora de expiración normal puede atenderse un recurso almacenado en caché desde un punto de presencia cuando este no puede volver a validar el recurso almacenado en caché con el servidor de origen.
 [Uso compartido de caché parcial](#partial-cache-sharing) | Determina si una solicitud puede generar contenido almacenado parcialmente en caché.
 [Prevalidar el contenido guardado en caché](#prevalidate-cached-content) | Determina si el contenido almacenado en caché es apto para la revalidación temprana antes de que expire su período de vida.
-[Actualizar archivos de caché de cero bytes](#refresh-zero-byte-cache-files) | Determina cómo controlan los servidores perimetrales la solicitud de un cliente HTTP para un recurso de la caché de 0 bytes.
+[Actualizar archivos de caché de cero bytes](#refresh-zero-byte-cache-files) | Determina cómo controlan los puntos de presencia la solicitud de un cliente HTTP para un recurso de la caché de 0 bytes.
 [Establecer códigos de estado almacenables en caché](#set-cacheable-status-codes) | Define el conjunto de códigos de estado que puede dar lugar a contenido almacenado en caché.
 [Entrega de contenido obsoleto en caso de error](#stale-content-delivery-on-error) | Determina si se entrega el contenido almacenado en caché cuando se produce un error durante la revalidación de caché o al recuperar el contenido solicitado desde el servidor de origen del cliente.
-[Obsoleto durante revalidación](#stale-while-revalidate) | Mejora el rendimiento al permitir que los servidores perimetrales sirvan un cliente obsoleto al solicitante mientras se lleva a cabo la revalidación.
+[Obsoleto durante revalidación](#stale-while-revalidate) | Mejora el rendimiento al permitir que los puntos de presencia sirvan un cliente obsoleto para el solicitante mientras se lleva a cabo la revalidación.
 
 ## <a name="comment-feature"></a>Característica de comentario
 
@@ -110,7 +110,7 @@ Name | Purpose
 Edge Optimizer | Determines whether Edge Optimizer can be applied to a request.
 Edge Optimizer – Instantiate Configuration | Instantiates or activates the Edge Optimizer configuration associated with a site.
 
-###Edge Optimizer
+### Edge Optimizer
 **Purpose:** Determines whether Edge Optimizer can be applied to a request.
 
 If this feature has been enabled, then the following criteria must also be met before the request will be processed by Edge Optimizer:
@@ -128,7 +128,7 @@ Disabled|Restores the default behavior. The default behavior is to deliver conte
 **Default Behavior:** Disabled
  
 
-###Edge Optimizer - Instantiate Configuration
+### Edge Optimizer - Instantiate Configuration
 **Purpose:** Instantiates or activates the Edge Optimizer configuration associated with a site.
 
 This feature requires the ADN platform and the Edge Optimizer feature.
@@ -151,7 +151,7 @@ Estas características están diseñadas para controlar la forma en que la red C
 NOMBRE | Propósito
 -----|--------
 [Número máximo de solicitudes de conexión persistente](#maximum-keep-alive-requests) | Define el número máximo de solicitudes de conexión persistente antes de cerrarse.
-[Encabezados de proxy especiales](#proxy-special-headers) | Define el conjunto de encabezados de solicitud específicos de la red CDN que se reenvía desde un servidor perimetral a un servidor de origen.
+[Encabezados de proxy especiales](#proxy-special-headers) | Define el conjunto de encabezados de solicitud específicos de la red CDN que se reenvían desde un punto de presencia a un servidor de origen.
 
 
 ## <a name="specialty-features"></a>Características de especialidad
@@ -201,8 +201,8 @@ Los parámetros de limitación de ancho de banda determinan si la velocidad de t
 
 Valor|Resultado
 --|--
-habilitado|Permite que los servidores perimetrales admitan las solicitudes de limitación de ancho de banda.
-Disabled|Hace que los servidores perimetrales ignoren los parámetros de limitación de ancho de banda. El contenido solicitado se sirve normalmente (es decir, sin limitación de ancho de banda).
+habilitado|Permite que los puntos de presencia admitan las solicitudes de limitación de ancho de banda.
+Disabled|Hace que los puntos de presencia omitan los parámetros de limitación de ancho de banda. El contenido solicitado se sirve normalmente (es decir, sin limitación de ancho de banda).
 
 **Comportamiento predeterminado**: habilitado.
  
@@ -212,14 +212,14 @@ Disabled|Hace que los servidores perimetrales ignoren los parámetros de limitac
 
 ---
 ### <a name="bandwidth-throttling"></a>Limitación de ancho de banda
-**Propósito**: limita el ancho de banda de la respuesta de los servidores perimetrales.
+**Propósito**: limita el ancho de banda de la respuesta de los puntos de presencia.
 
 Dos de las siguientes opciones deben definirse para configurar correctamente la limitación de ancho de banda.
 
 Opción|DESCRIPCIÓN
 --|--
 Kbytes por segundo|Establezca esta opción en el ancho de banda máximo (Kb por segundo) que puede utilizarse para entregar la respuesta.
-Segundos de búfer previo|Establezca esta opción en el número de segundos que los servidores perimetrales deben esperar hasta limitar el ancho de banda. El propósito de este período de tiempo de ancho de banda no restringido es evitar que un reproductor multimedia experimente problemas de cortes o de almacenamiento en búfer debido a la limitación del ancho de banda.
+Segundos de búfer previo|Establezca esta opción en el número de segundos que los puntos de presencia deben esperar hasta limitar el ancho de banda. El propósito de este período de tiempo de ancho de banda no restringido es evitar que un reproductor multimedia experimente problemas de cortes o de almacenamiento en búfer debido a la limitación del ancho de banda.
 
 **Comportamiento predeterminado**: deshabilitado.
 
@@ -233,8 +233,8 @@ Segundos de búfer previo|Establezca esta opción en el número de segundos que 
 
 Valor|Resultado
 --|--
-habilitado|Hace que todas las solicitudes pasen al servidor de origen, aunque el contenido se haya almacenado antes en caché en los servidores perimetrales.
-Disabled|Hace que los servidores perimetrales almacenen en caché los recursos según la directiva de caché definida en sus encabezados de respuesta.
+habilitado|Hace que todas las solicitudes pasen al servidor de origen, aunque el contenido se haya almacenado antes en caché en los puntos de presencia.
+Disabled|Hace que los puntos de presencia almacenen en caché los recursos según la directiva de caché definida en sus encabezados de respuesta.
 
 **Comportamiento predeterminado**:
 
@@ -289,7 +289,7 @@ Información importante:
 
 ---
 ### <a name="cache-control-header-treatment"></a>Tratamiento de encabezado Cache-Control
-**Propósito**: controla la generación de encabezados `Cache-Control` mediante el servidor perimetral cuando está activa la característica externa Max-Age.
+**Propósito**: controla la generación de encabezados `Cache-Control` mediante el punto de presencia cuando está activa la característica externa de antigüedad máxima.
 
 La manera más fácil de lograr este tipo de configuración es colocar las características Max-Age externa y Tratamiento de encabezados Cache-Control en la misma instrucción.
 
@@ -415,9 +415,9 @@ Información importante:
 
 ---
 ### <a name="complete-cache-fill"></a>Relleno de la memoria caché completa
-**Propósito**: determina lo que ocurre cuando una solicitud tiene como resultado un error de caché parcial en un servidor perimetral.
+**Propósito**: determina lo que ocurre cuando una solicitud tiene como resultado un error de caché parcial en un punto de presencia.
 
-Un error de caché parcial describe el estado de la memoria caché para un recurso que no se ha descargado por completo en un servidor perimetral. Si un recurso se ha almacenado en caché solo parcialmente en un servidor perimetral, la siguiente solicitud para ese recurso se reenviará de nuevo al servidor de origen.
+Un error de caché parcial describe el estado de la memoria caché para un recurso que no se ha descargado por completo en un punto de presencia. Si un recurso se ha almacenado en caché solo parcialmente en un punto de presencia, la siguiente solicitud para ese recurso se reenviará de nuevo al servidor de origen.
 <!---
 This feature is not available for the ADN platform. The typical traffic on this platform consists of relatively small assets. The size of the assets served through these platforms helps mitigate the effects of partial cache misses, since the next request will typically result in the asset being cached on that POP.
 
@@ -430,8 +430,8 @@ Debido a la manera en que se realiza el seguimiento de la configuración de la m
 
 Valor|Resultado
 --|--
-habilitado|Restablece el comportamiento predeterminado. El comportamiento predeterminado consiste en forzar al servidor perimetral para que inicie una captura de fondo del recurso desde el servidor de origen. Después, el recurso estará en la caché local del servidor perimetral.
-Disabled|Evita que un servidor perimetral realice una captura de fondo del recurso. Como resultado, la próxima solicitud para ese recurso realizada desde esa región hace que un servidor perimetral lo solicite desde el servidor de origen del cliente.
+habilitado|Restablece el comportamiento predeterminado. El comportamiento predeterminado consiste en forzar al punto de presencia a que inicie una captura en segundo plano del recurso desde el servidor de origen. Después de eso, el recurso estará en la caché local del punto de presencia.
+Disabled|Evita que un punto de presencia realice una captura en segundo plano del recurso. Como resultado, la próxima solicitud de ese recurso realizada desde esa región hace que un punto de presencia lo solicite desde el servidor de origen del cliente.
 
 **Comportamiento predeterminado**: habilitado.
 
@@ -523,14 +523,14 @@ Disabled|El encabezado de respuesta X-EC-Debug se excluirá de la respuesta.
 
 ---
 ### <a name="default-internal-max-age"></a>Max-Age interna predeterminada
-**Propósito**: determina el intervalo predeterminado de max-age para el servidor perimetral en la revalidación de caché del servidor de origen. En otras palabras, la cantidad de tiempo que transcurrirá antes de que un servidor perimetral compruebe si un recurso almacenado en caché coincide con el recurso que se almacena en el servidor de origen.
+**Propósito**: determina el intervalo predeterminado de antigüedad máxima del punto de presencia en la revalidación de caché del servidor de origen. En otras palabras, la cantidad de tiempo que transcurrirá antes de que un punto de presencia compruebe si un recurso almacenado en caché coincide con el recurso que se almacena en el servidor de origen.
 
 Información importante:
 
 - Esta acción solo se realizará para las respuestas de un servidor de origen que no asignen una indicación de max-age en el encabezado `Cache-Control` o `Expires`.
 - Esta acción no se realizará para los recursos que no se consideran almacenables en caché.
-- Esta acción no afecta a las revalidaciones de caché del explorador al servidor perimetral. Estos tipos de revalidaciones dependen de los encabezados `Cache-Control` o `Expires` enviados al explorador, los cuales se pueden personalizar con la característica externa Max-Age.
-- Los resultados de esta acción no tienen un efecto visible en los encabezados de respuesta y el contenido devuelto por los servidores perimetrales, pero puede afectar a la cantidad de tráfico de revalidación enviado desde los servidores perimetrales al servidor de origen.
+- Esta acción no afecta a las revalidaciones de caché del explorador en el punto de presencia. Estos tipos de revalidaciones dependen de los encabezados `Cache-Control` o `Expires` enviados al explorador, los cuales se pueden personalizar con la característica externa Max-Age.
+- Los resultados de esta acción no tienen un efecto visible en los encabezados de respuesta y el contenido devuelto por los puntos de presencia, pero puede afectar a la cantidad de tráfico de revalidación enviado desde los puntos de presencia al servidor de origen.
 - Para configurar esta característica:
     - Seleccione el código de estado al que se puede aplicar un valor de max-age interna predeterminada.
     - Especifique un valor entero y seleccione la unidad de tiempo que desee (por ejemplo, segundos, minutos, horas, etc.). Este valor define el intervalo de max-age interna predeterminada.
@@ -571,7 +571,7 @@ Disabled| Restablece el comportamiento predeterminado. El comportamiento predete
 
 ---
 ### <a name="expires-header-treatment"></a>Tratamiento del encabezado Expires
-**Propósito**: controla la generación de encabezados `Expires` mediante el servidor perimetral cuando está activa la característica externa Max-Age.
+**Propósito**: controla la generación de encabezados `Expires` mediante el punto de presencia cuando está activa la característica externa de antigüedad máxima.
 
 La manera más fácil de lograr este tipo de configuración es colocar las características Max-Age externa y Tratamiento de encabezados Expires en la misma instrucción.
 
@@ -590,15 +590,15 @@ Remove| Esta opción garantiza que no se incluirá un encabezado `Expires` en la
 
 ---
 ### <a name="external-max-age"></a>Max-Age externa
-**Propósito**: determina el intervalo de max-age para el explorador en la revalidación de caché del servidor de perimetral. En otras palabras, cantidad de tiempo que transcurrirá antes de que un explorador compruebe si hay una nueva versión de un recurso en un servidor perimetral.
+**Propósito**: determina el intervalo de antigüedad máxima para el explorador en la revalidación de caché del punto de presencia. En otras palabras, cantidad de tiempo que transcurrirá antes de que un explorador compruebe si hay una nueva versión de un recurso en un punto de presencia.
 
-Si habilita esta característica, se generarán los encabezados `Cache-Control: max-age` y `Expires` en los servidores perimetrales y se enviarán al cliente HTTP. De forma predeterminada, estos encabezados sobrescribirán los creados por el servidor de origen. Sin embargo, pueden utilizarse las características Tratamiento de encabezados Cache-Control y Tratamiento de encabezados Expires para modificar este comportamiento.
+Si habilita esta característica, se generarán los encabezados `Cache-Control: max-age` y `Expires` en los puntos de presencia y se enviarán al cliente HTTP. De forma predeterminada, estos encabezados sobrescribirán los creados por el servidor de origen. Sin embargo, pueden utilizarse las características Tratamiento de encabezados Cache-Control y Tratamiento de encabezados Expires para modificar este comportamiento.
 
 Información importante:
 
-- Esta acción no afecta a las revalidaciones de caché del servidor perimetral al servidor de origen. Estos tipos de revalidaciones se determinan según los encabezados `Cache-Control` y `Expires` recibidos desde el servidor de origen, y se pueden personalizar mediante las características internas predeterminadas Max-Age y Forzar Max-Age.
+- Esta acción no afecta a las revalidaciones de caché del punto de presencia en el servidor de origen. Estos tipos de revalidaciones se determinan según los encabezados `Cache-Control` y `Expires` recibidos desde el servidor de origen, y se pueden personalizar mediante las características internas predeterminadas Max-Age y Forzar Max-Age.
 - Para configurar esta característica, especifique un valor entero y seleccione la unidad de tiempo que desee (por ejemplo, segundos, minutos, horas, etc.).
-- Si se establece esta característica en un valor negativo, los servidores perimetrales enviarán un encabezado `Cache-Control: no-cache` y una hora `Expires` establecida en el pasado con cada respuesta al explorador. Aunque un cliente HTTP no almacenará la respuesta en caché, esta configuración no afectará a la capacidad de los servidores perimetrales para almacenar en caché la respuesta del servidor de origen.
+- Si se establece esta característica en un valor negativo, los puntos de presencia enviarán un encabezado `Cache-Control: no-cache` y una hora `Expires` establecida en el pasado con cada respuesta al explorador. Aunque un cliente HTTP no almacenará la respuesta en caché, esta configuración no afectará a la capacidad de los puntos de presencia para almacenar en caché la respuesta del servidor de origen.
 - Al establecer la unidad de tiempo en "Off" se deshabilitará esta característica. Los encabezados `Cache-Control` y `Expires` almacenados en caché que cuentan con la respuesta del servidor de origen, pasarán directamente al explorador.
 
 **Comportamiento predeterminado:** desactivado
@@ -628,13 +628,13 @@ Disabled|Las solicitudes no se redirigirán.
 
 ---
 ### <a name="force-internal-max-age"></a>Forzar Max-Age interna
-**Propósito**: determina el intervalo de max-age para el servidor perimetral en la revalidación de caché del servidor de origen. En otras palabras, la cantidad de tiempo que transcurrirá antes de que un servidor perimetral pueda comprobar si un recurso almacenado en caché coincide con el recurso que se almacena en el servidor de origen.
+**Propósito**: determina el intervalo de antigüedad máxima del punto de presencia en la revalidación de caché del servidor de origen. En otras palabras, la cantidad de tiempo que transcurrirá antes de que un punto de presencia compruebe si un recurso almacenado en caché coincide con el recurso que se almacena en el servidor de origen.
 
 Información importante:
 
 - Esta característica invalidará el intervalo de max-age definido en los encabezados `Cache-Control` o `Expires` generados en un servidor de origen.
-- Esta característica no afecta a las revalidaciones de caché del explorador al servidor perimetral. Estos tipos de revalidaciones dependen de los encabezados `Cache-Control` o `Expires` que se envían al explorador.
-- Esta característica no tiene un efecto visible en la respuesta entregada por un servidor perimetral al solicitante. Sin embargo, esto puede afectar a la cantidad de tráfico de revalidación enviado desde los servidores perimetrales al servidor de origen.
+- Esta característica no afecta a las revalidaciones de caché del explorador en el punto de presencia. Estos tipos de revalidaciones dependen de los encabezados `Cache-Control` o `Expires` que se envían al explorador.
+- Esta característica no tiene un efecto visible en la respuesta entregada por un punto de presencia al solicitante. Sin embargo, puede afectar a la cantidad de tráfico de revalidación enviado desde los puntos de presencia al servidor de origen.
 - Para configurar esta característica:
     - Seleccione el código de estado al que se aplicará un valor de max-age interna.
     - Especifique un valor entero y seleccione la unidad de tiempo que desee (por ejemplo, segundos, minutos, horas, etc.). Este valor define el intervalo de max-age interna de la solicitud.
@@ -678,7 +678,7 @@ Una solicitud para no almacenar en caché se produce cuando el cliente HTTP env�
 
 Valor|Resultado
 --|--
-habilitado|Permite reenviar las solicitudes de no almacenar en caché de un cliente HTTP al servidor de origen, y el servidor de origen devolverá los encabezados y el cuerpo de respuesta a través del servidor perimetral al cliente HTTP.
+habilitado|Permite reenviar las solicitudes de no almacenar en caché de un cliente HTTP al servidor de origen, y el servidor de origen devolverá los encabezados y el cuerpo de respuesta a través del punto de presencia al cliente HTTP.
 Disabled|Restablece el comportamiento predeterminado. El comportamiento predeterminado es impedir que las solicitudes de no almacenar en caché se reenvíen al servidor de origen.
 
 Para todo el tráfico de producción, se recomienda dejar esta característica deshabilitada de forma predeterminada. De lo contrario, los servidores de origen no estarán protegidos frente a usuarios finales que accidentalmente podrían desencadenar muchas solicitudes de no almacenar en caché al actualizar las páginas web, o frente a muchos reproductores de medios populares que están codificados para enviar un encabezado de no almacenar en caché con cada solicitud de vídeo. No obstante, esta característica puede ser útil para aplicarla a determinados directorios de ensayo o pruebas que no son de producción, para poder extraer contenido nuevo a petición desde el servidor de origen.
@@ -724,11 +724,11 @@ Información importante:
 ### <a name="ignore-unsatisfiable-ranges"></a>Ignorar intervalos que no se puedan satisfacer 
 **Propósito**: determina la respuesta que se devolverá a los clientes cuando una solicitud genere un código de estado 416 No se puede satisfacer el intervalo solicitado.
 
-De forma predeterminada, este código de estado se devuelve cuando un servidor perimetral no puede satisfacer la solicitud de intervalo de bytes especificado y no se ha especificado un campo de encabezado de solicitud If-Range.
+De forma predeterminada, este código de estado se devuelve cuando un punto de presencia no puede satisfacer la solicitud de intervalo de bytes especificado y no se ha especificado un campo de encabezado de solicitud If-Range.
 
 Valor|Resultado
 -|-
-habilitado|Impide que nuestros servidores perimetrales respondan a una solicitud de intervalo de bytes no válida con un código de estado "416 - No se puede satisfacer el intervalo solicitado". En su lugar, los servidores proporcionarán el recurso solicitado y devolverán un valor "200 OK" al cliente.
+habilitado|Impide que nuestros puntos de presencia respondan a una solicitud de intervalo de bytes no válida con un código de estado "416 - No se puede satisfacer el intervalo solicitado". En su lugar, los servidores proporcionarán el recurso solicitado y devolverán un valor "200 OK" al cliente.
 Disabled|Restablece el comportamiento predeterminado. El comportamiento predeterminado es respetar el código de estado 416 No se puede satisfacer el intervalo solicitado.
 
 **Comportamiento predeterminado**: deshabilitado.
@@ -739,15 +739,15 @@ Disabled|Restablece el comportamiento predeterminado. El comportamiento predeter
 
 ---
 ### <a name="internal-max-stale"></a>Max-Stale interna
-**Propósito**: controla cuánto tiempo después de la hora de expiración normal puede atenderse un recurso almacenado en caché desde un servidor perimetral cuando el servidor perimetral no puede volver a validar el recurso almacenado en caché con el servidor de origen.
+**Propósito**: controla cuánto tiempo después de la hora de expiración normal puede atenderse un recurso almacenado en caché desde un punto de presencia cuando este no puede volver a validar el recurso almacenado en caché con el servidor de origen.
 
-Normalmente, cuando se agota el tiempo max-age de un recurso, el servidor perimetral envía una solicitud de revalidación al servidor de origen. El servidor de origen responde con 304 No modificado para proporcionar el servidor perimetral una nueva concesión sobre el recurso en caché, o con 200 OK para proporcionar al servidor perimetral una versión actualizada del recurso almacenado en caché.
+Normalmente, cuando se agota el tiempo de antigüedad máxima de un recurso, el punto de presencia envía una solicitud de revalidación al servidor de origen. El servidor de origen responde con 304 No modificado para proporcionar al punto de presencia una nueva concesión sobre el recurso en caché, o con 200 OK para proporcionar al punto de presencia una versión actualizada del recurso almacenado en caché.
 
-Si el servidor perimetral no se puede establecer una conexión con el servidor de origen al intentar esta revalidación, esta característica Max-Stale interna controla si el servidor perimetral puede continuar proporcionando el recurso ahora obsoleto, y durante cuánto tiempo.
+Si el punto de presencia no puede establecer una conexión con el servidor de origen al intentar esta revalidación, esta característica Max-Stale interna controla si el punto de presencia puede continuar proporcionando el recurso ahora obsoleto, y durante cuánto tiempo.
 
 Tenga en cuenta que este intervalo de tiempo se inicia cuando expira la vigencia máxima del recurso, no cuando se produce la revalidación errónea. Por lo tanto, el período máximo durante el cual puede proporcionarse un recurso sin una revalidación correcta es la cantidad de tiempo especificadao por la combinación de max-age más max-stale. Por ejemplo, si un recurso se almacenó en caché a las 9:00 con un valor de max-age de 30 minutos y un valor de max-stale de 15 minutos, un intento de revalidación erróneo a las 9:44 haría que un usuario final recibiera el recurso obsoleto almacenado en caché, mientras que un intento de revalidación erróneo a las 9:46 haría que el usuario final recibiera un mensaje "504 - Tiempo de espera agotado para la puerta de enlace".
 
-Los encabezados `Cache-Control: must-revalidate` o `Cache-Control: proxy-revalidate` recibidos desde el servidor de origen reemplazarán cualquier valor configurado para esta característica. Si alguno de los encabezados se recibe desde el servidor de origen cuando un recurso se almacena inicialmente en caché, el servidor perimetral no proporcionará un recurso almacenado en caché obsoleto. En este caso, si el servidor perimetral no se puede revalidar con el origen una vez transcurrido el intervalo de max-age del recurso, el servidor perimetral devuelve un mensaje de error "504 - Tiempo de espera agotado para la puerta de enlace".
+Los encabezados `Cache-Control: must-revalidate` o `Cache-Control: proxy-revalidate` recibidos desde el servidor de origen reemplazarán cualquier valor configurado para esta característica. Si alguno de los encabezados se recibe desde el servidor de origen cuando un recurso se almacena inicialmente en caché, el punto de presencia no proporcionará un recurso almacenado en caché obsoleto. En este caso, si el punto de presencia no se puede revalidar con el origen una vez transcurrido el intervalo de antigüedad máxima del recurso, se devuelve un mensaje de error "504 - Tiempo de espera agotado para la puerta de enlace".
 
 Información importante:
 
@@ -828,7 +828,7 @@ Información importante:
     - CACHE-CONTROL
     - cachE-Control
 - Al especificar un nombre de encabezado, use solamente caracteres alfanuméricos, guiones o caracteres de subrayado.
-- Si elimina un encabezado, impedirá que los servidores perimetrales lo reenvíen a un servidor de origen.
+- Si elimina un encabezado, impedirá que los puntos de presencia lo reenvíen a un servidor de origen.
 - Los encabezados siguientes están reservados y esta característica no los puede modificar:
     - forwarded
     - host
@@ -848,7 +848,7 @@ Cada respuesta contiene un conjunto de encabezados de respuesta que lo describen
 - Anexar o sobrescribir el valor asignado a un encabezado de respuesta. Si el encabezado de respuesta especificado no existe, esta característica lo agregará a la respuesta.
 - Eliminar un encabezado de respuesta de la respuesta.
 
-De forma predeterminada, un servidor de origen y los servidores perimetrales definen los valores del encabezado de respuesta.
+De forma predeterminada, un servidor de origen y los puntos de presencia definen los valores del encabezado de respuesta.
 
 En un encabezado de respuesta se puede realizar una de las siguientes acciones:
 
@@ -912,7 +912,7 @@ Defina la cantidad de tiempo antes de la expiración del período de vida del co
 
 Información importante:
 
-- Cuando se selecciona "Off" como unidad de tiempo, la revalidación debe realizarse después de que el contenido almacenado en caché haya expirado. No se debe especificar tiempo y se pasará por alto.
+- Cuando se selecciona "Off" como unidad de tiempo, la revalidación debe realizarse después de que el contenido almacenado en caché haya expirado. No se debe especificar el tiempo y se pasará por alto.
 
 **Comportamiento predeterminado:** desactivado. La revalidación solo puede realizarse después de que expire el período de vida del contenido almacenado en caché.
 
@@ -922,7 +922,7 @@ Información importante:
 
 ---
 ### <a name="proxy-special-headers"></a>Encabezados de proxy especiales
-**Propósito**: define el conjunto de encabezados de solicitud específicos de la red CDN que se reenviará desde un servidor perimetral a un servidor de origen.
+**Propósito**: define el conjunto de encabezados de solicitud específicos de la red CDN que se reenviará desde un punto de presencia a un servidor de origen.
 
 Información importante:
 
@@ -937,15 +937,15 @@ Información importante:
 
 ---
 ### <a name="refresh-zero-byte-cache-files"></a>Actualizar archivos de caché de cero bytes
-**Propósito**: determina cómo los servidores perimetrales controlan la solicitud de un cliente HTTP para un recurso de la caché de 0 bytes.
+**Propósito**: determina cómo controlan los puntos de presencia la solicitud de un cliente HTTP para un recurso de la caché de 0 bytes.
 
 Los valores válidos son:
 
 Valor|Resultado
 --|--
-habilitado|Hace que el servidor perimetral vuelva a capturar el recurso desde el servidor de origen.
+habilitado|Hace que el punto de presencia vuelva a capturar el recurso desde el servidor de origen.
 Disabled|Restablece el comportamiento predeterminado. El comportamiento predeterminado es atender los recursos de caché válidos cuando se soliciten.
-Esta característica no es necesaria para la entrega de contenido y un almacenamiento en caché correcto, pero puede resultar útil para solucionar este problema. Por ejemplo, los generadores de contenido dinámicos en los servidores de origen pueden provocar accidentalmente que se envíen respuestas de 0 bytes a los servidores perimetrales. Normalmente, los servidores perimetrales almacenan estos tipos de respuestas en la caché. Si sabe que una respuesta de 0 bytes nunca es una respuesta válida 
+Esta característica no es necesaria para la entrega de contenido y un almacenamiento en caché correcto, pero puede resultar útil para solucionar este problema. Por ejemplo, los generadores de contenido dinámico en los servidores de origen pueden provocar accidentalmente que se envíen respuestas de 0 bytes a los puntos de presencia. Normalmente, los puntos de presencia almacenan estos tipos de respuestas en la caché. Si sabe que una respuesta de 0 bytes nunca es una respuesta válida 
 
 para ese tipo de contenido, esta característica puede impedir que se proporcionen estos tipos de recursos a los clientes.
 
@@ -1016,7 +1016,7 @@ Disabled|El error del servidor de origen se reenvía al solicitante.
 
 ---
 ### <a name="stale-while-revalidate"></a>Obsoleto durante revalidación
-**Propósito**: mejora el rendimiento al permitir que los servidores perimetrales proporcionen contenido obsoleto al solicitante mientras se lleva a cabo la revalidación.
+**Propósito**: mejora el rendimiento al permitir que los puntos de presencia proporcionen contenido obsoleto al solicitante mientras se lleva a cabo la revalidación.
 
 Información importante:
 
@@ -1109,7 +1109,7 @@ Los valores válidos son:
 
 Valor|Resultado
 ---|----
-habilitado|Hace que el servidor perimetral no tenga en cuenta las mayúsculas y minúsculas al comparar las direcciones URL de los parámetros de autenticación basada en token.
+habilitado|Hace que el punto de presencia no tenga en cuenta las mayúsculas y minúsculas al comparar las direcciones URL de los parámetros de autenticación basada en tokens.
 Disabled|Restablece el comportamiento predeterminado. Es el comportamiento predeterminado de la comparación de direcciones URL es que la autenticación basada en token distinga mayúsculas de minúsculas.
 
 **Comportamiento predeterminado**: deshabilitado.
@@ -1149,14 +1149,14 @@ Opción|DESCRIPCIÓN
 -|-
 Código|Seleccione el código de respuesta que se devolverá al solicitante.
 Origen y patrón| Esta opción define un patrón de URI de solicitud que identifica el tipo de solicitudes que se pueden redirigir. Solo se redirigirán las solicitudes cuya dirección URL satisfaga ambos criterios siguientes: <br/> <br/> **Origen (o punto de acceso a contenido):** seleccione una ruta de acceso relativa que identifique un servidor de origen. Se trata de la sección "/XXXX/" y el nombre del punto de conexión. <br/> **Origen (patrón):** se debe definir un patrón que identifique las solicitudes por ruta de acceso relativa. Este patrón de expresión regular debe definir una ruta de acceso que comienza directamente después del punto de acceso al contenido seleccionado anteriormente (vea más arriba). <br/> - Asegúrese de que los criterios de URI de solicitud (es decir, el origen y el patrón) definidos anteriormente no entren en conflicto con las condiciones de coincidencia definidas para esta característica. <br/> -Especifique un patrón; si usa un valor en blanco como patrón, se busca la coincidencia con todas las cadenas.
-Destino| Defina la dirección URL a la que se redirigirán las solicitudes anteriores. <br/> Construya esta dirección URL dinámicamente mediante: <br/> - Un patrón de expresión regular <br/>- Variables HTTP <br/> Tome los valores capturados en el patrón de origen y sustitúyalos en el patrón de destino mediante $_n_, donde _n_ identifica un valor por el orden en el que se capturó. Por ejemplo, $1 representa el primer valor capturado en el patrón de origen, mientras que $2 representa el segundo valor. <br/> 
+Destino| Defina la dirección URL a la que se redirigirán las solicitudes anteriores. <br/> Construya esta dirección URL dinámicamente mediante: <br/> - Un patrón de expresión regular <br/>- Variables HTTP <br/> Tome los valores capturados en el patrón de origen y sustitúyalos en el patrón de destino usando $_n_, donde _n_ identifica un valor por el orden en el que se capturó. Por ejemplo, $1 representa el primer valor capturado en el patrón de origen, mientras que $2 representa el segundo valor. <br/> 
 Es muy recomendable usar una dirección URL absoluta. El uso de direcciones URL relativas podría redirigir direcciones URL de la red CDN a rutas de acceso no válidas.
 
 **Escenario de ejemplo**
 
 En este ejemplo, se muestra cómo redirigir una dirección URL del servidor perimetral CNAME que se resuelve en esta dirección URL de la red CDN base: http://marketing.azureedge.net/brochures
 
-Las solicitudes aptas se redirigirán a esta dirección URL del servidor perimetral CNAME: http://cdn.mydomain.com/resources
+Las solicitudes aptas se redirigirán a esta dirección URL del servidor perimetral CNAME base: http://cdn.mydomain.com/resources
 
 Esta redirección de URL se puede realizar con la siguiente configuración:![](./media/cdn-rules-engine-reference/cdn-rules-engine-redirect.png)
 
@@ -1166,13 +1166,13 @@ Esta redirección de URL se puede realizar con la siguiente configuración:![](.
 - Todas las solicitudes coincidentes se redirigirán a la dirección URL del servidor perimetral CNAME definida en la opción Destination (Destino). 
     - Escenario de ejemplo 1: 
         - Solicitud de ejemplo (dirección URL de CDN): http://marketing.azureedge.net/brochures/widgets.pdf 
-        - URL de solicitud (después de la redirección): http://cdn.mydomain.com/resources/widgets.pdf  
+        - Dirección URL de solicitud (después de redirección): http://cdn.mydomain.com/resources/widgets.pdf  
     - Escenario de ejemplo 2: 
-        - Solicitud de ejemplo (URL de servidor perimetral CNAME): http://marketing.mydomain.com/brochures/widgets.pdf 
-        - URL de solicitud (después de la redirección): http://cdn.mydomain.com/resources/widgets.pdf Escenario de ejemplo
+        - Solicitud de ejemplo (dirección URL de servidor perimetral CNAME): http://marketing.mydomain.com/brochures/widgets.pdf 
+        - URL de solicitud (después de redirección): escenario de ejemplo http://cdn.mydomain.com/resources/widgets.pdf
     - Escenario de ejemplo 3: 
-        - Solicitud de ejemplo (URL de servidor perimetral CNAME): http://brochures.mydomain.com/campaignA/final/productC.ppt 
-        - URL de solicitud (después de la redirección): http://cdn.mydomain.com/resources/campaignA/final/productC.ppt  
+        - Solicitud de ejemplo (dirección URL de servidor perimetral CNAME): http://brochures.mydomain.com/campaignA/final/productC.ppt 
+        - Dirección URL de solicitud (después de redirección): http://cdn.mydomain.com/resources/campaignA/final/productC.ppt  
 - La variable de esquema de solicitud (%{scheme}) se utiliza en la opción Destination (Destino). Esto garantiza que el esquema de la solicitud no cambiará después de la redirección.
 - Los segmentos de dirección URL que se capturaron de la solicitud se anexan a la nueva dirección URL a través de "$1".
 
@@ -1191,14 +1191,14 @@ Información importante:
 Opción|DESCRIPCIÓN
 -|-
  Origen y patrón | Esta opción define un patrón de URI de solicitud que identifica el tipo de solicitudes que se pueden reescribir. Solo se reescribirán las solicitudes cuya dirección URL satisfaga ambos criterios siguientes: <br/>     - **Origen (o punto de acceso al contenido)**: seleccione una ruta de acceso relativa que identifique un servidor de origen. Se trata de la sección "/XXXX/" y el nombre del punto de conexión. <br/> - **Origen (patrón):** se debe definir un patrón que identifique las solicitudes por ruta de acceso relativa. Este patrón de expresión regular debe definir una ruta de acceso que comienza directamente después del punto de acceso al contenido seleccionado anteriormente (vea más arriba). <br/> Compruebe que los criterios de URI de solicitud (es decir, el origen y el patrón) definidos anteriormente no entren en conflicto con las condiciones de coincidencia definidas para esta característica. Especifique un patrón; si usa un valor en blanco como patrón, se busca la coincidencia con todas las cadenas. 
- Destino  |Defina la dirección URL relativa en la que se sobrescribirán las solicitudes anteriores: <br/>    1. Seleccione un punto de acceso al contenido que identifique un servidor de origen. <br/>    2. Defina el uso de una ruta de acceso relativa: <br/>        - Un patrón de expresión regular <br/>        - Variables HTTP <br/> <br/> Tome los valores capturados en el patrón de origen y sustitúyalos en el patrón de destino mediante $_n_, donde _n_ identifica un valor por el orden en el que se capturó. Por ejemplo, $1 representa el primer valor capturado en el patrón de origen, mientras que $2 representa el segundo valor. 
- Esta característica permite que los servidores perimetrales vuelvan a escribir la dirección URL sin realizar una redirección tradicional. Esto significa que el solicitante recibirá el mismo código de respuesta que si hubiera solicitado la reescritura de la dirección URL.
+ Destino  |Defina la dirección URL relativa en la que se sobrescribirán las solicitudes anteriores: <br/>    1. Seleccione un punto de acceso al contenido que identifique un servidor de origen. <br/>    2. Defina el uso de una ruta de acceso relativa: <br/>        - Un patrón de expresión regular <br/>        - Variables HTTP <br/> <br/> Tome los valores capturados en el patrón de origen y sustitúyalos en el patrón de destino usando $_n_, donde _n_ identifica un valor por el orden en el que se capturó. Por ejemplo, $1 representa el primer valor capturado en el patrón de origen, mientras que $2 representa el segundo valor. 
+ Esta característica permite que los puntos de presencia vuelvan a escribir la dirección URL sin realizar una redirección tradicional. Esto significa que el solicitante recibirá el mismo código de respuesta que si hubiera solicitado la reescritura de la dirección URL.
 
 **Escenario de ejemplo 1**
 
 En este ejemplo, se muestra cómo redirigir una dirección URL del servidor perimetral CNAME que se resuelve en esta dirección URL de la red CDN base: http://marketing.azureedge.net/brochures/
 
-Las solicitudes aptas se redirigirán a esta dirección URL del servidor perimetral CNAME: http://MyOrigin.azureedge.net/resources/
+Las solicitudes aptas se redirigirán a esta dirección URL del servidor perimetral CNAME base: http://MyOrigin.azureedge.net/resources/
 
 Esta redirección de URL se puede realizar con la siguiente configuración:![](./media/cdn-rules-engine-reference/cdn-rules-engine-rewrite.png)
 

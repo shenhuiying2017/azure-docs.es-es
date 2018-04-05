@@ -1,25 +1,24 @@
 ---
-title: "Depuración de Azure Stream Analytics con receptores de Event Hubs | Microsoft Docs"
-description: "Prácticas recomendadas de consulta para la consideración de grupos de consumidores de Event Hubs en trabajos de Stream Analytics."
-keywords: "límite de centro de eventos, grupo de consumidores"
+title: Depuración de Azure Stream Analytics con receptores de Event Hubs | Microsoft Docs
+description: Prácticas recomendadas de consulta para la consideración de grupos de consumidores de Event Hubs en trabajos de Stream Analytics.
+keywords: límite de centro de eventos, grupo de consumidores
 services: stream-analytics
-documentationcenter: 
-author: samacha
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 
+documentationcenter: ''
+author: jseb225
+manager: ryanw
+ms.assetid: ''
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
-ms.author: samacha
-ms.openlocfilehash: ede3137de92e251f4ad020bc1ce3f041918242b2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: 48fa5d0274549aa35e67526a758eef1f34198a6a
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="debug-azure-stream-analytics-with-event-hub-receivers"></a>Depuración de Azure Stream Analytics con receptores de Event Hubs
 
@@ -60,9 +59,9 @@ FROM inputEventHub
 Utilice esta consulta:
 
 ```
-WITH input (
+WITH data AS (
    SELECT * FROM inputEventHub
-) as data
+)
 
 SELECT foo
 INTO output1
@@ -79,7 +78,7 @@ FROM data
 Para las consultas en las que hay conectadas tres o más entradas al mismo grupo de consumidores de Event Hubs, cree grupos de consumidores independientes. Esto requiere la creación de entradas de Stream Analytics adicionales.
 
 
-## <a name="get-help"></a>Obtener ayuda
+## <a name="get-help"></a>Obtención de ayuda
 Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -1,11 +1,11 @@
 ---
-title: "Integración del SDK de Android para Azure Mobile Engagement"
-description: "Procedimientos y actualizaciones más recientes para el SDK de Android para Azure Mobile Engagement"
+title: Integración del SDK de Android para Azure Mobile Engagement
+description: Procedimientos y actualizaciones más recientes para el SDK de Android para Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 9ec3fab3-35ec-458e-bf41-6cdd69e3fa44
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 06/27/2016
 ms.author: piyushjo
-ms.openlocfilehash: 26ba47b19f3a503693d60d344ad39b9eba74fe99
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 15e71d8aeb8c8060161ade4262e0be0a093b5650
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-integrate-engagement-reach-on-android"></a>Integración de cobertura para Engagement en Android
+> [!IMPORTANT]
+> Azure Mobile Engagement se retira el 31 de marzo de 2018. Esta página se eliminará poco después.
+> 
+
 > [!IMPORTANT]
 > Debe seguir el procedimiento de integración descrito en el documento Integración de Engagement en Android antes de seguir con esta guía.
 > 
@@ -415,7 +419,7 @@ Si desea cambiar eso, debe redefinir el método `EngagementDefaultNotifier.prepa
 ##### <a name="system-notifications"></a>Notificaciones del sistema
 Al extender `EngagementDefaultNotifier`, puede invalidar `onNotificationPrepared` para modificar la notificación que se preparó mediante la implementación predeterminada.
 
-Por ejemplo:
+Por ejemplo: 
 
             @Override
             protected boolean onNotificationPrepared(Notification notification, EngagementReachInteractiveContent content)

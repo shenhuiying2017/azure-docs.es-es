@@ -1,6 +1,6 @@
 ---
 title: Creación de una red virtual de Azure en PowerShell | Microsoft Docs
-description: Obtenga información sobre cómo crear una red virtual rápidamente mediante PowerShell. Una red virtual permite que los recursos de Azure, como máquinas virtuales, se comuniquen entre sí de forma privada y con Internet.
+description: Obtenga información sobre cómo crear una red virtual rápidamente mediante PowerShell. Una red virtual permite que los recursos de Azure, como las máquinas virtuales, se comuniquen entre sí de forma privada y con Internet.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 03/09/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 13d36e6861a30473e6cb5d54d94a3c23a1e4cc59
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: fe171000f83c27f23972569b93e351340f4426ad
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-a-virtual-network-using-powershell"></a>Creación de una red virtual mediante PowerShell
 
@@ -154,9 +154,9 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, ha creado una red virtual predeterminada y dos máquinas virtuales. Se ha conectado a una máquina virtual desde Internet y se ha comunicado de forma privada entre dos máquinas virtuales. Para más información sobre la configuración de red virtual, consulte [Administración de una red virtual](manage-virtual-network.md). 
+En este artículo, ha creado una red virtual predeterminada y dos máquinas virtuales. Se ha conectado a una máquina virtual desde Internet y se ha comunicado de forma privada entre las dos máquinas virtuales. Para más información sobre la configuración de red virtual, consulte [Administración de una red virtual](manage-virtual-network.md). 
 
 De forma predeterminada, Azure permite la comunicación privada sin restricciones entre máquinas virtuales, pero solo permite conexiones de Escritorio remoto entrantes a máquinas virtuales Windows desde Internet. Para más información sobre cómo permitir o restringir diferentes tipos de comunicaciones de red entre máquinas virtuales, avance al siguiente tutorial.
 
 > [!div class="nextstepaction"]
-> [Filtrado del tráfico de red](virtual-networks-create-nsg-arm-ps.md)
+> [Filtrado del tráfico de red](tutorial-filter-network-traffic.md)

@@ -1,11 +1,11 @@
 ---
-title: "Interfaz de usuario de Azure Mobile Engagement - Guía práctica de Cobertura"
-description: "Introducción de la interfaz de usuario de Azure Mobile Engagement"
+title: Interfaz de usuario de Azure Mobile Engagement - Guía práctica de Cobertura
+description: Introducción de la interfaz de usuario de Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 30af87e6-c816-4cce-8609-6cbd3e83de14
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 33a0a9d0c399cb7f0a791c4c16dde2e2d62364ca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0c536d378023ee4a9675bb2d67262fb485c8052b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-get-started-using-and-managing-pushes-to-reach-out-to-your-end-users"></a>Cómo empezar a usar y administrar inserciones para llegar a los usuarios finales
+> [!IMPORTANT]
+> Azure Mobile Engagement se retira el 31 de marzo de 2018. Esta página se eliminará poco después.
+> 
+
 Una vez que el SDK está totalmente integrado en la aplicación, puede empezar a usar la sección Cobertura de la interfaz de usuario para enviar notificaciones a los usuarios de la aplicación.  
 
 ## <a name="do-your-first-push-notification-campaign"></a>Creación de la primera campaña de notificación de inserción
@@ -114,7 +118,7 @@ Como puede ver, el contenido de la notificación de inserción incluye el marcad
 El modo de entrega "Solo fuera de la aplicación sólo" proporciona una notificación de inserción cuando se cierra la aplicación. Se trata de la notificación de inserción estándar.
 Al seleccionar "Solo fuera de la aplicación", debe haber proporcionado antes los certificados de la plataforma en la que se basa la aplicación (APN o GCM).
 
-### <a name="see-also"></a>Consulte también
+### <a name="see-also"></a>Otras referencias
 * [Apple Push Notification Service: certificados](http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9), [Google Cloud Messaging: certificado](http://developer.android.com/google/gcm/index.html) 
 
 ### <a name="in-app-only-delivery-mode"></a>Modo de entrega "Solo en la aplicación"

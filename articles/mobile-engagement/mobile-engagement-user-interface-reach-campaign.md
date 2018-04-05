@@ -1,11 +1,11 @@
 ---
-title: "Interfaz de usuario de Azure Mobile Engagement - Campaña de cobertura"
-description: "Aprenda cómo crear y administrar campañas de notificaciones de inserción mediante Azure Mobile Engagement"
+title: Interfaz de usuario de Azure Mobile Engagement - Campaña de cobertura
+description: Aprenda cómo crear y administrar campañas de notificaciones de inserción mediante Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 2fe124a2-a86f-4136-81ba-a9d298ec798a
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: fc88db8db11d1ed12fa95c2087c9a32b21bf4de5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9d457a8d5f68f70f6bf7a5f086b5e1d65bd1ea95
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-create-and-manage-push-notification-campaigns"></a>Cómo crear y administrar campañas de notificaciones de inserción
+> [!IMPORTANT]
+> Azure Mobile Engagement se retira el 31 de marzo de 2018. Esta página se eliminará poco después.
+> 
+
 Puede utilizar la sección de cobertura de la interfaz de usuario para crear una nueva campaña de inserción con una fórmula compleja proporcionando toda la información que necesita para enviar una notificación de inserción. Las opciones de una campaña de inserción varían ligeramente en función de los cuatro tipos de campaña: anuncios, sondeos, inserciones de datos y mosaicos (solo en Windows Phone).
 
 ### <a name="option-applies-to"></a>La opción se aplica a:
@@ -135,7 +139,7 @@ Puede utilizar la sección de audiencia para definir una lista estándar de elem
 * Realice la inserción únicamente a sus usuarios activos (casilla de verificación "Atraer solo a los usuarios con los que se pueda contactar mediante inserción nativa" y "Atraer solo a usuarios activos") para que solo se tengan que analizar los usuarios que aún tienen la aplicación instalada y la utilicen.
   Una vez definida la audiencia, puede utilizar el botón de simulación para averiguar cuántos usuarios recibirán esta inserción. Esto calculará el número de usuarios conocidos a los que se dirige potencialmente este público (esta es una estimación basada en una muestra aleatoria de usuarios). Tenga en cuenta que los usuarios que han desinstalado la aplicación también forman parte de esta audiencia, pero no se puede contactar con ellos.
 
-### <a name="see-also"></a>Consulte también
+### <a name="see-also"></a>Otras referencias
 * [Documentación de la interfaz de usuario - Cobertura - Nuevo criterio de inserción][Link 28]
 
 ![Reach-Campaign6][25]
@@ -157,7 +161,7 @@ Puede utilizar la sección de intervalo de tiempo para establecer cuándo se env
 > [!NOTE]
 > Sin una fecha de finalización puede almacenar en caché de campañas inserciones localmente y todavía mostrarlos después de completar manualmente las campañas. Para evitar este comportamiento, especifique una hora de finalización para campañas.
 
-### <a name="see-also"></a>Consulte también
+### <a name="see-also"></a>Otras referencias
 * [Cobertura - Guía práctica - Programación][Link 3] 
 
 ![Reach-Campaign8][27]
@@ -171,7 +175,7 @@ Puede utilizar la sección de prueba para enviar esta inserción a su propio dis
 > [!NOTE]
 > No se registra ningún dato del servidor cuando utiliza el botón para "probar" inserciones, los datos solo se registran para campañas de inserción real.
 
-### <a name="see-also"></a>Consulte también
+### <a name="see-also"></a>Otras referencias
 * [Documentación de la interfaz de usuario - Mi cuenta][Link 14]
 
 ![Reach-Campaign9][28]

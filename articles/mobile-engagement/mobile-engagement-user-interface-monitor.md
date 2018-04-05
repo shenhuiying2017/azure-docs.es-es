@@ -1,11 +1,11 @@
 ---
-title: "Interfaz de usuario de Azure Mobile Engagement: supervisión"
-description: "Obtenga información acerca de cómo supervisar datos en tiempo real acerca de la aplicación mediante Azure Mobile Engagement."
+title: 'Interfaz de usuario de Azure Mobile Engagement: supervisión'
+description: Obtenga información acerca de cómo supervisar datos en tiempo real acerca de la aplicación mediante Azure Mobile Engagement.
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: b91ad89a-b89d-4377-abb0-cc2d16a2836d
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,19 +14,23 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 5f8a02e35db93585e0fe46d77b3ad18b94c99597
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b370a5db1acee37ce234f5ec3f004be20719cfea
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-monitor-real-time-data-about-your-application"></a>Supervisión de datos en tiempo real sobre la aplicación
+> [!IMPORTANT]
+> Azure Mobile Engagement se retira el 31 de marzo de 2018. Esta página se eliminará poco después.
+> 
+
 Este artículo describe la pestaña **SUPERVISIÓN** del portal de **Mobile Engagement**. Utilice el portal **Mobile Engagement** para supervisar y administrar sus aplicaciones móviles. Tenga en cuenta que, para comenzar a usar el portal, debe crear en primer lugar una cuenta de **Azure Mobile Engagement** . 
 
 La sección de supervisión de la interfaz de usuario proporciona información de análisis en tiempo real y le permite establecer alertas cuando se alcanzan los umbrales de la mayor parte de la misma información que está disponible históricamente en la sección [ANÁLISIS](mobile-engagement-user-interface-analytics.md) de la interfaz de usuario. Vea la sección **Glosario** en el tema [Conceptos](http://go.microsoft.com/fwlink/?LinkId=525555) para las definiciones de términos y abreviaturas en análisis y supervisión (como las siguientes: usuario activo, nuevo usuario, usuario retenido, sesión, gráfico de ruta de acceso de usuario, asignación de usuarios, direcciones URL de seguimiento, tendencias, actividad, evento, trabajo, error, información adicional, bloqueo e información de aplicación).
 
 > [!NOTE]
-> Muchas de las secciones de la interfaz de usuario del portal de **Mobile Engagement** contienen el botón **MOSTRAR AYUDA**. Pulse este botón para obtener más información contextual sobre una sección.
+> Muchas de las secciones de la interfaz de usuario del portal **Mobile Engagement** contienen el botón **MOSTRAR AYUDA**. Pulse este botón para obtener más información contextual sobre una sección.
 > 
 > 
 

@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 03/28/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: e4d6c23bc7bf9b3228f851ab38ec587bc8552455
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4ee182202cf1ecbbb0845541269f7241de26c170
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 ### <a name="gwipnoconnection"></a>Para modificar la puerta de enlace de red local "GatewayIpAddress": no hay ninguna conexión de puerta de enlace
 
@@ -20,10 +20,10 @@ Si el dispositivo VPN al que desea conectarse ha cambiado su dirección IP públ
 
 Al modificar este valor, también puede modificar al mismo tiempo los prefijos de dirección. Asegúrese de usar el nombre existente de la puerta de enlace de la red local para sobrescribir la configuración actual. Si usa otro nombre, creará una nueva puerta de enlace de red local, en lugar de sobrescribir la existente.
 
-```powershell
-New-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName `
--Location "West US" -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24') `
--GatewayIpAddress "5.4.3.2" -ResourceGroupName MyRGName
+```azurepowershell-interactive
+New-AzureRmLocalNetworkGateway -Name Site1 `
+-Location "East US" -AddressPrefix @('10.101.0.0/24','10.101.1.0/24') `
+-GatewayIpAddress "5.4.3.2" -ResourceGroupName TestRG1
 ```
 
 ### <a name="gwipwithconnection"></a>Para modificar la puerta de enlace de red local "GatewayIpAddress": conexión de puerta de enlace existente
@@ -33,31 +33,31 @@ Si el dispositivo VPN al que desea conectarse ha cambiado su dirección IP públ
 
 1. Cierre la conexión. Puede encontrar el nombre de la conexión mediante el cmdlet 'Get-AzureRmVirtualNetworkGatewayConnection'.
 
-  ```powershell
-  Remove-AzureRmVirtualNetworkGatewayConnection -Name MyGWConnectionName `
-  -ResourceGroupName MyRGName
+  ```azurepowershell-interactive
+  Remove-AzureRmVirtualNetworkGatewayConnection -Name VNet1toSite1 `
+  -ResourceGroupName TestRG1
   ```
 2. Modifique el valor de 'GatewayIpAddress'. También puede modificar los prefijos de dirección al mismo tiempo. Asegúrese de utilizar el nombre de la puerta de enlace de la red local existente para sobrescribir la configuración actual. Si no lo hace, creará una nueva puerta de enlace de la red local, en lugar de sobrescribir la existente.
 
-  ```powershell
-  New-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName `
-  -Location "West US" -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24') `
-  -GatewayIpAddress "104.40.81.124" -ResourceGroupName MyRGName
+  ```azurepowershell-interactive
+  New-AzureRmLocalNetworkGateway -Name Site1 `
+  -Location "East US" -AddressPrefix @('10.101.0.0/24','10.101.1.0/24') `
+  -GatewayIpAddress "104.40.81.124" -ResourceGroupName TestRG1
   ```
 3. Cree la conexión. En este ejemplo, vamos a configurar un tipo de conexión de IPsec. Cuando se vuelva a crear la conexión, use el tipo de conexión que se especifica para la configuración. Para otros tipos de conexión, consulte la página de [cmdlets de PowerShell](https://msdn.microsoft.com/library/mt603611.aspx) .  Para obtener el nombre de VirtualNetworkGateway, puede ejecutar el cmdlet 'Get-AzureRmVirtualNetworkGateway'.
    
     Establezca las variables.
 
-  ```powershell
-  $local = Get-AzureRMLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName `
-  $vnetgw = Get-AzureRmVirtualNetworkGateway -Name RMGateway -ResourceGroupName MyRGName
+  ```azurepowershell-interactive
+  $local = Get-AzureRMLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1 `
+  $vnetgw = Get-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1
   ```
    
     Cree la conexión.
 
-  ```powershell 
-  New-AzureRmVirtualNetworkGatewayConnection -Name MyGWConnectionName -ResourceGroupName MyRGName `
-  -Location "West US" `
+  ```azurepowershell-interactive 
+  New-AzureRmVirtualNetworkGatewayConnection -Name VNet1Site1 -ResourceGroupName TestRG1 `
+  -Location "East US" `
   -VirtualNetworkGateway1 $vnetgw `
   -LocalNetworkGateway2 $local `
   -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'

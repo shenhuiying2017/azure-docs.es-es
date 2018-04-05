@@ -1,11 +1,11 @@
 ---
-title: "Procedimientos de actualización del SDK web de Azure Mobile Engagement | Microsoft Docs"
-description: "Actualizaciones y procedimientos más recientes para el SDK web para Azure Mobile Engagement"
+title: Procedimientos de actualización del SDK web de Azure Mobile Engagement | Microsoft Docs
+description: Actualizaciones y procedimientos más recientes para el SDK web para Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: a20529b4-ec8d-4503-8ae9-09b5f0846d5b
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: js
 ms.topic: article
 ms.date: 06/07/2016
 ms.author: piyushjo
-ms.openlocfilehash: afa8037dcb7a53042fa606e2c4014b442d4be326
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 42f78b5e6bfa028f3a798f6cb6c0dee3f17b3ebe
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-mobile-engagement-web-sdk-upgrade-procedures"></a>Procedimientos de actualización del SDK web de Azure Mobile Engagement
+> [!IMPORTANT]
+> Azure Mobile Engagement se retira el 31 de marzo de 2018. Esta página se eliminará poco después.
+> 
+
 Si ya ha integrado una versión anterior del SDK web de Azure Mobile Engagement en su aplicación web, debe considerar los siguientes puntos al actualizar el SDK.
 
 Si omite varias versiones del SDK web de Mobile Engagement, quizá deba completar varios procedimientos durante el proceso de actualización. Por ejemplo, si migra de la versión 1.4.0 a la versión 1.6.0, primero siga los procedimientos para actualizar de la versión 1.4.0 a la versión 1.5.0. A continuación, siga los procedimientos para actualizar de la versión 1.5.0 a la versión 1.6.0.
@@ -114,7 +118,7 @@ Después de la migración:
       [...]
     };
 
-La cadena de conexión de la aplicación se muestra en el Portal de Azure.
+La cadena de conexión de la aplicación se muestra en Azure Portal.
 
 ### <a name="javascript-apis"></a>API de JavaScript
 El objeto global de JavaScript `window.capptain` ha cambiado de nombre a `window.azureEngagement`, pero puede usar el alias `window.engagement` para las llamadas de API. No se puede utilizar el alias para definir la configuración del SDK.

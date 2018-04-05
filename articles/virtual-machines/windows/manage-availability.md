@@ -1,8 +1,8 @@
 ---
-title: "Administración de la disponibilidad de las máquinas virtuales Windows en Azure | Microsoft Docs"
-description: "Aprenda a utilizar varias máquinas virtuales para garantizar la alta disponibilidad de su aplicación Windows en Azure."
+title: Administración de la disponibilidad de las máquinas virtuales Windows en Azure | Microsoft Docs
+description: Aprenda a utilizar varias máquinas virtuales para garantizar la alta disponibilidad de su aplicación Windows en Azure.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
 manager: jeconnoc
 editor: tysonn
@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2017
+ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: badc7758cf852772bbf1b43b729e517432a2e681
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 7631205943efc827edd80d3a89ea68804d94153d
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="manage-the-availability-of-windows-virtual-machines-in-azure"></a>Administración de la disponibilidad de las máquinas virtuales Windows en Azure 
 
@@ -30,6 +30,6 @@ Para obtener instrucciones sobre cómo crear y utilizar conjuntos de disponibili
 
 [!INCLUDE [virtual-machines-common-manage-availability](../../../includes/virtual-machines-common-manage-availability.md)]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre el equilibrio de carga de las máquinas virtuales, consulte [Equilibrio de carga para servicios de infraestructura de Azure](tutorial-load-balancer.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

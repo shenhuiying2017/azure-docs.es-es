@@ -1,11 +1,11 @@
 ---
-title: "Procedimientos de actualización del SDK de Windows Phone Silverlight"
-description: "Procedimientos de actualización de SDK de Windows Phone Silverlight para Azure Mobile Engagement"
+title: Procedimientos de actualización del SDK de Windows Phone Silverlight
+description: Procedimientos de actualización de SDK de Windows Phone Silverlight para Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 87130026-9759-4659-9184-788a3627a165
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 633bf79a3bcaa9c97a5c70e3b362fd928178dcce
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 489b005c37ddb842a2501e89c07fb34b091346e5
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="windows-phone-silverlight-sdk-upgrade-procedures"></a>Procedimientos de actualización del SDK de Windows Phone Silverlight
+> [!IMPORTANT]
+> Azure Mobile Engagement se retira el 31 de marzo de 2018. Esta página se eliminará poco después.
+> 
+
 Si ya integró una versión anterior de nuestro SDK en la aplicación, debería tener en cuenta los siguientes puntos a la hora de actualizar el SDK.
 
 Es posible que tenga que seguir varios procedimientos si se perdió varias versiones del SDK. Por ejemplo, si migra desde 0.10.1 a 0.11.0, primero debe seguir el procedimiento "de 0.9.0 a 0.10.1" y luego el procedimiento "de 0.10.1 a 0.11.0".

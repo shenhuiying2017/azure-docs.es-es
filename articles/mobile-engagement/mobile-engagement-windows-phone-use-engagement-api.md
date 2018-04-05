@@ -1,11 +1,11 @@
 ---
-title: "Cómo usar la API de Engagement en Windows Phone Silverlight"
-description: "Cómo usar la API de Engagement en Windows Phone Silverlight"
+title: Cómo usar la API de Engagement en Windows Phone Silverlight
+description: Cómo usar la API de Engagement en Windows Phone Silverlight
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: ae2ba2e8-f75b-4dee-a164-a7dd65d35a23
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: ec8b6c13ea052c8063dfde4321cdd286ab6cb817
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 03673924ee7734fcf6f1f4f7c744616844fdc87a
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-use-the-engagement-api-on-windows-phone-silverlight"></a>Cómo usar la API de Engagement en Windows Phone Silverlight
+> [!IMPORTANT]
+> Azure Mobile Engagement se retira el 31 de marzo de 2018. Esta página se eliminará poco después.
+> 
+
 Este documento es un complemento al documento [Cómo integrar Mobile Engagement en su aplicación de Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md). En él se proporciona información detallada acerca de cómo usar la API de Engagement para informar de las estadísticas de la aplicación.
 
 Si solo desea que Engagement informe sobre las sesiones, las actividades, los bloqueos y la información técnica de la aplicación, la manera más sencilla consiste en hacer que las subclases `PhoneApplicationPage` hereden de la clase `EngagementPage`.
@@ -286,7 +290,7 @@ A continuación, agregaremos una instancia de `Person` a un dato adicional.
 > 
 > 
 
-### <a name="limits"></a>Límites
+### <a name="limits"></a>límites
 #### <a name="keys"></a>simétricas
 Cada clave del objeto debe coincidir con la siguiente expresión regular:
 
@@ -314,7 +318,7 @@ Tenga en cuenta que esta información se puede enviar de forma incremental: para
 
             EngagementAgent.Instance.SendAppInfo(appInfo);
 
-### <a name="limits"></a>Límites
+### <a name="limits"></a>límites
 #### <a name="keys"></a>simétricas
 Cada clave del objeto debe coincidir con la siguiente expresión regular:
 

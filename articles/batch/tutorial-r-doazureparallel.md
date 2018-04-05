@@ -1,21 +1,21 @@
 ---
-title: "Simulación de R en paralelo con Azure Batch"
-description: "Tutorial: Instrucciones paso a paso para ejecutar una simulación financiera Monte Carlo en Azure Batch mediante el paquete doAzureParallel de R"
+title: Simulación de R en paralelo con Azure Batch
+description: 'Tutorial: Instrucciones paso a paso para ejecutar una simulación financiera Monte Carlo en Azure Batch mediante el paquete doAzureParallel de R'
 services: batch
-author: jiata
-manager: jkabat
-ms.assetid: 
+author: dlepow
+manager: jeconnoc
+ms.assetid: ''
 ms.service: batch
 ms.devlang: r
 ms.topic: tutorial
 ms.date: 01/23/2018
-ms.author: jiata
+ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 6aa12e38c1f2c86c44c00eb87906a7f0fe93cdca
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: fb616dc95cc7dd7dbb25f2deb832b517d0747ae4
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>Tutorial: Ejecución de una simulación de R en paralelo con Azure Batch 
 

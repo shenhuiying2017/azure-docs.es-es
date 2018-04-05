@@ -1,11 +1,11 @@
 ---
-title: "Cómo programar trabajos con IoT Hub de Azure (.NET y Node) | Microsoft Docs"
-description: "Cómo programar un trabajo de IoT Hub de Azure para invocar un método directo en varios dispositivos. Usará el SDK de dispositivo IoT de Azure para Node.js con el fin de implementar una aplicación de dispositivo simulado, además del SDK de servicio IoT de Azure para .NET con el objetivo de implementar una aplicación de servicio para ejecutar el trabajo."
+title: Cómo programar trabajos con IoT Hub de Azure (.NET y Node) | Microsoft Docs
+description: Cómo programar un trabajo de IoT Hub de Azure para invocar un método directo en varios dispositivos. Usará el SDK de dispositivo IoT de Azure para Node.js con el fin de implementar una aplicación de dispositivo simulado, además del SDK de servicio IoT de Azure para .NET con el objetivo de implementar una aplicación de servicio para ejecutar el trabajo.
 services: iot-hub
 documentationcenter: .net
 author: juanjperez
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 2233356e-b005-4765-ae41-3a4872bda943
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/10/2017
 ms.author: juanpere
-ms.openlocfilehash: 3efe4612c6d628e070ba6e99808f79f61ead426e
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 360daf918051ce901a81f96d1873dc90af238e19
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="schedule-and-broadcast-jobs-netnodejs"></a>Programación y difusión de trabajos (.NET/Node.js)
 
@@ -36,6 +36,8 @@ Para más información sobre estas funcionalidades, consulte:
 
 * Dispositivo gemelo y propiedades: [Introducción a los dispositivos gemelos][lnk-get-started-twin] y [Tutorial: Uso de las propiedades deseadas para configurar dispositivos][lnk-twin-props]
 * Métodos directos: [Guía del desarrollador de IoT Hub: métodos directos][lnk-dev-methods] y [Tutorial: Uso de métodos directos][lnk-c2d-methods]
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 En este tutorial se muestra cómo realizar las siguientes acciones:
 

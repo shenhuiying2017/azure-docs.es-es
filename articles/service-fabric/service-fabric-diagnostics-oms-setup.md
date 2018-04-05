@@ -3,7 +3,7 @@ title: 'Azure Service Fabric: configuración de la supervisión con Log Analytic
 description: Aprenda cómo configurar Operations Management Suite para visualizar y analizar los eventos con el fin de supervisar los clústeres de Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: srrengar
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/17/2017
-ms.author: dekapur
-ms.openlocfilehash: 98ac32b011744ce388762322edd538b467f93494
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.date: 3/30/2018
+ms.author: dekapur; srrengar
+ms.openlocfilehash: 2589efa1808a394f2e32b842efa2ee70809da232
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="set-up-operations-management-suite-log-analytics-for-a-cluster"></a>Configuración de Operations Management Suite Log Analytics para un clúster
 
@@ -75,7 +75,7 @@ Ha agregado la solución Service Fabric Analytics a un área de trabajo de OMS L
 
 Al implementar un clúster con una plantilla de Resource Manager, la plantilla crea una nueva área de trabajo de OMS, agrega la solución de Service Fabric al área de trabajo y la configura para leer datos de las tablas de almacenamiento apropiadas.
 
-Puede usar y modificar [esta plantilla de ejemplo](https://azure.microsoft.com/resources/templates/service-fabric-oms/) para satisfacer sus necesidades. En la sección de [plantillas de Service Fabric y OMS](https://azure.microsoft.com/resources/templates/?term=service+fabric+OMS) puede encontrar más plantillas que ofrecen diferentes opciones de configuración de un área de trabajo de OMS.
+Puede usar y modificar [esta plantilla de ejemplo](https://github.com/krnese/azure-quickstart-templates/tree/master/service-fabric-oms) para satisfacer sus necesidades.
 
 Realice las modificaciones siguientes:
 1. Agregue `omsWorkspaceName` y `omsRegion` a los parámetros y agregue el siguiente fragmento de código a los parámetros definidos en el archivo *template.json*. Puede modificar los valores predeterminados según estime oportuno. Agregue también los dos nuevos parámetros al archivo *parameters.json* para definir sus valores para la implementación de recursos:

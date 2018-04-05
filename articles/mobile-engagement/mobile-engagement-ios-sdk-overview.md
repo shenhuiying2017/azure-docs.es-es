@@ -1,11 +1,11 @@
 ---
-title: "Información general de SDK de iOS de Azure Mobile Engagement | Microsoft Docs"
-description: "Actualizaciones y procedimientos más recientes para el SDK de iOS para Azure Mobile Engagement"
+title: Información general de SDK de iOS de Azure Mobile Engagement | Microsoft Docs
+description: Actualizaciones y procedimientos más recientes para el SDK de iOS para Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 3a03bbd6-bcf8-436c-9775-5a8188629252
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: piyushjo
-ms.openlocfilehash: 6acd343782a3ee07750e27ec3022ff81cedfadee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6c9d2ddeacd1d05142019f22eedf4eb3bb4f06cd
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="ios-sdk-for-azure-mobile-engagement"></a>SDK de iOS para Azure Mobile Engagement
+> [!IMPORTANT]
+> Azure Mobile Engagement se retira el 31 de marzo de 2018. Esta página se eliminará poco después.
+> 
+
 Comience aquí a obtener todos los detalles sobre cómo integrar Azure Mobile Engagement en una aplicación de iOS. Si primero quiere probarlo, asegúrese de seguir nuestro [tutorial de 15 minutos](mobile-engagement-ios-get-started.md)
 
 Haga clic para ver el [contenido del SDK](mobile-engagement-ios-sdk-content.md)

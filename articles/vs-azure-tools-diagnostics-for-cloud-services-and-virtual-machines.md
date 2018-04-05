@@ -1,11 +1,11 @@
 ---
-title: "Configuración de diagnósticos para Azure Cloud Services y máquinas virtuales | Microsoft Docs"
-description: "Aprenda a configurar el diagnóstico para depurar los servicios en la nube y las máquinas virtuales (VM) de Azure en Visual Studio."
+title: Configuración de diagnósticos para Azure Cloud Services y máquinas virtuales | Microsoft Docs
+description: Aprenda a configurar el diagnóstico para depurar los servicios en la nube y las máquinas virtuales (VM) de Azure en Visual Studio.
 services: visual-studio-online
 documentationcenter: na
 author: mikejo
-manager: ghogen
-editor: 
+manager: douge
+editor: ''
 ms.assetid: e70cd7b4-6298-43aa-adea-6fd618414c26
 ms.service: multiple
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
 ms.author: mikejo
-ms.openlocfilehash: f00771d89749e7507d7f303f366fe63f537900ff
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 34c667b0a594682e4d099e7bff64bfdb336b850b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="set-up-diagnostics-for-azure-cloud-services-and-virtual-machines"></a>Configuración de diagnósticos para Azure Cloud Services y máquinas virtuales
 Cuando tenga que solucionar problemas de un servicio en la nube o una máquina virtual de Azure, puede usar Visual Studio para configurar más fácilmente Azure Diagnostics. Diagnostics captura los datos del sistema y los datos de registro en las máquinas virtuales y las instancias de máquina virtual que ejecutan el servicio en la nube. Los datos de Diagnostics se transfieren a la cuenta de almacenamiento que elija. Para más información sobre el registro de diagnósticos en Azure, consulte [Habilitación del registro de diagnóstico para Web Apps en Azure App Service](app-service/web-sites-enable-diagnostic-log.md).
@@ -155,10 +155,10 @@ Si usa Azure SDK 2.5 y quiere especificar un origen de datos personalizado, pued
    <DataSource name="CustomDataSource!*" />
 </WindowsEventLog>
 ```
-### <a name="performance-counters"></a>Contadores de rendimiento
+### <a name="performance-counters"></a>contadores de rendimiento
 La información del contador de rendimiento puede ayudarle a buscar cuellos de botella del sistema y a optimizar el rendimiento del sistema y de la aplicación. Para más información, vea [Crear y usar contadores de rendimiento en una aplicación de Azure](https://msdn.microsoft.com/library/azure/hh411542.aspx). Para capturar los contadores de rendimiento, active la casilla **Habilitar la transferencia de contadores de rendimiento** . Para aumentar o disminuir el intervalo entre la transferencia de registros de eventos a la cuenta de almacenamiento, cambie el valor **Período de transferencia (min)**. Active las casillas para los contadores de rendimiento de los que quiera realizar un seguimiento.
 
-![Contadores de rendimiento](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC758147.png)
+![contadores de rendimiento](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC758147.png)
 
 Para realizar el seguimiento de un contador de rendimiento que no aparece en la lista, especifíquelo con la sintaxis sugerida. A continuación, seleccione **Agregar**. El sistema operativo de la máquina virtual determina a qué contadores de rendimiento puede realizar el seguimiento. Para más información sobre la sintaxis, vea [Especificación de una ruta de contador](https://msdn.microsoft.com/library/windows/desktop/aa373193.aspx).
 
@@ -216,11 +216,11 @@ Cuando haya recopilado los datos de diagnóstico para un servicio en la nube o u
     En Cloud Explorer o en el Explorador de servidores, abra la cuenta de almacenamiento asociada a la implementación.
 3. Abra las tablas de diagnósticos en el visor de tablas y luego revise los datos que ha recopilado. Para los registros de IIS y los registros personalizados, puede abrir un contenedor de blobs. En la tabla siguiente se enumeran las tablas o contenedores de blobs que contienen los datos para los diferentes archivos de registro. Además de los datos para ese archivo de registro, las entradas de tabla contienen **EventTickCount**, **DeploymentId**, **Role** y **RoleInstance** para ayudarle a identificar qué máquina virtual y rol generó los datos y cuándo. 
    
-   | Datos de diagnóstico | Descripción | Ubicación |
+   | Datos de diagnóstico | DESCRIPCIÓN | Ubicación |
    | --- | --- | --- |
    | Registros de aplicación |Registros que su código genera llamando a métodos de la clase **System.Diagnostics.Trace**. |WADLogsTable |
    | Registros de eventos |Datos que proceden de los registros de eventos de Windows en las máquinas virtuales. Windows almacena información en estos registros, pero las aplicaciones y los servicios también los usan para informar de errores o información de registro. |WADWindowsEventLogsTable |
-   | Contadores de rendimiento |Puede recopilar datos sobre cualquier contador de rendimiento que esté disponible en la máquina virtual. El sistema operativo ofrece contadores de rendimiento, que incluyen muchas estadísticas, como el tiempo del procesador y el uso de la memoria. |WADPerformanceCountersTable |
+   | contadores de rendimiento |Puede recopilar datos sobre cualquier contador de rendimiento que esté disponible en la máquina virtual. El sistema operativo ofrece contadores de rendimiento, que incluyen muchas estadísticas, como el tiempo del procesador y el uso de la memoria. |WADPerformanceCountersTable |
    | Registros de infraestructura |Registros que se generan desde la propia infraestructura de diagnóstico. |WADDiagnosticInfrastructureLogsTable |
    | Registros IIS |Registros que guardan solicitudes web. Si el servicio en la nube recibe una gran cantidad de tráfico, estos registros pueden ser largos. Es recomendable recopilar y almacenar estos datos solo cuando sea necesario. |Puede encontrar registros de solicitudes con error en el contenedor de blobs debajo de wad-iis-failedreqlogs en una ruta de acceso para esa implementación, rol e instancia. Puede encontrar registros completos en wad-iis-logfiles. Se crean entradas para cada archivo en la tabla WADDirectories. |
    | Volcados de memoria |Ofrece imágenes binarias del proceso del servicio en la nube (normalmente un rol de trabajo). |contenedor de blobs de wad-crush-dumps |

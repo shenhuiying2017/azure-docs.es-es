@@ -1,5 +1,5 @@
 ---
-title: "Exploración de registros de seguimiento de .NET en Application Insights"
+title: Exploración de registros de seguimiento de .NET en Application Insights
 description: Busque registros generados con Seguimiento, NLog o Log4Net.
 services: application-insights
 documentationcenter: .net
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 6da0bf009fa71885d7d8e3bd5376c5a7c9d4a344
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 574b11f9ba38bda775610f2f9e90fbb2d2b05868
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="explore-net-trace-logs-in-application-insights"></a>Exploración de registros de seguimiento de .NET en Application Insights
 Si usa NLog, log4Net o System.Diagnostics.Trace para realizar el seguimiento de diagnósticos en la aplicación ASP.NET, sus registros se pueden enviar a [Azure Application Insights][start], donde puede explorarlos y buscarlos. Los registros se combinarán con los otros informes de telemetría procedente de su aplicación, y así podrá identificar los seguimientos asociados con el mantenimiento de cada solicitud de usuario y correlacionarlos con otros eventos e informes de excepciones.
@@ -99,7 +99,7 @@ En cada origen, puede establecer los siguientes parámetros:
 Puede configurar eventos [System.Diagnostics.DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md) para enviarlos a Application Insights como seguimientos. Primero, instale el paquete de NuGet [`Microsoft.ApplicationInsights.DiagnosticSourceListener`](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener). Seguidamente, edite la sección `TelemetryModules` del archivo [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md).
 
 ```xml
-    <Add Type="Microsoft.ApplicationInsights.DiagnsoticSourceListener.DiagnosticSourceTelemetryModule, Microsoft.ApplicationInsights.DiagnosticSourceListener">
+    <Add Type="Microsoft.ApplicationInsights.DiagnosticSourceListener.DiagnosticSourceTelemetryModule, Microsoft.ApplicationInsights.DiagnosticSourceListener">
       <Sources>
         <Add Name="MyDiagnosticSourceName" />
       </Sources>
@@ -131,14 +131,14 @@ En cada origen, puede establecer los siguientes parámetros:
 ## <a name="using-the-trace-api-directly"></a>Uso de la API de seguimiento directamente
 Puede llamar directamente a la API de seguimiento de Application Insights. Los adaptadores de registro usan esta API.
 
-Por ejemplo:
+Por ejemplo: 
 
     var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
     telemetry.TrackTrace("Slow response - database01");
 
 Una ventaja de TrackTrace es que puede colocar datos relativamente largos en el mensaje. Por ejemplo, aquí podría codificar datos POST.
 
-Además, puede agregar un nivel de gravedad al mensaje. Y, al igual que con otra telemetría, puede agregar valores de propiedad que puede usar para ayudar a filtrar o buscar distintos conjuntos de seguimientos. Por ejemplo:
+Además, puede agregar un nivel de gravedad al mensaje. Y, al igual que con otra telemetría, puede agregar valores de propiedad que puede usar para ayudar a filtrar o buscar distintos conjuntos de seguimientos. Por ejemplo: 
 
     var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
     telemetry.TrackTrace("Slow database response",
@@ -154,7 +154,7 @@ En la hoja de información general de su aplicación del [portal de Application 
 
 ![En Application Insights, elija Buscar.](./media/app-insights-asp-net-trace-logs/020-diagnostic-search.png)
 
-![Búsqueda](./media/app-insights-asp-net-trace-logs/10-diagnostics.png)
+![Search](./media/app-insights-asp-net-trace-logs/10-diagnostics.png)
 
 Por ejemplo, puede:
 
@@ -164,7 +164,7 @@ Por ejemplo, puede:
 * Guardar la configuración de esta página como favorita
 
 > [!NOTE]
-> **Muestreo.** Si la aplicación envía una gran cantidad de datos y usa el SDK de Application Insights para ASP.NET versión 2.0.0-beta3 o posterior, la característica de muestreo adaptativo puede operar y enviar solamente un porcentaje de los datos de telemetría. [Obtenga más información sobre el muestreo.](app-insights-sampling.md)
+> **Muestreo.** Si la aplicación envía una gran cantidad de datos y usa el SDK de Application Insights para ASP.NET versión 2.0.0-beta3 o posterior, la característica de muestreo adaptativo puede operar y enviar solamente un porcentaje de los datos de telemetría. [Aprenda más sobre el muestreo.](app-insights-sampling.md)
 >
 >
 
@@ -173,7 +173,7 @@ Por ejemplo, puede:
 
 [Aprenda más sobre la búsqueda][diagnostic].
 
-## <a name="troubleshooting"></a>Solución de problemas
+## <a name="troubleshooting"></a>solución de problemas
 ### <a name="how-do-i-do-this-for-java"></a>¿Cómo se puede hacer para Java?
 Utilice los [adaptadores de registro de Java](app-insights-java-trace-logs.md).
 
@@ -198,7 +198,7 @@ A veces, el paso de todos los eventos y solicitudes por la canalización puede l
 Hay varios factores que afectan a la cantidad de datos que se conservan. Consulte la sección [Límites](app-insights-api-custom-events-metrics.md#limits) de la página de métricas de eventos de cliente para más información. 
 
 ### <a name="im-not-seeing-some-of-the-log-entries-that-i-expect"></a>No veo algunas de las entradas del registro que esperaba
-Si la aplicación envía una gran cantidad de datos y usa el SDK de Application Insights para ASP.NET versión 2.0.0-beta3 o posterior, la característica de muestreo adaptativo puede operar y enviar solamente un porcentaje de los datos de telemetría. [Obtenga más información sobre el muestreo.](app-insights-sampling.md)
+Si la aplicación envía una gran cantidad de datos y usa el SDK de Application Insights para ASP.NET versión 2.0.0-beta3 o posterior, la característica de muestreo adaptativo puede operar y enviar solamente un porcentaje de los datos de telemetría. [Aprenda más sobre el muestreo.](app-insights-sampling.md)
 
 ## <a name="add"></a>Pasos siguientes
 * [Configuración de pruebas de disponibilidad y de capacidad de respuesta][availability]

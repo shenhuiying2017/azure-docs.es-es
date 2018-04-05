@@ -3,8 +3,8 @@ title: Cambios realizados en un proyecto de WebAPI al conectarse a Azure AD | Mi
 description: Se describe lo que sucede en el proyecto de WebAPI al conectarse a Azure AD mediante Visual Studio.
 services: active-directory
 documentationcenter: ''
-author: kraigb
-manager: ghogen
+author: ghogen
+manager: douge
 editor: ''
 ms.assetid: 57630aee-26a2-4326-9dbb-ea2a66daa8b0
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vs-what-happened
 ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
-ms.author: kraigb
+ms.author: ghogen
 ms.custom: aaddev
-ms.openlocfilehash: 140f555d28c4d5a923b9c255d8e61d7aea9bb23f
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: fc6506ccb7b4c9b7fa43a378df47094de92c73b6
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="what-happened-to-my-webapi-project-visual-studio-azure-active-directory-connected-service"></a>¿Qué le ha ocurrido a mi proyecto de WebAPI (servicio conectado de Visual Studio para Azure Active Directory)?
 
@@ -125,7 +125,7 @@ Al agregar el servicio conectado, Visual Studio 2015 hace una copia de seguridad
 ## <a name="changes-on-azure"></a>Cambios en Azure
 
 - Se creó una aplicación de Azure AD en el dominio que seleccionó al agregar el servicio conectado.
-- Se actualizó la aplicación para incluir el permiso **Leer datos de directorio** si se ha seleccionado esta opción.
+- Se actualizó la aplicación para incluir el permiso **Leer datos de directorio** si se seleccionó esta opción.
 
 [Más información acerca de Azure Active Directory](https://azure.microsoft.com/services/active-directory/).
 

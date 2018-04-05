@@ -1,11 +1,11 @@
 ---
-title: "Autenticación con las API de REST de Mobile Engagement"
-description: "Se describe cómo autenticarse con las API de REST de Azure Mobile Engagement"
+title: Autenticación con las API de REST de Mobile Engagement
+description: Se describe cómo autenticarse con las API de REST de Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: da82cb36-957a-4e19-a805-b44733cf6597
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,16 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 10/05/2016
 ms.author: wesmc;ricksal
-ms.openlocfilehash: 574e699a1cfca2caef0cf20872570bbb8650117b
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 5979ded9afaa31054f835b5f16fe525809f5730d
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="authenticate-with-mobile-engagement-rest-apis"></a>Autenticación con las API de REST de Mobile Engagement
+> [!IMPORTANT]
+> Azure Mobile Engagement se retira el 31 de marzo de 2018. Esta página se eliminará poco después.
+> 
 
 ## <a name="overview"></a>Información general
 
@@ -85,7 +88,7 @@ Opcionalmente, también puede seguir las instrucciones de [instalación manual](
    - **TenantId**
    - **SubscriptionId**
    - **ApplicationId**
-   - **Secret**
+   - **Secreto**
 
    Use TenantId como `{TENANT_ID}`, ApplicationId como `{CLIENT_ID}` y Secret como `{CLIENT_SECRET}`.
 

@@ -1,25 +1,25 @@
 ---
-title: "Creación de tareas para preparar trabajos y completarlos en nodos de proceso - Azure Batch | Microsoft Docs"
-description: "Utilice las tareas de preparación en el nivel de trabajo para minimizar la transferencia de datos a los nodos de proceso de Azure Batch y las tareas de liberación para la limpieza del nodo tras la finalización del trabajo."
+title: Creación de tareas para preparar trabajos y completarlos en nodos de proceso - Azure Batch | Microsoft Docs
+description: Utilice las tareas de preparación en el nivel de trabajo para minimizar la transferencia de datos a los nodos de proceso de Azure Batch y las tareas de liberación para la limpieza del nodo tras la finalización del trabajo.
 services: batch
 documentationcenter: .net
-author: tamram
-manager: timlt
-editor: 
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: 63d9d4f1-8521-4bbb-b95a-c4cad73692d3
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 02/27/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aecce83b4d4444f2651f48475b596fa76cb5f44a
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 543c03c22b31389c3d6e048cc9f13c24add5aae7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="run-job-preparation-and-job-release-tasks-on-batch-compute-nodes"></a>Ejecución de tareas de preparación y liberación de trabajos en nodos de proceso de Batch
 
@@ -183,7 +183,7 @@ La captura de pantalla siguiente muestra la **hoja de tareas de preparación** e
 
 ![Propiedades de preparación del trabajo en el Portal de Azure][1]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 ### <a name="application-packages"></a>paquetes de aplicación
 Además de la tarea de preparación del trabajo, puede usar la característica de [paquetes de aplicación](batch-application-packages.md) de Batch para preparar los nodos de proceso de cara a la ejecución de tareas. Esta característica es especialmente útil para implementar aplicaciones que no requieren que se ejecute un instalador, aplicaciones que contienen muchos archivos (más de 100) o aplicaciones que requieren un control estricto de la versión.
 

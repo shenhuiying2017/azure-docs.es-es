@@ -1,11 +1,11 @@
 ---
-title: "Interfaz de usuario de Azure Mobile Engagement: configuración"
-description: "Obtenga información acerca de cómo administrar la configuración global de la aplicación mediante Azure Mobile Engagement"
+title: 'Interfaz de usuario de Azure Mobile Engagement: configuración'
+description: Obtenga información acerca de cómo administrar la configuración global de la aplicación mediante Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 858f4cb4-14de-4bb5-826f-28cadbfc928b
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: af5c81df2b9f288161b38625d3ac2adde8fb195d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 31df9f151febcb7e5f0f2cd4a83053b3aac416a3
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-manage-the-global-settings-of-your-application"></a>Cómo administrar la configuración global de la aplicación
+> [!IMPORTANT]
+> Azure Mobile Engagement se retira el 31 de marzo de 2018. Esta página se eliminará poco después.
+> 
+
 Las opciones del menú **Configuración** disponibles para una aplicación varían, dependiendo de la plataforma de la aplicación y de los permisos que se le hayan concedido para la aplicación. En la configuración se incluyen lo siguiente: Detalles, Proyectos, Inserción nativa, Velocidad de inserción, Etiquetas de información de la aplicación y Presión comercial. La opción de menú Etiquetas de información de la aplicación de la sección de Configuración puede administrarse mediante la aplicación (con el SDK) o mediante el back-end (con la API del dispositivo). 
 
 > [!NOTE]
@@ -61,7 +65,7 @@ Para habilitar la inserción nativa mediante el servicio de notificación de Win
 
 ![settings5][50]
 
-### <a name="google-cloud-messaging-for-android-gcm"></a>Mensajería en la nube de Google para Android (GCM)
+### <a name="google-cloud-messaging-for-android-gcm"></a>Google Cloud Messaging para Android (GCM)
 Para habilitar la inserción nativa mediante GCM, deberá seguir las instrucciones de Google. A continuación, debe pegar una clave de API simple de servidor configurada sin restricciones de IP. Requiere la integración con el SDK de Android v1.12.0 +.
 
 Para más información, consulte: 
@@ -90,7 +94,7 @@ Muestra la velocidad de inserción actual de la aplicación y le permite definir
 ## <a name="commercial-pressure"></a>Presión comercial
 ![settings12][57]
 
-## <a name="see-also"></a>Consulte también
+## <a name="see-also"></a>Otras referencias
 * [Conceptos][Link 6]
 * [Guía de solución de problemas de servicios][Link 24]
 

@@ -1,11 +1,11 @@
 ---
 title: Informes avanzados de aplicaciones universales de Windows con Mobile Engagement
-description: "Cómo integrar Azure Mobile Engagement con aplicaciones Windows Universal"
+description: Cómo integrar Azure Mobile Engagement con aplicaciones Windows Universal
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: ea5030bf-73ac-49b7-bc3e-c25fc10e945a
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/12/2016
 ms.author: piyushjo;ricksal
-ms.openlocfilehash: feac309db1ffce0945012e293bfc1df417aed876
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 88d28bbc32179698147ab7516cc414fd23ed4bd6
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="advanced-reporting-with-the-windows-universal-apps-engagement-sdk"></a>Informes avanzados con el SDK de Engagement para aplicaciones la contratación de aplicaciones universales de Windows
+> [!IMPORTANT]
+> Azure Mobile Engagement se retira el 31 de marzo de 2018. Esta página se eliminará poco después.
+> 
+
 > [!div class="op_single_selector"]
 > * [Windows universal](mobile-engagement-windows-store-advanced-reporting.md)
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
@@ -31,7 +35,7 @@ ms.lasthandoff: 12/21/2017
 
 Este tema describe los escenarios de informes adicionales en la aplicación universal de Windows. Estos escenarios incluyen opciones que puede aplicar a la aplicación creada en la [Introducción a Azure Mobile Engagement para aplicaciones universales de Windows](mobile-engagement-windows-store-dotnet-get-started.md) .
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 [!INCLUDE [Prereqs](../../includes/mobile-engagement-windows-store-prereqs.md)]
 
 Antes de comenzar este tutorial, primero debe realizar el tutorial [Introducción a Azure Mobile Engagement para aplicaciones universales de Windows](mobile-engagement-windows-store-dotnet-get-started.md) . Este tutorial explica las opciones adicionales que puede elegir.

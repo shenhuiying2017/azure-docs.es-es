@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 05/24/2017
 ms.author: rafats
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a48c1bb246e3e8659aada614d39fdc608e5bc8d8
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: fe78289938e752731ff2e830fb62ad210e12111e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="partitioning-in-azure-cosmos-db-using-the-sql-api"></a>Creación de particiones en Azure Cosmos DB con la API de SQL
 
@@ -78,7 +78,7 @@ En la API de SQL, especifique la definición de la clave de partición en el for
 Examinemos cómo afecta la elección de la clave de partición al rendimiento de una aplicación.
 
 ## <a name="working-with-the-azure-cosmos-db-sdks"></a>Uso de los SDK de Azure Cosmos DB
-A partir de la [versión de la API de REST de 16-12-2015](/rest/api/documentdb/), Azure Cosmos DB admite la creación automática de particiones. Para poder crear contenedores con particiones, es necesario descargar la versión del SDK 1.6.0 (o posteriores) en una de las plataformas admitidas del SDK (.NET, Node.js, Java, Python, MongoDB). 
+A partir de la [versión de la API de REST de 16-12-2015](/rest/api/cosmos-db/), Azure Cosmos DB admite la creación automática de particiones. Para poder crear contenedores con particiones, es necesario descargar la versión del SDK 1.6.0 (o posteriores) en una de las plataformas admitidas del SDK (.NET, Node.js, Java, Python, MongoDB). 
 
 ### <a name="creating-containers"></a>Creación de contenedores
 En el ejemplo siguiente se muestra un fragmento de código .NET mediante el que se crea un contenedor que almacena los datos de telemetría de dispositivos con un procesamiento de 20 000 unidades de solicitud por segundo. El SDK establece el valor OfferThroughput (que a su vez establece el encabezado de solicitud `x-ms-offer-throughput` en la API de REST). En este caso, la clave de partición es `/deviceId` . La elección de la clave de partición se guarda junto con el resto de los metadatos del contenedor, como nombre y la directiva de indexación.
@@ -225,6 +225,6 @@ En la siguiente sección, veremos cómo puede moverse a contenedores con partici
 En este artículo se proporciona información general sobre cómo trabajar con las particiones de contenedores de Azure Cosmos DB con la API de SQL. Consulte también [la creación de particiones y el escalado horizontal](../cosmos-db/partition-data.md) para obtener una información general de los conceptos y procedimientos recomendados para crear particiones con cualquier API de Azure Cosmos DB. 
 
 * Realice pruebas de escala y de rendimiento con Azure Cosmos DB. Consulte [Pruebas de escala y rendimiento con Azure Cosmos DB](performance-testing.md) para ver ejemplos.
-* Introducción a la codificación con [SDK](sql-api-sdk-dotnet.md) o la [API de REST](/rest/api/documentdb/)
+* Introducción a la codificación con [SDK](sql-api-sdk-dotnet.md) o la [API de REST](/rest/api/cosmos-db/)
 * Información sobre el [procesamiento aprovisionado en Azure Cosmos DB](request-units.md)
 

@@ -1,20 +1,20 @@
 ---
-title: "Información acerca del almacenamiento de discos no administrados (blobs de página) y administrados de las máquinas virtuales Windows de Microsoft Azure | Microsoft Docs"
-description: "Obtenga información acerca de los conceptos básicos del almacenamiento de discos no administrados (blobs de página) y administrados de las máquinas virtuales Windows en Azure."
+title: Información acerca del almacenamiento de discos no administrados (blobs de página) y administrados de las máquinas virtuales Windows de Microsoft Azure | Microsoft Docs
+description: Obtenga información acerca de los conceptos básicos del almacenamiento de discos no administrados (blobs de página) y administrados de las máquinas virtuales Windows en Azure.
 services: virtual-machines
-author: iainfoulds
+author: roygara
 manager: jeconnoc
 ms.service: virtual-machines
 ms.workload: storage
 ms.tgt_pltfrm: windows
 ms.topic: article
 ms.date: 11/15/2017
-ms.author: iainfou
-ms.openlocfilehash: bf5c5cc0637b9a515bf567ff8933170d7fc1a8ba
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.author: rogarana
+ms.openlocfilehash: 3d82416b7382b8e09706fd7fb8af9e1d3fe79f01
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="about-disks-storage-for-azure-windows-vms"></a>Acerca del almacenamiento de discos para máquinas virtuales Windows en Azure
 Como cualquier otro equipo, las máquinas virtuales de Azure usan discos como un lugar para almacenar un sistema operativo, aplicaciones y datos. Todas las máquinas virtuales de Azure tienen al menos dos discos: un disco de sistema operativo Windows y un disco temporal. El disco de sistema operativo se crea a partir de una imagen, y tanto el disco de sistema operativo como la imagen son discos duros virtuales (VHD) almacenados en una cuenta de Azure Storage. Las máquinas virtuales también pueden tener uno o más discos de datos que también se almacenan en discos duros virtuales. 
@@ -74,7 +74,7 @@ fsutil behavior set DisableDeleteNotify 0
 > 
 
 <!-- Might want to match next-steps from overview of managed disks -->
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Conecte un disco](attach-disk-portal.md) para agregar almacenamiento adicional para la máquina virtual.
 * [Cree una instantánea](snapshot-copy-managed-disk.md).
 * [Convierta la máquina virtual en discos administrados](convert-unmanaged-to-managed-disks.md).

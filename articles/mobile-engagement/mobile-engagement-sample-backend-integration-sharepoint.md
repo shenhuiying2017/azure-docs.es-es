@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement: Integración con back-end"
-description: "Conecte Azure Mobile Engagement con un back-end de SharePoint para crear campañas desde SharePoint"
+title: 'Azure Mobile Engagement: Integración con back-end'
+description: Conecte Azure Mobile Engagement con un back-end de SharePoint para crear campañas desde SharePoint
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 06297b43-579f-46e6-8a58-961a68f9aa09
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: d49f1094f4c3f170f3618f3e19e42266f9ae8858
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cf530ca6dce32050487f367aa80b10bf7f20b7e7
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-mobile-engagement---api-integration"></a>Azure Mobile Engagement: Integración de la API
+> [!IMPORTANT]
+> Azure Mobile Engagement se retira el 31 de marzo de 2018. Esta página se eliminará poco después.
+> 
+
 En un sistema de marketing automatizado, la creación y activación de las campañas de marketing también se realiza automáticamente. Con este fin, Azure Mobile Engagement permite crear estas campañas de marketing automatizadas usando las API también. 
 
 Generalmente, los usuarios usan la interfaz front-end de Azure Mobile Engagement para crear anuncios o encuestas como parte de sus campañas de marketing. Sin embargo, cuando las campañas de marketing maduran, es necesario aprovechar los datos que están bloqueados en los sistemas back-end (por ejemplo, los sistemas CRM o CMS como SharePoint) para poder crear una canalización completamente automatizada que crea campañas en Mobile Engagement dinámicamente basándose en los datos que fluyen desde los sistemas back-end. 

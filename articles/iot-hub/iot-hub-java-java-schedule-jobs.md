@@ -1,11 +1,11 @@
 ---
-title: "Programación de trabajos con Azure IoT Hub (Java) | Microsoft Docs"
-description: "Cómo programar un trabajo de Azure IoT Hub para invocar un método directo y definir una propiedad deseada en varios dispositivos. Usará el SDK de dispositivo IoT de Azure para Java con el fin de implementar las aplicaciones de dispositivo simulado, además del SDK de servicio IoT de Azure para Java con el objetivo de implementar una aplicación de servicio para ejecutar el trabajo."
+title: Programación de trabajos con Azure IoT Hub (Java) | Microsoft Docs
+description: Cómo programar un trabajo de Azure IoT Hub para invocar un método directo y definir una propiedad deseada en varios dispositivos. Usará el SDK de dispositivo IoT de Azure para Java con el fin de implementar las aplicaciones de dispositivo simulado, además del SDK de servicio IoT de Azure para Java con el objetivo de implementar una aplicación de servicio para ejecutar el trabajo.
 services: iot-hub
 documentationcenter: java
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-hub
 ms.devlang: java
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/10/2017
 ms.author: dobett
-ms.openlocfilehash: 54f446f8735bc46b87fe19aaf7845c5fbfce2744
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: af853a378a36c97edd74ea99fc5dcce92a073fea
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>Programación y difusión de trabajos (Java)
 
@@ -35,6 +35,8 @@ Para más información sobre estas funcionalidades, vea:
 
 * Dispositivo gemelo y propiedades: [Introducción a los dispositivos gemelos ](iot-hub-java-java-twin-getstarted.md)
 * Métodos directos: [Guía del desarrollador de IoT Hub: métodos directos](iot-hub-devguide-direct-methods.md) y [Tutorial: Uso de métodos directos](iot-hub-java-java-direct-methods.md)
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 En este tutorial se muestra cómo realizar las siguientes acciones:
 
@@ -477,7 +479,7 @@ Ya está preparado para ejecutar las aplicaciones de consola.
 
     ![El cliente de dispositivo responde a los cambios](media/iot-hub-java-java-schedule-jobs/device-app-2.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, configuró un centro de IoT nuevo en Azure Portal y, después, creó una identidad de dispositivo en el registro de identidades del centro de IoT. Crea una aplicación de back-end para ejecutar dos trabajos. El primer trabajo establece los valores de la propiedad deseada, y el segundo llama a un método directo.
 

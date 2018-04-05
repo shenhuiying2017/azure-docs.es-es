@@ -1,22 +1,22 @@
 ---
 title: Aprovisionamiento de un dispositivo de TPM simulado en Azure IoT Hub mediante Python | Microsoft Docs
-description: "Guía de inicio rápido de Azure: Creación y aprovisionamiento de un dispositivo de TPM simulado mediante el SDK de dispositivos Java para el servicio Azure IoT Hub Device Provisioning"
+description: 'Guía de inicio rápido de Azure: Creación y aprovisionamiento de un dispositivo de TPM simulado mediante el SDK de dispositivos Java para el servicio Azure IoT Hub Device Provisioning'
 services: iot-dps
-keywords: 
+keywords: ''
 author: msebolt
 ms.author: v-masebo
 ms.date: 12/12/2017
 ms.topic: quickstart
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: 6803dd31ce5953c2be14f6c4a2e65bdafc48e3e2
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 603ca504d95b7999137a4638aeed3ac58ce6c72d
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-python-device-sdk-for-iot-hub-device-provisioning-service"></a>Creación y aprovisionamiento de un dispositivo TPM simulado mediante el SDK de dispositivos Python para el servicio IoT Hub Device Provisioning
 
@@ -26,6 +26,7 @@ En estos pasos se muestra cómo crear un dispositivo simulado en la máquina de 
 
 Asegúrese de completar los pasos descritos en [Configuración de un servicio Azure IoT Hub Device Provisioning con Azure Portal](./quick-setup-auto-provision.md) antes de continuar.
 
+[!INCLUDE [IoT DPS basic](../../includes/iot-dps-basic.md)]
 
 ## <a name="prepare-the-environment"></a>Preparación del entorno 
 
@@ -68,7 +69,7 @@ Asegúrese de completar los pasos descritos en [Configuración de un servicio Az
 
 1. Abra la solución generada en la carpeta *cmake* denominada `azure_iot_sdks.sln` y compílela en Visual Studio.
 
-1. Haga clic con el botón derecho en el proyecto **tpm_device_provision** y seleccione **Establecer como proyecto de inicio**. Ejecute la solución. La ventana de salida muestra la  **_clave de aprobación_**  y el  **_id. de registro_**  necesarios para la inscripción del dispositivo. Anote estos valores. 
+1. Haga clic con el botón derecho en el proyecto **tpm_device_provision** y seleccione **Establecer como proyecto de inicio**. Ejecute la solución. La ventana de salida muestra la **_clave de aprobación_** y el **_id. de registro_** necesarios para la inscripción del dispositivo. Anote estos valores. 
 
     ![Programa de instalación de TPM](./media/python-quick-create-simulated-device/tpm-setup.png)
 

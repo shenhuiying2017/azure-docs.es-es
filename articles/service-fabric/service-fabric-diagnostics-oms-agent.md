@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/20/2018
 ms.author: dekapur
-ms.openlocfilehash: 4c4095071235dac7e8be3c16b614bdfa5b706a1c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4b0845cbb25d160b53b483641e242422c98029ee
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="add-the-oms-agent-to-a-cluster"></a>Incorporación del Agente de OMS a un clúster
 
@@ -61,12 +61,11 @@ La mejor manera de agregar el Agente de OMS al clúster es a través de las API 
  
 5. Ejecute el comando para aplicar esta configuración a las instancias de VM que ya existen:  
 
-
     ```sh
     az vmss update-instances
     ```
 
-La incorporación satisfactoria del Agente a los nodos debería durar menos de 15 minutos. Puede verificar que los agentes se han agregado mediante el uso de la API `az vmss extension list`:
+    La incorporación satisfactoria del Agente a los nodos debería durar menos de 15 minutos. Puede verificar que los agentes se han agregado mediante el uso de la API `az vmss extension list`:
 
     ```sh
     az vmss extension list --resource-group <nameOfResourceGroup> --vmss-name <nameOfNodeType>

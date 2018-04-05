@@ -1,11 +1,11 @@
 ---
 title: juego de Rodar la bola de Unity
-description: "Pasos para crear el juego clásico de Rodar una bola, que es un requisito previo de todos los tutoriales de Unity para Mobile Engagement."
+description: Pasos para crear el juego clásico de Rodar una bola, que es un requisito previo de todos los tutoriales de Unity para Mobile Engagement.
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 0afd0eca-f74a-43aa-bba8-436a0265c312
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 6392d1f780b1bc2348fee5947550b05e86ea4de2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 52d5962645b1408fdba61ec1bf4e4f682b80905b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a id="unity-roll-a-ball"></a>Creación de un juego de Rodar la bola de Unity
+> [!IMPORTANT]
+> Azure Mobile Engagement se retira el 31 de marzo de 2018. Esta página se eliminará poco después.
+> 
+
 Este tutorial le lleva por los pasos principales de un tutorial ligeramente modificado del [juego de Rodar la bola de Unity](http://unity3d.com/learn/tutorials/projects/roll-ball-tutorial). Este juego de ejemplo consta de un objeto esférico, el "jugador", que controla el usuario de la aplicación, y el objetivo del juego consiste en ir recopilando los objetos recopilables al chocar con ellos. Se supone que está familiarizado con los aspectos básicos del entorno del Editor de Unity. Si se tropieza con algún problema, consulte el tutorial completo. 
 
 ### <a name="setting-up-the-game"></a>Configuración del juego

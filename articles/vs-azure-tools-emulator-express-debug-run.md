@@ -4,8 +4,8 @@ description: Uso de Emulator Express para ejecutar y depurar un servicio en la n
 services: visual-studio-online
 documentationcenter: n/a
 author: mikejo
-manager: ghogen
-editor: 
+manager: douge
+editor: ''
 ms.assetid: 73108f98-a552-4817-b7a1-551367b71906
 ms.service: visual-studio-online
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/06/2017
 ms.author: mikejo
-ms.openlocfilehash: 9c258ad7de5e25b4b304f5e56d93abeff1187f71
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 638aa005321963ce8bdcbb7df4317fc4bdec74ae
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="using-emulator-express-to-run-and-debug-an-azure-cloud-service-on-a-local-machine"></a>Uso de Emulator Express para ejecutar y depurar un servicio en la nube de Azure en un sistema local
 Con Emulator Express, puede probar y depurar un servicio en la nube sin ejecutar Visual Studio como administrador. Puede establecer la configuración del proyecto para usar Emulator Express o el emulador completo, según los requisitos de su servicio en la nube. Para obtener más información sobre el emulador completo, consulte [Ejecutar una aplicación de Azure en el emulador de proceso](storage/common/storage-use-emulator.md).
@@ -50,7 +50,7 @@ Los siguientes problemas son limitaciones conocidas de Emulator Express:
 - Emulator Express no es compatible con el servidor web de IIS.
 - Su servicio en la nube puede contener varios roles, pero cada rol se limita a una instancia.
 - No puede tener acceso a los números de puerto inferiores a 1000. Si utiliza un proveedor de autenticación que suele usar un puerto inferior a 1000, puede que tenga que cambiar este valor a un número de puerto superior a 1000.
-- Las limitaciones que se aplican al emulador de proceso de Azure se aplican también a Emulator Express. Por ejemplo, no puede tener más de 50 instancias de rol por implementación. Para obtener más información sobre el emulador de proceso de Azure, consulte [Ejecutar una aplicación de Azure en el emulador de proceso](http://go.microsoft.com/fwlink/p/?LinkId=623050).
+- Las limitaciones que se aplican al emulador de Azure Compute se aplican también a Emulator Express. Por ejemplo, no puede tener más de 50 instancias de rol por implementación. Para obtener más información sobre el emulador de Azure Compute, consulte [Ejecutar una aplicación de Azure en el emulador de proceso](http://go.microsoft.com/fwlink/p/?LinkId=623050).
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Depuración de servicios en la nube de Azure](https://msdn.microsoft.com/library/azure/ee405479.aspx)

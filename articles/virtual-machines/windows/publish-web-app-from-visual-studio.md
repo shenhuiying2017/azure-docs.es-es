@@ -1,13 +1,11 @@
 ---
-title: "Publicación de una aplicación web en una máquina virtual de Azure desde Visual Studio| Microsoft Docs"
-description: "Publique una aplicación web ASP.NET en una máquina virtual de Azure desde Visual Studio."
+title: Publicación de una aplicación web en una máquina virtual de Azure desde Visual Studio| Microsoft Docs
+description: Publique una aplicación web ASP.NET en una máquina virtual de Azure desde Visual Studio.
 services: virtual-machines-windows
-documentationcenter: 
-author:
-- kraigb
-- justcla
-manager: ghogen
-editor: 
+documentationcenter: ''
+author: ghogen
+manager: douge
+editor: ''
 tags: azure-service-management
 ms.assetid: 70267837-3629-41e0-bb58-2167ac4932b3
 ms.service: virtual-machines-windows
@@ -16,20 +14,18 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/03/2017
-ms.author:
-- kraigb
-- justcla
-ms.openlocfilehash: 74ac1f27620e4871c3c6972baa949c64d850fe4c
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: ghogen
+ms.openlocfilehash: f236a00ef86f58d4d266a19d74485984d9ddb691
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>Publicación de una aplicación web ASP.NET en una máquina virtual de Azure desde Visual Studio
 
 En este documento se describe cómo publicar una aplicación web ASP.NET en una máquina virtual de Azure mediante la característica de publicación **Microsoft Azure Virtual Machines**en Visual Studio 2017.  
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 A fin de utilizar Visual Studio para publicar un proyecto de ASP.NET en una máquina virtual de Azure, la máquina virtual debe estar correctamente configurada.
 
 - La máquina debe configurarse para ejecutar una aplicación web ASP.NET y tener WebDeploy instalado.
@@ -109,7 +105,7 @@ La configuración debería ser similar a la que se muestra a continuación:
 
 #### <a name="deploy-to-clean-web-server"></a>Implementación en servidor web limpio
 
-- Si desea asegurarse de que el servidor web tenga una copia limpia de la aplicación web después de cada carga (y que no se quede ningún otro archivo pendiente de una implementación anterior), puede activar la casilla **Quitar archivos adicionales en el destino** en la pestaña **Configuración**.
+- Si desea asegurarse de que el servidor web tenga una copia limpia de la aplicación web después de cada carga (y que no se quede ningún otro archivo pendiente de una implementación anterior), puede activar la casilla **Quitar archivos adicionales en el destino	** en la pestaña **Configuración**.
 
 - Advertencia: La publicación con este parámetro elimina todos los archivos existentes en el servidor web (directorio wwwroot). Asegúrese de que conoce el estado de la máquina antes de publicar con esta opción habilitada. 
 

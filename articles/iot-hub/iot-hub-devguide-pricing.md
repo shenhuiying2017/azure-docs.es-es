@@ -1,11 +1,11 @@
 ---
-title: "Información sobre los precios de IoT Hub de Azure | Microsoft Docs"
-description: "Guía del desarrollador: información sobre cómo funcionan los precios y la medición con IoT Hub (se incluyen ejemplos)."
+title: Información sobre los precios de IoT Hub de Azure | Microsoft Docs
+description: 'Guía del desarrollador: información sobre cómo funcionan los precios y la medición con IoT Hub (se incluyen ejemplos).'
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1ac90923-1edf-4134-bbd4-77fee9b68d24
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,15 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: dbceca3daed53da2a383fd8a6b7a0bd1f225cf77
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 390e917990586642e55913a69873b1707e371de3
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-iot-hub-pricing-information"></a>Información de precios de IoT Hub de Azure
 
 [Precios de Azure IoT Hub][lnk-pricing] proporciona información general sobre diferentes SKU y precios de IoT Hub. Este artículo contiene información adicional acerca de cómo se mide el uso de las distintas funcionalidades de IoT Hub como mensajes de IoT Hub.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 ## <a name="charges-per-operation"></a>Cargos por operación
 

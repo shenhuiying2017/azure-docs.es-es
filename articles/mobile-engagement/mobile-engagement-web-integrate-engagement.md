@@ -1,11 +1,11 @@
 ---
-title: "Integración del SDK web de Azure Mobile Engagement | Microsoft Docs"
-description: "Actualizaciones y procedimientos más recientes para el SDK web de Azure Mobile Engagement"
+title: Integración del SDK web de Azure Mobile Engagement | Microsoft Docs
+description: Actualizaciones y procedimientos más recientes para el SDK web de Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: b5daa2a2-942b-489d-aa1d-568c3b25e56f
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: js
 ms.topic: article
 ms.date: 02/29/2016
 ms.author: piyushjo
-ms.openlocfilehash: 7d8eaa180e277741a583522ee62d68f5247b92bb
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: bccfbdfe9d99900f58d5dbfa44183146c79b9c88
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="integrate-azure-mobile-engagement-in-a-web-application"></a>Integración de Azure Mobile Engagement en una aplicación web
+> [!IMPORTANT]
+> Azure Mobile Engagement se retira el 31 de marzo de 2018. Esta página se eliminará poco después.
+> 
+
 > [!div class="op_single_selector"]
 > * [Windows Universal](mobile-engagement-windows-store-integrate-engagement.md)
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
@@ -107,7 +111,7 @@ Las sesiones de Mobile Engagement se dividen en secuencias de actividades que se
 
 En un sitio web clásico, se recomienda declarar una actividad diferente en cada página del sitio. Para un sitio web o aplicación web en el que la página actual nunca cambia, puede realizar un seguimiento de las actividades en una escala menor, por ejemplo, dentro de la página.
 
-En cualquier caso, para iniciar o cambiar la actividad del usuario actual, llame a la función `engagement.agent.startActivity` . Por ejemplo:
+En cualquier caso, para iniciar o cambiar la actividad del usuario actual, llame a la función `engagement.agent.startActivity` . Por ejemplo: 
 
     <body onload="yourOnload()">
 

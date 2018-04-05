@@ -1,5 +1,5 @@
 ---
-title: "Ejecución de una carga de trabajo paralela: Python de Azure Batch"
+title: 'Ejecución de una carga de trabajo paralela: Python de Azure Batch'
 description: 'Tutorial: Procesamiento de archivos multimedia en paralelo con ffmpeg en Azure Batch con la biblioteca cliente de Python de Batch'
 services: batch
 author: dlepow
@@ -8,13 +8,13 @@ ms.service: batch
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 01/23/2018
-ms.author: dlepow
+ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: f9853578962027d6308581a76e00d6619cbbf9ec
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a04cd63944d0ed75ff90f211134cd93c77abe1e3
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>Tutorial: Ejecución de una carga de trabajo paralela con Azure Batch mediante la API de Python
 
@@ -266,7 +266,7 @@ Después de ejecutar las tareas, la aplicación elimina automáticamente el cont
 
 Cuando ya no los necesite, elimine el grupo de recursos, la cuenta de Batch y la de Storage. Para hacerlo desde Azure Portal, seleccione el grupo de recursos de la cuenta de Batch y haga clic en **Eliminar grupo de recursos**.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, ha aprendido a:
 

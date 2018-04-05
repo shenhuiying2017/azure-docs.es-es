@@ -1,12 +1,12 @@
 ---
-title: "Administración de dispositivos de Azure IoT con iothub-explorer | Microsoft Docs"
-description: "Use la herramienta de la CLI iothub-explorer para la administración de dispositivos de Azure IoT Hub, que incluye métodos directos y opciones de administración de las propiedades deseadas de los dispositivos gemelos."
+title: Administración de dispositivos de Azure IoT con iothub-explorer | Microsoft Docs
+description: Use la herramienta de la CLI iothub-explorer para la administración de dispositivos de Azure IoT Hub, que incluye métodos directos y opciones de administración de las propiedades deseadas de los dispositivos gemelos.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: shizn
 manager: timlt
-tags: 
-keywords: "administración de dispositivos de azure iot, administración de dispositivos de azure iot hub, iot de administración de dispositivos, administración de dispositivos de iot hub"
+tags: ''
+keywords: administración de dispositivos de azure iot, administración de dispositivos de azure iot hub, iot de administración de dispositivos, administración de dispositivos de iot hub
 ms.assetid: b34f799a-fc14-41b9-bf45-54751163fffe
 ms.service: iot-hub
 ms.devlang: arduino
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2017
 ms.author: xshi
-ms.openlocfilehash: 02d3241ae4ae515a8c2deaa14f50b5b7dbd4766f
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: e22c321e896abe8d5eb659866256942099cac2d9
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-iothub-explorer-for-azure-iot-hub-device-management"></a>Uso de iothub-explorer para la administración de dispositivos de Azure IoT Hub
 
@@ -28,6 +28,8 @@ ms.lasthandoff: 01/18/2018
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
 [iothub-explorer](https://github.com/azure/iothub-explorer) es una herramienta de la CLI que se ejecuta en un equipo host para administrar identidades de dispositivo en el registro de IoT Hub. Incluye opciones de administración que puede usar para realizar varias tareas.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 | Opción de administración          | Task                                                                                                                            |
 |----------------------------|------------------------------------------------------------------------------------------------------------------------------|
@@ -40,8 +42,7 @@ ms.lasthandoff: 01/18/2018
 
 Para obtener una explicación más detallada acerca de las diferencias y orientación sobre el uso de estas opciones, consulte la [Guía de comunicación de dispositivo a nube](iot-hub-devguide-d2c-guidance.md) y la [Guía de comunicación de nube a dispositivo](iot-hub-devguide-c2d-guidance.md).
 
-> [!NOTE]
-> Los dispositivos gemelos son documentos JSON que almacenan información sobre el estado de los dispositivos (metadatos, configuraciones y condiciones). IoT Hub conserva un dispositivo gemelo por cada dispositivo que se conecta a él. Para más información acerca de los dispositivos gemelos, consulte [Introducción a los dispositivos gemelos](iot-hub-node-node-twin-getstarted.md).
+Los dispositivos gemelos son documentos JSON que almacenan información sobre el estado de los dispositivos (metadatos, configuraciones y condiciones). IoT Hub conserva un dispositivo gemelo por cada dispositivo que se conecta a él. Para más información acerca de los dispositivos gemelos, consulte [Introducción a los dispositivos gemelos](iot-hub-node-node-twin-getstarted.md).
 
 ## <a name="what-you-learn"></a>Conocimientos que adquirirá
 
@@ -140,7 +141,7 @@ Consulte todos los dispositivos excepto aquellos con una etiqueta de rol = "temp
 iothub-explorer query-twin "SELECT * FROM devices WHERE tags.role != 'temperature&humidity'"
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Ha aprendido a usar iothub-explorer con distintas opciones de administración.
 

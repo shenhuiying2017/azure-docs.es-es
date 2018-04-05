@@ -1,11 +1,11 @@
 ---
 title: 'Interfaz de usuario de Azure Mobile Engagement: Mi cuenta'
-description: "Obtenga información acerca de cómo administrar el perfil de su cuenta y probar dispositivos mediante Azure Mobile Engagement"
+description: Obtenga información acerca de cómo administrar el perfil de su cuenta y probar dispositivos mediante Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 22832678-3959-4b8c-9fb2-f2ff5974e5d1
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 4e463e973dcfa1faa7b08e4738192161980b3aa2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 89ef4f97a03ab0334f5474fb5b0ad2fd44f23518
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-manage-your-account-profile-and-test-devices"></a>Cómo administrar el perfil de su cuenta y probar los dispositivos
+> [!IMPORTANT]
+> Azure Mobile Engagement se retira el 31 de marzo de 2018. Esta página se eliminará poco después.
+> 
+
 En este artículo se describe la **página principal** del portal de **Mobile Engagement**. Utilice el portal **Mobile Engagement** para supervisar y administrar sus aplicaciones móviles. 
 
 Para obtener acceso a la página **Mi cuenta** , haga clic en su cuenta en la parte superior de la página.
@@ -57,7 +61,7 @@ Para usar la API de inserción o la API de dispositivo necesitará conocer el id
 ## <a name="troubleshooting-guide"></a>Guía de solución de problemas
 * [Guía de solución de problemas de servicios][Link 24]
 
-## <a name="see-also"></a>Consulte también
+## <a name="see-also"></a>Otras referencias
 * [Documentación de interfaz de usuario: página principal][Link 13]
 
 <!--Image references-->

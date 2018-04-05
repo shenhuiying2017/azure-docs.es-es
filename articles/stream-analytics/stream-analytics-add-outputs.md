@@ -1,12 +1,11 @@
 ---
-title: "Configuración de salidas de datos para trabajos de Stream Analytics | Microsoft Docs"
-description: "Configuración de salidas de datos para trabajos de Análisis de transmisiones | segmento de ruta de aprendizaje."
+title: Configuración de salidas de datos para trabajos de Stream Analytics | Microsoft Docs
+description: Configuración de salidas de datos para trabajos de Stream Analytics | segmento de ruta de aprendizaje.
 keywords: salida de datos, movimiento de datos
-documentationcenter: 
+documentationcenter: ''
 services: stream-analytics
-author: samacha
-manager: jhubbard
-editor: cgronlun
+author: jseb225
+manager: ryanw
 ms.assetid: 3bbea3da-bfce-4af1-a15e-d4b23874034f
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,20 +13,20 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/26/2017
-ms.author: samacha
-ms.openlocfilehash: 1ffa517469da1a8d79917b9747abc97ca3bef463
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: 9e1a8640421c4232cf4abc09794ca584995906f9
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
-# <a name="how-to-configure-data-outputs-for-stream-analytics-jobs"></a>Configuración de salidas de datos para trabajos de Análisis de transmisiones
+# <a name="how-to-configure-data-outputs-for-stream-analytics-jobs"></a>Configuración de salidas de datos para trabajos de Stream Analytics
 
-Los trabajos de Análisis de transmisiones de Azure pueden estar conectados a una o más salidas de datos, que definen una conexión a un receptor de datos existente. A medida que el trabajo de Stream Analytics procesa y transforma los datos entrantes, se escribe una transmisión de eventos de salida de datos en la salida del trabajo.
+Los trabajos de Azure Stream Analytics pueden estar conectados a una o más salidas de datos, que definen una conexión a un receptor de datos existente. A medida que el trabajo de Stream Analytics procesa y transforma los datos entrantes, se escribe una transmisión de eventos de salida de datos en la salida del trabajo.
 
-Las salidas de datos de Stream Analytics se pueden usar para generar alertas o paneles en tiempo real, desencadenar flujos de trabajo de movimiento de datos o simplemente archivar datos para el procesamiento por lotes más adelante. El Análisis de transmisiones tiene una integración de primera clase con varios servicios de Azure, que se documentan aquí con detalle.
+Las salidas de datos de Stream Analytics se pueden usar para generar alertas o paneles en tiempo real, desencadenar flujos de trabajo de movimiento de datos o simplemente archivar datos para el procesamiento por lotes más adelante. El Stream Analytics tiene una integración de primera clase con varios servicios de Azure, que se documentan aquí con detalle.
 
-Para agregar una salida a su trabajo del Análisis de transmisiones:
+Para agregar una salida a su trabajo del Stream Analytics:
 
 1. En [Azure Portal](https://portal.azure.com), abra el trabajo y haga clic en **Salidas** y, a continuación, haga clic en **Agregar** en la hoja Salidas que aparece.
    
@@ -49,13 +48,13 @@ Para agregar una salida a su trabajo del Análisis de transmisiones:
 > 
  
 
-## <a name="get-help"></a>Obtener ayuda
-Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+## <a name="get-help"></a>Obtención de ayuda
+Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Introducción al Análisis de transmisiones de Azure](stream-analytics-introduction.md)
+* [Introducción a Azure Stream Analytics](stream-analytics-introduction.md)
 * [Introducción al uso de Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Escalación de trabajos de Análisis de transmisiones de Azure](stream-analytics-scale-jobs.md)
-* [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Escalación de trabajos de Azure Stream Analytics](stream-analytics-scale-jobs.md)
+* [Referencia del lenguaje de consulta de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Referencia de API de REST de administración de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

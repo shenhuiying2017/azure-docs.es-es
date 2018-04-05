@@ -1,11 +1,11 @@
 ---
 title: 'Interfaz de usuario de Azure Mobile Engagement: panel'
-description: "Obtenga información acerca de cómo ver y administrar gráficos de datos acerca de su aplicación mediante Azure Mobile Engagement"
+description: Obtenga información acerca de cómo ver y administrar gráficos de datos acerca de su aplicación mediante Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 72d5965e-8e79-48a3-9e63-0b66b7457d3c
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,19 +14,23 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: eaf5a2f9fdfcec33e8b4e2ddf77505980cd37c5e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d941b9858b964e11308061bae9e6dbc5e2fda767
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-view-and-manage-charts-of-data-about-your-application"></a>Cómo ver y administrar los gráficos de datos de la aplicación
+> [!IMPORTANT]
+> Azure Mobile Engagement se retira el 31 de marzo de 2018. Esta página se eliminará poco después.
+> 
+
 La sección del panel de la interfaz de usuario permite a los clientes crear gráficos personalizados para maximizar su tiempo al proporcionar la información exacta que desean en lugar de buscar en la sección de análisis. Un panel muestra las tendencias de la aplicación y los recuentos de usuarios activos para las distintas versiones de la aplicación durante un momento dado (hora/día/semana/mes/personalizado). Las tendencias mostradas se basan en los últimos 7 días.
 
-### <a name="see-also"></a>Consulte también
+### <a name="see-also"></a>Otras referencias
 * [Guía de resolución de problemas: Análisis][Link 21]
 
-## <a name="dashboard"></a>Panel
+## <a name="dashboard"></a>panel
 * Puede agregar gráficos a un panel vacía seleccionando la acción "Enviar al panel" en el menú de engranaje de cualquier gráfico de la sección de análisis de la interfaz de usuario que le gustaría ver en un panel.
 
 ## <a name="-add-a-dashboard"></a>+ (Agregar un panel)

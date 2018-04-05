@@ -1,11 +1,11 @@
 ---
-title: "Introducción al Almacenamiento de Azure y servicios conectados de Visual Studio (proyectos de WebJobs)"
-description: "Cómo empezar a usar el almacenamiento de tablas de Azure en un proyecto de WebJobs de Azure en Visual Studio después de conectarse a una cuenta de almacenamiento mediante los servicios conectados de Visual Studio"
+title: Introducción al Almacenamiento de Azure y servicios conectados de Visual Studio (proyectos de WebJobs)
+description: Cómo empezar a usar el almacenamiento de tablas de Azure en un proyecto de Azure WebJobs en Visual Studio después de conectarse a una cuenta de almacenamiento mediante los servicios conectados de Visual Studio
 services: storage
-documentationcenter: 
-author: kraigb
-manager: ghogen
-editor: 
+documentationcenter: ''
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: 061a6c46-0592-4e5d-aced-ab7498481cde
 ms.service: storage
 ms.workload: web
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
-ms.author: kraigb
-ms.openlocfilehash: 4e0c77e08bff971277a09d6066f259db84617616
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: ghogen
+ms.openlocfilehash: 75ca4914fe60ec6f5c50e4942ad6d5cc7a6fe98b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
-# <a name="getting-started-with-azure-storage-azure-webjob-projects"></a>Introducción a Almacenamiento de Azure (proyectos de WebJobs de Azure)
+# <a name="getting-started-with-azure-storage-azure-webjob-projects"></a>Introducción a Azure Storage (proyectos de WebJobs de Azure)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
 ## <a name="overview"></a>Información general
-En este artículo se proporcionan ejemplos de código C# que muestran cómo usar la versión 1.x del SDK de WebJobs de Azure con el servicio Almacenamiento de tablas de Azure. Los ejemplos de código usan el [SDK de WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki) versión 1.x.
+En este artículo se proporcionan ejemplos de código C# que muestran cómo usar la versión 1.x del SDK de Azure WebJobs con el servicio Almacenamiento de tablas de Azure. Los ejemplos de código usan el [SDK de WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki) versión 1.x.
 
 El servicio de almacenamiento de tabla de Azure permite almacenar una gran cantidad de datos estructurados. El servicio es un almacén de datos NoSQL que acepta llamadas autenticadas desde dentro y fuera de la nube de Azure. Las tablas de Azure son ideales para el almacenamiento de datos estructurados no relacionales.  Consulte [Introducción al Almacenamiento de tablas de Azure mediante .NET](../cosmos-db/table-storage-how-to-use-dotnet.md#create-a-table) para más información.
 
@@ -146,5 +146,5 @@ Para más información sobre cómo usar el objeto **CloudTable** , consulte [Int
 Para más información sobre cómo controlar el procesamiento de tablas desencadenado por un mensaje de cola o para ver los escenarios de SDK de WebJobs no específicos para el procesamiento de tablas, consulte [Introducción al Almacenamiento de colas de Azure y servicios conectados de Visual Studio (proyectos de WebJobs)](../storage/vs-storage-webjobs-getting-started-queues.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este artículo se han proporcionado ejemplos de código que muestran cómo tratar escenarios comunes para trabajar con tablas de Azure. Para más información acerca de cómo usar el SDK de WebJobs y WebJobs de Azure, consulte [Recursos de documentación de WebJobs de Azure](http://go.microsoft.com/fwlink/?linkid=390226).
+En este artículo se han proporcionado ejemplos de código que muestran cómo tratar escenarios comunes para trabajar con tablas de Azure. Para más información acerca de cómo usar el SDK de WebJobs y Azure WebJobs, consulte [Recursos de documentación de Azure WebJobs](http://go.microsoft.com/fwlink/?linkid=390226).
 

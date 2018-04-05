@@ -1,12 +1,12 @@
 ---
-title: "Creación de su primera función desde Azure Portal | Microsoft Docs"
-description: "Obtenga información sobre cómo crear su primera función de Azure para su ejecución sin servidor mediante Azure Portal."
+title: Creación de su primera función desde Azure Portal | Microsoft Docs
+description: Obtenga información sobre cómo crear su primera función de Azure para su ejecución sin servidor mediante Azure Portal.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 96cf87b9-8db6-41a8-863a-abb828e3d06d
 ms.service: functions
 ms.devlang: multiple
@@ -17,10 +17,10 @@ ms.date: 02/05/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 31437360396e220de24789fdff9d2602af385053
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Creación de su primera función en Azure Portal
 

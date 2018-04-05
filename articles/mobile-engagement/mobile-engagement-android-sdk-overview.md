@@ -1,11 +1,11 @@
 ---
-title: "Integración del SDK de Android para Azure Mobile Engagement"
-description: "Describe cómo integrar el SDK de Azure Mobile Engagement en aplicaciones de Android"
+title: Integración del SDK de Android para Azure Mobile Engagement
+description: Describe cómo integrar el SDK de Azure Mobile Engagement en aplicaciones de Android
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: a91ed04f-f3ce-4692-a6dd-b56a28d7dee8
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: piyushjo;ricksal
-ms.openlocfilehash: 35935e911f1f17989beb71978396c6d1b7d601d6
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: d02bcfc7521df9c18edc534e679e597ad2328e6f
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="android-sdk-integration-for-azure-mobile-engagement"></a>Integración del SDK de Android para Azure Mobile Engagement
+> [!IMPORTANT]
+> Azure Mobile Engagement se retira el 31 de marzo de 2018. Esta página se eliminará poco después.
+> 
+
 > [!div class="op_single_selector"]
 > * [Windows universal](mobile-engagement-windows-store-sdk-overview.md)
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-sdk-overview.md)
@@ -31,7 +35,7 @@ ms.lasthandoff: 12/21/2017
 
 Este documento describe todas las opciones de integración y configuración disponibles para el SDK de Android para Azure Mobile Engagement.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 [!INCLUDE [Prereqs](../../includes/mobile-engagement-android-prereqs.md)]
 
 ## <a name="advanced-features"></a>Características avanzadas

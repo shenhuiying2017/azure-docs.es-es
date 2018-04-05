@@ -1,25 +1,24 @@
 ---
-title: "Depuración orientada a datos de Azure Stream Analytics mediante el diagrama de trabajo | Microsoft Docs"
-description: "Solucione los problemas de los trabajos de Stream Analytics mediante el diagrama de trabajo y las métricas."
-keywords: 
-documentationcenter: 
+title: Depuración orientada a datos de Azure Stream Analytics mediante el diagrama de trabajo | Microsoft Docs
+description: Solucione los problemas de los trabajos de Stream Analytics mediante el diagrama de trabajo y las métricas.
+keywords: ''
+documentationcenter: ''
 services: stream-analytics
-author: samacha
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 
+author: jseb225
+manager: ryanw
+ms.assetid: ''
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 05/01/2017
-ms.author: samacha
-ms.openlocfilehash: 5b689c07bf8baa531c7a50ca50ed5140c1787e7b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: 65eeeee7daa22b94074f55defdfd1219049774c9
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="data-driven-debugging-by-using-the-job-diagram"></a>Depuración orientada a datos mediante el diagrama de trabajo
 
@@ -85,7 +84,7 @@ Si el paso de consulta anterior es un procesador de entrada, use las métricas d
 *   **InputEventsSourcesBackloggedTotal** indica cuántos mensajes más es necesario leer para las entradas de Event Hubs y Azure IoT Hub.
 
 
-## <a name="get-help"></a>Obtener ayuda
+## <a name="get-help"></a>Obtención de ayuda
 Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Pasos siguientes

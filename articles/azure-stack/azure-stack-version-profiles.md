@@ -1,11 +1,11 @@
 ---
-title: "Usar de perfiles de la versión de la API de Azure Stack | Microsoft Docs"
-description: "Aprenda los perfiles de la versión de API en Azure Stack."
+title: Usar de perfiles de la versión de la API de Azure Stack | Microsoft Docs
+description: Aprenda los perfiles de la versión de API en Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: EBAEA4D2-098B-4B5A-A197-2CEA631A1882
 ms.service: azure-stack
 ms.workload: na
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 09/25/2017
 ms.author: mabrigg
 ms.openlocfilehash: 68f4250c2a2a6bed1a1e21dc444e93cc87b6f59b
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="manage-api-version-profiles-in-azure-stack"></a>Administre los perfiles de la versión de API en Azure Stack
 
-*Se aplica a: Sistemas integrados de Azure Stack y Azure Stack Development Kit*
+*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 Los perfiles de versión de la API proporcionan una manera de administrar las diferencias de versión entre Azure y Azure Stack. Un perfil de la versión de la API es un conjunto de módulos de PowerShell AzureRM con versiones específicas de la API. Cada plataforma de la nube tiene un conjunto de perfiles de versión de API compatibles. Por ejemplo, Azure Stack es compatible con una versión de perfil con fecha específica **2017-03-09-perfil**, y Azure es compatible con la versión de perfil **más reciente** de la API. Cuando se instala un perfil, se instalan los módulos de PowerShell AzureRM que se corresponden con el perfil especificado.
 

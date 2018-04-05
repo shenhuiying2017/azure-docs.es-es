@@ -1,11 +1,11 @@
 ---
-title: "Introducción a Azure Blob Storage y los servicios conectados de Visual Studio (ASP.NET) | Microsoft Docs"
-description: "Cómo empezar a usar Azure Blob Storage en un proyecto ASP.NET en Visual Studio después de conectarse a una cuenta de almacenamiento mediante los servicios conectados de Visual Studio"
+title: Introducción a Azure Blob Storage y los servicios conectados de Visual Studio (ASP.NET) | Microsoft Docs
+description: Cómo empezar a usar Azure Blob Storage en un proyecto ASP.NET en Visual Studio después de conectarse a una cuenta de almacenamiento mediante los servicios conectados de Visual Studio
 services: storage
-documentationcenter: 
-author: kraigb
-manager: ghogen
-editor: 
+documentationcenter: ''
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: b3497055-bef8-4c95-8567-181556b50d95
 ms.service: storage
 ms.workload: web
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
-ms.author: kraig
-ms.openlocfilehash: cb406e528568dafd1e142943f5273ad58e550609
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.author: ghogen
+ms.openlocfilehash: 657eff077f9a72bad97e8bea3ad3efc0da1420d5
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet"></a>Introducción a Azure Blob Storage y los servicios conectados de Visual Studio (ASP.NET)
 
@@ -32,7 +32,7 @@ En este tutorial se muestra cómo escribir código de ASP.NET para algunos escen
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 
@@ -500,7 +500,7 @@ Los siguientes pasos muestran cómo eliminar un blob:
 
 1. Ejecute la aplicación y seleccione **Eliminar blob** para eliminar el blob especificado en la llamada al método `CloudBlobContainer.GetBlockBlobReference`. El texto *"success!"* debería aparecer en el explorador. Seleccione el botón **Atrás** del explorador y luego seleccione **Mostrar blobs** para comprobar que el blob ya no está en el contenedor.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, aprendió a almacenar, enumerar y recuperar blobs en Azure Storage mediante ASP.NET. Consulte más guías de características para obtener información acerca de otras opciones del almacenamiento de datos en Azure.
 

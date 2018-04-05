@@ -1,12 +1,11 @@
 ---
-title: "Salidas de Stream Analytics: opciones para almacenamiento y análisis | Microsoft Docs"
-description: "Aprenda a seleccionar el destino de las opciones de salida de datos de Stream Analytics, lo que incluye Power BI para los resultados de análisis."
-keywords: "transformación de datos, resultados del análisis, opciones de almacenamiento de datos"
+title: 'Salidas de Stream Analytics: opciones para almacenamiento y análisis | Microsoft Docs'
+description: Aprenda a seleccionar el destino de las opciones de salida de datos de Stream Analytics, lo que incluye Power BI para los resultados de análisis.
+keywords: transformación de datos, resultados del análisis, opciones de almacenamiento de datos
 services: stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage
-documentationcenter: 
+documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-editor: cgronlun
 ms.assetid: ba6697ac-e90f-4be3-bafd-5cfcf4bd8f1f
 ms.service: stream-analytics
 ms.devlang: na
@@ -15,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 02/18/2017
 ms.author: sngun
-ms.openlocfilehash: 6df9a3fafea97638d63c0dc4601c5ced357c410d
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: a641c7e5e792b020be54a2ebc4bac63b545ce71e
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="stream-analytics-outputs-options-for-storage-analysis"></a>Salidas de Stream Analytics: opciones para almacenamiento y análisis
 Al crear un trabajo de Stream Analytics, tenga en cuenta cómo se consumen los datos resultantes. ¿Cómo se ven los resultados del trabajo de Stream Analytics y dónde se almacenan?
@@ -107,7 +106,7 @@ Tiene que volver a autenticar la cuenta de Data Lake Store si su contraseña ha 
 > 
 > 
 
-## <a name="blob-storage"></a>Blob Storage
+## <a name="blob-storage"></a>Almacenamiento de blobs
 Almacenamiento de blobs ofrece una solución rentable y escalable para almacenar grandes cantidades de datos no estructurados en la nube.  Para obtener una introducción sobre el almacenamiento de blobs de Azure y su uso, consulte la documentación en [Uso de blobs](../storage/blobs/storage-dotnet-how-to-use-blobs.md).
 
 En la tabla siguiente se enumeran los nombres de propiedad y su descripción para crear una salida de blob.
@@ -345,7 +344,7 @@ También tenga en cuenta que no se genera ninguna salida en una situación en la
 ## <a name="get-help"></a>Obtención de ayuda
 Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Ya conoce Stream Analytics, un servicio administrado para el análisis del streaming de datos desde Internet de las cosas. Para obtener más información acerca de este servicio, consulte:
 
 * [Introducción al uso de Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)

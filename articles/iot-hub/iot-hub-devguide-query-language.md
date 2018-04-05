@@ -1,11 +1,11 @@
 ---
-title: "Información sobre el lenguaje de consulta de IoT Hub de Azure | Microsoft Docs"
-description: "Guía del desarrollador: descripción del lenguaje de consulta de IoT Hub de tipo SQL que se usa para recuperar información sobre los dispositivos gemelos y trabajos desde IoT Hub."
+title: Información sobre el lenguaje de consulta de IoT Hub de Azure | Microsoft Docs
+description: 'Guía del desarrollador: descripción del lenguaje de consulta de IoT Hub de tipo SQL que se usa para recuperar información sobre los dispositivos gemelos y trabajos desde IoT Hub.'
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 851a9ed3-b69e-422e-8a5d-1d79f91ddf15
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/26/2018
 ms.author: elioda
-ms.openlocfilehash: 624f706532645034f19af15d10352dbc6db0b6c1
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: ef0d135a744cd37d888496073c7959ddc815ec91
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>Lenguaje de consulta de IoT Hub para dispositivos gemelos, trabajos y enrutamiento de mensajes
 
@@ -26,6 +26,8 @@ IoT Hub proporciona un lenguaje eficaz de tipo SQL para recuperar información s
 
 * una introducción a las características principales del lenguaje de consulta de IoT Hub y
 * una descripción más detallada del lenguaje.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 ## <a name="device-twin-queries"></a>Consultas de dispositivos gemelos
 Los [dispositivos gemelos][lnk-twins] pueden contener objetos JSON arbitrarios como etiquetas y propiedades. IoT Hub permite consultar los dispositivos gemelos como un solo documento JSON que contiene toda la información de los dispositivos gemelos.
@@ -583,7 +585,7 @@ En condiciones de rutas, se admiten las siguientes funciones de cadena:
 | ENDS_WITH(x, y) | Devuelve un valor booleano que indica si la primera expresión de cadena finaliza con la segunda. |
 | CONTAINS(x,y) | Devuelve un valor booleano que indica si la primera expresión de cadena contiene la segunda. |
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Aprenda a ejecutar consultas en sus aplicaciones mediante los [SDK IoT de Azure ][lnk-hub-sdks].
 
 [lnk-query-where]: iot-hub-devguide-query-language.md#where-clause

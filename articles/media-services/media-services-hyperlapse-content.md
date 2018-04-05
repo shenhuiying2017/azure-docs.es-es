@@ -1,36 +1,34 @@
 ---
 title: Archivos multimedia de Hyperlapse con Azure Media Hyperlapse | Microsoft Docs
-description: "Azure Media Hyperlapse crea vídeos fluidos con la técnica time-lapse a partir de contenido generado en primera persona o con una cámara de acción. En este tema se muestra cómo usar el Indizador multimedia."
+description: Azure Media Hyperlapse crea vídeos fluidos con la técnica time-lapse a partir de contenido generado en primera persona o con una cámara de acción. En este tema se muestra cómo usar el Indizador multimedia.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: asolanki
 manager: johndeu
-editor: 
+editor: ''
 ms.assetid: 37d54db6-9cf3-4ae9-b3c6-0d29c744e965
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/02/2017
+ms.date: 03/28/2018
 ms.author: adsolank
-ms.openlocfilehash: b3163454213db0afb94e668e4c56924d7833d769
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 86a9d44a93d7717d2ed949db2b1d1e94963781d0
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="hyperlapse-media-files-with-azure-media-hyperlapse"></a>Archivos multimedia de Hyperlapse con Azure Media Hyperlapse
 Azure Media Hyperlapse es un procesador de multimedia (MP) que crea vídeos fluidos con la técnica time-lapse a partir de contenido generado en primera persona o con una cámara de acción.  Microsoft Hyperlapse para Azure Media Services, el producto para la nube de [Hyperlapse Pro (para equipos de escritorio) y Hyperlapse Mobile (para móviles) de Microsoft Research](http://aka.ms/hyperlapse), usa la escalación masiva de la plataforma de procesamiento de medios de Azure Media Services para escalar horizontalmente y establecer paralelismos en el procesamiento masivo de Hyperlapse.
 
 > [!IMPORTANT]
-> Microsoft Hyperlapse está diseñado para funcionar mejor con los contenidos grabados en primera persona con una cámara móvil.  Aunque la grabación con cámara fija también puede funcionar, no se garantiza el rendimiento y la calidad del procesador multimedia Azure Media Hyperlapse para otros tipos de contenido.  Para obtener más información acerca de Microsoft Hyperlapse para Azure Media Services y ver algunos vídeos de ejemplo, consulte la [publicación de blog de introducción](http://aka.ms/azurehyperlapseblog) en la vista previa pública.
+> Microsoft Hyperlapse está diseñado para funcionar mejor con los contenidos grabados en primera persona con una cámara móvil. Aunque la grabación con cámara fija también puede funcionar, no se garantiza el rendimiento y la calidad del procesador multimedia Azure Media Hyperlapse para otros tipos de contenido.
 > 
 > 
 
 Un trabajo de Azure Media Hyperlapse toma como entrada un archivo de recurso en formato MP4, MOV o WMV, junto con un archivo de configuración que especifica a qué fotogramas de vídeo se debe aplicar el time-lapse y a qué velocidad (por ejemplo, los primeros 10.000 fotogramas a 2x).  El resultado es una representación estabilizada y en time-lapse del vídeo de entrada.
-
-Para ver las actualizaciones más recientes de Azure Media Hyperlapse, consulte los [blogs de Media Services](https://azure.microsoft.com/blog/topics/media-services/).
 
 ## <a name="hyperlapse-an-asset"></a>Aplicar Hyperlapse a un recurso
 Primero debe cargar el archivo de entrada deseado en Azure Media Services.  Para obtener más información acerca de los conceptos relacionados con la carga y la administración de contenido, consulte el [artículo de administración de contenido](media-services-portal-vod-get-started.md).

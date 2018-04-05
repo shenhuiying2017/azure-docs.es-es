@@ -1,11 +1,11 @@
 ---
 title: Dispositivos gemelos de Azure IoT Hub | Microsoft Docs
-description: "Guía para desarrolladores: uso de dispositivos gemelos para sincronizar los datos de estado y configuración entre IoT Hub y sus dispositivos"
+description: 'Guía para desarrolladores: uso de dispositivos gemelos para sincronizar los datos de estado y configuración entre IoT Hub y sus dispositivos'
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 8a3da072-a5bf-46e5-8de4-24cdbb2a03fa
 ms.service: iot-hub
 ms.devlang: multiple
@@ -15,16 +15,19 @@ ms.workload: na
 ms.date: 01/29/2018
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5bf2d24d0d5eadfea5ec8fd239a115c05a54fe99
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 01e94298aa3691d5bce33a12745b54fd398c7ad3
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Dispositivos gemelos en IoT Hub
 
-Los *dispositivos gemelos* son documentos JSON que almacenan información acerca del estado del dispositivo, incluidos metadatos, configuraciones y condiciones. Azure IoT Hub mantiene un dispositivo gemelo para cada dispositivo que se conecta a IoT Hub. En este artículo se describe:
+Los *dispositivos gemelos* son documentos JSON que almacenan información acerca del estado del dispositivo, incluidos metadatos, configuraciones y condiciones. Azure IoT Hub mantiene un dispositivo gemelo para cada dispositivo que se conecta a IoT Hub. 
 
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
+
+En este artículo se describe:
 
 * La estructura del dispositivo gemelo: *etiquetas*, las propiedades *deseadas* y las *notificadas*.
 * Las operaciones que las aplicaciones de dispositivo y los back-ends pueden realizar en los dispositivos gemelos.
@@ -346,7 +349,7 @@ Otros temas de referencia en la guía del desarrollador de IoT Hub son los sigui
 * En el artículo [Referencia: Lenguaje de consulta de IoT Hub para dispositivos gemelos, trabajos y enrutamiento de mensajes][lnk-query], se describe el lenguaje de consulta de IoT Hub que se puede usar para recuperar información de IoT Hub sobre los dispositivos gemelos y trabajos.
 * En el artículo sobre la [compatibilidad con MQTT de IoT Hub][lnk-devguide-mqtt], se proporciona más información sobre la compatibilidad de IoT Hub con el protocolo MQTT.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Ahora que ya conoce algo más sobre los dispositivos gemelos, quizás le interesen los siguientes temas de la guía para desarrolladores de IoT Hub:
 
 * [Invocación de un método directo en un dispositivo][lnk-methods]

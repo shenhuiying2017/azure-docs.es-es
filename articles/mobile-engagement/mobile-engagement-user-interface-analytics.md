@@ -1,11 +1,11 @@
 ---
-title: "Interfaz de usuario de Azure Mobile Engagement: análisis"
-description: "Obtenga información acerca de cómo analizar datos históricos acerca de la aplicación mediante Azure Mobile Engagement"
+title: 'Interfaz de usuario de Azure Mobile Engagement: análisis'
+description: Obtenga información acerca de cómo analizar datos históricos acerca de la aplicación mediante Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 6b2533ac-b8ec-4e35-872c-d563895bdc0c
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,19 +14,23 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: ad05676919d6c254d60fd010c3f589f663c4745d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fceae1ffff40fc525170121181e21726fe2bd3f7
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-analyze-historical-data-about-your-application"></a>Cómo analizar datos históricos acerca de la aplicación
+> [!IMPORTANT]
+> Azure Mobile Engagement se retira el 31 de marzo de 2018. Esta página se eliminará poco después.
+> 
+
 Este artículo describe la pestaña **ANÁLISIS** del portal **Mobile Engagement**. Utilice el portal **Mobile Engagement** para supervisar y administrar sus aplicaciones móviles. Tenga en cuenta que, para comenzar a usar el portal, debe crear en primer lugar una cuenta de **Azure Mobile Engagement** .
 
 La sección de análisis de la interfaz de usuario proporciona información total sobre la aplicación basada en datos históricos que se actualizan cada 24 horas. La información se muestra en diferentes paneles compuestos por gráficos de líneas/barras/circulares, cuadrículas y mapas. También se pueden descargar los datos como archivos .csv. La mayor parte de esta misma información está disponible en tiempo real en la sección de Supervisión de la interfaz de usuario, y también puede obtenerse a través de la API de análisis.
 
 > [!NOTE]
-> Muchas de las secciones de la interfaz de usuario del portal de **Mobile Engagement** contienen el botón **MOSTRAR AYUDA**. Pulse este botón para obtener más información contextual sobre una sección.
+> Muchas de las secciones de la interfaz de usuario del portal **Mobile Engagement** contienen el botón **MOSTRAR AYUDA**. Pulse este botón para obtener más información contextual sobre una sección.
 
 ## <a name="standard-and-custom-analytics"></a>Análisis estándar y personalizado
 Azure Mobile Engagement proporciona un conjunto de información analítica básico y estándar acerca de las aplicaciones que se puede representar gráficamente al integrar su aplicación con el SDK. Azure Mobile Engagement también proporciona la capacidad de recopilar la información de análisis personalizada adicional que desea acerca del comportamiento de sus usuarios finales. Puede hacerlo creando un plan de "etiquetas de información de aplicación" personalizado, creado desde **Configuración** , para que Azure Mobile Engagement pueda recopilar estos datos adicionales por usted.
@@ -70,7 +74,7 @@ La información general de retención se desglosa a la mitad en varias tarjetas,
 4. Esto indica los valores utilizados para el cálculo.
 5. Se trata de un minigráfico del historial de los valores de retención. Permite ver los valores del pasado para tener una visión amplia de cómo ha evolucionado.
 
-## <a name="see-also"></a>Consulte también
+## <a name="see-also"></a>Otras referencias
 * [Conceptos][Link 6]
 * [Guía de solución de problemas de servicios][Link 24]
 

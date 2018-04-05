@@ -1,11 +1,11 @@
 ---
-title: "Introducción al almacenamiento de blobs y servicios conectados de Visual Studio (proyectos de WebJobs) | Microsoft Docs"
-description: "Cómo empezar a usar el almacenamiento de blobs en un proyecto de WebJob después de conectarse a un almacenamiento de Azure con los servicios conectados de Visual Studio."
+title: Introducción al almacenamiento de blobs y servicios conectados de Visual Studio (proyectos de WebJobs) | Microsoft Docs
+description: Cómo empezar a usar el almacenamiento de blobs en un proyecto de WebJob después de conectarse a un almacenamiento de Azure con los servicios conectados de Visual Studio.
 services: storage
-documentationcenter: 
-author: kraigb
-manager: ghogen
-editor: 
+documentationcenter: ''
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: 324c9376-0225-4092-9825-5d1bd5550058
 ms.service: storage
 ms.workload: web
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
-ms.author: kraigb
-ms.openlocfilehash: 7d683f950e8847a18f38158a8f8727b1274fc711
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: ghogen
+ms.openlocfilehash: 60b25dd987e1b959a850614bf375ae434f2c0815
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-webjob-projects"></a>Introducción al almacenamiento de blobs de Azure y servicios conectados de Visual Studio (proyectos de WebJobs)
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## <a name="overview"></a>Información general
-En esta guía se proporcionan muestras de código C# que muestran cómo desencadenar un proceso cuando se crea o actualiza un blob de Azure. Los ejemplos de código usan el [SDK de WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki) versión 1.x. Al agregar una cuenta de almacenamiento a un proyecto de WebJobs con el cuadro de diálogo **Agregar servicios conectados** de Visual Studio, se instala el paquete de NuGet de Almacenamiento de Azure adecuado, se agregan las referencias de .NET adecuadas al proyecto y se actualizan las cadenas de conexión para la cuenta de almacenamiento en el archivo App.config.
+En esta guía se proporcionan muestras de código C# que muestran cómo desencadenar un proceso cuando se crea o actualiza un blob de Azure. Los ejemplos de código usan el [SDK de WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki) versión 1.x. Al agregar una cuenta de almacenamiento a un proyecto de WebJobs con el cuadro de diálogo **Agregar servicios conectados** de Visual Studio, se instala el paquete de NuGet de Azure Storage adecuado, se agregan las referencias de .NET adecuadas al proyecto y se actualizan las cadenas de conexión para la cuenta de almacenamiento en el archivo App.config.
 
 ## <a name="how-to-trigger-a-function-when-a-blob-is-created-or-updated"></a>Cómo desencadenar una función cuando se crea o actualiza un blob
 En esta sección se muestra cómo usar el atributo **BlobTrigger** .
@@ -218,5 +218,5 @@ Los temas relacionados tratados en ese artículo incluyen:
 * Escribir registros
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este artículo se ofrecen ejemplos de código que muestran cómo tratar escenarios comunes para trabajar con blobs de Azure. Para más información acerca de cómo usar el SDK de WebJobs y WebJobs de Azure, consulte [Recursos de documentación de WebJobs de Azure](http://go.microsoft.com/fwlink/?linkid=390226).
+En este artículo se ofrecen ejemplos de código que muestran cómo tratar escenarios comunes para trabajar con blobs de Azure. Para más información acerca de cómo usar el SDK de WebJobs y Azure WebJobs, consulte [Recursos de documentación de Azure WebJobs](http://go.microsoft.com/fwlink/?linkid=390226).
 

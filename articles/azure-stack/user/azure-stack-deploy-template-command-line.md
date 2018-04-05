@@ -1,25 +1,25 @@
 ---
-title: "Implementación de plantillas con la línea de comandos en Azure Stack | Microsoft Docs"
-description: "Obtenga información acerca de cómo usar la interfaz de la línea de comandos (CLI) multiplataforma para implementar plantillas en Azure Stack."
+title: Implementación de plantillas con la línea de comandos en Azure Stack | Microsoft Docs
+description: Obtenga información acerca de cómo usar la interfaz de la línea de comandos (CLI) multiplataforma para implementar plantillas en Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 9584177f-4af3-4834-864d-930b09ae0995
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 03/30/2018
 ms.author: brenduns
-ms.reviewer: 
-ms.openlocfilehash: 88e10d98a709ff967e19bfe5bfb35bbce9d2df9f
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.reviewer: ''
+ms.openlocfilehash: 761e09889a230642c42697b6bc4f96dc32fe03a0
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="deploy-templates-in-azure-stack-using-the-command-line"></a>Implementación de plantillas en Azure Stack mediante la línea de comandos
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 02/22/2018
 Use la línea de comandos para implementar plantillas de Azure Resource Manager en el Kit de desarrollo de Azure Stack. Las plantillas de Azure Resource Manager implementan y aprovisionan todos los recursos para su aplicación en una única operación coordinada.
 
 ## <a name="before-you-begin"></a>Antes de empezar
- - [Instale Azure Stack y conéctese](azure-stack-connect-cli.md) a esta infraestructura con la Interfaz de la línea de comandos de Azure.
+ - [Instale Azure Stack y conéctese](azure-stack-version-profiles-azurecli2.md) a esta infraestructura con la Interfaz de la línea de comandos de Azure.
  - Descargue los archivos *azuredeploy.json* y *azuredeploy.parameters.json* desde la [plantilla de ejemplo para crear una cuenta de almacenamiento](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-create-storage-account).
  
 ## <a name="deploy-template"></a>Implementar plantilla

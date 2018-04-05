@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 03/09/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 46fec48720c817072ce838dd2e4c07725be5a7fe
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: d07f06a1a70c859544c3b1ceb6146dc11e4d10aa
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-a-virtual-network-using-the-azure-cli"></a>Creación de una red virtual mediante la CLI de Azure
 
@@ -129,4 +129,4 @@ En este artículo, ha creado una red virtual predeterminada y dos máquinas virt
 De forma predeterminada, Azure permite la comunicación privada sin restricciones entre máquinas virtuales, pero solo permite sesiones SSH entrantes a las máquinas virtuales Linux desde Internet. Para más información sobre cómo permitir o restringir diferentes tipo de comunicaciones de red entre máquinas virtuales, avance al siguiente tutorial.
 
 > [!div class="nextstepaction"]
-> [Filtrado del tráfico de red](virtual-networks-create-nsg-arm-cli.md)
+> [Filtrado del tráfico de red](tutorial-filter-network-traffic-cli.md)

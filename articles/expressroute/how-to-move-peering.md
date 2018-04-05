@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: 02d7c3f587a4cbfb11fc3b6863f75ca30b4d6c51
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f34fabc95d5b56edc6e37c323bebf60bd98c8b90
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="move-a-public-peering-to-microsoft-peering"></a>Cambiar un emparejamiento público a emparejamiento de Microsoft
 
@@ -27,8 +27,6 @@ ExpressRoute admite el uso del emparejamiento de Microsoft con filtros de ruta p
 
 Este artículo le servirá para cambiar una configuración de emparejamiento público a emparejamiento de Microsoft sin sufrir ningún tiempo de inactividad. Para más información sobre cómo enrutar emparejamientos y dominios de enrutamiento, vea [Circuitos ExpressRoute y dominios de enrutamiento](expressroute-circuit-peerings.md).
 
-> [!IMPORTANT]
-> Debe tener el complemento premium de ExpressRoute para poder usar el emparejamiento de Microsoft. Para más información sobre el complemento premium, vea las [P+F de ExpressRoute](expressroute-faqs.md#expressroute-premium).
 
 ## <a name="before"></a>Antes de empezar
 

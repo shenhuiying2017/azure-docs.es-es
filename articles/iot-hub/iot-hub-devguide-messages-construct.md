@@ -14,15 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/20/2018
 ms.author: dobett
-ms.openlocfilehash: 832010181059e2ec42834e54622f374c367c8d4f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5979c0d79a0abd9897fd3970ccea1d9ba07f9dfd
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Creación y lectura de mensajes de IoT Hub
 
-Para admitir la interoperabilidad sin problemas entre protocolos, IoT Hub define un formato de mensaje común para todos los protocolos accesibles desde el dispositivo. Este formato de mensaje se usa tanto para mensajes [dispositivo a nube][lnk-d2c] como para [nube a dispositivo][lnk-c2d]. Un [mensaje IoT Hub][lnk-messaging] consta de:
+Para admitir la interoperabilidad sin problemas entre protocolos, IoT Hub define un formato de mensaje común para todos los protocolos accesibles desde el dispositivo. Este formato de mensaje se usa tanto para mensajes [dispositivo a nube][lnk-d2c] como para [nube a dispositivo][lnk-c2d]. 
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
+
+Un [mensaje IoT Hub][lnk-messaging] consta de:
 
 * Un conjunto de *propiedades del sistema*. Propiedades que IoT Hub interpreta o establece. Este conjunto es el predeterminado.
 * Un conjunto de *propiedades de la aplicación*. Diccionario de propiedades de cadena que la aplicación puede definir y a las que puede acceder sin necesidad de deserializar el cuerpo del mensaje. IoT Hub nunca modifica estas propiedades.

@@ -1,8 +1,8 @@
 ---
-title: "Supervisión de una cuenta de Azure Storage | Microsoft Docs"
+title: Supervisión de una cuenta de Azure Storage | Microsoft Docs
 description: Aprenda a supervisar una cuenta de almacenamiento en Azure usando el Portal de Azure.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: tamram
 manager: timlt
 editor: tysonn
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: tamram
-ms.openlocfilehash: 20cb425b64bfba06d64b3c6c41f9ef496395ad8e
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: ffc7d46bbfa4db47a47e416c395efdfc451cadc1
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Supervisión de una cuenta de almacenamiento en el Portal de Azure
 
@@ -28,8 +28,6 @@ ms.lasthandoff: 01/24/2018
 > Existen costos asociados con el análisis de los datos de supervisión en Azure Portal. Para obtener más información, consulte [Facturación y Storage Analytics](/rest/api/storageservices/Storage-Analytics-and-Billing).
 >
 > Azure Files admite actualmente las métricas de Storage Analytics, pero aún no admite el registro.
->
-> Las cuentas de almacenamiento que tienen una replicación de tipo "Almacenamiento con redundancia de zona" (ZRS) son compatibles con las métricas y el registro. Las cuentas anteriores de ZRS cuyo nombre haya cambiado a ZRS Classic no admiten las métricas o el registro. Para obtener más información acerca de ZRS, consulte [Almacenamiento con redundancia de zona](storage-redundancy.md#zone-redundant-storage). 
 > 
 > Para obtener orientación exhaustiva sobre el uso de análisis de almacenamiento y otras herramientas para identificar, diagnosticar y solucionar problemas relacionados con Azure Storage, consulte [Supervisión, diagnóstico y solución de problemas de Microsoft Azure Storage](../storage-monitoring-diagnosing-troubleshooting.md).
 >
@@ -154,7 +152,7 @@ Los registros de diagnóstico se guardan en un contenedor de blobs denominado $l
 
 Para más información acerca del acceso al contenedor $logs, consulte [Habilitar el registro de almacenamiento y acceso a los datos del registro](/rest/api/storageservices/enabling-storage-logging-and-accessing-log-data).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * Consiga más información acerca de [métricas, registro y facturación](../storage-analytics.md) para Storage Analytics.
 * [Habilitar métricas de Azure Storage y visualizar datos de métricas](../storage-enable-and-view-metrics.md) mediante PowerShell y mediante programación con C#.

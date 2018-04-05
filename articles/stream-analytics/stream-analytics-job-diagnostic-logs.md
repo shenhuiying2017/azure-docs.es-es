@@ -1,25 +1,24 @@
 ---
-title: "Solución de problemas de Azure Stream Analytics con registros de diagnóstico |Microsoft Docs"
-description: "Aprenda a analizar registros de diagnóstico de trabajos de Stream Analytics en Microsoft Azure."
-keywords: 
-documentationcenter: 
+title: Solución de problemas de Azure Stream Analytics con registros de diagnóstico |Microsoft Docs
+description: Aprenda a analizar registros de diagnóstico de trabajos de Stream Analytics en Microsoft Azure.
+keywords: ''
+documentationcenter: ''
 services: stream-analytics
-author: samacha
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 
+author: jseb225
+manager: ryanw
+ms.assetid: ''
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
-ms.author: samacha
-ms.openlocfilehash: c9772df2c216d465ca6e90e69bce011969dd4f02
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: 164d522d7beaea222dbc408765877fa67a34c203
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>Solución de problemas de Azure Stream Analytics mediante registros de diagnóstico
 
@@ -77,10 +76,10 @@ Actualmente, se capturan dos categorías de registros de diagnóstico:
 
 Todos los registros se almacenan en formato JSON. Cada entrada tiene los siguientes campos de cadena comunes:
 
-Nombre | Descripción
+NOMBRE | DESCRIPCIÓN
 ------- | -------
 Twitter en tiempo | Marca de tiempo (en UTC) del registro.
-resourceId | Identificador del recurso en el que tuvo lugar la operación, en mayúsculas. Incluye el identificador de suscripción, el grupo de recursos y el nombre del trabajo. Por ejemplo, **/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**.
+ResourceId | Identificador del recurso en el que tuvo lugar la operación, en mayúsculas. Incluye el identificador de suscripción, el grupo de recursos y el nombre del trabajo. Por ejemplo, **/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**.
 categoría | La categoría del registro: **Ejecución** o **Creación**.
 operationName | Nombre de la operación que se registra. Por ejemplo, **Eventos de envío: error de escritura de salida de SQL en mysqloutput**.
 status | Estado de la operación. Por ejemplo, **Erróneo** o **Correcto**.
@@ -95,11 +94,11 @@ Los registros de ejecución contienen información sobre eventos que se produjer
 
 Cualquier error que se produce mientras el trabajo está procesando datos se puede incluir en esta categoría de registros. Estos registros se crean habitualmente durante las operaciones de lectura, serialización y escritura de datos. No incluyen errores de conectividad. Los errores de conectividad se tratan como eventos genéricos.
 
-Nombre | Descripción
+NOMBRE | DESCRIPCIÓN
 ------- | -------
 Origen | Nombre de la entrada o salida del trabajo donde se produjo el error.
 Message | Mensaje asociado al error.
-Tipo | Tipo de error. Por ejemplo, **DataConversionError**, **CsvParserError** o **ServiceBusPropertyColumnMissingError**.
+type | Tipo de error. Por ejemplo, **DataConversionError**, **CsvParserError** o **ServiceBusPropertyColumnMissingError**.
 Datos | Contiene datos útiles para localizar con exactitud el origen del error. Sujeto a truncamiento dependiendo del tamaño.
 
 En función del valor de **operationName**, los errores de datos tendrán el siguiente esquema:
@@ -112,11 +111,11 @@ En función del valor de **operationName**, los errores de datos tendrán el sig
 
 Los eventos genéricos incluyen todos los demás.
 
-Nombre | Descripción
+NOMBRE | DESCRIPCIÓN
 -------- | --------
 Error | (opcional) Información de error. Normalmente, es información de excepciones, si está disponible.
 Message| Mensaje de registro.
-Tipo | Tipo de mensaje. Se asigna a la categorización interna de errores. Por ejemplo, **JobValidationError** o **BlobOutputAdapterInitializationFailure**.
+type | Tipo de mensaje. Se asigna a la categorización interna de errores. Por ejemplo, **JobValidationError** o **BlobOutputAdapterInitializationFailure**.
 Id. de correlación | [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) que identifica de manera única la ejecución del trabajo. Todas las entradas de registros de ejecución desde el momento en que se inicia el trabajo hasta que se detiene tienen el mismo valor de **Id. de correlación**.
 
 ## <a name="next-steps"></a>Pasos siguientes

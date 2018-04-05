@@ -1,11 +1,11 @@
 ---
-title: "Notas de la versión del SDK de Windows Universal para Azure Mobile Engagement | Microsoft Docs"
-description: "Azure Mobile Engagement - Notas de la versión del SDK de Windows Universal Apps"
+title: Notas de la versión del SDK de Windows Universal para Azure Mobile Engagement | Microsoft Docs
+description: Azure Mobile Engagement - Notas de la versión del SDK de Windows Universal Apps
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: de938ce5-93d5-4218-9e33-10eef102bd61
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/03/2016
 ms.author: piyushjo
-ms.openlocfilehash: dc5529a9e8f4eba867732f719ca8fff718c00d5a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 42306cb25ef61d6ce48303453b49ab6edee80040
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="windows-universal-apps-sdk-release-notes"></a>Notas de la versión del SDK de Windows Universal Apps
+> [!IMPORTANT]
+> Azure Mobile Engagement se retira el 31 de marzo de 2018. Esta página se eliminará poco después.
+> 
+
 ## <a name="341-11032016"></a>3.4.1 (11/03/2016)
 
 * Mejoras de estabilidad.
@@ -42,7 +46,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="320-11202015"></a>3.2.0 (20/11/2015)
 * Se ha agregado compatibilidad para aplicaciones de la Plataforma universal de Windows de Windows 10.
-* Se ha agregado una función de uso compartido de canales de inserción para solucionar los conflictos de canales (ahora es compatible con los Centros de notificaciones de Azure).
+* Se ha agregado una función de uso compartido de canales de inserción para solucionar los conflictos de canales (ahora es compatible con Azure Notification Hubs).
 * Bloqueo fijo al solicitar el identificador del dispositivo justo después de la inicialización.
 * Mejoras de los registros de consola.
 * Bloqueo solucionado durante el análisis de algunas excepciones no controladas.

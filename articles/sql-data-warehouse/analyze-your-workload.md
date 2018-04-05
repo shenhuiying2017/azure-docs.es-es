@@ -1,31 +1,25 @@
 ---
 title: 'Analizar la carga de trabajo: Azure SQL Data Warehouse | Microsoft Docs'
-description: "Técnicas para analizar la priorización de consultas para la carga de trabajo en Azure SQL Data Warehouse."
+description: Técnicas para analizar la priorización de consultas para la carga de trabajo en Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
 author: sqlmojo
 manager: jhubbard
-editor: 
-ms.assetid: ef170f39-ae24-4b04-af76-53bb4c4d16d3
-ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: performance
-ms.date: 10/23/2017
-ms.author: joeyong;barbkess;kavithaj
-ms.openlocfilehash: 98617f6b8366662e52d00420adc4c81abffc598d
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.topic: conceptual
+ms.component: manage
+ms.date: 03/28/2018
+ms.author: joeyong
+ms.reviewer: jrj
+ms.openlocfilehash: 7fa5bbd8d9a50bb1dcd1ab5be73f4e248cbbf8fc
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="analyze-your-workload"></a>Análisis de la carga de trabajo
 Técnicas para analizar la priorización de consultas para la carga de trabajo en Azure SQL Data Warehouse.
 
 ## <a name="workload-groups"></a>Grupos de carga de trabajo 
-Almacenamiento de datos SQL implementa las clases de recursos mediante el uso de grupos de cargas de trabajo. Hay un total de ocho grupos de cargas de trabajo que controlan el comportamiento de las clases de recursos en los distintos tamaños de DWU. Para cualquier DWU, Almacenamiento de datos SQL solo usa cuatro de los ocho grupos de cargas de trabajo. Esto tiene sentido porque cada grupo de cargas de trabajo está asignado a una de las cuatro clases de recursos: smallrc, mediumrc, largerc o xlargerc. La importancia de comprender los grupos de cargas de trabajo es que algunos de estos grupos se establecen con un nivel de *importancia*más alto. El nivel de importancia se usa para la programación de la CPU. Las consultas que se ejecutan con importancia alta obtendrán tres veces más ciclos de CPU que aquellas con importancia media. Por lo tanto, las asignaciones de espacio de simultaneidad también determinan la prioridad en la CPU. Si una consulta utiliza 16 o más espacios, se ejecuta con importancia alta.
+SQL Data Warehouse implementa las clases de recursos mediante el uso de grupos de cargas de trabajo. Hay un total de ocho grupos de cargas de trabajo que controlan el comportamiento de las clases de recursos en los distintos tamaños de DWU. Para cualquier DWU, SQL Data Warehouse solo usa cuatro de los ocho grupos de cargas de trabajo. Esto tiene sentido porque cada grupo de cargas de trabajo está asignado a una de las cuatro clases de recursos: smallrc, mediumrc, largerc o xlargerc. La importancia de comprender los grupos de cargas de trabajo es que algunos de estos grupos se establecen con un nivel de *importancia*más alto. El nivel de importancia se usa para la programación de la CPU. Las consultas que se ejecutan con importancia alta obtendrán tres veces más ciclos de CPU que aquellas con importancia media. Por lo tanto, las asignaciones de espacio de simultaneidad también determinan la prioridad en la CPU. Si una consulta utiliza 16 o más espacios, se ejecuta con importancia alta.
 
 La tabla siguiente muestra las asignaciones de importancia para cada grupo de cargas de trabajo.
 
@@ -147,7 +141,7 @@ WHERE   r.name IN ('mediumrc','largerc','xlargerc')
 ;
 ```
 
-Almacenamiento de datos SQL tiene los siguientes tipos de espera:
+SQL Data Warehouse tiene los siguientes tipos de espera:
 
 * **LocalQueriesConcurrencyResourceType**: se refiere a las consultas que residen fuera del marco del espacio de simultaneidad. Las funciones del sistema y las consultas DMV como `SELECT @@VERSION` son ejemplos de consultas locales.
 * **UserConcurrencyResourceType**: se refiere a las consultas que residen dentro del marco del espacio de simultaneidad. Las consultas en tablas de usuario final representan ejemplos que usarían este tipo de recurso.
