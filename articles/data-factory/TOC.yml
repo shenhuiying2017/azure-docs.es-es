@@ -116,10 +116,12 @@
       href: concepts-integration-runtime.md
 - name: Guías de procedimientos
   items:
-    - name: Creación visual de factorías de datos
-      href: author-visually.md
-    - name: Integración e implementación continuas
-      href: continuous-integration-deployment.md
+    - name: Autor
+      items:
+        - name: Creación visual de factorías de datos
+          href: author-visually.md
+        - name: Integración e implementación continuas
+          href: continuous-integration-deployment.md
     - name: Copia de datos
       items:
         - name: Copia de datos con la actividad de copia
