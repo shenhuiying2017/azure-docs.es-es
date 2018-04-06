@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2017
 ms.author: gokuma
-ms.openlocfilehash: f62f6c4b2679457e8aaddb81e8a37622ca878ffc
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 8ee4af162ddaa64d4dbe83bebbb93e22409f041d
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Introducción a Data Science Virtual Machine de Azure para Linux y Windows
 
@@ -29,7 +29,7 @@ Este tema describe qué puede hacer con la VM de ciencia de datos, describe algu
 
 
 ## <a name="what-can-i-do-with-the-data-science-virtual-machine"></a>¿Qué puedo hacer con la máquina virtual de ciencia de datos?
-El objetivo de la máquina virtual de ciencia de datos es proporcionar a los profesionales de datos de todos los roles y los niveles de conocimiento un entorno de ciencia de datos sin dificultades. Esta VM le ahorra el tiempo que pasaría si implantara un entorno comparable usted mismo. En su lugar, inicie el proyecto de ciencia de datos inmediatamente en una instancia de VM recién creada. 
+El objetivo de Data Science Virtual Machine (DSVM) es proporcionar a los profesionales de datos de todos los roles y niveles de conocimiento un entorno de ciencia de datos preconfigurado, totalmente integrado y libre de problemas. En lugar de implementar un área de trabajo comparable por su cuenta, puede aprovisionar una DSVM y ahorrarse días o incluso _semanas_ en los procesos de instalación, configuración y administración del paquetes. Después de que se ha asignado la DSVM, puede comenzar a trabajar inmediatamente en su proyecto de ciencia de datos.
 
 La máquina virtual de ciencia de datos está diseñada y configurada para trabajar con una amplia variedad de escenarios de uso. Puede escalar verticalmente o reducir verticalmente el entorno a medida que cambian las necesidades del proyecto. Puede usar el idioma que prefiera para programar tareas de ciencia de datos. Puede instalar otras herramientas y personalizar el sistema para sus necesidades exactas.
 
