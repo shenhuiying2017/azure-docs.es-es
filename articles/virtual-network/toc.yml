@@ -1,0 +1,358 @@
+- name: Documentación de Virtual Network
+  href: index.yml
+- name: Información general
+  items:
+    - name: Acerca de Virtual Network
+      href: virtual-networks-overview.md
+- name: Guías de inicio rápido
+  items:
+    - name: 'Creación de red virtual: Portal'
+      href: quick-create-portal.md
+    - name: 'Creación de red virtual: PowerShell'
+      href: quick-create-powershell.md
+    - name: 'Creación de red virtual: CLI de Azure'
+      href: quick-create-cli.md
+- name: Tutoriales
+  items:
+    - name: Filtrado del tráfico de red
+      href: tutorial-filter-network-traffic.md
+    - name: Enrutado del tráfico de red
+      href: tutorial-create-route-table-portal.md
+    - name: Restricción del acceso de la red a recursos
+      href: tutorial-restrict-network-access-to-resources.md
+    - name: Conexión de redes virtuales
+      href: tutorial-connect-virtual-networks-portal.md
+- name: Ejemplos
+  items:
+    - name: CLI de Azure
+      href: cli-samples.md
+    - name: Azure PowerShell
+      href: powershell-samples.md
+- name: Conceptos
+  items:
+    - name: Filtrado de tráfico
+      href: security-overview.md
+    - name: Puntos de conexión de servicio
+      href: virtual-network-service-endpoints-overview.md
+    - name: Enrutamiento
+      href: virtual-networks-udr-overview.md
+    - name: Emparejamiento
+      href: virtual-network-peering-overview.md
+    - name: Red virtual para servicios de Azure
+      href: virtual-network-for-azure-services.md
+    - name: Redes de contenedores
+      href: container-networking.md
+    - name: Continuidad del negocio
+      href: virtual-network-disaster-recovery-guidance.md
+    - name: Direcciones IP
+      href: virtual-network-ip-addresses-overview-arm.md
+    - name: Protección contra DDOS
+      href: ddos-protection-overview.md
+    - name: Clásico
+      items:
+        - name: Direcciones IP
+          href: virtual-network-ip-addresses-overview-classic.md
+        - name: Listas de control de acceso
+          href: virtual-networks-acl.md
+- name: Guías de procedimientos
+  items:
+    - name: Planeamiento y diseño
+      items:
+        - name: Redes virtuales
+          href: virtual-network-vnet-plan-design-arm.md
+        - name: Grupos de seguridad de red
+          href: virtual-networks-nsg.md
+    - name: Implementación
+      items:
+        - name: Grupos de seguridad de red
+          items:
+            - name: Azure CLI
+              href: tutorial-filter-network-traffic-cli.md
+            - name: Azure Portal
+              href: virtual-networks-create-nsg-arm-pportal.md
+            - name: Plantilla
+              href: virtual-networks-create-nsg-arm-template.md
+            - name: Clásico
+              items:
+                - name: Azure PowerShell
+                  href: virtual-networks-create-nsg-classic-ps.md
+                - name: CLI de Azure 1.0
+                  href: virtual-networks-create-nsg-classic-cli.md
+        - name: Tablas de ruta
+          items:
+            - name: Azure PowerShell
+              href: tutorial-create-route-table-powershell.md
+            - name: Azure CLI
+              href: tutorial-create-route-table-cli.md
+            - name: Plantilla
+              href: virtual-network-create-udr-arm-template.md
+            - name: Clásico
+              items:
+                - name: Azure PowerShell
+                  href: virtual-network-create-udr-classic-ps.md
+                - name: Azure CLI
+                  href: virtual-network-create-udr-classic-cli.md
+        - name: Puntos de conexión de servicio
+          items:
+            - name: Azure PowerShell
+              href: tutorial-restrict-network-access-to-resources-powershell.md
+            - name: Azure CLI
+              href: tutorial-restrict-network-access-to-resources-cli.md
+        - name: Emparejamiento de redes virtuales de Azure
+          items:
+            - name: 'Mismo modelo de implementación, misma suscripción'
+              items:
+                - name: Azure PowerShell
+                  href: tutorial-connect-virtual-networks-powershell.md
+                - name: Azure CLI
+                  href: tutorial-connect-virtual-networks-cli.md
+            - name: 'Mismo modelo de implementación, diferentes suscripciones'
+              href: create-peering-different-subscriptions.md
+            - name: 'Diferentes modelos de implementación, misma suscripción'
+              href: create-peering-different-deployment-models.md
+            - name: 'Diferentes modelos de implementación, diferentes suscripciones'
+              href: create-peering-different-deployment-models-subscriptions.md
+        - name: Máquinas virtuales
+          items:
+            - name: Creación de una máquina virtual con una dirección IP pública estática
+              items:
+                - name: Azure Portal
+                  href: virtual-network-deploy-static-pip-arm-portal.md
+                - name: Azure PowerShell
+                  href: virtual-network-deploy-static-pip-arm-ps.md
+                - name: Azure CLI
+                  href: virtual-network-deploy-static-pip-arm-cli.md
+                - name: Plantilla
+                  href: virtual-network-deploy-static-pip-arm-template.md
+                - name: Clásico
+                  items:
+                    - name: Azure PowerShell
+                      href: virtual-networks-reserved-public-ip.md
+            - name: 'Creación de máquina virtual: Dirección IP privada estática'
+              items:
+                - name: Azure Portal
+                  href: virtual-networks-static-private-ip-arm-pportal.md
+                - name: Azure PowerShell
+                  href: virtual-networks-static-private-ip-arm-ps.md
+                - name: Azure CLI
+                  href: virtual-networks-static-private-ip-arm-cli.md
+                - name: Clásico
+                  items:
+                    - name: Azure Portal
+                      href: virtual-networks-static-private-ip-classic-pportal.md
+                    - name: Azure PowerShell
+                      href: virtual-networks-static-private-ip-classic-ps.md
+                    - name: Azure CLI
+                      href: virtual-networks-static-private-ip-classic-cli.md
+            - name: 'Creación de máquina virtual: Varias interfaces de red'
+              items:
+                - name: Azure PowerShell
+                  href: ../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+                - name: Azure CLI
+                  href: ../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+                - name: Plantilla
+                  href: virtual-network-deploy-multinic-arm-template.md
+                - name: Clásico
+                  items:
+                    - name: Azure PowerShell
+                      href: virtual-network-deploy-multinic-classic-ps.md
+                    - name: Azure CLI
+                      href: virtual-network-deploy-multinic-classic-cli.md
+            - name: 'Creación de máquina virtual: Varias direcciones IP'
+              items:
+                - name: Azure Portal
+                  href: virtual-network-multiple-ip-addresses-portal.md
+                - name: Azure PowerShell
+                  href: virtual-network-multiple-ip-addresses-powershell.md
+                - name: Azure CLI
+                  href: virtual-network-multiple-ip-addresses-cli.md
+                - name: Plantilla
+                  href: virtual-network-multiple-ip-addresses-template.md
+            - name: 'Creación de máquina virtual: Redes aceleradas'
+              items:
+                - name: Azure PowerShell
+                  href: create-vm-accelerated-networking-powershell.md
+                - name: Azure CLI
+                  href: create-vm-accelerated-networking-cli.md
+            - name: Rendimiento de red de máquinas virtuales
+              href: virtual-machine-network-throughput.md
+        - name: Escenarios de conectividad
+          items:
+            - name: De red virtual (VNet) a red virtual
+              href: ../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+            - name: De red virtual (Resource Manager) a red virtual (clásica)
+              href: ../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+            - name: De red virtual a red local (VPN)
+              href: ../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+            - name: De red virtual a red local (ExpressRoute)
+              href: ../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+            - name: Arquitectura de red híbrida de alta disponibilidad
+              href: ../guidance/guidance-hybrid-network-expressroute-vpn-failover.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+        - name: Escenarios de seguridad
+          items:
+            - name: Protección de redes con aplicaciones virtuales
+              href: virtual-network-scenario-udr-gw-nva.md
+            - name: Red perimetral entre Internet y Azure
+              href: ../guidance/guidance-iaas-ra-secure-vnet-dmz.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+            - name: Servicio en la nube y seguridad de red
+              href: ../best-practices-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+              items:
+                - name: Creación de una red perimetral con grupos de seguridad de red
+                  href: virtual-networks-dmz-nsg.md
+                - name: Creación de una red perimetral con grupos de seguridad de red (modelo clásico)
+                  href: virtual-networks-dmz-nsg-asm.md
+                - name: Creación de una red perimetral con firewall y grupos de seguridad de red (modelo clásico)
+                  href: virtual-networks-dmz-nsg-fw-asm.md
+                - name: 'Red perimetral con firewall, enrutamiento definido por el usuario y grupos de seguridad de red (modelo clásico)'
+                  href: virtual-networks-dmz-nsg-fw-udr-asm.md
+                - name: Aplicación de ejemplo
+                  href: virtual-networks-sample-app.md
+        - name: Clásico
+          items:
+            - name: Red virtual
+              href: create-virtual-network-classic.md
+              items:
+                - name: Azure Portal
+                  href: virtual-networks-create-vnet-classic-pportal.md
+                - name: Azure PowerShell
+                  href: virtual-networks-create-vnet-classic-netcfg-ps.md
+                - name: Azure CLI
+                  href: virtual-networks-create-vnet-classic-cli.md
+            - name: Especificación de una configuración DNS en un archivo de configuración de red virtual
+              href: virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md
+            - name: Especificación de la configuración DNS en un archivo de configuración del servicio
+              href: virtual-networks-specifying-dns-settings-in-a-service-configuration-file.md
+    - name: Configuración
+      items:
+        - name: Máquinas virtuales
+          items:
+            - name: Adición o eliminación de interfaces de red
+              href: virtual-network-network-interface-vm.md
+            - name: Resolución de nombres para las máquinas virtuales y servicios en la nube
+              href: virtual-networks-name-resolution-for-vms-and-role-instances.md
+            - name: Uso de DNS dinámico con su propio servidor DNS
+              href: virtual-networks-name-resolution-ddns.md
+            - name: Optimización del rendimiento de la red
+              href: virtual-network-optimize-network-bandwidth.md
+            - name: Visión y modificación de nombres de host
+              href: virtual-networks-viewing-and-modifying-hostnames.md
+            - name: Clásico
+              items:
+                - name: Direcciones IP estáticas
+                  items:
+                    - name: Azure PowerShell
+                      href: virtual-networks-reserved-private-ip.md
+                    - name: Azure CLI
+                      href: virtual-networks-static-private-ip-classic-cli.md
+                - name: Dirección IP pública en el nivel de instancia
+                  href: virtual-networks-instance-level-public-ip.md
+        - name: Clásico
+          items:
+            - name: Listas de control de acceso
+              items:
+                - name: Azure Portal
+                  href: ../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+                - name: Azure PowerShell
+                  href: virtual-networks-acl-powershell.md
+    - name: administración
+      items:
+        - name: Redes virtuales
+          href: manage-virtual-network.md
+          items:
+            - name: Subredes
+              href: virtual-network-manage-subnet.md
+            - name: Emparejamientos
+              href: virtual-network-manage-peering.md
+            - name: Protección contra DDOS
+              items:
+                - name: Azure Portal
+                  href: ddos-protection-manage-portal.md
+                - name: Azure PowerShell
+                  href: ddos-protection-manage-ps.md
+            - name: Clásico
+              items:
+                - name: Archivo de configuración de red
+                  href: virtual-networks-using-network-configuration-file.md
+                - name: Migración de un grupo de afinidad a una región
+                  href: virtual-networks-migrate-to-regional-vnet.md
+        - name: Grupos de seguridad de red
+          items:
+            - name: Azure Portal
+              href: virtual-network-manage-nsg-arm-portal.md
+            - name: Azure PowerShell
+              href: virtual-network-manage-nsg-arm-ps.md
+            - name: Azure CLI
+              href: virtual-network-manage-nsg-arm-cli.md
+            - name: Registros
+              href: virtual-network-nsg-manage-log.md
+        - name: Tablas de ruta
+          href: manage-route-table.md
+        - name: Interfaces de red
+          href: virtual-network-network-interface.md
+          items:
+            - name: Direcciones IP
+              href: virtual-network-network-interface-addresses.md
+        - name: Direcciones IP públicas
+          href: virtual-network-public-ip-address.md
+        - name: Máquinas virtuales
+          items:
+            - name: Movimiento de máquinas virtuales a una subred diferente
+              href: virtual-networks-move-vm-role-to-subnet.md
+    - name: Solución de problemas
+      items:
+        - name: Grupos de seguridad de red
+          items:
+            - name: Azure Portal
+              href: virtual-network-nsg-troubleshoot-portal.md
+            - name: Azure PowerShell
+              href: virtual-network-nsg-troubleshoot-powershell.md
+        - name: Rutas
+          items:
+            - name: Azure Portal
+              href: virtual-network-routes-troubleshoot-portal.md
+            - name: Azure PowerShell
+              href: virtual-network-routes-troubleshoot-powershell.md
+        - name: Pruebas de rendimiento
+          href: virtual-network-bandwidth-testing.md
+        - name: No se pueden eliminar redes virtuales
+          href: virtual-network-troubleshoot-cannot-delete-vnet.md
+        - name: Problemas de conectividad entre máquinas virtuales
+          href: virtual-network-troubleshoot-connectivity-problem-between-vms.md
+        - name: Configuración de PTR para comprobación de banners de SMTP
+          href: create-ptr-for-smtp-service.md
+- name: Referencia
+  items:
+    - name: Azure CLI
+      href: /cli/azure/network
+    - name: Azure PowerShell
+      href: /powershell/module/azurerm.network
+    - name: .NET
+      href: /api/overview/azure/virtual-network
+    - name: Java
+      href: /java/api/
+    - name: Node.js
+      href: 'https://docs.microsoft.com/javascript/azure#azure-sdk'
+    - name: Python
+      href: 'https://azure.microsoft.com/develop/python/'
+    - name: REST
+      href: /rest/api/virtual-network
+    - name: Ejemplos de código
+      href: 'https://azure.microsoft.com/resources/samples/?service=virtual-network'
+- name: Recursos
+  items:
+    - name: Azure Roadmap
+      href: 'https://azure.microsoft.com/roadmap/?category=networking'
+    - name: Blog de redes
+      href: 'http://azure.microsoft.com/blog/topics/networking'
+    - name: Foro de redes
+      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork'
+    - name: Precios
+      href: 'https://azure.microsoft.com/pricing/details/virtual-network'
+    - name: Calculadora de precios
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-virtual-network'
+    - name: Proveedor de recursos de red
+      href: resource-groups-networking.md
+    - name: Preguntas más frecuentes
+      href: virtual-networks-faq.md

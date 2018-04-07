@@ -249,12 +249,12 @@
               href: service-fabric-reliable-services-diagnostics.md
             - name: Eventos de Reliable Actors
               href: service-fabric-reliable-actors-diagnostics.md
-            - name: Métricas de rendimiento
-              href: service-fabric-diagnostics-event-generation-perf.md
             - name: Supervisión de la comunicación remota de servicio
               href: service-fabric-reliable-serviceremoting-diagnostics.md
         - name: Registro de aplicaciones
           href: service-fabric-diagnostics-event-generation-app.md
+        - name: Métricas de rendimiento
+          href: service-fabric-diagnostics-event-generation-perf.md
         - name: Introducción al modelo de mantenimiento
           href: service-fabric-health-introduction.md
         - name: Informes de eventos de mantenimiento
@@ -395,7 +395,7 @@
               href: service-fabric-assign-policy-to-endpoint.md
             - name: Ejecución de un servicio como un usuario o grupo de AD
               href: service-fabric-run-service-as-ad-user-or-group.md
-            - name: Ejecución de un servicio como una cuenta de servicio administrada
+            - name: Ejecución de un servicio como una cuenta de servicio administrada de grupo
               href: service-fabric-run-service-as-gmsa.md
             - name: Uso de un certificado en un contenedor
               href: service-fabric-securing-containers.md
@@ -433,6 +433,8 @@
           href: service-fabric-cloud-services-migration-worker-role-stateless-service.md
         - name: Procedimientos recomendados
           href: /azure/architecture/service-fabric/migrate-from-cloud-services
+        - name: Refactorización de una aplicación migrada
+          href: /azure/architecture/service-fabric/refactor-migrated-app
     - name: Administración del ciclo de vida de las aplicaciones
       items:
         - name: Empaquetar una aplicación

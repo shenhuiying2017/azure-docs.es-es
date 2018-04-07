@@ -29,6 +29,8 @@
       href: render-coverage.md
     - name: Cobertura de enrutamiento
       href: routing-coverage.md
+    - name: Idiomas admitidos
+      href: supported-languages.md
 - name: Guías de procedimientos
   items:
     - name: Administración de cuentas y claves
