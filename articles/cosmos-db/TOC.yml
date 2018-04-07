@@ -6,8 +6,6 @@ items:
     items:
       - name: Información acerca de Azure Cosmos DB
         href: introduction.md
-      - name: Experimento de documentación
-        href: experiment.md
   - name: Guías de inicio rápido
     expanded: true
     items:
