@@ -51,6 +51,8 @@
       href: app-service-web-tutorial-custom-ssl.md
     - name: 4 - Incorporación de CDN
       href: app-service-web-tutorial-content-delivery-network.md
+    - name: 5 - Autenticación de usuarios
+      href: app-service-web-tutorial-auth-aad.md
 - name: Ejemplos
   items:
     - name: CLI de Azure
@@ -139,7 +141,7 @@
               href: app-service-mobile-how-to-configure-microsoft-authentication.md
             - name: Autenticación con Twitter
               href: app-service-mobile-how-to-configure-twitter-authentication.md
-        - name: Personalización de la autenticación y la autorización
+        - name: Personalización de la autenticación
           href: app-service-authentication-how-to.md
         - name: Uso de la identidad de servicio administrada
           href: app-service-managed-service-identity.md
