@@ -1,13 +1,13 @@
 ---
-title: "Importación de un archivo de Power BI Desktop en Azure Analysis Services | Microsoft Docs"
-description: "Describe cómo importar un archivo de Power BI Desktop (pbix) mediante Azure Portal."
+title: Importación de un archivo de Power BI Desktop en Azure Analysis Services | Microsoft Docs
+description: Describe cómo importar un archivo de Power BI Desktop (pbix) mediante Azure Portal.
 services: analysis-services
-documentationcenter: 
+documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: analysis-services
 ms.devlang: NA
 ms.topic: article
@@ -23,7 +23,7 @@ ms.lasthandoff: 03/02/2018
 ---
 # <a name="import-a-power-bi-desktop-file"></a>Importación de un archivo de Power BI Desktop
 
-Puede crear un nuevo modelo en el sistema autónomo (AS)* de Azure importando un archivo de Power BI Desktop (pbix). Se importan metadatos del modelo, datos en caché y conexiones a origen de datos. Los informes y las visualizaciones no se importan.
+Puede crear un nuevo modelo en el sistema autónomo (AS) de Azure importando un archivo de Power BI Desktop (pbix). Se importan metadatos del modelo, datos en caché y conexiones a origen de datos. Los informes y las visualizaciones no se importan.
 
 **Restricciones**   
 - El modelo pbix debe conectar únicamente con los [orígenes de datos admitidos de Analysis Services](analysis-services-datasource.md). 
