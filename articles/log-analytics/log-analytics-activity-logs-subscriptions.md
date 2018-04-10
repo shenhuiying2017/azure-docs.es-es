@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/08/2018
+ms.date: 03/26/2018
 ms.author: richrund; bwren
-ms.openlocfilehash: 23e4b7c74e6dfb88ec6ec50d5b8ae6d8288223f3
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 434cbdca42e4287a0f3d7e3960bc0baa373bc358
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions"></a>Recopilación de registros de actividad de Azure en Log Analytics entre suscripciones
 
@@ -324,15 +324,15 @@ Para ver información detallada sobre cada paso, haga clic en el nombre del paso
 ## <a name="step-5---view-azure-activity-log-in-log-analytics"></a>Paso 5: Ver el registro de actividad de Azure en Log Analytics
 El último paso consiste en comprobar el área de trabajo de Log Analytics para asegurarse de que los datos se recopilan según lo previsto.
 
-1. En Azure Portal, seleccione **Log Analytics**.
-2. Seleccione el área de trabajo y después el icono **Búsqueda de registros**.
-3. En la barra de consulta de búsqueda, escriba `AzureActivity_CL` y haga clic en el botón de búsqueda. Si no asignó el nombre *AzureActivity* al registro personalizado, escriba el que eligió y anexe `_CL`.
+1. En Azure Portal, haga clic en **Todos los servicios**, en la esquina superior izquierda. En la lista de recursos, escriba **Log Analytics**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Seleccione **Log Analytics**.
+2. En la lista de áreas de trabajo de Log Analytics, seleccione su área de trabajo.
+3.  Haga clic en el icono **Búsqueda de registros**. A continuación, en el campo de consulta del panel Búsqueda de registros, escriba `AzureActivity_CL` y presione Entrar o haga clic en el botón de búsqueda situado a la derecha del campo de consulta. Si no asignó el nombre *AzureActivity* al registro personalizado, escriba el que eligió y anexe `_CL`.
 
 >[!NOTE]
 > La primera vez que se envía un registro personalizado nuevo a Log Analytics, puede transcurrir hasta una hora para poder buscar el registro personalizado.
 
 >[!NOTE]
-> Los registros de actividad se escriben en una tabla personalizada y no se muestran en la [solución de registro de actividad](./log-analytics-activity.md).
+> Los registros de actividad se escriben en una tabla personalizada y no aparecen en la [solución de registro de actividad](./log-analytics-activity.md).
 
 
 ![Prueba de la aplicación lógica](media/log-analytics-activity-logs-subscriptions/log-analytics-results.png)

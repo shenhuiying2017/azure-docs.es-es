@@ -1,12 +1,12 @@
 ---
-title: "Introducción a Azure Network Security | Microsoft Docs"
-description: "Obtenga información acerca de las opciones de seguridad para controlar el flujo de tráfico de red entre los recursos de Azure."
+title: Introducción a Azure Network Security | Microsoft Docs
+description: Obtenga información acerca de las opciones de seguridad para controlar el flujo de tráfico de red entre los recursos de Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: fbf0556cc47bc08a71fcf050b43c2dbbe5d27184
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 950c64ea1ea2edc072650a9f63a6d21ad369c496
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="network-security"></a>Seguridad de las redes
 
@@ -117,7 +117,7 @@ Las reglas predeterminadas no se pueden quitar, pero puede reemplazarlas con reg
  Una etiqueta de servicio representa un grupo de prefijos de direcciones IP que ayudan a reducir la complejidad de la creación de reglas de seguridad. No puede crear su propia etiqueta de servicio, ni especificar qué direcciones IP se incluyen dentro de una etiqueta. Microsoft administra los prefijos de direcciones que incluye la etiqueta de servicio y actualiza automáticamente esta a medida que las direcciones cambian. Puede utilizar etiquetas de servicio en lugar de direcciones IP específicas al crear reglas de seguridad. Las siguientes etiquetas de servicio están disponibles para su uso en la definición de reglas de seguridad. Sus nombres pueden variar ligeramente según el [modelo de implementación de Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 * **VirtualNetwork** (Resource Manager) (**VIRTUAL_NETWORK** para el modelo clásico): esta etiqueta incluye el espacio de direcciones de red virtual (todos los intervalos CIDR definidos para la red virtual), todos los espacios de direcciones locales conectados y las redes virtuales [del mismo nivel](virtual-network-peering-overview.md) o redes virtuales conectadas a una [puerta de enlace de red virtual](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-* **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** para el modelo clásico): esta etiqueta denota el equilibrador de carga de la infraestructura de Azure. La etiqueta se traducirá en una [dirección IP del centro de datos de Azure](https://www.microsoft.com/download/details.aspx?id=41653) donde se originan los sondeos de mantenimiento de Azure. Si no usa el equilibrador de carga de Azure, puede reemplazar esta regla.
+* **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** para el modelo clásico): esta etiqueta indica el equilibrador de carga de la infraestructura de Azure. La etiqueta se traducirá en una [dirección IP del centro de datos de Azure](https://www.microsoft.com/download/details.aspx?id=41653) donde se originan los sondeos de mantenimiento de Azure. Si no usa el equilibrador de carga de Azure, puede reemplazar esta regla.
 * **Internet** (Resource Manager) (**INTERNET** para el modelo clásico): esta etiqueta denota el espacio de direcciones IP que se encuentra fuera de la red virtual y es accesible mediante la red pública de Internet. El intervalo de direcciones incluye el [espacio de direcciones IP públicas propiedad de Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 * **AzureTrafficManager** (solo para Resource Manager): esta etiqueta denota el espacio de direcciones IP de las IP de sondeo de Azure Traffic Manager. En [Preguntas más frecuentes (P+F) sobre Traffic Manager](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-faqs), puede encontrar más información acerca de las IP de sondeo de Azure Traffic Manager.
 * **Storage** (solo para Resource Manager): esta etiqueta denota el espacio de direcciones IP del servicio Azure Storage. Si especifica *Storage* como valor, el tráfico al almacenamiento se permite o se deniega. Si solo desea permitir el acceso al almacenamiento de una determinada [región](https://azure.microsoft.com/regions), puede especificarla. Por ejemplo, si desea permitir el acceso a Azure Storage solo en la región este de EE. UU., puede especificar *Storage.EastUS* como etiqueta de servicio. La etiqueta representa el servicio, no instancias específicas del mismo. Por ejemplo, la etiqueta representa el servicio Azure Storage, pero no una cuenta de específica de este.
@@ -141,7 +141,7 @@ Si crea otras reglas, especificando otros grupos de seguridad de aplicaciones co
  
 Para obtener información acerca de los límites a la hora de crear grupos de seguridad de aplicaciones y especificarlos en las reglas de seguridad, consulte los [límites de Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-Los grupos de seguridad de aplicaciones están disponibles en la versión preliminar. Las características de la versión preliminar no tienen el mismo nivel de disponibilidad y confiabilidad que las características de la versión general. Para poder usar los grupos de seguridad de aplicaciones, primero es preciso registrarse, para lo que hay que seguir los pasos 1 a 5 de las secciones correspondientes a Azure o PowerShell de [Creación de un grupo de seguridad de red con grupos de seguridad de aplicaciones](create-network-security-group-preview.md). Los grupos de seguridad de aplicaciones presentan las siguientes restricciones:
+Los grupos de seguridad de aplicaciones presentan las siguientes restricciones:
 
 -   Todas las interfaces de red dentro de un grupo de seguridad de aplicaciones deben existir en la misma red virtual. No se pueden agregar interfaces de red de distintas redes virtuales al mismo grupo de seguridad de aplicaciones. La red virtual en la que se encuentra la primera interfaz de red asignada al grupo de seguridad de aplicaciones define la red virtual en la que deben existir todas las subsiguientes interfaces de red asignadas.
 - Si especifica grupos de seguridad de aplicaciones como origen y destino de una regla de seguridad, las interfaces de red de ambos grupos de seguridad de aplicaciones deben existir en la misma red virtual. Por ejemplo, si ASG1 contiene interfaces de red de VNet1 y ASG2 contiene interfaces de red de VNet2, no puede asignar ASG1 como origen y ASG2 como destino en una regla; todas las interfaces de red deben existir en VNet1.
@@ -163,7 +163,6 @@ Los grupos de seguridad de aplicaciones están disponibles en la versión prelim
   Si Azure le permite enviar correo electrónico a través del puerto 25, Microsoft no garantiza de proveedores de correo electrónico vayan a aceptar correo electrónico entrante procedente de la máquina virtual. Si un proveedor concreto rechaza el correo de la máquina virtual, tendrá que trabajar directamente con él para resolver los problemas de entrega de mensajes o de filtrado de correo no deseado, o bien utilizar un servicio de retransmisión de SMTP autenticado. 
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
-* Completar el tutorial [Crear un grupo de seguridad de red](virtual-networks-create-nsg-arm-pportal.md)
-* Completar el tutorial [Creación de un grupo de seguridad de red con grupos de seguridad de aplicaciones](create-network-security-group-preview.md)
+* Aprenda a [crear un grupo de seguridad de red](tutorial-filter-network-traffic.md).

@@ -1,8 +1,8 @@
 ---
-title: "Creación de la primera plantilla de Azure Resource Manager | Microsoft Docs"
-description: "Una guía paso a paso para crear su primera plantilla de Azure Resource Manager. Muestra cómo utilizar la referencia de plantilla para una cuenta de almacenamiento para crear la plantilla."
+title: Creación de la primera plantilla de Azure Resource Manager | Microsoft Docs
+description: Una guía paso a paso para crear su primera plantilla de Azure Resource Manager. Muestra cómo utilizar la referencia de plantilla para una cuenta de almacenamiento para crear la plantilla.
 services: azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
@@ -10,24 +10,25 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/02/2017
+ms.date: 03/30/2018
 ms.topic: get-started-article
 ms.author: tomfitz
-ms.openlocfilehash: 7d20469aaf2dfdd7a5f3650983b59152de837837
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: adf7d6ad04b9c341eac2172e09da3cb1f044aa62
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-and-deploy-your-first-azure-resource-manager-template"></a>Creación e implementación de la primera plantilla de Azure Resource Manager
 Este tema lo guiará por los pasos para crear la primera plantilla de Azure Resource Manager. Las plantillas de Resource Manager son archivos JSON que definen los recursos que necesita para implementar la solución. Para entender los conceptos asociados a la implementación y administración de sus soluciones de Azure, consulte [Introducción a Azure Resource Manager](resource-group-overview.md). Si tiene recursos existentes y desea obtener una plantilla para ellos, consulte [Exportación de plantillas de Azure Resource Manager desde recursos existentes](resource-manager-export-template.md).
 
 Para crear y revisar las plantillas, se necesita un editor de JSON. [Visual Studio Code](https://code.visualstudio.com/) es un editor de código ligero, de código abierto y multiplataforma. Se recomienda encarecidamente usar código de Visual Studio para crear plantillas de Resource Manager. En este artículo se da por supuesto que usa VS Code. Si tiene otro editor de JSON (por ejemplo, Visual Studio), puede usarlo.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
-* Código de Visual Studio. Si es necesario, instálelo desde [https://code.visualstudio.com/](https://code.visualstudio.com/).
+* Código de Visual Studio. Si es necesario, puede instalarlo desde [https://code.visualstudio.com/](https://code.visualstudio.com/).
 * Una suscripción de Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+* Se ha instalado localmente [Azure PowerShell](/powershell/azure/install-azurerm-ps) o la [CLI de Azure](/cli/azure/install-azure-cli). Necesita una instalación local para este tutorial ya que la plantilla se guarda como un archivo local. Para usar Cloud Shell, debe [cargar la plantilla en una cuenta de almacenamiento](resource-group-template-deploy-cli.md#deploy-template-from-cloud-shell).
 
 ## <a name="create-template"></a>Creación de una plantilla
 
@@ -92,24 +93,6 @@ Está listo para implementar esta plantilla. Use PowerShell o la CLI de Azure pa
    az group create --name examplegroup --location "South Central US"
    az group deployment create --resource-group examplegroup --template-file azuredeploy.json
    ```
-
-Cuando finaliza la implementación, la cuenta de almacenamiento existe en el grupo de recursos.
-
-[!INCLUDE [resource-manager-cloud-shell-deploy.md](../../includes/resource-manager-cloud-shell-deploy.md)]
-
-Para la CLI de Azure, use los siguientes comandos:
-
-```azurecli-interactive
-az group create --name examplegroup --location "South Central US"
-az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json
-```
-
-Actualmente, PowerShell está disponible en Cloud Shell como versión preliminar. Para PowerShell, use los siguientes comandos:
-
-```powershell
-New-AzureRmResourceGroup -Name examplegroup -Location "South Central US"
-New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile $home\CloudDrive\templates\azuredeploy.json
-```
 
 Cuando finaliza la implementación, la cuenta de almacenamiento existe en el grupo de recursos.
 
@@ -244,12 +227,6 @@ Para la CLI de Azure, utilice:
 az group deployment create --resource-group examplegroup --template-file azuredeploy.json --parameters storageSKU=Standard_RAGRS storageNamePrefix=newstore
 ```
 
-Para Cloud Shell, cargue la plantilla modificada en el recurso compartido de archivos. Sobrescriba el archivo existente. Use el comando siguiente:
-
-```azurecli
-az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json --parameters storageSKU=Standard_RAGRS storageNamePrefix=newstore
-```
-
 ## <a name="use-autocomplete"></a>Uso de Autocompletar
 
 Hasta ahora, el trabajo en las plantillas ha consistido en copiar y pegar código JSON de este artículo. Sin embargo, al desarrollar sus propias plantillas, querrá buscar y especificar propiedades y valores que estén disponibles para el tipo de recurso. VS Code lee el esquema del tipo de recurso y sugiere propiedades y valores. Para ver la característica Autocompletar, vaya al elemento de propiedades de su plantilla y agregue una nueva línea. Escriba comillas y advertirá que VS Code sugiere inmediatamente nombres que están disponibles dentro del elemento de propiedades.
@@ -377,12 +354,6 @@ Para la CLI de Azure, utilice:
 
 ```azurecli
 az group deployment create --resource-group examplegroup --template-file azuredeploy.json --parameters storageNamePrefix=storesecure
-```
-
-Para Cloud Shell, cargue la plantilla modificada en el recurso compartido de archivos. Sobrescriba el archivo existente. Use el comando siguiente:
-
-```azurecli
-az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json --parameters storageNamePrefix=storesecure
 ```
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos

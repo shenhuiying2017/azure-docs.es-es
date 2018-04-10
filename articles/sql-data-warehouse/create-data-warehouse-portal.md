@@ -1,25 +1,20 @@
 ---
-title: "Guía de inicio rápido: Creación de una instancia de Azure SQL Data Warehouse en Azure Portal | Microsoft Docs"
-description: "Para Azure SQL Data Warehouse, cree un servidor SQL, una regla de firewall a nivel de servidor y un almacenamiento de datos en Azure Portal. Después, realice consultas en él."
-keywords: "tutorial de sql data warehouse, creación de una instancia de SQL data warehouse"
-services: sql-database
-documentationcenter: 
-author: barbkess
+title: Creación y consulta de una instancia de Azure SQL Data Warehouse - Azure Portal | Microsoft Docs
+description: Cree una instancia de Azure SQL Data Warehouse en Azure Portal y, a continuación, realice consultas en ella.
+services: sql-data-warehouse
+author: hirokib
 manager: jhubbard
-editor: 
-ms.service: sql-database
-ms.custom: mvc,DBs & servers
-ms.workload: Active
-ms.tgt_pltfrm: portal
-ms.devlang: na
+ms.service: sql-data-warehouse
 ms.topic: quickstart
-ms.date: 11/20/2017
-ms.author: barbkess
-ms.openlocfilehash: a620da9dbe9823b9876fa80dc0200aa91fbf9920
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.component: implement
+ms.date: 03/28/2018
+ms.author: elbutter
+ms.reviewer: jrj
+ms.openlocfilehash: 97738b37f81cac3e7eef263fecc2095c9ef4b7ff
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Guía de inicio rápido: Creación de una instancia de Azure SQL Data Warehouse en Azure Portal, y realización de consultas en ella
 
@@ -202,7 +197,7 @@ Siga estos pasos para limpiar los recursos según estime oportuno.
 4. Para quitar el grupo de recursos, haga clic en **myResourceGroup** y luego haga clic en **Eliminar grupo de recursos**.
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Ahora ha creado un almacenamiento de datos, ha creado una regla de firewall, la ha conectado a su almacén de datos y ha ejecutado algunas consultas. Para más información sobre Azure SQL Data Warehouse, siga el tutorial para cargar los datos.
 > [!div class="nextstepaction"]
 >[Carga de datos en una instancia de SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md)

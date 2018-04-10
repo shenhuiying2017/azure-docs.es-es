@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 227ca3533c7a06b726c758be931df8ec0314e90f
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 7331c3385f70de7d13895fc88d1d8630af4e9b05
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Introducción a Application Insights en un proyecto web de Java
 
@@ -47,10 +47,10 @@ Necesita:
 ## <a name="2-add-the-application-insights-sdk-for-java-to-your-project"></a>2. Incorporación del SDK de Application Insights para Java al proyecto
 *Elija la forma adecuada para su proyecto.*
 
-#### <a name="if-youre-using-eclipse-to-create-a-maven-or-dynamic-web-project-"></a>Si usa Eclipse para crear un proyecto web dinámico o de Maven...
+#### <a name="if-youre-using-eclipse-to-create-a-dynamic-web-project"></a>Si usa Eclipse para crear un proyecto web dinámico...
 Use el [complemento SDK de Application Insights para Java][eclipse].
 
-#### <a name="if-youre-using-maven"></a>Si está usando Maven...
+#### <a name="if-youre-using-maven-a-namemaven-setup-"></a>Si usa Maven... <a name="maven-setup" />
 Si su proyecto ya se ha configurado para usar Maven para la compilación, combine el siguiente código en el archivo pom.xml.
 
 A continuación, actualice las dependencias del proyecto, para obtener los archivos binarios descargados.
@@ -75,15 +75,15 @@ A continuación, actualice las dependencias del proyecto, para obtener los archi
     </dependencies>
 ```
 
-* *¿Errores de validación en la suma de comprobación o la compilación?* Pruebe en su lugar una versión específica, como:`<version>2.0.n</version>`. Encontrará la versión más reciente en las [notas de la versión del SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) o en nuestros [artefactos de Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
+* *¿Errores de validación en la suma de comprobación o la compilación?* Pruebe en su lugar una versión específica, como:`<version>2.0.n</version>`. La versión más reciente se encuentra en las [notas de la versión de SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) o en los [artefactos de Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *¿Necesita actualizar a un nuevo SDK?* Actualice las dependencias del proyecto.
 
-#### <a name="if-youre-using-gradle"></a>Si está usando Gradle...
+#### <a name="if-youre-using-gradle-a-namegradle-setup-"></a>Si usa Gradle... <a name="gradle-setup" />
 Si su proyecto ya se ha configurado para usar Grade para la compilación, combine el siguiente código al archivo build.gradle.
 
 A continuación, actualice las dependencias del proyecto, para obtener los archivos binarios descargados.
 
-```JSON
+```gradle
 
     repositories {
       mavenCentral()
@@ -95,27 +95,24 @@ A continuación, actualice las dependencias del proyecto, para obtener los archi
     }
 ```
 
-* *¿Errores de validación de suma de comprobación o de compilación? Utilice en su lugar una versión específica, como:* `version:'2.0.n'` *Encontrará la versión más reciente en las [notas de la versión de SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
-* *Para actualizar a un nuevo SDK*
-  * Actualice las dependencias del proyecto.
+* *¿Errores de validación en la suma de comprobación o la compilación?* Pruebe en su lugar una versión específica, como:`version:'2.0.n'`. La versión más reciente se encuentra en las [notas de la versión de SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) o en los [artefactos de Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
+* *Para actualizar el SDK a uno nuevo*, actualice las dependencias del proyecto.
 
-#### <a name="otherwise-"></a>De lo contrario...
-Agregue manualmente el SDK:
-
-1. Descargue el [SDK de Application Insights para Java](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest).
-2. Extraiga los archivos binarios del archivo zip y agréguelos al proyecto.
+#### <a name="otherwise-if-you-are-manually-managing-dependencies-"></a>Por el contrario, si va a administrar manualmente las dependencias...
+Descargue el [versión más reciente](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest), copie los archivos necesarios en el proyecto y reemplace todos los de las versiones anteriores.
 
 ### <a name="questions"></a>Preguntas...
-* *¿Cuál es la relación entre los componentes `-core` y `-web` del archivo zip?*
-
+* *¿Cuál es la relación entre los componentes `-core` y `-web`?*
   * `applicationinsights-core` le ofrece la API básica. Este componente se necesita siempre.
   * `applicationinsights-web` proporciona métricas que realizan el seguimiento de recuentos de solicitud HTTP y tiempos de respuesta. Este componente se puede omitir si no se desea que se recopilen automáticamente los datos de esta telemetría. Por ejemplo, si desea escribir la suya propia.
-* *Para actualizar el SDK cuando publicamos cambios*
+  
+* *¿Cómo se debe actualizar el SDK a la versión más reciente?*
+  * Si usa Gradle o Maven...
+    * Actualice el archivo de compilación para especificar la versión más reciente, o bien use la sintaxis de carácter comodín de Maven o Gradle para incluir automáticamente la versión más reciente. Luego, actualice las dependencias del proyecto. La sintaxis del carácter comodín se puede ver en los ejemplos anteriores de [Gradle](#gradle-setup) o [Maven](#maven-setup).
+  * Si va a administrar las dependencias manualmente...
+    * Descargue el [SDK más reciente de Application Insights para Java](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) y sustituya los antiguos. Los cambios se describen en las [notas de la versión de SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
 
-  * Descargue el [SDK más reciente de Application Insights para Java](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) y sustituya los antiguos.
-  * Los cambios se describen en las [notas de la versión de SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
-
-## <a name="3-add-an-application-insights-xml-file"></a>3. Adición de un archivo .xml de Application Insights
+## <a name="3-add-an-applicationinsightsxml-file"></a>3. Adición del archivo ApplicationInsights.xml
 Agregue ApplicationInsights.xml a la carpeta de recursos del proyecto o asegúrese de que se agrega a la ruta de acceso de la clase de implementación del proyecto. Copie en ella el siguiente XML.
 
 Sustituya la clave de instrumentación que obtuvo en el portal de Azure.
@@ -127,12 +124,10 @@ Sustituya la clave de instrumentación que obtuvo en el portal de Azure.
 
 
       <!-- The key from the portal: -->
-
       <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
 
 
       <!-- HTTP request component (not required for bare API) -->
-
       <TelemetryModules>
         <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebRequestTrackingTelemetryModule"/>
         <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebSessionTrackingTelemetryModule"/>
@@ -153,11 +148,11 @@ Sustituya la clave de instrumentación que obtuvo en el portal de Azure.
     </ApplicationInsights>
 ```
 
+Si lo desea, el archivo de configuración puede residir en cualquier ubicación a la que pueda acceder su aplicación.  La propiedad del sistema `-Dapplicationinsights.configurationDirectory` especifica el directorio que contiene ApplicationInsights.xml. Por ejemplo, un archivo de configuración ubicado en `E:\myconfigs\appinsights\ApplicationInsights.xml` se configuraría con la propiedad `-Dapplicationinsights.configurationDirectory="E:\myconfigs\appinsights"`.
 
 * La clave de instrumentación se envía junto con todos los elementos de telemetría e indica a Application Insights que se muestre en el recurso.
 * El componente de la solicitud HTTP es opcional. Envía automáticamente telemetría sobre las solicitudes y tiempos de respuesta en el portal.
-* La correlación de eventos es un complemento del componente de la solicitud HTTP. Asigna un identificador a cada solicitud recibida por el servidor y agrega este identificador como propiedad a todos los elementos de telemetría como la propiedad 'Operation.Id'. Le permite correlacionar la telemetría asociada a cada solicitud estableciendo un filtro en la [búsqueda de diagnóstico][diagnostic].
-* La clave de Application Insights se puede pasar dinámicamente desde el Portal de Azure como una propiedad del sistema (-DAPPLICATION_INSIGHTS_IKEY = your_ikey). Si no hay ninguna propiedad definida, busca la variable de entorno (APPLICATION_INSIGHTS_IKEY) en la configuración de las aplicaciones de Azure. Si las propiedades no están definidas, se usa el valor predeterminado de InstrumentationKey de ApplicationInsights.xml. Esta secuencia le ayuda a administrar dinámicamente distintas instancias InstrumentationKeys para entornos diferentes.
+* La correlación de eventos es una incorporación al componente de la solicitud HTTP. Asigna un identificador a cada solicitud recibida por el servidor y agrega este identificador como propiedad a todos los elementos de telemetría como la propiedad 'Operation.Id'. Le permite correlacionar la telemetría asociada a cada solicitud estableciendo un filtro en la [búsqueda de diagnóstico][diagnostic].
 
 ### <a name="alternative-ways-to-set-the-instrumentation-key"></a>Alternativas para establecer la clave de instrumentación
 SDK de Application Insights busca la clave en este orden:
@@ -219,7 +214,7 @@ Agregue este elemento al archivo de configuración Struts (denominado normalment
      <default-interceptor-ref name="ApplicationInsightsRequestNameInterceptor" />
 ```
 
-(Si tiene interceptores definidos en una pila predeterminada, el interceptor puede agregarse simplemente a dicha pila).
+Si tiene interceptores definidos en una pila predeterminada, el interceptor se puede agregar a ella.
 
 ## <a name="5-run-your-application"></a>5. Ejecución de la aplicación
 Ejecútela en modo de depuración en el equipo de desarrollo o bien publíquela en el servidor.

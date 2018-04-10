@@ -1,11 +1,11 @@
 ---
-title: "Importación de una especificación OpenAPI mediante Azure Portal | Microsoft Docs"
-description: "Obtenga información sobre cómo importar una especificación OpenAPI con API Management."
+title: Importación de una especificación OpenAPI mediante Azure Portal | Microsoft Docs
+description: Obtenga información sobre cómo importar una especificación OpenAPI con API Management.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,15 +13,18 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
-ms.openlocfilehash: f0c77c6e959ca99698b3ea704756a6abf36147f3
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 0ea24b58deb7b33755a44737a66938883f74a13c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="import-an-openapi-specification"></a>Importación de una especificación OpenAPI
 
-Este artículo muestra cómo importar una API de back-end "Especificación OpenAPI" que reside en http://conferenceapi.azurewebsites.net?format=json. Esta API de back-end la proporciona Microsoft y se hospeda en Azure. El artículo también muestra cómo probar la API de APIM.
+En este artículo se explica cómo importar una API de back-end de Especificación OpenAPI que reside en http://conferenceapi.azurewebsites.net?format=json. Esta API de back-end la proporciona Microsoft y se hospeda en Azure. El artículo también muestra cómo probar la API de APIM.
+
+> [!IMPORTANT]
+> Consulte este [documento](https://blogs.msdn.microsoft.com/apimanagement/2018/03/28/important-changes-to-openapi-import-and-export/) para obtener información importante y consejos relacionados con la importación de OpenAPI.
 
 En este artículo, aprenderá a:
 
@@ -30,9 +33,9 @@ En este artículo, aprenderá a:
 > * Prueba de la API en Azure Portal
 > * Pruebe la API en el Portal para desarrolladores
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
-Completar la guía de inicio rápido siguiente: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
+Completar la guía de inicio rápido siguiente: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -45,7 +48,7 @@ Completar la guía de inicio rápido siguiente: [Creación de una instancia de A
 
     ![Creación de una API](./media/api-management-get-started/create-api.png)
 
-    |Configuración|Valor|Descripción|
+    |Configuración|Valor|DESCRIPCIÓN|
     |---|---|---|
     |**Especificación OpenAPI**|http://conferenceapi.azurewebsites.net?format=json|Hace referencia al servicio que implementa la API. Administración de API envía las solicitudes a esta dirección.|
     |**Nombre para mostrar**|*API de conferencia de demostración* (API de conferencia de demostración)|Si presiona la tecla Tab después de escribir la dirección URL del servicio, APIM rellenará este campo en función de lo que aparece en el JSON. <br/>El nombre se muestra en el Portal para desarrolladores.|
@@ -59,22 +62,22 @@ Completar la guía de inicio rápido siguiente: [Creación de una instancia de A
 
 ## <a name="test-the-new-apim-api-in-the-azure-portal"></a>Prueba de la nueva API APIM en Azure Portal
 
-Se puede llamar a las operaciones directamente desde Azure Portal, lo que proporciona una forma cómoda de ver y probar las operaciones de una API.  
+Se puede llamar a las operaciones directamente desde Azure Portal, lo que proporciona una forma cómoda de ver y probar las operaciones de una API.
 
-1. Seleccione API que creó en los pasos anteriores.
+1. Seleccione la API que creó en los pasos anteriores.
 2. Presione la pestaña **Prueba**.
 
     ![Prueba de la API](./media/api-management-get-started/test-api.png)
 1. Haga clic en **GetSpeakers**.
 
-    La página muestra los campos de los parámetros de consulta, pero, en este caso, no tiene ninguno. La página también muestra los campos de los encabezados. Uno de los encabezados es "Ocp-Apim-Suscripción-Key", para la clave de suscripción del producto que está asociado a esta API. Si ha creado la instancia APIM, ya es administrador, por lo que la clave se rellena automáticamente. 
+    La página muestra los campos de los parámetros de consulta, pero, en este caso, no tiene ninguno. La página también muestra los campos de los encabezados. Uno de los encabezados es "Ocp-Apim-Suscripción-Key", para la clave de suscripción del producto que está asociado a esta API. Si ha creado la instancia APIM, ya es administrador, por lo que la clave se rellena automáticamente.
 4. Presione **Enviar**.
 
     Back-end responde con **200 Aceptar** y algunos datos.
 
 ## <a name="call-operation"> </a>Llamada a una operación desde el portal para desarrolladores
 
-También se pueden llamar a las operaciones desde **portal para desarrolladores** para probar las API. 
+También se pueden llamar a las operaciones desde **portal para desarrolladores** para probar las API.
 
 1. Seleccione la API que creó en el paso "Importación y publicación de una API de back-end".
 2. Presione **Portal para desarrolladores**.
@@ -85,11 +88,11 @@ También se pueden llamar a las operaciones desde **portal para desarrolladores*
 3. Seleccione **API**.
 4. Seleccione **Demo Conference API** (API de conferencia de demostración).
 5. Haga clic en **GetSpeakers**.
-    
+
     La página muestra los campos de los parámetros de consulta, pero, en este caso, no tiene ninguno. La página también muestra los campos de los encabezados. Uno de los encabezados es "Ocp-Apim-Suscripción-Key", para la clave de suscripción del producto que está asociado a esta API. Si ha creado la instancia APIM, ya es administrador, por lo que la clave se rellena automáticamente.
 6. Presione **Try it** (Probarlo).
 7. Presione **Enviar**.
-    
+
     Después de invocar una operación, el portal para desarrolladores mostrará el **estado de respuesta**, los **encabezados de respuesta** y el **contenido de respuesta**.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]

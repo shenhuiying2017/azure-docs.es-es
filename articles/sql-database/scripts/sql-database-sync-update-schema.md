@@ -1,13 +1,13 @@
 ---
-title: "Ejemplo de PowerShell: Actualizar el esquema de sincronización de SQL Data Sync | Microsoft Docs"
-description: "Script de ejemplo de Azure PowerShell para actualizar el esquema de sincronización de SQL Data Sync"
+title: 'Ejemplo de PowerShell: actualizar el esquema de sincronización de SQL Data Sync (versión preliminar) | Microsoft Docs'
+description: Script de ejemplo de Azure PowerShell para actualizar el esquema de sincronización de SQL Data Sync
 services: sql-database
 documentationcenter: sql-database
 author: jognanay
 manager: craigg
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: sql-database
 ms.custom: load & move data, mvc
 ms.devlang: PowerShell
@@ -17,20 +17,20 @@ ms.workload: database
 ms.date: 01/10/2018
 ms.author: jognanay
 ms.reviewer: douglasl
-ms.openlocfilehash: 66bf084f585b86979e6521321daf466c571de10c
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 5f9f0a5921951669d451a9755c5da2091287c909
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-powershell-to-update-the-sync-schema-in-an-existing-sync-group"></a>Usar PowerShell para actualizar el esquema de sincronización en un grupo de sincronización existente
 
-Este ejemplo de PowerShell permite actualizar el esquema de sincronización en un grupo de sincronización existente. Cuando se sincronizan varias tablas, este script le ayuda a actualizar eficazmente el esquema de sincronización.
+Este ejemplo de PowerShell permite actualizar el esquema de sincronización en un grupo de sincronización de SQL Data Sync (versión preliminar). Cuando se sincronizan varias tablas, este script le ayuda a actualizar eficazmente el esquema de sincronización.
 
 En este ejemplo se muestra el uso del script de **UpdateSyncSchema**, que está disponible en GitHub como [UpdateSyncSchema.ps1](https://github.com/Microsoft/sql-server-samples/tree/master/samples/features/sql-data-sync/UpdateSyncSchema.ps1).
 
 Para obtener información general sobre SQL Data Sync, vea [Sincronización de datos entre varias bases de datos locales y de la nube con SQL Data Sync de Azure (versión preliminar)](../sql-database-sync-data.md).
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 En este ejemplo se requiere la versión 4.2 del módulo de Azure PowerShell, o cualquier versión posterior. Ejecute `Get-Module -ListAvailable AzureRM` para buscar la versión instalada. Si necesita instalarla o actualizarla, consulte [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) (Instalación y configuración de Azure PowerShell).
  
@@ -86,7 +86,7 @@ El script **UpdateSyncSchema** usa los comandos siguientes. Cada comando de la t
 | [Update-AzureRmSqlSyncSchema](https://docs.microsoft.com/powershell/module/azurerm.sql/update-azurermsqlsyncschema) | Actualiza un esquema de sincronización. |
 |||
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre Azure PowerShell, consulte la [documentación de Azure PowerShell](/powershell/azure/overview).
 

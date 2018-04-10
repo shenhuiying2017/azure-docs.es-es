@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: ''
-ms.date: 03/16/2018
+ms.date: 03/29/2018
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: 7c51a2a1cace89305b971d5fb0f56c360cbf93cb
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: f47d250bbe6689e19dda5042b335ff1812a790d4
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-mongodb-api"></a>Tutorial: Consulta de Azure Cosmos DB mediante MongoDB API
 
@@ -30,6 +30,10 @@ En este artículo se tratan las tareas siguientes:
 
 > [!div class="checklist"]
 > * Consulta de datos con MongoDB
+
+Puede comenzar por ver este vídeo sobre realización de consultas en MongoDB con Andy Hoh, Jefe de programas de Azure Cosmos DB:
+
+>[!VIDEO https://www.youtube.com/tVk8S7lFWMA]
 
 ## <a name="sample-document"></a>Documento de ejemplo
 
@@ -300,7 +304,7 @@ La consulta siguiente devuelve todas las familias en las que el valor de tamaño
 
 **Resultados**
 
-No se devolverá ningún resultado, ya que no tenemos más de dos elementos secundarios. Solo si el parámetro es 2, esta consulta se realizará correctamente y devolverá el documento completo.
+No se ha devuelto ningún resultado ya que no hay familias con más de dos hijos. Solo si el parámetro es 2, esta consulta se realizará correctamente y devolverá el documento completo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

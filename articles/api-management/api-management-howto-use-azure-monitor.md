@@ -1,11 +1,11 @@
 ---
-title: "Supervisión de las API publicadas en Azure API Management | Microsoft Docs"
+title: Supervisión de las API publicadas en Azure API Management | Microsoft Docs
 description: Siga los pasos de este tutorial para aprender a supervisar su API en Azure API Management.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 445723242a76dcef4a6b137439728235d5d6e32a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 93cbcf91af4ecf9425ed43ade400a0c82cea72d8
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="monitor-published-apis"></a>Supervisión de las API publicadas
 
@@ -44,29 +44,6 @@ En el vídeo siguiente se muestra cómo supervisar API Management con Azure Moni
 + Además, completar el tutorial siguiente: [Importación y publicación de la primera API](import-and-publish.md).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
-
-## <a name="diagnostic-logs"></a>Visualización de registros de actividad
-
-Los registros de actividad proporcionan información sobre las operaciones llevadas a cabo en los servicios API Management. Con los registros de actividades, puede determinar los interrogantes “qué, quién y cuándo” de las operaciones de escritura (PUT, POST, DELETE) llevadas a cabo en los servicios API Management. 
-
-> [!NOTE]
-> Los registros de actividad no incluyen las operaciones de lectura (GET) ni las realizadas en Azure Portal o mediante las API de administración originales.
-
-Puede acceder a registros de actividad en el servicio API Management o a los registros de todos los recursos de Azure en Azure Monitor. 
-
-Para ver los registros de actividad:
-
-1. Seleccione la instancia del servicio APIM.
-2. Haga clic en **Registro de actividad**.
-
-## <a name="view-diagnostic-logs"></a>Visualización de los registros de diagnóstico
-
-Los registros de diagnóstico proporcionan información valiosa acerca de las operaciones y los errores que son importantes para la auditoría, así como para solucionar problemas. Los registros de diagnóstico son diferentes de los registros de actividad. Los registros de actividad proporcionan información sobre las operaciones llevadas a cabo en los recursos de Azure. Los registros de diagnóstico proporcionan información detallada sobre las operaciones que el mismo recurso realiza.
-
-Para acceder a los registros de diagnóstico:
-
-1. Seleccione la instancia del servicio APIM.
-2. Haga clic en **Registro de diagnóstico**.
 
 ## <a name="view-metrics-of-your-apis"></a>Visualización de las métricas de las API
 
@@ -110,7 +87,119 @@ Para configurar alertas:
 
     ![configurar alerta](./media/api-management-azure-monitor/set-up-alert.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="activity-logs"></a>Registros de actividad
+
+Los registros de actividad proporcionan información sobre las operaciones llevadas a cabo en los servicios API Management. Con los registros de actividades, puede determinar los interrogantes “qué, quién y cuándo” de las operaciones de escritura (PUT, POST, DELETE) llevadas a cabo en los servicios API Management. 
+
+> [!NOTE]
+> Los registros de actividad no incluyen las operaciones de lectura (GET) ni las realizadas en Azure Portal o mediante las API de administración originales.
+
+Puede acceder a registros de actividad en el servicio API Management o a los registros de todos los recursos de Azure en Azure Monitor. 
+
+Para ver los registros de actividad:
+
+1. Seleccione la instancia del servicio APIM.
+2. Haga clic en **Registro de actividad**.
+
+## <a name="diagnostic-logs"></a>Registros de diagnóstico
+
+Los registros de diagnóstico proporcionan información valiosa acerca de las operaciones y los errores que son importantes para la auditoría, así como para solucionar problemas. Los registros de diagnóstico son diferentes de los registros de actividad. Los registros de actividad proporcionan información sobre las operaciones llevadas a cabo en los recursos de Azure. Los registros de diagnóstico proporcionan información detallada sobre las operaciones que el mismo recurso realiza.
+
+Para configurar registros de diagnóstico:
+
+1. Seleccione la instancia del servicio APIM.
+2. Haga clic en **Registro de diagnóstico**.
+3. Haga clic en **Activar diagnóstico**. Los registros de diagnóstico se pueden archivar junto con las métricas en una cuenta de almacenamiento, transmitirlos en secuencias a un centro de eventos o enviarlos a Log Analytics. 
+
+Actualmente, API Management proporciona registros de diagnóstico (de los que se crean lotes cada hora) de una solicitud de API individual con cada entrada que tenga el esquema siguiente:
+
+```json
+{  
+    "isRequestSuccess" : "",
+    "time": "",   
+    "operationName": "",      
+    "category": "",   
+    "durationMs": ,   
+    "callerIpAddress": "",   
+    "correlationId": "",   
+    "location": "",      
+    "httpStatusCodeCategory": "",      
+    "resourceId": "",      
+    "properties": {   
+        "method": "", 
+        "url": "", 
+        "clientProtocol": "", 
+        "responseCode": , 
+        "backendMethod": "", 
+        "backendUrl": "", 
+        "backendResponseCode": ,
+        "backendProtocol": "",  
+        "requestSize": , 
+        "responseSize": , 
+        "cache": "", 
+        "cacheTime": "", 
+        "backendTime": , 
+        "clientTime": , 
+        "apiId": "",
+        "operationId": "", 
+        "productId": "", 
+        "userId": "", 
+        "apimSubscriptionId": "", 
+        "backendId": "",
+        "lastError": { 
+            "elapsed" : "", 
+            "source" : "", 
+            "scope" : "", 
+            "section" : "" ,
+            "reason" : "", 
+            "message" : ""
+        } 
+    }      
+}  
+```
+
+| Propiedad  | type | DESCRIPCIÓN |
+| ------------- | ------------- | ------------- |
+| isRequestSuccess | boolean | True si la solicitud HTTP se completó con el código de estado de respuesta dentro del intervalo 2xx o 3xx |
+| Twitter en tiempo | date-time | Marca de tiempo de la recepción de la solicitud HTTP por parte de la puerta de enlace |
+| operationName | string | Valor constante "Microsoft.ApiManagement/GatewayLogs" |
+| categoría | string | Valor constante "GatewayLogs" |
+| durationMs | integer | Número de milisegundos transcurridos desde el momento en que la puerta de enlace recibió la solicitud hasta que se ha enviado toda la respuesta |
+| callerIpAddress | string | Dirección IP del llamador inmediato de la puerta de enlace (puede ser un intermediario) |
+| correlationId | string | Identificador único de la solicitud HTTP asignado por API Management |
+| location | string | Nombre de la región de Azure donde se encontraba la puerta de enlace que procesó la solicitud |
+| httpStatusCodeCategory | string | Categoría del código de estado de la respuesta http: Correcta (301 o menos, 304 o 307), No autorizado (401, 403, 429), Erróneo (400, entre 500 y 600), Otro |
+| ResourceId | string | "Identificador del recurso de API Management/SUBSCRIPTIONS/<subscription>/RESOURCEGROUPS/<grupoDeRecursos>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/<name> |
+| propiedades | objeto | Propiedades de la solicitud actual |
+| estático | string | Método HTTP de la solicitud entrante |
+| URL | string | Dirección URL de la solicitud entrante |
+| clientProtocol | string | Versión del protocolo HTTP de la solicitud entrante |
+| responseCode | integer | Código de estado de la respuesta HTTP enviada a un cliente |
+| backendMethod | string | Método HTTP de la solicitud enviada a un back-end |
+| backendUrl | string | Dirección URL de la solicitud enviada a un back-end |
+| backendResponseCode | integer | Código de la respuesta HTTP recibida de un back-end |
+| backendProtocol | string | Versión del protocolo HTTP de la solicitud enviada a un back-end | 
+| requestSize | integer | Número de bytes recibidos de un cliente durante el procesamiento de solicitudes | 
+| responseSize | integer | Número de bytes enviados a un cliente durante el procesamiento de solicitudes | 
+| cache | string | Estado de participación de la caché de API Management en el procesamiento de la solicitud (es decir, acierto, error, ninguno) | 
+| cacheTime | integer | Número de milisegundos empleados en la E/S de la caché global de API Management (conexión, envío y recepción de bytes) | 
+| backendTime | integer | Número de milisegundos empleados en la E/S global de back-end (conexión, envío y recepción de bytes) | 
+| clientTime | integer | Número de milisegundos empleados en la E/S global del cliente (conexión, envío y recepción de bytes) | 
+| apiId | string | Identificador de la entidad de la API de la solicitud actual | 
+| operationId | string | Identificador de la entidad de la operación de la solicitud actual | 
+| productId | string | Identificador de la entidad del producto de la solicitud actual | 
+| userId | string | Identificador de la entidad del usuario de la solicitud actual | 
+| apimSubscriptionId | string | Identificador de la entidad de la suscripción de la solicitud actual | 
+| backendId | string | Identificador de la entidad del back-end de la solicitud actual | 
+| LastError | objeto | Último error de procesamiento de la solicitud | 
+| elapsed | integer | Número de milisegundos transcurridos desde que la puerta de enlace recibió una solicitud hasta el momento en que se produjo el error | 
+| de origen | string | Nombre del controlador interno del procesamiento o de la directiva que produjo el error | 
+| ámbito | string | Ámbito del documento de directiva que contiene la directiva que produjo el error | 
+| section | string | Sección del documento de directiva que contiene la directiva que produjo el error | 
+| reason | string | Motivo del error | 
+| Mensaje | string | Mensaje de error | 
+
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial aprendió lo siguiente:
 

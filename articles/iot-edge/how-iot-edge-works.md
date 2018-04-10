@@ -1,29 +1,32 @@
 ---
-title: "Introducción a Azure IoT Edge | Microsoft Docs"
-description: "Introducción al servicio Azure IoT Edge"
+title: Introducción a Azure IoT Edge | Microsoft Docs
+description: Introducción al servicio Azure IoT Edge
 services: iot-Edge
-documentationcenter: 
+documentationcenter: ''
 author: kgremban
 manager: timlt
 editor: chipalost
-ms.assetid: 
+ms.assetid: ''
 ms.service: iot-hub
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 04/01/2018
 ms.author: kgremban
-ms.custom: 
-ms.openlocfilehash: 5f69041572729d1458a22a855128639056d61586
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.custom: ''
+ms.openlocfilehash: 9071caedd9ab3b63527c2c0bdab38db2efadb17c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="what-is-azure-iot-edge---preview"></a>Introducción a Azure IoT Edge (versión preliminar)
 
 Azure IoT Edge mueve el análisis en la nube y lógica de negocios personalizada a los dispositivos para que su organización pueda centrarse en la información empresarial en lugar de en la administración de los datos. Habilite el escalado real de la solución al configurar el software de IoT, implementarlo en dispositivos a través de contenedores estándares y supervisar todo desde la nube.
+
+>[!NOTE]
+>Azure IoT Edge solo está disponible en el nivel estándar de IoT Hub. Para más información acerca de los niveles básico y estándar, consulte el artículo sobre [cómo elegir el nivel de IoT Hub correcto](../iot-hub/iot-hub-scaling.md).
 
 Los análisis son un valor añadido empresarial para las soluciones de IoT, pero no es necesario que todos los análisis estén en la nube. Si desea que un dispositivo responda a emergencias lo antes posible, puede realizar la detección de anomalías en el propio dispositivo. Análogamente, si desea reducir los costos de ancho de banda y evitar la transferencia de terabytes de datos sin procesar, puede realizar la limpieza y la agregación de datos localmente. A continuación, envíe la información a la nube. 
 
@@ -52,8 +55,8 @@ El entorno de tiempo de ejecución de Azure IoT Edge permite lógica de la nube 
 * Mantiene los estándares de seguridad de Azure IoT Edge en el dispositivo.
 * Garantiza que los módulos de IoT Edge están siempre en ejecución.
 * Informa del estado del módulo a la nube para la supervisión remota.
-* Facilita la comunicación entre los dispositivos de hoja de nivel inferior y el dispositivo de IoT Edge.
-* Facilita la comunicación entre los módulos y el dispositivo de IoT Edge.
+* Facilita la comunicación entre los dispositivos de hoja de nivel inferior y el dispositivo IoT Edge.
+* Facilita la comunicación entre los módulos y el dispositivo IoT Edge.
 * Facilita la comunicación entre el dispositivo de IoT Edge y la nube.
 
 ![El entorno de tiempo de ejecución de IoT Edge envía información e informes a IoT Hub][1]
@@ -66,7 +69,7 @@ El entorno de tiempo de ejecución de Azure IoT Edge se ejecuta en un gran conju
 
 Administrar el ciclo de vida del software para los dispositivos de la empresa es complicado. Administrar el ciclo de vida del software para millones de dispositivos de IoT heterogéneos es incluso más difícil. Las cargas de trabajo deben crearse y configurarse para un determinado tipo de dispositivo, implementarse a escala en los millones de dispositivos de la solución y supervisarse para detectar los comportamientos incorrectos de los dispositivos. Estas actividades no se pueden realizar en cada dispositivo y deben realizarse a escala.
 
-Azure IoT Edge se integra perfectamente con Conjunto de aplicaciones de IoT de Azure para conseguir un plan de control que se adapta a las necesidades de la solución. Los servicios en la nube permiten a los usuarios:
+Azure IoT Edge se integra perfectamente con Azure IoT Suite para conseguir un plan de control que se adapta a las necesidades de la solución. Los servicios en la nube permiten a los usuarios:
 
 * Crear y configurar una carga de trabajo que se ejecute en un tipo específico de dispositivo.
 * Enviar una carga de trabajo a un conjunto de dispositivos.

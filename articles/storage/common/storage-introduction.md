@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: get-started-article
 ms.date: 03/06/2018
 ms.author: tamram
-ms.openlocfilehash: eb68993924bff8605fc244f438a686f0142c4762
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 18a8065bba8a4a0ec2025d6b9134fe9fab21eb5f
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Introducción a Microsoft Azure Storage
 
@@ -143,35 +143,11 @@ Para más información sobre el cifrado en el lado cliente, consulte [Cifrado de
 
 ## <a name="replication"></a>Replicación
 
-Para asegurarse de que los datos sean duraderos, Azure Storage mantendrá (y administrará) varias copias de los mismos. Esto se denomina replicación o, a veces, redundancia. Al configurar la cuenta de almacenamiento, seleccione un tipo de replicación. En la mayoría de los casos, puede modificar esta configuración después de configura la cuenta de almacenamiento.
+Para asegurarse de que los datos sean duraderos, Azure Storage replica varias copias de los mismos. Al configurar la cuenta de almacenamiento, seleccione un tipo de replicación. En la mayoría de los casos, puede modificar esta configuración después de haber creado la cuenta de almacenamiento. 
 
-**Almacenamiento con redundancia local (LRS).**
-
-El almacenamiento con redundancia local (LRS) está diseñado para proporcionar una durabilidad mínima del 99,999999999 % (once nueves) de los objetos en un año determinado. Esto se traduce en varias copias de los datos administrados por Azure Storage en el centro de datos especificado cuando se configuró la cuenta de almacenamiento. Cuando se confirman los cambios, todas las copias se actualizan antes de indicar que se han realizado correctamente. Esto significa que las réplicas siempre están sincronizadas. Además, las copias residen en dominios de error y de actualización independientes, lo que significa que los datos están disponibles aunque se produzca un error en un nodo de almacenamiento que contenga los datos o se quede sin conexión para la actualización.
-
-**Almacenamiento con redundancia de zona (ZRS) (versión preliminar)**
-
-El almacenamiento con redundancia de zona (ZRS) está diseñado para simplificar el desarrollo de aplicaciones de alta disponibilidad. ZRS proporciona a los objetos de almacenamiento una durabilidad mínima del 99,9999999999 % (12 de 9) durante un año determinado. ZRS replica los datos de forma sincrónica en varias zonas de disponibilidad. ZRS se puede usar en escenarios como las aplicaciones transaccionales, donde el tiempo de inactividad no es aceptable. ZRS permite a los clientes leer y escribir datos, incluso si una zona individual no está disponible o es irrecuperable. Las inserciones y actualizaciones en los datos se realizan de forma sincrónica y son muy consistentes.    
-
-La anterior funcionalidad de ZRS ahora se conoce como ZRS clásico. Las cuentas de ZRS clásico sólo están disponibles para blobs en bloques en las cuentas de almacenamiento de uso general V1. ZRS clásico replica los datos de forma asincrónica en los centros de datos de una o dos regiones. Es posible que una réplica no esté disponible hasta que Microsoft inicie la conmutación por error al elemento secundario. Una cuenta de ZRS clásico no se puede convertir a o desde LRS o GRS, y no tiene métricas o funcionalidad de registro.
-
-**Almacenamiento con redundancia geográfica (GRS)**
-
-El almacenamiento con redundancia geográfica (GRS) está diseñado para proporcionar una durabilidad de 99,99999999999999 % (dieciséis nueves) de los objetos por encima de un año dado manteniendo las copias locales de los datos en una región principal y otro conjunto de copias de los datos en una región secundaria a miles de kilómetros de la región principal. En caso de que se produzca un error en la región principal, Azure Storage conmutará por error a la región secundaria.
-
-**Almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS).**
-
-El almacenamiento con redundancia geográfica con acceso de lectura es exactamente igual que GRS, salvo que el acceso a los datos en la ubicación secundaria es de lectura. Si el centro de datos principal deja de estar disponible temporalmente, puede continuar leyendo los datos desde la ubicación secundaria. Esto puede resultar muy útil. Por ejemplo, podría tener una aplicación web que cambia a modo de solo lectura y apunta a la copia secundaria, lo cual supone cierto acceso, aunque no estén disponibles las actualizaciones.
-
-> [!IMPORTANT]
-> Puede cambiar la forma en que se replican los datos después de que se haya creado la cuenta. Sin embargo, cambiar de LRS o ZRS a GRS o RA-GRS puede suponer un coste adicional único de transferencia de datos.
->
-
-Para más información acerca de las opciones de replicación, consulte [Replicación de Azure Storage](storage-redundancy.md).
+[!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
 
 Para más información sobre la recuperación ante desastres, consulte [What to do if an Azure Storage outage occurs](storage-disaster-recovery-guidance.md) (Qué hacer si se produce una interrupción del servicio Azure Storage).
-
-Para un ejemplo de cómo aprovechar el almacenamiento de RA-GRS para garantizar la alta disponibilidad, consulte [Diseño de aplicaciones de alta disponibilidad mediante RA-GRS](storage-designing-ha-apps-with-ragrs.md).
 
 ## <a name="transferring-data-to-and-from-azure-storage"></a>Transferencia de datos hacia y desde Azure Storage
 

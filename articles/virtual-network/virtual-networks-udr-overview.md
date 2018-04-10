@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 34fdf45094fae8e751d6b3e5c57d5b4df2e78200
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 014c9ea34f35e915c6c4eac5a96c55201549e18a
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="virtual-network-traffic-routing"></a>Enrutamiento del tráfico de redes virtuales
 
@@ -130,9 +130,11 @@ Cuando se envía tráfico saliente desde una subred, Azure selecciona una ruta e
 Si varias rutas contienen el mismo prefijo de dirección, Azure selecciona el tipo de ruta, en función de la siguiente prioridad:
 
 1. Ruta definida por el usuario
-2. Una ruta de sistema con el tipo de salto de *red virtual*, *emparejamiento de VNET* o *VirtualNetworkServiceEndpoint*.
 2. Ruta BGP
-3. Una ruta de sistema con cualquier tipo de salto, excepto de *red virtual*, *emparejamiento de VNET* o *VirtualNetworkServiceEndpoint*.
+3. Ruta del sistema
+
+> [!NOTE]
+> Las rutas de sistema para el tráfico relacionado con la red virtual, los emparejamientos de la red virtual o los puntos de conexión del servicio de red virtual son las rutas preferidas, aunque las rutas BGP sean más específicas.
 
 Por ejemplo, una tabla de rutas contiene las rutas siguientes:
 

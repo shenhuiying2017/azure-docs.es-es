@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 1f1b987d00fad4931f9ad39b39101cc474c2a1e3
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 54f63ec4cddf64110eadf25fff60167238f9f9a6
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Tutorial: Creación y administración de un conjunto de escalado de máquinas virtuales con Azure PowerShell
 El conjunto de escalado de máquinas virtuales le permite implementar y administrar un conjunto de máquinas virtuales de escalado automático idénticas. Durante el ciclo de vida de la máquina virtual, es posible que deba ejecutar una o varias tareas de administración. En este tutorial, aprenderá a:
@@ -45,7 +45,6 @@ Un grupo de recursos de Azure es un contenedor lógico en el que se implementan 
 ```azurepowershell-interactive
 New-AzureRmResourceGroup -ResourceGroupName "myResourceGroup" -Location "EastUS"
 ```
-
 El nombre del grupo de recursos se especifica al crear o modificar un conjunto de escalado mediante este tutorial.
 
 
@@ -83,10 +82,10 @@ Get-AzureRmVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleS
 La salida del ejemplo siguiente muestra dos instancias de máquina virtual del conjunto de escalado:
 
 ```powershell
-ResourceGroupName         Name Location          Sku InstanceID ProvisioningState
------------------         ---- --------          --- ---------- -----------------
-MYRESOURCEGROUP   myScaleSet_0   eastus Standard_DS2          0         Succeeded
-MYRESOURCEGROUP   myScaleSet_1   eastus Standard_DS2          1         Succeeded
+ResourceGroupName         Name Location             Sku InstanceID ProvisioningState
+-----------------         ---- --------             --- ---------- -----------------
+MYRESOURCEGROUP   myScaleSet_0   eastus Standard_DS1_v2          0         Succeeded
+MYRESOURCEGROUP   myScaleSet_1   eastus Standard_DS1_v2          1         Succeeded
 ```
 
 Para ver información adicional acerca de una instancia específica de la máquina virtual, agregue el parámetro `-InstanceId` a [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm). En el ejemplo siguiente, se ve información sobre la instancia de máquina virtual *1*:
@@ -235,7 +234,7 @@ Standard_NV6                       6      57344               24        1047552 
 Standard_NV12                     12     114688               48        1047552               696320
 ```
 
-Cuando creó un conjunto de escalado al comienzo del tutorial, se proporcionó una SKU de máquina virtual predeterminada de *Standard_D1_v2* para las instancias de máquina virtual. Puede especificar un tamaño de instancia de máquina virtual diferente en función de la salida de [Get-AzureRmVMSize](/powershell/module/azurerm.compute/get-azurermvmsize). En el ejemplo siguiente se crearía un conjunto de escalado con el parámetro `-VmSize` para especificar un tamaño de instancia de máquina virtual de *Standard_F1*. Como se tarda unos minutos en crear y configurar todos los recursos del conjunto de escalado y las instancias de máquina virtual, no tiene que implementar el siguiente conjunto de escalado:
+Cuando creó un conjunto de escalado al comienzo del tutorial, se proporcionó una SKU de máquina virtual predeterminada de *Standard_DS1_v2* para las instancias de máquina virtual. Puede especificar un tamaño de instancia de máquina virtual diferente en función de la salida de [Get-AzureRmVMSize](/powershell/module/azurerm.compute/get-azurermvmsize). En el ejemplo siguiente se crearía un conjunto de escalado con el parámetro `-VmSize` para especificar un tamaño de instancia de máquina virtual de *Standard_F1*. Como se tarda unos minutos en crear y configurar todos los recursos del conjunto de escalado y las instancias de máquina virtual, no tiene que implementar el siguiente conjunto de escalado:
 
 ```azurepowershell-interactive
 New-AzureRmVmss `

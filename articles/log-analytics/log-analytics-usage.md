@@ -1,27 +1,27 @@
 ---
-title: "Análisis del uso de datos en Log Analytics | Microsoft Docs"
-description: "Utilice el panel Uso de Log Analytics para ver la cantidad de datos que se envían al servicio Log Analytics y resolver el motivo del envío de grandes cantidades de datos."
+title: Análisis del uso de datos en Log Analytics | Microsoft Docs
+description: Use el panel de uso y costo estimado en Log Analytics para evaluar cuántos datos se envían a Log Analytics e identificar los posibles motivos que podrían provocar aumentos imprevistos.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 74d0adcb-4dc2-425e-8b62-c65537cef270
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/13/2018
+ms.date: 03/29/2018
 ms.author: magoedte
-ms.openlocfilehash: 8d6baa6b46290c7a332f5cf780c7f70680fb6a2c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7e141dcf69c1a173c60cb96907cae2ba9f119b03
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Análisis del uso de datos en Log Analytics
-Log Analytics incluye información sobre la cantidad de datos recopilados, qué sistemas envían los datos y los diferentes tipos de datos enviados.  Use el panel **Uso de Log Analytics** para ver la cantidad de datos enviados al servicio Log Analytics. El panel muestra la cantidad de datos que recopila cada solución y cuántos datos envían los equipos.
+Log Analytics incluye información sobre la cantidad de datos recopilados, qué orígenes envían los datos y los diferentes tipos de datos enviados.  Use el panel **Uso de Log Analytics** para revisar y analizar el uso de datos. El panel muestra la cantidad de datos que recopila cada solución y cuántos datos envían los equipos.
 
 ## <a name="understand-the-usage-dashboard"></a>Comprender el panel Uso
 El panel **Uso de Log Analytics** muestra la siguiente información:
@@ -41,20 +41,17 @@ El panel **Uso de Log Analytics** muestra la siguiente información:
     - Time taken to collect and index data (Tiempo dedicado a recopilar e indexar datos)  
 - Lista de consultas
 
-![panel de uso](./media/log-analytics-usage/usage-dashboard01.png)
+![Panel de uso y costo](./media/log-analytics-manage-cost-storage/usage-estimated-cost-dashboard-01.png)<br>
+)
 
 ### <a name="to-work-with-usage-data"></a>Para trabajar con datos de uso, siga estos pasos:
-1. Si aún no lo ha hecho, inicie sesión en [Azure Portal](https://portal.azure.com) mediante su suscripción de Azure.
-2. Haga clic en **Todos los servicios** y, en la lista de recursos, escriba **Log Analytics**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Haga clic en **Log Analytics**.  
-    ![Menú central de Azure](./media/log-analytics-usage/hub.png)
-3. El panel **Log Analytics** muestra una lista de las áreas de trabajo. Seleccione un área de trabajo.
-4. En el panel del *área de trabajo*, haga clic en **Uso de Log Analytics**.
-5. En el panel **Uso de Log Analytics**, haga clic en **Tiempo: Últimas 24 horas** para cambiar el intervalo de tiempo.  
-    ![Intervalo de tiempo](./media/log-analytics-usage/time.png)
-6. Vea las hojas de categoría de uso que muestren áreas que le interesen. Elija una hoja y haga clic en un elemento en ella para ver más detalles en [Búsqueda de registros](log-analytics-log-searches.md).  
-    ![Hoja de uso de datos de ejemplo](./media/log-analytics-usage/blade.png)
-7. En el panel Búsqueda de registros, revise los resultados devueltos por la búsqueda.  
-    ![Búsqueda de registros de uso de ejemplo](./media/log-analytics-usage/usage-log-search.png)
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+2. En Azure Portal, haga clic en **Todos los servicios**. En la lista de recursos, escriba **Log Analytics**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Seleccione **Log Analytics**.<br><br> ![Azure Portal](./media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
+3. En la lista de áreas de trabajo de Log Analytics, seleccione un área de trabajo.
+4. Seleccione **Uso y costos estimados** en la lista del panel izquierdo.
+5. En el panel **Uso y costos estimados**, puede modificar el intervalo de tiempo seleccionando la opción **Tiempo: Últimas 24 horas** y cambiar el intervalo de tiempo.<br><br> ![Intervalo de tiempo](./media/log-analytics-usage/usage-time-filter-01.png)<br><br>
+6. Vea las hojas de categoría de uso que muestren áreas que le interesen. Elija una hoja y haga clic en un elemento en ella para ver más detalles en [Búsqueda de registros](log-analytics-log-searches.md).<br><br> ![KPI de uso de datos de ejemplo](media/log-analytics-usage/data-volume-kpi-01.png)<br><br>
+7. En el panel Búsqueda de registros, revise los resultados devueltos por la búsqueda.<br><br> ![Búsqueda de registros de uso de ejemplo](./media/log-analytics-usage/usage-log-search-01.png)
 
 ## <a name="create-an-alert-when-data-collection-is-higher-than-expected"></a>Creación de una alerta cuando la colección de datos es mayor de lo esperado
 En esta sección se describe cómo crear una alerta si:
@@ -158,7 +155,7 @@ Haga clic en **Ver todos...**  para ver la lista completa de los equipos que env
 Use la [selección de destino de solución](../operations-management-suite/operations-management-suite-solution-targeting.md) para recopilar datos solo de los grupos de equipos necesarios.
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Consulte [Búsquedas de registro en Log Analytics](log-analytics-log-searches.md) para obtener información sobre cómo usar el lenguaje de búsqueda. Puede utilizar las consultas de búsqueda para realizar análisis adicionales sobre los datos de uso.
 * Siga los pasos explicados en [Crear una regla de alerta](log-analytics-alerts-creating.md#create-an-alert-rule) para recibir una notificación cuando se cumplan los criterios de búsqueda.
 * Use la [selección de destino de solución](../operations-management-suite/operations-management-suite-solution-targeting.md) para recopilar datos solo de los grupos de equipos necesarios.
