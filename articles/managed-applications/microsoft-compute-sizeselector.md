@@ -1,6 +1,6 @@
 ---
-title: "Elemento de interfaz de usuario SizeSelector de una aplicación administrada de Azure | Microsoft Docs"
-description: Describe el elemento de la interfaz de usuario Microsoft.Compute.SizeSelector para aplicaciones administradas de Azure
+title: Elemento de interfaz de usuario SizeSelector de Azure | Microsoft Docs
+description: Describe el elemento de la interfaz de usuario Microsoft.Compute.SizeSelector para Azure Portal.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 03/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 72278b1999f89e5bd5f203794ba3a403a695c933
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 3966de95233f32a09d4799630632c2bb6a490d78
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="microsoftcomputesizeselector-ui-element"></a>Elemento de interfaz de usuario Microsoft.Compute.SizeSelector
-Control para seleccionar un tamaño para una o varias instancias de máquina virtual. Use este elemento al [crear una aplicación administrada de Azure](publish-service-catalog-app.md).
+Control para seleccionar un tamaño para una o varias instancias de máquina virtual.
 
 ## <a name="ui-sample"></a>Ejemplo de interfaz de usuario
 ![Microsoft.Compute.SizeSelector](./media/managed-application-elements/microsoft.compute.sizeselector.png)
@@ -67,6 +67,5 @@ Tanto `constraints.allowedSizes` como `constraints.excludedSizes` son opcionales
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Para una introducción a las aplicaciones administradas, consulte la [introducción a las aplicaciones administradas de Azure](overview.md).
 * Para ver una introducción sobre la creación de definiciones de interfaz de usuario, consulte [Introducción a CreateUiDefinition](create-uidefinition-overview.md).
 * Para ver una descripción de las propiedades comunes de los elementos de interfaz de usuario, consulte [Elementos CreateUiDefinition](create-uidefinition-elements.md).

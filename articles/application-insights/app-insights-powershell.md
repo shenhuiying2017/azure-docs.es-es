@@ -1,8 +1,8 @@
 ---
-title: "Automatización de Azure Application Insights con PowerShell | Microsoft Docs"
-description: "Automatice la creación de recursos, alertas y pruebas de disponibilidad en PowerShell mediante una plantilla de Azure Resource Manager."
+title: Automatización de Azure Application Insights con PowerShell | Microsoft Docs
+description: Automatice la creación de recursos, alertas y pruebas de disponibilidad en PowerShell mediante una plantilla de Azure Resource Manager.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 9f73b87f-be63-4847-88c8-368543acad8b
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2017
 ms.author: mbullwin
-ms.openlocfilehash: f4f9d1558d2ef9dc5e1b7b248ad5bc8753f59cf9
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 46ba4ce992640e8a6d171ab839dd7cdb24e0b404
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 04/03/2018
 ---
 #  <a name="create-application-insights-resources-using-powershell"></a>Creación de recursos de Application Insights mediante PowerShell
 Este artículo muestra cómo automatizar la creación y actualización de los recursos de [Application Insights](app-insights-overview.md) automáticamente mediante Azure Resource Management. Puede hacerlo, por ejemplo, como parte de un proceso de compilación. Junto con el recurso básico de Application Insights, puede crear [pruebas web de disponibilidad](app-insights-monitor-web-app-availability.md), [configurar alertas](app-insights-alerts.md), establecer el [esquema de precios](app-insights-pricing.md) y crear otros recursos de Azure.
@@ -198,13 +198,13 @@ Para crear un recurso de aplicación con el plan de precios de Enterprise, use l
 
 |priceCode|plan|
 |---|---|
-|1|Básico|
+|1|Básica|
 |2|Enterprise|
 
 * Si solo desea usar el plan de precios básico predeterminado, puede omitir el recurso CurrentBillingFeatures de la plantilla.
 * Si desea cambiar el plan de precios una vez creado el recurso de componente, puede usar una plantilla que omita el recurso "microsoft.insights/components". Además, omita el nodo `dependsOn` del recurso de facturación. 
 
-Para comprobar el plan de precios actualizado, consulte la hoja de características y precios en el explorador. **Actualice la vista de explorador** para asegurarse de ver el estado más reciente.
+Para comprobar el plan de precios actualizado, consulte la hoja **Uso y costos estimados** en el explorador. **Actualice la vista de explorador** para asegurarse de ver el estado más reciente.
 
 
 

@@ -1,18 +1,18 @@
 ---
-title: "Introducción a Azure Event Grid"
+title: Introducción a Azure Event Grid
 description: Describe Azure Event Grid y sus conceptos.
 services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/30/2018
 ms.author: babanisa
-ms.openlocfilehash: 5e700e3e9d17e790083facf00c7f4b8decf9037a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 335d6aba3a3d2098fa64aeda8c58c8dd7f4e6776
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Una introducción a Azure Event Grid
 
@@ -33,25 +33,26 @@ Actualmente, Event Grid admite las siguientes regiones:
 *   Oeste de EE. UU
 *   Oeste de EE. UU. 2
 
-Este artículo ofrece información general sobre Azure Event Grid. Para comenzar a usar rápidamente Event Grid, consulte [Creación y enrutamiento de eventos personalizados con Azure Event Grid](custom-event-quickstart.md). La siguiente imagen muestra cómo se conectan los publicadores y los controladores en Event Grid, pero no proporciona una lista completa de las opciones admitidas.
+Este artículo ofrece información general sobre Azure Event Grid. Para comenzar a usar rápidamente Event Grid, consulte [Creación y enrutamiento de eventos personalizados con Azure Event Grid](custom-event-quickstart.md). La siguiente imagen muestra cómo se conectan los orígenes y los controladores en Event Grid, pero no proporciona una lista completa de las opciones admitidas.
 
 ![Modelo funcional de Event Grid](./media/overview/functional-model.png)
 
-## <a name="event-publishers"></a>Publicadores de eventos
+## <a name="event-sources"></a>Orígenes de eventos
 
-Actualmente, los siguientes servicios de Azure tienen compatibilidad de publicador integrada para Event Grid:
+Actualmente, los siguientes servicios de Azure admiten el envío de eventos a Event Grid:
 
 * Suscripciones de Azure (operaciones de administración)
 * Temas personalizados
 * Event Hubs
 * IoT Hub
 * Grupos de recursos (operaciones de administración)
+* Azure Service Bus
 * Storage Blob
 * Storage de uso general v2 (GPv2)
 
 ## <a name="event-handlers"></a>Controladores de eventos
 
-Actualmente, los siguientes servicios de Azure tienen compatibilidad de controlador integrada para Event Grid: 
+Actualmente, los siguientes servicios de Azure admiten el control de eventos de Event Grid: 
 
 * Azure Automation
 * Azure Functions
@@ -115,7 +116,7 @@ Event Grid conecta su aplicación con otros servicios. Por ejemplo, cree un tema
 
 Azure Event Grid usa un modelo de precios de pago por evento, por lo que solo se paga por lo que usa. Los 100 000 primeras operaciones al mes son gratis. Estas operaciones se definen como eventos de entrada, coincidencia avanzada, intentos de entrega y llamadas de administración. Para obtener información detallada, consulte la [página de precios](https://azure.microsoft.com/pricing/details/event-grid/).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Enrutamiento de los eventos de Storage Blob](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)  
   Permite responder a los eventos de Storage Blob mediante Event Grid.

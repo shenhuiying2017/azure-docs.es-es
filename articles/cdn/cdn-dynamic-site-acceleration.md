@@ -1,12 +1,12 @@
 ---
-title: "Aceleración de sitios dinámicos a través de Azure CDN"
-description: "Profundización de la aceleración de sitios dinámicos"
+title: Aceleración de sitios dinámicos a través de Azure CDN
+description: Azure CDN admite la optimización de aceleración de sitios dinámicos (DSA) para archivos con contenido dinámico.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: dksimpson
 manager: akucer
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: rli
-ms.openlocfilehash: 713f00f432095b7a8a19996fb7bdb7e5f8d79b63
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: d105c88105512df4a9f8d999f64ad001b5d54917
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>Aceleración de sitios dinámicos a través de Azure CDN
 
@@ -152,19 +152,32 @@ Con DSA, el almacenamiento en caché está desactivado de forma predeterminada e
 
 Si tiene un sitio web con una combinación de recursos estáticos y dinámicos, es mejor adoptar un enfoque híbrido para obtener el mejor rendimiento. 
 
-En los perfiles de **Azure CDN de Verizon Premium**, puede activar el almacenamiento en caché en determinados casos mediante el [motor de reglas](cdn-rules-engine.md) en los puntos de conexión de DSA. Las reglas que se crean afectan únicamente a esos puntos de conexión del perfil que están optimizados para DSA. 
+En los perfiles de **Azure CDN de Verizon estándar** y **Azure CDN de Akamai estándar**, puede activar el almacenamiento en caché para puntos de conexión de DSA específicos mediante [reglas de caché](cdn-caching-rules.md).
 
-Para acceder al motor de reglas en los puntos de conexión de DSA:
+Para acceder a las reglas de almacenamiento en caché:
+
+1. En la página **Perfil de CDN**, en Configuración, seleccione **Reglas de caché**.  
+    
+    ![Botón Reglas de caché de CDN](./media/cdn-dynamic-site-acceleration/cdn-caching-rules-btn.png)
+
+    Se abre la página **Reglas de caché**.
+
+2. Cree una regla de caché global o personalizada para activar el almacenamiento en caché en su punto de conexión de DSA. 
+
+En los perfiles de **Azure CDN de Verizon premium**, puede activar el almacenamiento en caché para determinados puntos de conexión de DSA mediante el [motor de reglas](cdn-rules-engine.md). Las reglas que se crean afectan únicamente a esos puntos de conexión del perfil que están optimizados para DSA. 
+
+Para acceder al motor de reglas:
     
 1. En la página **CDN profile** (Perfil de CDN), seleccione **Manage** (Administrar).  
     
-    ![Botón de administración de perfil de la red CDN](./media/cdn-rules-engine/cdn-manage-btn.png)
+    ![Botón de administración de perfil de la red CDN](./media/cdn-dynamic-site-acceleration/cdn-manage-btn.png)
 
     Se abre el Portal de administración de CDN.
 
 2. En el portal de administración de CDN, seleccione **ADN** y, luego, **Rules Engine** (Motor de reglas). 
 
-    ![Motor de reglas para DSA](./media/cdn-rules-engine/cdn-dsa-rules-engine.png)
+    ![Motor de reglas para DSA](./media/cdn-dynamic-site-acceleration/cdn-dsa-rules-engine.png)
+
 
 
 Como alternativa, puede utilizar dos puntos de conexión de CDN: uno optimizado con DSA para entregar recursos dinámicos y el otro optimizado con un tipo de optimización estático, como entrega web general, para entregar recursos almacenables en caché. Modifique las direcciones URL de página web para crear un vínculo directo con el recurso en el punto de conexión de CDN que planea usar. 

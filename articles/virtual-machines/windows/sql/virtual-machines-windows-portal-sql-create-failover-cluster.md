@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 13/22/2018
 ms.author: mikeray
-ms.openlocfilehash: faa849fc53aa15a47e850a20531c4fa30544f750
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 425310f50cebc920a71090d2017dca2a6c135991
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configuración de una instancia de clúster de conmutación por error de SQL Server en Azure Virtual Machines
 
@@ -375,27 +375,13 @@ Para crear el equilibrador de carga:
 
 1. Vuelva al grupo de recursos de Azure con las máquinas virtuales y busque el equilibrador de carga nuevo. Es posible que tenga que actualizar la vista en el grupo de recursos. Haga clic en el equilibrador de carga.
 
-1. En la hoja del equilibrador de carga, haga clic en **Grupos de back-end**.
+1. Haga clic en **Grupos de back-end** y en **+ Agregar** para agregar un grupo de back-end.
 
-1. Haga clic en **+ Agregar** para agregar un grupo de back-end.
+1. Asocie el grupo de back-end con el conjunto de disponibilidad que contiene las máquinas virtuales.
 
-1. Escriba el nombre del grupo de back-end.
+1. En **Configuraciones IP de red de destino**, active **MÁQUINA VIRTUAL** y elija las máquinas virtuales que participarán como nodos de clúster. No olvide incluir todas las máquinas virtuales que hospedarán el FCI. 
 
-1. Haga clic en **Agregar una máquina virtual**.
-
-1. En la hoja **Elegir máquinas virtuales**, haga clic en **Elegir un conjunto de disponibilidad**.
-
-1. Elija que el conjunto de disponibilidad en el que colocó las máquinas virtuales de SQL Server.
-
-1. En la hoja **Elegir máquinas virtuales**, haga clic en **Elegir las máquinas virtuales**.
-
-   Azure Portal debe ser similar a lo que aparece en la siguiente imagen:
-
-   ![CreateLoadBalancerBackEnd](./media/virtual-machines-windows-portal-sql-create-failover-cluster/33-load-balancer-back-end.png)
-
-1. Haga clic en **Seleccionar** en la hoja **Elegir máquinas virtuales**.
-
-1. Haga clic en **Aceptar** dos veces.
+1. Haga clic en **Aceptar** para crear el grupo de back-end.
 
 ### <a name="configure-a-load-balancer-health-probe"></a>Configuración de un sondeo de mantenimiento de un equilibrador de carga
 

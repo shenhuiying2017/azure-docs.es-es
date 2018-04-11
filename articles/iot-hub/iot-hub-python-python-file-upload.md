@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/05/2018
 ms.author: kgremban
-ms.openlocfilehash: 6f1a40f254473ae7d02168f0cfd6ad5c0d461d82
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 7f64783f5e1c79436b671ef98f30f5e3594b94e6
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Carga de archivos de un dispositivo a la nube con IoT Hub
 
@@ -29,7 +29,7 @@ Este tutorial describe cómo usar las [funcionalidades de carga de archivos de I
 - Proporcionar de forma segura un contenedor de almacenamiento para cargar un archivo.
 - Usar el cliente de Python para cargar un archivo mediante IoT Hub.
 
-Los tutoriales [Introducción a Iot Hub](iot-hub-node-node-getstarted.md) y [Envío de mensajes de nube a dispositivo con IoT Hub](iot-hub-node-node-c2d.md) muestran cómo usar la funcionalidad básica de mensajería de dispositivo a nube y de nube a dispositivo de IoT Hub. Sin embargo, en algunos casos no se pueden asignar fácilmente los datos de que los dispositivos envían en los mensajes de dispositivo a nube con un tamaño relativamente reducido que acepta Azure IoT Hub. Cuando necesite cargar archivos desde un dispositivo, todavía puede usar la seguridad y confiabilidad de IoT Hub.
+El tutorial [Introducción al IoT Hub](iot-hub-node-node-getstarted.md) muestra la funcionalidad de mensajería básica del dispositivo a la nube de la instancia de IoT Hub. Sin embargo, en algunos casos no se pueden asignar fácilmente los datos de que los dispositivos envían en los mensajes de dispositivo a nube con un tamaño relativamente reducido que acepta Azure IoT Hub. Cuando necesite cargar archivos desde un dispositivo, todavía puede usar la seguridad y confiabilidad de IoT Hub.
 
 > [!NOTE]
 > El SDK de Python de IoT Hub solo admite actualmente la carga de archivos basados en caracteres como, por ejemplo, archivos **.txt**.

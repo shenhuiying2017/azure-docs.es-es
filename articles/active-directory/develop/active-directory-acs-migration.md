@@ -5,7 +5,7 @@ services: active-directory
 documentationcenter: dev-center-name
 author: dstrockis
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.devlang: na
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/14/2017
 ms.author: dastrock
-ms.openlocfilehash: f634adbacc8e1fc128ecef15ad38f2f8b28eb25d
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 6c22f85d3e76a005c45a4679ddfd8948a46acffc
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="migrate-from-the-azure-access-control-service"></a>Migrar desde Azure Access Control Service
 
-Azure Access Control es un servicio de Azure Active Directory (Azure AD) y se retirará en noviembre de 2018. Para entonces, las aplicaciones y servicios que utilizan Access Control deben migrarse completamente a un mecanismo de autenticación diferente. En este artículo se describen las recomendaciones para los clientes actuales que pretenden dejar de usar Access Control. Si actualmente no utiliza Access Control, no es necesario realizar ninguna acción.
+Azure Access Control, un servicio de Azure Active Directory (Azure AD), se retirará el 7 de noviembre de 2018. Para entonces, las aplicaciones y servicios que utilizan Access Control deben migrarse completamente a un mecanismo de autenticación diferente. En este artículo se describen las recomendaciones para los clientes actuales que pretenden dejar de usar Access Control. Si actualmente no utiliza Access Control, no es necesario realizar ninguna acción.
 
 
 ## <a name="overview"></a>Información general
@@ -54,11 +54,9 @@ Para utilizar estos componentes, debe crear uno o varios espacios de nombres de 
 https://<mynamespace>.accesscontrol.windows.net
 ```
 
-Toda comunicación con las operaciones de administración y STS se realiza en esta dirección URL. Use rutas de acceso diferentes para distintos fines. Para determinar si sus aplicaciones o servicios utilizan Access Control, supervise todo el tráfico a https://\<espacio de nombres\>.accesscontrol.windows.net. Access Control maneja todo el tráfico dirigido a esta dirección URL y debe interrumpirse. 
+Toda comunicación con las operaciones de administración y STS se realiza en esta dirección URL. Use rutas de acceso diferentes para distintos fines. Para determinar si sus aplicaciones o servicios utilizan Access Control, supervise todo el tráfico a https://<namespace>.accesscontrol.windows.net. Access Control maneja todo el tráfico dirigido a esta dirección URL y debe interrumpirse. 
 
-La única excepción es todo el tráfico a https://accounts.accesscontrol.windows.net. El tráfico a esta dirección URL ya se controla mediante un servicio diferente y no se ve afectado debido al desuso de Access Control. 
-
-También debe asegurarse de iniciar sesión en el Portal de Azure clásico y comprobar los espacios de nombres de Access Control en las suscripciones que posea. Los espacios de nombres de Access Control se enumeran en el servicio **Active Directory**, en la pestaña **Espacios de nombres de Access Control**.
+La excepción a esto es todo el tráfico a `https://accounts.accesscontrol.windows.net`. El tráfico a esta dirección URL ya se controla mediante un servicio diferente y **no** se ve afectado debido al desuso de Access Control. 
 
 Para obtener más información sobre Access Control, consulte [Access Control Service 2.0 (archivado)](https://msdn.microsoft.com/library/hh147631.aspx).
 
@@ -68,9 +66,9 @@ A partir de noviembre de 2017, todos los componentes de Access Control son total
 
 Aquí está el calendario que indica el desuso de los componentes de Access Control:
 
-- **Noviembre de 2017**: la experiencia de administración de Azure AD en el Portal de Azure clásico [se retira](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). En este momento, la administración del espacio de nombres de Access Control está disponible en una nueva dirección URL dedicada: http://manage.windowsazure.com?restoreClassic=true. Use esta URl para ver los espacios de nombres existentes y habilitar, deshabilitar y eliminar diversos espacios de nombres si así lo desea.
-- **Abril de 2018**: la administración de espacios de nombres de Access Control ya no está disponible en la dirección URL dedicada http://manage.windowsazure.com?restoreClassic=true. No podrá deshabilitar o habilitar, eliminar o enumerar los espacios de nombres de Access Control. Sin embargo, el portal de administración de Access Control será totalmente funcional en https://\<espacio de nombres\>.accesscontrol.windows.net. Todos los demás componentes de Access Control también seguirán funcionando con normalidad.
-- **Noviembre de 2018**: todos los componentes de Access Control se cierran permanentemente. Esto incluye el portal de administración de Access Control, el servicio de administración, STS y el motor de reglas de transformación de tokens. En este momento, las solicitudes enviadas a Access Control (ubicado en \<espacio de nombres\>.accesscontrol.windows.net) producirán un error. Debe haber migrado todos los servicios y aplicaciones existentes a otras tecnologías bastante antes de esta fecha.
+- **Noviembre de 2017**: la experiencia de administración de Azure AD en el Portal de Azure clásico [se retira](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). En este momento, la administración del espacio de nombres de Access Control estará disponible en esta nueva dirección URL dedicada: `http://manage.windowsazure.com?restoreClassic=true`. Use esta URl para ver los espacios de nombres existentes y habilitar, deshabilitar y eliminar diversos espacios de nombres si así lo desea.
+- **2 de abril de 2018**: el Portal de Azure clásico se ha retirado por completo, lo que significa que la administración del espacio de nombres de Access Control ya no está disponible a través de ninguna dirección URL. No podrá deshabilitar o habilitar, eliminar o enumerar los espacios de nombres de Access Control. Sin embargo, el portal de administración de Access Control será totalmente funcional y se ubicará en `https://\<namespace\>.accesscontrol.windows.net`. Todos los demás componentes de Access Control también seguirán funcionando con normalidad.
+- **7 de noviembre de 2018**: todos los componentes de Access Control se cierran permanentemente. Esto incluye el portal de administración de Access Control, el servicio de administración, STS y el motor de reglas de transformación de tokens. En este momento, las solicitudes enviadas a Access Control (ubicado en \<espacio de nombres\>.accesscontrol.windows.net) producirán un error. Debe haber migrado todos los servicios y aplicaciones existentes a otras tecnologías bastante antes de esta fecha.
 
 
 ## <a name="migration-strategies"></a>Estrategias de migración
@@ -98,6 +96,17 @@ Cada uno de los Servicios en la nube de Microsoft que aceptan tokens que haya em
 <!-- Azure StorSimple: TODO -->
 <!-- Azure SiteRecovery: TODO -->
 
+
+### <a name="sharepoint-customers"></a>Clientes de SharePoint
+
+Los clientes de SharePoint 2013 y 2016 y SharePoint Online han utilizado durante mucho tiempo ACS para fines de autenticación en escenarios en la nube, locales e híbridos. Algunas características de y casos de uso de SharePoint resultarán afectados por la retirada de ACS, pero otros no. En la tabla siguiente se resume la guía de migración para algunas de las características más populares de SharePoint que hacen uso de ACS:
+
+| Característica | Guía |
+| ------- | -------- |
+| Autenticación de usuarios desde Azure AD | Anteriormente, Azure AD no admitía los tokens de SAML 1.1 requeridos por SharePoint para la autenticación, y ACS se utilizaba como intermediario que permitía la compatibilidad de SharePoint con formatos de token de Azure AD. Ahora, puede [conectar SharePoint directamente a Azure AD mediante directivas de emisión de tokens](https://docs.microsoft.com/Office365/Enterprise/using-azure-ad-for-sharepoint-server-authentication). |
+| [Autenticación de aplicaciones y autenticación de servidor a servidor en SharePoint local](https://technet.microsoft.com/library/jj219571(v=office.16).aspx) | No resulta afectado por la retirada de ACS; no se requieren cambios. | 
+| [Autorización de confianza baja para complementos de SharePoint (proveedor hospedado y SharePoint hospedado)](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/three-authorization-systems-for-sharepoint-add-ins) | No resulta afectado por la retirada de ACS; no se requieren cambios. |
+| [Búsqueda de SharePoint en la nube híbrida](https://blogs.msdn.microsoft.com/spses/2015/09/15/cloud-hybrid-search-service-application/) | No resulta afectado por la retirada de ACS; no se requieren cambios. |
 
 ### <a name="web-applications-that-use-passive-authentication"></a>Aplicaciones web que usan autenticación pasiva
 
@@ -243,7 +252,7 @@ En estos casos, conviene considerar la posibilidad de migrar la aplicación web 
 |     |     | 
 | --- | --- |
 | ![Auth0](./media/active-directory-acs-migration/rsz_auth0.png) | [Auth0](https://auth0.com/acs) es un servicio de identidad en la nube flexible que ha creado una [guía de migración de alto nivel para los clientes de Access Control](https://auth0.com/acs) y es compatible con casi todas las características de ACS. |
-| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | La [identidad de Ping](https://www.pingidentity.com) le ofrece dos soluciones similares a ACS. PingOne es un servicio de identidad en la nube que admite muchas de las características de ACS, y PingFederate es un producto de identidad local similar que ofrece más flexibilidad. Si quiere obtener más detalles acerca de cómo usar estos productos, consulte [Ping's ACS retirement guidance](https://www.pingidentity.com/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) (Guía de retirada de ACS de Ping).  |
+| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | La [identidad de Ping](https://www.pingidentity.com) le ofrece dos soluciones similares a ACS. PingOne es un servicio de identidad en la nube que admite muchas de las características de ACS, y PingFederate es un producto de identidad local similar que ofrece más flexibilidad. Si quiere obtener más detalles acerca de cómo usar estos productos, consulte [Ping's ACS retirement guidance](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) (Guía de retirada de ACS de Ping).  |
 
 Nuestro objetivo al trabajar con la identidad de Ping y Auth0 es asegurarnos de que todos los clientes de Access Control tengan una ruta de migración que minimice la cantidad de trabajo necesario para mover las aplicaciones y servicios de Access Control.
 
@@ -305,7 +314,7 @@ En estos casos, conviene considerar la posibilidad de migrar la aplicación web 
 |     |     | 
 | --- | --- |
 | ![Auth0](./media/active-directory-acs-migration/rsz_auth0.png) | [Auth0](https://auth0.com/acs) es un servicio de identidad en la nube flexible que ha creado una [guía de migración de alto nivel para los clientes de Access Control](https://auth0.com/acs) y es compatible con casi todas las características de ACS. |
-| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | La [identidad de Ping](https://www.pingidentity.com) le ofrece dos soluciones similares a ACS. PingOne es un servicio de identidad en la nube que admite muchas de las características de ACS, y PingFederate es un producto de identidad local similar que ofrece más flexibilidad. Si quiere obtener más detalles acerca de cómo usar estos productos, consulte [Ping's ACS retirement guidance](https://www.pingidentity.com/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) (Guía de retirada de ACS de Ping).  |
+| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | La [identidad de Ping](https://www.pingidentity.com) le ofrece dos soluciones similares a ACS. PingOne es un servicio de identidad en la nube que admite muchas de las características de ACS, y PingFederate es un producto de identidad local similar que ofrece más flexibilidad. Si quiere obtener más detalles acerca de cómo usar estos productos, consulte [Ping's ACS retirement guidance](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) (Guía de retirada de ACS de Ping).  |
 
 Nuestro objetivo al trabajar con la identidad de Ping y Auth0 es asegurarnos de que todos los clientes de Access Control tengan una ruta de migración que minimice la cantidad de trabajo necesario para mover las aplicaciones y servicios de Access Control.
 

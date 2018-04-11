@@ -1,6 +1,6 @@
 ---
-title: "Elemento de interfaz de usuario FileUpload de una aplicación administrada de Azure | Microsoft Docs"
-description: Describe el elemento de la interfaz de usuario Microsoft.Common.FileUpload para aplicaciones administradas de Azure
+title: Elemento de interfaz de usuario FileUpload de Azure | Microsoft Docs
+description: Describe el elemento de la interfaz de usuario Microsoft.Common.FileUpload para Azure Portal.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 03/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 095880322ba801895a22efcf3476fa37d9e2ac3c
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: bfde11a189348472942248a6b90fd5ef1b5a1c89
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="microsoftcommonfileupload-ui-element"></a>Elemento de interfaz de usuario Microsoft.Common.FileUpload
-Control que permite al usuario especificar uno o varios archivos para cargar. Use este elemento al [crear una aplicación administrada de Azure](publish-service-catalog-app.md).
+Control que permite al usuario especificar uno o varios archivos para cargar.
 
 ## <a name="ui-sample"></a>Ejemplo de interfaz de usuario
 ![Microsoft.Common.FileUpload](./media/managed-application-elements/microsoft.common.fileupload.png)
@@ -91,6 +91,5 @@ Cuando se prueba una definición CreateUiDefinition, algunos exploradores (como 
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Para una introducción a las aplicaciones administradas, consulte la [introducción a las aplicaciones administradas de Azure](overview.md).
 * Para ver una introducción sobre la creación de definiciones de interfaz de usuario, consulte [Introducción a CreateUiDefinition](create-uidefinition-overview.md).
 * Para ver una descripción de las propiedades comunes de los elementos de interfaz de usuario, consulte [Elementos CreateUiDefinition](create-uidefinition-elements.md).

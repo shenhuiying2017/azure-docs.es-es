@@ -12,25 +12,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/30/2018
 ms.author: mimig
-ms.openlocfilehash: 3679aa76d4a6b9fd6335371e1639f1f246867fa5
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 5f733e9cbd90829eded80b1401093e2331a1eb16
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unidades de solicitud en Azure Cosmos DB
-Ya disponible: la [calculadora de unidades de solicitud](https://www.documentdb.com/capacityplanner) de Azure Cosmos DB. Obtenga más información en [Estimación de las necesidades de rendimiento](request-units.md#estimating-throughput-needs).
 
-![Calculadora de rendimiento][5]
-
-## <a name="introduction"></a>Introducción
 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Con Azure Cosmos DB, no tendrá que alquilar máquinas virtuales, implementar software ni supervisar bases de datos. Los mejores ingenieros de Microsoft operan y supervisan de forma continua Azure Cosmos DB para ofrecer disponibilidad, rendimiento y protección de datos universales. Puede acceder a los datos mediante las API de su elección, por ejemplo, [SQL API](documentdb-introduction.md), [MongoDB API](mongodb-introduction.md), [Table API](table-introduction.md) y Gremlin a través de [Graph API](graph-introduction.md); todas ellas son compatibles de forma nativa. La divisa de Azure Cosmos DB es la Unidad de solicitud (RU). Con las RU, no necesita reservar funcionalidades de lectura o escritura ni aprovisionar CPU, memoria ni IOPS.
 
 Azure Cosmos DB admite varias API con distintas operaciones que varían desde lecturas y escrituras sencillas hasta consultas de grafos complejos. Puesto que no todas las solicitudes son iguales, se les asigna una cantidad regularizada de **unidades de solicitud** según el número de procesamientos necesario para prestar servicio a la solicitud. El número de unidades de solicitud para una operación es determinista y puede realizar un seguimiento del número de unidades de solicitud consumidas por cualquier operación de Azure Cosmos DB a través de un encabezado de respuesta. 
 
-Para proporcionar un rendimiento predecible, debe reservar el rendimiento en unidades de 100 RU/segundo. 
+Para proporcionar un rendimiento predecible, debe reservar el rendimiento en unidades de 100 RU/segundo. Puede [calcular las necesidades de rendimiento](request-units.md#estimating-throughput-needs) mediante el uso la [calculadora de unidades de solicitud](https://www.documentdb.com/capacityplanner) de Azure Cosmos DB.
+
+![Calculadora de rendimiento][5]
 
 Después de leer este artículo, podrá responder a las preguntas siguientes:  
 
@@ -46,9 +44,9 @@ Azure Cosmos DB ofrece un rendimiento predecible y rápido mediante la *reserva*
 
 Con Azure Cosmos DB, el rendimiento reservado se especifica en términos de procesamiento de unidades de solicitud por segundo. Puede pensar en unidades de solicitud como divisa de rendimiento, donde se *reserva* una cantidad de unidades de solicitud garantizadas para la aplicación por segundo.  Cada operación de Azure Cosmos DB: escritura de un documento, realización de una consulta, actualización de un documento, consume CPU, memoria y E/S por segundo.  Es decir, cada operación implica un *cargo de solicitud*, que se expresa en *unidades de solicitud*.  La descripción de los factores que afectan a los cargos de unidades de solicitud, junto con los requisitos de rendimiento de la aplicación, le permite ejecutar la aplicación de la forma más rentable posible. El Explorador de datos de Azure Portal también es una excelente herramienta para probar el centro de una consulta.
 
-Se recomienda ver una introducción en el vídeo siguiente, donde Aravind Ramachandran explica las unidades de solicitud y un rendimiento predecible con Azure Cosmos DB.
+Recomendamos comenzar viendo el siguiente vídeo, donde Andrew Liu, administrador del programa de Azure Cosmos DB, explica las unidades de solicitud.
 
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Predictable-Performance-with-DocumentDB/player]
+> [!VIDEO https://www.youtube.com/embed/stk5WSp5uX0]
 > 
 > 
 

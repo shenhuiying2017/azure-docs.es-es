@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.author: lmolkova
-ms.openlocfilehash: 57f5670eec36ff2c4332da592dd2a3eef73fdefc
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.author: lmolkova; mbullwin
+ms.openlocfilehash: f9d734abeb644fc865d5dc86afc8ad0e586bfc0a
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="application-insights-for-net-console-applications"></a>Application Insights para aplicaciones de consola .NET
 [Application Insights](app-insights-overview.md) permite supervisar la disponibilidad, el rendimiento y el uso de una aplicación web.
@@ -26,8 +26,8 @@ Necesita una suscripción a [Microsoft Azure](http://azure.com). Inicie sesión 
 
 ## <a name="getting-started"></a>Introducción
 
-* En [Azure Portal](https://portal.azure.com), [cree un recurso de Application Insights](app-insights-create-new-resource.md). Para el tipo de aplicación, elija la aplicación ASP.NET.
-* Realice una copia de la clave de instrumentación. Busque la clave en la lista desplegable Essentials del recurso que creó. 
+* En [Azure Portal](https://portal.azure.com), [cree un recurso de Application Insights](app-insights-create-new-resource.md). Para el tipo de aplicación, elija **General**.
+* Realice una copia de la clave de instrumentación. Busque la clave en la lista desplegable **Essentials** del recurso que creó. 
 * Instale el paquete [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) más reciente.
 * Establezca la clave de instrumentación en el código antes de hacer el seguimiento de cualquier telemetría (o establezca la variable de entorno APPINSIGHTS_INSTRUMENTATIONKEY). Después de eso, debe ser capaz de hacer un seguimiento manual de la telemetría y verla en Azure Portal
 
@@ -39,7 +39,10 @@ telemetryClient.TrackTrace("Hello World!");
 
 * Instale la versión más reciente de [Microsoft.ApplicationInsights.DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector), que hace automáticamente un seguimiento de HTTP, SQL o algunas llamadas de dependencias externas.
 
-Puede inicializar y configurar Application Insights desde el código o con el archivo `ApplicationInsights.config`. Asegúrese de que la inicialización se realice tan pronto como sea posible.
+Puede inicializar y configurar Application Insights desde el código o con el archivo `ApplicationInsights.config`. Asegúrese de que la inicialización se realice tan pronto como sea posible. 
+
+> [!NOTE]
+> Las instrucciones referentes a **ApplicationInsights.config** solo son aplicables a las aplicaciones que tienen como destino .NET Standard, y no se aplican a las aplicaciones de .NET Core. 
 
 ### <a name="using-config-file"></a>Uso del archivo de configuración
 
@@ -172,6 +175,6 @@ static DependencyTrackingTelemetryModule IntitializeDependencyTracking(Telemetry
 }
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Supervise dependencias](app-insights-asp-net-dependencies.md) para ver si REST, SQL u otros recursos externos se están ralentizando.
 * [Use la API](app-insights-api-custom-events-metrics.md) para enviar sus propios eventos y métricas para obtener una vista más detallada del rendimiento y el uso de la aplicación.

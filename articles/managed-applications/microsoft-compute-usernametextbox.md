@@ -1,6 +1,6 @@
 ---
-title: "Elemento de interfaz de usuario UserNameTextBox de una aplicación administrada de Azure | Microsoft Docs"
-description: Describe el elemento de la interfaz de usuario Microsoft.Common.UserNameTextBox para aplicaciones administradas de Azure
+title: Elemento de interfaz de usuario UserNameTextBox de Azure | Microsoft Docs
+description: Describe el elemento de la interfaz de usuario Microsoft.Common.UserNameTextBox para Azure Portal.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/12/2017
 ms.author: tomfitz
-ms.openlocfilehash: 6a395915af274750eb57a085ee51b55fdd392615
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 4c8f62784b563bd8d39ccc763598b73b9b5d7195
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="microsoftcomputeusernametextbox-ui-element"></a>Elemento de interfaz de usuario Microsoft.Compute.UserNameTextBox
-Control de cuadro de texto con validación integrada para nombres de usuario de Windows y Linux. Use este elemento al [crear una aplicación administrada de Azure](publish-service-catalog-app.md).
+Control de cuadro de texto con validación integrada para nombres de usuario de Windows y Linux.
 
 ## <a name="ui-sample"></a>Ejemplo de interfaz de usuario
 ![Microsoft.Compute.UserNameTextBox](./media/managed-application-elements/microsoft.compute.usernametextbox.png)
@@ -57,6 +57,5 @@ Si se especifica un valor para `constraints.regex`, se activan las validaciones 
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Para una introducción a las aplicaciones administradas, consulte la [introducción a las aplicaciones administradas de Azure](overview.md).
 * Para ver una introducción sobre la creación de definiciones de interfaz de usuario, consulte [Introducción a CreateUiDefinition](create-uidefinition-overview.md).
 * Para ver una descripción de las propiedades comunes de los elementos de interfaz de usuario, consulte [Elementos CreateUiDefinition](create-uidefinition-elements.md).

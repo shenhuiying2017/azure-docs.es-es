@@ -1,5 +1,5 @@
 ---
-title: Creación, visualización y administración de alertas en la sección Alertas (versión preliminar) de Azure Monitor | Microsoft Docs
+title: Creación, visualización y administración de alertas mediante Azure Monitor | Microsoft Docs
 description: Use la nueva experiencia de alertas unificadas de Azure para crear, ver y administrar reglas de alertas de métricas y registros desde un solo lugar.
 author: msvijayn
 manager: kmadnani1
@@ -14,31 +14,33 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: vinagara
-ms.openlocfilehash: b6b6bfee5b9e9036a6d7ff17ff1a8d4de542bbd3
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: fdb3ebe3820191a642c4503851b04dd5fc5e6048
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="create-view-and-manage-alerts-using-azure-monitor---alerts-preview"></a>Creación, visualización y administración de alertas en la sección Alertas (versión preliminar) de Azure Monitor
+# <a name="create-view-and-manage-alerts-using-azure-monitor"></a>Creación, visualización y administración de alertas mediante Azure Monitor  
 
 ## <a name="overview"></a>Información general
-En este artículo se explica cómo configurar las alertas en la nueva interfaz de Alertas (versión preliminar) en Azure Portal. La definición de una regla de alertas consta de tres partes:
+En este artículo se muestra cómo configurar las alertas con la nueva interfaz de alertas en Azure Portal. La definición de una regla de alertas consta de tres partes:
 - Destino: recurso de Azure específico que se va a supervisar.
 - Criterios: condición o lógica específicas que, cuando se señaliza la alerta, deben desencadenar una acción.
 - Acción: llamada específica enviada a un receptor de una notificación (correo electrónico, SMS, webhook, etc.).
 
-En Alertas (versión preliminar), se usa el término **Alertas de registro** para describir aquellas alertas cuya señal es una consulta personalizada basada en [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) o [Azure Application Insights](../application-insights/app-insights-analytics.md). La funcionalidad de alertas de métricas llamada [Alerta de métricas de Near Real Time](monitoring-near-real-time-metric-alerts.md) en la experiencia de alertas existente se denomina **Alertas de métrica** en Alertas (versión preliminar). En *Alertas de métrica*, algunos tipos de recursos proporcionan [métricas multidimensionales](monitoring-metric-charts.md) para un recurso específico de Azure y, por tanto, las alertas de dicho recurso pueden hacerse más específicas con filtros adicionales sobre las dimensiones; tales alertas se conocen como **Alertas de métricas multidimensionales**.
-Alertas de Azure (versión preliminar) también ofrece una vista unificada de todas las reglas de alertas y la posibilidad de administrarlas desde un único lugar, incluida la visualización de cualquier alerta sin resolver. Obtenga más información sobre la funcionalidad en la [introducción sobre Alertas de Azure (versión preliminar)](monitoring-overview-unified-alerts.md).
+Alertas de Azure también ofrece una vista unificada de todas las reglas de alertas y la posibilidad de administrarlas desde un único lugar, incluida la visualización de cualquier alerta sin resolver. Obtenga más información sobre la funcionalidad en la [introducción a Alertas de Azure](monitoring-overview-unified-alerts.md).
+
+Alertas usa el término **Alertas de registro** para describir las alertas cuya señal es una consulta personalizada basada en [Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) o [Application Insights](../application-insights/app-insights-analytics.md). La [nueva funcionalidad de alertas de métricas](monitoring-near-real-time-metric-alerts.md) proporciona la capacidad de enviar alertas en función de [métricas multidimensionales](monitoring-metric-charts.md) para recursos de Azure específicos. Las alertas para dicho recurso pueden usar filtros adicionales en las dimensiones para crear **alertas de métricas multidimensionales**.
+
 
 > [!NOTE]
-> Alertas de Azure (versión preliminar) ofrece una experiencia nueva y mejorada para la creación de alertas en Azure. La experiencia existente de [Alertas de Azure](monitoring-overview-alerts.md) sigue sin poderse usar.
+> Alertas de Azure ofrece una experiencia nueva y mejorada para la creación de alertas en Azure. La experiencia existente de [alertas (clásicas)](monitoring-overview-alerts.md) se puede seguir usando.
 >
 
-A continuación, se ofrecen instrucciones detalladas sobre cómo usar Alertas de Azure (versión preliminar).
+A continuación, se ofrecen instrucciones detalladas sobre cómo usar Alertas de Azure.
 
 ## <a name="create-an-alert-rule-with-the-azure-portal"></a>Creación de una regla de alertas en Azure Portal
-1. En [Azure Portal](https://portal.azure.com/), seleccione **Supervisar** y, en la sección SUPERVISAR, elija **Alertas (versión preliminar)**.  
+1. En [Azure Portal](https://portal.azure.com/), seleccione **Supervisar** y, en la sección SUPERVISAR, elija **Alertas**.  
     ![Supervisión](./media/monitor-alerts-unified/AlertsPreviewMenu.png)
 
 2. Seleccione el botón **Nueva regla de alertas** para crear una alerta en Azure.
@@ -48,7 +50,7 @@ A continuación, se ofrecen instrucciones detalladas sobre cómo usar Alertas de
 
     ![Creación de una regla](./media/monitor-alerts-unified/AlertsPreviewAdd.png)
 
-4.  Para definir la condición de la alerta, use primero el vínculo **Seleccionar recurso** y especifique el destino mediante la selección de un recurso. Aplique el filtro adecuado con la elección de la *suscripción* y el *tipo de recurso* apropiados y, por último, seleccione el *recurso* necesario.
+4.  Para definir la condición de la alerta, use primero el vínculo **Seleccionar recurso** y especifique el destino mediante la selección de un recurso. Para filtrar, elija la *suscripción* y el *tipo de recurso* correspondientes y, por último, seleccione el *recurso* necesario.
 
     >[!NOTE]
 
@@ -56,14 +58,14 @@ A continuación, se ofrecen instrucciones detalladas sobre cómo usar Alertas de
 
     ![Seleccionar recurso](./media/monitor-alerts-unified/Alert-SelectResource.png)
 
- Como Alertas de Azure (versión preliminar) le permite crear distintos tipos de alertas desde una interfaz singular; según el tipo de alerta deseada, elija el paso siguiente según el caso:
+ La interfaz de usuario permite crear varios tipos de alertas desde un solo lugar. Elija el paso siguiente en función del tipo de alerta deseado:
 
     - Para **alertas de métrica**: siga los pasos 5 a 7; a continuación, vaya directamente al paso 11.
     - Para **alertas de registro**, vaya al paso 8.
 
     > [!NOTE]
 
-    > Alertas unificadas (versión preliminar) también admite las alertas de registro de actividad. [Más información](monitoring-activity-log-alerts-new-experience.md).
+    > También se admiten las alertas de registro de actividad, pero están en versión preliminar. [Más información](monitoring-activity-log-alerts-new-experience.md).
 
 5. *Alertas de métrica*: asegúrese de que el campo **Tipo de recurso** está seleccionado con el tipo de señal **Métrica**; una vez elegido el **recurso** apropiado, haga clic en el botón *Listo* para volver a Crear alerta. Después, use el botón **Agregar criterios** para elegir la señal específica de la lista de opciones de señal, su servicio de supervisión y el tipo indicado, que están disponibles para el recurso seleccionado anteriormente.
 
@@ -77,7 +79,13 @@ A continuación, se ofrecen instrucciones detalladas sobre cómo usar Alertas de
 
     ![Configuración de la lógica de señal de la métrica](./media/monitor-alerts-unified/AlertsPreviewCriteria.png)
 
-7. *Alertas de métrica*: si la señal es una métrica, se puede filtrar la ventana de alerta con la utilización de varios puntos de datos o dimensiones para el recurso de Azure especificado. De forma similar a las alertas de métrica, se puede elegir el historial de señales especificando la duración en el menú desplegable **Mostrar historial**. Asimismo, se pueden seleccionar las dimensiones de la métrica elegida para filtrar según las series temporales necesarias; la elección de las dimensiones es opcional y, en su caso, se pueden usar hasta cinco dimensiones. Se puede seleccionar la **Lógica de alerta** de entre las opciones mostradas de Condición, Agregación y, por último, Umbral. Como vista previa de la lógica proporcionada, la condición se muestra en la visualización junto con el historial de señales, a fin de indicar cuándo debería haberse desencadenado la alerta en el pasado. Por último, en la opción **Periodo** elija el tiempo durante el cual la alerta debe buscar la condición especificada y seleccione la **Frecuencia** con que debe ejecutarse la alerta.
+7. *Alertas de métrica*: si la señal es una métrica, se puede filtrar la ventana de alerta con la utilización de varios puntos de datos o dimensiones para el recurso de Azure especificado. 
+
+    a. Elija una duración en la lista desplegable **Mostrar historial** para visualizar otro período de tiempo. Puede elegir las dimensiones de la métrica admitida para filtrar según una serie temporal: elegir las dimensiones es opcional y se pueden usar hasta cinco dimensiones. 
+
+    b. Se puede seleccionar la **Lógica de alerta** de entre las opciones mostradas de *Condición*, *Agregación* y *Umbral*. Como vista previa de la lógica proporcionada, la condición se muestra en la visualización junto con el historial de señales, a fin de indicar cuándo debería haberse desencadenado la alerta en el pasado. 
+
+    c. Para especificar la duración, elija **Período** junto con la frecuencia con la que se debe ejecutar la alerta mediante la selección de **Frecuencia**.
 
     ![Configuración de la lógica de señal de métricas multidimensionales](./media/monitor-alerts-unified/AlertsPreviewCriteriaMultiDim.png)
 
@@ -87,7 +95,7 @@ A continuación, se ofrecen instrucciones detalladas sobre cómo usar Alertas de
 
    > [!NOTE]
 
-   > Las listas de Alertas (versión preliminar) pueden importar una consulta de análisis como tipo de señal (**Log (Saved Query)** (Registro (consulta guardada)), tal como se muestra en la ilustración anterior). Por tanto, los usuarios pueden perfeccionar la consulta en Analytics y luego guardarla para usarla en alertas en otro momento. Puede encontrar más detalles sobre el uso de consultas guardadas en [Descripción de las búsquedas de registros en Log Analytics](../log-analytics/log-analytics-log-searches.md) o [¿Qué es Log Analytics?](../log-analytics/log-analytics-overview.md). 
+   > Las listas de Alertas pueden importar una consulta de análisis como tipo de señal (**Log (Saved Query)** (Registro [consulta guardada])), tal como se muestra en la ilustración anterior. Por tanto, los usuarios pueden perfeccionar la consulta en Analytics y luego guardarla para usarla en alertas en otro momento. Puede encontrar más detalles sobre el uso de consultas guardadas en [Descripción de las búsquedas de registros en Log Analytics](../log-analytics/log-analytics-log-searches.md) o [¿Qué es Log Analytics?](../log-analytics/log-analytics-overview.md). 
 
 9.  *Alertas de registro*: una vez seleccionada esta opción, la consulta de alertas se puede indicar en el campo **Consulta de búsqueda**; si la sintaxis de la consulta es incorrecta, en el campo aparece el error en ROJO. Si la sintaxis de consulta es correcta, como referencia, se muestran los datos históricos de la consulta indicada en formato de gráfico con la opción de retocar la ventana de tiempo desde las últimas seis horas hasta la última semana.
 
@@ -107,7 +115,7 @@ Para las **Alertas de registro**, las alertas pueden basarse en lo siguiente:
    - *Unidades métricas*: se crea una alerta si cada *valor agregado* en los resultados excede el valor de umbral proporcionado y se *agrupa por* el valor elegido. El número de infracciones de una alerta es el número de veces que se supera el umbral en el período de tiempo seleccionado. Puede especificar Infracciones totales para cualquier combinación de infracciones en el conjunto de resultados o Infracciones consecutivas para que las infracciones deban tener lugar en muestras consecutivas. Obtenga más información sobre las [alertas de registro y sus tipos](monitor-alerts-unified-log.md).
 
     > [!TIP]
-    > Actualmente, en Alertas (versión preliminar), las alertas de la búsqueda de registros pueden adoptar el valor personalizado de *periodo* y *frecuencia* en minutos. Los valores pueden variar de 5 minutos a 1440 minutos, es decir, 24 horas. Por tanto, si desea que el periodo de alerta sea de tres horas, conviértalas a minutos antes de empezar, que serían 180 minutos.
+    > Actualmente, en Alertas, las alertas de la búsqueda de registros pueden adoptar el valor personalizado de *periodo* y *frecuencia* en minutos. Los valores pueden variar de 5 minutos a 1440 minutos, es decir, 24 horas. Por tanto, si desea que el periodo de alerta sea de tres horas, conviértalas a minutos antes de empezar, que serían 180 minutos.
 
 11. En segundo lugar, asigne un nombre a la alerta en el campo **Nombre de la regla de alertas** junto con una **Descripción**, en la que debe proporcionar información específica sobre la alerta, y debe indicar también un valor de **Gravedad** entre las opciones proporcionadas. Estos detalles se reutilizan en todos los correos electrónicos, las notificaciones o las notificaciones push de alerta enviados por Azure Monitor. Además, el usuario puede elegir activar inmediatamente la regla de alertas al crearla cambiando la opción **Habilitar regla tras la creación** según corresponda.
 
@@ -126,7 +134,7 @@ Para las **Alertas de registro**, las alertas pueden basarse en lo siguiente:
 
         ![Invalidaciones de acciones para alertas de registro](./media/monitor-alerts-unified/AlertsPreviewOverrideLog.png)
 
-13. Si todos los campos son válidos y tienen una marca verde, se puede hacer clic en el botón **Crear regla de alertas** y, a continuación, se crea la alerta en la pestaña Alertas (versión preliminar) de Azure Monitor. Todas las alertas pueden verse en el panel de Alertas (versión preliminar).
+13. Si todos los campos son válidos y tienen una marca verde, se puede hacer clic en el botón **Crear regla de alertas** y se crea la alerta en Azure Monitor: Alertas. Todas las alertas pueden verse en el panel de Alertas.
 
     ![Creación de reglas](./media/monitor-alerts-unified/AlertsPreviewCreate.png)
 
@@ -134,9 +142,9 @@ Para las **Alertas de registro**, las alertas pueden basarse en lo siguiente:
 
 ## <a name="view-your-alerts-in-azure-portal"></a>Visualización de las alertas en Azure Portal
 
-1. En [Azure Portal](https://portal.azure.com/), seleccione **Supervisar** y, en la sección SUPERVISAR, elija **Alertas (versión preliminar)**.  
+1. En [Azure Portal](https://portal.azure.com/), seleccione **Supervisar** y, en la sección SUPERVISAR, elija **Alertas**.  
 
-2. Se abre el **panel de Alertas (versión preliminar)**, donde se unifican y muestran todas las alertas de Azure en un ![panel de alertas](./media/monitoring-overview-unified/alerts-preview-overview.png) singular.
+2. Se abre el **panel de Alertas**, donde se unifican y muestran todas las alertas de Azure en un ![panel de alertas](./media/monitoring-alerts-unified-usage/alerts-preview-overview.png) singular.
 3. Desde la parte superior izquierda a la derecha, en el panel aparecen de un vistazo los siguientes elementos, en los que se puede hacer clic para ver una lista detallada:
     - *Alertas desencadenadas*: el número de alertas que cumplen la lógica actualmente y que tienen el estado de desencadenadas.
     - *Número total de reglas de alertas*: el número de reglas de alertas creadas y, en el subtexto, el número de las que están habilitadas actualmente.
@@ -144,10 +152,10 @@ Para las **Alertas de registro**, las alertas pueden basarse en lo siguiente:
 5. Para facilitar la búsqueda de alertas específicas, se pueden usar las opciones de las listas desplegables de la parte superior para aplicar filtros específicos según la *suscripción, el grupo de recursos o el recurso*. Además, para cualquier alerta sin resolver, se puede usar la opción *Filtrar alerta* para buscar las palabras clave proporcionadas o alertas con coincidencias específicas con *nombre, criterios de alerta, grupo de recursos y recurso de destino*.
 
 ## <a name="managing-your-alerts-in-azure-portal"></a>Administración de las alertas en Azure Portal
-1. En [Azure Portal](https://portal.azure.com/), seleccione **Supervisar** y, en la sección SUPERVISAR, elija **Alertas (versión preliminar)**.  
+1. En [Azure Portal](https://portal.azure.com/), seleccione **Supervisar** y, en la sección SUPERVISAR, elija **Alertas**.  
 2. Seleccione el botón **Administrar reglas** situado en la barra superior para navegar hasta la sección de administración de reglas, donde se enumeran todas las reglas de alerta creadas, incluidas las alertas que se han deshabilitado.
 3. Para buscar reglas de alertas específicas, se pueden usar los filtros desplegables de la parte superior, que permiten acotar la búsqueda de reglas de alertas específicas según los criterios específicos de *Suscripción, Grupos de recursos o Recurso*. Otra alternativa es usar el panel de búsqueda que está encima de la lista de reglas de alertas donde se lee *Filtrar alertas*, donde puede proporcionar palabras claves que coincidan con los valores *Nombre de alerta, Condición y Recurso de destino*, a fin de mostrar solo las reglas de coincidencia.
-   ![Reglas de administración de alertas](./media/monitoring-overview-unified/alerts-preview-rules.png)
+   ![Reglas de administración de alertas](./media/monitoring-alerts-unified-usage/alerts-preview-rules.png)
 4. Para ver o modificar una regla de alertas específica, haga clic en su nombre, que debería aparecer como un vínculo en el que se puede hacer clic.
 5. La alerta definida se muestra con una estructura de tres fases: 1) Condición de la alerta, 2) Detalles de la alerta y 3) Grupo de acciones. Se puede hacer clic en los **Criterios de destino** para modificar la lógica de la alerta o se pueden agregar criterios nuevos después de usar el icono de la papelera para eliminar la lógica anterior. De forma similar, en la sección de detalles de la alerta, se pueden modificar los campos **Descripción** y **Gravedad**. Además, se puede cambiar el grupo de acciones o se puede crear uno que se vincule con la alerta mediante el botón **Nuevo grupo de acciones**.
 
@@ -157,7 +165,7 @@ Para las **Alertas de registro**, las alertas pueden basarse en lo siguiente:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Más información sobre las nuevas [alertas de métrica casi en tiempo real (versión preliminar)](monitoring-near-real-time-metric-alerts.md).
+- Más información sobre las nuevas [alertas de métrica casi en tiempo real](monitoring-near-real-time-metric-alerts.md).
 - Obtenga [información general sobre la colección de métricas](insights-how-to-customize-monitoring.md) para garantizar que el servicio está disponible y que responder adecuadamente.
-- Obtenga información sobre las [alertas de registro en Alertas de Azure (versión preliminar)](monitor-alerts-unified-log.md).
+- Más información sobre las [alertas de registro en Alertas de Azure](monitor-alerts-unified-log.md).
 - [Obtenga información sobre las alertas de registros de actividad en la experiencia de Alertas (versión preliminar)](monitoring-activity-log-alerts-new-experience.md).

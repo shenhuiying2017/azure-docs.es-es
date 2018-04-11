@@ -1,8 +1,8 @@
 ---
 title: Compatibilidad de Azure Application Insights con varios componentes, microservicios y contenedores | Microsoft Docs
-description: "Supervisión de aplicaciones que constan de varios componentes o roles para uso y rendimiento."
+description: Supervisión de aplicaciones que constan de varios componentes o roles para uso y rendimiento.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: 046661bf7903b4e5ea528282ad5170901a45b35c
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 9b03aff140eec5b355383447f0a815220d6408e3
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="monitor-multi-component-applications-with-application-insights-preview"></a>Supervisión de aplicaciones de varios componentes con Application Insights (versión preliminar)
 
@@ -42,7 +42,7 @@ Para obtener una asignación de aplicaciones de varios componentes, debe lograr 
 
 * **Instale la versión preliminar más reciente** del paquete de Application Insights en cada componente de la aplicación. 
 * **Comparta un único recurso de Application Insights** para todos los componentes de la aplicación.
-* **Habilite Asignación de aplicaciones de varios roles** en la hoja Versiones preliminares.
+* **Habilite el mapa de aplicación compuesta** en la hoja Versiones preliminares.
 
 Configure cada componente de la aplicación con el método adecuado para el tipo correspondiente. ([ASP.NET](app-insights-asp-net.md), [Java](app-insights-java-get-started.md), [Node.js](app-insights-nodejs.md) o [JavaScript](app-insights-javascript.md)).
 
@@ -73,9 +73,9 @@ Actualice los paquetes de Application Insights o instálelos en el proyecto para
 ![Copiar la clave de instrumentación en el archivo .config](./media/app-insights-monitor-multi-role-apps/copy-instrumentation-key.png)
 
 
-### <a name="3-enable-multi-role-application-map"></a>3. Habilitación de Asignación de aplicaciones de varios roles
+### <a name="3-enable-composite-application-map"></a>3. Habilitación del mapa de aplicación compuesta
 
-En Azure Portal, abra el recurso de la aplicación. En la hoja Versiones preliminares, habilite *Asignación de aplicaciones de varios roles*.
+En Azure Portal, abra el recurso de la aplicación. En el subencabezado CONFIGURAR, haga clic en Versiones preliminares para abrir la hoja Versiones preliminares. En la hoja Versiones preliminares, habilite *Mapa de aplicación compuesta*.
 
 ### <a name="4-enable-docker-metrics-optional"></a>4. Habilitación de las métricas de Docker (opcional) 
 

@@ -1,11 +1,11 @@
 ---
-title: "Integración del SDK de Android para Azure Mobile Engagement"
-description: "Procedimientos y actualizaciones más recientes para el SDK de Android para Azure Mobile Engagement"
+title: Integración del SDK de Android para Azure Mobile Engagement
+description: Procedimientos y actualizaciones más recientes para el SDK de Android para Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: a7d719ec-67b3-4be3-9d7f-0b61a57fe978
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 43987962ea2b7b825b88643d18b4db65f1f1670e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4c3b8f60333e6096411aad8499bb4bfc36e53f3c
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-integrate-adm-with-engagement"></a>Integración de ADM con Engagement
+> [!IMPORTANT]
+> Azure Mobile Engagement se retira el 31 de marzo de 2018. Esta página se eliminará poco después.
+> 
+
 > [!IMPORTANT]
 > Debe seguir el procedimiento de integración descrito en el documento Integración de Engagement en Android antes de seguir con esta guía.
 > 
@@ -104,7 +108,7 @@ Asegúrese de tener los permisos siguientes en el `AndroidManifest.xml` (antes d
 ## <a name="grant-engagement-oauth-credentials"></a>Conceder credenciales de OAuth de Engagement
 Envíe sus credenciales de OAuth (Id. de cliente y secreto de cliente) en el Portal de interacción. 
 
-[&lt;https://developer.amazon.com/sdk/adm/credentials.html&gt;]:https://developer.amazon.com/sdk/adm/credentials.html
+[<https://developer.amazon.com/sdk/adm/credentials.html>]:https://developer.amazon.com/sdk/adm/credentials.html
 [biblioteca de cliente ADM]:https://developer.amazon.com/sdk/adm/setup.html
 [integrado ADM]:https://developer.amazon.com/sdk/adm/integrating-app.html
 [este procedimiento]:https://developer.amazon.com/sdk/adm/integrating-app.html#Asset

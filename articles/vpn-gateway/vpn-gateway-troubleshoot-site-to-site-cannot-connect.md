@@ -1,24 +1,24 @@
 ---
-title: "Solución de problemas: la conexión VPN de sitio a sitio de Azure no puede conectarse | Microsoft Docs"
-description: "Obtenga información acerca de cómo solucionar problemas de una conexión VPN de sitio a sitio que deja de funcionar repentinamente y no se puede volver a conectar."
+title: 'Solución de problemas: la conexión VPN de sitio a sitio de Azure no puede conectarse | Microsoft Docs'
+description: Obtenga información acerca de cómo solucionar problemas de una conexión VPN de sitio a sitio que deja de funcionar repentinamente y no se puede volver a conectar.
 services: vpn-gateway
 documentationcenter: na
 author: chadmath
 manager: cshepard
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/13/2017
+ms.date: 03/29/2018
 ms.author: genli
-ms.openlocfilehash: 96a1705d651b9a2d17a466b9c43721bec7b4972c
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 3e590df66f84cd88ba7ba251373c14a44a94ca77
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Solución de problemas: la conexión VPN de sitio a sitio de Azure no puede conectarse y deja de funcionar
 
@@ -46,13 +46,13 @@ Comprobación del tipo de la puerta de enlace de VPN de Azure.
 
 2. Asegúrese de que el dispositivo VPN esté configurado correctamente. Para más información, consulte [Ejemplos de edición de configuración de dispositivos](vpn-gateway-about-vpn-devices.md#editing).
 
-### <a name="step-2-verify-the-shared-key"></a>Paso 2: Compruebe la clave compartida
+### <a name="step-2-verify-the-shared-key"></a>Paso 2. Compruebe la clave compartida
 
 Compare la clave compartida del dispositivo VPN local y la de la VPN de la instancia de Azure Virtual Network para asegurarse de que las claves coinciden. 
 
 Para ver la clave compartida de la conexión VPN de Azure, use uno de los siguientes métodos:
 
-**portal de Azure**
+**Azure Portal**
 
 1. Vaya a la conexión de sitio a sitio de la puerta de enlace VPN que ha creado.
 
@@ -70,7 +70,7 @@ Para el modelo de implementación clásico:
 
     Get-AzureVNetGatewayKey -VNetName -LocalNetworkSiteName
 
-### <a name="step-3-verify-the-vpn-peer-ips"></a>Paso 3: Compruebe las direcciones IP del par de la VPN
+### <a name="step-3-verify-the-vpn-peer-ips"></a>Paso 3. Compruebe las direcciones IP del par de la VPN
 
 -   La definición de IP en el objeto **Puerta de enlace de red local** en Azure debe coincidir con el IP de dispositivo local.
 -   La definición de la dirección IP de la puerta de enlace de Azure establecida en el dispositivo local debe coincidir con la dirección IP de la puerta de enlace de Azure.
@@ -92,7 +92,9 @@ Busque y quite Enrutamiento definido por el usuario (UDR) o Grupos de seguridad 
 
 ### <a name="step-7-verify-the-azure-gateway-health-probe"></a>Paso 7. Compruebe el sondeo de estado de la puerta de enlace de Azure
 
-1. Vaya a sondeo de estado.
+1. Abra el sondeo de estado en la dirección URL siguiente:
+
+    `https://<YourVirtualNetworkGatewayIP>:8081/healthprobe`
 
 2. Haga clic en la advertencia de certificado.
 3. Si recibe una respuesta, se considera que la puerta de enlace de la VPN es correcta. Si no recibe una respuesta, puede que la puerta de enlace no sea correcta o que haya un NSG en la subred de puerta de enlace que provoque el problema. El siguiente texto es una respuesta de ejemplo:
@@ -103,7 +105,7 @@ Busque y quite Enrutamiento definido por el usuario (UDR) o Grupos de seguridad 
 
 La característica confidencialidad directa perfecta puede provocar problemas de desconexión. Si el dispositivo VPN cuenta con la característica confidencialidad directa perfecta habilitada, deshabilítela. A continuación, actualice la directiva IPsec de puerta de enlace de VPN.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 -   [Configuración de una conexión de sitio a sitio en una red virtual](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 -   [Configuración de una directiva IPsec/IKE para conexiones VPN de sitio a sitio](vpn-gateway-ipsecikepolicy-rm-powershell.md)

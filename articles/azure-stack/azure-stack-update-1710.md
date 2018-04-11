@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: mabrigg
-ms.openlocfilehash: 1a482f1d2f3eef8775bb7b64d4f6749f69fa5471
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 8c7c39ecdc332c994e5c00f8415462f208e7d20b
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-stack-1710-update-build-201710201"></a>Actualización de Azure Stack 1710 (compilación 20171020.1)
 
@@ -85,7 +85,9 @@ Esta sección contiene problemas conocidos posteriores a la instalación relacio
    Para evitar los dos últimos problemas, puede escribir el nombre de la suscripción o el grupo de recursos (si lo conoce), o puede usar PowerShell en su lugar.
 - La eliminación de las suscripciones del usuario da como resultado recursos huérfanos. Como alternativa, elimine primero los recursos del usuario o todo el grupo de recursos y, a continuación, elimine las suscripciones del usuario.
 - No es posible ver los permisos para la suscripción con los portales de Azure Stack. Como solución alternativa, se pueden comprobar los permisos con PowerShell.
-  
+- La hoja de **Service Health** no se carga. Cuando se abre la hoja de Service Health en el portal del administrador o de usuario, Azure Stack muestra un error y no carga información. Este es el comportamiento esperado. Si bien es posible seleccionar y abrir Service Health, esta característica no está disponible aún, aunque se implementará en una versión futura de Azure Stack.
+ 
+
 ### <a name="backup"></a>Backup
 
 - No habilite la copia de seguridad de la infraestructura en la hoja **Infrastructure backup** (Copia de seguridad de la infraestructura).

@@ -1,24 +1,18 @@
 ---
-title: "Decisión sobre cuándo usar Azure Blobs, Azure Files o Azure Disks"
-description: "Obtenga información sobre las distintas formas de almacenar datos y acceder a ellos en Azure para que le sea más fácil decidir qué la tecnología usar."
+title: Decisión sobre cuándo usar Azure Blobs, Azure Files o Azure Disks
+description: Obtenga información sobre las distintas formas de almacenar datos y acceder a ellos en Azure para que le sea más fácil decidir qué la tecnología usar.
 services: storage
-documentationcenter: 
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: 
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 03/28/2018
 ms.author: tamram
-ms.openlocfilehash: b9c7913d1e95693a5ec72b24cf020928d67f0133
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: ded0884ff83cc214d78f65fed8cefa646f11d952
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Decisión sobre cuándo usar Azure Blobs, Azure Files o Azure Disks
 
@@ -47,9 +41,9 @@ En la tabla siguiente se compara Azure Files con Azure Blobs.
 |Puntos de conexión|`http://myaccount.blob.core.windows.net/mycontainer/myblob`|`\\myaccount.file.core.windows.net\myshare\myfile.txt`<br /><br /> `http://myaccount.file.core.windows.net/myshare/myfile.txt`|  
 |Directorios|Espacio de nombres plano|Objetos de directorio verdaderos|  
 |Distingue mayúsculas de minúsculas en los nombres|Distingue mayúsculas de minúsculas|No distingue mayúsculas de minúsculas, pero las conserva|  
-|Capacity|Contenedores de hasta 500 TB|Recursos compartidos de archivos de hasta 5 TB|  
-|Throughput|Hasta 60 MB/s por blob en bloques|Hasta 60 MB/s por recurso compartido|  
-|Tamaño de objeto|Hasta 200 GB por blob en bloques|Hasta 1 TB por archivo|  
+|Capacity|Hasta 500 contenedores TiB|Recursos compartidos de archivos de 5 TiB|  
+|Throughput|Hasta 60 MiB/s por blob en bloques|Hasta 60 MiB/s por recurso compartido|  
+|Tamaño de objeto|Hasta aproximadamente 4,75 TiB por blob en bloques|Hasta 1 TiB por archivo|  
 |Capacidad facturada|En función de los bytes escritos|Según el tamaño de archivo|  
 |Bibliotecas de clientes|Varios idiomas|Varios idiomas|  
   
@@ -68,11 +62,11 @@ En la tabla siguiente se compara Azure Files con Azure Disks.
 |Autenticación|Característica integrada|Configurar con el uso de la red|  
 |Limpieza|Automático|Manual|  
 |Acceso con REST|No se puede acceder a archivos dentro del VHD|Se puede acceder a archivos almacenados en un recurso compartido|  
-|Tamaño máximo|Disco de 4 TB|Recurso compartido de archivos de 5 TB y archivo de 1 TB dentro del recurso compartido|  
+|Tamaño máximo|Disco de 4 TiB|Recurso compartido de archivos de 5 TiB y archivo de 1 TiB dentro del recurso compartido|  
 |IOPS de 8 KB como máximo|500 IOPS|1000 IOPS|  
-|Throughput|Hasta 60 MB/s por disco|Hasta 60 MB/s por recurso compartido de archivos|  
+|Throughput|Hasta 60 MiB/s por disco|Hasta 60 MiB/s por recurso compartido de archivos|  
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Al tomar decisiones sobre cómo se almacenan los datos y cómo se accede a ellos, también debe tener en cuenta los costos implicados. Para más información, consulte [Precios de Azure Blob Storage](https://azure.microsoft.com/pricing/details/storage/).
   

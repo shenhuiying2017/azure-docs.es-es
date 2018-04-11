@@ -1,8 +1,8 @@
 ---
-title: "Vistas de las soluciones de administración en Operations Management Suite (OMS) | Microsoft Docs"
-description: "Normalmente, las soluciones de administración en Operations Management Suite (OMS) incluyen una o más vistas para visualizar los datos.  En este artículo se describe cómo exportar una vista creada por el Diseñador de vistas e incluirla en una solución de administración. "
+title: Vistas de soluciones de administración | Microsoft Docs
+description: 'Las soluciones de administración incluirán normalmente una o varias vistas para visualizar los datos.  En este artículo se describe cómo exportar una vista creada por el Diseñador de vistas e incluirla en una solución de administración. '
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -14,22 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/16/2018
 ms.author: bwren
-ms.openlocfilehash: c103ee748446c4819b7925af04d90c22225a21a3
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: b44763fe67b1c70c0b6ecdff73c32d8bb4fab3a4
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/30/2018
 ---
-# <a name="views-in-operations-management-suite-oms-management-solutions-preview"></a>Vistas de las soluciones de administración en Operations Management Suite (OMS) (versión preliminar)
+# <a name="views-in-management-solutions-preview"></a>Vistas de soluciones de administración (versión preliminar)
 > [!NOTE]
-> La versión de la documentación para crear soluciones de administración de OMS está actualmente en fase preliminar. Cualquier esquema descrito a continuación está sujeto a cambios.    
->
->
+> Esta es la documentación preliminar para crear soluciones de administración que se encuentran actualmente en versión preliminar. Cualquier esquema descrito a continuación está sujeto a cambios.    
 
-[Normalmente, las soluciones de administración en Operations Management Suite (OMS)](operations-management-suite-solutions.md) incluyen una o más vistas para visualizar los datos.  En este artículo se describe cómo exportar una vista creada por el [Diseñador de vistas](../log-analytics/log-analytics-view-designer.md) e incluirla en una solución de administración.  
+
+Las [soluciones de administración](operations-management-suite-solutions.md) incluirán normalmente una o varias vistas para visualizar los datos.  En este artículo se describe cómo exportar una vista creada por el [Diseñador de vistas](../log-analytics/log-analytics-view-designer.md) e incluirla en una solución de administración.  
 
 > [!NOTE]
-> En los ejemplos de este artículo se usan parámetros y variables que son necesarios o comunes para las soluciones de administración y se describen en [Creating management solutions in Operations Management Suite (OMS) (Creación de soluciones de administración en Operations Management Suite (OMS)](operations-management-suite-solutions-creating.md).
+> En los ejemplos de este artículo se usan parámetros y variables que son necesarios o comunes para las soluciones de administración, y se describen en [Diseño y compilación de una solución de administración en Azure](operations-management-suite-solutions-creating.md).
 >
 >
 
@@ -48,7 +47,7 @@ Los pasos básicos para agregar una vista a una solución son los siguientes.  C
 ## <a name="export-the-view-to-a-file"></a>Exportar la vista a un archivo
 Siga las instrucciones del [Diseñador de vistas de Log Analytics](../log-analytics/log-analytics-view-designer.md) para exportar una vista a un archivo.  El archivo exportado tendrá el formato JSON con los mismo [elementos que el archivo de solución](operations-management-suite-solutions-solution-file.md).  
 
-El elemento **resources** de la vista tendrá un recurso con un tipo de **Microsoft.OperationalInsights/workspaces** que representa el área de trabajo de OMS.  Este elemento tendrá un subelemento con un tipo de **vistas** que representa la vista y contiene su configuración detallada.  Copiará los detalles de este elemento y luego copiará el elemento en la solución.
+El elemento **resources** del archivo de vista tendrá un recurso con un tipo de **Microsoft.OperationalInsights/workspaces** que representa el área de trabajo de Log Analytics.  Este elemento tendrá un subelemento con un tipo de **vistas** que representa la vista y contiene su configuración detallada.  Copiará los detalles de este elemento y luego copiará el elemento en la solución.
 
 ## <a name="create-the-view-resource-in-the-solution"></a>Crear el recurso de la vista en la solución
 Agregue el siguiente recurso de vista al elemento **resources** del archivo de solución.  Usa las variables que se describen a continuación y que también debe agregar.  Tenga en cuenta que las propiedades **Dashboard** y **OverviewTile** son marcadores de posición que sobrescribirá con las propiedades correspondientes desde el archivo de vista exportado.
@@ -187,6 +186,6 @@ Por ejemplo, en el ejemplo siguiente se muestra un archivo de solución simple c
 
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Obtener información detallada sobre cómo crear [soluciones de administración](operations-management-suite-solutions-creating.md).
 * Incluir [runbooks de Automation en la solución de administración](operations-management-suite-solutions-resources-automation.md).

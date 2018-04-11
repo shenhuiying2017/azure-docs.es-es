@@ -1,24 +1,24 @@
 ---
 title: Uso de Azure Portal para crear un centro de IoT | Microsoft Docs
-description: "Describe sobre cómo crear, administrar y eliminar los centros de IoT Hub de Azure a través de Azure Portal. Incluye información sobre los niveles de precios, el escalado, la seguridad y la configuración de la mensajería."
+description: Describe sobre cómo crear, administrar y eliminar los centros de IoT Hub de Azure a través de Azure Portal. Incluye información sobre los niveles de precios, el escalado, la seguridad y la configuración de la mensajería.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 0909cd2b-4c1e-49e0-b68a-75532caf0a6a
 ms.service: iot-hub
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/26/2017
+ms.date: 04/01/2018
 ms.author: dobett
-ms.openlocfilehash: ac1a52355ffa5354bebe3b98fdb75783bcd57697
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 6ffde076caff6217bf6255c9294eca63d3e39b85
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>Creación de una instancia de IoT Hub mediante Azure Portal
 
@@ -53,18 +53,9 @@ Para crear un centro de IoT, debe asignar un nombre al centro. Este nombre debe 
 
 ### <a name="choose-the-pricing-tier"></a>Elección del plan de tarifa
 
-Puede elegir entre cuatro niveles: **Gratis**, **Estándar 1**, **Estándar 2** y **Estándar S3**. El nivel Gratis permite solo la conexión de 500 dispositivos con el Centro de IoT y hasta 8000 mensajes al día.
+Puede elegir entre varios niveles, en función del número de características que desee y del número de mensajes que envíe a través de su solución al día. El nivel gratis está pensado para la prueba y evaluación. Permite la conexión de 500 dispositivos con el centro de IoT y hasta 8000 mensajes al día. Cada suscripción a Azure puede crear una instancia de IoT Hub en el nivel gratis. 
 
-**Estándar S1**: use la edición S1 de las soluciones de IoT con un gran número de dispositivos, y cada uno de ellos genera pequeñas cantidades de datos. Cada unidad de la edición S1 permite transmitir hasta 400.000 mensajes por día a través de todos los dispositivos conectados.
-
-**Estándar S2**: use la edición S2 de las soluciones de IoT en las que los dispositivos generan grandes cantidades de datos. Cada unidad de la edición S2 permite transmitir hasta 6 millones de mensajes al día entre todos los dispositivos conectados.
-
-**Estándar S3**: use la edición S3 de las soluciones de IoT que generan grandes cantidades de datos. Cada unidad de la edición S3 permite transmitir hasta 300 millones de mensajes al día entre todos los dispositivos conectados.
-
-![][4]
-
-> [!NOTE]
-> IoT Hub solo permite un único centro gratuito por suscripción de Azure.
+Para más información sobre las demás opciones del nivel, consulte la sección [Elección del nivel correcto de IoT Hub](iot-hub-scaling.md).
 
 ### <a name="iot-hub-units"></a>Unidades del Centro de IoT
 
@@ -153,17 +144,6 @@ Haga clic en **Routes** (Rutas) para administrar el envío de mensajes del dispo
 Puede agregar rutas adicionales a su IoT Hub; para ello, haga clic en **Agregar** en la parte superior de la hoja **Rutas**, escriba la información necesaria y haga clic en **Aceptar**. La ruta aparecerá en la lista de la hoja principal de **Rutas**. Puede editar una ruta al hacer clic en ella en la lista de rutas. Para habilitar una ruta, haga clic en ella en la lista de rutas y establezca el control de alternancia de **Habilitar** en **Desactivado**. Para guardar los cambios, haga clic en **Aceptar** en la parte inferior de la hoja.
 
 ![][15]
-
-## <a name="pricing-and-scale"></a>Precios y escala
-
-El precio de un Centro de IoT existente se puede cambiar mediante la configuración **Precios** , con las siguientes excepciones:
-
-* En la implementación actual, un Centro de IoT con una SKU gratuita no puede cambiar de nivel a una de las SKU de pago o viceversa.
-* Solo puede haber un único IoT Hub de nivel Gratis en la suscripción de Azure.
-
-![][12]
-
-Puede cambiar de un nivel superior a uno inferior solo cuando el número de mensajes enviados ese día exceda la cuota del nivel inferior. Por ejemplo, si el número de mensajes por día supera los 400 000, se puede cambiar el nivel para IoT Hub. Sin embargo, si cambia al nivel S1, el centro de IoT está limitado durante ese día.
 
 ## <a name="delete-the-iot-hub"></a>Eliminación del Centro de IoT
 

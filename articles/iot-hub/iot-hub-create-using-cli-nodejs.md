@@ -3,7 +3,7 @@ title: Creación de un centro de IoT Hub mediante la CLI de Azure (azure.js) | M
 description: Describe cómo crear un centro de IoT Hub de Azure mediante la CLI de Azure entre plataformas (azure.js).
 services: iot-hub
 documentationcenter: .net
-author: BeatriceOltean
+author: kgremban
 manager: timlt
 editor: ''
 ms.assetid: 46a17831-650c-41d9-b228-445c5bb423d3
@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/04/2017
-ms.author: boltean
-ms.openlocfilehash: 7ad0efeeacbdb5dd0185c6336e9bf0e4d7937c99
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.date: 04/01/2018
+ms.author: kgremban
+ms.openlocfilehash: 7e761ba66f4b28dd7cc59dc8998c23810dd2b7d1
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli"></a>Creación de una instancia de IoT Hub mediante la CLI de Azure
 
@@ -90,8 +90,8 @@ azure iothub create -g <resource-group> -n <name> -l <location> -s <sku-name> -u
 * **resource-group**. El nombre del grupo de recursos. El formato no distingue mayúsculas de minúsculas, admite caracteres alfanuméricos, guiones bajos y guiones, y debe tener una longitud de entre 1 y 64 caracteres.
 * **nombre**. El nombre del centro de IoT Hub que se va a crear. El formato no distingue mayúsculas de minúsculas, admite caracteres alfanuméricos y guiones, y debe tener una longitud de entre 3 y 50 caracteres.
 * **location**. La ubicación (centro de datos/región de Azure) para aprovisionar el centro de IoT Hub.
-* **sku-name**. El nombre de la SKU; uno de los siguientes: [F1, S1, S2 o S3]. Para consultar la lista completa más reciente, diríjase a la página de precios de IoT Hub.
-* **units**. El número de unidades aprovisionadas. Intervalo: F1 [1-1] : S1, S2 [1-200] : S3 [1-10]. Las unidades de IoT Hub se basan en el recuento total de mensajes y en el número de dispositivos que desea conectar.
+* **sku-name**. El nombre de la SKU; uno de los siguientes: [F1, S1, S2 o S3]. Para obtener más información sobre cada SKU, consulte [Precios de IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/). Actualmente, los niveles básicos solo están disponibles a través del portal. 
+* **units**. El número de unidades aprovisionadas. Para obtener más información sobre los límites de unidades, consulte [Precios de IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 

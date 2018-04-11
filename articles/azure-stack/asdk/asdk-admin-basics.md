@@ -1,6 +1,6 @@
 ---
 title: Conceptos básicos del Kit de desarrollo de Azure Stack | Microsoft Docs
-description: Describe cómo realizar la administración básica del Kit de desarrollo de Azure Stack.
+description: Describe cómo realizar la s tareas de administración básicas del Kit de desarrollo de Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/30/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: cb169c2d2a5aa918fb6d330ebc4677d6c16d308d
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 05dd42b049c75b9ea592ffe341f44e3b02b9757f
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="asdk-administration-basics"></a>Conceptos básicos de administración del Kit de desarrollo de Azure Stack 
 Hay varias cosas que debe saber si no está familiarizado con la administración del Kit de desarrollo de Azure Stack. Esta guía proporciona información general acerca de su rol como operador de Azure Stack en el entorno de evaluación y cómo asegurarse de que los usuarios de prueba puede ser productivos rápidamente.
@@ -27,6 +27,17 @@ Hay varias cosas que debe saber si no está familiarizado con la administración
 En primer lugar, debe leer el artículo [¿Qué es el Kit de desarrollo de Azure Stack?](asdk-what-is.md) para asegurarse de que conoce el propósito del Kit de desarrollo de Azure Stack y sus limitaciones. El kit de desarrollo se debe usar como un "espacio aislado" en el que puede evaluar Azure Stack para desarrollar y probar sus aplicaciones en un entorno que no es de producción. 
 
 Al igual que Azure, Azure Stack innova rápidamente, por lo que lanzaremos con regularidad nuevas compilaciones del ASDK. Sin embargo, el ASDK no se puede actualizar como las implementaciones de sistemas integrados de Azure Stack. Por tanto, si desea pasar a la compilación más reciente, debe [volver a implementar el ASDK](asdk-redeploy.md) totalmente. no puede aplicar paquetes de actualización. Este proceso lleva un tiempo, pero su ventaja es que puede probar las características más recientes en cuanto estén disponibles. 
+
+## <a name="what-account-should-i-use"></a>¿Qué cuenta debo usar?
+Debe considerar algunos aspectos respecto de la cuenta al administrar Azure Stack. Especialmente en las implementaciones que utilizan Servicios de federación de Active Directory (AD FS) de Windows Server como proveedor de identidades en lugar de Azure Active Directory (Azure AD). Deben considerarse los siguientes aspectos respecto de la cuenta para los sistemas integrados de Azure Stack y las implementaciones de ASDK:
+
+|Cuenta|Azure AD|AD FS|
+|-----|-----|-----|
+|Administrador local (.\Administrator)|Administrador del host de ASDK|Administrador del host de ASDK|
+|AzureStack\AzureStackAdmin|Administrador del host de ASDK<br><br>Se puede utilizar para iniciar sesión en el portal de administración de Azure Stack<br><br>Acceso para ver y administrar anillos de Service Fabric|Administrador del host de ASDK<br><br>Sin acceso al portal de administración de Azure Stack<br><br>Acceso para ver y administrar anillos de Service Fabric<br><br>Ya no es propietario de la suscripción de proveedor predeterminada|
+|AzureStack\CloudAdmin|Puede obtener acceso y ejecutar comandos permitidos en el punto de conexión con privilegios|Puede obtener acceso y ejecutar comandos permitidos en el punto de conexión con privilegios<br><br>No puede iniciar sesión en el host de ASDK<br><br>Propietario de la suscripción de proveedor predeterminada|
+|Administrador global de Azure AD|Se utiliza durante la instalación<br><br>Propietario de la suscripción de proveedor predeterminada|No aplicable|
+|
 
 ## <a name="what-tools-do-i-use-to-manage"></a>¿Qué herramientas debo usar para la administración?
 Puede usar el [Portal del administrador Portal Azure Stack ](https://adminportal.local.azurestack.external) o PowerShell para administrar Azure Stack. La manera más fácil de aprender los conceptos básicos es a través del portal. Si desea usar PowerShell, es preciso que instale [PowerShell para Azure pila](asdk-post-deploy.md#install-azure-stack-powershell) y [descargar las herramientas de Azure Stack desde GitHub](asdk-post-deploy.md#download-the-azure-stack-tools).

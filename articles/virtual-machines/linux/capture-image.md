@@ -1,11 +1,11 @@
 ---
-title: "Captura de una imagen de una máquina virtual Linux en Azure mediante la CLI 2.0 | Microsoft Docs"
-description: "Capture una imagen de una máquina virtual de Azure que se usará para implementaciones masivas mediante la CLI de Azure 2.0."
+title: Captura de una imagen de una máquina virtual Linux en Azure mediante la CLI 2.0 | Microsoft Docs
+description: Capture una imagen de una máquina virtual de Azure que se usará para implementaciones masivas mediante la CLI de Azure 2.0.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: e608116f-f478-41be-b787-c2ad91b5a802
 ms.service: virtual-machines-linux
@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 08/22/2018
 ms.author: cynthn
-ms.openlocfilehash: 15ad240ea9b635cd7995bfae403a93e0b392850a
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: e83319b8b4ace495a4301dd850cea27633115426
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Creación de una imagen de una máquina virtual o un disco duro virtual
 
@@ -89,6 +89,8 @@ Use la CLI de Azure 2.0 para marcar la máquina virtual como generalizada y capt
    
    > [!NOTE]
    > La imagen se crea en el mismo grupo de recursos que la VM de origen. Puede crear VM en cualquier grupo de recursos dentro de la suscripción a partir de esta imagen. Desde una perspectiva de administración, puede que desee crear un grupo de recursos específico para las imágenes y los recursos de VM.
+   >
+   > Si desea almacenar la imagen en un almacenamiento resistente a zonas, debe crearla en una región que admita [zonas de disponibilidad ](../../availability-zones/az-overview.md) e incluir el parámetro `--zone-resilient true`.
 
 ## <a name="step-3-create-a-vm-from-the-captured-image"></a>Paso 3: Crear una máquina virtual a partir de la imagen capturada
 Cree una VM con la imagen que ha creado con [az vm create](/cli/azure/vm#az_vm_create). En el ejemplo siguiente se crea una máquina virtual denominada *myVMDeployed* a partir de la imagen *myImage*:

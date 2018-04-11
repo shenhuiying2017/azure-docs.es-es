@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2018
 ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
-ms.openlocfilehash: 73212a231d11136854115922df423a7cb5b08f05
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5219ebc22e56ad4b5cdfc125f7fa5882c61adb9f
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Azure Disk Encryption para máquinas virtuales IaaS Linux y Windows
 Microsoft Azure está muy comprometido a garantizar la privacidad y soberanía de los datos, y permite controlar los datos hospedados en Azure datos mediante varias tecnologías avanzadas que cifran, controlan y administran las claves de cifrado, y controlan y auditan el acceso de los datos. Esto proporciona a los clientes de Azure la flexibilidad necesaria para elegir la solución que mejor cubra sus necesidades empresariales. En este artículo, le presentaremos a una nueva solución de tecnología, "Azure Disk Encryption para máquinas virtuales IaaS Linux y Windows", que le ayudara a proteger sus datos para que cumplan los compromisos de seguridad y compatibilidad de su organización. Ofrece información detalladas sobre cómo usar las características de cifrado de disco de Azure, incluidos los escenarios admitidos y las experiencias de los usuarios.
@@ -780,14 +780,10 @@ Use el comando [`manage-bde`](https://technet.microsoft.com/library/ff829849.asp
 > Prepare la máquina virtual con un VHD de datos o recursos separado para obtener la clave externa mediante BitLocker.
 
 #### <a name="encrypting-an-os-drive-on-a-running-linux-vm"></a>Cifrado de la unidad del sistema operativo en una máquina virtual con Linux en ejecución
-El cifrado de la unidad del sistema operativo en una máquina virtual con Linux en ejecución se admite en las distribuciones siguientes:
-
-* RHEL 7.2
-* CentOS 7.2
-* Ubuntu 16.04
 
 ##### <a name="prerequisites-for-os-disk-encryption"></a>Requisitos previos para el cifrado de disco del sistema operativo
 
+* La máquina virtual debe usar una distribución compatible con el cifrado de disco de SO como se muestra en el artículo de [preguntas más frecuentes sobre Azure Disk Encryption](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption-faq#what-linux-distributions-does-azure-disk-encryption-support). 
 * La máquina virtual debe crearse a partir de la imagen de Marketplace en Azure Resource Manager.
 * La máquina virtual de Azure con al menos 4 GB de RAM (el tamaño recomendado es 7 GB).
 * (Para RHEL y CentOS) Deshabilite SELinux. Para deshabilitar SELinux, consulte "4.4.2. Disabling SELinux" (Deshabilitar SELinux) en el documento [SELinux User's and Administrator's Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/SELinux_Users_and_Administrators_Guide/sect-Security-Enhanced_Linux-Working_with_SELinux-Changing_SELinux_Modes.html#sect-Security-Enhanced_Linux-Enabling_and_Disabling_SELinux-Disabling_SELinux) (Guía del administrador y del usuario de SELinux) en la máquina virtual.

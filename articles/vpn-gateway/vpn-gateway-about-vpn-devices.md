@@ -10,16 +10,16 @@ tags: azure-resource-manager, azure-service-management
 ms.assetid: ba449333-2716-4b7f-9889-ecc521e4d616
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/18/2017
+ms.date: 03/29/2018
 ms.author: yushwang
-ms.openlocfilehash: f75732761cefd7706fe1555484148efe6cdc0e56
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: b3d9d45da0fb62445867d13c9dff7502af77e8a8
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>Acerca de los dispositivos VPN y los parámetros de IPsec/IKE para conexiones de VPN Gateway de sitio a sitio
 
@@ -72,6 +72,7 @@ Con el fin de configurar el dispositivo VPN, consulte los vínculos correspondie
 | ShareTech | UTM de próxima generación (serie NU) | 9.0.1.3 | No compatible | [Guía de configuración](http://www.sharetech.com.tw/images/file/Solution/NU_UTM/S2S_VPN_with_Azure_Route_Based_en.pdf) |
 | SonicWall |Serie TZ, serie NSA<br>Serie SuperMassive<br>Serie E-Class NSA |SonicOS 5.8.x<br>SonicOS 5.9.x<br>SonicOS 6.x |No compatible |[Guía de configuración](https://www.sonicwall.com/support/knowledge-base/170505320011694) |
 | Sophos | Firewall de última generación XG | XG v17 | | [Guía de configuración](https://community.sophos.com/kb/127546) |
+| Ubiquiti | EdgeRouter | EdgeOS v1.10 |  | [BGP a través de IKEv2/IPsec](https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fhelp.ubnt.com%2Fhc%2Fen-us%2Farticles%2F115012374708&data=02%7C01%7Cmaafiri%40microsoft.com%7C7580cdf59eb94528c0de08d4f9fd78bd%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636408314443168072&sdata=2EF5KFljZwtAGQDSm8%2FF2f6DqI2bkmA2qKG4u0rPgbQ%3D&reserved=0)<br><br>[VTI a través de IKEv2/IPsec](https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fhelp.ubnt.com%2Fhc%2Fen-us%2Farticles%2F115012305347&data=02%7C01%7Cmaafiri%40microsoft.com%7C7580cdf59eb94528c0de08d4f9fd78bd%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636408314443168072&sdata=ycgiDJCOQYTPN7sAEBSigphzC6mBaADz%2FgdCOm7TsXA%3D&reserved=0)
 | WatchGuard |Todo |Fireware XTM<br> PolicyBased: v11.11.x<br>RouteBased: v11.12.x |[Guía de configuración](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA2F00000000LI7KAM&lang=en_US) |[Guía de configuración](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA22A000000XZogSAG&lang=en_US)|
 
 > [!NOTE]
@@ -79,6 +80,14 @@ Con el fin de configurar el dispositivo VPN, consulte los vínculos correspondie
 > (*) Las versiones de Cisco ASA 8.4 y posteriores incorporan compatibilidad con IKEv2, puede conectarse a la puerta de enlace de VPN de Azure mediante la directiva personalizada de IPsec/IKE con la opción "UsePolicyBasedTrafficSelectors". Puede consultar este [artículo de procedimientos](vpn-gateway-connect-multiple-policybased-rm-ps.md).
 >
 > (\*\*) Los enrutadores de la serie ISR 7200 solo admiten VPN basadas en directivas.
+
+## <a name="configscripts"></a>Descarga de los scripts de configuración de dispositivos VPN desde Azure
+
+Para determinados dispositivos, puede descargar los scripts de configuración directamente desde Azure. Para más información y las instrucciones de descarga, consulte [Descarga de scripts de configuración de dispositivos VPN para conexiones VPN S2S](vpn-gateway-download-vpndevicescript.md).
+
+### <a name="devices-with-available-configuration-scripts"></a>Dispositivos con scripts de configuración disponibles
+
+[!INCLUDE [scripts](../../includes/vpn-gateway-device-configuration-scripts.md)]
 
 ## <a name="additionaldevices"></a>Dispositivos VPN no validados
 
@@ -181,7 +190,7 @@ En la tabla siguiente se enumeran las ofertas de SA de IPsec (modo rápido de IK
 | 17|AES256        |SHA256            |1            |
 | 18|AES256        |SHA256            |2            |
 | 19|AES256        |SHA256            |14           |
-| 20 |AES256        |SHA1              |24           |
+| 20|AES256        |SHA1              |24           |
 | 21|AES256        |SHA256            |24           |
 | 22|AES128        |SHA256            |None         |
 | 23|AES128        |SHA256            |1            |

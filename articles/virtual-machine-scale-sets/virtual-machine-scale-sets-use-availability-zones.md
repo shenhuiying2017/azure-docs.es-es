@@ -1,5 +1,5 @@
 ---
-title: Creación de un conjunto de escalado de Azure que usa Zonas de disponibilidad (versión preliminar) | Microsoft Docs
+title: Creación de un conjunto de escalado de Azure que usa Zonas de disponibilidad | Microsoft Docs
 description: Obtenga información sobre cómo crear conjuntos de escalado de máquinas virtuales de Azure que usan Zonas de disponibilidad para aumentar la redundancia contra las interrupciones
 services: virtual-machine-scale-sets
 documentationcenter: ''
@@ -13,18 +13,16 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2018
+ms.date: 03/07/2018
 ms.author: iainfou
-ms.openlocfilehash: 8b497af8bc7e3060e184dd6a029b23ccb2d2bbfb
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: dee06eee045bc24c2864333a66a6d145a771b3ad
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones-preview"></a>Creación de un conjunto de escalado de máquinas virtuales que usa Zonas de disponibilidad (versión preliminar)
+# <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Creación de un conjunto de escalado de máquinas virtuales que usa Zonas de disponibilidad
 Para proteger los conjuntos de escalado de máquinas virtuales de los errores en el nivel de centro de datos, puede crear un conjunto de escalado en todas las zonas de disponibilidad. Las regiones de Azure que admiten las Zonas de disponibilidad tienen un mínimo de tres zonas independientes, cada una de las cuales con su propia fuente de alimentación, red y sistema de refrigeración. Para obtener más información, consulte [Introducción a las zonas de disponibilidad](../availability-zones/az-overview.md).
-
-[!INCLUDE [availability-zones-preview-statement.md](../../includes/availability-zones-preview-statement.md)]
 
 
 ## <a name="single-zone-and-zone-redundant-scale-sets"></a>Conjuntos de escalado de una sola zona y con redundancia de zona
@@ -32,13 +30,28 @@ Cuando implementa un conjunto de escalado de máquinas virtuales, puede elegir u
 
 Cuando crea un conjunto de escalado en una sola zona, controla en qué zona se ejecutan todas esas instancias de VM y el conjunto de escalado se administra y se escala automáticamente solo dentro de esa zona. Un conjunto de escalado con redundancia de zona permite crear un conjunto de escalado único que abarque varias zonas. De manera predeterminada, cuando se crean las instancias de VM, se equilibran de manera uniforme entre las distintas zonas. En caso de que se produzca una interrupción en una de las zonas, un conjunto de escalado no escala automáticamente de manera horizontal para aumentar la capacidad. Un procedimiento recomendado sería configurar reglas de escalado automático según el uso de la memoria o CPU. Las reglas de escalado automático permitirían que el conjunto de escalado responda ante una pérdida de las instancias de VM en esa zona mediante el escalado horizontal de instancias nuevas en las zonas operativas.
 
-Para usar las Zonas de disponibilidad, el conjunto de escalado se debe crear en una [región de Azure compatible](../availability-zones/az-overview.md#regions-that-support-availability-zones). También necesita [registrarse para obtener la versión preliminar de las Zonas de disponibilidad](http://aka.ms/azenroll). Puede crear un conjunto de escalado que use las Zonas de disponibilidad con uno de los métodos siguientes:
+Para usar las Zonas de disponibilidad, el conjunto de escalado se debe crear en una [región de Azure compatible](../availability-zones/az-overview.md#regions-that-support-availability-zones). Puede crear un conjunto de escalado que use las Zonas de disponibilidad con uno de los métodos siguientes:
 
 - [Azure Portal](#use-the-azure-portal)
 - [CLI de Azure 2.0](#use-the-azure-cli-20)
 - [Azure PowerShell](#use-azure-powershell)
 - [Plantillas del Administrador de recursos de Azure](#use-azure-resource-manager-templates)
 
+## <a name="availability-considerations"></a>Consideraciones sobre disponibilidad
+A partir de la versión 2017-12-01 de la API, al implementar un conjunto de escalado en una o más zonas, tiene la opción de hacerlo con propagación máxima o estática de 5 dominios de error. Con la propagación máxima, el conjunto de escalado propaga las máquinas virtuales en tantos dominios de error como sea posible dentro de cada zona. Esta propagación podría incluir más o menos de cinco dominios de error por zona. Por otra parte, con la propagación estática en 5 dominios de error, el conjunto de escalado propaga las máquinas virtuales en exactamente 5 dominios de error por zona. Si el conjunto de escalado no encuentra 5 dominios de error distintos por zona para satisfacer la solicitud de asignación, se produce un error en la solicitud.
+
+**Se recomienda implementar con propagación máxima la mayoría de las cargas de trabajo**, ya que esta ofrece la mejor propagación en la mayoría de los casos. Si necesita que las réplicas se incluyan en unidades de aislamiento de hardware distintas, se recomienda la propagación en distintas zonas de disponibilidad y el empleo de la propagación máxima en cada una de ellas. Tenga en cuenta que, con la propagación máxima, solo verá un dominio de error en la vista de la instancia de la máquina virtual del conjunto de escalado y en los metadatos de la instancia, independientemente de la cantidad en la que se hayan propagado las máquinas virtuales en realidad; la propagación dentro de cada zona está implícita.
+
+Para la propagación máxima, establezca "platformFaultDomainCount" en 1. Para la propagación en 5 dominios de error, establezca "platformFaultDomainCount" en 5. En versión 2017-12-01 de la API, el valor predeterminado de "platformFaultDomainCount" es 1 para los conjuntos de escalado de una zona y de varias. Actualmente, solo se admite la propagación en 5 dominios de error para los conjuntos de escalado regionales.
+
+Además, al implementar un conjunto de escalado, tiene la opción de hacerlo con un solo [grupo de selección de ubicación](./virtual-machine-scale-sets-placement-groups.md) por zona de disponibilidad o con varios por cada zona (para los conjuntos de escalado regionales, la opción es tener un grupo único de selección de ubicación en la región o varios). Para la mayoría de las cargas de trabajo, se recomiendan varios grupos de selección de ubicación, lo que permite mayor escala. En la versión 2017-12-01 de la API, los conjuntos de escalado de una o varias zonas tienen varios grupos de selección de ubicación de manera predeterminada, pero se cambia de manera predeterminada a un único grupo para los conjuntos de escalado regionales.
+
+>[!NOTE]
+> Si usa la propagación máxima, debe usar varios grupos de selección de ubicación.
+
+Por último, para conjuntos de escalado implementados en varias zonas, también tiene la opción de elegir la mejor opción de equilibrio de zonas o equilibrio de zonas estricto. Un conjunto de escalado se considera equilibrado si el número de máquinas virtuales de cada zona está comprendido en el número de máquinas virtuales de las demás. Por ejemplo, se considera equilibrado un conjunto de escalado con dos máquinas virtuales en la zona 1, tres en la zona 2 y tres en la zona 3. Sin embargo, un conjunto de escalado con una máquina virtual en la zona 1, tres en la zona 2 y tres en la zona 3 se considera desequilibrado. Es posible que las máquinas virtuales del conjunto de escalado se creen correctamente, aunque su extensión produzca un error. Estas máquinas virtuales con errores de extensión se siguen teniendo en cuenta para determinar si un conjunto de escalado está equilibrado. Por ejemplo, un conjunto de escalado con tres máquinas virtuales en la zona 1, tres en la zona 2 y tres en la zona 3 se considera equilibrado aunque todas las extensiones produzcan un error en la zona 1 y sean correctas en las zonas 2 y 3. Con la mejor opción de equilibrio de zonas, el conjunto de escalado intenta aumentarse y reducirse horizontalmente, y conserva el equilibrio. Sin embargo, si por alguna razón no es posible (por ejemplo, que una zona deje de funcionar, y, como consecuencia, el conjunto de escala no pueda crear una máquina virtual en esa zona), el conjunto de escalado permite el desequilibrio temporal para realizar correctamente el aumento o la reducción horizontal. Para los posteriores intentos de escalado horizontal, el conjunto de escalado e máquinas virtuales a las zonas donde se necesitan más para conseguir el equilibrio. Análogamente, para los posteriores intentos de reducción horizontal, el conjunto de escalado elimina máquinas virtuales de las zonas donde se necesitan menos para conseguir el equilibrio. Por otro lado, con el equilibrio de zonas estricto, el conjunto de escalado produce un error al intentar el aumento o la reducción horizontal si ello causara desequilibrio.
+
+Para usar la mejor opción de equilibrio de zonas, establezca "zoneBalance" en false (valor predeterminado en la versión 2017-12-01 de la API). Para usar el equilibrio de zonas estricto, establezca "zoneBalance" en true.
 
 ## <a name="use-the-azure-portal"></a>Uso de Azure Portal
 El proceso para crear un conjunto de escalado que usa una zona de disponibilidad es igual al que se detalla en el [artículo de introducción](quick-create-portal.md). Asegúrese de haberse [registrado para obtener la versión preliminar de las Zonas de disponibilidad](http://aka.ms/azenroll). Cuando selecciona una región de Azure compatible, puede crear un conjunto de escalado en una de las zonas disponibles, tal como se muestra en el ejemplo siguiente:
@@ -66,36 +79,7 @@ az vmss create \
 Para ver un ejemplo completo de los recursos de red y un conjunto de escalado de una sola zona, consulte [este script de CLI de ejemplo](https://github.com/Azure/azure-docs-cli-python-samples/blob/master/virtual-machine-scale-sets/create-single-availability-zone/create-single-availability-zone.sh.)
 
 ### <a name="zone-redundant-scale-set"></a>Conjunto de escalado con redundancia de zona
-Para crear un conjunto de escalado con redundancia de zona, use una dirección IP pública de SKU *estándar* y un equilibrador de carga. Para obtener una mejor redundancia, la SKU *estándar* crea recursos de red con redundancia de zona. Para más información, consulte [Introducción a Azure Load Balancer estándar](../load-balancer/load-balancer-standard-overview.md). La primera vez que crea un equilibrador de carga o un conjunto de escalado con redundancia de zona, debe completar estos pasos para registrar la cuenta y obtener estas características de versión preliminar.
-
-1. Registre su cuenta para obtener las características de red y el conjunto de escalado con redundancia de zona con [az feature register](/cli/azure/feature#az_feature_register), tal como se indica a continuación:
-
-    ```azurecli
-    az feature register --name MultipleAvailabilityZones --namespace Microsoft.Compute
-    az feature register --name AllowLBPreview --namespace Microsoft.Network
-    ```
-    
-2. El proceso de registro para obtener las características puede tardar unos minutos. Puede comprobar el estado de la operación con [az feature show](/cli/azure/feature#az_feature_show):
-
-    ```azurecli
-    az feature show --name MultipleAvailabilityZones --namespace Microsoft.Compute
-    az feature show --name AllowLBPreview --namespace Microsoft.Network
-    ```
-
-    En el ejemplo siguiente se muestra el estado deseado de la característica como *Registrado*:
-    
-    ```json
-    "properties": {
-          "state": "Registered"
-       },
-    ```
-
-3. Una vez que tanto los recursos de red como el conjunto d escalado con redundancia de zona aparezcan con el estado *Registrado*, vuelva a registrar los proveedores de *proceso* y *red* con [az provider register](/cli/azure/provider#az_provider_register), tal como se indica a continuación:
-
-    ```azurecli
-    az provider register --namespace Microsoft.Compute
-    az provider register --namespace Microsoft.Network
-    ```
+Para crear un conjunto de escalado con redundancia de zona, use una dirección IP pública de SKU *estándar* y un equilibrador de carga. Para obtener una mejor redundancia, la SKU *estándar* crea recursos de red con redundancia de zona. Para más información, consulte [Introducción a Azure Load Balancer estándar](../load-balancer/load-balancer-standard-overview.md). 
 
 Para crear un conjunto de escalado con redundancia de zona, especifique varias zonas con el parámetro `--zones`. En el ejemplo siguiente se crea un conjunto de escalado con redundancia de zona denominado *myScaleSet* en las zonas *1,2,3*:
 
@@ -130,36 +114,7 @@ $vmssConfig = New-AzureRmVmssConfig `
 Para ver un ejemplo completo de los recursos de red y un conjunto de escalado de una sola zona, consulte [este script de PowerShell de ejemplo](https://github.com/Azure/azure-docs-powershell-samples/blob/master/virtual-machine-scale-sets/create-single-availability-zone/create-single-availability-zone.ps1)
 
 ### <a name="zone-redundant-scale-set"></a>Conjunto de escalado con redundancia de zona
-Para crear un conjunto de escalado con redundancia de zona, use una dirección IP pública de SKU *estándar* y un equilibrador de carga. Para obtener una mejor redundancia, la SKU *estándar* crea recursos de red con redundancia de zona. Para más información, consulte [Introducción a Azure Load Balancer estándar](../load-balancer/load-balancer-standard-overview.md). La primera vez que crea un equilibrador de carga o un conjunto de escalado con redundancia de zona, debe completar estos pasos para registrar la cuenta y obtener estas características de versión preliminar.
-
-1. Registre su cuenta para obtener las características de red y el conjunto de escalado con redundancia de zona con [Register-AzureRmProviderFeature](/powershell/module/azurerm.resources/register-azurermproviderfeature), tal como se indica a continuación:
-
-    ```powershell
-    Register-AzureRmProviderFeature -FeatureName MultipleAvailabilityZones -ProviderNamespace Microsoft.Compute
-    Register-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
-    ```
-    
-2. El proceso de registro para obtener las características puede tardar unos minutos. Puede comprobar el estado de la operación con [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature):
-
-    ```powershell
-    Get-AzureRmProviderFeature -FeatureName MultipleAvailabilityZones -ProviderNamespace Microsoft.Compute 
-    Get-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
-    ```
-
-    En el ejemplo siguiente se muestra el estado deseado de la característica como *Registrado*:
-    
-    ```powershell
-    RegistrationState
-    -----------------
-    Registered
-    ```
-
-3. Una vez que tanto los recursos de red como el conjunto d escalado con redundancia de zona aparezcan con el estado *Registrado*, vuelva a registrar los proveedores de *proceso* y *red* con [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider), tal como se indica a continuación:
-
-    ```powershell
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-    ```
+Para crear un conjunto de escalado con redundancia de zona, use una dirección IP pública de SKU *estándar* y un equilibrador de carga. Para obtener una mejor redundancia, la SKU *estándar* crea recursos de red con redundancia de zona. Para más información, consulte [Introducción a Azure Load Balancer estándar](../load-balancer/load-balancer-standard-overview.md).
 
 Para crear un conjunto de escalado con redundancia de zona, especifique varias zonas con el parámetro `-Zone`. En el ejemplo siguiente se crea una configuración de conjunto de escalado con redundancia de zona denominado *myScaleSet* en *Este de EE. UU. 2* zonas *1, 2, 3*:
 
@@ -220,7 +175,7 @@ En el ejemplo siguiente se crea un conjunto de escalado Linux de una sola zona d
 }
 ```
 
-Para ver un ejemplo completo de los recursos de red y un conjunto de escalado de una sola zona, consulte [esta plantilla de Resource Manager de ejemplo](https://github.com/Azure/vm-scale-sets/blob/master/preview/zones/singlezone.json)
+Para ver un ejemplo completo de los recursos de red y un conjunto de escalado de una sola zona, consulte [esta plantilla de Resource Manager de ejemplo](https://github.com/Azure/vm-scale-sets/blob/master/zones/singlezone.json)
 
 ### <a name="zone-redundant-scale-set"></a>Conjunto de escalado con redundancia de zona
 Para crear un conjunto de escalado con redundancia de zona, especifique varios valores en la propiedad `zones` del tipo de recurso *Microsoft.Compute/virtualMachineScaleSets*. En el ejemplo siguiente se crea un conjunto de escalado con redundancia de zona denominado *myScaleSet* en *Este de EE. UU. 2* zonas *1,2,3*:
@@ -241,7 +196,7 @@ Para crear un conjunto de escalado con redundancia de zona, especifique varios v
 
 Si crea un equilibrador de carga o una dirección IP pública especifique la propiedad *"sku": { "nombre": "estándar" }"* para crear los recursos de red con redundancia de zona. También debe crear un grupo de seguridad de red y reglas para permitir cualquier tráfico. Para más información, consulte [Introducción a Azure Load Balancer estándar](../load-balancer/load-balancer-standard-overview.md).
 
-Para ver un ejemplo completo de los recursos de red y un conjunto de escalado con redundancia de zona, consulte [esta plantilla de Resource Manager de ejemplo](https://github.com/Azure/vm-scale-sets/blob/master/preview/zones/multizone.json)
+Para ver un ejemplo completo de los recursos de red y un conjunto de escalado con redundancia de zona, consulte [esta plantilla de Resource Manager de ejemplo](https://github.com/Azure/vm-scale-sets/blob/master/zones/multizone.json)
 
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -1,8 +1,8 @@
 ## <a name="deploy-template-from-cloud-shell"></a>Implementación de una plantilla desde Cloud Shell
 
-Puede usar [Cloud Shell](../articles/cloud-shell/overview.md) para implementar la plantilla. Pero primero debe cargar la plantilla en el recurso compartido de archivos de Cloud Shell. Si no ha usado Cloud Shell, vea [Introducción a Azure Cloud Shell](../articles/cloud-shell/overview.md) para más información sobre su configuración.
+Puede usar [Cloud Shell](../articles/cloud-shell/overview.md) para implementar la plantilla. Sin embargo, primero debe cargar la plantilla en la cuenta de almacenamiento de Cloud Shell. Si no ha usado Cloud Shell, vea [Introducción a Azure Cloud Shell](../articles/cloud-shell/overview.md) para más información sobre su configuración.
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 1. Seleccione el grupo de recursos de Cloud Shell. El patrón de nombre es `cloud-shell-storage-<region>`.
 
@@ -12,33 +12,37 @@ Puede usar [Cloud Shell](../articles/cloud-shell/overview.md) para implementar l
 
    ![Selección de la cuenta de almacenamiento](./media/resource-manager-cloud-shell-deploy/select-storage.png)
 
-1. Seleccione **Archivos**.
+1. Seleccione **Blobs**.
 
-   ![Seleccionar archivos](./media/resource-manager-cloud-shell-deploy/select-files.png)
+   ![Selección de blobs](./media/resource-manager-cloud-shell-deploy/select-blobs.png)
 
-1. Seleccione el recurso compartido de archivos de Cloud Shell. El patrón de nombre es `cs-<user>-<domain>-com-<uniqueGuid>`.
+1. Seleccione **+ Contenedor**.
 
-   ![Selección de recurso compartido de archivos](./media/resource-manager-cloud-shell-deploy/select-file-share.png)
+   ![Agregar contenedor](./media/resource-manager-cloud-shell-deploy/add-container.png)
 
-1. Seleccione **Agregar directorio**.
+1. Asigne un nombre y un nivel de acceso al contenedor. El la plantilla de ejemplo de este artículo no se incluye información confidencial, por lo que puede permitir el acceso de lectura anónimo. Seleccione **Aceptar**.
 
-   ![Agregar directorio](./media/resource-manager-cloud-shell-deploy/select-add-directory.png)
+   ![Proporcionar valores de contenedor](./media/resource-manager-cloud-shell-deploy/provide-container-values.png)
 
-1. Asígnele el nombre **plantillas** y seleccione **Correcto**.
+1. Seleccione el contenedor creado.
 
-   ![Nombre de directorio](./media/resource-manager-cloud-shell-deploy/name-templates.png)
-
-1. Seleccione el nuevo directorio.
-
-   ![Selección de directorio](./media/resource-manager-cloud-shell-deploy/select-templates.png)
+   ![Selección del nuevo contenedor](./media/resource-manager-cloud-shell-deploy/select-container.png)
 
 1. Seleccione **Cargar**.
 
-   ![Selección de carga](./media/resource-manager-cloud-shell-deploy/select-upload.png)
+   ![Carga de blob](./media/resource-manager-cloud-shell-deploy/upload-blob.png)
 
 1. Busque y cargue la plantilla.
 
-   ![Carga de archivo](./media/resource-manager-cloud-shell-deploy/upload-files.png)
+   ![Carga de archivo](./media/resource-manager-cloud-shell-deploy/find-and-upload-template.png)
+
+1. Una vez ha cargado, seleccione la plantilla.
+
+   ![Selección de la nueva plantilla](./media/resource-manager-cloud-shell-deploy/select-new-template.png)
+
+1. Copie la dirección URL.
+
+   ![Copiar la dirección URL](./media/resource-manager-cloud-shell-deploy/copy-url.png)
 
 1. Abra el símbolo del sistema.
 

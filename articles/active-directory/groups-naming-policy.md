@@ -1,32 +1,32 @@
 ---
-title: "Configuración de la directiva de nombre de grupo para grupos de Office 365 en Azure Active Directory (versión preliminar) | Microsoft Docs"
-description: "Configuración de la expiración de grupos de Office 365 en Azure Active Directory (versión preliminar)"
+title: Configuración de la directiva de nombre de grupo para grupos de Office 365 en Azure Active Directory (versión preliminar) | Microsoft Docs
+description: Configuración de la expiración de grupos de Office 365 en Azure Active Directory (versión preliminar)
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: michael.tillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/29/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: cc3ea7f81a924f3f4baa6fd2866c4e552b7c160e
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: c21706a591d0e1aa00279edf7a5534ada95fd8c1
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory-preview"></a>Aplicación de una directiva de nomenclatura para grupos de Office 365 en Azure Active Directory (versión preliminar)
 
 Para aplicar convenciones de nomenclatura coherentes a los grupos de Office 365 creados o editados por los usuarios, configure una directiva de nomenclatura de grupos para sus inquilinos en Azure Active Directory (Azure AD). Por ejemplo, podría usar la directiva de nomenclatura para comunicar la función de un grupo, la pertenencia, la región geográfica o quién creó el grupo. También puede usarla para ayudar a clasificar los grupos en la libreta de direcciones. O, para impedir que palabras específicas se usen en los nombres y alias de grupo.
 
 > [!IMPORTANT]
-> Para usar la versión preliminar de la directiva de nomenclatura de grupos de Office 365, es necesario que cada usuario único que sea miembro de uno o varios grupos de Office 365 tenga una licencia Premium P1 de Azure Active Directory.
+> Para usar la versión preliminar de la directiva de nomenclatura de grupos de Office 365, es necesario que cada usuario único que sea miembro de uno o varios grupos de Office 365 tenga una licencia Premium P1 de Azure Active Directory o EDU de Azure AD Basic.
 
 La directiva de nomenclatura se aplica a la creación o edición de grupos creados en cargas de trabajo (por ejemplo, Outlook, Microsoft Teams, SharePoint, Exchange o Planner). Se aplica tanto al nombre como al alias del grupo. Si configuró su directiva de nomenclatura en Azure AD y tiene una directiva de nomenclatura de grupos de Exchange existente, se aplica la directiva de nomenclatura de Azure AD.
 

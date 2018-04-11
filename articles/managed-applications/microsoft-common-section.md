@@ -1,6 +1,6 @@
 ---
-title: "Elemento de interfaz de usuario Section de una aplicación administrada de Azure | Microsoft Docs"
-description: Describe el elemento de la interfaz de usuario Microsoft.Common.Section para aplicaciones administradas de Azure
+title: Elemento de interfaz de usuario Section de Azure | Microsoft Docs
+description: Describe el elemento de la interfaz de usuario Microsoft.Common.Section para Azure Portal.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 03/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5a460fde88982c53a7ef3a1ec444d50c1c482fc4
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 46ea2e3d404ac3ec9b7f909257451991dbb55f53
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="microsoftcommonsection-ui-element"></a>Elemento de interfaz de usuario Microsoft.Common.Section
-Control que agrupa uno o varios elementos en un encabezado. Use este elemento al [crear una aplicación administrada de Azure](publish-service-catalog-app.md).
+Control que agrupa uno o varios elementos en un encabezado.
 
 ## <a name="ui-sample"></a>Ejemplo de interfaz de usuario
 ![Microsoft.Common.Section](./media/managed-application-elements/microsoft.common.section.png)
@@ -61,6 +61,5 @@ basics('section1').element1
 Los elementos del tipo `Microsoft.Common.Section` no tienen valores de salida por sí mismos.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Para una introducción a las aplicaciones administradas, consulte la [introducción a las aplicaciones administradas de Azure](overview.md).
 * Para ver una introducción sobre la creación de definiciones de interfaz de usuario, consulte [Introducción a CreateUiDefinition](create-uidefinition-overview.md).
 * Para ver una descripción de las propiedades comunes de los elementos de interfaz de usuario, consulte [Elementos CreateUiDefinition](create-uidefinition-elements.md).

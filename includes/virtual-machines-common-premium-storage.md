@@ -35,7 +35,7 @@ Aquí se muestran algunas de las características de Premium Storage:
 
 * **Discos de Premium Storage**
 
-    Premium Storage es compatible con discos de VM que se pueden adjuntar a VM de series de tamaño específico. Premium Storage es compatible con máquinas virtuales de las series DS, DSv2, GS, Ls, Fs y Esv3. Tiene la opción de siete tamaños de disco: P4 (32 GB), P6 (64 GB), P10 (128 GB), P20 (512 GB), P30 (1024 GB), P40 (2048 GB), P50 (4095 GB). Los tamaños de disco P4 y P6 siguen admitiéndose solo para Managed Disks. Cada tamaño de disco tiene sus propias especificaciones de rendimiento. En función de los requisitos de la aplicación puede conectar uno o varios discos a la VM. En [Objetivos de rendimiento y escalabilidad de Premium Storage](#scalability-and-performance-targets) se describen las especificaciones más detalladamente.
+    Premium Storage es compatible con discos de VM que se pueden adjuntar a VM de series de tamaño específico. Premium Storage es compatible con máquinas virtuales de las series DS, DSv2, GS, Ls, Fs y Esv3. Puede elegir entre siete tamaños de disco:  P4 (32 GB), P6 (64 GB), P10 (128 GB), P20 (512 GB), P30 (1024 GB), P40 (2048 GB), P50 (4095 GB). Los tamaños de disco P4 y P6 siguen admitiéndose solo para Managed Disks. Cada tamaño de disco tiene sus propias especificaciones de rendimiento. En función de los requisitos de la aplicación puede conectar uno o varios discos a la VM. En [Objetivos de rendimiento y escalabilidad de Premium Storage](#scalability-and-performance-targets) se describen las especificaciones más detalladamente.
 
 * **Blobs en páginas Premium**
 
@@ -45,11 +45,11 @@ Aquí se muestran algunas de las características de Premium Storage:
 
 * **Cuenta de Premium Storage**
 
-    Para empezar a usar Premium Storage, cree una cuenta de Premium Storage para discos no administrados. En [Azure Portal](https://portal.azure.com), para crear una cuenta de Premium Storage, elija el nivel de rendimiento **Premium**. Seleccione la opción de replicación **Almacenamiento con redundancia local (LRS)**. También puede crear una cuenta de Premium Storage estableciendo el tipo en **Premium_LRS** en una de las siguientes ubicaciones:
-    * [API de REST de almacenamiento](https://docs.microsoft.com/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference) (versión 2014-02-14 o una versión posterior)
-    * [API de REST de administración de servicios](http://msdn.microsoft.com/library/azure/ee460799.aspx) (versión 2014-10-01 o una versión posterior, para las implementaciones de Azure clásicas)
-    * [API de REST del proveedor de recursos de Azure Storage](https://docs.microsoft.com/rest/api/storagerp) (para implementaciones de Azure Resource Manager)
-    * [Azure PowerShell](/powershell/azureps-cmdlets-docs.md) (versión 0.8.10 o una versión posterior)
+    Para empezar a usar Premium Storage, cree una cuenta de Premium Storage para discos no administrados. En [Azure Portal](https://portal.azure.com), para crear una cuenta de Premium Storage, elija el nivel de rendimiento **Premium**. Seleccione la opción de replicación **Almacenamiento con redundancia local (LRS)**. También puede crear una cuenta de Premium Storage estableciendo el nivel de rendimiento en **Premium_LRS**. Para cambiar el nivel de rendimiento, use uno de los siguientes enfoques:
+     
+    - [PowerShell para Azure Storage](../articles/storage/common/storage-powershell-guide-full.md#manage-the-storage-account)
+    - [CLI de Azure para Azure Storage](../articles/storage/common/storage-azure-cli.md#manage-storage-accounts)
+    - [API de REST del proveedor de recursos de Azure Storage](https://docs.microsoft.com/rest/api/storagerp) (para implementaciones de Azure Resource Manager) o una de las bibliotecas cliente del proveedor de recursos de Azure Storage
 
     Para más información sobre los límites de la cuenta de Premium Storage en la siguiente sección, vea [Objetivos de rendimiento y escalabilidad de Premium Storage](#premium-storage-scalability-and-performance-targets).
 
@@ -103,7 +103,7 @@ A continuación, se muestran algunas de las características de las máquinas vi
 
     Actualmente, la VM más grande de la serie DS es Standard_DS15_v2. Standard_DS15_v2 puede proporcionar hasta 960 MB/s en todos los discos. La VM más grande de la serie GS es Standard_GS5. Standard_GS5 puede proporcionar hasta 2000 MB/s en todos los discos.
 
-    Tenga en cuenta que estos límites son solo para el tráfico de disco. Estos límites no incluyen los aciertos de la caché y el tráfico de red. Hay disponible un ancho de banda independiente para el tráfico de red de VM. El ancho de banda para el tráfico de red es diferente del ancho de banda dedicado utilizado por los discos de Premium Storage.
+    Estos límites son solo para el tráfico de disco. Estos límites no incluyen los aciertos de la caché y el tráfico de red. Hay disponible un ancho de banda independiente para el tráfico de red de VM. El ancho de banda para el tráfico de red es diferente del ancho de banda dedicado utilizado por los discos de Premium Storage.
 
     Para obtener la información más actualizada acerca de los niveles máximos de E/S por segundo y rendimiento (ancho de banda) de las VM compatibles con Premium Storage, consulte los artículos sobre los [tamaños de VM Windows](../articles/virtual-machines/windows/sizes.md) o [Linux](../articles/virtual-machines/linux/sizes.md).
 
@@ -129,11 +129,11 @@ Si usa cuentas de Premium Storage para los discos no administrados y la aplicaci
 ### <a name="premium-storage-disk-limits"></a>Límites de discos de Premium Storage
 Cuando se aprovisiona un disco de Premium Storage, el tamaño del disco determina los valores máximos de IOPS y rendimiento (ancho de banda). Azure ofrece siete tipos de discos de Premium Storage: P4 (solo Managed Disks), P6 (solo Managed Disks), P10, P20, P30, P40 y P50. Cada tipo de disco de Premium Storage tiene límites específicos de E/S por segundo y rendimiento. Los límites de los tipos de disco se describen en la siguiente tabla.
 
-| Tipo de discos Premium  | P4    | P6    | P10   | P20   | P30   | P40   | P50   | 
-|---------------------|-------|-------|-------|-------|-------|-------|-------|
-| Tamaño del disco           | 32 GB| 64 GB| 128 GB| 512 GB            | 1.024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
-| IOPS por disco       | 120   | 240   | 500   | 2300              | 5000              | 7500              | 7500              | 
-| Rendimiento de disco | 25 MB por segundo  | 50 MB por segundo  | 100 MB por segundo | 150 MB por segundo | 200 MB por segundo | 250 MB por segundo | 250 MB por segundo | 
+| Tipo de discos Premium  | P4    | P6    | P10   | P15   | P20   | P30   | P40   | P50   | 
+|---------------------|-------|-------|-------|-------|-------|-------|-------|-------|
+| Tamaño del disco           | 32 GB| 64 GB| 128 GB| 256 GB| 512 GB            | 1.024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
+| IOPS por disco       | 120   | 240   | 500   | 1100   | 2300              | 5000              | 7500              | 7500              | 
+| Rendimiento de disco | 25 MB por segundo  | 50 MB por segundo  | 100 MB por segundo | 125 MB por segundo | 150 MB por segundo | 200 MB por segundo | 250 MB por segundo | 250 MB por segundo | 
 
 > [!NOTE]
 > Asegúrese de que haya ancho de banda suficiente disponible en la VM para el tráfico de disco de unidad, como se describe en [Máquinas virtuales compatibles con Premium Storage](#premium-storage-supported-vms). En caso contrario, el rendimiento del disco y la E/S por segundo estarán restringidos a valores inferiores. El rendimiento y la E/S por segundo máximos se basan en los límites de la VM, no en los límites de disco descritos en la tabla anterior.  
@@ -170,7 +170,7 @@ Estos son algunos aspectos importantes que debe conocer sobre los objetivos de e
 
 * **Aciertos de caché**
 
-    Los aciertos de caché no están limitados por las E/S por segundo ni el rendimiento asignados del disco. Por ejemplo, cuando se utiliza un disco de datos con la configuración de caché **ReadOnly** en una VM compatible con Premium Storage, las lecturas que se sirven desde la memoria caché no están sujetas a los límites de E/S por segundo y rendimiento del disco. Si la carga de trabajo de un disco es predominantemente lecturas, puede que obtenga un rendimiento muy alto. La caché está sujeta a límites de E/S por segundo y rendimiento independientes en el nivel de la VM que se basan en el tamaño de esta. Las VM de la serie DS tienen aproximadamente 4000 E/S por segundo y un rendimiento de 33 MB/s por núcleo de caché y E/S de SSD locales. Las VM de la serie DS tienen aproximadamente un límite de 5000 E/S por segundo y un rendimiento de 50 MB/s por núcleo de caché y E/S de SSD locales. 
+    Los aciertos de caché no están limitados por las E/S por segundo ni el rendimiento asignados del disco. Por ejemplo, cuando se utiliza un disco de datos con la configuración de caché **ReadOnly** en una VM compatible con Premium Storage, las lecturas que se sirven desde la memoria caché no están sujetas a los límites de E/S por segundo y rendimiento del disco. Si la carga de trabajo de un disco es predominantemente lecturas, puede que obtenga un rendimiento muy alto. La caché está sujeta a límites de E/S por segundo y rendimiento independientes en el nivel de la VM que se basan en el tamaño de esta. Las VM de la serie DS tienen aproximadamente 4000 E/S por segundo y un rendimiento de 33 MB/s por núcleo de caché y E/S de SSD locales. Las VM de la serie GS tienen aproximadamente un límite de 5000 E/S por segundo y un rendimiento de 50 MB/s por núcleo de caché y E/S de SSD locales. 
 
 ## <a name="throttling"></a>Limitaciones
 La limitación puede ocurrir si la E/S por segundo o el rendimiento de la aplicación supera los límites asignados para un disco de Premium Storage. Limitación también se podría producir si el tráfico total en disco en todos los discos en la VM supera el límite de ancho de banda de disco disponible para la VM. Para evitar la limitación, se recomienda que limite el número de solicitudes de E/S pendientes del disco. Utilice un límite basado en objetivos de escalabilidad y rendimiento para el disco que se ha aprovisionado y en el ancho de banda de disco disponible para la VM.  
@@ -297,14 +297,3 @@ Para crear un trabajo de copia de seguridad con copias de seguridad basadas en t
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre el Premium Storage, consulte los siguientes artículos.
-
-### <a name="design-and-implement-with-premium-storage"></a>Diseño e implementación con Premium Storage
-* [Diseño para rendimiento con Premium Storage](../articles/virtual-machines/windows/premium-storage-performance.md)
-* [Operaciones de almacenamiento de blobs con Premium Storage](http://go.microsoft.com/fwlink/?LinkId=521969)
-
-### <a name="operational-guidance"></a>Guía de operaciones
-* [Migrar a Azure Premium Storage](../articles/storage/common/storage-migration-to-premium-storage.md)
-
-### <a name="blog-posts"></a>Publicaciones de blog
-* [Disponibilidad general de Azure Premium Storage](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/)
-* [Anuncio de la serie GS: Incorporación de compatibilidad con Premium Storage a las VM más grandes en la nube pública](https://azure.microsoft.com/blog/azure-has-the-most-powerful-vms-in-the-public-cloud/)

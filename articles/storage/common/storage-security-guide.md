@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: cshoe
-ms.openlocfilehash: e0a398075b01b3c3750a33a9dd74b5ad1c0f71fd
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 73353d3b27b65298d804a138b33cdf2de23726fe
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-storage-security-guide"></a>Guía de seguridad de Azure Storage
 
@@ -357,7 +357,7 @@ Esta característica garantiza que todos los datos de los discos de máquinas vi
 
 #### <a name="iaas-vms-and-their-vhd-files"></a>Máquinas virtuales de IaaS y sus archivos VHD
 
-Para los discos de datos usados por las máquinas virtuales de IaaS, se recomienda utilizar Azure Disk Encryption. Si crea una máquina virtual mediante una imagen de Azure Marketplace, Azure realiza una [copia superficial](https://en.wikipedia.org/wiki/Object_copying) de ella en la cuenta de almacenamiento en Azure Storage y no se cifra aunque tenga habilitado SSE. Cuando se cree la máquina virtual y comience a actualizarse la imagen, SSE iniciará el cifrado de los datos. Por este motivo, si quiere que estén totalmente cifradas, es mejor utilizar Azure Disk Encryption en las máquinas virtuales creadas a partir de imágenes de Azure Marketplace.
+Para los discos de datos usados por las máquinas virtuales de IaaS, se recomienda utilizar Azure Disk Encryption. Si crea una máquina virtual con discos no administrados mediante una imagen de Azure Marketplace, Azure realiza una [copia superficial](https://en.wikipedia.org/wiki/Object_copying) de ella en la cuenta de almacenamiento de Azure Storage y no se cifra aunque tenga habilitado SSE. Cuando se cree la máquina virtual y comience a actualizarse la imagen, SSE iniciará el cifrado de los datos. Por este motivo, es mejor usar Azure Disk Encryption en máquinas virtuales con discos no administrados creadas a partir de imágenes de Azure Marketplace si quiere que estén totalmente cifradas. Si crea una máquina virtual con discos administrados, SSE cifra todos los datos de forma predeterminada mediante las claves de la plataforma administrada. 
 
 Si trae una máquina virtual previamente cifrada a Azure desde el entorno local, podrá cargar las claves de cifrado en Azure Key Vault y mantener el cifrado para esa máquina virtual que se utilizaba de forma local. La configuración de Azure Disk Encryption le permite controlar este escenario.
 

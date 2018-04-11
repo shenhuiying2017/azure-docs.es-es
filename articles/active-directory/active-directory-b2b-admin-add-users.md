@@ -1,69 +1,116 @@
 ---
-title: "¿Cómo agregan los administradores de Azure Active Directory usuarios de colaboración B2B? | Microsoft Docs"
-description: "Un administrador puede agregar usuarios invitados a Azure AD de una organización asociada con la colaboración de Azure Active Directory B2B."
+title: Incorporación de usuarios de colaboración B2B en Azure Portal | Microsoft Docs
+description: Muestra cómo un administrador puede agregar usuarios invitados a su directorio desde una organización asociada con la colaboración B2B de Azure Active Directory (Azure AD).
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: twooley
 manager: mtillman
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 03/15/2017
+ms.date: 04/02/2018
 ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: 42be57a81f75025686de022a3879f26598b1108d
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 34bd5b51089045c4cd20f29d179bb230e5e3fac2
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="how-do-azure-active-directory-admins-add-b2b-collaboration-users"></a>¿Cómo agregan los administradores de Azure Active Directory usuarios de colaboración B2B?
+# <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Incorporación de usuarios de colaboración B2B de Azure Active Directory en Azure Portal
 
-Los administradores globales y limitados pueden usar [Azure Portal](https://portal.azure.com) para invitar usuarios de colaboración B2Bal directorio, a cualquier grupo o a cualquier aplicación.
+Como administrador global, o como un usuario al que se le asignan cualquiera de los roles limitados de directorio de administradores, puede usar Azure Portal para invitar a los usuarios de colaboración B2B. Puede invitar a usuarios invitados al directorio, a un grupo o a una aplicación. Después de invitar a un usuario mediante cualquiera de estos métodos, la cuenta del usuario invitado se agrega a Azure Active Directory (Azure AD), con *invitado* como tipo de usuario. El usuario invitado deberá canjear después su invitación para acceder a los recursos.
 
-## <a name="admins-adding-guest-users-to-the-directory"></a>Administradores que agregan usuarios invitados al directorio
-Agregue usuarios de colaboración B2B al directorio como administradores de Azure AD, como se muestra en el siguiente vídeo:
+## <a name="add-guest-users-to-the-directory"></a>Adición de usuarios invitados al directorio
 
->[!VIDEO https://channel9.msdn.com/Blogs/Azure/Admin-adding-guests-for-B2B-collaboration-to-Azure-AD-tenant/Player]
+Para agregar usuarios de colaboración B2B al directorio, siga estos pasos:
 
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador de Azure AD.
+2. En el panel de navegación, seleccione **Azure Active Directory**.
+3. En **Administrar**, seleccione **Usuarios y grupos** > **Todos los usuarios**.
+4. Seleccione **Nuevo usuario invitado**.
 
-## <a name="admins-adding-guest-users-to-a-group"></a>Administradores que agregan usuarios invitados al grupo
-Agregue usuarios de colaboración B2B al grupo como administradores de Azure AD, como se muestra en el siguiente vídeo:
+   ![Muestra dónde se encuentra el nuevo usuario invitado en la interfaz de usuario.](./media/active-directory-b2b-admin-add-users/NewGuestUser-Directory.png) 
+ 
+7. En **Invitar a un invitado**, escriba la dirección de correo electrónico del usuario externo. Opcionalmente, puede incluir un mensaje de bienvenida. Por ejemplo: 
 
->[!VIDEO https://channel9.msdn.com/Blogs/Azure/admin-adding-guests-to-a-group/Player]
+   ![Muestra dónde se encuentra el nuevo usuario invitado en la interfaz de usuario.](./media/active-directory-b2b-admin-add-users/InviteGuest.png) 
 
-
-## <a name="admins-adding-guest-users-to-an-application"></a>Administradores que agregan usuarios invitados a la aplicación
-
-Agregue usuarios de colaboración B2B a una aplicación como administradores de Azure AD, como se muestra en el siguiente vídeo:
-
->[!VIDEO https://channel9.msdn.com/Blogs/Azure/admin-assign-b2b-to-apps/Player]
-
-## <a name="admins-resending-invitations-to-guest-users"></a>Administradores que reenvían invitaciones a usuarios invitados
-Puede ir a la página de perfil del usuario de colaboración B2B y reenviar invitaciones a usuarios invitados que no todavía no las han canjeado:
-
-![Reenvío de invitaciones](./media/active-directory-b2b-admin-add-users/resend-invitation.png)
-
-> ![NOTE] Si vuelve a enviar invitaciones, la invitación se envía desde el usuario que inició sesión a los usuarios individuales, incluso si se ha enviado la invitación original a una aplicación o un grupo concretos.
+8. Seleccione **Invitar** para enviar automáticamente la invitación al usuario invitado. En el área **Notificación**, busque el mensaje **Usuario invitado correctamente**. 
+ 
+Después de enviar la invitación, la cuenta de usuario se agrega automáticamente al directorio como invitado.
 
 
-## <a name="related-articles"></a>Artículos relacionados
+![Muestra el usuario de B2B con el tipo de usuario de invitado.](./media/active-directory-b2b-admin-add-users/GuestUserType.png)  
 
-Examine nuestros otros artículos sobre la colaboración B2B de Azure AD:
+## <a name="add-guest-users-to-a-group"></a>Adición de usuarios invitados a un grupo
+Si necesita agregar manualmente usuarios de colaboración B2B a un grupo como un administrador de Azure AD, siga estos pasos:
 
-* [¿Qué es la colaboración B2B de Azure AD?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [¿Cómo agregan los trabajadores de la información usuarios de colaboración B2B?](active-directory-b2b-iw-add-users.md)
-* [Los elementos del correo electrónico de invitación de colaboración B2B](active-directory-b2b-invitation-email.md)
-* [Canje de invitación de colaboración B2B](active-directory-b2b-redemption-experience.md)
-* [Concesión de licencias de colaboración B2B de Azure AD](active-directory-b2b-licensing.md)
-* [Solución de problemas de colaboración B2B de Azure Active Directory](active-directory-b2b-troubleshooting.md)
-* [Preguntas frecuentes sobre la colaboración B2B de Azure Active Directory (P+F)](active-directory-b2b-faq.md)
-* [Autenticación multifactor para usuarios de colaboración B2B](active-directory-b2b-mfa-instructions.md)
-* [Personalización y API de colaboración B2B de Azure Active Directory](active-directory-b2b-api.md)
-* [Incorporación de usuarios de colaboración B2B sin invitación](active-directory-b2b-add-user-without-invite.md)
-* [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador de Azure AD.
+2. En el panel de navegación, seleccione **Azure Active Directory**.
+3. En **Administrar**, seleccione **Usuarios y grupos** > **Todos los grupos**.
+4. Seleccione un grupo (o haga clic en **Nuevo grupo** para crear uno). Es una buena idea incluir en la descripción del grupo que el grupo contiene los usuarios invitados B2B.
+5. Seleccione **Miembros** > **Agregar miembros**. 
+6. Realice una de las operaciones siguientes:
+   - Si el usuario invitado ya existe en el directorio, busque el usuario B2B. Seleccione el usuario > haga clic en **Seleccionar** para agregar el usuario al grupo.
+   - Si el usuario invitado ya no existe en el directorio, seleccione **Invitar**.
+   ![Adición del botón Invitar para agregar miembros invitados](./media/active-directory-b2b-admin-add-users/GroupInvite.png)
+   
+      En **Invitar a un invitado**, escriba la dirección de correo electrónico y un mensaje personal opcional > seleccione **Invitar**. Haga clic en **Seleccionar** para agregar el usuario al grupo.
+
+      La invitación se dirige automáticamente al usuario invitado. En el área **Notificación**, busque el mensaje de **usuario invitado** correctamente. 
+
+También puede utilizar grupos dinámicos con colaboración B2B de Azure AD. Para más información, consulte [Grupos dinámicos y colaboración B2B de Azure Active Directory](active-directory-b2b-dynamic-groups.md).
+
+## <a name="add-guest-users-to-an-application"></a>Adición de usuarios invitados a una aplicación
+
+Para agregar usuarios de colaboración B2B a una aplicación como administradores de Azure AD, siga estos pasos:
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador de Azure AD.
+2. En el panel de navegación, seleccione **Azure Active Directory**.
+3. En **Administrar**, seleccione **Aplicaciones empresariales** > **Todas las aplicaciones**.
+4. Seleccione la aplicación a la que desea agregar usuarios invitados.
+5. En **Administrar**, seleccione **Usuarios y grupos**.
+6. Seleccione **Agregar usuario**.
+7. En **Agregar asignación**, seleccione **Usuarios y grupos**.
+8. Realice una de las operaciones siguientes:
+   - Si el usuario invitado ya existe en el directorio, busque el usuario B2B. Seleccione el usuario y haga clic en **Seleccionar** para agregar el usuario a la aplicación.
+   - Si el usuario invitado ya no existe en el directorio, seleccione **Invitar**.
+   ![Adición del botón Invitar para agregar miembros invitados](./media/active-directory-b2b-admin-add-users/AppInviteUsers.png)
+   
+      En **Invitar a un invitado**, escriba la dirección de correo electrónico y un mensaje personal opcional > seleccione **Invitar**. Haga clic en **Seleccionar** para agregar el usuario a la aplicación.
+
+      La invitación se dirige automáticamente al usuario invitado. En el área **Notificación**, busque el mensaje de **usuario invitado** correctamente.
+
+9. En **Agregar asignación**, haga clic en **Seleccionar rol** > seleccione un rol que se aplicará al usuario seleccionado (si procede) > seleccione **Aceptar**.
+10. Haga clic en **Asignar**.
+ 
+## <a name="resend-invitations-to-guest-users"></a>Reenvío de invitaciones a usuarios invitados
+
+Si un usuario invitado todavía no ha canjeado su invitación, puede volver a enviarle la invitación.
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador de Azure AD.
+2. En el panel de navegación, seleccione **Azure Active Directory**.
+3. En **Administrar**, seleccione **Usuarios y grupos**.
+4. Seleccione **Todos los usuarios**.
+5. Seleccione la cuenta del usuario.
+6. En **Administrar**, seleccione **Perfil**.
+7. Si el usuario todavía no ha aceptado la invitación, la opción **Volver a enviar la invitación** está disponible. Seleccione este botón para volver a enviarla.
+
+   ![Opción Volver a enviar la invitación en el perfil de usuario](./media/active-directory-b2b-admin-add-users/Resend-Invitation.png)
+
+> [!NOTE]
+> Si vuelve a enviar una invitación que originalmente dirigía al usuario a una aplicación específica, debe entender que el vínculo de la nueva invitación lleva por el contrario al usuario al panel de acceso de nivel superior.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+- Para aprender cómo los administradores que no son de Azure AD pueden agregar usuarios invitados B2B, consulte [¿Cómo agregan los trabajadores de la información usuarios de colaboración B2B a Azure Active Directory?](active-directory-b2b-iw-add-users.md)
+- Para más información sobre el correo electrónico de invitación, consulte [Los elementos del correo electrónico de invitación de colaboración B2B](active-directory-b2b-invitation-email.md).
+- Para más información sobre el proceso de canje de la invitación, consulte [Canje de invitación de colaboración B2B](active-directory-b2b-redemption-experience.md).
+
+

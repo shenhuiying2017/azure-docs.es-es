@@ -4,7 +4,7 @@ description: Aprenda a crear un emparejamiento de redes virtuales entre redes vi
 services: virtual-network
 documentationcenter: ''
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: e4ca1f62be8185dd7e0e45f6736bc0273b466309
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 92cbcad42508f2ae6113d13449aba7eed5acd251
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Crear un emparejamiento de redes virtuales: Resource Manager, suscripciones diferentes 
 
@@ -35,7 +35,7 @@ Los pasos para crear un emparejamiento de redes virtuales cambian en función de
 
 No se puede crear un emparejamiento de redes virtuales entre dos redes virtuales implementadas mediante el modelo de implementación clásico. Si necesita conectar redes virtuales que se crearon a través del modelo de implementación clásica, puede usar una instancia de [Azure VPN Gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para conectar las redes virtuales. 
 
-En este tutorial se emparejan redes virtuales de la misma región. La capacidad de emparejar redes virtuales de diferentes regiones actualmente se encuentra en versión preliminar. Complete los pasos de [Registrarse para la versión preliminar del emparejamiento de VNet global](#register) antes de intentar emparejar redes virtuales de diferentes regiones o, de lo contrario, el emparejamiento genera errores. La capacidad de conectar redes virtuales de diferentes regiones con [Azure VPN Gateway](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) se encuentra disponible con carácter general y, por tanto, no se requiere el registro.
+En este tutorial se emparejan redes virtuales de la misma región. También puede emparejar redes virtuales en distintas [regiones compatibles](virtual-network-manage-peering.md#cross-region). 
 
 Puede usar [Azure Portal](#portal), Azure [PowerShell](#cli), la [interfaz de la línea de comandos](#powershell) (CLI) de Azure o la [plantilla de Azure Resource Manager](#template) para crear un emparejamiento de redes virtuales. Haga clic en cualquiera de los vínculos anteriores de herramientas para ir directamente a los pasos para crear un emparejamiento de redes virtuales con la herramienta de su preferencia.
 
@@ -43,7 +43,7 @@ Puede usar [Azure Portal](#portal), Azure [PowerShell](#cli), la [interfaz de la
 
 En este tutorial se usan cuentas diferentes para cada suscripción. Si está usando una cuenta que tiene permisos para ambas suscripciones puede usar la misma cuenta para todos los pasos, y omitir los pasos para cerrar sesión en el portal y para asignar a otro usuario permisos para las redes virtuales.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) como UserA. La cuenta con la que inicie sesión debe tener todos los permisos necesarios para crear un emparejamiento de redes virtuales. Para detalles, consulte la sección [Permisos](#permissions) de este artículo.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) como UserA. La cuenta con la que inicie sesión debe tener todos los permisos necesarios para crear un emparejamiento de redes virtuales. Para ver una lista de permisos, consulte [Permisos de emparejamiento de red virtual](virtual-network-manage-peering.md#permissions).
 2. Haga clic en **+ Nuevo**, **Redes** y, luego, en **Red virtual**.
 3. En la hoja **Crear red virtual**, escriba o seleccione valores para la configuración siguiente y, luego, haga clic en **Crear**:
     - **Nombre**: *myVnetA*
@@ -106,7 +106,7 @@ El script siguiente:
 
 En lugar de instalar la CLI y sus dependencias, puede usar Azure Cloud Shell. Azure Cloud Shell es un shell de Bash gratuito que se puede ejecutar directamente en Azure Portal. Tiene la CLI de Azure preinstalada y configurada para utilizar con su cuenta. Haga clic en el botón **Pruébelo** en el script siguiente, que invoca un Cloud Shell en el que puede iniciar sesión con su cuenta de Azure. 
 
-1. Abra una sesión de la CLI e inicie sesión en Azure como UserA mediante el comando `azure login`. La cuenta con la que inicie sesión debe tener todos los permisos necesarios para crear un emparejamiento de redes virtuales. Para detalles, consulte la sección [Permisos](#permissions) de este artículo.
+1. Abra una sesión de la CLI e inicie sesión en Azure como UserA mediante el comando `azure login`. La cuenta con la que inicie sesión debe tener todos los permisos necesarios para crear un emparejamiento de redes virtuales. Para ver una lista de permisos, consulte [Permisos de emparejamiento de red virtual](virtual-network-manage-peering.md#permissions).
 2. Copie el script siguiente en un editor de texto del equipo, reemplace `<SubscriptionA-Id>` por el identificador de SubscriptionA, copie el script modificado, péguelo en la sesión de la CLI y pulse `Enter`. Si no conoce el identificador de la suscripción, escriba el comando "az account show". El valor de **id** en la salida es el identificador de la suscripción.
 
     ```azurecli-interactive
@@ -129,7 +129,7 @@ En lugar de instalar la CLI y sus dependencias, puede usar Azure Cloud Shell. Az
       --scope /subscriptions/<SubscriptionA-Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/VirtualNetworks/myVnetA
     ```
     
-3. Cierre sesión en Azure como UserA mediante el comando `az logout` e inicie sesión en Azure como UserB. La cuenta con la que inicie sesión debe tener todos los permisos necesarios para crear un emparejamiento de redes virtuales. Para detalles, consulte la sección [Permisos](#permissions) de este artículo.
+3. Cierre sesión en Azure como UserA mediante el comando `az logout` e inicie sesión en Azure como UserB. La cuenta con la que inicie sesión debe tener todos los permisos necesarios para crear un emparejamiento de redes virtuales. Para ver una lista de permisos, consulte [Permisos de emparejamiento de red virtual](virtual-network-manage-peering.md#permissions).
 4. Cree myVnetB. Copie el contenido del script del paso 2 en un editor de texto del equipo. Reemplace `<SubscriptionA-Id>` por el identificador de SubscriptionB. Cambie 10.0.0.0/16 a 10.1.0.0/16, y reemplace todas las apariciones de A por B, y todas las apariciones de B por A. Copie el script modificado, péguelo en la sesión de la CLI y pulse `Enter`. 
 5. Cierre sesión en Azure como UserB e inicie sesión en Azure como UserA.
 6. Cree un emparejamiento de redes virtuales myVnetA a myVnetB. Copie el contenido del script siguiente en un editor de texto del equipo. Reemplace `<SubscriptionB-Id>` por el identificador de SubscriptionB. Para ejecutar el script, copie el script modificado, péguelo en la sesión de la CLI y pulse ENTRAR.
@@ -179,7 +179,7 @@ En este tutorial se usan cuentas diferentes para cada suscripción. Si está usa
 
 1. Instale la versión más reciente del módulo [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) de PowerShell. Si no está familiarizado con Azure PowerShell, consulte [Introducción a Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. Inicie una sesión de PowerShell.
-3. En PowerShell, inicie sesión en Azure como UserA. Para ello, escriba el comando `login-azurermaccount`. La cuenta con la que inicie sesión debe tener todos los permisos necesarios para crear un emparejamiento de redes virtuales. Para detalles, consulte la sección [Permisos](#permissions) de este artículo.
+3. En PowerShell, inicie sesión en Azure como UserA. Para ello, escriba el comando `login-azurermaccount`. La cuenta con la que inicie sesión debe tener todos los permisos necesarios para crear un emparejamiento de redes virtuales. Para ver una lista de permisos, consulte [Permisos de emparejamiento de red virtual](virtual-network-manage-peering.md#permissions).
 4. Cree un grupo de recursos y una red virtual A. Copie el script siguiente en un editor de texto del equipo. Reemplace `<SubscriptionA-Id>` por el identificador de SubscriptionA. Si no conoce el identificador de la suscripción, escriba el comando `Get-AzureRmSubscription` para verlo. El valor de **id** en la salida devuelta es el identificador de la suscripción. Para ejecutar el script, copie el script modificado, péguelo en PowerShell y pulse `Enter`.
 
     ```powershell
@@ -202,7 +202,7 @@ En este tutorial se usan cuentas diferentes para cada suscripción. Si está usa
       -Scope /subscriptions/<SubscriptionA-Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/VirtualNetworks/myVnetA
     ```
 
-5. Cierre sesión en Azure como UserA e inicie sesión como UserB. La cuenta con la que inicie sesión debe tener todos los permisos necesarios para crear un emparejamiento de redes virtuales. Para detalles, consulte la sección [Permisos](#permissions) de este artículo.
+5. Cierre sesión en Azure como UserA e inicie sesión como UserB. La cuenta con la que inicie sesión debe tener todos los permisos necesarios para crear un emparejamiento de redes virtuales. Para ver una lista de permisos, consulte [Permisos de emparejamiento de red virtual](virtual-network-manage-peering.md#permissions).
 6. Copie el contenido del script del paso 4 en un editor de texto del equipo. Reemplace `<SubscriptionA-Id>` por el identificador de SubscriptionB. Cambie 10.0.0.0/16 a 10.1.0.0/16. Reemplace todas las apariciones de A por B, y todas las apariciones de B por A. Para ejecutar el script, copie el script modificado, péguelo en PowerShell y pulse `Enter`.
 7. Cierre sesión como UserB en Azure e inicie sesión como UserA.
 8. Cree el emparejamiento de myVnetA a myVnetB. Copie el script siguiente en un editor de texto del equipo. Reemplace `<SubscriptionB-Id>` por el identificador de SubscriptionB. Para ejecutar el script, copie el script modificado, péguelo en PowerShell y pulse `Enter`.
@@ -241,7 +241,7 @@ En este tutorial se usan cuentas diferentes para cada suscripción. Si está usa
 
 ## <a name="template"></a>Creación de emparejamiento: plantilla de Resource Manager
 
-1. Para crear una red virtual y asignar los [permisos](#permissions) correspondientes a la cuenta en cada suscripción, complete los pasos de las secciones [Portal](#portal), [CLI de Azure](#cli) o [PowerShell](#powershell) de este artículo.
+1. Para crear una red virtual y asignar los [permisos](virtual-network-manage-peering.md#permissions) adecuados, complete los pasos que aparecen en las secciones [Portal](#portal), [CLI de Azure](#cli) o [PowerShell](#powershell) de este artículo.
 2. Guarde el texto que sigue a un archivo en el equipo local. Reemplace `<subscription ID>` por el identificador de suscripción de UserA. Puede guardar el archivo como vnetpeeringA.json, por ejemplo.
 
     ```json
@@ -279,17 +279,6 @@ En este tutorial se usan cuentas diferentes para cada suscripción. Si está usa
 5. Vuelva a realizar el paso 3, con la sesión de Azure iniciada como UserB.
 6. **Opcional**: Si bien este tutorial no aborda la creación de máquinas virtuales, puede crear una máquina virtual en cada red virtual y conectar de una máquina virtual a la otra para así validar la conectividad.
 7. **Opcional**: Para eliminar los recursos que crea en este tutorial, complete los pasos que aparecen en la sección [Eliminación de recursos](#delete) de este artículo, ya sea mediante Azure Portal, PowerShell o la CLI de Azure.
-
-## <a name="permissions"></a>Permisos
-
-Las cuentas que use para crear un emparejamiento de redes virtuales deben tener el rol o los permisos necesarios. Por ejemplo, si está emparejando dos redes virtuales denominadas **myVnetA** y **myVnetB**, su cuenta debe tener asignado el rol o los permisos mínimos siguientes para cada red virtual:
-    
-|Red virtual|Rol|Permisos|
-|---|---|---|
-|myVnetA|[Colaborador de la red](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
-|myVnetB|[Colaborador de la red](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
-
-Obtenga más información sobre los [roles integrados](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) y la asignación de permisos específicos a [roles personalizados](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (solo Resource Manager).
 
 ## <a name="delete"></a>Eliminación de recursos
 Cuando haya terminado este tutorial, es posible que quiera eliminar los recursos que creó en el tutorial, para no incurrir en gastos de uso. Al eliminar un grupo de recursos se eliminan también todos los recursos contenidos en el mismo.
@@ -331,54 +320,6 @@ Cuando haya terminado este tutorial, es posible que quiera eliminar los recursos
     ```powershell
     Remove-AzureRmResourceGroup -Name myResourceGroupB -force
     ```
-
-## <a name="register"></a>Registrarse para la versión preliminar del emparejamiento de VNet global
-
-El emparejamiento de redes virtuales en las mismas regiones tiene disponibilidad general. El emparejamiento de redes virtuales de diferentes regiones actualmente se encuentra en versión preliminar. Consulte las [actualizaciones de redes virtuales](https://azure.microsoft.com/en-us/updates/?product=virtual-network) para ver las regiones disponibles. Para emparejar redes virtuales entre regiones, primero debe registrarse en la versión preliminar; para ello, complete los pasos siguientes (en la suscripción en que se encuentra cada red virtual que desea emparejar) con Azure PowerShell o la CLI de Azure:
-
-### <a name="powershell"></a>PowerShell
-
-1. Instale la versión más reciente del módulo [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) de PowerShell. Si no está familiarizado con Azure PowerShell, consulte [Introducción a Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
-2. Inicie una sesión de PowerShell e inicie sesión en Azure mediante el comando `Login-AzureRmAccount`.
-3. Registre la suscripción en que se encuentra cada máquina virtual que desea emparejar para la versión preliminar; para ello, escriba los comandos siguientes:
-
-    ```powershell
-    Register-AzureRmProviderFeature `
-      -FeatureName AllowGlobalVnetPeering `
-      -ProviderNamespace Microsoft.Network
-    
-    Register-AzureRmResourceProvider `
-      -ProviderNamespace Microsoft.Network
-    ```
-4. Escriba el siguiente comando para confirmar que está registrado para la versión preliminar:
-
-    ```powershell    
-    Get-AzureRmProviderFeature `
-      -FeatureName AllowGlobalVnetPeering `
-      -ProviderNamespace Microsoft.Network
-    ```
-
-    No complete los pasos descritos en las secciones de Azure Portal, CLI de Azure, PowerShell o plantilla de Resource Manager de este artículo hasta que la salida de **RegistrationState** que recibirá después de escribir el comando anterior sea **Registered** para las dos suscripciones.
-
-### <a name="azure-cli"></a>Azure CLI
-
-1. [Instale y configure la CLI de Azure](/cli/azure/install-azure-cli?toc=%2Fazure%2Fvirtual-network%2Ftoc.json).
-2. Asegúrese de que utiliza la versión 2.0.18 o posterior de la CLI de Azure escribiendo el comando `az --version`. Si no la está usando, instale la versión más reciente.
-3. Inicie sesión en Azure con el comando `az login`.
-4. Regístrese para obtener la versión preliminar mediante estos comandos:
-
-   ```azurecli-interactive
-   az feature register --name AllowGlobalVnetPeering --namespace Microsoft.Network
-   az provider register --name Microsoft.Network
-   ```
-
-5. Escriba el siguiente comando para confirmar que está registrado para la versión preliminar:
-
-    ```azurecli-interactive
-    az feature show --name AllowGlobalVnetPeering --namespace Microsoft.Network
-    ```
-
-    No complete los pasos descritos en las secciones de Azure Portal, CLI de Azure, PowerShell o plantilla de Resource Manager de este artículo hasta que la salida de **RegistrationState** que recibirá después de escribir el comando anterior sea **Registered** para las dos suscripciones.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

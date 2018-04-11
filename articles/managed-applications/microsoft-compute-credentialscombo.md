@@ -1,6 +1,6 @@
 ---
-title: "Elemento de interfaz de usuario CredentialsCombo de una aplicación administrada de Azure | Microsoft Docs"
-description: Describe el elemento de la interfaz de usuario Microsoft.Compute.CredentialsCombo para aplicaciones administradas de Azure
+title: Elemento de interfaz de usuario CredentialsCombo de Azure | Microsoft Docs
+description: Describe el elemento de la interfaz de usuario Microsoft.Compute.CredentialsCombo para Azure Portal.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 03/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: d8faa36aca762bc8d787d5750fcf7efdbaf986ea
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: c17677a9e34de4c1afca8f04c8bd22c2155c3439
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="microsoftcomputecredentialscombo-ui-element"></a>Elemento de interfaz de usuario Microsoft.Compute.CredentialsCombo
-Grupo de controles con validación integrada para las contraseñas de Windows y Linux, y las claves públicas de SSH. Use este elemento al [crear una aplicación administrada de Azure](publish-service-catalog-app.md).
+Grupo de controles con validación integrada para las contraseñas de Windows y Linux, y las claves públicas de SSH.
 
 ## <a name="ui-sample"></a>Ejemplo de interfaz de usuario
 ![Microsoft.Compute.CredentialsCombo](./media/managed-application-elements/microsoft.compute.credentialscombo.png)
@@ -107,6 +107,5 @@ Si el usuario proporcionó una clave pública SSH, se espera la siguiente salida
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Para una introducción a las aplicaciones administradas, consulte la [introducción a las aplicaciones administradas de Azure](overview.md).
 * Para ver una introducción sobre la creación de definiciones de interfaz de usuario, consulte [Introducción a CreateUiDefinition](create-uidefinition-overview.md).
 * Para ver una descripción de las propiedades comunes de los elementos de interfaz de usuario, consulte [Elementos CreateUiDefinition](create-uidefinition-elements.md).

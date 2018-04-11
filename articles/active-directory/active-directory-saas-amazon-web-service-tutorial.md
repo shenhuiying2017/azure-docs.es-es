@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 03/28/2018
 ms.author: jeedes
-ms.openlocfilehash: 92189eba7df49aa45adaee7ee3c93c8972b5594b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 018893a2124f1ab9c98e0728bc90ad0a69cf471f
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Tutorial: integración de Azure Active Directory con Amazon Web Service (AWS)
 
@@ -146,7 +146,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 8. En otra ventana del explorador, inicie sesión en su sitio de la compañía de Amazon Web Services (AWS) como administrador.
 
-9. Haga clic en **Página principal de la consola**.
+9. Haga clic en **AWS Home** (Página principal de AWS).
    
     ![Configurar página principal de inicio de sesión único][11]
 
@@ -174,65 +174,53 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     
     ![Configurar verificación de inicio de sesión único][15]
 
-14. Haga clic en **Roles** y, después, en **Crear nuevo rol**. 
+14. Haga clic en **Roles** y, después, en **Crear rol**. 
     
     ![Configurar roles de inicio de sesión único][16]
 
-15. En el cuadro de diálogo **Set Role Name** (Establecer nombre de rol), realice los siguientes pasos: 
-    
-    ![Configurar nombre de inicio de sesión único][17] 
-
-    a. En el cuadro de texto **Nombre de rol**, escriba un nombre de rol (por ejemplo, *TestUser*). 
-
-    b. Haga clic en **Siguiente paso**.
-
-16. En el cuadro de diálogo **Select Role Type** (Seleccionar tipo de rol), realice los siguientes pasos: 
-    
-    ![Configurar tipo de rol de inicio de sesión único][18] 
-
-    a. Seleccione **Rol de acceso del proveedor de identidades**. 
-
-    b. En la sección **Conceder acceso de inicio de sesión único web (WebSSO)** a los proveedores de SAML, haga clic en **Seleccionar**.
-
-17. En el cuadro de diálogo **Establecer confianza** , realice los siguientes pasos:  
+15. En la página **Crear rol**, realice los pasos siguientes:  
     
     ![Configurar confianza de inicio de sesión único][19] 
 
-    a. Como proveedor de SAML, seleccione el proveedor de SAML que ha creado antes (por ejemplo, *WAAD*). 
+    a. Seleccione **SAML 2.0 federation** (Federación de SAML 2.0) en **Select type of trusted entity** (Seleccionar tipo de entidad de confianza).
+
+    b. En la sección **Choose a SAML 2.0 Provider** (Elegir un proveedor de SAML 2.0), seleccione **SAML provider** (Proveedor de SAML) que ha creado anteriormente (por ejemplo: *WAAD*).
+
+    c. Seleccione **Allow programmatic and AWS Management Console access** (Permitir acceso mediante programación y a consola de AWS Management Console).
   
-    b. Haga clic en **Siguiente paso**.
+    d. Haga clic en **Next: Permissions** (Siguiente: permisos).
 
-18. En el diálogo **Verify Role Trust** (Comprobar la confianza del rol), haga clic en **Paso siguiente**. 
-    
-    ![Configurar confianza de rol de inicio de sesión único][32]
-
-19. En el diálogo **Attach Policy** (Adjuntar directiva), haga clic en **Paso siguiente**.  
+16. En el cuadro de diálogo **Attach Permissions Policies** (Adjuntar directivas de permisos), haga clic en **Next: Review** (Siguiente: revisión).  
     
     ![Configurar directiva de inicio de sesión único][33]
 
-20. En el cuadro de diálogo **Revisar** , realice los pasos siguientes:   
+17. En el cuadro de diálogo **Revisar** , realice los pasos siguientes:   
     
     ![Configurar revisión de inicio de sesión único][34] 
+
+    a. En el cuadro de texto **Role name** (Nombre de rol), escriba su nombre de rol.
+
+    b. En el cuadro de texto **Role description**, escriba la descripción.
 
     a. Haga clic en **Crear rol**.
 
     b. Cree tantos roles como sea necesario y asígnelos al proveedor de identidades.
 
-21. Use credenciales de cuenta de servicio de AWS para obtener los roles de cuenta de AWS en aprovisionamiento de usuarios de Azure AD. Para ello, abra la página principal de la consola de AWS.
+18. Use credenciales de cuenta de servicio de AWS para obtener los roles de cuenta de AWS en aprovisionamiento de usuarios de Azure AD. Para ello, abra la página principal de la consola de AWS.
 
-22. Haga clic en **Servicios** -> **Seguridad, identidad y cumplimiento** -> **IAM**.
+19. Haga clic en **Servicios** -> **Seguridad, identidad y cumplimiento** -> **IAM**.
 
     ![obtención de roles de la cuenta de AWS](./media/active-directory-saas-amazon-web-service-tutorial/fetchingrole1.png)
 
-23. Seleccione la pestaña **Tabs** (Directivas) en la sección IAM.
+20. Seleccione la pestaña **Tabs** (Directivas) en la sección IAM.
 
     ![obtención de roles de la cuenta de AWS](./media/active-directory-saas-amazon-web-service-tutorial/fetchingrole2.png)
 
-24. Haga clic en **Create policy** (Crear directiva) para crear una nueva directiva.
+21. Para crear una nueva directiva, haga clic en **Create policy** (Crear directiva) para recuperar los roles de la cuenta de AWS de aprovisionamiento de usuarios de Azure AD.
 
     ![Creación de una nueva directiva](./media/active-directory-saas-amazon-web-service-tutorial/fetchingrole3.png)
- 
-25. Cree su propia directiva para obtener todos los roles de las cuentas de AWS con estos pasos:
+
+22. Cree su propia directiva para obtener todos los roles de las cuentas de AWS con estos pasos:
 
     ![Creación de una nueva directiva](./media/active-directory-saas-amazon-web-service-tutorial/policy1.png)
 
@@ -272,7 +260,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Definición de una nueva directiva](./media/active-directory-saas-amazon-web-service-tutorial/policy5.png)
 
-26. Defina la **directiva nueva** con estos pasos:
+23. Defina la **directiva nueva** con estos pasos:
 
     ![Definición de una nueva directiva](./media/active-directory-saas-amazon-web-service-tutorial/policy2.png)
 
@@ -281,8 +269,17 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     b. En **Description** (Descripción), puede describir la directiva como **Esta directiva permitirá obtener los roles de cuentas de AWS**.
     
     c. Haga clic en el botón **"Crear directiva"**.
-        
-27. Cree una nueva cuenta de usuario en el servicio IAM de AWS mediante los pasos siguientes:
+
+24. En el cuadro de diálogo **Revisar** , realice los pasos siguientes:   
+    
+    ![Configurar revisión de inicio de sesión único][34] 
+
+    a. Haga clic en **Crear rol**.
+
+    b. Cree tantos roles como sea necesario y asígnelos al proveedor de identidades.
+
+
+25. Cree una nueva cuenta de usuario en el servicio IAM de AWS mediante los pasos siguientes:
 
     a. Haga clic en el panel de navegación **Users** (Usuarios) en la consola de IAM de AWS.
 
@@ -302,7 +299,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     
     * Haga clic en el botón **Next Permissions** (Permisos siguientes) en la esquina inferior derecha.
 
-28. Ahora cree una nueva directiva para este usuario mediante los pasos siguientes:
+26. Ahora cree una nueva directiva para este usuario mediante los pasos siguientes:
 
     ![Agregar usuario](./media/active-directory-saas-amazon-web-service-tutorial/adduser2.png)
     
@@ -312,7 +309,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     
     c. Seleccione la **directiva** y, a continuación, haga clic en el botón **Next: Review** (Siguiente: Revisión).
 
-29. Revise la directiva del usuario asociado mediante los pasos siguientes:
+27. Revise la directiva del usuario asociado mediante los pasos siguientes:
 
     ![Agregar usuario](./media/active-directory-saas-amazon-web-service-tutorial/adduser3.png)
     
@@ -320,7 +317,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     
     b. Haga clic en el botón **Create user** (Crear usuario) situado en la esquina inferior derecha para crear el usuario.
 
-30. Descargue las credenciales de usuario de un usuario mediante estos pasos:
+28. Descargue las credenciales de usuario de un usuario mediante estos pasos:
 
     ![Agregar usuario](./media/active-directory-saas-amazon-web-service-tutorial/adduser4.png)
     
@@ -330,11 +327,11 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     
     c. Haga clic en el botón **Close** (Cerrar) en la parte inferior.
 
-31. Vaya a la sección **Aprovisionamiento de usuarios** de la aplicación Amazon Web Services en el Portal de administración de Azure AD.
+29. Vaya a la sección **Aprovisionamiento de usuarios** de la aplicación Amazon Web Services en el Portal de administración de Azure AD.
 
     ![Agregar usuario](./media/active-directory-saas-amazon-web-service-tutorial/provisioning.png)
 
-32. Escriba la **clave de acceso** y la **clave secreta** en los campos **Secreto de cliente** y **Token secreto** respectivamente.
+30. Escriba la **clave de acceso** y la **clave secreta** en los campos **Secreto de cliente** y **Token secreto** respectivamente.
 
     ![Agregar usuario](./media/active-directory-saas-amazon-web-service-tutorial/provisioning1.png)
     
@@ -346,13 +343,9 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     d. Haga clic en el botón **Guardar** situado en la parte superior para guardar la configuración.
  
-33. Ahora, asegúrese de establecer el estado de aprovisionamiento en **Activado** en la sección de configuración, para lo que debe activar el conmutador y, a continuación, hacer clic en el botón **Guardar** situado en la parte superior.
+31. Ahora, asegúrese de establecer el estado de aprovisionamiento en **Activado** en la sección de configuración, para lo que debe activar el conmutador y, a continuación, hacer clic en el botón **Guardar** situado en la parte superior.
 
     ![Agregar usuario](./media/active-directory-saas-amazon-web-service-tutorial/provisioning2.png)
-
-> [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 

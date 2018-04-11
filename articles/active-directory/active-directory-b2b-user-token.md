@@ -1,13 +1,13 @@
 ---
-title: "Información sobre los tokens de usuario de la colaboración B2B de Azure Active Directory | Microsoft Docs"
-description: "Referencia de tokens de usuario de la colaboración B2B de Azure Active Directory"
+title: Información sobre los tokens de usuario de la colaboración B2B de Azure Active Directory | Microsoft Docs
+description: Referencia de tokens de usuario de la colaboración B2B de Azure Active Directory
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: twooley
 manager: mtillman
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: NA
 ms.topic: article
@@ -16,15 +16,15 @@ ms.workload: identity
 ms.date: 05/25/2017
 ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: 6afa7d01282d6c35b042ad69fcdcb5714c92de10
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: c4f152aa4da9fcbe07179414aa8dc69f8633bb6b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="understand-user-tokens-in-azure-ad-b2b-collaboration"></a>Información sobre los tokens de usuario de la colaboración B2B de Azure Active Directory
 
-Si le interesa conocer el aspecto del token de un usuario de colaboración B2B, estos son los detalles del token de portador y el contenido del token para un invitado de Azure Active Directory (Azure AD) y un invitado de una cuenta de Microsoft en el inquilino de recursos (para el identificador de inquilino: 04dcc6ab-388a-4559-b527-fbec656300ea). Puede usar [https://jwt.io/](https://jwt.io/) o [http://calebb.net](http://calebb.net/)/ para ver el contenido del token de JSON Web Token (JWT).
+Si le interesa conocer el aspecto del token de un usuario de colaboración B2B, estos son los detalles del token de portador y el contenido del token para un invitado de Azure Active Directory (Azure AD) y un invitado de una cuenta de Microsoft en el inquilino de recursos (para el identificador de inquilino: 04dcc6ab-388a-4559-b527-fbec656300ea). Para ver el contenido de JSON Web Token (JWT), use [https://jwt.io/](https://jwt.io/) o [https://jwt.ms/](https://jwt.ms/).
 
 ## <a name="azure-ad-guest-token"></a>Token de invitado de Azure AD
 ```

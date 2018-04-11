@@ -12,16 +12,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/21/2018
+ms.date: 03/29/2018
 ms.author: mfussell
-ms.openlocfilehash: cd36d52df24610af1d2cb2d9e6e41f33bb7ea5fe
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: e22c656218abcd0564faec6fae6d6979f09b386a
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="run-a-service-as-a-group-managed-service-account"></a>Ejecución de un servicio como una cuenta de servicio administrada de grupo
-Azure Service Fabric le permite proteger aplicaciones que se ejecutan en distintas cuentas de usuario en el clúster. La ejecución de aplicaciones en cuentas diferentes, incluso en un entorno hospedado compartido, aumenta la seguridad entre aplicaciones. De forma predeterminada, las aplicaciones de Service Fabric se ejecutan en la misma cuenta en que se ejecuta el proceso Fabric.exe. Para un clúster independiente de Windows Server, puede ejecutar un servicio como una cuenta de servicio administrada de grupo (gMSA) o un [usuario o grupo de Active Directory](service-fabric-run-service-as-ad-user-or-group.md) mediante una directiva de RunAs. Tenga en cuenta que esto usa Active Directory local dentro del dominio y no en Azure Active Directory (Azure AD). Con una gMSA, no hay ninguna contraseña ni contraseña cifrada almacenada en el `Application Manifest`.
+En un clúster independiente de Windows Server, puede ejecutar un servicio como una cuenta de servicio administrada de grupo (gMSA) mediante una directiva de RunAs.  De forma predeterminada, las aplicaciones de Service Fabric se ejecutan en la misma cuenta en que se ejecuta el proceso Fabric.exe. La ejecución de aplicaciones en cuentas diferentes, incluso en un entorno hospedado compartido, aumenta la seguridad entre aplicaciones. Tenga en cuenta que esto usa Active Directory local dentro del dominio y no en Azure Active Directory (Azure AD). Con una gMSA, no hay ninguna contraseña ni contraseña cifrada almacenada en el manifiesto de aplicación.  También puede ejecutar un servicio como un [grupo o usuario de Active Directory](service-fabric-run-service-as-ad-user-or-group.md).
 
 En el ejemplo siguiente se muestra cómo crear una cuenta gMSA denominada *svc-Test$*, cómo implementar esa cuenta de servicio administrada en los nodos del clúster y cómo configurar la entidad de seguridad de usuario.
 

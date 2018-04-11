@@ -1,6 +1,6 @@
 ---
-title: "Preguntas más frecuentes sobre la migración en Azure Storage | Microsoft Docs"
-description: "Respuestas a preguntas habituales sobre la migración en Azure Storage"
+title: Preguntas más frecuentes sobre la migración en Azure Storage | Microsoft Docs
+description: Respuestas a preguntas habituales sobre la migración en Azure Storage
 services: storage
 documentationcenter: na
 author: genlin
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 11/16/2017
 ms.author: genli
-ms.openlocfilehash: 362614d28cf62bd288d8aff10539c81381474955
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 89d1a4767c240c7e4fedb9d7ac47d6d4fb0aa737
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Preguntas más frecuentes sobre la migración en Azure Storage
 
@@ -168,7 +168,7 @@ Use AzCopy para descargar los datos. Para obtener más información, consulte [T
 
 **¿Cómo puedo cambiar la ubicación secundaria a la región Europa en una cuenta de almacenamiento?**
 
-Cuando crea una cuenta de almacenamiento, selecciona la región principal de la cuenta. La selección de la región secundaria se determina según la región primaria y no es posible cambiarla. Para más información, consulte [Replicación de Azure Storage](storage-redundancy.md).
+Cuando crea una cuenta de almacenamiento, selecciona la región principal de la cuenta. La selección de la región secundaria se determina según la región primaria y no es posible cambiarla. Para más información, consulte [Geo-redundant storage (GRS): Cross-regional replication for Azure Storage](storage-redundancy.md) (Almacenamiento con redundancia geográfica (GRS): replicación entre regiones para Azure Storage).
 
 **¿Dónde puedo obtener más información sobre el cifrado del servicio Azure Storage (SSE)?**  
   
@@ -280,11 +280,11 @@ Para permitir que otras personas accedan a los recursos de almacenamiento, siga 
       
     - **AzCopy**: anexe **-secondary** al nombre de la cuenta de almacenamiento en la dirección URL para acceder al punto de conexión secundario. Por ejemplo:   
      
-      https://nombrecuentaalmacenamiento-secondary.blob.core.windows.net/vhds/nombreDelBlob.vhd
+      https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd
 
     - **Token de SAS**: use un token de SAS para acceder a los datos desde el punto de conexión. Consulte [Uso de firmas de acceso compartido](storage-dotnet-shared-access-signature-part-1.md) para más información.
 
-**¿Cómo puedo usar un dominio personalizado HTTPS con mi cuenta de almacenamiento? Por ejemplo, ¿cómo puedo conseguir que "https://nombremicuentaalmacenamiento.blob.core.windows.net/images/image.gif" se muestre como "https://www.contoso.com/images/image.gif"?**
+**¿Cómo puedo usar un dominio personalizado HTTPS con mi cuenta de almacenamiento? Por ejemplo, ¿cómo hago que "https://mystorageaccountname.blob.core.windows.net/images/image.gif"aparezca como "https://www.contoso.com/images/image.gif"?**
 
 SSL no se admite actualmente en las cuentas de almacenamiento con dominios personalizados.
 Sin embargo, puede usar dominios personalizados que no sean HTTPS. Para obtener más información, consulte [Configuración de un nombre de dominio personalizado para el punto de conexión de Blob Storage](../blobs/storage-custom-domain-name.md).

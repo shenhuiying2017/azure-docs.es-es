@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tdykstra
-ms.openlocfilehash: 8c028bd20518a07a5fb35e36d0819c001eb2a7d5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: e6d2891a8ea531bf5c7cc7e1c74b890e01f2b56b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Enlaces de Azure Table Storage para Azure Functions
 
@@ -388,6 +388,9 @@ El enlace de entrada de Table Storage admite los siguientes escenarios:
 ## <a name="output"></a>Salida
 
 Use un enlace de salida de Azure Table Storage para escribir entidades en una tabla de una cuenta de Azure Storage.
+
+> [!NOTE]
+> Este enlace de salida no permite actualizar las entidades existentes. Use la operación `TableOperation.Replace`[del SDK de Azure Storage](https://docs.microsoft.com/en-us/azure/cosmos-db/table-storage-how-to-use-dotnet#replace-an-entity) para actualizar una entidad existente.   
 
 ## <a name="output---example"></a>Salida: ejemplo
 

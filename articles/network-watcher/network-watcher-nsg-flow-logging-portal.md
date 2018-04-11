@@ -1,11 +1,11 @@
 ---
-title: "Administración de registros de flujo de grupos de seguridad de red en Azure Network Watcher | Microsoft Docs"
-description: "En esta página se explica cómo administrar registros de flujo de grupos de seguridad de red en Azure Network Watcher."
+title: Administración de registros de flujo de grupos de seguridad de red en Azure Network Watcher | Microsoft Docs
+description: En esta página se explica cómo administrar registros de flujo de grupos de seguridad de red en Azure Network Watcher.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 01606cbf-d70b-40ad-bc1d-f03bb642e0af
 ms.service: network-watcher
 ms.devlang: na
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 633543aba99f5c09b14a9e4b11adf59ca04d0fe5
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: cb41781c5ac8fb759cecea01402c08dd716bf7d7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="manage-network-security-group-flow-logs-in-the-azure-portal"></a>Administración de registros de flujo de grupos de seguridad de red en Azure Portal
 
 > [!div class="op_single_selector"]
-> - [Portal de Azure](network-watcher-nsg-flow-logging-portal.md)
+> - [Azure Portal](network-watcher-nsg-flow-logging-portal.md)
 > - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
 > - [CLI 1.0](network-watcher-nsg-flow-logging-cli-nodejs.md)
 > - [CLI 2.0](network-watcher-nsg-flow-logging-cli.md)
@@ -38,7 +38,10 @@ Los registros de flujo de grupos de seguridad de red son una característica de 
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-En este escenario se da por hecho que ya siguió los pasos descritos en el artículo sobre cómo [crear una instancia de Network Watcher](network-watcher-create.md). En este escenario se da por hecho que tiene un grupo de recursos con una máquina virtual válida.
+Para completar los pasos descritos en este artículo, ya debe tener los siguientes recursos:
+
+- Una instancia de Network Watcher existente. Para crear una instancia de Network Watcher, consulte [Creación de una instancia de Network Watcher](network-watcher-create.md).
+- Un grupo de recursos existente con una máquina virtual válida. Si no tiene una máquina virtual, consulte el artículo sobre cómo crear una máquina virtual [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) o [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
 ## <a name="register-insights-provider"></a>Registro del proveedor de Insights
 
@@ -68,7 +71,7 @@ Seleccione un grupo de seguridad de red desde la lista.
 
 ### <a name="step-3"></a>Paso 3 
 
-En la hoja **Configuración de los registros de flujo**, establezca el estado en **On** (Activado) y, luego, configure una cuenta de almacenamiento.  Cuando finalice, seleccione **Aceptar**. Después, seleccione **Guardar**.
+En la hoja **Configuración de los registros de flujo**, establezca el estado en **On** (Activado) y, luego, configure una cuenta de almacenamiento. Seleccione una cuenta de almacenamiento existente que tenga **todas las redes** (valor predeterminado) seleccionadas en **Firewalls y redes virtuales**, en la **configuración** de la cuenta de almacenamiento. Cuando haya seleccionado una cuenta de almacenamiento, seleccione **Aceptar** y, después, seleccione **Guardar**.
 
 ![Información general de los registros de flujo][3]
 

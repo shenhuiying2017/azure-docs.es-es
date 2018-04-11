@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: b29429e1efe46aef8263bed5edb3daeffdf41122
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4eeff0d89fa8a73b8f7f4b73fb5bfb85cda26184
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 Los tamaños de VM de uso general proporcionan una relación equilibrada entre CPU y memoria. Ideal para desarrollo y pruebas, bases de datos pequeñas o medianas, y servidores web de tráfico bajo o medio. En este artículo, se proporciona información acerca del número de vCPU, discos de datos y tarjetas de interfaz de red, así como del rendimiento del almacenamiento y del ancho de banda de red para cada tamaño de esta agrupación. 
 
@@ -95,14 +95,13 @@ ACU: 210-250
 
 ACU: 210-250
 
-| Tamaño              | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Rendimiento máximo del almacenamiento temporal: E/S por segundo / MBps de lectura / MBps de escritura | Rendimiento máximo por discos de datos: E/S por segundo | Nº máx. de NIC/ancho de banda de red esperado (Mbps) |
-|-------------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
-| Standard_D1_v2    | 1         | 3,5         | 50             | 3000 / 46 / 23                                           | 4 / 4x500                         | 2 / 750                 |
-| Standard_D2_v2    | 2         | 7           | 100            | 6000 / 93 / 46                                           | 8 / 8x500                         | 2 / 1500                     |
-| Standard_D3_v2    | 4         | 14          | 200            | 12000 / 187 / 93                                         | 16 / 16x500                         | 4 / 3000                     |
-| Standard_D4_v2    | 8         | 28          | 400            | 24000 / 375 / 187                                        | 32 / 32x500                       | 8 / 6000                     |
-| Standard_D5_v2    | 16        | 56          | 800            | 48000 / 750 / 375                                        | 64 / 64x500                       | 8 / 12 000  |
-
+| Tamaño | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo del almacenamiento temporal: E/S por segundo / MBps de lectura / MBps de escritura | Rendimiento máximo por discos de datos: E/S por segundo | Nº máx. de NIC/ancho de banda de red esperado (Mbps) |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Standard_D1_v2 |1 |3,5 |4 |50 |3000 / 46 / 23 |4 / 4x500 |2 / 750 |
+| Standard_D2_v2 |2 |7 |8 |100 |6000 / 93 / 46 |8 / 8x500 |2 / 1500 |
+| Standard_D3_v2 |4 |14 |16 |200 |12000 / 187 / 93 |16 / 16x500 |4 / 3000 |
+| Standard_D4_v2 |8 |28 |32 |400 |24000 / 375 / 187  |32 / 32x500 |8 / 6000 |
+| Standard_D5_v2 |16 |56 |64 |800 |48000 / 750 / 375 |64 / 64x500 |8 / 12 000 |
 
 <br>
 
@@ -136,6 +135,8 @@ ACU: 160
 ## <a name="av2-series"></a>Serie Av2
 
 ACU: 100
+
+
 
 | Tamaño            | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Rendimiento máximo del almacenamiento temporal: E/S por segundo / MBps de lectura / MBps de escritura | Rendimiento máximo por discos de datos: E/S por segundo | Nº máx. de NIC/ancho de banda de red esperado (Mbps) | 
 |-----------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
@@ -185,3 +186,6 @@ En el modelo de implementación clásica, algunos nombres de tamaños de VM var�
 |A2\Basic_A2|2|3,5 GB|2| 60 GB|4|4x300|
 |A3\Basic_A3|4|7 GB|2| 120 GB |8|8x300|
 |A4\Basic_A4|8|14 GB|2| 240 GB |16|16x300|
+
+
+Tenga en cuenta que el número de discos de datos para máquinas virtuales clásicas podría ser inferior al número de discos de datos para máquinas virtuales de Azure Resource Manager.

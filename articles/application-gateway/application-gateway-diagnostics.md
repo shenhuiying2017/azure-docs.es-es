@@ -1,25 +1,22 @@
 ---
-title: Supervisión de los registros de acceso, los registros de rendimiento, el mantenimiento del back-end y las métricas de Application Gateway | Microsoft Docs
+title: Supervisión de los registros de acceso, los registros de rendimiento, el mantenimiento del back-end y las métricas de Application Gateway
 description: Obtenga información acerca de cómo habilitar y administrar registros de acceso y registros de rendimiento para Application Gateway.
 services: application-gateway
-documentationcenter: na
 author: amitsriva
 manager: rossort
-editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 300628b8-8e3d-40ab-b294-3ecc5e48ef98
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 3/23/2018
+ms.date: 4/2/2018
 ms.author: amitsriva
-ms.openlocfilehash: 885ae8b97175cac4cd29793eb0a935e81d54d0e4
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 982ae712320cb390b1822de6a7a3980ebfb6251e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Mantenimiento del back-end, registro de diagnóstico y métricas de Application Gateway
 
@@ -29,7 +26,7 @@ Con Azure Application Gateway, puede supervisar los recursos de las siguientes m
 
 * [Registros](#diagnostic-logging): permiten que un recurso guarde o consuma datos de rendimiento, acceso u otros con fines de supervisión.
 
-* [Métricas](#metrics): en estos momentos, Application Gateway tiene una métrica. Esta métrica mide el rendimiento de la puerta de enlace de aplicaciones en bytes por segundo.
+* [Métricas](#metrics): Application Gateway actualmente tiene siete métricas para ver los contadores de rendimiento.
 
 ## <a name="back-end-health"></a>Mantenimiento del back-end
 
@@ -318,13 +315,22 @@ También puede conectarse a la cuenta de almacenamiento y recuperar las entradas
 
 Las métricas son una característica de determinados recursos de Azure en los que puede ver contadores de rendimiento en el portal. Para Application Gateway, están disponibles las métricas siguientes:
 
-- Conexiones actuales
-- Solicitudes con error
-- Recuento de hosts con estado correcto
-- Estado de respuesta
-- Throughput
-- Total de solicitudes
-- Recuento de hosts con estado incorrecto
+- **Conexiones actuales**
+- **Solicitudes con error**
+- **Recuento de hosts con estado correcto**
+
+   También puede filtrar en función de grupos de back-end para mostrar hosts en buen/mal estado en un grupo de back-end específico.
+
+
+- **Estado de respuesta**
+
+   La distribución del código de estado de respuesta se puede categorizar aún más para mostrar las respuestas en categorías 2xx, 3xx, 4xx y 5xx.
+
+- **Rendimiento**
+- **Total de solicitudes**
+- **Recuento de hosts con estado incorrecto**
+
+   También puede filtrar en función de grupos de back-end para mostrar hosts en buen/mal estado en un grupo de back-end específico.
 
 Navegue a una puerta de enlace de aplicación y, en **Supervisión** haga clic en **Métricas**. Para ver los valores disponibles, seleccione la lista desplegable **MÉTRICA**.
 

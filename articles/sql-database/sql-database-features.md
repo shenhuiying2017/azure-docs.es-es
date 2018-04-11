@@ -6,14 +6,14 @@ author: jovanpop-msft
 ms.reviewer: bonova, carlrab
 ms.service: sql-database
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 03/30/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: 842c65987dc97872751071dbcf138794a14940e2
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d8adf097d6bee404cff8e7b15782c6c59531a897
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Comparación de funciones: Azure SQL Database frente a SQL Server 
 
@@ -114,13 +114,13 @@ En las tablas siguientes se enumeran las características principales de SQL Ser
 | [Instrucciones SET](https://docs.microsoft.com/sql/t-sql/statements/set-statements-transact-sql) | La mayoría; consulte el artículo sobre instrucciones. | Sí; consulte el artículo sobre [diferencias de T-SQL](sql-database-managed-instance-transact-sql-information.md)|
 | [SMO](https://docs.microsoft.com/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | Sí | Sí |
 | [Spatial](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-sql-server) | Sí | Sí |
-| [SQL Data Sync](sql-database-get-started-sql-data-sync.md) | Sí | Sí |
+| [SQL Data Sync](sql-database-get-started-sql-data-sync.md) | Sí | Sin  |
 | [SQL Operations Studio](https://docs.microsoft.com/sql/sql-operations-studio/what-is) | Sí | Sí |
 | [Agente SQL Server](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) | No - Consulte [Trabajos elásticos](sql-database-elastic-jobs-getting-started.md). | Sí; consulte el artículo sobre [diferencias de Agente SQL Server](sql-database-managed-instance-transact-sql-information.md#sql-server-agent) |
 | [SQL Server Analysis Services (SSAS)](https://docs.microsoft.com/sql/analysis-services/analysis-services) | No; consulte el artículo sobre [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) | No; consulte [Administración de Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/). |
 | [Auditoría de SQL Server](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | No; consulte el artículo sobre [auditoría de SQL Database](sql-database-auditing.md). | Sí; consulte el artículo sobre las [diferencias de auditoría](sql-database-managed-instance-transact-sql-information.md#auditing) |
 | [SQL Server Data Tools (SSDT)] (https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt) | Sí | Sí |
-| [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | Parcial; el desarrollo de paquetes en SQL Server Data Tools. | No, no en versión preliminar pública |
+| [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | Sí, con un SSIS administrado en el entorno de Azure Data Factory (ADF), donde los paquetes están almacenados en SSISDB hospedado en Azure SQL Database y ejecutado en [Integration Runtime de SSIS de Azure](../data-factory/tutorial-deploy-ssis-packages-azure-powershell.md). | Sí, con un SSIS administrado en el entorno de Azure Data Factory (ADF), donde los paquetes están almacenados en SSISDB hospedado en Instancia administrada y ejecutado en [Integration Runtime de SSIS de Azure](../data-factory/tutorial-deploy-ssis-packages-azure-powershell.md). |
 | [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) | Sí | Sí |
 | [SQL Server PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | Sí | Sí |
 | [SQL Server Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | No; consulte el artículo sobre [eventos extendidos](sql-database-xevent-db-diff-from-svr.md). | Sí |

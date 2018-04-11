@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: ganesr,cherylmc
-ms.openlocfilehash: 943305c78a17031d647bf2fa0977d10c51213ef5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0e060e67d615f0d6aa8ca6cbe305670956ac3faf
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="expressroute-circuits-and-routing-domains"></a>Circuitos ExpressRoute y dominios de enrutamiento
  Para conectar su infraestructura local a Microsoft a través de un proveedor de conectividad, debe solicitar un *circuito ExpressRoute* . En la ilustración siguiente se muestra una representación lógica de conectividad entre la WAN y Microsoft.
@@ -72,7 +72,7 @@ Para obtener más información sobre los servicios admitidos, los costos y los d
 ## <a name="routing-domain-comparison"></a>Comparación de dominios de enrutamiento
 En la tabla siguiente se comparan los tres dominios de enrutamiento:
 
-|  | **Emparejamiento privado** | **Emparejamiento público** | **Emparejamiento de Microsoft*** |
+|  | **Emparejamiento privado** | **Emparejamiento público** (en desuso para nuevas creaciones) | **Emparejamiento de Microsoft** |
 | --- | --- | --- | --- |
 | **Número máximo de prefijos admitidos por emparejamiento** |4000 de forma predeterminada, 10.000 con ExpressRoute Premium |200 |200 |
 | **Intervalos de direcciones IP admitidas** |Cualquier dirección IP válida de la WAN. |Direcciones IP públicas propiedad suya o de su proveedor de conectividad. |Direcciones IP públicas propiedad suya o de su proveedor de conectividad. |
@@ -81,7 +81,7 @@ En la tabla siguiente se comparan los tres dominios de enrutamiento:
 | **Direcciones IP de la interfaz de enrutamiento** |Direcciones IP públicas y de RFC1918 |Direcciones IP públicas registradas para usted en los registros de enrutamiento. |Direcciones IP públicas registradas para usted en los registros de enrutamiento. |
 | **Compatibilidad con Hash MD5** |Sí |Sí |Sí |
 
-(*) Requiere el nivel premium de la SKU de complemento.
+
 
 Puede elegir habilitar uno o varios de los dominios de enrutamiento como parte de su circuito ExpressRoute. Puede elegir colocar todos los dominios de enrutamiento en la misma VPN si quiere combinarlos en un único dominio de enrutamiento. También puede colocarlos en diferentes dominios de enrutamiento, como en el diagrama. La configuración recomendada es que el emparejamiento privado esté conectado directamente a la red principal y que los vínculos de emparejamiento público y de Microsoft estén conectados a la red perimetral.
 

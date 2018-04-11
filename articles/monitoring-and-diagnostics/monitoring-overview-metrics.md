@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: ancav
-ms.openlocfilehash: 88020b27403f06ab8f1c0a1c45b798db02f517f5
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4598267e92716529774f42d22ab7c47d944d4495
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Información general sobre las métricas en Microsoft Azure
 En este artículo se explica qué son las métricas en Microsoft Azure, sus beneficios y cómo comenzar a utilizarlas.  
@@ -116,7 +116,7 @@ Alertas de métricas: estas pueden enviarle una notificación por correo electr�
 
  ![Métricas y reglas de alerta en Azure Monitor](./media/monitoring-overview-metrics/MetricsOverview4.png)
 
-Alertas casi en tiempo real (versión preliminar): estas tienen la capacidad de supervisar varias métricas y umbrales para un recurso y, a continuación, enviarle una notificación a través de un [Grupo de acciones](/monitoring-action-groups.md). Encuentre más información sobre las [alertas de métricas casi en tiempo real aquí](https://aka.ms/azuremonitor/near-real-time-alerts).
+Las alertas de métricas más recientes tienen la capacidad de supervisar varias métricas, además de umbrales, para un recurso y luego le envían una notificación a través de un [grupo de acciones](/monitoring-action-groups.md). Obtenga más información sobre las [alertas más recientes aquí](https://aka.ms/azuremonitor/near-real-time-alerts).
 
 
 ### <a name="autoscale-your-azure-resources"></a>Escalado automático de recursos de Azure

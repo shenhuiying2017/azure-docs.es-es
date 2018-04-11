@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/27/2018
 ms.author: mabrigg
 ms.reviewer: jeffgo
-ms.openlocfilehash: 15a1648193555ecc5847170ab65f48dfa4f6417b
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 66e1d5691b431be0c3d040570b13e8d16b1669ef
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Usar bases de datos MySQL en Microsoft Azure Stack
 
@@ -80,7 +80,7 @@ Esta cuenta del sistema debe tener los siguientes privilegios:
     | 1711: 1.0.171122.1 | [MySQL RP, versión 1.1.12.0](https://aka.ms/azurestackmysqlrp1711) |
     | 1710: 1.0.171028.1 | [MySQL RP, versión 1.1.8.0](https://aka.ms/azurestackmysqlrp1710) |
 
-4.  El certificado raíz de Azure Stack se recupera del punto de conexión con privilegios. Para el SDK de Azure, como parte de este proceso, se crea un certificado autofirmado. Para varios nodos, debe proporcionar un certificado adecuado.
+4.  Para el SDK de Azure, como parte de este proceso, se crea un certificado autofirmado. Para varios nodos, debe proporcionar un certificado adecuado.
 
     Si tiene que proporcionar su propio certificado, coloque un archivo .pfx en **DependencyFilesLocalPath** que cumpla los criterios siguientes:
 

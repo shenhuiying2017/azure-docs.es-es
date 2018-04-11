@@ -1,14 +1,29 @@
-
-
-
-**Última actualización del documento**: 6 de marzo a las 10:00 h PST.
+---
+title: archivo de inclusión
+description: archivo de inclusión
+services: virtual-machines
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 04/02/2018
+ms.author: cynthn;kareni
+ms.custom: include file
+ms.openlocfilehash: 6ad9c365894feed61fa4f55d442194d1cf996889
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 04/03/2018
+---
+**Última actualización del documento**: 2 de abril a las 10:00 h PST.
 
 La reciente divulgación de una [nueva clase de vulnerabilidades de CPU](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002), conocidas como ataques de canal lateral de ejecución especulativa, han generado preguntas de los clientes que buscan mayor claridad.  
 
-La infraestructura que ejecuta Azure y aísla las cargas de trabajo de los clientes entre sí está protegida.  Esto significa que otros clientes que utilizan Azure no pueden atacar su aplicación mediante estas vulnerabilidades.
+Microsoft ha implementado mitigaciones en todos nuestros servicios en la nube. La infraestructura que ejecuta Azure y aísla las cargas de trabajo de los clientes entre sí está protegida.  Esto significa que otros clientes que utilizan Azure no pueden atacar su aplicación mediante estas vulnerabilidades.
+
+Además, Azure está expandiendo el uso del [mantenimiento con conservación de memoria](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates#memory-preserving-maintenance) siempre que es factible, poniendo en pausa la máquina virtual hasta 30 segundos mientras se actualiza el host o se traslada la máquina virtual a un host ya actualizado.  El mantenimiento con conservación de memoria minimiza más el impacto del cliente y elimina la necesidad de los reinicios.  Azure empleará estos métodos al realizar actualizaciones en todo el sistema en el host.
 
 > [!NOTE] 
-> A finales de febrero de 2018, Intel Corporation publicó la [Microvision Revision Guidance](https://newsroom.intel.com/wp-content/uploads/sites/11/2018/03/microcode-update-guidance.pdf) actualizada sobre el estado de sus versiones de microcódigo, que mejoran la estabilidad y mitigan las vulnerabilidades recientes reveladas por [ Google Project Zero](https://googleprojectzero.blogspot.com/2018/01/reading-privileged-memory-with-side.html). La actualización de microcódigo de Intel no afecta a las mitigaciones que Azure aplicó el [3 de enero de 2018](https://azure.microsoft.com/en-us/blog/securing-azure-customers-from-cpu-vulnerability/). Microsoft ya aplicó mitigaciones seguras para proteger a los clientes de Azure contra otros inquilinos de Azure.  
+> A finales de febrero de 2018, Intel Corporation publicó la [Microvision Revision Guidance](https://newsroom.intel.com/wp-content/uploads/sites/11/2018/03/microcode-update-guidance.pdf) actualizada sobre el estado de sus versiones de microcódigo, que mejoran la estabilidad y mitigan las vulnerabilidades recientes reveladas por [ Google Project Zero](https://googleprojectzero.blogspot.com/2018/01/reading-privileged-memory-with-side.html). La actualización de microcódigo de Intel no afecta a las mitigaciones que Azure aplicó el [3 de enero de 2018](https://azure.microsoft.com/en-us/blog/securing-azure-customers-from-cpu-vulnerability/). Microsoft ya aplicó mitigaciones seguras para proteger a los clientes de Azure contra otras máquinas virtuales de Azure.  
 >
 > El microcódigo de Intel trata la variante 2 de Spectre ([CVE-2017-5715](https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2017-5715)) para protegerse contra ataques que solo serían aplicables donde se ejecutaron cargas de trabajo compartidas o de confianza dentro de las VM en Azure. Nuestros ingenieros están probando la estabilidad para minimizar el impacto en el rendimiento del microcódigo, antes de ponerlo a disposición de los clientes de Azure.  Dado que muy pocos clientes ejecutan cargas de trabajo que no son de confianza dentro de sus VM, la mayoría de los clientes no necesitarán habilitar esta funcionalidad una vez publicada. 
 >
@@ -21,7 +36,7 @@ La infraestructura que ejecuta Azure y aísla las cargas de trabajo de los clien
 
 ## <a name="keeping-your-operating-systems-up-to-date"></a>Mantener actualizados los sistemas operativos
 
-Aunque no se necesita una actualización del sistema operativo para aislar las aplicaciones que se ejecutan en Azure de otros clientes que utilizan Azure, siempre es recomendable mantener actualizadas las versiones del sistema operativo. 
+Aunque no se necesita una actualización del sistema operativo para aislar las aplicaciones que se ejecutan en Azure de otros clientes que utilizan Azure, siempre es recomendable mantener actualizadas las versiones del sistema operativo. Los [paquetes acumulativos de seguridad de Windows](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) de enero de 2018 y posteriores contienen mitigaciones para estas vulnerabilidades.
 
 En las siguientes ofertas, se indican las acciones recomendadas para actualizar el sistema operativo: 
 
@@ -49,7 +64,7 @@ A menos que se esté ejecutando código que no es de confianza, no es necesario 
 
 
 ### <a name="windows"></a>Windows 
-Si está usando Windows y hospeda código que no es de confianza, también debe habilitar una característica de Windows llamada ocultación de la dirección virtual del kernel (KVA), que proporciona protección adicional contra las vulnerabilidades frente a ataques de canal lateral de ejecución especulativa. Esta característica está desactivada de forma predeterminada y puede afectar al rendimiento si se habilita. Siga las instrucciones del artículo [KB4072698 de Windows Server](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) para habilitar la protección en el servidor. Si ejecuta Azure Cloud Services, compruebe que está ejecutando WA-GUEST-OS-5.15_201801-01 o WA-GUEST-OS-4.50_201801-01 (disponible a partir del 10 de enero de 2018) y habilite la clave del Registro mediante una tarea de inicio.
+Si está usando Windows y hospeda código que no es de confianza, también debe habilitar una característica de Windows llamada ocultación de la dirección virtual del kernel (KVA), que proporciona protección adicional contra las vulnerabilidades frente a ataques de canal lateral de ejecución especulativa (concretamente Meltdown de tres variantes, [CVE-2017-5754](https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2017-5754)). Esta característica está desactivada de forma predeterminada y puede afectar al rendimiento si se habilita. Siga las instrucciones del artículo [KB4072698 de Windows Server](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) para habilitar la protección en el servidor. Si ejecuta Azure Cloud Services, compruebe que está ejecutando WA-GUEST-OS-5.15_201801-01 o WA-GUEST-OS-4.50_201801-01 (disponible a partir del 10 de enero de 2018) y habilite la clave del Registro mediante una tarea de inicio.
 
 
 ### <a name="linux"></a>Linux

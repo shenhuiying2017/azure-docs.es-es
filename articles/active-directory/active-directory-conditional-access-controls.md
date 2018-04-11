@@ -1,26 +1,26 @@
 ---
 title: Controles de acceso en el acceso condicional de Azure Active Directory | Microsoft Docs
-description: "Aprenda cómo funcionan los controles de acceso en el acceso condicional de Azure Active Directory."
+description: Aprenda cómo funcionan los controles de acceso en el acceso condicional de Azure Active Directory.
 services: active-directory
 keywords: acceso condicional a aplicaciones, acceso condicional con Azure AD, acceso seguro a recursos de empresa, directivas de acceso condicional
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2018
+ms.date: 03/28/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: c5a2ab3b8d2fe55eee1f67e4b697a1e5b0dd2daf
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: e38b7db2699cd3e4cf76d4a8e8fc558b133dd35b
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="access-controls-in-azure-active-directory-conditional-access"></a>Controles de acceso en el acceso condicional de Azure Active Directory 
 
@@ -75,11 +75,15 @@ La autenticación multifactor ayuda a proteger los recursos del acceso por parte
 
 ### <a name="compliant-device"></a>Dispositivos compatible
 
-Puede configurar directivas de acceso condicional basadas en dispositivos. El objetivo de una directiva de acceso condicional basado en el dispositivo es conceder acceso a los recursos configurados solo desde dispositivos de confianza. Requerir un dispositivo compatible es una opción para definir qué es un dispositivo de confianza. Para más información, consulte [Configuración de directivas de acceso condicional basadas en dispositivos de Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md).
+Puede configurar directivas de acceso condicional basadas en dispositivos. El objetivo de una directiva de acceso condicional basado en el dispositivo es conceder acceso a los recursos configurados solo desde dispositivos de confianza. Requerir un dispositivo compatible es una opción para definir qué es un dispositivo de confianza. Si se selecciona esta opción, la directiva de acceso condicional concede acceso a los intentos de acceso realizados con dispositivos unidos a Azure Active Directory y marcados como compatibles por la solución de MDM.
+
+Para más información, consulte [Configuración de directivas de acceso condicional basadas en dispositivos de Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md).
 
 ### <a name="domain-joined-device"></a>Dispositivo unido al dominio
 
-Requerir un dispositivo unido a un dominio es otra opción para configurar directivas de acceso condicional basadas en dispositivos. Este requisito hace referencia a equipos de escritorio, equipos portátiles y tabletas de empresa con Windows que están unidos a una instancia local de Active Directory. Para más información, consulte [Configuración de directivas de acceso condicional basadas en dispositivos de Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md).
+Requerir un dispositivo unido a un dominio es otra opción para configurar directivas de acceso condicional basadas en dispositivos. Este requisito hace referencia a equipos de escritorio, equipos portátiles y tabletas de empresa con Windows que están unidos a una instancia local de Active Directory. Si se selecciona esta opción, la directiva de acceso condicional concede acceso a los intentos de acceso realizados con dispositivos unidos a su Active Directory local y su Azure Active Directory.  
+
+Para más información, consulte [Configuración de directivas de acceso condicional basadas en dispositivos de Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md).
 
 
 
@@ -165,7 +169,7 @@ Para más información sobre cómo requerir el acceso limitado con SharePoint co
 
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Si quiere saber cómo configurar una directiva de acceso condicional, consulte [Get started with conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md) (Introducción al acceso condicional en Azure Active Directory).
 

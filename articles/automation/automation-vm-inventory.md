@@ -1,18 +1,18 @@
 ---
-title: "Administración de una máquina virtual de Azure con la recopilación de inventario | Microsoft Docs"
-description: "Administración de una máquina virtual con la recopilación de inventario"
+title: Administración de una máquina virtual de Azure con la recopilación de inventario | Microsoft Docs
+description: Administración de una máquina virtual con la recopilación de inventario
 services: automation
-keywords: "inventario, automatización, cambio, seguimiento"
+keywords: inventario, automatización, cambio, seguimiento
 author: jennyhunter-msft
 ms.author: jehunte
 ms.date: 09/13/2017
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 7b0e39e98a81231b68414f36ac5c1fc0897304a1
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: b23132f6e5693f5d731bf044ac5c2544a9308ee1
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Administración de una máquina virtual de Azure con la recopilación de inventario
 
@@ -63,7 +63,7 @@ Para dejar de administrar el inventario de la máquina virtual:
 5. En la ventana de confirmación, seleccione **Sí**.  
     Esta acción interrumpe la administración de la máquina.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * Para más información acerca de cómo administrar los cambios de configuración en los archivos y el registro de las máquinas virtuales, consulte [Seguimiento de cambios de software en su entorno con la solución de seguimiento de cambios](../log-analytics/log-analytics-change-tracking.md).
-* Para más información sobre cómo administrar Windows y las actualizaciones de los paquetes en las máquinas virtuales, consulte [Solución Administración de actualizaciones de OMS](../operations-management-suite/oms-solution-update-management.md).
+* Para más información sobre cómo administrar Windows y actualizaciones de paquetes en las máquinas virtuales, consulte [Solución Update Management en Azure](../operations-management-suite/oms-solution-update-management.md).

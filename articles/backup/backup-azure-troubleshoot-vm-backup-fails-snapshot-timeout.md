@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
-ms.openlocfilehash: a18718aba3ef7f70caa541c6eb56311082d02bed
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 81678f6a8659ffb763ebfe418098e510c73f6ae0
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solución de errores de Azure Backup: problemas con el agente o la extensión
 
@@ -78,21 +78,6 @@ Después de registrar y programar una máquina virtual para el servicio de Azure
 **Causa 4: [No se puede recuperar el estado de las instantáneas o no se pueden tomar instantáneas](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 **Causa 5: [La extensión de la copia de seguridad no se puede actualizar ni cargar](#the-backup-extension-fails-to-update-or-load)**  
 **Causa 6: [El servicio de copia de seguridad no tiene permiso para eliminar los puntos de restauración antiguos debido a un bloqueo del grupo de recursos](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)**
-
-## <a name="disk-configuration-is-not-supported"></a>La configuración de disco no se admite
-
-Mensaje de error: "No se admite la configuración de disco especificada"
-
-> [!NOTE]
-> Contamos con una versión preliminar privada que admite copias de seguridad en máquinas virtuales que tienen discos de más de 1 TB. Para más información, consulte [Private preview for large disk VM backup support](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a) (Versión preliminar privada para la compatibilidad con copias de seguridad de máquina virtual de discos grandes).
->
->
-
-Actualmente, Azure Backup no admite discos que tienen [más de 1023 GB](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm). Si dispone de discos que tienen más de 1 TB:  
-1. [Asocie discos nuevos](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) que tengan menos de 1 TB.  
-2. Copie los datos de discos que tengan más de 1 TB en los discos recién creados que tengan menos de 1 TB.  
-3. Asegúrese de que se han copiado todos los datos. A continuación, quite los discos que tengan más de 1 TB.  
-4. Inicie la copia de seguridad.
 
 ## <a name="causes-and-solutions"></a>Causas y soluciones
 

@@ -1,25 +1,23 @@
 ---
-title: "Información general sobre la supervisión de estado para Azure Application Gateway| Microsoft Docs"
-description: "Aprenda sobre las funciones de supervisión de la puerta de enlace de aplicaciones de Azure"
+title: Introducción al seguimiento de estado para Azure Application Gateway
+description: Aprenda sobre las funciones de supervisión de la puerta de enlace de aplicaciones de Azure
 services: application-gateway
 documentationcenter: na
-author: davidmu1
-manager: timlt
-editor: 
+author: vhorne
+manager: jpconnock
 tags: azure-resource-manager
-ms.assetid: 7eeba328-bb2d-4d3e-bdac-7552e7900b7f
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2016
-ms.author: davidmu
-ms.openlocfilehash: 83a0b1be1aba48146aa1aaedb36ad9d9d23f17d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 3/30/2018
+ms.author: victorh
+ms.openlocfilehash: 2f62f01c1178f9529eb46051f088affccc5279a7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Información general sobre la supervisión de estado de la puerta de enlace de aplicaciones
 
@@ -40,11 +38,30 @@ Por ejemplo: configura la puerta de enlace de aplicaciones para usar los servido
 
 Si la comprobación de sondeo predeterminado da error en el servidor A, la puerta de enlace de aplicaciones lo elimina de su grupo de back-end y el tráfico de red deja de fluir a este servidor. El sondeo predeterminado sigue comprobando el servidor A cada 30 segundos. Cuando el servidor A responde correctamente a una solicitud de un sondeo de estado predeterminado, se considera que está en buen estado y se agrega de nuevo al grupo de back-end; el tráfico comienza a fluir de nuevo a él.
 
+### <a name="probe-matching"></a>Sondeo de búsqueda de coincidencia
+
+De forma predeterminada, una respuesta HTTP (S) con el código de estado 200 se considera correcta. Los sondeos de estado personalizados admiten además dos criterios de coincidencia. Los criterios de coincidencia pueden usarse para modificar opcionalmente la interpretación predeterminada de lo que constituye una respuesta correcta.
+
+Estos son los criterios de coincidencia: 
+
+- **Coincidencia de código de estado de respuesta HTTP**: criterio de coincidencia de sondeo para aceptar el código de respuesta, o los intervalos de códigos de respuesta, HTTP especificados por el usuario. Se admiten códigos de estado de respuesta individuales, o un intervalo de códigos de estado de respuesta, separados por coma.
+- **Coincidencia de cuerpo de respuesta HTTP**: criterio de coincidencia de sondeo que examina el cuerpo de la respuesta HTTP y busca la coincidencia con una cadena especificada por el usuario. Tenga en cuenta que la coincidencia solo busca la existencia de la cadena especificada por el usuario en el cuerpo de la respuesta, no es una coincidencia de expresión regular completa.
+
+Los criterios de coincidencia se pueden especificar mediante el cmdlet `New-AzureRmApplicationGatewayProbeHealthResponseMatch`.
+
+Por ejemplo: 
+
+```
+$match = New-AzureRmApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399
+$match = New-AzureRmApplicationGatewayProbeHealthResponseMatch -Body "Healthy"
+```
+Una vez que se especifican los criterios de coincidencia, se pueden asociar a la configuración de sondeo con un parámetro `-Match` en PowerShell.
+
 ### <a name="default-health-probe-settings"></a>Configuración de sondeo de estado predeterminado
 
-| Propiedad de sondeo | Valor | Description |
+| Propiedad de sondeo | Valor | DESCRIPCIÓN |
 | --- | --- | --- |
-| Dirección URL de sondeo |http://127.0.0.1:\<puerto\>/ |Ruta de acceso URL |
+| Dirección URL de sondeo |http://127.0.0.1:\<port\>/ |Ruta de acceso URL |
 | Intervalo |30 |Intervalo de sondeo en segundos |
 | Tiempo de espera |30 |Tiempo de espera del sondeo en segundos |
 | Umbral incorrecto |3 |Número de reintentos de sondeo. El servidor back-end se marca como inactivo después de que el número de errores de sondeo consecutivos alcanza el umbral incorrecto. |
@@ -52,7 +69,7 @@ Si la comprobación de sondeo predeterminado da error en el servidor A, la puert
 > [!NOTE]
 > El puerto es el mismo que la configuración de HTTP del back-end.
 
-El sondeo predeterminado solo examina http://127.0.0.1:\<puerto\> para determinar el estado de mantenimiento. Si necesita configurar el sondeo de estado para ir a una dirección URL personalizada o modificar alguna otra configuración, debe usar sondeos personalizada tal como se describe en los siguientes pasos:
+El sondeo predeterminado solo examina la propiedadhttp://127.0.0.1:\<port\> para determinar el estado de mantenimiento. Si necesita configurar el sondeo de estado para ir a una dirección URL personalizada o modificar alguna otra configuración, debe usar sondeos personalizada tal como se describe en los siguientes pasos:
 
 ## <a name="custom-health-probe"></a>Sondeo de estado personalizado
 
@@ -62,10 +79,10 @@ Los sondeos personalizados permiten un control más específico sobre la supervi
 
 La siguiente tabla proporciona definiciones de las propiedades de un sondeo de mantenimiento personalizado.
 
-| Propiedad de sondeo | Description |
+| Propiedad de sondeo | DESCRIPCIÓN |
 | --- | --- |
-| Nombre |Nombre del sondeo. Este nombre se usa para hacer referencia al sondeo en la configuración de HTTP de back-end. |
-| Protocol |Protocolo usado para enviar el sondeo. El sondeo utiliza el protocolo definido en la configuración de HTTP del back-end. |
+| NOMBRE |Nombre del sondeo. Este nombre se usa para hacer referencia al sondeo en la configuración de HTTP de back-end. |
+| Protocolo |Protocolo usado para enviar el sondeo. El sondeo utiliza el protocolo definido en la configuración de HTTP del back-end. |
 | Host |Nombre de host para enviar el sondeo. Solo se puede aplicar cuando se ha configurado un entorno multisitio en Application Gateway; de lo contrario hay que usar '127.0.0.1'. Este valor es distinto del nombre de host de máquina virtual. |
 | Ruta de acceso |Ruta de acceso relativa del sondeo. La ruta de acceso válida se inicia desde '/'. |
 | Intervalo |Intervalo de sondeo en segundos. Este valor es el intervalo de tiempo entre dos sondeos consecutivos. |

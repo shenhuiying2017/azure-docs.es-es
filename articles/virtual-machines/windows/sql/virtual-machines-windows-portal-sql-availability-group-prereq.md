@@ -1,6 +1,6 @@
 ---
-title: "Grupos de disponibilidad de SQL Server: máquinas virtuales de Azure (requisitos previos) | Microsoft Docs"
-description: "En este tutorial se muestra cómo configurar los requisitos previos para crear un grupo de disponibilidad de SQL Server AlwaysOn en máquinas virtuales de Azure."
+title: 'Grupos de disponibilidad de SQL Server: máquinas virtuales de Azure (requisitos previos) | Microsoft Docs'
+description: En este tutorial se muestra cómo configurar los requisitos previos para crear un grupo de disponibilidad de SQL Server AlwaysOn en máquinas virtuales de Azure.
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
@@ -14,13 +14,13 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 05/09/2017
+ms.date: 03/29/2018
 ms.author: mikeray
-ms.openlocfilehash: 85ad53f0b7b4b14784bb0755ee22763d124e63ba
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f2a0af65af068f3a78a08e46e0e42caefd87d7b1
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Realización de los requisitos previos para crear grupos de disponibilidad AlwaysOn en máquinas virtuales de Azure.
 
@@ -51,9 +51,9 @@ Necesitará una cuenta de Azure. Puede [abrir una cuenta gratuita de Azure](/pri
    ![Grupos de recursos](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-resourcegroupsymbol.png)
 4. Haga clic en **Grupo de recursos**.
 5. Haga clic en **Create**(Crear).
-6. En la hoja **Grupo de recursos**, en **Nombre del grupo de recursos**, escriba un nombre para el grupo de recursos. Por ejemplo, escriba **sql-ha-rg**.
+6. En **Nombre del grupo de recursos**, escriba un nombre para el grupo de recursos. Por ejemplo, escriba **sql-ha-rg**.
 7. Si tiene varias suscripciones de Azure, compruebe que la suscripción es la suscripción de Azure en la que quiere crear el grupo de disponibilidad.
-8. Seleccione una ubicación. La ubicación es la región de Azure donde desea crear el grupo de disponibilidad. Para este tutorial, vamos a crear todos los recursos en una ubicación de Azure.
+8. Seleccione una ubicación. La ubicación es la región de Azure donde desea crear el grupo de disponibilidad. En este artículo se compilan todos los recursos en una ubicación de Azure.
 9. Compruebe que la función **Anclar al panel** está activada. Este parámetro opcional coloca un acceso directo para el grupo de recursos en el panel del Portal de Azure.
 
    ![Grupos de recursos](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-resourcegroup.png)
@@ -69,14 +69,14 @@ La solución usa una red virtual con dos subredes. En [Información general sobr
 
 Para crear la red virtual:
 
-1. En Azure Portal, en el grupo de recursos, haga clic en **+ Agregar**. Azure abre la hoja **Todo** .
+1. En Azure Portal, en el grupo de recursos, haga clic en **+ Agregar**. 
 
    ![Nuevo elemento](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/02-newiteminrg.png)
 2. Busque **red virtual**.
 
      ![Búsqueda de una red virtual](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/04-findvirtualnetwork.png)
 3. Haga clic en **Red virtual**.
-4. En la hoja **Red virtual**, haga clic en el modelo de implementación de **Resource Manager** y en **Crear**.
+4. En **Red virtual**, haga clic en el modelo de implementación de **Resource Manager** y en **Crear**.
 
     La siguiente tabla muestra la configuración de la red virtual:
 
@@ -106,14 +106,14 @@ La nueva red virtual tiene una subred denominada **Admin**. Los controladores de
 1. En el panel, haga clic en el grupo de recursos que ha creado, **SQL-HA-RG**. En **Recursos**, busque la red en el grupo de recursos.
 
     Si **SQL-HA-RG** no está visible, haga clic en **Grupos de recursos** y filtre por el nombre del grupo de recursos para encontrarlo.
-2. Haga clic en **autoHAVNET** en la lista de recursos. Azure abre la hoja de configuración de red.
-3. En la hoja de la red virtual **autoHAVNET**, en **Configuración** haga clic en **Subredes**.
+2. Haga clic en **autoHAVNET** en la lista de recursos. 
+3. En la red virtual **autoHAVNET**, en **Configuración**, haga clic en **Subredes**.
 
     Observe la subred que ya ha creado.
 
    ![Configuración de la red virtual](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/07-addsubnet.png)
 5. Cree una segunda subred. Haga clic en **+ Subred**.
-6. En la hoja **Agregar subred**, configure la subred escribiendo **sqlsubnet** en **Nombre**. Azure especifica automáticamente un valor válido en **Intervalo de direcciones**. Compruebe que este intervalo de direcciones tiene al menos 10 direcciones. En un entorno de producción, puede que necesite más direcciones.
+6. En **Agregar subred**, configure la subred escribiendo **sqlsubnet** en **Nombre**. Azure especifica automáticamente un valor válido en **Intervalo de direcciones**. Compruebe que este intervalo de direcciones tiene al menos 10 direcciones. En un entorno de producción, puede que necesite más direcciones.
 7. Haga clic en **OK**.
 
     ![Configuración de la red virtual](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/08-configuresubnet.png)
@@ -157,9 +157,9 @@ Después de haber creado la red, las subredes, los conjuntos de disponibilidad y
 ### <a name="create-virtual-machines-for-the-domain-controllers"></a>Creación de máquinas virtuales para controladores de dominio
 Para crear y configurar los controladores de dominio, vuelva al grupo de recursos **SQL-HA-RG** .
 
-1. Haga clic en **Agregar**. Se abrirá la hoja **Todo** .
+1. Haga clic en **Agregar**. 
 2. Escriba **Windows Server 2016 Datacenter**.
-3. Haga clic en **Windows Server 2016 Datacenter**. En la hoja **Windows Server 2016 Datacenter**, compruebe que el modelo de implementación sea **Resource Manager** y haga clic en **Crear**. Azure abre la hoja **Crear máquina virtual** .
+3. Haga clic en **Windows Server 2016 Datacenter**. En **Windows Server 2016 Datacenter**, compruebe que el modelo de implementación sea **Resource Manager** y haga clic en **Crear**. 
 
 Repita los pasos anteriores para crear dos máquinas virtuales. Asigne nombre a las dos máquinas virtuales:
 
@@ -202,7 +202,7 @@ Después de crear las máquinas virtuales, configure el controlador de dominio.
 ### <a name="configure-the-domain-controller"></a>Configuración del controlador de dominio
 En los pasos siguientes, configurará la máquina **ad-primary-dc** como controlador de dominio para corp.contoso.com.
 
-1. En el portal, abra el grupo de recursos **SQL-HA-RG** y seleccione la máquina **ad-primary-dc**. En la hoja **ad-primary-dc**, haga clic en **Conectar** para abrir un archivo RDP con el fin de obtener acceso a Escritorio remoto.
+1. En el portal, abra el grupo de recursos **SQL-HA-RG** y seleccione la máquina **ad-primary-dc**. En **ad-primary-dc**, haga clic en **Conectar** para abrir un archivo RDP con el fin de obtener acceso a Escritorio remoto.
 
     ![Conexión a una máquina virtual](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/20-connectrdp.png)
 2. Inicie sesión con su cuenta de administrador configurada (**\DomainAdmin**) y la contraseña (**Contoso!0000**).
@@ -246,7 +246,7 @@ Una manera de obtener la dirección IP del controlador de dominio principal es a
 
 2. Haga clic en el controlador de dominio principal.
 
-3. En la hoja del controlador del dominio principal, haga clic en **Interfaces de red**.
+3. En el controlador del dominio principal, haga clic en **Interfaces de red**.
 
 ![Interfaces de red](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/25-primarydcip.png)
 
@@ -266,7 +266,7 @@ Después de crear el primer controlador de dominio y habilitar el DNS en el prim
 ### <a name="configure-the-second-domain-controller"></a>Configuración del segundo controlador de dominio
 Una vez reiniciado el controlador de dominio principal, puede configurar el segundo controlador de dominio. Este paso opcional es para lograr alta disponibilidad. Para configurar el segundo controlador de dominio siga estos pasos:
 
-1. En el portal, abra el grupo de recursos **SQL-HA-RG** y seleccione la máquina **ad-secondary-dc**. En la hoja **ad-secondary-dc**, haga clic en **Conectar** para abrir un archivo RDP con el fin de obtener acceso a Escritorio remoto.
+1. En el portal, abra el grupo de recursos **SQL-HA-RG** y seleccione la máquina **ad-secondary-dc**. En **ad-secondary-dc**, haga clic en **Conectar** para abrir un archivo RDP con el fin de obtener acceso a Escritorio remoto.
 2. Inicie sesión en la máquina virtual con la cuenta de administrador configurada (**BUILTIN\DomainAdmin**) y la contraseña (**Contoso!0000**).
 3. Cambie la dirección del servidor DNS preferido por la dirección del controlador de dominio.
 4. En **Centro de redes y recursos compartidos**, haga clic en la interfaz de red.
@@ -305,7 +305,7 @@ Después de que el servidor complete los cambios de configuración, reinícielo.
 
 ### <a name="add-the-private-ip-address-to-the-second-domain-controller-to-the-vpn-dns-server"></a>Incorporación de la dirección IP privada del controlador de dominio secundario al servidor DNS de VPN
 
-En Azure Portal, en la red virtual, cambie la opción Servidor DNS para que incluya la dirección IP del controlador de dominio secundario. Esto permitirá la redundancia del servicio DNS.
+En Azure Portal, en la red virtual, cambie la opción Servidor DNS para que incluya la dirección IP del controlador de dominio secundario. Esta configuración permitirá la redundancia del servicio DNS.
 
 ### <a name=DomainAccounts></a> Configuración de las cuentas de dominio
 
@@ -358,7 +358,7 @@ Tenga en cuenta las siguientes decisiones de diseño antes de continuar.
 
 * **Red: direcciones IP privadas en producción**
 
-   Para las máquinas virtuales, este tutorial usa direcciones IP públicas. Esto permite conectarse de forma remota directamente a la máquina virtual a través de Internet y facilita pasos de configuración. En entornos de producción, Microsoft recomienda usar únicamente direcciones IP privadas con el fin de reducir el grado de vulnerabilidad del recurso de máquina virtual de la instancia de SQL Server.
+   Para las máquinas virtuales, este tutorial usa direcciones IP públicas. Una dirección IP pública permite conectarse de forma remota directamente a la máquina virtual a través de Internet y facilita pasos de configuración. En entornos de producción, Microsoft recomienda usar únicamente direcciones IP privadas con el fin de reducir el grado de vulnerabilidad del recurso de máquina virtual de la instancia de SQL Server.
 
 ### <a name="create-and-configure-the-sql-server-vms"></a>Creación y configuración de las máquinas virtuales de SQL Server
 A continuación, cree tres máquinas virtuales: dos de SQL Server y una para el nodo de clúster adicional. Para crear las máquinas virtuales, vuelva al grupo de recursos **SQL-HA-RG**, haga clic en **Agregar**, busque el elemento apropiado de la galería, haga clic en **Máquina virtual** y luego en **De la galería**. Use la información de la tabla siguiente para ayudarlo a crear las máquinas virtuales:
@@ -449,7 +449,7 @@ Repita los pasos anteriores en la otra máquina virtual con SQL Server.
 
 ## <a name="add-failover-clustering-features-to-both-sql-server-vms"></a>Adición de características de clúster de conmutación por error en ambas máquinas virtuales con SQL Server
 
-Para agregar características de clúster de conmutación por error, realice las siguientes acciones en ambas máquinas virtuales con SQL Server:
+Para agregar características de clúster de conmutación por error, realice los pasos siguientes en ambas máquinas virtuales con SQL Server:
 
 1. Conéctese a la máquina virtual de SQL Server con el Protocolo de escritorio remoto (RDP) mediante la cuenta *CORP\install*. Abra el **panel Administrador de servidores**.
 2. Haga clic en el vínculo **Agregar roles y características** en el panel.
@@ -493,6 +493,36 @@ El método de abrir los puertos depende de la solución de firewall que use. En 
 
 Repita estos pasos en la segunda máquina virtual con SQL Server.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="configure-system-account-permissions"></a>Configuración de permisos de cuenta del sistema
+
+Para crear una cuenta para la cuenta del sistema y conceder los permisos adecuados, complete estos pasos en cada instancia de SQL Server:
+
+1. Cree una cuenta para `[NT AUTHORITY\SYSTEM]` en cada instancia de SQL Server. El script siguiente crea esta cuenta:
+
+   ```sql
+   USE [master]
+   GO
+   CREATE LOGIN [NT AUTHORITY\SYSTEM] FROM WINDOWS WITH DEFAULT_DATABASE=[master]
+   GO 
+   ```
+
+1. Conceda los permisos siguientes a `[NT AUTHORITY\SYSTEM]` en cada instancia de SQL Server:
+
+   - `ALTER ANY AVAILABILITY GROUP`
+   - `CONNECT SQL`
+   - `VIEW SERVER STATE`
+
+   El script siguiente concede estos permisos:
+
+   ```sql
+   GRANT ALTER ANY AVAILABILITY GROUP TO [NT AUTHORITY\SYSTEM]
+   GO
+   GRANT CONNECT SQL TO [NT AUTHORITY\SYSTEM]
+   GO
+   GRANT VIEW SERVER STATE TO [NT AUTHORITY\SYSTEM]
+   GO 
+   ```
+
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Creación de un grupo de disponibilidad de SQL Server AlwaysOn en máquinas virtuales de Azure](virtual-machines-windows-portal-sql-availability-group-tutorial.md)

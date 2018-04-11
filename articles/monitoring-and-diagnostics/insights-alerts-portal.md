@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2016
 ms.author: robb
-ms.openlocfilehash: 4acf1f549a6c901fb0b772c4591f1f35d61365ad
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b0d938112aaea4d86dd539b53a1749cc800607a7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-classic-metric-alerts-in-azure-monitor-for-azure-services---azure-portal"></a>Creación de alertas de métricas clásicas en Azure Monitor para servicios de Azure: Azure Portal
 > [!div class="op_single_selector"]
@@ -31,25 +31,25 @@ ms.lasthandoff: 03/23/2018
 ## <a name="overview"></a>Información general
 
 > [!NOTE]
-> En este artículo se describe cómo crear alertas de métricas antiguas. Azure Monitor admite ahora nuevas y mejores alertas de métricas. Estas alertas pueden supervisar varias métricas y permiten alertas relacionadas con métricas de dimensiones. Más información sobre [alertas de métrica en tiempo real](monitoring-near-real-time-metric-alerts.md).
+> En este artículo se describe cómo crear alertas de métrica clásicas más antiguas. Azure Monitor admite ahora [nuevas alertas de métricas más](monitoring-near-real-time-metric-alerts.md). 
 >
 >
 
-En este artículo se muestra cómo configurar alertas de métricas de Azure con Azure Portal. 
+En este artículo se muestra cómo configurar alertas de métricas clásicas de Azure con Azure Portal. 
 
 Puede recibir una alerta basada en las métricas de supervisión para los servicios de Azure o los eventos sobre ellos.
 
 * **Valores de métrica** : la alerta se desencadena cuando el valor de una métrica específica cruza un umbral asignado en cualquier dirección. Es decir, se desencadena tanto la primera vez que se cumple la condición como después, cuando dicha condición ya deja de cumplirse.    
 * **Eventos de registro de actividades**: una alerta puede desencadenarse con *cada* evento o solo cuando se producen ciertos eventos concretos. Más información sobre las [alertas del registro de actividad](monitoring-activity-log-alerts.md).
 
-Puede configurar una alerta de métrica para hacer lo siguiente cuando se desencadena:
+Puede configurar una alerta de métrica clásica para hacer lo siguiente cuando se desencadena:
 
 * Enviar notificaciones de correo electrónico al administrador y los coadministradores del servicio.
 * Enviar un correo electrónico a direcciones de correo electrónico adicionales que especifique.
 * Llamar a un webhook.
 * Iniciar la ejecución de un runbook de Azure (solo desde Azure Portal).
 
-Puede obtener información sobre las reglas de alerta de métricas y configurarlas mediante:
+Puede obtener información sobre las reglas de alerta de métricas clásicas y configurarlas mediante:
 
 * [Azure Portal](insights-alerts-portal.md)
 * [PowerShell](insights-alerts-powershell.md)
@@ -63,7 +63,7 @@ Puede obtener información sobre las reglas de alerta de métricas y configurarl
 
     ![Supervisión](./media/insights-alerts-portal/AlertRulesButton.png)
 
-3. Seleccione el comando **Agregar alerta de métrica** y rellene los campos.
+3. Seleccione el comando **Agregar alerta de métrica (clásica)** y rellene los campos.
 
     ![Agregar alerta](./media/insights-alerts-portal/AddAlertOnlyParamsPage.png)
 

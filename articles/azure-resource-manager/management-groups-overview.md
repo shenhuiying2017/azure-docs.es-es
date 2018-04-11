@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2018
 ms.author: rithorn
-ms.openlocfilehash: db472345bacda916f1b1664ed7803978ab235a2a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 911043c8fda985f25023dc1224d8e67b283f4d6c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organización de los recursos con grupos de administración de Azure 
 
@@ -42,11 +42,15 @@ Al crear una jerarquía agrupada por departamentos, es posible asignar roles de 
 - Cada grupo de administración puede tener varios elementos secundarios. 
 
 ### <a name="preview-subscription-visibility-limitation"></a>Limitación de visibilidad de la suscripción de la versión preliminar 
-Actualmente hay una limitación en la versión preliminar por la que no es posible ver las suscripciones para las que ha heredado el acceso. El acceso se hereda con la suscripción, pero Azure Resource Manager aún no puede asignar el acceso de herencia.  
+Actualmente, hay una limitación en la versión preliminar por la que no es posible ver las suscripciones para las que ha heredado el acceso. El acceso se hereda con la suscripción, pero Azure Resource Manager aún no puede asignar el acceso de herencia.  
 
-El uso de la API REST para obtener información acerca de la suscripción devuelve detalles siempre y cuando tenga acceso, pero en Azure Portal y Azure Powershell no se muestran las suscripciones. 
+El uso de la API REST para obtener información sobre la suscripción devuelve detalles siempre y cuando tenga acceso, pero en Azure Portal y Azure Powershell no se muestran las suscripciones. 
 
 Se está trabajando en este elemento y se resolverá antes de que los grupos de administración se anuncien como "Disponibilidad general".  
+
+### <a name="cloud-solution-providercsp-limitation-during-preview"></a>Limitación del Proveedor de soluciones en la nube (CSP) durante la versión preliminar 
+Existe una limitación actual para los asociados del Proveedor de soluciones en la nube (CSP), y es que no es posible crear ni administrar los grupos de administración de sus clientes dentro del directorio de estos.  
+Se está trabajando en este elemento y se resolverá antes de que los grupos de administración se anuncien como "Disponibilidad general".
 
 
 ## <a name="root-management-group-for-each-directory"></a>Un grupo de administración raíz para cada directorio

@@ -1,24 +1,24 @@
 ---
 title: Administrar el agente de Azure Log Analytics | Microsoft Docs
-description: "En este artículo se describen las diferentes tareas de administración que normalmente realizará durante el ciclo de vida de Microsoft Monitoring Agent (MMA) implementado en una máquina."
+description: En este artículo se describen las diferentes tareas de administración que normalmente realizará durante el ciclo de vida de Microsoft Monitoring Agent (MMA) implementado en una máquina.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2018
+ms.date: 03/30/2018
 ms.author: magoedte
-ms.openlocfilehash: 2e4daebf18d5edeba92bc14d5a4f699fbd2d94ce
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 5ff4f79a607143683b37726f1c02a6057dc6b9b0
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Administrar y mantener el agente de Log Analytics para Windows y Linux
 
@@ -69,6 +69,34 @@ $mma.ReloadConfiguration()
 >[!NOTE]
 >Si ha usado la línea de comandos o el script anteriormente para instalar o configurar el agente, `EnableAzureOperationalInsights` se ha reemplazado por `AddCloudWorkspace` y `RemoveCloudWorkspace`.
 >
+
+### <a name="linux-agent"></a>Agente Linux
+En los pasos siguientes se muestra cómo volver a configurar el agente de Linux si decide registrarlo en un área de trabajo diferente o si desea quitar una área de trabajo de la configuración.  
+
+1.  Para comprobar que está registrado en un área de trabajo, ejecute el siguiente comando.
+
+    `/opt/microsoft/omsagent/bin/omsadmin.sh -l` 
+
+    Debe devolver un estado similar al del siguiente ejemplo: 
+
+    `Primary Workspace: <workspaceId>   Status: Onboarded(OMSAgent Running)`
+
+    Es importante que el estado también muestre que el agente se está ejecutando, de lo contrario los siguientes pasos para volver a configurar el agente no se completarán correctamente.  
+
+2. Si ya está registrado en un área de trabajo, quite el área de trabajo registrada mediante al ejecución del siguiente comando.  En caso contrario, si no está registrado, continúe con el paso siguiente.
+
+    `/opt/microsoft/omsagent/bin/omsadmin.sh -X`  
+    
+3. Para registrarse con otra área de trabajo, ejecute el comando `/opt/microsoft/omsagent/bin/omsadmin.sh -w <workspace id> -s <shared key> [-d <top level domain>]`. 
+4. Para comprobar que los cambios surten efecto, ejecute el comando.
+
+    `/opt/microsoft/omsagent/bin/omsadmin.sh -l` 
+
+    Debe devolver un estado similar al del siguiente ejemplo: 
+
+    `Primary Workspace: <workspaceId>   Status: Onboarded(OMSAgent Running)`
+
+El servicio del agente no tiene que reiniciarse para que los cambios surtan efecto.
 
 ## <a name="update-proxy-settings"></a>Actualizar la configuración de proxy 
 Para configurar el agente para comunicarse con el servicio a través de un servidor proxy o [puerta de enlace de OMS](log-analytics-oms-gateway.md) después de la implementación, use uno de los métodos siguientes para completar esta tarea.
@@ -175,6 +203,6 @@ Realice los pasos siguientes para configurar al agente OMS para Linux para infor
 2. Asegúrese de que la línea que comienza con `httpsport=` define el puerto 1270. Por ejemplo: `httpsport=1270`
 3. Reinicie el servidor OMI: `sudo /opt/omi/bin/service_control restart`
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Consulte [Troubleshooting the Linux agent](log-analytics-agent-linux-support.md) (Solución de problemas del agente Linux) si encuentra problemas durante la instalación del agente o al administrarlo.  

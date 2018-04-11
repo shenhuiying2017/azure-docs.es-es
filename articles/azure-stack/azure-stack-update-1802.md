@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 71862463a62f11a4f2cea7dfcc60961331ded377
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b3a3c07446ad04a58d5180793404fc04677749b2
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-stack-1802-update"></a>Actualización 1802 de Azure Stack
 
@@ -126,9 +126,11 @@ Los siguientes son problemas conocidos posteriores a la instalación de la compi
 
 - <!-- 2253274 --> In the admin and user portals, the Settings blade for vNet Subnets fails to load. As a workaround, use PowerShell and the [Get-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig?view=azurermps-5.5.0) cmdlet to view and  manage this information.
 
-- En el portal de administración y el portal de usuarios, la hoja de introducción no puede cargarse al seleccionar la hoja de introducción para las cuentas de almacenamiento que se crearon con una versión anterior de la API (por ejemplo: 15-06-2015). Esto incluye las cuentas de almacenamiento del sistema como **updateadminaccount** que se usan durante la revisión y actualización. 
+- En el portal de administración y el portal de usuarios, la hoja de información general no puede cargarse al seleccionarla para las cuentas de almacenamiento que se crearon con una versión anterior de la API (ejemplo: 15-06-2015). Esto incluye las cuentas de almacenamiento del sistema como **updateadminaccount** que se usan durante la revisión y actualización. 
 
   Como alternativa, use PowerShell para ejecutar el script **Start-ResourceSynchronization.ps1** para restaurar el acceso a los detalles de la cuenta de almacenamiento. [El script está disponible desde GitHub]( https://github.com/Azure/AzureStack-Tools/tree/master/Support/scripts) y debe ejecutarse con las credenciales de administrador del servicio en el punto de conexión privilegiado. 
+
+- La hoja de **Service Health** no se carga. Cuando se abre la hoja de Service Health en el portal del administrador o de usuario, Azure Stack muestra un error y no carga información. Este es el comportamiento esperado. Si bien es posible seleccionar y abrir Service Health, esta característica no está disponible aún, aunque se implementará en una versión futura de Azure Stack.
 
 
 #### <a name="health-and-monitoring"></a>Estado y supervisión

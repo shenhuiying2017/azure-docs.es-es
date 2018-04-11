@@ -1,33 +1,33 @@
 ---
-title: "Creación de particiones y escalado horizontal en Azure Cosmos DB | Microsoft Docs"
-description: "Obtenga información sobre cómo funciona la creación de particiones en Azure Cosmos DB, cómo configurar la creación de particiones y las claves de partición y cómo seleccionar la clave de partición correcta para su aplicación."
+title: Creación de particiones y escalado horizontal en Azure Cosmos DB | Microsoft Docs
+description: Obtenga información sobre cómo funciona la creación de particiones en Azure Cosmos DB, cómo configurar la creación de particiones y las claves de partición y cómo seleccionar la clave de partición correcta para su aplicación.
 services: cosmos-db
 author: arramac
 manager: jhubbard
 editor: monicar
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: cac9a8cd-b5a3-4827-8505-d40bb61b2416
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 03/30/2018
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0032a00883cedfe754e14293dc13a1009f6dd3a0
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 149d2ba5108fb49741203fbe5c50add6c0d523ae
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Partición y escalado en Azure Cosmos DB
 
 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) es un servicio de bases de datos multimodelo, con distribución global, diseñado para ayudarle a lograr un rendimiento rápido y predecible. Se escala sin problemas junto con la aplicación a medida que esta crece. Este artículo proporciona información general sobre cómo funcionan las particiones para todos los modelos de datos de Azure Cosmos DB. También describe cómo puede configurar los contenedores de Azure Cosmos DB para escalar de forma eficaz las aplicaciones.
 
-Las particiones y las claves de partición también se analizan en este vídeo de Azure Friday con Scott Hanselman y Shireesh Thota, administrador de ingeniería principal de Azure Cosmos DB:
+Las particiones y las claves de partición se tratan en este vídeo con el jefe de programas de Azure Cosmos DB, Andrew Liu:
 
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Azure-DocumentDB-Elastic-Scale-Partitioning/player]
+> [!VIDEO https://www.youtube.com/embed/SS6WrQ-HJ30]
 > 
 
 ## <a name="partitioning-in-azure-cosmos-db"></a>Creación de particiones en Azure Cosmos DB
@@ -170,9 +170,9 @@ TableResult retrievedResult = table.Execute(retrieveOperation);
 ```
 Para más información, consulte [Desarrollo con Table API](tutorial-develop-table-dotnet.md).
 
-### <a name="graph-api"></a>API Graph
+### <a name="graph-api"></a>Graph API
 
-Con la API Graph, debe usar Azure Portal o la CLI de Azure para crear contenedores. De forma alternativa, como Azure Cosmos DB tiene varios modelos, puede usar uno de los otros modelos para crear y escalar el contenedor de grafos.
+Con Graph API, debe usar Azure Portal o la CLI de Azure para crear contenedores. De forma alternativa, como Azure Cosmos DB tiene varios modelos, puede usar uno de los otros modelos para crear y escalar el contenedor de grafos.
 
 Puede leer cualquier vértice o borde mediante el id. y la clave de partición en Gremlin. Por ejemplo, para un grafo con la región ("EE. UU.") como clave de partición y "Seattle" como clave de fila, puede encontrar un vértice mediante la siguiente sintaxis:
 
@@ -219,7 +219,7 @@ Si implementa una aplicación multiinquilino mediante Azure Cosmos DB, hay dos p
 
 También puede usar un enfoque de combinación o niveles que coloca los inquilinos pequeños y migra los inquilinos más grandes a su propio contenedor.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este artículo, hemos proporcionado información general sobre los conceptos y procedimientos recomendados para crear particiones con cualquier API de Azure Cosmos DB. 
 
 * Información sobre el [procesamiento aprovisionado en Azure Cosmos DB](request-units.md).

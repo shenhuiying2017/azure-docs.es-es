@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/26/2018
+ms.date: 03/29/2018
 ms.author: kumud
-ms.openlocfilehash: 9f5a68972015f54e2333199652075cda2535a3c8
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f5d46fda6bdb32c1a5000883c6aedb2da15e796a
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Load Balancer Estándar y zonas de disponibilidad
 
 La SKU Estándar de Azure Load Balancer admite escenarios de [zonas de disponibilidad](../availability-zones/az-overview.md). Hay varios conceptos nuevos disponibles con Load Balancer Estándar que permiten optimizar la disponibilidad en un escenario de un extremo a otro mediante la alineación de los recursos con las zonas y su distribución en distintas zonas.  Puede revisar el documento de [Zonas de disponibilidad](../availability-zones/az-overview.md) para obtener instrucciones sobre qué son las zonas de disponibilidad, qué regiones las admiten actualmente y otros productos y conceptos relacionados. Las zonas de disponibilidad, combinadas con Load Balancer Estándar, son un conjunto de características ampliable y flexible que posibilita la creación de diferentes escenarios.  Revise este documento para conocer estos [conceptos](#concepts) y la [guía de diseño](#design) de un escenario básico.
 
 >[!NOTE]
->Revise la [versión preliminar de las zonas de disponibilidad](https://aka.ms/availabilityzones) para conocer otros temas relacionados. 
+>Revise las [zonas de disponibilidad](https://aka.ms/availabilityzones) para conocer otros temas relacionados. 
 
 ## <a name="concepts"></a> Conceptos de las zonas de disponibilidad aplicados a Load Balancer
 
@@ -43,7 +43,7 @@ Un recurso de Load Balancer en sí mismo es regional y nunca zonal.  Y una red v
 
 Un front-end de Load Balancer es una configuración de IP de front-end que hace referencia a un recurso de dirección IP pública o a una dirección IP privada dentro de la subred de un recurso de red virtual.  Conforma el punto de conexión con equilibrio de carga en el que se expone su servicio.
 
-Un recurso de Load Balancer puede contener front-end zonales y con redundancia de zona al mismo tiempo.
+Un recurso de Load Balancer puede contener front-end zonales y con redundancia de zona al mismo tiempo. 
 
 Cuando se garantiza un recurso de dirección IP pública a una zona, la zonalidad (o la ausencia de la misma) no es mutable.  Si desea cambiar u omitir la zonalidad de un front-end con dirección IP pública, debe volver a crear la dirección IP pública en la zona que corresponda.  
 
@@ -219,3 +219,5 @@ No hay una guía general para saber cuál es la mejor elección sin conocer la a
 ## <a name="next-steps"></a>Pasos siguientes
 - Aprenda más sobre [zonas de disponibilidad](../availability-zones/az-overview.md).
 - Más información sobre [Load Balancer Estándar](load-balancer-standard-overview.md)
+- Obtenga información sobre cómo [equilibrar la carga de las máquinas virtuales dentro de una zona con Load Balancer estándar con un front-end de zona](load-balancer-standard-public-zonal-cli.md)
+- Obtenga información sobre cómo [equilibrar la carga de las máquinas virtuales en distintas zonas con Load Balancer estándar con un front-end con redundancia de zona](load-balancer-standard-public-zone-redundant-cli.md)

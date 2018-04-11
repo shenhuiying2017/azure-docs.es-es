@@ -1,12 +1,12 @@
 ---
-title: "Cómo funciona el almacenamiento en caché | Microsoft Docs"
-description: "El almacenamiento en caché es el proceso de almacenar datos localmente para que se pueda tener acceso a las futuras solicitudes de esos datos más rápidamente."
+title: Cómo funciona el almacenamiento en caché | Microsoft Docs
+description: El almacenamiento en caché es el proceso de almacenar datos localmente para que se pueda tener acceso a las futuras solicitudes de esos datos más rápidamente.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: dksimpson
-manager: 
-editor: 
-ms.assetid: 
+manager: ''
+editor: ''
+ms.assetid: ''
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/23/2017
 ms.author: v-deasim
-ms.openlocfilehash: 284b4bcbeafc422a2ed91cec00a5b5b83bb37b7b
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 26a0478f8713cb3584045f59c181c0a38331ea97
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="how-caching-works"></a>Cómo funciona el almacenamiento en caché
 
@@ -64,28 +64,27 @@ Se pueden utilizar dos encabezados para definir la actualización del almacenami
 ## <a name="cache-directive-headers"></a>Encabezados de la directiva de caché
 
 > [!IMPORTANT]
-> Un punto de conexión de red Azure CDN que está optimizado para DSA omite los encabezados de la directiva de caché y omite el almacenamiento en caché de forma predeterminada. Puede ajustar la forma en que el punto de conexión Azure CDN trata estos encabezados mediante las reglas de almacenamiento en caché de CDN. De este modo habilitará el almacenamiento en caché. Para más información, consulte [Control del comportamiento del almacenamiento en caché de Azure CDN con reglas de almacenamiento en caché](cdn-caching-rules.md).
+> Un punto de conexión de red Azure CDN que está optimizado para DSA omite los encabezados de la directiva de caché y omite el almacenamiento en caché de forma predeterminada. En el caso de los perfiles de la **red CDN de Azure de Verizon Standard** y la **red CDN de Azure de Akamai Standard**, puede ajustar el modo en que un punto de conexión de red CDN de Azure trata estos encabezados utilizando las [reglas de caché de la red CDN](cdn-caching-rules.md) para habilitar el almacenamiento en caché. Si son solo perfiles de la **red CDN de Azure de Verizon Premium**, use el [motor de reglas](cdn-rules-engine.md) para habilitar el almacenamiento en caché.
 
-Azure CDN admite los siguientes encabezados de directiva de caché HTTP, que definen la duración de la memoria caché y el uso compartido de la memoria caché: 
+La red CDN de Azure admite los siguientes encabezados de directiva de caché HTTP, que definen la duración de la memoria caché y el uso compartido de la memoria caché:
 
-`Cache-Control`
+**Cache-Control:**
 - Incorporado en HTTP 1.1 para conceder a los editores web más control sobre su contenido y para resolver las limitaciones del encabezado `Expires`.
 - Invalida el encabezado `Expires` si este y `Cache-Control` están definidos.
-- Cuando se utiliza en un encabezado de solicitud: Azure CDN omite `Cache-Control` de forma predeterminada.
-- Cuando se utiliza en un encabezado de respuesta, Azure CDN admite las siguientes directivas `Cache-Control`, según el producto: 
-   - **Azure CDN de Verizon**: admite todas las directivas `Cache-Control`. 
-   - **Azure CDN de Akamai**: admite solo las siguientes directivas `Cache-Control`; todos los demás elementos se omiten: 
-      - `max-age`: una memoria caché puede almacenar el contenido durante el número de segundos especificado. Por ejemplo, `Cache-Control: max-age=5`. Esta directiva especifica la cantidad máxima de tiempo que el contenido se considera actualizado.
-      - `no-cache`: almacena en caché el contenido, pero este se debe validar cada vez antes de entregarlo desde la memoria caché. Equivalente a `Cache-Control: max-age=0`.
-      - `no-store`: nunca se almacena en caché el contenido. Se elimina el contenido si se ha almacenado anteriormente.
+- Cuando se utiliza en una solicitud HTTP, Azure CDN omite `Cache-Control` de forma predeterminada.
+- Los perfiles de la **red CDN de Azure de Verizon** admiten todas las directivas de `Cache-Control`, cuando se utilizan en una respuesta HTTP.
+- Los perfiles de la **red CDN de Azure de Akamai** admiten las siguientes directivas; cuando se utiliza en una respuesta HTTP; se omiten todas los demás:
+   - `max-age`: una memoria caché puede almacenar el contenido durante el número de segundos especificado. Por ejemplo, `Cache-Control: max-age=5`. Esta directiva especifica la cantidad máxima de tiempo que el contenido se considera actualizado.
+   - `no-cache`: almacena en caché el contenido, pero este se debe validar cada vez antes de entregarlo desde la memoria caché. Equivalente a `Cache-Control: max-age=0`.
+   - `no-store`: nunca se almacena en caché el contenido. Se elimina el contenido si se ha almacenado anteriormente.
 
-`Expires`
+**Expira:**
 - Encabezado heredado incorporado en HTTP 1.0; admitido por compatibilidad con versiones anteriores.
 - Usa un tiempo de expiración basado en fechas con precisión de segundos. 
 - Similar a `Cache-Control: max-age`.
 - Se usa cuando no existe `Cache-Control`.
 
-`Pragma`
+**Pragma:**
    - Azure CDN no lo cumple de forma predeterminada.
    - Encabezado heredado incorporado en HTTP 1.0; admitido por compatibilidad con versiones anteriores.
    - Utilizado como un encabezado de solicitud de cliente con la siguiente directiva: `no-cache`. Esta directiva indica al servidor que debe entregar una versión actualizada del recurso.
@@ -93,17 +92,17 @@ Azure CDN admite los siguientes encabezados de directiva de caché HTTP, que def
 
 ## <a name="validators"></a>Validadores
 
-Cuando la memoria caché está obsoleta, los validadores de almacenamiento en caché HTTP se utilizan para comparar la versión en caché de un archivo con la versión en el servidor de origen. **La red CDN de Azure de Verizon** admite validadores ETag y Last-Modified de forma predeterminada, mientras que **la red CDN de Azure de Akamai** solo admite Last-Modified de forma predeterminada.
+Cuando la memoria caché está obsoleta, los validadores de almacenamiento en caché HTTP se utilizan para comparar la versión en caché de un archivo con la versión en el servidor de origen. **La red CDN de Azure de Verizon** admite validadores `ETag` y `Last-Modified` de forma predeterminada, mientras que la **red CDN de Azure de Akamai** solo admite `Last-Modified` de forma predeterminada.
 
-`ETag`
+**ETag:**
 - **La red CDN de Azure de Verizon** utiliza `ETag` de forma predeterminada, pero **la red CDN de Azure de Akamai** no lo hace.
 - `ETag` define una cadena que es única para cada archivo y versión de un archivo. Por ejemplo, `ETag: "17f0ddd99ed5bbe4edffdd6496d7131f"`.
 - Incorporado en HTTP 1.1, es más reciente que `Last-Modified`. Resulta útil cuando es difícil determinar la fecha de última modificación.
 - Admite tanto la validación segura como la validación débil; sin embargo, la red CDN de Azure admite solo validación segura. Para la validación segura, las representaciones de dos recursos deben ser idénticas byte a byte. 
 - Una memoria caché valida un archivo que usa `ETag` mediante el envío de un encabezado `If-None-Match` con uno o varios validadores `ETag` en la solicitud. Por ejemplo, `If-None-Match: "17f0ddd99ed5bbe4edffdd6496d7131f"`. Si la versión del servidor coincide con un validador `ETag` de la lista, envía el código de estado 304 (no modificado) en la respuesta. Si la versión es diferente, el servidor responde con el código de estado 200 (OK) y el recurso actualizado.
 
-`Last-Modified`
-- Para **la red CDN de Azure de Verizon únicamente**, Last-Modified se utiliza si ETag no forma parte de la respuesta HTTP. 
+**Last-Modified:**
+- Para **la red CDN de Azure de Verizon únicamente**, `Last-Modified` se utiliza si `ETag` no forma parte de la respuesta HTTP. 
 - Especifica la fecha y hora en la que el servidor de origen determina que se modificó por última vez el recurso. Por ejemplo, `Last-Modified: Thu, 19 Oct 2017 09:28:00 GMT`.
 - Una memoria caché valida un archivo mediante `Last-Modified` enviando un encabezado `If-Modified-Since` con una fecha y hora en la solicitud. El servidor de origen compara esa fecha con el encabezado `Last-Modified` del recurso más reciente. Si el recurso no se ha modificado desde la hora especificada, el servidor devuelve el código de estado 304 (no modificado) en la respuesta. Si se ha modificado el recurso, el servidor devuelve el código de estado 200 (OK) y el recurso actualizado.
 
@@ -130,7 +129,7 @@ En la tabla siguiente se describe el valor predeterminado del comportamiento del
 
 **Duración de la caché de la red CDN**: especifica la cantidad de tiempo que se almacena en caché un recurso en la red CDN de Azure. Sin embargo, si **Respetar origen** es "Sí" y la respuesta HTTP del servidor de origen incluye el encabezado de la directiva de caché `Expires` o `Cache-Control: max-age`, la red CDN de Azure usa el valor de duración especificado por el encabezado en su lugar. 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Para obtener información sobre cómo personalizar e invalidar el comportamiento del almacenamiento en caché predeterminado en la red CDN mediante reglas de almacenamiento en caché, consulte [Control del comportamiento del almacenamiento en caché de Azure CDN con reglas de almacenamiento en caché](cdn-caching-rules.md). 
 - Para obtener información sobre cómo usar cadenas de consulta para controlar el comportamiento del almacenamiento en caché, consulte [Control del comportamiento del almacenamiento en caché de Azure CDN con cadenas de consulta](cdn-query-string.md).

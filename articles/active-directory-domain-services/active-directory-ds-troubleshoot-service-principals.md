@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: d1a605ae5c0ea598ba507de0b21a841333df79ef
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 7cd16d64d18b4cdcb710f68c55a8251904acda86
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="troubleshoot-invalid-service-principal-configuration-for-your-managed-domain"></a>Solución de problemas de configuración de entidad de servicio no válida para el dominio administrado
 
@@ -93,7 +93,7 @@ Siga estos pasos si una entidad de servicio con el identificador ```d87dcbc6-a37
 
 ## <a name="alert-aadds105-password-synchronization-application-is-out-of-date"></a>Alerta AADDS105: La aplicación de sincronización de contraseña no está actualizada
 
-**Mensaje de alerta:** Se eliminó la entidad de servicio con el identificador de aplicación "d87dcbc6-a371-462e-88e3-28ad15ec4e64" y, a continuación, se volvió a crear. Esta entidad de servicio administra otra entidad de servicio y una aplicación que se usan para la sincronización de contraseña. La entidad de servicio administrada o la aplicación no tenían autorización en la entidad de servicio recién creada, por lo que nuestro servicio no puede administrarlas. Esto significa que la entidad de servicio recién creada no podrá actualizar las aplicaciones administradas antiguas y la sincronización de contraseñas resultará afectada.
+**Mensaje de alerta:** Se eliminó la entidad de servicio con el identificador de aplicación "d87dcbc6-a371-462e-88e3-28ad15ec4e64" y, a continuación, se volvió a crear. La regeneración excluye los permisos incoherentes en los recursos de Azure AD Domain Services necesarios para atender su dominio administrado. La sincronización de contraseñas en el dominio administrado podría verse afectada.
 
 
 **Solución:** necesita Azure AD PowerShell para completar estos pasos. Para información sobre la instalación de Azure AD PowerShell, consulte [este artículo](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.).

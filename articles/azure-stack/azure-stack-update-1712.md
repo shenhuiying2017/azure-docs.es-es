@@ -1,11 +1,11 @@
 ---
-title: "Actualización de Azure Stack 1712 | Microsoft Docs"
-description: "Obtenga información sobre el contenido de la actualización 1712 para los sistemas integrados de Azure Stack, los problemas conocidos y la ubicación dónde debe descargarse la actualización."
+title: Actualización de Azure Stack 1712 | Microsoft Docs
+description: Obtenga información sobre el contenido de la actualización 1712 para los sistemas integrados de Azure Stack, los problemas conocidos y la ubicación dónde debe descargarse la actualización.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: b14f79ad-025f-45d8-9e1d-e53d2b420bb1
 ms.service: azure-stack
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: brenduns
-ms.openlocfilehash: 0456a202990d383370051d99112f829533b1b101
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: c3cb8ab8a838a3f831ece617fcf3e218a9510ea5
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-stack-1712-update"></a>Actualización de Azure Stack 1712
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 01/12/2018
 En este artículo se describen las mejoras y correcciones de este paquete de actualización, los problemas conocidos de esta versión y la ubicación donde debe descargarse la actualización. Los problemas conocidos se dividen en aquellos que están directamente relacionados con el proceso de actualización y aquellos que están asociados a la compilación (posteriores a la instalación).
 
 > [!IMPORTANT]
-> Esta actualización solo se aplica a los sistemas integrados de Azure Stack. No la aplique a Azure Stack Development Kit.
+> Esta actualización solo se aplica a los sistemas integrados de Azure Stack. No la aplique al Kit de desarrollo de Azure Stack.
 
 ## <a name="build-reference"></a>Referencia de compilación
 
@@ -109,6 +109,7 @@ Esta sección contiene problemas conocidos posteriores a la instalación relacio
 
 - La eliminación de las suscripciones del usuario da como resultado recursos huérfanos. Como alternativa, elimine primero los recursos del usuario o todo el grupo de recursos y, a continuación, elimine las suscripciones del usuario.
 - No es posible ver los permisos para la suscripción con los portales de Azure Stack. Como solución alternativa, se pueden comprobar los permisos con PowerShell.
+- La hoja de **Service Health** no se carga. Cuando se abre la hoja de Service Health en el portal del administrador o de usuario, Azure Stack muestra un error y no carga información. Este es el comportamiento esperado. Si bien es posible seleccionar y abrir Service Health, esta característica no está disponible aún, aunque se implementará en una versión futura de Azure Stack.
 
 #### <a name="health-and-monitoring"></a>Estado y supervisión
 

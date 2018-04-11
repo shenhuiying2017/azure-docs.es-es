@@ -1,26 +1,26 @@
 ---
-title: "Creación de un conjunto de escalado de máquinas virtuales Windows en Azure | Microsoft Docs"
-description: "Creación e implementación de una aplicación de alta disponibilidad en VM Windows con un conjunto de escalado de máquinas virtuales"
+title: Creación de un conjunto de escalado de máquinas virtuales Windows en Azure | Microsoft Docs
+description: Creación e implementación de una aplicación de alta disponibilidad en VM Windows con un conjunto de escalado de máquinas virtuales
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 03/29/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: d190d046f7572c51df0c5c9e14e14a41d93e3248
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 81d8cc85827b29beaaec03fd258b550948798641
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-windows"></a>Creación de un conjunto de escalado de máquinas virtuales e implementación de una aplicación de alta disponibilidad en Windows
 El conjunto de escalado de máquinas virtuales le permite implementar y administrar un conjunto de máquinas virtuales de escalado automático idénticas. Puede escalar el número de máquinas virtuales del conjunto de escalado manualmente o definir reglas de escalado automático basado en el uso de recursos tales como la CPU, la demanda de memoria o el tráfico de red. En este tutorial, implementará un conjunto de escalado de máquinas virtuales en Azure. Aprenderá a:
@@ -32,7 +32,9 @@ El conjunto de escalado de máquinas virtuales le permite implementar y administ
 > * Aumentar o disminuir el número de instancias en un conjunto de escalado
 > * Crear reglas de escalado automático
 
-Para realizar este tutorial es necesaria la versión 5.1.1 del módulo de Azure PowerShell, o cualquier versión posterior. Ejecute ` Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps).
+[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+
+Si decide instalar y usar PowerShell de forma local, en este tutorial se requiere la versión 5.6 del módulo de Azure PowerShell, o cualquier versión posterior. Ejecute `Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Login-AzureRmAccount` para crear una conexión con Azure.
 
 
 ## <a name="scale-set-overview"></a>Introducción al conjunto de escalado
@@ -43,144 +45,67 @@ Las máquinas virtuales se crean según sea necesario en un conjunto de escalado
 Los conjuntos de escalado admiten hasta 1000 máquinas virtuales cuando se usa una imagen de la plataforma de Azure. Para las cargas de trabajo con requisitos de personalización de VM o instalación significativos, puede que desee [crear una imagen de VM personalizada](tutorial-custom-images.md). Puede crear hasta 300 máquinas virtuales en un conjunto de escalado al usar una imagen personalizada.
 
 
-## <a name="create-an-app-to-scale"></a>Creación de una aplicación para escalar
-Antes de poder crear un conjunto de escalado, cree un grupo de recursos con [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroupAutomate* en la ubicación *EastUS*:
+## <a name="create-a-scale-set"></a>Creación de un conjunto de escalado
+Cree un conjunto de escalado de máquinas virtuales con [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss). En el ejemplo siguiente, se crea un conjunto de escalado denominado *myScaleSet* que usa la imagen de plataforma *Windows Server 2016 Datacenter*. Los recursos de red de Azure para una red virtual, una dirección IP pública y un equilibrador de carga se crean automáticamente. Cuando se le solicite, proporcione sus propias credenciales administrativas para las instancias de máquina virtual en el conjunto de escalado:
 
-```powershell
-New-AzureRmResourceGroup -ResourceGroupName myResourceGroupScaleSet -Location EastUS
+```azurepowershell-interactive
+New-AzureRmVmss `
+  -ResourceGroupName "myResourceGroupScaleSet" `
+  -Location "EastUS" `
+  -VMScaleSetName "myScaleSet" `
+  -VirtualNetworkName "myVnet" `
+  -SubnetName "mySubnet" `
+  -PublicIpAddressName "myPublicIPAddress" `
+  -LoadBalancerName "myLoadBalancer" `
+  -UpgradePolicy "Automatic"
 ```
 
-En un tutorial anterior, ha aprendido cómo [automatizar la configuración de VM](tutorial-automate-vm-deployment.md) mediante la extensión de script personalizado. Cree una configuración de conjunto de escalado y aplique una extensión del script personalizado para instalar y configurar IIS:
+Se tardan unos minutos en crear y configurar todos los recursos de conjunto de escalado y máquinas virtuales.
 
-```powershell
-# Create a config object
-$vmssConfig = New-AzureRmVmssConfig `
-    -Location EastUS `
-    -SkuCapacity 2 `
-    -SkuName Standard_DS2 `
-    -UpgradePolicyMode Automatic
 
+## <a name="deploy-sample-application"></a>Implementación de una aplicación de ejemplo
+Para probar el conjunto de escalado, instale una aplicación web básica. La extensión de script personalizado de Azure se usa para descargar y ejecutar un script que instala IIS en las instancias de máquina virtual. Esta extensión es útil para la configuración posterior a la implementación, la instalación de software o cualquier otra tarea de configuración o administración. Para obtener más información, consulte [Información general de la extensión de script personalizado](extensions-customscript.md).
+
+Use la extensión de script personalizado para instalar un servidor web de IIS básico. Aplique la extensión de script personalizada que instala IIS según se indica a continuación:
+
+```azurepowershell-interactive
 # Define the script for your Custom Script Extension to run
 $publicSettings = @{
     "fileUris" = (,"https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/automate-iis.ps1");
     "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File automate-iis.ps1"
 }
 
+# Get information about the scale set
+$vmss = Get-AzureRmVmss `
+            -ResourceGroupName "myResourceGroupScaleSet" `
+            -VMScaleSetName "myScaleSet"
+
 # Use Custom Script Extension to install IIS and configure basic website
-Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmssConfig `
+Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss `
     -Name "customScript" `
     -Publisher "Microsoft.Compute" `
     -Type "CustomScriptExtension" `
     -TypeHandlerVersion 1.8 `
     -Setting $publicSettings
+
+# Update the scale set and apply the Custom Script Extension to the VM instances
+Update-AzureRmVmss `
+    -ResourceGroupName "myResourceGroupScaleSet" `
+    -Name "myScaleSet" `
+    -VirtualMachineScaleSet $vmss
 ```
 
-## <a name="create-scale-load-balancer"></a>Creación de un equilibrador de carga de escalado
-Un equilibrador de carga de Azure es un equilibrador de carga de nivel 4 (TCP, UDP) que proporciona una alta disponibilidad mediante la distribución del tráfico entrante entre máquinas virtuales con un estado correcto. Un sondeo de estado de equilibrador de carga supervisa un puerto determinado en cada máquina virtual y solo distribuye tráfico a una máquina virtual operativa. Para más información, vea el tutorial siguiente sobre [cómo aplicar el equilibrio de carga a máquinas virtuales Windows ](tutorial-load-balancer.md).
 
-Cree un equilibrador de carga que tenga una dirección IP pública y distribuye el tráfico web en el puerto 80:
+## <a name="test-your-scale-set"></a>Prueba del conjunto de escalado
+Para ver el conjunto de escalado en acción, obtenga la dirección IP pública del equilibrador de carga con [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). En el ejemplo siguiente se obtiene la dirección IP de *myPublicIP* que se ha creado como parte del conjunto de escalado:
 
-```powershell
-# Create a public IP address
-$publicIP = New-AzureRmPublicIpAddress `
-  -ResourceGroupName myResourceGroupScaleSet `
-  -Location EastUS `
-  -AllocationMethod Static `
-  -Name myPublicIP
-
-# Create a frontend and backend IP pool
-$frontendIP = New-AzureRmLoadBalancerFrontendIpConfig `
-  -Name myFrontEndPool `
-  -PublicIpAddress $publicIP
-$backendPool = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name myBackEndPool
-
-# Create the load balancer
-$lb = New-AzureRmLoadBalancer `
-  -ResourceGroupName myResourceGroupScaleSet `
-  -Name myLoadBalancer `
-  -Location EastUS `
-  -FrontendIpConfiguration $frontendIP `
-  -BackendAddressPool $backendPool
-
-# Create a load balancer health probe on port 80
-Add-AzureRmLoadBalancerProbeConfig -Name myHealthProbe `
-  -LoadBalancer $lb `
-  -Protocol tcp `
-  -Port 80 `
-  -IntervalInSeconds 15 `
-  -ProbeCount 2
-
-# Create a load balancer rule to distribute traffic on port 80
-Add-AzureRmLoadBalancerRuleConfig `
-  -Name myLoadBalancerRule `
-  -LoadBalancer $lb `
-  -FrontendIpConfiguration $lb.FrontendIpConfigurations[0] `
-  -BackendAddressPool $lb.BackendAddressPools[0] `
-  -Protocol Tcp `
-  -FrontendPort 80 `
-  -BackendPort 80
-
-# Update the load balancer configuration
-Set-AzureRmLoadBalancer -LoadBalancer $lb
+```azurepowershell-interactive
+Get-AzureRmPublicIPAddress `
+    -ResourceGroupName "myResourceGroupScaleSet" `
+    -Name "myPublicIPAddress" | select IpAddress
 ```
 
-## <a name="create-a-scale-set"></a>Creación de un conjunto de escalado
-Ahora, cree un conjunto de escalado de máquinas virtuales con [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvm). En el ejemplo siguiente se crea un conjunto de escalado denominado *myScaleSet*:
-
-```powershell
-# Reference a virtual machine image from the gallery
-Set-AzureRmVmssStorageProfile $vmssConfig `
-  -ImageReferencePublisher MicrosoftWindowsServer `
-  -ImageReferenceOffer WindowsServer `
-  -ImageReferenceSku 2016-Datacenter `
-  -ImageReferenceVersion latest
-
-# Set up information for authenticating with the virtual machine
-Set-AzureRmVmssOsProfile $vmssConfig `
-  -AdminUsername azureuser `
-  -AdminPassword P@ssword! `
-  -ComputerNamePrefix myVM
-
-# Create the virtual network resources
-$subnet = New-AzureRmVirtualNetworkSubnetConfig `
-  -Name "mySubnet" `
-  -AddressPrefix 10.0.0.0/24
-$vnet = New-AzureRmVirtualNetwork `
-  -ResourceGroupName "myResourceGroupScaleSet" `
-  -Name "myVnet" `
-  -Location "EastUS" `
-  -AddressPrefix 10.0.0.0/16 `
-  -Subnet $subnet
-$ipConfig = New-AzureRmVmssIpConfig `
-  -Name "myIPConfig" `
-  -LoadBalancerBackendAddressPoolsId $lb.BackendAddressPools[0].Id `
-  -SubnetId $vnet.Subnets[0].Id
-
-# Attach the virtual network to the config object
-Add-AzureRmVmssNetworkInterfaceConfiguration `
-  -VirtualMachineScaleSet $vmssConfig `
-  -Name "network-config" `
-  -Primary $true `
-  -IPConfiguration $ipConfig
-
-# Create the scale set with the config object (this step might take a few minutes)
-New-AzureRmVmss `
-  -ResourceGroupName myResourceGroupScaleSet `
-  -Name myScaleSet `
-  -VirtualMachineScaleSet $vmssConfig
-```
-
-Se tardan unos minutos en crear y configurar todos los recursos de conjunto de escalado y máquinas virtuales.
-
-
-## <a name="test-your-app"></a>Prueba de la aplicación
-Para ver el sitio web de IIS en acción, obtenga la dirección IP pública del equilibrador de carga con [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). En el ejemplo siguiente se obtiene la dirección IP de *myPublicIP* que se ha creado como parte del conjunto de escalado:
-
-```powershell
-Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupScaleSet -Name myPublicIP | select IpAddress
-```
-
-Escriba la dirección IP pública en un explorador web. Se muestra la aplicación, incluido el nombre de host de la máquina virtual a la que el equilibrador de carga distribuye el tráfico:
+Escriba la dirección IP pública en un explorador web. Se muestra la aplicación web, incluido el nombre de host de la máquina virtual a la que el equilibrador de carga distribuye el tráfico:
 
 ![Ejecución del sitio de IIS](./media/tutorial-create-vmss/running-iis-site.png)
 
@@ -191,44 +116,49 @@ Para ver el conjunto de escalado en funcionamiento, realice una actualización f
 Durante el ciclo de vida del conjunto de escalado, debe ejecutar una o varias tareas de administración. Además, puede crear scripts para automatizar varias tareas de ciclo de vida. Azure PowerShell proporciona una forma rápida de realizar esas tareas. A continuación, presentamos algunas tareas comunes.
 
 ### <a name="view-vms-in-a-scale-set"></a>Visualización de máquinas virtuales en un conjunto de escalado
-Para ver una lista de las máquinas virtuales en ejecución en el conjunto de escalado, use [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm) como se indica a continuación:
+Para ver una lista de las instancias de máquina virtual en un conjunto de escalado, use [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm) de la forma siguiente:
+
+```azurepowershell-interactive
+Get-AzureRmVmssVM -ResourceGroupName "myResourceGroupScaleSet" -VMScaleSetName "myScaleSet"
+```
+
+La salida del ejemplo siguiente muestra dos instancias de máquina virtual del conjunto de escalado:
 
 ```powershell
-# Get current scale set
-$scaleset = Get-AzureRmVmss `
-  -ResourceGroupName myResourceGroupScaleSet `
-  -VMScaleSetName myScaleSet
+ResourceGroupName                 Name Location             Sku InstanceID ProvisioningState
+-----------------                 ---- --------             --- ---------- -----------------
+MYRESOURCEGROUPSCALESET   myScaleSet_0   eastus Standard_DS1_v2          0         Succeeded
+MYRESOURCEGROUPSCALESET   myScaleSet_1   eastus Standard_DS1_v2          1         Succeeded
+```
 
-# Loop through the instanaces in your scale set
-for ($i=1; $i -le ($scaleset.Sku.Capacity - 1); $i++) {
-    Get-AzureRmVmssVM -ResourceGroupName myResourceGroupScaleSet `
-      -VMScaleSetName myScaleSet `
-      -InstanceId $i
-}
+Para ver información adicional acerca de una instancia específica de la máquina virtual, agregue el parámetro `-InstanceId` a [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm). En el ejemplo siguiente, se ve información sobre la instancia de máquina virtual *1*:
+
+```azurepowershell-interactive
+Get-AzureRmVmssVM -ResourceGroupName "myResourceGroupScaleSet" -VMScaleSetName "myScaleSet" -InstanceId "1"
 ```
 
 
 ### <a name="increase-or-decrease-vm-instances"></a>Aumento o disminución de instancias de máquina virtual
 Para ver el número de instancias que tiene actualmente en un conjunto de escalado, use [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss) y realice consultas a *sku.capacity*:
 
-```powershell
-Get-AzureRmVmss -ResourceGroupName myResourceGroupScaleSet `
-    -VMScaleSetName myScaleSet | `
+```azurepowershell-interactive
+Get-AzureRmVmss -ResourceGroupName "myResourceGroupScaleSet" `
+    -VMScaleSetName "myScaleSet" | `
     Select -ExpandProperty Sku
 ```
 
 A continuación, puede aumentar o reducir manualmente el número de máquinas virtuales del conjunto de escalado con [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss). En el ejemplo siguiente se establece el número de máquinas virtuales en el conjunto de escalado en *3*:
 
-```powershell
+```azurepowershell-interactive
 # Get current scale set
 $scaleset = Get-AzureRmVmss `
-  -ResourceGroupName myResourceGroupScaleSet `
-  -VMScaleSetName myScaleSet
+  -ResourceGroupName "myResourceGroupScaleSet" `
+  -VMScaleSetName "myScaleSet"
 
 # Set and update the capacity of your scale set
 $scaleset.sku.capacity = 3
-Update-AzureRmVmss -ResourceGroupName myResourceGroupScaleSet `
-    -Name myScaleSet `
+Update-AzureRmVmss -ResourceGroupName "myResourceGroupScaleSet" `
+    -Name "myScaleSet" `
     -VirtualMachineScaleSet $scaleset
 ```
 
@@ -238,9 +168,9 @@ Se tarda unos minutos en actualizar el número especificado de instancias en el 
 ### <a name="configure-autoscale-rules"></a>Configuración de reglas de escalado automático
 En lugar de escalar manualmente el número de instancias en el conjunto de escalado, defina reglas de escalado automático. Estas reglas supervisan las instancias en el conjunto de escalado y responden según corresponda, basándose en las métricas y los umbrales que defina. En el ejemplo siguiente se escala horizontalmente el número de instancias en uno cuando la carga de CPU media es mayor que el 60 % durante un período de cinco minutos. Si la carga de CPU media se sitúa por debajo del 30 % durante un período de cinco minutos, las instancias se reducen horizontalmente en una instancia:
 
-```powershell
+```azurepowershell-interactive
 # Define your scale set information
-$mySubscriptionId = (Get-AzureRmSubscription).Id
+$mySubscriptionId = (Get-AzureRmSubscription)[0].Id
 $myResourceGroup = "myResourceGroupScaleSet"
 $myScaleSet = "myScaleSet"
 $myLocation = "East US"
@@ -291,7 +221,7 @@ Add-AzureRmAutoscaleSetting `
 Para más información de diseño sobre el uso del escalado automático, consulte los [procedimientos recomendados de escalado automático](/azure/architecture/best-practices/auto-scaling).
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este tutorial, ha creado un conjunto de escalado de máquinas virtuales. Ha aprendido a:
 
 > [!div class="checklist"]

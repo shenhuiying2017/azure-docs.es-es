@@ -1,67 +1,57 @@
 ---
-title: "Comparación de Azure IoT Hub con Azure Event Hubs | Microsoft Docs"
-description: "Comparación de los servicios de IoT Hub y los servicios de Event Hubs de Azure en la que se resaltan diferencias funcionales y casos de uso. La comparación incluye protocolos admitidos, administración de dispositivos, supervisión y cargas de archivos."
+title: Comparación de Azure IoT Hub con Azure Event Hubs | Microsoft Docs
+description: Comparación de los servicios de IoT Hub y los servicios de Event Hubs de Azure en la que se resaltan diferencias funcionales y casos de uso. La comparación incluye protocolos admitidos, administración de dispositivos, supervisión y cargas de archivos.
 services: iot-hub
-documentationcenter: 
-author: fsautomata
+documentationcenter: ''
+author: kgremban
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: aeddea62-8302-48e2-9aad-c5a0e5f5abe9
 ms.service: iot-hub
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2017
-ms.author: elioda
-ms.openlocfilehash: b515e05d16dda83c7d865113d5d3578c44be084f
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.date: 04/01/2018
+ms.author: kgremban
+ms.openlocfilehash: 303a2bde0a1e0b25ca6eb145e7b0cd6c91fff351
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="comparison-of-azure-iot-hub-and-azure-event-hubs"></a>Comparación entre IoT Hub de Azure y Azure Event Hubs
-Uno de los principales usos de IoT Hub es recopilar telemetría de dispositivos. Por este motivo, IoT Hub a menudo se compara con [Azure Event Hubs][Azure Event Hubs]. Al igual que IoT Hub, Event Hubs es un servicio de procesamiento de eventos que ofrece entrada de telemetría y eventos en la nube a escala masiva, con una latencia baja y una confiabilidad alta.
 
-Sin embargo, los servicios tienen muchas diferencias que se detallan en la tabla siguiente:
+Tanto Azure IoT Hub como Azure Event Hubs son servicios en la nube que pueden ingerir grandes cantidades de datos y procesar o almacenar esos datos para obtener perspectivas empresariales. Los dos servicios se parecen en que ambos admiten el procesamiento de datos de telemetría y eventos con baja latencia y alta fiabilidad. Sin embargo, solo IoT Hub se desarrolló con las funcionalidades específicas que se necesitan para admitir escenarios a escala de Internet de las cosas. 
 
-| Ámbito | IoT Hub | Event Hubs |
-| --- | --- | --- |
-| Patrones de comunicación | Permite las [comunicaciones de dispositivo a nube] [lnk-d2c-guidance] (mensajería, cargas de archivos y propiedades notificadas) y [comunicaciones de nube a dispositivo] [lnk-c2d-guidance] (métodos directos, propiedades deseadas, mensajería). |Solo se habilita la entrada de eventos (normalmente se consideran escenarios dispositivo a nube). |
-| Información de estado de dispositivo | Los [dispositivos gemelos][lnk-twins] pueden almacenar y consultar la información de estado del dispositivo. | Sin embargo, esta información no se puede almacenar. |
-| Compatibilidad con protocolos de dispositivo |Se admite MQTT, MQTT sobre WebSockets, AMQP, AMQP sobre WebSockets y HTTP. Además, IoT Hub funciona con la [puerta de enlace de protocolos de IoT de Azure][lnk-azure-protocol-gateway], una implementación de puerta de enlace de protocolos personalizable para admitir protocolos personalizados. |Admite AMQP, AMQP sobre WebSockets y HTTP. |
-| Seguridad |Ofrece identidad por dispositivo y control de acceso revocable. Vea la [sección de seguridad de la Guía del desarrollador de IoT Hub]. |Ofrece [directivas de acceso compartido][Event Hubs - security] en todo Event Hubs, con compatibilidad limitada para revocación mediante [directivas del publicador][Event Hubs publisher policies]. A menudo se requiere de las soluciones de IoT que implementen una solución personalizada para admitir las credenciales por dispositivo y las medidas contra la suplantación de identidad. |
-| Supervisión de operaciones |Permite a las soluciones de IoT suscribirse a un amplio conjunto de eventos de conectividad y administración de identidad del dispositivo, como errores de autenticación de dispositivos individuales, establecimientos de limitaciones y excepciones de formato incorrecto. Estos eventos permiten identificar rápidamente problemas de conectividad en los dispositivos individuales. |Muestra solo las métricas agregadas. |
-| Escala |Está optimizado para admitir millones de dispositivos conectados al mismo tiempo. |Mide las conexiones según las [cuotas de Azure Event Hubs][Azure Event Hubs quotas]. Por otro lado, Event Hubs permite especificar la partición para cada mensaje enviado. |
-| SDK de dispositivo |Proporciona [SDK de dispositivo][Azure IoT SDKs] para una gran variedad de plataformas y lenguajes, además de API directas de MQTT, AMQP y HTTP. |Se admite en .NET, Java y C, además de en las interfaces de envío AMQP y HTTP. |
-| Carga de archivos |Permite que las soluciones IoT carguen en la nube archivos de los dispositivos. Incluye un punto de conexión de notificación de archivos para la integración del flujo de trabajo y una categoría de supervisión de operaciones para la compatibilidad con la depuración. | No compatible. |
-| Enrutamiento de mensajes a varios puntos de conexión | Se admite un máximo de 10 puntos de conexión personalizados. Las reglas determinan cómo se enrutan los mensajes a puntos de conexión personalizados. Para más información, consulte [Envío y recepción de mensajes con IoT Hub][lnk-devguide-messaging]. | Requiere escribir y hospedar código adicional para el envío de mensajes. |
+Azure IoT Hub es la puerta de enlace en la nube que conecta dispositivos y recopila datos para la información empresarial y la automatización. Facilita la transmisión de datos a la nube y la administración de los dispositivos a escala. Una diferencia importante entre IoT Hub y otros servicios de ingesta de datos es que IoT Hub incluye características que enriquecen la relación entre los dispositivos y los sistemas de back-end. Las capacidades de comunicación bidireccional implican que al tiempo que se reciben datos de los dispositivos, también es posible devolver mensajes a los dispositivos para actualizar las propiedades o invocar una acción. La identidad a nivel de dispositivo ayuda a proteger el sistema. La computación distribuida transfiere la lógica del servicio en la nube a los dispositivos perimetrales.
 
-En resumen, aunque el único uso sea la entrada de telemetría de dispositivo a nube, IoT Hub ofrece un servicio que está diseñado para la conectividad de dispositivos IoT. Continuará expandiendo las propuestas de valor para estos escenarios con características específicas de IoT. Event Hubs está diseñado para la entrada de eventos a gran escala, tanto en escenarios de conexión entre centros de datos como dentro del propio centro de datos.
+[Azure Event Hubs][Azure Event Hubs] es un servicio de ingesta de eventos que puede procesar y almacenar grandes cantidades de datos y telemetría. Event Hubs está diseñado para la ingesta de eventos a escala masiva, tanto en el contexto de escenarios entre centros de datos como en el seno de estos, pero no ofrece las eficaces capacidades específicas de IoT que están disponibles con IoT Hub. Por esta razón, no se recomienda Event Hubs para las soluciones de IoT. 
 
-No es raro usar IoT Hub y Event Hubs en la misma solución. IoT Hub controla la comunicación del dispositivo a la nube, y Event Hubs controla la entrada de eventos de última fase en motores de procesamiento en tiempo real.
+En la tabla siguiente se proporcionan detalles de la comparación entre dos niveles de IoT Hub y Event Hubs al valorarlas en función de su capacidad de IoT. Para obtener más información acerca de los niveles básico y estándar de IoT Hub, consulte [Escalado de la solución de IoT Hub][lnk-scaling].
+
+| Funcionalidad de IoT | Nivel estándar de IoT Hub | Nivel básico de IoT Hub | Event Hubs |
+| --- | --- | --- | --- |
+| Mensajería de un dispositivo a la nube | ![Comprobar][1] | ![Comprobar][1] | ![Comprobar][1] |
+| Protocolos: HTTPS, AMQP, AMQP sobre WebSockets | ![Comprobar][1] | ![Comprobar][1] | ![Comprobar][1] |
+| Protocolos: MQTT, MQTT sobre WebSockets | ![Comprobar][1] | ![Comprobar][1] |  |
+| Identidad por dispositivo | ![Comprobar][1] | ![Comprobar][1] |  |
+| Carga de archivos desde dispositivos | ![Comprobar][1] | ![Comprobar][1] |  |
+| Servicio Device Provisioning | ![Comprobar][1] | ![Comprobar][1] |  |
+| Mensajería de la nube a un dispositivo | ![Comprobar][1] |  |  |
+| Administración de dispositivos y dispositivos gemelos | ![Comprobar][1] |  |  |
+| IoT Edge | ![Comprobar][1] |  |  |
+
+Aunque el único uso sea la ingesta de datos de dispositivo a nube, es muy recomendable utilizar IoT Hub porque ofrece un servicio que está diseñado para la conectividad de dispositivos IoT. 
 
 ### <a name="next-steps"></a>Pasos siguientes
-Para más información sobre el planeamiento de la implementación de IoT Hub, consulte [Escalado, alta disponibilidad y recuperación ante desastres][lnk-scaling].
 
-Para explorar aún más las funcionalidades de IoT Hub, consulte:
+Para explorar aún más las funcionalidades de IoT Hub, consulte la [Guía del desarrollador de Azure IoT Hub][lnk-devguide].
 
-* [Guía para desarrolladores de IoT Hub][lnk-devguide]
-* [Implementación de Azure IoT Edge en un dispositivo simulado en Linux: versión preliminar][lnk-iotedge]
-
-[lnk-twins]: iot-hub-devguide-device-twins.md
-[lnk-c2d-guidance]: iot-hub-devguide-c2d-guidance.md
-[lnk-d2c-guidance]: iot-hub-devguide-d2c-guidance.md
 
 [Azure Event Hubs]: ../event-hubs/event-hubs-what-is-event-hubs.md
-[sección de seguridad de la Guía del desarrollador de IoT Hub]: iot-hub-devguide-security.md
-[Event Hubs - security]: ../event-hubs/event-hubs-authentication-and-security-model-overview.md
-[Event Hubs publisher policies]: ../event-hubs/event-hubs-features.md#event-publishers
-[Azure Event Hubs quotas]: ../event-hubs/event-hubs-quotas.md
-[Azure IoT SDKs]: https://github.com/Azure/azure-iot-sdks
-[lnk-azure-protocol-gateway]: iot-hub-protocol-gateway.md
-
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-devguide]: iot-hub-devguide.md
-[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
-[lnk-devguide-messaging]: iot-hub-devguide-messaging.md
+
+<!--Image references-->
+[1]: ./media/iot-hub-compare-event-hubs/ic195031.png

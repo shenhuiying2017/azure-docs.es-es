@@ -9,11 +9,11 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: carlrab
-ms.openlocfilehash: 98784b2d1ede5354c965e483b34b5fcb323394aa
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f7dc584c8fa9f4452b2bd9288df86492399c036c
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Arquitectura de conectividad de Azure SQL Database 
 
@@ -91,7 +91,7 @@ En la tabla siguiente se enumeran las direcciones IP principales y secundarias d
 
 ## <a name="change-azure-sql-database-connection-policy"></a>Cambio de la directiva de conexión de Azure SQL Database
 
-Para cambiar la directiva de conexión de Azure SQL Database de un servidor de Azure SQL Database, use la [API de REST](https://msdn.microsoft.com/library/azure/mt604439.aspx).
+Para cambiar la directiva de conexión de Azure SQL Database de un servidor de Azure SQL Database, use el comando [conn-policy](https://docs.microsoft.com/cli/azure/sql/server/conn-policy).
 
 - Si la directiva de conexión se establece en **Proxy**, todos los paquetes de red fluyen a través de la puerta de enlace de Azure SQL Database. Para esta configuración, debe permitir el tráfico saliente solo a la dirección IP de la puerta de enlace de Azure SQL Database. El uso de la configuración de **proxy** ofrece más latencia que la de **redireccionamiento**.
 - Si la configuración de la directiva de conexión está basada en el **redireccionamiento**, todos los paquetes de red fluyen directamente al proxy del middleware. Para esta configuración, debe permitir el tráfico saliente a varias direcciones IP.
@@ -181,6 +181,6 @@ az resource update --ids $id --set properties.connectionType=Proxy
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para obtener información sobre cómo cambiar la directiva de conexión de Azure SQL Database de un servidor de Azure SQL Database, vea [Creación o actualización de la directiva de conexión de un servidor mediante la API de REST](https://msdn.microsoft.com/library/azure/mt604439.aspx).
+- Para información sobre cómo cambiar la directiva de conexión de Azure SQL Database para un servidor de Azure SQL Database, consulte [conn-policy](https://docs.microsoft.com/cli/azure/sql/server/conn-policy).
 - Para obtener información sobre el comportamiento de conexión de Azure SQL Database para clientes que usan ADO.NET 4.5 o una versión posterior, vea [Puertos más allá de 1433 para ADO.NET 4.5](sql-database-develop-direct-route-ports-adonet-v12.md).
 - Para obtener información general sobre el desarrollo de aplicaciones, vea [Introducción al desarrollo de aplicaciones en SQL Database](sql-database-develop-overview.md).

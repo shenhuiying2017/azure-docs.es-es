@@ -1,12 +1,12 @@
 ---
 title: Monitor Azure Functions
-description: "Obtenga información acerca de cómo usar Azure Application Insights con Azure Functions para supervisar la ejecución de funciones."
+description: Obtenga información acerca de cómo usar Azure Application Insights con Azure Functions para supervisar la ejecución de funciones.
 services: functions
 author: tdykstra
 manager: cfowler
-editor: 
-tags: 
-keywords: "Azure funciones, funciones, procesamiento de eventos, webhooks, proceso dinámico, arquitectura sin servidor"
+editor: ''
+tags: ''
+keywords: Azure funciones, funciones, procesamiento de eventos, webhooks, proceso dinámico, arquitectura sin servidor
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.service: functions
 ms.devlang: multiple
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
-ms.openlocfilehash: d2a61f5f51e3c4a1de6baa79493cb2c7380c76b6
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 5b141924266630bfd3b63ec5129f9f225da3170b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="monitor-azure-functions"></a>Monitor Azure Functions
 
@@ -493,7 +493,7 @@ Se recomienda Application Insights para supervisar funciones porque ofrece más 
 
 ### <a name="logging-to-storage"></a>Registro en el almacenamiento
 
-El registro integrado usa la cuenta de almacenamiento especificada por la cadena de conexión en la configuración de la aplicación `AzureWebJobsDashboard`. Si la configuración de la aplicación está establecida, puede ver los datos del registro en Azure Portal. En la página de una aplicación de función, seleccione una función y elija la pestaña **Supervisión**. Obtendrá una lista de las ejecuciones de la función. Seleccione una ejecución de la función para revisar la duración, los datos de entrada, los errores y los archivos de registro asociados.
+El registro integrado usa la cuenta de almacenamiento especificada por la cadena de conexión en la configuración de la aplicación `AzureWebJobsDashboard`. Si la configuración de la aplicación está establecida, puede ver los datos del registro en Azure Portal. En el recurso de almacenamiento, vaya a Archivos, seleccione el servicio de archivos para la función y, a continuación, vaya a `LogFiles > Application > Functions > Function > your_function` para ver el archivo de registro. En la página de una aplicación de función, seleccione una función y elija la pestaña **Supervisión**. Obtendrá una lista de las ejecuciones de la función. Seleccione una ejecución de la función para revisar la duración, los datos de entrada, los errores y los archivos de registro asociados.
 
 Si usa Application Insights y tiene el [registro integrado deshabilitado](#disable-built-in-logging), la pestaña **Supervisión** le lleva a Application Insights.
 

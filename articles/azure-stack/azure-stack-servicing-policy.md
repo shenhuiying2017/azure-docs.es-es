@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 04/02/2018
 ms.author: mabrigg
-ms.openlocfilehash: f495ca12e7cdb1bf61f09bd2d4a8a21654745d8a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2c10dcf185c62f3672be80ad2e3d049eae82fe6b
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-stack-servicing-policy"></a>Directiva de mantenimiento de Azure Stack
 En este artículo se describe la directiva de mantenimiento para sistemas integrados de Azure Stack y lo que debe hacer para mantener el sistema en un estado admitido. 
@@ -41,10 +41,11 @@ Una actualización de Microsoft tiene la siguiente convención de nomenclatura p
 Por ejemplo, una actualización de software de Microsoft lanzada el 15 de junio de 2017 tendrá la versión "1.0.170615.1".
 
 ## <a name="keep-your-system-under-support"></a>Mantenimiento del sistema dentro del soporte técnico
+Para continuar recibiendo soporte técnico, debe mantener actualizada la implementación de Azure Stack. La directiva para el aplazamiento de actualizaciones dice que para que Azure Stack permanezca dentro del soporte técnico, debe ejecutar la versión de actualización más reciente o ejecutar cualquiera de las dos versiones de actualización importante anteriores.  Las revisiones no se consideran versiones de actualización importantes.  Si a la nube de Azure Stack se queda atrás en *más de dos actualizaciones*, se considera fuera de cumplimiento y se debe actualizar con, al menos, la versión mínima admitida para recibir soporte técnico. 
 
-Para recibir soporte técnico para su sistema, debe mantener actualizado Azure Stack dentro de un intervalo de tiempo específico. Nuestra directiva de aplazamiento de las actualizaciones de software de Microsoft es de tres meses. Si el sistema lleva sin actualizarse más de tres meses, si considerará que no es compatible. Para recibir soporte técnico, deberá actualizar a al menos la versión mínima admitida. 
+Por ejemplo, si la versión de actualización disponible más reciente es la 1805 y las dos actualizaciones anteriores eran las versiones 1804 y 1803, ambas permanecen dentro del soporte técnico. Sin embargo, la 1802 queda fuera del soporte técnico. La directiva es válida cuando no hay ninguna versión durante uno o dos meses. Por ejemplo, si la versión actual es la 1805 y no había ninguna versión 1804, las dos actualizaciones anteriores de 1803 y 1802 permanecerían dentro del soporte técnico.
 
-Las actualizaciones de Microsoft no son acumulativas y necesitan la actualización anterior como requisito previo. Si decide aplazar una o varias actualizaciones, tenga en cuenta el tiempo de ejecución total si quiere llegar hasta la versión más reciente.
+Las actualizaciones de software de Microsoft no son acumulativas y necesitan la actualización anterior como requisito previo. Si decide aplazar una o varias actualizaciones, tenga en cuenta el tiempo de ejecución total si quiere llegar hasta la versión más reciente. 
 
 En la tabla siguiente se muestran las versiones de actualización, su requisito previo y la versión mínima admitida que debe tener el sistema para mantener la compatibilidad. La tabla se basa en la versión inicial de los sistemas integrados de Azure Stack (compilación 1708), con la primera versión de actualización (1709) de septiembre de 2017. 
 
@@ -53,11 +54,12 @@ En la tabla siguiente se muestran las versiones de actualización, su requisito 
 | 1710 | 1709 | N/D |
 | 1711 | 1710 | 1709 |
 | 1712 | 1711 | 1710 |
-| 1802 | 1801 | 1712 |
-| 1803 | 1802 | 1801 |
+| 1802 | 1712 | 1711 |
+| 1803 | 1802 | 1712 |
 | 1804 | 1803 | 1802 |
 | 1805 | 1804 | 1803 |
 | | | 
+En la tabla anterior, no hay ninguna versión 1801.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

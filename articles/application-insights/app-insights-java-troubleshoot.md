@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 04/02/2018
 ms.author: mbullwin
-ms.openlocfilehash: 894b2234074dcfb262de9033a7728cad3bef2248
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 6b3205603b91077ca2c3226dcb78589de37d15cf
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Solución de problemas y preguntas y respuestas sobre Application Insights para Java
 Preguntas o problemas relacionados con [Azure Application Insights en Java][java]. a continuación se incluyen algunas sugerencias.
@@ -48,7 +48,7 @@ Preguntas o problemas relacionados con [Azure Application Insights en Java][java
 * ¿Busca en el recurso correcto de AI? El valor de iKey de la aplicación debe coincidir con el recurso en el que espera la telemetría. Deben ser iguales.
 
 #### <a name="i-dont-see-all-the-data-im-expecting"></a>No veo todos los datos que esperaba
-* Abra la hoja Quotas and Pricing (Cuotas y precios) y compruebe si el [muestreo](app-insights-sampling.md) está en funcionamiento. (La transmisión al 100 % significa que el muestreo no está en funcionamiento). El servicio Application Insights se puede configurar para que acepte únicamente una fracción de la telemetría procedente de la aplicación. Esto le ayuda a mantenerse en su cuota mensual de telemetría. 
+* Abra la página Uso y costos estimados y compruebe si el [muestreo](app-insights-sampling.md) está en funcionamiento. (La transmisión al 100 % significa que el muestreo no está en funcionamiento). El servicio Application Insights se puede configurar para que acepte únicamente una fracción de la telemetría procedente de la aplicación. Esto le ayuda a mantenerse en su cuota mensual de telemetría. 
 * ¿Tiene activado el muestreo del SDK? En caso afirmativo, los datos se muestrearían a la velocidad especificada para todos los tipos aplicables.
 * ¿Ejecuta una versión anterior del SDK de Java? A partir de la versión 2.0.1, hemos introducido un mecanismo de tolerancia a errores para controlar los errores intermitentes de la red y el back-end, así como la persistencia de los datos en las unidades locales.
 * ¿Tiene limitaciones debido al exceso de telemetría? Si activa el registro INFO, verá el mensaje de registro "App is throttled" (La aplicación está limitada). El límite actual es de 32 000 elementos de telemetría/segundo.

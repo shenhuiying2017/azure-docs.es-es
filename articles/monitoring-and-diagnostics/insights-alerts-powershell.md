@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2016
+ms.date: 03/28/2018
 ms.author: robb
-ms.openlocfilehash: 03026ee8bedd5277b2bb6cf28dabafabf207b0ae
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 8f7df424b27e6899821a9bdd2f1d8397a0de35a7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-classic-metric-alerts-in-azure-monitor-for-azure-services---powershell"></a>Creación de alertas de métricas clásicas en Azure Monitor para servicios de Azure: PowerShell
 > [!div class="op_single_selector"]
@@ -31,18 +31,18 @@ ms.lasthandoff: 03/23/2018
 ## <a name="overview"></a>Información general
 
 > [!NOTE]
-> En este artículo se describe cómo crear alertas de métricas antiguas. Azure Monitor admite ahora [nuevas y mejores alertas de métricas](monitoring-near-real-time-metric-alerts.md). Estas alertas pueden supervisar varias métricas y permiten alertas relacionadas con métricas de dimensiones. Próximamente estará disponible la compatibilidad de PowerShell con alertas de métricas más recientes.
+> En este artículo se describe cómo crear alertas de métrica clásicas más antiguas. Azure Monitor admite ahora [nuevas y mejores alertas de métricas](monitoring-near-real-time-metric-alerts.md). Estas alertas pueden supervisar varias métricas y permiten alertas relacionadas con métricas de dimensiones. Próximamente estará disponible la compatibilidad de PowerShell con alertas de métricas más recientes.
 >
 >
 
-En este artículo se muestra cómo configurar alertas de métricas de Azure con PowerShell.  
+En este artículo se muestra cómo configurar alertas de métricas clásicas de Azure con PowerShell.  
 
 Puede recibir una alerta basada en las métricas de supervisión para los servicios de Azure o los eventos sobre ellos.
 
 * **Valores de métrica** : la alerta se desencadena cuando el valor de una métrica específica cruza un umbral asignado en cualquier dirección. Es decir, se desencadena tanto la primera vez que se cumple la condición como después, cuando dicha condición ya deja de cumplirse.    
 * **Eventos de registro de actividades**: una alerta puede desencadenarse con *cada* evento o solo cuando se producen un determinado evento. Para obtener más información sobre las alertas de registro de actividad, [haga clic aquí](monitoring-activity-log-alerts.md).
 
-Puede configurar una alerta de métrica para hacer lo siguiente cuando se desencadena:
+Puede configurar una alerta de métrica clásica para hacer lo siguiente cuando se desencadena:
 
 * Enviar notificaciones de correo electrónico al administrador y los coadministradores del servicio.
 * Enviar un correo electrónico a direcciones de correo electrónico adicionales que especifique.
@@ -135,8 +135,8 @@ Para información adicional, siempre puede escribir ```Get-Help``` y, luego, el 
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Obtenga información general sobre la supervisión de Azure](monitoring-overview.md) , incluidos los tipos de información que puede recopilar y supervisar.
-* Obtenga más información sobre cómo [configurar webhooks en las alertas](insights-webhooks-alerts.md).
-* Obtenga más información sobre la [configuración de alertas sobre los eventos de registro de actividad](monitoring-activity-log-alerts.md).
+* Aprenda a [configurar webhooks en las alertas](insights-webhooks-alerts.md).
+* Aprenda a [configurar alertas para un evento del registro de actividad](monitoring-activity-log-alerts.md).
 * Obtenga más información sobre los [runbooks de Azure Automation](../automation/automation-starting-a-runbook.md).
 * Obtenga [información general sobre la colección de registros de diagnóstico](monitoring-overview-of-diagnostic-logs.md) para recopilar métricas detalladas de alta frecuencia sobre el servicio.
 * Obtenga [información general sobre la colección de métricas](insights-how-to-customize-monitoring.md) para garantizar que el servicio está disponible y que responder adecuadamente.

@@ -1,12 +1,12 @@
 ---
-title: "Control del comportamiento del almacenamiento en caché de Azure Content Delivery Network con reglas de almacenamiento en caché| Microsoft Docs"
-description: "Puede usar reglas de almacenamiento en caché de la red CDN para establecer o modificar el comportamiento de expiración de caché predeterminado globalmente y con condiciones, como una y ruta de acceso de dirección URL y extensiones de archivo."
+title: Control del comportamiento del almacenamiento en caché de la red CDN de Azure con reglas de caché | Microsoft Docs
+description: Puede usar reglas de almacenamiento en caché de la red CDN para establecer o modificar el comportamiento de expiración de caché predeterminado globalmente y con condiciones, como una y ruta de acceso de dirección URL y extensiones de archivo.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: dksimpson
-manager: 
-editor: 
-ms.assetid: 
+manager: ''
+editor: ''
+ms.assetid: ''
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/23/2017
 ms.author: v-deasim
-ms.openlocfilehash: 2a94ba5cb9f026f66bc1f3b379f00b291a2299c9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 735978a0986b2b16b4f96faca78c06d798915002
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/30/2018
 ---
-# <a name="control-azure-content-delivery-network-caching-behavior-with-caching-rules"></a>Control del comportamiento del almacenamiento en caché de Azure Content Delivery Network con reglas de almacenamiento en caché
+# <a name="control-azure-cdn-caching-behavior-with-caching-rules"></a>Control del comportamiento del almacenamiento en caché de Azure CDN con reglas de caché
 
 > [!NOTE] 
 > Las reglas de almacenamiento en caché solo están disponibles para **Azure CDN de Verizon Standard** y **Azure CDN de Akamai Standard**. Para **Azure CDN de Verizon Premium**, puede usar el [motor de reglas de Azure CDN](cdn-rules-engine.md) en el portal **Administrar** para una funcionalidad similar.
  
-Azure Content Delivery Network ofrece dos formas de controlar cómo los archivos se almacenan en caché: 
+Azure Content Delivery Network (CDN) ofrece dos formas de controlar cómo los archivos se almacenan en caché: 
 
 - Reglas de almacenamiento en caché: en este artículo se describe cómo puede usar reglas de almacenamiento en caché de la red de entrega de contenido (CDN) para establecer o modificar el comportamiento de expiración de caché predeterminado, tanto globalmente como con condiciones personalizadas, como una ruta de dirección URL y extensión de archivo. Azure CDN proporciona dos tipos de reglas de almacenamiento en caché:
    - Reglas de almacenamiento en caché globales: puede establecer una regla de almacenamiento en caché global para cada punto de conexión en su perfil, lo que afecta a todas las solicitudes al punto de conexión. La regla de almacenamiento en caché global invalida todos los encabezados de directiva de caché HTTP, si está establecida.
@@ -40,11 +40,11 @@ Para información sobre el comportamiento de almacenamiento en caché predetermi
 Cómo establecer reglas de almacenamiento en caché de la red CDN:
 
 1. Abra Azure Portal, seleccione un perfil de red CDN y luego seleccione un punto de conexión.
-2. En el panel izquierdo, en Configuración, haga clic en **Reglas de caché**.
+2. En el panel izquierdo, debajo de Configuración, haga clic en **Reglas de caché**.
 
    ![Botón Reglas de caché de CDN](./media/cdn-caching-rules/cdn-caching-rules-btn.png)
 
-1. Cree una regla de almacenamiento en caché global de la manera siguiente:
+3. Cree una regla de almacenamiento en caché global de la manera siguiente:
    1. En **Reglas de almacenamiento en caché globales**, establezca **Comportamiento del almacenamiento en caché de cadenas de consulta** en **Ignorar cadenas de consulta**.
    2. Establezca **Comportamiento de almacenamiento en caché** en **Establecer si falta**.
        
@@ -62,6 +62,7 @@ Cómo establecer reglas de almacenamiento en caché de la red CDN:
 
     ![Reglas de almacenamiento en caché personalizadas](./media/cdn-caching-rules/cdn-custom-caching-rules.png)
 
+    
 > [!NOTE] 
 > Los archivos que se almacenan en caché antes de un cambio de regla mantienen su valor de duración de caché de origen. Para restablecer sus duraciones de caché, debe [purgar el archivo](cdn-purge-endpoint.md). Para puntos de conexión de **Azure CDN de Verizon**, las reglas de almacenamiento en caché pueden tardar hasta 90 minutos en surtir efecto.
 

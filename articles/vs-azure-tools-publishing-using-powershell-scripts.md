@@ -1,11 +1,11 @@
 ---
-title: "Usar scripts de Windows PowerShell para la publicación en entornos de desarrollo y pruebas | Microsoft Docs"
+title: Usar scripts de Windows PowerShell para la publicación en entornos de desarrollo y pruebas | Microsoft Docs
 description: Aprenda a utilizar scripts de Windows PowerShell desde Visual Studio para publicar entornos de prueba y desarrollo.
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
-manager: ghogen
-editor: 
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: 5fff1301-5469-4d97-be88-c85c30f837c1
 ms.service: multiple
 ms.devlang: dotnet
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
-ms.author: kraigb
-ms.openlocfilehash: 4e9409aac836a60e7ea01261840c084ff09e954e
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.author: ghogen
+ms.openlocfilehash: 58d1c8398e626544a7b02198ec0431203aedcc81
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="using-windows-powershell-scripts-to-publish-to-dev-and-test-environments"></a>Utilizar scripts de Windows PowerShell para la publicación en entornos de desarrollo y pruebas
 
@@ -26,7 +26,7 @@ Al crear una aplicación web en Visual Studio, puede generar un script de Window
 
 Mediante estos scripts, puede aprovisionar versiones personalizadas (también conocidos como entornos de desarrollo y pruebas) de su sitio para uso temporal. Por ejemplo, podría configurar una versión concreta de su sitio web en una máquina virtual de Azure o en la ranura de ensayo de un sitio web para ejecutar un conjunto de pruebas, reproducir un error, probar una corrección de errores, realizar una versión de prueba de un cambio propuesto o configurar un entorno personalizado para una demo o presentación. Una vez creado un script que publique el proyecto, puede volver a crear entornos idénticos si vuelve a ejecutar el script según sea necesario, o ejecutar el script con su propia versión de la aplicación web para crear un entorno personalizado para pruebas.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 * SDK de Azure 2.3 o posterior. Vea las [descargas de Visual Studio](http://go.microsoft.com/fwlink/?LinkID=624384). (No necesita Azure SDK para generar los scripts para proyectos web. Esta característica es para proyectos web, no para los roles web de Cloud Services).
 * Azure PowerShell 0.7.4 o posterior. Consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/overview).
@@ -251,7 +251,7 @@ Para automatizar la creación de su proyecto, agregue código que llame a MSBuil
         #Write a function to build and package your web application
     ```
 
-    Para compilar la aplicación web, utilice MsBuild.exe. Para obtener ayuda, consulte la referencia de la línea de comandos de MSBuild en: [http://go.microsoft.com/fwlink/?LinkId=391339](http://go.microsoft.com/fwlink/?LinkId=391339)
+    Para compilar la aplicación web, utilice MsBuild.exe. Para obtener ayuda, consulte la referencia de línea de comandos de MSBuild en: [http://go.microsoft.com/fwlink/?LinkId=391339](http://go.microsoft.com/fwlink/?LinkId=391339)
 
     ```powershell
     Write-VerboseWithTime 'Build-WebDeployPackage: Start'
@@ -311,7 +311,7 @@ Para obtener ayuda para las funciones que puede usar en el símbolo del sistema 
 
 **AzureWebAppPublishModule**
 
-| Nombre de función | Description |
+| Nombre de función | DESCRIPCIÓN |
 | --- | --- |
 | Add-AzureSQLDatabase |Crea una nueva base de datos SQL de Azure. |
 | Add-AzureSQLDatabases |Crea las bases de datos SQL de Azure a partir de los valores en el archivo de configuración de JSON que Visual Studio genera. |
@@ -340,7 +340,7 @@ Para obtener ayuda para las funciones que puede usar en el símbolo del sistema 
 
 **Publish-WebApplication**
 
-| Nombre de función | Description |
+| Nombre de función | DESCRIPCIÓN |
 | --- | --- |
 | New-AzureWebApplicationEnvironment |Crea recursos de Azure, como un sitio web o una máquina virtual. |
 | New-WebDeployPackage |Esta función no está implementada. Puede agregar comandos en esta función para generar su proyecto. |

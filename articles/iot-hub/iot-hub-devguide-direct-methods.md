@@ -1,11 +1,11 @@
 ---
-title: "Información de los métodos directos de IoT Hub de Azure | Microsoft Docs"
-description: "Guía del desarrollador: uso de métodos directos para invocar código en los dispositivos de una aplicación de servicio."
+title: Información de los métodos directos de IoT Hub de Azure | Microsoft Docs
+description: 'Guía del desarrollador: uso de métodos directos para invocar código en los dispositivos de una aplicación de servicio.'
 services: iot-hub
 documentationcenter: .net
 author: nberdy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 9f0535f1-02e6-467a-9fc4-c0950702102d
 ms.service: iot-hub
 ms.devlang: multiple
@@ -15,14 +15,17 @@ ms.workload: na
 ms.date: 01/29/2018
 ms.author: nberdy
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 003b3f6ef8a6fbc1c6fcdfc58f7d35bf6c42c9ee
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 47bf7437eda09a536aa2d960cf5ec474e23356a6
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Conocimiento e invocación de los métodos directos de IoT Hub
 IoT Hub ofrece la posibilidad de invocar métodos directos en dispositivos desde la nube. Los métodos directos representan una interacción solicitud-respuesta con un dispositivo similar a una llamada HTTP en la cual se completan correctamente o generan un error de inmediato (tras un tiempo de espera que especifica el usuario). Este enfoque es útil en escenarios donde el curso de una acción inmediata es distinto en función de si el dispositivo pudo responder. Por ejemplo, enviando una reactivación por SMS a un dispositivo si este está sin conexión (enviar un SMS cuesta más que una llamada de método).
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
+
 Cada método de dispositivo se dirige a un único dispositivo. Los [trabajos][lnk-devguide-jobs] proporcionan una manera de invocar métodos directos en varios dispositivos y de programar la invocación de métodos para los dispositivos desconectados.
 
 Cualquier persona con permisos de **conexión de servicio** en IoT Hub pueden invocar un método en un dispositivo.
@@ -133,7 +136,7 @@ Otros temas de referencia en la guía del desarrollador de IoT Hub son los sigui
 * En [Referencia: Lenguaje de consulta de IoT Hub para dispositivos gemelos, trabajos y enrutamiento de mensajes][lnk-query], se describe el lenguaje de consulta de IoT Hub que se puede usar para recuperar información de IoT Hub sobre los dispositivos gemelos y trabajos.
 * En [Compatibilidad con MQTT de IoT Hub][lnk-devguide-mqtt], se proporciona más información sobre la compatibilidad de IoT Hub con el protocolo MQTT.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Ahora que ha aprendido a usar métodos directos, puede interesarle el siguiente artículo sobre la Guía del desarrollador de IoT Hub:
 
 * [Programación de trabajos en varios dispositivos][lnk-devguide-jobs]

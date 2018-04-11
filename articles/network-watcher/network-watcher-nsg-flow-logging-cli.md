@@ -1,11 +1,11 @@
 ---
-title: "Administración de registros de flujo de grupos de seguridad en Azure Network Watcher con la CLI de Azure | Microsoft Docs"
-description: "Esta página explica cómo administrar registros de flujo de grupos de seguridad de red en Azure Network Watcher con la CLI de Azure"
+title: Administración de registros de flujo de grupos de seguridad en Azure Network Watcher con la CLI de Azure | Microsoft Docs
+description: Esta página explica cómo administrar registros de flujo de grupos de seguridad de red en Azure Network Watcher con la CLI de Azure
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 2dfc3112-8294-4357-b2f8-f81840da67d3
 ms.service: network-watcher
 ms.devlang: na
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 51683e937b7985bb61671645f3e2e1be6d786201
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: b8c2ff527328fe5f486362db416a99a1c711c9c2
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="configuring-network-security-group-flow-logs-with-azure-cli"></a>Configuración de registros de flujo de grupos de seguridad de red con la CLI de Azure
 
 > [!div class="op_single_selector"]
-> - [Portal de Azure](network-watcher-nsg-flow-logging-portal.md)
+> - [Azure Portal](network-watcher-nsg-flow-logging-portal.md)
 > - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
 > - [CLI 1.0](network-watcher-nsg-flow-logging-cli-nodejs.md)
 > - [CLI 2.0](network-watcher-nsg-flow-logging-cli.md)
-> - [API DE REST](network-watcher-nsg-flow-logging-rest.md)
+> - [API de REST](network-watcher-nsg-flow-logging-rest.md)
 
 Los registros de flujo de grupos de seguridad de red son una característica de Network Watcher que permite ver información acerca del tráfico IP de entrada y de salida en un grupo de seguridad de red. Estos registros de flujo se escriben en formato JSON y muestran los flujos de entrada y salida en función de cada regla, la NIC a la que se aplica el flujo, información de 5-tupla sobre el flujo (IP de origen/destino, puerto de origen/destino, protocolo), y si se permitió o denegó el tráfico.
 
@@ -51,6 +51,8 @@ El ejemplo siguiente muestra el comando para habilitar los registros de flujo:
 az network watcher flow-log configure --resource-group resourceGroupName --enabled true --nsg nsgName --storage-account storageAccountName
 ```
 
+La cuenta de almacenamiento que especifique no puede tener configuradas reglas de red que restrinjan el acceso a la red solo a servicios de Microsoft o a redes virtuales específicas.
+
 ## <a name="disable-network-security-group-flow-logs"></a>Deshabilitación de los registros de flujo de grupos de seguridad de red
 
 Use el ejemplo siguiente para deshabilitar los registros de flujo:
@@ -73,6 +75,6 @@ Para más información sobre la estructura del registro, vea la [introducción a
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga información sobre cómo [visualizar los registros de flujo de NSG con Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
+Aprenda a [visualizar los registros de flujo de NSG con Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 
 Aprenda a [visualizar los registros de flujo de NSG con herramientas de código abierto](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)

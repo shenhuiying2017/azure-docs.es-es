@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2018
 ms.author: kumud
-ms.openlocfilehash: 3a5d1e897d8ffe063ecf9277bef346c8b7c5092b
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f4410932f00f8505ae5a894caa002e1223196d95
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-load-balancer-overview"></a>Información general sobre el Equilibrador de carga de Azure
 
@@ -142,7 +142,7 @@ En la siguiente ilustración, se muestra un punto de conexión de carga equilibr
 
 ![ejemplo de equilibrador de carga público](./media/load-balancer-overview/IC727496.png)
 
-**Figura 1: Equilibrio de carga de tráfico web mediante un equilibrador de carga público**
+*Figura: Equilibrio de carga del tráfico web mediante una instancia pública de Load Balancer*
 
 Cuando los clientes de Internet envían solicitudes de página web a la dirección IP pública de una aplicación web en el puerto TCP 80, Azure Load Balancer distribuye las solicitudes entre las tres máquinas virtuales del conjunto con equilibrio de carga. Para más información sobre algoritmos del equilibrador de carga, consulte la [página de información general del equilibrador de carga](load-balancer-overview.md#load-balancer-features).
 
@@ -161,7 +161,7 @@ El equilibrador de carga interno permite los siguientes tipos de equilibrio de c
 
 ![Ejemplo de equilibrador de carga interno](./media/load-balancer-overview/IC744147.png)
 
-**Figura 2: Equilibrio de carga de aplicaciones multinivel mediante equilibradores de carga públicos e internos**
+*Figura: Equilibrio de carga de aplicaciones de niveles múltiples mediante instancias públicas e internas de Load Balancer*
 
 ## <a name="pricing"></a>Precios
 Load Balancer Estándar es un producto que se carga según el número de reglas de equilibrio de carga configuradas y de todos los datos de entrada y salida procesados. Para más información sobre los precios de Load Balancer Estándar, visite la página [Precios de Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/).

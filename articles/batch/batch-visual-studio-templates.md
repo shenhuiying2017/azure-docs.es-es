@@ -1,25 +1,25 @@
 ---
-title: Empezar a crear soluciones de Batch con plantillas de proyecto de Visual Studio - Azure | Microsoft Docs
-description: "Descubra cómo las plantillas de proyecto de Visual Studio pueden ayudarlo a implementar y ejecutar cargas de trabajo de proceso intensivo en Azure Batch."
+title: 'Creación de soluciones de Batch con plantillas de proyecto de Visual Studio: Azure | Microsoft Docs'
+description: Descubra cómo las plantillas de proyecto de Visual Studio pueden ayudarlo a implementar y ejecutar cargas de trabajo de proceso intensivo en Azure Batch.
 services: batch
 documentationcenter: .net
-author: fayora
-manager: timlt
-editor: 
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: 5e041ae2-25af-4882-a79e-3aa63c4bfb20
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 02/27/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: da77ce827c65deb18d9d84ce5cf768d89788e205
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5241c62e8b423b20477fc72c87303daf3d4ab43c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Uso de plantillas de proyecto de Visual Studio para empezar a crear soluciones de Batch
 
@@ -51,7 +51,7 @@ Como se muestra en el diagrama siguiente, un trabajo de proceso que usa estas pl
 
 ![Diagrama que muestra cómo interactúa el código de cliente con el servicio Batch][diagram01]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Para utilizar las plantillas de Batch, necesita lo siguiente:
 
 * Un equipo con Visual Studio 2015 instalado. Las plantillas de proceso por lotes solo se admiten actualmente para Visual Studio 2015.
@@ -190,7 +190,7 @@ Las excepciones y los códigos de salida proporcionan un mecanismo para determin
 
 Una tarea del administrador de trabajos que se implementa con la plantilla del administrador de trabajos puede devolver tres códigos de salida posibles:
 
-| Código | Description |
+| Código | DESCRIPCIÓN |
 | --- | --- |
 | 0 |El administrador de trabajos se ha completado correctamente. El código del separador de trabajos se ejecutó hasta completarse, y todas las tareas se han agregado al trabajo. |
 | 1 |Error de la tarea del administrador de trabajos con una excepción en un elemento “esperado” del programa. La excepción se ha traducido a JobManagerException con información de diagnóstico y, cuando sea posible, con sugerencias para resolver el error. |
@@ -368,7 +368,7 @@ Las excepciones y los códigos de salida proporcionan un mecanismo para determin
 
 Una tarea del procesador de tareas que se implementa con la plantilla del procesador de tareas puede devolver tres códigos de salida posibles:
 
-| Código | Descripción |
+| Código | DESCRIPCIÓN |
 | --- | --- |
 | [Process.ExitCode][process_exitcode] |El procesador de tareas se ejecutó hasta completarse. Tenga en cuenta que esto no implica que el programa invocado sea correcto, solo que el procesador de tareas lo invocó correctamente y realizó cualquier procesamiento posterior sin excepciones. El significado de los códigos de salida depende del programa invocado, normalmente el código de salida 0 significa que el programa se ha ejecutado correctamente y cualquier otro código de salida significa que se ha producido algún error en el programa. |
 | 1 |Error del procesador de tareas con una excepción en un elemento “esperado” del programa. La excepción se ha traducido a `TaskProcessorException` con información de diagnóstico y, cuando sea posible, con sugerencias para resolver el error. |

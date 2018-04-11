@@ -8,14 +8,15 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 18059ef1e0efba4f030a6e99198f0b7c72b7daf3
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 74ee26b961a765276aaa1f0bf17603f22bc8dd20
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Ejecución de un runbook en Azure Automation
-Cuando se inicia un runbook en Azure Automation, se crea un trabajo. Un trabajo es una instancia única de ejecución de un runbook. Un trabajador de Azure Automation está asignado para ejecutar cada trabajo. Aunque los trabajadores se comparten por varias cuentas de Azure, los trabajos de diferentes cuentas de Automation están aislados entre sí. No tiene el control sobre qué trabajador presta servicio a la solicitud para el trabajo. Un único runbook puede tener varios trabajos que se ejecutan al mismo tiempo.  Se puede reutilizar el entorno de ejecución para los trabajos de la misma cuenta de Automation. Al ver la lista de runbooks en Azure Portal, se muesta el estado de todos los trabajos iniciados por cada runbook. Puede ver la lista de trabajos para cada runbook para hacer un seguimiento del estado de cada uno. Para obtener una descripción de los distintos estados de trabajo, consulte [Estados del trabajo](#job-statuses).
+
+Cuando se inicia un runbook en Azure Automation, se crea un trabajo. Un trabajo es una instancia única de ejecución de un runbook. Un trabajador de Azure Automation está asignado para ejecutar cada trabajo. Aunque los trabajadores se comparten por varias cuentas de Azure, los trabajos de diferentes cuentas de Automation están aislados entre sí. No tiene el control sobre qué trabajador presta servicio a la solicitud para el trabajo. Un único runbook puede tener varios trabajos que se ejecutan al mismo tiempo. Se puede reutilizar el entorno de ejecución para los trabajos de la misma cuenta de Automation. Al ver la lista de runbooks en Azure Portal, se muesta el estado de todos los trabajos iniciados por cada runbook. Puede ver la lista de trabajos para cada runbook para hacer un seguimiento del estado de cada uno. Para obtener una descripción de los distintos estados de trabajo, consulte [Estados del trabajo](#job-statuses).
 
 En el siguiente diagrama se muestra el ciclo de vida de un trabajo de runbook para [Runbooks gráficos](automation-runbook-types.md#graphical-runbooks) y [Runbooks del flujo de trabajo de PowerShell](automation-runbook-types.md#powershell-workflow-runbooks).
 
@@ -28,12 +29,13 @@ En el siguiente diagrama se muestra el ciclo de vida de un trabajo de runbook pa
 Los trabajos tienen acceso a los recursos de Azure mediante una conexión a la suscripción de Azure. Solo tienen acceso a los recursos de su centro de datos si estos recursos están accesibles desde la nube pública.
 
 ## <a name="job-statuses"></a>Estados del trabajo
+
 En la tabla siguiente se describen los diferentes estados posibles para un trabajo.
 
 | Status | DESCRIPCIÓN |
 |:--- |:--- |
 | Completed |El trabajo se completó correctamente. |
-| Con error |Para [Runbooks del flujo de trabajo de PowerShell](automation-runbook-types.md), no se pudo compilar el runbook.  Para [Runbooks de script de PowerShell](automation-runbook-types.md), no se pudo iniciar el runbook o el trabajo encontró una excepción. |
+| Con error |Para [Runbooks del flujo de trabajo de PowerShell](automation-runbook-types.md), no se pudo compilar el runbook. Para [Runbooks de script de PowerShell](automation-runbook-types.md), no se pudo iniciar el runbook o el trabajo encontró una excepción. |
 | Error, esperando recursos |Se produjo un error en el trabajo porque ha alcanzado el límite de [distribución equilibrada](#fair-share) tres veces y se ha iniciado en el mismo punto de control o en el inicio del runbook cada vez. |
 | En cola |El trabajo espera que los recursos en un trabajo de Automation estén disponible para que se puede iniciar. |
 | Iniciando |El trabajo se ha asignado a un trabajador y el sistema está en proceso de iniciarse. |
@@ -42,20 +44,35 @@ En la tabla siguiente se describen los diferentes estados posibles para un traba
 | En ejecución, esperando recursos |El trabajo se ha descargado porque ha alcanzado el límite de [distribución equilibrada](#fair-share) . Se reanuda en breve desde su último punto de control. |
 | Stopped |El trabajo lo detuvo el usuario antes de completarse. |
 | Deteniéndose |El sistema está en proceso de detener el trabajo. |
-| Suspended |El trabajo lo ha suspendido el usuario, el sistema o un comando en el runbook. Un trabajo suspendido se puede iniciar de nuevo y se reanuda desde su último punto de control o desde el principio del runbook si no tiene ningún punto de control. El runbook solo lo suspenderá el sistema al producirse una excepción. De forma predeterminada, se establece ErrorActionPreference en **Continuar**, lo que significa que el trabajo sigue ejecutándose en un error. Si se establece esta variable de preferencia en **Detener**, se suspende el trabajo en un error.  Solo se aplica a [Runbooks de flujo de trabajo de PowerShell y gráficos](automation-runbook-types.md) . |
-| Suspendiendo |El sistema está intentando suspender el trabajo a petición del usuario. El runbook debe alcanzar su siguiente punto de control antes de que se pueda suspender. Si ya ha pasado su último punto de control, se completa antes de que se pueda suspender.  Solo se aplica a [Runbooks de flujo de trabajo de PowerShell y gráficos](automation-runbook-types.md) . |
+| Suspended |El trabajo lo ha suspendido el usuario, el sistema o un comando en el runbook. Un trabajo suspendido se puede iniciar de nuevo y se reanuda desde su último punto de control o desde el principio del runbook si no tiene ningún punto de control. El sistema solo suspende el runbook cuando se produce una excepción. De forma predeterminada, se establece ErrorActionPreference en **Continuar**, lo que significa que el trabajo sigue ejecutándose en un error. Si se establece esta variable de preferencia en **Detener**, se suspende el trabajo en un error. Solo se aplica a [Runbooks de flujo de trabajo de PowerShell y gráficos](automation-runbook-types.md) . |
+| Suspendiendo |El sistema está intentando suspender el trabajo a petición del usuario. El runbook debe alcanzar su siguiente punto de control antes de que se pueda suspender. Si ya ha pasado su último punto de control, se completa antes de que se pueda suspender. Solo se aplica a [Runbooks de flujo de trabajo de PowerShell y gráficos](automation-runbook-types.md) . |
 
 ## <a name="viewing-job-status-from-the-azure-portal"></a>Visualización de un estado de trabajo desde el portal de Azure
-Puede ver un resumen del estado de todos los trabajos de runbook o profundizar en los detalles de un trabajo de runbook específico en Azure Portal o mediante la configuración de la integración con el área de trabajo de Log Analytics para reenviar el estado del trabajo de runbook y las transmisiones de trabajos.  Para más información sobre la integración con Log Analytics, consulte [Reenvío del estado de un trabajo y de transmisiones de trabajos desde Automation a Log Analytics (OMS)](automation-manage-send-joblogs-log-analytics.md).  
+
+Puede ver un resumen del estado de todos los trabajos de runbook o profundizar en los detalles de un trabajo de runbook específico en Azure Portal o mediante la configuración de la integración con el área de trabajo de Log Analytics para reenviar el estado del trabajo de runbook y las transmisiones de trabajos. Para más información sobre la integración con Log Analytics, consulte [Reenvío del estado de un trabajo y de transmisiones de trabajos desde Automation a Log Analytics (OMS)](automation-manage-send-joblogs-log-analytics.md).
 
 ### <a name="automation-runbook-jobs-summary"></a>Resumen de trabajos de runbook de Automation
-A la derecha de la cuenta de Automation, puede ver un resumen de todos los trabajos de runbook de una cuenta de Automation seleccionada en el icono **Estadísticas de trabajo**.<br><br> ![Icono Estadísticas de trabajo](./media/automation-runbook-execution/automation-account-job-status-summary.png).<br> Este icono muestra un contador y una representación gráfica del estado de trabajo de todos los trabajos ejecutados.  
 
-Si hace clic en el icono aparece la hoja **Trabajos**, que incluye una lista resumida de todos los trabajos ejecutados, con el estado, la ejecución del trabajo y la hora de inicio y finalización.<br><br> ![Hoja Trabajos de cuenta de Automation](./media/automation-runbook-execution/automation-account-jobs-status-blade.png)<br><br>  Puede filtrar la lista de trabajos si selecciona **Filtrar trabajos** y filtra según un runbook específico, el estado de un trabajo o desde la lista desplegable, el intervalo de fecha y hora dentro del cual desea buscar.<br><br> ![Filtrar estado del trabajo](./media/automation-runbook-execution/automation-account-jobs-filter.png)
+A la derecha de la cuenta de Automation, puede ver un resumen de todos los trabajos de runbook de una cuenta de Automation seleccionada en el icono **Estadísticas de trabajo**.
 
-De manera alternativa, puede ver los detalles resumidos de trabajo de un runbook específico; para ello, seleccione ese runbook en la hoja **Runbooks** de la cuenta de Automation y, luego, seleccione el icono **Trabajos**.  Se abre la hoja **Trabajos** y, desde ahí, puede hacer clic en el registro del trabajo para ver sus detalles y salida.<br><br> ![Hoja Trabajos de cuenta de Automation](./media/automation-runbook-execution/automation-runbook-job-summary-blade.png)<br> 
+![Icono Estadísticas de trabajo](./media/automation-runbook-execution/automation-account-job-status-summary.png).
+
+Este icono muestra un contador y una representación gráfica del estado de trabajo de todos los trabajos ejecutados.
+
+Si hace clic en el icono aparece la hoja **Trabajos**, que incluye una lista resumida de todos los trabajos ejecutados, con el estado, la ejecución del trabajo y la hora de inicio y finalización.
+
+![Hoja Trabajos de cuenta de Automation](./media/automation-runbook-execution/automation-account-jobs-status-blade.png)
+
+Puede filtrar la lista de trabajos si selecciona **Filtrar trabajos** y filtra según un runbook específico, el estado de un trabajo o desde la lista desplegable, el intervalo de fecha y hora dentro del cual desea buscar.
+
+![Filtrar estado del trabajo](./media/automation-runbook-execution/automation-account-jobs-filter.png)
+
+De manera alternativa, puede ver los detalles resumidos de trabajo de un runbook específico; para ello, seleccione ese runbook en la hoja **Runbooks** de la cuenta de Automation y, luego, seleccione el icono **Trabajos**. Se abre la hoja **Trabajos** y, desde ahí, puede hacer clic en el registro del trabajo para ver sus detalles y salida.
+
+![Hoja Trabajos de cuenta de Automation](./media/automation-runbook-execution/automation-runbook-job-summary-blade.png)
 
 ### <a name="job-summary"></a>Resumen del trabajo
+
 Puede ver una lista de todos los trabajos que se han creado para un runbook determinado y su estado más reciente. Puede filtrar esta lista por estado del trabajo y el intervalo de fechas del último cambio del trabajo. Para ver su información detallada y la salida, haga clic en el nombre de un trabajo. La vista detallada del trabajo incluye los valores para los parámetros de runbook que se proporcionaron con ese trabajo.
 
 Puede utilizar los pasos siguientes para ver los trabajos de un runbook.
@@ -66,30 +83,48 @@ Puede utilizar los pasos siguientes para ver los trabajos de un runbook.
 4. Haga clic en uno de los trabajos de la lista y en la hoja de detalles del trabajo del runbook podrá ver su detalle y salida.
 
 ## <a name="retrieving-job-status-using-windows-powershell"></a>Recuperación del estado del trabajo con Windows PowerShell
+
 Puede usar [Get-AzureRmAutomationJob](https://msdn.microsoft.com/library/mt619440.aspx) para recuperar los trabajos creados para un runbook y los detalles de un trabajo determinado. Si inicia un runbook con Windows PowerShell mediante el uso de [Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx), devuelve el trabajo resultante. Use la salida [Get-AzureRmAutomationJob](https://msdn.microsoft.com/library/mt619440.aspx) para obtener la salida de un trabajo.
 
 Los comandos de ejemplo siguientes recuperan el último trabajo para un runbook de ejemplo y muestran su estado, los valores proporcionados para los parámetros de runbook y la salida del trabajo.
 
-    $job = (Get-AzureRmAutomationJob –AutomationAccountName "MyAutomationAccount" `
-    –RunbookName "Test-Runbook" -ResourceGroupName "ResourceGroup01" | sort LastModifiedDate –desc)[0]
-    $job.Status
-    $job.JobParameters
-    Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
-    –AutomationAccountName "MyAutomationAcct" -Id $job.JobId –Stream Output
+```powershell-interactive
+$job = (Get-AzureRmAutomationJob –AutomationAccountName "MyAutomationAccount" `
+–RunbookName "Test-Runbook" -ResourceGroupName "ResourceGroup01" | sort LastModifiedDate –desc)[0]
+$job.Status
+$job.JobParameters
+Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
+–AutomationAccountName "MyAutomationAcct" -Id $job.JobId –Stream Output
+```
+
+## <a name="get-details-from-activity-log"></a>Obtención de detalles del registro de actividad
+
+Detalles como la persona o la cuenta que inició el runbook se pueden recuperar del registro de actividad para la cuenta de Automation. El siguiente ejemplo de PowerShell proporciona el último usuario para ejecutar el runbook en cuestión:
+
+```powershell-interactive
+$SubID = "00000000-0000-0000-0000-000000000000"
+$rg = "ResourceGroup01"
+$AutomationAccount = "MyAutomationAccount"
+$RunbookName = "Test-Runbook"
+$JobResourceID = "/subscriptions/$subid/resourcegroups/$rg/providers/Microsoft.Automation/automationAccounts/$AutomationAccount/jobs"
+
+Get-AzureRmLog -ResourceId $JobResourceID -MaxRecord 1 | Select Caller
+```
 
 ## <a name="fair-share"></a>distribución equilibrada
-Para compartir recursos entre todos los Runbooks en la nube, Azure Automation descargará temporalmente cualquier trabajo cuando haya estado ejecutándose durante tres horas.  Durante este tiempo, los trabajos de [runbooks basados en PowerShell](automation-runbook-types.md#powershell-runbooks) se detienen y no se reiniciarán.  El estado del trabajo aparece como **Detenido**.  Este tipo de runbook siempre se reinicia desde el principio, ya que no admite los puntos de control.  
 
-Los [runbooks basados en el flujo de trabajo de PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) se reanudarán a partir de su último [punto de control](https://docs.microsoft.com/system-center/sma/overview-powershell-workflows#bk_Checkpoints).  Después de ejecutarse durante tres horas, el servicio suspenderá el trabajo del runbook y su estado aparecerá como **En ejecución, esperando recursos**.  Si hay un espacio aislado disponible, el servicio Automation reiniciará automáticamente el runbook, que se reanuda a partir del último punto de control.  Este es el comportamiento normal del flujo de trabajo de PowerShell a la hora de suspender o reiniciar.  Si el runbook sobrepasa de nuevo las tres horas de tiempo de ejecución, el proceso se repite hasta tres veces.  Tras el tercer reinicio, si el runbook sigue sin completarse transcurridas tres horas, se producirá un error en el trabajo del runbook y el estado del trabajo aparecerá como **Error, esperando recursos**.  En este caso, recibe la siguiente excepción con el error.
+Para compartir recursos entre todos los Runbooks en la nube, Azure Automation descargará temporalmente cualquier trabajo cuando haya estado ejecutándose durante tres horas. Durante este tiempo, los trabajos de [runbooks basados en PowerShell](automation-runbook-types.md#powershell-runbooks) se detienen y no se reinician. El estado del trabajo aparece como **Detenido**. Este tipo de runbook siempre se reinicia desde el principio, ya que no admite los puntos de control.
+
+Los [runbooks basados en el flujo de trabajo de PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) se reanudan a partir de su último [punto de control](https://docs.microsoft.com/system-center/sma/overview-powershell-workflows#bk_Checkpoints). Después de ejecutarse durante tres horas, el servicio suspenderá el trabajo del runbook y su estado aparecerá como **En ejecución, esperando recursos**. Si hay un espacio aislado disponible, el servicio de Automation reinicia automáticamente el runbook, que se reanuda a partir del último punto de control. Este es el comportamiento normal del flujo de trabajo de PowerShell a la hora de suspender o reiniciar. Si el runbook sobrepasa de nuevo las tres horas de tiempo de ejecución, el proceso se repite hasta tres veces. Tras el tercer reinicio, si el runbook sigue sin completarse transcurridas tres horas, se producirá un error en el trabajo del runbook y el estado del trabajo aparecerá como **Error, esperando recursos**. En este caso, recibe la siguiente excepción con el error.
 
 *El trabajo no puede continuar ejecutándose porque se expulsó repetidamente del mismo punto de control. Asegúrese de que el runbook no realiza operaciones largas sin conservar su estado.*
 
 De esta forma se protege el servicio impidiéndose que los runbooks se ejecuten de manera indefinida sin completarse, ya que no pueden llegar al siguiente punto de control sin que se descarguen de nuevo.
 
-Si el runbook no tiene puntos de control o el trabajo no había alcanzado el primer punto de control antes de la descarga, se reinicia desde el principio.  
+Si el runbook no tiene puntos de control o el trabajo no había alcanzado el primer punto de control antes de la descarga, se reinicia desde el principio.
 
-Cuando se crea un runbook, debe asegurarse de que el tiempo para ejecutar las actividades entre dos puntos de control no supera las tres horas. Puede que necesite agregar puntos de control a un Runbook para asegurarse de que no alcanza este límite de tres horas ni divide operaciones de ejecución prolongada. Por ejemplo, su runbook podría realizar una reindexación en una gran base de datos SQL. Si esta operación no se completa dentro del límite de distribución equilibrada, el trabajo se descarga y se reinicia desde el principio. En este caso, debe dividir la operación de reindexación en varios pasos, como volver a indexar una tabla a la vez y, a continuación, inserte un punto de control después de cada operación, de modo que el trabajo se pueda reanudar después de la última operación para completar.
+Cuando se crea un runbook, debe asegurarse de que el tiempo para ejecutar las actividades entre dos puntos de control no supera las tres horas. Puede que necesite agregar puntos de control a un runbook para asegurarse de que no alcanza este límite de tres horas ni divide operaciones de ejecución prolongada. Por ejemplo, su runbook podría realizar una reindexación en una gran base de datos SQL. Si esta operación no se completa dentro del límite de distribución equilibrada, el trabajo se descarga y se reinicia desde el principio. En este caso, debe dividir la operación de reindexación en varios pasos, como volver a indexar una tabla a la vez y, a continuación, inserte un punto de control después de cada operación, de modo que el trabajo se pueda reanudar después de la última operación para completar.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Para más información sobre los distintos métodos que se pueden usar para iniciar un runbook en Azure Automation, consulte [Inicio de un runbook en Azure Automation](automation-starting-a-runbook.md)
 
+* Para más información sobre los distintos métodos que se pueden usar para iniciar un runbook en Azure Automation, consulte [Inicio de un runbook en Azure Automation](automation-starting-a-runbook.md)

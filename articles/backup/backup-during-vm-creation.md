@@ -1,29 +1,29 @@
 ---
-title: "Habilitación de la copia de seguridad de máquinas virtuales de Azure durante el proceso de creación | Microsoft Docs"
-description: "Vea los pasos para habilitar la copia de seguridad de máquinas virtuales de Azure durante el proceso de creación."
+title: Habilitación de la copia de seguridad de máquinas virtuales de Azure durante el proceso de creación | Microsoft Docs
+description: Vea los pasos para habilitar la copia de seguridad de máquinas virtuales de Azure durante el proceso de creación.
 services: backup, virtual-machines
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
 tags: azure-resource-manager, virtual-machine-backup
-ms.assetid: 
+ms.assetid: ''
 ms.service: backup, virtual-machines
 ms.devlang: na
 ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 01/08/2018
 ms.author: trinadhk
-ms.openlocfilehash: 4041fc555fe4b61d10f84236dcae5156c6282fd3
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: e16714eee697d9dc8102b5f29d9639d650517562
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="enable-backup-during-azure-virtual-machine-creation"></a>Habilitación de la copia de seguridad durante la creación de máquinas virtuales de Azure 
 
 El servicio Azure Backup proporciona una interfaz para crear y configurar copias de seguridad en la nube. Proteja sus datos realizando copias de seguridad (también llamadas "puntos de recuperación") a intervalos regulares. Azure Backup crea puntos de recuperación que se guardan en almacenes de recuperación con redundancia geográfica. En este artículo se detalla cómo habilitar la copia de seguridad al crear una máquina virtual (VM) en Azure Portal.  
 
-## <a name="log-in-to-azure"></a>Inicie sesión en Azure. 
+## <a name="log-in-to-azure"></a>Inicio de sesión en Azure 
 
 Si aún no ha iniciado sesión en su cuenta, hágalo en [Azure Portal](http://portal.azure.com).
  
@@ -57,6 +57,10 @@ Si aún no ha iniciado sesión en su cuenta, hágalo en [Azure Portal](http://po
 ## <a name="initiate-a-backup-after-creating-the-vm"></a>Inicio de una copia de seguridad después de crear la máquina virtual 
 
 Aunque se haya creado la directiva de Backup, es recomendable crear una copia de seguridad inicial. Para ver los detalles de la copia de seguridad de la máquina virtual una vez que finalice la plantilla de creación de máquinas virtuales, en la configuración de **Operaciones** del menú izquierdo, haga clic en **Backup**. Puede utilizar esta opción para desencadenar una copia de seguridad a petición, restaurar una máquina virtual completa o todos los discos, restaurar archivos desde una copia de seguridad de máquina virtual o cambiar la directiva de copia de seguridad asociada con la máquina virtual.  
+
+## <a name="using-a-resource-manager-template-to-deploy-a-protected-vm"></a>Uso de una plantilla de Resource Manager para implementar una máquina virtual protegida
+
+En los pasos anteriores se explica cómo usar Azure Portal para crear una máquina virtual y protegerla en un almacén de Recovery Services. Si quiere implementar una o varias máquinas virtuales rápidamente, y protegerlas en un almacén de Azure Recovery Services, consulte la plantilla [Deploy a Windows VM and enable backup](https://azure.microsoft.com/resources/templates/101-recovery-services-create-vm-and-configure-backup/).
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes 
 
@@ -92,7 +96,7 @@ Si es un colaborador de la máquina virtual, puede habilitar la copia de segurid
  
 Si el almacén de Recovery Services y la máquina virtual tienen distintos grupos de recursos, asegúrese de que tiene permisos de escritura en el grupo de recursos del almacén de Recovery Services.  
 
-## <a name="next-steps"></a>pasos siguientes 
+## <a name="next-steps"></a>Pasos siguientes 
 
 Ahora que ha protegido su máquina virtual, vea los siguientes artículos para obtener información sobre las tareas de administración de las máquinas virtuales y cómo restaurarlas. 
 

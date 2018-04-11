@@ -1,12 +1,12 @@
 ---
-title: "Administración de dispositivos IoT de Azure con la extensión de IoT de la CLI de Azure 2.0 | Microsoft Docs"
-description: "Use la extensión de IoT de la CLI de Azure 2.0 para la administración de dispositivos de Azure IoT Hub, herramienta que incluye métodos directos y opciones de administración de las propiedades deseadas de los dispositivos gemelos."
+title: Administración de dispositivos IoT de Azure con la extensión de IoT de la CLI de Azure 2.0 | Microsoft Docs
+description: Use la extensión de IoT de la CLI de Azure 2.0 para la administración de dispositivos de Azure IoT Hub, herramienta que incluye métodos directos y opciones de administración de las propiedades deseadas de los dispositivos gemelos.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: chrissie926
 manager: timlt
-tags: 
-keywords: "administración de dispositivos de azure iot, administración de dispositivos de azure iot hub, iot de administración de dispositivos, administración de dispositivos de iot hub"
+tags: ''
+keywords: administración de dispositivos de azure iot, administración de dispositivos de azure iot hub, iot de administración de dispositivos, administración de dispositivos de iot hub
 ms.assetid: b34f799a-fc14-41b9-bf45-54751163fffe
 ms.service: iot-hub
 ms.devlang: arduino
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/16/2018
 ms.author: menchi
-ms.openlocfilehash: 07b9f14048b6618863efd5bd8eb8bcc8f52ec735
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: ceace7331c7548c5b4e27f8529152fd69d5469cd
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-the-iot-extension-for-azure-cli-20-for-azure-iot-hub-device-management"></a>Extensión de IoT de la CLI de Azure 2.0 para la administración de dispositivos de Azure IoT Hub
 
@@ -27,7 +27,9 @@ ms.lasthandoff: 03/09/2018
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-[La extensión de IoT de la CLI de Azure 2.0](https://github.com/Azure/azure-iot-cli-extension) es una nueva extensión de IoT de código abierto que se agrega a las funcionalidades de la [CLI de Azure 2.0](https://docs.microsoft.com/en-us/cli/azure?view=azure-cli-latest) e incluye comandos para interactuar con Azure Resource Manager y los puntos de conexión de administración. La CLI de Azure 2.0 incluye comandos para interactuar con Azure Resource Manager y los puntos de conexión de administración. Por ejemplo, la puede utilizar para crear una máquina virtual de Azure o una instancia de IoT Hub. Una extensión de la CLI permite que un servicio de Azure aumente la CLI de Azure para proporcionar al usuario acceso a funcionalidades adicionales específicas de un servicio. La extensión de IoT proporciona a los desarrolladores de IoT acceso con la línea de comandos a todas las funcionalidades de IoT Hub, IoT Edge y del servicio IoT Hub Device Provisioning.
+[La extensión de IoT para la CLI de Azure 2.0](https://github.com/Azure/azure-iot-cli-extension) es una nueva extensión de IoT de código abierto que se suma a las funcionalidades de la [CLI de Azure 2.0 ](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest). La CLI de Azure 2.0 incluye comandos para interactuar con Azure Resource Manager y los puntos de conexión de administración. Por ejemplo, la puede utilizar para crear una máquina virtual de Azure o una instancia de IoT Hub. Una extensión de la CLI permite que un servicio de Azure aumente la CLI de Azure para proporcionar al usuario acceso a funcionalidades adicionales específicas de un servicio. La extensión de IoT proporciona a los desarrolladores de IoT acceso con la línea de comandos a todas las funcionalidades de IoT Hub, IoT Edge y del servicio IoT Hub Device Provisioning.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 | Opción de administración          | Task                                                                                                                            |
 |----------------------------|---------------------------------------------------------------------------------------------------------------------------------|
@@ -39,8 +41,7 @@ ms.lasthandoff: 03/09/2018
 
 Para obtener una explicación más detallada acerca de las diferencias y orientación sobre el uso de estas opciones, consulte la [Guía de comunicación de dispositivo a nube](iot-hub-devguide-d2c-guidance.md) y la [Guía de comunicación de nube a dispositivo](iot-hub-devguide-c2d-guidance.md).
 
-> [!NOTE]
-> Los dispositivos gemelos son documentos JSON que almacenan información sobre el estado de los dispositivos (metadatos, configuraciones y condiciones). IoT Hub conserva un dispositivo gemelo por cada dispositivo que se conecta a él. Para más información acerca de los dispositivos gemelos, consulte [Introducción a los dispositivos gemelos](iot-hub-node-node-twin-getstarted.md).
+Los dispositivos gemelos son documentos JSON que almacenan información sobre el estado de los dispositivos (metadatos, configuraciones y condiciones). IoT Hub conserva un dispositivo gemelo por cada dispositivo que se conecta a él. Para más información acerca de los dispositivos gemelos, consulte [Introducción a los dispositivos gemelos](iot-hub-node-node-twin-getstarted.md).
 
 ## <a name="what-you-learn"></a>Conocimientos que adquirirá
 

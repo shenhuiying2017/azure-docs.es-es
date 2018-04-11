@@ -1,5 +1,5 @@
 ---
-title: Desvinculación de una cuenta de Azure Automation de Log Analytics
+title: Desvinculación de la cuenta de Azure Automation de Log Analytics | Microsoft Docs
 description: En este artículo se proporciona información general sobre cómo desvincular la cuenta de Azure Automation de un área de trabajo de Log Analytics.
 services: automation
 ms.service: automation
@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/19/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 2e6f887a7684ae995e9b7da84dace523843ff555
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b8b00f8a82dd63df13ccd0bc7e10429323c15ab3
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-unlink-your-automation-account-from-a-log-analytics-workspace"></a>Procedimiento para desvincular su cuenta de Automation de un área de trabajo de Log Analytics
 
@@ -46,4 +46,4 @@ Si ha usado la solución de inicio y detención de máquinas virtuales durante l
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para volver a configurar la cuenta de Automation para integrarla con Log Analytics de OMS, consulte [Reenvío del estado de un trabajo y de transmisiones de trabajos desde Automation a Log Analytics (OMS)](automation-manage-send-joblogs-log-analytics.md). 
+Para volver a configurar la cuenta de Automation para integrarla con Log Analytics, consulte [Reenvío del estado de un trabajo y de transmisiones de trabajos desde Automation a Log Analytics](automation-manage-send-joblogs-log-analytics.md). 

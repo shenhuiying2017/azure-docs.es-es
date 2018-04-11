@@ -1,18 +1,18 @@
 ---
-title: "Supervisión del progreso de un trabajo mediante el recuento de tareas por estado: Azure Batch | Microsoft Docs"
-description: "Supervise el progreso de un trabajo mediante una llamada a la operación Get Task Counts para hacer el recuento de tareas de un trabajo. Puede obtener un recuento de las tareas activas, en ejecución y completadas, y de las tareas que se realizaron correctamente o no."
+title: 'Supervisión del progreso de un trabajo mediante el recuento de tareas por estado: Azure Batch | Microsoft Docs'
+description: Supervise el progreso de un trabajo mediante una llamada a la operación Get Task Counts para hacer el recuento de tareas de un trabajo. Puede obtener un recuento de las tareas activas, en ejecución y completadas, y de las tareas que se realizaron correctamente o no.
 services: batch
-author: tamram
-manager: timlt
+author: dlepow
+manager: jeconnoc
 ms.service: batch
 ms.topic: article
 ms.date: 08/02/2017
-ms.author: tamram
-ms.openlocfilehash: ceff59d7063b60a1344a47489d3d73e0e8ee07df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: danlep
+ms.openlocfilehash: bc112ed5b481560362962d6b550d336de6b3d9b4
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="count-tasks-by-state-to-monitor-a-jobs-progress-preview"></a>Recuento de tareas por estado para supervisar el progreso de un trabajo (versión preliminar)
 
@@ -31,7 +31,7 @@ La operación Get Task Counts hace un recuento de las tareas por estado, como se
 - Una tarea se cuenta como **en ejecución** cuando ya se ha asignado a un nodo de proceso, pero no se ha completado. Una tarea se cuenta como **en ejecución** cuando su estado es `preparing` o `running`, tal y como indica la operación [Get information about a task][rest_get_task].
 - Una tarea se cuenta como **completada** cuando ya no es apta para su ejecución. Una tarea que se cuenta como **completada** normalmente ha finalizado correctamente, o ha finalizado de forma incorrecta pero ha agotado su límite de reintentos. 
 
-La operación Get Task Counts también informa de cuántas tareas se realizaron correctamente o no. Batch determina si una tarea se ha realizado correctamente o no comprobando la propiedad **result** de la propiedad [executionInfo] [https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task#executionInfo]:
+La operación Get Task Counts también informa de cuántas tareas se realizaron correctamente o no. Batch determina si una tarea ha se ha realizado correctamente o no comprobando la propiedad **result** de la propiedad [executionInfo][https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task#executionInfo]:
 
     - Una tarea se cuenta como **correcta** si el resultado de la ejecución de la tarea es `success`.
     - Una tarea se cuenta como **errónea** si el resultado de la ejecución de la tarea es `failure`.

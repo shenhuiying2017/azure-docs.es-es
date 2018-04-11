@@ -1,12 +1,12 @@
 ---
 title: Cuotas de vCPU de Azure | Microsoft Docs
-description: "Obtenga información acerca de las cuotas de vCPU de Azure."
-keywords: 
+description: Obtenga información acerca de las cuotas de vCPU de Azure.
+keywords: ''
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: Drewm3
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2016
 ms.author: drewm
-ms.openlocfilehash: b481299b62d452bc306c1f9c1fa2cdccd49b818e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 05d84e4b8c0ac84db5d0784e64071931408ec1d6
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="virtual-machine-vcpu-quotas"></a>Cuotas de vCPU de máquinas virtuales
 
@@ -81,7 +81,7 @@ Premium Storage Managed Disks                1 10000 Count
 ## <a name="reserved-vm-instances"></a>Instancias reservadas de máquina virtual
 Las instancias reservadas de máquina virtual, cuyo ámbito es una sola suscripción, agregarán un aspecto nuevo a las cuotas de vCPU. Estos valores describen el número de instancias del tamaño indicado que deben poderse implementar en la suscripción. Actúan como un marcador de posición en el sistema de cuotas para asegurarse de que esa cuota esté reservada y que las instancias reservadas puedan implementarse en la suscripción. Por ejemplo, si una suscripción específica tiene 10 instancias reservadas Standard_D1, el límite de uso para las instancias reservadas Standard_D1 será 10. Esto hará que Azure se asegure de que siempre hay al menos 10 vCPU disponibles en el total de la cuota de vCPU regional que se utilizará para instancias de Standard_D1 y que hay al menos 10 vCPU disponibles en la cuota de vCPU de la Familia D estándar que se utilizará para las instancias de Standard_D1.
 
-Si es necesario aumentar la cuota para adquirir una instancia reservada de suscripción única, puede [solicitar un aumento de la cuota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) en su suscripción.
+Si es necesario un incremento de cuota para adquirir una instancia reservada de suscripción única, puede [solicitarlo](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) en su suscripción.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: douglasl
-ms.openlocfilehash: cdda3fbe2aff40e26c6086e87ef3e05670c3419f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2372b6bd91dfb1c33456b42e91aa2496532796ef
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Unión de una instancia de Integration Runtime de SSIS de Azure a una red virtual
 Una su instancia de Integration Runtime para la integración de SSIS en Azure a una red virtual de Azure en los siguientes escenarios: 
 
-- Va a hospedar el catálogo de SQL Server Integration Services (SSIS) en la instancia administrada de Azure SQL Database (versión preliminar privada) en una red virtual.
+- Va a hospedar el catálogo de SQL Server Integration Services (SSIS) en la instancia administrada de Azure SQL Database (versión preliminar) en una red virtual.
 - Quiere conectarse a almacenes de datos locales desde paquetes de SSIS que se ejecutan en una instancia de Integration Runtime de SSIS de Azure.
 
  Azure Data Factory, versión 2 (versión preliminar) le permite unir su instancia de Integration Runtime para la integración de SSIS en Azure a una red virtual creada mediante el modelo de implementación clásica o el modelo de implementación de Azure Resource Manager. 
@@ -34,12 +34,12 @@ Si los paquetes SSIS acceden solo a almacenes de datos de la nube pública, no n
 
 Si el catálogo de SSIS está hospedado en una instancia de Azure SQL Database que no está en la red virtual, deberá abrir los puertos adecuados. 
 
-Si el catálogo de SSIS está hospedado en la instancia administrada de SQL Database de una red virtual, puede unir una instancia de Integration Runtime para la integración de SSIS en Azure a:
+Si el catálogo de SSIS está hospedado en la instancia administrada de SQL Database (versión preliminar) de una red virtual, puede unir una instancia de Integration Runtime para la integración de SSIS en Azure a:
 
 - La misma red virtual.
-- Una red virtual diferente que tenga una conexión red a red con la que tiene la instancia administrada de SQL Database. 
+- Una red virtual diferente que tenga una conexión red a red con la que tiene la instancia administrada de SQL Database (versión preliminar). 
 
-La red virtual puede implementarse mediante el modelo de implementación clásica o el modelo de implementación de Azure Resource Manager. Si tiene pensado unir la instancia de Integration Runtime para la integración de SSIS en Azure que se encuentra en la *misma red virtual* que la instancia administrada de SQL Database, asegúrese de que la primera de estas instancias se encuentre en una *subred diferente* de la que tiene la segunda.   
+La red virtual puede implementarse mediante el modelo de implementación clásica o el modelo de implementación de Azure Resource Manager. Si tiene pensado unir la instancia de Integration Runtime para la integración de SSIS en Azure que se encuentra en la *misma red virtual* que la instancia administrada de SQL Database (versión preliminar), asegúrese de que la primera de estas instancias se encuentre en una *subred diferente* de la que tiene la segunda (versión preliminar).   
 
 En las siguientes secciones se proporciona más información.
 
@@ -60,7 +60,7 @@ Si tiene que implementar grupos de seguridad de red (NSG) en una red virtual a l
 | ---- | --------- | ------------------ | ------- | ----------------------------------- |
 | 10100, 20100, 30100 (si une la instancia de Integration Runtime a una red virtual clásica)<br/><br/>29876, 29877 (si une la instancia de Integration Runtime a una red virtual de Azure Resource Manager) | Entrada | TCP | Los servicios de Azure usan estos puertos para comunicarse con los nodos de su instancia de Integration Runtime para la integración de SSIS en Azure de la red virtual. | Internet | 
 | 443 | Salida | TCP | Los nodos de su instancia de Integration Runtime para la integración de SSIS en Azure de la red virtual usan este puerto para acceder a servicios de Azure, como Azure Storage y Azure Event Hubs. | Internet | 
-| 1433<br/>11000-11999<br/>14000-14999  | Salida | TCP | Los nodos de su instancia de Integration Runtime para la integración de SSIS en Azure de la red virtual usan estos puertos para acceder a la SSISDB que hospeda el servidor de Azure SQL Database (esta finalidad no se aplica a la SSISDB hospedada por la instancia administrada de SQL Database). | Internet | 
+| 1433<br/>11000-11999<br/>14000-14999  | Salida | TCP | Los nodos de su instancia de Integration Runtime para la integración de SSIS en Azure de la red virtual usan estos puertos para acceder a la SSISDB que hospeda el servidor de Azure SQL Database (esta finalidad no se aplica a la SSISDB hospedada por la instancia administrada de SQL Database [versión preliminar]). | Internet | 
 
 ## <a name="azure-portal-data-factory-ui"></a>Azure Portal (interfaz de usuario de Data Factory)
 En esta sección se muestra cómo unir un entorno de ejecución existente para la integración de SSIS en Azure a una red virtual (clásica o de Azure Resource Manager) mediante Azure Portal y la interfaz de usuario de Data Factory. En primer lugar, debe configurar la red virtual de forma adecuada antes de unir a ella su instancia de Integration Runtime para la integración de SSIS en Azure. Repase una de las dos secciones siguientes según el tipo de red virtual (clásica o de Azure Resource Manager). Después, continúe con la tercera sección para unir su instancia de Integration Runtime para la integración de SSIS en Azure a la red virtual. 
@@ -207,7 +207,7 @@ El script del artículo [Creación de una instancia de Integration Runtime para 
 $ResourceGroupName = "<Azure resource group name>"
 $DataFactoryName = "<Data factory name>" 
 $AzureSSISName = "<Specify Azure-SSIS IR name>"
-## These two parameters apply if you are using a virtual network and Azure SQL Database Managed Instance (private preview) 
+## These two parameters apply if you are using a virtual network and Azure SQL Database Managed Instance (Preview) 
 # Specify information about your classic or Azure Resource Manager virtual network.
 $VnetId = "<Name of your Azure virtual network>"
 $SubnetName = "<Name of the subnet in the virtual network>"
@@ -292,6 +292,6 @@ Para más información sobre el tiempo de ejecución de integración de SSIS en 
 
 - [Integration Runtime de SSIS de Azure](concepts-integration-runtime.md#azure-ssis-integration-runtime). En este artículo se proporciona información conceptual sobre los entornos de ejecución de integración en general, incluida la instancia de Integration Runtime para la integración de SSIS en Azure. 
 - [Tutorial: Implementación de paquetes SSIS en Azure](tutorial-create-azure-ssis-runtime-portal.md). En este artículo se proporcionan instrucciones paso a paso para crear una instancia de Integration Runtime para la integración de SSIS en Azure. Se usa una instancia de Azure SQL Database para hospedar el catálogo de SSIS. 
-- [Creación de una instancia de Integration Runtime de SSIS de Azure](create-azure-ssis-integration-runtime.md). En este artículo se amplía el tutorial y se proporcionan instrucciones sobre el uso de la instancia administrada de Azure SQL Database (versión preliminar privada) y la unión de Integration Runtime a una red virtual. 
+- [Creación de una instancia de Integration Runtime de SSIS de Azure](create-azure-ssis-integration-runtime.md). En este artículo se amplía el tutorial y se proporcionan instrucciones sobre el uso de la instancia administrada de Azure SQL Database (versión preliminar) y la unión de Integration Runtime a una red virtual. 
 - [Monitor an Azure-SSIS IR](monitor-integration-runtime.md#azure-ssis-integration-runtime) (Supervisión de una instancia de Integration Runtime de SSIS de Azure). En este artículo se muestra cómo recuperar información sobre una instancia de IR de SSIS de Azure, junto con descripciones de los estados en la información devuelta. 
 - [Administración de Integration Runtime de SSIS de Azure](manage-azure-ssis-integration-runtime.md). En este artículo se muestra cómo detener, iniciar o quitar una instancia de IR de SSIS de Azure. También se muestra cómo escalar horizontalmente la instancia de Integration Runtime para la integración de SSIS en Azure mediante la adición de nodos. 

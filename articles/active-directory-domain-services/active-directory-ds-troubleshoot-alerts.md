@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: ergreenl
-ms.openlocfilehash: 436fa31b9fd1231b38b39d911d9b6c2d4829461d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5a9f1bfee1df41d25309e84fe9958ff19a368943
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD Domain Services: solución de problemas de alertas
 En este artículo se brinda guías para la solución de problemas de cualquier alerta que pueda recibir en su dominio administrado.
@@ -34,7 +34,7 @@ Elija los pasos de solución de problemas que correspondan al identificador o me
 | AADDS102 | *Una entidad de servicio necesaria para que Azure AD Domain Services funcione correctamente se ha eliminado del directorio de Azure AD. Esta configuración afecta a la capacidad de Microsoft para supervisar, administrar, revisar y sincronizar el dominio administrado.* | [Falta una entidad de servicio](active-directory-ds-troubleshoot-service-principals.md) |
 | AADDS103 | *El intervalo de direcciones IP de la red virtual en la que habilitó Azure AD Domain Services está en un intervalo IP público. Azure AD Domain Services debe estar habilitado en una red virtual con un intervalo de direcciones IP privado. Esta configuración afecta a la capacidad de Microsoft para supervisar, administrar, revisar y sincronizar el dominio administrado.* | [La dirección está en un intervalo IP público](#aadds103-address-is-in-a-public-ip-range) |
 | AADDS104 | *Microsoft no puede tener acceso a los controladores de dominio de este dominio administrado. Esto puede ocurrir si un grupo de seguridad de red (NSG) configurado en la red virtual bloquea el acceso al dominio administrado. Otro motivo posible es que hay una ruta definida por el usuario que bloquea el tráfico entrante desde Internet.* | [Error de red](active-directory-ds-troubleshoot-nsg.md) |
-| AADDS105 | *Se eliminó la entidad de servicio con el identificador de aplicación "d87dcbc6-a371-462e-88e3-28ad15ec4e64" y, a continuación, se volvió a crear. Esta entidad de servicio administra otra entidad de servicio y una aplicación que se usan para la sincronización de contraseña. La entidad de servicio administrada o la aplicación no tenían autorización en la entidad de servicio recién creada, por lo que nuestro servicio no puede administrarlas. Esto significa que la entidad de servicio recién creada no podrá actualizar las aplicaciones administradas antiguas y la sincronización de contraseñas resultará afectada.* | [La aplicación de sincronización de contraseñas no está actualizada](active-directory-ds-troubleshoot-service-principals.md#alert-aadds105-password-synchronization-application-is-out-of-date) |
+| AADDS105 | *Se eliminó la entidad de servicio con el identificador de aplicación "d87dcbc6-a371-462e-88e3-28ad15ec4e64" y, a continuación, se volvió a crear. La regeneración excluye los permisos incoherentes en los recursos de Azure AD Domain Services necesarios para atender su dominio administrado. La sincronización de contraseñas en el dominio administrado podría verse afectada.* | [La aplicación de sincronización de contraseñas no está actualizada](active-directory-ds-troubleshoot-service-principals.md#alert-aadds105-password-synchronization-application-is-out-of-date) |
 | AADDS500 | *El dominio administrado se sincronizó por última vez con Azure AD el [fecha]. Los usuarios no pueden iniciar sesión en el dominio o puede que las pertenencias a grupos no estén sincronizadas con Azure AD.* | [Hace un tiempo que no se realiza una sincronización](#aadds500-synchronization-has-not-completed-in-a-while) |
 | AADDS501 | *Se hizo copia de seguridad del dominio administrado por última vez el [fecha].* | [Hace un tiempo que no se realiza una copia de seguridad](#aadds501-a-backup-has-not-been-taken-in-a-while) |
 | AADDS502 | *El certificado LDAP seguro del dominio administrado expirará el XX.* | [Expiración del certificado LDAP seguro](active-directory-ds-troubleshoot-ldaps.md#aadds502-secure-ldap-certificate-expiring) |

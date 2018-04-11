@@ -2,6 +2,7 @@
 |----------|--------------|------------|
 | Servicios de sincronización de almacenamiento por suscripción | 15 servicios de sincronización de almacenamiento | Sin  |
 | Grupos de sincronización por servicio de sincronización de almacenamiento | 30 grupos de sincronización | Sí |
+| Servidores registrados por servicio de sincronización de almacenamiento | 99 servidores | Sí |
 | Puntos de conexión en la nube por grupo de sincronización | 1 punto de conexión en la nube | Sí |
 | Puntos de conexión del servidor por grupo de sincronización | 50 puntos de conexión del servidor | Sin  |
 | Puntos de conexión del servidor por servidor | 33-99 puntos de conexión del servidor | Sí, pero varía en función de la configuración |

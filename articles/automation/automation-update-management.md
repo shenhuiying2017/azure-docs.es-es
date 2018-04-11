@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: e426f2b90e3ac3ac6bcb9825c7848c76e52a1021
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a7891e5bedb6e2ad3cba4780d38fc479d7b0bf4e
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="update-management-solution-in-azure"></a>Solución Update Management de Azure
 
@@ -119,7 +119,7 @@ Heartbeat
 
 En un equipo Windows, revise lo siguiente para comprobar la conectividad del agente con Log Analytics:
 
-1.  Abra Microsoft Monitoring Agent en el panel de control y, en la pestaña **Azure Log Analytics (OMS)**, el agente muestra un mensaje que indica: **Microsoft Monitoring Agent se conectó correctamente al servicio Microsoft Operations Management Suite**.   
+1.  Abra Microsoft Monitoring Agent en el Panel de control y, en la pestaña **Azure Log Analytics**, el agente muestra un mensaje que indica que **Microsoft Monitoring Agent se conectó correctamente a Log Analytics**.   
 2.  Abra el registro de eventos de Windows, vaya a **Registro de aplicaciones y servicios\Operations Manager** y busque los eventos con el identificador 3000 y 5002 del conector de servicio de origen. Estos eventos indican que el equipo se ha registrado en el área de trabajo de Log Analytics y está recibiendo la configuración.  
 
 Si el agente no es capaz de comunicarse con Log Analytics y está configurado para comunicarse con Internet a través de un servidor proxy o firewall, confirme que el firewall o el servidor proxy están configurados correctamente. Para ello, consulte [Configuración de red para el agente de Windows](../log-analytics/log-analytics-agent-windows.md) o [Configuración de red para el agente de Linux](../log-analytics/log-analytics-agent-linux.md).
@@ -131,7 +131,7 @@ Si el agente no es capaz de comunicarse con Log Analytics y está configurado pa
 
 Los agentes de Linux recién agregados mostrarán el estado **Actualizado** después de haber realizado una evaluación. Este proceso puede tardar hasta 6 horas.
 
-Para confirmar que un grupo de administración de Operations Manager se comunica con Log Analytics, consulte [Validación de la integración de Operations Manager con OMS](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-oms).
+Para confirmar que un grupo de administración de Operations Manager se comunica con Log Analytics, consulte [Validación de la integración de Operations Manager con Log Analytics](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-oms).
 
 ## <a name="data-collection"></a>Colección de datos
 
@@ -173,7 +173,7 @@ Haga clic en **Actualizaciones que faltan** para ver la lista de actualizaciones
 
 ## <a name="viewing-update-deployments"></a>Visualización de implementaciones de actualizaciones
 
-Haga clic en **Implementaciones de actualizaciones** para ver la lista de implementaciones de actualizaciones existentes. Al hacer clic en cualquiera de las implementaciones de actualizaciones de la lista, se abre la página **Ejecución de implementación de actualizaciones** de esa implementación de actualizaciones.
+Haga clic en la pestaña **Implementaciones de actualización** para ver la lista de implementaciones de actualización existentes. Al hacer clic en cualquiera de las implementaciones de actualización de la tabla, se abre la página **Actualizar la ejecución de implementación** de esa implementación de actualización.
 
 ![Información general de los resultados de la implementación de actualizaciones](./media/automation-update-management/update-deployment-run.png)
 
@@ -186,7 +186,7 @@ Para crear una implementación de actualizaciones, haga clic en el botón **Impl
 | NOMBRE |Nombre único para identificar la implementación de actualizaciones. |
 |Sistema operativo| Linux o Windows|
 | Máquinas para actualizar |Seleccione una búsqueda guardada o elija la máquina en la lista desplegable y seleccione equipos individuales |
-|Clasificación de actualizaciones|Seleccione todas las clasificaciones de actualizaciones que necesite|
+|Clasificaciones de actualizaciones|Seleccione todas las clasificaciones de actualizaciones que necesite|
 |Actualizaciones para excluir|Escriba todos los KB para excluir sin el prefijo "KB"|
 |Configuración de programación|Seleccione la hora de inicio y seleccione Una vez o de manera periódica para la periodicidad|
 | Ventana de mantenimiento |Número de minutos establecido para las actualizaciones. El valor no puede ser inferior a 30 minutos ni más de 6 horas |
@@ -213,7 +213,7 @@ En la tabla siguiente se proporcionan ejemplos de búsquedas de registros para l
 
 Los clientes que han invertido en System Center Configuration Manager para administrar equipos, servidores y dispositivos móviles también dependen de su solidez y nivel de madurez para administrar actualizaciones de software como parte de su ciclo de Administración de actualizaciones de software (SUM).
 
-Para aprender a integrar la solución Update Management de OMS con System Center Configuration Manager, consulte [Integrar System Center Configuration Manager con Update Management de OMS [versión preliminar]](oms-solution-updatemgmt-sccmintegration.md).
+Para aprender a integrar la solución de administración con System Center Configuration Manager, consulte [Integración de System Center Configuration Manager con Update Management](oms-solution-updatemgmt-sccmintegration.md).
 
 ## <a name="patching-linux-machines"></a>Aplicación de revisiones de máquinas Linux
 

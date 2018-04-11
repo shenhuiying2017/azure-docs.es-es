@@ -104,14 +104,15 @@ Hay dos tipos de cifrado que comentar en referencia a Managed Disks. El primero 
 
 ### <a name="storage-service-encryption-sse"></a>cifrado del servicio de almacenamiento (SSE)
 
-[Cifrado del servicio Azure Storage](../articles/storage/common/storage-service-encryption.md) proporciona cifrado en reposo y protege sus datos con el fin de cumplir con los compromisos de cumplimiento y seguridad de su organización. SSE está habilitado de forma predeterminada para todos los discos administrados, instantáneas e imágenes en todas las regiones donde hay discos administrados. Desde el 10 de junio de 2017, todos los nuevos discos administrados, instantáneas e imágenes, así como los datos nuevos que se escriban en discos administrados existentes, se cifran automáticamente en reposo con claves administradas por Microsoft.  Visite la [página de preguntas más frecuentes sobre discos administrados](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption) para obtener más detalles.
+[Cifrado del servicio Azure Storage](../articles/storage/common/storage-service-encryption.md) proporciona cifrado en reposo y protege sus datos con el fin de cumplir con los compromisos de cumplimiento y seguridad de su organización. SSE está habilitado de forma predeterminada para todos los discos administrados, instantáneas e imágenes en todas las regiones donde hay discos administrados. Desde el 10 de junio de 2017, todos los nuevos discos administrados, instantáneas e imágenes, así como los datos nuevos que se escriban en discos administrados existentes, se cifran automáticamente en reposo con claves administradas por Microsoft de forma predeterminada. Puede elegir traer su propia clave de cifrado para blobs y archivos de Azure. En el cifrado de tablas y colas, siempre se usarán las claves administradas de Microsoft.
+Tenga en cuenta que después de habilitar el cifrado del servicio de almacenamiento, solo se cifrarán los nuevos datos, y los archivos existentes en esta cuenta de almacenamiento se cifrarán con carácter retroactivo mediante un proceso de cifrado en segundo plano. Visite la [página de preguntas más frecuentes sobre discos administrados](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption) para obtener más detalles.
 
 
 ### <a name="azure-disk-encryption-ade"></a>Azure Disk Encryption (ADE)
 
 Azure Disk Encryption le permite cifrar los discos de datos y del sistema operativo usados por una máquina virtual de IaaS. Esto incluye Managed Disks. Para Windows, las unidades se cifran mediante la tecnología de cifrado de BitLocker estándar del sector. Para Linux, los discos se cifran mediante la tecnología DM-Crypt. Se integra con Azure Key Vault para permitirle controlar y administrar las claves de cifrado del disco. Para más información, vea [Azure Disk Encryption para máquinas virtuales IaaS de Windows y Linux](../articles/security/azure-security-disk-encryption.md).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para más información acerca de Managed Disks, consulte los siguientes artículos.
 

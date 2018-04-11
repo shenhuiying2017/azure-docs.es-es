@@ -13,14 +13,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/30/2018
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: 1276fb119199b9dbb9b50bed8ac12cff0a55d2dd
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 317e5f2696635d28b5dbab302e45960af9c8aee2
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB: herramienta de migración de datos
 
@@ -59,7 +59,7 @@ La herramienta de migración de datos es una solución de código abierto que im
 Aunque la herramienta de importación incluye una interfaz gráfica de usuario (dtui.exe), también se pueden controlar desde la línea de comandos (dt.exe). De hecho, hay una opción para mostrar el comando asociado después de configurar una importación a través de la interfaz de usuario. Se pueden transformar datos tabulares de origen (por ejemplo, archivos de SQL Server o CSV) de tal forma que se pueden crear relaciones jerárquicas (subdocumentos) durante la importación. Siga leyendo para obtener más información acerca de las opciones de origen, las líneas de comandos de muestra para importar desde cada origen, las opciones de destino y la visualización de los resultados de importación.
 
 ## <a id="Install"></a>Instalación
-El código fuente de la herramienta de migración está disponible en GitHub en [este repositorio](https://github.com/azure/azure-documentdb-datamigrationtool). Puede descargar y compilar la solución de manera local y, después, ejecutar cualquiera de las siguientes:
+El código fuente de la herramienta de migración está disponible en GitHub en [este repositorio](https://github.com/azure/azure-documentdb-datamigrationtool). Puede descargar y compilar la solución de manera local o bien [descargar un binario precompilado](https://cosmosdbportalstorage.blob.core.windows.net/datamigrationtool/2018.02.28-1.8.1/dt-1.8.1.zip) y, después, ejecutar cualquiera de las siguientes:
 
 * **Dtui.exe**: versión de interfaz gráfica de la herramienta
 * **Dt.exe**: versión de línea de comandos de la herramienta

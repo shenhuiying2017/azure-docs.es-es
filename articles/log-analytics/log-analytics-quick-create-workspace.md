@@ -1,24 +1,24 @@
 ---
-title: "Creación de un área de trabajo en Azure Log Analytics | Microsoft Docs"
-description: "Aprenda a crear un área de trabajo de Log Analytics para habilitar las soluciones de administración y la recopilación de datos en sus entornos tanto locales como en la nube."
+title: Creación de un área de trabajo en Azure Log Analytics | Microsoft Docs
+description: Aprenda a crear un área de trabajo de Log Analytics para habilitar las soluciones de administración y la recopilación de datos en sus entornos tanto locales como en la nube.
 services: log-analytics
 documentationcenter: log-analytics
 author: MGoedtel
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2017
+ms.date: 03/27/2018
 ms.author: magoedte
-ms.openlocfilehash: 5d8b20d5da442aa1f37eb7e2b2cb8049031e7a24
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8ac3d2d90909d740d28eb05396b915280f58c8ba
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="create-a-log-analytics-workspace-in-the-azure-portal"></a>Creación de un área de trabajo de Log Analytics en Azure Portal
 En Azure Portal se puede configurar un área de trabajo de Log Analytics, que es un entorno de Log Analytics único con su propio repositorio de datos, sus propios orígenes de datos y sus propias soluciones.  Los pasos que se describen en este artículo son necesarios si se tiene intención de recopilar datos de los siguientes orígenes:
@@ -37,24 +37,25 @@ Para otros orígenes, como las máquinas virtuales de Azure y los equipos Window
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 ## <a name="log-in-to-azure-portal"></a>Iniciar sesión en Azure Portal
-Inicie sesión en Azure Portal desde [https://portal.azure.com](https://portal.azure.com). 
+Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com). 
 
 ## <a name="create-a-workspace"></a>Crear un área de trabajo
-1. En Azure Portal, haga clic en **Todos los servicios**. En la lista de recursos, escriba **Log Analytics**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Seleccione **Log Analytics**.<br><br> ![portal de Azure](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
+1. En Azure Portal, haga clic en **Todos los servicios**. En la lista de recursos, escriba **Log Analytics**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Seleccione **Log Analytics**.<br><br> ![Azure Portal](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
 2. Haga clic en **Crear** y, a continuación, seleccione opciones para los elementos siguientes:
 
   * Proporcione un nombre para la nueva **Área de trabajo de OMS**, como *DefaultLAWorkspace*. 
   * Seleccione una **suscripción** a la que vincularlo en la lista desplegable si la opción predeterminada seleccionada no es adecuada.
   * Elija **Grupo de recursos** para usar un grupo de recursos existente o crear uno nuevo.  
   * Seleccione una **ubicación** disponible.  Para obtener más información, consulte en qué [regiones está disponible Log Analytics](https://azure.microsoft.com/regions/services/).
-  * Puede elegir entre tres **planes de tarifa** diferentes en Log Analytics, pero, en este caso, seleccionaremos el plan **gratis**.  Para obtener más información sobre planes concretos, consulte los [detalles de precios de Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
+  * Si va a crear un área de trabajo en una nueva suscripción creada después del 2 de abril de 2018, esta utilizará automáticamente el plan de precios *Por GB* y la opción para seleccionar un plan de tarifas no estará disponible.  Si va a crear un área de trabajo para una suscripción ya existente creada antes del 2 de abril, o en una suscripción asociada a una inscripción de EA existente, tiene la opción de elegir entre tres planes de tarifa.  En esta guía de inicio rápido, va a seleccionar el nivel gratis.  Para obtener más información sobre planes concretos, consulte los [detalles de precios de Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
 
-        ![Create Log Analytics resource blade](media/log-analytics-quick-collect-azurevm/create-loganalytics-workspace-01.png)<br>  
+        ![Create Log Analytics resource blade](media/log-analytics-quick-collect-azurevm/create-loganalytics-workspace-02.png)<br>  
+
 3. Después de proporcionar la información necesaria en el panel **Área de trabajo de OMS**, haga clic en **Aceptar**.  
 
 Mientras se comprueba la información y se crea el espacio de trabajo, puede realizar un seguimiento de su progreso en **Notificaciones** en el menú. 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Ahora que tiene un área de trabajo disponible, puede configurar la recopilación de datos de telemetría de supervisión, realizar búsquedas en el registro para analizar dichos datos y agregar una solución de administración que proporcione datos adicionales e información de los análisis. 
 
 * Para habilitar la recopilación de datos de recursos de Azure con Azure Diagnostics o Azure Storage, consulte [Recopilación de registros y métricas de Azure para servicios de Log Analytics](log-analytics-azure-storage.md).  

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 721799703923339d397113fc278cdeb6c6dbb88f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 245bd348b9eb5b434360d734e219efd7c663a406
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: peguntas más frecuentes
 
@@ -60,7 +60,7 @@ El plan Enterprise cobra por cada día que cada nodo de servidor web envía tele
 
 ## <a name="how-much-is-it-costing"></a>¿Cuánto costará?
 
-* Abra la página **Características y precios** en un recurso de Application Insights. Hay un gráfico de uso reciente. Puede establecer un límite de volumen de datos, si quiere.
+* Abra la página **Uso y costos estimados** en un recurso de Application Insights. Hay un gráfico de uso reciente. Puede establecer un límite de volumen de datos, si quiere.
 * Abra la [hoja de facturación de Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingBlade/Overview) para ver las facturas de todos los recursos.
 
 ## <a name="q14"></a>¿Qué modifica Application Insights en mi proyecto?

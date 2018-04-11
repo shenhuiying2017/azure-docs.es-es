@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: c9a7fc0025e6f4f2b793f0616b4bc41c22c2a498
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 326d6873ae78c5f712832c4cfce9c793f1dfbf37
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Uso de plantillas vinculadas y anidadas al implementar recursos de Azure
 
@@ -446,7 +446,7 @@ En el ejemplo siguiente se muestra cómo pasar un token de SAS al vincular a una
 }
 ```
 
-En PowerShell, se obtiene un token para el contenedor y se implementan las plantillas con lo siguiente:
+En PowerShell, se obtiene un token para el contenedor y se implementan las plantillas con los comandos siguientes. Tenga en cuenta que el parámetro **containerSasToken** se define en la plantilla. No es un parámetro en el comando **New-AzureRmResourceGroupDeployment**.
 
 ```powershell
 Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates

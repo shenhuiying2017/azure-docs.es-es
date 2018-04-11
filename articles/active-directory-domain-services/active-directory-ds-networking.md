@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2018
 ms.author: maheshu
-ms.openlocfilehash: eee7905db4faedef3217118e8d491e2cb019fa30
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: a56413490decc928ff2643213084155ae469871c
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Consideraciones de red de Azure AD Domain Services
 ## <a name="how-to-select-an-azure-virtual-network"></a>Selección de una instancia de Azure Virtual Network
@@ -73,7 +73,7 @@ Los siguientes puertos son necesarios para que Azure AD Domain Services mantenga
 **Puerto 443 (sincronización con Azure AD)**
 * Se utiliza para sincronizar el directorio de Azure AD con el dominio administrado.
 * Es obligatorio permitir el acceso a este puerto en el grupo de seguridad de red. Sin acceso a este puerto, el dominio administrado no está sincronizado con el directorio de Azure AD. Los usuarios no podrán iniciar sesión ya que los cambios en sus contraseñas no se sincronizan con el dominio administrado.
-* Puede restringir el acceso de entrada a este puerto a las direcciones IP que pertenezcan al intervalo de direcciones IP de Azure.
+* Puede restringir el acceso de entrada a este puerto a las direcciones IP que pertenezcan al intervalo de direcciones IP de Azure. Tenga en cuenta que el intervalo de direcciones IP de Azure es un intervalo diferente al intervalo de PowerShell que se muestra en la regla siguiente.
 
 **Puerto 5986 (comunicación remota de PowerShell)**
 * Se usa para realizar tareas de administración usando la comunicación remota de PowerShell en el dominio administrado.

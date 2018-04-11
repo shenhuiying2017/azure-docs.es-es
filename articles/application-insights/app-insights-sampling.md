@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: mbullwin
-ms.openlocfilehash: 300b9b7786c17972c5c48df7e5b6d28491adc095
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: d0614e2eae0f60068e69b7a4687fc62fbe082c64
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="sampling-in-application-insights"></a>Muestreo en Application Insights.
 
@@ -30,7 +30,7 @@ El muestreo reduce los costos de tráfico y datos y le ayuda a evitar la limitac
 ## <a name="in-brief"></a>En resumen:
 * El muestreo conserva 1 en *n* registros y descarta el resto. Por ejemplo, podría retener los eventos de 1 a 5, una velocidad de muestreo del 20 %. 
 * El muestreo se produce automáticamente si la aplicación envía una gran cantidad de telemetría en las aplicaciones de servidor web ASP.NET.
-* También puede establecer el muestreo manualmente, bien en el portal en la página de precios, bien en el SDK de ASP.NET en el archivo .config o en el SDK de Java en el archivo ApplicationInsights.xml, para reducir también el tráfico de red.
+* También puede establecer el muestreo manualmente, bien en el portal en la página Uso y costos estimados, bien en el SDK de ASP.NET en el archivo .config o en el SDK de Java en el archivo ApplicationInsights.xml, para reducir también el tráfico de red.
 * Si registra eventos personalizados y desea asegurarse de que un conjunto de eventos se retienen o se descartan juntos, asegúrese de que tengan el mismo valor para OperationId.
 * El divisor de muestreo *n* se notifica en cada registro de la propiedad `itemCount`, que en la búsqueda aparece bajo el nombre descriptivo "recuento de solicitudes" o "recuento de eventos". Cuando el muestreo no está en funcionamiento, `itemCount==1`.
 * Si escribe consultas de Analytics, debería [tener en cuenta el muestreo](app-insights-analytics-tour.md#counting-sampled-data). En concreto, en lugar de simplemente contar registros, debería usar `summarize sum(itemCount)`.
@@ -49,7 +49,7 @@ Esta forma de muestreo funciona en el punto donde la telemetría de su servidor 
 
 Utilice este tipo de muestreo si con frecuencia su aplicación sobrepasa su cuota mensual y no tiene la opción de usar ninguno de los tipos de muestreo basados en el SDK. 
 
-Establezca la frecuencia de muestreo en la hoja Cuotas y precios:
+Establecer la frecuencia de muestreo en la página Uso y costos estimados:
 
 ![En la hoja Información general de la aplicación, haga clic en Configuración, Cuota, Ejemplos y, luego, seleccione una frecuencia de muestreo y haga clic en Actualizar.](./media/app-insights-sampling/04.png)
 

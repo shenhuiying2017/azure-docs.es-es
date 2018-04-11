@@ -1,12 +1,12 @@
 ---
-title: "Conservar las direcciones IP cuando se conmuta por error máquinas virtuales de Azure en otra región de Azure | Microsoft Docs"
-description: "Aquí se describe cómo conservar las direcciones IP de Azure en escenarios de conmutación por error de Azure con Azure Site Recovery"
+title: Conservar las direcciones IP cuando se conmuta por error máquinas virtuales de Azure en otra región de Azure | Microsoft Docs
+description: Aquí se describe cómo conservar las direcciones IP de Azure en escenarios de conmutación por error de Azure con Azure Site Recovery
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: mayanknayar
 manager: rochakm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: 15f87ba87d90cee765f52d3188796bc1ff7b8a35
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 8e128e057e45f6966067ebaaf039d9b14349d926
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="ip-address-retention-for-azure-virtual-machine-failover"></a>Conservar las direcciones IP para la conmutación por error de una máquina virtual de Azure
 
@@ -84,11 +84,7 @@ El ejemplo anterior donde se realiza una conmutación por error aislada se puede
 
 ### <a name="further-considerations"></a>Consideraciones a tener en cuenta
 
-Las puertas de enlace VPN pueden usar direcciones IP públicas y saltos de puerta de enlace para establecer conexiones. Si no desea usar una IP pública o si quiere evitar saltos adicionales, puede usar Global VNet Peering para emparejar redes virtuales en diferentes regiones de Azure.
-
-Esta característica está actualmente en versión preliminar pública y se ampliará para admitir más regiones; asimismo, se habilitará la conectividad directa de máquina virtual a máquina virtual sin ninguna intervención pública de Internet y sin saltos adicionales.
-
-Para obtener más información, consulte la [documentación de emparejamiento](../virtual-network/tutorial-connect-virtual-networks-portal.md#register) y los [precios](https://azure.microsoft.com/pricing/details/virtual-network/).
+Las puertas de enlace VPN pueden usar direcciones IP públicas y saltos de puerta de enlace para establecer conexiones. Si no desea usar una dirección IP pública o desea evitar saltos adicionales, puede usar el [emparejamiento de redes virtuales](../virtual-network/virtual-network-peering-overview.md) de Azure para emparejar las redes virtuales a través de las [regiones de Azure admitidas](../virtual-network/virtual-network-manage-peering.md#cross-region).
 
 ## <a name="on-premises-to-azure-connectivity"></a>Conectividad local a Azure
 

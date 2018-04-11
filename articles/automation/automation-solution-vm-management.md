@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/20/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: da2d95bc100a6160282c93682ad76f7ee881e105
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 2838d8fd53d4e2e564bb7784cb5489e9a167d5bb
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="startstop-vms-during-off-hours-solution-preview-in-azure-automation"></a>Solución Start/Stop VMs during off-hours (versión preliminar) en Azure Automation
 
@@ -55,7 +55,7 @@ Realice los siguientes pasos para agregar la solución Start/Stop VMs during off
 
 1. Aparece la página **Agregar solución**. Se le pide que configure la solución antes de importarla en la suscripción de Automation.
    ![Página Agregar solución de administración de VM](media/automation-solution-vm-management/azure-portal-add-solution-01.png)
-1. En el la página **Agregar solución**, seleccione **Área de trabajo**. Seleccione un área de trabajo de OMS que esté vinculada a la suscripción de Azure en la que se encuentra la cuenta de Automation. Si no tiene ningún área de trabajo, seleccione **Crear nueva área de trabajo**. En la página **Área de trabajo de OMS**, realice las siguientes operaciones:
+1. En el la página **Agregar solución**, seleccione **Área de trabajo**. Seleccione un área de trabajo de Log Analytics que esté vinculada a la suscripción de Azure en la que se encuentra la cuenta de Automation. Si no tiene ningún área de trabajo, seleccione **Crear nueva área de trabajo**. En la página **Área de trabajo de OMS**, realice las siguientes operaciones:
    * Especifique un nombre para el nuevo **espacio de trabajo de OMS**.
    * Seleccione la **suscripción** a la que vincularlo en la lista desplegable si la opción predeterminada seleccionada no es adecuada.
    * En **Grupo de recursos**, puede crear un grupo de recursos nuevo o seleccionar uno existente.
@@ -63,13 +63,13 @@ Realice los siguientes pasos para agregar la solución Start/Stop VMs during off
    * Seleccione un **plan de tarifa**. La solución se ofrece en dos niveles: **Gratis** y **Por nodo (OMS)**. El nivel Gratis tiene limitados la cantidad de datos que se recopilan a diario, el período de retención y los minutos de tiempo de ejecución del trabajo del runbook. El nivel Por nodo (OMS) no tiene ningún límite en la cantidad de datos recopilados a diario.
 
         > [!NOTE]
-        > Aunque el nivel de pago por GB (Independiente) se muestra como opción, no es aplicable. Si lo selecciona y continúa con la creación de esta solución en su suscripción, se producirá un error. Esto se solucionará cuando se lance oficialmente la solución. Esta solución solo usa minutos de trabajo e ingesta de registros. La solución no agrega nodos de OMS adicionales a su entorno.
+        > Aunque el nivel de pago por GB (Independiente) se muestra como opción, no es aplicable. Si lo selecciona y continúa con la creación de esta solución en su suscripción, se producirá un error. Esto se solucionará cuando se lance oficialmente la solución. Esta solución solo usa minutos de trabajo e ingesta de registros. No agrega nodos adicionales a su entorno.
 
 1. Después de proporcionar la información necesaria en la página **Área de trabajo de OMS**, haga clic en **Crear**. Se puede realizar un seguimiento de su progreso en la opción **Notificaciones** del menú, que le devuelve a la página **Agregar solución** cuando haya finalizado.
-1. En la página **Agregar solución**, seleccione **Cuenta de Automation**. Si va a crear una nueva área de trabajo de OMS, también debe crear una nueva cuenta de Automation con la que asociarla. Seleccione **Crear una cuenta de Automation** y, en la página **Agregar cuenta de Automation**, especifique la siguiente información:
+1. En la página **Agregar solución**, seleccione **Cuenta de Automation**. Si va a crear una nueva área de trabajo de Log Analytics, también debe crear una nueva cuenta de Automation con la que asociarla. Seleccione **Crear una cuenta de Automation** y, en la página **Agregar cuenta de Automation**, especifique la siguiente información:
    * En el campo **Nombre**, escriba el nombre de la cuenta de Automation.
 
-    Las restantes opciones se rellenan automáticamente en función del área de trabajo de OMS seleccionado. Dichas opciones no se pueden modificar. Una cuenta de ejecución de Azure es el método de autenticación predeterminado para los Runbooks incluidos en esta solución. Después de hacer clic en **Aceptar**, se validan las opciones de configuración y se crea la cuenta de Automation. Puede realizar un seguimiento de su progreso en **Notificaciones** en el menú.
+    Las restantes opciones se rellenan automáticamente en función del área de trabajo de Log Analytics seleccionada. Dichas opciones no se pueden modificar. Una cuenta de ejecución de Azure es el método de autenticación predeterminado para los Runbooks incluidos en esta solución. Después de hacer clic en **Aceptar**, se validan las opciones de configuración y se crea la cuenta de Automation. Puede realizar un seguimiento de su progreso en **Notificaciones** en el menú.
 
 1. Por último, en la página **Agregar solución**, seleccione **Configuración**. Aparece la página **Parámetros**.
 
@@ -230,7 +230,7 @@ No se deben habilitar todas las programaciones, ya que ello podría crear accion
 
 ## <a name="log-analytics-records"></a>Registros de Log Analytics
 
-Automation crea dos tipos de registros en el repositorio de OMS: registros de trabajo y flujos de trabajo.
+Automation crea dos tipos de registros en el área de trabajo de Log Analytics: registros de trabajo y flujos de trabajo.
 
 ### <a name="job-logs"></a>Registros de trabajo
 

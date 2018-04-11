@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 03/15/2018
 ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 0cfa79b9c44953c613eaec8d701f351c6f2ce212
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f9cc4f900428e1337fc9b9d428879d6527c60017
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="optional-claims-in-azure-ad-preview"></a>Notificaciones opcionales en Azure AD (versión preliminar)
 
@@ -65,13 +65,7 @@ El conjunto de notificaciones opcionales disponibles de forma predeterminada par
 | `fwd`                      | Dirección IP.  Agrega la dirección IPv4 original del cliente solicitante (cuando se encuentra en una red virtual)                                                                                                       | JWT        |           |                                                                                                                                                                                                                                                                                         |
 | `ctry`                     | País del usuario                                                                                                                                                                                  | JWT        |           |                                                                                                                                                                                                                                                                                         |
 | `tenant_ctry`              | País del inquilino de los recursos                                                                                                                                                                       | JWT        |           |                                                                                                                                                                                                                                                                                         |
-| `is_device_known`          | Indica si el dispositivo está unido al área de trabajo. Relacionado con la directiva de acceso condicional                                                                                                                 | SAML       |           | Para los JWT, convergente en signin_state                                                                                                                                                                                                                                                   |
-| `is_device_managed`        | Indica si el dispositivo tiene MDM instalado. Relacionado con la directiva de acceso condicional                                                                                                                  | SAML       |           | Para los JWT, convergente en signin_state                                                                                                                                                                                                                                                   |
-| `is_device_compliant`      | Indica que MDM ha determinado que el dispositivo es compatible con las directivas de seguridad de dispositivos de la organización.                                                                                  | SAML       |           | Para los JWT, convergente en signin_state                                                                                                                                                                                                                                                   |
-| `kmsi`                     | Indica si el usuario ha elegido la opción Mantener la sesión iniciada                                                                                                                                    | SAML       |           | Para los JWT, convergente en signin_state                                                                                                                                                                                                                                                   |
-| `upn`                      | Notificación UserPrincipalName.  Aunque esta notificación se incluye automáticamente, puede especificarla como opcional para adjuntar propiedades adicionales y así modificarle el comportamiento para los usuarios invitados | JWT, SAML  |           | Propiedades adicionales: <br> include_externally_authenticated_upn <br> include_externally_authenticated_upn_without_hash                                                                                                                                                                 |
-| `groups`                   | Grupos a los que pertenece un usuario.                                                                                                                                                               | JWT, SAML  |           | Propiedades adicionales: <br> Sam_account_name<br> Dns_domain_and_sam_account_name<br> Netbios_domain_and_sam_account<br> Max_size_limit<br> Emit_as_roles<br>                                                                                                                            |
-
+| `upn`                      | Notificación UserPrincipalName.  Aunque esta notificación se incluye automáticamente, puede especificarla como opcional para adjuntar propiedades adicionales y así modificarle el comportamiento para los usuarios invitados | JWT, SAML  |           | Propiedades adicionales: <br> `include_externally_authenticated_upn` <br> `include_externally_authenticated_upn_without_hash`                                                                                                                                                                 |
 ### <a name="v20-optional-claims"></a>Notificaciones opcionales de la versión 2.0
 Estas notificaciones siempre se incluyen en los tokens de la versión 1.0, pero se quitan de los tokens de la versión 2.0, a menos que se soliciten.  Estas notificaciones solo se aplican a los JWT (tokens de identificación y de acceso).  
 
@@ -90,26 +84,19 @@ Estas notificaciones siempre se incluyen en los tokens de la versión 1.0, pero 
 
 ### <a name="additional-properties-of-optional-claims"></a>Propiedades adicionales de las notificaciones opcionales
 
-Algunas notificaciones opcionales se pueden configurar para cambiar la manera de devolver la notificación.  Estas propiedades adicionales van desde cambios de formato (por ejemplo, `include_externally_authenticated_upn_without_hash`) hasta cambios en el conjunto de datos devuelto (`Dns_domain_and_sam_account_name`).
+Algunas notificaciones opcionales se pueden configurar para cambiar la manera de devolver la notificación.  Estas propiedades adicionales se utilizan principalmente para ayudar a la migración de aplicaciones locales con expectativas de datos diferentes (por ejemplo, `include_externally_authenticated_upn_without_hash` ayuda con los clientes que no pueden admitir almohadillas [`#`] en el UPN).
 
 **Tabla 4. Valores para configurar las notificaciones opcionales estándares**
 
 | Nombre de propiedad                                     | Nombre de la propiedad adicional                                                                                                             | DESCRIPCIÓN |
 |---------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|-------------|
-| `Upn`                                                 |                                                                                                                                      |             |
+| `upn`                                                 |                                                                                                                                      |             |
 | | `include_externally_authenticated_upn`              | Incluye el nombre principal de usuario invitado tal como se almacenó en el inquilino de recursos.  Por ejemplo: `foo_hometenant.com#EXT#@resourcetenant.com`                            |             
 | | `include_externally_authenticated_upn_without_hash` | Igual que antes, excepto que las almohadillas (`#`) se reemplazan por caracteres de subrayado (`_`), por ejemplo `foo_hometenant.com_EXT_@resourcetenant.com` |             
-| `groups`                                              |                                                                                                                                      |             |
-| | `sam_account_name`                                  |                                                                                                                                      |             
-| | `dns_domain_and_sam_account_name`                   |                                                                                                                                      |             
-| | `netbios_domain_and_sam_account_name`               |                                                                                                                                      |             
-| | `max_size_limit`                                    | Aumenta al tamaño de grupo máximo el número de grupos que se devuelven (1000).                                                            |             
-| | `emit_as_roles`                                     | Emite una notificación "roles" en lugar de la notificación "groups", con los mismos valores.  Diseñado para aplicaciones que migran de un entorno local donde se solía controlar el acceso basado en roles mediante la pertenencia a grupos.   |             
 
 > [!Note]
 >Especificar que la notificación opcional upn sin propiedades adicionales no cambia el comportamiento: para ver una nueva notificación emitida en el token, se debe agregar al menos una de las propiedades adicionales. 
->
->Las propiedades adicionales `account_name` para los grupos no son interoperables y su orden es importante: solo se usará el primer nombre de cuenta de la lista Propiedad adicional. 
+
 
 #### <a name="additional-properties-example"></a>Ejemplo de propiedades adicionales:
 
@@ -118,15 +105,15 @@ Algunas notificaciones opcionales se pueden configurar para cambiar la manera de
    {
        "idToken": [ 
              { 
-                "name": "groups", 
+                "name": "upn", 
             "essential": false,
-                "additionalProperties": [ "netbios_domain_and_sam_account_name", "sam_account_name" , "emit_as_roles"]  
+                "additionalProperties": [ "include_externally_authenticated_upn"]  
               }
         ]
 }
 ```
 
-Este objeto OptionalClaims devolverá la misma notificación `groups` que si `sam_account_name` no se incluyera (como va después de `netbios_domain_and_sam_account_name`, se omite). 
+Este objeto OptionalClaims hace que el token de identificador devuelto al cliente incluya otro UPN con el inquilino de inicio adicional y la información de recursos de inquilino.  
 
 ## <a name="configuring-optional-claims"></a>Configuración de notificaciones opcionales
 

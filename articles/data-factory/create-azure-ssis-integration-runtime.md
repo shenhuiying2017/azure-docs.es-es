@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: douglasl
-ms.openlocfilehash: dc4c690633d14163eddfa70e8417a645f95a0861
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c8804dce7dd8291b65f704ba36aaa1cd05eb4518
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Crear una instancia de Integration Runtime de Azure SSIS en Azure Data Factory
 En este artículo se describen los pasos necesarios para aprovisionar una instancia de Integration Runtime de SSIS de Azure en Azure Data Factory. Posteriormente, podrá usar SQL Server Data Tools (SSDT) o SQL Server Management Studio (SSMS) para implementar paquetes de SQL Server Integration Services (SSIS) en este entorno de ejecución de Azure.
 
 El tutorial: [Implementación de paquetes de SQL Server Integration Services (SSIS) en Azure](tutorial-create-azure-ssis-runtime-portal.md) mostraba cómo crear un entorno de ejecución de SSIS en Azure utilizando Azure SQL Database como almacén del catálogo de SSIS. Este artículo permite ampliar el tutorial y muestra cómo hacer lo siguiente: 
 
-- Utilice la instancia administrada de Azure SQL (versión preliminar privada) para hospedar un catálogo de SSIS (base de datos SSISDB).
+- Utilice la instancia administrada de Azure SQL (versión preliminar) para hospedar un catálogo de SSIS (base de datos SSISDB).
 - Unión de Integration Runtime de SSIS de Azure a una red virtual (VNet) de Azure. Para obtener información conceptual sobre la unión de una instancia de Integration Runtime de SSIS de Azure a una red virtual y sobre la configuración de una red virtual en Azure Portal, consulte [Unión de una instancia de Integration Runtime de SSIS de Azure a una red virtual](join-azure-ssis-integration-runtime-virtual-network.md). 
 
 > [!NOTE]
@@ -44,11 +44,11 @@ Al aprovisionar una instancia del entorno de ejecución para la integración de 
 ## <a name="prerequisites"></a>requisitos previos
 
 - **Suscripción de Azure**. Si no tiene ninguna suscripción, puede crear una [cuenta de evaluación gratuita](http://azure.microsoft.com/pricing/free-trial/).
-- **Servidor de Azure SQL Database** o **Instancia administrada de SQL Server (versión preliminar privada) (versión preliminar privada extendida)**. Si aún no tiene ningún servidor de base de datos, cree uno en Azure Portal antes de empezar a trabajar. Este servidor hospeda la base de datos de catálogo de SSIS (SSISDB). Le recomendamos que cree el servidor de base de datos en la misma región de Azure que la instancia de Integration Runtime. Esta configuración permite que la instancia de Integration Runtime escriba registros de ejecución en SSISDB sin traspasar regiones de Azure. Anote el plan de tarifa de su instancia de Azure SQL Server. Para una lista de los planes de tarifa admitidos para Azure SQL Database, consulte [Límites de recursos de SQL Database](../sql-database/sql-database-resource-limits.md).
+- **Servidor de Azure SQL Database** o **Instancia administrada de SQL Server (versión preliminar) (versión preliminar privada extendida)**. Si aún no tiene ningún servidor de base de datos, cree uno en Azure Portal antes de empezar a trabajar. Este servidor hospeda la base de datos de catálogo de SSIS (SSISDB). Le recomendamos que cree el servidor de base de datos en la misma región de Azure que la instancia de Integration Runtime. Esta configuración permite que la instancia de Integration Runtime escriba registros de ejecución en SSISDB sin traspasar regiones de Azure. Anote el plan de tarifa de su instancia de Azure SQL Server. Para una lista de los planes de tarifa admitidos para Azure SQL Database, consulte [Límites de recursos de SQL Database](../sql-database/sql-database-resource-limits.md).
 
-    Confirme que el servidor de Azure SQL Database o SQL Server Managed Instance (versión preliminar privada extendida) no tienen un catálogo de SSIS (base de datos SSIDB). El aprovisionamiento de entornos de ejecución de SSIS en Azure no admite el uso de un catálogo de SSIS existente.
+    Confirme que el servidor de Azure SQL Database o SQL Server Managed Instance (versión preliminar) no tienen un catálogo de SSIS (base de datos SSIDB). El aprovisionamiento de entornos de ejecución de SSIS en Azure no admite el uso de un catálogo de SSIS existente.
 - **Red virtual (VNet) de Azure Resource Manager o clásica (opcional)**. Debe tener una instancia de Azure Virtual Network (VNet) si se cumple al menos una de las siguientes condiciones:
-    - Hospeda la base de datos de catálogo de SSIS en una instancia administrada de SQL Server (versión preliminar privada) que forme parte de una red virtual.
+    - Hospeda la base de datos de catálogo de SSIS en una instancia administrada de SQL Server (versión preliminar) que forme parte de una red virtual.
     - Quiere conectarse a almacenes de datos locales desde paquetes de SSIS que se ejecutan en una instancia de Integration Runtime de SSIS de Azure.
 - **Azure PowerShell**. Siga las instrucciones de [Instalación y configuración de Azure PowerShell](/powershell/azure/install-azurerm-ps). Usa PowerShell para ejecutar un script para aprovisionar una instancia de Integration Runtime de SSIS de Azure que ejecuta paquetes de SSIS en la nube. 
 
@@ -181,15 +181,15 @@ $AzureSSISNodeNumber = 2
 $AzureSSISMaxParallelExecutionsPerNode = 2 
 
 # SSISDB info
-$SSISDBServerEndpoint = "[your Azure SQL Database server name.database.windows.net or your Azure SQL Managed Instance (private preview) server endpoint]"
+$SSISDBServerEndpoint = "[your Azure SQL Database server name.database.windows.net or your Azure SQL Managed Instance (Preview) server endpoint]"
 $SSISDBServerAdminUserName = "[your server admin username]"
 $SSISDBServerAdminPassword = "[your server admin password]"
 
-# Remove the SSISDBPricingTier variable if you are using Azure SQL Managed Instance (private preview)
+# Remove the SSISDBPricingTier variable if you are using Azure SQL Managed Instance (Preview)
 # This parameter applies only to Azure SQL Database. For the basic pricing tier, specify "Basic", not "B". For standard tiers, specify "S0", "S1", "S2", 'S3", etc.
 $SSISDBPricingTier = "[your Azure SQL Database pricing tier. Examples: Basic, S0, S1, S2, S3, etc.]"
 
-## These two parameters apply if you are using a VNet and an Azure SQL Managed Instance (private preview) 
+## These two parameters apply if you are using a VNet and an Azure SQL Managed Instance (Preview) 
 # Specify information about your classic or Azure Resource Manager virtual network (VNet). 
 $VnetId = "[your VNet resource ID or leave it empty]" 
 $SubnetName = "[your subnet name or leave it empty]" 
@@ -204,7 +204,7 @@ Select-AzureRmSubscription -SubscriptionName $SubscriptionName
 ```
 
 ### <a name="validate-the-connection-to-database"></a>Validación de la conexión a la base de datos
-Agregue el siguiente script para validar el punto de conexión del servidor de Azure SQL Database server.database.windows.net o de la instancia administrada de Azure SQL (versión preliminar privada). 
+Agregue el siguiente script para validar el punto de conexión del servidor de Azure SQL Database server.database.windows.net o de la instancia administrada de Azure SQL (versión preliminar). 
 
 ```powershell
 $SSISDBConnectionString = "Data Source=" + $SSISDBServerEndpoint + ";User ID="+ $SSISDBServerAdminUserName +";Password="+ $SSISDBServerAdminPassword
@@ -263,7 +263,7 @@ Set-AzureRmDataFactoryV2 -ResourceGroupName $ResourceGroupName `
 ```
 
 ### <a name="create-an-integration-runtime"></a>Creación de una instancia de Integration Runtime
-Ejecute el siguiente comando para crear una instancia de Integration Runtime de SSIS de Azure que ejecute paquetes SSIS en Azure: use el script de la sección basado en el tipo de la base de datos (Azure SQL Database frente a Instancia administrada de Azure SQL (versión preliminar privada)) que está usando. 
+Ejecute el siguiente comando para crear una instancia de Integration Runtime de SSIS de Azure que ejecute paquetes SSIS en Azure: use el script de la sección basado en el tipo de la base de datos (Azure SQL Database frente a Instancia administrada de Azure SQL (versión preliminar) que está usando. 
 
 #### <a name="azure-sql-database-to-host-the-ssisdb-database-ssis-catalog"></a>Azure SQL Database para hospedar la base de datos SSISDB (catálogo de SSIS) 
 
@@ -286,7 +286,7 @@ Set-AzureRmDataFactoryV2IntegrationRuntime  -ResourceGroupName $ResourceGroupNam
 
 No es necesario pasar valores para VNetId y Subnet, a menos que necesite acceder a los datos locales, es decir, que tenga orígenes o destinos de datos locales en los paquetes SSIS. Debe pasar el valor para el parámetro CatalogPricingTier. Para una lista de los planes de tarifa admitidos para Azure SQL Database, consulte [Límites de recursos de SQL Database](../sql-database/sql-database-resource-limits.md).
 
-#### <a name="azure-sql-managed-instance-private-preview-to-host-the-ssisdb-database"></a>Instancia administrada de Azure SQL (versión preliminar privada) para hospedar la base de datos SSISDB
+#### <a name="azure-sql-managed-instance-preview-to-host-the-ssisdb-database"></a>Instancia administrada de Azure SQL (versión preliminar) para hospedar la base de datos SSISDB
 
 ```powershell
 $secpasswd = ConvertTo-SecureString $SSISDBServerAdminPassword -AsPlainText -Force
@@ -306,7 +306,7 @@ Set-AzureRmDataFactoryV2IntegrationRuntime  -ResourceGroupName $ResourceGroupNam
                                             -Subnet $SubnetName
 ```
 
-Tiene que pasar los valores para los parámetros VnetId y Subnet con la instancia administrada de Azure SQL (versión preliminar privada) que permite unirse a una red virtual. El parámetro CatalogPricingTier no se aplica a la instancia administrada de Azure SQL. 
+Tiene que pasar los valores para los parámetros VnetId y Subnet con la instancia administrada de Azure SQL (versión preliminar) que permite unirse a una red virtual. El parámetro CatalogPricingTier no se aplica a la instancia administrada de Azure SQL (versión preliminar). 
 
 ### <a name="start-integration-runtime"></a>Inicio de la instancia de Integration Runtime
 Ejecute el siguiente comando para iniciar la instancia de Integration Runtime de SSIS de Azure: 
@@ -325,7 +325,7 @@ Este comando tarda entre **20 y 30 minutos** en completarse.
 
 
 ### <a name="full-script"></a>Script completo
-Este es el script completo que crea una instancia de Integration Runtime de SSIS de Azure y la une a una red virtual. Este script considera que está usando la instancia administrada de Azure SQL para hospedar el catálogo de SSIS. 
+Este es el script completo que crea una instancia de Integration Runtime de SSIS de Azure y la une a una red virtual. Este script considera que está usando la instancia administrada de Azure SQL (versión preliminar) para hospedar el catálogo de SSIS. 
 
 ```powershell
 # Azure Data Factory version 2 information 
@@ -351,7 +351,7 @@ $AzureSSISMaxParallelExecutionsPerNode = 2
 $SSISDBServerEndpoint = "<Azure SQL server name>.database.windows.net"
 $SSISDBServerAdminUserName = "<Azure SQL server - user name>"
 $SSISDBServerAdminPassword = "<Azure SQL server - user password>"
-# Remove the SSISDBPricingTier variable if you are using Azure SQL Managed Instance (private preview)
+# Remove the SSISDBPricingTier variable if you are using Azure SQL Managed Instance (Preview)
 # This parameter applies only to Azure SQL Database. For the basic pricing tier, specify "Basic", not "B". For standard tiers, specify "S0", "S1", "S2", 'S3", etc.
 $SSISDBPricingTier = "<pricing tier of your Azure SQL server. Examples: Basic, S0, S1, S2, S3, etc.>" 
 

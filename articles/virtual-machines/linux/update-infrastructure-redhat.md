@@ -1,11 +1,11 @@
 ---
 title: Red Hat Update Infrastructure | Microsoft Docs
-description: "Obtenga información acerca de Red Hat Update Infrastructure para instancias de Red Hat Enterprise Linux a petición de Microsoft Azure"
+description: Obtenga información acerca de Red Hat Update Infrastructure para instancias de Red Hat Enterprise Linux a petición de Microsoft Azure
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: BorisB2015
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f495f1b4-ae24-46b9-8d26-c617ce3daf3a
 ms.service: virtual-machines-linux
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/10/2017
 ms.author: borisb
-ms.openlocfilehash: ea9a5cbd9b9b7b67ceb131cb8ba1d2476dbd5f72
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fe354c6c9415c1525527dd6b95d1b3a481b5a2de
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Red Hat Update Infrastructure para máquinas virtuales Red Hat Enterprise Linux a petición en Azure
  [Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) permite que los proveedores de nube, como Azure, reflejen el contenido del repositorio hospedado en Red Hat, creen repositorios personalizados con contenido específico de Azure y lo pongan a disposición de las máquinas virtuales del usuario final.
@@ -50,6 +50,7 @@ Si va a usar la configuración de red para restringir aún más el acceso desde 
 40.85.190.91
 52.187.75.218
 52.174.163.213
+52.237.203.198
 
 # Azure US Government
 13.72.186.193
@@ -74,7 +75,7 @@ Si experimenta problemas al conectarse a RHUI de Azure desde la máquina virtual
 
     b. Si apunta a una ubicación con el siguiente patrón `mirrorlist.*cds[1-4].cloudapp.net`, es necesario actualizar la configuración. Está usando la instantánea de máquina virtual anterior y tiene que actualizarla para dirigirla al nuevo RHUI de Azure.
 
-2. El acceso a la RHUI hospedada en Azure se limita a las máquinas virtuales dentro de los [intervalos IP del centro de datos de Azure] (https://www.microsoft.com/download/details.aspx?id=41653).
+2. El acceso a la RHUI hospedada en Azure se limita a las máquinas virtuales dentro de los [intervalos de direcciones IP del centro de datos de Azure] (https://www.microsoft.com/download/details.aspx?id=41653).
  
 3. Si está usando la configuración nueva y comprobó que la máquina virtual se conecta desde el intervalo IP de Azure pero sigue sin poder conectarse a RHUI de Azure, presente una incidencia de soporte técnico a Microsoft o Red Hat.
 

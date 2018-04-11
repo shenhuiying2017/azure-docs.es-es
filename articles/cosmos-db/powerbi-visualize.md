@@ -6,30 +6,30 @@ services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: mimig
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: cd1b7f70-ef99-40b7-ab1c-f5f3e97641f7
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/16/2017
+ms.date: 03/29/2018
 ms.author: mimig
-ms.openlocfilehash: 6414cdc942c43f6eb13ca8f050d6503bdd3e0b42
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 74be3e5b25401a7811c1af23a0a7e2887f9055c1
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="power-bi-tutorial-for-azure-cosmos-db-visualize-data-using-the-power-bi-connector"></a>Tutorial de Power BI para Azure Cosmos DB: visualización de datos mediante el conector de Power BI
-[PowerBI.com](https://powerbi.microsoft.com/) es un servicio en línea, en el que se pueden crear paneles e informes, y compartirlos, con los datos que son importantes para el usuario y su organización.  Power BI Desktop es una herramienta dedicada de creación de informes que permite recuperar datos de varios orígenes de datos, combinar y transformar los datos, crear visualizaciones e informes eficaces y publicar los informes en Power BI.  Con la versión más reciente de Power BI Desktop, ahora puede conectarse a su cuenta de Cosmos DB a través del conector DocumentDB para Cosmos DB.   
+[PowerBI.com](https://powerbi.microsoft.com/) es un servicio en línea, en el que se pueden crear paneles e informes, y compartirlos, con los datos que son importantes para el usuario y su organización.  Power BI Desktop es una herramienta dedicada de creación de informes que permite recuperar datos de varios orígenes de datos, combinar y transformar los datos, crear visualizaciones e informes eficaces y publicar los informes en Power BI.  Con la versión más reciente de Power BI Desktop, ahora puede conectarse a su cuenta de Azure Cosmos DB mediante el conector Azure Cosmos DB para Power BI.   
 
-En este tutorial de Power BI, se le guiará por los pasos para conectarse a una cuenta de Cosmos DB en Power BI Desktop, desplazarse a una colección donde queremos extraer los datos mediante el navegador, transformar datos JSON en formato tabular mediante el Editor de consultas de Power BI Desktop y generar y publicar un informe en PowerBI.com.
+En este tutorial de Power BI, se le guía por los pasos para conectarse a una cuenta de Azure Cosmos DB en Power BI Desktop, desplazarse a una colección donde queremos extraer los datos mediante el navegador, transformar datos JSON en formato tabular mediante el Editor de consultas de Power BI Desktop y generar y publicar un informe en PowerBI.com.
 
 Después de completar este tutorial de Power BI, podrá responder a las preguntas siguientes:  
 
-* ¿Cómo genero informes con datos de Cosmos DB con Power BI Desktop?
-* ¿Cómo puedo conectar a una cuenta de Cosmos DB en Power BI Desktop?
+* ¿Cómo genero informes con datos de Azure Cosmos DB con Power BI Desktop?
+* ¿Cómo puedo conectar con una cuenta de Azure Cosmos DB en Power BI Desktop?
 * ¿Cómo puedo recuperar datos de una colección en Power BI Desktop?
 * ¿Cómo puedo transformar datos JSON anidados en Power BI Desktop?
 * ¿Cómo puedo publicar y compartir mis informes en PowerBI.com?
@@ -40,20 +40,20 @@ Después de completar este tutorial de Power BI, podrá responder a las pregunta
 > [!NOTE]
 > Para conectar Azure Cosmos DB a Power BI mediante la API de MongoDB, debe usar el [controlador ODBC de MongoDB de Simba](http://www.simba.com/drivers/mongodb-odbc-jdbc/).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Antes de seguir las instrucciones de este tutorial de Power BI, asegúrese de que tiene acceso a los siguientes recursos:
 
 * [La versión más reciente de Power BI Desktop](https://powerbi.microsoft.com/desktop).
-* Acceda a nuestros datos o cuenta de demostración de la cuenta de Cosmos DB.
+* Acceda a nuestros datos o cuenta de demostración de la cuenta de Azure Cosmos DB.
   * La cuenta de demostración se rellena con los datos de los volcanes mostrados en este tutorial. Esta cuenta de demostración no está vinculada a ningún SLA y está pensada únicamente con fines de demostración.  Nos reservamos el derecho de realizar modificaciones en esta cuenta de demostración, incluido sin limitación, la cancelación de la cuenta, el cambio de clave, la restricción del acceso, el cambio y la eliminación de los datos, todo ello en cualquier momento y sin previo aviso.
     * Dirección URL: https://analytics.documents.azure.com
     * Clave de solo lectura: MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==
   * O bien, para crear su propia cuenta, consulte [Creación de una cuenta de base de datos de Cosmos DB mediante Azure Portal](https://azure.microsoft.com/documentation/articles/create-account/). Después, para obtener los datos de los volcanes que son similares a los usados en este tutorial (pero que no contienen los bloques de GeoJSON), visite el [sitio de NOAA](https://www.ngdc.noaa.gov/nndc/struts/form?t=102557&s=5&d=5) y luego importe los datos mediante la [herramienta de migración de datos de Azure Cosmos DB](import-data.md).
 
-Para compartir los informes en PowerBI.com, debe tener una cuenta en PowerBI.com.  Para más información sobre la versión gratuita de Power BI y de Power BI Pro, visite [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing).
+Para compartir los informes en PowerBI.com, debe tener una cuenta en PowerBI.com.  Para más información sobre Power BI gratis y Power BI Pro, visite [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing).
 
 ## <a name="lets-get-started"></a>Comencemos.
-En este tutorial, imaginemos que usted es un geólogo que estudia los volcanes de todo el mundo.  Los datos del archivo volcano se almacenan en una cuenta de Cosmos DB y los documentos JSON tienen el aspecto del siguiente documento de ejemplo.
+En este tutorial, imaginemos que usted es un geólogo que estudia los volcanes de todo el mundo.  Los datos de volcanes se almacenan en una cuenta de Azure Cosmos DB y los documentos JSON tienen el aspecto del siguiente documento de ejemplo.
 
     {
         "Volcano Name": "Rainier",
@@ -72,7 +72,7 @@ En este tutorial, imaginemos que usted es un geólogo que estudia los volcanes d
           "Last Known Eruption": "Last known eruption from 1800-1899, inclusive"
     }
 
-Quiere recuperar los datos del archivo volcano de la cuenta de Cosmos DB y visualizar dichos datos en un informe de Power BI interactivo como el siguiente.
+Quiere recuperar los datos de volcanes de la cuenta de Azure Cosmos DB y visualizar dichos datos en un informe de Power BI interactivo como el siguiente.
 
 ![Después de completar este tutorial de Power BI con el conector de Power BI, podrá visualizar los datos con el informe de volcanes de Power BI Desktop](./media/powerbi-visualize/power_bi_connector_pbireportfinal.png)
 
@@ -86,11 +86,11 @@ Quiere recuperar los datos del archivo volcano de la cuenta de Cosmos DB y visua
    
     ![Vista de informes de Power BI Desktop: conector de Power BI](./media/powerbi-visualize/power_bi_connector_pbireportview.png)
 4. Seleccione la cinta de opciones **Inicio** y haga clic en **Obtener datos**.  Se muestra la pantalla **Obtener datos** .
-5. Haga clic en **Azure**, seleccione **Microsoft Azure DocumentDB (Beta)** y, a continuación, haga clic en **Conectar**. 
+5. Haga clic en **Azure**, seleccione **Azure Cosmos DB (beta)** y, a continuación, haga clic en **Conectar**. 
 
     ![Obtención de datos de Power BI Desktop: conector de Power BI](./media/powerbi-visualize/power_bi_connector_pbigetdata.png)   
-6. En la página **Vista previa del conector**, haga clic en **Continuar**. Aparece la ventana **Conexión de Microsoft Azure DocumentDB**.
-7. Especifique la URL del punto de conexión de la cuenta de Cosmos DB desde la que desea recuperar los datos, de tal como se muestra a continuación, y haga clic en **Aceptar**. Para utilizar su propia cuenta, puede recuperar la dirección URL del cuadro te texto Identificador URI de la hoja **[Claves](manage-account.md#keys)** de Azure Portal. Para usar la cuenta de demostración, escriba `https://analytics.documents.azure.com` para la dirección URL. 
+6. En la página **Vista previa del conector**, haga clic en **Continuar**. Aparece la ventana de **Azure Cosmos DB**.
+7. Especifique la dirección URL del punto de conexión de la cuenta de Azure Cosmos DB de la que desea recuperar los datos, tal como se muestra a continuación, y haga clic en **Aceptar**. Para utilizar su propia cuenta, puede recuperar la dirección URL del cuadro te texto Identificador URI de la hoja **[Claves](manage-account.md#keys)** de Azure Portal. Para usar la cuenta de demostración, escriba `https://analytics.documents.azure.com` para la dirección URL. 
    
     Deje en blanco el nombre de la base de datos, el nombre de la colección y la instrucción SQL. Esos campos son opcionales.  En su lugar, usaremos el navegador para seleccionar la base de datos y la colección para identificar la procedencia de los datos.
    
@@ -132,7 +132,7 @@ Quiere recuperar los datos del archivo volcano de la cuenta de Cosmos DB y visua
     ![Tutorial de Power BI para conector de Power BI de Azure Cosmos DB - Lista de coordenadas](./media/powerbi-visualize/power_bi_connector_pbiresultflattenlist.png)
 7. Para eliminar el formato de la matriz de coordenadas, crearemos una **columna personalizada** llamada LatLong.  Seleccione la cinta de opciones **Agregar columna** y haga clic en **Agregar columna personalizada**.  La ventana **Agregar columna personalizada** debería aparecer .
 8. Dele un nombre a la nueva columna, por ejemplo, LatLong.
-9. Después, especifique la fórmula personalizada para la nueva columna.  En nuestro ejemplo, concatenaremos los valores de latitud y longitud separados por comas, como se muestra a continuación mediante la fórmula siguiente: `Text.From([coordinates]{1})&","&Text.From([coordinates]{0})`. Haga clic en **Aceptar**.
+9. Después, especifique la fórmula personalizada para la nueva columna.  En nuestro ejemplo, concatenaremos los valores de latitud y longitud separados por comas, como se muestra a continuación mediante la fórmula siguiente: `Text.From([coordinates]{1})&","&Text.From([coordinates]{0})`. Haga clic en **OK**.
    
     Para más información sobre Expresiones de análisis de datos (DAX), incluidas las funciones DAX, visite [DAX Basic en Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/554619-dax-basics-in-power-bi-desktop).
    
@@ -218,11 +218,11 @@ Para realizar una actualización programada, haga lo siguiente.
 3. Haga clic en **Editar credenciales**. 
    
     Aparecerá el elemento emergente Configurar. 
-4. Escriba la clave para conectarse a la cuenta de Cosmos DB que corresponde a ese conjunto de base de datos y, luego, haga clic en **Iniciar sesión**. 
+4. Escriba la clave para conectarse a la cuenta de Azure Cosmos DB que corresponde a ese conjunto de base de datos y, luego, haga clic en **Iniciar sesión**. 
 5. Expanda **Programar actualización** y configure la programación que desea usar para actualizar el conjunto de datos. 
 6. Haga clic en **Aplicar** para terminar de configurar la actualización programada.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para más información sobre Power BI, consulte [Introducción a Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/).
-* Para más información sobre Cosmos DB, consulte la [página de destino de la documentación de Azure Cosmos DB](https://azure.microsoft.com/documentation/services/cosmos-db/).
+* Para más información sobre Azure Cosmos DB, consulte la [página de aterrizaje de la documentación de Azure Cosmos DB](https://azure.microsoft.com/documentation/services/cosmos-db/).
 

@@ -1,12 +1,12 @@
 ---
-title: "Generación del perfil de un servicio en la nube en modo local en el emulador de proceso | Microsoft Docs"
+title: Generación del perfil de un servicio en la nube en modo local en el emulador de proceso | Microsoft Docs
 services: cloud-services
 description: Investigar los problemas de rendimiento en servicios en la nube con el generador de perfiles de Visual Studio
-documentationcenter: 
+documentationcenter: ''
 author: mikejo
-manager: ghogen
-editor: 
-tags: 
+manager: douge
+editor: ''
+tags: ''
 ms.assetid: 25e40bf3-eea0-4b0b-9f4a-91ffe797f6c3
 ms.service: cloud-services
 ms.workload: na
@@ -15,11 +15,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/18/2016
 ms.author: mikejo
-ms.openlocfilehash: ee7febeb04d3a956b4a0a11b69f8f34acee23067
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8ff7b88a3086488ab669288687c274237ca30b47
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>Prueba del rendimiento de un servicio en la nube de manera local en el emulador de Azure Compute con el generador de perfiles de Visual Studio
 Se encuentran disponibles diversas herramientas y técnicas para probar el rendimiento de los servicios en la nube.
@@ -30,7 +30,7 @@ También es posible que desee generar un perfil de la aplicación localmente en 
 Este artículo abarca el método de muestreo de CPU de la generación de perfiles, que se puede realizar localmente en el emulador. El muestreo de CPU es un método para generar perfiles que no es muy intrusivo. A un intervalo de muestreo designado, el generador de perfiles realiza una instantánea de la pila de llamadas. Los datos se recopilan por un lapso de tiempo y se muestran en un informe. Este método de generación de perfiles tiende a indicar dónde se está realizando la mayoría del trabajo de la CPU en una aplicación informáticamente intensiva.  Esto le da la oportunidad de centrarse en la "ruta de acceso activa" donde su aplicación pasa la mayor parte del tiempo.
 
 ## <a name="1-configure-visual-studio-for-profiling"></a>1: Configuración de Visual Studio para la generación de perfiles
-Primero, existen unas pocas opciones de configuración de Visual Studio que podrían ser útiles para la generación de perfiles. Para que los informes de generación de perfiles tengan sentido, necesitará símbolos (archivos .pdb) para su aplicación y también símbolos para las bibliotecas del sistema. Necesitará asegurarse de que hace referencia a los servidores de símbolos disponibles. Para hacer esto, en el menú **Herramientas** de Visual Studio, elija **Opciones** y, a continuación, elija **Depuración** y luego, **Símbolos**. Asegúrese de que los servidores de símbolos de Microsoft aparezcan en **Ubicaciones del archivo de símbolos (.pdb)**.  Puede también hacer referencia a http://referencesource.microsoft.com/symbols, el cual podría tener archivos de símbolo adicionales.
+Primero, existen unas pocas opciones de configuración de Visual Studio que podrían ser útiles para la generación de perfiles. Para que los informes de generación de perfiles tengan sentido, necesitará símbolos (archivos .pdb) para su aplicación y también símbolos para las bibliotecas del sistema. Necesitará asegurarse de que hace referencia a los servidores de símbolos disponibles. Para hacer esto, en el menú **Herramientas** de Visual Studio, elija **Opciones** y, a continuación, elija **Depuración** y luego, **Símbolos**. Asegúrese de que los servidores de símbolos de Microsoft aparezcan en **Ubicaciones del archivo de símbolos (.pdb)**.  También puede hacer referencia a http://referencesource.microsoft.com/symbols, que podría tener archivos de símbolos adicionales.
 
 ![Opciones Símbolo][4]
 

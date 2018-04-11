@@ -1,13 +1,12 @@
 ---
 title: Comprender el nivel de compatibilidad de los trabajos de Azure Stream Analytics | Microsoft Docs
-description: "Obtenga información acerca de cómo establecer un nivel de compatibilidad para un trabajo de análisis de Azure Stream Analytics y de los principales cambios en el nivel de compatibilidad más reciente."
-keywords: "Nivel de compatibilidad, datos de transmisión"
-documentationcenter: 
+description: Obtenga información acerca de cómo establecer un nivel de compatibilidad para un trabajo de análisis de Azure Stream Analytics y de los principales cambios en el nivel de compatibilidad más reciente.
+keywords: Nivel de compatibilidad, datos de transmisión
+documentationcenter: ''
 services: stream-analytics
 author: SnehaGunda
 manager: kfile
-editor: 
-ms.assetid: 
+ms.assetid: ''
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
@@ -15,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 01/03/2018
 ms.author: sngun
-ms.openlocfilehash: f354c39fc3b366795fe4ed8dbeeb961bb11d5420
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 6f7f2314d225aa02be28fa817151f8f245478cf0
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Nivel de compatibilidad de los trabajos de Azure Stream Analytics
  
@@ -73,6 +72,6 @@ En el nivel de compatibilidad 1.1 se introdujeron los siguientes cambios princip
 
   * **versión actual:** ya no existe la conversión automática de los valores de cadenas con información de fecha, hora y zona al tipo DateTime. Como resultado, se mantiene la información de zona horaria. 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Guía de solución de problemas de Azure Stream Analytics](stream-analytics-troubleshooting-guide.md)
 * [Hoja Estado de recursos de Stream Analytics](stream-analytics-resource-health.md)

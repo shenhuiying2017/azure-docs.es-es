@@ -14,23 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: dobett
-ms.openlocfilehash: e7e45a6af0857520eec27263281a0f0a43b30013
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: c410db9a7255a039ab9b41ae39f2fe1018719f8f
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="control-access-to-iot-hub"></a>Control del acceso a IoT Hub
 
 En esta sección se describen las opciones para proteger su instancia de IoT Hub. IoT Hub usa *permisos* para conceder acceso a cada uno de los puntos de conexión de IoT Hub. Los permisos limitan el acceso a un centro de IoT basado en la funcionalidad.
 
-En este artículo se describe:
+En este artículo se presentan:
 
 * Los distintos permisos que puede conceder a un dispositivo o una aplicación de back-end para acceder a IoT Hub.
 * El proceso de autenticación y los tokens que utiliza para comprobar los permisos.
 * Cómo definir el ámbito de las credenciales para limitar el acceso a recursos específicos.
 * IoT Hub admite los certificados X.509.
 * Los mecanismos de autenticación de dispositivo personalizado que utilizan los registros de identidad de dispositivo o los esquemas de autenticación.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 Debe tener los permisos adecuados para acceder a cualquiera de los puntos de conexión de IoT Hub. Por ejemplo, un dispositivo debe incluir un token que contiene las credenciales de seguridad junto con cada mensaje que se envía a IoT Hub.
 

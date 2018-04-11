@@ -1,24 +1,24 @@
 ---
 title: Recopilar y analizar los registros de actividad de Azure en Log Analytics | Microsoft Docs
-description: "Puede usar la solución Registros de actividad de Azure para analizar y buscar en el registro de actividad de Azure de todas las suscripciones de Azure."
+description: Puede usar la solución Registros de actividad de Azure para analizar y buscar en el registro de actividad de Azure de todas las suscripciones de Azure.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: dbac4c73-0058-4191-a906-e59aca8e2ee0
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2018
+ms.date: 03/26/2018
 ms.author: magoedte
-ms.openlocfilehash: c13890862c058701268c07d032d6d990c659287a
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: b6e823d9338d76a350569091d6794e3ac4a2eae9
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Recopilar y analizar los registros de actividad de Azure en Log Analytics
 
@@ -40,7 +40,7 @@ Cuando se conectan los registros de actividad de Azure a Log Analytics, es posib
 - Identificar problemas de corte de suministro o estado del servicio que afecten a los recursos
 - Usar la búsqueda de registros para correlacionar las actividades del usuario, las operaciones de escalado automático, los cambios de autorización y el estado del servicio con otros registros o métricas del entorno
 
-<sup>1</sup>De forma predeterminada, Log Analytics conserva los registros de actividad de Azure durante 90 días, incluso si está en el nivel Gratis. O bien, si tiene una configuración de retención de área de trabajo de menos de 90 días. Si el área de trabajo tiene una retención de más de 90 días, los registros de actividad se conservan durante el período de retención del área de trabajo.
+<sup>1</sup>De forma predeterminada, Log Analytics conserva los registros de actividad de Azure durante 90 días, incluso si está en el nivel Gratis. O bien, si tiene una configuración de retención de área de trabajo de menos de 90 días. Si el área de trabajo tiene una retención de más de 90 días, los registros de actividad se conservan según el período de retención del área de trabajo.
 
 Log Analytics recopila registros de actividad de forma gratuita y los almacena durante 90 días también de forma gratuita. Si almacena registros durante más de 90 días, incurrirá en gastos de retención de datos para los datos almacenados durante más de ese periodo.
 
@@ -97,7 +97,7 @@ Los datos del registro de actividad solo aparecen *después* de haber configurad
 
 ![Panel Registros de actividad de Azure](./media/log-analytics-activity/activity-log-dash.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Cree una [alerta](log-analytics-alerts-creating.md) cuando se produzca una actividad determinada.
 - Use [Búsqueda de registros](log-analytics-log-searches.md) para ver información detallada de los registros de actividad.

@@ -1,8 +1,8 @@
 ---
-title: "Búsquedas y alertas guardadas en soluciones de OMS | Microsoft Docs"
-description: "Las soluciones de OMS suelen incluir búsquedas guardadas en Log Analytics para analizar los datos recopilados por la solución.  Pueden definir asimismo alertas para notificar al usuario o realizar automáticamente una acción en respuesta a un problema crítico.  En este artículo se describe cómo definir las búsquedas y alertas guardadas de Log Analytics en una plantilla de Resource Manager para que puedan incluirse en soluciones de administración."
+title: Búsquedas y alertas guardadas en soluciones de administración | Microsoft Docs
+description: Las soluciones de administración incluyen normalmente búsquedas guardadas en Log Analytics para analizar los datos recopilados por la solución.  Pueden definir asimismo alertas para notificar al usuario o realizar automáticamente una acción en respuesta a un problema crítico.  En este artículo se describe cómo definir las búsquedas y alertas guardadas de Log Analytics en una plantilla de Resource Manager para que puedan incluirse en soluciones de administración.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
@@ -14,29 +14,29 @@ ms.workload: infrastructure-services
 ms.date: 01/16/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9e25ad9b9be6d02550b4be9c09496021cd7fe2d2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: cb787de23022cd7a48ec476968e05dec6560b419
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/30/2018
 ---
-# <a name="adding-log-analytics-saved-searches-and-alerts-to-oms-management-solution-preview"></a>Incorporación de las búsquedas y las alertas guardadas de Log Analytics en la solución de administración de OMS (versión preliminar)
+# <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Adición de búsquedas y alertas guardadas de Log Analytics en la solución de administración (versión preliminar)
 
 > [!NOTE]
-> La versión de la documentación para crear soluciones de administración de OMS está actualmente en fase preliminar. Cualquier esquema descrito a continuación está sujeto a cambios.   
+> Esta es la documentación preliminar para crear soluciones de administración que se encuentran actualmente en versión preliminar. Cualquier esquema descrito a continuación está sujeto a cambios.   
 
 
-Las [soluciones de administración de OMS](operations-management-suite-solutions.md) suelen incluir [búsquedas guardadas](../log-analytics/log-analytics-log-searches.md) en Log Analytics para analizar los datos recopilados por la solución.  Pueden definir asimismo [alertas](../log-analytics/log-analytics-alerts.md) para notificar al usuario o realizar automáticamente una acción en respuesta a un problema crítico.  En este artículo se describe cómo definir las búsquedas y alertas guardadas de Log Analytics en una [plantilla de Resource Management](../resource-manager-template-walkthrough.md) para que puedan incluirse en [soluciones de administración](operations-management-suite-solutions-creating.md).
+Las [soluciones de administración](operations-management-suite-solutions.md) suelen incluir [búsquedas guardadas](../log-analytics/log-analytics-log-searches.md) en Log Analytics para analizar los datos recopilados por la solución.  Pueden definir asimismo [alertas](../log-analytics/log-analytics-alerts.md) para notificar al usuario o realizar automáticamente una acción en respuesta a un problema crítico.  En este artículo se describe cómo definir las búsquedas y alertas guardadas de Log Analytics en una [plantilla de Resource Management](../resource-manager-template-walkthrough.md) para que puedan incluirse en [soluciones de administración](operations-management-suite-solutions-creating.md).
 
 > [!NOTE]
-> En los ejemplos de este artículo se usan parámetros y variables que son necesarios o comunes para las soluciones de administración y se describen en [Creating management solutions in Operations Management Suite (OMS) (Creación de soluciones de administración en Operations Management Suite (OMS)](operations-management-suite-solutions-creating.md).  
+> En los ejemplos de este artículo se usan parámetros y variables que son necesarios o comunes para las soluciones de administración, y se describen en [Diseño y compilación de una solución de administración en Azure](operations-management-suite-solutions-creating.md).  
 
 ## <a name="prerequisites"></a>requisitos previos
 En este artículo se supone que ya está familiarizado con la manera de [crear una solución de administración](operations-management-suite-solutions-creating.md) y la estructura de una [plantilla de Resource Manager](../resource-group-authoring-templates.md) y un archivo de solución.
 
 
 ## <a name="log-analytics-workspace"></a>Área de trabajo de Log Analytics
-Todos los recursos de Log Analytics están contenidos en un [área de trabajo](../log-analytics/log-analytics-manage-access.md).  Como se describe en [el área de trabajo de OMS y la cuenta de Automation](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account), el área de trabajo no está incluida en la solución de administración pero debe existir antes de que se instale la solución.  Si no está disponible, se producirá un error en la instalación de la solución.
+Todos los recursos de Log Analytics están contenidos en un [área de trabajo](../log-analytics/log-analytics-manage-access.md).  Como se describe en [el área de trabajo de Log Analytics y la cuenta de Automation](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account), el área de trabajo no está incluida en la solución de administración, pero debe existir antes de que se instale la solución.  Si no está disponible, se producirá un error en la instalación de la solución.
 
 El nombre del área de trabajo es el nombre de cada recurso de Log Analytics.  Esto se hace en la solución con el parámetro **workspace** tal como se muestra en el siguiente ejemplo de un recurso de savedsearch.
 
@@ -517,7 +517,7 @@ El siguiente archivo de parámetros proporciona valores de ejemplo para esta sol
     }
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Incorporación de vistas](operations-management-suite-solutions-resources-views.md) a la solución de administración.
 * [Incorporación de runbooks de Automation y otros recursos](operations-management-suite-solutions-resources-automation.md) a la solución de administración.
 

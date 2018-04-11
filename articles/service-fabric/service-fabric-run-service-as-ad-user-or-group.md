@@ -12,16 +12,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/21/2018
+ms.date: 03/29/2018
 ms.author: mfussell
-ms.openlocfilehash: 1cf23a8f564553e65ac2c0fd34d44d81fe2327ea
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 7dc467d9977d536011e1c3fcf663fc335f90a492
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="run-a-service-as-an-active-directory-user-or-group"></a>Ejecución de un servicio como un grupo o usuario de Active Directory
-Azure Service Fabric le permite proteger aplicaciones que se ejecutan en distintas cuentas de usuario en el clúster. Esto aumenta la seguridad entre aplicaciones en ejecución, incluso en un entorno hospedado compartido. De forma predeterminada, las aplicaciones de Service Fabric se ejecutan en la misma cuenta en que se ejecuta el proceso Fabric.exe. Para un clúster independiente de Windows Server, puede ejecutar un servicio como una [cuenta de servicio administrada de grupo (gMSA)](service-fabric-run-service-as-gmsa.md) o un usuario o grupo de Active Directory mediante una directiva de RunAs. Tenga en cuenta que esto usa Active Directory local dentro del dominio y no en Azure Active Directory (Azure AD).
+En un clúster independiente de Windows Server, puede ejecutar un servicio como un usuario o grupo de Active Directory mediante una directiva de RunAs.  De forma predeterminada, las aplicaciones de Service Fabric se ejecutan en la misma cuenta en que se ejecuta el proceso Fabric.exe. La ejecución de aplicaciones en cuentas diferentes, incluso en un entorno hospedado compartido, aumenta la seguridad entre aplicaciones. Tenga en cuenta que esto usa Active Directory local dentro del dominio y no en Azure Active Directory (Azure AD).  También puede ejecutar un servicio como una [cuenta de servicio administrada de grupo (gMSA)](service-fabric-run-service-as-gmsa.md).
 
 Mediante el uso de un grupo o usuario de dominio puede tener acceso a otros recursos del dominio (por ejemplo, recursos compartidos de archivos) para los que se han concedido permisos.
 

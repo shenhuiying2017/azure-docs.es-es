@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 75b55b45c355f585fd73bdc1d97bc6adbbc4e9a0
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6cec039034f0650d017eb14de584939bb3191223
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-machine-learning-experimentation-service-configuration-files"></a>Archivos de configuración del servicio Experimentación de Azure Machine Learning
 
@@ -149,6 +149,8 @@ El archivo _\<compute target name>.compute_ especifica la información de conexi
 **nativeSharedDirectory**: esta propiedad especifica el directorio base (por ejemplo: _~/.azureml/share/_) donde se pueden guardar los archivos para poder compartir a través de ejecuciones en el mismo destino de proceso. Si esta configuración se utiliza cuando se ejecuta en un contenedor de Docker, _sharedVolumes_ debe establecerse en true. En caso contrario, se produce un error de ejecución.
 
 **userManagedEnvironment**: esta propiedad especifica si el usuario administra este destino de proceso, bien directamente o a través del servicio experimentación.  
+
+**pythonLocation**: esta propiedad especifica la ubicación del entorno de tiempo de ejecución de Python que se usará en el destino de proceso para ejecutar el programa del usuario. 
 
 ### <a name="run-configuration-namerunconfig"></a>\<nombre de configuración de ejecución>.runconfig
 _\<run configuration name>.runconfig_ especifica el comportamiento de ejecución de experimento de Azure Machine Learning. Puede configurar el comportamiento de ejecución, como el seguimiento del historial de ejecución o qué destino de proceso usar, además de muchos otros. Los nombres de los archivos de configuración de ejecución se usan para rellenar la lista desplegable del contexto de ejecución en la aplicación de escritorio de Azure ML Workbench.

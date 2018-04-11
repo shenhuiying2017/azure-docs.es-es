@@ -1,6 +1,6 @@
 ---
-title: Supervisar SQL Data Sync de Azure con Log Analytics de OMS | Microsoft Docs
-description: Aprenda a supervisar SQL Data Sync de Azure con Log Analytics de OMS
+title: Supervisión de Azure SQL Data Sync (versión preliminar) con Log Analytics de OMS | Microsoft Docs
+description: Obtenga información sobre cómo supervisar Azure SQL Data Sync (versión preliminar) mediante Log Analytics de OMS
 services: sql-database
 ms.date: 11/07/2017
 ms.topic: article
@@ -9,11 +9,11 @@ author: douglaslMS
 ms.author: douglasl
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: 423614227b16ad6cfa6dadfab1c5f2b93c5bbe62
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c106d5bbea118c9b78cbccee187b8eb5c347f232
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="monitor-sql-data-sync-preview-with-oms-log-analytics"></a>Supervisar SQL Data Sync (versión preliminar) con Log Analytics de OMS 
 

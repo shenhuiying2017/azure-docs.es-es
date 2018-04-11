@@ -1,26 +1,27 @@
 ---
 title: 'Conexión de redes virtuales con emparejamiento de redes virtuales: PowerShell | Microsoft Docs'
-description: Aprenda a conectar redes virtuales con el emparejamiento de redes virtuales.
+description: En este artículo, obtendrá información sobre cómo conectar las redes virtuales con emparejamiento de redes virtuales usando Azure PowerShell.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: I want to connect two virtual networks so that virtual machines in one virtual network can communicate with virtual machines in the other virtual network.
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: ''
-ms.topic: ''
+ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: b067dfd6d50b61614c2f3de2fa0e159cd645f9eb
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 445baa36f33cbe02b68bdb37406f842932089183
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-powershell"></a>Conexión de redes virtuales con emparejamiento de redes virtuales usando PowerShell
 
@@ -203,35 +204,8 @@ Cuando ya no lo necesite, use [Remove-AzureRmResourceGroup](/powershell/module/a
 Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 ```
 
-**<a name="register"></a>Registro para la versión preliminar del emparejamiento de red virtual global**
-
-El emparejamiento de redes virtuales en las mismas regiones tiene disponibilidad general. El emparejamiento de redes virtuales de diferentes regiones actualmente se encuentra en versión preliminar. Consulte las [actualizaciones de redes virtuales](https://azure.microsoft.com/updates/?product=virtual-network) para ver las regiones disponibles. Para emparejar redes virtuales entre regiones, primero tiene que registrarse en la versión preliminar; para ello, complete los pasos siguientes (en la suscripción en que se encuentra cada red virtual que desea emparejar):
-
-1. Registre la suscripción en que se encuentra cada máquina virtual que desea emparejar para la versión preliminar; para ello, escriba los comandos siguientes:
-
-    ```powershell-interactive
-    Register-AzureRmProviderFeature `
-      -FeatureName AllowGlobalVnetPeering `
-      -ProviderNamespace Microsoft.Network
-    
-    Register-AzureRmResourceProvider `
-      -ProviderNamespace Microsoft.Network
-    ```
-2. Escriba el siguiente comando para confirmar que está registrado para la versión preliminar:
-
-    ```powershell-interactive    
-    Get-AzureRmProviderFeature `
-      -FeatureName AllowGlobalVnetPeering `
-      -ProviderNamespace Microsoft.Network
-    ```
-
-    Si intenta emparejar redes virtuales en diferentes regiones antes de que la salida **RegistrationState** que recibe después de escribir el comando anterior sea **Registrado** para ambas suscripciones, el emparejamiento produce un error.
-
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, ha aprendido a conectar dos redes con el emparejamiento de redes virtuales. En este artículo, ha aprendido a conectar dos redes, de la misma ubicación de Azure, con el emparejamiento de redes virtuales. También puede emparejar redes virtuales de [diferentes regiones](#register), en [diferentes suscripciones de Azure](create-peering-different-subscriptions.md#portal) y puede crear [diseños de red de concentrador y radio](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) con emparejamiento. Antes de emparejar redes virtuales de producción, se recomienda familiarizarse en detalle con la [introducción al emparejamiento](virtual-network-peering-overview.md), la [administración del emparejamiento](virtual-network-manage-peering.md) y los [límites de red virtual ](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+En este artículo, ha aprendido a conectar dos redes, de la misma región de Azure, con el emparejamiento de redes virtuales. También puede emparejar redes virtuales de distintas [regiones compatibles](virtual-network-manage-peering.md#cross-region) y en [distintas suscripciones de Azure](create-peering-different-subscriptions.md#powershell), además de crear [diseños de red de concentrador y radio](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) con emparejamiento. Para más información sobre el emparejamiento de redes virtuales, consulte los artículos sobre el [emparejamiento de redes virtuales](virtual-network-peering-overview.md) y la [administración de emparejamientos de redes virtuales](virtual-network-manage-peering.md).
 
-Puede [conectar su equipo a una red virtual](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json) mediante VPN e interactuar con recursos en una red virtual, o en redes virtuales emparejadas. Siga con los ejemplos de scripts reutilizables para completar muchas de las tareas descritas en los artículos sobre las redes virtuales.
-
-> [!div class="nextstepaction"]
-> [Ejemplos de scripts de red virtual](../networking/powershell-samples.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+Puede [conectar su equipo a una red virtual](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json) mediante VPN e interactuar con recursos en una red virtual, o en redes virtuales emparejadas. En el caso de los scripts reutilizables para completar muchas de las tareas descritas en los artículos sobre las redes virtuales, consulte los [ejemplos de script](powershell-samples.md).

@@ -1,9 +1,9 @@
 ---
-title: "Información general sobre el registro de actividades de Azure | Microsoft Docs"
-description: "Aprenda qué es el registro de actividad de Azure y cómo puede usarlo para comprender los eventos que se producen en su suscripción de Azure."
+title: Información general sobre el registro de actividades de Azure | Microsoft Docs
+description: Aprenda qué es el registro de actividad de Azure y cómo puede usarlo para comprender los eventos que se producen en su suscripción de Azure.
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: c274782f-039d-4c28-9ddb-f89ce21052c7
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: johnkem
-ms.openlocfilehash: aef427483d647c53ba45688ce33a75f876115d08
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 6e373740d6b5af4b3b7d3dca8877c952d79f8b20
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Supervise la actividad de suscripción con Azure Activity Log
 **Azure Activity Log** es un registro de suscripción que proporciona información sobre los eventos de nivel de suscripción que se han producido en Azure. Esta incluye una serie de datos, desde datos operativos de Azure Resource Manager hasta actualizaciones en eventos de Estado del servicio. El Registro de actividad se conocía anteriormente como "Registros de auditoría" o "Registros operativos", ya que la categoría Administrativo notifica eventos del plano de control de las suscripciones. Con el Registro de actividades, se pueden determinar los interrogantes “qué, quién y cuándo” de las operaciones de escritura (PUT, POST, DELETE) en los recursos de la suscripción. También puede conocer el estado de la operación y otras propiedades relevantes. El registro de actividad no incluye las operaciones de lectura (GET) ni las operaciones de los recursos que usan el modelo Clásico/"RDFE".
@@ -38,7 +38,7 @@ Puede recuperar los eventos del registro de actividad mediante Azure Portal, la 
 
 > [!NOTE]
 
->  [Alertas (versión preliminar)](monitoring-overview-unified-alerts.md) actualmente ofrece una experiencia mejorada para crear y administrar las reglas de alerta del registro de actividad.  [Más información](monitoring-activity-log-alerts-new-experience.md).
+>  [Las alertas más recientes](monitoring-overview-unified-alerts.md) ofrecen una experiencia mejorada para crear y administrar las reglas de alerta del registro de actividad.  [Más información](monitoring-activity-log-alerts-new-experience.md).
 
 
 Vea el vídeo siguiente sobre la introducción del registro de actividad.

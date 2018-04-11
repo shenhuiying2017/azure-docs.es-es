@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/03/2018
 ms.author: joflore
 ms.reviewer: richagi
-ms.openlocfilehash: e2b6651f0d341567f1d02d0ca16b8f445e3d26f4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4259715fbb062bfb170509c928b5a1ad898ea394
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configuración de Azure Multi-Factor Authentication
 
@@ -228,11 +228,7 @@ Independientemente de si la característica de la IP de confianza está habilita
 
 Algunas aplicaciones, como Office 2010 o las versiones anteriores y Apple Mail, no admiten la verificación en dos pasos. Las aplicaciones no están configuradas para aceptar una segunda comprobación. Para usar estas aplicaciones, aprovéchese de la característica _contraseñas de aplicación_. Puede usar una contraseña de aplicación en lugar de su contraseña habitual para permitir que una aplicación omita la verificación en dos pasos y siga funcionando.
 
->[!NOTE]
->Autenticación moderna para los clientes de Microsoft Office 2013 y versiones posteriores
-> 
->Los clientes de Office 2013 y versiones posteriores (incluido Outlook) admiten protocolos de autenticación modernos y se pueden habilitar para que funcionen con la verificación en dos pasos. Después de que se habilite el cliente, las contraseñas de aplicación no le serán necesarias. Para obtener más información, consulte [Office 2013 modern authentication public preview announced](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/)(Anuncio de la versión preliminar pública de la autenticación moderna de Office 2013).
->
+La autenticación moderna se admite en los clientes de Microsoft Office 2013 y versiones posteriores. Los clientes de Office 2013 (incluido Outlook), admiten protocolos de autenticación modernos y se pueden habilitar para que funcionen con la comprobación en dos pasos. Después de que se habilite el cliente, las contraseñas de aplicación no le serán necesarias.
 
 ### <a name="considerations-about-app-passwords"></a>Consideraciones acerca de las contraseñas de aplicación
 

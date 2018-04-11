@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 237a34c955f8ef36e25c30a6b13787f6a9296612
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f9318b5baa46ab991b5e72e12a89a25e4f635db3
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="set-up-sql-data-sync-preview"></a>Configuración de SQL Data Sync (versión preliminar)
 En este tutorial, obtendrá información sobre cómo configurar Azure SQL Data Sync mediante la creación de un grupo de sincronización híbrido que contiene instancias de Azure SQL Database y de SQL Server. El nuevo grupo de sincronización está configurado completamente y se sincroniza según el programa establecido.
@@ -38,6 +38,8 @@ Para obtener ejemplos completos de PowerShell que muestren cómo configurar SQL 
     ![Lista de instancias de Azure SQL Database](media/sql-database-get-started-sql-data-sync/datasync-preview-sqldbs.png)
 
 3.  En la página **Bases de datos SQL**, seleccione la instancia existente de SQL Database que quiere usar como base de datos central de Data Sync. Se abre la página de la base de datos SQL.
+
+    La base de datos central es el punto de conexión central de la topología de sincronización donde un grupo de sincronización tiene varios puntos de conexión de base de datos. Todos los demás puntos de conexión de base de datos del mismo grupo de sincronización (es decir, todas las bases de datos miembro) se sincronizan con la base de datos central.
 
 4.  En la página de la base de datos SQL para la base de datos seleccionada, seleccione **Sincronizar con otras bases de datos**. Se abre la página de Data Sync.
 
@@ -67,6 +69,8 @@ Para obtener ejemplos completos de PowerShell que muestren cómo configurar SQL 
         ![Establecimiento de la frecuencia de sincronizaicón](media/sql-database-get-started-sql-data-sync/datasync-preview-syncfreq.png)
 
     4.  En la sección **Resolución de conflictos**, seleccione "Prevalece la base de datos central" o "Prevalece el cliente".
+
+        "Prevalece la base de datos central" significa que, cuando se produce un conflicto, los datos de la base de datos central sobrescriben los datos en conflicto en la base de datos miembro. "Prevalece el cliente" significa que, cuando se produce un conflicto, los datos de la base de datos miembro sobrescriben los datos en conflicto en la base de datos central. 
 
         ![Especifique cómo se resuelven los conflictos](media/sql-database-get-started-sql-data-sync/datasync-preview-conflictres.png)
 

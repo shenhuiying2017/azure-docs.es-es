@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: 77c48a22f974e027b4e8858d5e38018bbf5bb54f
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 3f57eb3ede3b57e28c13e053b86ab022fdd21b7e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="application-insights-for-aspnet-core"></a>Application Insights para ASP.NET Core
 
@@ -95,7 +95,7 @@ Iniciar la aplicación y luego hacer clic en los vínculos de manera manual se p
 
 1. Ejecute la aplicación mediante un clic en IIS Express ![Captura de pantalla del icono de IIS Express de Visual Studio](./media/app-insights-asp-net-core/0012-iis-express.png)
 
-2. Copie la dirección URL de la barra de direcciones del explorador. Tiene el formato http://localhost:{número de puerto aleatorio}
+2. Copie la dirección URL de la barra de direcciones del explorador. Se encuentra en el formato http://localhost:{random número de puerto}
 
    ![Captura de pantalla de la barra de direcciones URL del explorador](./media/app-insights-asp-net-core/0013-copy-url.png)
 

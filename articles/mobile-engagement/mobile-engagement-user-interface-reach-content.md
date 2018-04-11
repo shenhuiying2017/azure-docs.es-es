@@ -1,11 +1,11 @@
 ---
 title: Interfaz de usuario de Azure Mobile Engagement - Contenido de cobertura
-description: "Aprenda a administrar el contenido exclusivo de los diferentes tipos de campañas de notificaciones de inserción en Azure Mobile Engagement"
+description: Aprenda a administrar el contenido exclusivo de los diferentes tipos de campañas de notificaciones de inserción en Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: add64f06-43c9-475c-8722-51cd00bb844b
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 3741a43b74af5846e95e42d8a7b533621e780f2d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 982cc66ffe98aa6dff8fe290cc1c2d4bad03c9ac
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-manage-the-unique-content-of-the-different-types-of-push-notification-campaigns"></a>Cómo administrar el contenido exclusivo de los diferentes tipos de campañas de notificaciones de inserción
+> [!IMPORTANT]
+> Azure Mobile Engagement se retira el 31 de marzo de 2018. Esta página se eliminará poco después.
+> 
+
 Puede utilizar la sección de contenido de una nueva campaña de cobertura para modificar el contenido de los anuncios, sondeos, inserción de datos y mosaicos (solo en Windows Phone). La configuración del contenido de las campañas de inserción es específica del tipo de campaña. 
 
 ### <a name="content-types"></a>Tipos de contenido:
@@ -37,7 +41,7 @@ Puede utilizar la sección de contenido de una nueva campaña de cobertura para 
 * Anuncio de texto: es una notificación que compromete al usuario a echar un vistazo a una vista de texto.
 * Anuncio web: es una notificación que compromete al usuario a echar un vistazo a una vista de texto.
 
-### <a name="see-also"></a>Consulte también
+### <a name="see-also"></a>Otras referencias
 * [Cobertura - Guía práctica - Anuncios][Link 3] 
 
 ### <a name="about-web-view-announcements"></a>Acerca de los anuncios de visualización web:
@@ -56,7 +60,7 @@ Cada repetición del patrón {deviceid} se reemplaza automáticamente por el ide
 * **Acciones de Android + iOS**
   * Abrir una página web
   * http://\[dominio-sitio-web\] 
-  * Ejemplo: http://www.azure.com
+  * Ejemplo:http://www.azure.com
   * Enviar un correo electrónico
   * mailto:\[destinatario-correo-electrónico\]?subject=\[asunto\]&body=\[mensaje\] 
   * Example:mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&amp;body=Good%20stuff!
@@ -76,11 +80,11 @@ Cada repetición del patrón {deviceid} se reemplaza automáticamente por el ide
 * **Acciones solo para iOS**
   * Descargar una aplicación de la App Store
   * http://itunes.apple.com/[country]/app/[app name]/id[app id]?mt=8 
-  * Ejemplo: http://itunes.apple.com/fr/app/briquet-virtuel/id430154748?mt=8
+  * Ejemplo:http://itunes.apple.com/fr/app/briquet-virtuel/id430154748?mt=8
   * Acciones de Windows
   * Abrir una página web
   * http://\[dominio-sitio-web\] 
-  * Ejemplo: http://www.azure.com
+  * Ejemplo:http://www.azure.com
   * Enviar un correo electrónico
   * mailto:\[destinatario-correo-electrónico\]?subject=\[asunto\]&body=\[mensaje\] 
   * Example:mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&amp;body=Good%20stuff!
@@ -109,7 +113,7 @@ Cada repetición del patrón {deviceid} se reemplaza automáticamente por el ide
 ### <a name="define-the-texts-of-your-announcement"></a>Definir los textos del anuncio
 Rellene el título, el contenido y los textos del anuncio. Puede dirigirse a una audiencia de una campaña futura basándose en los comentarios de la cobertura sobre cómo respondieron los usuarios a esta campaña. La orientación a la audiencia puede basarse en los comentarios de si solo se ha insertado esta campaña, respondido, ejecutada o terminado.
 
-### <a name="see-also"></a>Consulte también
+### <a name="see-also"></a>Otras referencias
 * [Documentación de la interfaz de usuario - Cobertura - Nuevo criterio de inserción][Link 28]
 
 ## <a name="content-of-polls"></a>Contenido de sondeos
@@ -118,7 +122,7 @@ Rellene el título, el contenido y los textos del anuncio. Puede dirigirse a una
 Rellene el título, la descripción y los textos de los botones del anuncio. A continuación, agregue preguntas y opciones para las respuestas a sus preguntas.
 Puede dirigirse a una audiencia de una campaña futura basándose en los comentarios de la cobertura sobre cómo respondieron los usuarios a esta campaña. La orientación a la audiencia puede basarse en si solo se ha insertado, respondido, ejecutado o terminado esta campaña. La orientación de la audiencia también puede basarse en los comentarios de respuesta de sondeos, donde la pregunta y respuesta se utilizan como criterios.
 
-### <a name="see-also"></a>Consulte también
+### <a name="see-also"></a>Otras referencias
 * [Documentación de la interfaz de usuario - Cobertura - Nuevo criterio de inserción][Link 28]
 
 ## <a name="content-of-data-pushes"></a>Contenido de las inserciones de datos
@@ -134,7 +138,7 @@ Puede dirigirse a una audiencia de una campaña futura basándose en los comenta
 * Si ha seleccionado insertar datos binarios o base64, use el botón "cargar el archivo" para cargar el archivo.
 * Puede dirigirse a una audiencia de una campaña futura basándose en los comentarios de la cobertura sobre cómo respondieron los usuarios a esta campaña. La orientación a la audiencia puede basarse en si solo se ha insertado, respondido, ejecutado o terminado esta campaña.
 
-### <a name="see-also"></a>Consulte también
+### <a name="see-also"></a>Otras referencias
 * [Documentación de la interfaz de usuario - Cobertura - Nuevo criterio de inserción][Link 28]
 
 ## <a name="content-of-tiles-windows-phone-only"></a>Contenido de los mosaicos (solo en Windows Phone)
@@ -144,7 +148,7 @@ Puede dirigirse a una audiencia de una campaña futura basándose en los comenta
 La carga de mosaicos es el texto que se mostrará en el mosaico de la aplicación en los dispositivos Windows Phone.
 La inserción de un mosaico es la versión del servicio de notificaciones de inserción de Microsoft (MPNS) de una inserción nativa para Windows Phone. El tipo de inserción de mosaico es el único tipo de inserción que no tiene una respuesta y, por tanto, la audiencia de las campañas futuras no se puede integrar en los resultados de una campaña de inserción de mosaico. 
 
-### <a name="see-also"></a>Consulte también
+### <a name="see-also"></a>Otras referencias
 * [Documentación de la API - API de cobertura - Inserción nativa][Link 4]
 
 <!--Image references-->

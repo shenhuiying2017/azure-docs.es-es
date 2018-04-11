@@ -1,29 +1,32 @@
 ---
-title: "Restauración o eliminación permanente de un usuario recién eliminado en Azure Active Directory | Microsoft Docs"
-description: "Cómo restaurar un usuario eliminado, ver los usuarios que se pueden restaurar o eliminar permanente un usuario en Azure Active Directory."
+title: Restauración o eliminación permanente de un usuario recién eliminado en Azure Active Directory | Microsoft Docs
+description: Cómo restaurar un usuario eliminado, ver los usuarios que se pueden restaurar o eliminar permanente un usuario en Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
-ms.date: 01/12/2018
+ms.date: 03/28/2018
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: d8a1850f8635097364268abdf77394ba592f761b
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 9eea61cc1b735c6505df87526cd526a9a4a6eed8
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="restore-a-deleted-user-in-azure-active-directory"></a>Restaurar un usuario eliminado en Azure Active Directory
 
 En este artículo se detallan las instrucciones para restaurar o eliminar de forma permanente un usuario previamente eliminado. Cuando elimina un usuario en Azure Active Directory (Azure AD), el usuario eliminado queda retenido durante 30 días a contar desde la fecha de eliminación. Durante ese tiempo, se pueden restaurar tanto el usuario como sus propiedades. 
+
+> [!wARNING]
+> Después de que se elimina permanentemente el usuario, no se puede restaurar.
 
 
 ## <a name="how-to-restore-a-recently-deleted-user"></a>Cómo restaurar un usuario recién eliminado
@@ -49,7 +52,7 @@ Rol  | Permisos
 Administrador de empresa<p>Soporte para asociados de nivel 1<p>Soporte para asociados de nivel 2<p>Administrador de cuenta de usuario | Puede restaurar usuarios eliminados 
 Administrador de empresa<p>Soporte para asociados de nivel 1<p>Soporte para asociados de nivel 2<p>Administrador de cuenta de usuario | Pueden eliminar usuarios permanentemente.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En estos artículos se proporciona información adicional sobre la administración de usuarios de Azure Active Directory.
 
 * [Inicio rápido: agregar o eliminar usuarios en Azure Active Directory](add-users-azure-active-directory.md)

@@ -15,21 +15,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: kumud
-ms.openlocfilehash: 10a264609469245d4743886b58730304da3df7bb
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1f1c8d0305334d85500b501aee5a71664bb49050
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 #  <a name="create-a-public-load-balancer-standard-with-zone-redundant-public-ip-address-frontend-using-azure-portal"></a>Creación de un estándar de equilibrador de carga público con redundancia de zona en el front-end para la dirección IP pública mediante Azure Portal
 
-Este artículo le ayudará a crear un servicio [Load Balancer Estándar](https://aka.ms/azureloadbalancerstandard) público con front-end con redundancia de zona mediante una dirección IP pública estándar.
+Este artículo le ayudará a crear un servicio [Load Balancer Estándar](https://aka.ms/azureloadbalancerstandard) público con front-end con redundancia de zona mediante una dirección IP pública estándar. De manera predeterminada, una dirección IP de front-end única en un equilibrador de carga estándar tiene redundancia de zona.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="register-for-availability-zones-preview"></a>Registrarse para obtener la versión preliminar de Zonas de disponibilidad
- 
-Las zonas de disponibilidad están en versión preliminar y están listas para escenarios de desarrollo y pruebas. El soporte técnico está disponible para recursos y regiones de Azure, y familias de tamaños de máquina virtual seleccionados. Para más información sobre cómo empezar a trabajar y qué recursos, regiones y familias de tamaños de máquina virtual de Azure puede probar con las zonas de disponibilidad, consulte la [introducción a las zonas de disponibilidad](https://docs.microsoft.com/azure/availability-zones/az-overview). Para soporte técnico, eche un vistazo a [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) o [Creación de una solicitud de soporte técnico de Azure](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  
+> [!NOTE]
+ El soporte técnico para las zonas de disponibilidad está disponible para recursos y regiones de Azure, y familias de tamaños de máquina virtual seleccionados. Para más información sobre cómo empezar a trabajar y qué recursos, regiones y familias de tamaños de máquina virtual de Azure puede probar con las zonas de disponibilidad, consulte la [introducción a las zonas de disponibilidad](https://docs.microsoft.com/azure/availability-zones/az-overview). Para soporte técnico, eche un vistazo a [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) o [Creación de una solicitud de soporte técnico de Azure](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  
 
 ## <a name="log-in-to-azure"></a>Inicio de sesión en Azure 
 
@@ -39,17 +38,19 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
 
 1. Desde un explorador, navegue a Azure Portal: [http://portal.azure.com](http://portal.azure.com) e inicie sesión con su cuenta de Azure.
 2. En la parte superior izquierda de la pantalla, seleccione **Crear un recurso** > **Redes** > **Equilibrador de carga**.
-3. En **Crear equilibrador de carga, en **Nombre**, escriba **myPublicLB**.
+3. En la página **Crear equilibrador de carga**, en **Nombre**, escriba **myLoadBalancer**.
 4. En **Tipo**, seleccione **Público**.
-5. En la SKU, seleccione **Estándar (versión preliminar)**.
-6. Haga clic en **Dirección IP pública**, **Crear nuevo**; en la página de **creación de una dirección IP pública**, en el nombre, escriba **myPublicIPStandard** y en **Zona de disponibilidad (versión preliminar)**, seleccione **Redundancia de zona**.
-7. En **Ubicación**, seleccione **Este de EE. UU. 2** y haga clic en **Aceptar**. El equilibrador de carga empieza entonces a implementarse y este proceso tarda unos minutos en completarse correctamente.
+5. En la SKU, seleccione **Estándar**.
+6. Haga clic en **Dirección IP pública**, haga clic en **Crear nuevo** y en la página **Crear dirección IP pública**, debajo del nombre, escriba **myPublicIPStandard**.
+    >[!NOTE] 
+    > La dirección IP pública creada en este paso es de SKU estándar y, de forma predeterminada, tiene redundancia de zona. 
+8. En **Ubicación**, seleccione **Este de EE. UU. 2** y haga clic en **Aceptar**. El equilibrador de carga empieza entonces a implementarse y este proceso tarda unos minutos en completarse correctamente.
 
     ![creación de un estándar de equilibrador de carga con redundancia de zona con Azure Portal](./media/load-balancer-get-started-internet-az-portal/create-zone-redundant-load-balancer-standard.png)
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Aprenda a [crear una dirección IP pública en una zona de disponibilidad](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address).
+- Más información sobre [Load Balancer Estándar y zonas de disponibilidad](load-balancer-standard-availability-zones.md).
 
 
 
