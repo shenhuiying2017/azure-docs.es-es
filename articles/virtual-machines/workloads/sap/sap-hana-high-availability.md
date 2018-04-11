@@ -13,11 +13,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/24/2018
 ms.author: sedusch
-ms.openlocfilehash: b84b523f919e6b253462139b6888e5eb16248084
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f8c01c4e3f060c6a5ad52f1ed16103ea42d8cd2b
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="high-availability-of-sap-hana-on-azure-virtual-machines-vms"></a>Alta disponibilidad de SAP HANA en Azure Virtual Machines (VM)
 
@@ -290,7 +290,7 @@ Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos,
     
     ```
 
-Para instalar la replicación del sistema de SAP HANA, siga el capítulo 4 de la [guía del escenario de rendimiento optimizado para la replicación del sistema de SAP HANA][suse-hana-ha-guide].
+Para instalar la replicación del sistema de SAP HANA, siga el capítulo 4 de la guía del escenario optimizado para rendimiento para la replicación del sistema de SAP HANA en https://www.suse.com/products/sles-for-sap/resource-library/sap-best-practices/.
 
 1. **[A]** Ejecute hdblcm desde el DVD de HANA
     * Elija la instalación -> 1

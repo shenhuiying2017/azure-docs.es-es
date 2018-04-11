@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/20/2018
 ms.author: sedusch
-ms.openlocfilehash: 75615de523f1fba808f44fb1a1015138fb190edc
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 2982c8ba534b9a93a021a9d3a3819b904f09abc7
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configuración de Pacemaker en SUSE Linux Enterprise Server en Azure
 
@@ -280,7 +280,7 @@ Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos,
 1. **[A]** Configure la resolución nombres de host   
 
    Puede usar un servidor DNS o modificar /etc/hosts en todos los nodos. En este ejemplo se muestra cómo utilizar el archivo /etc/hosts.
-   Reemplace la dirección IP y el nombre de host en los siguientes comandos
+   Reemplace la dirección IP y el nombre de host en los siguientes comandos. La ventaja de usar /etc/hosts es que el clúster es independiente de DNS, lo que también podría representar un único punto de error.
 
    <pre><code>
    sudo vi /etc/hosts
@@ -329,10 +329,16 @@ Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos,
    sudo vi /etc/corosync/corosync.conf   
    </code></pre>
 
-   Agregue el siguiente contenido en negrita al archivo.
+   Agregue el siguiente contenido en negrita al archivo si los valores no están ahí o son diferentes.
    
    <pre><code> 
    [...]
+     <b>token:          5000
+     token_retransmits_before_loss_const: 10
+     join:           60
+     consensus:      6000
+     max_messages:   20</b>
+     
      interface { 
         [...] 
      }

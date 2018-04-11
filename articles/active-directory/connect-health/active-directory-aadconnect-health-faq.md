@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: b4c977b54c87276bd4b168bc56e70f3b918e6634
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 983c2c8aeb4c9d37213061dd70d6d64bae3de9d7
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Preguntas más frecuentes sobre Azure AD Connect Health
 Este artículo incluye respuestas a preguntas más frecuentes (P+f) sobre Azure Active Directory (Azure AD) Connect Health. Estas preguntas más frecuentes abarcan cuestiones sobre cómo usar el servicio; por ejemplo, el modelo de facturación, las funcionalidades, las limitaciones y el soporte técnico.
@@ -178,6 +178,10 @@ CheckForMS17-010
 **P: ¿Por qué muestra el cmdlet de PowerShell <i>Get-MsolDirSyncProvisioningError</i> menos errores de sincronización en el resultado?**
 
 <i>Get-MsolDirSyncProvisioningError</i> solo devolverá errores de aprovisionamiento de DirSync. Además, el portal de Connect Health también muestra otros tipos de error de sincronización, como los errores de exportación. Esto es coherente con el resultado diferencial de Azure AD Connect. Más información acerca de los [Errores de sincronización de Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-sync-errors).
+
+**P: ¿Por qué mis auditorías de ADFS no se generan?**
+
+Utilice el cmdlet de PowerShell <i>Get-AdfsProperties - AuditLevel</i> para asegurarse de que los registros de auditoría no se encuentran en estado deshabilitado. Obtenga más información sobre los [registros de auditoría de ADFS](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016)
 
 
 ## <a name="related-links"></a>Vínculos relacionados

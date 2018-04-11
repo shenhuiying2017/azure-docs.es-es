@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/20/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 455c74ca808f71258a12166c2e36bdd73d9a3e20
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a5712e556d7b3bdcce38b8b8d39a08414ce0fd2f
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Requisitos de certificados de infraestructura de clave pública de Azure Stack
 Azure Stack tiene una red de infraestructura pública que usa direcciones IP públicas accesibles externamente y asignadas a un pequeño conjunto de servicios de Azure Stack y, posiblemente, a las máquinas virtuales del inquilino. Se requieren certificados PKI con los nombres DNS apropiados para estos puntos de conexión de la infraestructura pública de Azure Stack durante la implementación de este. En este artículo se proporciona información acerca de lo siguiente:
@@ -34,6 +34,9 @@ Azure Stack tiene una red de infraestructura pública que usa direcciones IP pú
 ## <a name="certificate-requirements"></a>Requisitos de certificados
 En la lista siguiente se describen los requisitos de certificados que son necesarios para implementar Azure Stack: 
 - Los certificados deben ser emitidos desde una entidad de certificación interna o pública. Si se usa una entidad de certificación pública, se debe incluir en la imagen del sistema operativo base como parte del programa de entidades de certificación raíz de confianza de Microsoft (Microsoft Trusted Root Certificate Program). Podrá encontrar la lista completa aquí: https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca 
+- La infraestructura Azure Stack debe tener acceso de red a la entidad de certificación utilizada para firmar los certificados.
+- Al cambiar los certificados, deben estar emitidos por la misma entidad certificación interna utilizada para firmar los certificados proporcionados en la implementación o por cualquier entidad de certificación pública anterior.
+- No se admite el uso de certificados autofirmados.
 - El certificado puede ser uno único comodín que abarque todos los espacios de nombres en el campo del nombre alternativo del firmante (SAN). Como alternativa, puede usar certificados individuales con caracteres comodín para los puntos de conexión como el almacenamiento y el almacén de claves donde sean necesarios. 
 - El algoritmo de firma de certificados no puede ser SHA1, ya que debe ser más seguro. 
 - El formato del certificado debe ser PFX, porque las claves públicas y privadas son necesarias para la instalación de Azure Stack. 
@@ -42,6 +45,9 @@ En la lista siguiente se describen los requisitos de certificados que son necesa
 - El campo "Issued to:" (Emitido para:) del certificado no debe ser el mismo que su campo "Issued by:" (Emitido por:).
 - Las contraseñas para todos los archivos PFX de certificado deben ser las mismas en el momento de la implementación.
 - Asegúrese de que los nombres de asunto y nombres alternativos del firmante de todos los certificados coinciden con las especificaciones descritas en este artículo para evitar errores en las implementaciones.
+
+> [!NOTE]
+> No se admiten certificados autofirmados.
 
 > [!NOTE]
 > Se admite la presencia de entidades emisoras de certificados intermediarias en una cadena de relaciones de confianza del certificado. 

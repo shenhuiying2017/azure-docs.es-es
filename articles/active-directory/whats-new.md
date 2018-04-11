@@ -14,14 +14,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/26/2018
+ms.date: 03/28/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d356535bf1a7daf45108bc790a19578108a50bb7
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 9a947de3ad821d4cd65e579357e3c779e8623435
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="whats-new-in-azure-active-directory"></a>¿Cuáles son las novedades de Azure Active Directory?
 
@@ -73,6 +73,32 @@ Ahora, puede agregar Twitter o GitHub como proveedores de identidades en Azure A
 
 Para más información, consulte [¿Qué es la colaboración B2B de Azure AD?](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)
  
+---
+
+
+### <a name="restrict-browser-access-using-intune-managed-browser-with-azure-ad-application-based-conditional-access-for-ios-and-android"></a>Restricción del acceso de explorador mediante Intune Managed Browser con acceso condicional basado en aplicaciones de Azure AD para iOS y Android
+
+**Tipo:** nueva característica  
+**Categoría del servicio:** acceso condicional  
+**Funcionalidad del producto:** protección y seguridad de la identidad
+ 
+
+**Ahora en versión preliminar pública**
+
+**SSO de Intune Managed Browser:** los empleados pueden utilizar el inicio de sesión único por los clientes nativos (por ejemplo, Microsoft Outlook) e Intune Managed Browser para todas las aplicaciones de Azure AD conectados.
+
+**Compatibilidad con el acceso condicional de Intune Managed Browser:** ahora puede requerir que los empleados puedan usar Intune Managed Browser mediante directivas de acceso condicional basado en la aplicación.
+
+Lea más sobre esto en nuestra [entrada de blog](https://cloudblogs.microsoft.com/enterprisemobility/2018/03/15/the-intune-managed-browser-now-supports-azure-ad-sso-and-conditional-access/).
+
+Para más información, consulte:
+
+- [Configuración del acceso condicional basado en aplicaciones](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
+
+- [Configuración de directivas de Managed Browser](https://aka.ms/managedbrowser)  
+
+
+
 ---
  
 

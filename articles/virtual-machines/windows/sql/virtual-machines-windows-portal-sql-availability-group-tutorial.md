@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: fe79c6e6344bef8f25ae2e343e3301959c4e0ae5
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 915f36678b8515c5f4a6bd367843255865f4b34d
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Configuración manual de grupos de disponibilidad AlwaysOn en máquinas virtuales de Azure
 
@@ -374,22 +374,14 @@ Para configurar el equilibrador de carga, debe crear un grupo de back-end, un so
 
    ![Buscar equilibrador de carga en el grupo de recursos](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/86-findloadbalancer.png)
 
-1. Haga clic en el equilibrador de carga, en **Grupos de back-end** y en **+Agregar**. Configure el grupo de back-end del modo siguiente:
+1. Haga clic en el equilibrador de carga, en **Grupos de back-end** y en **+Agregar**. 
 
-   | Configuración | DESCRIPCIÓN | Ejemplo
-   | --- | --- |---
-   | **Name** | Escribir un nombre de texto | SQLLBBE
-   | **Asociado a** | Elegir de la lista | Conjunto de disponibilidad
-   | **El conjunto de disponibilidad** | Usar un nombre del conjunto de disponibilidad en el que se encuentren las VM con SQL Server | sqlAvailabilitySet |
-   | **Máquinas virtuales** |Los dos nombres de VM con SQL Server de Azure | sqlserver-0, sqlserver-1
+1. Asocie el grupo de back-end con el conjunto de disponibilidad que contiene las máquinas virtuales.
 
-1. Escriba el nombre para el grupo de back-end.
+1. En **Configuraciones IP de red de destino**, active **MÁQUINA VIRTUAL** y seleccione ambas máquinas virtuales que hospedarán las réplicas del grupo de disponibilidad. No incluya el servidor testigo del recurso compartido de archivos.
 
-1. Haga clic en **+ Agregar máquina virtual**.
-
-1. Para el conjunto de disponibilidad, elija el conjunto de disponibilidad en el que están los servidores SQL Server.
-
-1. Para máquinas virtuales, incluya ambos servidores SQL Server. No incluya el servidor testigo del recurso compartido de archivos.
+   >[!NOTE]
+   >Si no se especifican ambas máquinas virtuales, las conexiones solo se realizarán correctamente en la réplica principal.
 
 1. Haga clic en **Aceptar** para crear el grupo de back-end.
 

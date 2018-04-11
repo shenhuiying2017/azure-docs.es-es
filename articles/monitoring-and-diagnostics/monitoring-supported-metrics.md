@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: ancav
-ms.openlocfilehash: 285f4540c7f9be19cde0aafeff67ce2b39abe957
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: fc7a4062af9e73383af46f0c36eb22710ce9b6e1
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas compatibles con Azure Monitor
 Azure Monitor proporciona varias maneras de interactuar con las métricas, como la representación en gráficos en el portal, el acceso a ellas a través de la API de REST o consultarlas con PowerShell o la CLI. A continuación se muestra una lista completa de todas las métricas disponibles actualmente en la canalización de métricas de Azure Monitor.
 
 > [!NOTE]
-> Otras métricas pueden estar disponibles en el portal o mediante las API heredadas. Esta lista incluye solo las métricas disponibles con la canalización de métricas consolidada de Azure Monitor. Para consultar y obtener acceso a las métricas con dimensiones, use la [api-version 2017-05-01-preview](https://docs.microsoft.com/rest/api/monitor/metricdefinitions).
+> Otras métricas pueden estar disponibles en el portal o mediante las API heredadas. Esta lista incluye solo las métricas disponibles con la canalización de métricas consolidada de Azure Monitor. Para consultar y acceder a las métricas con dimensiones, use la versión [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions).
 >
 >
 

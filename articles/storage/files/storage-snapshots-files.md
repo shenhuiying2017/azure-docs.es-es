@@ -1,5 +1,5 @@
 ---
-title: Información general de las instantáneas de recurso compartido de Azure Files (versión preliminar) | Microsoft Docs
+title: Introducción a las instantáneas de recurso compartido de Azure Files | Microsoft Docs
 description: Una instantánea de recurso compartido es una versión de solo lectura de un recurso compartido de Azure Files que se usa en un momento dado como método para realizar una copia de seguridad del recurso compartido.
 services: storage
 documentationcenter: .net
@@ -14,32 +14,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: renash
-ms.openlocfilehash: 671e3737a620d85c732a091d5a62f35f35c1d515
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6499bdf1af676898f7b2911612cbd206bccfa4fa
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Información general de las instantáneas de recurso compartido de Azure Files 
 Azure Files proporciona la funcionalidad de tomar instantáneas de recurso compartido de recursos compartidos de archivos. Las instantáneas de recursos compartidos capturan el estado del recurso compartido en ese momento dado. En este artículo se describen las funcionalidades que proporcionan las instantáneas de recurso compartido y cómo se puede sacar provecho de ellas en el caso de uso personalizado.
 
-
 ## <a name="when-to-use-share-snapshots"></a>Cuándo usar instantáneas de recursos compartidos
 
 ### <a name="protection-against-application-error-and-data-corruption"></a>Error de protección frente a la aplicación y datos dañados
-
 Las aplicaciones que usan recursos compartidos de archivos realizan operaciones tales como escritura, lectura, almacenamiento, transmisión o procesamiento. Si se desconfigura una aplicación o se produce un error accidental, es posible que se produzca una sobrescritura involuntaria o daños en algunos bloques. Para evitar estas circunstancias, puede tomar una instantánea del recurso compartido antes de implementar un código de aplicación nuevo. Si se produce un error o hay algún problema con la aplicación al llevar a cabo la nueva implementación, puede volver a la versión anterior de los datos de ese recurso compartido de archivos. 
 
 ### <a name="protection-against-accidental-deletions-or-unintended-changes"></a>Protección frente a eliminaciones accidentales y cambios no intencionados
-
 Imagine que está trabajando en un archivo de texto en un recurso compartido de archivos. Una vez que se cierra el archivo de texto pierde la capacidad de deshacer los cambios. En estos casos, necesitará recuperar una versión anterior del archivo. Gracias a las instantáneas de recursos compartidos, podrá recuperar versiones anteriores del archivo si se cambia el nombre o se elimina accidentalmente.
 
 ### <a name="general-backup-purposes"></a>Propósitos generales de copia de seguridad
-
 Después de crear un recurso compartido de archivos, puede crear periódicamente una instantánea de recurso compartido del recurso compartido de archivos para usarla como una copia de seguridad de los datos. Si toma instantáneas de recurso compartido de forma periódica, podrá tener versiones de datos previas y usarlas si son necesarias en posibles auditorías o en una recuperación ante desastres.
 
 ## <a name="capabilities"></a>Capacidades
-
 Una instantánea de recurso compartido es una copia de solo lectura de un momento dado de sus datos. Puede crear, eliminar y administrar instantáneas mediante la API de REST. Asimismo, tiene disponibles estas mismas funcionalidades en la biblioteca cliente, la CLI de Azure y Azure Portal. 
 
 Puede ver las instantáneas de un recurso compartido con la API de REST y SMB. Igualmente, puede recuperar la lista de versiones del directorio o archivo y también puede montar una versión específica directamente como unidad. 
@@ -59,9 +54,7 @@ Cuando cree una instantánea de recurso compartido de un recurso compartido de a
 
 No puede eliminar un recurso compartido que disponga de instantáneas de recurso compartido sin eliminar todas sus instantáneas de recurso compartido primero.
 
-
 ## <a name="space-usage"></a>Uso del espacio 
-
 Las instantáneas de recurso compartido son de naturaleza incremental. Solo se guardan los datos que hayan cambiado después de realizar la instantánea de recurso compartido más reciente. Esto minimiza el tiempo necesario para crear la instantánea de recurso compartido y ahorra en costos de almacenamiento. Cualquier operación de escritura en el objeto o propiedad o cualquier operación de actualización de metadatos se agrega al "contenido cambiado" y se guarda en la instantánea de recurso compartido. 
 
 Para ahorrar espacio, puede eliminar la instantánea de recurso compartido durante el periodo en el que la renovación se encuentra en su punto álgido.
@@ -71,13 +64,11 @@ Incluso si las instantáneas de recurso compartido se guardan de forma increment
 Las instantáneas no se tienen en cuenta en el límite de recursos compartidos de 5 TB. No hay ninguna restricción en la cantidad de espacio que ocupan las instantáneas de recurso compartido. Los límites de cuenta de almacenamiento se siguen aplicando.
 
 ## <a name="limits"></a>límites
-
 En cambio, el número máximo de instantáneas de recurso compartido que permite Azure Files actualmente es de 200. Una vez se llegue a las 200 instantáneas de recurso compartido, las instantáneas más antiguas se eliminarán para poder crear otras nuevas. 
 
 No hay ningún límite en las llamadas simultáneas dedicadas a crear instantáneas de recurso compartido. Asimismo, tampoco hay ningún límite en la cantidad de espacio que las instantáneas de recurso compartido de un recurso compartido de archivos determinado pueden consumir. 
 
 ## <a name="copying-data-back-to-a-share-from-share-snapshot"></a>Volver a copiar datos en un recurso compartido desde una instantánea de recurso compartido
-
 Las operaciones de copia que implican archivos e instantáneas de recurso compartido siguen estas reglas:
 
 Puede copiar archivos individuales en una instantánea de recurso compartido de archivos por encima de su recurso compartido base o en cualquier otra ubicación. Puede restaurar una versión anterior de un archivo o restaurar un recurso compartido de archivos completo copiando archivo por archivo desde la instantánea de recurso compartido. La instantánea de recurso compartido no se promociona al recurso compartido base. 
@@ -89,7 +80,6 @@ Puede copiar un archivo en una instantánea de recurso compartido en un destino 
 Cuando un archivo de destino se sobrescribe con una copia, las instantáneas de recurso compartido asociadas al archivo de destino original no se modifican.
 
 ## <a name="general-best-practices"></a>Procedimientos recomendados generales 
-
 Cuando ejecute una infraestructura en Azure, automatice las copias de seguridad para recuperar los datos cuando sea posible. Las acciones automatizadas son más fiables que los procesos manuales, lo que le ayuda a mejorar la recuperabilidad y la protección de datos. Puede usar la API de REST, el SDK de cliente o un scripting de automatización.
 
 Antes de implementar el programador de la instantánea de recurso compartido, tenga en cuenta la frecuencia de la instantánea de recurso compartido y la configuración de retención para evitar gastos innecesarios.
@@ -97,6 +87,8 @@ Antes de implementar el programador de la instantánea de recurso compartido, te
 Las instantáneas de recurso compartido solo proporcionan protección a nivel de archivo. Recuerde que las instantáneas de recurso compartido no previenen eliminaciones que se hayan producido por errores involuntarios en un recurso compartido de archivos o en una cuenta de almacenamiento. Le recomendamos que bloquee la cuenta de almacenamiento o el grupo de recursos para protegerlos de eliminaciones accidentales.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Trabajar con instantáneas de recurso compartido](storage-how-to-use-files-snapshots.md)
-* [Preguntas más frecuentes sobre instantáneas de recurso compartido](storage-files-faq.md#share-snapshots)
-
+- Trabajo con instantáneas de recurso compartido en:
+    - [Portal](storage-how-to-use-files-portal.md#create-and-modify-share-snapshots)
+    - [PowerShell](storage-how-to-use-files-powershell.md#create-and-modify-share-snapshots)
+    - [CLI](storage-how-to-use-files-cli.md#create-and-modify-share-snapshots)
+- [Preguntas más frecuentes sobre instantáneas de recurso compartido](storage-files-faq.md#share-snapshots)

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 401542bf61aa27138d26cce522e24078503b77e0
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 3f3ed53e3c6606ca540cc2e760f2f6280ccf5cc2
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planeamiento de una implementación de Azure File Sync (versión preliminar)
 Use Azure File Sync (versión preliminar) para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -96,6 +96,19 @@ Las versiones futuras de Windows Server se agregarán tan pronto como se publiqu
 
 > [!Note]  
 > Solo se admiten volúmenes NTFS. No se admiten ReFS, FAT, FAT32 ni otros sistemas de archivos.
+
+### <a name="files-skipped"></a>Archivos omitidos
+| Archivo o carpeta | Nota: |
+|-|-|
+| Desktop.ini | Archivo específico del sistema |
+| ethumbs.DB$ | Archivo temporal para miniaturas |
+| ~$\*.\* | Archivo temporal de Office |
+| \*.tmp | Archivo temporal |
+| \*.laccdb | Archivo de bloqueo de base de datos de Access|
+| 635D02A9D91C401B97884B82B3BCDAEA.* ||
+| \\System Volume Information | Carpeta específica del volumen |
+| $RECYCLE.BIN| Carpeta |
+| \\SyncShareState | Carpeta para sincronización |
 
 ### <a name="failover-clustering"></a>Clústeres de conmutación por error
 La característica de clústeres de conmutación por error de Windows es compatible con Azure File Sync en la opción de implementación "Servidor de archivos para uso general". La característica de clústeres de conmutación por error no se admite en "Servidor de archivos de escalabilidad horizontal para datos de aplicación" (SOFS) o en volúmenes compartidos de clúster (CSV).

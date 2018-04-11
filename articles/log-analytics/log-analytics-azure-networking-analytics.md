@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2018
 ms.author: richrund
-ms.openlocfilehash: 17dadd784d59a2cc0cab6ffbae144010f896b296
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 12172e81ed6b4d79ee200ee1ca79803ad58d6d19
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-networking-monitoring-solutions-in-log-analytics"></a>Soluciones de supervisión de redes de Azure en Log Analytics
 
@@ -28,18 +28,19 @@ Log Analytics ofrece las siguientes soluciones para supervisar las redes:
 * Azure Application Gateway Analytics para revisar
  * Registros de Azure Application Gateway
  * Métricas de Azure Application Gateway
-* Azure Network Security Group Analytics para revisar
- * Registros de Azure Network Security Group
+* Soluciones para supervisar y auditar la actividad de red en la red de la nube
+* [Análisis de tráfico](https://docs.microsoft.com/azure/networking/network-monitoring-overview#traffic-analytics) 
+* Azure Network Security Group Analytics
 
 ## <a name="network-performance-monitor-npm"></a>Network Performance Monitor (NPM) (monitor de rendimiento de red)
 
-La Solución de administración [Network Performance Monitor](log-analytics-network-performance-monitor.md) supervisa el mantenimiento, la disponibilidad y accesibilidad de las redes.  Se utiliza para supervisar la conectividad entre:
+La Solución de administración [Network Performance Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview) supervisa el mantenimiento, la disponibilidad y accesibilidad de las redes.  Se utiliza para supervisar la conectividad entre:
 
 * Nube pública y entorno local
 * Centros de datos y ubicaciones de usuario (sucursales)
 * Subredes que hospedan distintos niveles de una aplicación de varios niveles.
 
-Para más información consulte [Network Performance Monitor](log-analytics-network-performance-monitor.md).
+Para más información consulte [Network Performance Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview).
 
 ## <a name="azure-application-gateway-and-network-security-group-analytics"></a>Azure Application Gateway y Network Security Group Analytics
 Para usar las soluciones:

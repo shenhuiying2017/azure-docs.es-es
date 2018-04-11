@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/16/2018
 ms.author: billmath
-ms.openlocfilehash: 8bae1140d4a3ac4762bdcbabb16851d29415a8fe
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 5308803bb36024ee2373cf07ec46f798eb7192c5
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: historial de versiones
 El equipo de Azure Active Directory (Azure AD) actualiza periódicamente Azure AD Connect con nuevas características y funcionalidades. No todas las adiciones son aplicables a todas las audiencias.
@@ -49,6 +49,7 @@ Estado al 22/3/2018: Publicado para actualización y descarga automáticas.
 #### <a name="fixed-issues"></a>Problemas corregidos
 
 * Set-ADSyncAutoUpgrade cmdlet bloqueaba anteriormente la actualización automática si el estado de esta se configuraba en Suspendido. Ahora ha cambiado para que no bloquee la actualización automática de futuras compilaciones.
+* Se ha cambiado la opción de la página de **inicio de sesión de usuario** "Sincronización de contraseña" a "Sincronización de hash de contraseñas".  Azure AD Connect sincroniza los hash de contraseñas, no las contraseñas, por lo que esto se adapta a lo que realmente está ocurriendo.  Para más información, consulte [Implementación de la sincronización de hash de contraseñas con la sincronización de Azure AD Connect](active-directory-aadconnectsync-implement-password-hash-synchronization.md).
 
 ## <a name="117490"></a>1.1.749.0
 Estado: publicado para clientes exclusivos
@@ -558,7 +559,7 @@ Sincronización de Azure AD Connect
   * Agregue **userType** al esquema de metaverso y al del conector de AAD. Los clientes que deseen actualizar cualquiera de los atributos en Azure AD pueden implementar reglas de sincronización personalizadas para hacerlo.
 
 * Ahora Azure AD Connect permite automáticamente el uso del atributo ConsistencyGuid como el atributo sourceAnchor para los objetos de AD local. Además, Azure AD Connect rellena el atributo ConsistencyGuid con el valor del atributo objectGuid si está vacío. Esta característica solo es aplicable a nueva implementaciones. Para más información sobre esta característica, consulte la sección [Uso de msDS-ConsistencyGuid como sourceAnchor en el artículo Azure AD Connect: conceptos de diseño](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor).
-* Se ha agregado un nuevo cmdlet de solución de problemas, Invoke-ADSyncDiagnostics, para ayudar a diagnosticar problemas relacionados con la sincronización de hash de contraseña. Para obtener información sobre el uso del cmdlet, vea el artículo [Solución de problemas de la implementación de la sincronización de contraseña con la sincronización de Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-troubleshoot-password-synchronization).
+* Se ha agregado un nuevo cmdlet de solución de problemas, Invoke-ADSyncDiagnostics, para ayudar a diagnosticar problemas relacionados con la sincronización de hash de contraseña. Para más información sobre el uso del cmdlet, consulte el artículo [Solución de problemas de sincronización de hash de contraseñas con la sincronización de Azure AD Connect](active-directory-aadconnectsync-troubleshoot-password-hash-synchronization.md).
 * Azure AD Connect es compatible ahora con la sincronización de objetos de carpeta pública habilitada para correo de una instancia local de AD a Azure AD. Puede habilitar la característica con el asistente de Azure AD Connect en Características opcionales. Para obtener más información sobre esta característica, vea el artículo [Compatibilidad del bloqueo perimetral basado en directorios de Office 365 para las carpetas públicas habilitadas para correo locales](https://blogs.technet.microsoft.com/exchange/2017/05/19/office-365-directory-based-edge-blocking-support-for-on-premises-mail-enabled-public-folders).
 * Azure AD Connect necesita una cuenta de AD DS para sincronizar desde la instancia local de AD. Anteriormente, si se instalaba Azure AD Connect con el modo rápido, se podían proporcionar las credenciales de una cuenta de administrador de organización y Azure AD Connect creaba la cuenta de AD DS necesaria. Pero para una instalación personalizada y para agregar bosques a una implementación existente, había que proporcionar la cuenta de AD DS. Ahora, también tiene la opción de proporcionar las credenciales de una cuenta de administrador de organización durante una instalación personalizada y dejar que Azure AD Connect cree la cuenta de AD DS necesaria.
 * Azure AD Connect ahora es compatible con AOA de SQL. Debe habilitar AOA de SQL antes de instalar Azure AD Connect. Durante la instalación, Azure AD Connect detecta si la instancia de SQL proporcionada está habilitada para AOA de SQL o no. Si AOA de SQL está habilitada, Azure AD Connect averigua si AOA de SQL está configurada para usar la replicación sincrónica o asincrónica. Cuando configure la escucha de grupo de disponibilidad, se recomienda que establezca la propiedad RegisterAllProvidersIP en 0. Esto se debe a que Azure AD Connect actualmente usa SQL Native Client para conectarse a SQL y SQL Native Client no admite el uso de la propiedad MultiSubNetFailover.
@@ -748,7 +749,7 @@ Fecha de publicación: junio de 2016
 **Problemas corregidos y mejoras:**
 
 * Azure AD Connect ahora puede instalarse en un servidor conforme a FIPS.
-  * Para la sincronización de contraseñas, consulte [Sincronización de contraseñas y FIPS](active-directory-aadconnectsync-implement-password-synchronization.md#password-synchronization-and-fips).
+  * Para la sincronización de contraseñas, consulte [Sincronización de hash de contraseñas y FIPS](active-directory-aadconnectsync-implement-password-hash-synchronization.md#password-hash-synchronization-and-fips).
 * Se ha corregido un problema por el cual un nombre NetBIOS no se pudo resolver en el FQDN en el conector de Active Directory.
 
 ## <a name="111800"></a>1.1.180.0

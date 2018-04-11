@@ -1,6 +1,6 @@
 ---
-title: Alertas de métricas casi en tiempo real en Azure Monitor | Microsoft Docs
-description: Aprenda a usar las alertas de métricas casi en tiempo real para supervisar métricas de recursos de Azure con una frecuencia de tan solo 1 minuto.
+title: Nuevas alertas de métricas en los recursos admitidos de Azure Monitor | Microsoft Docs
+description: Referencia sobre métricas y registro de soporte técnico para las nuevas alertas de métricas casi en tiempo real de Azure.
 author: snehithm
 manager: kmadnani1
 editor: ''
@@ -12,32 +12,35 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 03/26/2018
 ms.author: snmuvva, vinagara
 ms.custom: ''
-ms.openlocfilehash: 15b9b0b69f3805b3e3af1d3973fd3a77bea62ab9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6ccb095f3739a90bdab2408965a742f9cbc19359
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
-# <a name="use-the-newer-metric-alerts-for-azure-services-in-azure-portal"></a>Usar las nuevas alertas de métricas para los servicios de Azure de Azure Portal
-Azure Monitor admite un nuevo tipo de alerta denominada alertas de métricas casi en tiempo real. 
+# <a name="newer-metric-alerts-for-azure-services-in-the-azure-portal"></a>Nuevas alertas de métricas para los servicios de Azure de Azure Portal
+Azure Monitor admite ahora un nuevo tipo de alertas de métricas. Las nuevas alertas se diferencian de las [alertas de métricas clásicas](insights-alerts-portal.md) de varias maneras:
 
-Las alertas de métricas casi en tiempo real se diferencian de las [alertas de métricas clásicas](insights-alerts-portal.md) de varias maneras:
+- **Latencia mejorada**: las nuevas alertas de métricas se pueden ejecutar con una frecuencia de cada minuto. Las alertas de métricas anteriores siempre se ejecutan con una frecuencia de 5 minutos. Las alertas de registro todavía tienen un retraso de más de un minuto debido al tiempo que se tarda en ingerir los registros. 
+- **Compatibilidad con métricas multidimensionales**: puede enviar alertas sobre las métricas dimensionales que le permiten supervisar solo un segmento interesante de la métrica. 
+- **Más control sobre las condiciones de las métricas**: puede definir reglas de alerta más avanzadas. Las nuevas alertas admiten la supervisión de los valores máximos, mínimos, promedio y totales de las métricas. 
+- **Supervisión combinada de varias métricas**: se pueden supervisar varias métricas (actualmente hasta dos métricas) con una sola regla. Si ambas métricas incumplen sus respectivos umbrales durante el período especificado, se desencadena una alerta. 
+- **Mejor sistema de notificación**: todas las nuevas alertas utilizan [grupos de acciones](monitoring-action-groups.md), que se denominan grupos de notificaciones y acciones que pueden reutilizarse en varias alertas. Las alertas de métricas clásicas y las alertas de Log Analytics más antiguas no utilizan grupos de acciones. 
+- **Métricas de registros** (versión preliminar pública limitada): los datos de registro que van a Log Analytics ahora se pueden extraer y convertir en métricas de Azure Monitor y luego en alertas como cualquier otra métrica. 
 
-- **Latencia mejorada**: las alertas de métricas casi en tiempo real se pueden ejecutar con una frecuencia de cada minuto. Las alertas de métricas anteriores siempre se ejecutan con una frecuencia de 5 minutos.
-- **Compatibilidad con métricas multidimensionales**: puede enviar alertas sobre las métricas dimensionales que le permiten supervisar un segmento interesante de la métrica.
-- **Más control sobre las condiciones de las métricas**: en las alertas de métricas casi en tiempo real puede definir reglas de alerta más sofisticadas. Las alertas admiten la supervisión de los valores máximos, mínimos, promedio y totales de las métricas.
-- **Supervisión combinada de varias métricas**: las alertas de métricas casi en tiempo real pueden supervisar varias métricas (actualmente hasta dos métricas) con una sola regla. Si ambas métricas incumplen sus respectivos umbrales durante el período especificado, se desencadena una alerta.
-- **Sistema de notificaciones modular**: las alertas de métricas casi en tiempo real usan [grupos de acciones](monitoring-action-groups.md). Puede usar grupos de acciones para crear acciones modulares. Puede volver a usar grupos de acciones para varias reglas de alerta.
-- **Métricas de los registros**: a partir de los datos de registros populares que se introducen en [Log Analytics](../log-analytics/log-analytics-overview.md), las métricas pueden extraerse en Azure Monitor y recibir alertas casi en tiempo real.
+Para aprender a crear una alerta de métricas nueva en Azure Portal, consulte [Creación de una regla de alertas en Azure Portal](monitor-alerts-unified-usage.md#create-an-alert-rule-with-the-azure-portal). Tras la creación, puede administrarla mediante los pasos descritos en [Administración de las alertas en Azure Portal](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal).
 
+
+## <a name="portal-powershell-cli-rest-support"></a>Portal, PowerShell, CLI, REST support
+Actualmente, solo puede crear alertas de métricas nuevas en Azure Portal o API de REST. La compatibilidad con la configuración de nuevas alertas mediante PowerShell, la interfaz de la línea de comandos de Azure (CLI de Azure 2.0) estará disponible próximamente.
 
 ## <a name="metrics-and-dimensions-supported"></a>Métricas y dimensiones compatibles
-Las alertas de métricas casi en tiempo real admiten alertas de métricas que utilizan dimensiones. Puede usar dimensiones para filtrar las métricas al nivel adecuado. Todas las métricas compatibles junto con las dimensiones aplicables se pueden explorar y visualizar en el [Explorador de métricas de Azure Monitor (versión preliminar)](monitoring-metric-charts.md).
+Las nuevas alertas de métricas admiten alertas de métricas que utilizan dimensiones. Puede usar dimensiones para filtrar las métricas al nivel adecuado. Todas las métricas compatibles junto con las dimensiones aplicables se pueden explorar y visualizar en el [Explorador de métricas de Azure Monitor (versión preliminar)](monitoring-metric-charts.md).
 
-Esta es la lista completa de orígenes de métricas basados en Azure Monitor compatibles para las alertas de métricas casi en tiempo real:
+Esta es la lista completa de los orígenes de métricas de Azure Monitor que se admiten por las nuevas alertas:
 
 |Tipo de recurso  |Dimensiones compatibles  | Métricas disponibles|
 |---------|---------|----------------|
@@ -60,25 +63,20 @@ Esta es la lista completa de orígenes de métricas basados en Azure Monitor com
 |Microsoft.Storage/storageAccounts/services     |     Sí    | [Servicios de blob](monitoring-supported-metrics.md#microsoftstoragestorageaccountsblobservices), [servicios de archivo](monitoring-supported-metrics.md#microsoftstoragestorageaccountsfileservices), [servicios de cola](monitoring-supported-metrics.md#microsoftstoragestorageaccountsqueueservices) y [servicios de tabla](monitoring-supported-metrics.md#microsoftstoragestorageaccountstableservices)|
 |Microsoft.StreamAnalytics/streamingjobs     |  N/D       | [Stream Analytics](monitoring-supported-metrics.md#microsoftstreamanalyticsstreamingjobs)|
 |Microsoft.CognitiveServices/accounts     |    N/D     | [Cognitive Services](monitoring-supported-metrics.md#microsoftcognitiveservicesaccounts)|
-|Microsoft.OperationalInsights/workspaces (versión preliminar) | Sí|[Áreas de trabajo de Log Analytics](#support-for-oms-logs-as-metrics-for-alerting)|
+|Microsoft.OperationalInsights/workspaces (versión preliminar) | Sí|[Áreas de trabajo de Log Analytics](#log-analytics-logs-as-metrics-for-alerting)|
 
 
-## <a name="create-a-newer-metric-alert"></a>Creación de una alerta de métrica nueva
-Actualmente, solo puede crear alertas de métricas nuevas en Azure Portal o API de REST. La compatibilidad con la configuración de alertas de métricas casi en tiempo real mediante PowerShell, la Interfaz de la línea de comandos de Azure (CLI de Azure) estará disponible próximamente.
+## <a name="log-analytics-logs-as-metrics-for-alerting"></a>Registros de Log Analytics como métricas para alertas 
 
-Para aprender a crear una alerta de métricas nueva en Azure Portal, consulte [Creación de una regla de alertas en Azure Portal](monitor-alerts-unified-usage.md#create-an-alert-rule-with-the-azure-portal).
-
-## <a name="manage-newer-metric-alerts"></a>Administrar alertas de métricas más recientes
-Tras crear una alerta de métricas casi en tiempo real, puede administrarla mediante los pasos descritos en [Administración de las alertas en Azure Portal](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal).
-
-## <a name="support-for-oms-logs-as-metrics-for-alerting"></a>Compatibilidad con registros de OMS como métricas de alertas
-
-También puede utilizar alertas de métricas casi en tiempo real en los registros de OMS populares extraídos como métricas como parte de las métricas de vista previa de los registros.  
+También puede utilizar las nuevas alertas de métricas en los registros de Log Analytics populares extraídos como métricas como parte de las métricas de versión preliminar de los registros.  
 - [Contadores de rendimiento](../log-analytics/log-analytics-data-sources-performance-counters.md) para equipos con Windows y Linux
 - [Registros de latidos para Agent Health](../operations-management-suite/oms-solution-agenthealth.md)
 - Registros de [administración de actualizaciones](../operations-management-suite/oms-solution-update-management.md)
+ 
+> [!NOTE]
+> La métrica o dimensión específicas solo se mostrarán si los datos de ellas existen durante el período elegido. Estas métricas están disponibles para los clientes con áreas de trabajo de Este de EE. UU., Centro-oeste de EE. UU. y Europa Occidental que han participado en la versión preliminar. Si quiere formar parte de esta versión preliminar, regístrese mediante [la encuesta](https://aka.ms/MetricLogPreview).
 
-Esta es la lista completa de orígenes de métricas basados en registros de OMS compatibles para las alertas de métricas casi en tiempo real:
+Se admite la siguiente lista de orígenes de métricas basados en registros de Log Analytics:
 
 Detalles/nombre de métricas  |Dimensiones compatibles  | Tipo de registro  |
 |---------|---------|---------|
@@ -151,13 +149,11 @@ Detalles/nombre de métricas  |Dimensiones compatibles  | Tipo de registro  |
 |    Latido  |     Sí: Computer, OSType, Version y SourceComputerId    |   Registros de latidos |
 |    Actualizar |     Sí: Computer, Product, Classification, UpdateState, Optional y Approved    |   Administración de actualizaciones |
 
-> [!NOTE]
-> La métrica o dimensión específicas solo se mostrarán si los datos de ellas existen durante el período elegido. Estas métricas están disponibles para los clientes con áreas de trabajo de Este de EE. UU., Centro-oeste de EE. UU. y Europa Occidental que han participado en la versión preliminar. Si quiere formar parte de esta versión preliminar, regístrese mediante [la encuesta](https://aka.ms/MetricLogPreview).
 
 
 ## <a name="payload-schema"></a>Esquema de carga
 
-La operación POST contiene el esquema y la carga útil de JSON siguientes para todas las alertas de métricas casi en tiempo real cuando se usa un [grupo de acciones](monitoring-action-groups.md) configurado correctamente:
+La operación POST contiene el esquema y la carga útil de JSON siguientes para todas las nuevas métricas cuando se usa un [grupo de acciones](monitoring-action-groups.md) configurado correctamente:
 
 ```json
 {"schemaId":"AzureMonitorMetricAlert","data":

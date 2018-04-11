@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 847213a5b8aab908d412ecc9aecec984aec1a9ba
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 9b3c4efc712ebe9c0fe209d2ca0478367872d3b7
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solución Network Performance Monitor en Azure
 
@@ -48,6 +48,7 @@ NPM puede supervisar la conectividad entre redes y aplicaciones en cualquier par
 * Este de EE. UU
 * Sudeste de Asia
 * Sudeste de Australia
+* Sur de Reino Unido
 * Gobierno de EE. UU. Virginia
 
 La lista de regiones admitidas para la Supervisión de ExpressRoute está disponible en la [documentación](https://docs.microsoft.com/azure/expressroute/how-to-npm?utm_swu=8117#regions).
@@ -142,7 +143,7 @@ Para habilitar o deshabilitar la supervisión de subredes determinadas, siga est
 
 1. Active o desactive la casilla junto a  **Subnetwork ID** (Identificador de subred). A continuación, asegúrese de que  **Use for Monitoring**  (Usar para la supervisión) está seleccionado o desactivado, según corresponda. Puede seleccionar o borrar varias subredes. Cuando esta casilla está desactivada, no se supervisan las subredes y los agentes se actualizan para que dejen de hacer ping a los demás agentes. 
 2. Elija los nodos que desea supervisar en una subred determinada. Seleccione la subred de la lista y mueva los nodos necesarios entre las listas que contienen nodos no supervisados y supervisados. Puede agregar una descripción personalizada a la subred.
-3. Para guardar la configuración, seleccione **Save** (Guardar). 
+3. Para guardar la configuración, seleccione **Guardar**. 
 
 #### <a name="choose-nodes-to-monitor"></a>Elección de los nodos que desee supervisar
 
