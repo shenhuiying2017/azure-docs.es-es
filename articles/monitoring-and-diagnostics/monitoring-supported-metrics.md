@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 03/30/2018
 ms.author: ancav
-ms.openlocfilehash: fc7a4062af9e73383af46f0c36eb22710ce9b6e1
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 68f5784f1724441ff6f18e2581c8e01d66c60c5e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas compatibles con Azure Monitor
 Azure Monitor proporciona varias maneras de interactuar con las métricas, como la representación en gráficos en el portal, el acceso a ellas a través de la API de REST o consultarlas con PowerShell o la CLI. A continuación se muestra una lista completa de todas las métricas disponibles actualmente en la canalización de métricas de Azure Monitor.
@@ -811,11 +811,11 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|DESCRIPCIÓN|Dimensiones|
 |---|---|---|---|---|---|
 |Throughput|Throughput|BytesPerSecond|Total|Número de bytes por segundo que ha ofrecido Application Gateway|Sin dimensiones|
-|UnhealthyHostCount|Recuento de hosts con estado incorrecto|Recuento|Media|Número de hosts de back-end con estado incorrecto|BackendSettingsPool|
-|HealthyHostCount|Recuento de hosts con estado correcto|Recuento|Media|Número de hosts de back-end con estado correcto|BackendSettingsPool|
+|UnhealthyHostCount|Recuento de hosts con estado incorrecto|Recuento|Media|Número de hosts de back-end con estado incorrecto. También puede filtrar en función de grupos de back-end para mostrar hosts en buen/mal estado en un grupo de back-end específico.|BackendSettingsPool|
+|HealthyHostCount|Recuento de hosts con estado correcto|Recuento|Media|Número de hosts de back-end con estado correcto. También puede filtrar en función de grupos de back-end para mostrar hosts en buen/mal estado en un grupo de back-end específico.|BackendSettingsPool. |
 |TotalRequests|Total de solicitudes|Recuento|Total|Recuento de solicitudes correctas que ha servido Application Gateway|BackendSettingsPool|
 |FailedRequests|Solicitudes con error|Recuento|Total|Recuento de solicitudes con error que ha servido Application Gateway|BackendSettingsPool|
-|ResponseStatus|Estado de respuesta|Recuento|Total|Estado de respuesta HTTP devuelto por Application Gateway|HttpStatusGroup|
+|ResponseStatus|Estado de respuesta|Recuento|Total|Estado de la respuesta HTTP devuelta por Application Gateway. La distribución del código de estado de respuesta se puede categorizar aún más para mostrar respuestas de las categorías 2xx, 3xx, 4xx y 5xx.|HttpStatusGroup|
 |CurrentConnections|Conexiones actuales|Recuento|Total|Recuento de conexiones actuales establecidas con Application Gateway|Sin dimensiones|
 
 ## <a name="microsoftnetworkvirtualnetworkgateways"></a>Microsoft.Network/virtualNetworkGateways

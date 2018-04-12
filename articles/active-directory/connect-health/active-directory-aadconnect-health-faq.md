@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 983c2c8aeb4c9d37213061dd70d6d64bae3de9d7
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 05720e6c290b0b54e5b6d5170a6eb22306e9cb04
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Preguntas más frecuentes sobre Azure AD Connect Health
 Este artículo incluye respuestas a preguntas más frecuentes (P+f) sobre Azure Active Directory (Azure AD) Connect Health. Estas preguntas más frecuentes abarcan cuestiones sobre cómo usar el servicio; por ejemplo, el modelo de facturación, las funcionalidades, las limitaciones y el soporte técnico.
@@ -181,7 +181,7 @@ CheckForMS17-010
 
 **P: ¿Por qué mis auditorías de ADFS no se generan?**
 
-Utilice el cmdlet de PowerShell <i>Get-AdfsProperties - AuditLevel</i> para asegurarse de que los registros de auditoría no se encuentran en estado deshabilitado. Obtenga más información sobre los [registros de auditoría de ADFS](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016)
+Utilice el cmdlet de PowerShell <i>Get-AdfsProperties - AuditLevel</i> para asegurarse de que los registros de auditoría no se encuentran en estado deshabilitado. Obtenga más información sobre los [registros de auditoría de ADFS](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016). Tenga en cuenta que si se envía una configuración avanzada de auditoría al servidor de ADFS, se sobrescribirán los cambios realizados con auditpol.exe (aunque no se haya configurado Application Generated). En este caso, establezca la directiva de seguridad local para que registre los eventos correctos e incorrectos de Application Generated. 
 
 
 ## <a name="related-links"></a>Vínculos relacionados

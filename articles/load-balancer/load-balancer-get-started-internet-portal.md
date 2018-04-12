@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: kumud
-ms.openlocfilehash: 1b7901542a699e74f65527bf734133f73acb0bea
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c646b0b1ab0ec62cffb4f7cf7474b48c68dfabb4
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-public-basic-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Cree mediante Azure Portal una instancia pública de Load Balancer Básico para equilibrar la carga de máquinas virtuales
 
@@ -38,8 +38,8 @@ En esta sección, se crea una instancia pública de Load Balancer Básico median
 1. En la parte superior izquierda de la pantalla, haga clic en **Crear un recurso** > **Redes** > **Equilibrador de carga**.
 2. En la página **Crear equilibrador de carga** especifique estos valores para el equilibrador de carga:
     - *myLoadBalancer*: como nombre del equilibrador de carga.
-    - **Pública**: como tipo de equilibrador de carga. 
-     - *myPublicIP*: como dirección IP pública en la que debe seleccionar **Básico** en SKU y **Dinámico** en **Asignación**.
+    - **Pública**: como tipo de equilibrador de carga.
+    - *myPublicIP*: como dirección IP pública en la que debe seleccionar **Básico** en SKU y **Dinámico** en **Asignación**.
     - *myResourceGroupLB*: como nombre del nuevo grupo de recursos que crea.
 3. Haga clic en **Crear** para crear el equilibrador de carga.
    
@@ -50,7 +50,7 @@ En esta sección, se crea una instancia pública de Load Balancer Básico median
 
 En esta sección, se crea una red virtual, luego dos máquinas virtuales para el grupo de back-end de la instancia de Load Balancer Básico y, finalmente, se instala IIS en las máquinas virtuales para ayudar a probar el equilibrador de carga.
 
-### <a name="create-a-virtual-network"></a>Creación de una red virtual
+### <a name="create-a-virtual-network"></a>Crear una red virtual
 1. En la parte superior izquierda de la pantalla, haga clic en **Nuevo** > **Redes** > **Red virtual** y especifique estos valores para la red virtual:
     - *myVNet*: como nombre de la red virtual.
     - *myResourceGroupLB*: como nombre del grupo de recursos existente.

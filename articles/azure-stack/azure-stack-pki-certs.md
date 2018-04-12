@@ -3,7 +3,7 @@ title: Requisitos de certificados de infraestructura de clave pública de Azure 
 description: Describe los requisitos de implementación de certificados PKI de Azure Stack para sus sistemas integrados.
 services: azure-stack
 documentationcenter: ''
-author: mabriggs
+author: jeffgilb
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,16 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/20/2018
-ms.author: mabrigg
+ms.date: 03/29/2018
+ms.author: jeffgilb
 ms.reviewer: ppacent
-ms.openlocfilehash: a5712e556d7b3bdcce38b8b8d39a08414ce0fd2f
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 583f827fe77ef7721b3098dee01c418c9e5cccd8
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Requisitos de certificados de infraestructura de clave pública de Azure Stack
+
 Azure Stack tiene una red de infraestructura pública que usa direcciones IP públicas accesibles externamente y asignadas a un pequeño conjunto de servicios de Azure Stack y, posiblemente, a las máquinas virtuales del inquilino. Se requieren certificados PKI con los nombres DNS apropiados para estos puntos de conexión de la infraestructura pública de Azure Stack durante la implementación de este. En este artículo se proporciona información acerca de lo siguiente:
 
 - Los certificados son necesarios para implementar Azure Stack
@@ -37,7 +38,7 @@ En la lista siguiente se describen los requisitos de certificados que son necesa
 - La infraestructura Azure Stack debe tener acceso de red a la entidad de certificación utilizada para firmar los certificados.
 - Al cambiar los certificados, deben estar emitidos por la misma entidad certificación interna utilizada para firmar los certificados proporcionados en la implementación o por cualquier entidad de certificación pública anterior.
 - No se admite el uso de certificados autofirmados.
-- El certificado puede ser uno único comodín que abarque todos los espacios de nombres en el campo del nombre alternativo del firmante (SAN). Como alternativa, puede usar certificados individuales con caracteres comodín para los puntos de conexión como el almacenamiento y el almacén de claves donde sean necesarios. 
+- El certificado puede ser uno único comodín que abarque todos los espacios de nombres en el campo del nombre alternativo del firmante (SAN). También puede usar certificados individuales con caracteres comodín para los puntos de conexión como **acs** y Key Vault donde sean necesarios. 
 - El algoritmo de firma de certificados no puede ser SHA1, ya que debe ser más seguro. 
 - El formato del certificado debe ser PFX, porque las claves públicas y privadas son necesarias para la instalación de Azure Stack. 
 - Los archivos PFX de certificado deben tener un valor "Digital Signature" (firma digital) y "KeyEncipherment" (cifrado de clave) en el campo "Key Usage" (uso de clave).
@@ -58,6 +59,23 @@ En la tabla de esta sección se describen los certificados PKI públicos de punt
 Se requieren certificados con los nombres DNS apropiados para cada punto de conexión de la infraestructura pública de Azure Stack. El nombre DNS de cada punto de conexión se expresa en el formato: *&lt;prefijo>.&lt;región>.&lt;fqdn>*. 
 
 En la implementación, los valores de [region] y [externalfqdn] deben coincidir con los nombres de dominio externo y región que eligió para el sistema de Azure Stack. Por ejemplo, si el nombre de la región es *Redmond* y el nombre de dominio externo fuese *contoso.com*, los nombres DNS tendrían el formato *&lt;prefijo>.redmond.contoso.com*. Los valores de *&lt;prefijo>* son designados de antemano por Microsoft para describir el punto de conexión protegido por el certificado. Además, los valores de  *&lt;prefijo>* de los puntos de conexión de la infraestructura externa dependen del servicio de Azure Stack que use el punto de conexión concreto. 
+
+> [!note]  
+> Los certificados se pueden proporcionar como un certificado comodín único que abarque todos los espacios de nombres en los campos de Sujeto y Nombre alternativo del sujeto (SAN) y que se copia en todos los directorios, o como certificados individuales para cada punto de conexión que se copian en el directorio correspondiente. Recuerde que, en ambos casos, debe utilizar certificados comodín para puntos de conexión como **acs** y Key Vault donde sean necesarios. 
+
+| Carpeta de implementación | Nombres alternativos del firmante (SAN) y firmante del certificado requeridos | Ámbito (por región) | Nombre del subdominio |
+|-------------------------------|------------------------------------------------------------------|----------------------------------|-----------------------------|
+| Public Portal | portal.&lt;region>.&lt;fqdn> | Portales | &lt;region>.&lt;fqdn> |
+| Admin Portal | adminportal.&lt;region>.&lt;fqdn> | Portales | &lt;region>.&lt;fqdn> |
+| Azure Resource Manager Public | management.&lt;region>.&lt;fqdn> | Azure Resource Manager | &lt;region>.&lt;fqdn> |
+| Azure Resource Manager Admin | adminmanagement.&lt;region>.&lt;fqdn> | Azure Resource Manager | &lt;region>.&lt;fqdn> |
+| ACSBlob | *.blob.&lt;region>.&lt;fqdn><br>(Certificado SSL comodín) | Blob Storage | blob.&lt;region>.&lt;fqdn> |
+| ACSTable | *.table.&lt;region>.&lt;fqdn><br>(Certificado SSL comodín) | Table Storage | table.&lt;region>.&lt;fqdn> |
+| ACSQueue | *.queue.&lt;region>.&lt;fqdn><br>(Certificado SSL comodín) | Queue Storage | queue.&lt;region>.&lt;fqdn> |
+| KeyVault | *.vault.&lt;region>.&lt;fqdn><br>(Certificado SSL comodín) | Key Vault | vault.&lt;region>.&lt;fqdn> |
+| KeyVaultInternal | *.adminvault.&lt;region>.&lt;fqdn><br>(Certificado SSL comodín) |  Almacén de claves interno |  adminvault.&lt;region>.&lt;fqdn> |
+
+### <a name="for-azure-stack-environment-on-pre-1803-versions"></a>Para el entorno de Azure Stack en versiones anteriores a 1803
 
 |Carpeta de implementación|Nombres alternativos del firmante (SAN) y firmante del certificado requeridos|Ámbito (por región)|Nombre del subdominio|
 |-----|-----|-----|-----|
@@ -93,7 +111,7 @@ En la tabla siguiente se describen los puntos de conexión y los certificados ne
 |Ámbito (por región)|Certificate|Nombres alternativos del firmante (SAN) y firmante del certificado requeridos|Nombre del subdominio|
 |-----|-----|-----|-----|
 |SQL, MySQL|SQL y MySQL|&#42;.dbadapter.*&lt;región>.&lt;fqdn>*<br>(Certificado SSL comodín)|dbadapter.*&lt;región>.&lt;fqdn>*|
-|App Service|Certificado SSL predeterminado de tráfico web|&#42;.appservice.*&lt;región>.&lt;fqdn>*<br>&#42;.scm.appservice.*&lt;región>.&lt;fqdn>*<br>(Certificado SSL comodín de varios dominios<sup>1</sup>)|appservice.*&lt;región>.&lt;fqdn>*<br>scm.appservice.*&lt;región>.&lt;fqdn>*|
+|App Service|Certificado SSL predeterminado de tráfico web|&#42;.appservice.*&lt;región>.&lt;fqdn>*<br>&#42;.scm.appservice.*&lt;región>.&lt;fqdn>*<br>&#42;.sso.appservice.*&lt;region>.&lt;fqdn>*<br>(Certificado SSL comodín de varios dominios<sup>1</sup>)|appservice.*&lt;región>.&lt;fqdn>*<br>scm.appservice.*&lt;región>.&lt;fqdn>*|
 |App Service|API|api.appservice.*&lt;región>.&lt;fqdn>*<br>(Certificado SSL<sup>2</sup>)|appservice.*&lt;región>.&lt;fqdn>*<br>scm.appservice.*&lt;región>.&lt;fqdn>*|
 |App Service|FTP|ftp.appservice.*&lt;región>.&lt;fqdn>*<br>(Certificado SSL<sup>2</sup>)|appservice.*&lt;región>.&lt;fqdn>*<br>scm.appservice.*&lt;región>.&lt;fqdn>*|
 |App Service|SSO|sso.appservice.*&lt;región>.&lt;fqdn>*<br>(Certificado SSL<sup>2</sup>)|appservice.*&lt;región>.&lt;fqdn>*<br>scm.appservice.*&lt;región>.&lt;fqdn>*|

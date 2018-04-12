@@ -1,11 +1,11 @@
 ---
 title: Tutorial sobre PolyBase en SQL Data Warehouse | Microsoft Docs
-description: "Obtenga información sobre qué es PolyBase y cómo usarlo en escenarios de almacenamiento de datos."
+description: Obtenga información sobre qué es PolyBase y cómo usarlo en escenarios de almacenamiento de datos.
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 0a0103b4-ddd6-4d1e-87be-4965d6e99f3f
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -16,10 +16,10 @@ ms.custom: loading
 ms.date: 03/01/2017
 ms.author: barbkess
 ms.openlocfilehash: 47a2f48a1eef0c138875fbc079724b8d631abc54
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/12/2018
 ---
 # <a name="load-data-with-polybase-in-sql-data-warehouse"></a>Carga de datos con PolyBase en SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ Este tutorial muestra cómo cargar datos en SQL Data Warehouse mediante AzCopy y
 > 
 > 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Para seguir paso a paso este tutorial, necesita
 
 * Una base de datos de SQL Data Warehouse.

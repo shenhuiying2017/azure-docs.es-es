@@ -1,11 +1,11 @@
 ---
 title: 'Carga de datos en Azure SQL Data Warehouse: Data Factory | Microsoft Docs'
-description: En este tutorial se cargan datos en Azure SQL Data Warehouse mediante Data Factory de Azure y se utiliza una base de datos de SQL Server como origen de datos.
+description: En este tutorial se cargan datos en Azure SQL Data Warehouse mediante Azure Data Factory y se utiliza una base de datos de SQL Server como origen de datos.
 services: sql-data-warehouse
 documentationcenter: NA
 author: ckarst
 manager: jhubbard
-editor: 
+editor: ''
 tags: azure-sql-data-warehouse;azure-data-factory
 ms.service: sql-data-warehouse
 ms.workload: data-management
@@ -16,10 +16,10 @@ ms.custom: loading
 ms.date: 02/08/2017
 ms.author: cakarst;barbkess
 ms.openlocfilehash: 6399f1a3390119685c1c9fd7332937e0cdb6f9ea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/12/2018
 ---
 # <a name="load-data-into-sql-data-warehouse-with-data-factory"></a>Carga de datos en SQL Data Warehouse con Data Factory
 
@@ -27,7 +27,7 @@ Puede usar Azure Data Factory para cargar datos en Azure SQL Data Warehouse desd
 
 **Tiempo estimado**: una vez que haya cumplido los requisitos previos, tardará en completar este tutorial aproximadamente entre 10 y 15 minutos.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 - Necesita una **base de datos de SQL Server** con tablas que contienen los datos que se copiarán en la instancia de SQL Data Warehouse.  
 
@@ -36,7 +36,7 @@ Puede usar Azure Data Factory para cargar datos en Azure SQL Data Warehouse desd
 - Debe tener una **cuenta de Azure Storage**. Si todavía no tiene una cuenta de almacenamiento, obtenga información sobre cómo [crear una](../storage/common/storage-create-storage-account.md). El rendimiento mejora si la cuenta de almacenamiento y el almacenamiento de datos se encuentran en la misma región de Azure.
 
 ## <a name="configure-a-data-factory"></a>Configuración de una factoría de datos
-1. Inicie sesión en el [Portal de Azure][].
+1. Inicie sesión en [Azure Portal][].
 2. Localice el almacenamiento de datos y haga clic en él para abrirlo.
 3. En la hoja principal, haga clic en **Cargar datos** > **Azure Data Factory**.
 
@@ -109,7 +109,7 @@ Ahora indique a Data Factory la información de destino.
 
     ![Esquema de asignación](media/sql-data-warehouse-load-with-data-factory/schema-mapping.png)
 
-4. Haga clic en **Siguiente**.
+4. Haga clic en **Next**.
 
 ## <a name="configure-the-performance-settings"></a>Configuración de las opciones de rendimiento
 En las opciones de rendimiento, configure una cuenta de Azure Storage para usarla con el fin de almacenar provisionalmente los datos antes de que se carguen en SQL Data Warehouse con buen rendimiento con [PolyBase](sql-data-warehouse-best-practices.md#use-polybase-to-load-and-export-data-quickly). Una vez que se realiza la copia, los datos provisionales en almacenamiento se limpiarán automáticamente.
@@ -144,7 +144,7 @@ Puede ver el progreso de la implementación y los resultados en la página **Imp
 
     ![Visualización de la información de actividad de tabla](media/sql-data-warehouse-load-with-data-factory/view-table-activity-details.png)
 
-5. Para iniciar esta vista de supervisión más adelante, vaya a su instancia de SQL Data Warehouse, haga clic en **Cargar datos > Data Factory de Azure**, seleccione la fábrica y elija **Monitor existing loading tasks** (Supervisar tareas de carga existentes).
+5. Para iniciar esta vista de supervisión más adelante, vaya a su instancia de SQL Data Warehouse, haga clic en **Cargar datos > Azure Data Factory**, seleccione la fábrica y elija **Monitor existing loading tasks** (Supervisar tareas de carga existentes).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -152,7 +152,7 @@ Para migrar la base de datos a SQL Data Warehouse, consulte el artículo de [int
 
 Para más información sobre Azure Data Factory y sus funcionalidades de movimientos de datos, consulte los artículos siguientes:
 
-- [Introducción al servicio Data Factory de Azure](../data-factory/introduction.md)
+- [Introducción al servicio Azure Data Factory](../data-factory/introduction.md)
 - [Movimiento de datos con la actividad de copia](../data-factory/copy-activity-overview.md)
 - [Movimiento de datos hacia y desde Azure SQL Data Warehouse mediante Azure Data Factory](../data-factory/connector-azure-sql-data-warehouse.md)
 
@@ -162,4 +162,4 @@ Para explorar los datos en SQL Data Warehouse, consulte los artículos siguiente
 - [Datos visuales con Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md).
 
 <!-- Azure references -->
-[Portal de Azure]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com

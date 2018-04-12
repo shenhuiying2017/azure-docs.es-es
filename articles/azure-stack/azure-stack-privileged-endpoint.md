@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 03/27/2018
 ms.author: mabrigg
-ms.openlocfilehash: f786d99718b82dba052909e566f1b0571701127e
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.reviewer: fiseraci
+ms.openlocfilehash: f176e0689c630a406ab6e2f82e9320a214ff8a1a
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Uso del punto de conexión con privilegios en Azure Stack
 
@@ -43,18 +44,20 @@ El acceso al PEP se realiza mediante una sesión remota de PowerShell en la máq
 
 Antes de comenzar este procedimiento en un sistema integrado, asegúrese de que puede acceder a un PEP bien mediante la dirección IP o a través de DNS. Después de la implementación inicial de Azure Stack, solo puede acceder al PEP mediante la dirección IP, dado que la integración de DNS no está configurada todavía. El proveedor de hardware OEM le proporcionará un archivo JSON denominado **AzureStackStampDeploymentInfo** que contiene las direcciones IP del PEP.
 
-Es recomendable que se conecte al PEP solo desde el host de ciclo de vida del hardware o desde un equipo seguro dedicado, como una [estación de trabajo de acceso con privilegios](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations).
 
-1. Acceda a la estación de trabajo de acceso con privilegios.
+> [!NOTE]
+> Por motivos de seguridad, es necesario conectarse al PEP solo desde una máquina virtual protegida que se ejecute en el host de ciclo de vida de hardware, o desde un equipo seguro dedicado, como una [estación de trabajo de acceso con privilegios](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations). No se debe modificar la configuración original del host de ciclo de vida de hardware, instalar software nuevo ni usarse para conectarse al PEP.
 
-    - En un sistema integrado, ejecute el siguiente comando para agregar el PEP como un host de confianza en el host de ciclo de vida del hardware o en la estación de trabajo de acceso con privilegios.
+1. Establezca la confianza.
+
+    - En un sistema integrado, ejecute el siguiente comando desde una sesión de Windows PowerShell con privilegios elevados para agregar el PEP como host de confianza a la máquina virtual protegida que se ejecuta en el host de ciclo de vida de hardware o en la estación de trabajo de acceso con privilegios.
 
       ````PowerShell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ````
     - Si va a ejecutar el ADSK, inicie sesión en el host del kit de desarrollo.
 
-2. En el host de ciclo de vida del hardware o la estación de trabajo de acceso con privilegios, abra una sesión de Windows PowerShell con privilegios elevados. Ejecute los comandos siguientes para establecer una sesión remota en la máquina virtual que hospeda el PEP:
+2. En la máquina virtual protegida que se ejecuta en el host de ciclo de vida de hardware o en la estación de trabajo de acceso con privilegios, abra una sesión de Windows PowerShell. Ejecute los comandos siguientes para establecer una sesión remota en la máquina virtual que hospeda el PEP:
  
     - En un sistema integrado:
       ````PowerShell
@@ -74,11 +77,12 @@ Es recomendable que se conecte al PEP solo desde el host de ciclo de vida del ha
       ```` 
    Cuando se le pida, utilice las siguientes credenciales:
 
-      - **Nombre de usuario**: especifique la cuenta CloudAdmin con el formato **&lt;*dominio de Azure Stack*&gt;\accountname**. (Para ASDK, el nombre de usuario es **azurestack\accountname**). 
+      - **Nombre de usuario**: especifique la cuenta CloudAdmin con el formato **&lt;*dominio de Azure Stack*&gt;\cloudadmin**. (Para ASDK, el nombre de usuario es **azurestack\cloudadmin**).
       - **Contraseña**: escriba la misma contraseña que proporcionó durante la instalación de la cuenta del administrador de dominio de AzureStackAdmin.
+
     > [!NOTE]
     > Si no puede conectarse al punto de conexión de ERCS, repita los pasos primero y segundo con la dirección IP de una máquina virtual de ERCS a la que no haya intentado conectarse todavía.
-    
+
 3.  Después de conectarse, el símbolo del sistema cambia a **[*dirección IP o nombre de máquina virtual de ERCS*]: PS>** o a **[azs-ercs01]: PS>**, según el entorno. Desde aquí, ejecute `Get-Command` para ver la lista de los cmdlets disponibles.
 
     Muchos de estos cmdlets están concebidos únicamente para entornos de sistema integrados (por ejemplo, los cmdlets relacionados con la integración de centros de datos). En el ASDK, se han validado los siguientes cmdlets:
@@ -116,16 +120,16 @@ Como alternativa, puede usar el cmdlet [Import-PSSession](https://docs.microsoft
 
 Lleve a cabo los siguientes pasos para importar la sesión del PEP al equipo local:
 
-1. Acceda a la estación de trabajo de acceso con privilegios.
+1. Establezca la confianza.
 
-    - En un sistema integrado, ejecute el siguiente comando para agregar el PEP como un host de confianza en el host de ciclo de vida del hardware o en la estación de trabajo de acceso con privilegios.
+    En un sistema integrado, ejecute el siguiente comando desde una sesión de Windows PowerShell con privilegios elevados para agregar el PEP como host de confianza a la máquina virtual protegida que se ejecuta en el host de ciclo de vida de hardware o en la estación de trabajo de acceso con privilegios.
 
       ````PowerShell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ````
     - Si va a ejecutar el ADSK, inicie sesión en el host del kit de desarrollo.
 
-2. En el host de ciclo de vida del hardware o la estación de trabajo de acceso con privilegios, abra una sesión de Windows PowerShell con privilegios elevados. Ejecute los comandos siguientes para establecer una sesión remota en la máquina virtual que hospeda el PEP:
+2. En la máquina virtual protegida que se ejecuta en el host de ciclo de vida de hardware o en la estación de trabajo de acceso con privilegios, abra una sesión de Windows PowerShell. Ejecute los comandos siguientes para establecer una sesión remota en la máquina virtual que hospeda el PEP:
  
     - En un sistema integrado:
       ````PowerShell
@@ -145,7 +149,7 @@ Lleve a cabo los siguientes pasos para importar la sesión del PEP al equipo loc
       ```` 
    Cuando se le pida, utilice las siguientes credenciales:
 
-      - **Nombre de usuario**: especifique la cuenta CloudAdmin con el formato **&lt;*dominio de Azure Stack*&gt;\accountname**. (Para ASDK, el nombre de usuario es **azurestack\accountname**). 
+      - **Nombre de usuario**: especifique la cuenta CloudAdmin con el formato **&lt;*dominio de Azure Stack*&gt;\cloudadmin**. (Para ASDK, el nombre de usuario es **azurestack\cloudadmin**).
       - **Contraseña**: escriba la misma contraseña que proporcionó durante la instalación de la cuenta del administrador de dominio de AzureStackAdmin.
 
 3. Importe la sesión PEP al equipo local.
@@ -167,7 +171,11 @@ Para cerrar la sesión del punto de conexión:
 
     ![Salida del cmdlet Close-PrivilegedEndpoint que muestra dónde se especifica la ruta de acceso del destino de transcripción](media/azure-stack-privileged-endpoint/closeendpoint.png)
 
-Una vez los archivos de registro de transcripción se transfieren correctamente al recurso compartido de archivos, se eliminan automáticamente del PEP. Si cierra la sesión del PEP mediante los cmdlets `Exit-PSSession` o `Exit`, o simplemente cierra la consola de PowerShell, los archivos de transcripción no se transfieren a un recurso compartido de archivos. Permanecen en el PEP. La próxima vez que ejecute `Close-PrivilegedEndpoint` e incluya un recurso compartido de archivos, también se transferirán los registros de transcripción de la sesión anterior.
+Una vez los archivos de registro de transcripción se transfieren correctamente al recurso compartido de archivos, se eliminan automáticamente del PEP. 
+
+> [!NOTE]
+> Si cierra la sesión del PEP mediante los cmdlets `Exit-PSSession` o `Exit`, o simplemente cierra la consola de PowerShell, los archivos de transcripción no se transfieren a un recurso compartido de archivos. Permanecen en el PEP. La próxima vez que ejecute `Close-PrivilegedEndpoint` e incluya un recurso compartido de archivos, también se transferirán los registros de transcripción de la sesión anterior. No utilice `Exit-PSSession` o `Exit` para cerrar la sesión en el PEP; use `Close-PrivilegedEndpoint` en su lugar.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Herramientas de diagnóstico de Azure Stack](azure-stack-diagnostics.md)

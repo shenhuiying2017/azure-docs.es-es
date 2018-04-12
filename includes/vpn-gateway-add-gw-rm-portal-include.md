@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: c5952422bb4faec196a5a54b9f18cf9700988aad
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 655f0b625d9f1b7c7ad216e9276da62d8454380f
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 1. En el portal, a la izquierda, haga clic en **+** y escriba "puerta de enlace de red virtual" en el cuadro de búsqueda. Busque **Puerta de enlace de red virtual** en los resultados de la búsqueda y haga clic en la entrada. En la página **Puerta de enlace de red virtual**, haga clic en **Crear** en la parte inferior de la página para abrir la página **Crear puerta de enlace de red virtual**.
 2. En la página **Crear puerta de enlace de red virtual**, rellene los valores de la puerta de enlace de red virtual.
@@ -32,7 +32,7 @@ ms.lasthandoff: 03/23/2018
     - En primer lugar, haga clic en **Crear configuración de IP de puerta de enlace** para abrir la página "Elegir dirección IP pública" y, después, haga clic en **+Crear nueva** para abrir la página "Crear dirección IP pública".
     - Después, escriba un **nombre** para la dirección IP pública. Deje la SKU como **básica** a menos que haya una razón concreta para cambiarla; a continuación, haga clic en **Aceptar** en la parte inferior de esta página para guardar los cambios.
 
-      ![Crear dirección IP pública](./media/vpn-gateway-add-gw-s2s-rm-portal-include/gwip.png "Crear PIP")
+      ![Crear dirección IP pública](./media/vpn-gateway-add-gw-rm-portal-include/gwip.png "Crear PIP")
 
 4. Compruebe la configuración. Si desea que la puerta de enlace aparezca en el panel, puede seleccionar **Anclar al panel** en la parte inferior de la página. 
 5. Haga clic en **Crear** para empezar a crear la puerta de enlace de VPN. Se validará la configuración y verá el icono "Implementación de la puerta de enlace de red virtual" en el panel. La creación de una puerta de enlace puede tardar hasta 45 minutos. Es posible que tenga que actualizar la página de portal para ver el estado completado.
