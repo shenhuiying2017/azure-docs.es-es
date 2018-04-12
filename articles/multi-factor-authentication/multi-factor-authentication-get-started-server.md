@@ -187,7 +187,7 @@ En caso de que sea necesaria una restauración, realice los pasos siguientes:
 
 El nuevo servidor está ahora en funcionamiento con los datos de usuario y la configuración originales procedentes de la copia de seguridad.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Instalación y configuración del [Portal de usuarios](multi-factor-authentication-get-started-portal.md) de autoservicio del usuario.
 - Instale y configure el Servidor Azure MFA con [Servicios de federación de Active Directory](multi-factor-authentication-get-started-adfs.md), [Autenticación RADIUS](multi-factor-authentication-get-started-server-radius.md) o [Autenticación LDAP](multi-factor-authentication-get-started-server-ldap.md).

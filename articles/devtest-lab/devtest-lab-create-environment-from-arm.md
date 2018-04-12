@@ -171,7 +171,7 @@ Siga estos pasos para conceder derechos de acceso de colaborador a los usuarios 
 
 1. Seleccione **Guardar**.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Una vez creada la máquina virtual, puede conectarse a esta al seleccionar **Conectar** en el panel de administración de la máquina virtual.
 * Consulte y administre recursos en un entorno al seleccionarlo de la lista **My virtual machines** (Mis máquinas virtuales) del laboratorio. 
 * Explore las [plantillas de Azure Resource Manager de la galería de plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates).

@@ -187,5 +187,5 @@ Para asignar uno o varios grupos a una aplicación directamente, siga estos paso
 
 Tras un breve período, los usuarios que seleccionó podrán iniciar estas aplicaciones en el panel de acceso.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Proporcionar un inicio de sesión único a las aplicaciones con el proxy de aplicación](active-directory-application-proxy-sso-using-kcd.md)

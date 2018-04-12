@@ -76,7 +76,7 @@ Para delegar la administración de acceso en una reserva:
 6. Escriba la dirección de correo electrónico del usuario al que quiera agregar como propietario. 
 7. Seleccione el usuario y, después, **Guardar**.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para más información acerca de las instancias reservadas de máquina virtual, consulte los siguientes artículos.
 
 - [Pagar por adelantado máquinas virtuales con instancias reservadas de máquina virtual](../virtual-machines/windows/prepay-reserved-vm-instances.md)

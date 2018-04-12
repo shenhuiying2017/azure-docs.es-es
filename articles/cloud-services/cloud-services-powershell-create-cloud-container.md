@@ -49,6 +49,6 @@ Para obtener más información sobre cómo crear el servicio en la nube de Azure
 Get-help New-AzureService
 ```
 
-### <a name="next-steps"></a>pasos siguientes
+### <a name="next-steps"></a>Pasos siguientes
 * Para administrar la implementación de servicios en la nube, consulte los comandos [Get-AzureService](/powershell/module/Azure/Get-AzureService?view=azuresmps-4.0.0), [Remove-AzureService](/powershell/module/Azure/Remove-AzureService?view=azuresmps-4.0.0) y [Set-AzureService](/powershell/module/azure/set-azureservice?view=azuresmps-4.0.0). Para más información, también puede consultar [Configuración de servicios en la nube](cloud-services-how-to-configure-portal.md) .
 * Para publicar el proyecto de servicio en la nube en Azure, consulte el código de ejemplo de **PublishCloudService.ps1** del [repositorio de servicios en la nube archivado](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Scripts/cloud-services-continuous-delivery).

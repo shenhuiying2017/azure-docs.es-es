@@ -287,5 +287,5 @@ En los ejemplos, verá que la clave compartida es exactamente la misma. Siempre 
 * Todos los túneles de VPN para la red virtual, incluidas las VPN de punto a sitio (P2S), comparten el ancho de banda disponible para la VPN Gateway y el mismo Acuerdo de Nivel de Servicio de tiempo de actividad de VPN Gateway de Azure.
 * El tráfico VNet a VNet viaja a través de la red troncal de Azure.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Compruebe las conexiones. Consulte [Comprobación de una conexión de VPN Gateway](vpn-gateway-verify-connection-resource-manager.md).

@@ -163,7 +163,7 @@ Felicidades. Ahora ha recibido mensajes de un centro de eventos por medio del ho
 > 
 > 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Ahora que ha creado una aplicación de trabajo que crea un centro de eventos y envía y recibe datos, puede obtener más información visitando los siguientes vínculos:
 

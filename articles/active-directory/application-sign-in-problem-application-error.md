@@ -155,5 +155,5 @@ Para cambiar el algoritmo de firma, siga estos pasos:
 
 La próxima vez que el usuario inicie sesión en la aplicación, Azure AD firmará el token de SAML con el algoritmo SHA-1.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Cómo depurar el inicio de sesión único basado en SAML en aplicaciones de Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging)

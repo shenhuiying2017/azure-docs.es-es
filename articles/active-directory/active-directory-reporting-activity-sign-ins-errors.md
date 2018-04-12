@@ -100,6 +100,6 @@ En la siguiente sección se proporciona una información general completa de tod
 
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para más información, consulte [Introducción a los informes de actividad de inicio de sesión en el portal de Azure Active Directory](active-directory-reporting-activity-sign-ins.md).

@@ -243,7 +243,7 @@ Compruebe que se esté ejecutando AD Connect y que el usuario esté presente en 
 Compruebe que https://adnotifications.windowsazure.com sea accesible desde el servidor que ejecuta la extensión de NPS.
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Configurar los identificadores alternativos de inicio de sesión o una lista de excepciones para las direcciones IP que no deben realizar la comprobación de dos pasos en [Opciones de configuración avanzada para la extensión NPS para Multi-Factor Authentication](nps-extension-advanced-configuration.md)
 

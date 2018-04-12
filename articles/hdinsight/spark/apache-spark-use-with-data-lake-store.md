@@ -136,7 +136,7 @@ Si ha creado un clúster de HDInsight con Data Lake Store como almacenamiento ad
 8. Cuando haya terminado de ejecutar la aplicación, debe cerrar el cuaderno para liberar los recursos. Para ello, en el menú **Archivo** del cuaderno, haga clic en **Cerrar y detener**. De esta manera se apagará y se cerrará el cuaderno.
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Creación de una aplicación independiente con Scala para ejecutarla en un clúster de Apache Spark](apache-spark-create-standalone-application.md)
 * [Uso de las herramientas de HDInsight del kit de herramientas de Azure para IntelliJ con el fin de crear aplicaciones Spark destinadas al clúster Spark en HDInsight (Linux)](apache-spark-intellij-tool-plugin.md)

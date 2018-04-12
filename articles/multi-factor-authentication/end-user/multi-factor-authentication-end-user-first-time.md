@@ -102,7 +102,7 @@ Si desea agregar una cuenta a la aplicación móvil manualmente, en lugar de usa
 5. Si está usando estas aplicaciones, copie la contraseña de aplicación proporcionada y péguela en la aplicación en lugar de la contraseña normal. Puede utilizar la misma contraseña de aplicación para varias aplicaciones. Para más información, consulte [¿Cuáles son las contraseñas de aplicación?](multi-factor-authentication-end-user-app-passwords.md)
 6. Haga clic en **Done**(Listo).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Cambiar las opciones preferidas y [administrar la configuración de la comprobación en dos pasos](multi-factor-authentication-end-user-manage-settings.md)
 * Configure las [contraseñas de aplicación](multi-factor-authentication-end-user-app-passwords.md) para las aplicaciones de dispositivos nativos que no admiten la comprobación en dos pasos.
 * Consulte la [aplicación Microsoft Authenticator](microsoft-authenticator-app-how-to.md) para una autenticación segura rápida incluso cuando no tiene el servicio de celda.

@@ -147,6 +147,6 @@ Si la cuenta de almacenamiento se encuentra en una región distinta a la del cl�
 > [!WARNING]
 > No se admite el uso de una cuenta de almacenamiento en una región diferente a la del clúster de HDInsight.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este documento ha aprendido a agregar más cuentas de almacenamiento a un clúster de HDInsight. Para más información sobre las acciones de script, consulte [Personalización de clústeres de HDInsight basados en Linux mediante la acción de script](hdinsight-hadoop-customize-cluster-linux.md).

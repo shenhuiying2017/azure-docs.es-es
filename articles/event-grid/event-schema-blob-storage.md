@@ -112,7 +112,7 @@ El objeto data tiene las siguientes propiedades:
 | sequencer | cadena | Valor controlado por el usuario que puede usar para realizar un seguimiento de las solicitudes. |
 | storageDiagnostics | objeto | Información sobre los diagnósticos de almacenamiento. |
  
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * Para una introducción a Azure Event Grid, consulte [Introducción a Azure Event Grid](overview.md).
 * Para más información acerca de la creación de una suscripción de Azure Event Grid, consulte [Esquema de suscripción de Event Grid](subscription-creation-schema.md).

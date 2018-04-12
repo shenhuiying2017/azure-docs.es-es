@@ -200,5 +200,5 @@ Para habilitar la replicación en la máquina virtual, el estado de aprovisionam
 - Si **provisioningState** es **Error**, póngase en contacto con soporte técnico con detalles para solucionar el problema.
 - Si **provisioningState** es **Actualizando**, puede que se esté implementando otra extensión. Compruebe si hay operaciones en curso en la máquina virtual, espere a que finalicen y reintente el trabajo **Habilitar replicación** para la recuperación del sitio que presenta el error.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Replicación de máquinas virtuales de Azure](site-recovery-replicate-azure-to-azure.md)

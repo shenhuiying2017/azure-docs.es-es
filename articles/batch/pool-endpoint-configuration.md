@@ -122,7 +122,7 @@ pool.network_configuration=batchmodels.NetworkConfiguration(
 )
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Para obtener más información sobre reglas NSG en Azure, vea [Filtrado del tráfico de red con grupos de seguridad de red](../virtual-network/virtual-networks-nsg.md).
 

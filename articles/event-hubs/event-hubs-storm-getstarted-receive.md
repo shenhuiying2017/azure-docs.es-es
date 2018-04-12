@@ -237,7 +237,7 @@ Este tutorial usa una instalación de [HDInsight Storm][HDInsight Storm], que in
 
     Esta clase crea un emisor de Event Hubs, utilizando las propiedades del archivo de configuración para crear una instancia. Es importante tener en cuenta que este ejemplo crea tantas tareas de spout como número de particiones hay en el centro de eventos, para poder usar el paralelismo máximo permitido por ese centro de eventos.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para más información acerca de Event Hubs, visite los vínculos siguientes:
 
 * [Información general de Event Hubs][Event Hubs overview]

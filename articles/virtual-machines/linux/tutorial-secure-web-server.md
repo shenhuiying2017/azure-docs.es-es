@@ -145,7 +145,7 @@ A continuación, se muestra el sitio de NGINX protegido, como en el ejemplo sigu
 ![Ver el sitio de NGINX seguro en funcionamiento](./media/tutorial-secure-web-server/secured-nginx.png)
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, protegió un servidor web NGINX con un certificado SSL almacenado en Azure Key Vault. Ha aprendido a:
 

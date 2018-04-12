@@ -91,7 +91,7 @@ Consulte [Tutorial de actualización de la aplicación](service-fabric-applicati
 
 Consulte [Implementación de una aplicación](service-fabric-deploy-remove-applications.md) para ver ejemplos.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información sobre cómo desarrollar, probar y administrar aplicaciones y servicios de Service Fabric, consulte:
 
 * [Reliable Actors](service-fabric-reliable-actors-introduction.md)

@@ -121,7 +121,7 @@ Si se usa la identidad de inicio de sesión delegada, es posible que el valor no
 Si se produce un error en el proceso de inicio de sesión único, aparece en el registro de eventos del equipo de conexión, como se explica en [Solución de problemas](application-proxy-back-end-kerberos-constrained-delegation-how-to.md).
 Pero, en algunos casos, la solicitud se envía correctamente a la aplicación del back-end mientras que esta aplicación responde en otras respuestas HTTP. La solución de problemas de estos casos debe empezar por examinar el número de evento 24029 en el equipo de conexión en el registro de eventos de sesión de Proxy de aplicación. La identidad del usuario que se usó para la delegación aparece en el campo “usuario” de los detalles del evento. Para activar el registro de sesión, seleccione **Mostrar registros analíticos y de depuración** en el menú de vista del Visor de eventos.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Configuración de una aplicación de proxy de aplicación para que use la delegación restringida de Kerberos](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
 * [Solucionar los problemas que tiene con el Proxy de aplicación](active-directory-application-proxy-troubleshoot.md)

@@ -744,7 +744,7 @@ Si el registro `hdinsight-scpwebapi.out` contiene un `FileNotFoundException`, pu
 * El JDK no está en la ruta de acceso en el entorno de desarrollo. Compruebe que el JDK está instalado en el entorno de desarrollo y que `%JAVA_HOME%/bin` está en la ruta de acceso.
 * Falta una dependencia de Java. Asegúrese de incluir todos los archivos .jar necesarios como parte del envío.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener un ejemplo de procesamiento de datos desde Event Hubs, vea [Procesamiento de eventos desde Centros de eventos de Azure con Storm en HDInsight](apache-storm-develop-csharp-event-hub-topology.md).
 

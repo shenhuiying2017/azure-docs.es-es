@@ -76,7 +76,7 @@ Puede quitar el servidor de la suscripción mediante el comando [Remove-AzureRmA
 Remove-AzureRmAnalysisServicesServer -Name "myServer" -ResourceGroupName "myResourceGroup"
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Administración de Azure Analysis Services con PowerShell](analysis-services-powershell.md)   
 [Implementación de un modelo desde SSDT](analysis-services-deploy.md)   
 [Creación de un modelo en Azure Portal](analysis-services-create-model-portal.md)

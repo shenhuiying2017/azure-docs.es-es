@@ -144,7 +144,7 @@ Una vez que se completa la acción de script, debería ver los datos en la soluc
 
 6. La selección de cualquiera de estas opciones se desglosará en la vista de búsqueda de registros donde puede restringir la consulta y explorar los datos con más detalle.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Creación de alertas en Log Analytics (OMS)](../../log-analytics/log-analytics-alerts-creating.md)
 * [Búsqueda de datos con búsquedas de registros en Azure Log Analytics](../../log-analytics/log-analytics-log-searches.md).

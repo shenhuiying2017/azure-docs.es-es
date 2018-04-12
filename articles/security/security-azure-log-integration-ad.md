@@ -66,7 +66,7 @@ Puede encontrar ayuda de la comunidad en [Foro MSDN de Azure Log Integration](ht
 
 También puede abrir una [solicitud de soporte técnico](../azure-supportability/how-to-create-azure-support-request.md). Seleccione **Azure Log Integration** como el servicio para el que está solicitando el soporte técnico.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre Azure Log Integration, consulte:
 
 * [Microsoft Azure Log Integration for Azure logs](https://www.microsoft.com/download/details.aspx?id=53324) (Microsoft Azure Log Integration para registros de Azure): Esta página del Centro de descarga proporciona información, los requisitos del sistema y las instrucciones de instalación de Azure Log Integration.

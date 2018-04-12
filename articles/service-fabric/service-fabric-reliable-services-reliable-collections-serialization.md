@@ -147,7 +147,7 @@ Los usuarios de serializadores personalizados deben atenerse a los criterios del
 Una manera común de admitir todas las versiones es agregar información sobre el tamaño al principio y solo agregar propiedades opcionales.
 De esta forma, cada versión puede leer todo lo posible y saltar por la parte restante de la secuencia.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
   * [Serialización y actualización](service-fabric-application-upgrade-data-serialization.md)
   * [Referencia para desarrolladores de colecciones confiables](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
   * [actualización de aplicaciones usando Visual Studio](service-fabric-application-upgrade-tutorial.md) ofrece información para actualizar una aplicación mediante Visual Studio.

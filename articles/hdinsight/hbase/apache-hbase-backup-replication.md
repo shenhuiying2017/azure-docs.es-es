@@ -209,6 +209,6 @@ Los pasos generales para configurar la replicación son:
 
 Para habilitar la replicación en HDInsight, aplique una acción de script al clúster de HDInsight de origen en ejecución. Para un tutorial sobre cómo habilitar la replicación en el clúster o para experimentar con la replicación en clústeres de ejemplo creados en máquinas virtuales con las plantillas de Azure Resource Manager, consulte el artículo sobre la [configuración de la replicación de HBase](apache-hbase-replication.md). Ese artículo también incluye las instrucciones para habilitar la replicación de los metadatos de Phoenix.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Configuración de la replicación de HBase](apache-hbase-replication.md)

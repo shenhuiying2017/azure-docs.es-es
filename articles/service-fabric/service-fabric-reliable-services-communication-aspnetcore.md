@@ -347,7 +347,7 @@ Los servicios con estado a los que solo se llama desde dentro del clúster deben
 | Configuración de puerto | asignado de forma dinámica | Varias réplicas de un servicio con estado pueden compartir un proceso de host o un sistema operativo host y, por tanto, necesitarán puertos únicos. |
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | Con la asignación dinámica de puertos, esta configuración evita el problema de identidad equivocada descrito antes. |
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Depurar la aplicación de Service Fabric con Visual Studio](service-fabric-debugging-your-application.md)
 
 <!--Image references-->

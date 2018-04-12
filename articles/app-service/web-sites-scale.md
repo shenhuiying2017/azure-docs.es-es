@@ -84,7 +84,7 @@ Para ver una tabla de límites de servicio, presupuestos y restricciones, así c
 
 <a name="Next Steps"></a>
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Para más información sobre precios, soporte técnico y contrato de nivel de servicio, vea estos vínculos:
   
     [Detalles de precios de Transferencias de datos](https://azure.microsoft.com/pricing/details/data-transfers/)

@@ -419,7 +419,7 @@ Elija una cadena única como el entorno para la puesta en marcha. En este caso, 
    Para obtener más información, consulte [Cómo escalar la puesta en marcha en el clúster de Azure Container Service](how-to-scale-clusters.md).
  
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Este ejemplo describe cómo usar Machine Learning Workbench para entrenar un modelo de aprendizaje automático sobre macrodatos y poner en marcha el modelo entrenado. En concreto, ha aprendido a configurar y usar destinos de proceso diferentes, a ejecutar el historial de métricas de seguimiento y a usar distintas ejecuciones.
 

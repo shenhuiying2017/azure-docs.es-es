@@ -117,7 +117,7 @@ kubectl apply -f azure-files-pod.yaml
 
 Ahora tiene un contenedor en ejecución con el recurso compartido de Azure Files montado en el directorio `/mnt/azure`. Puede ver el montaje del volumen al inspeccionar el pod a través de `kubectl describe pod azure-files-pod`.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Más información sobre los volúmenes de Kubernetes mediante Azure Files.
 

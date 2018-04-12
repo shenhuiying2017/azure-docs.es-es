@@ -166,6 +166,6 @@ Antes de la disponibilidad general, podía revertir el área de trabajo después
 Antes de la actualización, podría crear una vista con el Diseñador de vistas de algún icono del panel principal del Portal de OMS.  Cuando se actualiza el área de trabajo, este elemento se elimina.  Puede crear una vista con el Diseñador de vistas en el portal de OMS; para ello, haga clic en el botón + de color verde en el menú de la izquierda.  Continúe con la creación de una vista en Azure Portal; para ello, haga clic en el icono del Diseñador de vistas.
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Obtenga más información sobre la [actualización del área de trabajo al nuevo lenguaje de consulta de Log Analytics](log-analytics-log-search-upgrade.md).

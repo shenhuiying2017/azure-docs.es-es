@@ -68,7 +68,7 @@ Apache Spark utiliza tres parámetros clave para configurar su entorno, según l
 
 Estos tres parámetros se pueden configurar en el nivel de clúster para todas las aplicaciones que se ejecutan en el clúster y se pueden especificar también para cada aplicación individual. Para más información, consulte [Administración de recursos para los clústeres de Apache Spark](spark/apache-spark-resource-manager.md).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Introducción a Apache Storm en HDInsight](storm/apache-storm-tutorial-get-started-linux.md)
 * [Topologías de ejemplo para Apache Storm en HDInsight](storm/apache-storm-example-topology.md)

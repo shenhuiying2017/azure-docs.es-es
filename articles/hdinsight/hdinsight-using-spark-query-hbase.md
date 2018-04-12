@@ -247,6 +247,6 @@ En este paso, definirá un objeto de catálogo que asigne el esquema de Spark a 
         |  8396|5415 San Gabriel Dr.|  230-555-0191| Calvin Raji|  230-555-0191|
         +------+--------------------+--------------+------------+--------------+
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Conector Spark HBase](https://github.com/hortonworks-spark/shc)

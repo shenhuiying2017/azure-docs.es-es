@@ -90,7 +90,7 @@ Otras guías de esta colección se basan en esta guía de inicio rápido. Si tie
 
 3.  Seleccione **Eliminar asignación**.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En esta guía de inicio rápido, se ha asignado una definición de directiva a un ámbito. La definición de la directiva garantiza que todos los recursos del ámbito son compatibles y se identifican cuáles no lo son.
 

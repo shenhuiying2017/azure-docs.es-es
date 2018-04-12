@@ -709,7 +709,7 @@ Consultas avanzadas:
 > [!VIDEO https://channel9.msdn.com/Events/Build/2016/P591/player]
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Referencia de idioma de Analytics](app-insights-analytics-reference.md)
 * [La hoja de referencia rápida de usuarios de SQL](https://aka.ms/sql-analytics) traduce las expresiones más comunes.
 

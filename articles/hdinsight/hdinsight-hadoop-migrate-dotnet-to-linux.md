@@ -72,7 +72,7 @@ Para obtener más información sobre el acceso a los registros, consulte los doc
 
 * [Acceso a registros de aplicación de YARN en HDInsight basado en Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Uso de MapReduce en C# en HDInsight](hadoop/apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
 

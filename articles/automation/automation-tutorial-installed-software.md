@@ -107,7 +107,7 @@ ConfigurationData
 | render table
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial aprendió cómo ver el inventario de software, así como a:
 

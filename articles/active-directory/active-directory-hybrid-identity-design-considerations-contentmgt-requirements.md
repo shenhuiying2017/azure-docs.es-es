@@ -61,7 +61,7 @@ Al planear la solución de identidad híbrida, asegúrese de que puede responder
 > 
 > 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Determinación de los requisitos de control de acceso](active-directory-hybrid-identity-design-considerations-accesscontrol-requirements.md)
 
 ## <a name="see-also"></a>Otras referencias

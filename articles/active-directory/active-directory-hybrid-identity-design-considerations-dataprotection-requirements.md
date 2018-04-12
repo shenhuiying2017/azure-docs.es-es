@@ -80,7 +80,7 @@ Las normas, las leyes y los requisitos de cumplimiento normativo variarán segú
 > 
 > 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
  [Determinación de los requisitos de administración de contenido](active-directory-hybrid-identity-design-considerations-contentmgt-requirements.md)
 
 ## <a name="see-also"></a>Otras referencias

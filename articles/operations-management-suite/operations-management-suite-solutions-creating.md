@@ -80,7 +80,7 @@ Una vez haya finalizado y probado la solución, puede ponerla a disposición de 
 
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Obtenga información acerca de cómo [crear un archivo de solución](operations-management-suite-solutions-solution-file.md) para la solución de administración.
 * Obtenga más información en [Creación de plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 * Búsqueda de [plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates) para obtener ejemplos de diferentes plantillas de Resource Manager.

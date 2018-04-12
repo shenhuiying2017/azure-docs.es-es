@@ -180,7 +180,7 @@ Storm utiliza Apache Log4j para registrar información. De forma predeterminada,
 
 Para ver una topología de ejemplo que muestre cómo configurar el registro, consulte el ejemplo para Storm en HDInsight mostrado en el artículo [Desarrolle topologías basadas en Java para una aplicación básica de recuento de palabras con Apache Storm y Maven en HDInsight](apache-storm-develop-java-topology.md) .
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Aprenda más sobre las soluciones de análisis en tiempo real con Storm en HDInsight:
 

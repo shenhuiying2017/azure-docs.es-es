@@ -153,7 +153,7 @@ Cuando se hayan cargado los archivos, seleccione la entrada __Stream-Tweets-To_K
 
 En la página principal de Jupyter Notebook, seleccione la entrada __Spark-Structured-Streaming-From-Kafka.ipynb__. Siga los pasos descritos en el cuaderno para cargar tweets de Kafka mediante el flujo estructurado de Spark.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Ahora que ha aprendido a usar el flujo estructurado de Spark, consulte los siguientes documentos para obtener más información sobre cómo trabajar con Spark y Kafka:
 

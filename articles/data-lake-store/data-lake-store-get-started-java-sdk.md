@@ -209,7 +209,7 @@ El fragmento de código siguiente elimina los archivos y las carpetas especifica
 1. Para ejecutarla desde un IDE, localícela y presione el botón **Ejecutar**. Para ejecutarla desde Maven, utilice [exec:exec](http://www.mojohaus.org/exec-maven-plugin/exec-mojo.html).
 2. Para generar un archivo jar independiente que puede ejecutar desde la línea de comandos, genere el archivo jar con todas las dependencias incluidas mediante el [complemento de ensamblado de Maven](http://maven.apache.org/plugins/maven-assembly-plugin/usage.html). El archivo pom.xml en el [ejemplo de código fuente en github](https://github.com/Azure-Samples/data-lake-store-java-upload-download-get-started/blob/master/pom.xml) ofrece un ejemplo.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Explorar JavaDoc para el SDK de Java](https://azure.github.io/azure-data-lake-store-java/javadoc/)
 * [Protección de los datos en Data Lake Store](data-lake-store-secure-data.md)
 

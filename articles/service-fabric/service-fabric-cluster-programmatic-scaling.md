@@ -147,7 +147,7 @@ Como se muestra en los fragmentos de código anterior, crear su propio servicio 
 
 La forma en la que debe enfocar el escalado de Service Fabric depende de su escenario. Si el escalado no es común, la capacidad de agregar o quitar nodos de forma manual es probablemente suficiente. Para escenarios más complejos, las reglas de escalado automático y los SDK con la capacidad de escalar mediante programación ofrecen unas eficaces alternativas.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para empezar a implementar su propia lógica de escalado automático, familiarícese con los siguientes conceptos y API útiles:
 

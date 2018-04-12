@@ -171,7 +171,7 @@ Si tiene previsto seguir trabajando con los tutoriales siguientes, no elimine lo
     Una vez eliminado el almacén, se volverá a mostrar la lista de almacenes de Recovery Services.
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial se usa Azure Portal para las siguientes acciones:
 

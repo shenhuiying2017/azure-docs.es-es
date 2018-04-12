@@ -201,5 +201,5 @@ Site Recovery no proporciona la compatibilidad con clústeres invitados al repli
 
 Para los clústeres de SQL Server Standard, la conmutación por recuperación después de una conmutación por error no planeada requiere realizar una copia de seguridad de SQL Server y una restauración de la instancia reflejada en el clúster original y, a continuación, restablecer el reflejo.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Obtenga información](site-recovery-components.md) acerca de la arquitectura de Site Recovery.

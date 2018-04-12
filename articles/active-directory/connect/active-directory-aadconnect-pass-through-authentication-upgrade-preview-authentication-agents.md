@@ -85,5 +85,5 @@ Siga estos pasos para actualizar los agentes de autenticación en otros servidor
 >[!NOTE]
 >Si activa la hoja Autenticación de paso a través en el [Centro de administración de Azure Active Directory](https://aad.portal.azure.com) después de completar los pasos anteriores, verá dos entradas del agente de autenticación por servidor; una entrada en la que aparece el agente de autenticación como **activo** y otra, como **inactivo**. Se _espera_ que esto sea así. La entrada **Inactivo** se quita automáticamente después de unos días.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 - [**Solución de problemas**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md): información para resolver problemas habituales de esta característica.

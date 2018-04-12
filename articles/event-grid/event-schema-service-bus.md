@@ -99,7 +99,7 @@ El objeto data tiene las siguientes propiedades:
 | topicName | string | El tema al que pertenece la suscripción de Service Bus con mensajes activos. El valor null si se usa una cola. |
 | subscriptionName | string | La suscripción de Service Bus con mensajes activos. El valor null si se usa una cola. |
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * Para una introducción a Azure Event Grid, consulte [Introducción a Azure Event Grid](overview.md).
 * Para más información acerca de la creación de una suscripción de Azure Event Grid, consulte [Esquema de suscripción de Event Grid](subscription-creation-schema.md).

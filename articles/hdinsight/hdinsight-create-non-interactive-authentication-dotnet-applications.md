@@ -124,7 +124,7 @@ Asigne un [rol](../active-directory/role-based-access-built-in-roles.md) a la ap
     ```
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Creación de una aplicación de Azure Active Directory y una entidad de servicio mediante Azure Portal](../azure-resource-manager/resource-group-create-service-principal-portal.md)
 * Aprenda a [autenticar una entidad de servicio con Azure Resource Manager](../azure-resource-manager/resource-group-authenticate-service-principal.md).
 * Aprenda sobre el [control de acceso basado en roles (RBAC) de Azure](../active-directory/role-based-access-control-configure.md).

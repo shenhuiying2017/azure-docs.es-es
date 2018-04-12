@@ -330,7 +330,7 @@ static void Main(string[] args)
 
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Actualización de la aplicación de Service Fabric](service-fabric-application-upgrade.md)
 
 [Introducción al estado de Service Fabric](service-fabric-health-introduction.md)

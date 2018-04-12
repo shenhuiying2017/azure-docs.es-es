@@ -83,7 +83,7 @@ Puede cambiar el atributo del nombre de directorio en **Azure Active Directory**
 * Nombre descriptivo del correo electrónico "Demostración de Microsoft en nombre de CONTOSO".
 * Línea de asunto del correo electrónico "Código de verificación del correo electrónico de la cuenta de demostración CONTOSO".
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [¿Cómo se realiza un lanzamiento correcto de SSPR?](active-directory-passwords-best-practices.md)
 * [Restablecimiento o modificación de la contraseña](active-directory-passwords-update-your-own-password.md)

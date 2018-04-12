@@ -224,7 +224,7 @@ Puede usar `IsEnabled` y también implementar estrategias de muestreo. Gracias a
 
 Cuando hay varios agentes de escucha `DiagnosticSource` en el mismo origen, un solo agente de escucha no es suficiente para aceptar el evento, por lo que no se puede garantizar que llame a `IsEnabled`.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Elementos fundamentales de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 * [Correlación de Application Insights](../application-insights/application-insights-correlation.md)

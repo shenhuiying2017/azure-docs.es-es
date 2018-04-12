@@ -140,7 +140,7 @@ No se puede usar Flume Apache con Azure HDInsight.  Una instalación de Hadoop l
 
 Una vez que existan los datos en la ubicación elegida, deberá limpiarlos, combinarlos o prepararlos para un patrón de uso específico.  Hive, Pig y Spark SQL son buenas opciones para ese tipo de trabajo.  Todos se admiten en HDInsight. 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Uso de Pig con Hadoop en HDInsight](hdinsight-use-pig.md)
 * [Uso de Apache Hive como herramienta ETL](apache-hadoop-using-apache-hive-as-an-etl-tool.md) 

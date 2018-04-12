@@ -53,5 +53,5 @@ Para ver más detalles, como el nombre completo de la columna, mueva el mouse so
 
 Para incluir las relaciones entre los recursos que ya se han registrado, vuelva a registrar esos recursos.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 - [Cómo administrar recursos de datos](data-catalog-how-to-manage.md)

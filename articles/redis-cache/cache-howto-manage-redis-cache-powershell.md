@@ -776,7 +776,7 @@ El siguiente comando reinicia ambos nodos de la memoria caché especificada.
         -Force
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información acerca de Windows PowerShell con Azure, consulte los siguientes recursos:
 
 * [Documentación de cmdlet de Azure Redis Cache en MSDN](https://msdn.microsoft.com/library/azure/mt634513.aspx)

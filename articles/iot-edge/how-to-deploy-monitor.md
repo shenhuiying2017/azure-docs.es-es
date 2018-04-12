@@ -166,7 +166,7 @@ Cuando se elimina una implementación, los dispositivos adoptan la siguiente imp
 1. Seleccione **Eliminar**.
 1. Un mensaje le informará de que esta acción eliminará esta implementación y volverá al estado anterior para todos los dispositivos.  Esto significa que se aplicará una implementación con una prioridad más baja.  Si ninguna otra implementación está dirigida, no se quitará ningún módulo. Si los clientes desean hacerlo, deben crear una implementación sin módulos e implementarla en los mismos dispositivos. Seleccione **Sí** si desea continuar. 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Obtenga más información sobre cómo [implementar módulos en dispositivos de Edge][lnk-deployments].
 

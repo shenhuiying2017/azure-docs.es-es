@@ -118,5 +118,5 @@ Abra una incidencia de soporte técnico con la información siguiente si está d
 -   Zona horaria y la hora o el período de tiempo cuando se produjo el error
 -   Seguimientos de Fiddler
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)

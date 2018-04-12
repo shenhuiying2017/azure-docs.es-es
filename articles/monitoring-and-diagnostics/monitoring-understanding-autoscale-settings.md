@@ -307,7 +307,7 @@ El escalado automático calcula la nueva capacidad en función de la propiedad *
 
 Por ejemplo, supongamos que hay un conjunto de escalado de máquinas virtuales con una capacidad actual de 10. Hay dos reglas de reducción horizontal: una que reduce la capacidad en un 50 por ciento y otra que la reduce en 3 recuentos. La primera regla daría como resultado una nueva capacidad de 5 y la segunda regla generaría una capacidad de 7. Para garantizar la disponibilidad del servicio, el escalado automático elige la acción que tenga como resultado la capacidad máxima, por lo que, en este caso, se elige la segunda regla.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre el escalado automático, consulte los siguientes recursos:
 
 * [Introducción a los registros de escalado automático](monitoring-overview-autoscale.md)

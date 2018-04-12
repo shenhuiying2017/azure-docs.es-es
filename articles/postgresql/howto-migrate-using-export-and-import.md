@@ -46,5 +46,5 @@ En este ejemplo se usa la utilidad psql y el archivo de script **testdb.sql** de
 psql --file=testdb.sql --host=mydemoserver.database.windows.net --port=5432 --username=mylogin@mydemoserver --dbname=mypgsqldb
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 - Para migrar una base de datos de PostgreSQL mediante volcado y restauración, consulte [Migración de una base de datos de PostgreSQL mediante volcado y restauración](howto-migrate-using-dump-and-restore.md).

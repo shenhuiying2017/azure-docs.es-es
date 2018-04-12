@@ -207,6 +207,6 @@ Estos recursos se pueden combinar con la CPU y la memoria. Este es un ejemplo de
     </ServiceManifestImport>
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Para más información sobre Cluster Resource Manager, consulte [Presentación de Cluster Resource Manager de Service Fabric](service-fabric-cluster-resource-manager-introduction.md).
 * Para más información sobre el modelo de aplicación, paquetes de servicio, paquetes de código y cómo las réplicas los asignan, lea [Modelar una aplicación en Service Fabric](service-fabric-application-model.md).

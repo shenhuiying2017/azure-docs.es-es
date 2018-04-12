@@ -157,6 +157,6 @@ Si el dispositivo no está unido a un dominio y ejecuta Windows 8.1, para unirse
 
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Acceso condicional de Azure Active Directory](active-directory-conditional-access-azure-portal.md)
 

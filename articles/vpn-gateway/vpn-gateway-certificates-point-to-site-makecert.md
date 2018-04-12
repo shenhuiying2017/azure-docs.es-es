@@ -93,7 +93,7 @@ Los pasos siguientes lo llevan por el proceso de generación de un certificado d
 
 Para instalar un certificado de cliente, consulte [Instalación de un certificado de cliente](point-to-site-how-to-vpn-client-install-azure-cert.md).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Continúe con la configuración de punto a sitio. 
 

@@ -219,7 +219,7 @@ La función `property(name)` devuelve el valor de la propiedad a la que hace ref
 - La acción no se realiza correctamente si se hace referencia a propiedades del usuario inexistentes.
 - Una propiedad de usuario inexistente se evalúa como desconocida internamente siguiendo la misma semántica que [SQLFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) al evaluar los operadores.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - [Clase SQLRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)
 - [Clase SQLFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)

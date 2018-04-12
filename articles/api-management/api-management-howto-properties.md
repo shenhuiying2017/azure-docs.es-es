@@ -107,7 +107,7 @@ Si busca en el [seguimiento de API Inspector](api-management-howto-api-inspector
 
 Aunque los valores de propiedad pueden contener expresiones de directiva, no pueden contener otras propiedades. Si se utiliza texto que contiene una referencia de propiedad para un valor de propiedad, como `Property value text {{MyProperty}}`, esa referencia de propiedad no se reemplazará y se incluirá como parte del valor de la propiedad.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Obtenga más información sobre cómo trabajar con directivas
   * [Directivas de Azure API Management](api-management-howto-policies.md)
   * [Referencia de directiva](https://msdn.microsoft.com/library/azure/dn894081.aspx)

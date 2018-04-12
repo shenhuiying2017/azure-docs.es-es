@@ -69,7 +69,7 @@ Si va a realizar pruebas con un dispositivo antiguo, consulte [Agrega Firebase a
 ## <a name="test-the-app-against-the-published-mobile-service"></a>Prueba de la aplicación con el servicio móvil publicado
 Puede probar la aplicación conectando directamente un teléfono Android con un cable USB o utilizando un dispositivo virtual en el emulador.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Ahora que ha completado este tutorial, considere la posibilidad de continuar con uno de los siguientes tutoriales:
 
 * [Adición de la autenticación a la aplicación de Android](app-service-mobile-android-get-started-users.md)

@@ -170,7 +170,7 @@ La condición de reducción horizontal en la configuración de escalado automát
 
 4. Escriba **sí** en el cuadro de texto para confirmar la eliminación y haga clic en **Eliminar**.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, hizo lo siguiente:  
 > [!div class="checklist"]

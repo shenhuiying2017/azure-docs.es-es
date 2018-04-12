@@ -48,7 +48,7 @@ En este artículo se presentan procedimientos recomendados para [crear un archiv
 - Configure la solución para que [haga referencia](operations-management-suite-solutions-solution-file.md#solution-resource) a reglas de alerta de manera que el usuario pueda cambiar su configuración.  Es posible que desee realizar cambios, como modificar la lista de destinatarios, cambiar el umbral de la alerta o deshabilitar la regla de alerta. 
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Recorra el proceso básico de [diseño y creación de una solución de administración](operations-management-suite-solutions-creating.md).
 * Aprenda a [crear un archivo de solución](operations-management-suite-solutions-solution-file.md).
 * [Incorporación de búsquedas y alertas guardadas](operations-management-suite-solutions-resources-searches-alerts.md) a la solución de administración.

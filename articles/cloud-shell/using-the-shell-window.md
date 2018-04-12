@@ -61,7 +61,7 @@ Si sale de una sesión, asegúrese de salir de cada ventana de sesión, ya que c
 ## <a name="exit-command"></a>Comando Exit
 Al ejecutar `exit` se terminará la sesión activa. Este comportamiento se produce de forma predeterminada después de 20 minutos sin interacción.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 [Guía de inicio rápido de Bash en Cloud Shell](quickstart.md)
 [Guía de inicio rápido de PowerShell en Cloud Shell](quickstart-powershell.md)

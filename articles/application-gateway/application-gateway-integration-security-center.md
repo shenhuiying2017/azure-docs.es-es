@@ -79,7 +79,7 @@ Si hace clic en una regla proporcionará una lista de alertas para esa regla de 
  
 ![detalles de alertas][9]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para aprender a habilitar un firewall de aplicaciones web en una instancia existente de Application Gateway, visite [Creación o actualización de una instancia de Azure Application Gateway con el firewall de aplicaciones web](application-gateway-web-application-firewall-portal.md).
 

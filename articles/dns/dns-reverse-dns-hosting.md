@@ -264,7 +264,7 @@ Sí. Puede usar la CLI de Azure para importar las zonas DNS existentes a Azure D
 
 Para más información, consulte [Importación y exportación de un archivo de zona DNS mediante la CLI de Azure](dns-import-export.md).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre los registros de DNS inverso, consulte información sobre la [búsqueda de DNS inverso en Wikipedia](http://en.wikipedia.org/wiki/Reverse_DNS_lookup).
 <br>

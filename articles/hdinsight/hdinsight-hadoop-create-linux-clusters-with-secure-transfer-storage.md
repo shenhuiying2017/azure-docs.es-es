@@ -66,7 +66,7 @@ Existen varias opciones para agregar cuentas de almacenamiento adicionales habil
 - Crear un clúster mediante [Azure Portal](https://portal.azure.com) y especificar la cuenta de almacenamiento vinculada.
 - Use la acción de script para agregar cuentas de almacenamiento adicionales habilitadas para transferencia segura a un clúster de HDInsight existente.  Para más información, consulte [Adición de más cuentas de almacenamiento a HDInsight](hdinsight-hadoop-add-storage.md).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este tutorial, ha aprendido a crear un clúster de HDInsight y a habilitar la transferencia segura para las cuentas de almacenamiento.
 
 Para más información sobre el análisis de datos con HDInsight, consulte los siguientes artículos:

@@ -168,5 +168,5 @@ Ahora EXPLAIN muestra como MySQL puede usar un índice combinado para evitar una
 El uso de EXPLAIN y de distintos tipos de índice puede aumentar el rendimiento significativamente. El hecho de tener un índice en la tabla no significa necesariamente que MySQL pueda usarlo para sus consultas. Valide siempre sus suposiciones con EXPLAIN y optimice las consultas con índices.
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 - Para buscar respuestas de otros usuarios a sus preguntas o publicar una nueva pregunta o respuesta, visite el [foro de MSDN](https://social.msdn.microsoft.com/forums/security/en-US/home?forum=AzureDatabaseforMySQL) o [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).

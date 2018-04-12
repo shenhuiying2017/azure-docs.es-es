@@ -133,7 +133,7 @@ Cuando ya no se necesiten, puede usar el comando [az group delete](/cli/azure/gr
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - [Tareas posteriores a la implementación](./openshift-post-deployment.md)
 - [Solución de problemas de implementación de OpenShift](./openshift-troubleshooting.md)

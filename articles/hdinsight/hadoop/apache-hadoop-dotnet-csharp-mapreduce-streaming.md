@@ -238,7 +238,7 @@ Este script le solicitará el nombre de la cuenta de inicio de sesión y la cont
     yourselves      3
     youth   17
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener más información sobre el uso de MapReduce con HDInsight, consulte [Uso de MapReduce con HDInsight](hdinsight-use-mapreduce.md).
 

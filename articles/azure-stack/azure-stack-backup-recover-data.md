@@ -69,6 +69,6 @@ Azure Stack admite un tipo de implementación llamado modo de recuperación en l
 
 Ninguno de los recursos de usuario de Infraestructura como servicio (IaaS) o Plataforma como servicio (PaaS) se recupera durante la implementación. Es decir, se pierden las máquinas virtuales de IaaS, las cuentas de almacenamiento, los blobs, las tablas, la configuración de red, etc. El propósito de la recuperación en la nube es garantizar que los operadores y usuarios puedan volver a iniciar sesión en el portal una vez que se complete la implementación. Los usuarios que vuelven a iniciar sesión no verán ninguno de sus recursos. Se restauran las suscripciones de los usuarios y, junto con ellas, las directivas de ofertas y planes originales que definió el administrador. Los usuarios que vuelven a iniciar sesión en el sistema funcionan bajo las mismas restricciones que imponía la solución original antes del desastre. Una vez que se completa la recuperación en la nube, el operador puede restaurar manualmente los puntos de recuperación de terceros y con valor agregado, además de los datos asociados.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
  - Obtenga información sobre los procedimientos recomendados para [usar el servicio Infrastructure Backup](azure-stack-backup-best-practices.md).

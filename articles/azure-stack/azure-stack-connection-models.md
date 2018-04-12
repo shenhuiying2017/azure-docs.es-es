@@ -45,7 +45,7 @@ Puede implementar Azure Stack, ya sea conectado a Internet (y a Azure) o descone
 
 Una vez que haya decidido el modelo de conexión de Azure que va a usar para la implementación de Azure Stack, deben tomarse más decisiones que dependen de la conexión para el método de facturación y el almacén de identidades. 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 [Decisiones de implementación de Azure Stack con conexión a Azure](azure-stack-connected-deployment.md)
 

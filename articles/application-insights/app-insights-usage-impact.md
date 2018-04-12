@@ -83,7 +83,7 @@ A continuación las sesiones se dividen en dos tipos diferentes de _subsesiones_
 
 La manera en la que se calcula el impacto varía en función de si estamos realizando el análisis por métricas o dimensiones. En el caso de las métricas, se calcula un promedio de todos los eventos _A_en una subsesión se promedian. Mientras que para las dimensiones, el valor de cada _A_ contribuye _1/N_ al valor asignado a _B_ donde _N_ es el número de eventos _A_en la subsesión.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Para habilitar las experiencias de uso, empiece por enviar [eventos personalizados](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) o [vistas de páginas](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
 - Si ya ha enviado eventos personalizados o vistas de página, explore las herramientas de uso para obtener información sobre cómo los usuarios utilizan el servicio.

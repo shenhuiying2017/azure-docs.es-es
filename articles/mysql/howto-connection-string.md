@@ -68,5 +68,5 @@ En [Azure Portal](https://portal.azure.com), vaya al servidor de Azure Database 
 
 La cadena proporciona detalles como el controlador, el servidor y otros parámetros de conexión de base de datos. Modifique estos ejemplos para usar sus propios parámetros, como un nombre de base de datos, una contraseña, etc. Luego puede usar esta cadena para conectarse al servidor desde su código y sus aplicaciones.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 - Para más información sobre las bibliotecas de conexión, consulte [Conceptos: bibliotecas de conexiones](./concepts-connection-libraries.md).

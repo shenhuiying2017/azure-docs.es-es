@@ -89,6 +89,6 @@ En el ejemplo anterior, los datos de la página almacenados en la memoria caché
 
 Después de realizar estos pasos, la aplicación está configurada para usar el proveedor de la caché de salida de Redis.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Consulte el [proveedor de estado de sesión de ASP.NET para Azure Redis Cache](cache-aspnet-session-state-provider.md).
 

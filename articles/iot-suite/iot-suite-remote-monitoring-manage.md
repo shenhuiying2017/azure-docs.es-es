@@ -98,7 +98,7 @@ Para hacer un cambio, agregue un nombre para el trabajo, actualice los valores d
 
 Para realizar un seguimiento del estado del trabajo en la página **Mantenimiento**, elija **Trabajos**.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Este tutorial le ha mostrado cómo:
 

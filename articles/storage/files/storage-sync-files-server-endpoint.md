@@ -69,6 +69,6 @@ Para quitar el punto de conexión de servidor:
 
     ![Eliminación de un punto de conexión de servidor de un grupo de sincronización](media/storage-sync-files-server-endpoint/remove-server-endpoint-1.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 - [Registro y cancelación del registro de un servidor con Azure File Sync (versión preliminar)](storage-sync-files-server-registration.md)
 - [Planeamiento de una implementación de Azure File Sync](storage-sync-files-planning.md)

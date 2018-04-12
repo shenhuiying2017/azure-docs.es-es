@@ -204,7 +204,7 @@ azure-vote-front
 
 Al finalizar el tutorial, la imagen de contenedor se ha almacenado en una instancia privada de Azure Container Registry. Esta imagen se implementa desde ACR en un clúster de Service Fabric en tutoriales posteriores.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, se extrajo una aplicación de Github y se crearon e insertaron imágenes de contenedor en un registro. Se han completado los siguientes pasos:
 

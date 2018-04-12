@@ -155,7 +155,7 @@ En la barra de herramientas del diseñador, haga clic en **Guardar**.
 * Si tiene alguna duda, visite el [foro de Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Para enviar ideas sobre características o votar sobre ellas, visite el [sitio de comentarios de los usuarios de Logic Apps](http://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Obtenga información acerca de cómo compilar aplicaciones lógicas a través de ejemplos, escenarios, casos de clientes y tutoriales.
 

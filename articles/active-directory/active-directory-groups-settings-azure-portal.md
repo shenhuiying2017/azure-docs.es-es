@@ -41,7 +41,7 @@ En este artículo se explica cómo administrar la configuración de un grupo en 
 
    ![Guardado de los cambios de propiedades](./media/active-directory-groups-settings-azure-portal/save-group-properties.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Estos artículos proporcionan información adicional sobre Azure Active Directory.
 
 * [Ver los grupos existentes](active-directory-groups-view-azure-portal.md)

@@ -53,7 +53,7 @@ Debe haber publicado y probado ya la aplicación con el proxy de aplicación. Si
 
 Vaya a la dirección URL externa configurada para obtener acceso remoto a la aplicación. Inicie sesión con sus credenciales para esa aplicación (o las credenciales para la cuenta de prueba que configuró con acceso). Una vez que inicie sesión correctamente, debería poder salir de la aplicación y volver sin necesidad de volver a especificar sus credenciales. 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Obtenga información sobre otras maneras de implementar el [inicio de sesión único con el proxy de aplicación](application-proxy-sso-overview.md)
 - Más información sobre [Consideraciones de seguridad al obtener acceso a aplicaciones de forma remota con el Proxy de aplicación de Azure AD](application-proxy-security-considerations.md)

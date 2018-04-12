@@ -153,7 +153,7 @@ Para enviar un proyecto a un emulador, siga estos pasos:
 
 3. Seleccione **Submit** (Enviar). Los registros de envío de trabajo se muestran en la ventana de la herramienta de envío de Spark.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Aprenda a [utilizar las herramientas de HDInsight del kit de herramientas de Azure para IntelliJ con el fin de crear aplicaciones Spark destinadas al clúster Spark en HDInsight (Linux)](../spark/apache-spark-intellij-tool-plugin.md).
 

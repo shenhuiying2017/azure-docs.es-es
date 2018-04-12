@@ -79,7 +79,7 @@ Al proteger su contenido con PlayReady, una de las cosas que debe especificar en
 
 Puede hacer clic en el botón **Importar directiva xml** y proporcionar un archivo XML diferente que se ajuste al esquema XML definido en [Información general de plantillas de licencias de PlayReady de Media Services](media-services-playready-license-template-overview.md).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Envío de comentarios

@@ -135,5 +135,5 @@ Para ver el contenedor en acción, abra un explorador web y escriba la direcció
 
 ![Ejecución del contenedor ngnix](./media/docker-machine/nginx.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 También puede crear hosts con la [extensión de máquina virtual de Docker](dockerextension.md). Para ver ejemplos sobre el uso de Docker Compose, consulte [Introducción a Docker y Compose en Azure](docker-compose-quickstart.md).

@@ -111,7 +111,7 @@ Para evitar cargos inesperados, al eliminar la última aplicación en un plan de
 > [!IMPORTANT]
 > Los planes de App Service que no tienen aplicaciones asociadas a ellos seguirán generando cargos, ya que siguen reservando las instancias de máquinas virtuales configuradas.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Escalado vertical de aplicaciones en Azure](web-sites-scale.md)

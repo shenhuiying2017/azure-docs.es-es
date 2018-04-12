@@ -105,7 +105,7 @@ Si utiliza la autenticación basada en certificados para la autenticación local
 
 En la página **Inscripción de SCEP** del perfil de certificado, tiene que seleccionar **Instalar en Passport for Work o generar un error** como valor de **Proveedor de almacenamiento de claves**.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Windows 10 para la empresa: formas de usar dispositivos para trabajar](active-directory-azureadjoin-windows10-devices-overview.md)
 * [Ampliación de las capacidades de nube a dispositivos de Windows 10 a través de Azure Active Directory Join](active-directory-azureadjoin-user-upgrade.md)
 * [Autenticación sin contraseñas](active-directory-azureadjoin-passport.md)

@@ -49,7 +49,7 @@ Con los siguientes pasos creará la entidad de servicio de Azure Active Director
 
 Si experimenta problemas durante la instalación y la configuración, abra una [solicitud de soporte técnico](/azure-supportability/how-to-create-azure-support-request.md) y seleccione **Integración de registros** como el servicio para el que está solicitando soporte técnico.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre Azure Log Integration, vea los siguientes documentos:
 
 * [Microsoft Azure Log Integration for Azure logs](https://www.microsoft.com/download/details.aspx?id=53324) (Integración de registros de Microsoft Azure para registros de Azure): Centro de descarga para obtener información, los requisitos del sistema y las instrucciones de instalación de la integración de registros de Azure.

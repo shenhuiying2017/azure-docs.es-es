@@ -178,7 +178,7 @@ public class SimpleEventProcessor : IEventProcessor
 }
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información acerca de los escenarios de Event Hubs, visite estos vínculos:
 
 * [¿Qué es Azure Event Hubs?](event-hubs-what-is-event-hubs.md)

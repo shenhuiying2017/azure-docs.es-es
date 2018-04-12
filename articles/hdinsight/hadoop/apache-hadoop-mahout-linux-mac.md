@@ -200,7 +200,7 @@ hdfs dfs -rm -f -r /temp/mahouttemp
 > `hdfs dfs -rm -f -r /example/data/mahoutout`
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Ahora que ha aprendido a usar a Mahout, descubra otras formas de trabajar con datos en HDInsight:
 

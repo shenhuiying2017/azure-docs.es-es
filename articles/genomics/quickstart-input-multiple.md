@@ -156,5 +156,5 @@ output_storage_account_container: outputs
 
 Envíe el archivo `config.txt` con esta invocación: `msgen submit -f config.txt`
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este artículo, se cargan varios archivos BAM o FASTQ emparejados en Azure Storage y se envía un flujo de trabajo al servicio Microsoft Genomics mediante el cliente de Python `msgen`. Para más información sobre el envío del flujo de trabajo y otros comandos que puede usar con el servicio Microsoft Genomics, vea las [preguntas más frecuentes](frequently-asked-questions-genomics.md). 

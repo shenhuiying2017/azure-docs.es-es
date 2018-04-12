@@ -122,7 +122,7 @@ El sector de la telefonía móvil ha usado el patrón de comunicación asistida 
 
 IoT Hub es compatible con la ruta de acceso de emparejamiento público de ExpressRoute.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para comenzar a escribir código y ejecutar algunos ejemplos, consulte el tutorial [Introducción a IoT Hub][lnk-get-started].
 

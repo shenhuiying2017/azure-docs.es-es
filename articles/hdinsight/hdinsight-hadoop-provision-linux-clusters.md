@@ -256,7 +256,7 @@ Para ver un ejemplo de cómo usar dos tipos de clúster en una red virtual de Az
 
 Si experimenta problemas con la creación de clústeres de HDInsight, consulte los [requisitos de control de acceso](hdinsight-administer-use-portal-linux.md#create-clusters).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - [¿Qué son HDInsight, el ecosistema Hadoop y los clústeres de Hadoop?](hadoop/apache-hadoop-introduction.md)
 - [Introducción al uso de Hadoop en HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)

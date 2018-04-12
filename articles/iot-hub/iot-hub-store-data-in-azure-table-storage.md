@@ -98,7 +98,7 @@ Haga clic en **Agregar** desde el panel de Rutas y escriba un nombre para la rut
 
    Verá que los mensajes enviados desde el dispositivo a IoT Hub se han registrado en el contenedor de blobs.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Ha creado correctamente la cuenta de Azure Storage y ha enrutado los mensajes desde IoT Hub a un contenedor de blobs en esa cuenta de almacenamiento.
 

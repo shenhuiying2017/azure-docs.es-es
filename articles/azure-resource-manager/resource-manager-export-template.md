@@ -169,7 +169,7 @@ No todos los tipos de recursos admiten la función de exportación de plantilla.
 > 
 > 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * Puede implementar una plantilla mediante [PowerShell](resource-group-template-deploy.md), [CLI de Azure](resource-group-template-deploy-cli.md), o [API de REST](resource-group-template-deploy-rest.md).
 * Para ver cómo exportar una plantilla mediante PowerShell, consulte [Exportación de plantillas de Azure Resource Manager con PowerShell](resource-manager-export-template-powershell.md).

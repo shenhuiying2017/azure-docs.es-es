@@ -53,7 +53,7 @@ Tenga en cuenta que el hecho de habilitar la detección de duplicados y el tama�
 
 Mantener la ventana pequeña significa que menos identificadores de mensaje se deben conservar y coincidir, y el rendimiento resulta afectado en un menor grado. En las entidades de alto rendimiento que requieren la detección de duplicados, debe mantener la ventana lo más pequeña posible.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre la mensajería de Service Bus, consulte los siguientes temas:
 

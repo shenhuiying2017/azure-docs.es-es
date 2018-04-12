@@ -225,7 +225,7 @@ Si se produce un error en la conectividad de la nube en el dispositivo de produc
 |:--- |:--- |:--- |
 | Error de creación de paquete de soporte técnico. |StorSimple no pudo generar el paquete. |Vuelva a intentarlo. Si el problema persiste, póngase en contacto con el Soporte técnico de Microsoft. Cuando haya solucionado el problema, borre esta alerta de la página de alertas. |
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Aprenda más sobre [los errores de StorSimple y la solución de problemas al implementar un dispositivo](storsimple-8000-troubleshoot-deployment.md).
 

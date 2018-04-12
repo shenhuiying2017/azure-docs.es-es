@@ -315,7 +315,7 @@ En los siguientes pasos puede ver cómo crear un módulo IoT Edge basado en .NET
 8. Haga clic con el botón derecho en el identificador de dispositivo de IoT Edge; también puede supervisar los mensajes de D2C en VS Code.
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, creó un módulo con IoT Edge y lo implementó en un dispositivo de IoT Edge en VS Code. Para obtener información sobre otros escenarios al desarrollar Azure IoT Edge en VS Code, vea el siguiente tutorial:
 

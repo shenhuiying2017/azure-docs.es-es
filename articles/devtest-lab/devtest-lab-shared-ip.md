@@ -50,7 +50,7 @@ Siempre que se agrega una máquina virtual con la dirección IP compartida a la 
 
 - **Usuarios de Windows:** en Azure Portal, seleccione el botón **Conectar** para descargar un archivo RDP preconfigurado y acceder a la máquina virtual.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Definición de directivas de laboratorio en Azure DevTest Labs](devtest-lab-set-lab-policy.md)
 * [Configuración de una red virtual en Azure DevTest Labs](devtest-lab-configure-vnet.md)

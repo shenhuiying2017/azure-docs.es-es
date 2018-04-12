@@ -96,6 +96,6 @@ En los **clústeres basados en Windows**: [https://hdiconfigactions.blob.core.wi
 
 Una vez finalizada la creación del clúster, podrá utilizar los archivos JAR agregados a través de este script desde Hive sin tener que utilizar la instrucción `ADD JAR`.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener más información acerca del trabajo con Hive, consulte [Use Hive with HDInsight](hadoop/hdinsight-use-hive.md)

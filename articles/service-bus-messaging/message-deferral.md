@@ -41,7 +41,7 @@ Si no se puede procesar un mensaje porque un recurso concreto para controlar ese
 
 El aplazamiento de mensajes no afecta a la expiración de los mensajes, lo que significa que los mensajes diferidos todavía expiran en el momento inicialmente programado y, después, se mueven a la cola de mensajes fallidos, si está configurada.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre la mensajería de Service Bus, consulte los siguientes temas:
 

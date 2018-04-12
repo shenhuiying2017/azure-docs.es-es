@@ -98,7 +98,7 @@ Para eliminar permanentemente una regla, seleccione la regla en la lista de regl
 
 Puede eliminar varias reglas al mismo tiempo si selecciona varias en la lista.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Este tutorial le ha mostrado cómo:
 

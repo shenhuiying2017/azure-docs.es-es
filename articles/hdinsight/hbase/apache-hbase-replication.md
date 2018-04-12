@@ -276,7 +276,7 @@ La sección `print_usage()` del [script](https://raw.githubusercontent.com/Azure
 
         -m hn1 -s <source cluster DNS name> -sp <source cluster Ambari password> -t "table1;table2;table3"
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, aprendió a configurar la replicación de HBase en una red virtual, o entre dos redes virtuales. Para más información sobre HDInsight y HBase, consulte estos artículos:
 

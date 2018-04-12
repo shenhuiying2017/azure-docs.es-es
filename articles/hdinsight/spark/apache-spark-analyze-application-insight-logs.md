@@ -365,7 +365,7 @@ Para agregar la cuenta de Azure Storage a un clúster existente, use la informac
         ...
         +---------+
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener más ejemplos de uso de Spark para trabajar con datos y servicios de Azure, consulte los siguientes documentos:
 

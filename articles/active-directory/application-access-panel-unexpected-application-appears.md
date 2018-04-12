@@ -150,5 +150,5 @@ abra una incidencia de soporte técnico con la información siguiente si está d
 
 -   Seguimientos de Fiddler
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Administración de aplicaciones con Azure Active Directory](active-directory-enable-sso-scenario.md)

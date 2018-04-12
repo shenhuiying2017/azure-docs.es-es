@@ -35,6 +35,6 @@ ms.lasthandoff: 01/12/2018
 - [GPU optimizada](sizes-gpu.md)
 - [Proceso de alto rendimiento](sizes-hpc.md)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre cómo las [unidades de proceso de Azure (ACU)](acu.md) pueden ayudarlo a comparar el rendimiento en los distintos SKU de Azure.
 

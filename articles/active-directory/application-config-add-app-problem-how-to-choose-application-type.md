@@ -170,5 +170,5 @@ Para establecer el modo de **inicio de sesión único** de una aplicación, siga
 
 7.  Cuando se cargue la aplicación, haga clic en **Aprovisionamiento** desde el menú de navegación izquierdo de la aplicación.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Administración de aplicaciones con Azure Active Directory](active-directory-enable-sso-scenario.md)

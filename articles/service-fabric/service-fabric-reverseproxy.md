@@ -311,7 +311,7 @@ En primer lugar, se obtiene la plantilla del clúster que desea implementar. Pue
 > [!NOTE]
 > Cuando use certificados que sean distintos al certificado del clúster para habilitar el proxy inverso en un clúster existente, instale el certificado del proxy inverso y actualice la ACL en el clúster antes de habilitar el proxy inverso. Complete la implementación de la [plantilla de Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) con la configuración mencionada anteriormente antes de iniciar una implementación para habilitar el proxy inverso con los pasos de 1 a 4.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Vea un ejemplo de comunicación HTTP entre los servicios de un [proyecto de ejemplo en GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started).
 * [Reenvío al servicio HTTP seguro con el proxy inverso](service-fabric-reverseproxy-configure-secure-communication.md)
 * [Llamadas a procedimiento remoto con la comunicación remota de Reliable Services](service-fabric-reliable-services-communication-remoting.md)

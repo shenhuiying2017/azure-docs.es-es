@@ -217,5 +217,5 @@ Este es un ejemplo de una entrada en el registro de auditoría con formato JSON.
 
 Azure Data Lake Analytics proporciona un ejemplo de cómo procesar y analizar los datos de registro. Puede encontrar el ejemplo en [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Información general de Azure Data Lake Analytics](data-lake-analytics-overview.md)

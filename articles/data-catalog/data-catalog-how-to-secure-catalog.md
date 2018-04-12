@@ -54,6 +54,6 @@ Para proporcionar a un usuario o a un grupo acceso al catálogo de datos y estab
 - Los permisos asignados a grupos de seguridad son aditivos. Por ejemplo, un usuario pertenece a dos grupos. En un grupo tiene permisos de anotación y en otro no. Por lo tanto, el usuario tiene permisos de anotación. 
 - Los permisos asignados explícitamente a un usuario reemplazan los permisos asignados a los grupos a los que pertenece el usuario. En el ejemplo anterior, agregó explícitamente el usuario a los usuarios del catálogo y no se asignaron permisos de anotación. El usuario no puede anotar activos de datos a pesar de que el usuario sea miembro de un grupo que tiene permisos de anotación.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 - [Introducción a Azure Data Catalog](data-catalog-get-started.md)
 

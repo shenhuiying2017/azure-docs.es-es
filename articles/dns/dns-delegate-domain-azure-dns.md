@@ -303,7 +303,7 @@ Para eliminar todos los recursos creados en este artículo, complete los pasos s
 
 Al eliminar un grupo de recursos, se eliminan todos los recursos del mismo. Asegúrese siempre de confirmar el contenido de un grupo de recursos antes de eliminarlo. El portal elimina todos los recursos del grupo de recursos y, después, elimina el mismo grupo de recursos. Este proceso tarda varios minutos.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 [Administración de zonas DNS](dns-operations-dnszones.md)
 

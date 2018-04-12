@@ -55,7 +55,7 @@ Para comprobar la conectividad y la latencia de un punto de conexión remoto, el
 
 ![Resultados de la comprobación de conectividad para un sitio web][2]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para más información acerca de cómo automatizar capturas de paquetes con las alertas de máquina virtual, consulte cómo [crear una captura de paquetes desencadenada por alertas](network-watcher-alert-triggered-packet-capture.md).
 

@@ -119,7 +119,7 @@ Use el siguiente comando para eliminar la cuenta del Almacén de Data Lake.
 
 Cuando se le solicite, escriba **Y** para eliminar la cuenta.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Guía sobre la optimización del rendimiento para poder usar PowerShell con Azure Data Lake Store](data-lake-store-performance-tuning-powershell.md)
 * [Uso de Azure Data Lake Store para requisitos de macrodatos](data-lake-store-data-scenarios.md) 
 * [Protección de los datos en Data Lake Store](data-lake-store-secure-data.md)

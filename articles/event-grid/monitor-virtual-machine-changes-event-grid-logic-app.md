@@ -245,6 +245,6 @@ Este tutorial utiliza recursos y realiza acciones que generan gastos en su suscr
 
 * Para eliminar la aplicación de forma definitiva, en el menú de la aplicación lógica, elija **Información general**. En la barra de herramientas, elija **Eliminar**. Confirme que quiere eliminar la aplicación lógica y elija **Eliminar**.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Creación y enrutamiento de eventos personalizados con Event Grid](../event-grid/custom-event-quickstart.md)

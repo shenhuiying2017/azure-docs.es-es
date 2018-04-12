@@ -182,5 +182,5 @@ Aquí se muestran un par de ejemplos sobre cómo usar el SDK de Filesystem de Da
 * [Operaciones de administración de cuentas en Azure Data Lake Store con el SDK de .NET](data-lake-store-get-started-net-sdk.md)
 * [Referencia de SDK de .NET de Data Lake Store](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Protección de los datos en Data Lake Store](data-lake-store-secure-data.md)

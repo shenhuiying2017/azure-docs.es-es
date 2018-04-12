@@ -67,7 +67,7 @@ Una vez que haya terminado de agregar o modificar registros DNS en su proveedor 
 ## <a name="enable-traffic-manager"></a>Habilitación del Administrador de tráfico
 [!INCLUDE [modes](../../includes/custom-dns-web-site-enable-on-traffic-manager.md)]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para más información, vea el [Centro para desarrolladores de Node.js](/develop/nodejs/).
 
 [!INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]

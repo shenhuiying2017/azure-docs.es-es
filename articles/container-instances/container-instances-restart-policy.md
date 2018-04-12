@@ -162,7 +162,7 @@ Salida:
 [('ROMEO', 177), ('JULIET', 134), ('CAPULET', 119)]
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 ### <a name="persist-task-output"></a>Conservar la salida de la tarea
 

@@ -179,6 +179,6 @@ La tabla resume las métricas de rendimiento y contadores que se midieron en la 
 | Rendimiento de lectura de máquinas virtuales |\Dispositivo de almacenamiento virtual de Hyper-V(<VHD>)\Bytes leídos/s |
 | Rendimiento de escritura de máquinas virtuales |\Dispositivo de almacenamiento virtual de Hyper-V(<VHD>)\Bytes escritos/s |
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 [Configuración de la replicación](hyper-v-vmm-disaster-recovery.md)

@@ -159,7 +159,7 @@ CONFIGURACIÓN
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 |  |  |
 | --- | --- |

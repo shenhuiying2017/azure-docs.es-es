@@ -127,7 +127,7 @@ El siguiente fragmento de código crea primero el cliente de la cuenta de Data L
     ## Delete a directory
     adlsFileSystemClient.rm('/mysampledirectory', recursive=True)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Operaciones de administración de cuentas en Azure Data Lake Store con Python](data-lake-store-get-started-python.md).
 
 ## <a name="see-also"></a>Otras referencias

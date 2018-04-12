@@ -190,7 +190,7 @@ az group delete --name myResourceGroup
 ```
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En esta guía de inicio rápido, ha implementado un clúster de Kubernetes, conectado con `kubectl` y un pod con un contenedor IIS. Para más información sobre Azure Container Service, continúe con el tutorial de Kubernetes.
 

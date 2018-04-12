@@ -104,7 +104,7 @@ Para las colas y los temas, el tiempo de espera se especifica en la propiedad [M
 
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener la referencia completa de la API de .NET para Service Bus, consulte la [referencia de la API de .NET de Azure](/dotnet/api/overview/azure/service-bus).
 

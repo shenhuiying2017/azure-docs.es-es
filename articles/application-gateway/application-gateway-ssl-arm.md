@@ -262,7 +262,7 @@ Para aceptar la advertencia de seguridad si usó un certificado autofirmado, sel
 
 ![Prueba de la dirección URL base en la puerta de enlace de aplicaciones](./media/application-gateway-ssl-arm/application-gateway-iistest.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial aprendió lo siguiente:
 

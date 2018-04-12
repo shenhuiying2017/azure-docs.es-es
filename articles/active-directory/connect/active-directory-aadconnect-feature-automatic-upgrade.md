@@ -100,5 +100,5 @@ Aquí presentamos una lista de los mensajes más comunes que se encuentran. No a
 | UpgradeNotSupportedStagingModeEnabled |El servidor está establecido en [modo provisional](active-directory-aadconnectsync-operations.md#staging-mode). |
 | UpgradeNotSupportedUserWritebackEnabled |Se ha habilitado la característica [Reescritura de usuarios](active-directory-aadconnect-feature-preview.md#user-writeback) . |
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).

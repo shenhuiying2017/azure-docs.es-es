@@ -198,7 +198,7 @@ Con el script de recuperación copiado en la máquina virtual, ahora puede conec
         --rp-name myRecoveryPointName
     ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este tutorial, conectó un punto de recuperación a una máquina virtual y restauró los archivos de un servidor web. Ha aprendido a:
 
 > [!div class="checklist"]

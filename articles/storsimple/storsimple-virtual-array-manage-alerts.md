@@ -164,7 +164,7 @@ Las siguientes tablas enumeran algunas de las alertas de StorSimple que pueden e
 |:--- |:--- |:--- |
 | La contraseña de <*nombre de dispositivo*> expirará en <*número*> días. |Advertencia de contraseña. |Su contraseña expirará en < número> días. Considere la posibilidad de cambiar la contraseña. Para obtener más información, consulte [Cambiar la contraseña del administrador de dispositivos de la matriz virtual de StorSimple](storsimple-virtual-array-change-device-admin-password.md). |
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Obtenga más información sobre la matriz virtual de StorSimple](storsimple-ova-overview.md)
 

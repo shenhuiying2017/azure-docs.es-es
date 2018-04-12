@@ -71,7 +71,7 @@ En Visual Studio, escriba una aplicación de consola en C# para enviar mensajes 
 
 Enhorabuena, ha creado una aplicación de conexiones híbridas de extremo a extremo.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Preguntas más frecuentes acerca de Relay](relay-faq.md)
 * [Creación de un espacio de nombres](relay-create-namespace-portal.md)

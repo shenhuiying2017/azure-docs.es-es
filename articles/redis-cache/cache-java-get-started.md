@@ -78,7 +78,7 @@ Las últimas compilaciones de [jedis](https://github.com/xetorthio/jedis) permit
     }
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Habilite los diagnósticos de cache](https://msdn.microsoft.com/library/azure/dn763945.aspx#EnableDiagnostics) para que pueda [supervisar](https://msdn.microsoft.com/library/azure/dn763945.aspx) el estado de la memoria caché.
 * Lea la [documentación de Redis](http://redis.io/documentation)oficial.
 * Aprenda a [configurar una aplicación Spring Initializr para usar Redis Cache](cache-java-spring-boot-initializer-with-redis-cache.md).

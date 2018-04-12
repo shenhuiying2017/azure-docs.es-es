@@ -159,7 +159,7 @@ En este ejemplo se usa el [SDK de Azure para Python](https://azure.microsoft.com
 
    Este procesador de captura usa el directorio local para descargar todos los blobs del contenedor o de la cuenta de captura. Procesa los que no estén vacíos y escribe los resultados en forma de archivos .csv en el directorio local.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para más información acerca de Event Hubs, visite los vínculos siguientes:
 

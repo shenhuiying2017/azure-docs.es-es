@@ -124,7 +124,7 @@ Para resumir, con los puntos de comprobación + el registro de escritura previa 
     // to be able to recover on restart, store all offsets in an external database
     ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Introducción a Spark Streaming](apache-spark-streaming-overview.md)
 * [Create Spark Streaming jobs with exactly-once event processing](apache-spark-streaming-exactly-once.md) (Creación de trabajos de Spark Streaming con el procesamiento de eventos del tipo "exactamente una vez")

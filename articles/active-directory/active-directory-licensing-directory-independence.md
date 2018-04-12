@@ -50,5 +50,5 @@ Para agregar un inquilino de Azure AD en Azure Portal, inicie sesión en [Azure 
 > A diferencia de otros recursos de Azure, los inquilinos no son recursos secundarios de una suscripción a Azure. Si su suscripción a Azure se cancela o expira, aún podrá tener acceso a los datos de su inquilino mediante Azure PowerShell, Azure Graph API o el Centro de administración de Office 365. También puede [asociar otra suscripción al inquilino](active-directory-how-subscriptions-associated-directory.md).
 >
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para una amplia visión general de los problemas de licencias de Azure AD y los procedimientos recomendados, consulte [¿Qué es la licencia de inquilinos de Azure Active Directory?](active-directory-licensing-whatis-azure-portal.md)

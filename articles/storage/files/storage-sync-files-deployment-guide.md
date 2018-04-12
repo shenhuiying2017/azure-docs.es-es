@@ -166,6 +166,6 @@ Para migrar una implementación de DFS-R a Azure File Sync:
 
 Para más información, consulte [Interoperabilidad de Azure File Sync con el sistema de archivos distribuido (DFS)](storage-sync-files-planning.md#distributed-file-system-dfs).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 - [Adición o eliminación de un punto de conexión de servidor de Azure File Sync ](storage-sync-files-server-endpoint.md)
 - [Registro y cancelación del registro de un servidor con Azure File Sync](storage-sync-files-server-registration.md)

@@ -164,7 +164,7 @@ Ya ha configurado correctamente que los datos de supervisión se archiven en una
 
 5. Si ha creado una máquina virtual o aplicación lógica para los pasos anteriores, elimínelas también.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, ha visto cómo configurar los datos de supervisión desde el entorno de Azure (suscripción, recursos y SO invitado) para archivarlos en una cuenta de almacenamiento. 
 

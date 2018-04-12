@@ -121,7 +121,7 @@ Ejecute una conmutación por error para las máquinas que desea migrar.
 En algunos escenarios, la conmutación por error requiere un procesamiento adicional que tarda aproximadamente de ocho a diez minutos en completarse. Puede observar tiempos de conmutación por error de prueba más largos en los servidores físicos, las máquinas de VMware Linux, las máquinas virtuales de VMware que no tienen el servicio DHCP habilitado y las máquinas virtuales de VMware que no tienen los siguientes controladores de arranque: storvsc, vmbus, storflt, intelide y atapi.
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial se migran máquinas virtuales locales a máquinas virtuales de Azure. Ya puede configurar la opción de recuperación ante desastres para las máquinas virtuales de Azure.
 

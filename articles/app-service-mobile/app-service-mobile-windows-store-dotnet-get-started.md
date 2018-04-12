@@ -69,7 +69,7 @@ Una vez configurado el back-end de aplicación móvil, puede crear una nueva apl
 
     Tenga en cuenta que los datos guardados en el paso anterior se cargan desde Azure después de que se inicie la aplicación para UWP.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Incorporación de autenticación a la aplicación](app-service-mobile-windows-store-dotnet-get-started-users.md)  
   Aprenda a autenticar a los usuarios de su aplicación con un proveedor de identidades.
 * [Incorporación de notificaciones push a su aplicación](app-service-mobile-windows-store-dotnet-get-started-push.md)  

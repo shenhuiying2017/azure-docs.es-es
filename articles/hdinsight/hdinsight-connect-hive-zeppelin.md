@@ -73,7 +73,7 @@ Antes de seguir los pasos de este artículo, debe disponer de los siguientes ele
     Comparado con Hive tradicional, los resultados de la consulta se devuelven mucho más rápido.
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este artículo ha aprendido a visualizar datos de HDInsight mediante Power BI.  Para obtener más información, consulte los artículos siguientes:
 
 * [Visualize Hive data with Microsoft Power BI in Azure HDInsight](hadoop/apache-hadoop-connect-hive-power-bi.md) (Visualización de datos de Hive con Microsoft Power BI en Azure HDInsight)

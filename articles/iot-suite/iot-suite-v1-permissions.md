@@ -137,7 +137,7 @@ Observe el diagrama siguiente para obtener instrucciones:
 
 Si está seguro de que tiene una suscripción de Azure, valide la asignación del inquilino de la suscripción y asegúrese de que se ha seleccionado el inquilino correcto en la lista desplegable. Si ha validado que el inquilino deseado es el correcto, siga el diagrama anterior y valide la asignación de la suscripción y de este inquilino de AAD.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información sobre el Conjunto de aplicaciones de IoT, consulte cómo puede [personalizar una solución preconfigurada][lnk-customize].
 
 [img-flowchart]: media/iot-suite-v1-permissions/flowchart.png

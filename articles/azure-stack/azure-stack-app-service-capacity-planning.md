@@ -99,6 +99,6 @@ En entornos de producción, el rol de servidor de archivos experimenta una inten
 - clúster de servidor de archivos
 - Dispositivo NAS (almacenamiento conectado a la red). Para más información, consulte [Aprovisionamiento de un servidor de archivos](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 [Antes de empezar a trabajar con App Service en Azure Stack](azure-stack-app-service-before-you-get-started.md)

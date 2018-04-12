@@ -62,7 +62,7 @@ En la tabla siguiente se indica qué enlaces se admiten en cada versión de tiem
 
 Para información acerca de la compatibilidad con los enlaces y otros espacios funcionales en la versión 2.x, consulte los [problemas conocidos del Runtime 2.0](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Selección del destino de la versión 2.0 del runtime en el entorno de desarrollo local](functions-run-local.md)

@@ -48,7 +48,7 @@ Además, ni el proveedor del sistema de archivos ni el proveedor de Azure Storag
 
 Por lo tanto, aunque ImageStoreConnectionString se puede configurar, generalmente solo se usa el valor predeterminado. Al publicar en Azure a través de Visual Studio, el parámetro se establece automáticamente en consecuencia. Para la implementación mediante programación en clústeres hospedados en Azure, la cadena de conexión siempre es "fabric:ImageStore". Sin embargo, en caso de duda, su valor siempre se puede comprobar recuperando el manifiesto de clúster mediante [PowerShell](https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricclustermanifest), [.NET](https://msdn.microsoft.com/library/azure/mt161375.aspx) o [REST](https://docs.microsoft.com/rest/api/servicefabric/get-a-cluster-manifest). Tanto los clústeres de producción como de prueba locales siempre deben configurarse para usar también el proveedor de servicio de almacén de imágenes.
 
-### <a name="next-steps"></a>pasos siguientes
+### <a name="next-steps"></a>Pasos siguientes
 [Implementación y eliminación de aplicaciones con PowerShell][10]
 
 <!--Image references-->

@@ -510,7 +510,7 @@ Administrador de recursos ofrece varias ventajas:
 > [!Note]
 > Resource Manager ofrece una nueva manera de implementar y administrar las soluciones. Si usó el anterior modelo de implementación y desea obtener más información sobre los cambios, consulte [Descripción de la implementación de Resource Manager y la implementación clásica](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Obtener más información acerca de la seguridad con la lectura de algunos de nuestros detallados temas de seguridad:
 

@@ -42,5 +42,5 @@ Si la carga de trabajo alcanza los límites máximos de unidades de proceso o de
 
 Si la carga de trabajo alcanza los límites máximos de número de conexiones, se producen errores explícitos. Para obtener más información sobre los límites de los recursos, consulte [Limitaciones en Azure Database for MySQL](concepts-limits.md).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información sobre los planes de tarifa, consulte [Planes de tarifa de Azure Database for MySQL](./concepts-service-tiers.md).

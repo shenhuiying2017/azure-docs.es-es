@@ -349,7 +349,7 @@ Contenido de `ptvs_virtualenv_proxy.py`:
 ## <a name="troubleshooting---virtual-environment"></a>Solución de problemas - Entorno virtual
 [!INCLUDE [web-sites-python-troubleshooting-virtual-environment](../../includes/web-sites-python-troubleshooting-virtual-environment.md)]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para más información, vea el [Centro para desarrolladores de Python](/develop/python/).
 
 > [!NOTE]

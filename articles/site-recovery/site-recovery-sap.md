@@ -115,6 +115,6 @@ Para más información, consulte [Conmutación por error de prueba a Azure en Si
 
 Para más información, consulte [Conmutación por error en Site Recovery](site-recovery-failover.md).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Para más información sobre cómo compilar una solución de recuperación ante desastres para las implementaciones de SAP NetWeaver mediante Site Recovery, consulte las notas del producto [SAP NetWeaver: Building a Disaster Recovery Solution with Azure Site Recovery](http://aka.ms/asr-sap) (SAP NetWeaver: compilación de una solución de recuperación ante desastres con Azure Site Recovery) que se pueden descargar. En las notas del producto se analizan las recomendaciones para distintas arquitecturas SAP, se muestran las aplicaciones y los tipos de máquinas virtuales compatibles con SAP en Azure y se describen las opciones del plan de pruebas para la solución de recuperación ante desastres.
 * Obtenga más información sobre cómo [replicar otras cargas de trabajo](site-recovery-workload.md) con Site Recovery.

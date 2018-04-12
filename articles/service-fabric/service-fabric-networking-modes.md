@@ -231,7 +231,7 @@ Cuando un servicio de contenedor se reinicia o se mueve a otro nodo del clúster
    </Resources>
    ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Entender el modelo de aplicación de Service Fabric](service-fabric-application-model.md)
 * [Aprenda más sobre los recursos del manifiesto de servicio de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-manifest-resources)
 * [Implementación de un contenedor de Windows en Service fabric en Windows Server 2016](service-fabric-get-started-containers.md)

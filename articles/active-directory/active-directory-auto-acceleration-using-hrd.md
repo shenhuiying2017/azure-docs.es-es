@@ -226,7 +226,7 @@ Remove-AzureADApplicationPolicy -ObjectId <ObjectId of the Service Principal>  -
 ``` powershell
 Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
 ```
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 - Para obtener más información sobre el funcionamiento de la autenticación en Azure AD, consulte [Escenarios de autenticación para Azure AD](develop/active-directory-authentication-scenarios.md).
 - Para obtener más información sobre el inicio de sesión único del usuario, consulte [Acceso a la aplicación e inicio de sesión único con Azure Active Directory](active-directory-enterprise-apps-manage-sso.md).
 - Consulte la [Guía del desarrollador de Active Directory](develop/active-directory-developers-guide.md) para información general sobre todo el contenido de interés para los desarrolladores.

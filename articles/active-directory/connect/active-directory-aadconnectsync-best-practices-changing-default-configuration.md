@@ -65,7 +65,7 @@ Seleccione **Sí** para crear una copia de la regla. A continuación, se abre la
 
 En esta regla clonada, realice los cambios necesarios en el ámbito, la combinación y las transformaciones.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 **Temas de introducción**
 
 * [Sincronización de Azure AD Connect: comprender y personalizar la sincronización](active-directory-aadconnectsync-whatis.md)

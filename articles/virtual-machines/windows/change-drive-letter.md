@@ -62,6 +62,6 @@ En primer lugar, deberá conectar el disco de datos a la máquina virtual. Para 
 8. Haga clic en **Aplicar**. Aparecerá una advertencia que indica que se debe reiniciar el equipo para que los cambios entren en vigor.
 9. Reinicie la máquina virtual.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Puede aumentar el almacenamiento disponible para la máquina virtual [conectando un disco de datos adicional](attach-managed-disk-portal.md).
 

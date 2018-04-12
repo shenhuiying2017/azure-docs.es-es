@@ -80,7 +80,7 @@ Cuando el proceso de aprovisionamiento se completa, puede iniciar sesión en la 
 
 1. El panel de la solución de supervisión remota se muestra en el explorador.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial aprendió lo siguiente:
 

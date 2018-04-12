@@ -40,7 +40,7 @@ Esta característica ayuda a restaurar objetos de usuario de Azure AD mediante l
 
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 **Temas de introducción**
 
 * [Sincronización de Azure AD Connect: comprender y personalizar la sincronización](active-directory-aadconnectsync-whatis.md)

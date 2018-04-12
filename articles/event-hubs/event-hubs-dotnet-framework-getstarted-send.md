@@ -101,7 +101,7 @@ En esta sección se va escribir una aplicación de consola Windows que envía ev
   
 Felicidades. Ha enviado mensajes a un centro de eventos.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Ahora que ha creado una aplicación de trabajo que crea un centro de eventos y envía datos, puede pasar a los siguientes escenarios:
 
 * [Recepción de eventos mediante el Host de procesador de eventos](event-hubs-dotnet-framework-getstarted-receive-eph.md)

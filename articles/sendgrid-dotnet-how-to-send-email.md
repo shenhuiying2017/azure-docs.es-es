@@ -249,7 +249,7 @@ Los siguientes ejemplos demuestran el uso de los filtros de pie de página y seg
 ## <a name="how-to-use-additional-sendgrid-services"></a>Uso de servicios adicionales de SendGrid
 SendGrid ofrece varias API y webhooks que puede usar para aprovechar la funcionalidad adicional dentro de la aplicación de Azure. Para más detalles, consulte la [referencia de la API de SendGrid][SendGrid API documentation].
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Ahora que conoce los fundamentos del servicio de correo electrónico SendGrid, siga estos vínculos para obtener más información:
 
 * Repositorio de bibliotecas de C#\# de SendGrid: [sendgrid-csharp][sendgrid-csharp]

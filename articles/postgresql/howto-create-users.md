@@ -77,7 +77,7 @@ La cuenta de usuario administrador del servidor puede usarse para crear usuarios
    psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=db_user@mydemoserver --dbname=newdb
    ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Abra el firewall para las direcciones IP de las máquinas de los nuevos usuarios para permitirles que se conecten: [Creación y administración de reglas de firewall de Azure Database for PostgreSQL mediante Azure Portal](howto-manage-firewall-using-portal.md) o [CLI de Azure](howto-manage-firewall-using-cli.md).
 
 Para más información respecto a la administración de cuentas de usuario, consulte la documentación de productos de PostgreSQL relativa a los [privilegios y roles de base de datos](https://www.postgresql.org/docs/current/static/user-manag.html), la [sintaxis GRANT](https://www.postgresql.org/docs/current/static/sql-grant.html) y los [privilegios](https://www.postgresql.org/docs/current/static/ddl-priv.html).

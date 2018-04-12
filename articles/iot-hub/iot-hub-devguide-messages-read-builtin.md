@@ -65,7 +65,7 @@ Los SDK y las integraciones que puede usar con los puntos de conexión compatibl
 * [Spout de Apache Storm](../hdinsight/storm/apache-storm-develop-csharp-event-hub-topology.md). Puede ver el [origen de spout](https://github.com/apache/storm/tree/master/external/storm-eventhubs) en GitHub.
 * [Integración de Apache Spark](../hdinsight/spark/apache-spark-eventhub-streaming.md).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener más información sobre los puntos de conexión de IoT Hub, vea [Puntos de conexión de IoT Hub][lnk-endpoints].
 

@@ -133,7 +133,7 @@ La operación POST contiene el siguiente esquema con carga útil de JSON para to
 | resourceType | El tipo de recurso que generó el evento.|
 | propiedades |Conjunto de pares clave/valor que incluye detalles sobre el evento. Por ejemplo, `Dictionary<String, String>`. |
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Obtenga más información sobre el [registro de actividad](monitoring-overview-activity-logs.md).
 * Aprenda a [ejecutar scripts de Azure Automation (runbooks) en alertas de Azure](http://go.microsoft.com/fwlink/?LinkId=627081).
 * Aprenda a [usar una aplicación lógica para enviar un mensaje SMS a través de Twilio desde una alerta de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). Este ejemplo corresponde a alertas de métrica, pero puede modificarse para que funcione con una alerta de registro de actividad.

@@ -144,7 +144,7 @@ Para las cargas de mayor rendimiento distribuidas en el clúster, use la herrami
 
 * Evite puntos de acceso del servidor de región. Si la clave de fila aumenta de forma uniforme, las escrituras secuenciales de HBase pueden inducir puntos de acceso del servidor de región. *Cifrar* con sal la clave de fila reduce las escrituras secuenciales. Phoenix proporciona una manera de cifrar de forma transparente la clave de fila con un byte cifrado con sal para una determinada tabla, tal como se indica a continuación.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Bulk Data Loading with Apache Phoenix](http://phoenix.apache.org/bulk_dataload.html) (Carga de datos masiva con Apache Phoenix)
 * [Uso de Apache Phoenix con clústeres de HBase basados en Linux en HDInsight](../hbase/apache-hbase-phoenix-squirrel-linux.md)

@@ -100,7 +100,7 @@ A continuación, se muestra un ejemplo de un registro de flujo. Como puede ver, 
         ...
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Aprenda a habilitar los registros de flujo visitando [Habilitamiento del registro de flujos](network-watcher-nsg-flow-logging-portal.md).
 

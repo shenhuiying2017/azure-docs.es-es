@@ -158,7 +158,7 @@ La actualización de la aplicación puede tardar varios minutos. Una vez conclui
 
 ![Service Fabric Explorer][sfx3]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este tutorial aprendió lo siguiente:
 
 > [!div class="checklist"]

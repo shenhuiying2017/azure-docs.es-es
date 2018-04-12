@@ -159,7 +159,7 @@ Configure los diagnósticos para registrar datos en los registros ApplicationGat
 
     ![Prueba de la puerta de enlace de aplicaciones](./media/application-gateway-web-application-firewall-portal/application-gateway-iistest.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este artículo, ha aprendido cómo:
 

@@ -160,7 +160,7 @@ Las excepciones enviadas a través de registradores se mostrarán en el portal c
 
 ![En el portal de Application Insights, abra Búsqueda.](./media/app-insights-java-trace-logs/10-diagnostics.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Búsqueda de diagnóstico][diagnostic]
 
 <!--Link references-->

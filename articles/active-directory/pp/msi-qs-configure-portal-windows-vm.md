@@ -69,7 +69,7 @@ Si tiene una máquina virtual que ya no necesita una identidad de servicio admin
 
 - Para obtener información general sobre MSI, consulte [Managed Service Identity overview](msi-overview.md) (Introducción a Managed Service Identity).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Mediante Azure Portal, asigne a un identidad de servicio administrada de una máquina virtual de Azure [acceso a otro recurso de Azure](msi-howto-assign-access-portal.md).
 

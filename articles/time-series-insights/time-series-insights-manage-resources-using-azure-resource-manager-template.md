@@ -269,6 +269,6 @@ La página principal de la plantilla de inicio rápido de GitHub incluye tambié
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-timeseriesinsights-environment-with-eventhub%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Para más información sobre la administración de recursos de Time Series Insights mediante programación por medio de las API de REST, consulte [Time Series Insights Management](https://docs.microsoft.com/rest/api/time-series-insights-management/) (Administración de Time Series Insights).

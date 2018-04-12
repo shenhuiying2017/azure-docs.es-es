@@ -52,7 +52,7 @@ Gracias a la API de REST, Power BI Embedded permite desarrollar en cualquier len
 * [Ideas de Power BI](https://ideas.powerbi.com): solicite y vote características.
 * [Reddit](https://www.reddit.com/r/PowerBI/): debata sobre Power BI.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Consulte la [página de precios](https://azure.microsoft.com/pricing/details/power-bi-embedded/) para obtener información de los nodos de capacidad.
 

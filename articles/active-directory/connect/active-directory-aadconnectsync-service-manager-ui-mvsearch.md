@@ -28,7 +28,7 @@ La pestaña Búsqueda de metaverso resulta útil para solucionar problemas relac
 
 En los resultados de búsqueda, seleccione un objeto y **Propiedades** para ver las [propiedades del objeto de metaverso](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md#metaverse-object-properties).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre la configuración de la [Sincronización de Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).

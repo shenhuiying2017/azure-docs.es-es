@@ -302,7 +302,7 @@ Hops             : [
                    ]
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para determinar si se permite cierto tráfico hacia o desde la máquina virtual, sepa cómo [consultar la comprobación del flujo de IP](network-watcher-check-ip-flow-verify-portal.md).
 

@@ -54,7 +54,7 @@ Antes de eliminar a alguien del rol de administrador de roles con privilegios, a
 4. Haga clic en **Sí** para quitar el usuario del rol.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
 <!--Image references-->

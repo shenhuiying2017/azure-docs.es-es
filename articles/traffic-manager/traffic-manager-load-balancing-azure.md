@@ -205,7 +205,7 @@ Ahora se configuran la dirección IP y el puerto de front-end del equilibrador d
 
 ![Panel de navegación "Frontend IP pool" (Grupo de IP de font-end) de Load Balancer](./media/traffic-manager-load-balancing-azure/s5-ilb-frontend-ippool.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [¿Qué es Traffic Manager?](traffic-manager-overview.md)
 * [Introducción a Application Gateway](../application-gateway/application-gateway-introduction.md)

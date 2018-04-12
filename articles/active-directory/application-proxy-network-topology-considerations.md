@@ -170,7 +170,7 @@ También puede considerar la utilización de alguna otra variante en esta situac
 
 ![Diagrama que muestra los usuarios, el proxy y el conector en EE. UU. y la aplicación en la Unión Europea](./media/application-proxy-network-topologies/application-proxy-pattern5c.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - [Habilitación del proxy de la aplicación](active-directory-application-proxy-enable.md)
 - [Habilitar el inicio de sesión único](active-directory-application-proxy-sso-using-kcd.md)

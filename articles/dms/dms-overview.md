@@ -37,7 +37,7 @@ La versión preliminar pública de Azure Database Migration Service está dispon
 - Sudeste asiático
 - Oeste de la India
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 - [Creación de una instancia de Azure Database Migration Service mediante Azure Portal](quickstart-create-data-migration-service-portal.md).
 - [Migración de SQL Server a Azure SQL Database](tutorial-sql-server-to-azure-sql.md).
 - [Información general sobre los requisitos previos para usar Azure Database Migration Service](pre-reqs.md).

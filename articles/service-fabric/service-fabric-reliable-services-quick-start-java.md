@@ -253,6 +253,6 @@ El script install.sh contiene los comandos de la CLI de Service Fabric necesario
 $ ./install.sh
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Introducción a la CLI de Service Fabric](service-fabric-cli.md)

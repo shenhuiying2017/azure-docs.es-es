@@ -48,7 +48,7 @@ Para obtener más información, vea [Upgrade map key to see devices on a dynamic
 
 Dos. Solo puede crear dos planes de Mapas de Bing para empresa de nivel 1 de transacciones internas en una suscripción de Azure. La solución de supervisión se aprovisiona de forma predeterminada con el plan de nivel 1 de transacciones internas. Como consecuencia, solo se pueden aprovisionar un máximo de dos soluciones de supervisión remota en una suscripción sin modificaciones.
 
-### <a name="next-steps"></a>pasos siguientes
+### <a name="next-steps"></a>Pasos siguientes
 
 También puede explorar algunas de las demás características y funcionalidades de las soluciones preconfiguradas del conjunto de aplicaciones de IoT:
 

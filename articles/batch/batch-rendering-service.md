@@ -258,6 +258,6 @@ Para descargar las salidas, modifique el campo **Outputs** (Salidas) para establ
 
 Puede cerrar Maya sin interrumpir el proceso de descarga.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre Batch, consulte [Ejecución de cargas de trabajo paralelas intrínsecamente con Batch](batch-technical-overview.md).

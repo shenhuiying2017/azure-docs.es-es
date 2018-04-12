@@ -99,7 +99,7 @@ Estas lecciones no son necesarias para completar el tutorial, pero pueden result
 |[Jerarquías desiguales](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)|20 minutos| 
 
   
-## <a name="next-steps"></a>pasos siguientes  
+## <a name="next-steps"></a>Pasos siguientes  
 Para empezar, vea [Lección 1: Creación de un proyecto de modelo tabular](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md).  
   
   

@@ -355,5 +355,5 @@ Cada tabla de lotes proporciona un resumen del uso de red del lote.
 
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre la [estimación de costos](hyper-v-deployment-planner-cost-estimation.md).

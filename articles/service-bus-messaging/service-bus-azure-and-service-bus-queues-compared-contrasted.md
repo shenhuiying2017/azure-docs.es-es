@@ -187,7 +187,7 @@ Al comprender mejor las dos tecnologías, podrá tomar una decisión más fundam
 
 Dado que las colas de Service Bus ofrecen varias características avanzadas, como sesiones, transacciones, detección de duplicados, mensajes con problemas de entrega automáticos, y capacidades de publicación o suscripción duraderas, pueden ser la opción preferida si está creando una aplicación híbrida o si su aplicación necesita por otra parte estas características.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En los artículos siguientes se ofrece más orientación e información sobre el uso de las colas de Storage o las colas de Service Bus.
 
 * [Introducción a las colas de Service Bus](service-bus-dotnet-get-started-with-queues.md)

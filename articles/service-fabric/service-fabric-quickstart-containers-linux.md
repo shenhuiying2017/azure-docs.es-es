@@ -141,7 +141,7 @@ Para eliminar la instancia de aplicación del clúster y anular el registro del 
 ./uninstall.sh
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este tutorial, ha aprendido a hacer lo siguiente:
 > [!div class="checklist"]
 > * Implementar una aplicación contenedora de Linux en Azure

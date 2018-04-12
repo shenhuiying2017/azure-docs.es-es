@@ -78,7 +78,7 @@ Para eliminar el contenedor:
 
     ![Captura de pantalla que muestra cómo eliminar un contenedor desde Azure Portal](media/storage-quickstart-blobs-portal/delete-container.png)   
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial de inicio rápido aprendió a transferir archivos entre un disco local y Azure Blob Storage mediante .NET. Para más información sobre cómo trabajar con Blob Storage, continúe con los procedimientos de Blob Storage.
 

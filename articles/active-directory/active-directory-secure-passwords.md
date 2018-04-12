@@ -80,7 +80,7 @@ Para más información sobre el restablecimiento de contraseña en Azure Active 
   >Los administradores de Azure AD pueden usar [Windows Hello](https://www.microsoft.com/windows/windows-hello) para evitar que los usuarios creen contraseñas tradicionales.
   >
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Actualización de la propia contraseña](active-directory-passwords-update-your-own-password.md)
 * [Aspectos básicos de la administración de identidades de Azure](fundamentals-identity.md)

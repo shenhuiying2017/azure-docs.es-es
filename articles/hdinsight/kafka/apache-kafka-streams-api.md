@@ -143,7 +143,7 @@ Use los siguientes pasos para compilar e implementar el proyecto en el clúster 
 
 7. Use __Ctrl + C__ para salir del productor. Siga usando __Ctrl + C__ para salir de la aplicación y del consumidor.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este documento, aprendió a usar Streams API con Kafka en HDInsight. Para más información sobre cómo trabajar con Kafka:
 

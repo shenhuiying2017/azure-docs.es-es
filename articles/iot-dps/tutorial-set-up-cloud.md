@@ -91,7 +91,7 @@ Otros tutoriales de esta colección se basan en los valores de este. Si tiene pr
 1. Desde el menú de la izquierda en Azure Portal, haga clic en **Todos los recursos** y seleccione la instancia del servicio IoT Hub Device Provisioning. En la parte superior de la página **Todos los recursos**, haga clic en **Eliminar**.  
 2. Desde el menú de la izquierda en Azure Portal, haga clic en **Todos los recursos** y seleccione su centro de IoT. En la parte superior de la página **Todos los recursos**, haga clic en **Eliminar**.
  
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial aprendió lo siguiente:
 

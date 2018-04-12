@@ -195,6 +195,6 @@ Siga [estas directrices](site-recovery-test-failover-to-azure.md) para llevar a 
 
 Siga [estas directrices](site-recovery-failover.md) cuando realice una conmutación por error.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Puede obtener [más información](https://aka.ms/citrix-xenapp-xendesktop-with-asr) sobre la replicación de implementaciones de XenApp y XenDesktop de Citrix en estas notas del producto. Consulte las instrucciones para la [replicación de otras aplicaciones](site-recovery-workload.md) mediante Site Recovery.

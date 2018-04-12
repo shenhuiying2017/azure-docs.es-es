@@ -63,7 +63,7 @@ Consulte las métricas para el tema de eventos personalizado.
 
 ![Ver métricas de eventos](./media/monitor-event-delivery/custom-topic-metrics.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * Para obtener información acerca de los reintentos y las entregas de eventos, consulte [Entrega y reintento de entrega de mensajes de Event Grid](delivery-and-retry.md).
 * Para obtener una introducción a Event Grid, vea [Acerca de Event Grid](overview.md).

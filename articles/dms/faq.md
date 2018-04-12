@@ -88,5 +88,5 @@ Si el usuario detiene explícitamente la instancia de Azure Database Migration S
 ### <a name="q-where-can-i-leave-feedback-about-the-azure-database-migration-service"></a>P: ¿Dónde puedo dejar comentarios sobre Azure Database Migration Service?
 Queremos saber de usted. Envíe sus comentarios e ideas sobre Azure Database Migration Service a través de UserVoice, [aquí](https://feedback.azure.com/forums/906100-azure-database-migration-service).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para información general sobre Azure Database Migration Service y la disponibilidad regional durante la versión preliminar pública, consulte el artículo [¿Qué es la versión preliminar de Azure Database Migration Service?](dms-overview.md) 

@@ -37,6 +37,6 @@ En Azure Stack, un usuario puede ser un lector, propietario o colaborador de cad
 3. En la hoja **Usuarios**, haga clic en **Roles**.
 4. En la hoja **Roles**, haga clic en **Agregar** para agregar permisos para el usuario.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 

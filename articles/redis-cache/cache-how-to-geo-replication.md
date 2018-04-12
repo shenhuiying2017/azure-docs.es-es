@@ -177,7 +177,7 @@ En la versión inicial de la replicación geográfica, Azure Redis Cache no admi
 Actualmente, para iniciar la conmutación por error, es necesario quitar el vínculo de replicación geográfica en Azure Portal y, luego, cambiar el punto de conexión del cliente Redis de la caché vinculada principal a la caché secundaria (anteriormente vinculada). Cuando se elimina la asociación de ambas cachés, la réplica se vuelve a convertir en una caché normal de lectura y escritura y acepta solicitudes directamente de los clientes Redis.
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Más información sobre el [nivel Premium de Azure Redis Cache](cache-premium-tier-intro.md).
 

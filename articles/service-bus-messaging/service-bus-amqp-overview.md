@@ -84,7 +84,7 @@ En este momento las siguientes bibliotecas de cliente están trabajando con Serv
 * AMQP 1.0 es un protocolo de mensajes confiable y abierto que se puede utilizar para crear aplicaciones híbridas, entre plataformas. AMQP 1.0 es un estándar de OASIS.
 * La compatibilidad con AMQP 1.0 ahora está disponible en Azure Service Bus, así como en Service Bus para Windows Server (Service Bus 1.1). El precio es el mismo que el de los protocolos existentes.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 ¿Listo para obtener más información? Consulte los siguientes vínculos:
 
 * [Uso de Service Bus desde .NET con AMQP]

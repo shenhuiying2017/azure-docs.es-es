@@ -235,7 +235,7 @@ Si tiene una aplicación móvil de cliente, inserte algún código para enviar e
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Configuración del envío de diagnósticos de Azure a Application Insights](app-insights-azure-diagnostics.md)
 * [Automatizar la creación de recursos de Application Insights](app-insights-powershell.md)
 * [Automatizar los diagnósticos de Azure](app-insights-powershell-azure-diagnostics.md)

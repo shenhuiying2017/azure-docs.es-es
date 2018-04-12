@@ -104,7 +104,7 @@ JSON, un formato compatible con Cosmos DB, es eficaz para representar datos de d
 
 ![Arquitectura de referencia de aplicaciones web de Azure Cosmos DB](./media/use-cases/personalization.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para empezar a trabajar con Azure Cosmos DB, siga nuestras [guías de inicio rápido](create-sql-api-dotnet.md), que le indican el proceso de creación de una cuenta y cómo comenzar a usar Cosmos DB. 
 
 O bien, si desea leer más acerca de los usuarios que emplean Cosmos DB, tiene a su disposición los siguientes testimonios de clientes:

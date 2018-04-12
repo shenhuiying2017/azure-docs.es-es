@@ -80,7 +80,7 @@ Cuando un certificado expira, recibirá una advertencia que le indica que cargue
 
 Actualmente, toda la administración de certificados es a través de páginas de aplicación individuales, por lo que deberá administrar los certificados en el contexto de las aplicaciones pertinentes. 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Habilitar el inicio de sesión único](active-directory-application-proxy-sso-using-kcd.md) en las aplicaciones publicadas con la autenticación de Azure AD.
 * [Habilitar el acceso condicional](application-proxy-enable-remote-access-sharepoint.md) a las aplicaciones publicadas.
 * [Incorporación de su nombre de dominio personalizado a Azure AD](active-directory-domains-add-azure-portal.md)

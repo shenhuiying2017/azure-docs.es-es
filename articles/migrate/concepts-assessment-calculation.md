@@ -142,6 +142,6 @@ Una vez completadas las recomendaciones de ajuste de tamaño, Azure Migrate calc
 Los costos se muestran en la moneda especificada en la configuración de evaluación. 
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 [Creación de una valoración para máquinas virtuales VMware locales](tutorial-assessment-vmware.md)

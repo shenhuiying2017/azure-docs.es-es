@@ -100,7 +100,7 @@ Ahora, hemos especificado una plantilla de licencia en el grupo del departamento
 
    ![Licencia asignada correctamente](media/active-directory-licensing-group-assignment-azure-portal/license-correctly-assigned.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre el conjunto de características de administración de licencias mediante grupos, consulte los artículos siguientes:
 

@@ -48,6 +48,6 @@ Los servicios de la Plataforma Azure, entre otros, web y móviles, servicios de 
 Las [instrucciones actualizadas](https://newsroom.intel.com/news/root-cause-of-reboot-issue-identified-updated-guidance-for-customers-and-partners/) de Intel no afectan a las mitigaciones de Azure que se anunciaron el 3 de enero de 2018. No habrá ninguna actividad de mantenimiento adicional en las máquinas virtuales del cliente como resultado de esta nueva información.
  
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para más información, consulte [Securing Azure customers from CPU vulnerability](https://azure.microsoft.com/blog/securing-azure-customers-from-cpu-vulnerability/) (Proteger a los clientes de Azure de las vulnerabilidades de CPU).

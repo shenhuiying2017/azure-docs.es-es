@@ -33,7 +33,7 @@ En este artículo se supone que ya ha creado una máquina virtual. Si es necesar
 
 Ahora puede conectarse de manera remota a la máquina virtual con este nombre DNS, por ejemplo, con `ssh azureuser@mydns.westus.cloudapp.azure.com`.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Ahora que la máquina virtual tiene un nombre DNS y una IP pública, puede implementar marcos y servicios de aplicaciones comunes, como nginx, MongoDB, Docker, etc.
 
 También puede leer más sobre el [uso de Resource Manager](../../azure-resource-manager/resource-group-overview.md) para obtener sugerencias sobre la creación de las implementaciones de Azure.

@@ -91,7 +91,7 @@ Siga estos pasos para habilitar la implementación mediante programación para u
 - [Custom images or formulas? (¿Imágenes personalizadas o fórmulas?)](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
 - [Copying Custom Images between Azure DevTest Labs (Copiar imágenes personalizadas entre instancias de Azure DevTest Labs)](http://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - [Crear una imagen personalizada a partir de una máquina virtual](devtest-lab-create-custom-image-from-vm-using-portal.md)
 - [Crear una imagen personalizada a partir de un archivo VHD](devtest-lab-create-template.md)

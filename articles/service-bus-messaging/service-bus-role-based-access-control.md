@@ -75,7 +75,7 @@ Antes de poder ejecutar el ejemplo, edite el archivo App.config y, según el esc
  
 Al ejecutar la aplicación de consola, deberá seleccionar un escenario. Haga clic en **Interactive User Login** (Inicio de sesión de usuario interactivo). Para ello, escriba su número y pulse ENTRAR. La aplicación muestra una ventana de inicio de sesión, solicita su consentimiento para acceder a Service Bus y, a continuación, utiliza el servicio para ejecutarse en el escenario de envío o recepción mediante la identidad de inicio de sesión.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre la mensajería de Service Bus, consulte los siguientes temas.
 

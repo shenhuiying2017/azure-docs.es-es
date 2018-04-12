@@ -79,6 +79,6 @@ Los detalles de la salida de la respuesta HTTP son los siguientes.
 | --- | --- | --- |
 | Matriz filtrada |array |Una matriz que contiene un objeto de cada resultado filtrado |
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Ahora, pruebe la plataforma y [cree una aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Puede explorar los demás conectores disponibles en aplicaciones lógicas consultando nuestra [lista de API](apis-list.md).
 

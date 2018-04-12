@@ -311,7 +311,7 @@ Un subconjunto de las aplicaciones que se muestran en el filtro "Todas las aplic
 
 Para eliminar el acceso de una aplicación multiinquilino a su directorio (después de concederle consentimiento), el administrador de la compañía debe eliminar su entidad de servicio. El administrador debe tener acceso de administrador global y puede eliminar el acceso a través de Azure Portal o usar los [Cmdlets de PowerShell de Azure AD](http://go.microsoft.com/fwlink/?LinkId=294151) para eliminarlo.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 - Para más información sobre el funcionamiento de la autenticación en Azure AD, consulte [Escenarios de autenticación para Azure AD](active-directory-authentication-scenarios.md).
 - Consulte [Directrices de personalización de marca para aplicaciones integradas](active-directory-branding-guidelines.md) para ver sugerencias de orientación visual para la aplicación.
 - Para más información sobre la relación entre los objetos de aplicación y de entidad de servicio para una aplicación, consulte [Objetos de aplicación y de entidad de servicio](active-directory-application-objects.md).

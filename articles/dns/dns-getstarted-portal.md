@@ -96,7 +96,7 @@ Para eliminar todos los recursos creados en este artículo, complete los pasos s
 1. El portal requiere que escriba el nombre del grupo de recursos para confirmar que desea eliminarlo. Haga clic en **Eliminar**, escriba *MyResourceGroup* para el nombre de grupo de recursos y haga clic en **Eliminar**. Al eliminarse un grupo de recursos, se eliminan todos los recursos que contiene, por lo que siempre debe asegurarse de comprobar su contenido antes de eliminarlo. El portal elimina todos los recursos incluidos en el grupo de recursos y, después, el grupo de recursos en sí. Este proceso tarda varios minutos.
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener más información sobre Azure DNS, lea [Introducción a DNS de Azure](dns-overview.md).
 

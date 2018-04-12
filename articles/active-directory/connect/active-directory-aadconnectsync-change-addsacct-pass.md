@@ -49,7 +49,7 @@ Para actualizar Synchronization Service con la nueva contraseña:
 
 8. Reinicie Azure AD Connect Synchronization Service en el Administrador de Control de servicios de Windows. Esto sirve para asegurarse de que cualquier referencia a la contraseña antigua se quita de la memoria caché.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 **Temas de introducción**
 
 * [Sincronización de Azure AD Connect: comprender y personalizar la sincronización](active-directory-aadconnectsync-whatis.md)

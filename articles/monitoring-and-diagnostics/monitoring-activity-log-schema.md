@@ -511,6 +511,6 @@ Esta categoría contiene el registro de todas las alertas generado por Azure Sec
 | submissionTimestamp |Marca de tiempo de cuándo el evento empezó a estar disponible para las consultas. |
 | subscriptionId |Identificador de la suscripción de Azure. |
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Más información sobre el registro de actividad (antes, Registros de auditoría)](monitoring-overview-activity-logs.md)
 * [Transmisión del registro de actividad de Azure a Event Hubs](monitoring-stream-activity-logs-event-hubs.md)

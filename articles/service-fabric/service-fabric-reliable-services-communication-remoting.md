@@ -387,7 +387,7 @@ En el ejemplo siguiente se utiliza la serialización JSON con la comunicación r
             });
   ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Web API con OWIN en Reliable Services](service-fabric-reliable-services-communication-webapi.md)
 * [Comunicación WCF con Reliable Services](service-fabric-reliable-services-communication-wcf.md)
 * [Protección de la comunicación para Reliable Services](service-fabric-reliable-services-secure-communication.md)

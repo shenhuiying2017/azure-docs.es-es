@@ -104,7 +104,7 @@ Para publicar una aplicación de HDInsight:
 8. Cargue el archivo .zip que creó cuando [empaquetó la aplicación](#package-application).  
 9. Seleccione **Request Certification** ///(Solicitar certificación). El equipo de certificación de Microsoft revisa los archivos y certifica la topología.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Aprenda a [instalar aplicaciones de HDInsight](hdinsight-apps-install-applications.md) en sus clústeres.
 * Aprenda a [instalar aplicaciones de HDInsight personalizadas](hdinsight-apps-install-custom-applications.md) y a implementar una aplicación de HDInsight sin publicar en HDInsight.
 * Aprenda a [usar acciones de script para personalizar clústeres de HDInsight basados en Linux](hdinsight-hadoop-customize-cluster-linux.md) y a agregar más aplicaciones. 

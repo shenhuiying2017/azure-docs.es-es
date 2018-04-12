@@ -249,6 +249,6 @@ Content-Type: application/json
 
 La larga respuesta JSON a esta solicitud se ha omitido para mejorar la legibilidad de esta documentación. La respuesta contiene información sobre la implementación de la plantilla que acaba de crear.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Para obtener información sobre el control de operaciones asincrónicas de REST, vea [Seguimiento de las operaciones asincrónicas de Azure](resource-manager-async-operations.md).

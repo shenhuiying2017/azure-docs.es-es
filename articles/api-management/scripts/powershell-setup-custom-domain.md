@@ -41,7 +41,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 [!INCLUDE [api-management-custom-domain](../../../includes/api-management-custom-domain.md)]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener más información sobre el módulo de Azure PowerShell, consulte la [documentación de Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 

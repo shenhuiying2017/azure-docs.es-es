@@ -45,7 +45,7 @@ Para obtener acceso a una entidad, el cliente requiere un token SAS generado con
 
 La compatibilidad de la autenticación con SAS para Azure Relay se incluye en el SDK .NET de Azure 2.0 y versiones posteriores. SAS incluye compatibilidad con un objeto [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule). Todas las API que aceptan una cadena de conexión como parámetro incluyen compatibilidad con cadenas de conexión SAS.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Para obtener más información sobre SAS, siga consultando [Autenticación en Service Bus con Firmas de acceso compartido](../service-bus-messaging/service-bus-sas.md).
 - Consulte la guía [Protocolo de conexiones híbridas de Azure Relay](relay-hybrid-connections-protocol.md) para obtener información detallada sobre la funcionalidad Conexiones híbridas.

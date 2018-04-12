@@ -97,5 +97,5 @@ Conozca la respuesta a la pregunta: "¿Por qué contenedores?" Aprenda sobre la 
 </a></td><td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=mlYsZRSGD_2105167344">Contenedores y compatibilidad con Linux</a></td></tr>
 </table>
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Ahora que ha aprendido sobre los patrones y escenarios de Service Fabric, lea más sobre cómo [crear y administrar clústeres](service-fabric-deploy-anywhere.md), [migrar aplicaciones de Cloud Services a Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md), [configurar la entrega continua](service-fabric-tutorial-deploy-app-with-cicd-vsts.md) e [implementar contenedores](service-fabric-containers-overview.md).

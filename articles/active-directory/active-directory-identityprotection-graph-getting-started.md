@@ -207,7 +207,7 @@ Solo tiene que agregar el identificador de cliente, la clave secreta y el domini
     } 
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Enhorabuena, acaba de hacer la primera llamada a Microsoft Graph.  
 Ahora puede consultar los eventos de riesgo de identidad y utilizar los datos cuando lo estime necesario.

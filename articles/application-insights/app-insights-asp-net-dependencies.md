@@ -208,7 +208,7 @@ Si desea desactivar el módulo de seguimiento de dependencia estándar, quite la
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Excepciones](app-insights-asp-net-exceptions.md)
 * [Datos de página y usuario](app-insights-javascript.md)
 * [Disponibilidad](app-insights-monitor-web-app-availability.md)

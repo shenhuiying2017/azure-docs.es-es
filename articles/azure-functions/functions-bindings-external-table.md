@@ -198,7 +198,7 @@ Un conector tabular proporciona conjuntos de datos, y cada conjunto de datos con
 |**Hoja de cálculo de Google**|Hoja de cálculo|Hoja de cálculo 
 |**Excel**|Archivo de Excel|Hoja 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Más información sobre desencadenadores y enlaces de Azure Functions](functions-triggers-bindings.md)

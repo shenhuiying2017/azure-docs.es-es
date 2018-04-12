@@ -68,7 +68,7 @@ Cuando se conecte a un clúster de HBase, debe conectarse a una de las máquinas
 
 Para más información, consulte el [manual de SQLLine](http://sqlline.sourceforge.net/#manual) y la [gramática de Phoenix](http://phoenix.apache.org/language/index.html).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este artículo, ha aprendido a usar Apache Phoenix en HDInsight. Para más información, consulte estos artículos:
 
 * [Información general de HBase de HDInsight][hdinsight-hbase-overview].

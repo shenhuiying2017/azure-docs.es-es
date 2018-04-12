@@ -125,7 +125,7 @@ En este ejemplo, tenemos diferentes direcciones IP en los sitios principal y sec
 ![Diferente dirección IP: después de la conmutación por error](./media/hyper-v-vmm-networking/network-design11.png)
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 [Ejecución de una conmutación por error](hyper-v-vmm-failover-failback.md)
 

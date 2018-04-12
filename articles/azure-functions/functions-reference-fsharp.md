@@ -264,7 +264,7 @@ Las rutas de acceso a la directiva `#load` son relativas a la ubicación del arc
 
 La directiva `#load` solo funciona con archivos `.fsx` (script de F#) y no con archivos `.fs`.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información, consulte los siguientes recursos:
 
 * [Guía de F#](/dotnet/articles/fsharp/index)

@@ -93,6 +93,6 @@ Para comprobar si un grupo existente se basa en una imagen personalizada, consul
 
 Todas las imágenes personalizadas asociadas a un grupo se muestran en la ventana **Propiedades** del grupo.
  
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Para información general más detallada acerca de Batch, consulte [Desarrollo de soluciones de procesos paralelos a gran escala con Batch](batch-api-basics.md).

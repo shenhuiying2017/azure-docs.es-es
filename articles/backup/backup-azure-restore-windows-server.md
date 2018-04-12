@@ -176,5 +176,5 @@ Si Azure Backup no monta correctamente el volumen de recuperación incluso despu
 
 Si la recuperación sigue sin funcionar, reinicie el cliente y el servidor. Si no es recomendable reiniciar el equipo o la recuperación sigue sin funcionar incluso después de reiniciar el servidor, intente recuperar desde una máquina alternativa y póngase en contacto con el soporte técnico de Azure. Para ello, vaya a [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) y envíe una solicitud de soporte técnico.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Ahora que ha recuperado los archivos y las carpetas, puede [administrar las copias de seguridad](backup-azure-manage-windows-server.md).

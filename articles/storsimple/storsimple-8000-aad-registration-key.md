@@ -93,7 +93,7 @@ Realice los pasos siguientes para volver a crear una clave de registro de servic
     > [!NOTE] 
     > Si va a crear StorSimple Cloud Appliance en el servicio que se registró en el dispositivo de la serie StorSimple 8000, no genere ninguna clave de registro mientras esté en curso el proceso de creación. Espere a que se complete el proceso de creación y, a continuación, genere la clave de registro.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * Obtenga más información sobre cómo implementar [dispositivos de la serie StorSimple 8000](storsimple-8000-deployment-walkthrough-u2.md).
 

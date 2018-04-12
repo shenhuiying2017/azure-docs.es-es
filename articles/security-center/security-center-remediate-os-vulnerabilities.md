@@ -92,7 +92,7 @@ En este ejemplo, se examinará la recomendación "Corregir las configuraciones d
 
    ![Información detallada sobre el equipo seleccionado][6]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este artículo se muestra cómo implementar la recomendación de Security Center de corregir las configuraciones de seguridad. Para saber cómo personalizar las valoraciones de configuración de seguridad, consulte [Personalización de las configuraciones de seguridad del sistema operativo en Azure Security Center (versión preliminar)](security-center-customize-os-security-config.md).
 
 Consulte la [lista de reglas de configuración recomendadas](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) para obtener más información sobre las configuraciones específicas que se están supervisando. Security Center utiliza Common Configuration Enumeration (CCE) con el fin de asignar identificadores únicos a las reglas de configuración. Visite el sitio de [CCE](https://nvd.nist.gov/cce/index.cfm) para obtener más información.

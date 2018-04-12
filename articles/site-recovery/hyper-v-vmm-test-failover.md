@@ -136,7 +136,7 @@ Se recomienda no ejecutar una conmutación por error de prueba en la red del sit
 * Realizar las pruebas de este modo conllevará un tiempo de inactividad de la aplicación de producción. Solicite a los usuarios de la aplicación que no la usen con la exploración de la recuperación ante desastres en curso.  
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Después de ejecutar correctamente una exploración de la recuperación ante desastres, puede [ejecutar una conmutación por error completa](site-recovery-failover.md).
 
 

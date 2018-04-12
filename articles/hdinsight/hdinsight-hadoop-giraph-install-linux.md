@@ -174,7 +174,7 @@ Después de que se ha creado el clúster, use estos pasos para ejecutar el ejemp
 
     ![Drawing of objects as circles with shortest paths drawn between](./media/hdinsight-hadoop-giraph-install-linux/giraph-graph-out.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Instalación y uso de Hue en clústeres de HDInsight](hdinsight-hadoop-hue-linux.md).
 

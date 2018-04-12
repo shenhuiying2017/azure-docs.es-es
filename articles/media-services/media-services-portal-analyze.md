@@ -146,7 +146,7 @@ Use la "2.0".
 ### <a name="mode"></a>Mode
 La versión 2.0 prescinde de la configuración `Mode`.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Ver las rutas de aprendizaje de Media Services
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

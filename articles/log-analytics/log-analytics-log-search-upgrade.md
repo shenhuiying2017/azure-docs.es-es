@@ -95,7 +95,7 @@ Si ya está familiarizado con el lenguaje de consulta heredado de Log Analytics,
 ![Convertidor de lenguaje](media/log-analytics-log-search-upgrade/language-converter.png)
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 - Consulte un [tutorial sobre el nuevo lenguaje](https://go.microsoft.com/fwlink/?linkid=856078).
 - Consulte un [tutorial sobre cómo usar el portal de la búsqueda de registros](log-analytics-log-search-log-search-portal.md) con el nuevo lenguaje de consulta.
 - Obtenga una introducción al nuevo [Portal de análisis avanzado](https://go.microsoft.com/fwlink/?linkid=856587).

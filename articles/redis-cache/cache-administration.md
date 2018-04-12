@@ -119,6 +119,6 @@ Sí, puede administrar sus actualizaciones programadas con los siguientes cmdlet
 ### <a name="what-pricing-tiers-can-use-the-schedule-updates-functionality"></a>¿Qué planes de tarifa pueden usar la funcionalidad de programación de actualizaciones?
 La característica **Programación de actualizaciones** solo está disponible en el plan de tarifa Premium.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Explore más características del [nivel premium de Azure Redis Cache](cache-premium-tier-intro.md) .
 

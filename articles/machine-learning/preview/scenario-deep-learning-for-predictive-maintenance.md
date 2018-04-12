@@ -153,6 +153,6 @@ Las referencias siguientes proporcionan ejemplos de otros casos de uso de manten
 * [Mantenimiento predictivo con PySpark](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-using-PySpark)
 * [Escenarios reales de mantenimiento predictivo](https://docs.microsoft.com/en-us/azure/machine-learning/preview/scenario-predictive-maintenance)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Hay otros escenarios de ejemplo disponibles en Machine Learning Workbench que muestran características adicionales del producto. 

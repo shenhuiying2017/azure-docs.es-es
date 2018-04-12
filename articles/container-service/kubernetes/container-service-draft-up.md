@@ -280,7 +280,7 @@ Hello World, I'm Java!
 ```
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Ahora que tiene un clúster de ACS Kubernetes, puede investigar mediante [Azure Container Registry](../../container-registry/container-registry-intro.md) para crear más implementaciones de este escenario y también otras distintas. Por ejemplo, puede crear un conjunto de registros DNS de dominios draft._basedomain.toplevel_ que controle aspectos de un subdominio más profundo para implementaciones de ACS específicas.
 

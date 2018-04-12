@@ -178,7 +178,7 @@ Dichos pasos le guiarán a través del proceso de obtención de una cuenta de Pi
 
 Cuando haya completado todos los pasos, la aplicación debería estar en funcionamiento. Para probarla, abra un explorador y navegue a la dirección URL externa que creó al publicar la aplicación en Azure. Inicie sesión con la cuenta de prueba que asignó a la aplicación.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - [Configuración de PingAccess para Azure AD](https://docs.pingidentity.com/bundle/paaad_m_ConfigurePAforMSAzureADSolution_paaad43/page/pa_c_PAAzureSolutionOverview.html)
 - [¿Cómo permite el proxy de aplicación de Azure AD el inicio de sesión único?](application-proxy-sso-overview.md)

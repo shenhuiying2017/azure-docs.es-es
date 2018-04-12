@@ -267,6 +267,6 @@ Si desea saber qué cantidad de datos pasa a través de la conexión de sitio a 
    
     ![Datos de entrada y salida](media/azure-stack-connect-vpn/Connection.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 [Implementar aplicaciones en Azure y Azure Stack](azure-stack-solution-pipeline.md)

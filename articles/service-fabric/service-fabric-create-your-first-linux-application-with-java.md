@@ -331,7 +331,7 @@ Compatibilidad en el nivel de sistema para Service Fabric, que se comunica con e
   }
   ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Creación de la primera aplicación Java de Service Fabric en Linux](service-fabric-get-started-eclipse.md)
 * [Más información acerca de Reliable Actors](service-fabric-reliable-actors-introduction.md)

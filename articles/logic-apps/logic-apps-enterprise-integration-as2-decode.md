@@ -89,6 +89,6 @@ Para intentar implementar una aplicación lógica totalmente operativa y conocer
 ## <a name="view-the-swagger"></a>Visualización de Swagger
 Vea los [detalles de Swagger](/connectors/as2/). 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Más información acerca de Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md) 
 

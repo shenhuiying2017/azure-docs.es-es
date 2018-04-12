@@ -129,5 +129,5 @@ Puede que haya situaciones en las no quiere que estas invalidaciones se produzca
 
 Para agregar las invalidaciones de importación completa y sincronización completa en un conector arbitrario, ejecute el siguiente cmdlet: `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid> -FullImportRequired $true -FullSyncRequired $true`
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Más información acerca de la [integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).

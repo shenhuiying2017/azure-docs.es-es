@@ -157,7 +157,7 @@ Para solucionarlo, inicie la operación de importación o exportación antes de 
 ### <a name="i-got-an-error-when-exporting-my-data-to-azure-blob-storage-what-happened"></a>Aparece un error al exportar los datos a Azure Blob Storage. ¿Qué ha ocurrido?
 La exportación solo funciona con archivos RDB almacenados como blobs en páginas. No se admiten otros tipos de blob en este momento, incluidas las cuentas de Blob Storage con niveles de acceso frecuente y esporádico. Para más información, consulte [Cuentas de Blob Storage](../storage/common/storage-account-options.md#blob-storage-accounts).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Obtenga información acerca de cómo usar más características de la memoria caché del nivel Premium.
 
 * [Introducción al nivel Premium de Azure Redis Cache](cache-premium-tier-intro.md)    

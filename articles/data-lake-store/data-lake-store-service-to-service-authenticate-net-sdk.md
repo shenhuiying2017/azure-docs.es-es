@@ -116,7 +116,7 @@ Agregue este fragmento de código a su aplicación cliente .NET. Reemplace los v
 
 El fragmento de código anterior utiliza una función auxiliar `GetCreds_SPI_Cert`. El código de esta función auxiliar está disponible [aquí en Github](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#getcreds_spi_cert).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este artículo, ha aprendido a usar la autenticación entre servicios para autenticarse en Azure Data Lake Store con SDK de .NET. Ahora puede consultar los siguientes artículos, que tratan sobre cómo usar el SDK de .NET con Azure Data Lake Store.
 
 * [Operaciones de administración de cuentas en Azure Data Lake Store con el SDK de .NET](data-lake-store-get-started-net-sdk.md)

@@ -373,7 +373,7 @@ Microsoft recopila automáticamente datos de uso y rendimiento a través del ser
 Para más información sobre el uso y la recopilación de datos, vea la [Declaración de privacidad de Microsoft Online Services](https://go.microsoft.com/fwlink/?LinkId=512132).
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Más información sobre las [búsquedas de registros](../log-analytics/log-analytics-log-searches.md) de Log Analytics para recuperar datos recopilados por Service Map.
 
 

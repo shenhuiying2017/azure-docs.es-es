@@ -65,7 +65,7 @@ Se utilizan los siguientes componentes de SQL Server al realizar una copia de se
 > 
 > 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 1. Cree una cuenta de Azure si aún no tiene una. Si va a evaluar Azure, podría considerar la [evaluación gratuita](https://azure.microsoft.com/free/).
 2. A continuación, siga uno de los siguientes tutoriales para crear una cuenta de almacenamiento y realizar una restauración.
    

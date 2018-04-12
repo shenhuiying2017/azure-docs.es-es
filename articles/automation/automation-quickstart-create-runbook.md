@@ -94,7 +94,7 @@ Una vez publicado el runbook, se muestra la página de información general.
 
 Cuando ya no necesite el runbook, elimínelo. Para ello, seleccione el runbook en la lista de runbooks y haga clic en **Eliminar**.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En esta guía de inicio rápido, ha creado, editado, probado y publicado un runbook e iniciado un trabajo de runbook. Para obtener más información sobre los runbooks de Automation, consulte el artículo sobre los tipos de runbook diferentes que puede crear y usar en Automation.
 

@@ -110,7 +110,7 @@ En los siguientes artículos se proporciona información adicional sobre el rest
 * [Creo que algo se ha roto. ¿Cómo se solucionan problemas en SSPR?](active-directory-passwords-troubleshoot.md)
 * [Tengo una pregunta que no se ha comentado en ningún otro sitio](active-directory-passwords-faq.md)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este inicio rápido, ha aprendido a configurar el autoservicio de restablecimiento de contraseña para los usuarios. Para completar estos pasos, proceda a Azure Portal:
 

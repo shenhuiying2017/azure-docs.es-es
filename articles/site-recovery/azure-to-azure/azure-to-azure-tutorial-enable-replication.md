@@ -162,7 +162,7 @@ Site Recovery crea la configuración predeterminada y la directiva de replicaci�
 
 3. En **Configuración** > **Elementos replicados**, puede ver el estado de las máquinas virtuales y el progreso inicial de la replicación. Haga clic en la máquina virtual para ir a los detalles de su configuración.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial se configuró la recuperación ante desastres para una máquina virtual de Azure. El paso siguiente es probar la configuración.
 

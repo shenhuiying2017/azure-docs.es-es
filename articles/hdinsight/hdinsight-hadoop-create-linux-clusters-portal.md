@@ -149,7 +149,7 @@ El Portal de Azure expone la mayor parte de las propiedades del clúster. Median
 
 Si experimenta problemas con la creación de clústeres de HDInsight, consulte los [requisitos de control de acceso](hdinsight-administer-use-portal-linux.md#create-clusters).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Ahora que ya creó un clúster de HDInsight correctamente, use lo siguiente para aprender a trabajar con el clúster:
 
 ### <a name="hadoop-clusters"></a>Clústeres Hadoop

@@ -121,7 +121,7 @@ Si el método **Complete** produce un error, que surge normalmente al final del 
 
 El mecanismo típico para identificar entregas de mensajes duplicados es la comprobación del identificador de mensaje, lo que puede y debe establecerse por el remitente a un valor único, que posiblemente se alinea con un identificador de proceso de origen. Un programador de trabajos probablemente establecería el identificador del mensaje para el identificador del trabajo que está intentando volver a asignar a un trabajo con el trabajo determinado y el trabajo puede ignorar la segunda aparición de la asignación de trabajo si ese trabajo ya se ha realizado.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre la mensajería de Service Bus, consulte los siguientes temas:
 

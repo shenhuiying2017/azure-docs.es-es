@@ -59,6 +59,6 @@ El disco duro virtual usado en esta plantilla de ejemplo es WindowsServer-2012-R
 3. Abra el portal de Azure Stack, haga clic en **Examinar**, haga clic en **Máquinas virtuales** y busque la nueva máquina virtual (*myDeployment001*).
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Implementación de plantillas con Visual Studio](azure-stack-deploy-template-visual-studio.md)
 

@@ -86,7 +86,7 @@ Por ejemplo, podría utilizar un procedimiento almacenado con Azure SQL Database
 
 Otro ejemplo consiste en usar un sistema de archivos con particiones, como Azure Storage Blob o Azure Data Lake Store. En este caso, la lógica del receptor no necesita comprobar la existencia de un archivo. Si el archivo que representa el evento existe, simplemente se sobrescribe con los mismos datos. De lo contrario, se crea un archivo en la ruta de acceso calculada.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Introducción a Spark Streaming](apache-spark-streaming-overview.md)
 * [Creación de trabajos de Spark Streaming con alta disponibilidad en YARN](apache-spark-streaming-high-availability.md)

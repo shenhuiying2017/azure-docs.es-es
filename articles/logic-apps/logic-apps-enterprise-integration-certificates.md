@@ -116,6 +116,6 @@ Después de definir las propiedades en los [contratos](logic-apps-enterprise-int
 
    ![Visualización del nuevo certificado](media/logic-apps-enterprise-integration-certificates/privatecertificate-2.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Creación de un contrato B2B](logic-apps-enterprise-integration-agreements.md)

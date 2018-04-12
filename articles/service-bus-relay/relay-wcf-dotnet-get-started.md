@@ -215,7 +215,7 @@ Las definiciones del extremo se trasladan al archivo App.config. El siguiente ej
 </behaviors>
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Ahora que conoce los fundamentos de los temas de Azure Relay, siga estos vínculos para obtener más información.
 
 * [¿Qué es Relay de Azure?](relay-what-is-it.md)

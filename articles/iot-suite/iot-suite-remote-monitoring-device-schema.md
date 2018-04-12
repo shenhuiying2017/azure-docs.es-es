@@ -233,7 +233,7 @@ En el ejemplo siguiente se especifican los tres métodos admitidos y los archivo
 
 Puede ver los archivos de JavaScript de los dispositivos simulados predeterminados en la [carpeta de scripts](https://github.com/Azure/device-simulation-dotnet/tree/master/Services/data/devicemodels/scripts) en GitHub. Como es costumbre, estos archivos de JavaScript tienen el sufijo **-method** para poder distinguirlos de los archivos que implementan los comportamientos de estado.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este artículo se describe la manera de crear su propio modelo de dispositivo simulado personalizado. En este artículo le mostramos cómo:
 

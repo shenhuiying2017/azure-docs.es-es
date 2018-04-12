@@ -97,7 +97,7 @@ test-AzureRMTemplate -TemplatePath C:\AzureStack-Quickstart-Templates `
 ```
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
  - [Implementar plantillas en Azure Stack](azure-stack-arm-templates.md)
  - [Desarrollo de plantillas para Azure Stack](azure-stack-develop-templates.md)
 

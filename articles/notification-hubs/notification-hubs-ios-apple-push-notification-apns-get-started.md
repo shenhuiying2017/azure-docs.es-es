@@ -186,7 +186,7 @@ Para probar las notificaciones push en iOS, debe implementar la aplicación en u
    
     ![Prueba de recepción de notificación push de aplicación iOS][35]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este sencillo ejemplo, se difunden notificaciones push a todos los dispositivos iOS registrados. El siguiente paso recomendado de su aprendizaje sería comenzar el tutorial [Azure Notification Hubs notifica a los usuarios para iOS con back-end de .NET]. Esta guía le orientará en la creación de un back-end para enviar notificaciones push mediante etiquetas. 
 
 Si desea segmentar sus usuarios por grupos de interés, puede leer también el tutorial [Uso de Notification Hubs para enviar noticias de última hora] . 

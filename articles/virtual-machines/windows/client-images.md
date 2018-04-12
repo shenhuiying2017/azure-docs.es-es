@@ -62,6 +62,6 @@ También puede ver el id. de la oferta en la pestaña ["Suscripciones"](http://a
 
 ![Detalles del id. de oferta desde el portal de la cuenta de Azure](./media/client-images/offer-id-azure-account-portal.png) 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Ahora puede implementar las máquinas virtuales con [PowerShell](quick-create-powershell.md), [plantillas de Resource Manager](ps-template.md) o [Visual Studio](../../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 

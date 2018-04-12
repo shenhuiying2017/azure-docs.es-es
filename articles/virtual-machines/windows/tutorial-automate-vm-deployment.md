@@ -97,7 +97,7 @@ A continuación, puede escribir la dirección IP pública en un explorador web. 
 ![Ejecución del sitio web de IIS](./media/tutorial-automate-vm-deployment/running-iis-website.png)
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, automatizó la instalación IIS en una máquina virtual. Ha aprendido a:
 

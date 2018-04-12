@@ -117,7 +117,7 @@ También puede utilizar el Service Fabric Explorer a fin de crear instancias de 
 >
 >
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Administración de aplicaciones de Service Fabric en Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 * [Implementación de aplicaciones de Service Fabric con PowerShell](service-fabric-deploy-remove-applications.md)
 

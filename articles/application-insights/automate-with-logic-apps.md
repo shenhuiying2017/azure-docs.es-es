@@ -129,7 +129,7 @@ Cuando se ejecuta la aplicación lógica, los destinatarios que haya especificad
 
 ![Mensaje de correo electrónico de la aplicación lógica](./media/automate-with-logic-apps/flow9.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Más información sobre cómo crear [consultas de análisis](app-insights-analytics-using.md).
 - Más información acerca de [Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps).

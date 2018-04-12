@@ -62,7 +62,7 @@ Uno de los objetivos de un administrador de identidades es poder reunir todos lo
 •  ¿Qué funcionalidades de inicio de sesión único están disponibles?
 •  ¿Cuáles son las opciones para la federación de identidades entre B2B y B2C?
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Determinación de la estrategia de adopción de administración de identidad híbrida](active-directory-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md)
 
 ## <a name="see-also"></a>Otras referencias

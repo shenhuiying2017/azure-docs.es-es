@@ -327,7 +327,7 @@ La última opción consiste en estar atento a los casos excepcionales en que HDF
     hdfs dfsadmin -fs hdfs://headnodehost:9000 -safemode leave
     ```
     
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Introducción a Azure HDInsight](hadoop/apache-hadoop-introduction.md)
 * [Escalado de clústeres](hdinsight-administer-use-portal-linux.md#scale-clusters)

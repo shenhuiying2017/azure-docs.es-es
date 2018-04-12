@@ -273,7 +273,7 @@ En la siguiente imagen animada, puede ver una solicitud realizada a una API en e
 ## <a name="summary"></a>Resumen
 El servicio Azure API Management proporciona un lugar ideal para capturar el tráfico HTTP hacia y desde la API. Azure Event Hubs es una solución altamente escalable y de bajo costo para capturar ese tráfico y colocarlo en sistemas de procesamiento secundario para registro, supervisión y otros análisis sofisticados. La conexión a sistemas de supervisión de tráfico de terceros como Runscope se reduce a unas cuantas docenas de líneas de código.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Obtenga más información acerca de Azure Event Hubs
   * [Introducción a Azure Event Hubs](../event-hubs/event-hubs-c-getstarted-send.md)
   * [Recepción de mensajes con EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)

@@ -243,7 +243,7 @@ La continuidad empresarial de los documentos que usan el protocolo AS2 se basa e
 
 Según el intervalo de tiempo, el estado en tiempo de ejecución incremental se replica de la región primaria a la secundaria. Durante un desastre, si la región primaria no está disponible, el tráfico se dirige a la región secundaria para la continuidad empresarial. 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 [Supervisión de mensajes B2B](logic-apps-monitor-b2b-message.md)
 

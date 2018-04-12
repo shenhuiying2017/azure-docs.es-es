@@ -115,6 +115,6 @@ Tenga en cuenta estos límites a medida que planee, implemente y maneje las inst
 | Backup App Services, Function, SQL, mysql, datos de proveedores de recursos | Fuera del ámbito | Consulte las orientaciones publicadas para implementar y administrar los proveedores de recursos de valor añadido creados por Microsoft.                                                  |
 | Copia de seguridad de proveedores de recursos de terceros                              | Fuera del ámbito | Consulte las orientaciones publicadas para implementar y administrar los proveedores de recursos de valor agregado creados por otros proveedores.                                          |
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
  - Para obtener más información sobre Infrastructure Backup Service, consulte [Copia de seguridad y recuperación de datos para Azure Stack con el servicio Infrastructure Backup](azure-stack-backup-infrastructure-backup.md).

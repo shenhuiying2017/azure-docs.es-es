@@ -255,7 +255,7 @@ Respuesta:
 }
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Para obtener información general sobre MSI, consulte [Managed Service Identity overview](msi-overview.md) (Introducción a Managed Service Identity).
 - Para aprender a hacer lo que se realiza en este tutorial con una clave de cuenta de almacenamiento, consulte [Uso de Managed Service Identity en una máquina virtual Linux para tener acceso a Azure Storage](msi-tutorial-linux-vm-access-storage.md)

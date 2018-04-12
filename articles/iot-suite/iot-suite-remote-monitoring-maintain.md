@@ -84,7 +84,7 @@ Para ver los detalles de una llamada de método o un trabajo específico, elíja
 
 ![Ver detalles del trabajo](media/iot-suite-remote-monitoring-maintain/maintenancejobdetail.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, aprenderá a:
 

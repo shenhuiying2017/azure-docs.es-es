@@ -58,5 +58,5 @@ Algunos clientes comienzan con una solución solo en la nube con Azure AD y no t
 
 Si la única razón por la que piensa agregar AD local es admitir LOB (aplicaciones de línea de negocio), quizá debería plantearse usar los [servicios de dominio de Azure AD](../../active-directory-domain-services/index.md) en su lugar.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).

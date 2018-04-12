@@ -135,7 +135,7 @@ Sustituya `<resource_group_name>` por el nombre del grupo de recursos que ha cre
 az group delete --name <resource_group_name>
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Ahora que sabe cómo crear suscripciones a temas y eventos, obtenga más información acerca de los eventos de Blob Storage y lo que Event Grid puede ayudarle a hacer:
 

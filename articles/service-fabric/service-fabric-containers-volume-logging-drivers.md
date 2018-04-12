@@ -95,5 +95,5 @@ Al especificar un complemento de volumen, Service Fabric crea automáticamente e
 ```
 Si se especifica un controlador de registro de Docker, debe implementar agentes (o contenedores) para administrar los registros en el clúster. La etiqueta **DriverOption** se puede usar para especificar opciones para el controlador de registro.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para implementar contenedores en un clúster de Service Fabric, consulte el artículo [Implementación de un contenedor en Service Fabric](service-fabric-deploy-container.md).

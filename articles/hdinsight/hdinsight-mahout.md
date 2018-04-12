@@ -210,7 +210,7 @@ Los trabajos de Mahout que usan las siguientes clases devuelven diversos mensaje
 
 Para ejecutar trabajos que usan estas clases, conéctese al clúster de HDInsight mediante SSH y ejecute los trabajos desde la línea de comandos. Para ver un ejemplo del uso de SSH para ejecutar trabajos de Mahout, consulte [Generación de recomendaciones de películas mediante Mahout y HDInsight (SSH)](hadoop/apache-hadoop-mahout-linux-mac.md).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Ahora que ha aprendido a usar a Mahout, descubra otras formas de trabajar con datos en HDInsight:
 

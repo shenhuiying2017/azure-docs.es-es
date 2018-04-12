@@ -214,7 +214,7 @@ Algunos aspectos que debe tener en cuenta:
 * Para las transacciones que contienen varias operaciones, se aplican las operaciones en el orden en que se recibieron en la réplica principal del usuario.
 * Como parte del procesamiento de progreso falso, es posible que algunas operaciones se deshagan. Se generan notificaciones para estas operaciones de deshacer y se revierte el estado de la réplica a un punto estable. Una diferencia importante de las notificaciones de deshacer es que se agregan eventos con claves duplicadas. Por ejemplo, si se está deshaciendo la transacción T1, el usuario verá una única notificación para Delete(X).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Colecciones confiables](service-fabric-work-with-reliable-collections.md)
 * [Introducción a Reliable Services de Service Fabric de Microsoft Azure](service-fabric-reliable-services-quick-start.md)
 * [Copia de seguridad y restauración de Reliable Services (recuperación ante desastres)](service-fabric-reliable-services-backup-restore.md)

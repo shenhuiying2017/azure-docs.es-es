@@ -68,7 +68,7 @@ Este grupo de recursos contiene todos los recursos que requiere la aplicación a
 
 Cuando el consumidor elimina la aplicación administrada, también se elimina el grupo de recursos administrados.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * Para obtener una introducción sobre cómo definir e implementar una aplicación administrada, consulte [Creación e implementación de una aplicación administrada de Azure con la CLI de Azure](managed-apps-quickstart-cli.md)
 * Para más información sobre cómo publicar una aplicación interna, consulte [Creación de la aplicación de catálogo de servicios](publish-service-catalog-app.md).

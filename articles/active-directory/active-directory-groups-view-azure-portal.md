@@ -35,7 +35,7 @@ En este artículo se explica cómo ver todos los grupos en Azure Active Director
    ![Apertura de la hoja Grupos](./media/active-directory-groups-view-azure-portal/view-groups-blade.png)
 4. En la hoja **Usuarios y grupos - Todos los grupos** , puede agregar o quitar columnas de visualización, filtrar la lista para buscar un grupo o realizar cambios en los grupos de los que tiene permisos de modificación suficientes.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Estos artículos proporcionan información adicional sobre Azure Active Directory.
 
 * [Ver los grupos existentes](active-directory-groups-view-azure-portal.md)

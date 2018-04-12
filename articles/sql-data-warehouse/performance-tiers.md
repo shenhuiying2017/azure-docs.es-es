@@ -188,7 +188,7 @@ En la tabla siguiente se muestra el número máximo de consultas simultáneas y 
 
 Cuando se alcanza alguno de estos umbrales, se ponen a la cola nuevas consultas y se ejecutan según la regla "primero en entrar, primero en salir".  A medida que las consultas finalizan y el número de consultas y espacios desciende por debajo de los límites, SQL Data Warehouse libera las consultas en cola. 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener más información sobre cómo aprovechar las clases de recursos para optimizar aún más la carga de trabajo, revise los artículos siguientes:
 * [Resource classes for workload management](resource-classes-for-workload-management.md) (Clases de recursos para la administración de cargas de trabajo)

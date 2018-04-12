@@ -57,6 +57,6 @@ Repita los pasos para administrar las reglas de firewall.
 * Para eliminar una regla existente, haga clic en los puntos suspensivos […] y luego haga clic en **Eliminar**. Haga clic en **Guardar** para guardar los cambios.
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 - De modo similar, puede utilizar scripts para la [Creación y administración de reglas de firewall de Azure Database for MySQL mediante la CLI de Azure](howto-manage-firewall-using-cli.md).
 - Para obtener ayuda para la conexión a un servidor de Azure Database for MySQL, consulte [Bibliotecas de conexiones para Azure Database for MySQL](./concepts-connection-libraries.md).

@@ -115,7 +115,7 @@ Verá los datos de temperatura y humedad en tiempo real desde su IoT Hub.
 > [!NOTE]
 > Asegúrese de que la aplicación de ejemplo se ejecuta en el dispositivo. Si no es así, obtendrá un gráfico en blanco; puede consultar los tutoriales de [configuración del dispositivo](iot-hub-raspberry-pi-kit-node-get-started.md).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Ha usado correctamente una aplicación web para visualizar datos del sensor en tiempo real desde su IoT Hub.
 
 Para obtener una forma alternativa de visualizar los datos desde Azure IoT Hub, vea [Visualización de datos del sensor en tiempo real desde Azure IoT Hub mediante Power BI](iot-hub-live-data-visualization-in-power-bi.md).

@@ -243,7 +243,7 @@ Aprenda cómo crear una función basada en Java y definida por el usuario (UDF) 
         | android  |
         +----------+--+
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para conocer otras formas de trabajar con Hive, consulte [Usar Hive y HiveQL con Hadoop en HDInsight para analizar un archivo log4j de Apache de muestra](hdinsight-use-hive.md).
 

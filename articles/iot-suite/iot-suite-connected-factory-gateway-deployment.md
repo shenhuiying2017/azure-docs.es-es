@@ -168,7 +168,7 @@ Para agregar sus propios servidores OPC UA a la solución preconfigurada de fáb
 
 1. Ahora la telemetría fluye desde el dispositivo de puerta de enlace. Puede ver la telemetría en la vista **Ubicaciones de factoría** del portal de fábrica conectada en **Nueva fábrica**.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre la arquitectura de la solución preconfigurada de fábrica conectada, consulte este [tutorial](https://docs.microsoft.com/azure/iot-suite/iot-suite-connected-factory-sample-walkthrough).
 

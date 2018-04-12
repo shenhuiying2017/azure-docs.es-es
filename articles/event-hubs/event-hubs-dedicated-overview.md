@@ -68,7 +68,7 @@ Este servicio está dirigido a los usuarios de telemetría más grandes y está 
 
 Puede aumentar o reducir verticalmente su capacidad a lo largo del mes para satisfacer sus necesidades agregando o quitando unidades de rendimiento. El plan dedicado es único en el sentido de que tendrá más ayuda del equipo del producto Event Hubs en el proceso de incorporación con el fin de obtener la implementación flexible adecuada. Para incorporar este SKU, póngase en contacto con el [servicio de soporte técnico de facturación](https://ms.portal.azure.com/#create/Microsoft.Support) o con su representante de Microsoft.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Póngase en contacto con su representante de ventas de Microsoft o el Servicio de soporte técnico de Microsoft para obtener detalles adicionales sobre la capacidad Event Hubs Dedicado. Para más información acerca de los planes de tarifa de Event Hubs, visite los vínculos siguientes:
 

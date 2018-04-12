@@ -91,7 +91,7 @@ Si desea deshabilitar el aprovisionamiento automático:
 > La deshabilitación del aprovisionamiento automático no quita Microsoft Monitoring Agent de las máquinas virtuales de Azure en las que se ha aprovisionado el agente. La deshabilitación del aprovisionamiento automático limita la supervisión de seguridad de los recursos.
 >
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En esta guía de inicio rápido ha aprendido a conectar una solución Syslog de Linux a Security Center mediante CEF. Al conectar los registros de CEF a Security Center, puede aprovechar las ventajas de las reglas de alertas personalizadas y de búsqueda, y del enriquecimiento de la inteligencia sobre amenazas de cada registro. Para más información acerca del uso de Security Center, siga con el tutorial para configurar una directiva de seguridad y evaluar la seguridad de los recursos.
 
 > [!div class="nextstepaction"]

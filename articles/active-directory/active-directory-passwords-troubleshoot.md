@@ -293,7 +293,7 @@ Para que reciba la ayuda apropiada, le pedimos que proporcione la mayor cantidad
 [Service restart]: ./media/active-directory-passwords-troubleshoot/servicerestart.png "Reinicio del servicio Azure AD Sync"
 [Support code]: ./media/active-directory-passwords-troubleshoot/supportcode.png "El código de soporte técnico se encuentra en la parte inferior derecha de la ventana"
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En los siguientes artículos se proporciona información adicional sobre el restablecimiento de contraseña con Azure AD:
 

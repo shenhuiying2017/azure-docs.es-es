@@ -97,7 +97,7 @@ Si publica el servicio en la nube desde Visual Studio, se le ofrece la opción d
 Tenga en cuenta que, aunque puede usar Application Insights para mostrar los contadores de rendimiento (y otra configuración) especificados mediante la extensión de Microsoft Azure Diagnostics, solo podrá disfrutar de una experiencia mejorada con la integración del SDK de Application Insights en los roles web y de trabajo.
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - [Información sobre Application Insights con Cloud Services](../application-insights/app-insights-cloudservices.md)
 - [Configuración de contadores de rendimiento](diagnostics-performance-counters.md)

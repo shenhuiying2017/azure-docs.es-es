@@ -379,7 +379,7 @@ En las funciones de C# también puede enviar la salida a cualquiera de los sigui
 * `CloudBlockFile`
 * `CloudPageFile`
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Más información sobre desencadenadores y enlaces de Azure Functions](functions-triggers-bindings.md)

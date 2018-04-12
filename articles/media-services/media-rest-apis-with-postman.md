@@ -54,6 +54,6 @@ Este entorno y esta colección se utilizan en los artículos que muestran cómo 
 
     ![Cargar un archivo](./media/media-services-rest-upload-files/postman-import-collection.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Consulte el artículo sobre [carga de activos](media-services-rest-upload-files.md).  

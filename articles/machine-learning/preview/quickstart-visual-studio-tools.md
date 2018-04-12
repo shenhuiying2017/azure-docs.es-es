@@ -76,6 +76,6 @@ El explorador de trabajos muestra todos los experimentos enviados para este proy
 Con la vista del explorador de trabajos abierta, haga clic en la primera ejecución de la lista.
 Esta acción carga el panel Resumen de trabajos y el panel Logs and Outputs (Registros y salidas).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 > [!div class="nextstepaction"]
 > [Cómo configurar Azure Machine Learning para que funcione con un IDE](./how-to-configure-your-IDE.md)

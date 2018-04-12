@@ -75,5 +75,5 @@ Con la administración de identidades de Azure se puede:
 
 -   Sacar provecho de la [alta disponibilidad y confiabilidad](https://docs.microsoft.com/azure/architecture/resiliency/high-availability-azure-applications) de una solución a nivel mundial de administración de identidades y acceso basada en la nube de categoría empresarial.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Obtener más información sobre soluciones de identidad de Azure](https://docs.microsoft.com/azure/active-directory/understand-azure-identity-solutions)

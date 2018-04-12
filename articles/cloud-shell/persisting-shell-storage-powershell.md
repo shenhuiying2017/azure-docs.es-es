@@ -38,7 +38,7 @@ El comando `Dismount-CloudDrive` desmonta un recurso compartido de archivos de A
 
 [!INCLUDE [features-endblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Guía de inicio rápido de PowerShell](quickstart-powershell.md) <br>
 [Información acerca de Azure Files](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) <br>
 [Información sobre las etiquetas de almacenamiento](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>

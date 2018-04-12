@@ -141,5 +141,5 @@ En la tabla siguiente se describen las opciones de tres tipos de carga de trabaj
 >
 >
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para ver otros temas sobre la ejecución de SQL Server en Azure Virtual Machines, consulte [SQL Server en Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).

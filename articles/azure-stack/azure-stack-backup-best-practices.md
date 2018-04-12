@@ -93,7 +93,7 @@ El sistema prevé las siguientes alertas:
 | Error de copia de seguridad debido a un problema de autenticación               | Puede haber un problema con las credenciales o un problema de red que afecta a la autenticación.    | Asigne el recurso compartido desde otro equipo para asegurarse de que es posible acceder a él. Es posible que tenga que actualizar las credenciales si ya no son válidas. |
 | Error de copia de seguridad debido a un error general                    | La solicitud con error podría deberse a un problema intermitente. Intente realizar la copia de seguridad de nuevo.                    | Llame al soporte técnico.                                                                                                                               |
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
  - Revise el material de referencia para [el servicio Infrastructure Backup](azure-stack-backup-reference.md).  
  - Habilite el [servicio Infrastructure Backup](azure-stack-backup-enable-backup-console.md).

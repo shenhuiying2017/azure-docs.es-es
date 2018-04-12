@@ -25,7 +25,7 @@ En este artículo se enumeran algunos de los términos comunes que se utilizan e
 
 [!INCLUDE [azure-iot-hub-edge-glossary-includes](../../includes/azure-iot-hub-edge-glossary-includes.md)]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * Consulte [Glosario de IoT Hub](../iot-hub/iot-hub-devguide-glossary.md)
 * Conozca más información sobre el [desarrollo de módulos](https://docs.microsoft.com/azure/iot-edge/iot-edge-modules) de IoT Edge

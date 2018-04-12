@@ -71,7 +71,7 @@ El complemento de Power Query para Excel facilita la importación de datos desde
    
     ![HDI.PowerQuery.ImportedTable][image-hdi-powerquery-imported-table]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este artículo, ha aprendido a usar Power Query para recuperar datos de HDInsight en Excel. Del mismo modo, puede recuperar datos de HDInsight en Azure SQL Database. También se pueden cargar los datos en HDInsight. Para obtener más información, consulte los artículos siguientes:
 
 * [Visualize Hive data with Microsoft Power BI in Azure HDInsight](apache-hadoop-connect-hive-power-bi.md) (Visualización de datos de Hive con Microsoft Power BI en Azure HDInsight)

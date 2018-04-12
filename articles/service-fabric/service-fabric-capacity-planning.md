@@ -58,7 +58,7 @@ Ahora, en función de esta información, la hoja de cálculo muestra que podría
 
 ![Hoja de cálculo para calcular costos][Image1]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Consulte [Creación de particiones de los servicios de Service Fabric][10] para obtener más información al respecto.
 
 <!--Image references-->

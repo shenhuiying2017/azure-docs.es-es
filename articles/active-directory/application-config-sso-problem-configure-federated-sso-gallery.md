@@ -107,5 +107,5 @@ Azure AD no proporciona una dirección URL para obtener los metadatos. Solo se p
 
 Para obtener información sobre cómo personalizar las notificaciones de atributo SAML que se han enviado a su aplicación, vea [Asignación de notificaciones en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Administración de aplicaciones con Azure Active Directory](active-directory-enable-sso-scenario.md)

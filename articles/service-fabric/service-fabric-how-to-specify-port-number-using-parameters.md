@@ -87,7 +87,7 @@ En este ejemplo se establece el número de puerto de la API web de ASP.NET Core 
 
 Al publicar la aplicación desde Visual Studio con el perfil de publicación Cloud.xml, el servicio está configurado para utilizar el puerto 80. Si implementa la aplicación sin especificar el parámetro MyWebAPI_PortNumber, el servicio utiliza el puerto 8080.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre algunos de los conceptos principales que se describen en este artículo, consulte los artículos de [Administración de aplicaciones para varios entornos](service-fabric-manage-multiple-environment-app-configuration.md).
 
 Para obtener más información sobre otras funcionalidades de administración de aplicaciones disponibles en Visual Studio, vea [Administración de aplicaciones de Service Fabric en Visual Studio](service-fabric-manage-application-in-visual-studio.md).

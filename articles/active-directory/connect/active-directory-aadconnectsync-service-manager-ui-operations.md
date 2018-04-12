@@ -44,7 +44,7 @@ Cuando seleccione una fila, la parte inferior se actualizará para mostrar los d
 
 Para más información, consulte la [solución de problemas de un objeto que no se sincroniza](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre la configuración de la [Sincronización de Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).

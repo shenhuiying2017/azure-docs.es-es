@@ -70,7 +70,7 @@ Con los primeros pasos se tarda menos de 5 minutos.
 ## <a name="time-series-insights-explorer"></a>Explorador de Time Series Insights
 Este diagrama muestra un ejemplo de datos de Time Series Insights vistos a través del explorador: ![Explorador de Time Series Insights] (media/time-series-insights-explorer/explorer4.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
  - [Exploración del explorador de Time Series Insights en un entorno de demostración](./time-series-quickstart.md)
  - [Plan your own Time Series Insights environment](time-series-insights-environment-planning.md) (Planeamiento de un entorno de Time Series Insights propio)
 

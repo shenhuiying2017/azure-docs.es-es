@@ -262,7 +262,7 @@ En las tablas siguientes se indican los tamaños de máquina virtual predetermin
 > - El trabajo se conoce como *Supervisor* para el tipo de clúster de Storm.
 > - El trabajo se conoce como *Región* para el tipo de clúster de HBase.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 - [Configuración de clúster para Hadoop, Spark, etc. en HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
 - [Trabajo en Hadoop en HDInsight desde un equipo Windows](hdinsight-hadoop-windows-tools.md)
 

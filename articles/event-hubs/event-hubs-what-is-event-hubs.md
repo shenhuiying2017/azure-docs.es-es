@@ -48,7 +48,7 @@ Event Hubs ofrece los siguientes elementos clave:
 
 Para detalles técnicos sobre estas y otras características de Event Hubs, consulte [Event Hubs features overview](event-hubs-features.md) (Introducción a las características de Event Hubs). 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener información detallada sobre los precios de Event Hubs, consulte [Precios de Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
 

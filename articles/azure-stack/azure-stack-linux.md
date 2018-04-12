@@ -79,5 +79,5 @@ Puede preparar su propia imagen de Linux con una de las siguientes instrucciones
 2. [Agregue la imagen a Marketplace](azure-stack-add-vm-image.md). Asegúrese de que el `OSType` parámetro está establecido en `Linux`.
 3. Después de agregar la imagen a Marketplace, se crea un elemento de Marketplace y los usuarios podrán implementar una máquina virtual Linux.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Introducción a la oferta de servicios en Azure Stack](azure-stack-offer-services-overview.md)

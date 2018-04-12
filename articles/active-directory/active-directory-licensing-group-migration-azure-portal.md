@@ -81,7 +81,7 @@ El proceso de migración podría ser similar al siguiente:
   ![licencias directas quitadas](media/active-directory-licensing-group-migration-azure-portal/direct-licenses-removed.png)
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre otros escenarios de administración de licencias a través de grupos, vea
 

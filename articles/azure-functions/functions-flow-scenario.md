@@ -261,7 +261,7 @@ Ahora que se ha completado el flujo, agregará una fila a la lista de SharePoint
 
     Puede ver cómo se han reemplazado los tokens por los valores correctos de la lista de SharePoint y la función.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este tema, ha aprendido cómo:
 
 > [!div class="checklist"]

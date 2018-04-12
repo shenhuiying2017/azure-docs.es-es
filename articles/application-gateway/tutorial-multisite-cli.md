@@ -234,7 +234,7 @@ Cambie la dirección al otro dominio. Debería ver algo parecido al ejemplo sigu
 
 ![Prueba del sitio de fabrikam en la puerta de enlace de aplicaciones](./media/tutorial-multisite-cli/application-gateway-nginxtest2.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial aprendió lo siguiente:
 

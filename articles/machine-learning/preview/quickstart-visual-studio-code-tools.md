@@ -77,6 +77,6 @@ La vista de lista de trabajos se abre y muestra todas las ejecuciones y alguna i
 Con la vista de lista de trabajos abierta, haga clic en la primera ejecución de la lista.
 Para profundizar en los resultados de un trabajo, haga clic en **Id. de trabajo** en la parte superior para ver información detallada. 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 > [!div class="nextstepaction"]
 > [Cómo configurar Azure Machine Learning para que funcione con un IDE](./how-to-configure-your-IDE.md)

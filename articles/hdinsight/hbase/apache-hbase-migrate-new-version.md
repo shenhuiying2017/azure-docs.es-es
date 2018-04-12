@@ -215,7 +215,7 @@ El siguiente escenario es para actualizar de HDInsight 3.4 a 3.6 (ambas versione
 11. Inicie la ingesta para ver si todo funciona según lo previsto.
 12. Si el clúster nuevo funciona de manera satisfactoria, elimine el clúster original.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre HBase y sobre la actualización de los clústeres de HDInsight, consulte los artículos siguientes:
 

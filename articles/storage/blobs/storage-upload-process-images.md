@@ -206,7 +206,7 @@ En el contenedor **thumbnails** de Azure Portal, seleccione la imagen que descar
 
 CDN puede habilitarse para almacenar en caché el contenido desde la cuenta de almacenamiento de Azure. Aunque no se describe en este tutorial, para aprender a habilitar la red CDN con la cuenta de almacenamiento de Azure, puede visitar [Integración de una cuenta de Azure Storage con la red CDN de Azure](../../cdn/cdn-create-a-storage-account-with-cdn.md).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En la parte uno de la serie, aprendió cómo configurar una aplicación web mediante la interacción con el almacenamiento. Por ejemplo, a:
 

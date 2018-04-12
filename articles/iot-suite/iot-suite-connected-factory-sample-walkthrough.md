@@ -227,7 +227,7 @@ La aplicación web implementada como parte de la solución preconfigurada consta
 > [!NOTE]
 > En el caso del servidor del agente de usuario de OPC y de la pila de agente de usuario de OPC de la instancia de WebApp de Factoría conectada, la comunicación con el proxy de OPC es transparente y se aplican todas las características de seguridad de autenticación y cifrado del agente de usuario de OPC.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Puede continuar su introducción al Conjunto de aplicaciones de IoT con la lectura de los siguientes artículos:
 

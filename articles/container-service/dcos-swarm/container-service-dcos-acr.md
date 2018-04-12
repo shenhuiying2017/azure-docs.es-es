@@ -190,7 +190,7 @@ Implemente la aplicación con la CLI de DC/OC.
 dcos marathon app add acrDemo.json
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, configuró DC/OS para usar Azure Container Registry, incluidas las siguientes tareas:
 

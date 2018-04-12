@@ -98,7 +98,7 @@ Para instrucciones paso a paso sobre cómo instalar esta aplicación y otras apl
 
 Eso es todo. Ha usado la inteligencia artificial en Spark en cuestión de minutos. Ahora puede explorar más ejemplos en H2O Flow que demuestran los distintos tipos de algoritmos de aprendizaje automático.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Documentación de H2O](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/index.html)
 * [Instalación de aplicaciones de HDInsight personalizadas](hdinsight-apps-install-custom-applications.md): aprenda a implementar en HDInsight una aplicación de HDInsight no publicada.

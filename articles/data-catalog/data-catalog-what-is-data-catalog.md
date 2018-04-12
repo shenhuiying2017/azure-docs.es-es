@@ -71,7 +71,7 @@ Para más información acerca de las funcionalidades de Data Catalog, consulte:
 * [Configuración del glosario empresarial](data-catalog-how-to-business-glossary.md)
 * [Preguntas más frecuentes](data-catalog-frequently-asked-questions.md)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para empezar a usar Data Catalog, vaya a:
 * [Microsoft Azure Data Catalog](https://www.azuredatacatalog.com)
 * [Introducción a Azure Data Catalog](data-catalog-get-started.md)

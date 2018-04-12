@@ -72,6 +72,6 @@ La selección de destino de solución no se puede utilizar con las soluciones si
 
 - Evaluación de estado del agente
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 - Obtenga más información sobre las soluciones de administración, incluidas las soluciones que están disponibles para instalar en su entorno, en [Adición de soluciones de administración de Azure Log Analytics al área de trabajo](../log-analytics/log-analytics-add-solutions.md).
 - Para obtener más información sobre la creación de grupos de equipos, consulte [Grupos de equipos en búsquedas de registros en Log Analytics](../log-analytics/log-analytics-computer-groups.md).

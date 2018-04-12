@@ -64,7 +64,7 @@ Event Grid agrega una pequeña selección aleatoria a todos los intervalos de re
 
 Azure Event Grid expira todos los eventos que no se entregan en 24 horas.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * Para ver el estado de las entregas de eventos, consulte [Supervisar la entrega de mensajes de Event Grid](monitor-event-delivery.md).
 * Para obtener una introducción a Event Grid, vea [Acerca de Event Grid](overview.md).

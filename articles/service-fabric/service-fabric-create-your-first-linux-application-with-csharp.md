@@ -127,7 +127,7 @@ Para agregar otro servicio a una aplicación ya creada mediante `yo`, realice lo
 1. Cambie el directorio al directorio raíz de la aplicación existente.  Por ejemplo, `cd ~/YeomanSamples/MyApplication`, si `MyApplication` es la aplicación creada por Yeoman.
 2. Ejecute `yo azuresfcsharp:AddService`
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Interacción con los clústeres de Service Fabric mediante la CLI de Service Fabric](service-fabric-cli.md)
 * Más información sobre las [opciones de soporte técnico de Service Fabric](service-fabric-support.md)

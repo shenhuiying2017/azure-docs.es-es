@@ -265,5 +265,5 @@ Si desea omitir ciertas recomendaciones, puede crear un archivo de texto que Log
 
 * Sí, consulte la sección [Omisión de las recomendaciones](#ignore-recommendations) anterior.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Búsquedas de registros](log-analytics-log-searches.md) para aprender a analizar recomendaciones y datos de SQL Health Check.

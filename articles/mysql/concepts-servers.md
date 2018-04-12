@@ -49,7 +49,7 @@ Los elementos siguientes ayudan a garantizar el acceso seguro a la base de datos
 ## <a name="how-do-i-manage-a-server"></a>¿Cómo se administra un servidor?
 Puede administrar servidores de Azure Database for MySQL en Azure Portal o con la CLI de Azure.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 - Para obtener información general sobre el servicio, vea [Introducción a Azure Database for MySQL](./overview.md).
 - Para obtener información sobre las cuotas y limitaciones aplicables a recursos específicos en función de su **nivel de servicio**, consulte [Niveles de servicio](./concepts-service-tiers.md).
 - Para obtener información sobre cómo conectarse al servicio, vea [Bibliotecas de conexiones de Azure Database for MySQL](./concepts-connection-libraries.md).

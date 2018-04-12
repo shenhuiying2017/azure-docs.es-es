@@ -690,6 +690,6 @@ En este artículo se muestran los países y las regiones que usa el método de e
 
         - WS(Samoa)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Más información sobre el [método de enrutamiento de tráfico geográfico en Azure Traffic Manager](traffic-manager-routing-methods.md#geographic).

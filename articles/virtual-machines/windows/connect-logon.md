@@ -42,6 +42,6 @@ Si intenta conectarse a una máquina virtual Windows desde un equipo Mac, debe i
 ## <a name="log-on-to-the-virtual-machine"></a>Iniciar sesión en la nueva máquina virtual
 [!INCLUDE [virtual-machines-log-on-win-server](../../../includes/virtual-machines-log-on-win-server.md)]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Si surgen problemas al intentar conectarse, consulte [Solución de problemas de conexiones del Escritorio remoto](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). En este artículo se le guiará a través del diagnóstico y la resolución de problemas comunes.
 

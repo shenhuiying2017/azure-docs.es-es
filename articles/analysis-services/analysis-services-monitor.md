@@ -88,7 +88,7 @@ Utilice esta tabla para determinar qué métricas son más adecuadas para su esc
 |TotalConnectionFailures|Número total de errores de conexión|Recuento|Media|Número total de intentos de conexión con error.|
 |TotalConnectionRequests|Número total de solicitudes de conexión|Recuento|Media|Número total de solicitudes de conexión. |
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Supervisión en Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md)   
 [Métricas en Microsoft Azure](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)   
 [Métricas de la API de REST de Azure Monitor](https://msdn.microsoft.com/library/azure/dn931930.aspx)

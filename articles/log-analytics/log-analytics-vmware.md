@@ -200,7 +200,7 @@ Puede haber varios motivos:
 
     d. Si el archivo no existe o la configuración de grupos y usuarios no es correcta, adopte medidas correctivas [preparando un servidor Linux](#prepare-a-linux-server).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Use [Búsquedas de registros](log-analytics-log-searches.md) en Log Analytics para ver datos detallados sobre los datos de hosts de VMware.
 * [Cree sus propios paneles](log-analytics-dashboards.md) que muestren datos de hosts de VMware.
 * [Cree alertas](log-analytics-alerts.md) cuando se produzcan eventos específicos de hosts de VMware.

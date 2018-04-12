@@ -251,7 +251,7 @@ Para ver la información registrada por la función mientras se ejecuta la prueb
 
 Para comprobar que los datos llegaron en el tema de Kafka, use la información de la sección _Produce and consume records_ (Producción y consumo de registros) del documento [Creación de un clúster de Kafka](apache-kafka-get-started.md#produce-and-consume-records). `kafka-console-consumer` lee los datos del tema y muestra una lista de los mensajes almacenados en el tema.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Use los vínculos siguientes para aprender a usar a Apache Kafka en HDInsight:
 

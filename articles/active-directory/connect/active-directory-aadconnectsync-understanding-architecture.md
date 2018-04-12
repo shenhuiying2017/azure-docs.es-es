@@ -253,7 +253,7 @@ El motor de sincronización almacena información de estado de exportación y de
 
 Por ejemplo, si el motor de sincronización exporta el atributo C, que tiene el valor 5, a un origen de datos conectado, almacena C=5 en la memoria del estado de exportación. Cada exportación adicional en este objeto da lugar a un intento de volver a exportar C=5 al origen de datos conectado porque el motor de sincronización da por supuesto que este valor no se ha aplicado de forma persistente al objeto (es decir, a menos que se importara recientemente un valor diferente desde el origen de datos conectado). La memoria de exportación se borra cuando se recibe C=5 durante una operación de importación en el objeto.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre la configuración de la [Sincronización de Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).

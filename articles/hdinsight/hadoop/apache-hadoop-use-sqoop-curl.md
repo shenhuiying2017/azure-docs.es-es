@@ -111,7 +111,7 @@ Tal como se ha mostrado en este documento, puede usar una solicitud HTTP sin pro
 
 Para obtener más información sobre la interfaz REST utilizada en este artículo, consulte la referencia <a href="https://sqoop.apache.org/docs/1.99.3/RESTAPI.html" target="_blank">Sqoop REST API Guide</a>.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Si desea obtener información general sobre Hive con HDInsight:
 
 * [Uso de Sqoop con Hadoop en HDInsight (Windows)](hdinsight-use-sqoop.md)

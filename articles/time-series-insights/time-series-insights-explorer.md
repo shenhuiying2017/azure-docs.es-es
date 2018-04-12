@@ -106,6 +106,6 @@ Minutos después de conectar el origen del evento al entorno de Times Series Ins
 
 Ya ha visto las distintas características y opciones disponibles dentro de la aplicación web del explorador de Time Series Insights. 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 > [!div class="nextstepaction"]
 >[Diagnóstico y solución de problemas de su entorno Time Series Insights](time-series-insights-diagnose-and-solve-problems.md)

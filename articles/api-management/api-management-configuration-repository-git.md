@@ -254,7 +254,7 @@ La carpeta `templates` contiene la configuración para las [plantillas de correo
 * `<template name>\configuration.json` : es la configuración de la plantilla de correo electrónico.
 * `<template name>\body.html` : es el cuerpo de la plantilla de correo electrónico.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para obtener información sobre otras formas de administrar la instancia de servicio, consulte:
 
 * Administrar la instancia de servicio con los siguientes cmdlets de PowerShell

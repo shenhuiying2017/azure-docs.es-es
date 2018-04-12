@@ -202,7 +202,7 @@ Configuración de la prueba:
 
 \* La latencia de Brasil es un buen ejemplo de que la distancia lineal varía significativamente de la distancia del tenido de fibra. Esperaba que la latencia fuera de 160 ms aproximadamente, pero realmente es de 189 ms. Esta variación con lo que esperaba podría ser un indicio de que existe un problema de red en algún punto, pero lo más probable es que el tendido de fibra no llegue hasta Brasil en línea recta y que tenga una distancia de 1000 km o más para llegar a Brasil desde Seattle.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 1. Descargue Azure Connectivity Toolkit de GitHub en [http://aka.ms/AzCT][ACT]
 2. Siga las instrucciones para las [pruebas de rendimiento de los vínculos][Performance Doc]
 

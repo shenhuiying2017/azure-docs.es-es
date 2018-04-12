@@ -162,7 +162,7 @@ Dado que Azure Applications Insights Analytics es un servicio independiente, deb
 5. Haga clic en **Publicar cambios** para confirmar los cambios del panel, que ahora incluye una serie de gráficos y visualizaciones de Application Insights.
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Ahora que ha aprendido a crear paneles personalizados, eche un vistazo al resto de la documentación de Application Insights, que incluye un caso práctico.
 
 > [!div class="nextstepaction"]

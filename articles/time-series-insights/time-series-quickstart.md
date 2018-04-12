@@ -71,7 +71,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https:
 
 Cuando termine la guía de inicio rápido, podrá experimentar con el conjunto de datos de ejemplo para crear visualizaciones distintas. 
 
-### <a name="next-steps"></a>pasos siguientes
+### <a name="next-steps"></a>Pasos siguientes
 Está listo para crear su propio entorno de Time Series Insights:
 > [!div class="nextstepaction"]
 > [Planeamiento del entorno de Time Series Insights](time-series-insights-environment-planning.md)

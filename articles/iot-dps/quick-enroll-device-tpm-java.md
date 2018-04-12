@@ -148,7 +148,7 @@ Si tiene previsto explorar el ejemplo del servicio de Java, no elimine los recur
 1. Cierre la ventana del simulador de TPM que haya creado para simular el dispositivo de TPM.
 1. Navegue a su servicio de Device Provisioning en Azure Portal, haga clic en **Administrar inscripciones** y, a continuación, seleccione la pestaña **Inscripciones individuales**. Seleccione el *id. de registro* del dispositivo que inscribió en esta guía de inicio rápido y haga clic en el botón **Eliminar** situado en la parte superior de la hoja. 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En esta guía de inicio rápido, inscribió un dispositivo de TPM simulado al servicio de Device Provisioning. Para más información acerca del aprovisionamiento de dispositivos, continúe con el tutorial para instalar el servicio Device Provisioning en Azure Portal. 
 
 > [!div class="nextstepaction"]

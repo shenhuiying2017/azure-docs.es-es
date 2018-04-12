@@ -116,7 +116,7 @@ Ahora puede explorar DSS con los datos de ejemplo. Puede limpiar los datos y tra
 
 Para tutoriales detallados, lea [Learn Dataiku DSS](https://www.dataiku.com/learn/) (Información sobre Dataiku DSS).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Documentación sobre Dataiku DSS](https://doc.dataiku.com/dss/latest/).
 * [Instalación de aplicaciones de HDInsight personalizadas](hdinsight-apps-install-custom-applications.md): aprenda a implementar en HDInsight una aplicación de HDInsight no publicada.

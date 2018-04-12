@@ -96,7 +96,7 @@ Si encuentra uno de estos errores, se recomienda [ponerse en contacto con el ser
 | **VersionNotSupported** |  |
 | **MFAPinNotSetup** |  |
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 ### <a name="troubleshoot-user-accounts"></a>Solución de problemas de cuentas de usuario
 

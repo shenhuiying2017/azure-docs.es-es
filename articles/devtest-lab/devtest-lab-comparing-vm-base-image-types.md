@@ -53,5 +53,5 @@ Las fórmulas ofrecen una manera dinámica de crear máquinas virtuales a partir
 ## <a name="related-blog-posts"></a>Entradas blogs relacionadas
 * [Custom images or formulas? (¿Imágenes personalizadas o fórmulas?)](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 - [Preguntas frecuentes sobre DevTest Labs](devtest-lab-faq.md)

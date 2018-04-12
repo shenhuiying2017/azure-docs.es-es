@@ -197,5 +197,5 @@ export AZURE_SECRET=531dcffa-3aff-4488-99bb-4816c395ea3f
 export AZURE_TENANT=72f988bf-86f1-41af-91ab-2d7cd011db47
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Ya ha instalado Ansible y los módulos de SDK de Python de Azure, y ha definido las credenciales para usarlos con Ansible. Obtenga información sobre cómo [crear una VM con Ansible](ansible-create-vm.md). También puede obtener información sobre cómo [crear una VM completa de Azure y recursos de apoyo con Ansible](ansible-create-complete-vm.md).

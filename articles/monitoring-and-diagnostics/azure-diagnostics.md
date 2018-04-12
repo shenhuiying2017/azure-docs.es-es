@@ -43,7 +43,7 @@ La extensión de diagnósticos de Azure puede transferir estos datos a una cuent
 ## <a name="versioning"></a>Control de versiones
 Consulte el [historial de versiones de Diagnósticos de Azure](azure-diagnostics-versioning-history.md).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Seleccione el servicio sobre el cual intenta recopilar diagnósticos y utilice los siguientes artículos para comenzar. Utilice los vínculos de diagnósticos generales de Azure como referencia para tareas específicas.
 
 ## <a name="web-apps"></a>Web Apps

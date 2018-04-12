@@ -223,7 +223,7 @@ Restablecer una puerta de enlace de VPN de Azure es útil si se pierde la conect
 
 Para que conocer los pasos para cambiar la SKU de puerta de enlace, consulte la sección para [cambio de tamaño de la SKU de una puerta de enlace](vpn-gateway-about-SKUS-legacy.md).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * Una vez completada la conexión, puede agregar máquinas virtuales a las redes virtuales. Consulte [Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute) para más información.
 * Para más información acerca de la tunelización forzada, consulte la [información acerca de la tunelización forzada](vpn-gateway-about-forced-tunneling.md).

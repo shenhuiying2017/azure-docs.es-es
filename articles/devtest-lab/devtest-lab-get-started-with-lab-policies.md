@@ -88,6 +88,6 @@ La directiva de inicio automático le permite especificar cuándo se deben inici
 
 Una vez que se habilite, esta directiva no se aplica automáticamente a ninguna máquina virtual del laboratorio actual. Para aplicar esta configuración a una máquina virtual existente, abra el panel de administración de la máquina virtual y cambie la configuración de **Inicio automático**.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - [Definición de directivas de laboratorio en Azure DevTest Labs](devtest-lab-set-lab-policy.md): obtenga información sobre cómo modificar otras directivas de laboratorio.

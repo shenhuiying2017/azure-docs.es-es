@@ -164,7 +164,7 @@ Cuando una actualización de la aplicación está en curso, el estado se puede r
 
 Finalmente, si una actualización está en curso y es necesario cancelarla, puede usar `sfctl application upgrade-rollback` para revertirla.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Conceptos básicos de la CLI de Service Fabric](service-fabric-cli.md)
 * [Introducción a Service Fabric con Linux](service-fabric-get-started-linux.md)

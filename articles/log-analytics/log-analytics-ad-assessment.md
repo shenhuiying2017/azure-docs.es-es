@@ -184,5 +184,5 @@ Después de que se ejecute la siguiente comprobación de estado programada, de f
 
 * Sí, consulte la sección [Omisión de las recomendaciones](#ignore-recommendations) anterior.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Use [Búsquedas de registros en Log Analytics](log-analytics-log-searches.md) para aprender a analizar recomendaciones y datos detallados de AD Health Check.

@@ -89,5 +89,5 @@ Si la oferta tiene un plan complementario, puede añadirlo a su suscripción en 
 
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Aprovisionamiento de una máquina virtual](azure-stack-provision-vm.md)

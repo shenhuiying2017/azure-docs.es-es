@@ -191,7 +191,7 @@ https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft
 
 Si la solicitud aún se está ejecutando, recibe un código de estado 202. Si la solicitud se ha completado, recibe un código de estado 200 y el cuerpo de la respuesta contiene las propiedades de la cuenta de almacenamiento que se ha creado.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * Para obtener documentación sobre cada operación de REST, consulte la [documentación de la API de REST](/rest/api/).
 * Para obtener información acerca de la implementación de plantillas a través de la API de REST de Resource Manager, consulte [Implementación de recursos con las plantillas de Resource Manager y la API de REST de Resource Manager](resource-group-template-deploy-rest.md).

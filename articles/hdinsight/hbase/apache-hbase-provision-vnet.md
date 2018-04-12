@@ -243,7 +243,7 @@ Para usar esta información en una aplicación Java, puede seguir los pasos que 
 >
 >
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este tutorial, ha aprendido a crear un clúster de HBase. Para obtener más información, consulte:
 
 * [Introducción a HDInsight](../hadoop/apache-hadoop-linux-tutorial-get-started.md)

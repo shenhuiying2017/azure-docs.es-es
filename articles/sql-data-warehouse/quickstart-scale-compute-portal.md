@@ -56,7 +56,7 @@ Para cambiar las unidades de almacenamiento de datos:
 
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Ya ha aprendido a escalar procesos para el almacenamiento de datos. Para más información sobre Azure SQL Data Warehouse, siga el tutorial para cargar los datos.
 
 > [!div class="nextstepaction"]

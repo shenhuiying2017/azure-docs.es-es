@@ -117,6 +117,6 @@ Una vez que ha instalado y registrado la puerta de enlace, debe crear un recurso
 
 Eso es todo. Si necesita abrir puertos o solucionar cualquier problema, asegúrese de consultar [Puerta de enlace de datos local](analysis-services-gateway.md).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Administración de Analysis Services](analysis-services-manage.md)   
 * [Obtención de datos de Azure Analysis Services](analysis-services-connect.md)

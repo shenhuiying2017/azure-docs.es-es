@@ -41,5 +41,5 @@ Hay dos formas posibles de evitar este problema hoy:
 
 2. **Reducir la cantidad de datos de configuración almacenados**: todos los datos escritos en la sección [Credenciales de administrador](active-directory-saas-app-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application) de la pestaña de aprovisionamiento se almacenan en el mismo lugar que el certificado SAML. Mientras que puede que no sea posible reducir la longitud de todos estos datos, algunos campos de configuración opcionales como el **Correo electrónico de notificación** se pueden quitar.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Configuración del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS](active-directory-saas-app-provisioning.md)

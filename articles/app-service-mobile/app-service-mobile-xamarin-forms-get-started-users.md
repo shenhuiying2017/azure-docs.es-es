@@ -332,7 +332,7 @@ En esta sección se muestra cómo implementar la interfaz **IAuthenticate** en p
 
 4. Vuelva a compilar la aplicación, ejecútela, inicie sesión con el proveedor de autenticación que elija y compruebe que pueda acceder a los datos como usuario autenticado.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Ahora que ha completado este tutorial de autenticación básica, considere la posibilidad de continuar con uno de los siguientes tutoriales:
 
 * [Agregar notificaciones push a la aplicación](app-service-mobile-xamarin-forms-get-started-push.md)

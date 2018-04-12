@@ -93,7 +93,7 @@ Remove-AzureRmResourceGroup -Name myVM
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tema, ha implementado una máquina virtual sencilla con New-AzVM y se ha conectado a ella mediante el protocolo de escritorio remoto. Para más información acerca de las máquinas virtuales de Azure, continúe con el tutorial de máquinas virtuales Windows.
 

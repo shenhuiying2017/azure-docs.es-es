@@ -122,7 +122,7 @@ Guarde la configuración.
 
 Las consultas DNS deben comenzar resolviéndose en la aplicación de App Service de inmediato después de que se produzca la propagación de DNS.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Obtenga información sobre cómo vincular un certificado SSL a App Service.
 

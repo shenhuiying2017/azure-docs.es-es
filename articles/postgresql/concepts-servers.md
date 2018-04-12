@@ -54,7 +54,7 @@ Los parámetros de servidor de PostgreSQL determinan la configuración del servi
 Como servicio administrado para Postgres, los parámetros configurables en Azure Database for PostgreSQL son un subconjunto de los parámetros en una instancia local de Postgres (para obtener más información sobre los parámetros de Postgres, consulte la [documentación de PostgreSQL](https://www.postgresql.org/docs/9.6/static/runtime-config.html)). El servidor de Azure Database for PostgreSQL está habilitado con los valores predeterminados para cada parámetro en el momento de la creación. El usuario no puede configurar los parámetros que requieren un reinicio del servidor o acceso de superusuario para que los cambios se apliquen.
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 - Para obtener una visión general del servicio, consulte [Introducción a Azure Database for PostgreSQL](overview.md).
 - Para obtener información sobre las cuotas y las limitaciones aplicables a recursos específicos en función de su **nivel de servicio**, consulte [Niveles de servicio](concepts-pricing-tiers.md).
 - Para obtener información sobre cómo conectarse al servicio, vea la información sobre [bibliotecas de conexión de Azure Database for PostgreSQL](concepts-connection-libraries.md).

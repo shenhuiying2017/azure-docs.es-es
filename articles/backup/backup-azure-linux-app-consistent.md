@@ -91,5 +91,5 @@ Asegúrese de que agrega el registro adecuado al escribir el script anterior y e
 | Pre-ScriptTimeout | La ejecución del script anterior de la copia de seguridad coherente con la aplicación ha superado el tiempo de espera. | Compruebe el script y aumente el tiempo de espera en el archivo **VMSnapshotScriptPluginConfig.json** situado en **/etc/azure**. |
 | Post-ScriptTimeout | La ejecución del script posterior de la copia de seguridad coherente con la aplicación ha superado el tiempo de espera. | Compruebe el script y aumente el tiempo de espera en el archivo **VMSnapshotScriptPluginConfig.json** situado en **/etc/azure**. |
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Configuración de la copia de seguridad en un almacén de Recovery Services](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms)

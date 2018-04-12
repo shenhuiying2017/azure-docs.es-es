@@ -337,7 +337,7 @@ Cuando ya no lo necesite, elimine el grupo de recursos que contiene la aplicaci�
 * Si tiene alguna duda, visite el [foro de Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Para enviar ideas sobre características o votar sobre ellas, visite el [sitio de comentarios de los usuarios de Logic Apps](http://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial ha creado una aplicación de lógica que comprueba el tráfico según una programación definida (por las mañanas los días de entre semana) y realiza alguna acción (envío de correo electrónico) cuando el tiempo de desplazamiento supera un límite especificado. Ahora, aprenda a crear una aplicación lógica que envía solicitudes de lista de correo para su aprobación mediante la integración de servicios de Azure, servicios de Microsoft y otras aplicaciones SaaS.
 

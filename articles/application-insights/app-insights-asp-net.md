@@ -131,7 +131,7 @@ Si ha hecho alguna personalización en ApplicationInsights.config, guarde una co
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Si está interesado, puede examinar otros temas:
 

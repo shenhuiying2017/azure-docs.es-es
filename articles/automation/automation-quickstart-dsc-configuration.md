@@ -134,7 +134,7 @@ El estado de todos los nodos administrados se puede encontrar en la vista **Nodo
 
 ![Estado del nodo DSC](./media/automation-quickstart-dsc-configuration/dsc-node-status.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En esta guía de inicio rápido, incorporó una máquina virtual Linux a DSC, creó una configuración para una pila de LAMP y la implementó en la máquina virtual. Para obtener información sobre cómo usar DSC de Automatización para habilitar la implementación continua, consulte el artículo:
 

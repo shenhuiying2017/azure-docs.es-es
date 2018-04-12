@@ -84,6 +84,6 @@ Siga los pasos que se indican a continuación en caso de que los servicios de in
 
 5. Si la ejecución de **Start_AzureStack** produce un error, póngase en contacto con el Soporte técnico de servicios al cliente de Microsoft. 
 
-## <a name="next-steps"></a>pasos siguientes 
+## <a name="next-steps"></a>Pasos siguientes 
 
 Para obtener más información acerca de la herramienta de diagnóstico de Azure Stack y el registro de problemas, consulte Herramientas de diagnóstico de Azure Stack. Herramientas de diagnóstico de Azure Stack. Herramientas de diagnóstico de Azure Stack. Herramientas de diagnóstico de Azure Stack.

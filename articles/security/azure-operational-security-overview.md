@@ -154,7 +154,7 @@ Los profesionales de DevOps consolidados adoptarán algunos de los siguientes pr
 -   La [infraestructura como código (IaC)](https://www.visualstudio.com/learn/what-is-infrastructure-as-code/) es un procedimiento que permite la automatización y validación de la creación y destrucción de redes y máquinas virtuales para ayudar a proporcionar plataformas de host de aplicaciones estables y seguras.
 -   La arquitectura de [microservicios](https://www.visualstudio.com/learn/what-are-microservices/) aprovecha el aislamiento de los casos de uso empresariales en servicios reusables reducidos.  Esta arquitectura permite la escalabilidad y la eficacia.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para aprender más acerca de la solución Security and Audit de OMS, vea los siguientes artículos:
 
 - [Operations Management Suite | Security &amp; Compliance](https://www.microsoft.com/cloud-platform/security-and-compliance)

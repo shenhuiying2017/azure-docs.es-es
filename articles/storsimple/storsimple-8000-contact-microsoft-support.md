@@ -113,6 +113,6 @@ Lleve a cabo los siguientes pasos para iniciar una sesión de soporte.
 > Puede deshabilitar el acceso al soporte técnico ejecutando `Disable-HcsSupportAccess`. El dispositivo StorSimple también intenta deshabilitar el acceso al soporte técnico 8 horas después de iniciada la sesión. Es un procedimiento recomendado cambiar las credenciales de su dispositivo StorSimple después de una sesión de soporte técnico.
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Aprenda a [diagnosticar y solucionar problemas relacionados un dispositivo de la serie StorSimple 8000](storsimple-8000-troubleshoot-deployment.md)

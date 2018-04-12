@@ -394,7 +394,7 @@ Si tiene previsto seguir trabajando con los tutoriales siguientes, no elimine lo
 2. Busque la nueva iniciativa o definición de directiva (o asignación) recién creada.
 3. Seleccione los puntos suspensivos al final de la definición o la asignación y seleccione **Delete Definition** (Eliminar definición) o **Delete Assignment** (Eliminar asignación).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, ha realizado satisfactoriamente lo siguiente:
 

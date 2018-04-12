@@ -49,7 +49,7 @@ Si la aplicación envía demasiados nombres de vista de página, compruebe si es
 
 Si la aplicación envía demasiados nombres de evento personalizados, cambie los nombres en el código a otros menos específicos. Una vez más, evite colocar direcciones URL y otros datos de página o dinámicos directamente en los nombres de evento personalizados. En su lugar, mueva estos detalles a las propiedades personalizadas del evento personalizado con `trackEvent` API. Por ejemplo, en lugar de `appInsights.trackEvent("Edit button clicked on http://www.contoso.com/index")`, sugerimos algo parecido a `appInsights.trackEvent("Edit button clicked", { "Source URL": "http://www.contoso.com/index" })`.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Introducción al análisis de uso](app-insights-usage-overview.md)
 

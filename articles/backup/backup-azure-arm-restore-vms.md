@@ -248,7 +248,7 @@ Con el fin de volver a crear completamente las máquinas virtuales después de r
 
    d. Cree una máquina virtual con [varias direcciones IP reservadas](https://azure.microsoft.com/documentation/articles/virtual-networks-reserved-public-ip/).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Ahora que se pueden restaurar las máquinas virtuales, consulte el artículo de solución de problemas para más información sobre los errores comunes con las máquinas virtuales. Asimismo, consulte el artículo sobre la administración de las tareas con las máquinas virtuales.
 
 * [Solución de errores](backup-azure-vms-troubleshoot.md#restore)

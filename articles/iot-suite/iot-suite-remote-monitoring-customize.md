@@ -253,7 +253,7 @@ Para modificar la infraestructura en la solución de supervisión remota, puede 
 * [Adaptador de almacenamiento (.NET)](https://github.com/Azure/pcs-storage-adapter-dotnet)
 * [Adaptador de almacenamiento (Java)](https://github.com/Azure/pcs-storage-adapter-java)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este artículo, aprendió sobre los recursos que tiene a su disposición para ayudarlo a personalizar la solución preconfigurada.
 

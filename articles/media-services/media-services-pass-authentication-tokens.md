@@ -53,6 +53,6 @@ Esta opción se usa para la adquisición de la licencia de PlayReady, mediante e
 
 - Mediante una lista de reproducción alternativa de HTTP Live Streaming (HLS). Si necesita configurar la autenticación de token para la reproducción AES + HLS en iOS/Safari, no hay una manera de enviar directamente el token. Para más información sobre cómo alternar la lista de reproducción para habilitar este escenario, vea esta [entrada de blog](http://azure.microsoft.com/blog/2015/03/06/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

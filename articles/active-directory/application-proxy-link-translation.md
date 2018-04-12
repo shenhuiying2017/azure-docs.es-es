@@ -86,7 +86,7 @@ Ahora, cuando los usuarios accedan a esta aplicación, el proxy examinará autom
 
 Queremos que nos ayude a hacer que esta característica funcione para todas las aplicaciones. Buscamos más de 30 etiquetas en HTML y CSS. Si tiene un ejemplo de vínculos generados que no está traducido, envíe un fragmento de código a [Comentarios del Proxy de aplicación](mailto:aadapfeedback@microsoft.com). 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Uso de dominios personalizados con el Proxy de aplicación de Azure AD](active-directory-application-proxy-custom-domains.md) para tener la misma dirección URL interna y externa
 
 [Configurar las asignaciones alternativas de acceso en SharePoint 2013](https://technet.microsoft.com/library/cc263208.aspx)

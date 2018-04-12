@@ -276,7 +276,7 @@ Si quiere, puede experimentar y probar más consultas usted mismo. Tenga en cuen
 
 El parámetro `$filter` solo funciona con los metadatos que se marcaron como filtrables al crear el índice.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, aprendió a buscar datos semiestructurados con Azure Search como, por ejemplo:
 

@@ -58,7 +58,7 @@ Las reservas están disponibles para la mayoría de tamaños de máquina virtual
 - Cuota insuficiente: una instancia reservada de máquina virtual cuyo ámbito sea de una sola suscripción debe tener cuota de vCPU disponible en la suscripción para la nueva instancia reservada. Por ejemplo, si la suscripción de destino tiene un límite de cuota de 10 vCPU para la familia de la serie D, no podrá comprar una instancia reservada de máquina virtual para 11 instancias Standard_D1. La comprobación de cuota para las reservas incluye las máquinas virtuales ya implementadas en la suscripción. Por ejemplo, si la suscripción tiene una cuota de 10 vCPU para la familia de serie D. Si esta suscripción tiene dos instancias standard_D1 implementadas, podrá comprar una instancia reservada de VM para 10 instancias standard_D1 en esta suscripción. 
 - Restricciones de capacidad: en algunas circunstancias poco frecuentes, Azure limita la compra de nuevas reservas para un subconjunto de tamaños de máquina virtual debido a que la capacidad en una región es baja.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Empiece a ahorrar en sus máquinas virtuales con la compra de una [instancia reservada de máquina virtual](https://go.microsoft.com/fwlink/?linkid=861721). 
 
 Para más información acerca de las instancias reservadas de máquina virtual, consulte los siguientes artículos.

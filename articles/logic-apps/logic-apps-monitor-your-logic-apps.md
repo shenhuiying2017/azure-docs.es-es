@@ -279,7 +279,7 @@ Por ejemplo, el evento `ActionCompleted` tiene las propiedades `clientTrackingId
   }
   ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Creación de plantillas para administrar la implementación y liberación de aplicaciones lógicas](../logic-apps/logic-apps-create-deploy-template.md)
 * [Escenarios B2B y comunicación con Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md)

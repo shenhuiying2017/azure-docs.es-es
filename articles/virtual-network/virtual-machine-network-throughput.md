@@ -43,7 +43,7 @@ El límite de rendimiento se aplica a la máquina virtual. El rendimiento no se 
 - **Destino del tráfico**: todos los destinos se cuentan para el límite de salida.
 - **Protocolo**: todo el tráfico saliente a través de todos los protocolos cuenta para el límite.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - [Optimización del rendimiento de red en un sistema operativo de máquina virtual](virtual-network-optimize-network-bandwidth.md)
 - [Prueba de rendimiento de red](virtual-network-bandwidth-testing.md) para una máquina virtual.

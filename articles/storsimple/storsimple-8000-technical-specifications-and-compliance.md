@@ -193,7 +193,7 @@ El enchufe y el conjunto completo del cable de alimentación deben cumplir los e
 
 Para las interfaces de red de 10 GbE, DATA 2 y DATA 3, consulte la [lista de cables de red y módulos compatibles](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Ya está listo para implementar un dispositivo StorSimple en su centro de datos. Para más información, vea [Implementar un dispositivo local](storsimple-8000-deployment-walkthrough-u2.md).
 

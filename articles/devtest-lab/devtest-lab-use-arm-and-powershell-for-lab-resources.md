@@ -46,6 +46,6 @@ Hay muchas otras tareas habituales que puede automatizar mediante PowerShell. La
 * [Incorporación de un usuario externo a un laboratorio mediante PowerShell](devtest-lab-add-devtest-user.md#add-an-external-user-to-a-lab-using-powershell)
 * [Creación de un rol personalizado de laboratorio con PowerShell](devtest-lab-grant-user-permissions-to-specific-lab-policies.md#creating-a-lab-custom-role-using-powershell)
 
-### <a name="next-steps"></a>pasos siguientes
+### <a name="next-steps"></a>Pasos siguientes
 * Obtenga información sobre cómo crear un [repositorio Git privado](devtest-lab-add-artifact-repo.md) en el que almacenar los scripts o plantillas personalizados.
 * Explore las [plantillas de Azure Resource Manager de la galería de plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates).

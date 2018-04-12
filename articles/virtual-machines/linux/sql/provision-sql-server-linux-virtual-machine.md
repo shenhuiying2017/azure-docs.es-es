@@ -174,7 +174,7 @@ Este tutorial le ha indicado que cree una máquina virtual de Red Hat Enterprise
    sudo firewall-cmd --reload
    ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Ahora que tiene una máquina virtual con SQL Server 2017 en Azure, puede conectarse localmente con **sqlcmd** para ejecutar consultas Transact-SQL.
 

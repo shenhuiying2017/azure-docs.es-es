@@ -360,7 +360,7 @@ Cambie la dirección URL a http://<dirección ip>:8080/video/test.htm y verá al
 
 ![Prueba de la dirección URL de vídeo en la puerta de enlace de aplicaciones](./media/application-gateway-create-url-route-arm-ps/application-gateway-iistest-video.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este artículo, ha aprendido cómo:
 

@@ -176,7 +176,7 @@ For more information about other features supported by application manifests, re
 
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 - [Empaquete una aplicación](service-fabric-package-apps.md) y prepárela para la implementación.
 - [Implementar y quitar aplicaciones](service-fabric-deploy-remove-applications.md).
 - [Configure parameters and environment variables for different application instances](service-fabric-manage-multiple-environment-app-configuration.md) (Administración de los parámetros y las variables de entorno para varias instancias de aplicación).

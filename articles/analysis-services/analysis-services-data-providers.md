@@ -97,6 +97,6 @@ Las bibliotecas de cliente para conexiones de cliente son diferentes de los prov
 2. Haga clic con el botón derecho en **Microsoft.AnalysisServices.AdomdClient** > **Propiedades** > **Detalles**.  
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Connect with Excel](analysis-services-connect-excel.md)   (Conexión con Excel)  
 [Conexión con Power BI](analysis-services-connect-pbi.md)

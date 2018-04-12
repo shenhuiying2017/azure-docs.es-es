@@ -103,7 +103,7 @@ Una vez completada la configuración, Azure AD Connect muestra el mensaje que in
 
     Quitar el servidor de la lista en Azure AD Connect no lo quita de la configuración de AD FS. Azure AD Connect hace referencia a AD FS (Windows Server 2016 o posterior) para cualquier información sobre la granja. Si el servidor sigue estando presente en la configuración de AD FS, aparecerá de nuevo en la lista.  
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - [Azure AD Connect y la federación](active-directory-aadconnectfed-whatis.md)
 - [Servicios de federación de Active Directory y personalización con Azure AD Connect](active-directory-aadconnect-federation-management.md)

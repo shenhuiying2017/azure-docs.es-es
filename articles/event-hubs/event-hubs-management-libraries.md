@@ -76,6 +76,6 @@ El patrón para manipular los recursos de Event Hubs sigue un protocolo común:
     await ehClient.EventHubs.CreateOrUpdateAsync(resourceGroupName, namespaceName, EventHubName, ehParams);
     ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Ejemplo de administración de .NET](https://github.com/Azure-Samples/event-hubs-dotnet-management/)
 * [Referencia de Microsoft.Azure.Management.EventHub](/dotnet/api/Microsoft.Azure.Management.EventHub) 

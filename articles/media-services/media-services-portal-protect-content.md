@@ -118,7 +118,7 @@ El cifrado de claves sin cifrado AES se habilita en todos los protocolos de stre
 >[!NOTE] 
 >Si planea reproducir una instancia de HLS cifrada mediante AES en Safari, consulte la entrada de blog sobre [HLS cifrado en Safari](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Envío de comentarios

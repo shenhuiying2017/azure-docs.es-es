@@ -316,7 +316,7 @@ Si no tiene permisos suficientes, puede que reciba un error general tal como se 
 
 ![Mensaje de error "Error durante el proceso de guardado"](media/security-center-customize-os-security-config/general-failure-error.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este artículo se ha mostrado cómo personalizar las valoraciones de configuración de seguridad del sistema operativo en Security Center. Para más información sobre las reglas de configuración y la corrección, consulte:
 
 - [Security Center Common Configuration Identifiers and Baseline Rules](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) (Identificadores y reglas de línea de base comunes de configuración de Security Center).

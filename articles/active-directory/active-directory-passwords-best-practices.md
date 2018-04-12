@@ -83,7 +83,7 @@ Debe [Rellenar los datos de autenticación para los usuarios](active-directory-p
 
 Deshabilitar el autoservicio de restablecimiento de contraseña es fácil. Abra el inquilino de Azure AD y vaya a **Restablecimiento de contraseña** > **Propiedades** y seleccione **Ninguno** en **Se habilitó el restablecimiento de contraseña del autoservicio**.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Restablecimiento o modificación de la contraseña](active-directory-passwords-update-your-own-password.md)
 * [Registro para el autoservicio de restablecimiento de contraseñas](active-directory-passwords-reset-register.md)

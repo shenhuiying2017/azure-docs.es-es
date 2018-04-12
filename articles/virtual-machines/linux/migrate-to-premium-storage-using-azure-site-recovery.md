@@ -211,7 +211,7 @@ Site Recovery creará una instancia de máquina virtual cuyo tipo sea el mismo, 
 * [Protección de supervisión y solución de problemas para las máquinas virtuales y los servidores físicos](../../site-recovery/site-recovery-monitoring-and-troubleshooting.md)
 * [Foro de Microsoft Azure Site Recovery](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para conocer los escenarios concretos para migrar máquinas virtuales, consulte los siguientes recursos:
 

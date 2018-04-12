@@ -62,6 +62,6 @@ Para todas las operaciones criptográficas y de administración de objetos (clav
 ## <a name="ip-address-ranges"></a>Intervalos de direcciones IP
 El servicio Key Vault utiliza otros recursos de Azure como la infraestructura de PaaS. Por consiguiente, no es posible proporcionar un intervalo específico de direcciones IP que los puntos de conexión del servicio Key Vault tendrán en un momento concreto. Si el firewall admite solo intervalos de direcciones IP, consulte el documento [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653) (Intervalos de IP de los centro de datos de Microsoft Azure). Para la autenticación y la identidad (Azure Active Directory), la aplicación debe poder conectarse a los puntos de conexión descritos en [Autenticación y direcciones de identidad](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Si le queda alguna duda acerca de Key Vault, visite los [foros de Azure Key Vault](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault).
 

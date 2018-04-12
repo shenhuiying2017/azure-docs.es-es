@@ -26,7 +26,7 @@ En esta sección se describen las cuotas y los límites básicos en Azure Event 
 
 [!INCLUDE [event-hubs-limits](../../includes/event-hubs-limits.md)]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para más información acerca de Event Hubs, visite los vínculos siguientes:
 

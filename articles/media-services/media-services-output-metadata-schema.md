@@ -599,7 +599,7 @@ El siguiente código XML es un ejemplo del archivo de metadatos de salida.
       </AssetFile>  
     </AssetFiles>  
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Envío de comentarios

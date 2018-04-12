@@ -88,5 +88,5 @@ Empiece a replicar desde el sitio secundario a la réplica principal y conmuten 
 > [!NOTE]
 > La replicación inversa solo replica los cambios que se han producido desde que se apagó la máquina virtual de réplica, y solo se envían los cambios incrementales.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Revise el paso](hyper-v-vmm-disaster-recovery.md) para la replicación de máquinas virtuales de Hyper-V a un sitio secundario.

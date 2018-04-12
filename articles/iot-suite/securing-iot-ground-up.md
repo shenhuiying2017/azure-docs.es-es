@@ -23,7 +23,7 @@ ms.lasthandoff: 01/18/2018
 ---
 [!INCLUDE [iot-security-ground-up](../../includes/iot-security-ground-up.md)]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información sobre cómo proteger la solución de IoT, consulte:
 
 * [Procedimientos recomendados para la seguridad de IoT][lnk-security-best-practices]

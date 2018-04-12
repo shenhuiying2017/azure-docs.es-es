@@ -41,7 +41,7 @@ Conocer el número de mensajes activos resulta de utilidad para determinar si un
 
 Si una aplicación desea escalar recursos en función de la longitud de la cola, debe hacerlo con un ritmo muy medido. La adquisición de los contadores de mensajes es una operación costosa en el agente de mensajes y ejecutarla con frecuencia afecta de forma directa y adversa al rendimiento de la entidad.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre la mensajería de Service Bus, consulte los siguientes temas:
 

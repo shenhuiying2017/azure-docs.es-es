@@ -57,7 +57,7 @@ El uso de instancias reservadas también aparece en la sección de resumen de us
 1. No se le cobra por el componente de hardware de la máquina virtual, ya que está cubierto por la instancia reservada. 
 2. Se le cobra por el software de Windows, ya que la Ventaja híbrida de Azure no se usa. 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para más información acerca de las instancias reservadas de máquina virtual, consulte los siguientes artículos.
 
 - [Pagar por adelantado máquinas virtuales con instancias reservadas de máquina virtual](../virtual-machines/windows/prepay-reserved-vm-instances.md)

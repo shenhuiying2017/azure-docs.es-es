@@ -66,7 +66,7 @@ Los dispositivos pueden comunicarse con Azure IoT Hub en Azure mediante diversos
 Una vez creado un centro de IoT en una región de Azure, el centro de IoT mantiene la misma dirección IP durante toda su existencia. Sin embargo, si Microsoft mueve el centro de IoT a una unidad de escalado diferente para mantener la calidad de servicio, se le asigna una nueva dirección IP.
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre cómo IoT Hub implementa el protocolo MQTT, consulte [Comunicación con la instancia de IoT Hub mediante el protocolo MQTT][lnk-mqtt-support].
 

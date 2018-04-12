@@ -33,5 +33,5 @@ De forma similar al modelo de alta disponibilidad, cuando Azure Database for MyS
 
 Durante la operación de escalado, se produce una interrupción en las conexiones de la base de datos. Las aplicaciones cliente se desconectan y las transacciones abiertas no confirmadas se cancelan. Una vez que la aplicación cliente reintenta la conexión o crea una conexión nueva, la puerta de enlace dirige la conexión a la instancia cuyo tamaño se modificó. 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 - Para obtener información general sobre el servicio, vea [Introducción a Azure Database for MySQL](overview.md).

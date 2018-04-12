@@ -89,6 +89,6 @@ Los datos de referencia no se combinan de manera retroactiva. Esto significa que
 
    La página confirma que la carga se completó y muestra el mensaje **El conjunto de datos se ha cargado correctamente**.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Administración de datos de referencia](time-series-insights-manage-reference-data-csharp.md) mediante programación.
 * Para obtener una referencia completa a la API, consulte el documento [API de datos de referencia](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api).

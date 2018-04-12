@@ -88,5 +88,5 @@ Todos los conceptos tratados en este artículo pueden configurarse mediante el u
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Creación de un laboratorio en DevTest Labs](devtest-lab-create-lab.md)

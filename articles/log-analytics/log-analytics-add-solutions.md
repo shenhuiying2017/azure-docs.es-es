@@ -277,5 +277,5 @@ Invitamos a los clientes a las vistas previas privadas de diversas maneras, depe
 * Puede registrarse conforme a la información publicada en [msopsmgmt](https://twitter.com/msopsmgmt).
 * Puede registrarse basándose en detalles compartidos en eventos comunitarios: búsquenos en encuentros, conferencias y en comunidades en línea.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Busque en los registros](log-analytics-log-searches.md) para ver información detallada recopilada por las soluciones de administración.

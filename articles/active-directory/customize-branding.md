@@ -105,7 +105,7 @@ Puede transcurrir hasta una hora para que los cambios efectuados se muestren en 
 
 Puede transcurrir hasta una hora para que los cambios efectuados se muestren en la personalización de marca de la página de inicio de sesión.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En esta guía de inicio rápido, ha aprendido a agregar personalización de marca a su directorio de Azure AD. 
 
 Puede usar el vínculo siguiente para configurar la personalización de marca en Azure AD desde Azure Portal.

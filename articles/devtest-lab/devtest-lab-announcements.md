@@ -81,6 +81,6 @@ Cuando ya no quiera mostrar este anuncio a los usuarios del laboratorio, vuelva 
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Si cambia o establece una directiva de laboratorio, puede que quiera publicar un anuncio para informar a los usuarios. [Configuración de directivas y programaciones](devtest-lab-set-lab-policy.md) proporciona información acerca de cómo aplicar restricciones y convenciones en la suscripción mediante el uso de directivas personalizadas.
 * Explore la [galería de plantillas de inicio rápido de Azure Resource Manager de DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/Samples).

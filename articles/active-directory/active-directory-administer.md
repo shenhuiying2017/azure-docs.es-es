@@ -115,7 +115,7 @@ Se comprueban las condiciones siguientes:
 * No puede haber suscripciones a ningún servicio de Microsoft Online Services, como Microsoft Azure, Office 365 o Azure AD Premium, asociadas al directorio. Por ejemplo, si se ha creado un directorio predeterminado en Azure en su nombre, no puede eliminar este directorio si la suscripción a Azure aún se basa en este directorio para la autenticación. De igual forma, no puede eliminar un directorio si otro usuario le ha asociado una suscripción. 
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Foro de Azure AD](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=windowsazuread)
 * [Foro de Multi-Factor Authentication de Azure](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=windowsazureactiveauthentication)
 * [Preguntas sobre StackOverflow para Azure](https://stackoverflow.com/questions/tagged/azure-active-directory)

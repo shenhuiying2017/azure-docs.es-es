@@ -286,7 +286,7 @@ Si no dispone todavía de una base de datos SQL, consulte [Creación de una inst
 
     Debería ver una lista de los datos de la tabla. Escriba `exit` para salir de la utilidad de tsql.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para conocer otras formas de trabajar con datos en HDInsight, consulte los siguientes documentos:
 

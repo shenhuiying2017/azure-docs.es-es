@@ -71,6 +71,6 @@ En esta sección se da por supuesto que ya tiene un recurso compartido de archiv
 6. Haga clic con el botón derecho en un archivo y elija **Descargar** para descargarlo en una máquina local.
    
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 También puede crear y administrar recursos compartidos de archivos con PowerShell. Para más información, vea [Introducción a Azure File Storage en Windows](../../storage/files/storage-dotnet-how-to-use-files.md).

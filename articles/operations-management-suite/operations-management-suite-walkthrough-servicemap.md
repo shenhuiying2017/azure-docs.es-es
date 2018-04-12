@@ -111,7 +111,7 @@ En este caso, podemos ver que el proceso de copia de seguridad consume continuam
 - Service Map expone los datos recopilados por otras soluciones de administración para ayudarle a identificar problemas con sus aplicaciones y su infraestructura subyacente.
 - Las [búsquedas de registros](../log-analytics/log-analytics-log-searches.md) le permiten profundizar en los datos específicos recopilados en el área de trabajo de Log Analytics.    
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 - Más información sobre [Service Map](operations-management-suite-service-map.md).
 - [Implementación y configuración de Service Map](operations-management-suite-service-map-configure.md).
 - Aprenda sobre [Log Analytics](../log-analytics/log-analytics-overview.md), una aplicación que es necesaria para Service Map y que almacena datos operativos almacenados por los agentes.

@@ -240,7 +240,7 @@ Puede ver ejemplos de archivos de solución con un recurso de la solución en la
 - [Recursos de búsqueda y alerta](operations-management-suite-solutions-resources-searches-alerts.md#sample)
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Incorporación de búsquedas y alertas guardadas](operations-management-suite-solutions-resources-searches-alerts.md) a la solución de administración.
 * [Incorporación de vistas](operations-management-suite-solutions-resources-views.md) a la solución de administración.
 * [Incorporación de runbooks de y otros recursos Automation](operations-management-suite-solutions-resources-automation.md) a la solución de administración.

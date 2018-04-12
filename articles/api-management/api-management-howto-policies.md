@@ -113,7 +113,7 @@ Para limitar las solicitudes de entrada y aceptar solo las procedentes de una di
 </ip-filter>
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener más información sobre cómo trabajar con directivas, consulte:
 

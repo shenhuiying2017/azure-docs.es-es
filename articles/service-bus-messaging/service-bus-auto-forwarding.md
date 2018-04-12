@@ -56,7 +56,7 @@ Service Bus factura una operación por cada mensaje reenviado. Por ejemplo, el e
 
 Para crear una suscripción encadenada a otra cola o a otro tema, el creador debe tener permisos de **administración** tanto en la entidad de origen como en la de destino. Para enviar mensajes al tema de origen, solo se requieren permisos de **envío** en el tema de origen.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre el reenvío automático, consulte los siguientes temas de referencia:
 

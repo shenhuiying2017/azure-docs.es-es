@@ -221,7 +221,7 @@ La aplicación web en Linux es compatible con otra forma de realizar la implemen
 
     Vaya a http://&lt;app_name>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y> (sustituya &lt;x> e &lt;y> con cualquier número) para obtener la suma de x e y
     
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este tutorial, ha configurado una canalización de Jenkins que extrae del repositorio GitHub el código fuente. Se ejecuta Maven para generar un archivo war y, a continuación, se utiliza la CLI de Azure para implementarlo en Azure App Service. Ha aprendido a:
 
 > [!div class="checklist"]

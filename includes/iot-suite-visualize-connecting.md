@@ -39,6 +39,6 @@ Para invocar métodos en los dispositivos, use la página **Dispositivos** de la
 > [!NOTE]
 > Para realizar un seguimiento del estado del trabajo en la solución, elija **Vista**.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En el artículo [Personalización de la solución preconfigurada de supervisión remota](../articles/iot-suite/iot-suite-remote-monitoring-customize.md) se describen algunas formas de personalizar la solución preconfigurada.

@@ -138,7 +138,7 @@ Cree la dirección URL de la página principal y actualice la aplicación con es
 >[!NOTE]
 >Los cambios realizados en la aplicación pueden restablecer la dirección URL de la página principal. Si la dirección URL de la página principal se restablece, repita los pasos de esta sección para volver a establecerlo de nuevo.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - [Habilitar el acceso remoto a SharePoint con el Proxy de aplicación de Azure AD](application-proxy-enable-remote-access-sharepoint.md)
 - [Habilitación del proxy de aplicación en Azure Portal](active-directory-application-proxy-enable.md)

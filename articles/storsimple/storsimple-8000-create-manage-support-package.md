@@ -144,7 +144,7 @@ A continuación se muestra un ejemplo que muestra cómo descifrar, editar y volv
 
         PS C:\WINDOWS\system32>
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * Obtenga información sobre la [información recopilada en el paquete de soporte](https://support.microsoft.com/help/3193606/storsimple-support-packages-and-device-logs)
 * Aprenda cómo [usar paquetes de soporte y registros de dispositivos para solucionar los problemas de implementación de su dispositivo](storsimple-8000-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting).

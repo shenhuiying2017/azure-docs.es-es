@@ -55,7 +55,7 @@ Azure Cloud Services también proporciona supervisión. Al igual que con Azure V
 
 La naturaleza PaaS de Azure Cloud Services tiene también otras implicaciones. Una de las más importantes es que las aplicaciones creadas sobre la base de esta tecnología deben estar escritas para ejecutarse correctamente en caso de cualquier error en instancia de rol web o de trabajo. Para lograrlo, una aplicación de Azure Cloud Services no debería mantener el estado en el sistema de archivos de sus propias máquinas virtuales. A diferencia de lo que ocurre en las máquinas virtuales creadas con Azure Virtual Machines, las escrituras realizadas en máquinas virtuales de Azure Cloud Services no son persistentes. No es como un disco de datos de Azure Virtual Machines. En su lugar, una aplicación de Azure Cloud Services debe escribir explícitamente todo el estado en Azure SQL Database, blobs, tablas u algún otro tipo de almacenamiento externo. Cuando se crean aplicaciones de esta manera, estas resultan más fáciles de escalar y son más resistentes ante los errores, y ambos son objetivos importantes de Azure Cloud Services.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Crear una aplicación de servicio en la nube en .NET](cloud-services-dotnet-get-started.md) 
 * [Crear una aplicación de servicio en la nube en Node.js](cloud-services-nodejs-develop-deploy-app.md) 
 * [Crear una aplicación de servicio en la nube en PHP](../cloud-services-php-create-web-role.md) 

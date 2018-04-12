@@ -69,7 +69,7 @@ Puede deshabilitar un perfil existente para que Traffic Manager no refiera solic
 3. Haga clic en **Información general** > **Eliminar**.
 4. Confirme para eliminar el perfil de Traffic Manager.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Agregación de un extremo](traffic-manager-endpoints.md)
 * [Configuración del método de enrutamiento por prioridad](traffic-manager-configure-priority-routing-method.md)

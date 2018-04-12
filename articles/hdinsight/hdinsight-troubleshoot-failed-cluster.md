@@ -268,7 +268,7 @@ Para ayudar a diagnosticar el origen de un error de clúster, inicie un clúster
 5. Continúe hasta que todos los pasos se ejecuten sin errores.
 6. Al terminar de depurar el clúster de prueba, elimínelo.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Administración de clústeres de HDInsight con la interfaz de usuario web de Ambari](hdinsight-hadoop-manage-ambari.md)
 * [Análisis de registros de HDInsight](hdinsight-debug-jobs.md)

@@ -150,7 +150,7 @@ El código siguiente muestra cómo cambiar la configuración de una aplicación 
 
 Hay una serie de valores de configuración básicos que necesita supervisar y ajustar para garantizar que los trabajos de Spark se ejecuten de forma predecible y eficaz. Estas opciones ayudan a determinar la mejor configuración del clúster de Spark para las cargas de trabajo determinadas.  También debe supervisar la ejecución de los trabajos de Spark de larga duración o que consumen recursos.  La mayor dificultad se centra en la presión de memoria, debido a las configuraciones inadecuadas (en especial, al tamaño incorrecto de los ejecutores), las operaciones de ejecución prolongada y las tareas que dan lugar a operaciones cartesianas.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [¿Cuáles son los componentes y versiones de Hadoop disponibles con HDInsight?](../hdinsight-component-versioning.md)
 * [Administración de recursos de un clúster Spark en HDInsight](apache-spark-resource-manager.md)

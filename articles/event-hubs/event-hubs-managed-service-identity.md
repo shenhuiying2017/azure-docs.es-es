@@ -76,7 +76,7 @@ Para enviar o recibir mensajes, escriba el nombre del espacio de nombres y el no
  
 Tenga en cuenta que la identidad de servicio administrada solo funciona dentro del entorno de Azure y únicamente en la implementación de App Service en que la configuró. Tenga en cuenta también que las identidades de servicio administradas no funcionan con las ranuras de implementación de App Service en este momento.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener más información acerca de Event Hubs, visite los vínculos siguientes:
 

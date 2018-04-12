@@ -75,7 +75,7 @@ Si bien la autenticación y la autorización son elementos esenciales para permi
 > 
 > 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Determinación de los requisitos de respuesta a incidentes](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md)
 
 ## <a name="see-also"></a>Otras referencias

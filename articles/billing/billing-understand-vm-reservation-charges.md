@@ -45,7 +45,7 @@ Para obtener información sobre la aplicación de las reservas en informes de us
 ## <a name="application-of-reservation-discount-to-windows-vms"></a>Aplicación del descuento de reserva a máquinas virtuales con Windows
 Cuando ejecuta instancias de máquina virtual con Windows, la reserva se aplica para cubrir los costos de infraestructuras. La aplicación de la reserva a los costos de infraestructuras de máquinas virtuales con Windows es la misma que para las máquinas virtuales que no ejecutan Windows. Se le cobra por separado por el software de Windows según el número de vCPU. Consulte los [costos de software de Windows con reservas](https://go.microsoft.com/fwlink/?linkid=862756). Puede cubrir los costos de licencias de Windows con la [Ventaja para uso híbrido de Azure para Windows Server] (https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para más información acerca de las instancias reservadas de máquina virtual, consulte los siguientes artículos.
 
 - [Pagar por adelantado máquinas virtuales con instancias reservadas de máquina virtual](../virtual-machines/windows/prepay-reserved-vm-instances.md)

@@ -170,5 +170,5 @@ Para más información sobre cómo solucionar problemas de las aplicaciones lóg
 
 Vea los desencadenadores y las acciones definidos en Swagger y vea también todos los límites en los [detalles del conector](/connectors/crm/). 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Explore los demás conectores disponibles en Logic Apps en nuestra [lista de API](apis-list.md).

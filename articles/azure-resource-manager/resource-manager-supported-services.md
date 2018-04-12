@@ -287,7 +287,7 @@ La versión de API se corresponde a una versión de operaciones de API de REST q
 
 ![Vista de las versiones de API](./media/resource-manager-supported-services/show-api-versions.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Para obtener más información sobre la creación de plantillas del Administrador de recursos, consulte [Creación de plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md).
 * Para obtener más información sobre la implementación de recursos, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md).
 * Para ver las operaciones de un proveedor de recursos, consulte [API de REST de Azure](/rest/api/).

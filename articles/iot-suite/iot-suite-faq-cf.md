@@ -208,7 +208,7 @@ Para enviar datos de telemetría desde dispositivos que no son de OPC UA a la fa
 
 1. Reinicie la instancia de App Service de factoría conectada.
 
-### <a name="next-steps"></a>pasos siguientes
+### <a name="next-steps"></a>Pasos siguientes
 
 También puede explorar algunas de las demás características y funcionalidades de las soluciones preconfiguradas del conjunto de aplicaciones de IoT:
 

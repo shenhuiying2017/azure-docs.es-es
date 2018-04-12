@@ -197,7 +197,7 @@ Agregue el paquete NuGet de la biblioteca estándar .NET [`Microsoft.Azure.Event
 
 Felicidades. Ha enviado mensajes a un centro de eventos.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para más información acerca de Event Hubs, visite los vínculos siguientes:
 
 * [Recepción de eventos de Event Hubs](event-hubs-dotnet-standard-getstarted-receive-eph.md)

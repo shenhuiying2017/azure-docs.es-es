@@ -94,6 +94,6 @@ Esto se conoce como "transferencia del disco de datos". El disco de datos luego 
 
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Una vez que se haya creado, puede conectarse a la VM. Para ello, seleccione **Conectar** en el panel de administración.
 * Explore la [galería de plantillas de inicio rápido de Azure Resource Manager de DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/Samples).

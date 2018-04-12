@@ -44,7 +44,7 @@ az container create \
     --registry-password <service-principal-password>
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Los artículos siguientes contienen detalles adicionales sobre cómo trabajar con entidades de servicio y ACR:
 

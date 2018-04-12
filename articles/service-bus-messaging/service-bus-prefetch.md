@@ -53,7 +53,7 @@ Si necesita un elevado rendimiento y el procesamiento de mensajes es normalmente
 
 El número máximo de captura previa y la duración del bloqueo configurado en la cola o suscripción deben equilibrarse de forma que el tiempo de espera del bloqueo supere al menos el tiempo de procesamiento de mensajes acumulativo para el tamaño máximo del búfer de captura previa, además de un mensaje. Al mismo tiempo, el tiempo de espera de bloqueo no debe ser tan prolongado que los mensajes superen su método [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) máximo cuando se quitan accidentalmente, lo que requiere que su bloqueo expire antes de que se vaya a volver a entregar.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre la mensajería de Service Bus, consulte los siguientes temas:
 

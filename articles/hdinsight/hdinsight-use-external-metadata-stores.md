@@ -86,6 +86,6 @@ Apache Oozie es un sistema de coordinación de flujos de trabajo que administra 
 
 Para obtener instrucciones sobre cómo crear una tienda de metadatos de Oozie con Azure SQL Database, consulte este artículo sobre el [uso de Oozie para flujos de trabajo](hdinsight-use-oozie-linux-mac.md).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - [Configuración de clústeres en HDInsight con Hadoop, Spark, Kafka, etc.](./hdinsight-hadoop-provision-linux-clusters.md)

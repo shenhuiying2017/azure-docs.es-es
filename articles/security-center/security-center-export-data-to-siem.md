@@ -65,7 +65,7 @@ A continuación, hay un par de consultas de Splunk que puede usar para extraer d
 | Obtención de información de las alertas: hora, nombre, estado, identificador y suscripción | index=main Microsoft.Security/locations/alerts \| table \_time, properties.eventName, State, properties.operationId, am_subscriptionId |
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - [SIEM compatibles](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md#what-can-i-do-with-the-monitoring-data-being-sent-to-my-event-hub)
 - [Transmisión de registros de actividad a Event Hubs](../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md)

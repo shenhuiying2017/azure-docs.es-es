@@ -120,7 +120,7 @@ Se cambia la asignación de redes de VMNetwork1-Chicago. | VM-1 se conectará a 
 
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - [Información sobre](hyper-v-vmm-networking.md) el direccionamiento IP tras la conmutación por error a un sitio de VMM secundario.
 - [Información sobre](concepts-on-premises-to-azure-networking.md) el direccionamiento IP tras la conmutación por error a Azure.

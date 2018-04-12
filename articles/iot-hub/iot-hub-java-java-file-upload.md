@@ -260,7 +260,7 @@ Puede usar el portal para ver el archivo cargado en el contenedor de almacenamie
 
 ![Archivo cargado](media/iot-hub-java-java-upload/uploaded-file.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial ha aprendido a usar la funcionalidad de carga de archivos de IoT Hub para simplificar la carga de archivos desde los dispositivos. Puede continuar explorando las características y los escenarios del centro de IoT con los siguientes artículos:
 

@@ -204,7 +204,7 @@ Una vez que haya terminado de cambiar las prioridades y de actualizar el estado 
 
 ![Informe](./media/azure-security-threat-modeling-tool-feature-overview/report.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * Para contribuir con una plantilla para la comunidad, vaya a nuestra página de [GitHub](https://github.com/Microsoft/threat-modeling-templates). 
 * Para empezar a usar la herramienta, vaya a la página de [Descarga](https://aka.ms/tmtpreview).

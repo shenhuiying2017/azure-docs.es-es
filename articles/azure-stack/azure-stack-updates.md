@@ -62,7 +62,7 @@ El icono Actualizar muestra la versión actual de Azure Stack. Para acceder a é
  
 - En el icono **Administración de regiones**, haga clic en el nombre de la región. Vea la versión actual en el icono **Actualización**.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - [Directiva de servicio de Azure Stack](azure-stack-servicing-policy.md) 
 - [Administración de regiones en Azure Stack](azure-stack-region-management.md)     

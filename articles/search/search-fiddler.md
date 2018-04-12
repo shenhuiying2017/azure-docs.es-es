@@ -253,7 +253,7 @@ Para más información acerca de esta API, consulte [Get Index Statistics (REST)
 
 En Fiddler, haga clic en la pestaña **Inspectors** (Inspectores), luego en **Headers** (Encabezados) y, finalmente, seleccione el formato JSON. Debe ver el recuento de documentos y el tamaño del almacenamiento (en KB).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Los clientes de REST son muy valiosos para la exploración improvisada, pero ahora que sabe cómo funcionan las API de REST, puede avanzar en el código. Para conocer los pasos siguientes, consulte los siguientes vínculos:
 

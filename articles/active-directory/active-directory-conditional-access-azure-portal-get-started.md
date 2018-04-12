@@ -156,7 +156,7 @@ Para probar la directiva, debe acceder a la aplicación desde un dispositivo que
 La autenticación multifactor solo se requerirá durante un intento de conexión realizado desde un dispositivo que no está dentro de las direcciones IP de confianza configuradas. 
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre el acceso condicional, consulte [Acceso condicional de Azure Active Directory](active-directory-conditional-access-azure-portal.md).
 

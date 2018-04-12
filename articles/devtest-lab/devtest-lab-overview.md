@@ -47,6 +47,6 @@ Aproveche complementos ya creados o nuestra API para aprovisionar entornos de de
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Conceptos de DevTest Labs](devtest-lab-concepts.md)
 

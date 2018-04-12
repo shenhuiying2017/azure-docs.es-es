@@ -262,7 +262,7 @@ Si el servicio cierra intencionadamente la conexión de WebSocket después de ha
 | 1008 |El token de seguridad ha expirado, por lo que se ha infringido la directiva de autorización. |
 | 1011 |Se ha producido un error en el servicio. |
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Preguntas más frecuentes acerca de Relay](relay-faq.md)
 * [Creación de un espacio de nombres](relay-create-namespace-portal.md)
 * [Introducción a .NET](relay-hybrid-connections-dotnet-get-started.md)

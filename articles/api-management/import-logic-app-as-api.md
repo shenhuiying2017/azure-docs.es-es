@@ -91,7 +91,7 @@ También se pueden llamar a las operaciones desde **portal para desarrolladores*
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Transformación y protección de una API publicada](transform-api.md)

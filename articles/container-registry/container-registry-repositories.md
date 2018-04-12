@@ -47,7 +47,7 @@ Por ejemplo, si insertó la imagen de Nginx como se indica en [Inserción y extr
 
 ![Repositorios del portal](./media/container-registry-repositories/container-registry-repositories.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Ahora que conoce los aspectos básicos que implica ver y trabajar con repositorios en el portal, intente usar Azure Container Registry con un clúster de [Azure Container Service (AKS)](../aks/tutorial-kubernetes-prepare-app.md).
 

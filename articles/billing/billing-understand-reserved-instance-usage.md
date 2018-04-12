@@ -57,7 +57,7 @@ Filtre la columna Additional Info y escriba su id. de reserva. En la siguiente c
 4. Este es el id. de medidor de la reserva. El costo del medidor es de 0 $. Cualquier máquina virtual apta para la instancia reservada tiene este MeterId en el CSV para cubrir el costo. 
 5. Standard_DS1_v2 es una máquina virtual de vCPU y se implementa sin la Ventaja híbrida de Azure. Por lo tanto, este medidor cubre el costo extra del software de Windows. Consulte los [costos de software de Windows de las instancias reservadas de máquina virtual de Azure](billing-reserved-instance-windows-software-costs.md) para buscar el medidor correspondiente a la máquina virtual de 1 núcleo de la serie D. Si se usa la Ventaja híbrida de Azure, no se aplicará este cargo adicional. 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para más información acerca de las instancias reservadas de máquina virtual, consulte los siguientes artículos.
 
 - [Pagar por adelantado máquinas virtuales con instancias reservadas de máquina virtual](../virtual-machines/windows/prepay-reserved-vm-instances.md)

@@ -141,7 +141,7 @@ El comportamiento de ejecución descrito aquí le ayudará a entender por qué e
 
 Si desea más información acerca de cómo Durable Task Framework ejecuta funciones de orquestador, lo mejor es consultar el [código fuente de la instancia de Durable Task en GitHub](https://github.com/Azure/durabletask). En concreto, consulte [TaskOrchestrationExecutor.cs](https://github.com/Azure/durabletask/blob/master/src/DurableTask.Core/TaskOrchestrationExecutor.cs) y [TaskOrchestrationContext.cs](https://github.com/Azure/durabletask/blob/master/src/DurableTask.Core/TaskOrchestrationContext.cs)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Información acerca de la administración de instancias](durable-functions-instance-management.md)

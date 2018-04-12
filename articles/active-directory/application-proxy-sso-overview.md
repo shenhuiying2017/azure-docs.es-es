@@ -74,7 +74,7 @@ Si las aplicaciones utilizan encabezados para la autenticación, elija **Inicio 
 
 Para más información acerca de cómo configurar la autenticación basada en el encabezado, consulte [Autenticación basada en el encabezado para el inicio de sesión único con el proxy de aplicación](application-proxy-ping-access.md).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - [Almacén de contraseñas para el inicio de sesión único con el proxy de aplicación](application-proxy-sso-azure-portal.md)
 - [Delegación limitada de Kerberos para el inicio de sesión único con el proxy de aplicación](active-directory-application-proxy-sso-using-kcd.md)

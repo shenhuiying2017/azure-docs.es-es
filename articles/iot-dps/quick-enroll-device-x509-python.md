@@ -127,7 +127,7 @@ Si tiene previsto explorar el ejemplo del servicio de Java, no elimine los recur
 1. Navegue a su servicio Device Provisioning en Azure Portal, haga clic en **Administrar inscripciones** y, a continuación, seleccione la pestaña **Grupos de inscripción**. Seleccione el *NOMBRE DE GRUPO* para los dispositivos X.509 que inscribió mediante esta guía de inicio rápido y haga clic en el botón **Eliminar** situado en la parte superior de la hoja.  
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En esta guía de inicio rápido, inscribió un grupo de dispositivos X.509 simulados al servicio de Device Provisioning. Para más información acerca del aprovisionamiento de dispositivos, continúe con el tutorial para instalar el servicio Device Provisioning en Azure Portal. 
 
 > [!div class="nextstepaction"]

@@ -105,6 +105,6 @@ Si aparece el estado **DEGRADADO** , se recomienda lo siguiente:
 > [!IMPORTANT]
 > Deseche la batería que no funciona según las normas nacionales y regionales.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre el [Reemplazo de los componentes de hardware de StorSimple](storsimple-8000-hardware-component-replacement.md).
 

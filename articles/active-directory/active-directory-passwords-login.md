@@ -116,7 +116,7 @@ Al probar esta funcionalidad con Escritorio remoto, el vínculo "Restablecer con
 
 * El restablecimiento de contraseña no se admite actualmente desde Escritorio remoto.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Los vínculos siguientes proporcionan información adicional sobre el restablecimiento de contraseñas con Azure AD:
 
 * [¿Cómo se implementa SSPR?](active-directory-passwords-best-practices.md)

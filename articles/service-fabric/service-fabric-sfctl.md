@@ -39,6 +39,6 @@ Comandos para administrar clústeres y entidades de Service Fabric. Esta versió
 | [service](service-fabric-sfctl-service.md) | Cree, elimine y administre servicios, tipos de servicio y paquetes de servicio.|
 | [store](service-fabric-sfctl-store.md)   | Realice operaciones básicas a nivel de archivo en el almacén de imágenes del clúster.|
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 - [Configuración](service-fabric-cli.md) de la CLI de Service Fabric.
 - Obtenga información sobre cómo utilizar la CLI de Service Fabric con los [scripts de ejemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).

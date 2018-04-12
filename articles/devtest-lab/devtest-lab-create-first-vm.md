@@ -49,7 +49,7 @@ En este tutorial se explica cómo usar Azure Portal para agregar su primera máq
 
    La hoja del laboratorio muestra el estado de creación de la máquina virtual; primero como **Creating** (En creación) y luego como **Running** (En ejecución), una vez que se haya iniciado la máquina virtual.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Una vez creada la máquina virtual, puede conectarse a la misma seleccionando **Conectar** en la hoja de la máquina virtual.
 * Consulte [Incorporación de una máquina virtual a un laboratorio](devtest-lab-add-vm.md) para obtener información más completa sobre cómo agregar máquinas virtuales posteriores en su laboratorio.
 * Explore la [galería de plantillas de inicio rápido de Azure Resource Manager de DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates).

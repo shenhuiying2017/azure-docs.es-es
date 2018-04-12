@@ -92,6 +92,6 @@ Se puede eliminar cada webhook seleccionando uno y, después, con el botón **El
 az acr webhook delete --registry mycontainerregistry --name myacrwebhook01
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 [Referencia de esquema de webhook de Azure Container Registry](container-registry-webhook-reference.md)

@@ -207,7 +207,7 @@ WebSocket.relayedConnect(
 );
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información sobre Azure Relay, visite estos vínculos:
 * [¿Qué es Relay de Azure?](relay-what-is-it.md)
 * [Available Relay APIs ](relay-api-overview.md) (API de Relay disponibles)

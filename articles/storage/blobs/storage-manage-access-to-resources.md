@@ -142,7 +142,7 @@ En la siguiente tabla, se indican las operaciones a las que pueden llamar los us
 | Get Page Ranges |Todo |Todo |
 | Append Blob |Solo el propietario |Solo el propietario |
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Autenticación para los servicios de Azure Storage](https://msdn.microsoft.com/library/azure/dd179428.aspx)
 * [Uso de Firmas de acceso compartido (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

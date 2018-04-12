@@ -135,7 +135,7 @@ A continuación, para cada contenedor del grupo de contenedores en el que desea 
 
 Para ver un ejemplo de implementación de instancias de contenedor con una plantilla de Azure Resource Manager, consulte [Implementación de grupos de varios contenedores en Azure Container Instances](container-instances-multi-container-group.md).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Obtenga información acerca de cómo montar otros tipos de volúmenes en Azure Container Instances:
 

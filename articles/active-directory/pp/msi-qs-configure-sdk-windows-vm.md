@@ -41,7 +41,7 @@ Azure admite varias plataformas de programación a través de una serie de [SDK 
 | Python | [Creación de una máquina virtual con MSI habilitado](https://azure.microsoft.com/resources/samples/compute-python-msi-vm/) |
 | Ruby   | [Creación de una máquina virtual de Azure con MSI](https://azure.microsoft.com/resources/samples/compute-ruby-msi-vm/) |
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Consulte los artículos relacionados en "Configuración de una MSI para una máquina virtual de Azure" para obtener información sobre cómo configurar una identidad de servicio administrada asignada por el usuario en una máquina virtual de Azure.
 

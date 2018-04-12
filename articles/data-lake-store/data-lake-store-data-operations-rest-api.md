@@ -159,7 +159,7 @@ Debe ver algo parecido a lo siguiente:
 
     {"boolean":true}
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Operaciones de administración de cuentas en Azure Data Lake Store con la API de REST](data-lake-store-get-started-rest-api.md).
 
 ## <a name="see-also"></a>Otras referencias

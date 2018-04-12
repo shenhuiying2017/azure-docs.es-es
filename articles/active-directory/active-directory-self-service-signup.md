@@ -65,7 +65,7 @@ En el siguiente diagrama se explican las distintas combinaciones de estos parám
 
 Para obtener más información y ejemplos de cómo usar estos parámetros, consulte [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Incorporación de su nombre de dominio personalizado a Azure Active Directory](add-custom-domain.md)
 * [Instalación y configuración de Azure PowerShell](/powershell/azure/overview)
 * [Azure PowerShell](/powershell/azure/overview)

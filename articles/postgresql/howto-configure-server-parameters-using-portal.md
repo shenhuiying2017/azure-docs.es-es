@@ -45,7 +45,7 @@ Para seguir esta guía, necesitará:
 8. Si ha guardado los nuevos valores para los parámetros, siempre puede revertir todos los elementos a los valores predeterminados; para ello, seleccione **Restablecer todos los valores predeterminados**.
 ![Restablecer todos los valores predeterminados](./media/howto-configure-server-parameters-in-portal/7-reset-to-default-button.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Más información sobre lo siguiente:
 - [Información general de los parámetros del servidor en Azure Database for PostgreSQL](concepts-servers.md)
 - [Configuración de parámetros con la CLI de Azure](howto-configure-server-parameters-using-cli.md)

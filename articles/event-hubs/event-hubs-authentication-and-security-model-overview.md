@@ -106,7 +106,7 @@ La versión actual de Service Bus no admite reglas SAS para suscripciones indivi
 
 En ausencia de autenticación SAS para grupos de consumidores individuales, puede usar claves SAS para proteger todos los grupos de consumidores con una clave común. Este enfoque permite que una aplicación consuma datos desde cualquiera de los grupos de consumidores de un centro de eventos.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre Event Hubs, visite los siguientes temas:
 

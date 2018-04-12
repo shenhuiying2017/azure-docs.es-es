@@ -205,7 +205,7 @@ Como referencia, el ejemplo finalizado (sin sus valores de configuración) [se p
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIdConnect-DotNet.git```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Ahora puede pasar a temas más avanzados.  También puede probar lo siguiente:
 
 [Proteger una API web con el punto de conexión v2.0 &gt;&gt;](active-directory-devquickstarts-webapi-dotnet.md)

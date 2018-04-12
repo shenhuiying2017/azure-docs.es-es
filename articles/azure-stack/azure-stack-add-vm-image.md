@@ -203,6 +203,6 @@ Debe poderse hacer referencia a las imágenes mediante un identificador URI de B
 
 4. Para que la imagen de máquina virtual esté disponible con más facilidad para su consumo por el usuario en la interfaz de usuario, es una buena idea [crear un elemento de Marketplace](azure-stack-create-and-publish-marketplace-item.md).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 [Aprovisionamiento de una máquina virtual](azure-stack-provision-vm.md)

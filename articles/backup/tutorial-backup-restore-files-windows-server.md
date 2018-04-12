@@ -75,7 +75,7 @@ Un práctico asistente de interfaz de usuario denominado Microsoft Azure Backup 
 
     Una vez desmontada la instantánea, aparece **Trabajo completado** en el panel **Trabajos** de la consola del agente.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Con esto finalizan los tutoriales sobre la copia de seguridad y la restauración de datos de Windows Server en Azure. Para obtener más información acerca de Azure Backup, consulte el ejemplo de PowerShell sobre la copia de seguridad de máquinas virtuales cifradas.
 

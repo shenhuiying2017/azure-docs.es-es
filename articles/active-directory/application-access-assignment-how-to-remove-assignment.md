@@ -70,5 +70,5 @@ Para **deshabilitar todas las operaciones de consentimiento de usuario futuras e
 6.  Deshabilite todas las operaciones de consentimiento de usuario futuras estableciendo la opción **Los usuarios pueden permitir que las aplicaciones accedan a sus datos** en **No**. Después, haga clic en el botón **Guardar**.
 
 
-# <a name="next-steps"></a>pasos siguientes
+# <a name="next-steps"></a>Pasos siguientes
 [Administración del acceso a las aplicaciones](active-directory-managing-access-to-apps.md)

@@ -108,7 +108,7 @@ Cuando se quita una solución de administración, también se eliminan todos los
 ## <a name="creating-a-management-solution"></a>Creación de una solución de administración
 Hay disponible una guía completa sobre cómo crear soluciones de administración en el artículo sobre [creación de soluciones de Operations Management Suite (OMS)](operations-management-suite-solutions-creating.md). 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Búsqueda de [plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates) para obtener ejemplos de diferentes plantillas de Resource Manager.
 * Cree sus propias [soluciones de administración](operations-management-suite-solutions-creating.md).
 

@@ -88,6 +88,6 @@ Una aplicación de Application Insights se puede identificar con la expresión *
     app("/subscriptions/b459b4f6-912x-46d5-9cb1-b43069212ab4/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp").requests | count
     ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Revise la [referencia sobre búsqueda de registros de Log Analytics](https://docs.loganalytics.io/docs/Language-Reference) para ver todas las opciones de sintaxis de consulta en Log Analytics.    

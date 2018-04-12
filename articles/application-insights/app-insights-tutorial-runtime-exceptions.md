@@ -113,7 +113,7 @@ Si conecta Application Insights a un sistema de seguimiento, como GitHub y Visua
 
     ![Nuevo elemento de trabajo](media/app-insights-tutorial-runtime-exceptions/new-work-item.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Ahora que ha aprendido a identificar las excepciones en tiempo de ejecución, pase al siguiente tutorial, donde aprenderá a identificar y diagnosticar problemas de rendimiento.
 
 > [!div class="nextstepaction"]

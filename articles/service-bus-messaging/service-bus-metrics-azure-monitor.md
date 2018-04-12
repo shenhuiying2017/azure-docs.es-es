@@ -97,7 +97,7 @@ Azure Service Bus admite las siguientes dimensiones para las métricas de Azure 
 | ------------------- | ----------------- |
 |EntityName| Service Bus admite las entidades de mensajería en el espacio de nombres.|
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Vea [Información general sobre la supervisión en Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md).
 

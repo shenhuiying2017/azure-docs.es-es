@@ -121,7 +121,7 @@ docker-compose down
 
 Al finalizar, tendrá una imagen de contenedor que contiene la aplicación Azure Vote.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, se ha probado una aplicación y se han creado imágenes del contenedor para la aplicación. Se han completado los siguientes pasos:
 

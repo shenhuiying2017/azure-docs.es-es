@@ -127,7 +127,7 @@ Al realizar llamadas a diversas acciones, es posible que obtenga determinadas re
 | 500 |Error interno del servidor Error desconocido. |
 
 - - -
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Creación de una aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Buscar otros conectores](apis-list.md)

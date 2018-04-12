@@ -70,7 +70,7 @@ Preste atención a las grandes diferencias entre estos dos trabajos. Esas difere
 
 ![Diagrama del proceso de comprobación de diferencias entre los trabajos](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/recurring-job-diff-debugging-flow.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Resolución de problemas de asimetría de datos](data-lake-analytics-data-lake-tools-data-skew-solutions.md)
 * [Depuración de código C# definido por el usuario para trabajos de U-SQL con errores](data-lake-analytics-debug-u-sql-jobs.md)

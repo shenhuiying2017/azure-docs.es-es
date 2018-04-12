@@ -89,7 +89,7 @@ En esta sección se muestra cómo usar el **Asistente para agregar una réplica 
 ## <a name="create-an-availability-group-listener"></a>Creación del agente de escucha del grupo de disponibilidad
 Después de crear el grupo de disponibilidad, debe crear un agente de escucha para que los clientes se conecten a las réplicas. Los agentes de escucha dirigen las conexiones entrantes a la réplica principal o a una réplica secundaria de solo lectura. Para más información sobre los agentes de escucha, consulte [Configuración de un agente de escucha con ILB para grupos de disponibilidad AlwaysOn en Azure](../classic/ps-sql-int-listener.md).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Además de usar el **Asistente para agregar una réplica de Azure** para ampliar el grupo de disponibilidad AlwaysOn a Azure, también puede mover algunas cargas de trabajo de SQL Server por completo a Azure. Para más información, consulte [Aprovisionamiento de una máquina virtual de SQL Server en Azure](../sql/virtual-machines-windows-portal-sql-server-provision.md).
 
 Para ver otros temas sobre la ejecución de SQL Server en Azure Virtual Machines, consulte [SQL Server en Azure Virtual Machines](../sql/virtual-machines-windows-sql-server-iaas-overview.md).

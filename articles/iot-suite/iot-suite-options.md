@@ -59,7 +59,7 @@ La decisión de qué producto desea usar para crear su solución de IoT se deter
 * El tipo de solución que desea generar
 * La variedad de destrezas de la organización para crear y mantener la solución a largo plazo.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En función del producto y el enfoque elegidos, los pasos siguientes sugeridos son:
 

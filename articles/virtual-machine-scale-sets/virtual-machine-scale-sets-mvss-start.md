@@ -208,6 +208,6 @@ Sin embargo, no basta con el identificador de la red virtual. Proporcione la sub
 
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]

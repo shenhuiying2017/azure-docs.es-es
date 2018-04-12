@@ -33,7 +33,7 @@ Un espacio de nombres es un contenedor con un ámbito para todos los componentes
 
 Felicidades. Ha creado un espacio de nombres de Relay.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Preguntas más frecuentes acerca de Relay](relay-faq.md)
 * [Introducción a .NET](relay-hybrid-connections-dotnet-get-started.md)

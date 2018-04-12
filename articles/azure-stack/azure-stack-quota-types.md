@@ -62,7 +62,7 @@ Las [cuotas](azure-stack-plan-offer-quota-overview.md#plans) definen los límite
 2. Seleccione el servicio con la cuota que desea ver.
 3. Haga clic en **Cuotas** y seleccione la cuota que desea ver.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Más información acerca de planes, ofertas y cuotas.](azure-stack-plan-offer-quota-overview.md)
 
 [Crear cuotas durante la creación de un plan.](azure-stack-create-plan.md)

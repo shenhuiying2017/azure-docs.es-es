@@ -62,6 +62,6 @@ Si migra máquinas virtuales de VMware locales o servidores físicos a Azure, te
         ```
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 [Replicación rápida](azure-to-azure-quickstart.md) de una máquina virtual de Azure a una región secundaria.

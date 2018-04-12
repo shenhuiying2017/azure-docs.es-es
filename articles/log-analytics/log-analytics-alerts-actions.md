@@ -620,6 +620,6 @@ A continuación se muestra una carga de ejemplo para una acción de runbook en u
 
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 - Complete un tutorial para [configurar un webhook](log-analytics-alerts-webhooks.md) con una regla de alerta.  
 - Aprenda a escribir [runbooks en Azure Automation](https://azure.microsoft.com/documentation/services/automation) para solucionar los problemas identificados por las alertas.

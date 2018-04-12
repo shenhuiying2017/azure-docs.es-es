@@ -73,7 +73,7 @@ Las funciones de orquestador se ejecutan en un solo subproceso. Esto es necesari
 
 Las funciones de actividad tienen el mismo comportamiento que las funciones normales desencadenadas por colas. Esto significa que puede realizar operaciones de E/S, ejecutar operaciones de uso intensivo de CPU y utilizar varios subprocesos con seguridad. Dado que los desencadenadores de actividad no tienen estado, se escalan horizontalmente a un número ilimitado de máquinas virtuales sin problema.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Instalación de la extensión Durable Functions y ejemplos](durable-functions-install.md)

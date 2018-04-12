@@ -169,7 +169,7 @@ El último paso es crear una máquina virtual desde el disco administrado.
     ```
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este tutorial, ha restaurado un disco desde un punto de recuperación y, a continuación, ha creado una máquina virtual desde el disco. Ha aprendido a:
 
 > [!div class="checklist"]

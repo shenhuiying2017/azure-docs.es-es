@@ -731,7 +731,7 @@ Por ejemplo, para el trabajo de este documento, se usarían los siguientes pasos
     <archive>sqljdbc41.jar</archive>
     ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial ha aprendido a definir un flujo de trabajo de Oozie y a ejecutar un trabajo de Oozie. Para obtener más información sobre el trabajo con HDInsight, consulte los siguientes artículos:
 

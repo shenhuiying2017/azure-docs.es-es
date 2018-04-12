@@ -102,7 +102,7 @@ while(true)
 }
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Consulte los siguientes artículos para más información sobre las colas de Service Bus:
 

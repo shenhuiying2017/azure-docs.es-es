@@ -70,7 +70,7 @@ Implemente una máquina virtual de Windows que incluya una red virtual (con DNS)
 ## <a name="cancel-a-running-template-deployment"></a>Cancelación de una implementación de la plantilla en ejecución
 Para cancelar la implementación de una plantilla en ejecución, use el cmdlet `Stop-AzureRmResourceGroupDeployment` de PowerShell.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Implementación de plantillas con el portal](azure-stack-deploy-template-portal.md)
 
 [Información general sobre Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md)

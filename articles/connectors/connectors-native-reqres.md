@@ -108,6 +108,6 @@ A continuación se muestran los campos de entrada para la acción de respuesta H
 | encabezados |encabezados |Objeto JSON de cualquier encabezado de respuesta que incluir |
 | Cuerpo |Cuerpo |Cuerpo de la respuesta |
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Ahora, pruebe la plataforma y [cree una aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Puede explorar los demás conectores disponibles en aplicaciones lógicas consultando nuestra [lista de API](apis-list.md).
 

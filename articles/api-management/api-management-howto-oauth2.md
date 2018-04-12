@@ -131,7 +131,7 @@ Tras iniciar sesión, los **Encabezados de solicitud** se rellenan con el encabe
 
 Llegado a este punto, puede configurar los valores que desea para los demás parámetros y enviar la solicitud. 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información acerca del uso de OAuth 2.0 y Administración de API, vea el siguiente vídeo y el [artículo](api-management-howto-protect-backend-with-aad.md)que lo acompaña.
 
 

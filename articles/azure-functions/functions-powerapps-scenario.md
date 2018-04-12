@@ -218,7 +218,7 @@ Tiene una aplicación completa. Ahora es el momento de ejecutarla y ver las llam
 
 1. Pruebe las demás turbinas para ver qué devuelve la función cada vez.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este tema, ha aprendido cómo:
 
 > [!div class="checklist"]

@@ -146,7 +146,7 @@ Los filtros de fila se aplican a las rilas especificadas y a las filas relaciona
   
  Puede usar el filtro, *=FALSE()*, para denegar el acceso a todas las filas de una tabla completa.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
   [Administración de administradores del servidor](analysis-services-server-admins.md)   
   [Administración de Azure Analysis Services con PowerShell](analysis-services-powershell.md)  
   [Referencia Tabular Model Scripting Language (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)

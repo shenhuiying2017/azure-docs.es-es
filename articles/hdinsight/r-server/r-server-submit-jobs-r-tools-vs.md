@@ -143,7 +143,7 @@ Mediante una instancia de Microsoft R Server/Microsoft R Client desde un equipo 
     rxStopEngine(mySparkCluster)
     ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Opciones de contexto de proceso para R Server en HDInsight (versión preliminar)](r-server-compute-contexts.md)
 * La [combinación de ScaleR y SparkR](../hdinsight-hadoop-r-scaler-sparkr.md) proporciona un ejemplo de predicciones de retrasos en los vuelos.

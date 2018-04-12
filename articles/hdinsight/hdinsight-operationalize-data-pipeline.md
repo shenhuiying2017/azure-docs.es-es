@@ -654,7 +654,7 @@ Para ejecutar la canalización con un coordinador, proceda de forma similar a la
 
     Cada acción de esta lista se corresponde con una instancia del flujo de trabajo que procesa un día de datos, donde el inicio de ese día se indica en la hora nominal.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Documentación de Apache Oozie](http://oozie.apache.org/docs/4.2.0/index.html)
 

@@ -81,6 +81,6 @@ Si la región de Data Manager es diferente de la región de la definición del t
 
 ![Servicio y definición del trabajo en distintas regiones](./media/storsimple-data-manager-overview/data-manager-job-different-regions.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 [Manage using the StorSimple Data Manager service UI](storsimple-data-manager-ui.md) (Administración del uso de la interfaz de usuario del servicio StorSimple Data Manager).

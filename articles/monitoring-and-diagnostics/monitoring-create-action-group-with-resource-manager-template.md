@@ -168,7 +168,7 @@ Para crear un grupo de acciones mediante una plantilla de Resource Manager, cree
 ```
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Más información sobre los [grupos de acciones](monitoring-action-groups.md).
 * Obtenga más información sobre [alertas](monitoring-overview-alerts.md).
 * Aprenda a agregar [alertas mediante una plantilla de Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md).

@@ -56,7 +56,7 @@ Las reconfiguraciones pueden *bloquearse* por numerosas razones. Entre algunas d
 
 Use los informes de mantenimiento de componentes del sistema como System.FM, System.RA y System.RAP para diagnosticar dónde se bloquea una reconfiguración. En la [página de los informes de mantenimiento del sistema](service-fabric-understand-and-troubleshoot-with-system-health-reports.md) se describen estos informes de mantenimiento.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre los conceptos de Service Fabric, consulte los siguientes artículos:
 
 - [Ciclo de vida de Reliable Services: C#](service-fabric-reliable-services-lifecycle.md)

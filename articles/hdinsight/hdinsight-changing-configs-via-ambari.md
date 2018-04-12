@@ -456,7 +456,7 @@ El uso del búfer de asignación local de Memstore viene determinado por la prop
 ![hbase.hregion.memstore.mslab.enabled](./media/hdinsight-changing-configs-via-ambari/hbase-hregion-memstore-mslab-enabled.png)
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Administración de clústeres de HDInsight con la interfaz de usuario web de Ambari](hdinsight-hadoop-manage-ambari.md)
 * [API de REST de Ambari](hdinsight-hadoop-manage-ambari-rest-api.md)

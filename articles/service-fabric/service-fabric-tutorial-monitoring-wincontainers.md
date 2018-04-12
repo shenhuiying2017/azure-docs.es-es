@@ -230,7 +230,7 @@ De nuevo en Azure Portal, **actualice** su solución de Supervisión de contened
 ![Contadores de rendimiento 2](./media/service-fabric-tutorial-monitoring-wincontainers/perf-counters2.png)
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial aprendió lo siguiente:
 

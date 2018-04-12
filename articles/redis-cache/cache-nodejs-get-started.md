@@ -82,7 +82,7 @@ Salida:
     value
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Habilite los diagnósticos de cache](cache-how-to-monitor.md#enable-cache-diagnostics) para que pueda [supervisar](cache-how-to-monitor.md) el estado de la memoria caché.
 * Lea la [documentación de Redis](http://redis.io/documentation)oficial.
 

@@ -217,7 +217,7 @@ La plantilla ahora tiene el aspecto siguiente:
 
 Vuelva a implementar la plantilla modificada.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Para más información sobre el uso del portal para exportar una plantilla, vea [Exportación de plantillas de Azure Resource Manager desde recursos existentes](resource-manager-export-template.md).
 * Para definir parámetros de plantilla, consulte [Creación de plantillas](resource-group-authoring-templates.md#parameters).
 * Para obtener sugerencias para resolver los errores de implementación más comunes, consulte [Solución de errores comunes de implementación de Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md).

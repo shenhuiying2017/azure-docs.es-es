@@ -543,7 +543,7 @@ MH: 6
 FM: 5
 ```
 
-## <a name="next-steps"></a>pasos siguientes 
+## <a name="next-steps"></a>Pasos siguientes 
 
 * [Phoenix en HDInsight](../hdinsight-phoenix-in-hdinsight.md)
 * [Uso del SDK de REST para HBase](apache-hbase-rest-sdk.md)

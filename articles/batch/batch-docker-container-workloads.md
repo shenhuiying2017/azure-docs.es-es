@@ -237,7 +237,7 @@ CloudTask containerTask = new CloudTask (
 ```
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * Consulte también el kit de herramientas [Batch Shipyard](https://github.com/Azure/batch-shipyard) para facilitar la implementación de las cargas de trabajo del elemento contenedor en Azure Batch a través de la receta [Shipyard](https://github.com/Azure/batch-shipyard/tree/master/recipes).
 

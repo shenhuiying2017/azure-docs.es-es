@@ -139,7 +139,7 @@ Por ejemplo, un cliente A puede tener una aplicación con una instancia creada c
 
 Aunque este modelo ofrece flexibilidad, está prevista la compatibilidad con un modelo más sencillo de implementación basado en instancias donde los tipos son implícitos en el archivo de manifiesto. En este modelo, cada aplicación obtiene su propio manifiesto independiente. Esta iniciativa se va a trasladar a la versión preliminar agregando compatibilidad con el archivo docker-compose.yml, que es un formato de implementación basado en instancias.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * Descripción del [modelo de aplicación de Service Fabric](service-fabric-application-model.md)
 * [Introducción a la CLI de Service Fabric](service-fabric-cli.md)

@@ -36,6 +36,6 @@ Las plantillas de Resource Manager implementan y aprovisionan todos los recursos
 5. Haga clic en **Grupo de recursos**, elija un grupo de recursos existente o cree uno nuevo y, después, haga clic en **Aceptar**.
 6. Haga clic en **Create**(Crear). Un icono nuevo en el panel realiza el seguimiento del progreso de la implementación de la plantilla.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Implementación de plantillas con PowerShell](azure-stack-deploy-template-powershell.md)
 

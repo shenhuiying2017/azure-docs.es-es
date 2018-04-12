@@ -142,7 +142,7 @@ Seleccione **Verify Template** (Verificar plantilla) para verificar la configura
 
 ![Salida de consola](./media/jenkins-azure-vm-agents/console-output.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
 > [CI/CD en Azure App Service](java-deploy-webapp-tutorial.md)

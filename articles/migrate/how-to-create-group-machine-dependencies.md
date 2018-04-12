@@ -79,7 +79,7 @@ Para instalar al agente en una máquina Linux, siga estos pasos:
 
 Una vez creado el grupo, se recomienda instalar los agentes en todas las máquinas del grupo y restringir el grupo mediante la visualización de la dependencia de todo el grupo.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - [Obtenga información sobre cómo](how-to-create-group-dependencies.md) restringir el grupo mediante la visualización de las dependencias del grupo.
 - [Obtenga más información](concepts-assessment-calculation.md) sobre cómo se calculan las evaluaciones.

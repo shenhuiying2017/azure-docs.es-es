@@ -144,7 +144,7 @@ Nº La migración de un servicio a Azure Portal no afecta a StorSimple Snapshot 
 
 Nº No se puede cambiar el nombre de los dispositivos, volúmenes, contenedores de volúmenes ni directivas de copia de seguridad en Azure Portal.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Obtenga más información acerca de [Operaciones admitidas en dispositivos que ejecutan versiones anteriores a Update 5.0](storsimple-8000-manage-service.md#supported-operations-on-devices-running-versions-prior-to-update-50).
 

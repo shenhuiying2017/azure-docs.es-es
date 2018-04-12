@@ -77,7 +77,7 @@ Si tiene un recurso que ya está enviando datos a un área de trabajo de Log Ana
 
 Se le pedirá que responda a la misma información que cuando se ejecutó el script para realizar la configuración inicial.  
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * Obtenga información acerca de las [búsquedas de registros](log-analytics-log-searches.md) para analizar los datos recopilados de soluciones y orígenes de datos. 
 

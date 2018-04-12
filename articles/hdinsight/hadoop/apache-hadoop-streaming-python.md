@@ -201,7 +201,7 @@ Use el siguiente script de PowerShell para cargar los archivos, ejecutar el trab
 
     Este comando muestra una lista de palabras y el número de veces que aparecieron.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Ahora que aprendió a usar los trabajos de transmisión de MapReduce con HDInsight, use los siguientes vínculos para explorar otras formas de trabajar con HDInsight de Azure.
 

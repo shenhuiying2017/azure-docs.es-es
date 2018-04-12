@@ -90,7 +90,7 @@ Con los Servicios de dominio de Azure AD, puede disfrutar de las siguientes vent
 * **Rentabilidad** : con los Servicios de dominio de Azure AD, puede evitar el inconveniente de administración e infraestructura asociado con la administración de infraestructuras de identidad compatibles con las aplicaciones tradicionales que tienen en cuenta el directorio. Puede mover estas aplicaciones a los Servicios de infraestructura de Azure y beneficiarse de mayores ahorros en los gastos operativos.
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 ### <a name="learn-more-about-azure-ad-domain-services"></a>Más información sobre Azure AD Domain Services
 * [Características](active-directory-ds-features.md)
 * [Escenarios de implementación](active-directory-ds-scenarios.md)

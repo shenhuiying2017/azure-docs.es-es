@@ -72,7 +72,7 @@ Debe ver algo parecido al siguiente fragmento de código:
     ...
     ...
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Operaciones de sistema de archivos en Azure Data Lake Store con la API de REST](data-lake-store-data-operations-rest-api.md).
 
 ## <a name="see-also"></a>Otras referencias

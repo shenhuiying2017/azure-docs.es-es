@@ -183,7 +183,7 @@ Haga clic en Guardar para guardar la programación del runbook.
 
 ![Paso 10][10]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Ahora que comprende mejor cómo integrar la solución de problemas de Network Watcher con Azure Automation, aprenda a desencadenar capturas de paquetes en las alertas de máquina virtual consultando el artículo en el que se describe cómo [crear una captura de paquetes desencadenada mediante alertas con Azure Network Watcher](network-watcher-alert-triggered-packet-capture.md).
 

@@ -48,7 +48,7 @@ Las conexiones híbridas emplean protocolos WebSocket como mecanismo de transpor
 ||" |Sin |HTTP|  
 |[Clase WS2007HttpRelayBinding](/dotnet/api/microsoft.servicebus.ws2007httprelaybinding) (servicio)|Es posible usar el|9351/HTTP|
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información sobre Azure Relay, visite estos vínculos:
 * [¿Qué es Relay de Azure?](relay-what-is-it.md)
 * [Preguntas más frecuentes acerca de Relay](relay-faq.md)

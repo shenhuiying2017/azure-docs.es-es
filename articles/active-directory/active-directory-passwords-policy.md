@@ -146,7 +146,7 @@ Para empezar, debe [descargar e instalar el módulo de Azure AD PowerShell](http
    > [!WARNING]
    > La antigüedad de las contraseñas establecidas en `-PasswordNeverExpires $true` sigue basándose en el atributo `pwdLastSet`. Si establece las contraseñas de usuario para que no expiren nunca y pasan más de 90 días, las contraseñas expiran. En función del `pwdLastSet` atributo, si cambia la expiración a `-PasswordNeverExpires $false`, todas las contraseñas que tengan una `pwdLastSet` cuya antigüedad sea superior a 90 días requieren que el usuario las cambie la próxima vez que se inicie sesión. Este cambio puede afectar a gran cantidad de usuarios. 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En los siguientes artículos se proporciona información adicional sobre el restablecimiento de contraseña con Azure AD:
 

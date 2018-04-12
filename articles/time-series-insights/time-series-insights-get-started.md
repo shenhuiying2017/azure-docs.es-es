@@ -60,7 +60,7 @@ Siga estos pasos para crear un entorno:
 
 Cuando la implementación se realiza correctamente, puede seleccionar **Ir al recurso** para configurar otras propiedades, establecer la seguridad con directivas de acceso de datos, agregar orígenes de eventos y otras acciones.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Defina directivas de acceso de datos](time-series-insights-data-access.md) para proteger su entorno.
 * [Agregue un origen de eventos de Event Hubs](time-series-insights-how-to-add-an-event-source-eventhub.md) al entorno de Azure Time Series Insights. 
 * Realice el [envío de eventos](time-series-insights-send-events.md) al origen del evento.

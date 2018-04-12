@@ -81,7 +81,7 @@ Para comprobar si un dispositivo está unido a Azure AD, consulte el cuadro de d
 ![Obtener acceso a trabajo o escuela](./media/device-management-azuread-joined-devices-frx/13.png)
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Para obtener más información, vea [Introducción a la administración de dispositivos en Azure Active Directory](device-management-introduction.md).
 

@@ -51,7 +51,7 @@ Después de configurar Azure AD Privileged Identity Management, verá la hoja de
 - **Roles de directorios de Azure AD** situado en la sección de administración del menú de navegación a la izquierda, es el panel para que los administradores de roles con privilegios administren las asignaciones de roles, cambien la configuración de activación de roles e inicien revisiones del acceso, entre otras operaciones. Este panel está deshabilitado para todos aquellos que no sean administradores de roles con privilegios. Estos usuarios tienen acceso a un panel especial denominado My view (Mi vista). El panel My view (Mi vista) solo muestra información sobre el acceso al panel del usuario, no del inquilino completo.
 - **Recursos de Azure (versión preliminar)** situado en la sección de administración del menú de navegación a la izquierda, muestra una lista de recursos de suscripción para los que tiene que elegir las asignaciones de rol 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En la información general de [Azure AD Privileged Identity Management](active-directory-privileged-identity-management-configure.md) , se incluye más información sobre cómo administrar el acceso administrativo en una organización.
 
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]

@@ -35,5 +35,5 @@ Puede haber centros de datos de Azure que todavía no incluyan el Proxy de aplic
 
 Estamos trabajando en algunas funcionalidades adicionales que ayuden a mejorar la latencia de los inquilinos que actualmente experimentan largas latencias; compartiremos la documentación en cuanto esté disponible.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Trabajo con servidores proxy locales existentes](application-proxy-working-with-proxy-servers.md)

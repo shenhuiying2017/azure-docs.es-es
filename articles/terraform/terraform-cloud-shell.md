@@ -45,7 +45,7 @@ Los archivos y los estados de shell se conservan en Azure Storage entre sesiones
 La CLI de Azure 2.0 está disponible en Cloud Shell y es una fantástica herramienta para probar las configuraciones y comprobar el trabajo después de completarse una acción `terraform apply` o `terraform destroy`.
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 [Crear un pequeño clúster de VM mediante el registro de módulo](terraform-create-vm-cluster-module.md)
 [Crear un pequeño clúster de VM mediante HCL personalizado](terraform-create-vm-cluster-with-infrastructure.md)

@@ -33,7 +33,7 @@ Un espacio de nombres es un contenedor con un ámbito para todos los componentes
 
 Felicidades. Ha creado un espacio de nombres de mensajería de Service Bus.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Consulte nuestros [ejemplos de GitHub][github-samples], que muestran algunas de las características más avanzadas de la mensajería de Service Bus.
 

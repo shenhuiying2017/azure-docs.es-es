@@ -95,7 +95,7 @@ En el explorador, navegue a la dirección URL externa que configuró durante el 
 ![Prueba de la aplicación publicada](./media/application-proxy-publish-azure-portal/test-app.png)
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 - [Descargue conectores](active-directory-application-proxy-enable.md) y [cree grupos de conectores](active-directory-application-proxy-connectors-azure-portal.md) para publicar aplicaciones en ubicaciones y redes independientes.
 
 - [Configure el inicio de sesión único](application-proxy-sso-azure-portal.md) para la aplicación publicada recientemente.

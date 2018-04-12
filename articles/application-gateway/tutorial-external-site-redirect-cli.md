@@ -134,7 +134,7 @@ Para obtener la dirección IP pública de la puerta de enlace de aplicaciones, p
 
 En el explorador debe aparecer *bing.com*.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial aprendió lo siguiente:
 

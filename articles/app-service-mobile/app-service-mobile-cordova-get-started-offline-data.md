@@ -189,7 +189,7 @@ En esta sección se volverá a conectar la aplicación al back-end móvil, que s
 * [Sincronización de datos sin conexión en Azure Mobile Apps]
 * [Visual Studio Tools para Apache Cordova]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Examine características de sincronización sin conexión más avanzadas, como la resolución de conflictos, en el [ejemplo de sincronización sin conexión]
 * Examine la referencia de API de sincronización sin conexión en la [documentación de la API](https://azure.github.io/azure-mobile-apps-js-client).
 

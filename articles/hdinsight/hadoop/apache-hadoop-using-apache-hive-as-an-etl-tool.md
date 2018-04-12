@@ -94,7 +94,7 @@ Si el destino de los datos no es una base de datos, puede generar un archivo con
 
 Si necesita ejecutar varias operaciones en los datos como parte del proceso ETL, tenga en cuenta cómo los administra. Si las operaciones se controlan mediante un programa externo, en lugar de como un flujo de trabajo dentro de la solución, debe decidir si algunas operaciones se pueden ejecutar en paralelo y detectar cuándo se completa cada trabajo. Usar un mecanismo de flujo de trabajo como Oozie en Hadoop puede ser más sencillo que intentar crear una secuencia de operaciones mediante scripts externos o programas personalizados. Para obtener más información acerca de Oozie, consulte [Workflow and job orchestration](https://msdn.microsoft.com/library/dn749829.aspx) (Orquestación del trabajo y el flujo de trabajo).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [ETL at scale](apache-hadoop-etl-at-scale.md) (ETL a escala)
 * [Uso de una canalización de datos](../hdinsight-operationalize-data-pipeline.md)

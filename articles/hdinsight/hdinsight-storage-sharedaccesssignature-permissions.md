@@ -300,7 +300,7 @@ Una vez conectado al clúster, siga estos pasos para comprobar que solo puede le
 * Debe incluir al menos un carácter no alfanumérico.
 * Debe contener al menos una mayúscula o una minúscula.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Ahora que ha aprendido a agregar almacenamiento de acceso limitado al clúster de HDInsight, obtenga información acerca de otras maneras de trabajar con datos en el clúster:
 

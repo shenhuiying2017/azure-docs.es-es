@@ -235,7 +235,7 @@ Para que las API personalizadas estén disponibles para todos los usuarios de Lo
 
 * Para ayudar a mejorar Logic Apps, vote o envíe ideas en el [sitio de comentarios de usuario de Logic Apps](http://aka.ms/logicapps-wish). 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Control de errores y excepciones](../logic-apps/logic-apps-exception-handling.md)
 * [Llamada, desencadenamiento o anidamiento de aplicaciones lógicas con puntos de conexión HTTP](../logic-apps/logic-apps-http-endpoint.md)

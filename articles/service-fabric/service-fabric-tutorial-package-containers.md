@@ -365,7 +365,7 @@ Para eliminar la instancia de aplicación del clúster y anular el registro del 
   </Resources>
  </ServiceManifest>
 ```
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, se empaquetaron varios contenedores en una aplicación de Service Fabric mediante Yeoman. Esta aplicación se implementó y ejecutó en un clúster de Service Fabric. Se han completado los siguientes pasos:
 

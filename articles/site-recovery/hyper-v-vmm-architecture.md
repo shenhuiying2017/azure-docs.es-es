@@ -54,7 +54,7 @@ En la siguiente tabla y gráfico se proporciona una visión general de los compo
 
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 
 Siga [este tutorial](hyper-v-vmm-disaster-recovery.md) para habilitar la replicación de Hyper-V entre nubes de VMM.

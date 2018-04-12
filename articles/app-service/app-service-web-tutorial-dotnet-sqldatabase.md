@@ -413,7 +413,7 @@ De forma predeterminada, el portal muestra la página **Información general**. 
 
 <a name="next"></a>
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial aprendió lo siguiente:
 

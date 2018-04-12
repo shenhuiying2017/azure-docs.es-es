@@ -146,7 +146,7 @@ Si desea ver otras implementaciones de idioma, agregue una solicitud a [UserVoic
 
 La interfaz de usuario se ha creado mediante la biblioteca [React](https://facebook.github.io/react/) de javascript. El código fuente es de código abierto y está disponible para descargar y personalizar.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Ahora que tiene información general de las soluciones preconfiguradas del Conjunto de aplicaciones de IoT, estos son los pasos siguientes sugeridos para cada una de ellas:
 

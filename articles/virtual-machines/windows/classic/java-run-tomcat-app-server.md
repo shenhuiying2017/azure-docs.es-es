@@ -131,7 +131,7 @@ En este momento, el sitio web de Tomcat debe ser visible desde un explorador ext
 
     La ventaja de que Tomcat se inicie automáticamente es que comienza a funcionar cuando se reinicia la máquina virtual (por ejemplo, después de instalar actualizaciones de software que requieren un reinicio).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Puede obtener más información sobre otros servicios (como Azure Storage, Service Bus y SQL Database) que quiera incluir con las aplicaciones de Java. Vea la información disponible en [Centro para desarrolladores de Java](https://azure.microsoft.com/develop/java/).
 
 [virtual_machine_tomcat]:media/java-run-tomcat-app-server/WA_VirtualMachineRunningApacheTomcat.png

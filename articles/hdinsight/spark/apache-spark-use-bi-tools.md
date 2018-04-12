@@ -226,7 +226,7 @@ El objeto visual se ancla al panel. Puede agregar otros elementos visuales al in
 9. Click **Save** to save the worksheet. You can create dashboards and add one or more sheets to it.
 -->
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Hasta ahora ha aprendido a crear un clúster, a crear tramas de datos de Spark para consultar los datos y luego a acceder a esos datos desde herramientas de BI. Ahora puede ver instrucciones sobre cómo administrar los recursos de clúster y depurar los trabajos que se ejecutan en un clúster de HDInsight Spark.
 

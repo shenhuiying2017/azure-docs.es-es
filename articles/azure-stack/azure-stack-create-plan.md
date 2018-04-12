@@ -66,5 +66,5 @@ Los [planes](azure-stack-key-features.md) son agrupaciones de uno o varios servi
 
     ![](media/azure-stack-create-plan/image12.png)
 
-### <a name="next-steps"></a>pasos siguientes
+### <a name="next-steps"></a>Pasos siguientes
 [Creación de una oferta](azure-stack-create-offer.md)

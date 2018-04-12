@@ -67,7 +67,7 @@ Detenga la replicación como se indica a continuación:
 
    ![Deshabilitar replicación](media/azure-to-azure-quickstart/disable2-replication.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En esta guía de inicio rápido, se replica una única máquina virtual en una región secundaria.
 

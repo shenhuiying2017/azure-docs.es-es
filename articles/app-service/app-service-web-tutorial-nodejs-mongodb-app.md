@@ -491,7 +491,7 @@ De forma predeterminada, el portal muestra la página **Información general**. 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
 <a name="next"></a>
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 ¿Qué ha aprendido?
 

@@ -43,7 +43,7 @@ Si tiene un servidor de Analysis Services en Azure Portal, puede crear rápida y
 
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 [Tutorial de Adventure Works](/tutorials/aas-adventure-works-tutorial.md)   
 [Puerta de enlace de datos local de Azure](analysis-services-gateway.md)  

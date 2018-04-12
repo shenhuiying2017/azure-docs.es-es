@@ -97,6 +97,6 @@ Si la subred de origen y la de destino tienen distintos espacios de direcciones,
 
 Para modificar la dirección IP de destino de cada interfaz de red, vaya a la configuración de **Proceso y red** de la máquina virtual.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * Consulte la [Guía de redes para la replicación de máquinas virtuales de Azure](site-recovery-azure-to-azure-networking-guidance.md).

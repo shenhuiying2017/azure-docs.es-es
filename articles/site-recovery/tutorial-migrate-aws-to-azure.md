@@ -252,7 +252,7 @@ Ejecute una conmutación por error real para las instancias de EC2 a fin de migr
 
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tema, ha aprendido cómo migrar instancias de EC2 de AWS en máquinas virtuales de Azure. Para más información acerca de las máquinas virtuales de Azure, continúe con los tutoriales de máquinas virtuales Windows.
 

@@ -81,5 +81,5 @@ Se pueden realizar búsquedas tanto en las etiquetas de glosario como en las de 
 ## <a name="summary"></a>Resumen
 Mediante el uso del glosario empresarial en Azure Data Catalog y del etiquetado regulado que se puede identificar, administrar y detectar recursos de datos de forma coherente. El glosario empresarial pueden promover que los miembros de la organización aprendan el vocabulario empresarial. El glosario también admite la captura de metadatos descriptivos, lo que simplifica el conocimiento y la detección de recursos.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Documentación de API de REST para las operaciones del glosario empresarial](https://msdn.microsoft.com/library/mt708855.aspx)

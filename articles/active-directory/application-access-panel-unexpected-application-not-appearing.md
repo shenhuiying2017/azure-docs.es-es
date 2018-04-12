@@ -667,6 +667,6 @@ Para asignar una licencia a un grupo, siga estos pasos:
 >
 >
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Adición de nuevos usuarios a Azure Active Directory](active-directory-users-create-azure-portal.md)
 

@@ -174,7 +174,7 @@ Después de crear la puerta de enlace de aplicaciones con la dirección IP públ
 
     ![Prueba del sitio de fabrikam en la puerta de enlace de aplicaciones](./media/application-gateway-create-multisite-portal/application-gateway-iistest2.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este artículo, ha aprendido cómo:
 

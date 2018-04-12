@@ -34,5 +34,5 @@ ms.lasthandoff: 02/28/2018
 * Utilice la [herramienta de pruebas de conectividad](active-directory-aadconnect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service) para detectar problemas de conectividad.
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Preguntas más frecuentes de Azure AD Connect Health](active-directory-aadconnect-health-faq.md)

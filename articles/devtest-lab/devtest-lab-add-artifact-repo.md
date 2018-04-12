@@ -92,7 +92,7 @@ Para agregar un repositorio al laboratorio, obtenga cierta información clave de
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Después de haber creado el repositorio Git privado, puede hacer una o ambas de las acciones siguientes, dependiendo de sus necesidades:
 * Almacene sus [artefactos personalizados](devtest-lab-artifact-author.md). Puede usarlos más tarde para crear nuevas máquinas virtuales.
 * [Creación de entornos con varias máquinas virtuales y recursos de PaaS mediante plantillas de Resource Manager](devtest-lab-create-environment-from-arm.md). A continuación, puede almacenar las plantillas en el repositorio privado.

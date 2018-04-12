@@ -189,7 +189,7 @@ En distribuciones de Linux diferentes de Ubuntu 16.04, debe instalar manualmente
 
 Según la distribución, puede que deba instalar otros paquetes. Las [notas de la versión](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) del Explorador de Storage contienen pasos específicos para algunas distribuciones.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Si ninguna de las soluciones funciona, envíe su problema mediante la herramienta de comentarios con su dirección de correo electrónico y todos los detalles sobre el problema como sea posible, para que podemos ponernos en contacto con usted para corregir el problema.
 

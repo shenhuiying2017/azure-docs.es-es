@@ -83,7 +83,7 @@ Salida:
 }
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Obtenga más información sobre la implementación y administración de AKS con los tutoriales de AKS.
 

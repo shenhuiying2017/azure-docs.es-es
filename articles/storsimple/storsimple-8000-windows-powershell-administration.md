@@ -182,7 +182,7 @@ Puede actualizar fácilmente la Ayuda en la interfaz de Windows PowerShell. Real
 > Para obtener una lista de todos los cmdlets disponibles en un espacio de ejecución, inicie sesión en la opción de menú correspondiente y ejecute el cmdlet `Get-Command`.
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Si experimenta problemas con el dispositivo StorSimple al realizar uno de los flujos de trabajo anteriores, vea [Herramientas para solucionar problemas en implementaciones de StorSimple](storsimple-8000-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
 

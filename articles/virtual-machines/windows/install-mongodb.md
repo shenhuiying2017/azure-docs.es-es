@@ -161,6 +161,6 @@ Si es necesario, cree una regla de grupo de seguridad de red para permitir el ac
 > El puerto TCP 27017 es el puerto predeterminado que usa MongoDB. Para cambiarlo, use el parámetro `--port` al iniciar `mongod.exe` manualmente o desde un servicio. Si cambia el puerto, asegúrese de actualizar las reglas de Firewall de Windows y del grupo de seguridad de red en los pasos anteriores.
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este tutorial ha aprendido a instalar y configurar MongoDB en una máquina virtual Windows. Ahora puede acceder a MongoDB en una máquina virtual Windows siguiendo los temas avanzados de la [documentación de MongoDB](https://docs.mongodb.com/manual/).
 

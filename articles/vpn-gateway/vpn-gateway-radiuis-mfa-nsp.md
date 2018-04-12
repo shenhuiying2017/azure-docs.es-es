@@ -78,7 +78,7 @@ Para habilitar MFA, los usuarios deben estar en Azure Active Directory (Azure AD
 
     ![La imagen sobre la configuración de punto a sitio](./media/vpn-gateway-radiuis-mfa-nsp/configure-p2s.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 - [Integración de la infraestructura existente de NPS con Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-nps-extension.md)

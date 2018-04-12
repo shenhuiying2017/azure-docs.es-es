@@ -95,7 +95,7 @@ Este mecanismo no finaliza realmente la ejecución de la función de actividad e
 
 Para obtener un ejemplo más detallado de cómo implementar los tiempos de expiración en funciones de orquestador, consulte el tutorial [Las interacciones humanas en Durable Functions: comprobación telefónica de ejemplo](durable-functions-phone-verification.md).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Más información acerca de cómo generar y controlar eventos externos](durable-functions-external-events.md)

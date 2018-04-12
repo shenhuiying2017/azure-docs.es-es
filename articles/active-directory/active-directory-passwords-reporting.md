@@ -194,7 +194,7 @@ En la lista siguiente se explica en detalle esta actividad:
      >Un error no implica que un usuario no pueda restablecer su propia contraseña. Sino que no finaliza el proceso de registro. Si en la cuenta hay datos no comprobados que son correctos (como un número de teléfono no validado), todavía pueden usarse para restablecer la contraseña aunque no estén comprobados. Para obtener más información, vea [¿Qué ocurre cuando se registra un usuario?](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-learn-more#what-happens-when-a-user-registers).
      >
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [¿Cómo se realiza un lanzamiento correcto de SSPR?](active-directory-passwords-best-practices.md)
 * [Restablecimiento o modificación de la contraseña](active-directory-passwords-update-your-own-password.md).

@@ -65,7 +65,7 @@ Consulte [cómo eliminar una instancia de servicio de Azure AD Connect Health](a
 Para volver a habilitar la supervisión en Azure AD Connect Health en un servicio supervisado previamente eliminado, debe desinstalar y [volver a instalar el Agente de mantenimiento](active-directory-aadconnect-health-agent-install.md) en todos los servidores.
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Revisar la directiva de privacidad de Microsoft en Trust Center](https://www.microsoft.com/trustcenter)
 * [Azure AD Connect y GDPR](../../active-directory/connect/active-directory-aadconnect-gdpr.md)
 * [Operaciones de Azure AD Connect Health](active-directory-aadconnect-health-operations.md)

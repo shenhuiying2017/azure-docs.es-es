@@ -222,6 +222,6 @@ Lleve a cabo estos pasos para crear una función de Azure:
 
 Acaba de crear una función de Azure. Esta función se desencadena cada vez que el trabajo de transformación de datos genera un blob nuevo.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 [Uso de la IU de StorSimple Data Manager para transformar los datos](storsimple-data-manager-ui.md)

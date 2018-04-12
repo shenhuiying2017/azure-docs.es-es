@@ -138,7 +138,7 @@ El consumo por clientes del mismo grupo se controla mediante las particiones del
 
 Los registros almacenados en Kafka se almacenan en el orden en que se reciben dentro de una partición. Para lograr la entrega ordenada de registros *dentro de una partición*, cree un grupo de consumidores donde el número de instancias de consumidor coincida con el número de particiones. Para lograr la entrega ordenada de registros *dentro del tema*, cree un grupo de consumidores con solo una instancia de consumidor.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este documento, aprendió a usar Producer y Consumer API de Kafka con Kafka en HDInsight. Para más información sobre cómo trabajar con Kafka:
 

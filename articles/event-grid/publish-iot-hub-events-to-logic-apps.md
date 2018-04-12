@@ -222,7 +222,7 @@ Aunque conserve la instancia de IoT Hub, puede que desee eliminar la suscripció
 2. Seleccione la suscripción de eventos que desea eliminar. 
 3. Seleccione **Eliminar**. 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Obtenga más información sobre [reacción a eventos de IoT Hub mediante Event Grid para desencadenar acciones](../iot-hub/iot-hub-event-grid.md).
 

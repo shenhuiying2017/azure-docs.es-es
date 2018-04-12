@@ -102,7 +102,7 @@ En el servidor, compruebe la lista de servicios activos para el conector y el ac
 Para obtener información sobre los conectores y cómo actualizarlos, vea [Descripción de los conectores del Proxy de aplicación de Azure AD](application-proxy-understand-connectors.md).
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Ya está listo para la [publicación de aplicaciones mediante el proxy de aplicación](application-proxy-publish-azure-portal.md).
 
 Si tiene aplicaciones que están en redes independientes o en diferentes ubicaciones, use grupos de conectores para organizar los distintos conectores en unidades lógicas. Obtenga más información sobre cómo [trabajar con conectores de Proxy de aplicación](active-directory-application-proxy-connectors-azure-portal.md).

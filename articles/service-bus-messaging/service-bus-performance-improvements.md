@@ -267,7 +267,7 @@ Para maximizar el rendimiento, haga lo siguiente:
 * Deje habilitado el acceso al almacén de procesamiento por lotes. Esto aumenta la velocidad general con que se pueden escribir mensajes en el tema.
 * Establezca el número de capturas previas en el valor resultante de multiplicar por 20 la tasa de recepción esperada en segundos. Esto reduce el número de transmisiones del protocolo de cliente de Service Bus.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener más información sobre cómo optimizar el rendimiento de Service Bus, consulte [Entidades de mensajería con particiones][Partitioned messaging entities].
 

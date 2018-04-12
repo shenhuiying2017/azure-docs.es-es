@@ -94,7 +94,7 @@ Si va a continuar con un tutorial de Backup en el que se explique cómo restaura
     ![Eliminar el grupo de recursos desde Azure Portal](./media/quick-backup-vm-portal/delete-resource-group.png)
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En esta guía de inicio rápido, ha creado un almacén de Recovery Services, ha habilitado la protección en una máquina virtual y ha creado el punto de recuperación inicial. Para más información acerca de Azure Backup, y Recovery Services, continúe con los tutoriales.
 
 > [!div class="nextstepaction"]

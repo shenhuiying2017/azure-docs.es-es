@@ -238,7 +238,7 @@ Estos son los formatos de nombre de cada carpeta y archivo de mensajes EDIFACT d
 | Archivos de entrada, salida y, si se ha configurado, de confirmación | **Carga de entrada**: [sender]\_[receiver]\_EDIFACT\_[interchange-control-number]\_input_payload.txt </p>**Carga de salida**: [sender]\_[receiver]\_EDIFACT\_[interchange-control-number]\_output\_payload.txt </p></p>**Entradas**: [sender]\_[receiver]\_EDIFACT\_[interchange-control-number]\_inputs.txt </p></p>**Salidas**: [sender]\_[receiver]\_EDIFACT\_[interchange-control-number]\_outputs.txt |
 |          |             |
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Consulta de mensajes B2B en Operations Management Suite](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
 * [Esquemas de seguimiento de AS2](../logic-apps/logic-apps-track-integration-account-as2-tracking-schemas.md)

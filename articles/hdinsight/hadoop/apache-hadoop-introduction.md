@@ -160,7 +160,7 @@ Las herramientas de Business Intelligence (BI) habituales recuperan, analizan y 
 * [SQL Server Reporting Services](http://msdn.microsoft.com/library/ms159106.aspx)
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Introducción a Hadoop en HDInsight](apache-hadoop-linux-tutorial-get-started.md)
 * [Introducción a Spark en HDInsight](../spark/apache-spark-jupyter-spark-sql.md)

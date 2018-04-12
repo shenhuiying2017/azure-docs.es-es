@@ -248,7 +248,7 @@ Como referencia, el ejemplo finalizado (sin sus valores de configuración) [se p
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet.git```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Ahora puede pasar a temas más avanzados.  Es posible que desee probar:
 
 * [Proteger la API web TodoListService con el punto de conexión v2.0](active-directory-v2-devquickstarts-dotnet-api.md)

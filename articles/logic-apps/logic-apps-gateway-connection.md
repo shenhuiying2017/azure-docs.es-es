@@ -171,7 +171,7 @@ Para crear un recurso de puerta de enlace diferente, asociar la puerta de enlace
 
 [!INCLUDE [existing-gateway-location-changed](../../includes/logic-apps-existing-gateway-location-changed.md)]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Protección de las aplicaciones lógicas](./logic-apps-securing-a-logic-app.md)
 * [Ejemplos y escenarios habituales de las aplicaciones lógicas](./logic-apps-examples-and-scenarios.md)

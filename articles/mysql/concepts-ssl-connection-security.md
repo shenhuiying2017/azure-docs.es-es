@@ -27,5 +27,5 @@ Las cadenas de conexión para distintos lenguajes de programación se muestran e
 
 Para información sobre cómo habilitar o deshabilitar la conexión SSL al desarrollar la aplicación, consulte [Configuración de SSL](howto-configure-ssl.md). 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Bibliotecas de conexiones de Azure Database for MySQL](concepts-connection-libraries.md)

@@ -246,7 +246,7 @@ scp sshuser@clustername-ssh.azurehdinsight.net:test.txt .
 >
 > * [HDInsight mediante Azure Data Lake Store](hdinsight-hadoop-use-data-lake-store.md).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Uso de la tunelización de SSH con HDInsight](hdinsight-linux-ambari-ssh-tunnel.md)
 * [Uso de una red virtual con HDInsight](hdinsight-extend-hadoop-virtual-network.md)

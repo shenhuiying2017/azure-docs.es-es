@@ -151,7 +151,7 @@ Este script usa los siguientes comandos para crear la implementación. Cada elem
 | [New-AzureRmVM](/powershell/module/azurerm.resources/new-azurermvm)                                                 | Cree una máquina virtual.                                                                                                                                                            |
 | [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup)                     | Quita un grupo de recursos y todos los recursos incluidos en él.                                                                                                                         |
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener más información sobre el módulo de Azure PowerShell, consulte la [documentación de Azure PowerShell](/powershell/azure/overview).
 

@@ -167,7 +167,7 @@ En esta sección va a ejecutar el proyecto de WinApp de Xamarin para dispositivo
     >
     >
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Incorporación de autenticación a la aplicación](app-service-mobile-xamarin-forms-get-started-users.md)  
   Aprenda a autenticar a los usuarios de su aplicación con un proveedor de identidades.

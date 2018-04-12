@@ -52,6 +52,6 @@ Abra una sesión de Windows PowerShell con privilegios elevados en el entorno de
 
 También puede confirmar la copia de seguridad completada desde el portal de administración. Vaya a `\MASBackup\<datetime>\<backupid>\BackupInfo.xml`.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Obtenga más información sobre el flujo de trabajo para recuperarse de un evento de pérdida de datos. Consulte [Recover from catastrophic data loss](azure-stack-backup-recover-data.md) (Recuperación después de una pérdida de datos grave).

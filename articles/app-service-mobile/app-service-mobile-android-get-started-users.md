@@ -60,7 +60,7 @@ A continuación, actualice la aplicación para autenticar usuarios antes de soli
 ## <a name="cache-tokens"></a>Almacenamiento en caché de tokens de autenticación en el cliente
 [!INCLUDE [mobile-android-authenticate-app-with-token](../../includes/mobile-android-authenticate-app-with-token.md)]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Ahora que ha completado este tutorial de autenticación básica, considere la posibilidad de continuar con uno de los siguientes tutoriales:
 
 * [Incorporación de notificaciones push a la aplicación de Android](app-service-mobile-android-get-started-push.md)

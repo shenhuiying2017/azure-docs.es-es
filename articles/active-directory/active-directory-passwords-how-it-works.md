@@ -246,7 +246,7 @@ Para probar este escenario, vaya a http://passwordreset.microsoftonline.com con 
 > [!NOTE]
 > Las cuentas de Microsoft a las que se ha concedido acceso de invitado para su inquilino de Azure AD, como las de Hotmail.com, Outlook.com u otras direcciones de correo electrónico personales, no pueden usar SSPR de Azure AD. Para restablecer su contraseña, se debe usar la información que se encuentra en el artículo [Cuando no puedes iniciar sesión en tu cuenta Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En los siguientes artículos se proporciona información adicional sobre el restablecimiento de contraseña con Azure AD:
 

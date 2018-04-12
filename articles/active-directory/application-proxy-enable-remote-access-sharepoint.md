@@ -202,7 +202,7 @@ El último paso es asegurarse de que SharePoint puede encontrar el sitio en func
 
 Ahora puede tener acceso al sitio de SharePoint externamente mediante el proxy de aplicación de Azure AD.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - [Uso de dominios personalizados en el proxy de la aplicación de Azure AD](active-directory-application-proxy-custom-domains.md)
 - [Descripción de los conectores del Proxy de aplicación de Azure AD](application-proxy-understand-connectors.md)

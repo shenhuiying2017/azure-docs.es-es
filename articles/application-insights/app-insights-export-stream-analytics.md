@@ -220,7 +220,7 @@ Noam Ben Zeev muestra cómo procesar los datos exportados mediante Stream Analyt
 > 
 > 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Exportación continua](app-insights-export-telemetry.md)
 * [Referencia detallada del modelo de datos para los tipos y valores de propiedad.](app-insights-export-data-model.md)
 * [Application Insights](app-insights-overview.md)

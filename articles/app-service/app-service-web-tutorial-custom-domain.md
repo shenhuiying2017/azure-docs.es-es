@@ -324,7 +324,7 @@ Set-AzureRmWebApp `
 
 Para obtener más información, vea [Asignación de un dominio personalizado a una aplicación web](scripts/app-service-powershell-configure-custom-domain.md).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial aprendió lo siguiente:
 

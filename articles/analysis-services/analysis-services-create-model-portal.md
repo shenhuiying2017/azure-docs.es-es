@@ -72,7 +72,7 @@ El nuevo modelo aparece en el explorador. Desde aquí puede:
 > Al editar los metadatos del modelo o crear nuevas medidas en el explorador, está guardando los cambios del modelo en Azure. Si también está trabajando en el modelo en SSDT, Power BI Desktop o Excel, el modelo puede dejar de estar sincronizado.
 
 
-## <a name="next-steps"></a>pasos siguientes 
+## <a name="next-steps"></a>Pasos siguientes 
 [Administración de usuarios y roles de base de datos](analysis-services-database-users.md)  
 [Conexión con Excel](analysis-services-connect-excel.md)  
 

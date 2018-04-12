@@ -116,7 +116,7 @@ Para recuperar el URI de redireccionamiento, siga estos pasos.
 
 5. Repita los dos últimos pasos para conceder permisos también para **Service Management API de Windows Azure**.
    
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este artículo se ha creado una aplicación nativa de Azure AD y se ha recopilado la información que necesita en las aplicaciones cliente creadas mediante el SDK de .NET, el SDK de Java, la API de REST, etc. Ahora puede continuar en los artículos siguientes, que hablan de cómo usar la aplicación web de Azure AD para autenticarse primero en Data Lake Store y luego realizar otras operaciones en el almacén.
 
 * [End-user-authentication with Data Lake Store using Java SDK](data-lake-store-end-user-authenticate-java-sdk.md) (Autenticación de usuario final con Data Lake Store mediante el SDK de Java)

@@ -69,7 +69,7 @@ Si el usuario administrador de Azure Container Registry está deshabilitado, pue
 
 Para obtener más información, consulte [Autenticación con Azure Container Registry desde Azure Container Instances](../container-registry/container-registry-auth-aci.md).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Obtenga información sobre cómo crear contenedores, insertarlos en un registro de contenedor privado e implementarlos en Azure Container Instances al [completar el tutorial](container-instances-tutorial-prepare-app.md).
 

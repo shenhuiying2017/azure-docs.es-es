@@ -71,7 +71,7 @@ Seleccione **Update** (Actualizar) cuando esté listo.
 
 ![Edición de Kubernetes](./media/container-service-kubernetes-ui/edit-deployment.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre el panel de Kubernetes, vea la documentación de Kubernetes.
 

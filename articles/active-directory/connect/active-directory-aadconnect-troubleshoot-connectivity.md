@@ -197,5 +197,5 @@ Este error aparece cuando el Ayudante para el inicio de sesión no puede conecta
   ![netshshow](./media/active-directory-aadconnect-troubleshoot-connectivity/netshshow.png)
 * Si es correcta, siga los pasos descritos en [Comprobación de la conectividad de proxy](#verify-proxy-connectivity) para ver si el problema está presente también fuera del asistente.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).

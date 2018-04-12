@@ -55,7 +55,7 @@ El lenguaje tiene muchas características atractivas:
 
 La [referencia del lenguaje completa](https://go.microsoft.com/fwlink/?linkid=856079) detalla todos los comandos admitidos y se actualiza periódicamente.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Introducción al [portal de Analytics](https://go.microsoft.com/fwlink/?linkid=856587)
 * Introducción a la [escritura de consultas](https://go.microsoft.com/fwlink/?linkid=856078)
 * Consulte la [hoja de referencia rápida de usuarios de SQL](https://aka.ms/sql-analytics) para ver las traducciones de las expresiones más comunes.

@@ -137,7 +137,7 @@ Ahora, podemos usar el campo personalizado como cualquier otra propiedad del reg
 
 ![Agrupar por consulta](media/log-analytics-custom-fields/query-group.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Si desea crear consultas con campos personalizados en función de unos criterios, obtenga más información acerca de las [búsquedas de registros](log-analytics-log-searches.md) .
 * Supervise los [archivos de registro personalizados](log-analytics-data-sources-custom-logs.md) que se analizan con campos personalizados.
 

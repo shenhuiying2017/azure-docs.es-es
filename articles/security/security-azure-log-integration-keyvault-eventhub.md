@@ -179,7 +179,7 @@ Ejecute el comando AzLog para cada centro de eventos:
 
 Aproximadamente un minuto después de la ejecución de los dos últimos comandos, deberían empezar a generarse los archivos JSON. Puede confirmarlo supervisando el directorio **C:\usuarios\AzLog\EventHubJson**.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - [Preguntas más frecuentes sobre la integración de registro de Azure](security-azure-log-integration-faq.md)
 - [Introducción a la integración de registros de Azure](security-azure-log-integration-get-started.md)

@@ -224,7 +224,7 @@ En este momento, Kafka y Azure Container Service se están comunicando a través
     > [!WARNING]
     > Puede que reciba varias copias de un mensaje. Normalmente, este problema se produce al actualizar el explorador después de conectarse o al abrir varias conexiones de explorador a la aplicación.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Use los vínculos siguientes para aprender a usar a Apache Kafka en HDInsight:
 

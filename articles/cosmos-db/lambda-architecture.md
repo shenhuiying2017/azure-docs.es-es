@@ -278,7 +278,7 @@ Con este diseño, solo tiene dos servicios administrados, Azure Cosmos DB y HDIn
     * El script de escala [Streaming Query from Cosmos DB Change Feed](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Streaming%20Query%20from%20Cosmos%20DB%20Change%20Feed.scala) (Consulta de streaming a partir de la fuente de cambios de Cosmos DB) ejecuta una consulta de streaming a partir de la fuente de cambios de Azure Cosmos DB para calcular un recuento de intervalos desde el shell de Spark.
     * El script de escala [Streaming Tags Query from Cosmos DB Change Feed](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Streaming%20Tags%20Query%20from%20Cosmos%20DB%20Change%20Feed%20.scala) (Consulta de etiquetas de streaming a partir de la fuente de cambios de Cosmos DB) ejecuta una consulta de streaming a partir de la fuente de cambios de Azure Cosmos DB para calcular un recuento de etiquetas de intervalos desde el shell de Spark.
   
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Si aún no lo ha hecho, descargue el conector de Spark a Azure Cosmos DB del repositorio de GitHub [azure-documentdb-spark](https://github.com/Azure/azure-cosmosdb-spark) y explore los recursos adicionales del repositorio:
 * [Arquitectura lambda](https://github.com/Azure/azure-cosmosdb-spark/tree/master/samples/lambda)
 * [Ejemplos de agregaciones distribuidas](https://github.com/Azure/azure-documentdb-spark/wiki/Aggregations-Examples)

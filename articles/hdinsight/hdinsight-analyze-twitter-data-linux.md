@@ -326,7 +326,7 @@ Estos comandos almacenan los datos en una ubicación a la que pueden tener acces
     > [!NOTE]
     > Si cambió el filtro en el script `gettweets.py`, reemplace **Azure** por uno de los filtros que usó.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Ha aprendido cómo transformar un conjunto de datos JSON no estructurado en una tabla de Hive estructurada. Para obtener más información sobre Hive en HDInsight, consulte los siguientes documentos:
 

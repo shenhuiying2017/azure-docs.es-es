@@ -120,7 +120,7 @@ El _acceso condicional_ es una característica de pago de Azure Active Directory
 
 Las demás opciones de la directiva de acceso condicional permiten especificar exactamente cuándo debe exigirse la verificación en dos pasos. Por ejemplo, puede crear una directiva como la siguiente: cuando los contratistas intenten acceder a nuestra aplicación de compras desde redes en las que no se confía en dispositivos que no están unidos a un dominio, requerir la verificación en dos pasos. 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Obtener sugerencias sobre los [procedimientos recomendados para el acceso condicional](../active-directory/active-directory-conditional-access-best-practices.md).
 

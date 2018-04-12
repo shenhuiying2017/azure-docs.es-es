@@ -437,7 +437,7 @@ Esta es una tabla que describe cuáles, de los diversos parámetros de Windows P
 | RemoteManagementMode    | Indica si el dispositivo puede administrarse de manera remota a través de su interfaz de Windows PowerShell. |
 | FipsMode                | Indica si el modo FIPS (Federal Information Processing Standard) de Estados Unidos está habilitado en el dispositivo. El estándar FIPS 140 define algoritmos criptográficos aprobados para su uso por parte de los sistemas informáticos del Gobierno federal de los Estados Unidos a fin de garantizar la protección de los datos confidenciales. Para dispositivos que ejecutan Update 4 o posterior, el modo FIPS está habilitado de forma predeterminada. |
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * Conozca acerca de la [sintaxis del cmdlet Invoke-HcsDiagnostics](https://technet.microsoft.com/library/mt795371.aspx).
 

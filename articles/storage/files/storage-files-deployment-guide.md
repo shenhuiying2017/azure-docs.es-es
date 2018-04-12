@@ -153,7 +153,7 @@ do
 done
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 - [Planeamiento de una implementación de Azure Files Sync](storage-sync-files-planning.md)
 - [Solución de problemas de Azure Files en Windows](storage-troubleshoot-windows-file-connection-problems.md)
 - [Solución de problemas de Azure Files en Linux](storage-troubleshoot-linux-file-connection-problems.md)

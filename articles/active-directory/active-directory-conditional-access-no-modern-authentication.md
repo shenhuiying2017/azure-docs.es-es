@@ -178,7 +178,7 @@ Mediante la aplicación de las tres reglas siguientes:
     c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value =~ "(/adfs/ls)|(/adfs/oauth2)"]
     => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para más información, consulte [Acceso condicional en Azure Active Directory](active-directory-conditional-access-azure-portal.md)
 

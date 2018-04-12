@@ -70,7 +70,7 @@ En la página Información general, asegúrese de que **ESTADO DEL DISCO** apare
 9. Cuando haya terminado, haga clic en **Aceptar**. 
 10. Si la configuración de la VM supera la validación, haga clic en **Aceptar** para iniciar la implementación.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 También puede usar PowerShell para [cargar un VHD en Azure y crear una VM especializada](create-vm-specialized.md).
 

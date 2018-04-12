@@ -119,7 +119,7 @@ Para más información acerca de API Management, vea la siguiente presentación 
 > 
 > 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Complete la guía de inicio rápido siguiente y empiece a usar Azure API Management:
 

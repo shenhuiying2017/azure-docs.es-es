@@ -162,7 +162,7 @@ El período de retención de los datos recopilados que se almacenan en la base d
 ## <a name="4-use-log-analytics-to-access-the-data"></a>4. Uso de Log Analytics para acceder a los datos
 Para acceder al área de trabajo de Log Analytics puede iniciar sesión en Azure Portal mediante la cuenta de la organización o la cuenta Microsoft configurada anteriormente. Todo el tráfico que circula entre el portal y el servicio Log Analytics se envía por un canal seguro HTTPS. Al usar el portal, se genera un identificador de sesión en el cliente del usuario (explorador web) y los datos se almacenan en una caché local hasta que finalice la sesión. Cuando termina, se elimina la memoria caché. Las cookies del cliente, que no contienen información de identificación personal, no se quitan automáticamente. Las de sesión se marcan con HTTPOnly y se protegen. Después de un periodo de inactividad predeterminado, se termina la sesión de Azure Portal.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Aprenda a recopilar datos con Log Analytics para las máquinas virtuales de Azure con la [guía de inicio rápido de máquinas virtuales de Azure](log-analytics-quick-collect-azurevm.md).  
 
 *  Si desea recopilar datos desde equipos físicos o virtuales de Windows o Linux del entorno, consulte la [guía de inicio rápido para equipos con Linux](log-analytics-quick-collect-linux-computer.md) o la [guía de inicio rápido para equipos con Windows](log-analytics-quick-collect-windows-computer.md)

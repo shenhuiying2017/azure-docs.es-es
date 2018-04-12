@@ -117,6 +117,6 @@ Una vez realizados estos pasos, la aplicación está configurada para usar el pr
 
 Para obtener más información sobre el estado de sesión y otros procedimientos recomendados, consulte [Procedimientos recomendados de desarrollo web (compilación de aplicaciones en la nube reales con Azure)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Consulte [Proveedor de caché de resultados de ASP.NET para Azure Redis Cache](cache-aspnet-output-cache-provider.md).
 

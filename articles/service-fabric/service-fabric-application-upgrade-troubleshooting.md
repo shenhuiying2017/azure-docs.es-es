@@ -213,7 +213,7 @@ No se puede producir un error de actualización con mayor rapidez que *HealthChe
 
 El tiempo de actualización de un dominio de actualización está limitado por *UpgradeDomainTimeout*.  Si *HealthCheckRetryTimeout* y *HealthCheckStableDuration* son distintos de cero y el estado de la aplicación continúa pasando de atrás para adelante, la actualización agotará el tiempo de espera en *UpgradeDomainTimeout*. *UpgradeDomainTimeout* comienza la cuenta atrás cuando comienza la actualización para el dominio de actualización actual.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [actualización de aplicaciones usando Visual Studio](service-fabric-application-upgrade-tutorial.md) ofrece información para actualizar una aplicación mediante Visual Studio.
 
 [actualización de aplicaciones mediante PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) se explica en detalle lo que tiene que hacer para actualizar una aplicación mediante PowerShell.

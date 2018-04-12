@@ -110,7 +110,7 @@ Cuando el registro se abra, podrá ver los eventos de almacenamiento. Como puede
 
 [Explorador de Storage](https://azure.microsoft.com/features/storage-explorer/) es otra herramienta que se puede usar para interactuar con sus cuentas de almacenamiento, incluido el contenedor **$logs** y los registros contenidos en él.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En la parte número cuatro y última de la serie, aprendió a supervisar la cuenta de almacenamiento y solucionar sus problemas. Mas concretamente, aprendió a:
 

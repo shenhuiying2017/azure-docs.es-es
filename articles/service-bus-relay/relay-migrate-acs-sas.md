@@ -59,7 +59,7 @@ Esta configuración nueva y adicional de SAS se puede establecer localmente en c
 
 Las reglas de SAS no están diseñadas para ser cuentas, pero se denominan claves de firma asociadas a derechos. Por tanto, los escenarios en los que la aplicación crea varias identidades de servicio y les concede derechos de acceso para varias entidades o el espacio de nombres completo siguen requiriendo un intermediario que emita tokens. [Póngase en contacto con el soporte técnico](https://azure.microsoft.com/support/options/) si necesita instrucciones relativas a este tipo intermediario.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre la autenticación de Azure Relay, vea los siguientes temas:
 

@@ -95,7 +95,7 @@ Cuando se crean máquinas virtuales de Azure desde el almacenamiento después de
 
    La red virtual tarda unos segundos en crearse. Una vez creada, se ve en el panel de Azure Portal.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Preparar la infraestructura de VMware local para la recuperación ante desastres en Azure](tutorial-prepare-on-premises-vmware.md)

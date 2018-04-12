@@ -178,7 +178,7 @@ De forma predeterminada, App Service no responde con composer.json, si tiene uno
    
     ![Implementación de GIT con la automatización de Composer en Azure](./media/web-sites-php-configure/composer-extension-success.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para más información, vea el [Centro para desarrolladores de PHP](/develop/php/).
 
 > [!NOTE]

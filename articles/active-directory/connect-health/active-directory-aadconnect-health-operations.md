@@ -155,7 +155,7 @@ Puede quitar un usuario o un grupo agregado al control de acceso basado en rol d
 
 [//]: # (End of RBAC section)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
 * [Instalación del Agente de Azure AD Connect Health](active-directory-aadconnect-health-agent-install.md)
 * [Uso de Azure AD Connect Health con AD FS](active-directory-aadconnect-health-adfs.md)

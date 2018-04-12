@@ -265,6 +265,6 @@ Realice los pasos siguientes para pasar el cable del puerto serie.
 
 Ha completado el cableado de alimentación, acceso a la red y conexión en serie del dispositivo. El siguiente paso es configurar el software en el dispositivo.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Ahora está listo para [implementar y configurar el dispositivo StorSimple local](storsimple-8000-deployment-walkthrough-u2.md).
 

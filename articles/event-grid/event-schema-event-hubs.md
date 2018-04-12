@@ -80,7 +80,7 @@ El objeto data tiene las siguientes propiedades:
 | firstEnqueueTime | cadena | Primera vez desde la cola. |
 | lastEnqueueTime | cadena | Última vez desde la cola. |
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * Para una introducción a Azure Event Grid, consulte [Introducción a Azure Event Grid](overview.md).
 * Para más información acerca de la creación de una suscripción de Azure Event Grid, consulte [Esquema de suscripción de Event Grid](subscription-creation-schema.md).

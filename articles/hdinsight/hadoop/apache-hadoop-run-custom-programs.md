@@ -77,7 +77,7 @@ Los programas MapReduce más comunes se escriben en Java y se compilan en un arc
 
     Este comando envía el trabajo MapReduce a YARN. El archivo de entrada es `/example/data/sample.log`, y el directorio de salida, `/example/data/logoutput`. El archivo de entrada y los archivos de salida se almacenan en el almacenamiento predeterminado del clúster.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Uso de C# con el streaming de MapReduce en Hadoop en HDInsight](apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
 * [Desarrollo de programas MapReduce de Java para Hadoop en HDInsight](apache-hadoop-develop-deploy-java-mapreduce-linux.md)

@@ -85,5 +85,5 @@ Al volver a registrar un origen de datos ya registrado se realiza una operación
 ## <a name="summary"></a>Resumen
 Dado que este copia los metadatos estructurales y descriptivos de un origen de datos en el servicio de catálogo, el registro del origen de datos en Data Catalog hace que los datos sean más fáciles de detectar y entender. Después de haber registrado el origen de datos, puede anotarlo, administrarlo y detectarlo a través del portal de Data Catalog.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre el registro de orígenes de datos, consulte el tutorial [Introducción a Azure Data Catalog](data-catalog-get-started.md).

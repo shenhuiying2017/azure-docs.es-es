@@ -99,7 +99,7 @@ La página **Panel** muestra los KPI del sistema:
 
 Puede usar el filtro **KPI del sistema** para ajustar el intervalo de tiempo de la agregación de KPI. De manera predeterminada, el panel muestra los KPI agregados durante la última hora.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Este tutorial muestra cómo usar la página **Panel** para filtrar y supervisar los camiones simulados aprovisionados en la solución de supervisión remota:
 

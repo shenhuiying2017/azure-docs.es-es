@@ -214,7 +214,7 @@ Agregue los paquetes NuGet de la biblioteca de .NET Standard [ **Microsoft.Azure
 
 Felicidades. Recibió mensajes de un centro de eventos mediante el host de procesador de eventos.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para más información acerca de Event Hubs, visite los vínculos siguientes:
 
 * [Información general de Event Hubs](event-hubs-what-is-event-hubs.md)

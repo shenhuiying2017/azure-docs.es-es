@@ -48,7 +48,7 @@ Este grupo de Office 365 se representará como un grupo de distribución en AD D
 >
 >
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Continúe su [Instalación personalizada de Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).

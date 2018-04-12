@@ -61,7 +61,7 @@ En el uso basado en el consumo se incluye una [cuenta de integración](logic-app
 
 Azure Logic Apps también ofrece cuentas de integración básicas y estándar con Acuerdos de Nivel de Servicio de Logic Apps admitidos. Puede utilizar cuentas de integración básicas cuando desee utilizar solo el control de mensajes, o actuar como un partner de pequeña empresa que tenga una relación de partners comerciales con una entidad empresarial mayor. Las cuentas de integración estándar admiten relaciones más complejas entre empresas y permiten aumentar el número de entidades que se pueden administrar. Para obtener más información, consulte [Precios de Azure](https://azure.microsoft.com/pricing/details/logic-apps).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Más información acerca de Logic Apps][whatis]
 * [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS][create]

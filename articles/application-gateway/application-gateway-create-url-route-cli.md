@@ -239,7 +239,7 @@ Cambie la dirección URL a http://<dirección ip>:8080/video/test.html y verá a
 
 ![Prueba de la dirección URL de vídeo en la puerta de enlace de aplicaciones](./media/application-gateway-create-url-route-cli/application-gateway-nginx-video.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial aprendió lo siguiente:
 

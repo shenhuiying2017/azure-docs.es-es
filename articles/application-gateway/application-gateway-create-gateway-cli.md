@@ -180,7 +180,7 @@ Cuando ya no se necesiten, puede usar el comando [az group delete](/cli/azure/gr
 az group delete --name myResourceGroupAG
 ```
  
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En esta guía de inicio rápido se ha creado un grupo de recursos, recursos de red y servidores back-end. A continuación, se han usado esos recursos para crear una puerta de enlace de aplicaciones. Para más información acerca de las puertas de enlace de aplicaciones y sus recursos asociados, vaya a los artículos de procedimientos.
 

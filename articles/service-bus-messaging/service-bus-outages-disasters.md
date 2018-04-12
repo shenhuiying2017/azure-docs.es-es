@@ -81,7 +81,7 @@ El ejemplo de [replicación geográfica con mensajes asincrónicos de Service Bu
 
 Service Bus admite tanto la recuperación ante desastres con localización geográfica como la replicación geográfica en el nivel del espacio de nombres. Para obtener más información, consulte [Recuperación ante desastres con localización geográfica de Azure Service Bus](service-bus-geo-dr.md). La característica de recuperación ante desastres, disponible solo para la [SKU premium](service-bus-premium-messaging.md), implementa la recuperación ante desastres de metadatos y depende de espacios de nombres de recuperación ante desastres principales y secundarios.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información acerca de la recuperación ante desastres, consulte estos artículos:
 
 * [Recuperación ante desastres con localización geográfica de Azure Service Bus](service-bus-geo-dr.md)

@@ -108,5 +108,5 @@ Si el aprovisionamiento está configurado y ya se está ejecutando para una apli
 
 Si están habilitados los grupos de aprovisionamiento, asegúrese de revisar las asignaciones de atributos para asegurarse de que se utiliza un campo apropiado para el "identificador coincidente". Esto puede ser el nombre para mostrar o el alias de correo electrónico, ya que el grupo y sus miembros no se han aprovisionado si la propiedad coincidente está vacía o no se rellenado para un grupo en Azure AD.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](active-directory-saas-app-provisioning.md)

@@ -177,5 +177,5 @@ Azure Site Recovery Deployment Planner puede generar el informe de costos en cua
 |SAR|Saudi Riyal (SR)||SEK|Corona sueca (kr)||TWD|Dólar taiwanés (NT$)|
 |TRY|Lira turca (TL)||USD| Dólar estadounidense (USD)||ZAR|Rand sudafricano (R)|
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Más información sobre cómo proteger [máquinas virtuales de Hyper-V en Azure mediante Site Recovery](hyper-v-azure-tutorial.md).

@@ -38,7 +38,7 @@ Para obtener acceso individual a un registro, como, por ejemplo, al extraer manu
 
 [!INCLUDE [container-registry-service-principal](../../includes/container-registry-service-principal.md)]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Cuando disponga de una entidad de servicio con acceso a su registro de contenedor, podrá usar sus credenciales en aplicaciones y servicios para interactuar con el registro.
 

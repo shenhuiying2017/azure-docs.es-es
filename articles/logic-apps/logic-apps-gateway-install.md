@@ -340,7 +340,7 @@ Puede encontrar los registros de Data Management Gateway y PowerBIGateway en **R
 
 [Fiddler](http://www.telerik.com/fiddler) es una herramienta gratuita de Telerik que supervisa el tráfico HTTP. Puede ver este tráfico con el servicio Power BI desde la máquina cliente. Este servicio puede mostrar errores y otra información relacionada.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
     
 * [Conexión a datos locales desde aplicaciones lógicas](../logic-apps/logic-apps-gateway-connection.md)
 * [Características de Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md)

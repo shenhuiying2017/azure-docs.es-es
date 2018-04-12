@@ -123,7 +123,7 @@ En el ejemplo siguiente, la empresa tiene dos centros de datos, A y B, con dos c
 
 ![Sin grupos de conectores de Azure AD](./media/application-proxy-publish-apps-separate-networks/application-proxy-sample-config-3.png)
  
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Descripción de los conectores del Proxy de aplicación de Azure AD](application-proxy-understand-connectors.md)
 * [Habilitar el inicio de sesión único](application-proxy-sso-overview.md)

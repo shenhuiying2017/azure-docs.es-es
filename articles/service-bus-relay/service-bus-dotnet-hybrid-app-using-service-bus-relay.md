@@ -451,7 +451,7 @@ Antes de ejecutar la aplicación en la nube, debe asegurarse de que **ProductsPo
 
     ![][38]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre Relay de Azure, consulte los siguientes recursos:  
 

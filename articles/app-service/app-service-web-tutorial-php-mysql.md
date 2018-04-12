@@ -610,7 +610,7 @@ El menú izquierdo proporciona varias páginas para configurar la aplicación.
 
 <a name="next"></a>
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial aprendió lo siguiente:
 

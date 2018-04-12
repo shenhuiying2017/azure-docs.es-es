@@ -59,5 +59,5 @@ Un proxy transparente (también conocido como proxy interceptor, alineado o forz
 
 ![Proxy transparente](media/azure-stack-border-connectivity/transparent-proxy.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Integración de DNS](azure-stack-integrate-dns.md)

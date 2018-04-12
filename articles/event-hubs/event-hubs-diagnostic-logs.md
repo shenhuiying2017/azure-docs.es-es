@@ -136,7 +136,7 @@ Example:
 }
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Introducción a Event Hubs](event-hubs-what-is-event-hubs.md)
 * [Introducción a la API de Event Hubs](event-hubs-api-overview.md)
 * [Introducción a Event Hubs](event-hubs-dotnet-standard-getstarted-send.md)

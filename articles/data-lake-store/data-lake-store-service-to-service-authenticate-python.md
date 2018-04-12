@@ -120,7 +120,7 @@ Use this snippet to authenticate with Azure AD for account management operations
     mgmt_token = context.acquire_token_with_client_certificate(resource_uri, client_id, client_cert, client_cert_thumbprint)
     credentials = AADTokenCredentials(mgmt_token, client_id) -->
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este artículo, ha aprendido cómo usar la autenticación entre servicios para autenticarse en Azure Data Lake Store con Python. Ahora puede consultar los siguientes artículos, que tratan sobre cómo usar Python con Azure Data Lake Store.
 
 * [Operaciones de administración de cuentas en Data Lake Store con Python](data-lake-store-get-started-python.md)

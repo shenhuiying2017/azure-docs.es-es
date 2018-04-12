@@ -73,7 +73,7 @@ Para definir el nombre del recurso de la aplicación administrada, debe incluir 
 ## <a name="functions"></a>Functions
 CreateUiDefinition proporciona funciones similares a las funciones de plantilla de Azure Resource Manager (tanto en sintaxis como en funcionalidad) para trabajar con las entradas y salidas de los elementos, así como características como los condicionales.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 El propio archivo createUiDefinition.json tiene un esquema simple. Su profundidad real procede de todos los elementos y funciones que admite. Dichos elementos se describen con más detalle en:
 
 - [Elementos](create-uidefinition-elements.md)

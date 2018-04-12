@@ -82,6 +82,6 @@ Después de agregar las máquinas virtuales o los grupos de replicación a un pl
 6. Para asegurarse de que el script funciona según lo previsto, realice una conmutación por error de prueba del plan de recuperación.
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Aprenda más sobre la [ejecución de conmutaciones por error](site-recovery-failover.md).
 

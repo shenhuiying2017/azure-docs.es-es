@@ -146,5 +146,5 @@ El siguiente fragmento de código elimina la cuenta de Data Lake Store que creó
 * [Operaciones de sistema de archivos en Azure Data Lake Store con el SDK de .NET](data-lake-store-data-operations-net-sdk.md)
 * [Referencia de SDK de .NET de Data Lake Store](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Protección de los datos en Data Lake Store](data-lake-store-secure-data.md)

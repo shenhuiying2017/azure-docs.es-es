@@ -30,7 +30,7 @@ Puede comprar instancias reservadas de máquina virtual en [Azure Portal](https:
 
     ![Captura de pantalla antes de enviar la compra de reserva](./media/virtual-machines-buy-compute-reservations/virtualmachines-reservedvmInstance-submit.png)
 
-## <a name="next-steps"></a>pasos siguientes 
+## <a name="next-steps"></a>Pasos siguientes 
 El descuento de la reserva se aplica automáticamente el número de máquinas virtuales en ejecución que coincidan con el ámbito y los atributos de la reserva. Puede actualizar el ámbito de la reserva a través de [Azure Portal](https://portal.azure.com), PowerShell, CLI o a través de la API. 
 
 Para obtener información sobre cómo administrar una reserva, vea [Azure Reserved Virtual Machine Instances](../articles/billing/billing-manage-reserved-vm-instance.md).

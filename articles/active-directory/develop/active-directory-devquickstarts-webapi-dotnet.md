@@ -147,7 +147,7 @@ Para poder ver el servicio de lista de tareas pendientes en acción, debe config
   * `ida:ClientId` es el id. de aplicación que copió de Azure Portal.
   * `todo:TodoListResourceId` es el URI de id. de aplicación de la aplicación del servicio de lista de tareas pendientes que escribió en Azure Portal.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Por último, limpie, compile y ejecute cada proyecto. Si aún no lo ha hecho, ahora es el momento de crear un nuevo usuario en su inquilino con un dominio *.onmicrosoft.com. Inicie sesión en el cliente de lista de tareas pendientes con ese usuario y agregue algunas tareas a la lista de tareas pendientes del usuario.
 
 Como referencia, en [GitHub](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip) está disponible el ejemplo finalizado (sin sus valores de configuración). Ahora puede continuar con más escenarios de identidad.

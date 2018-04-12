@@ -61,6 +61,6 @@ Siga estos pasos para quitar a un usuario específico de un rol:
 
 Si no está seguro de si los usuarios necesitan aún sus asignaciones de roles, puede [iniciar una revisión de acceso del rol](active-directory-privileged-identity-management-how-to-start-security-review.md).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 

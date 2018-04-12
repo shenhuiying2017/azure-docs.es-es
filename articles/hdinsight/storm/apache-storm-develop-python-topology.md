@@ -149,7 +149,7 @@ Para detener la topología, use __Ctrl+C__.
 > * El botón **Terminar** en la interfaz de usuario de Storm.
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Consulte los siguientes documentos para ver otras maneras de usar Python con HDInsight.
 

@@ -92,7 +92,7 @@ Si no está seguro de cómo usar la autenticación multifactor, siempre puede ca
 6. Confirme que desea eliminar esa contraseña haciendo clic en **Sí**.
 7. Una vez que la contraseña se elimina, puede hacer clic en **cerrar**.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - [Administrar la configuración de la verificación en dos pasos](multi-factor-authentication-end-user-manage-settings.md)
 

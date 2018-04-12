@@ -38,7 +38,7 @@ Los administradores del servidor deben ser un usuario o grupo válido en Azure A
    
     ![Incorporación de administradores de servidor en SSMS](./media/analysis-services-server-admins/aas-manage-users-ssms.png)
 
-## <a name="next-steps"></a>pasos siguientes 
+## <a name="next-steps"></a>Pasos siguientes 
 [Permisos de usuario y autenticación](analysis-services-manage-users.md)  
 [Manage database roles and users](analysis-services-database-users.md) (Administración de roles y usuarios de una base de datos)  
 [Control de acceso basado en roles](../active-directory/role-based-access-control-what-is.md)  

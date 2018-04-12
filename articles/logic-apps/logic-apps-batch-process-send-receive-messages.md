@@ -200,7 +200,7 @@ La aplicación lógica BatchSender se ejecuta cada minuto, genera un número ale
 > [!IMPORTANT]
 > Cuando haya terminado las pruebas, asegúrese de que deshabilita la aplicación lógica BatchSender para detener el envío de mensajes y evitar la sobrecarga de la bandeja de entrada.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Generar definiciones de aplicación lógica mediante el uso de JSON](../logic-apps/logic-apps-author-definitions.md)
 * [Cree una aplicación sin servidor en Visual Studio con Azure Logic Apps y Functions](../logic-apps/logic-apps-serverless-get-started-vs.md)

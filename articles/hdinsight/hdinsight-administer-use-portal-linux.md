@@ -364,7 +364,7 @@ La sección **Uso** de la hoja del clúster de HDInsight muestra información so
 * [Uso de Hive con HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md)
 * [Uso de SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este artículo ha aprendido algunas funciones administrativas básicas. Para obtener más información, consulte los artículos siguientes:
 

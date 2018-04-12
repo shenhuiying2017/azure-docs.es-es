@@ -272,7 +272,7 @@ Se muestran el sitio de NGINX protegido y la aplicación Node.js, como en el eje
 ![Ver el sitio de NGINX seguro en funcionamiento](./media/tutorial-automate-vm-deployment/secured-nginx.png)
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este tutorial, ha configurado las máquinas virtuales en el primer inicio con cloud-init. Ha aprendido a:
 
 > [!div class="checklist"]

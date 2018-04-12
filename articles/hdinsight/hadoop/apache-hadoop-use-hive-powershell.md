@@ -110,7 +110,7 @@ Este cmdlet devuelve la información que se escribió en STDERR durante el proce
 
 Como puede ver, Azure PowerShell proporciona una manera fácil de ejecutar consultas de Hive en un clúster de HDInsight, de supervisar el estado del trabajo y de recuperar la salida.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener información general acerca de Hive en HDInsight:
 

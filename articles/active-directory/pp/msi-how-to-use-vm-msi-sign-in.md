@@ -98,7 +98,7 @@ Si recibe uno de estos errores, vuelva a la máquina virtual de Azure en [Azure 
 
 Si alguna de las opciones no es correcta, puede que tenga que volver a asignar de nuevo la identidad de servicio administrada al recurso o solucionar el error de implementación. Consulte [Configuración de la identidad de servicio administrada (MSI) de máquina virtual con la CLI de Azure](msi-qs-configure-cli-windows-vm.md), si necesita ayuda con la configuración de la máquina virtual.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Para habilitar MSI en una máquina virtual de Azure, consulte [Configuración de la identidad de servicio administrada (MSI) de una máquina virtual con la CLI de Azure](msi-qs-configure-cli-windows-vm.md).
 

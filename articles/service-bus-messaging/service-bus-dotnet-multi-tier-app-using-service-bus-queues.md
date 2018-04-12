@@ -358,7 +358,7 @@ Ahora creará el rol de trabajo que procesa los envíos del pedido. Este ejemplo
     
     ![][20]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información sobre Service Bus, consulte los siguientes recursos:  
 
 * [Elementos fundamentales de Service Bus](service-bus-fundamentals-hybrid-solutions.md)

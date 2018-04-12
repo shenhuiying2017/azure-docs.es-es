@@ -203,7 +203,7 @@ Ahora puede usar la imagen personalizada para crear máquinas virtuales cuando s
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Aprenda a [crear entornos de varias máquinas virtuales con plantillas de Resource Manager](devtest-lab-create-environment-from-arm.md).
 * Explore más plantillas de inicio rápido de Resource Manager para la automatización de DevTest Labs desde el [repositorio público de GitHub de DevTest Labs](https://github.com/Azure/azure-quickstart-templates).
 * Si es necesario, consulte la página de [solución de problemas de VSTS](https://docs.microsoft.com/vsts/build-release/actions/troubleshooting).

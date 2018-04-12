@@ -115,5 +115,5 @@ El [rol de guion de procedimientos azure_preview_module](https://galaxy.ansible.
 
 El rol de guion de procedimientos azure_preview_module se publica cada tres semanas.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para más información relacionada con los roles de guion de procedimientos, consulte [Creating Reusable Playbooks](http://docs.ansible.com/ansible/latest/playbooks_reuse.html) (Creación de guiones de procedimientos reutilizables). 

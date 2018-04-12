@@ -58,6 +58,6 @@ Con esto, ha terminado de configurar el conector de validación. En una aplicaci
 
 Para probar la acción de validación realice una solicitud al punto de conexión HTTP.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Más información sobre Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Información sobre Enterprise Integration Pack")   
 

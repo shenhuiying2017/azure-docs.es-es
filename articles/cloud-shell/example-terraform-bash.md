@@ -186,6 +186,6 @@ Destroy complete! Resources: 1 destroyed.
 
 Ha creado correctamente un recurso de Azure a través de Terraform. Consulte los pasos siguientes para seguir aprendiendo acerca de Cloud Shell.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Más información sobre el proveedor de Terraform de Azure](https://www.terraform.io/docs/providers/azurerm/#)<br>
 [Guía de inicio rápido de Bash en Cloud Shell](quickstart.md)

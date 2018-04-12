@@ -322,7 +322,7 @@ az vmss disk detach \
 ```
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este tutorial, ha creado un conjunto de escalado de máquinas virtuales. Ha aprendido a:
 
 > [!div class="checklist"]

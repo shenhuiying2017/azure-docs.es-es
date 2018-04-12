@@ -164,7 +164,7 @@ Para eliminar el recurso de Application Insights:
 1. En el menú izquierdo de Azure Portal, haga clic en **Grupos de recursos** y después elija el grupo de recursos en que se creó el recurso de Application Insights.
 2. Abra el recurso de Application Insights que desea eliminar. Después haga clic en **Eliminar** en el menú superior del recurso y confirme. Se eliminará de forma permanente la copia de los datos exportados a Application Insights.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Información sobre la forma en que los clientes usan la aplicación](app-insights-usage-overview.md)

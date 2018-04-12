@@ -115,7 +115,7 @@ Sin embargo, es posible que desee una escalación más agresiva en el día, o en
 11. Asegúrese de crear una regla tanto para el escalado horizontal como para la reducción horizontal; si no, cuando el perfil esté en vigor, el recuento de instancias únicamente crecerá (o disminuirá).
 12. Finalmente, haga clic en **Guardar**.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Supervise las métricas de servicio](insights-how-to-customize-monitoring.md) para asegurarse de que el servicio está disponible y responde correctamente.
 * [Habilite la supervisión y el diagnóstico](insights-how-to-use-diagnostics.md) para recopilar métricas detalladas de alta frecuencia en su servicio.
 * [Reciba notificaciones de alerta](insights-receive-alert-notifications.md) cada vez que se produzcan eventos de operaciones o las métricas traspasen un umbral.

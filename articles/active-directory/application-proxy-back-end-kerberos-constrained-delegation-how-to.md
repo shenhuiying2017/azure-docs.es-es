@@ -178,5 +178,5 @@ Si todavía no puede solucionar el problema, el equipo de soporte técnico estar
 
 -   Autenticación de dos saltos: se utiliza normalmente en escenarios con una aplicación en niveles, con un back-end y un front-end, ambos de los cuales requieren autenticación, como SQL Reporting Services.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Configuración de la delegación limitada de Kerberos (KCD) en un dominio administrado](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-enable-kcd)

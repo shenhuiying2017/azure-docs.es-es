@@ -84,7 +84,7 @@ Por lo general se recomienda JSON y Apache Avro como formatos de carga de datos 
 
 Las variantes de .NET Standard y la API de Java solo aceptan matrices de bytes, lo que significa que la aplicación debe administrar el control de la serialización de objetos. 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre la mensajería de Service Bus, consulte los siguientes temas:
 

@@ -225,5 +225,5 @@ Esta es la configuración del archivo de paginación en la máquina virtual de A
 
 ![Configuración del archivo de paginación en la máquina virtual de Azure](./media/hyper-v-exclude-disk/pagefile-on-Azure-vm-after-failover-2.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Después de que la implementación esté configurada y en ejecución, [obtenga más información](site-recovery-failover.md) sobre los diferentes tipos de conmutación por error.

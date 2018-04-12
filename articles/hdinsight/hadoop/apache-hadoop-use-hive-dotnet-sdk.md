@@ -140,7 +140,7 @@ El resultado de la aplicación será similar a la imagen siguiente:
 
 ![Salida de trabajo de Hive para Hadoop en HDInsight](./media/apache-hadoop-use-hive-dotnet-sdk/hdinsight-hadoop-use-hive-net-sdk-output.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este artículo, ha aprendido varias maneras de crear un clúster de HDInsight. Para obtener más información, consulte los artículos siguientes:
 
 * [Introducción a Azure HDInsight](apache-hadoop-linux-tutorial-get-started.md)

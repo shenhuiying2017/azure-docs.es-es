@@ -102,7 +102,7 @@ El inquilino debe tener una licencia de Azure AD Premium asociada para acceder a
 Además de a través de la interfaz de usuario, los informes de Azure Active Directory también le proporcionan [acceso mediante programación](active-directory-reporting-api-getting-started-azure-portal.md) a los datos de los informes. Los datos de estos informes pueden ser muy útiles para las aplicaciones, como sistemas SIEM, auditorías y herramientas de inteligencia empresarial. Las API de generación de informes de Azure AD proporcionan acceso mediante programación a los datos a través de un conjunto de API de REST. Estas API pueden llamarse desde una variedad de lenguajes de programación y herramientas. 
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Si desea obtener más información sobre los distintos tipos de informes en Azure Active Directory, consulte:
 

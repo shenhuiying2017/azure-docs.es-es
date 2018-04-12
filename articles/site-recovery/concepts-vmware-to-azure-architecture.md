@@ -90,6 +90,6 @@ Cuando el sitio local principal esté disponible de nuevo, podrá realizar una c
 ![Conmutación por recuperación](./media/concepts-vmware-to-azure-architecture/enhanced-failback.png)
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Siga [este tutorial](tutorial-vmware-to-azure.md) para habilitar la replicación de VMware en Azure.

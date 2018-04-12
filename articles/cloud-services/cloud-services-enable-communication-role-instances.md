@@ -369,6 +369,6 @@ Permitir solo el tráfico de red de **WebRole1** a **WorkerRole1**, **WebRole1**
 
 Puede encontrar una referencia del esquema XML de los elementos usados anteriormente [aquí](https://msdn.microsoft.com/library/azure/gg557551.aspx).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre el [modelo](cloud-services-model-and-package.md)del servicio en la nube.
 

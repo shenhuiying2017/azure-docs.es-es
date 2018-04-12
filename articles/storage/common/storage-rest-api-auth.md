@@ -566,7 +566,7 @@ Content-Length: 1135
 
 En este artículo, aprendió a realizar una solicitud a la API de REST de almacenamiento de blobs para recuperar una lista de contenedores o una lista de blobs de un contenedor. También aprendió a crear la firma de autorización de la llamada a la API de REST, cómo usarla en la solicitud de REST y cómo examinar la respuesta.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Blob Service REST API](/rest/api/storageservices/blob-service-rest-api) (API de REST de Blob service)
 * [File Service REST API](/rest/api/storageservices/file-service-rest-api) (API de REST de File Service)

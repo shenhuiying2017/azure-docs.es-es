@@ -100,5 +100,5 @@ En líneas generales, este problema indica que los 10 GB de tamaño de la base d
 * Para obtener instrucciones acerca de cómo configurar una instancia remota de SQL con Azure AD Connect, consulte el artículo [Instalación personalizada de Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-get-started-custom).
 * Para obtener instrucciones relacionadas con la migración alterna de una actualización de Azure AD Connect, consulte el artículo [Azure AD Connect: actualización de una versión anterior a la versión más reciente](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version#swing-migration).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).

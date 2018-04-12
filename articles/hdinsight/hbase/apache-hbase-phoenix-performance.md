@@ -233,7 +233,7 @@ Si el escenario favorece la velocidad de escritura por sobre la integrar de dato
 
 Para detalles sobre esta y otras opciones, consulte [Phoenix Grammar](http://phoenix.apache.org/language/index.html#options) (Gramática de Phoenix).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Phoenix Tuning Guide](https://phoenix.apache.org/tuning_guide.html) (Guía de ajuste de Phoenix)
 * [Secondary Indexes](http://phoenix.apache.org/secondary_indexing.html) (Índices secundarios)

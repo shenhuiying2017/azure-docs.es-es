@@ -66,7 +66,7 @@ Siga estos pasos para conceder acceso a datos a una entidad de seguridad de usua
 
    ![Administración del origen de Time Series Insights: resultados](media/data-access/getstarted-grant-data-access5.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Aprenda a [agregar un origen del evento del centro de eventos al entorno de Azure Time Series Insights](time-series-insights-how-to-add-an-event-source-eventhub.md).
 * Realice el [envío de eventos](time-series-insights-send-events.md) al origen del evento.
 * Vea el entorno en el [explorador de Time Series Insights](https://insights.timeseries.azure.com).

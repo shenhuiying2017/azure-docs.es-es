@@ -53,7 +53,7 @@ Si aprovisiona 1000 RU/s, esto asciende a 3,6 millones de RU/hora y costará 0,0
 
 La mayoría de los almacenes de blobs u objetos básicos cobran 0,40 USD por cada millón de transacciones de lectura y 5 USD por cada millón de transacciones de escritura. Si se usa de forma óptima, Cosmos DB puede ser hasta un 98 % más económico que estas otras soluciones (para transacciones de 1 KB).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Permanezca atento para buscar nuevos artículos sobre la optimización del aprovisionamiento de recursos de Azure Cosmos DB. Mientras tanto, no dude en usar nuestra [calculadora de RU](https://www.documentdb.com/capacityplanner).
 

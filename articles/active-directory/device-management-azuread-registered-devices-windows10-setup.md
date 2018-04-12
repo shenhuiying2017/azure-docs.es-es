@@ -102,7 +102,7 @@ Como alternativa, también puede consultar la configuración del dispositivo en 
 
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Para obtener más información, vea [Introducción a la administración de dispositivos en Azure Active Directory](device-management-introduction.md).
 

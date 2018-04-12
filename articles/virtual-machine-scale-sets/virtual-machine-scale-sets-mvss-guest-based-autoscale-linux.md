@@ -186,6 +186,6 @@ Por último, agregue un recurso `autoscaleSettings` para configurar el escalado 
 
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]

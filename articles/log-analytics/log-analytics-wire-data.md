@@ -448,6 +448,6 @@ Se crea un registro con un tipo de _WireData_ para cada tipo de datos de entrada
 | RemoteIPLatitude | Valor de latitud IP |
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - [Búsquedas de registros en Log Analytics](log-analytics-log-searches.md) para más información sobre cómo ver registros de búsqueda de datos de conexión detallados.

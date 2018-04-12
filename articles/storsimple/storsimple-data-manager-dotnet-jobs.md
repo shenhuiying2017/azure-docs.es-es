@@ -199,6 +199,6 @@ Realice los pasos siguientes si desea usar .NET para iniciar un trabajo de trans
 
  ![Fragmento de código completo para desencadenar un trabajo de .NET](media/storsimple-data-manager-dotnet-jobs/start-dotnet-job-code-snippet.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 [Manage using the StorSimple Data Manager service UI](storsimple-data-manager-ui.md) (Administración del uso de la interfaz de usuario del servicio StorSimple Data Manager).

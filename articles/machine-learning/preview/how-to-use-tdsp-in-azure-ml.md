@@ -110,7 +110,7 @@ También proporcionamos una plantilla [ProjectLearnings](https://aka.ms/tdspamlg
 ### <a name="example-project-report"></a>Informe del proyecto de ejemplo
 Puede obtener un [informe del proyecto de ejemplo](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome/blob/master/docs/deliverable_docs/ProjectReport.md). Este informe del [proyecto de ejemplo de clasificación de ingresos de EE. UU.](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) muestra la creación de instancias y el uso de la plantilla del TDSP para un proyecto de ciencia de datos.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para facilitar la comprensión acerca de cómo pueden usarse las plantillas y la estructura del TDSP en proyectos de Machine Learning, se proporcionan varios ejemplos de proyectos completados en la documentación de Azure Machine Learning:
 
 - Para ver un ejemplo que muestra cómo crear un proyecto de TDSP en Machine Learning, consulte el [Proyecto de ejemplo del proceso de ciencia de datos en equipo: Clasificación de ingresos a partir de los datos del censo de EE. UU. en Azure Machine Learning](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome).

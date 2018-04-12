@@ -81,7 +81,7 @@ Para configurar un contenedor local de Docker y hacer que un clúster de Service
     > [!NOTE]
     > El complemento de Eclipse no se admite actualmente en Windows. 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Introducción a [Eclipse](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-eclipse)
 * Consulte otros [ejemplos de Java](https://github.com/Azure-Samples/service-fabric-java-getting-started).
 

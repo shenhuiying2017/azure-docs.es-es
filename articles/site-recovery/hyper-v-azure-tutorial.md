@@ -110,5 +110,5 @@ Site Recovery comprueba que tiene una o más redes y cuentas de Azure Storage co
 
  Puede hacer un seguimiento del progreso de la acción **Habilitar protección** en **Trabajos** > **Trabajos de Site Recovery**. Una vez concluido el trabajo **Finalizar protección**, la replicación inicial finaliza y la máquina virtual está preparada para la conmutación por error.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Exploración de la recuperación ante desastres](tutorial-dr-drill-azure.md)

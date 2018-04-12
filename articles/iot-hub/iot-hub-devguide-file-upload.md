@@ -143,7 +143,7 @@ Otros temas de referencia en la guía del desarrollador de IoT Hub son los sigui
 * En [Lenguaje de consulta de IoT Hub][lnk-query], se describe el lenguaje de consulta que se puede usar para recuperar información de IoT Hub sobre los trabajos y dispositivos gemelos.
 * En [Compatibilidad con MQTT de IoT Hub][lnk-devguide-mqtt], se proporciona más información sobre la compatibilidad de IoT Hub con el protocolo MQTT.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Ahora que ha aprendido a cargar los archivos desde dispositivos con IoT Hub, puede interesarle el siguiente tema de la Guía del desarrollador de IoT Hub:
 

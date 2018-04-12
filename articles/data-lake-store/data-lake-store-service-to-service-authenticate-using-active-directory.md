@@ -97,7 +97,7 @@ Al iniciar sesión mediante programación, necesita el identificador de la aplic
 
     ![Punto de conexión de token de OAuth](./media/data-lake-store-authenticate-using-active-directory/oauth-token-endpoint-1.png "Punto de conexión de token de OAuth")   
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este artículo ha creado creó una aplicación web de Azure AD y ha recopilado la información que necesita en las aplicaciones cliente que cree mediante SDK de .NET, Java, Python, API de REST, etc. Ya puede pasar a los artículos siguientes, en los que se explica cómo usar la aplicación nativa de Azure AD primero para autenticarse en Data Lake Store y luego realizar otras operaciones en el almacén.
 
 * [Autenticación entre servicios con Data Lake Store mediante Java](data-lake-store-service-to-service-authenticate-java.md)

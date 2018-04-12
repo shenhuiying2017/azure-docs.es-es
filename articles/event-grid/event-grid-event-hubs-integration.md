@@ -207,7 +207,7 @@ Ya ha terminado de configurar el centro de eventos, el SQL Data Warehouse, la ap
 
 6. Compile la solución. Ejecute la aplicación WindTurbineGenerator.exe. Transcurridos unos minutos, realice una consulta en la tabla del almacenamiento de datos relativa a los datos migrados.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * Para obtener una introducción a Event Grid, vea [Acerca de Event Grid](overview.md).
 * Para obtener una introducción a la función de captura de Event Hubs, vea [Habilitación de la funcionalidad de captura de Event Hubs mediante Azure Portal](../event-hubs/event-hubs-capture-enable-through-portal.md).

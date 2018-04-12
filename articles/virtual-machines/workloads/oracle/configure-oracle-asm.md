@@ -580,7 +580,7 @@ Automated Storage Management de Oracle se ha configurado correctamente en la ima
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 [Tutorial: Configuración de Oracle DataGuard](configure-oracle-dataguard.md)
 

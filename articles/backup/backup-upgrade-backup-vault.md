@@ -99,7 +99,7 @@ La supervisión de copias de seguridad (agente de MARS e IaaS) es una caracterí
 **¿Cómo se informa de un problema?**</br>
 Si se produce un error en cualquier parte de la actualización del almacén, tenga en cuenta el identificador de la operación que figura en el error. Soporte técnico de Microsoft trabajará proactivamente para resolver el problema. Puede conectar con el soporte técnico o enviarnos un correo electrónico a rsvaultupgrade@service.microsoft.com con su identificador de suscripción, el nombre del almacén y el identificador de la operación. Intentaremos resolver el problema lo antes posible. No vuelva a intentar la operación a menos que Microsoft se lo indique explícitamente.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Use los artículos siguientes para realizar estos pasos:</br>
 [Copia de seguridad de una máquina virtual de IaaS](backup-azure-arm-vms-prepare.md)</br>
 [Copia de seguridad de Azure Backup Server](backup-azure-microsoft-azure-backup.md)</br>

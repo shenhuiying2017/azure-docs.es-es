@@ -51,7 +51,7 @@ En este artículo se explica cómo crear y rellenar un nuevo grupo en Azure Acti
    ![Creación de la confirmación de grupo](./media/active-directory-groups-create-azure-portal/create-group-confirmation.png)
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Estos artículos proporcionan información adicional sobre Azure Active Directory.
 
 * [Consulta de los grupos existentes](active-directory-groups-view-azure-portal.md)

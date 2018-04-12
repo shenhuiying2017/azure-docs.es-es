@@ -241,7 +241,7 @@ Ahora, vamos a usar el portal para implementar la aplicación administrada. Pued
 
 Una vez que finalice la implementación, la aplicación administrada existirá en un grupo de recursos llamado applicationGroup. La cuenta de almacenamiento existe en un grupo de recursos llamado applicationGroup más un valor de cadena con hash.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * Para una introducción a las aplicaciones administradas, consulte [Introducción a las aplicaciones administradas](overview.md).
 * Para ver ejemplos de proyectos, consulte [Sample projects for Azure managed applications](sample-projects.md) (Ejemplos de proyectos para aplicaciones administradas de Azure).

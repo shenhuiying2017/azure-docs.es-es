@@ -178,7 +178,7 @@ Haga clic en los vínculos para abrir el Explorador de métricas y Búsqueda en 
 
 Modifique los filtros y el intervalo de tiempo para explorar la telemetría.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Estas herramientas de diagnóstico lo ayudarán a inspeccionar los datos de telemetría de su aplicación:
 
 * [Generador de perfiles](app-insights-profiler.md) 

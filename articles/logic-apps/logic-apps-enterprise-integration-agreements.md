@@ -74,5 +74,5 @@ Puede eliminar cualquier acuerdo siguiendo estos pasos:
 
     La hoja de contratos ya no muestra el contrato que se eliminó.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Creación de un contrato AS2](logic-apps-enterprise-integration-as2.md)

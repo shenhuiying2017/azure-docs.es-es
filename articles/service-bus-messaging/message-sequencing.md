@@ -45,7 +45,7 @@ El valor de **SequenceNumber** de un mensaje programado solo es válido mientras
 
 Dado que la característica está anclada en mensajes individuales y los mensajes solo pueden ponerse en cola una vez, Service Bus no admite las programaciones recurrentes de los mensajes.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre la mensajería de Service Bus, consulte los siguientes temas:
 

@@ -148,7 +148,7 @@ Si tiene previsto explorar el ejemplo del servicio de C#, no elimine los recurso
     1. Cierre la ventana del simulador de TPM y la ventana de salida de ejemplo para el dispositivo simulado.
     2. En Azure Portal, vaya a la instancia de IoT Hub donde se aprovisionó el dispositivo. En el menú izquierdo bajo **Exploradores**, haga clic en **Dispositivos IoT**, active la casilla situada junto a su dispositivo y, a continuación, haga clic en **Eliminar** en la parte superior de la ventana.
  
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En esta guía de inicio rápido, creó una entrada de inscripción individual mediante programación para un dispositivo de TPM y, opcionalmente, creó un dispositivo de TPM simulado en su máquina y lo aprovisionó con IoT Hub mediante el servicio Azure IoT Hub Device Provisioning. Para más información acerca del aprovisionamiento de dispositivos, continúe con el tutorial para instalar el servicio Device Provisioning en Azure Portal. 
  
 > [!div class="nextstepaction"]

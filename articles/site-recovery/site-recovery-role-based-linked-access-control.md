@@ -75,7 +75,7 @@ Un usuario necesita los siguientes permisos para completar la replicación de un
 
 Considere el uso de los [roles integrados](../active-directory/role-based-access-built-in-roles.md) "Colaborador de la máquina virtual" y "Colaborador de la máquina virtual clásica" respectivamente para la implementación según el modelo de Resource Manager o el clásico.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Uso de asignaciones de roles para administrar el acceso a los recursos de la suscripción de Azure](../active-directory/role-based-access-control-configure.md): introducción a RBAC en Azure Portal.
 * Aprenda a administrar el acceso con:
   * [PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md)

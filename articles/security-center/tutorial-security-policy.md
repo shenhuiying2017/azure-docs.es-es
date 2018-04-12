@@ -89,7 +89,7 @@ Si desea deshabilitar el aprovisionamiento automático:
 > La deshabilitación del aprovisionamiento automático no quita Microsoft Monitoring Agent de las máquinas virtuales de Azure en las que se ha aprovisionado el agente. La deshabilitación del aprovisionamiento automático limita la supervisión de seguridad de los recursos.
 >
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este tutorial, ha aprendido los conceptos básicos acerca de la definición de directivas y evaluación de la seguridad de la carga de trabajo con Security Center. Conceptos como:
 
 > [!div class="checklist"]

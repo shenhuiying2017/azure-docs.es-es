@@ -179,7 +179,7 @@ Cuando la agrupación en clústeres está habilitada, cada partición de la memo
 Después de una reescritura, hay dos conjuntos de archivos AOF en el almacenamiento. Las operaciones de reescritura se producen en segundo plano y se anexan al primer conjunto de archivos, mientras que las operaciones de conjunto que se envían a la memoria caché durante la reescritura se anexan al segundo conjunto. Durante las operaciones de reescritura se almacena de forma temporal una copia de seguridad por si hubiera un error, pero se elimina inmediatamente después de que finalice la reescritura.
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Obtenga información acerca de cómo usar más características de la memoria caché del nivel Premium.
 
 * [Introducción al nivel Premium de Azure Redis Cache](cache-premium-tier-intro.md)

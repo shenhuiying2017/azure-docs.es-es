@@ -313,7 +313,7 @@ Aunque este método es relativamente sencillo, tenga en cuenta lo siguiente:
 
 * Los trabajos web desencadenados manualmente se pueden desencadenar mediante Webhook. Para obtener esta dirección URL, en el panel, haga clic con el botón derecho en el trabajo web y consulte las propiedades. O bien, en la barra de herramientas, puede seleccionar **Propiedades** después de seleccionar el trabajo web en la tabla. Este enfoque le brinda posibilidades ilimitadas, como desencadenar Profiler desde la canalización de CI/CD (como VSTS) o algo parecido a Microsoft Flow (https://flow.microsoft.com/en-us/). En última instancia, su elección depende del nivel de complejidad que desee otorgar al archivo *run.cmd* (que también puede ser un archivo *run.ps1*), pero la flexibilidad está ahí.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Trabajo con Application Insights en Visual Studio](https://docs.microsoft.com/azure/application-insights/app-insights-visual-studio)
 

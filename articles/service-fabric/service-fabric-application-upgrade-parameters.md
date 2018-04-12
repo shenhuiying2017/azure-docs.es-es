@@ -59,7 +59,7 @@ Los criterios de evaluación de estado son opcionales. Si no se especifican los 
 <br>
 Los criterios MaxPercentUnhealthyServices, MaxPercentUnhealthyPartitionsPerService y MaxPercentUnhealthyReplicasPerPartition se pueden especificar por tipo de servicio para una instancia de aplicación. Establecer estos parámetros por servicio permite que una aplicación contenga diferentes tipos de servicios con diferentes directivas de evaluación. Por ejemplo, un tipo de servicio de pasarela sin estado puede tener un MaxPercentUnhealthyPartitionsPerService distinto de un tipo de servicio del motor con estado para una instancia de aplicación determinada.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [actualización de aplicaciones usando Visual Studio](service-fabric-application-upgrade-tutorial.md) ofrece información para actualizar una aplicación mediante Visual Studio.
 
 [Actualización de aplicaciones de Service Fabric con PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) se explica en detalle lo que tiene que hacer para actualizar una aplicación mediante PowerShell.

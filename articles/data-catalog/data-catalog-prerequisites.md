@@ -49,5 +49,5 @@ Con la directiva de autenticación global se puede habilitar los métodos de aut
 
  ![Directiva de autenticación global de Active Directory](./media/data-catalog-prerequisites/global-auth-policy.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información, vea [Configuración de directivas de autenticación](https://technet.microsoft.com/library/dn486781.aspx).

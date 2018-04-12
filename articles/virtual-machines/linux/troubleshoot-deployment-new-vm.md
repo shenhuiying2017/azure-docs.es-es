@@ -86,6 +86,6 @@ Este error se produce en situaciones en las que la nueva solicitud de máquina v
   * Cree una nueva máquina virtual en un conjunto de disponibilidad diferente (en la misma región).
   * Agregue la nueva máquina virtual a la misma red virtual.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Si tiene problemas al iniciar una máquina virtual Linux detenida o al cambiar el tamaño de una máquina virtual Linux existente en Azure, consulte [Solución de problemas de la implementación de Resource Manager con el reinicio o el cambio de tamaño de una máquina virtual de Linux existente en Azure](restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

@@ -60,7 +60,7 @@ Para especificar la versión de Mono instalada, use el número de versión en el
 > [!NOTE]
 > Al configurar HDInsight con este script, marque el script como __Persistente__. Esta configuración permite a HDInsight aplicar el script a los nodos de trabajo agregados a través de operaciones de escala.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Ha aprendido a actualizar o instalar una versión específica de Mono en HDInsight. Para más información sobre el uso de aplicaciones .NET con Mono en HDInsight, vea los documentos siguientes:
 

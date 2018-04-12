@@ -76,7 +76,7 @@ Las plantillas de Azure Resource Manager usan un atributo location para incluir 
     }
     ]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Implementación de plantillas con PowerShell](azure-stack-deploy-template-powershell.md)
 * [Implementación de plantillas con la CLI de Azure](azure-stack-deploy-template-command-line.md)
 * [Implementación de plantillas con Visual Studio](azure-stack-deploy-template-visual-studio.md)

@@ -48,7 +48,7 @@ En el siguiente diagrama se muestra la relación entre aplicaciones e instancias
 > 
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 - Obtenga información sobre [escalabilidad de aplicaciones](service-fabric-concepts-scalability.md).
 - Obtenga información acerca del [estado](service-fabric-concepts-state.md), las [particiones](service-fabric-concepts-partitioning.md) y la [disponibilidad](service-fabric-availability-services.md) del servicio.
 - Obtenga información sobre cómo se definen los servicios y las aplicaciones en [Application and service manifests](service-fabric-application-and-service-manifests.md) (Manifiestos de servicio y aplicación).

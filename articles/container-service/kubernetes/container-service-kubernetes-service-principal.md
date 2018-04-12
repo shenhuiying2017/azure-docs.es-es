@@ -164,7 +164,7 @@ Salida:
 
 A continuación, actualice `/etc/kubernetes/azure.json` con las nuevas credenciales en todos los nodos de clúster y reinicie los nodos.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Introducción a Kubernetes](container-service-kubernetes-walkthrough.md) en el clúster de Container Service.
 

@@ -104,7 +104,7 @@ Visite nuestra [Galería de inicio rápido de Azure](https://azure.microsoft.com
 
 > También puede crear reglas de alerta de registros de actividad mediante la experiencia de usuario mejorada en Monitor > [Alertas (versión preliminar)](monitoring-overview-unified-alerts.md). Para más información sobre cómo crearlas, consulte [este artículo](monitoring-activity-log-alerts-new-experience.md).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 - Obtenga más información sobre [alertas](monitoring-overview-alerts.md).
 - Aprenda a agregar [grupos de acciones mediante una plantilla de Resource Manager](monitoring-create-action-group-with-resource-manager-template.md).
 - Aprenda a [crear una alerta del registro de actividad para supervisar todas las operaciones del motor de escalado automático en su suscripción](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert).

@@ -122,7 +122,7 @@ El proceso completo del procesamiento previo o la puntuación de 10 000 imágen
 
 Siga [este tutorial](../spark/apache-spark-microsoft-cognitive-toolkit.md) para implementar esta solución completa: configure un clúster de HDInsight Spark, instale Cognitive Toolkit y ejecute Jupyter Notebook que puntúa 10 000 imágenes de CIFAR.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Hive y Azure Machine Learning
 

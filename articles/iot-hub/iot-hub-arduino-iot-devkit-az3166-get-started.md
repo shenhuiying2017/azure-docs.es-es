@@ -297,7 +297,7 @@ La aplicación de ejemplo se ejecuta correctamente si ve los siguientes resultad
 
 Si tiene problemas, puede buscar en las [preguntas más frecuentes](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/). Se pueden también enviar comentarios al dejar un comentario en esta página.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Ha conectado correctamente un MXChip IoT DevKit a IoT Hub y ha enviado los datos del sensor capturados a IoT Hub.
 

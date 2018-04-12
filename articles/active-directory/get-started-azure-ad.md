@@ -87,7 +87,7 @@ El [autoservicio de restablecimiento de contraseña (SSPR)](active-directory-pas
 Revise las propiedades de SSPR habilitadas en **Azure Active Directory** > **Restablecimiento de contraseña** para asegurarse de que se han efectuado las asignaciones de grupo y usuario adecuadas. 
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Página de servicio de Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
 [Página de información de precios de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/)

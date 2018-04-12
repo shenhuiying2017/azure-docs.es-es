@@ -110,7 +110,7 @@ Las retransmisiones son la solución adecuada cuando se necesita una comunicaci�
 
 La conexión de aplicaciones forma parte desde siempre de la creación de soluciones completas. El tipo de escenarios que requieren las aplicaciones y los servicios para comunicarse entre sí se configura de forma que aumente en función de las aplicaciones y los dispositivos que se conectan a Internet. Al proporcionar tecnologías basadas en la nube para lograrlo a través de colas, temas y retransmisiones, el objetivo de Service Bus es facilitar la implementación de esta función fundamental y ofrecer una disponibilidad más amplia.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Ahora que conoce los fundamentos de Azure Service Bus, siga estos vínculos para obtener más información.
 

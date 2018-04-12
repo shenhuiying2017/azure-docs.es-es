@@ -93,7 +93,7 @@ Para más información, consulte [Configuración de replicación geográfica par
 ## <a name="to-scale-to-the-premium-tier"></a>Para escalar al nivel premium
 Para escalar al nivel premium, basta con elegir uno de los niveles premium en la hoja **Cambiar el plan de tarifa** . También puede escalar la memoria caché al nivel premium con PowerShell y la CLI. Para obtener instrucciones detalladas, consulte [Escalado de Azure Redis Cache](cache-how-to-scale.md) y [Automatización de una operación de escalado](cache-how-to-scale.md#how-to-automate-a-scaling-operation).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Cree una memoria caché y explore las nuevas características del nivel Premium.
 
 * [Cómo configurar la persistencia para una instancia Azure Redis Cache Premium](cache-how-to-premium-persistence.md)

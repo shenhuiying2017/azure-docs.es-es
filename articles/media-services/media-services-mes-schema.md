@@ -268,7 +268,7 @@ Alternativamente, puede usar la marca **PreserveResolutionAfterRotation** y esta
 ## <a name="examples"></a>Ejemplos
 Consulte ejemplos de valores preestablecidos de XML que se generan a partir de este esquema en [Task Presets for MES (Media Encoder Standard)](media-services-mes-presets-overview.md) (Valores preestablecidos de tareas para MES [Media Encoder Standard]).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Envío de comentarios

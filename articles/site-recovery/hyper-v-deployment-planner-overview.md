@@ -137,5 +137,5 @@ La versión más reciente de la herramienta ASR Deployment Planner es la 2.1.
 Para saber qué correcciones se agregan en cada actualización, consulte [ASR Deployment Planner Version History](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) (Historial de versiones de ASR Deployment Planner).
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Ejecución de Deployment Planner](site-recovery-hyper-v-deployment-planner-run.md).

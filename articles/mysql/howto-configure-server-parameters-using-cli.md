@@ -53,5 +53,5 @@ az mysql server configuration set --name slow_query_log --resource-group myresou
 ```
 Este código restablece la configuración **slow\_query\_log** en el valor predeterminado **Apagado**. 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 - Cómo configurar [parámetros del servidor en Azure Portal](howto-server-parameters.md)

@@ -50,7 +50,7 @@ La salida de esta solicitud incluye un token de autorización (que se indica med
 
 En este artículo se usa el enfoque **no interactivo** . Para más información sobre el enfoque no interactivo (llamadas de servicio a servicio), consulte el tema sobre [llamadas de servicio a servicio utilizando las credenciales del cliente](https://msdn.microsoft.com/library/azure/dn645543.aspx). 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este artículo, ha aprendido a usar la autenticación entre servicios con Azure Data Lake Store mediante la API de REST. Ahora puede consultar los siguientes artículos, que tratan acerca de cómo usar la API de REST con Azure Data Lake Store.
 
 * [Operaciones de administración de cuentas en Data Lake Store mediante la API de REST](data-lake-store-get-started-rest-api.md)

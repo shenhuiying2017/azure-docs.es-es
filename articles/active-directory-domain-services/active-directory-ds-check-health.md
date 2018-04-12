@@ -76,7 +76,7 @@ Las alertas se categorizan en tres niveles distintos de gravedad: críticas, de 
  * Las **alertas de advertencia** le notifican problemas que podrían afectar al dominio administrado en el futuro. Estas alertas ofrecen recomendaciones para proteger el dominio administrado.
  * Las **alertas informativas** son notificaciones que no afectan negativamente al dominio. Las alertas informativas están diseñadas para mantenerlo informado sobre lo que sucede en el dominio y Azure AD Domain Services.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 - [Resuelva alertas en el dominio administrado](active-directory-ds-troubleshoot-alerts.md)
 - [Más información sobre Azure AD Domain Services](active-directory-ds-overview.md)
 - [Póngase en contacto con el equipo de productos](active-directory-ds-contact-us.md)

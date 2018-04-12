@@ -72,7 +72,7 @@ SQL Data Warehouse normaliza algunas opciones de configuración durante la conex
 | [DATEFORMAT][DATEFORMAT] |mdy |
 | [DATEFIRST][DATEFIRST] |7 |
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para conectarse y realizar consultas con Visual Studio, consulte [Conexión a SQL Data Warehouse con Visual Studio y SSDT][Query with Visual Studio]. Para más información acerca de las opciones de autenticación, consulte [Autenticación en Azure SQL Data Warehouse][Authentication to Azure SQL Data Warehouse].
 
 <!--Articles-->

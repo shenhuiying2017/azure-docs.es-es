@@ -118,6 +118,6 @@ az mysql server firewall-rule delete --resource-group myresourcegroup --server-n
 ```
 Cuando se realiza correctamente, no hay ninguna salida. En caso de error, se muestra el texto del mensaje de error.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 - Para más información, consulte [Reglas de firewall del servidor de Azure Database para MySQL](./concepts-firewall-rules.md).
 - [Creación y administración de reglas de firewall de Azure Database for MySQL mediante Azure Portal](./howto-manage-firewall-using-portal.md).

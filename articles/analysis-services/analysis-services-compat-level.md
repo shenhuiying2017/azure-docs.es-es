@@ -53,6 +53,6 @@ El nivel de compatibilidad más reciente es el 1400. Este nivel se corresponde a
   
  Esta propiedad especifica el máximo nivel de compatibilidad de una base de datos que se ejecutará en el servidor (excepto la versión preliminar). El nivel de compatibilidad admitido no se puede cambiar.  
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
   [Creación de un modelo en Azure Portal](analysis-services-create-model-portal.md)   
   [Administración de Analysis Services](analysis-services-manage.md)  

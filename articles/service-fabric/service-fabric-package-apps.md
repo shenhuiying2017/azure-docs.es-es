@@ -205,7 +205,7 @@ Para aprovisionar el paquete, utilice el aprovisionamiento externo, lo que requi
 >[!NOTE]
 > El aprovisionamiento basado en la ruta relativa al almacén de imágenes no es compatible con archivos `sfpkg` en estos momentos. Por lo tanto, el archivo `sfpkg` no debe copiarse al almacén de imágenes.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Implementación y eliminación de aplicaciones][10] describe cómo usar PowerShell para administrar las instancias de aplicaciones.
 
 [Administración de los parámetros de la aplicación en varios entornos][11] describe cómo configurar parámetros y variables de entorno para diferentes instancias de aplicación.

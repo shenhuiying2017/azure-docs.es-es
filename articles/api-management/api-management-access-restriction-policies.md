@@ -516,7 +516,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 -   **Secciones de la directiva:** entrante  
 -   **Ámbitos de la directiva:** global, producto, API, operación  
   
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener más información sobre cómo trabajar con directivas, consulte:
 

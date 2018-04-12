@@ -174,7 +174,7 @@ Para ejecutar el trabajo de nuevo, debe cambiar el nombre de la carpeta de salid
 
 Cuando el trabajo se completa correctamente, la aplicación imprime el contenido del archivo de salida "part-r-00000".
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este artículo, ha aprendido varias maneras de crear un clúster de HDInsight. Para obtener más información, consulte los artículos siguientes:
 
 * Para enviar un trabajo de Hive, consulte [Ejecución de consultas de Hive mediante el SDK de .NET de HDInsight](apache-hadoop-use-hive-dotnet-sdk.md).

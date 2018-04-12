@@ -76,6 +76,6 @@ Una vez que la replicación está configurada y que se ejecutó una exploración
 ![Conmutación por recuperación](./media/concepts-physical-to-azure-architecture/enhanced-failback.png)
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Siga [este tutorial](tutorial-physical-to-azure.md) para habilitar la replicación del servidor físico en Azure.

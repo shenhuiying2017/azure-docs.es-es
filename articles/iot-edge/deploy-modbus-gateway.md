@@ -104,7 +104,7 @@ docker logs -f modbus
 
 También puede ver la telemetría que envía el dispositivo mediante la [herramienta del explorador IoT Hub](https://github.com/azure/iothub-explorer). 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Para más información acerca de cómo los dispositivos de IoT Edge pueden actuar como puertas de enlace, consulte [Creación de un dispositivo de IoT Edge que actúa como una puerta de enlace transparente](how-to-create-transparent-gateway.md)
 - Para más información sobre cómo funcionan los módulos de IoT Edge, consulte [Información de los módulos de Azure IoT Edge](iot-edge-modules.md)

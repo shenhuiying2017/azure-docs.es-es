@@ -365,7 +365,7 @@ En la captura de pantalla anterior, el nombre de la carpeta tiene el número de 
     cd %sqoop_home%
     cd %hcatalog_home%
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este artículo, ha aprendido a crear un clúster de HDInsight mediante el Portal y a abrir la herramienta de línea de comandos de Hadoop. Para obtener más información, consulte los artículos siguientes:
 
 * [Administración de HDInsight con PowerShell de Azure](hdinsight-administer-use-powershell.md)

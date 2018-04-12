@@ -93,7 +93,7 @@ De forma predeterminada, el [SDK de Python (versión 2.0.0 o posterior)](sql-api
 
 De forma predeterminada, el [SDK de Node.js (versión 1.10.1 o posterior)](sql-api-sdk-node.md) para la API de SQL no probará ni usará el certificado SSL al conectarse con el emulador local. Sin embargo, si desea utilizar la validación de SSL, puede seguir los ejemplos de la [documentación de Node.js](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, ha hecho lo siguiente:
 

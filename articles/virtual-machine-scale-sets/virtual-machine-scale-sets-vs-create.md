@@ -92,7 +92,7 @@ Una vez finalizada la implementación, puede ver el nuevo conjunto de escalado d
 
  El portal es la mejor opción para administrar visualmente la infraestructura de Azure con un explorador web, mientras que Azure Resource Explorer ofrece una forma sencilla de explorar y depurar los recursos de Azure al proporcionar una ventana en la "vista de instancias" y mostrar también los comandos de PowerShell para los recursos que está mirando.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Después de implementar satisfactoriamente los conjuntos de escalado de máquinas virtuales en Visual Studio, puede personalizar aún más el proyecto para satisfacer las necesidades de la aplicación. Por ejemplo, configurar el escalado automático agregando un recurso de **Insights**, agregar infraestructura a la plantilla (como máquinas virtuales independientes) o implementar aplicaciones con la extensión del script personalizado. Se puede encontrar una buena serie de plantillas de ejemplo en el repositorio de GitHub de [plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates) (busque "vmss").
 
 [file_new]: ./media/virtual-machine-scale-sets-vs-create/1-FileNew.png

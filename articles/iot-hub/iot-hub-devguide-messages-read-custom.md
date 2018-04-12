@@ -51,7 +51,7 @@ Para obtener más información sobre la lectura de puntos de conexión personali
 * Leer de [colas de Service Bus][lnk-getstarted-queue].
 * Leer de [temas de Service Bus][lnk-getstarted-topic].
 
-### <a name="next-steps"></a>pasos siguientes
+### <a name="next-steps"></a>Pasos siguientes
 
 Para obtener más información sobre los puntos de conexión de IoT Hub, vea [Puntos de conexión de IoT Hub][lnk-devguide-endpoints].
 

@@ -44,6 +44,6 @@ Cada elemento de Marketplace tiene:
 
 Cada elemento publicado en Marketplace utiliza un formato denominado paquete de galería de Azure (azpkg). Agregue recursos de implementación o de entorno en tiempo de ejecución (por ejemplo, código, archivos comprimidos con software o imágenes de máquinas virtuales) a Azure Stack por separado, no como parte del elemento de Marketplace. 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Crear y publicar un elemento en Marketplace](azure-stack-create-and-publish-marketplace-item.md)
 

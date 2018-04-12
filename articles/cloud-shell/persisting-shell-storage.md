@@ -90,7 +90,7 @@ justin@Azure:~$
 
 [!INCLUDE [features-introblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Guía de inicio rápido de Bash en Cloud Shell](quickstart.md) <br>
 [Información sobre el almacenamiento de Microsoft Azure Files](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) <br>
 [Información sobre las etiquetas de almacenamiento](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>

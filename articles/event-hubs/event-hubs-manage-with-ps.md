@@ -148,7 +148,7 @@ Remove-AzureRmEventHub -ResourceGroupName $ResGrpName -NamespaceName $Namespace 
 Remove-AzureRmEventHubNamespace -ResourceGroupName $ResGrpName -NamespaceName $Namespace
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Consulte la documentación completa del módulo de PowerShell de Resource Manager de Event Hubs [aquí](/powershell/module/azurerm.eventhub). Esta página enumera todos los cmdlets disponibles.
 - Para más información sobre el uso de plantillas de Azure Resource Manager, consulte el artículo [Creación de un espacio de nombres de Event Hubs con un centro de eventos y un grupo de consumidores mediante una plantilla de Azure Resource Manager](event-hubs-resource-manager-namespace-event-hub.md).

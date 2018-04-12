@@ -243,7 +243,7 @@ Realice el procedimiento siguiente en el equipo desde el que desea realizar la c
    
     ![Conexión remota de PowerShell mediante HTTP y SSL](./media/storsimple-remote-connect/HCS_PSRemotingUsingHTTPSAndSSL.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * Obtenga más información acerca del [uso de Windows PowerShell para administrar el dispositivo StorSimple](storsimple-8000-windows-powershell-administration.md).
 * Obtenga más información sobre el [uso del servicio Administrador de dispositivos de StorSimple para administrar el dispositivo StorSimple](storsimple-8000-manager-service-administration.md).

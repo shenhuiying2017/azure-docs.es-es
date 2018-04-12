@@ -162,7 +162,7 @@ Se recomienda ponerse en contacto con el usuario para comprobar si realmente ini
 
 
  
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Los eventos de riesgo son la base para proteger las identidades de Azure AD. Azure AD actualmente puede detectar seis eventos de riesgo: 
 

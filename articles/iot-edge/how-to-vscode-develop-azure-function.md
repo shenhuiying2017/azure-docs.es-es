@@ -200,7 +200,7 @@ En los siguientes pasos puede ver cómo crear un módulo IoT Edge basado en .NET
     ![Controlar mensajes](./media/how-to-vscode-develop-csharp-function/monitor-d2c-messages.png)
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, creó una instancia de Azure Functions en IoT Edge y la implementó en un dispositivo de IoT Edge en VS Code. Puede continuar con cualquiera de los siguientes tutoriales para obtener información sobre otros escenarios al desarrollar Azure IoT Edge en VS Code.
 

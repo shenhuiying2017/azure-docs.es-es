@@ -301,7 +301,7 @@ Escriba el nombre de dominio en la barra de direcciones del explorador. Por ejem
 
 Cambie la dirección para su otro dominio, por ejemplo http://www.contoso.org y verá que se ha redirigido el tráfico hacia el agente de escucha para www.contoso.com.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este artículo, ha aprendido cómo:
 

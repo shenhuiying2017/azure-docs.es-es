@@ -48,7 +48,7 @@ Los componentes principales de la infraestructura de mensajería de Service Bus 
 
 Al igual que con la infraestructura de WCF Relay, se ofrece funcionalidad de mensajería asincrónica para los programadores de WCF y de .NET Framework, y también a través de REST.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre la mensajería de Service Bus, consulte los siguientes temas.
 

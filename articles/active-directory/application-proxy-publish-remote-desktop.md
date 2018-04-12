@@ -124,7 +124,7 @@ Para usar la autenticación de acceso directo, solo es necesario realizar dos mo
 1. En el paso 1 [Publicar el punto de conexión del host de RD](#publish-the-rd-host-endpoint), establezca el método de autenticación previa en **Acceso directo**.
 2. Omita completamente el paso 8, [Dirigir el tráfico RDS al proxy de aplicación](#direct-rds-traffic-to-application-proxy).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 [Habilitar el acceso remoto a SharePoint con el Proxy de aplicación de Azure AD](application-proxy-enable-remote-access-sharepoint.md)  
 [Consideraciones de seguridad al obtener acceso a aplicaciones de forma remota con el proxy de aplicación de Azure AD](application-proxy-security-considerations.md)

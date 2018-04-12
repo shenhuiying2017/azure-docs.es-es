@@ -111,7 +111,7 @@ Una vez guardada, puede utilizar la plantilla de Azure Resource Manager para [im
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Una vez creada la máquina virtual, puede conectarse a ella seleccionando **Conectar** en el panel de la máquina virtual.
 * Aprenda a [crear artefactos personalizados para la máquina virtual de DevTest Labs](devtest-lab-artifact-author.md).
 * Explore la [galería de plantillas de inicio rápido de Azure Resource Manager de DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/Samples).

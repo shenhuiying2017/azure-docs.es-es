@@ -91,7 +91,7 @@ Este es un ejemplo de una cadena JSON de registro operativo:
 }
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Consulte los siguientes vínculos para más información acerca de Service Bus:
 

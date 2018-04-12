@@ -285,7 +285,7 @@ Los pasos concretos para ejecutar la aplicación varían según la plataforma.
 
     Use `cordova run --help` to see additional build and run options.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Como referencia, en [GitHub](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-Cordova/tree/complete/DirSearchClient) está disponible el ejemplo finalizado (sin sus valores de configuración).
 
 Ahora puede pasar a escenarios más avanzados (y, por lo tanto, más interesantes). Quizá quiera intentar: [Proteger una API web de Node.js con Azure AD](active-directory-devquickstarts-webapi-nodejs.md).

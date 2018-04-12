@@ -267,7 +267,7 @@ A continuación, presentamos una lista de algunos otros tutoriales que podría i
 * SDK de Java para Azure Notification Hubs: consulte [Uso de Notification Hubs desde Java](notification-hubs-java-push-notification-tutorial.md) para enviar notificaciones desde Java. Esto se probó en Eclipse para el desarrollo de Android.
 * PHP: consulte [Uso de Notification Hubs desde PHP](notification-hubs-php-push-notification-tutorial.md).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este sencillo ejemplo, difunde notificaciones a todos sus dispositivos Android. Para dirigirse a usuarios específicos, consulte el tutorial [Notificación a los usuarios con Azure Notification Hubs]. Si desea segmentar a sus usuarios por grupos de interés, puede leer [Uso de Centros de notificaciones para enviar noticias de último minuto]. Para más información acerca del uso de Notification Hubs, consulte [Introducción a los Notification Hubs] y [Procedimiento: Azure Notification Hubs (aplicaciones Android)].
 
 <!-- Anchors. -->

@@ -420,7 +420,7 @@ Por último, pruebe que la función ampliada ahora pueda controlar el tipo de ev
 
 También puede probar esta funcionalidad en vivo mediante el [envío de un evento personalizado con CURL desde Portal](./custom-event-quickstart-portal.md) o [la publicación en un tema personalizado](./post-to-custom-topic.md) con cualquier servicio o aplicación que pueda ejecutar POST en un punto de conexión, como [Postman](https://www.getpostman.com/). Cree un tema y una suscripción a eventos personalizados con el punto de conexión establecido como dirección URL de la función.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * Explore los [SDK de Event Grid para administración y publicación](./sdk-overview.md).
 * Obtenga información acerca de cómo [publicar en un tema personalizado](./post-to-custom-topic.md).

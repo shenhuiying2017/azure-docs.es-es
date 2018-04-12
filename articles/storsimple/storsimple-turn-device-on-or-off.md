@@ -171,6 +171,6 @@ Después de acceder a Windows PowerShell para StorSimple o a Azure Portal, siga 
 > [!NOTE]
 > Los cables SAS que se utilizan para conectar el gabinete EBOD con el gabinete principal no deben quitarse hasta después que se apague el sistema.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Contact Microsoft Support](storsimple-8000-contact-microsoft-support.md) .
 

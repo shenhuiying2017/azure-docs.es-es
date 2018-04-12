@@ -232,7 +232,7 @@ ADAL facilita la incorporación de todas estas características comunes de ident
 
 Como referencia, en [GitHub](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip) puede ver el ejemplo finalizado (sin sus valores de configuración).  
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Ahora puede pasar a otros escenarios.  Es posible que desee probar:
 
 * [Proteger una API web de Node.js con Azure AD](active-directory-devquickstarts-webapi-nodejs.md)

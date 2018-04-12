@@ -70,7 +70,7 @@ Cuando ya no los necesite, puede quitar el grupo de recursos y todos los recurso
 
 ![cleanup](./media/get-started-create-service-instance/cleanup.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Importación y publicación de la primera API](import-and-publish.md)

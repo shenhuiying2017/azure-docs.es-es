@@ -54,7 +54,7 @@ Todos los tipos de clúster HDInsight implementan YARN. ResourceManager se imple
 
 ![YARN en HDInsight](./media/hdinsight-hadoop-architecture/yarn-on-hdinsight.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Uso de MapReduce en Hadoop en HDInsight](hadoop/hdinsight-use-mapreduce.md)
 * [Introducción a Azure HDInsight](hadoop/apache-hadoop-introduction.md)

@@ -59,7 +59,7 @@ Se da por hecho que ha creado una capacidad de Power BI Embedded. Si no lo ha he
 
     ![Confirmación del plan actual](media/scale-capacity/azure-portal-confirm-tier.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para hacer una pausa en la capacidad, o iniciarla, consulte [Pausado e inicio de la capacidad de Power BI Embedded en Azure Portal](pause-start.md).
 

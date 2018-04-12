@@ -89,6 +89,6 @@ Realice los pasos siguientes para generar una clave de registro del servicio AAD
 
     ![Confirmar regeneración](./media/storsimple-virtual-array-aad-registration-key/aad-registration-key2.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * Obtenga información sobre cómo implementar la [matriz virtual de StorSimple](storsimple-virtual-array-deploy1-portal-prep.md).

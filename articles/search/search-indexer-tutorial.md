@@ -281,7 +281,7 @@ Si no va a seguir usando estos servicios, siga estos pasos para borrar todos los
 1. En el menú de la izquierda de Azure Portal, haga clic en **Grupos de recursos** y en el nombre del recurso que creó. 
 2. En la página del grupo de recursos, haga clic en **Eliminar grupo de recursos**, escriba el nombre del recurso que quiere eliminar en el cuadro de texto y haga clic en **Eliminar**.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para más información y conocer las tareas que son específicas de otros orígenes de datos admitidos, consulte los siguientes artículos:
 

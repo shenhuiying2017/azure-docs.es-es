@@ -79,7 +79,7 @@ Cuando se usa la CLI de Azure en el equipo local, `<zip_file_path>` es la ruta d
 
 [!INCLUDE [app-service-deploy-zip-push-custom](../../includes/app-service-deploy-zip-push-custom.md)]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Implementación continua para Azure Functions](functions-continuous-deployment.md)

@@ -211,7 +211,7 @@ Se admite la búsqueda geoespacial mediante el [tipo de dato edm.GeographyPoint]
 
 + La búsqueda geoespacial resulta útil si su aplicación de búsqueda tiene una característica "buscar cerca de mí" o utiliza la navegación mediante mapas. No obstante, no es una búsqueda de texto completo. Si tiene requisitos de usuario de buscar en una ciudad o país por nombre, agregue campos que contengan nombres de ciudades o de países, además de coordenadas.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 + Modifique cualquiera de los objetos que acaba de crear. Después de ejecutar el Asistente una vez, puede volver atrás y ver o modificar componentes individuales: índice, indexador u origen de datos. No se permiten algunas modificaciones en el índice, como cambiar el tipo de datos de campo, pero la mayoría de las propiedades y configuraciones son modificables.
 

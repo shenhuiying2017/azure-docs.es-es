@@ -368,7 +368,7 @@ Después de que se ha descargado la captura, puede verla con cualquier herramien
 - [Analizador de mensajes de Microsoft](https://technet.microsoft.com/library/jj649776.aspx).
 - [WireShark](https://www.wireshark.org/)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para saber cómo ver las capturas de paquetes, visite [Análisis de capturas de paquetes con Wireshark](network-watcher-deep-packet-inspection.md).
 

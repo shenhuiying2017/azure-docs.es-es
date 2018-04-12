@@ -66,7 +66,7 @@ El proceso de creación normalmente tarda menos de un minuto; a menudo, solo uno
 
 ![Panel de Azure Portal con la capacidad de Power BI Embedded](media/create-capacity/azure-portal-dashboard.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Si quiere usar la nueva capacidad de Power BI Embedded, vaya al portal de administración de Power BI para asignar áreas de trabajo. Para obtener más información, consulte [Administración de la capacidad en Power BI Premium y Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-admin-premium-manage/).
 

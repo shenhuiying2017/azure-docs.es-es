@@ -167,7 +167,7 @@ Puede hacer un seguimiento del progreso del trabajo **Habilitar protección** en
 
 Para supervisar las máquinas virtuales que agregue, compruebe la última hora de detección de máquinas virtuales en **Servidores de configuración** > **Último contacto a las**. Para agregar máquinas virtuales sin esperar a la detección programada, resalte el servidor de configuración (no haga clic en él) y haga clic en **Actualizar**.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Exploración de la recuperación ante desastres](site-recovery-test-failover-to-azure.md)

@@ -96,6 +96,6 @@ El conector de codificación EDIFACT lleva a cabo estas tareas:
 ## <a name="view-swagger-file"></a>Ver el archivo de Swagger
 Para ver los detalles de Swagger para el conector EDIFACT, consulte [EDIFACT](/connectors/edifact/).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Más información sobre Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Información sobre Enterprise Integration Pack") 
 

@@ -112,7 +112,7 @@ El *Explorador de métricas* es una herramienta útil para crear paneles persona
 
 Al hacer clic en **Analytics**, se le remitirá al portal de Analytics en Application Insights, donde puede consultar eventos y seguimientos con un ámbito más amplio y más opciones. Lea más información en [Analytics en Application Insights](../application-insights/app-insights-analytics.md).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Definición de alertas en Application Insights](../application-insights/app-insights-alerts.md) para recibir notificaciones sobre los cambios de rendimiento o de uso
 * [Detección inteligente en Application Insights](../application-insights/app-insights-proactive-diagnostics.md), donde se realiza un análisis proactivo de la telemetría enviada a AI para avisar de problemas de rendimiento potenciales

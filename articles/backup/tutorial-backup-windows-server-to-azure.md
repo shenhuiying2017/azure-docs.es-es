@@ -142,7 +142,7 @@ La programación está establecida cuando se ejecutan los trabajos de copia de s
 4.  Una vez completada la copia de seguridad inicial, el estado **Trabajo completado** se refleja en el panel **Trabajos** de la consola del agente de MARS.
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial se usa Azure Portal para las siguientes acciones: 
  

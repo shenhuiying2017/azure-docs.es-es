@@ -28,7 +28,7 @@ En este artículo se describe cómo crear un grupo de máquinas para su evaluaci
 
 Una vez creado el grupo, puede modificarlo seleccionándolo en la página **Grupos**, y agregando o quitando máquinas.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Aprenda a usar la [asignación de dependencias de máquina](how-to-create-group-machine-dependencies.md) para crear grupos de confianza alta.
 - [Obtenga más información](concepts-assessment-calculation.md) sobre cómo se calculan las evaluaciones.

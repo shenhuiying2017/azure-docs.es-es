@@ -110,7 +110,7 @@ En los pasos siguientes aparece una demostración de "Hola mundo".
 
 Felicidades. Ha creado una visualización de los datos sin escribir nada de código. Ahora puede explorar las variaciones y visualizaciones adicionales.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Documentación de Datameer](http://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft).
 * [Instalación de aplicaciones de HDInsight personalizadas](hdinsight-apps-install-custom-applications.md): aprenda a implementar en HDInsight una aplicación de HDInsight no publicada.

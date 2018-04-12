@@ -305,5 +305,5 @@ En la replicación, establezca el ancho de banda recomendado de forma que cubra 
 3. Compruebe las características del almacenamiento local para determinar si puede mejorar el hardware (por ejemplo, pasar de HDD a SSD).
 
     
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Análisis del informe generado](hyper-v-deployment-planner-analyze-report.md)

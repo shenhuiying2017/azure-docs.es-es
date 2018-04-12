@@ -241,7 +241,7 @@ Una vez que arranque el dispositivo, se deben realizar las siguientes acciones. 
 
     ![Conexión correcta al centro en el portal](./media/tutorial-net-provision-device-to-hub/hub-connect-success.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este tutorial aprendió lo siguiente:
 
 > [!div class="checklist"]

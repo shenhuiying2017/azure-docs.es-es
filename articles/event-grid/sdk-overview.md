@@ -38,7 +38,7 @@ Los SDK de publicación permiten publicar eventos para temas, asegurándose de a
 * [Python](https://pypi.python.org/pypi/azure-eventgrid)
 * [Ruby](https://rubygems.org/gems/azure_event_grid)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * Para ver una introducción a Event Grid, consulte el artículo acerca de [qué es Event Grid](overview.md).
 * Para consultar los comandos de Event Grid en la CLI de Azure, vea [CLI de Azure](/cli/azure/eventgrid).

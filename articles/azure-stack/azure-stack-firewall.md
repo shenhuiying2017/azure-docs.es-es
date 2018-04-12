@@ -62,6 +62,6 @@ En una implementación perimetral o de intranet empresarial, Azure Stack se impl
 ## <a name="learn-more"></a>Más información
 Más información sobre los [puertos y protocolos que utilizan los puntos de conexión de Azure Stack](azure-stack-integrate-endpoints.md).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Requisitos de PKI de Azure Stack](azure-stack-pki-certs.md)
 

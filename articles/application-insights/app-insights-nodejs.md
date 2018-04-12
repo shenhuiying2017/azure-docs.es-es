@@ -208,7 +208,7 @@ server.on("listening", () => {
 });
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Navegación y paneles en el portal de Application Insights](app-insights-dashboards.md)
 * [Escritura de consultas de Analytics sobre los datos de telemetría](app-insights-analytics-tour.md)

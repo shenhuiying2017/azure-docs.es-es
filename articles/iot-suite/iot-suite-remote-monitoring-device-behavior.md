@@ -253,7 +253,7 @@ Si se produce un error de sintaxis, el intérprete no funciona y escribe una ent
 
 El artículo sobre la [creación de un dispositivo simulado](iot-suite-remote-monitoring-test.md) muestra cómo se ejecuta el servicio de simulación del dispositivo de forma local. La ejecución local del servicio facilita la depuración de los dispositivos simulados antes de implementarlos en la nube.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este artículo se describe cómo definir el comportamiento de su propio modelo de dispositivo simulado personalizado. En este artículo le mostramos cómo:
 

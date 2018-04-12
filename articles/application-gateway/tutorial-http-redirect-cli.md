@@ -225,7 +225,7 @@ Para aceptar la advertencia de seguridad si usó un certificado autofirmado, sel
 
 ![Prueba de la dirección URL base en la puerta de enlace de aplicaciones](./media/tutorial-http-redirect-cli/application-gateway-nginxtest.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial aprendió lo siguiente:
 

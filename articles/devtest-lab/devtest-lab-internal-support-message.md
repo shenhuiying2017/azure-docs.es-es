@@ -67,6 +67,6 @@ Cuando ya no quiera mostrar este mensaje de soporte a los usuarios del laborator
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Las notas de soporte interno se utilizan normalmente para proporcionar información de soporte técnico que no cambia con tanta frecuencia. También puede obtener información sobre cómo [publicar un anuncio en un laboratorio](devtest-lab-announcements.md) para informar a los usuarios de cambios temporales o actualizaciones del laboratorio.
 * [Configuración de directivas y programaciones](devtest-lab-set-lab-policy.md) proporciona información sobre cómo puede aplicar otras restricciones y convenciones en la suscripción mediante el uso de directivas personalizadas.

@@ -82,6 +82,6 @@ La solución de problemas de conexiones devuelve tipos de error sobre la conexi�
 |NetworkSecurityRule    | Una regla de NSG bloquea el tráfico (se devuelve la regla).        |
 |UserDefinedRoute|El tráfico se interrumpe debido a una ruta del sistema o definida por el usuario. |
 
-### <a name="next-steps"></a>pasos siguientes
+### <a name="next-steps"></a>Pasos siguientes
 
 Obtenga información sobre cómo solucionar problemas de conexiones mediante [Azure Portal](network-watcher-connectivity-portal.md), [PowerShell](network-watcher-connectivity-powershell.md), la [CLI de Azure](network-watcher-connectivity-cli.md) o la [API de REST](network-watcher-connectivity-rest.md).

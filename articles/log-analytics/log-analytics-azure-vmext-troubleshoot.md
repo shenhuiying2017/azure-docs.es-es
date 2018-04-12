@@ -69,6 +69,6 @@ Si la extensión de la máquina virtual *Agente de OMS para Linux* no se instala
 
 Para más información, consulte [Solución de problemas de la extensión de máquina virtual de Linux Azure](../virtual-machines/linux/extensions-oms.md).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener instrucciones adicionales para solucionar problemas relacionados con el agente de OMS para Linux que está hospedado en equipos externos a Azure, consulte [Troubleshoot Azure Log Analytics Linux Agent](log-analytics-agent-linux-support.md) (Solución de problemas del agente de Linux para Azure Log Analytics).  

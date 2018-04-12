@@ -117,7 +117,7 @@ Seleccione el icono **Grupos** y realice una de las siguientes acciones:
    >
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre la solución de problemas, consulte [Problemas con el sitio web del panel de acceso de la aplicación o con aplicaciones móviles](active-directory-application-access-panel-content-map.md).
 

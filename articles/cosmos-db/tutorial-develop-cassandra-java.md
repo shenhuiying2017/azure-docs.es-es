@@ -219,7 +219,7 @@ Ahora vuelva a Azure Portal para obtener la información de la cadena de conexi�
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En esta guía rápida, ha aprendido a:
 

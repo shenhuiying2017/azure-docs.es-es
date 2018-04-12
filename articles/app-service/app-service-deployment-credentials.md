@@ -90,6 +90,6 @@ Para restablecer las credenciales de nivel de aplicación:
 
     La acción de restablecimiento invalida cualquier archivo .PublishSettings anteriormente descargado.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Obtenga información sobre cómo usar estas credenciales para implementar la aplicación desde [GIT local](app-service-deploy-local-git.md) o con [FTP/S](app-service-deploy-ftp.md).

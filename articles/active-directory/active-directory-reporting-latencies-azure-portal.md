@@ -79,7 +79,7 @@ La tabla siguiente enumera la información de latencia para eventos de riesgo.
 
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Si desea obtener más información acerca de los informes de actividad en Azure Portal, consulte:
 

@@ -135,7 +135,7 @@ En unos minutos, el estado obtenido con el comando de PowerShell anterior debe i
 
 Como ejercicio, puede intentar actualizar de la versión 2 a la versión 3 o de la versión 2 a la versión 1. El cambio de la versión 2 a la versión 1 también se considera una actualización. Juegue con los tiempos de espera y las directivas de mantenimiento para familiarizarse. Cuando se va a implementar en un clúster de Azure, los parámetros se deben establecer de forma adecuada. Es una buena idea establecer los tiempos de espera de manera conservadora.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Actualización de la aplicación con Visual Studio](service-fabric-application-upgrade-tutorial.md) ofrece información para actualizar una aplicación mediante Visual Studio.
 
 Puede controlar cómo se actualiza una aplicación usando [parámetros de actualización](service-fabric-application-upgrade-parameters.md).

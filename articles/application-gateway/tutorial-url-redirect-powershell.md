@@ -442,7 +442,7 @@ Cambie la dirección URL por http://&lt;dirección-ip&gt;:8080/video/test.htm, s
 
 Ahora, cambie la dirección URL por http://&lt;dirección-ip&gt;:8081/images/test.htm, sustituyendo &lt;dirección-ip&gt; por su dirección IP, y debería ver el tráfico redirigido al grupo de back-end de imágenes en http://&lt;dirección-ip&gt;:8080/images.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este artículo, ha aprendido cómo:
 

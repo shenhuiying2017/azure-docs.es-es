@@ -54,7 +54,7 @@ En este artículo se explica cómo eliminar o agregar usuarios de su organizaci�
 
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En esta guía de inicio rápido, ha aprendido a agregar usuarios nuevos a Azure AD Premium. 
 
 Puede usar el vínculo siguiente para crear un usuario nuevo en Azure AD desde Azure Portal.

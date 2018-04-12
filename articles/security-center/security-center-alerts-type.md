@@ -196,7 +196,7 @@ Si hay disponible información adicional, se mostrará en el incidente de seguri
 ![Alerta de acceso inusual](./media/security-center-alerts-type/security-center-alerts-type-fig20.png)
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este artículo, ha aprendido acerca de los distintos tipos de alertas de seguridad en Security Center. Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
 
 * [Control de incidentes de seguridad en Azure Security Center](security-center-incident.md)

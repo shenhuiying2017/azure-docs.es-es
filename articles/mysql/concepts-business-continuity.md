@@ -50,7 +50,7 @@ La otra opción es usar la característica de replicación geográfica de Azure 
 > [!IMPORTANT]
 > La restauración geográfica solo es posible si se ha aprovisionado el servidor con almacenamiento de copia de seguridad con redundancia geográfica.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Para más información acerca de las copias de seguridad automatizadas, consulte [Copia de seguridad en Azure Database for MySQL](concepts-backup.md).
 - Para restaurar a un momento dado mediante Azure Portal, consulte cómo  [restaurar una base de datos a un momento dado con Azure Portal](howto-restore-server-portal.md).

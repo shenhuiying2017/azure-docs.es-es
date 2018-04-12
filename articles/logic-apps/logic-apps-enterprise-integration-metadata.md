@@ -65,6 +65,6 @@ Supongamos que este asociado tiene estos metadatos con los detalles de `routingU
 
    ![Buscar lookup](media/logic-apps-enterprise-integration-metadata/image5.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Más información sobre acuerdos](logic-apps-enterprise-integration-agreements.md)

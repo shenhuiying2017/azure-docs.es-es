@@ -210,7 +210,7 @@ El ejemplo requiere tres tareas, cada una de las cuales corresponde a uno de los
                                 -Arguments "-Dmapred.map.tasks=50", "-Dmapred.reduce.tasks=25", "/example/data/10GB-sort-output", "/example/data/10GB-sort-validate"
     ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este artículo y en los artículos en cada una de las muestras, ha obtenido información sobre cómo ejecutar las muestras incluidas en los clústeres de HDInsight mediante Azure PowerShell. Para obtener acceso a tutoriales sobre cómo usar Pig, Hive y MapReduce con HDInsight, consulte los siguientes temas:
 
 * [Introducción al uso de Hadoop con Hive en HDInsight para analizar el uso de datos móviles][hdinsight-get-started]

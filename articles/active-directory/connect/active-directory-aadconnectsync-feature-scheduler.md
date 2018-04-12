@@ -168,7 +168,7 @@ En la ilustración anterior, la primera línea refleja un estado donde el motor 
 ## <a name="scheduler-and-installation-wizard"></a>Scheduler y Asistente para instalación
 Si inicia el Asistente para instalación, el programador se suspende temporalmente. Este comportamiento es debido a que se supone que realizará cambios en la configuración y estos cambios no se pueden aplicar si el motor de sincronización se está ejecutando activamente. Por este motivo, no deje el Asistente para instalación abierto, ya que impide que el motor de sincronización realizar ninguna acción.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre la configuración de la [Sincronización de Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).

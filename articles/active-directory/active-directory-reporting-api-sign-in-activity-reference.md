@@ -186,7 +186,7 @@ El valor de appDisplayName es un valor de cadena.
 Hay dos opciones para loginStatus: 0: success; 1: failure
 
 - - -
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * ¿Quiere ver ejemplos de actividades de inicio de sesión filtradas? Consulte [Azure Active Directory sign-in activity report API samples](active-directory-reporting-api-sign-in-activity-samples.md)(Ejemplos de API de informes de actividad de inicio de sesión de Azure Active Directory).
 * ¿Quiere obtener más información sobre la API de generación de informes de Azure AD? Consulte [Introducción a la API de informes de Azure Active Directory](active-directory-reporting-api-getting-started.md).
 

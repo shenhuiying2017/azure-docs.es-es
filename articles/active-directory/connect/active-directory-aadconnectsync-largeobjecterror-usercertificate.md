@@ -178,6 +178,6 @@ Ahora que el problema se ha resuelto, vuelva a habilitar el programador de sincr
 > [!Note]
 > Los pasos anteriores solo se aplican a las versiones más recientes (1.1.xxx.x) de Azure AD Connect con el programador integrado. Si usa versiones anteriores (1.0.xxx.x) de Azure AD Connect que utilizan el Programador de tareas de Windows, o que usa a su propio programador personalizado (no común) para desencadenar una sincronización periódica, debe deshabilitarlas según corresponda.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 

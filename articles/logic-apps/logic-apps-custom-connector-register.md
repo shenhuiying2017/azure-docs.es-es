@@ -286,7 +286,7 @@ Para compartir su conector con usuarios externos (por ejemplo, todos los usuario
 
 * Para ayudar a mejorar Logic Apps, vote o envíe ideas en el [sitio de comentarios de usuario de Logic Apps](http://aka.ms/logicapps-wish). 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Optional: Certify your connector](../logic-apps/custom-connector-submit-certification.md) (Opcional: certificación del conector)
 * [Preguntas más frecuentes sobre conectores personalizados](../logic-apps/custom-connector-faq.md)

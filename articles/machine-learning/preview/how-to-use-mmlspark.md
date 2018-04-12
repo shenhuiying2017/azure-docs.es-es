@@ -83,7 +83,7 @@ Vuelva al panel de proyecto del ejemplo "MMLSpark on Adult Census". Seleccione e
 
 Azure Machine Learning Workbench envía el trabajo de Spark al clúster. Puede supervisar el progreso y ver los resultados en la vista de historial de ejecución.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre la biblioteca de MMLSpark y ejemplos, consulte el [repositorio de GitHub para MMLSpark](https://github.com/Azure/mmlspark).
 
 *Apache®, Apache Spark y Spark® son marcas comerciales registradas o marcas comerciales de Apache Software Foundation en los Estados Unidos u otros países.*

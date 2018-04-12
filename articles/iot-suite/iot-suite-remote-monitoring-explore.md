@@ -241,7 +241,7 @@ Puede usar el menú de configuración para detener los dispositivos simulados. E
 
     ![Menú Configuración](media/iot-suite-remote-monitoring-explore/settings.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial aprendió a:
 

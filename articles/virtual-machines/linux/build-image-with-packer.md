@@ -228,7 +228,7 @@ Ahora puede abrir un explorador web y escribir `http://publicIpAddress` en la ba
 ![Sitio NGINX predeterminado](./media/build-image-with-packer/nginx.png) 
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este ejemplo, ha utilizado Packer para crear una imagen de máquina virtual con NGINX instalado. Esta imagen se puede usar junto con los flujos de trabajo de la implementación existentes, como implementar la aplicación en las máquinas virtuales que se crean a partir de la imagen con Ansible, Chef o Puppet.
 
 Para ver más plantillas de Packer de ejemplo para otras distribuciones de Linux, consulte [este repositorio de GitHub](https://github.com/hashicorp/packer/tree/master/examples/azure).

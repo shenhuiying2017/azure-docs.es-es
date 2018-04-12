@@ -76,6 +76,6 @@ Una suscripción es la forma en que los inquilinos acceden a las ofertas. Si es 
 
 La suscripción de proveedor predeterminada se crea automáticamente al implementar el Kit de desarrollo de Azure Stack. Esta suscripción puede utilizarse para administrar Azure Stack, implementar más proveedores de recursos, y crear ofertas y planes para usuarios. Por motivos de seguridad y concesión de licencias, no debe usarse para ejecutar aplicaciones y cargas de trabajo de cliente. 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 [Creación de un plan](azure-stack-create-plan.md)

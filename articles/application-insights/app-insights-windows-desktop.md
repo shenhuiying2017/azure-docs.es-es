@@ -84,7 +84,7 @@ ms.lasthandoff: 01/24/2018
 
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Creación de un panel](app-insights-dashboards.md)
 * [Búsqueda de diagnóstico](app-insights-diagnostic-search.md)
 * [Exploración de métricas](app-insights-metrics-explorer.md)

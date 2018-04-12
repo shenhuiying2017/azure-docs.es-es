@@ -84,7 +84,7 @@ De vez en cuando, publicamos versiones que tienen características importantes s
 
 No hay ninguna opción de soporte técnico de pago para estas versiones preliminares. Use una de las opciones enumeradas en [Notificación de problemas Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-support#report-azure-service-fabric-issues) para formular preguntas o proporcionar comentarios.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - [Actualización de la versión de Service Fabric en un clúster de Azure ](service-fabric-cluster-upgrade.md)
 - [Actualización de la versión de Service Fabric en un clúster de servidores de Windows independiente ](service-fabric-cluster-upgrade-windows-server.md)

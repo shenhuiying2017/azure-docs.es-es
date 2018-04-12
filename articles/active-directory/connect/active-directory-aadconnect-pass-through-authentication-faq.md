@@ -128,7 +128,7 @@ Vuelva a ejecutar al Asistente de Azure AD Connect y cambie el método de inicio
 
 Si desinstala un agente de autenticación de paso a través de un servidor, el servidor deja de aceptar las solicitudes de inicio de sesión. Para evitar anular la funcionalidad de inicio de sesión del usuario en el inquilino, asegúrese de que haya otro agente de autenticación en ejecución antes de desinstalar un agente de autenticación de paso a través.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 - [Limitaciones actuales](active-directory-aadconnect-pass-through-authentication-current-limitations.md): conozca qué escenarios son compatibles y cuáles no.
 - [Inicio rápido](active-directory-aadconnect-pass-through-authentication-quick-start.md): poner en marcha la autenticación de paso a través de Azure AD.
 - [Bloqueo inteligente](active-directory-aadconnect-pass-through-authentication-smart-lockout.md): obtenga información sobre cómo configurar la funcionalidad de bloqueo inteligente en el inquilino para proteger las cuentas de usuario.

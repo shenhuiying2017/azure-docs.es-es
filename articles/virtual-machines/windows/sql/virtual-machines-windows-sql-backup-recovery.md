@@ -81,7 +81,7 @@ Para obtener información sobre Copia de seguridad y restauración de SQL Server
 
 Para obtener información sobre Copia de seguridad y restauración de SQL Server en SQL Server 2008, vea [Copia de seguridad y restauración de bases de datos en SQL Server (SQL Server 2008)](https://msdn.microsoft.com/library/ms187048%28v=sql.100%29.aspx).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Si está planeando la implementación de SQL Server en una máquina virtual de Azure, puede encontrar directrices de aprovisionamiento en el siguiente tutorial: [Aprovisionamiento de una máquina virtual de SQL Server en Azure con Azure Resource Manager](virtual-machines-windows-portal-sql-server-provision.md).
 
 Aunque la copia de seguridad y la restauración pueden usarse para migrar los datos, existen rutas de acceso de migración de datos posiblemente más sencillas para SQL Server en una máquina virtual de Azure. Para obtener una descripción completa de las opciones de migración y recomendaciones, vea [Migración de una base de datos a SQL Server en una máquina virtual de Azure](virtual-machines-windows-migrate-sql.md).

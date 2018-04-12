@@ -215,7 +215,7 @@ Esencial para el rendimiento de consultas de Spark 2.x es el motor de Tungsten, 
 MAX(AMOUNT) -> MAX(cast(AMOUNT as DOUBLE))
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Depuración de trabajos de Spark que se ejecutan en Azure HDInsight](apache-spark-job-debugging.md)
 * [Administración de recursos de un clúster Spark en HDInsight](apache-spark-resource-manager.md)

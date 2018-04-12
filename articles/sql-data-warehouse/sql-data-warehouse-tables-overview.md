@@ -341,5 +341,5 @@ ORDER BY    distribution_id
 ;
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Después de crear las tablas para el almacenamiento de datos, el paso siguiente es cargar datos en la tabla.  Para un tutorial sobre la carga, consulte [Uso de PolyBase para cargar de datos de Azure Blob Storage en Azure SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md).

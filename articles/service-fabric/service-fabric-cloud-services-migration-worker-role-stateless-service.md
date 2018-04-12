@@ -251,7 +251,7 @@ En Service Fabric se configura un punto de entrada de inicio por servicio en Ser
 ## <a name="a-note-about-development-environment"></a>Nota acerca de un entorno de desarrollo
 Cloud Services y Service Fabric se integran con Visual Studio mediante plantillas de proyecto y soporte para depuración, configuración e implementación tanto local como en Azure. Cloud Services y Service Fabric también proporcionan un entorno de desarrollo local en tiempo de ejecución. La diferencia es que mientras que el tiempo de ejecución de desarrollo del Servicio en la nube emula el entorno de Azure en el que se ejecuta, Service Fabric no utiliza un emulador, sino que usa el tiempo de ejecución de Service Fabric completo. El entorno de Service Fabric que ejecuta en el equipo de desarrollo local es el mismo entorno que se ejecuta en producción.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Conozca más información sobre Reliable Services de Service Fabric y las diferencias fundamentales entre Cloud Services y la arquitectura de la aplicación de Service Fabric para aprender a aprovechar el conjunto completo de características de Service Fabric.
 
 * [Introducción a Reliable Services de Service Fabric](service-fabric-reliable-services-quick-start.md)

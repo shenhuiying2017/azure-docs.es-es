@@ -67,7 +67,7 @@ En caso de que no necesite activar un rol que requiera aprobación, puede cancel
 
    ![Captura de pantalla de la solicitud de cancelación pendiente][4]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Si le interesa aprender más sobre Privileged Identity Management de Azure AD, puede encontrar más información en los siguientes vínculos.
 
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]

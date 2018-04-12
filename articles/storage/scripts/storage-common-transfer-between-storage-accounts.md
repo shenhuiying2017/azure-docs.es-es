@@ -70,7 +70,7 @@ Este script usa los siguientes comandos para copiar datos de una cuenta de almac
 | [Get-AzureStorageContainer](/powershell/module/azure.storage/Get-AzureStorageContainer) | Devuelve los contenedores de almacenamiento asociados con esta cuenta de Storage. |
 | [New-AzureStorageContext](/powershell/module/azure.storage/New-AzureStorageContext) | Crea un contexto de Azure Storage. |
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener más información sobre el módulo de Azure PowerShell, consulte la [documentación de Azure PowerShell](/powershell/azure/overview).
 

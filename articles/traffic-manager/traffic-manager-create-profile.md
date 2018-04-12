@@ -66,7 +66,7 @@ En este artículo, dos puntos de conexión de Azure Web App creados anteriorment
 ## <a name="delete-the-traffic-manager-profile"></a>Eliminar el perfil de Traffic Manager
 Si ya no los necesita, elimine el grupo de recursos y el perfil de Traffic Manager que creó. Para ello, seleccione el grupo de recursos en **Perfil de Traffic Manager** y haga clic en **Eliminar**.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Más información sobre los [tipos de enrutamiento](traffic-manager-routing-methods.md).
 - Más información sobre los [tipos de punto de conexión](traffic-manager-endpoint-types.md).

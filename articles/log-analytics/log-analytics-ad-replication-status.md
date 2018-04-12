@@ -152,5 +152,5 @@ Si necesita ayuda para conectarse a uno de los controladores de dominio, puede v
 
 Si no desea conectar ninguno de los controladores de dominio directamente a Log Analytics o a System Center Operations Manager, consulte [Habilitación de un controlador que no sea de dominio para enviar datos de AD a Log Analytics](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Utilice [Búsquedas de registros en Log Analytics](log-analytics-log-searches.md) para ver datos detallados de estado de replicación de Active Directory.

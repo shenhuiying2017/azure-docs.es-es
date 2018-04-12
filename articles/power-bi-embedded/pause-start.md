@@ -75,7 +75,7 @@ Reanude el uso iniciando la capacidad. Al iniciar la capacidad, también se rean
 
 Si cualquier contenido está asignado a esta capacidad, estará disponible una vez que se inicie.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Si desea escalar o reducir verticalmente la capacidad, consulte [Scale your Power BI Embedded capacity](scale-capacity.md) (Escalado de la capacidad de Power Bi Embedded).
 

@@ -337,7 +337,7 @@ Cuando no necesite el grupo de recursos, la cuenta de Batch, los grupos y todos 
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, ha aprendido a:
 

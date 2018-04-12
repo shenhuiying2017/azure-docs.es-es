@@ -322,7 +322,7 @@ Cuando haya terminado de explorar la primera base de datos Oracle en Azure y la 
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Conozca otras [soluciones de Oracle en Azure](oracle-considerations.md). 
 

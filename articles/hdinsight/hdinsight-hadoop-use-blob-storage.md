@@ -299,7 +299,7 @@ Al crear un clúster de HDInsight, se especifica la cuenta de Azure Storage a la
 > [!WARNING]
 > No se admite el uso de una cuenta de almacenamiento adicional en una ubicación diferente a la del clúster de HDInsight.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este artículo, aprendió a usar Azure Storage compatible con HDFS con HDInsight. Esto le permite crear soluciones de adquisición de datos de archivado escalables y a largo plazo y usar HDInsight para desbloquear la información que hay dentro de los datos estructurados y no estructurados almacenados.
 
 Para más información, consulte:

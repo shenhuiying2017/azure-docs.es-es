@@ -48,6 +48,6 @@ Aplicable solo a Servicios de federación de Active Directory (AD FS).
 3. En la hoja **Usuarios**, haga clic en **Roles**.
 4. En la hoja **Roles**, haga clic en **Agregar** para agregar permisos para el grupo de Active Directory del grupo universal.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Add a new Azure Stack tenant account in Azure Active Directory](azure-stack-add-new-user-aad.md)
 

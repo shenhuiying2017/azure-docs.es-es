@@ -112,6 +112,6 @@ Realice los siguientes pasos para descargar e instalar las revisiones.
 
 [!INCLUDE [storsimple-8000-install-troubleshooting](../../includes/storsimple-8000-install-troubleshooting.md)]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Más información sobre el [lanzamiento de Update 5](storsimple-update5-release-notes.md).
 

@@ -86,7 +86,7 @@ En este escenario, la aplicación pide al usuario que inicie sesión y todas las
 
 Para más información sobre la autenticación interactiva de usuarios, consulte el [flujo de concesión de un código de autorización](https://msdn.microsoft.com/library/azure/dn645542.aspx).
    
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este artículo, ha aprendido a usar la autenticación entre servicios con Azure Data Lake Store mediante la API de REST. Ahora puede consultar los siguientes artículos, que tratan acerca de cómo usar la API de REST con Azure Data Lake Store.
 
 * [Operaciones de administración de cuentas en Data Lake Store mediante la API de REST](data-lake-store-get-started-rest-api.md)

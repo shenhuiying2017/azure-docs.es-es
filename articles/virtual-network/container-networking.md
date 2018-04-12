@@ -47,6 +47,6 @@ Puede implementar hasta 4000 nodos en un clúster de Kubernetes y hasta 250 pods
 ## <a name="pricing"></a>Precios
 No se aplica ningún cargo por usar el complemento de CNI.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Obtenga información sobre cómo [implementar un clúster de Kubernetes](https://github.com/Azure/acs-engine/blob/master/docs/kubernetes/deploy.md) en su [propia red virtual](https://github.com/Azure/acs-engine/blob/master/docs/kubernetes/features.md#using-azure-integrated-networking-cni).

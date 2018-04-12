@@ -38,7 +38,7 @@ En este artículo se explica cómo asignar un rol administrativo a un usuario en
       ![Asignación de un rol a un usuario](./media/active-directory-users-assign-role-azure-portal/create-users-assign-role.png)
 6. Seleccione **Guardar**.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Guía de inicio rápido: Agregar o eliminar usuarios en Azure Active Directory](add-users-azure-active-directory.md)
 * [Administrar perfiles de usuario](active-directory-users-profile-azure-portal.md)
 * [Adición de usuarios invitados de otro directorio](active-directory-b2b-what-is-azure-ad-b2b.md) 

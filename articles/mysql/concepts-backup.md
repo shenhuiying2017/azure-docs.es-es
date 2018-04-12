@@ -75,7 +75,7 @@ Cuando efectúe la restauración con cualquiera de los mecanismos de recuperaci�
 - No se olvide de emplear los permisos de nivel de base de datos y los inicios de sesión apropiados.
 - Configure las alertas según corresponda.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Para más información acerca de la continuidad del negocio, consulte la  [introducción a la continuidad de negocio](concepts-business-continuity.md).
 - Para restaurar a un momento dado mediante Azure Portal, consulte cómo  [restaurar una base de datos a un momento dado con Azure Portal](howto-restore-server-portal.md).

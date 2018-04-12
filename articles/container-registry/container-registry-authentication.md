@@ -91,7 +91,7 @@ Puede habilitar el usuario administrador en Azure Portal dirigiéndose al regist
 
 ![Activación de la interfaz de usuario administrador en Azure Portal][auth-portal-01]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Push your first image using the Azure CLI](container-registry-get-started-azure-cli.md) (Inserción de la primera imagen mediante la CLI de Azure)
 

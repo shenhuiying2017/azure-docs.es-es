@@ -190,7 +190,7 @@ También puede comprobar si el registro de depuración está habilitado para uno
 
 Para recopilar los registros de todos los nodos en una ubicación central, puede crear un flujo de datos, como la introducción de todas las entradas de registro en Solr.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Práctica de supervisión y registro para HDInsight](https://msdn.microsoft.com/library/dn749790.aspx)
 * [Acceso a registros de aplicación de YARN en HDInsight basado en Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)

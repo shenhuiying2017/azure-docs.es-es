@@ -85,7 +85,7 @@ Cuando trabaje con entidades de servicio de AKS y Azure AD, tenga en cuenta lo s
 * Cuando use el comando `az aks create` para generar la entidad de servicio automáticamente, sus credenciales se escriben en el archivo `~/.azure/acsServicePrincipal.json` de la máquina que se usa para ejecutar el comando.
 * Al eliminar un clúster de AKS creado mediante `az aks create`, no se eliminará la entidad de servicio que se creó automáticamente. Puede usar `az ad sp delete --id $clientID` para eliminarlo.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para más información acerca de las entidades de servicio de Azure Active Directory, consulte la documentación de las aplicaciones de Azure AD.
 

@@ -396,7 +396,7 @@ Para obtener información general de la experiencia de usuario relacionada, cons
 
     ![Directiva de MFA](./media/active-directory-identityprotection/1019.png "Directiva de MFA")
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Channel 9: Azure AD and Identity Show: Identity Protection Preview (Channel 9: Presentación de Azure AD e Identity: versión preliminar de Identity Protection)](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
 
 * [Habilitación de Azure Active Directory Identity Protection](active-directory-identityprotection-enable.md)

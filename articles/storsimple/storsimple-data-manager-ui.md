@@ -159,6 +159,6 @@ Siempre que tenga que mover los datos de StorSimple a la cuenta de almacenamient
     ![Iniciar ejecución de trabajo 4](./media/storsimple-data-manager-ui/start-job-run4.png)
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 [Use the .Net SDK to initiate data transformation](storsimple-data-manager-dotnet-jobs.md) (Uso del SDK de .NET para iniciar la transformación de datos).

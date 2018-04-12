@@ -67,7 +67,7 @@ Las acciones de correo electrónico envían un correo electrónico con los detal
 5. Agregue direcciones de uno o más destinatarios de correo electrónico en el campo **Destinatarios**.  Si especifica más de una dirección, separe las direcciones con un punto y coma (;).
 6. Haga clic en **Guardar** para completar la regla de alerta. Se iniciará la ejecución de inmediato.<br><br> ![Regla de alertas con notificación por correo electrónico](media/log-analytics-tutorial-response/log-analytics-alert-02.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este tutorial ha aprendido cómo las reglas de alerta pueden identificar un problema y resolverlo de forma proactiva cuando se ejecuten búsquedas de registro en intervalos programados y coincidan con criterios determinados.  
 
 Siga este vínculo para ver ejemplos de scripts de Log Analytics creados previamente.  

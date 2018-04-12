@@ -122,7 +122,7 @@ Ahora implementaremos su segunda plantilla.  Esta plantilla resulta útil para m
 
 <a name="NextSteps"></a>
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Felicidades. Ha implementado Azure Cosmos DB, una aplicación web de App Service y una aplicación web de ejemplo mediante plantillas de Azure Resource Manager.
 
 * Para más información sobre Azure Cosmos DB, haga clic [aquí](http://azure.com/docdb).

@@ -381,7 +381,7 @@ Este paso se divide en dos sesiones de la CLI marcadas como **[Suscripción 1]**
 ## <a name="faq"></a>P+F sobre conexiones de red virtual a red virtual
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * Una vez completada la conexión, puede agregar máquinas virtuales a las redes virtuales. Para más información, consulte la [documentación sobre máquinas virtuales](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
 * Para más información acerca de BGP, consulte [Información general de BGP](vpn-gateway-bgp-overview.md) y [Configuración de BGP](vpn-gateway-bgp-resource-manager-ps.md).

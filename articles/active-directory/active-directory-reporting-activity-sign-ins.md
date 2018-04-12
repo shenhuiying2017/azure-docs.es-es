@@ -196,7 +196,7 @@ La opción **Inicios de sesión** ofrece una descripción completa de todos los 
 
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Si desea obtener más información acerca de los códigos de error de las actividades de inicio de sesión, consulte [Códigos de error de informes de actividad de inicio de sesión en el portal de Azure Active Directory](active-directory-reporting-activity-sign-ins-errors.md).
 

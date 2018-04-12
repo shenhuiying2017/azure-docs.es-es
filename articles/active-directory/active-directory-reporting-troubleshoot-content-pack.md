@@ -63,7 +63,7 @@ Este tema proporciona información sobre las posibles causas y cómo corregir es
 | ---   | ---        |
 | Según el tamaño de su inquilino, este paso puede tardar desde algunos minutos hasta media hora. | Tenga paciencia. Si el mensaje no cambia para mostrar el panel dentro de una hora, registre una incidencia de soporte técnico. Para más detalles, consulte [Obtención de soporte técnico para Azure Active Directory](active-directory-troubleshooting-support-howto.md).|
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para instalar el paquete de contenido de Power BI para Azure Active Directory (versión preliminar), haga clic [aquí](https://powerbi.microsoft.com/en-us/blog/azure-active-directory-meets-power-bi/).
 

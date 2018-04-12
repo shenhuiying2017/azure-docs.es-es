@@ -83,7 +83,7 @@ Se aplican las siguientes consideraciones:
   * **cbcs-aapl**: para FairPlay (cifrado AES-CBC)
   * **cbc**: para cifrado de sobre AES
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En los próximos artículos se describen los siguientes pasos para empezar con la protección de contenido:
 
 * [Protección con el cifrado de almacenamiento](media-services-rest-storage-encryption.md)

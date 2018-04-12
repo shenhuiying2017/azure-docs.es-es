@@ -165,7 +165,7 @@ Además de la funcionalidad principal de generación de informes de Azure AD Pre
 
 Dado que las opciones para la respuesta ante incidentes usan un enfoque multicapa, la comparación entre ellas no se puede aplicar a esta tarea. Asegúrese de que saca provecho de todas las opciones disponibles para cada escenario que requiere que se use la capacidad de generación de informes de Azure AD como parte del proceso de respuesta ante incidentes de su compañía.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Determinación de las tareas de administración de identidades híbridas](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)
 
 ## <a name="see-also"></a>Otras referencias

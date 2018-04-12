@@ -74,7 +74,7 @@ Los scripts de PowerShell y Bash proporcionados en la documentación y los SDK s
 
    ![Cargar comprobación de certificado](./media/how-to-verify-certificates/upload-cert-verification.png)  
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Para obtener información acerca de cómo usar el portal para crear un grupo de inscripción, consulte [Administración de inscripciones de dispositivos con Azure Portal](how-to-manage-enrollments.md).
 - Para obtener información acerca de cómo usar los SDK de servicio para crear un grupo de inscripción, consulte [Administración de inscripciones de dispositivos con los SDK del servicio](how-to-manage-enrollments-sdks.md).

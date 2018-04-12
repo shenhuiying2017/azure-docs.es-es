@@ -189,7 +189,7 @@ Para demostrar la conmutación por error del servicio, se simula un reinicio del
 
     ![Reinicio del nodo de Service Fabric Explorer completado](./media/service-fabric-quickstart-java-spring-boot/sfxfailedover.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este tutorial, ha aprendido a hacer lo siguiente:
 
 > [!div class="checklist"]

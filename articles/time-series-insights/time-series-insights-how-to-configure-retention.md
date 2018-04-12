@@ -44,5 +44,5 @@ Para obtener información detallada para comprender mejor estas opciones de conf
 
 7. Seleccione **Guardar** para configurar los cambios.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información, consulte [Understanding retention in Time Series Insights](time-series-insights-concepts-retention.md) (Información sobre la retención en Time Series Insights).

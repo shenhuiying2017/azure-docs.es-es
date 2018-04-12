@@ -494,7 +494,7 @@ public async Task RunAllTasks()
 }
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Obtenga los conceptos básicos de la [correlación de telemetría](application-insights-correlation.md) en Application Insights.
 - Vea el [modelo de datos](application-insights-data-model.md) para los tipos y el modelo de datos de Application Insights.

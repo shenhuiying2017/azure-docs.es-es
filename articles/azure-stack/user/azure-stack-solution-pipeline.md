@@ -199,7 +199,7 @@ Ahora puede probar la canalización de CI/CD híbrida, con el paso final de la p
 
 Ahora puede usar la nueva canalización de CI/CD híbrida como un bloque de creación para otros modelos de nube híbrida.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este tutorial, aprendió a crear una canalización de CI/CD híbrida que:
 
 > [!div class="checklist"]

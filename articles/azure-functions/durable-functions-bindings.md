@@ -283,7 +283,7 @@ module.exports = function (context, input) {
 
 Pueden encontrar más información acerca de cómo iniciar instancias en [Administración de instancias](durable-functions-instance-management.md).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Obtenga información acerca de los comportamientos de los puntos de control y reproducción](durable-functions-checkpointing-and-replay.md)

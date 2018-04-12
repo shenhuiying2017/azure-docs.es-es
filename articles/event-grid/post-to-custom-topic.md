@@ -91,7 +91,7 @@ Por ejemplo, un esquema de datos de evento válido es:
 }]
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * Para obtener una introducción al enrutamiento de eventos personalizados, vea [Creación y enrutamiento de eventos personalizados con la CLI de Azure y Event Grid](custom-event-quickstart.md) o [Creación y enrutamiento de eventos personalizados con Azure PowerShell y Event Grid](custom-event-quickstart-powershell.md).
 * Para más información sobre la clave de autenticación, vea [Seguridad y autenticación de Event Grid](security-authentication.md).

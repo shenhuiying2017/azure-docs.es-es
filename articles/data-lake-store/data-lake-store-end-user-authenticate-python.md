@@ -116,7 +116,7 @@ Se utiliza para autenticarse en Azure AD para las operaciones del sistema de arc
 
 Esto está en desuso. Para más información, consulte [Autenticación de Azure mediante el SDK de Python](https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate?view=azure-python#mgmt-auth-token).
    
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este artículo, ha aprendido a usar la autenticación de usuario final para autenticarse en Azure Data Lake Store mediante Python. Ahora puede consultar los siguientes artículos, que tratan sobre cómo usar Python con Azure Data Lake Store.
 
 * [Operaciones de administración de cuentas en Data Lake Store con Python](data-lake-store-get-started-python.md)

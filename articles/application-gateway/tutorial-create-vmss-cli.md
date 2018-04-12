@@ -139,7 +139,7 @@ az network public-ip show \
 
 ![Prueba de la dirección URL base en la puerta de enlace de aplicaciones](./media/tutorial-create-vmss-cli/tutorial-nginxtest.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial aprendió lo siguiente:
 

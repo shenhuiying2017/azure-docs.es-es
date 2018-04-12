@@ -352,7 +352,7 @@ az storage account update --resource-group "myresourcegroup" --name "mystorageac
 > Asegúrese de [establecer la regla predeterminada](#change-the-default-network-access-rule) para la denegación o a eliminación de las excepciones no tendrá ningún efecto.
 >
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información acerca de los puntos de conexión de servicio de red de Azure en [Puntos de conexión de servicio](/azure/virtual-network/virtual-network-service-endpoints-overview).
 
 Profundice en la seguridad de Azure Storage en la [Guía de seguridad de Azure Storage](storage-security-guide.md).

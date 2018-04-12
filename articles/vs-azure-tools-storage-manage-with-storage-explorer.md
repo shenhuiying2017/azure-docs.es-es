@@ -275,7 +275,7 @@ A medida que escribe en el cuadro de búsqueda, en el panel izquierdo se muestra
 >
 >
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Administración de recursos de Azure Blob Storage con el Explorador de Storage (versión preliminar)](vs-azure-tools-storage-explorer-blobs.md)
 * [Administración de Azure Cosmos DB en el Explorador de Azure Storage (versión preliminar)](./cosmos-db/storage-explorer.md)
 * [Administración de recursos de Azure Data Lake Store con el Explorador de Storage (versión preliminar)](./data-lake-store/data-lake-store-in-storage-explorer.md)

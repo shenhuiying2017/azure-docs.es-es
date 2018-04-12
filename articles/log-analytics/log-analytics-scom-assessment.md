@@ -303,6 +303,6 @@ Si desea omitir ciertas recomendaciones, puede crear un archivo de texto que Log
 *¿Se puede hacer caso omiso de una recomendación?* Sí, consulte [Omisión de las recomendaciones](#Ignore-recommendations).
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - [Búsquedas de registros](log-analytics-log-searches.md) para obtener más información sobre cómo analizar recomendaciones y datos de System Center Operations Manager Health Check.

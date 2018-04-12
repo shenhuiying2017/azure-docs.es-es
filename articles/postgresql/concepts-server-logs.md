@@ -38,6 +38,6 @@ El parámetro **log\_min\_messages** permite controlar qué niveles de mensajes 
 
 Para obtener más información sobre estas opciones de configuración, consulte la documentación sobre [notificación y registro de errores](https://www.postgresql.org/docs/9.6/static/runtime-config-logging.html). Para configurar específicamente los parámetros del servidor de Azure Database for PostgreSQL, consulte el artículo [Personalización de los parámetros de configuración del servidor con la CLI de Azure](howto-configure-server-parameters-using-cli.md).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 - Para obtener acceso a registros mediante la interfaz de la línea de comandos de la CLI de Azure, consulte el artículo [Configuración y acceso a los registros del servidor con la CLI de Azure](howto-configure-server-logs-using-cli.md).
 - Para más información sobre los parámetros del servidor, consulte cómo [personalizar los parámetros de configuración del servidor mediante la CLI de Azure](howto-configure-server-parameters-using-cli.md).

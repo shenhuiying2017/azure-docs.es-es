@@ -55,5 +55,5 @@ Para desbloquear una cuenta en riesgo, tiene las siguientes opciones:
 3. **Excluir de la directiva** : si piensa que la configuración actual de la directiva de inicio de sesión provoca problemas a usuarios concretos, puede excluir los usuarios de ella. Para más información, consulte [Azure Active Directory Identity Protection](active-directory-identityprotection.md).
 4. **Deshabilitar directiva** : si piensa que la configuración de la directiva provoca problemas a todos los usuarios, puede deshabilitar la directiva. Para más información, consulte [Azure Active Directory Identity Protection](active-directory-identityprotection.md).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
  ¿Desea más información acerca de Azure AD Identity Protection? Consulte [Azure Active Directory Identity Protection](active-directory-identityprotection.md).

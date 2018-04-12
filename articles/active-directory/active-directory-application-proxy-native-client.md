@@ -93,7 +93,7 @@ Las variables del código de ejemplo deben reemplazarse como sigue:
 
 Una vez que se edita la ADAL con estos parámetros, los usuarios deberían poder autenticarse en las aplicaciones cliente nativas incluso si están fuera de la red corporativa. 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre el flujo de la aplicación nativa, consulte el escenario de [Aplicación nativa a API web](develop/active-directory-authentication-scenarios.md#native-application-to-web-api).
 

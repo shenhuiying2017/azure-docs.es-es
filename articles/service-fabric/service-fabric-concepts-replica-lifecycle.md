@@ -140,7 +140,7 @@ En el siguiente diagrama se muestran las transiciones de rol de réplica y algun
 > Los modelos de programación de nivel superior, como [Reliable Actors](service-fabric-reliable-actors-introduction.md) y [Reliable Services](service-fabric-reliable-services-introduction.md) ocultan el concepto de roles de réplica del desarrollador. En Actors, la noción de un rol es innecesaria. En Services, está enormemente simplificada en la mayoría de los escenarios.
 >
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre los conceptos de Service Fabric, consulte el siguiente artículo:
 
 [Ciclo de vida de Reliable Services: C#](service-fabric-reliable-services-lifecycle.md)

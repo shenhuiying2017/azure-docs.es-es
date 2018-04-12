@@ -101,7 +101,7 @@ El control de acceso de administrador también tiene acceso a estas operaciones.
 ## <a name="changing-default-settings-for-client-roles"></a>Cambio de la configuración predeterminada para los roles de cliente
 En el archivo de manifiesto de clúster, puede proporcionar capacidades de administración al cliente si es necesario. Puede cambiar los valores predeterminados con la opción **Fabric Settings** durante la [creación del clúster](service-fabric-cluster-creation-via-portal.md) y especificar la configuración especificada anteriormente en los campos **nombre**, **administrador**, **usuario** y **valor**.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Seguridad de los clústeres de Service Fabric](service-fabric-cluster-security.md)
 
 [Creación de clústeres de Service Fabric](service-fabric-cluster-creation-via-portal.md)

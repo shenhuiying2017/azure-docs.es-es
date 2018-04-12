@@ -40,7 +40,7 @@ Use Visual Studio para implementar plantillas de Azure Resource Manager en el Ki
 11. En la lista **Ubicación del grupo de recursos**, elija una ubicación y haga clic en **Implementar**.
 12. En el cuadro de diálogo **Editar parámetros**, escriba los valores para los parámetros (que varían según la plantilla) y haga clic en **Guardar**.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Implementación de plantillas con la línea de comandos](azure-stack-deploy-template-command-line.md)
 
 [Desarrollo de plantillas para Azure Stack](azure-stack-develop-templates.md)

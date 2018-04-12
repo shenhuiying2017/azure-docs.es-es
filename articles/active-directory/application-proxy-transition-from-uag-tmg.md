@@ -60,7 +60,7 @@ El proxy de aplicación de Azure AD ofrece ventajas exclusivas en comparación c
 - Un panel de acceso que los usuarios pueden usar para todas sus aplicaciones, incluidas Office 365, las aplicaciones SassS integradas en Azure AD y las aplicaciones web locales. 
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - [Uso de la aplicación Azure AD para proporcionar acceso remoto seguro a aplicaciones locales](active-directory-application-proxy-get-started.md)
 - [Transición de Forefront TMG y UAG al proxy de aplicación](https://blogs.technet.microsoft.com/isablog/2015/06/30/modernizing-microsoft-application-access-with-web-application-proxy-and-azure-active-directory-application-proxy/).

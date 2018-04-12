@@ -92,7 +92,7 @@ Use las opciones de **Dividir por** en el menú **Editar**:
 1. Elija el evento que desea dividir en el menú **Eventos**.
 2. Elija una dimensión en el menú **Dimensión**. Por ejemplo, si tiene un evento denominado "Clic en Button", pruebe una propiedad personalizada denominada "Button Name".
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Información general del uso](app-insights-usage-overview.md)
 * [Usuarios, sesiones y eventos](app-insights-usage-segmentation.md)

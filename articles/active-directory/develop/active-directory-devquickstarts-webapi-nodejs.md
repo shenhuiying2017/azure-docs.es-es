@@ -239,7 +239,7 @@ Unauthorized
 ```
 Ahora que ha creado una API segura, puede implementar un cliente que puede pasar tokens de autenticación a la API.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Como se mencionó en la introducción, debe implementar un cliente homólogo para conectarse al servidor que controla el inicio de sesión, el cierre de sesión y la administración de tokens. Para obtener ejemplos basados en código, puede hacer referencia a las aplicaciones de cliente en [iOS](https://github.com/MSOpenTech/azure-activedirectory-library-for-ios) y [Android](https://github.com/MSOpenTech/azure-activedirectory-library-for-android). Para obtener un tutorial paso a paso, consulte el artículo siguiente:
 
 > [!div class="nextstepaction"]

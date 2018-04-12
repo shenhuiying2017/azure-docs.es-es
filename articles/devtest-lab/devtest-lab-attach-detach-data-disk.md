@@ -104,6 +104,6 @@ Para actualizar un disco de datos no administrado, siga los pasos descritos en e
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Aprenda a administrar discos de datos para [máquinas virtuales reclamables](devtest-lab-add-claimable-vm.md#unclaim-a-vm).
 

@@ -63,7 +63,7 @@ Encontrará más información sobre licencias, precios y futuros planes en los s
 * [Actualizaciones de Azure](https://azure.microsoft.com/updates/)
 * [Azure Roadmap](https://www.microsoft.com/cloud-platform/roadmap-recently-available)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * ¿Está listo para empezar a trabajar con SSPR? [Configure el autoservicio de restablecimiento de contraseña de Azure AD](active-directory-passwords-getting-started.md).
 * Planee una implementación correcta del autoservicio de restablecimiento de contraseña para los usuarios mediante las directrices que aparecen en nuestra [guía de implementación](active-directory-passwords-best-practices.md).

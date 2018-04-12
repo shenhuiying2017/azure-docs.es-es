@@ -50,7 +50,7 @@ Identifique los usuarios que no se han registrado en MFA mediante el PowerShell 
 
 ```Get-MsolUser -All | where {$_.StrongAuthenticationMethods.Count -eq 0} | Select-Object -Property UserPrincipalName```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Para los usuarios](end-user/multi-factor-authentication-end-user.md)
 * [Lugar de implementación](multi-factor-authentication-get-started.md)

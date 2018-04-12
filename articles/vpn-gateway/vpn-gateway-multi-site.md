@@ -206,6 +206,6 @@ Valor devuelto del ejemplo:
     OperationStatus           : Succeeded
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre las VPN Gateway, consulte [Acerca de las VPN Gateway](vpn-gateway-about-vpngateways.md).

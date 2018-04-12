@@ -91,6 +91,6 @@ PP = En versión preliminar pública
 | Permitir quitar atributos del flujo de AD a Azure AD |● |● | | | |
 | Permitir personalización avanzada para flujos de atributo |● |● | |● |● |
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 

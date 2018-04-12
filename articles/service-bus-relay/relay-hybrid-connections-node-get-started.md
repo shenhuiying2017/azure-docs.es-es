@@ -76,7 +76,7 @@ Para enviar mensajes a Relay, escriba una aplicación de consola en Node.js.
 
 Ya ha creado una aplicación de Conexiones híbridas de un extremo a otro.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Preguntas más frecuentes acerca de Relay](relay-faq.md)
 * [Creación de un espacio de nombres](relay-create-namespace-portal.md)

@@ -356,7 +356,7 @@ Puede usar una red virtual existente o crear una nueva red virtual durante la im
 * [Azure Virtual Network](https://aka.ms/Azure/VNet)
 * [AD FS y vínculos de proxy de aplicación web](https://aka.ms/ADFSLinks) 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 * [Configuración y administración de AD FS con Azure AD Connect](active-directory-aadconnectfed-whatis.md)
 * [Implementación de AD FS en Azure de alta disponibilidad entre regiones geográficas con Azure Traffic Manager](../active-directory-adfs-in-azure-with-azure-traffic-manager.md)

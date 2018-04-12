@@ -98,7 +98,7 @@ Al menos uno de los programas ejecutables de la aplicación debe ejecutar activa
 ## <a name="closefault-behavior"></a>Comportamiento de cierre o error
 Dentro de una aplicación que hospeda el sifón, cuando el elemento principal o secundario [MessagingFactory][MessagingFactory] genera un error o se cierra sin que su asociado genere un error o se cierre, y el sifón detecta este estado, el sifón actúa. Si el otro elemento [MessagingFactory][MessagingFactory] no se cierra en 5 segundos, el sifón generará un error en el otro elemento [MessagingFactory][MessagingFactory] que aún está abierto.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre la mensajería asincrónica de Service Bus, consulte [Patrones de mensajería asincrónica y alta disponibilidad][Asynchronous messaging patterns and high availability]. 
 
 [PairNamespaceAsync]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory#Microsoft_ServiceBus_Messaging_MessagingFactory_PairNamespaceAsync_Microsoft_ServiceBus_Messaging_PairedNamespaceOptions_

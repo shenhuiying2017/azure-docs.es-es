@@ -511,7 +511,7 @@ Los siguientes pasos muestran cómo eliminar un blob:
 
 1. Ejecute la aplicación y seleccione **Eliminar blob** para eliminar el blob especificado en la llamada al método `CloudBlobContainer.GetBlockBlobReference`. El texto *"success!"* debería aparecer en el explorador. Seleccione el botón **Atrás** del explorador y luego seleccione **Mostrar blobs** para comprobar que el blob ya no está en el contenedor.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, aprendió a almacenar, enumerar y recuperar blobs en Azure Storage mediante ASP.NET Core. Consulte más guías de características para obtener información acerca de otras opciones del almacenamiento de datos en Azure.
 

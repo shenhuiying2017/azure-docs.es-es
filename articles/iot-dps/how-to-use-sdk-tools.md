@@ -69,5 +69,5 @@ El **certificado de cliente** es el certificado de hoja del dispositivo.  El **c
 
 El certificado raíz o el intermedio pueden usarse para crear un grupo de inscripción o una inscripción individual [mediante programación](https://docs.microsoft.com/azure/iot-dps/how-to-manage-enrollments-sdks) o mediante el [portal](https://docs.microsoft.com/azure/iot-dps/how-to-manage-enrollments).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Desarrollo con el [SDK de IoT de Azure]( https://github.com/Azure/azure-iot-sdks) para Azure IoT Hub y Azure IoT Hub Device Provisioning Service

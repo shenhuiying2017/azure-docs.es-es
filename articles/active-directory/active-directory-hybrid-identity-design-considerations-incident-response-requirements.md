@@ -61,7 +61,7 @@ Durante la fase de control de daños y reducción de riesgos, es importante redu
 > 
 > 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Definición de la estrategia de protección de datos](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md)
 
 ## <a name="see-also"></a>Otras referencias

@@ -106,7 +106,7 @@ Para conectarse a máquinas virtuales Linux mediante SSH después de la conmutac
 2. En la máquina virtual de Azure después de la conmutación por error, permita las conexiones entrantes al puerto SSH para las reglas del grupo de seguridad de red de la máquina virtual conmutada por error y para la subred de Azure a la que esta se conecta.
    [Agregue una dirección IP pública](site-recovery-monitoring-and-troubleshooting.md) para la máquina virtual. Puede comprobar los **Diagnósticos de arranque** para ver una captura de pantalla de la máquina virtual.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Configurar la recuperación ante desastres en Azure para máquinas virtuales de VMware](tutorial-vmware-to-azure.md)

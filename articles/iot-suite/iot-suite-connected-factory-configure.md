@@ -343,6 +343,6 @@ Una característica del valor del nodo **NumberOfManufactureredProducts** es que
 
 **OpCode** en la configuración configura la lógica de cálculo para calcular el resultado de la diferencia entre los valores máximo y mínimo. Después, dichos resultados se acumulan desde la base hasta el nivel raíz (global) y se muestran en el panel.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Se recomienda el siguiente paso para aprender a [implementar una puerta de enlace en Windows o Linux para la solución preconfigurada de factoría conectada](iot-suite-connected-factory-gateway-deployment.md).

@@ -123,7 +123,7 @@ Esta es una tabla de todos los enlaces admitidos.
 ## <a name="reporting-issues"></a>Problemas de informes
 [!INCLUDE [Reporting Issues](../../includes/functions-reporting-issues.md)]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información, consulte los siguientes recursos:
 
 * [Procedimientos recomendados de Azure Functions](functions-best-practices.md)

@@ -88,7 +88,7 @@ Al usar tablas de sincronización, el código de cliente determina el momento en
 
   Como un ejemplo de datos obsoletos en el cliente, supongamos que en el ejemplo "lista de tareas pendientes", Dispositivo1 extrae solo los elementos que no se han completado. Otro dispositivo marca una tarea pendiente "Comprar leche" como completada en el servidor. Sin embargo, Dispositivo1 seguirá teniendo la tarea pendiente "Comprar leche" en el almacén local porque solo está extrayendo los elementos que no están marcados como completados Una purga borra este elemento obsoleto.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [iOS: habilitar la sincronización sin conexión]
 * [Xamarin iOS: habilitar la sincronización sin conexión]
 * [Xamarin Android: habilitar la sincronización sin conexión]

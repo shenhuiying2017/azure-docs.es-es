@@ -117,7 +117,7 @@ También puede consultar la configuración del dispositivo en el portal de Azure
 Para obtener más información, consulte [Locate devices](device-management-azure-portal.md#locate-devices) (Buscar dispositivos).
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener más información, consulte  
 

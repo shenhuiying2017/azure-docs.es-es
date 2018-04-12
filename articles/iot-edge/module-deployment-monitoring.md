@@ -116,7 +116,7 @@ Realice las reversiones siguiendo esta secuencia:
    * La segunda implementación ahora debe incluir el estado de implementación de los dispositivos que se han revertido.
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * Siga los pasos para crear, actualizar o eliminar una implementación en [Deploy and monitor IoT Edge modules at scale][lnk-howto] (Implementación y supervisión de módulos de IoT Edge a escala).
 * Aprenda más sobre otros conceptos de IoT Edge como el [entorno de tiempo de ejecución de IoT Edge][ lnk-runtime] y los [módulos de IoT Edge][lnk-modules].

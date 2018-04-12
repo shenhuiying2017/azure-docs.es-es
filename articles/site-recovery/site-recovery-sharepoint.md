@@ -212,5 +212,5 @@ Siga [estas directrices](site-recovery-failover.md) cuando realice una conmutaci
 3.  Haga clic en 'Conmutación por error'.
 4.  Seleccione el punto de recuperación en el que se va a iniciar el proceso de conmutación por error.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Puede obtener más información sobre la [replicación de otras aplicaciones](site-recovery-workload.md) a través de Site Recovery.

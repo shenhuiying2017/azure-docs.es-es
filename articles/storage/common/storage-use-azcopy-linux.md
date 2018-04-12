@@ -621,7 +621,7 @@ Si no puede impedir que otras aplicaciones escriban en blobs o archivos mientras
 ### <a name="run-one-azcopy-instance-on-one-machine"></a>Ejecutar una instancia de AzCopy en un solo equipo.
 AzCopy está diseñado para maximizar el uso de los recursos del equipo para acelerar la transferencia de datos. Se recomienda ejecutar solo una instancia de AzCopy en un equipo y especificar la opción `--parallel-level` si necesita más operaciones simultáneas. Para obtener más detalles, escriba `AzCopy --help parallel-level` en la línea de comandos.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre Azure Storage y AzCopy, consulte los recursos siguientes:
 
 ### <a name="azure-storage-documentation"></a>Documentación de Azure Storage:

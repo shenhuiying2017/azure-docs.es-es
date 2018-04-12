@@ -173,7 +173,7 @@ Esto se hace anexando la propiedad `GatewayHostName` a la cadena de conexión de
 
 Estos dos pasos permiten que la aplicación de dispositivo se conecte con el dispositivo de puerta de enlace.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Descripción de los requisitos y las herramientas para desarrollar módulos de IoT Edge][lnk-module-dev].
 
 [lnk-devicesdk]: ../iot-hub/iot-hub-devguide-sdks.md

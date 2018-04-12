@@ -45,7 +45,7 @@ Cuando un cliente envía una solicitud a Service Bus, el equilibrador de carga d
 
 ![Procesamiento de solicitudes entrantes de mensajería](./media/service-bus-architecture/ic690644.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Ahora que ha leído una introducción sobre la arquitectura de Service Bus, visite los siguientes vínculos para más información:
 
