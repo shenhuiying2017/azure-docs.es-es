@@ -1,25 +1,24 @@
 ---
-title: "Azure Cosmos DB: análisis de gráficos mediante Spark y Apache TinkerPop Gremlin | Microsoft Docs"
-description: "Este artículo presenta instrucciones para configurar y ejecutar análisis de gráficos y cálculos en paralelo en Azure Cosmos DB con Spark y TinkerPop SparkGraphComputer."
+title: 'Azure Cosmos DB: análisis de gráficos mediante Spark y Apache TinkerPop Gremlin | Microsoft Docs'
+description: Este artículo presenta instrucciones para configurar y ejecutar análisis de gráficos y cálculos en paralelo en Azure Cosmos DB con Spark y TinkerPop SparkGraphComputer.
 services: cosmosdb
-documentationcenter: 
-author: khdang
-manager: shireest
-editor: 
+documentationcenter: ''
+author: SnehaGunda
+manager: kfile
 ms.assetid: 89ea62bb-c620-46d5-baa0-eefd9888557c
 ms.service: cosmos-db
 ms.custom: quick start connect
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: gremlin
 ms.topic: article
 ms.date: 09/08/2017
-ms.author: khdang
-ms.openlocfilehash: d2ea692c5c353586cc2b653e57eca7ccb8c9c7ce
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.author: sngun
+ms.openlocfilehash: f44c7d432ac9c07daf9b99dd922f1dcd5de5d58e
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-cosmos-db-perform-graph-analytics-by-using-spark-and-apache-tinkerpop-gremlin"></a>Azure Cosmos DB: análisis de gráficos mediante Spark y Apache TinkerPop Gremlin
 
@@ -29,7 +28,7 @@ ms.lasthandoff: 12/11/2017
 
 Mediante la combinación de Azure Cosmos DB y Spark, puede ejecutar tanto cargas de trabajo OLTP como OLAP cuando use Gremlin. En este tutorial se muestra cómo ejecutar consultas de Gremlin en Azure Cosmos DB en un clúster de Azure HDInsight Spark.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Antes de ejecutar este ejemplo, debe cumplir los siguientes requisitos previos:
 * Clúster de Azure HDInsight Spark 2.0
@@ -41,7 +40,7 @@ Para más información sobre cómo configurar un clúster Spark de Azure HDInsig
 
 ## <a name="create-an-azure-cosmos-db-database-account"></a>Creación de una cuenta de base de datos de Azure Cosmos DB
 
-En primer lugar, cree una cuenta de base de datos con la API Graph siguiendo estos pasos:
+En primer lugar, cree una cuenta de base de datos con Graph API siguiendo estos pasos:
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount-graph.md)]
 

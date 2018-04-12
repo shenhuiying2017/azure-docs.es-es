@@ -1,8 +1,8 @@
 ---
-title: "Azure AD Connect: solución de errores durante la sincronización | Microsoft Docs"
-description: "Explica cómo solucionar los errores que aparezcan durante la sincronización con Azure AD Connect."
+title: 'Azure AD Connect: solución de errores durante la sincronización | Microsoft Docs'
+description: Explica cómo solucionar los errores que aparezcan durante la sincronización con Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
 editor: curtand
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: billmath
 ms.openlocfilehash: aaa374d5a11ef5b5860f83a87386ff981319189f
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>Solución de errores durante la sincronización
 Pueden producirse errores cuando se sincronizan datos de identidad de Windows Server Active Directory (AD DS) con Azure Active Directory (Azure AD). En este artículo se proporciona información general sobre los distintos tipos de errores de sincronización, algunos de los posibles escenarios que provocan dichos errores y las posibles maneras de corregirlos. También se incluyen los tipos de error comunes, pero puede que no cubra todos los posibles errores.

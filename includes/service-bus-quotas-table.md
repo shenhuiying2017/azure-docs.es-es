@@ -1,6 +1,6 @@
 ---
-title: "archivo de inclusión"
-description: "archivo de inclusión"
+title: archivo de inclusión
+description: archivo de inclusión
 services: service-bus-messaging
 author: sethmanheim
 ms.service: service-bus-messaging
@@ -9,10 +9,10 @@ ms.date: 02/12/2018
 ms.author: sethm
 ms.custom: include file
 ms.openlocfilehash: 74732008b336dc1b95ec96e8550d218105973ca4
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 En la siguiente tabla se muestra la información de cuotas específica de la mensajería de Service Bus. Para obtener información sobre los precios y otras cuotas de Service Bus, consulte la información general sobre los [precios de Service Bus](https://azure.microsoft.com/pricing/details/service-bus/) .
 

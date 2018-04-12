@@ -1,13 +1,13 @@
 ---
-title: "Tamaños de las máquinas virtuales Linux en Azure: memoria | Microsoft Docs"
-description: "Enumera los tamaños diferentes optimizados para memoria disponibles para las máquinas virtuales Linux en Azure. Se proporciona información sobre el número de unidades vCPU, discos de datos y NIC, así como sobre el rendimiento de almacenamiento y el ancho de banda de red para los tamaños de esta serie."
+title: 'Tamaños de las máquinas virtuales Linux en Azure: memoria | Microsoft Docs'
+description: Enumera los tamaños diferentes optimizados para memoria disponibles para las máquinas virtuales Linux en Azure. Se proporciona información sobre el número de unidades vCPU, discos de datos y NIC, así como sobre el rendimiento de almacenamiento y el ancho de banda de red para los tamaños de esta serie.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: jonbeck7
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager,azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/08/2017
 ms.author: jonbeck
-ms.openlocfilehash: f74296fd752e8ec968f4bdcd833a6a2a8a763246
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: cdcb0e6bdc8d3e91fd31ee1d448a7ff070139002
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="memory-optimized-virtual-machine-sizes"></a>Tamaños de máquina virtual optimizada para memoria
 

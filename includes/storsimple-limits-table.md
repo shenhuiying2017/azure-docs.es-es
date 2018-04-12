@@ -7,7 +7,7 @@
 | Número máximo de volúmenes |255 | |
 | Número máximo de programaciones por plantilla de ancho de banda |168 |Una programación para cada hora y cada día de la semana (24*7). |
 | Tamaño máximo de un volumen en capas en dispositivos físicos |64 TB para 8100 y 8600 |8100 y 8600 son dispositivos físicos. |
-| Tamaño máximo de un volumen en capas en dispositivos virtuales de Azure |30 TB para 8010  <br></br> 64 TB para 8020 |8010 y 8020 son dispositivos virtuales de Azure que utilizan el almacenamiento estándar y premium respectivamente. |
+| Tamaño máximo de un volumen en capas en dispositivos virtuales de Azure |30 TB para 8010  <br></br> 64 TB para 8020 |8010 y 8020 son dispositivos virtuales de Azure que utilizan Standard y Premium Storage respectivamente. |
 | Tamaño máximo de un volumen anclado localmente en dispositivos físicos |9 TB para 8100  <br></br> 24 TB para 8600 |8100 y 8600 son dispositivos físicos. |
 | Número máximo de conexiones iSCSI |512 | |
 | Número máximo de conexiones de iSCSI de iniciadores |512 | |

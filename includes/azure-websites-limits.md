@@ -23,7 +23,7 @@
 | [WebJobs](../articles/app-service/web-sites-create-web-jobs.md)<sup>8</sup> |X |X |X |X |X |
 | [Compatibilidad con Azure Scheduler](https://azure.microsoft.com/services/scheduler/) | |X |X |X |X |
 | [Supervisión de extremos](../articles/app-service/web-sites-monitor.md) | | |X |X |X |
-| [Ranuras de ensayo](../articles/app-service/web-sites-staged-publishing.md) | | | |5 |20  |
+| [Ranuras de ensayo](../articles/app-service/web-sites-staged-publishing.md) | | | |5 |20 |
 | Dominios personalizados por aplicación</a> | |500 |500 |500 |500 |
 | Contrato de nivel de servicio | |<p> |99,9 % |99,95%<sup>10</sup> |99,95 %<sup>9</sup> |
 

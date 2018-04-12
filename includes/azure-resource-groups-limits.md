@@ -13,8 +13,8 @@
 
 | Valor | Límite predeterminado | Límite máximo |
 | --- | --- | --- |
-| parameters |256 |256 |
-| Variables |256 |256 |
+| Parámetros |256 |256 |
+| variables |256 |256 |
 | Recursos (incluido el recuento de copia) |800 |800 |
 | Salidas |64 |64 |
 | Expresión de plantilla |24 576 caracteres |24 576 caracteres |

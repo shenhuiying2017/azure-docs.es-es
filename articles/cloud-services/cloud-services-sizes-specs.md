@@ -1,11 +1,11 @@
 ---
-title: "Tamaños de máquina virtual para Azure Cloud Services | Microsoft Docs"
-description: "Enumera los diferentes tamaños (e ids.) de máquina virtual para los roles web y de trabajo del servicio en la nube de Azure."
+title: Tamaños de máquina virtual para Azure Cloud Services | Microsoft Docs
+description: Enumera los diferentes tamaños (e ids.) de máquina virtual para los roles web y de trabajo del servicio en la nube de Azure.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1127c23e-106a-47c1-a2e9-40e6dda640f6
 ms.service: cloud-services
 ms.devlang: na
@@ -15,10 +15,10 @@ ms.workload: tbd
 ms.date: 07/18/2017
 ms.author: adegeo
 ms.openlocfilehash: 542632dc61f1acecd8ca8ac45fb29bfa6aa839c2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="sizes-for-cloud-services"></a>Tamaños de Cloud Services
 En este tema se describen las opciones y los tamaños disponibles para las instancias de rol de servicio en la nube (roles web y roles de trabajo). También ofrece consideraciones de implementación que hay que tener en cuenta a la hora de planear usar estos recursos. Cada tamaño tiene un identificador que pondrá en su [archivo de definición de servicio](cloud-services-model-and-package.md#csdef). Los precios para cada tamaño están disponibles en la página [Precios de Cloud Services](https://azure.microsoft.com/pricing/details/cloud-services/).
@@ -83,7 +83,7 @@ Las siguientes tablas muestran los tamaños y las capacidades que ofrecen.
 ## <a name="a-series"></a>Serie A
 | Tamaño            | Núcleos de CPU | Memoria: GiB  | HDD local: GiB       | Ancho de banda de red/NIC máx. |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
-| ExtraSmall      | 1         | 0,768        | 20                    | 1 / bajo |
+| ExtraSmall      | 1         | 0,768        | 20                   | 1 / bajo |
 | Pequeña           | 1         | 1,75         | 225                  | 1 / moderado |
 | Mediano          | 2         | 3,5 GB       | 490                  | 1 / moderado |
 | grande           | 4         | 7            | 1000                 | 2 / alto |
@@ -109,10 +109,10 @@ Para más información y consideraciones sobre el uso de estos tamaños, consult
 | Tamaño            | Núcleos de CPU | Memoria: GiB  | SSD local: GiB       | Ancho de banda de red/NIC máx. |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | Standard_A1_v2  | 1         | 2            | 10                   | 1 / moderado                 |
-| Standard_A2_v2  | 2         | 4            | 20                    | 2 / moderado                 |
+| Standard_A2_v2  | 2         | 4            | 20                   | 2 / moderado                 |
 | Standard_A4_v2  | 4         | 8            | 40                   | 4 / alto                     |
 | Standard_A8_v2  | 8         | 16           | 80                   | 8 / alto                     |
-| Standard_A2m_v2 | 2         | 16           | 20                    | 2 / moderado                 |
+| Standard_A2m_v2 | 2         | 16           | 20                   | 2 / moderado                 |
 | Standard_A4m_v2 | 4         | 32           | 40                   | 4 / alto                     |
 | Standard_A8m_v2 | 8         | 64           | 80                   | 8 / alto                     |
 
@@ -141,7 +141,7 @@ Para más información y consideraciones sobre el uso de estos tamaños, consult
 | Standard_D12_v2 | 4         | 28           | 200                  | 4 / alto |
 | Standard_D13_v2 | 8         | 56           | 400                  | 8 / alto |
 | Standard_D14_v2 | 16        | 112          | 800                  | 8 / extremadamente alto |
-| Standard_D15_v2 | 20         | 140          | 1000                | 8 / extremadamente alto |
+| Standard_D15_v2 | 20        | 140          | 1000                | 8 / extremadamente alto |
 
 ## <a name="dv3-series"></a>Serie Dv3
 
@@ -218,6 +218,6 @@ Puede usar PowerShell o la API de REST para obtener una lista de tamaños. La AP
 Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceSize, RoleSizeLabel
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Conozca los [límites, cuotas y restricciones de suscripción y servicios de Azure](../azure-subscription-service-limits.md).
 * Más información [sobre los tamaños de máquinas virtuales de procesos de alto rendimiento](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para cargas de trabajo HPC.

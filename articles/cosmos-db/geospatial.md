@@ -2,10 +2,9 @@
 title: Trabajo con datos geoespaciales en Azure Cosmos DB | Microsoft Docs
 description: Aprenda a crear, indexar y consultar objetos espaciales con Azure Cosmos DB y la API de SQL.
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: arramac
-manager: jhubbard
-editor: monicar
+manager: kfile
 ms.assetid: 82ce2898-a9f9-4acf-af4d-8ca4ba9c7b8f
 ms.service: cosmos-db
 ms.devlang: na
@@ -15,11 +14,11 @@ ms.workload: data-services
 ms.date: 10/20/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3e778f4a9b7ec4935d53eb335462f3c414ff99cd
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 6a78426ed6b54f0227dbd89c150f23af712f1b35
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="working-with-geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Trabajo con datos geoespaciales de ubicación y de GeoJSON en Azure Cosmos DB
 Este artículo es una introducción a la funcionalidad geoespacial en [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). Después de leer este artículo, podrá responder a las preguntas siguientes:
@@ -245,7 +244,7 @@ Azure Cosmos DB también admite la realización de consultas inversas; es decir,
 
 ST_ISVALID y ST_ISVALIDDETAILED pueden usarse para comprobar si un objeto espacial es válido. Por ejemplo, la consulta siguiente comprueba la validez de un punto con un valor de latitud fuera del intervalo (-132,8). ST_ISVALID devuelve solo un valor booleano y ST_ISVALIDDETAILED devuelve el valor booleano y una cadena que contiene el motivo por el que se considera no válida.
 
-** Consultar \** 
+** Consultar **
 
     SELECT ST_ISVALID({ "type": "Point", "coordinates": [31.9, -132.8] })
 
@@ -391,7 +390,7 @@ Y aquí vemos cómo puede modificar una colección existente para aprovechar las
 > 
 > 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Ahora que ya sabe cómo empezar a trabajar con la compatibilidad geoespacial en Azure Cosmos DB, puede hacer lo siguiente:
 
 * Comenzar a codificar con los [ejemplos de código geoespacial .NET en GitHub](https://github.com/Azure/azure-documentdb-dotnet/blob/fcf23d134fc5019397dcf7ab97d8d6456cd94820/samples/code-samples/Geospatial/Program.cs)

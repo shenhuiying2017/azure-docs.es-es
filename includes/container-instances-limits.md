@@ -2,7 +2,7 @@
 | --- | :--- |
 | Grupos de contenedor por [suscripción](../articles/billing-buy-sign-up-azure-subscription.md) | 20<sup>1</sup> |
 | Número de contenedores por grupo de contenedor | 60 |
-| Número de volúmenes por grupo de contenedor | 20  |
+| Número de volúmenes por grupo de contenedor | 20 |
 | Puertos por IP | 5 |
 | Creaciones de contenedores cada hora |60<sup>1</sup> |
 | Creaciones de contenedores cada 5 minutos | 20<sup>1</sup> |

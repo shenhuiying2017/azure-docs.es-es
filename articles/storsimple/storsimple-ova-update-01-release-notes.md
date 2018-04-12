@@ -1,11 +1,11 @@
 ---
-title: "Notas de la versión de las actualizaciones de la matriz virtual de StorSimple | Microsoft Docs"
-description: "Se describen problemas críticos pendientes y soluciones para la matriz virtual de StorSimple que ejecuta Update 0.2 y Update 0.1."
+title: Notas de la versión de las actualizaciones de la matriz virtual de StorSimple | Microsoft Docs
+description: Se describen problemas críticos pendientes y soluciones para la matriz virtual de StorSimple que ejecuta Update 0.2 y Update 0.1.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 3993864d-2ddd-4302-a2f1-8d737fba6eab
 ms.service: storsimple
 ms.devlang: NA
@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/16/2016
 ms.author: alkohli
 ms.openlocfilehash: c4ccde9635b3874864baa9d4d262ff5ddcf2a425
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="storsimple-virtual-array-update-02-and-01-release-notes"></a>Notas de la versión de la matriz virtual de StorSimple Update 0.2 y 0.1
 ## <a name="overview"></a>Información general
@@ -53,7 +53,7 @@ La actualización 0.1 contiene las siguientes correcciones de errores y mejoras.
 ## <a name="issues-fixed-in-the-update-01"></a>Problemas corregidos en la actualización 0.1
 En la tabla siguiente se proporciona un resumen de los problemas corregidos en esta versión.
 
-| No. | Característica | Problema |
+| Nº | Característica | Problema |
 | --- | --- | --- |
 | 1 |VMDK |En algunas versiones de VMware, el disco del sistema operativo se ve como disperso, provocando alertas e interrumpiendo el funcionamiento normal. Esto se ha corregido en esta versión. |
 | 2 |Servidor iSCSI |En la última versión, era necesario que el usuario especificara una puerta de enlace para cada interfaz de red habilitada del dispositivo virtual StorSimple. Este comportamiento ha cambiado en esta versión para que el usuario tenga configurar al menos una puerta de enlace para todas las interfaces de red habilitadas. |
@@ -64,7 +64,7 @@ En la tabla siguiente se proporciona un resumen de los problemas corregidos en e
 ## <a name="known-issues-in-the-update-01"></a>Problemas conocidos de la actualización 0.1
 En la tabla siguiente se muestra un resumen de los problemas conocidos de la matriz virtual de StorSimple y se incluyen los problemas notificados en la versiones anteriores. **Los problemas notificados en esta versión están marcados con un asterisco. Casi todos los problemas de esta lista proceden de la versión de disponibilidad general de la matriz virtual de StorSimple.**
 
-| No. | Característica | Problema | Soluciones alternativas o comentarios |
+| Nº | Característica | Problema | Soluciones alternativas o comentarios |
 | --- | --- | --- | --- |
 | **1.** |Actualizaciones |Los dispositivos virtuales que se crean en la versión preliminar no se pueden actualizar a una versión que sea compatible con la versión de disponibilidad general. |Debe conmutar por error estos dispositivos virtuales a la versión de disponibilidad general mediante un flujo de trabajo de recuperación ante desastres (DR). |
 | **2.** |Disco de datos aprovisionado |Una vez se haya aprovisionado un disco de datos de un determinado tamaño y cree el correspondiente dispositivo virtual de StorSimple, no debe expandir o reducir el disco de datos. Si intentar hacer esto, es posible que pierda todos los datos de las capas locales del dispositivo. | |

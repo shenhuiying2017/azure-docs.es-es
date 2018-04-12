@@ -34,7 +34,7 @@ En este tutorial de configuración, no necesita esta cadena de conexión iothubo
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
-4. Haga clic en **Guardar**.
+4. Haga clic en **Save**(Guardar).
 5. Después de crear el dispositivo, ábralo en el panel **Explorador de dispositivos**.
 6. Anote la clave principal de la cadena de la cadena de conexión.
 

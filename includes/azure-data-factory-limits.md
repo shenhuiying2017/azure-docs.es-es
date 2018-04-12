@@ -9,10 +9,10 @@ ms.date: 03/27/2018
 ms.author: jingwang
 ms.custom: include file
 ms.openlocfilehash: e68e87bb19b8c64cf06c03831b22cf43d773efde
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/05/2018
 ---
 Data Factory es un servicio multiinquilino que tiene los siguientes límites predeterminados para asegurarse de que las suscripciones de cliente están protegidas frente a las cargas de trabajo de los demás. Se pueden aumentar muchos de los límites para su suscripción fácilmente hasta el límite máximo; para ello, póngase en contacto con el soporte técnico.
 

@@ -1,11 +1,11 @@
 ---
 title: 'Intel Edison en la nube (C): Conectar Intel Edison a Azure IoT Hub | Microsoft Docs'
-description: "Con este tutorial aprenderá a configurar y conectar Intel Edison a Azure IoT Hub para que envíe datos a la plataforma en la nube de Azure."
+description: Con este tutorial aprenderá a configurar y conectar Intel Edison a Azure IoT Hub para que envíe datos a la plataforma en la nube de Azure.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: shizn
 manager: timlt
-tags: 
+tags: ''
 keywords: azure iot intel edison, intel edison iot hub, intel edison enviar datos a la nube, intel edison en la nube
 ms.assetid: 4885fa2c-c2ee-4253-b37f-ccd55f92b006
 ms.service: iot-hub
@@ -17,10 +17,10 @@ ms.date: 4/17/2017
 ms.author: xshi
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: edbdbe0230f742cd7228f04a4a83c9bd567527e8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="connect-intel-edison-to-azure-iot-hub-c"></a>Conectar Intel Edison a Azure IoT Hub (C)
 
@@ -172,7 +172,7 @@ Obtenga la herramienta de configuración más reciente haciendo clic [aquí](htt
 
    ![Conectar al sensor de temperatura](media/iot-hub-intel-edison-kit-c-get-started/12_configuration_tool.png)
 
-¡Enhorabuena! Ha configurado correctamente Edison.
+Felicidades. Ha configurado correctamente Edison.
 
 ## <a name="run-a-sample-application-on-intel-edison"></a>Ejecutar una aplicación de ejemplo en Intel Edison
 

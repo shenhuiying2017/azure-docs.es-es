@@ -1,11 +1,11 @@
 ---
-title: "Introducción al protocolo .NET de Azure AD | Microsoft Docs"
-description: "Descubra cómo utilizar mensajes HTTP para autorizar el acceso a aplicaciones y API web en su inquilino de Azure AD."
+title: Introducción al protocolo .NET de Azure AD | Microsoft Docs
+description: Descubra cómo utilizar mensajes HTTP para autorizar el acceso a aplicaciones y API web en su inquilino de Azure AD.
 services: active-directory
 documentationcenter: .net
 author: priyamohanram
 manager: mbaldwin
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 01/21/2016
 ms.author: priyamo
 ms.openlocfilehash: 42ce8dfd30cda7d4085778954350550fd9fdf13d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 ## <a name="register-your-application-with-your-ad-tenant"></a>Registro de la aplicación con el inquilino de AD
 En primer lugar, tendrá que registrar la aplicación con el inquilino de Azure Active Directory (Azure AD). De este modo, se generará un id. de aplicación para la aplicación y también se habilitará esta para que reciba tokens.
 
-* Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+* Inicie sesión en [Azure Portal](https://portal.azure.com).
 * Para elegir el inquilino de Azure AD, haga clic en su cuenta en la esquina superior derecha de la página.
 * En el panel de navegación izquierdo, haga clic en **Azure Active Directory**.
 * Haga clic en **Registros de aplicaciones** y en **Agregar**.

@@ -9,11 +9,11 @@ En Azure Resource Manager, se admiten casi todas las características del modelo
 ## <a name="supported-resources-for-migration"></a>Recursos que se admiten en la migración
 Estos recursos de IaaS clásicos se admiten durante la migración
 
-* Máquinas virtuales
+* Virtual Machines
 * Conjuntos de disponibilidad
 * Cloud Services
 * Cuentas de almacenamiento
-* Redes virtuales
+* Virtual Networks
 * Puertas de enlace de VPN
 * Puertas de enlace de ExpressRoute _(en la misma suscripción que solo Virtual Network)_
 * Grupos de seguridad de red 
@@ -96,9 +96,9 @@ Actualmente no se admiten las siguientes configuraciones.
 | Proceso | VM con extensión de instantánea o copia de seguridad | Estas extensiones se instalan en una máquina virtual configurada con el servicio Azure Backup. Para migrar Virtual Machines, siga la guía [aquí](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-faq#vault).  |
 | Red |Redes virtuales que contienen máquinas virtuales y roles web y de trabajo |Actualmente no se admite. Mueva los roles web y de trabajo a su propia Virtual Network antes de la migración. Una vez que se migra Virtual Network clásica, Virtual Network de Azure Resource Manager se puede emparejar con Virtual Network clásica para lograr una configuración similar a la anterior.|
 | Red | Circuitos ExpressRoute clásicos |Actualmente no se admite. Estos circuitos se deben migrar a Azure Resource Manager antes de comenzar la migración de IaaS. Para obtener más información sobre esto, consulte la [transición de los circuitos ExpressRoute del modelo de implementación clásica al modelo de implementación de Resource Manager](../articles/expressroute/expressroute-move.md).|
-| Servicio de aplicaciones de Azure |Redes virtuales que contienen entornos del Servicio de aplicaciones |Actualmente no se admite. |
+| Azure App Service |Redes virtuales que contienen entornos de App Service |Actualmente no se admite. |
 | HDInsight de Azure |Redes virtuales que contienen servicios de HDInsight |Actualmente no se admite. |
 | Dynamics Lifecycle Services |Redes virtuales que contienen máquinas virtuales administradas por Dynamics Lifecycle Services |Actualmente no se admite. |
 | Azure AD Domain Services |Redes virtuales que contienen servicios de dominio de Azure AD |Actualmente no se admite. |
 | Azure RemoteApp |Redes virtuales que contienen implementaciones de Azure RemoteApp |Actualmente no se admite. |
-| Administración de API de Azure |Redes virtuales que contienen implementaciones de Azure API Management |Actualmente no se admite. Para migrar la red virtual de IaaS, cambie la red virtual de la implementación de API Management que no es una operación de tiempo de inactividad. |
+| Azure API Management |Redes virtuales que contienen implementaciones de Azure API Management |Actualmente no se admite. Para migrar la red virtual de IaaS, cambie la red virtual de la implementación de API Management que no es una operación de tiempo de inactividad. |

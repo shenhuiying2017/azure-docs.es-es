@@ -1,4 +1,4 @@
-En la tabla siguiente se describe cada uno de los principales aceleradores, valores predeterminados, límites y cuotas de Programador de Azure.
+En la tabla siguiente se describe cada uno de los principales aceleradores, valores predeterminados, límites y cuotas de Azure Scheduler.
 
 | Recurso | Descripción de límites |
 | --- | --- |
