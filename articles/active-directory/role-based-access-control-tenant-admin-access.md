@@ -1,8 +1,8 @@
 ---
-title: "Elevación del acceso para administradores de inquilinos - Azure AD | Microsoft Docs"
+title: Elevación del acceso para administradores de inquilinos - Azure AD | Microsoft Docs
 description: En este tema se describen los roles integrados para el control de acceso basado en roles (RBAC).
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: rolyon
 manager: mtillman
 editor: rqureshi
@@ -15,10 +15,10 @@ ms.workload: identity
 ms.date: 10/30/2017
 ms.author: rolyon
 ms.openlocfilehash: dff3a26201507f974d52de3fe6dcb23945cd900f
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/11/2018
 ---
 # <a name="elevate-access-as-a-tenant-admin-with-role-based-access-control"></a>Elevación del acceso como administrador de inquilinos con Control de acceso basado en rol
 

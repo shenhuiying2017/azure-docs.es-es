@@ -13,10 +13,10 @@ ms.workload: identity
 ms.date: 03/06/2018
 ms.author: rolyon
 ms.openlocfilehash: 0b8c8823c6d21df96dcfd926db1855169f1570e4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/11/2018
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operaciones del proveedor de recursos de Azure Resource Manager
 
@@ -1192,7 +1192,7 @@ Este documento enumera las operaciones que están disponibles para cada proveedo
 |---|---|
 |/accounts/computePolicies/delete|Elimina una directiva de cálculo.|
 |/accounts/computePolicies/read|Obtiene información sobre una directiva de cálculo.|
-|/accounts/computePolicies/write|Crea o actualiza una directiva de cálculo.|
+|/accounts/computePolicies/write|Crea o actualiza una directiva de proceso.|
 |/accounts/dataLakeStoreAccounts/delete|Anula la vinculación de una cuenta de DataLakeStore a la cuenta de DataLakeAnalytics.|
 |/accounts/dataLakeStoreAccounts/read|Obtiene información sobre la cuenta vinculada de DataLakeStore que se encuentra en la cuenta de DataLakeAnalytics.|
 |/accounts/dataLakeStoreAccounts/write|Crea o actualiza una cuenta vinculada de DataLakeStore en la cuenta de DataLakeAnalytics.|
@@ -1211,7 +1211,7 @@ Este documento enumera las operaciones que están disponibles para cada proveedo
 |/accounts/storageAccounts/delete|Anula la vinculación de una cuenta de almacenamiento a la cuenta de DataLakeAnalytics.|
 |/accounts/storageAccounts/read|Obtiene información acerca de una cuenta de almacenamiento vinculada a una cuenta de DataLakeAnalytics.|
 |/accounts/storageAccounts/write|Crea o actualiza una cuenta de almacenamiento vinculada a una cuenta de DataLakeAnalytics.|
-|/accounts/TakeOwnership/action|Concede permiso para cancelar trabajos que enviaron otros usuarios.|
+|/accounts/TakeOwnership/action|Concede permisos para cancelar trabajos que enviaron otros usuarios.|
 |/accounts/write|Crea o actualiza una cuenta de DataLakeAnalytics.|
 |/locations/capability/read|Obtiene información sobre la capacidad de una suscripción acerca del uso de DataLakeAnalytics.|
 |/locations/checkNameAvailability/action|Comprueba la disponibilidad de un nombre de cuenta de DataLakeAnalytics.|
@@ -2164,7 +2164,7 @@ Este documento enumera las operaciones que están disponibles para cada proveedo
 |/loadBalancers/loadBalancingRules/read|Obtiene una definición de regla de equilibrado de carga del equilibrador de carga|
 |/loadBalancers/networkInterfaces/read|Obtiene referencias a todas las interfaces de red en un equilibrador de carga|
 |/loadBalancers/outboundNatRules/read|Obtiene una definición de reglas NAT de salida del equilibrador de carga|
-|/loadBalancers/probes/join/action|Permite usar sondeos de un equilibrador de carga. Por ejemplo, con este permiso, la propiedad healthProbe del conjunto de escalado de una máquina virtual puede hacer referencia a la prueba.|
+|/loadBalancers/probes/join/action|Permite usar sondeos de un equilibrador de carga. Por ejemplo, con este permiso, la propiedad healthProbe de un conjunto de escalado de máquinas virtuales puede hacer referencia al sondeo.|
 |/loadBalancers/probes/read|Obtiene un sondeo del equilibrador de carga|
 |/loadBalancers/providers/Microsoft.Insights/diagnosticSettings/read|Obtiene la configuración de diagnóstico de Load Balancer.|
 |/loadBalancers/providers/Microsoft.Insights/diagnosticSettings/write|Crea o actualiza la configuración de diagnóstico de Load Balancer.|
@@ -2338,7 +2338,7 @@ Este documento enumera las operaciones que están disponibles para cada proveedo
 |/virtualNetworks/remoteVirtualNetworkPeeringProxies/write|Crea un proxy de emparejamiento de redes virtuales o actualiza uno que ya existe.|
 |/virtualNetworks/subnets/delete|Elimina una subred de red virtual|
 |/virtualNetworks/subnets/join/action|Se une a una red virtual|
-|/virtualNetworks/subnets/joinViaServiceEndpoint/action|Combina un recurso como una cuenta de almacenamiento o una instancia de SQL Database a una subred.|
+|/virtualNetworks/subnets/joinViaServiceEndpoint/action|Combina un recurso como una cuenta de almacenamiento o una instancia de SQL Database con una subred.|
 |/virtualNetworks/subnets/read|Obtiene una definición de subred de red virtual|
 |/virtualNetworks/subnets/resourceNavigationLinks/delete|Elimina un vínculo de navegación de recursos.|
 |/virtualNetworks/subnets/resourceNavigationLinks/read|Obtiene la definición del vínculo de navegación de recursos.|
@@ -2502,7 +2502,7 @@ Este documento enumera las operaciones que están disponibles para cada proveedo
 |/Vaults/backupconfig/write|Actualiza la configuración del almacén de Recovery Services.|
 |/Vaults/backupEngines/read|Devuelve todos los servidores de administración de copia de seguridad que se registraron con el almacén.|
 |/Vaults/backupFabrics/{fabricName}/protectionContainers/{containerName}/items/read|Obtiene todos los elementos de un contenedor.|
-|/Vaults/backupFabrics/backupProtectionIntent/write|Crea la intención de protección de la copia de seguridad.|
+|/Vaults/backupFabrics/backupProtectionIntent/write|Crea una intención de protección de la copia de seguridad.|
 |/Vaults/backupFabrics/operationResults/read|Devuelve el estado de la operación|
 |/Vaults/backupFabrics/protectableContainers/read|Obtiene todos los contenedores que se pueden proteger.|
 |/Vaults/backupFabrics/protectionContainers/inquire/action|Realiza consultas para las cargas de trabajo de un contenedor.|

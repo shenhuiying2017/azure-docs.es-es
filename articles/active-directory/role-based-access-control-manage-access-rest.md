@@ -1,11 +1,11 @@
 ---
 title: Control de acceso basado en rol con REST de Azure AD | Microsoft Docs
-description: "Administración del control de acceso basado en rol con la API de REST"
+description: Administración del control de acceso basado en rol con la API de REST
 services: active-directory
 documentationcenter: na
 author: rolyon
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 1f90228a-7aac-4ea7-ad82-b57d222ab128
 ms.service: active-directory
 ms.workload: multiple
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: rolyon
 ms.openlocfilehash: ba25340e41cefe2b7847a39a6c9182cd0fc057d3
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/11/2018
 ---
 # <a name="manage-role-based-access-control-with-the-rest-api"></a>Administración del control de acceso basado en rol con la API de REST
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.lasthandoff: 02/22/2018
 > * [CLI de Azure](role-based-access-control-manage-access-azure-cli.md)
 > * [API DE REST](role-based-access-control-manage-access-rest.md)
 
-Con el control de acceso basado en rol (RBAC), define el acceso para usuarios, grupos y entidades de servicio mediante la asignación de roles en un ámbito determinado. En este artículo se describe cómo administrar el acceso mediante la API de REST.
+Con el control de acceso basado en rol (RBAC), puede definir el acceso para usuarios, grupos y entidades de servicio mediante la asignación de roles en un ámbito determinado. En este artículo se describe cómo administrar el acceso mediante la API de REST.
 
 ## <a name="list-all-role-assignments"></a>Lista de todas las asignaciones de roles
 Proporciona una lista todas las asignaciones de roles en el ámbito y los ámbitos secundarios especificados.
@@ -647,6 +647,6 @@ Código de estado: 200
 
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 [!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]

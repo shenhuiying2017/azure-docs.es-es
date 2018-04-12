@@ -1,11 +1,11 @@
 ---
-title: "Administración de grupos de seguridad de red (Azure PowerShell) | Microsoft Docs"
-description: "Obtenga información sobre cómo administrar grupos de seguridad de red mediante PowerShell."
+title: Administración de grupos de seguridad de red (Azure PowerShell) | Microsoft Docs
+description: Obtenga información sobre cómo administrar grupos de seguridad de red mediante PowerShell.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 3706ce6c-d9ae-46cb-a048-f0a4e84dc5cc
 ms.service: virtual-network
@@ -17,10 +17,10 @@ ms.date: 03/14/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ca7f4926ca4edf9d20612aca74f6ae5f0ed847b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/11/2018
 ---
 # <a name="manage-network-security-groups-using-powershell"></a>Administración de grupos de seguridad de red mediante PowerShell
 
@@ -502,7 +502,7 @@ Solo se puede eliminar un NSG que no está asociado a ningún recurso. Para elim
 1. Para comprobar los recursos asociados a un NSG, ejecute `azure network nsg show` tal como aparece en [Consultar las asociaciones de NSG](#View-NSGs-associations).
 2. Si el NSG está asociado a alguna NIC, ejecute `azure network nic set` tal como aparece en [Desasociar un NSG de una NIC](#Dissociate-an-NSG-from-a-NIC) para cada NIC. 
 3. Si el NSG está asociado a alguna subred, ejecute `azure network vnet subnet set` tal como aparece en [Desasociar un NSG de una subred](#Dissociate-an-NSG-from-a-subnet) para cada subred.
-4. Para eliminar el grupo de seguridad de red, ejecute el siguiente comando:
+4. Para eliminar el grupo de seguridad de red, ejecute el comando siguiente:
 
     ```powershell
     Remove-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG -Name NSG-FrontEnd -Force

@@ -7,13 +7,13 @@ author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 09/06/2016
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 784f244f64464c92f1b04ce0523e8850f66b8383
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 4944c1c017dbb59b7880a73bce7d0a9b0d972b3f
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="scaling-out-with-azure-sql-database"></a>Escalado horizontal con Azure SQL Database
 Es muy fácil escalar horizontalmente bases de datos de SQL Azure mediante las herramientas de **Elastic Database**. Estas herramientas y características permiten usar los recursos de bases de datos de **Azure SQL Database** con el fin de crear soluciones para cargas de trabajo transaccionales y, especialmente, aplicaciones de software como servicio (SaaS). Las características de Elastic Database se componen de lo siguiente:
@@ -60,7 +60,7 @@ La mayoría de las aplicaciones de bases de datos a escala de la nube usan una c
 * El escalado horizontal se administra mediante la [biblioteca de cliente de Elastic Database](sql-database-elastic-database-client-library.md).
 * El escalado vertical se logra utilizando cmdlets de Azure PowerShell para cambiar el nivel de servicio o colocando bases de datos en un grupo elástico.
 
-## <a name="sharding"></a>Clave de particionamiento
+## <a name="sharding"></a>Particionamiento
 *Particionamiento* es una técnica para distribuir grandes cantidades de datos estructurados de manera idéntica entre un número de bases de datos independientes. Su uso se ha extendido entre los desarrolladores de nube que crean ofertas de software como servicio (SAAS) para empresas o clientes finales. Estos clientes finales a menudo se conocen como "inquilinos". El particionamiento puede ser necesario por diversos motivos:  
 
 * La cantidad total de datos es demasiado grande para caber dentro de las restricciones de una base de datos

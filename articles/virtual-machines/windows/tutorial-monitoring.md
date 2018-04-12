@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: fdb8009e3dbca1037cae61ec8627f73190a8263d
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 9f8f8cb7fd267e25c83ecceb98b5faa8848fb126
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="monitor-and-update-a-windows-virtual-machine-with-azure-powershell"></a>Tutorial: Supervisar y actualizar una máquina virtual Windows con Azure PowerShell
 
@@ -36,6 +36,7 @@ En este tutorial, aprenderá a:
 > * Ver las métricas de la máquina virtual
 > * Crear una alerta
 > * Administrar actualizaciones de Windows
+> * Supervisión de cambios y del inventario
 > * Configurar la supervisión avanzada
 
 Para realizar este tutorial es necesaria la versión 3.6 del módulo de Azure PowerShell, o cualquier versión posterior. Ejecute `Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps).
@@ -237,7 +238,7 @@ El gráfico muestra los cambios que se han producido con el tiempo. Después de 
 
 ## <a name="advanced-monitoring"></a>Supervisión avanzada
 
-Puede realizar una supervisión más avanzada de la máquina virtual con soluciones como Update Management y Change and Inventory de Azure Automation. [Operations Management Suite](../../automation/automation-intro.md)
+Puede realizar una supervisión más avanzada de la máquina virtual con soluciones como Update Management y Change and Inventory de [Azure Automation](../../automation/automation-intro.md).
 
 Cuando tenga acceso al área de trabajo de Log Analytics, puede buscar la clave del área de trabajo y el identificador del área de trabajo en **Configuración avanzada** en **CONFIGURACIÓN**. Use el comando [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) para agregar la extensión Microsoft Monitoring Agent a la máquina virtual. Actualice los valores de variable del ejemplo siguiente de modo que reflejen la clave y el identificador del área de trabajo de Log Analytics.
 
@@ -274,6 +275,7 @@ En este tutorial, ha configurado y revisado las máquinas virtuales con Azure Se
 > * Ver las métricas de la máquina virtual
 > * Crear una alerta
 > * Administrar actualizaciones de Windows
+> * Supervisión de cambios y del inventario
 > * Configurar la supervisión avanzada
 
 En el siguiente tutorial obtendrá información sobre Azure Security Center.

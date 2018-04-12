@@ -1,8 +1,8 @@
 ---
-title: "Descripción de acceso a los recursos de Azure | Microsoft Docs"
+title: Descripción de acceso a los recursos de Azure | Microsoft Docs
 description: En este tema se explican conceptos acerca del uso de los administradores de suscripciones para controlar el acceso a los recursos en todo el portal de Azure.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
 ms.assetid: 174f1706-b959-4230-9a75-bf651227ebf6
@@ -15,10 +15,10 @@ ms.date: 12/06/2017
 ms.author: curtand
 ms.custom: it-pro;
 ms.openlocfilehash: 621ebec898e5b345556832097b12ca9b54506e7c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/11/2018
 ---
 # <a name="understanding-resource-access-in-azure"></a>Descripción de acceso a los recursos de Azure
 

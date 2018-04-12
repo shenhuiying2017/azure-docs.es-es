@@ -1,11 +1,11 @@
-﻿---
-title: "Creación de una aplicación web de PHP en Azure | Microsoft Docs"
-description: "Implementación de su primera aplicación Hola mundo de PHP en Azure App Service Web Apps en cuestión de minutos."
+---
+title: Creación de una aplicación web de PHP en Azure | Microsoft Docs
+description: Implementación de su primera aplicación Hola mundo de PHP en Azure App Service Web Apps en cuestión de minutos.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
 ms.service: app-service-web
 ms.workload: web
@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 12/13/2017
 ms.author: cephalin;cfowler
 ms.custom: mvc
-ms.openlocfilehash: e38c8e7d6211c7c7b6bbf3a501ce53c2808ee0fc
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 282b0a8bdb2fabad98dacacbff61c7cc4b8b6fb1
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-php-web-app-in-azure"></a>Creación de una aplicación web de PHP en Azure
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 02/03/2018
 > En este artículo se implementa una aplicación en App Service en Windows. Para realizar implementaciones en App Service en _Linux_, consulte [Creación de una aplicación web de PHP en App Service en Linux](./containers/quickstart-php.md).
 >
 
-[Azure Web Apps](app-service-web-overview.md) proporciona un servicio de hospedaje web muy escalable y con aplicación de revisiones de un modo automático.  En esta guía de inicio rápido se explica cómo se implementa una aplicación de PHP en Azure Web Apps. Se crea la aplicación web con la [CLI de Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) en Cloud Shell y se usa un [archivo ZIP](app-service-deploy-zip.md) para implementar el código PHP de ejemplo en la aplicación web.
+[Azure Web Apps](app-service-web-overview.md) proporciona un servicio de hospedaje web muy escalable y con aplicación de revisiones de un modo automático.  En esta guía de inicio rápido se explica cómo se implementa una aplicación de PHP en Azure Web Apps. Se crea la aplicación web con la [CLI de Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) en Cloud Shell y se usa Git para implementar el código PHP de ejemplo en la aplicación web.
 
 ![Sample app running in Azure]](media/app-service-web-get-started-php/hello-world-in-browser.png)
 
@@ -39,13 +39,17 @@ Estos pasos se pueden realizar en este caso con una máquina Mac, Windows o Linu
 
 Para completar esta guía de inicio rápido:
 
-* <a href="https://php.net" target="_blank">Instalación de PHP</a>
+* <a href="https://git-scm.com/" target="_blank">Instalación de Git</a>
+* <a href="http://php.net/manual/install.php" target="_blank">Instalación de PHP</a>
 
 ## <a name="download-the-sample-locally"></a>Descarga local del código
 
-Descargue el proyecto PHP de ejemplo en [https://github.com/Azure-Samples/php-docs-hello-world/archive/master.zip](https://github.com/Azure-Samples/php-docs-hello-world/archive/master.zip) y extraiga el archivo ZIP.
+Ejecute los siguientes comandos en una ventana de terminal. Con ello, se clonará la aplicación de ejemplo en el equipo local y se desplazará al directorio que contiene el código de ejemplo.
 
-En una ventana de terminal, diríjase al directorio raíz del proyecto de ejemplo (el que contiene el archivo _index.php_).
+```bash
+git clone https://github.com/Azure-Samples/php-docs-hello-world
+cd php-docs-hello-world
+```
 
 ## <a name="run-the-app-locally"></a>Ejecución de la aplicación de forma local
 
@@ -63,9 +67,9 @@ Verá el mensaje **Hola mundo** desde la aplicación de ejemplo mostrada en la p
 
 En la ventana de terminal, presione **Ctrl + C** para salir del servidor web.
 
-[!INCLUDE [Create ZIP file](../../includes/app-service-web-create-zip.md)]
-
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user.md)]
 
 [!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)]
 
@@ -78,7 +82,7 @@ En Cloud Shell, cree una aplicación web en el plan de App Service `myAppService
 En el siguiente ejemplo, reemplace `<app_name>` por un nombre único global de aplicación (los caracteres válidos son `a-z`, `0-9` y `-`). El tiempo de ejecución se establece en `PHP|7.0`. Para ver todos los entornos en tiempo de ejecución admitidos, ejecute [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_list_runtimes). 
 
 ```azurecli-interactive
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "PHP|7.0"
+az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "PHP|7.0" --deployment-local-git
 ```
 
 Cuando se haya creado la aplicación web, la CLI de Azure mostrará información similar a la del ejemplo siguiente:
@@ -107,7 +111,32 @@ Este es el aspecto que debería tener su nueva aplicación web:
 
 ![Página de la aplicación web vacía](media/app-service-web-get-started-php/app-service-web-service-created.png)
 
-[!INCLUDE [Deploy ZIP file](../../includes/app-service-web-deploy-zip.md)]
+[!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)] 
+
+```bash
+Counting objects: 2, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (2/2), 352 bytes | 0 bytes/s, done.
+Total 2 (delta 1), reused 0 (delta 0)
+remote: Updating branch 'master'.
+remote: Updating submodules.
+remote: Preparing deployment for commit id '25f18051e9'.
+remote: Generating deployment script.
+remote: Running deployment command...
+remote: Handling Basic Web Site deployment.
+remote: Kudu sync from: '/home/site/repository' to: '/home/site/wwwroot'
+remote: Copying file: '.gitignore'
+remote: Copying file: 'LICENSE'
+remote: Copying file: 'README.md'
+remote: Copying file: 'index.php'
+remote: Ignoring: .git
+remote: Finished successfully.
+remote: Running post deployment command(s)...
+remote: Deployment successful.
+To https://<app_name>.scm.azurewebsites.net/<app_name>.git
+   cc39b1e..25f1805  master -> master
+```
 
 ## <a name="browse-to-the-app"></a>Navegación hasta la aplicación
 
@@ -131,19 +160,14 @@ Con un editor de texto local, abra el archivo `index.php` dentro de la aplicaci�
 echo "Hello Azure!";
 ```
 
-En la ventana de terminal local, desplácese al directorio raíz de la aplicación y cree un nuevo archivo ZIP para el proyecto actualizado.
+En la ventana del terminal local, confirme los cambios en Git e inserte los cambios de código en Azure.
 
+```bash
+git commit -am "updated output"
+git push azure master
 ```
-# Bash
-zip -r myUpdatedAppFiles.zip .
 
-# PowerShell
-Compress-Archive -Path * -DestinationPath myUpdatedAppFiles.zip
-``` 
-
-Implemente este nuevo archivo ZIP en App Service utilizando los mismos pasos que en [Cargar el archivo ZIP](#upload-the-zip-file).
-
-Vuelva a la ventana del explorador que se abrió en el paso **Navegación hasta la aplicación** y actualice la página.
+Una vez que la implementación haya finalizado, vuelva a la ventana del explorador que abrió en el paso **Navegación hasta la aplicación** y actualice la página.
 
 ![Aplicación de ejemplo actualizada que se ejecuta en Azure](media/app-service-web-get-started-php/hello-azure-in-browser.png)
 
@@ -163,7 +187,7 @@ El menú izquierdo proporciona distintas páginas para configurar la aplicación
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
 > [PHP con MySQL](app-service-web-tutorial-php-mysql.md)

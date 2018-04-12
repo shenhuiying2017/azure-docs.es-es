@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: tdykstra
-ms.openlocfilehash: 577c45edc832288943a7eeefe27c7a189a61b7b0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 8187a4bc6278f917c28418baf3cda2d75ea4e3d8
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>Referencia de host.json para Azure Functions
 
@@ -139,7 +139,7 @@ Controla la [característica de muestreo de Application Insights](functions-moni
 
 |Propiedad  |Valor predeterminado | DESCRIPCIÓN |
 |---------|---------|---------| 
-|isEnabled|false|Habilita o deshabilita el muestreo.| 
+|isEnabled|true|Habilita o deshabilita el muestreo.| 
 |maxTelemetryItemsPerSecond|5|Umbral donde comienza el muestreo.| 
 
 ## <a name="eventhub"></a>eventHub

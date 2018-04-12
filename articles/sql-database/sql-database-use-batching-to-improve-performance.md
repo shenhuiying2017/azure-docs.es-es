@@ -7,13 +7,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
 ms.topic: article
-ms.date: 07/12/2016
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 5c7846fdd8d6a7584cab2b4f3811151332171ba4
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 3367ecc48ee8da7aaf657b5278acb19df5a96e75
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Uso del procesamiento por lotes para mejorar el rendimiento de las aplicaciones de SQL Database
 El procesamiento de operaciones por lotes para Azure SQL Database mejora notablemente el rendimiento y la escalabilidad de las aplicaciones. Para comprender las ventajas, la primera parte de este artículo trata algunos resultados de pruebas de ejemplo que comparan solicitudes por lotes y secuenciales a una instancia de SQL Database. El resto del artículo muestra las técnicas, los escenarios y las consideraciones para ayudarlo a usar el procesamiento por lotes correctamente en las aplicaciones de Azure.
@@ -258,7 +258,7 @@ Los resultados de pruebas ad hoc siguientes muestran el rendimiento de este tipo
 
 | Operaciones | Parámetros con valores de tabla (ms) | Instrucción INSERT única (ms) |
 | --- | --- | --- |
-| 1 |32 |20  |
+| 1 |32 |20 |
 | 10 |30 |25 |
 | 100 |33 |51 |
 
@@ -302,7 +302,7 @@ En nuestras pruebas, normalmente dividir los lotes grandes en fragmentos menores
 | 1000 |1 |347 |
 | 500 |2 |355 |
 | 100 |10 |465 |
-| 50 |20  |630 |
+| 50 |20 |630 |
 
 > [!NOTE]
 > Los resultados no sirven para pruebas comparativas. Consulte la [nota sobre los tiempos resultantes en este tema](#note-about-timing-results-in-this-topic).
