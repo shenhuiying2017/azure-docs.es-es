@@ -4,7 +4,7 @@ description: Administración de usuarios administrativos y restablecer el acceso
 services: virtual-machines-linux
 documentationcenter: ''
 author: dlepow
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 261a9646-1f93-407e-951e-0be7226b3064
@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: danlep
-ms.openlocfilehash: a5467722b347e68693b335da6b3ac3c5d1a3a441
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 15fab2b4f83b86227a3a2327669861b5adc8d3c5
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-20"></a>Administración de usuarios administrativos, SSH y comprobación o reparación de discos en máquinas virtuales Linux con la extensión VMAccess y la CLI de Azure 2.0
 El disco de la máquina virtual de Linux muestra errores. De alguna forma, restableció la contraseña raíz de la máquina virtual de Linux o eliminó por accidente la clave privada SSH. Si esto sucedió en el centro de datos, deberá ir ahí y, luego, abrir el conmutador KVM para llegar a la consola del servidor. Piense en la extensión VMAccess de Azure como ese conmutador KVM que le permite tener acceso a la consola para restablecer el acceso a Linux o realizar el mantenimiento de nivel de disco.

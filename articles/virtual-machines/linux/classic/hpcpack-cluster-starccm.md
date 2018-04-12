@@ -1,11 +1,11 @@
 ---
-title: "Ejecución de STAR-CCM+ con HPC Pack en máquinas virtuales Linux | Microsoft Docs"
-description: "Implemente un clúster de Microsoft HPC Pack en Azure y ejecute un trabajo STAR-CCM+ en varios nodos de proceso Linux en una red RDMA."
+title: Ejecución de STAR-CCM+ con HPC Pack en máquinas virtuales Linux | Microsoft Docs
+description: Implemente un clúster de Microsoft HPC Pack en Azure y ejecute un trabajo STAR-CCM+ en varios nodos de proceso Linux en una red RDMA.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: xpillons
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,azure-resource-manager,hpc-pack
 ms.assetid: 75523406-d268-4623-ac3e-811c7b74de4b
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 09/13/2016
 ms.author: xpillons
-ms.openlocfilehash: b45fcfb981287035da02fda62eaf5f9436ec2379
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8689d7abfd5ab45277df3b5672a1f6e7e874d88e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="run-star-ccm-with-microsoft-hpc-pack-on-a-linux-rdma-cluster-in-azure"></a>Ejecución de STAR-CCM+ con Microsoft HPC Pack en un clúster de Linux RDMA en Azure
 En este artículo se muestra cómo implementar un clúster de Microsoft HPC Pack en Azure y ejecutar un trabajo [CD-Adapco STAR-CCM+](http://www.cd-adapco.com/products/star-ccm%C2%AE) en varios nodos de proceso Linux interconectados con InfiniBand.

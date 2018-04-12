@@ -1,12 +1,11 @@
 ---
-title: "Conexión de Apache Spark a Azure Cosmos DB | Microsoft Docs"
-description: "Use este tutorial para aprender sobre el conector de Azure Cosmos DB Spark que le permite conectar Apache Spark a Azure Cosmos DB para realizar agregaciones distribuidas y ciencias de datos en el sistema de base de datos distribuido globalmente multiinquilino de Microsoft diseñado para la nube."
+title: Conexión de Apache Spark a Azure Cosmos DB | Microsoft Docs
+description: Use este tutorial para aprender sobre el conector de Azure Cosmos DB Spark que le permite conectar Apache Spark a Azure Cosmos DB para realizar agregaciones distribuidas y ciencias de datos en el sistema de base de datos distribuido globalmente multiinquilino de Microsoft diseñado para la nube.
 keywords: apache spark
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: dennyglee
-manager: jhubbard
-editor: 
+manager: kfile
 ms.assetid: c4f46007-2606-4273-ab16-29d0e15c0736
 ms.service: cosmos-db
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2018
 ms.author: denlee
-ms.openlocfilehash: 4ba8a53f2018727cc4fa225b2d4ce14d9f1d7467
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: e93148a8870a40dbe5d89a2364497c44096eef7c
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-the-spark-to-azure-cosmos-db-connector"></a>Aceleración de análisis de macrodatos en tiempo real con el conector de Spark a Azure Cosmos DB
 
@@ -29,7 +28,7 @@ Obtenga más información en este vídeo con el administrador de programas de en
 
 > [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T135/player] 
 
-Para trabajar con Spark GraphX y las API Graph de Gremlin de Azure Cosmos DB, consulte [Análisis de gráficos mediante Spark y Apache TinkerPop Gremlin](spark-connector-graph.md).
+Para trabajar con Spark GraphX y las API de grafos de Gremlin de Azure Cosmos DB, consulte [Análisis de grafos mediante Spark y Apache TinkerPop Gremlin](spark-connector-graph.md).
 
 ## <a name="download"></a>Descargar
 
@@ -349,7 +348,7 @@ order by percentile_approx(delay, 0.5)
 
 ![Gráfico de valores medios de retrasos de Spark](./media/spark-connector/median-delays-graph.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Si aún no lo ha hecho, descargue el conector de Spark a Azure Cosmos DB del repositorio de GitHub [azure-documentdb-spark](https://github.com/Azure/azure-cosmosdb-spark) y explore los recursos adicionales del repositorio:
 

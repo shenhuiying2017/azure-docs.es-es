@@ -1,13 +1,13 @@
 ---
-title: "Creación y administración de una máquina virtual de Azure con Java | Microsoft Docs"
-description: "Use Java y Azure Resource Manager para implementar una máquina virtual y todos sus recursos de apoyo."
+title: Creación y administración de una máquina virtual de Azure con Java | Microsoft Docs
+description: Use Java y Azure Resource Manager para implementar una máquina virtual y todos sus recursos de apoyo.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: davidmu1
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: davidmu
-ms.openlocfilehash: b970b7a5e1db6d8580ede9699d4776a79e03c98f
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: da8f8b0e84a51683bd4f631832e1f319f3a9bbb0
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-java"></a>Creación y administración de máquinas virtuales Windows en Azure mediante Java
 
@@ -112,7 +112,7 @@ Tardará unos 20 minutos en realizar estos pasos.
     </dependency>
     ```
 
-3. Guarde el archivo .
+3. Guarde el archivo.
 
 ## <a name="create-credentials"></a>Crear credenciales
 
@@ -135,7 +135,7 @@ Antes de empezar este paso, asegúrese de que tiene acceso a una [entidad de ser
 
     Reemplace **&lt;subscription-id&gt;** por su identificador de suscripción, **&lt;application-id&gt;** por el identificador de aplicación de Active Directory, **&lt;authentication-key&gt;** por la clave de aplicación y **&lt;tenant-id&gt;** por el identificador de inquilino.
 
-2. Guarde el archivo .
+2. Guarde el archivo.
 3. Establezca una variable de entorno denominada "AZURE_AUTH_LOCATION" en el shell con la ruta de acceso completa al archivo de autenticación.
 
 ### <a name="create-the-management-client"></a>Creación del cliente de administración

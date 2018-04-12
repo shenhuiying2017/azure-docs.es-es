@@ -1,5 +1,5 @@
 ---
-title: "Preguntas más frecuentes (P+F) sobre Azure Search | Microsoft Docs"
+title: Preguntas más frecuentes (P+F) sobre Azure Search | Microsoft Docs
 description: Respuestas a preguntas habituales sobre el servicio Microsoft Azure Search
 services: search
 author: HeidiSteen
@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 08/03/2017
 ms.author: heidist
 ms.openlocfilehash: f61fe2930bc70e800e5d79773e0de6827621e845
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-search---frequently-asked-questions-faq"></a>Microsoft Azure Search: preguntas más frecuentes (P+F)
 
@@ -83,7 +83,7 @@ Por ejemplo, suponga que la entrada "pase*" en una búsqueda con caracteres como
 
 La mayoría de los clientes eligen campos dedicados en una colección cuando se trata de admitir distintas configuraciones regionales (idiomas) en el mismo índice. Los campos específicos de la configuración regional permiten asignar un analizador adecuado. Por ejemplo, asignar Microsoft French Analyzer a un campo que contiene cadenas en francés. También simplifica el filtrado. Si sabe que una consulta se inicia en una página fr-fr, puede limitar los resultados de búsqueda a este campo. O bien, puede crear un [perfil de puntuación](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) para dar al campo más peso relativo. Azure Search admite más de [cincuenta analizadores de lenguaje](https://docs.microsoft.com/azure/search/search-language-support) entre los que puede elegir.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 ¿Es su pregunta acerca de una característica o funcionalidad que falta? Solicite la característica en el [sitio web de User Voice](https://feedback.azure.com/forums/263029-azure-search).
 

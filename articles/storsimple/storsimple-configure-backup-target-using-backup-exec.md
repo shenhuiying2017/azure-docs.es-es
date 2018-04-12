@@ -1,12 +1,12 @@
 ---
 title: StorSimple serie 8000 como destino de copia de seguridad con Backup Exec | Microsoft Docs
-description: "Describe la configuración del destino de copia de seguridad de StorSimple con Veritas Backup Exec."
+description: Describe la configuración del destino de copia de seguridad de StorSimple con Veritas Backup Exec.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: harshakirank
 manager: matd
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/05/2016
 ms.author: hkanna
 ms.openlocfilehash: a28b46e10bbdd5331cc665fad3f80523b3aa8a58
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="storsimple-as-a-backup-target-with-backup-exec"></a>StorSimple como destino de copia de seguridad con Backup Exec
 
@@ -272,7 +272,7 @@ De acuerdo con los supuestos anteriores, cree un volumen en capas de StorSimple 
 
     ![Consola de administración de Backup Exec, pantalla de selección de almacenamiento](./media/storsimple-configure-backup-target-using-backup-exec/image5.png)
 
-3.  Escriba un nombre representativo, como por ejemplo, **Saturday Full** (Completa sábado) y una descripción. Seleccione **Siguiente**.
+3.  Escriba un nombre representativo, como por ejemplo, **Saturday Full** (Completa sábado) y una descripción. Seleccione **Next** (Siguiente).
 
     ![Consola de administración de Backup Exec, pantalla de nombre y descripción](./media/storsimple-configure-backup-target-using-backup-exec/image7.png)
 

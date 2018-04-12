@@ -1,10 +1,10 @@
 ---
 title: Carga de un disco de Linux personalizado con la CLI de Azure 2.0 | Microsoft Docs
-description: "Creación y carga en Azure de un disco duro virtual (VHD) mediante el modelo de implementación de Resource Manager y la CLI de Azure 2.0"
+description: Creación y carga en Azure de un disco duro virtual (VHD) mediante el modelo de implementación de Resource Manager y la CLI de Azure 2.0
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: a8c7818f-eb65-409e-aa91-ce5ae975c564
@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
-ms.openlocfilehash: 258c2a5bbce1f15c78690cb01dc9b66fef4bb8f5
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 5c5c9894127386a05da9825435cfe5ca07b01542
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli-20"></a>Carga y creación de una máquina virtual Linux a partir de un disco personalizado mediante la CLI de Azure 2.0
 En este artículo se muestra cómo cargar un disco duro virtual en una cuenta de almacenamiento de Azure mediante la CLI de Azure 2.0 y cómo crear máquinas virtuales Linux desde este disco personalizado. También puede llevar a cabo estos pasos con la [CLI de Azure 1.0](upload-vhd-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Esta funcionalidad le permite instalar y configurar una distribución de Linux según sus requisitos y después utilizar ese disco duro virtual para crear rápidamente máquinas virtuales de Azure.

@@ -1,11 +1,11 @@
 ---
-title: "Descripción de los conectores del Proxy de aplicación de Azure AD | Microsoft Docs"
-description: "Se explican los conceptos básicos acerca de los conectores del Proxy de aplicación de Azure AD."
+title: Descripción de los conectores del Proxy de aplicación de Azure AD | Microsoft Docs
+description: Se explican los conceptos básicos acerca de los conectores del Proxy de aplicación de Azure AD.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -16,10 +16,10 @@ ms.author: billmath
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.openlocfilehash: fe8d5c40249431be60dc8844adf7efa1b8e87c5f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Descripción de los conectores del Proxy de aplicación de Azure AD
 
@@ -35,7 +35,7 @@ Para implementar correctamente Proxy de aplicación necesita al menos un conecto
 
 Para más información sobre los requisitos de red del servidor del conector, vea [Get started with Application Proxy and install a connector (Información general sobre Proxy de aplicación e instalación de un conector)](active-directory-application-proxy-enable.md).
 
-## <a name="maintenance"></a>Mantenimiento
+## <a name="maintenance"></a>Mantenimiento 
 Los conectores y el servicio se encargan de todas las tareas de alta disponibilidad. Se pueden agregar o quitar de forma dinámica. Cada vez que llega una solicitud nueva, esta se enruta a uno de los conectores que estén disponibles en ese momento. Si un conector no está disponible temporalmente, no responde a este tráfico.
 
 Los conectores no tienen estado ni datos de configuración en el equipo. Los únicos datos que almacenan son los valores de configuración para conectar el servicio y su certificado de autenticación. Cuando se conectan al servicio, extraen todos los datos de configuración requeridos y los actualizan cada dos minutos.

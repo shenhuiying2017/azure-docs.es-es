@@ -1,10 +1,10 @@
 ---
-title: "Captura de una imagen de una máquina virtual Linux | Microsoft Docs"
-description: "Obtenga información acerca de cómo capturar una imagen de una máquina virtual de Azure (VM) basada en Linux creada con el modelo de implementación clásico."
+title: Captura de una imagen de una máquina virtual Linux | Microsoft Docs
+description: Obtenga información acerca de cómo capturar una imagen de una máquina virtual de Azure (VM) basada en Linux creada con el modelo de implementación clásico.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 ROBOTS: NOINDEX
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: iainfou
-ms.openlocfilehash: be463b18c049c8b92c21cfde82defcf76718a5f0
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 29a1d5bc839fcf533973271638bf283d6e48e93b
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-capture-a-classic-linux-virtual-machine-as-an-image"></a>Captura de una máquina virtual clásica con Linux para usarla como imagen
 > [!IMPORTANT]
@@ -102,7 +102,7 @@ En estos pasos se supone que ya ha creado un VM de Azure con el modelo de implem
 
    ![Captura correcta de la imagen](./media/capture-image/VMCapturedImageAvailable.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 La imagen está lista para usarse para crear VM. Puede usar el comando de la CLI de Azure `azure vm create` y proporcionar el nombre de la imagen que ha creado. Para más información, consulte [Comandos CLI de Azure en modo de Administración de servicios de Azure (asm)](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
 
 También puede usar [Azure Portal](http://portal.azure.com) para crear una máquina virtual personalizada mediante el método **Imagen** y seleccionar la imagen que ha creado. Para más información, consulte [Creación de una máquina virtual con Linux personalizada][How to Create a Custom Virtual Machine].

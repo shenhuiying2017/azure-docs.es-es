@@ -1,10 +1,10 @@
 ---
-title: "Notas de la versión de SDK de Azure para .NET 2.8."
-description: "Notas de la versión de SDK de Azure para .NET 2.8."
+title: Notas de la versión de SDK de Azure para .NET 2.8.
+description: Notas de la versión de SDK de Azure para .NET 2.8.
 services: app-service\web
 documentationcenter: .net
 author: chrissfanos
-editor: 
+editor: ''
 ms.assetid: de7207ff-ba4f-4008-9141-8742fcaa3254
 ms.service: app-service
 ms.devlang: multiple
@@ -14,10 +14,10 @@ ms.workload: integration
 ms.date: 02/24/2017
 ms.author: juliako
 ms.openlocfilehash: 0b9f55d69c824e86245738a082f95fc529583f58
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-sdk-for-net-28-281-and-282"></a>Azure SDK para .NET 2.8, 2.8.1 y 2.8.2
 ## <a name="overview"></a>Información general
@@ -35,7 +35,7 @@ Para obtener una lista completa de nuevas características y actualizaciones rea
 #### <a name="known-issues"></a>Problemas conocidos
 El SDK de Azure para .NET 2.8 le permite crear paquetes de servicios en la nube de .NET 4.5.2. Sin embargo .NET Framework 4.5.2 no se instalará en las imágenes del sistema operativo invitado predeterminado hasta el lanzamiento del sistema operativo invitado de 2016. Antes de eso, .NET Framework 4.5.2 estará disponible mediante una versión de sistema operativo invitado distinta (2 de noviembre de 2015). Consulte la página [Matriz de compatibilidad del SDK y lanzamientos del SO invitado de Azure](../cloud-services/cloud-services-guestos-update-matrix.md) para comprobar cuándo se publicará la imagen.  Después de que se publique la imagen del 2 de noviembre de 2015, tendrá la posibilidad de elegir esa imagen; para ello, actualice el archivo de configuración de servicios en la nube (.cscfg). En el archivo de configuración de servicio, establezca el atributo osVersion del elemento ServiceConfiguration en la cadena "WA-GUEST-OS-4.26_201511-02". Si elige participar para usar esta imagen, ya no obtendrá las actualizaciones automáticas para el SO invitado. Para obtener las actualizaciones automáticas, osVersion se debe establecer en "*" y .NET 4.5.2 solo estará disponible a través de las actualizaciones automáticas en enero de 2016.
 
-### <a name="azure-data-factory"></a>Factoría de datos de Azure
+### <a name="azure-data-factory"></a>Azure Data Factory
 #### <a name="known-issues"></a>Problemas conocidos
 Durante la creación de un proyecto de **Plantilla de Factoría de datos** en el que intervienen datos de ejemplo, el script de Azure PowerShell puede dar error si la versión de Azure PowerShell instalada en la máquina es posterior a la 0.9.8.
 
@@ -53,8 +53,8 @@ El SDK 2.8 requiere la versión 1.0 de los cmdlets de Azure PowerShell.  Todas l
 #### <a name="known-issues"></a>Problemas conocidos
 En la siguiente versión se abordarán los siguientes problemas conocidos.
 
-* El gesto del Explorador de servidores y la nube relacionado con el Servicio de aplicaciones en los entornos que no son de producción (como clientes de Azure China y Azure Stack) no funcionará. Para los clientes de estas áreas afectadas, la descarga del perfil de publicación del Portal de Azure ofrecerá la posibilidad de publicación. Una versión futura reparará gestos como "Adjuntar depurador" y "Ver registros de streaming" para los clientes de Azure China y Azure Stack. 
-* Los clientes pueden ver errores durante la creación del Servicio de aplicaciones cuando la instancia de App Insights en la que van a realizar la implementación se encuentra en una región distinta al Este de Estados Unidos. En estos casos, la creación de un Servicio de aplicaciones en el portal y la descarga del perfil de publicación permitirán escenarios de publicación. 
+* El gesto del Explorador de servidores y la nube relacionado con App Service en los entornos que no son de producción (como clientes de Azure China y Azure Stack) no funcionará. Para los clientes de estas áreas afectadas, la descarga del perfil de publicación del Portal de Azure ofrecerá la posibilidad de publicación. Una versión futura reparará gestos como "Adjuntar depurador" y "Ver registros de streaming" para los clientes de Azure China y Azure Stack. 
+* Los clientes pueden ver errores durante la creación de App Service cuando la instancia de App Insights en la que van a realizar la implementación se encuentra en una región distinta al Este de Estados Unidos. En estos casos, la creación de un servicio de aplicaciones en el portal y la descarga del perfil de publicación permitirán escenarios de publicación. 
 
 ### <a name="azure-hdinsight-tools"></a>Herramientas de HDInsight de Azure
 #### <a name="new-updates"></a>Nuevas actualizaciones
@@ -65,9 +65,9 @@ Para obtener información, vea [SDK 2.8 de Azure para Visual Studio 2013 y Visua
 
 ## <a name="azure-sdk-for-net-281"></a>SDK de Azure para .NET 2.8.1
 ### <a name="known-issues-for-visual-studio-2013-and-visual-studio-2015"></a>Problemas conocidos de Visual Studio 2013 y Visual Studio 2015
-1. Las publicaciones de trabajos web desencadenados en ranuras mostrarán un error y no establecerán una programación, pero el trabajo web se insertará en Azure. Los clientes que necesitan un trabajo programado pueden usar el Portal de Azure para configurar la programación del trabajo web. 
+1. Las publicaciones de trabajos web desencadenados en ranuras mostrarán un error y no establecerán una programación, pero el trabajo web se insertará en Azure. Los clientes que necesitan un trabajo programado pueden usar Azure Portal para configurar la programación del trabajo web. 
 2. Los clientes de Python pueden experimentar problemas con el depurador. El equipo de servicio está implementando una solución para ello, pero si los clientes se ven afectados, informe a Microsoft en los foros o en las secciones de comentarios del blog de anuncios o las notas de la versión. 
-3. Los clientes de determinadas regiones (por ejemplo, el sur de la India) experimentarán errores de aprovisionamiento del Servicio de aplicaciones. Esto es coherente con el portal y los clientes que experimenten este problema pueden usar el Portal de Azure para solicitar acceso para publicar en estas regiones geográficas. Cuando soliciten acceso a estas regiones, el uso del aprovisionamiento del Portal de Azure debería funcionar. 
+3. Los clientes de determinadas regiones (por ejemplo, el sur de la India) experimentarán errores de aprovisionamiento de App Service. Esto es coherente con el portal y los clientes que experimenten este problema pueden usar el Portal de Azure para solicitar acceso para publicar en estas regiones geográficas. Cuando soliciten acceso a estas regiones, el uso del aprovisionamiento del Portal de Azure debería funcionar. 
 
 ## <a name="azure-sdk-for-net-282"></a>Azure SDK para .NET 2.8.2
 Después de la instalación de la versión 2.8.2 de las herramientas, es posible que los clientes experimenten el problema siguiente.         

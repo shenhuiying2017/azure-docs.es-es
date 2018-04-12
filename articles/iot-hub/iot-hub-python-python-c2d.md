@@ -3,7 +3,7 @@ title: Mensajes de nube a dispositivo con IoT Hub de Azure (Python) | Microsoft 
 description: Cómo enviar mensajes de nube a un dispositivo de una instancia de IoT Hub de Azure mediante los SDK de IoT de Azure para Python. Modifique una aplicación de dispositivo simulado para recibir mensajes de nube a dispositivo y cambie una aplicación de back-end para enviar los mensajes de nube a dispositivo.
 services: iot-hub
 documentationcenter: python
-author: msebolt
+author: kgremban
 manager: timlt
 editor: ''
 ms.assetid: 3ca8a78f-ade2-46e8-8a49-d5d599cdf1f1
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/22/2018
-ms.author: v-masebo
-ms.openlocfilehash: 7fd8bd87a4b7cf5a0f55b9fa7b5ab2ed43083d2c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: v-masebo;kgremban
+ms.openlocfilehash: 9cd2423d2d235ed97e51178528dddd7419a718c2
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-python"></a>Envío de mensajes de nube a dispositivo con IoT Hub (Python)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]

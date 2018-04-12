@@ -1,13 +1,13 @@
 ---
-title: "Tutorial de conjuntos de disponibilidad para máquinas virtuales de Linux en Azure | Microsoft Docs"
-description: "Obtenga información sobre los conjuntos de disponibilidad para máquinas virtuales de Linux en Azure."
-documentationcenter: 
+title: Tutorial de conjuntos de disponibilidad para máquinas virtuales de Linux en Azure | Microsoft Docs
+description: Obtenga información sobre los conjuntos de disponibilidad para máquinas virtuales de Linux en Azure.
+documentationcenter: ''
 services: virtual-machines-linux
 author: cynthn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 10/05/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 504c4a666d1abd7a495d6759d62815f53f0b54fa
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d317ec8136ad7a36381239593c3a53c40f897845
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-use-availability-sets"></a>Cómo usar conjuntos de disponibilidad
 
@@ -107,7 +107,7 @@ az vm availability-set list-sizes \
      --output table  
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial aprendió lo siguiente:
 

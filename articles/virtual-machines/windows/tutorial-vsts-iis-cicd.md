@@ -1,13 +1,13 @@
 ---
-title: "Creación de una canalización de CI/CD en Azure con Team Services | Microsoft Docs"
-description: "Obtenga información acerca de cómo crear una canalización de Visual Studio Team Services para integración y entrega continuas, que implementa una aplicación web en IIS en una máquina virtual Windows"
+title: Creación de una canalización de CI/CD en Azure con Team Services | Microsoft Docs
+description: Obtenga información acerca de cómo crear una canalización de Visual Studio Team Services para integración y entrega continuas, que implementa una aplicación web en IIS en una máquina virtual Windows
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/12/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 006cac5606c411c9d86b36d0069021094fcdb1db
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: cf6e3013d4dfc7e18d96a717a76b591cde939139
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-continuous-integration-pipeline-with-visual-studio-team-services-and-iis"></a>Creación de una canalización de integración continua con Visual Studio Team Services e IIS
 Para automatizar las fases de creación, prueba e implementación del desarrollo de la aplicación, puede utilizar una canalización de integración e implementación continua (CI/CD). En este tutorial se creará una canalización CI/CD utilizando Visual Studio Team Services y una máquina virtual Windows en Azure que ejecuta IIS. Aprenderá a:
@@ -91,7 +91,7 @@ Observe cómo la compilación se programa en un agente hospedado y después comi
 ![Compilación correcta del proyecto de Team Services](media/tutorial-vsts-iis-cicd/successful_build.png)
 
 
-## <a name="create-virtual-machine"></a>Create virtual machine
+## <a name="create-virtual-machine"></a>Crear máquina virtual
 Para proporcionar una plataforma para ejecutar la aplicación web ASP.NET, necesita una máquina virtual Windows que ejecute IIS. Team Services utiliza un agente para interactuar con la instancia de IIS cuando confirma el código y se desencadenan compilaciones.
 
 Cree una máquina virtual Windows Server 2016 mediante [este script de ejemplo](../scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json). El script tarda unos minutos en ejecutarse y crear la máquina virtual. Una vez creada la máquina virtual, abra el puerto 80 para el tráfico web con [Add-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.resources/new-azurermresourcegroup) como se indica a continuación:
@@ -204,7 +204,7 @@ Con la aplicación web en ejecución en IIS, ahora se probará toda la canalizac
 
     `<h1>ASP.NET with VSTS and CI/CD!</h1>`
 
-4. Guarde el archivo .
+4. Guarde el archivo.
 5. Abra la ventana **Team Explorer**, seleccione el proyecto *myWebApp* y luego elija **Cambios**.
 6. Escriba un mensaje de confirmación, como *Pruebas canalización CI/CD* y, a continuación, elija **Confirmar todos y sincronizar** en el menú desplegable.
 7. En el área de trabajo de Team Services, se desencadena una nueva compilación desde la confirmación de código. 

@@ -1,11 +1,10 @@
 ---
-title: "Supervisión de las solicitudes y el almacenamiento de Azure Cosmos DB | Microsoft Docs"
-description: "Obtenga información sobre cómo supervisar la cuenta de Azure Cosmos DB para aplicar métricas de rendimiento, como solicitudes y errores de servidor, y métricas de uso, como consumo de almacenamiento."
+title: Supervisión de las solicitudes y el almacenamiento de Azure Cosmos DB | Microsoft Docs
+description: Obtenga información sobre cómo supervisar la cuenta de Azure Cosmos DB para aplicar métricas de rendimiento, como solicitudes y errores de servidor, y métricas de uso, como consumo de almacenamiento.
 services: cosmos-db
-documentationcenter: 
-author: mimig1
-manager: jhubbard
-editor: cgronlun
+documentationcenter: ''
+author: SnehaGunda
+manager: kfile
 ms.assetid: 4c6a2e6f-6e78-48e3-8dc6-f4498b235a9e
 ms.service: cosmos-db
 ms.workload: data-services
@@ -13,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
-ms.author: mimig
-ms.openlocfilehash: 0e9a47e6a1a5c7a44c5553742d6c5c81f8ca7286
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: sngun
+ms.openlocfilehash: 008c47bbceeba1345c56b5171f5fbc1f8676b02c
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="monitor-azure-cosmos-db"></a>Supervisión de Azure Cosmos DB
 Puede supervisar las cuentas de Azure Cosmos DB en [Azure Portal](https://portal.azure.com/). Para cada cuenta de Azure Cosmos DB, está disponible un conjunto completo de métricas para supervisar el rendimiento, almacenamiento, disponibilidad, latencia y coherencia.
@@ -84,6 +83,6 @@ Las consultas para recuperar métricas individuales utilizan el siguiente format
 
 Para obtener más información, consulte [Retrieving Resource Metrics via the Azure Monitor API](https://blogs.msdn.microsoft.com/cloud_solution_architect/2016/02/23/retrieving-resource-metrics-via-the-azure-insights-api/)(Recuperación de métricas de recursos mediante la API de Azure Monitor). Tenga en cuenta que se ha cambiado el nombre "Azure Insights" a "Azure Monitor".  Esta entrada de blog hace referencia al nombre anterior.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para conocer más sobre el planeamiento de la capacidad de Azure Cosmos DB, consulte la [calculadora del planificador de capacidad de Azure Cosmos DB](https://www.documentdb.com/capacityplanner).
 

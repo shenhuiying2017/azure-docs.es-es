@@ -4,7 +4,7 @@ description: Aprenda a restablecer la contraseña de una cuenta o los servicios 
 services: virtual-machines-windows
 documentationcenter: ''
 author: danielsollondon
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 45c69812-d3e4-48de-a98d-39a0f5675777
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2018
 ms.author: danis
-ms.openlocfilehash: d793b101e3b6fa5a441158ef8ca9f7cd6d3a5a5b
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 038fc81fd46f81a454ec908e2156579ff8d41ee6
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-reset-the-remote-desktop-service-or-its-login-password-in-a-windows-vm"></a>Restablecimiento del servicio Escritorio remoto o la contraseña de inicio de sesión en una VM con Windows
 Si no puede conectarse a una máquina virtual Windows, puede restablecer la contraseña de administrador local o la configuración de servicio de Escritorio remoto (no se admite en controladores de dominio de Windows). Puede usar el Portal de Azure o la extensión de acceso de máquina virtual en Azure PowerShell para restablecer la contraseña. Una vez que haya iniciado sesión en la máquina virtual, debe restablecer la contraseña para ese usuario.  

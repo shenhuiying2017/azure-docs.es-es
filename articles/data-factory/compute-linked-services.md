@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: shengc
-ms.openlocfilehash: 99d10cfd9e1e0eb078d1f90396a87e5e5dc4a7a6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: fe4a4962acce06a6448cef8d5c1af398e3965a33
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Entornos de proceso compatibles con Azure Data Factory
 En este artículo se explican distintos entornos de procesos que se pueden usar para procesar o transformar datos. También se proporcionan detalles acerca de las distintas configuraciones (a petición frente traiga su propia) admitidas por la Factoría de datos al configurar servicios vinculados que vinculan estos entornos de procesos a una Factoría de datos de Azure.
@@ -29,7 +29,7 @@ En la tabla siguiente se proporciona una lista de entornos de proceso compatible
 | [Azure Batch](#azure-batch-linked-service) | [Personalizada](transform-data-using-dotnet-custom-activity.md) |
 | [Azure Machine Learning](#azure-machine-learning-linked-service) | [Actividades de Machine Learning: ejecución de Batch y recurso de actualización](transform-data-using-machine-learning.md) |
 | [Análisis con Azure Data Lake](#azure-data-lake-analytics-linked-service) | [U-SQL de análisis con Data Lake](transform-data-using-data-lake-analytics.md) |
-| [Azure SQL](#azure-sql-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [Procedimiento almacenado](transform-data-using-stored-procedure.md) |
+| [Azure SQL](#azure-sql-database-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [Procedimiento almacenado](transform-data-using-stored-procedure.md) |
 
 >  
 

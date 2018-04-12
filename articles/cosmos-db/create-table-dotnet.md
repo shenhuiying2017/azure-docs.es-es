@@ -1,25 +1,24 @@
 ---
-title: "Guía de inicio rápido: Table API con .NET y Azure Cosmos DB | Microsoft Docs"
-description: "Esta guía de inicio rápido muestra cómo usar Table API de Azure Cosmos DB para crear una aplicación con Azure Portal y .NET"
+title: 'Guía de inicio rápido: Table API con .NET y Azure Cosmos DB | Microsoft Docs'
+description: Esta guía de inicio rápido muestra cómo usar Table API de Azure Cosmos DB para crear una aplicación con Azure Portal y .NET
 services: cosmos-db
-documentationcenter: 
-author: mimig1
-manager: jhubbard
-editor: 
+documentationcenter: ''
+author: SnehaGunda
+manager: kfile
 ms.assetid: 66327041-4d5e-4ce6-a394-fee107c18e59
 ms.service: cosmos-db
 ms.custom: quickstart connect, mvc
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 12/01/2017
-ms.author: mimig
-ms.openlocfilehash: c3d4637871ed56bd32e514c9de4374257e55d844
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.author: sngun
+ms.openlocfilehash: 676e1bce0b74579780ed3dd540cae78a3f616b7e
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="quickstart-build-a-table-api-app-with-net-and-azure-cosmos-db"></a>Guía de inicio rápido: Creación de una aplicación de Table API con .NET y Azure Cosmos DB 
 
@@ -168,7 +167,7 @@ Ya ha actualizado la aplicación con toda la información que necesita para comu
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En esta guía de inicio rápido, ha obtenido información sobre cómo crear una cuenta de Azure Cosmos DB, crear una tabla mediante el Explorador de datos y ejecutar una aplicación.  Ahora ya puede consultar los datos mediante Table API.  
 

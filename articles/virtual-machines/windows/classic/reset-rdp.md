@@ -1,13 +1,13 @@
 ---
-title: "Restablecimiento de la contraseña o la configuración de Escritorio remoto en una máquina virtual Windows de Azure | Microsoft Docs"
-description: "Aprenda a restablecer la contraseña de una cuenta o los servicios de Escritorio remoto en una máquina virtual Windows mediante el modelo de implementación clásica con Azure Portal o Azure PowerShell."
+title: Restablecimiento de la contraseña o la configuración de Escritorio remoto en una máquina virtual Windows de Azure | Microsoft Docs
+description: Aprenda a restablecer la contraseña de una cuenta o los servicios de Escritorio remoto en una máquina virtual Windows mediante el modelo de implementación clásica con Azure Portal o Azure PowerShell.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: iainfou
-ms.openlocfilehash: 200e5667f4bc2ca0b7dc041eef990b7aff0914ff
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 516cb740f9acad19dac77db0239341b42a2b27fe
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-reset-the-remote-desktop-service-or-its-login-password-in-a-windows-vm-created-using-the-classic-deployment-model"></a>Restablecimiento del servicio Escritorio remoto o la contraseña de inicio de sesión en una máquina virtual Windows con el modelo de implementación clásica
 > [!IMPORTANT]
-> Azure tiene dos modelos de implementación diferentes para crear y trabajar con recursos: [el Administrador de recursos y el clásico](../../../resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos. También puede realizar estos pasos en las máquinas virtuales creadas con el [modelo de implementación de Resource Manager](../reset-rdp.md).
+> Azure tiene dos modelos de implementación diferentes para crear y trabajar con recursos: [el Administrador de recursos y el clásico](../../../resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo de Resource Manager. También puede realizar estos pasos en las máquinas virtuales creadas con el [modelo de implementación de Resource Manager](../reset-rdp.md).
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 
@@ -35,7 +35,7 @@ Puede restablecer los servicios y las credenciales de Escritorio remoto de varia
 - [Restablecimiento mediante Azure Portal](#azure-portal)
 - [Restablecimiento mediante Azure PowerShell](#vmaccess-extension-and-powershell)
 
-## <a name="azure-portal"></a>Portal de Azure
+## <a name="azure-portal"></a>Azure Portal
 Restablezca el servicio de Escritorio remoto desde [Azure Portal](https://portal.azure.com). Para expandir los menús del portal, haga clic en las tres barras en la esquina superior izquierda y, a continuación, en **Máquinas virtuales (clásico)**:
 
 ![Busque la máquina virtual de Azure.](./media/reset-rdp/Portal-Select-Classic-VM.png)

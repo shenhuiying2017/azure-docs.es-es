@@ -1,13 +1,12 @@
 ---
-title: "Script de PowerShell de Azure: Creación de una directiva de conmutación por error de Azure Cosmos DB | Microsoft Docs"
-description: "Ejemplo de script de PowerShell de Azure: Creación de una directiva de conmutación por error de Azure Cosmos DB"
+title: 'Script de PowerShell de Azure: Creación de una directiva de conmutación por error de Azure Cosmos DB | Microsoft Docs'
+description: 'Ejemplo de script de PowerShell de Azure: Creación de una directiva de conmutación por error de Azure Cosmos DB'
 services: cosmos-db
 documentationcenter: cosmosdb
-author: mimig1
-manager: jhubbard
-editor: 
+author: SnehaGunda
+manager: kfile
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: mvc
 ms.devlang: PowerShell
@@ -15,12 +14,12 @@ ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 05/10/2017
-ms.author: mimig
-ms.openlocfilehash: 94f1c958f6bb78d78d6b7da2416be06ff8d22065
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.author: sngun
+ms.openlocfilehash: 7434d2d3d0cfc1185c69adb9e6bf5e7af70d502d
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-an-azure-cosmos-db-failover-policy-for-high-availability-using-powershell"></a>Creación de una directiva de conmutación por error de Azure Cosmos DB para alta disponibilidad usando PowerShell
 
@@ -44,7 +43,7 @@ Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
 
 Este script usa los siguientes comandos. Cada comando de la tabla crea un vínculo a documentación específica del comando.
 
-| Comando | Notas |
+| Get-Help | Notas |
 |---|---|
 | [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/new-azurermresourcegroup) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
 | [New-AzureRmResource](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresource?view=azurermps-3.8.0) | Crea un servidor lógico que hospeda una base de datos o un grupo elástico. |

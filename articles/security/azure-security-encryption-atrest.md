@@ -1,6 +1,6 @@
 ---
 title: Cifrado en reposo de datos de Microsoft Azure | Microsoft Docs
-description: "Este artículo proporciona información general sobre el cifrado en reposo de datos de Microsoft Azure, funcionalidades y consideraciones."
+description: Este artículo proporciona información general sobre el cifrado en reposo de datos de Microsoft Azure, funcionalidades y consideraciones.
 services: security
 documentationcenter: na
 author: YuriDio
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: yurid
 ms.openlocfilehash: b02afa77ce99f576fed76b398642ba3f3ce2ba98
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-data-encryption-at-rest"></a>Cifrado en reposo de datos de Azure
 Hay varias herramientas en Microsoft Azure para proteger los datos según las necesidades de seguridad y cumplimiento de su empresa. Este documento se centra en:

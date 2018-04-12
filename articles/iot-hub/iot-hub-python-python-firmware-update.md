@@ -3,7 +3,7 @@ title: Actualización de firmware de dispositivos con Azure IoT Hub (Python) | M
 description: Describe cómo usar la administración de dispositivos en IoT Hub de Azure para iniciar una actualización de firmware del dispositivo. Usará el SDK de Azure IoT para Python para implementar la aplicación de dispositivo simulado y una aplicación de servicio que desencadena la actualización del firmware.
 services: iot-hub
 documentationcenter: .net
-author: msebolt
+author: kgremban
 manager: timlt
 editor: ''
 ms.assetid: 70b84258-bc9f-43b1-b7cf-de1bb715f2cf
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/16/2018
-ms.author: v-masebo
-ms.openlocfilehash: 31a7ba88997f54c5000b1018fc96abf8120dd232
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: v-masebo;kgremban
+ms.openlocfilehash: 4a042723e6bebebb891640950e579e031e27e61d
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-device-management-to-initiate-a-device-firmware-update-pythonpython"></a>Uso de la administración de dispositivos para iniciar una actualización de firmware de los dispositivos (Python/Python)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]

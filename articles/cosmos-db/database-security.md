@@ -3,9 +3,8 @@ title: 'Seguridad de bases de datos: Azure Cosmos DB | Microsoft Docs'
 description: Obtenga información sobre cómo Azure Cosmos DB proporciona protección de bases de datos y seguridad para los datos.
 keywords: seguridad de bases de datos NoSQL, información de seguridad, seguridad de datos, el cifrado de bases de datos, protección de bases de datos, directivas de seguridad, pruebas de seguridad
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-editor: mimig
+author: SnehaGunda
+manager: kfile
 documentationcenter: ''
 ms.assetid: a02a6a82-3baf-405c-9355-7a00aaa1a816
 ms.service: cosmos-db
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
-ms.author: mimig
-ms.openlocfilehash: f6e05d410a8018f0a88a378e767f7a7e6fde6f0c
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.author: sngun
+ms.openlocfilehash: a873aa9835ffab8b0d195d9fc9588167ea134128
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-cosmos-db-database-security"></a>Seguridad de base de datos de Azure Cosmos DB
 

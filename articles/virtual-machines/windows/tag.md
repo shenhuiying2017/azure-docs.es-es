@@ -1,10 +1,10 @@
 ---
-title: "Cómo etiquetar un recurso de máquina virtual Windows en Azure | Microsoft Docs"
-description: "Infórmese acerca del etiquetado de una máquina virtual Azure creada con el modelo de implementación de Resource Manager."
+title: Cómo etiquetar un recurso de máquina virtual Windows en Azure | Microsoft Docs
+description: Infórmese acerca del etiquetado de una máquina virtual Azure creada con el modelo de implementación de Resource Manager.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: mmccrory
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 56d17f45-e4a7-4d84-8022-b40334ae49d2
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/05/2016
 ms.author: memccror
-ms.openlocfilehash: 5f00c4265cea3db02dbb09a7f81be636a3fdd3d1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5044bda855b6ac88eb5784f257686bf8a1838222
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-tag-a-windows-virtual-machine-in-azure"></a>Etiquetado de una máquina virtual en Azure
 En este artículo se describen diferentes maneras de etiquetar una máquina virtual Windows en Azure por medio del modelo de implementación de Resource Manager. Las etiquetas son pares clave-valor definidos por el usuario que se pueden colocar directamente en un recurso o un grupo de recursos. Actualmente, Azure admite un máximo de 15 etiquetas por recurso y grupo de recursos. Las etiquetas se pueden colocar en un recurso en el momento de su creación, o bien se pueden agregar a un recurso existente. Tenga en cuenta que las etiquetas solo son compatibles con los recursos creados mediante el modelo de implementación de Resource Manager. Si desea etiquetar una máquina virtual Linux, consulte [How to tag a Linux virtual machine in Azure](../linux/tag.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)(Etiquetado de una máquina virtual Linux en Azure).
@@ -27,7 +27,7 @@ En este artículo se describen diferentes maneras de etiquetar una máquina virt
 [!INCLUDE [virtual-machines-common-tag](../../../includes/virtual-machines-common-tag.md)]
 
 ## <a name="tagging-with-powershell"></a>Etiquetado con PowerShell
-Para crear, agregar y eliminar etiquetas a través de PowerShell, primero es preciso configurar el [entorno de PowerShell con Azure Resource Manager][PowerShell environment with Azure Resource Manager]. Una vez completada la configuración, puede colocar etiquetas en los recursos de proceso, red y almacenamiento tanto al crear el recurso a través de PowerShell como después de haberlo creado. En este artículo se centrará en la visualización y edición de etiquetas en máquinas virtuales.
+Para crear, agregar y eliminar etiquetas a través de PowerShell, primero es preciso configurar el [entorno de PowerShell con Azure Resource Manager][PowerShell environment with Azure Resource Manager]. Una vez completada la configuración, puede colocar etiquetas en los recursos de Compute, Network y Storage tanto al crear el recurso a través de PowerShell como después de haberlo creado. En este artículo se centrará en la visualización y edición de etiquetas en máquinas virtuales.
 
 En primer lugar, navegue a una máquina virtual a través del cmdlet `Get-AzureRmVM` .
 

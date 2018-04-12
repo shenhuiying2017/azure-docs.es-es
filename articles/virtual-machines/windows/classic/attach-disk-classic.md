@@ -1,10 +1,10 @@
 ---
-title: "Conexión de un disco a una máquina virtual de Azure clásico | Microsoft Docs"
-description: "Conecte un disco de datos a una máquina virtual de Windows creada con el modelo de implementación clásica e inicialícelo."
+title: Conexión de un disco a una máquina virtual de Azure clásico | Microsoft Docs
+description: Conecte un disco de datos a una máquina virtual de Windows creada con el modelo de implementación clásica e inicialícelo.
 services: virtual-machines-windows, storage
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 ROBOTS: NOINDEX
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2017
 ms.author: cynthn
-ms.openlocfilehash: 8219ee8bbaa3d53f95e441c934a0524666593c7b
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 48a6b96bd611fcc8fa8219aeef359419255b8cef
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="attach-a-data-disk-to-a-windows-virtual-machine-created-with-the-classic-deployment-model"></a>Conecte un disco de datos a una máquina virtual de Windows creada con el modelo de implementación clásica
 
@@ -108,7 +108,7 @@ Si el comando devuelve 0, significa que TRIM está habilitada correctamente. Si 
 fsutil behavior set DisableDeleteNotify 0
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Si la aplicación debe usar la unidad D: para almacenar datos, puede [cambiar la letra de la unidad del disco temporal de Windows](../../virtual-machines-windows-change-drive-letter.md).
 
 ## <a name="additional-resources"></a>Recursos adicionales

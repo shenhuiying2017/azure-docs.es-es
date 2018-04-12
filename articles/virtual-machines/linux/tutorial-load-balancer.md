@@ -1,13 +1,13 @@
 ---
-title: "Equilibrio de la carga de máquinas virtuales Linux en Azure | Microsoft Docs"
-description: "Aprenda a usar Azure Load Balancer para crear una aplicación segura y con alta disponibilidad en tres máquinas virtuales Linux."
+title: Equilibrio de la carga de máquinas virtuales Linux en Azure | Microsoft Docs
+description: Aprenda a usar Azure Load Balancer para crear una aplicación segura y con alta disponibilidad en tres máquinas virtuales Linux.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
 ms.topic: tutorial
@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 11/13/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: feb2c369fc00d37c9a6af0c0be68cbf7d9e59921
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: c473a31261337f0b968ca21c85b61dafbf8fa74a
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application"></a>Equilibrio de la carga de máquinas virtuales Linux en Azure para crear una aplicación de alta disponibilidad
 El equilibrio de carga proporciona un mayor nivel de disponibilidad al distribuir las solicitudes entrantes entre varias máquinas virtuales. En este tutorial, aprenderá sobre los distintos componentes de Azure Load Balancer que distribuyen el tráfico y proporcionan una alta disponibilidad. Aprenderá a:
@@ -313,7 +313,7 @@ az network nic ip-config address-pool add \
 Para comprobar que la NIC virtual está conectada al grupo de direcciones de back-end, vuelva a usar [az network lb address-pool show](/cli/azure/network/lb/address-pool#az_network_lb_address_pool_show) del paso anterior.
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este tutorial, ha creado un equilibrador de carga y conectó máquinas virtuales a él. Ha aprendido a:
 
 > [!div class="checklist"]

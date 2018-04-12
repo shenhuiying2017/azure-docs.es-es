@@ -1,18 +1,18 @@
 ---
-title: "Reacción ante eventos de Azure Blob Storage | Microsoft Docs"
+title: Reacción ante eventos de Azure Blob Storage | Microsoft Docs
 description: Utilice Azure Event Grid para suscribirse a los eventos de Blob Storage.
 services: storage,event-grid
-keywords: 
+keywords: ''
 author: cbrooksmsft
 ms.author: cbrooks
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
 ms.openlocfilehash: ea2ec712c8d8b5f85f020535ab0544986f0da53a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reacción a eventos de Blob Storage
 
@@ -41,24 +41,24 @@ Puede encontrar información adicional acerca del uso de las propiedades de los 
 
 > |Propiedad|type|DESCRIPCIÓN|
 > |-------------------|------------------------|-----------------------------------------------------------------------|
-> |topic|cadena|Identificador completo de Azure Resource Manager de la cuenta de almacenamiento que emite el evento.|
-> |subject|cadena|La ruta de acceso del recurso relativa al objeto que es el asunto del evento, con el mismo formato de Azure Resource Manager extendido que se usa para describir cuentas de almacenamiento, servicios y los contenedores de Azure RBAC.  Este formato incluye un nombre de blob que conservan las mayúsculas y minúsculas.|
-> |eventTime|cadena|Fecha y hora en que se generó el evento, en formato ISO 8601|
-> |eventType|cadena|“Microsoft.Storage.BlobCreated” o “Microsoft.Storage.BlobDeleted”|
-> |Id|cadena|Identificador único de este evento|
-> |dataVersion|cadena|Versión del esquema del objeto de datos.|
-> |metadataVersion|cadena|Versión del esquema de propiedades de nivel superior.|
+> |topic|string|Identificador completo de Azure Resource Manager de la cuenta de almacenamiento que emite el evento.|
+> |subject|string|La ruta de acceso del recurso relativa al objeto que es el asunto del evento, con el mismo formato de Azure Resource Manager extendido que se usa para describir cuentas de almacenamiento, servicios y los contenedores de Azure RBAC.  Este formato incluye un nombre de blob que conservan las mayúsculas y minúsculas.|
+> |eventTime|string|Fecha y hora en que se generó el evento, en formato ISO 8601|
+> |eventType|string|“Microsoft.Storage.BlobCreated” o “Microsoft.Storage.BlobDeleted”|
+> |Id|string|Identificador único de este evento|
+> |dataVersion|string|Versión del esquema del objeto de datos.|
+> |metadataVersion|string|Versión del esquema de propiedades de nivel superior.|
 > |data|objeto|Recopilación de datos de eventos específicos de Blob Storage|
-> |data.contentType|cadena|El tipo de contenido del blob, como se devolvería en el encabezado Content-Type del blob|
+> |data.contentType|string|El tipo de contenido del blob, como se devolvería en el encabezado Content-Type del blob|
 > |data.contentLength|número|El tamaño del blob es un número entero que representa un número de bytes, como se devolverían en el encabezado Content-Length del blob.  Se envía con el evento BlobCreated, pero no con BlobDeleted.|
-> |data.url|cadena|La dirección URL del objeto que es el asunto del evento|
-> |data.eTag|cadena|El valor etag del objeto cuando se activa este evento.  No está disponible para el evento BlobDeleted.|
-> |data.api|cadena|El nombre de la operación de API que desencadenó este evento.  En el caso de los eventos BlobCreated, este valor es "PutBlob", "PutBlockList" o "CopyBlob".  En el caso de los eventos BlobDeleted, este valor es "DeleteBlob".  Estos valores son los mismos nombres de API que se encuentran en los registros de diagnóstico de Azure Storage.  Consulte [Logged Operations and Status Messages](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) (Operaciones registradas y mensajes de estado).|
-> |data.sequencer|cadena|Un valor de cadena opaco que representa la secuencia lógica de eventos para cualquier nombre de blob concreto.  Los usuarios pueden usar una comparación de cadenas estándar para conocer la secuencia relativa de dos eventos que estén en el mismo nombre de blob.|
-> |data.requestId|cadena|Identificador de solicitud generado por el servicio para la operación de la API de Storage.  Se puede usar para establecer la correlación con los registros de diagnóstico de Azure Storage que usan el campo "request-id-header" en los registros y se devuelve cuando se inicia la llamada de la API en el encabezado "x-ms-request-id". Consulte [Storage Analytics Log Format](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format) (Formato de registro de Storage Analytics).|
-> |data.clientRequestId|cadena|Identificador de solicitud que proporciona el cliente para la operación de la API de Storage.  Se puede usar para establecer la correlación con los registros de diagnóstico de Azure Storage que usan el campo "client-request-id" en los registros y se puede proporcionar en las solicitudes de los clientes que usan el encabezado "x-ms-client-request-id". Consulte [Storage Analytics Log Format](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format) (Formato de registro de Storage Analytics).|
+> |data.url|string|La dirección URL del objeto que es el asunto del evento|
+> |data.eTag|string|El valor etag del objeto cuando se activa este evento.  No está disponible para el evento BlobDeleted.|
+> |data.api|string|El nombre de la operación de API que desencadenó este evento.  En el caso de los eventos BlobCreated, este valor es "PutBlob", "PutBlockList" o "CopyBlob".  En el caso de los eventos BlobDeleted, este valor es "DeleteBlob".  Estos valores son los mismos nombres de API que se encuentran en los registros de diagnóstico de Azure Storage.  Consulte [Logged Operations and Status Messages](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) (Operaciones registradas y mensajes de estado).|
+> |data.sequencer|string|Un valor de cadena opaco que representa la secuencia lógica de eventos para cualquier nombre de blob concreto.  Los usuarios pueden usar una comparación de cadenas estándar para conocer la secuencia relativa de dos eventos que estén en el mismo nombre de blob.|
+> |data.requestId|string|Identificador de solicitud generado por el servicio para la operación de la API de Storage.  Se puede usar para establecer la correlación con los registros de diagnóstico de Azure Storage que usan el campo "request-id-header" en los registros y se devuelve cuando se inicia la llamada de la API en el encabezado "x-ms-request-id". Consulte [Storage Analytics Log Format](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format) (Formato de registro de Storage Analytics).|
+> |data.clientRequestId|string|Identificador de solicitud que proporciona el cliente para la operación de la API de Storage.  Se puede usar para establecer la correlación con los registros de diagnóstico de Azure Storage que usan el campo "client-request-id" en los registros y se puede proporcionar en las solicitudes de los clientes que usan el encabezado "x-ms-client-request-id". Consulte [Storage Analytics Log Format](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format) (Formato de registro de Storage Analytics).|
 > |data.storageDiagnostics|objeto|Datos de diagnóstico que, en ocasiones, incluye el servicio Azure Storage.  Cuando están presentes, los consumidores de eventos deben ignorarlos.|
-|data.blobType|cadena|Tipo de blob. Los valores válidos son "BlockBlob" o "PageBlob".| 
+|data.blobType|string|Tipo de blob. Los valores válidos son "BlockBlob" o "PageBlob".| 
 
 Este es un ejemplo de un evento BlobCreated:
 ```json
@@ -131,7 +131,7 @@ Las aplicaciones que controlan los eventos de Blob Storage deben seguir algunas 
 > * Ignore los campos que no comprenda.  Esta práctica le ayudará a mantenerse resistente a las nuevas características que puedan agregarse en el futuro.
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Obtenga más información acerca de Event Grid y pruebe los eventos de Blob Storage:
 

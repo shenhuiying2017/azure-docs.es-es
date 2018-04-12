@@ -1,11 +1,11 @@
 ---
-title: "Uso de una máquina virtual Linux de solución de problemas con la CLI de Azure 1.0 | Microsoft Docs"
-description: "Aprenda a solucionar problemas de la máquina virtual Linux mediante la conexión del disco del sistema operativo a una máquina virtual de recuperación mediante la CLI de Azure 1.0"
+title: Uso de una máquina virtual Linux de solución de problemas con la CLI de Azure 1.0 | Microsoft Docs
+description: Aprenda a solucionar problemas de la máquina virtual Linux mediante la conexión del disco del sistema operativo a una máquina virtual de recuperación mediante la CLI de Azure 1.0
 services: virtual-machines-linux
-documentationCenter: 
+documentationCenter: ''
 authors: iainfoulds
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: iainfou
-ms.openlocfilehash: d817358211f123c96d899c5cff88cc47aeb5c9c1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 047d0041fa89fa480de0744e594b8ac4f974973a
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-cli-10"></a>Solución de problemas de una máquina virtual Linux mediante la conexión del disco del sistema operativo a una máquina virtual de recuperación mediante la CLI de Azure 1.0
 Si la máquina virtual Linux se encuentra un error de disco o de arranque, deberá realizar los pasos para solucionar problemas en el propio disco duro virtual. Un ejemplo habitual sería una entrada no válida en `/etc/fstab` que impide que la máquina virtual se pueda arrancar correctamente. En este artículo se detalla cómo utilizar la CLI de Azure 1.0 para conectar el disco duro virtual a otra máquina virtual Linux para solucionar los errores y, posteriormente, volver a crear la máquina virtual original.
@@ -27,7 +27,7 @@ Si la máquina virtual Linux se encuentra un error de disco o de arranque, deber
 Puede completar la tarea mediante una de las siguientes versiones de la CLI:
 
 - [CLI de Azure 1.0](#recovery-process-overview): la CLI para los modelos de implementación clásico y de Resource Manager (este artículo)
-- [CLI de Azure 2.0](../windows/troubleshoot-recovery-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): la CLI de última generación para el modelo de implementación de administración de recursos
+- [CLI de Azure 2.0 ](../windows/troubleshoot-recovery-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): CLI de última generación para el modelo de implementación de administración de recursos
 
 
 ## <a name="recovery-process-overview"></a>Introducción al proceso de recuperación

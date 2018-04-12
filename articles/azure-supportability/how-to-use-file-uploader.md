@@ -1,11 +1,11 @@
 ---
-title: "Directrices de la utilidad Carga de archivos de nueva solicitud de soporte técnico de Microsoft Azure | Microsoft Docs"
-description: "Describe las directrices de uso de la utilidad Carga de archivos de nueva solicitud de soporte técnico de Microsoft Azure"
-services: 
-documentationcenter: 
+title: Directrices de la utilidad Carga de archivos de nueva solicitud de soporte técnico de Microsoft Azure | Microsoft Docs
+description: Describe las directrices de uso de la utilidad Carga de archivos de nueva solicitud de soporte técnico de Microsoft Azure
+services: ''
+documentationcenter: ''
 author: genlin
 manager: mbaldwin
-editor: 
+editor: ''
 tags: billing
 ms.assetid: 86697fdf-3499-4cab-ab3f-10d40d3c1f70
 ms.service: azure-supportability
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
 ms.openlocfilehash: eb13bc8012e2d58e1a9b68bb1cf2da11d65e8159
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="microsoft-azure-new-support-request-file-upload-utility-guidelines"></a>Directrices de la utilidad Carga de archivos de nueva solicitud de soporte técnico de Microsoft Azure
 Cuando se [crea una solicitud de soporte técnico](https://portal.azure.com/#create/Microsoft.Support), la utilidad Carga de archivos puede ayudarle a cargar fácilmente los archivos de diagnóstico o cualquier otro archivo que crea que es pertinente para el incidente.  

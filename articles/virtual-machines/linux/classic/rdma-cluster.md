@@ -1,11 +1,11 @@
 ---
-title: "Configuración de un clúster de Linux RDMA para ejecutar aplicaciones MPI | Microsoft Docs"
-description: "Cree un clúster de Linux con máquinas virtuales de tamaño H16r, H16mr, A8 o A9 para usar la red de RDMA de Azure para ejecutar aplicaciones de MPI."
+title: Configuración de un clúster de Linux RDMA para ejecutar aplicaciones MPI | Microsoft Docs
+description: Cree un clúster de Linux con máquinas virtuales de tamaño H16r, H16mr, A8 o A9 para usar la red de RDMA de Azure para ejecutar aplicaciones de MPI.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ms.assetid: 01834bad-c8e6-48a3-b066-7f1719047dd2
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danlep
-ms.openlocfilehash: 428dc1e8ba03ba17e348a33a33b5cf5e6118a43c
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 18549a8606285238f26d2c8cec54793e26e3e8d1
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="set-up-a-linux-rdma-cluster-to-run-mpi-applications"></a>Configuración de un clúster de Linux RDMA para ejecutar aplicaciones MPI
 Aprenda a configurar un clúster de Linux RDMA en Azure con [tamaños de máquina virtual de procesos de alto rendimiento](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para ejecutar aplicaciones de interfaz de paso de mensajes (MPI) paralelas. En este artículo se incluyen los pasos necesarios para preparar una imagen de HPC de Linux para ejecutar Intel MPI en un clúster. Después de la preparación, se implementa un clúster de máquinas virtuales con esta imagen y uno de los tamaños de máquinas virtuales de Azure compatibles con RDMA (actualmente H16r, H16mr, A8 o A9). Use el clúster para ejecutar aplicaciones MPI que se comunican eficazmente a través de una red de latencia baja y alto rendimiento con tecnología de acceso directo a memoria remota (RDMA).
@@ -375,7 +375,7 @@ Debería ver un resultado similar al siguiente en un clúster de trabajo con dos
 
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Implemente y ejecute las aplicaciones Linux MPI en el clúster de Linux.
 * Consulte la [documentación de la biblioteca de Intel MPI](https://software.intel.com/en-us/articles/intel-mpi-library-documentation/) para obtener orientación sobre Intel MPI.
 * Pruebe una [plantilla de inicio rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/intel-lustre-clients-on-centos) para crear un clúster de Intel Lustre mediante una imagen HPC basada en CentOS. Para más información, consulte [Deploying Intel Cloud Edition for Lustre on Microsoft Azure](https://blogs.msdn.microsoft.com/arsen/2015/10/29/deploying-intel-cloud-edition-for-lustre-on-microsoft-azure/) (Implementación de la edición de nube de Intel para Lustre en Microsoft Azure).

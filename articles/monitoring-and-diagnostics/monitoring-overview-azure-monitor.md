@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/28/2018
 ms.author: robb
 ms.custom: mvc
-ms.openlocfilehash: 448711b7b2e102662bc157485561c33bf7f5fba1
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 1ba2f2be8db424bddfccdf374704ec7be5691feb
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="overview-of-azure-monitor"></a>Información general sobre Azure Monitor
 En este artículo se proporciona información general sobre el servicio Azure Monitor de Microsoft Azure. Se describe la utilidad de Azure Monitor y se ofrecen vínculos a información adicional sobre cómo usar este servicio.  Si prefiere un vídeo de introducción, consulte los vínculos de pasos siguientes al final de este artículo. 
@@ -168,4 +168,4 @@ Más información acerca de
 - Configure las [extensiones de Diagnósticos de Azure](../azure-diagnostics.md) si intenta diagnosticar problemas en su aplicación de Cloud Services, Virtual Machines, Conjuntos de escalado de máquinas virtuales o Service Fabric.
 - [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) : si está intentando diagnosticar problemas en su aplicación web de App Service.
 - [Solución de problemas de Azure Storage](../storage/common/storage-e2e-troubleshooting.md) : si usa Blob Storage, Table Storage o Queue Storage.
-- [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) y [Operations Management Suite](https://www.microsoft.com/oms/)
+- [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/)

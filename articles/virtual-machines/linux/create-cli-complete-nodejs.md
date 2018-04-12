@@ -1,11 +1,11 @@
 ---
-title: "Creación de un entorno de Linux completo con la CLI de Azure 1.0 | Microsoft Docs"
-description: "Cree almacenamiento, una máquina virtual Linux, una red virtual y subred, un equilibrador de carga, una NIC, una dirección IP pública, un grupo de seguridad de red, todo desde el principio mediante la CLI de Azure 1.0."
+title: Creación de un entorno de Linux completo con la CLI de Azure 1.0 | Microsoft Docs
+description: Cree almacenamiento, una máquina virtual Linux, una red virtual y subred, un equilibrador de carga, una NIC, una dirección IP pública, un grupo de seguridad de red, todo desde el principio mediante la CLI de Azure 1.0.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 4ba4060b-ce95-4747-a735-1d7c68597a1a
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: iainfou
-ms.openlocfilehash: 201ccd523e49d638ace50fbc0ffdceb705b35473
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4a43e138d3497e01fe9e0e5c55a4a66adac767c6
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-complete-linux-environment-with-the-azure-cli-10"></a>Creación de un entorno de Linux completo con la CLI de Azure 1.0
 En este artículo, vamos a crear una red sencilla con un equilibrador de carga y un par de máquinas virtuales útiles para el desarrollo y la computación simple. Lo vamos a guiar por el proceso comando a comando, hasta que tenga funcionando dos máquinas virtuales Linux seguras a las que se pueda conectar desde cualquier parte de Internet. Luego, podrá pasar a redes y entornos más complejos.
@@ -39,7 +39,7 @@ Para crear este entorno personalizado, es preciso tener la versión más recient
 Puede completar la tarea mediante una de las siguientes versiones de la CLI:
 
 - [CLI de Azure 1.0](#quick-commands): la CLI para los modelos de implementación clásico y de Resource Manager (este artículo)
-- [CLI de Azure 2.0](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): la CLI de última generación para el modelo de implementación de administración de recursos
+- [CLI de Azure 2.0 ](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): CLI de última generación para el modelo de implementación de administración de recursos
 
 
 ## <a name="quick-commands"></a>Comandos rápidos

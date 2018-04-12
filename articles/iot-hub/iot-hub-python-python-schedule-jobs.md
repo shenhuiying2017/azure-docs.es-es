@@ -3,7 +3,7 @@ title: Programación de trabajos con Azure IoT Hub (Python) | Microsoft Docs
 description: Cómo programar un trabajo de IoT Hub de Azure para invocar un método directo en varios dispositivos. El SDK de IoT de Azure para Python se usa para implementar las aplicaciones de dispositivo simulado y una aplicación de servicio para ejecutar el trabajo.
 services: iot-hub
 documentationcenter: .net
-author: msebolt
+author: kgremban
 manager: timlt
 editor: ''
 ms.assetid: 2233356e-b005-4765-ae41-3a4872bda943
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/16/2018
-ms.author: v-masebo
-ms.openlocfilehash: 632e1788f614b0a57d631759d1638027e1d0118a
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: v-masebo;kgremban
+ms.openlocfilehash: bb087d3fce8d663995a3878951477df8343dca00
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="schedule-and-broadcast-jobs-python"></a>Programación y difusión de trabajos (Python)
 

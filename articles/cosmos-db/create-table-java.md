@@ -1,25 +1,24 @@
 ---
-title: "Guía de inicio rápido: Table API con Java en Azure Cosmos DB | Microsoft Docs"
-description: "Esta guía de inicio rápido muestra cómo usar Table API de Azure Cosmos DB para crear una aplicación con Azure Portal y Java"
+title: 'Guía de inicio rápido: Table API con Java en Azure Cosmos DB | Microsoft Docs'
+description: Esta guía de inicio rápido muestra cómo usar Table API de Azure Cosmos DB para crear una aplicación con Azure Portal y Java
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: arramac
-manager: jhubbard
-editor: 
+manager: kfile
 ms.assetid: 66327041-4d5e-4ce6-a394-fee107c18e59
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 11/20/2017
 ms.author: arramac
-ms.openlocfilehash: 90ba10990049cd1fb788d63a143eb1169191cf24
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: fb544e11ac637201fb3fb032daeb395d5f0da839
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="quickstart-build-a-table-api-app-with-java-and-azure-cosmos-db"></a>Guía de inicio rápido: Creación de una aplicación de Table API con Java y Azure Cosmos DB
 
@@ -27,7 +26,7 @@ Esta guía de inicio rápido muestra cómo se usa Java y [Table API](table-intro
 
 Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Puede crear rápidamente bases de datos de documentos, clave-valor y grafos, y realizar consultas en ellas. Todas las bases de datos se beneficiarán de las funcionalidades de distribución global y escala horizontal en Azure Cosmos DB. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
@@ -83,7 +82,7 @@ Ahora vamos a clonar una aplicación de Table desde GitHub, establecer la cadena
     git clone https://github.com/Azure-Samples/storage-table-java-getting-started.git 
     ```
 
-## <a name="update-your-connection-string"></a>Actualizar la cadena de conexión
+## <a name="update-your-connection-string"></a>Actualización de la cadena de conexión
 
 Ahora vuelva a Azure Portal para obtener la información de la cadena de conexión y cópiela en la aplicación. Esto permite que la aplicación se comunique con la base de datos hospedada. 
 

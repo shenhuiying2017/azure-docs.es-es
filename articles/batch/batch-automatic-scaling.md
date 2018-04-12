@@ -1,25 +1,25 @@
 ---
-title: "Escalado automático de nodos de proceso en un grupo de Azure Batch | Microsoft Docs"
-description: "Habilite el escalado automático en un grupo en la nube para ajustar de forma dinámica el número de nodos de ejecución del grupo."
+title: Escalado automático de nodos de proceso en un grupo de Azure Batch | Microsoft Docs
+description: Habilite el escalado automático en un grupo en la nube para ajustar de forma dinámica el número de nodos de ejecución del grupo.
 services: batch
-documentationcenter: 
-author: tamram
-manager: timlt
-editor: tysonn
+documentationcenter: ''
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: c624cdfc-c5f2-4d13-a7d7-ae080833b779
 ms.service: batch
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: multiple
 ms.date: 06/20/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f0e49cd8a64a48c53f5b6104703164a597c797f0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1114ea90ae6976a3bc3580ebae5fd853de0274a1
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Creación de una fórmula de escala automática para escalar nodos de proceso en un grupo de Batch
 
@@ -32,7 +32,7 @@ Puede habilitar el escalado automático al crear un grupo o bien en un grupo exi
 En este artículo se describen las distintas entidades que conforman las fórmulas de escalado automático, por ejemplo, variables, operadores, operaciones y funciones. Trataremos cómo obtener distintas métricas de recursos y tareas de proceso en Batch. Puede usar estas métricas para ajustar el número de nodos del grupo en función del estado de las tareas y del uso de recursos. También explicaremos cómo construir una fórmula y habilitar el escalado automático en un grupo mediante API de .NET y API de REST de Batch. Por último, terminaremos con algunas fórmulas de ejemplo.
 
 > [!IMPORTANT]
-> Al crear una cuenta de Batch puede especificar la [configuración de la cuenta](batch-api-basics.md#account), que determina si se asignan grupos en una suscripción de servicio de Batch (opción predeterminada) o en su suscripción de usuario. Si ha creado su cuenta de Batch con la configuración predeterminada del servicio de Batch, la cuenta estará limitada a un máximo de núcleos que se pueden usar para el procesamiento. El servicio de Batch escala nodos de ejecución solo hasta ese límite de núcleos. Por este motivo, puede que el servicio de Batch no alcance el número de nodos de ejecución que se especifiquen con una fórmula de escalado automático. Consulte [Cuotas y límites del servicio de Lote de Azure](batch-quota-limit.md) para más información sobre la visualización y aumento de las cuotas de la cuenta.
+> Al crear una cuenta de Batch puede especificar la [configuración de la cuenta](batch-api-basics.md#account), que determina si se asignan grupos en una suscripción de servicio de Batch (opción predeterminada) o en su suscripción de usuario. Si ha creado su cuenta de Batch con la configuración predeterminada del servicio de Batch, la cuenta estará limitada a un máximo de núcleos que se pueden usar para el procesamiento. El servicio de Batch escala nodos de ejecución solo hasta ese límite de núcleos. Por este motivo, puede que el servicio de Batch no alcance el número de nodos de ejecución que se especifiquen con una fórmula de escalado automático. Consulte [Cuotas y límites del servicio Azure Batch](batch-quota-limit.md) para más información sobre la visualización y aumento de las cuotas de la cuenta.
 >
 >Si ha creado su cuenta con la configuración de suscripción de usuario, su cuenta comparte la cuota de núcleos de la suscripción. Para más información, consulte [Límites de Virtual Machines](../azure-subscription-service-limits.md#virtual-machines-limits) en [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md).
 >
@@ -41,7 +41,7 @@ En este artículo se describen las distintas entidades que conforman las fórmul
 ## <a name="automatic-scaling-formulas"></a>Fórmulas de escalado automático
 Una fórmula de escalado automático es un valor de cadena que el usuario define y contiene una o varias instrucciones. La fórmula de escalado automático se asigna a un elemento [autoScaleFormula][rest_autoscaleformula] de un grupo (REST de Batch) o a una propiedad [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] (Batch .NET). El servicio Batch usa la fórmula para determinar el número de nodos de ejecución del grupo durante el intervalo de procesamiento siguiente. La cadena de fórmula no puede superar los 8 KB y puede incluir hasta 100 instrucciones separadas por punto y coma, así como saltos de línea y comentarios.
 
-Puede imaginarse que las fórmulas de escalado automático son un "lenguaje" de escalado automático de Batch. Las instrucciones de fórmula son expresiones de forma libre que pueden incluir variables definidas por el servicio (variables definidas por el servicio de Lote) y variables definidas por el usuario (variables que usted define). Pueden realizar diversas operaciones en estos valores mediante funciones, operadores y tipos integrados. Por ejemplo, una instrucción podría tener la forma siguiente:
+Puede imaginarse que las fórmulas de escalado automático son un "lenguaje" de escalado automático de Batch. Las instrucciones de fórmula son expresiones de forma libre que pueden incluir variables definidas por el servicio (variables definidas por el servicio Batch) y variables definidas por el usuario (variables que usted define). Pueden realizar diversas operaciones en estos valores mediante funciones, operadores y tipos integrados. Por ejemplo, una instrucción podría tener la forma siguiente:
 
 ```
 $myNewVariable = function($ServiceDefinedVariable, $myCustomVariable);
@@ -84,7 +84,7 @@ En las siguientes tablas se muestran las variables de lectura y escritura y de s
 
 Puede obtener y establecer los valores de estas variables definidas por el servicio para administrar el número de nodos de ejecución de un grupo:
 
-| Variables definidas por el servicio de solo escritura | Descripción |
+| Variables definidas por el servicio de solo escritura | DESCRIPCIÓN |
 | --- | --- |
 | $TargetDedicatedNodes |Número objetivo de nodos de ejecución dedicados para el grupo. El número de nodos dedicados se especifica como destino porque un grupo podría no lograr siempre el número de nodos deseado. Por ejemplo, podría pasar que el grupo no alcanzara el número de destino si el número de nodos dedicados se modifica con una evaluación de escalado automático antes de que el grupo haya alcanzado el valor de destino inicial. <br /><br /> Podría pasar que un grupo de una cuenta creada con la configuración del servicio de Batch no alcanzara su valor de destino si el destino supera una cuota de núcleos o de nodos de la cuenta de Batch. Podría pasar que un grupo de una cuenta creada con la configuración de suscripción de usuario no alcanzara su valor de destino si el destino supera la cuota de núcleos compartidos de la suscripción.|
 | $TargetLowPriorityNodes |Número objetivo de nodos de ejecución de prioridad baja para el grupo. El número de nodos de prioridad baja se especifica como destino porque un grupo podría no lograr siempre el número de nodos deseado. Por ejemplo, podría pasar que el grupo no alcanzara el número de destino si el número de nodos de prioridad baja se modifica con una evaluación de escalado automático antes de que el grupo haya alcanzado el valor de destino inicial. Además, también podría pasar que un grupo no alcanzara el valor de destino si el destino supera una cuota de núcleos o de nodos de la cuenta de Batch. <br /><br /> Para obtener más información sobre los nodos de ejecución de prioridad baja, consulte [Uso de máquinas virtuales de prioridad baja con Batch (versión preliminar)](batch-low-pri-vms.md). |
@@ -92,7 +92,7 @@ Puede obtener y establecer los valores de estas variables definidas por el servi
 
 Puede obtener el valor de estas variables definidas por el servicio para efectuar ajustes basados en las métricas del servicio de Batch:
 
-| Variables definidas por el servicio de solo lectura | Description |
+| Variables definidas por el servicio de solo lectura | DESCRIPCIÓN |
 | --- | --- |
 | $CPUPercent |El porcentaje medio de uso de CPU. |
 | $WallClockSeconds |El número de segundos consumidos. |
@@ -172,10 +172,10 @@ Estas operaciones se permiten en los tipos que constan en la sección anterior.
 
 Cuando se prueba un valor double con un operador ternario (`double ? statement1 : statement2`), el valor distinto de cero es **true** y cero es **false**.
 
-## <a name="functions"></a>Funciones
+## <a name="functions"></a>Functions
 Estas **funciones** predefinidas están disponibles para que las use al definir fórmulas de escalado automático.
 
-| Función | Tipo de valor devuelto | Description |
+| Función | Tipo de valor devuelto | DESCRIPCIÓN |
 | --- | --- | --- |
 | avg(doubleVecList) |double |Devuelve el valor medio de todos los valores de doubleVecList. |
 | len(doubleVecList) |double |Devuelve la longitud del vector creado a partir de doubleVecList. |
@@ -197,33 +197,33 @@ Estas **funciones** predefinidas están disponibles para que las use al definir 
 | time(string dateTime="") |timestamp |Devuelve la marca de tiempo de la hora actual si no se pasan los parámetros o la marca de hora de la cadena dateTime si se pasó. Los formatos de dateTime compatibles son W3C-DTF y RFC 1123. |
 | val(doubleVec v, double i) |double |Devuelve el valor del elemento que está en la ubicación i en el vector v con el índice inicial de cero. |
 
-Algunas de las funciones descritas en la tabla anterior pueden aceptar una lista como argumento. La lista separada por comas es cualquier combinación de *double* y *doubleVec*. Por ejemplo:
+Algunas de las funciones descritas en la tabla anterior pueden aceptar una lista como argumento. La lista separada por comas es cualquier combinación de *double* y *doubleVec*. Por ejemplo: 
 
 `doubleVecList := ( (double | doubleVec)+(, (double | doubleVec) )* )?`
 
 El valor *doubleVecList* se convierte en un *doubleVec* individual antes de la evaluación. Por ejemplo, si `v = [1,2,3]`, entonces, llamar a `avg(v)` es equivalente a llamar a `avg(1,2,3)`. Llamar a `avg(v, 7)` es equivalente a llamar a `avg(1,2,3,7)`.
 
 ## <a name="getsampledata"></a>Obtención de datos de ejemplo
-Las fórmulas de escalado automático actúan en datos de métricas (muestras) proporcionados por el servicio Lote. Una fórmula aumenta o reduce el tamaño del grupo según los valores que obtiene del servicio. Las variables definidas por el servicio descritas anteriormente son objetos que proporcionan varios métodos para obtener acceso a los datos que están asociados a ese objeto. Por ejemplo, la siguiente expresión muestra una solicitud para obtener los últimos cinco minutos de uso de CPU:
+Las fórmulas de escalado automático actúan en datos de métricas (muestras) proporcionados por el servicio Batch. Una fórmula aumenta o reduce el tamaño del grupo según los valores que obtiene del servicio. Las variables definidas por el servicio descritas anteriormente son objetos que proporcionan varios métodos para obtener acceso a los datos que están asociados a ese objeto. Por ejemplo, la siguiente expresión muestra una solicitud para obtener los últimos cinco minutos de uso de CPU:
 
 ```
 $CPUPercent.GetSample(TimeInterval_Minute * 5)
 ```
 
-| Método | Description |
+| Método | DESCRIPCIÓN |
 | --- | --- |
 | GetSample() |El método `GetSample()` devuelve un vector de muestras de datos.<br/><br/>Un ejemplo tiene un valor de 30 segundos de datos de métrica. En otras palabras, las muestras se obtienen cada 30 segundos. No obstante, tal como se mencionó anteriormente, hay un retraso entre cuándo se recopila una muestra y cuándo está disponible para una fórmula. Por lo tanto, puede que no todos los ejemplos durante un período de tiempo determinado estén disponibles para la evaluación a través de una fórmula.<ul><li>`doubleVec GetSample(double count)`<br/>Especifica el número de muestras que se obtienen a partir de las muestras recogidas más recientes.<br/><br/>`GetSample(1)` devuelve la última muestra disponible. Para métricas como `$CPUPercent`, sin embargo, esto no debe usarse porque es imposible saber *cuándo* se recopiló la muestra. Puede ser reciente o, debido a problemas del sistema, puede ser mucho más antiguo. En estos casos es mejor usar un intervalo de tiempo como se muestra a continuación.<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`<br/>Especifica un período de tiempo para recopilar datos de muestra. Opcionalmente, también especifica el porcentaje de muestras que deben estar disponibles en el marco de tiempo solicitado.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10)` debería devolver 20 muestras si todas las muestras de los últimos 10 minutos están presentes en el historial de CPUPercent. Si el último minuto del historial no estaba disponible, solo se devolverán, no obstante, 18 muestras. En este caso:<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)` daría error porque solo el 90 por ciento de las muestras están disponibles.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)` se realizaría correctamente.<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`<br/>Especifica un período de tiempo para recopilar datos, con una hora de inicio y una hora de finalización.<br/><br/>Como se mencionó anteriormente, hay un retraso entre cuando se recopila un ejemplo y cuando está disponible para una fórmula. Tenga en cuenta este retraso a la hora de usar el método `GetSample`. Consulte `GetSamplePercent` a continuación. |
 | GetSamplePeriod() |Devuelve el período de las muestras tomadas en un conjunto de datos de muestras históricos. |
 | Count() |Devuelve el número total de ejemplos en el historial de métrica. |
 | HistoryBeginTime() |Devuelve la marca de tiempo de la muestra de datos disponible más antigua para la métrica. |
-| GetSamplePercent() |Devuelve el porcentaje de muestras que están disponibles para un intervalo de tiempo dado. Por ejemplo:<br/><br/>`doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`<br/><br/>Debido a que se produce un error en el método `GetSample` si el porcentaje de muestras devueltas es inferior al valor de `samplePercent` especificado, puede utilizar el método `GetSamplePercent` para comprobarlo primero. A continuación, puede realizar una acción alternativa si no hay suficientes muestras presentes, sin detener la evaluación de escalado automático. |
+| GetSamplePercent() |Devuelve el porcentaje de muestras que están disponibles para un intervalo de tiempo dado. Por ejemplo: <br/><br/>`doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`<br/><br/>Debido a que se produce un error en el método `GetSample` si el porcentaje de muestras devueltas es inferior al valor de `samplePercent` especificado, puede utilizar el método `GetSamplePercent` para comprobarlo primero. A continuación, puede realizar una acción alternativa si no hay suficientes muestras presentes, sin detener la evaluación de escalado automático. |
 
 ### <a name="samples-sample-percentage-and-the-getsample-method"></a>Ejemplos, porcentaje de ejemplo y el método *GetSample()*
 La operación principal de una fórmula de escalado automático es la obtención de datos de métricas de tareas y recursos y el ajuste posterior del tamaño de grupo según esos datos. Por lo tanto, es importante tener una idea clara de cómo interactúan las fórmulas de escalado automático con los datos de métricas (muestras).
 
-**Ejemplos**
+**Muestras**
 
-El servicio de Batch toma periódicamente ejemplos de métricas de tareas y recursos y los pone a disposición de las fórmulas de escalado automático. El servicio Lote graba estas muestras cada 30 segundos. Pero suele producirse un retraso entre el momento en el que se grabaron esas muestras y el momento en el que se ponen a disposición de las fórmulas de escalado automático y estas pueden leer aquellas. Además, debido a diversos factores como problemas con la red o de infraestructura, es posible que las muestras no se hayan grabado para un intervalo en concreto.
+El servicio de Batch toma periódicamente ejemplos de métricas de tareas y recursos y los pone a disposición de las fórmulas de escalado automático. El servicio Batch graba estas muestras cada 30 segundos. Pero suele producirse un retraso entre el momento en el que se grabaron esas muestras y el momento en el que se ponen a disposición de las fórmulas de escalado automático y estas pueden leer aquellas. Además, debido a diversos factores como problemas con la red o de infraestructura, es posible que las muestras no se hayan grabado para un intervalo en concreto.
 
 **Porcentaje de muestras**
 
@@ -241,7 +241,7 @@ Para ello, use `GetSample(interval look-back start, interval look-back end)` par
 $runningTasksSample = $RunningTasks.GetSample(1 * TimeInterval_Minute, 6 * TimeInterval_Minute);
 ```
 
-Cuando Batch evalúe la línea anterior, devolverá un intervalo de muestras como vector de valores. Por ejemplo:
+Cuando Batch evalúe la línea anterior, devolverá un intervalo de muestras como vector de valores. Por ejemplo: 
 
 ```
 $runningTasksSample=[1,1,1,1,1,1,1,1,1,1];
@@ -268,7 +268,7 @@ Puede usar tanto métricas de recurso como de tarea al definir una fórmula. El 
 <table>
   <tr>
     <th>Métrica</th>
-    <th>Descripción</th>
+    <th>DESCRIPCIÓN</th>
   </tr>
   <tr>
     <td><b>Recurso</b></td>
@@ -397,7 +397,7 @@ Los intervalos mínimo y máximo son cinco minutos y 168 horas, respectivamente.
 
 ## <a name="enable-autoscaling-on-an-existing-pool"></a>Habilitación del escalado automático en un grupo existente
 
-Cada SDK de Batch proporciona un método para habilitar el escalado automático. Por ejemplo:
+Cada SDK de Batch proporciona un método para habilitar el escalado automático. Por ejemplo: 
 
 * [BatchClient.PoolOperations.EnableAutoScaleAsync][net_enableautoscaleasync] (Batch .NET)
 * [Activar la escala automática en un grupo de servidores][rest_enableautoscale] (API de REST)
@@ -656,8 +656,8 @@ string formula = string.Format(@"
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Maximizar el uso de recursos de proceso de Lote de Azure con tareas simultáneas de nodo](batch-parallel-node-tasks.md) contiene detalles acerca de cómo se pueden ejecutar varias tareas simultáneamente en los nodos de proceso en el grupo. Además del escalado automático, esta característica puede ayudar a reducir la duración del trabajo para algunas cargas de trabajo, lo que permite ahorrar dinero.
-* Para otro ajuste de la eficacia, asegúrese de que la aplicación Lote consulta el servicio Lote de la manera más óptima. Consulte [Creación de consultas para enumerar los recursos de Batch con eficacia](batch-efficient-list-queries.md) para aprender a limitar la cantidad de datos que atraviesan la conexión al consultar el estado de posiblemente miles de nodos de ejecución o tareas.
+* [Maximizar el uso de recursos de proceso de Azure Batch con tareas simultáneas de nodo](batch-parallel-node-tasks.md) contiene detalles acerca de cómo se pueden ejecutar varias tareas simultáneamente en los nodos de proceso en el grupo. Además del escalado automático, esta característica puede ayudar a reducir la duración del trabajo para algunas cargas de trabajo, lo que permite ahorrar dinero.
+* Para otro ajuste de la eficacia, asegúrese de que la aplicación Batch consulta el servicio Batch de la manera más óptima. Consulte [Creación de consultas para enumerar los recursos de Batch con eficacia](batch-efficient-list-queries.md) para aprender a limitar la cantidad de datos que atraviesan la conexión al consultar el estado de posiblemente miles de nodos de ejecución o tareas.
 
 [net_api]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch
 [net_batchclient]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.batchclient

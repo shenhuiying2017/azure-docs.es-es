@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/20/2018
 ms.author: jroth
-ms.openlocfilehash: 2aa066caf6239f29038228c3c91607d913e70682
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e4f955a0880254cb67ccd3e46ad04b3685341263
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="performance-best-practices-for-sql-server-in-azure-virtual-machines"></a>Procedimientos recomendados para mejorar el rendimiento de SQL Server en Azure Virtual Machines
 
@@ -39,7 +39,7 @@ La siguiente es una lista de comprobación rápida para un rendimiento óptimo d
 
 | Ámbito | Optimizaciones |
 | --- | --- |
-| [Tamaño de VM](#vm-size-guidance) |[DS3](../sizes-memory.md) o superior para la edición SQL Enterprise.<br/><br/>[DS2](../sizes-memory.md) o superior para las ediciones SQL Standard y Web. |
+| [Tamaño de VM](#vm-size-guidance) |[DS3](../sizes-general.md) o superior para la edición SQL Enterprise.<br/><br/>[DS2](../sizes-general.md) o superior para las ediciones SQL Standard y Web. |
 | [Storage](#storage-guidance) |Use [Premium Storage](../premium-storage.md). Solo se recomienda el almacenamiento estándar en fases de desarrollo o pruebas.<br/><br/>Mantenga la [cuenta de almacenamiento](../../../storage/common/storage-create-storage-account.md) y la VM con SQL Server en la misma región.<br/><br/>Deshabilite el [almacenamiento con redundancia geográfica](../../../storage/common/storage-redundancy.md) (replicación geográfica) de Azure en la cuenta de almacenamiento. |
 | [Discos](#disks-guidance) |Use un mínimo de 2 [discos P30](../premium-storage.md#scalability-and-performance-targets) (1 para archivos de registro; 1 para archivos de datos y TempDB).<br/><br/>Evite el uso del sistema operativo o de discos temporales para el registro o almacenamiento de bases de datos.<br/><br/>Habilite el almacenamiento en caché de lectura en los discos que hospedan los archivos de datos y archivos de datos de TempDB.<br/><br/>No habilite el almacenamiento en caché en discos que hospedan el archivo de registro.<br/><br/>Importante: Detenga el servicio de SQL Server cuando se cambie la configuración de caché para un disco de VM de Azure.<br/><br/>Seccione varios discos de datos de Azure para obtener un mayor rendimiento de E/S.<br/><br/>Formato con tamaños de asignación documentados. |
 | [E/S](#io-guidance) |Habilite la compresión de páginas de bases de datos.<br/><br/>Habilite la inicialización instantánea de archivos para archivos de datos.<br/><br/>Limite el crecimiento automático de la base de datos.<br/><br/>Deshabilite la reducción automática de la base de datos.<br/><br/>Mueva todas las bases de datos a discos de datos, incluidas bases de datos del sistema.<br/><br/>Mueva los directorios de archivos de seguimiento y registros de errores de SQL Server a discos de datos.<br/><br/>Configure ubicaciones predeterminadas para los archivos de base de datos y de copia de seguridad.<br/><br/>Habilite páginas bloqueadas.<br/><br/>Aplique correcciones de rendimiento de SQL Server. |

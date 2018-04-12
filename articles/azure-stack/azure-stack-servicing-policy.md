@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/02/2018
+ms.date: 04/03/2018
 ms.author: mabrigg
-ms.openlocfilehash: 2c10dcf185c62f3672be80ad2e3d049eae82fe6b
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: e37b63580d8cea4b5772bc54f7b2f79980afc0bc
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-stack-servicing-policy"></a>Directiva de mantenimiento de Azure Stack
 En este artículo se describe la directiva de mantenimiento para sistemas integrados de Azure Stack y lo que debe hacer para mantener el sistema en un estado admitido. 
@@ -47,19 +47,6 @@ Por ejemplo, si la versión de actualización disponible más reciente es la 180
 
 Las actualizaciones de software de Microsoft no son acumulativas y necesitan la actualización anterior como requisito previo. Si decide aplazar una o varias actualizaciones, tenga en cuenta el tiempo de ejecución total si quiere llegar hasta la versión más reciente. 
 
-En la tabla siguiente se muestran las versiones de actualización, su requisito previo y la versión mínima admitida que debe tener el sistema para mantener la compatibilidad. La tabla se basa en la versión inicial de los sistemas integrados de Azure Stack (compilación 1708), con la primera versión de actualización (1709) de septiembre de 2017. 
-
-| Última actualización (*ejemplo*) | Requisito previo | Versión mínima admitida |
-| -- | -- | -- |
-| 1710 | 1709 | N/D |
-| 1711 | 1710 | 1709 |
-| 1712 | 1711 | 1710 |
-| 1802 | 1712 | 1711 |
-| 1803 | 1802 | 1712 |
-| 1804 | 1803 | 1802 |
-| 1805 | 1804 | 1803 |
-| | | 
-En la tabla anterior, no hay ninguna versión 1801.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

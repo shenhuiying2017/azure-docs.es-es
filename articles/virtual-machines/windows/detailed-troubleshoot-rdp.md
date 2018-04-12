@@ -1,13 +1,13 @@
 ---
-title: "Solución detallada de problemas de Escritorio remoto en Azure | Microsoft Docs"
-description: "Revise los pasos detallados de solución de problemas para errores de Escritorio remoto en los que no se puede conectar a máquinas virtuales Windows en Azure"
+title: Solución detallada de problemas de Escritorio remoto en Azure | Microsoft Docs
+description: Revise los pasos detallados de solución de problemas para errores de Escritorio remoto en los que no se puede conectar a máquinas virtuales Windows en Azure
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: genlin
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
-keywords: "no se puede conectar a un escritorio remoto, solucionar problemas de escritorio remoto, no puede conectarse a escritorio remoto, errores de escritorio remotos, solución de problemas de escritorio remoto, problemas de escritorio remoto"
+keywords: no se puede conectar a un escritorio remoto, solucionar problemas de escritorio remoto, no puede conectarse a escritorio remoto, errores de escritorio remotos, solución de problemas de escritorio remoto, problemas de escritorio remoto
 ms.assetid: 9da36f3d-30dd-44af-824b-8ce5ef07e5e0
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/06/2017
 ms.author: genli
-ms.openlocfilehash: afbaa3afc78efd220d74def2e9f106e9fbd1ee2d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1485bc5ac7ae47df9a1a36c8b88d6515b5624360
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Pasos detallados para solucionar problemas de conexión a Escritorio remoto a máquinas virtuales Windows en Azure
 Este artículo ofrece pasos detallados de solución de problemas para diagnosticar y corregir errores complejos de Escritorio remoto en máquinas virtuales de Azure basadas en Windows.
@@ -39,7 +39,7 @@ Los siguientes componentes participan en una conexión RDP:
 
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_0.png)
 
-Antes de continuar, podría resultar útil revisar mentalmente qué ha cambiado desde la última conexión correcta de Escritorio remoto a la máquina virtual. Por ejemplo:
+Antes de continuar, podría resultar útil revisar mentalmente qué ha cambiado desde la última conexión correcta de Escritorio remoto a la máquina virtual. Por ejemplo: 
 
 * La dirección IP pública de la máquina virtual o del servicio en la nube que contiene la máquina virtual (también llamada dirección IP virtual [VIP](https://en.wikipedia.org/wiki/Virtual_IP_address)) ha cambiado. El error de RDP podría deberse a que la memoria caché del cliente DNS sigue teniendo la *dirección IP antigua* registrada para el nombre DNS. Vacíe la memoria caché del cliente DNS e intente conectar la máquina virtual de nuevo. O bien, intente conectarse directamente con la VIP nueva.
 * Está usando una aplicación de terceros para administrar las conexiones a Escritorio remoto en lugar de la conexión generada por Azure Portal. Compruebe que la configuración de la aplicación incluya el puerto TCP correcto para el tráfico de Escritorio remoto. Puede comprobar este puerto para una máquina virtual clásica en el [portal de Azure](https://portal.azure.com), haciendo clic en Configuración de la máquina virtual > Puntos de conexión.

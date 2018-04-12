@@ -1,8 +1,8 @@
 ---
-title: "Mantenimiento predictivo en empresas aeroespaciales con Azure: guía técnica de la solución Cortana Intelligence | Microsoft Docs"
-description: "Una guía técnica sobre la plantilla de solución con Microsoft Cortana Intelligence orientada al mantenimiento predictivo en los sectores aeroespacial, de servicios públicos y de transporte."
+title: 'Mantenimiento predictivo en empresas aeroespaciales con Azure: guía técnica de la solución Cortana Intelligence | Microsoft Docs'
+description: Una guía técnica sobre la plantilla de solución con Microsoft Cortana Intelligence orientada al mantenimiento predictivo en los sectores aeroespacial, de servicios públicos y de transporte.
 services: cortana-analytics
-documentationcenter: 
+documentationcenter: ''
 author: fboylu
 manager: jhubbard
 editor: cgronlun
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: fboylu
 ms.openlocfilehash: 080618b844669cbea29a6a48c32e937705b06e3f
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Guía técnica sobre la plantilla de solución de Cortana Intelligence orientada al mantenimiento predictivo en empresas aeroespaciales y de otros tipos
 

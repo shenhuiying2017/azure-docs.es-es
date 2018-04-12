@@ -1,25 +1,24 @@
 ---
-title: "Guía de inicio rápido: Table API con Node.js y Azure Cosmos DB | Microsoft Docs"
-description: "Esta guía de inicio rápido muestra cómo usar Table API de Azure Cosmos DB para crear una aplicación con Azure Portal y Node.js"
+title: 'Guía de inicio rápido: Table API con Node.js y Azure Cosmos DB | Microsoft Docs'
+description: Esta guía de inicio rápido muestra cómo usar Table API de Azure Cosmos DB para crear una aplicación con Azure Portal y Node.js
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: arramac
-manager: jhubbard
-editor: 
+manager: kfile
 ms.assetid: 66327041-4d5e-4ce6-a394-fee107c18e59
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: node
 ms.topic: quickstart
 ms.date: 11/20/2017
 ms.author: arramac
-ms.openlocfilehash: 8cf8820ceea19fe8c4926c65d107d4f770f40926
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 0aa8f31f0c5607c82a2da36db791c29cf8769d9e
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="quickstart-build-a-table-api-app-with-nodejs-and-azure-cosmos-db"></a>Guía de inicio rápido: Compilación de una aplicación de Table API con Node.js y Azure Cosmos DB
 
@@ -27,7 +26,7 @@ Esta guía de inicio rápido muestra cómo se usa Node.js y [Table API](table-in
 
 Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Puede crear rápidamente bases de datos de documentos, clave-valor, de columnas y grafos, y realizar consultas en ellas. Todas las bases de datos se beneficiarán de las funcionalidades de distribución global y escala horizontal en Azure Cosmos DB. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
@@ -78,7 +77,7 @@ Ahora vamos a clonar una aplicación de Table desde GitHub, establecer la cadena
     git clone https://github.com/Azure-Samples/storage-table-node-getting-started.git
     ```
 
-## <a name="update-your-connection-string"></a>Actualizar la cadena de conexión
+## <a name="update-your-connection-string"></a>Actualización de la cadena de conexión
 
 Ahora vuelva a Azure Portal para obtener la información de la cadena de conexión y cópiela en la aplicación. Esto permite que la aplicación se comunique con la base de datos hospedada. 
 

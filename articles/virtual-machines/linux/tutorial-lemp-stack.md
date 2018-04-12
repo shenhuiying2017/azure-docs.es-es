@@ -1,13 +1,13 @@
 ---
-title: "Implementación de LEMP en una máquina virtual Linux en Azure | Microsoft Docs"
-description: "Tutorial: Instalación de la pila LEMP en una máquina virtual Linux en Azure"
+title: Implementación de LEMP en una máquina virtual Linux en Azure | Microsoft Docs
+description: 'Tutorial: Instalación de la pila LEMP en una máquina virtual Linux en Azure'
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 11/27/2017
 ms.author: danlep
-ms.openlocfilehash: c77cd0148a7e3e7b99e90e29bc1499dae8f95028
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: f907b468a409135d4b45e76297fc7cd86eeead78
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="install-a-lemp-web-server-on-an-azure-vm"></a>Instalación de un servidor web LEMP en una máquina virtual de Azure
 En este artículo se ofrecen instrucciones paso a paso para implementar un servidor web NGINX, MySQL y PHP (la pila LEMP) en una máquina virtual de Ubuntu en Azure. La pila LEMP es una alternativa a la popular [pila LAMP](tutorial-lamp-stack.md), que también se puede instalar en Azure. Para ver el servidor LEMP en acción, si lo desea, puede instalar y configurar un sitio de WordPress. En este tutorial, aprenderá a:

@@ -1,11 +1,11 @@
 ---
-title: "Visualización y administración de trabajos de StorSimple Virtual Array | Microsoft Docs"
-description: "Describe la página Trabajos del servicio StorSimple Device Manager y cómo usarla para hacer un seguimiento de los trabajos actuales y recientes de StorSimple Virtual Array."
+title: Visualización y administración de trabajos de StorSimple Virtual Array | Microsoft Docs
+description: Describe la página Trabajos del servicio StorSimple Device Manager y cómo usarla para hacer un seguimiento de los trabajos actuales y recientes de StorSimple Virtual Array.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 31879821-b599-4609-a7f4-d4b0f658a933
 ms.service: storsimple
 ms.devlang: NA
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/11/2016
 ms.author: alkohli
 ms.openlocfilehash: 3fd1c262a8ce94d8e98f2b066a8028d974b15b1d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-jobs-for-the-storsimple-virtual-array"></a>Uso del servicio StorSimple Device Manager para ver los trabajos de StorSimple Virtual Array
 ## <a name="overview"></a>Información general

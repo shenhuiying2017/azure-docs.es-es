@@ -1,11 +1,11 @@
 ---
-title: "Optimización de la VM Linux en Azure | Microsoft Docs"
-description: "Aprenda algunas sugerencias de optimización para asegurarse de que ha configurado la máquina virtual Linux para obtener un rendimiento óptimo en Azure."
-keywords: "máquina virtual con linux,máquina virtual linux,máquina virtual con ubuntu"
+title: Optimización de la VM Linux en Azure | Microsoft Docs
+description: Aprenda algunas sugerencias de optimización para asegurarse de que ha configurado la máquina virtual Linux para obtener un rendimiento óptimo en Azure.
+keywords: máquina virtual con linux,máquina virtual linux,máquina virtual con ubuntu
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rickstercdn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 8baa30c8-d40e-41ac-93d0-74e96fe18d4c
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
-ms.openlocfilehash: d3ee98253a69580e5ecafb4e117ef93f7c981416
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 5b0d7eb0767bb18cd74c545dc386aa16be487dae
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Optimización de la máquina virtual Linux en Azure
 Crear una máquina virtual con Linux es muy sencillo desde la línea de comandos o desde el Portal. Este tutorial muestra cómo asegurarse de que está configurada para optimizar su rendimiento en la Plataforma Microsoft Azure. Este tema usa una VM de servidor Ubuntu, pero también puede crear máquinas virtuales Linux mediante [sus propias imágenes como plantillas](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  

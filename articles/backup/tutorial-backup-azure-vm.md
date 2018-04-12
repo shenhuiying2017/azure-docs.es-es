@@ -1,13 +1,13 @@
 ---
-title: "Copia de seguridad de máquinas virtuales de Azure en Azure a escala | Microsoft Docs"
-description: "En este tutorial se detalla la copia de seguridad de varias máquinas virtuales de Azure en un almacén de Recovery Services."
+title: Copia de seguridad de máquinas virtuales de Azure en Azure a escala | Microsoft Docs
+description: En este tutorial se detalla la copia de seguridad de varias máquinas virtuales de Azure en un almacén de Recovery Services.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
-keywords: "copia de seguridad de máquina virtual; realizar copia de seguridad de máquina virtual; copia de seguridad y recuperación ante desastres"
-ms.assetid: 
+editor: ''
+keywords: copia de seguridad de máquina virtual; realizar copia de seguridad de máquina virtual; copia de seguridad y recuperación ante desastres
+ms.assetid: ''
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 09/06/2017
 ms.author: trinadhk;jimpark;markgal;
 ms.custom: mvc
-ms.openlocfilehash: 01609c00c6f0585eff4843932b9eb7a090a59c19
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 62cc623dc3130119c5ec803933012c5545d703e5
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="back-up-azure-virtual-machines-in-azure-at-scale"></a>Copia de seguridad de máquinas virtuales de Azure en Azure a escala
 
@@ -46,7 +46,7 @@ Cree un almacén de Recovery Services con el cmdlet **New-AzureRmRecoveryService
 New-AzureRmRecoveryServicesVault -Name myRSvault -ResourceGroupName "myResourceGroup" -Location "EastUS"
 ```
 
-Muchos de los cmdlets de Azure Backup requieren el objeto de almacén de Recovery Services como entrada. Por este motivo, es conveniente almacenar el objeto de almacén de Recovery Services de Backup en una variable. A continuación, use el cmdlet **Set-AzureRmRecoveryServicesBackupProperties** para establecer la opción **-BackupStorageRedundancy** en [Almacenamiento con redundancia geográfica (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage). 
+Muchos de los cmdlets de Azure Backup requieren el objeto de almacén de Recovery Services como entrada. Por este motivo, es conveniente almacenar el objeto de almacén de Recovery Services de Backup en una variable. A continuación, use el cmdlet **Set-AzureRmRecoveryServicesBackupProperties** para establecer la opción **-BackupStorageRedundancy** en [Almacenamiento con redundancia geográfica (GRS)](../storage/common/storage-redundancy-grs.md). 
 
 ```powershell
 $vault1 = Get-AzureRmRecoveryServicesVault –Name myRSVault

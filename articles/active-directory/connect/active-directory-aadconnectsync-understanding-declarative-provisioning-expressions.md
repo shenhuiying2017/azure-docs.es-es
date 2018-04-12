@@ -2,10 +2,10 @@
 title: 'Azure AD Connect: expresiones de aprovisionamiento declarativo | Microsoft Docs'
 description: Explica las expresiones declarativas de aprovisionamiento.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: e3ea53c8-3801-4acf-a297-0fb9bb1bf11d
 ms.service: active-directory
 ms.workload: identity
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.openlocfilehash: 797c0949aceea415652a72df5ee23ef9888ab975
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Sincronización de Azure AD Connect: conocimiento de expresiones de aprovisionamiento declarativo
 La sincronización de Azure AD Connect se basa en el aprovisionamiento declarativo, que se introdujo en Forefront Identity Manager 2010. Permite implementar la lógica de negocios de integración de identidades completa sin necesidad de escribir código compilado.
@@ -84,7 +84,7 @@ Por ejemplo
 `Word([proxyAddresses],1,"@") & "@contoso.com"` Para cada valor con un signo @-sign, reemplace el dominio por @contoso.com.  
 `IIF(InStr([proxyAddresses],"SIP:")=1,NULL,[proxyAddresses])` Busque la dirección SIP y quítela de los valores.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Obtenga más información sobre el modelo de configuración en el artículo de información sobre el [aprovisionamiento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
 * Vea cómo se utiliza aprovisionamiento declarativo integrado en el artículo sobre la [configuración predeterminada](active-directory-aadconnectsync-understanding-default-configuration.md).
 * Descubra cómo hacer un cambio práctico utilizando el aprovisionamiento declarativo en [Sincronización de Azure AD Connect: cómo realizar un cambio en la configuración predeterminada](active-directory-aadconnectsync-change-the-configuration.md).

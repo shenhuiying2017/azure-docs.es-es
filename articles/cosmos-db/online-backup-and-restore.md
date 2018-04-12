@@ -1,12 +1,11 @@
 ---
-title: "Copias de seguridad y restauración en línea con Azure Cosmos DB | Microsoft Docs"
-description: "Obtenga información sobre cómo ejecutar copias de seguridad y restauración automáticas de bases de datos de Azure Cosmos DB."
-keywords: "copias de seguridad y restauración, copia de seguridad en línea"
+title: Copias de seguridad y restauración en línea con Azure Cosmos DB | Microsoft Docs
+description: Obtenga información sobre cómo ejecutar copias de seguridad y restauración automáticas de bases de datos de Azure Cosmos DB.
+keywords: copias de seguridad y restauración, copia de seguridad en línea
 services: cosmos-db
-documentationcenter: 
-author: mimig1
-manager: jhubbard
-editor: monicar
+documentationcenter: ''
+author: SnehaGunda
+manager: kfile
 ms.assetid: 98eade4a-7ef4-4667-b167-6603ecd80b79
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 11/15/2017
-ms.author: mimig
-ms.openlocfilehash: f88bdd6ffb70ccd2aa48453747964c4afb5bea46
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.author: sngun
+ms.openlocfilehash: a51b7d115a8287340450b3525a9b1a325702485b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>Copias de seguridad y restauración automáticas en línea con Azure Cosmos DB
 Azure Cosmos DB crea automáticamente copias de seguridad de todos los datos a intervalos regulares. Las copias de seguridad automáticas se crean sin afectar el rendimiento ni la disponibilidad de las operaciones de bases de datos. Todas las copias de seguridad se almacenan por separado en otro servicio de almacenamiento y se replican globalmente para lograr resistencia frente a desastres regionales. Las copias de seguridad automáticas están pensadas para escenarios en los que se elimina accidentalmente el contenedor de Cosmos DB y que después requieren una solución de recuperación de datos o de recuperación ante desastres.  
@@ -59,7 +58,7 @@ En caso de que elimine accidentalmente su base de datos o colección, puede [pre
 ## <a name="handling-data-corruption"></a>Control de los datos dañados
 Azure Cosmos DB conserva las dos últimas copias de seguridad de cada partición en la cuenta de la base de datos. Este modelo funciona bien cuando un contenedor (colección de documentos, grafos o tablas) o una base de datos se eliminan accidentalmente porque una de las últimas versiones se puede restaurar. Sin embargo, cuando se presenta un problema de daños en los datos, Azure Cosmos DB puede no ser consciente de los daños en los datos y es posible que los daños puedan haberse escrito en las copias de seguridad existentes. En cuanto se detectan daños, el usuario debe eliminar el contenedor dañado (colección, grafo o tabla) para que las copias de seguridad estén protegidas de ser sobrescritas con datos dañados.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para replicar la base de datos en varios centros de datos, consulte [Distribución global de datos con Cosmos DB](distribute-data-globally.md). 
 

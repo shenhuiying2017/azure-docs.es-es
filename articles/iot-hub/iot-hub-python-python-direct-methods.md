@@ -1,11 +1,11 @@
 ---
-title: "Métodos directos de IoT Hub de Azure (Python) | Microsoft Docs"
-description: "Describe cómo usar los métodos directos de IoT Hub de Azure. Usará los SDK de IoT de Azure para Python con el fin de implementar una aplicación de dispositivo simulado que incluye un método directo y un servicio que invoque el método directo."
+title: Métodos directos de IoT Hub de Azure (Python) | Microsoft Docs
+description: Describe cómo usar los métodos directos de IoT Hub de Azure. Usará los SDK de IoT de Azure para Python con el fin de implementar una aplicación de dispositivo simulado que incluye un método directo y un servicio que invoque el método directo.
 services: iot-hub
-documentationcenter: 
-author: msebolt
+documentationcenter: ''
+author: kgremban
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: ea9c73ca-7778-4e38-a8f1-0bee9d142f04
 ms.service: iot-hub
 ms.devlang: python
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/22/2018
-ms.author: v-masebo
-ms.openlocfilehash: 9dac7b45894c2da0dcd32e456c8806faadf814e9
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.author: v-masebo;kgremban
+ms.openlocfilehash: 973dba8682e50af0434c557aa088d15e7a004b45
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-direct-methods-on-your-iot-device-with-python"></a>Uso de métodos directos en el dispositivo IoT con Python
 [!INCLUDE [iot-hub-selector-c2d-methods](../../includes/iot-hub-selector-c2d-methods.md)]
@@ -227,7 +227,7 @@ Ya está preparado para ejecutar las aplicaciones.
    
     ![][9]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este tutorial, configuró un centro de IoT nuevo en Azure Portal y, después, creó una identidad de dispositivo en el registro de identidades del centro de IoT. Usó esta identidad de dispositivo para que la aplicación del dispositivo simulado reaccionara a los métodos que se invoquen desde la nube. También creó una aplicación que invoca métodos en el dispositivo y muestra la respuesta del dispositivo. 
 
 Para continuar la introducción a IoT Hub y explorar otros escenarios de IoT, consulte:

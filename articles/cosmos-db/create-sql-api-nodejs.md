@@ -3,9 +3,8 @@ title: 'Azure Cosmos DB: Compilación de una aplicación con Node.js y SQL API |
 description: En este tema se presenta código de ejemplo de Node.js que se puede usar para conectarse a SQL API de Azure Cosmos DB y realizar consultas
 services: cosmos-db
 documentationcenter: ''
-author: mimig1
-manager: jhubbard
-editor: ''
+author: SnehaGunda
+manager: kfile
 ms.assetid: 9c0f033c-240e-4fee-8421-08907231087f
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 11/29/2017
-ms.author: mimig
-ms.openlocfilehash: cbc6b084620e716496716cef51461f714c9988b2
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.author: sngun
+ms.openlocfilehash: a56c9d57c802e869ee0de4c9bde2ab5e319f34da
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-cosmos-db-build-a-sql-api-app-with-nodejs-and-the-azure-portal"></a>Azure Cosmos DB: Compilación de una aplicación de SQL API con Node.js y Azure Portal
 

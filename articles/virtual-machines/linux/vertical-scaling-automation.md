@@ -1,11 +1,11 @@
 ---
-title: "Escalado vertical de máquinas virtuales de Azure con Azure Automation | Microsoft Docs"
-description: "Escalado vertical de una máquina virtual Linux en respuesta a las alertas de supervisión con Automatización de Azure"
+title: Escalado vertical de máquinas virtuales de Azure con Azure Automation | Microsoft Docs
+description: Escalado vertical de una máquina virtual Linux en respuesta a las alertas de supervisión con Azure Automation
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: singhkays
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: dcee199e-fa25-44d5-9b25-df564cee9b45
 ms.service: virtual-machines-linux
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 03/29/2016
 ms.author: singhkay
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1ffcecf1e61fc0cd9ee668514fbb913dafe39bd8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 683348c907484ccd9394eb4aae18e9006ecb5c48
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="vertically-scale-azure-linux-virtual-machine-with-azure-automation"></a>Escalado vertical de máquinas virtuales Linux de Azure con Azure Automation
 El escalado vertical es el proceso de aumentar o disminuir los recursos de una máquina como respuesta a la carga de trabajo. Para lograrlo en Azure, cambie el tamaño de la máquina virtual. Esto puede ser útil en los siguientes escenarios:
@@ -30,8 +30,8 @@ El escalado vertical es el proceso de aumentar o disminuir los recursos de una m
 
 Los pasos para lograr esto se describen a continuación:
 
-1. Configurar la Automatización de Azure para tener acceso a las máquinas virtuales.
-2. Importar los runbooks de escalado vertical de Automatización de Azure a la suscripción
+1. Configurar Azure Automation para tener acceso a las máquinas virtuales.
+2. Importar los runbooks de escalado vertical de Azure Automation a la suscripción.
 3. Agregar un webhook al runbook.
 4. Agregar una alerta a la máquina virtual.
 
@@ -56,15 +56,15 @@ Los pasos para lograr esto se describen a continuación:
 > 
 > 
 
-## <a name="setup-azure-automation-to-access-your-virtual-machines"></a>Configurar la Automatización de Azure para tener acceso a las máquinas virtuales.
-Lo primero que debe hacer es crear una cuenta de Automatización de Azure que hospedará los Runbooks que se usan para escalar las instancias del conjunto de escalado de máquinas virtuales. Recientemente, el servicio de automatización presentó la característica "Cuenta de ejecución", que facilita la configuración de la entidad de servicio para ejecutar los Runbooks automáticamente en nombre de un usuario. Encontrará más información al respecto en el siguiente artículo:
+## <a name="setup-azure-automation-to-access-your-virtual-machines"></a>Configurar Azure Automation para tener acceso a las máquinas virtuales.
+Lo primero que debe hacer es crear una cuenta de Azure Automation que hospedará los Runbooks que se usan para escalar las instancias del conjunto de escalado de máquinas virtuales. Recientemente, el servicio Automation presentó la característica "Cuenta de ejecución", que facilita la configuración de la entidad de servicio para ejecutar los runbooks automáticamente en nombre de un usuario. Encontrará más información al respecto en el siguiente artículo:
 
 * [Autenticación de Runbooks con una cuenta de ejecución de Azure](../../automation/automation-sec-configure-azure-runas-account.md)
 
-## <a name="import-the-azure-automation-vertical-scale-runbooks-into-your-subscription"></a>Importar los runbooks de escalado vertical de Automatización de Azure a la suscripción
-Los runbooks necesarios para el escalado vertical de la máquina virtual están publicados actualmente en la galería de runbooks de Automatización de Azure. Deberá importarlos a la suscripción. En el siguiente artículo, puede obtener información sobre cómo importar runbooks:
+## <a name="import-the-azure-automation-vertical-scale-runbooks-into-your-subscription"></a>Importar los runbooks de escalado vertical de Azure Automation a la suscripción.
+Los runbooks necesarios para el escalado vertical de la máquina virtual están publicados actualmente en la galería de runbooks de Azure Automation. Deberá importarlos a la suscripción. En el siguiente artículo, puede obtener información sobre cómo importar runbooks:
 
-* [Galerías de runbooks y módulos para la automatización de Azure](../../automation/automation-runbook-gallery.md)
+* [Galerías de runbooks y módulos para Azure Automation](../../automation/automation-runbook-gallery.md)
 
 En la imagen que aparece a continuación, se muestran los runbooks que es necesario importar:
 
@@ -73,7 +73,7 @@ En la imagen que aparece a continuación, se muestran los runbooks que es necesa
 ## <a name="add-a-webhook-to-your-runbook"></a>Agregar un webhook al runbook.
 Una vez que importe los runbooks, deberá agregar un webhook al runbook para que, de este modo, una alerta proveniente de una máquina virtual pueda desencadenarlo. A continuación, puede leer los detalles sobre cómo crear un webhook para el runbook:
 
-* [Webhooks de Automatización de Azure](../../automation/automation-webhooks.md)
+* [Webhooks de Azure Automation](../../automation/automation-webhooks.md)
 
 Asegúrese de copiar el webhook antes de cerrar el cuadro de diálogo de webhook, porque lo necesitará en la siguiente sección.
 

@@ -1,10 +1,10 @@
 ---
-title: "Guía de inicio rápido: API de Cassandra con Java y Azure Cosmos DB | Microsoft Docs"
-description: "Esta guía de inicio rápido muestra cómo usar la API de Cassandra de Azure Cosmos DB para crear una aplicación de perfil con Azure Portal y Java"
+title: 'Guía de inicio rápido: API de Cassandra con Java y Azure Cosmos DB | Microsoft Docs'
+description: Esta guía de inicio rápido muestra cómo usar la API de Cassandra de Azure Cosmos DB para crear una aplicación de perfil con Azure Portal y Java
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-documentationcenter: 
+author: SnehaGunda
+manager: kfile
+documentationcenter: ''
 ms.assetid: ef611081-0195-4ad8-9b54-b313588e5754
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 11/15/2017
-ms.author: mimig
-ms.openlocfilehash: 4d12fe3890b1d3190af1bc94eba7b93059a03f10
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.author: sngun
+ms.openlocfilehash: f132c20f1bcb2de2af708e87f869fbe06fe6914b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="quickstart-build-a-cassandra-app-with-java-and-azure-cosmos-db"></a>Guía de inicio rápido: compilación de una aplicación de Cassandra con Java y Azure Cosmos DB
 
@@ -26,7 +26,7 @@ Esta guía de inicio rápido muestra cómo se usan Java y la [API de Cassandra](
 
 Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Puede crear rápidamente bases de datos de documentos, tablas, clave-valor y grafos, y realizar consultas en ellas. Todas las bases de datos se beneficiarán de las funcionalidades de distribución global y escala horizontal en Azure Cosmos DB. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] También puede [probar gratis Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) sin suscripción de Azure, sin cargos y sin compromiso.
 
@@ -66,7 +66,7 @@ Ahora vamos a empezar a trabajar con el código. Vamos a clonar una aplicación 
     git clone https://github.com/Azure-Samples/azure-cosmos-db-cassandra-java-getting-started.git
     ```
 
-## <a name="review-the-code"></a>Revisar el código
+## <a name="review-the-code"></a>Revisión del código
 
 Este paso es opcional. Si está interesado en aprender cómo se crean los recursos de base de datos en el código, puede revisar los siguientes fragmentos de código. En caso contrario, puede ir directamente a [Actualización de la cadena de conexión](#update-your-connection-string). Estos fragmentos de código se toman de src/main/java/com/azure/cosmosdb/cassandra/util/CassandraUtils.java.  
 
@@ -142,7 +142,7 @@ Los fragmentos de código siguientes son del archivo src/main/java/com/azure/cos
     }
     ```
 
-## <a name="update-your-connection-string"></a>Actualizar la cadena de conexión
+## <a name="update-your-connection-string"></a>Actualización de la cadena de conexión
 
 Ahora vuelva a Azure Portal para obtener la información de la cadena de conexión y cópiela en la aplicación. Esto permite que la aplicación se comunique con la base de datos hospedada.
 
@@ -206,7 +206,7 @@ Ahora vuelva a Azure Portal para obtener la información de la cadena de conexi�
 
     ![Visualización de los datos en el Explorador de datos](./media/create-cassandra-java/data-explorer.png)
 
-## <a name="review-slas-in-the-azure-portal"></a>Revisar los SLA en Azure Portal
+## <a name="review-slas-in-the-azure-portal"></a>Revisión de los SLA en Azure Portal
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 

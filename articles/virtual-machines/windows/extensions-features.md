@@ -1,11 +1,11 @@
 ---
-title: "Características y extensiones de máquinas virtuales para Windows en Azure | Microsoft Docs"
-description: "Obtenga información acerca de qué extensiones están disponibles para máquinas virtuales de Azure, agrupadas por lo que proporcionan o mejoran."
+title: Características y extensiones de máquinas virtuales para Windows en Azure | Microsoft Docs
+description: Obtenga información acerca de qué extensiones están disponibles para máquinas virtuales de Azure, agrupadas por lo que proporcionan o mejoran.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: danielsollondon
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 999d63ee-890e-432e-9391-25b3fc6cde28
 ms.service: virtual-machines-windows
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/06/2017
 ms.author: danis
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0065468e4172f62dc1759c1905a8df48e91e01a6
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: efb7f7cf911ad5dc753afffd077c473cc0faaf74
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Características y extensiones de las máquinas virtuales para Windows
 
@@ -40,7 +40,7 @@ Hay muchas extensiones de máquina virtual de Azure diferentes disponibles, cada
 Además de las extensiones específicas de proceso, una extensión de script personalizado está disponible tanto para máquinas virtuales Windows como para máquinas virtuales Linux. La extensión de script personalizado para Windows permite que se ejecute cualquier script de PowerShell en una máquina virtual. Esto resulta útil al diseñar implementaciones de Azure que requieren una configuración más allá de lo que las herramientas de Azure nativas pueden proporcionar. Para obtener más información, consulte la sección sobre la [extensión de script personalizado de máquina virtual Windows](extensions-customscript.md).
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Cada extensión de máquina virtual puede tener su propio conjunto de requisitos previos. Por ejemplo, la extensión de máquina virtual de Docker tiene un requisito previo de una distribución de Linux compatible. En la documentación específica de extensión se detallan los requisitos de extensiones individuales.
 
@@ -113,7 +113,7 @@ Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM"
 El comando `Set-AzureRmVMExtension` se puede usar para iniciar cualquier extensión de máquina virtual. Para obtener más información, consulte la [referencia de Set-AzureRmVMExtension](https://msdn.microsoft.com/en-us/library/mt603745.aspx).
 
 
-### <a name="azure-portal"></a>Portal de Azure
+### <a name="azure-portal"></a>Azure Portal
 
 Una extensión de máquina virtual se puede aplicar a una máquina virtual existente a través de Azure Portal. Para ello, seleccione la máquina virtual que desea usar, elija **Extensiones** y haga clic en **Agregar**. Esto proporciona una lista de extensiones disponibles. Seleccione aquella que desee y siga los pasos del asistente.
 
@@ -121,7 +121,7 @@ En la siguiente imagen se muestra la instalación de la extensión de Microsoft 
 
 ![Instalar la extensión de antimalware](./media/extensions-features/installantimalwareextension.png)
 
-### <a name="azure-resource-manager-templates"></a>Plantillas de Azure Resource Manager
+### <a name="azure-resource-manager-templates"></a>Plantillas del Administrador de recursos de Azure
 
 Las extensiones de máquina virtual se pueden agregar a una plantilla de Azure Resource Manager y ejecutar con la implementación de la plantilla. La implementación de extensiones con una plantilla es útil para crear implementaciones de Azure completamente configuradas. Por ejemplo, el siguiente JSON procede de una plantilla de Resource Manager que implementa un conjunto de máquinas virtuales de carga equilibrada y una base de datos Azure SQL Database y, a continuación, instala una aplicación .NET Core en cada máquina virtual. La extensión de máquina virtual se encarga de la instalación de software.
 
@@ -279,7 +279,7 @@ También se puede quitar una extensión mediante Azure Portal. Para ello:
 4. Seleccione **Desinstalar**.
 
 ## <a name="common-vm-extensions-reference"></a>Referencia de extensiones de máquina virtual comunes
-| Nombre de la extensión | Descripción | Más información |
+| Nombre de la extensión | DESCRIPCIÓN | Más información |
 | --- | --- | --- |
 | Extensión de la secuencia de comandos personalizada para Windows |Ejecución de scripts en una máquina virtual de Azure |[Extensión de la secuencia de comandos personalizada para Windows](extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | Extensión de DSC para Windows |Extensión DSC (configuración de estado deseado) de PowerShell |[Extensión DSC para Windows](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |

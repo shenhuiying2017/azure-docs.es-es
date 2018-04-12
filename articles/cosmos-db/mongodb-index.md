@@ -1,10 +1,10 @@
 ---
-title: "Artículos acerca de Azure Cosmos DB: API de MongoDB | Microsoft Docs"
-description: "Una lista de todos los artículos específicos para crear bases de datos de documentos con la API de MongoDB en Azure Cosmos DB."
+title: 'Artículos acerca de Azure Cosmos DB: API de MongoDB | Microsoft Docs'
+description: Una lista de todos los artículos específicos para crear bases de datos de documentos con la API de MongoDB en Azure Cosmos DB.
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-documentationcenter: 
+author: SnehaGunda
+manager: kfile
+documentationcenter: ''
 ms.assetid: 0ee5b7f8-cda9-41a1-b7f0-f6a97e58c4da
 ms.service: cosmos-db
 ms.workload: data-services
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
-ms.author: mimig
-ms.openlocfilehash: c65013fefe6750e82c71cb3d201a3195acd64127
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.author: sngun
+ms.openlocfilehash: bfcaf809daa4d95828a85ce93aae213248bbbb89
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-cosmos-db-mongodb-api-documentation"></a>Documentación Azure Cosmos DB: API de MongoDB
 
@@ -33,7 +33,7 @@ Estos son temas de lectura obligatoria y recursos para empezar a obtener informa
 - [Conexión a una cuenta de MongoDB](connect-mongodb-account.md)
 - [Compatibilidad con la sintaxis y las características de MongoDB](mongodb-feature-support.md)
 
-## <a name="quickstarts"></a>Inicios rápidos
+## <a name="quickstarts"></a>Guías de inicio rápido
 
 Los temas de Inicios rápidos son la forma más rápida de crear una aplicación con Azure Cosmos DB. En cada inicio rápido, se aprende a usar la interfaz de usuario de Azure Portal y el lenguaje de codificación favorito para crear soluciones de base de datos con Azure Cosmos DB. Aplicaciones web clonables del área de GitHub disponibles en cada inicio rápido. 
 

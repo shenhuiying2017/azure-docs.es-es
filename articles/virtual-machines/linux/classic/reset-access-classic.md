@@ -1,11 +1,11 @@
 ---
-title: "Restablecimiento de la contraseña de máquina virtual Linux y clave SSH desde la CLI | Microsoft Docs"
-description: "Uso de la extensión VMAccess desde la interfaz de la línea de comandos de Azure (CLI) para restablecer una contraseña de VM de Linux o clave SSH, corregir la configuración de SSH y comprobar la coherencia de disco"
+title: Restablecimiento de la contraseña de máquina virtual Linux y clave SSH desde la CLI | Microsoft Docs
+description: Uso de la extensión VMAccess desde la interfaz de la línea de comandos de Azure (CLI) para restablecer una contraseña de VM de Linux o clave SSH, corregir la configuración de SSH y comprobar la coherencia de disco
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ROBOTS: NOINDEX
 ms.assetid: d975eb70-5ff1-40d1-a634-8dd2646dcd17
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2016
 ms.author: cynthn
-ms.openlocfilehash: 4577b6b9656b6a1cf83e6f9a227526701ba297b4
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: c36498d2f4fef506dc7047fe91666aceec73c13d
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-reset-a-linux-vm-password-or-ssh-key-fix-the-ssh-configuration-and-check-disk-consistency-using-the-vmaccess-extension"></a>Cómo restablecer una contraseña de máquina virtual Linux o clave SSH, corregir la configuración de SSH y comprobar la coherencia de disco con la extensión VMAccess
 Si no puede conectarse a una máquina virtual Linux porque olvidó la contraseña, la clave de Shell seguro (SSH) es incorrecta o hay un problema con la configuración de SSH, use la extensión VMAccessForLinux con la CLI de Azure para restablecer la contraseña o la clave SSH, corregir la configuración de SSH y comprobar la coherencia de los discos. 
@@ -42,7 +42,7 @@ Con la CLI de Azure, puede realizar las tareas siguientes:
 * [Comprobar la coherencia de los discos agregados](#checkdisk)
 * [Reparar los discos agregados a la VM de Linux](#repairdisk)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Deberá hacer lo siguiente:
 
 * También necesitará [instalar la CLI de Azure](../../../cli-install-nodejs.md) y [conectarse a su suscripción](/cli/azure/authenticate-azure-cli) para usar recursos de Azure asociados a su cuenta.
@@ -190,7 +190,7 @@ Para reparar discos que no se están montando o que tienen errores de configurac
         azure vm extension set myVM VMAccessForLinux Microsoft.OSTCExtensions 1.* --public-config-path PublicConf.json
     ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Si desea usar cmdlets de Azure PowerShell o plantillas de Azure Resource Manager para restablecer la contraseña o la clave SSH, corregir la configuración de SSH y comprobar la coherencia de disco, consulte la [documentación sobre la extensión VMAccess en GitHub](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess). 
 * También puede utilizar el [Portal de Azure](https://portal.azure.com) para restablecer la contraseña o la clave SSH de una máquina virtual de Linux implementada en el modelo de implementación clásica. Actualmente, no puede usar el portal para realizar esta tarea en una máquina virtual de Linux implementada en el modelo de implementación de Resource Manager.
 * Consulte [Acerca de las características y extensiones de las máquinas virtuales](../extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para más información sobre el uso de extensiones de máquinas virtuales para las de Azure.

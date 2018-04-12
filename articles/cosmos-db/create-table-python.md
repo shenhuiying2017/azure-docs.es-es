@@ -1,25 +1,24 @@
 ---
-title: "Guía de inicio rápido: Table API con Python en Azure Cosmos DB | Microsoft Docs"
-description: "Esta guía de inicio rápido muestra cómo usar Table API de Azure Cosmos DB para crear una aplicación con Azure Portal y Python."
+title: 'Guía de inicio rápido: Table API con Python en Azure Cosmos DB | Microsoft Docs'
+description: Esta guía de inicio rápido muestra cómo usar Table API de Azure Cosmos DB para crear una aplicación con Azure Portal y Python.
 services: cosmos-db
-documentationcenter: 
-author: mimig1
-manager: jhubbard
-editor: 
-ms.assetid: 
+documentationcenter: ''
+author: SnehaGunda
+manager: kfile
+ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/16/2017
-ms.author: mimig
+ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 56c52aef2dda899a7f7ce90a26068897781773da
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: acf0dddc717ff78acce7af792368312f7e1963b5
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="quickstart-build-a-table-api-app-with-python-and-azure-cosmos-db"></a>Guía de inicio rápido: Creación de una aplicación de Table API con Python y Azure Cosmos DB
 
@@ -27,7 +26,7 @@ Esta guía de inicio rápido muestra cómo se usa Python y [Table API](table-int
 
 Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Puede crear rápidamente bases de datos de documentos, clave-valor, de columnas y grafos, y realizar consultas en ellas. Todas las bases de datos se beneficiarán de las funcionalidades de distribución global y escala horizontal en Azure Cosmos DB. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
@@ -87,7 +86,7 @@ Ahora vuelva a Azure Portal para obtener la información de la cadena de conexi�
 
 1. En [Azure Portal](http://portal.azure.com/), haga clic en **Cadena de conexión**. 
 
-    ![Visualización y copia de la cadena de conexión (CONNECTION STRING) en el panel Cadena de conexión](./media/create-table-python/connection-string.png)
+    ![Visualización y copia de la cadena de conexión en el panel Cadena de conexión](./media/create-table-python/connection-string.png)
 
 2. Copie el valor de ACCOUNT NAME mediante el botón que encontrará en el lado derecho.
 

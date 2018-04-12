@@ -17,21 +17,20 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 445baa36f33cbe02b68bdb37406f842932089183
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 2490b96716519ef749dd1e3a1fbe6846c6b5d999
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-powershell"></a>Conexión de redes virtuales con emparejamiento de redes virtuales usando PowerShell
 
 Puede conectar redes virtuales entre sí con el emparejamiento de redes virtuales. Una vez que las redes virtuales están emparejadas, los recursos de ambas se pueden comunicar entre sí con el mismo ancho de banda y la misma latencia que si estuvieran en la misma red virtual. En este artículo, aprenderá a:
 
-> [!div class="checklist"]
-> * Crear dos redes virtuales
-> * Conectar dos redes virtuales con el emparejamiento de redes virtuales
-> * Implementar una máquina virtual (VM) en cada red virtual
-> * Comunicarse entre máquinas virtuales
+* Crear dos redes virtuales
+* Conectar dos redes virtuales con el emparejamiento de redes virtuales
+* Implementar una máquina virtual (VM) en cada red virtual
+* Comunicarse entre máquinas virtuales
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 

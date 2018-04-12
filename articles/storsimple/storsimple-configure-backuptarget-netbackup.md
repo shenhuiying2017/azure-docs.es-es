@@ -1,12 +1,12 @@
 ---
 title: StorSimple serie 8000 como destino de copia de seguridad con NetBackup | Microsoft Docs
-description: "Describe la configuración del destino de copia de seguridad de StorSimple con Veritas NetBackup."
+description: Describe la configuración del destino de copia de seguridad de StorSimple con Veritas NetBackup.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: harshakirank
 manager: matd
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/15/2017
 ms.author: hkanna
 ms.openlocfilehash: b1878c181a77ac6d54654fc55228907743243c45
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="storsimple-as-a-backup-target-with-netbackup"></a>StorSimple como destino de copia de seguridad con NetBackup
 
@@ -325,7 +325,7 @@ En la secuencia siguiente se asume que NetBackup y el host de destino están con
 
     ![Consola de administración de NetBackup, selección del tipo de directiva](./media/storsimple-configure-backup-target-using-netbackup/nbimage9.png)
 
-5.  Seleccione el host, seleccione la casilla **Detect client operating system** (Detectar el sistema operativo cliente) y después seleccione **Add** (Agregar). Seleccione **Siguiente**.
+5.  Seleccione el host, seleccione la casilla **Detect client operating system** (Detectar el sistema operativo cliente) y después seleccione **Add** (Agregar). Seleccione **Next** (Siguiente).
 
     ![Consola de administración de NetBackup, enumeración de clientes en una nueva directiva](./media/storsimple-configure-backup-target-using-netbackup/nbimage10.png)
 

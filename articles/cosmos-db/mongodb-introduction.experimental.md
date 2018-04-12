@@ -4,7 +4,7 @@ description: Obtenga información sobre cómo puede usar Azure Cosmos DB para al
 keywords: Qué es MongoDB
 services: cosmos-db
 author: AndrewHoh
-manager: jhubbard
+manager: kfile
 editor: ''
 documentationcenter: ''
 ms.assetid: 4afaf40d-c560-42e0-83b4-a64d94671f0a
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: anhoh
-ms.openlocfilehash: cd80f349f2fb376178e02d947db1fefbcbe3ac88
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: d58933e510a56bf21bcd714dc93d4c7f0b57340b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="introduction-to-azure-cosmos-db-mongodb-api"></a>Introducción a Azure Cosmos DB: API de MongoDB
 
@@ -68,7 +68,7 @@ Siga las guías de inicio rápido sobre MongoDB si desea crear una cuenta de Azu
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga información sobre cómo la API de Azure Cosmos DB MongoDB se integra en la documentación de Azure Cosmos DB global, pero hay algunos indicadores para empezar:
+La información sobre la API de MongoDB de Azure Cosmos DB se encuentra integrada en la documentación general de Azure Cosmos DB, pero aquí tiene algunos consejos que le ayudarán a empezar:
 
 * Para saber cómo obtener la información de la cadena de conexión de la cuenta, siga los pasos del tutorial [Conexión a una cuenta de MongoDB](connect-mongodb-account.md).
 * Para obtener información sobre cómo crear una conexión entre la base de datos de Azure Cosmos DB y la aplicación de MongoDB en Studio 3T, siga los pasos del tutorial [Uso de Studio 3T (MongoChef) con Azure Cosmos DB](mongodb-mongochef.md).

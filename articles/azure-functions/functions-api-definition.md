@@ -1,12 +1,12 @@
 ---
 title: Metadatos de OpenAPI en Azure Functions | Microsoft Docs
-description: "Introducción a la compatibilidad con OpenAPI en Azure Functions"
+description: Introducción a la compatibilidad con OpenAPI en Azure Functions
 services: functions
-documentationcenter: 
+documentationcenter: ''
 author: alexkarcher-msft
 manager: cfowler
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/23/2017
 ms.author: alkarche
 ms.openlocfilehash: b6aacc536e589a2036aba5a0784a4ba71641a59e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Compatibilidad con metadatos de OpenAPI 2.0 en Azure Functions (versión preliminar)
 La compatibilidad con metadatos de OpenAPI 2.0 (anteriormente Swagger) en Azure Functions es una característica en versión preliminar que puede usar para escribir una definición de OpenAPI 2.0 dentro de una aplicación de función. A continuación, puede hospedar ese archivo mediante la aplicación de función.
@@ -42,7 +42,7 @@ Para obtener instrucciones paso a paso, consulte el [Tutorial de inicio](./funct
 
 ### <a name="templates"></a>Plantillas disponibles
 
-|Nombre| Descripción |
+|NOMBRE| DESCRIPCIÓN |
 |:-----|:-----|
 |Definición generada|Una definición de OpenAPI con la cantidad máxima de información que se puede inferir a partir de los metadatos existentes de la función.|
 

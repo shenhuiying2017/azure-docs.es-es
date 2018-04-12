@@ -1,11 +1,11 @@
 ---
 title: Correspondencia entre preguntas y respuestas mediante Azure Machine Learning Workbench | Microsoft Docs
-description: "Uso de varios métodos eficaces de aprendizaje automático para hacer corresponder consultas abiertas con pares de preguntas/respuestas de P+F ya existentes."
+description: Uso de varios métodos eficaces de aprendizaje automático para hacer corresponder consultas abiertas con pares de preguntas/respuestas de P+F ya existentes.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: mezmicrosoft
 editor: mezmicrosoft
-ms.assetid: 
+ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
@@ -16,10 +16,10 @@ ms.date: 09/15/2017
 ms.author: mez
 manager: tihazen
 ms.openlocfilehash: 33f807a4a0bbc4afd1f2fbe017f8913eccacc34b
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/05/2018
 ---
 #  <a name="q--a-matching-using-azure-machine-learning-workbench"></a>Correspondencia entre preguntas y respuestas mediante Azure Machine Learning Workbench
 Responder a preguntas abiertas es difícil y a menudo requiere un esfuerzo manual por parte de expertos en la materia (SME). Para ayudar a reducir la demanda de expertos en la materia internos, las empresas a menudo crean listas con las preguntas más frecuentes (P+F) como forma de ayudar a los usuarios. Este ejemplo muestra varios métodos eficaces de aprendizaje automático para hacer corresponder consultas abiertas con pares de preguntas/respuestas de P+F ya existentes. Este ejemplo muestra un sencillo proceso de desarrollo para compilar una solución de este tipo mediante Azure Machine Learning Workbench. 

@@ -1,5 +1,5 @@
 ---
-title: "Cómo usar el servicio de tabla de almacenamiento de Azure o Azure Cosmos DB Table API de PHP | Microsoft Docs"
+title: Cómo usar el servicio de tabla de almacenamiento de Azure o Azure Cosmos DB Table API de PHP | Microsoft Docs
 description: Aprenda a utilizar la API de Table service de PHP para crear y eliminar una tabla e insertar, eliminar y consultar la tabla.
 services: cosmos-db
 documentationcenter: php
@@ -14,11 +14,11 @@ ms.devlang: php
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: mimig
-ms.openlocfilehash: 64ce8206b4b0ab3c831417d6e478f9c059188345
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 69fa1f8f9717d1ea4ca5081a45317cff8d752809
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-use-azure-storage-table-service-or-cosmos-db-table-api-from-php"></a>Cómo usar el servicio de tabla de almacenamiento de Azure o Cosmos DB Table API de PHP
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -436,9 +436,6 @@ El método **TableRestProxy->batch** permite ejecutar varias operaciones en una 
 
 En el siguiente ejemplo se muestra cómo ejecutar las operaciones **insertEntity** y **deleteEntity** en una única solicitud. 
 
-> [!NOTE]
-> Azure Cosmos DB aún no admite operaciones por lotes para las tablas. 
-
 ```php
 require_once 'vendor/autoload.php';
 
@@ -513,7 +510,7 @@ catch(ServiceException $e){
 }
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Ahora que está familiarizado con los aspectos básicos de Azure Table service y Azure Cosmos DB, use estos vínculos para obtener más información.
 
 * El [Explorador de Microsoft Azure Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md) es una aplicación independiente y gratuita de Microsoft que permite trabajar visualmente con los datos de Azure Storage en Windows, macOS y Linux.

@@ -1,11 +1,11 @@
 ---
-title: "Uso de PowerShell para cambiar el tamaño de una máquina virtual Windows en Azure | Microsoft Docs"
-description: "Cambie el tamaño de una máquina virtual Windows creada con el modelo de implementación de Resource Manager utilizando Azure PowerShell."
+title: Uso de PowerShell para cambiar el tamaño de una máquina virtual Windows en Azure | Microsoft Docs
+description: Cambie el tamaño de una máquina virtual Windows creada con el modelo de implementación de Resource Manager utilizando Azure PowerShell.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: Drewm3
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 057ff274-6dad-415e-891c-58f8eea9ed78
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2016
 ms.author: drewm
-ms.openlocfilehash: a3d4b6e5db8835b23b014b344f0c9daae68adc09
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 09a20892770ada7c67c43c20f3c4f36b5a76f09d
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="resize-a-windows-vm"></a>Cambio de tamaño de una máquina virtual Windows
 En este artículo se muestra cómo cambiar de tamaño una máquina virtual Windows creada con el modelo de implementación de Resource Manager utilizando Azure PowerShell.
@@ -101,6 +101,6 @@ Si el nuevo tamaño de una máquina virtual de un conjunto de disponibilidad no 
    }
    ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Para obtener una mayor escalabilidad, ejecute varias instancias de VM y escálelas horizontalmente. Para obtener más información, consulte el artículo sobre [escalado automático de máquinas Linux en un conjunto de escalado de máquinas virtuales](../../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md).
 

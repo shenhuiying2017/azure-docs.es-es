@@ -7,20 +7,20 @@ author: janeng
 manager: jstrauss
 editor: carlrab
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: sql-database
 ms.custom: monitor & tune, mvc
 ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 12/14/2017
+ms.date: 04/01/2018
 ms.author: janeng
-ms.openlocfilehash: 70dcac2449b18e7afef3f96817593128ca1ab315
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: adb2da80ecf0b0c8feb7ebd242b1e98a871aef77
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="use-powershell-to-monitor-and-scale-a-single-sql-database"></a>Uso de PowerShell para supervisar y escalar una sola base de datos SQL
 
@@ -57,7 +57,7 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 | [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Elimina un grupo de recursos, incluidos todos los recursos anidados. |
 |||
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre Azure PowerShell, consulte la [documentación de Azure PowerShell](/powershell/azure/overview).
 

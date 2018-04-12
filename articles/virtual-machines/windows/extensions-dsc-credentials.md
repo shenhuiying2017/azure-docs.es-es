@@ -1,11 +1,11 @@
 ---
 title: Pasar credenciales a Azure mediante Desired State Configuration | Microsoft Docs
-description: "Aprenda a pasar credenciales de forma segura a máquinas virtuales de Azure con Desired State Configuration (DSC) de PowerShell."
+description: Aprenda a pasar credenciales de forma segura a máquinas virtuales de Azure con Desired State Configuration (DSC) de PowerShell.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: zjalexander
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 keywords: dsc
 ms.assetid: ea76b7e8-b576-445a-8107-88ea2f3876b9
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 01/17/2018
 ms.author: zachal,migreene
-ms.openlocfilehash: a0a565c0bb7e17315c7b0475f3213b620a3e2d6c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f372685692c2f02984bf0e0b8deeae27ce94422b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="pass-credentials-to-the-azure-dscextension-handler"></a>Pasar credenciales al controlador de extensiones DSC de Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -85,7 +85,7 @@ Al ejecutar este código, se solicita una credencial. Después de proporcionar l
 
 Este proceso no es el mismo que cuando se [usan configuraciones seguras sin el controlador de extensiones](https://msdn.microsoft.com/powershell/dsc/securemof). El entorno de Azure ofrece una manera de transmitir datos de configuración de forma segura mediante certificados. Cuando utiliza el controlador de la extensión DSC, no es necesario proporcionar **$CertificatePath** o una entrada **$CertificateID**/ **$Thumbprint** en **ConfigurationData**.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * Obtenga una [introducción al controlador de extensiones DSC de Azure](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Examine la [plantilla de Azure Resource Manager para la extensión de DSC](extensions-dsc-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

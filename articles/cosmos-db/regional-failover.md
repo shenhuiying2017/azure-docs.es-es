@@ -4,7 +4,7 @@ description: Obtenga información sobre el modo en que funciona la conmutación 
 services: cosmos-db
 documentationcenter: ''
 author: arramac
-manager: jhubbard
+manager: kfile
 editor: ''
 ms.assetid: 446e2580-ff49-4485-8e53-ae34e08d997f
 ms.service: cosmos-db
@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8da3e2c970ab1e60e3396cb0aaeaba64dba1713c
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 4a221a0d4f9ef6b6b32ed9b684939b9f277e2084
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="automatic-regional-failover-for-business-continuity-in-azure-cosmos-db"></a>Conmutación por error regional automática para la continuidad empresarial en Azure Cosmos DB
 Azure Cosmos DB simplifica la distribución global de datos gracias a que ofrece [cuentas de base de datos de varias regiones](distribute-data-globally.md) completamente administradas que proporcionan un claro equilibrio entre coherencia, disponibilidad y rendimiento, todo ello con sus garantías correspondientes. Las cuentas de Cosmos DB ofrecen alta disponibilidad, latencias de ms de un solo dígito, varios [niveles de coherencia bien definidos](consistency-levels.md), conmutación por error regional transparente con API de hospedaje múltiple, y la posibilidad de escalar elásticamente el rendimiento y el almacenamiento en todo el mundo. 
@@ -86,7 +86,7 @@ Una vez que la región afectada se recupera de la interrupción, el servicio rec
 
 **¿Qué ocurre si una región de escritura sufre una interrupción?**
 
-Si la región afectada es la región actual de escritura y la conmutación automática por error está habilitada para la cuenta de Azure Cosmos DB, la región se marcará automáticamente como desconectada. Después, se promueve una región alternativa como región de escritura para cada cuenta de Azure Cosmos DB afectada. Puede habilitar la conmutacion automática por error y controlar completamente el orden de selección de las regiones para las cuentas de Azure Cosmos DB a través de Azure Portal o [mediante programación](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_FailoverPriorityChange). 
+Si la región afectada es la región actual de escritura y la conmutación automática por error está habilitada para la cuenta de Azure Cosmos DB, la región se marcará automáticamente como desconectada. Después, se promueve una región alternativa como región de escritura para cada cuenta de Azure Cosmos DB afectada. Puede habilitar la conmutacion automática por error y controlar completamente el orden de selección de las regiones para las cuentas de Azure Cosmos DB a través de Azure Portal o [mediante programación](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/databaseaccounts#DatabaseAccounts_FailoverPriorityChange). 
 
 ![Prioridades de conmutación por error de Azure Cosmos DB](./media/regional-failover/failover-priorities.png)
 
@@ -98,7 +98,7 @@ Una vez que la región afectada se recupera de la interrupción, el servicio rec
 
 * Los datos presentes en la región anterior de escritura que no se replicaron en las regiones de lectura durante la interrupción se publican como una fuente de conflictos. Las aplicaciones pueden leer la fuente de conflictos, resolver los conflictos de acuerdo con la lógica específica de la aplicación y escribir los datos actualizados de nuevo en la cuenta de Azure Cosmos DB según corresponda. 
 * Se vuelve a crear la región anterior de escritura como una región de lectura y se pone en línea de nuevo automáticamente. 
-* Puede reconfigurar la región de lectura que se puso de nuevo en línea automáticamente como región de escritura mediante una conmutación por error manual a través de Azure Portal o [mediante programación](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_CreateOrUpdate).
+* Puede reconfigurar la región de lectura que se puso de nuevo en línea automáticamente como región de escritura mediante una conmutación por error manual a través de Azure Portal o [mediante programación](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/databaseaccounts#DatabaseAccounts_CreateOrUpdate).
 
 El fragmento de código siguiente muestra cómo procesar conflictos una vez que la región afectada se recupera de la interrupción.
 
@@ -123,7 +123,7 @@ do
 
 ## <a id="ManualFailovers"></a> Conmutaciones por error manuales
 
-Además de la conmutación por error automática, puede cambiar de forma dinámica y manual la región de escritura actual de una cuenta de Cosmos DB a una de las regiones de lectura existentes. Las conmutaciones por error manuales se pueden iniciar a través de Azure Portal o [mediante programación](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_CreateOrUpdate). 
+Además de la conmutación por error automática, puede cambiar de forma dinámica y manual la región de escritura actual de una cuenta de Cosmos DB a una de las regiones de lectura existentes. Las conmutaciones por error manuales se pueden iniciar a través de Azure Portal o [mediante programación](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/databaseaccounts#DatabaseAccounts_CreateOrUpdate). 
 
 Las conmutaciones por error manuales garantizan que haya **cero pérdida de datos** y **cero pérdida de disponibilidad**, y transfieren sin problemas el estado de escritura de la región de escritura anterior a la nueva para la cuenta de Cosmos DB especificada. Al igual que en la conmutación por error automática, el SDK de Cosmos DB controla automáticamente los cambios de región de escritura durante las conmutaciones por error manuales y garantiza que las llamadas se redirijan automáticamente a la nueva región de escritura. No se requiere ningún cambio de código o configuración de la aplicación para administrar las conmutaciones por error. 
 

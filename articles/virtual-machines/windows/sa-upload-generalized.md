@@ -1,13 +1,13 @@
 ---
-title: "Carga de un VHD generalizado para crear varias máquinas virtuales en Azure | Microsoft Docs"
-description: "Cargue un VHD generalizado en una cuenta de Azure Storage a fin de crear una máquina virtual de Windows para usarla con el modelo de implementación de Resource Manager."
+title: Carga de un VHD generalizado para crear varias máquinas virtuales en Azure | Microsoft Docs
+description: Cargue un VHD generalizado en una cuenta de Azure Storage a fin de crear una máquina virtual de Windows para usarla con el modelo de implementación de Resource Manager.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/18/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: d8c700d7b23f0e86b4a190e3c1f1143d962a8d63
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 28caca06dd756732314f758e6acb4629f857dd91
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="upload-a-generalized-vhd-to-azure-to-create-a-new-vm"></a>Carga de un VHD generalizado en Azure para crear una máquina virtual nueva
 
@@ -68,7 +68,7 @@ Asegúrese de que los roles de servidor que se ejecutan en la máquina sean comp
 
 Cargue el VHD en una cuenta de Azure Storage.
 
-### <a name="log-in-to-azure"></a>Inicie sesión en Azure.
+### <a name="log-in-to-azure"></a>Inicio de sesión en Azure
 Si todavía no la ha instalado la versión 1.4 de PowerShell u otra superior, consulte [Cómo instalar y configurar Azure PowerShell](/powershell/azure/overview).
 
 1. Abra Azure PowerShell e inicie sesión en la cuenta de Azure. Se abrirá una ventana emergente para que escriba sus credenciales de cuenta de Azure.
@@ -289,7 +289,7 @@ Cuando finalice, debería ver la máquina virtual recién creada en el [Azure Po
     $vmList.Name
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para administrar la nueva máquina virtual de Azure PowerShell, consulte [Administración de máquinas virtuales de Azure con Resource Manager y PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 

@@ -4,7 +4,7 @@ description: Ejecución de un script de PowerShell para implementar un clúster 
 services: virtual-machines-linux
 documentationcenter: ''
 author: dlepow
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-service-management,hpc-pack
 ms.assetid: 73041960-58d3-4ecf-9540-d7e1a612c467
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 12/29/2016
 ms.author: danlep
-ms.openlocfilehash: 477859db8c884714d9b5140483d300ebfe6c116a
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 66affb47190ba0c6fccaae8e8267b310682aee46
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="create-a-linux-high-performance-computing-hpc-cluster-with-the-hpc-pack-iaas-deployment-script"></a>Creación de un clúster de informática de alto rendimiento (HPC) de Linux con el script de implementación de HPC Pack IaaS
 Ejecute el script de PowerShell de implementación de HPC Pack IaaS para implementar un clúster de HPC Pack 2012 R2 completo para cargas de trabajo Linux en Azure Virtual Machines. El clúster consta de un nodo principal unido a Active Directory con Windows Server y Microsoft HPC Pack, y nodos de proceso que ejecutan una de las distribuciones de Linux compatibles con HPC Pack. Si desea implementar un clúster de HPC Pack en cargas de trabajo de Azure para Windows, consulte [Creación de un clúster de proceso de alto rendimiento (HPC) de Windows con el script de implementación de HPC Pack IaaS](../../windows/classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).

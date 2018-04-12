@@ -7,20 +7,20 @@ author: janeng
 manager: jstrauss
 editor: carlrab
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: sql-database
 ms.custom: DBs & servers, mvc
 ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 06/23/2017
+ms.date: 04/01/2018
 ms.author: janeng
-ms.openlocfilehash: cf4fa741674efbf9e495dbc8765ee8359387cda8
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 8d4a40ff96c5b2249987be91a5ffe1b64cbd413b
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="use-powershell-to-create-a-single-azure-sql-database-and-configure-a-firewall-rule"></a>Uso de PowerShell para crear una instancia única de Azure SQL Database y configurar una regla de firewall
 
@@ -44,7 +44,7 @@ Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 
 Este script usa los siguientes comandos. Cada comando de la tabla crea un vínculo a documentación específica del comando.
 
-| Comando | Notas |
+| Get-Help | Notas |
 |---|---|
 | [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
 | [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) | Crea un servidor lógico que hospeda una base de datos o un grupo elástico. |

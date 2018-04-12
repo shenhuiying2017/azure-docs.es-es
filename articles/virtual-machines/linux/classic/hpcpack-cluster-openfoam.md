@@ -1,11 +1,11 @@
 ---
-title: "Ejecución de OpenFOAM con HPC Pack en máquinas virtuales Linux | Microsoft Docs"
-description: "Implemente un clúster de Microsoft HPC Pack en Azure y ejecute un trabajo de OpenFOAM en varios nodos de ejecución de Linux en una red RDMA."
+title: Ejecución de OpenFOAM con HPC Pack en máquinas virtuales Linux | Microsoft Docs
+description: Implemente un clúster de Microsoft HPC Pack en Azure y ejecute un trabajo de OpenFOAM en varios nodos de ejecución de Linux en una red RDMA.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,azure-resource-manager,hpc-pack
 ms.assetid: c0bb1637-bb19-48f1-adaa-491808d3441f
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 07/22/2016
 ms.author: danlep
-ms.openlocfilehash: ef124a8983fa112d499252460bff9ed2fcccc02b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f43790d3495e1c09730e90b5077ec840731a7d83
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="run-openfoam-with-microsoft-hpc-pack-on-a-linux-rdma-cluster-in-azure"></a>Ejecución de OpenFoam con Microsoft HPC Pack en un clúster de Linux RDMA en Azure
 En este artículo se muestra una manera de ejecutar OpenFoam en máquinas virtuales de Azure. Aquí se implementa un clúster de Microsoft HPC Pack con nodos de proceso de Linux en Azure y se ejecuta un trabajo de [OpenFoam](http://openfoam.com/) con Intel MPI. Puede usar máquinas virtuales compatibles con RDMA de Azure para los nodos de proceso para que se comuniquen a través de la red RDMA de Azure. Otras opciones para ejecutar OpenFoam en Azure incluyen imágenes comerciales totalmente configuradas en Marketplace, como [OpenFoam 2.3 en CentOS 6](https://azure.microsoft.com/marketplace/partners/ubercloud/openfoam-v2dot3-centos-v6/) de UberCloud, y la ejecución de [Azure Batch](https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/). 
@@ -35,7 +35,7 @@ Microsoft HPC Pack proporciona características para ejecutar aplicaciones HPC y
 > 
 > 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 * **Clúster de HPC Pack con nodos de proceso de Linux compatibles con RDMA**: implemente un clúster de HPC Pack con nodos de proceso de Linux de tamaño A8, A9, H16r o H16rm mediante una [plantilla de Azure Resource Manager](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) o un [script de Azure PowerShell](hpcpack-cluster-powershell-script.md). Consulte [Introducción a los nodos de proceso de Linux en un clúster de HPC Pack en Azure](hpcpack-cluster.md) para ver los requisitos previos y los pasos para cada opción. Si elige la opción de implementación de scripts de PowerShell, consulte el archivo de configuración de ejemplo en los archivos de ejemplo al final de este artículo. Use esta configuración para implementar un clúster de HPC Pack basado en Azure que conste de un nodo principal de Windows Server 2012 R2 de tamaño A8 y 2 nodos de proceso SUSE Linux Enterprise Server 12 de tamaño A8. Sustituya los valores apropiados por su nombre de suscripción y de servicio. 
   
   **Aspectos adicionales que debe conocer**

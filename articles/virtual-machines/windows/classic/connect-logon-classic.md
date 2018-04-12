@@ -1,10 +1,10 @@
 ---
-title: "Inicio de sesión en una máquina virtual de Azure clásico | Microsoft Docs"
-description: "Use Azure Portal para iniciar sesión en una máquina virtual Windows creada con el modelo de implementación clásica."
+title: Inicio de sesión en una máquina virtual de Azure clásico | Microsoft Docs
+description: Use Azure Portal para iniciar sesión en una máquina virtual Windows creada con el modelo de implementación clásica.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 ROBOTS: NOINDEX
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: cynthn
-ms.openlocfilehash: c35bfeaa81f89dc5a636d67ed9a2a930d689c54a
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: bcbebc216dbd63acfb33cf72ba774d088149a3a7
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="log-on-to-a-windows-virtual-machine-using-the-azure-portal"></a>Inicie sesión en una máquina virtual de Windows mediante el Portal de Azure.
 En el Portal de Azure, usará el botón **Conectar** para iniciar una sesión de Escritorio remoto e iniciar sesión en una VM de Windows.
@@ -57,7 +57,7 @@ Learn how to [perform these steps using new Azure portal](../connect-logon.md?to
 ## <a name="log-on-to-the-virtual-machine"></a>Iniciar sesión en la nueva máquina virtual
 [!INCLUDE [virtual-machines-log-on-win-server](../../../../includes/virtual-machines-log-on-win-server.md)]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Si el botón **Conectar** está inactivo o tiene otros problemas con la conexión a Escritorio remoto, pruebe a restablecer la configuración. Haga clic en **Restablecer acceso remoto** en el panel de la máquina virtual.
 
     ![Reset-remote-access](./media/connect-logon/virtualmachine_dashboard_reset_remote_access.png)

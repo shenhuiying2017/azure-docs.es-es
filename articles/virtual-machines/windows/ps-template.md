@@ -1,11 +1,11 @@
 ---
-title: "Creación de una máquina virtual Windows desde una plantilla de Azure | Microsoft Docs"
-description: "Use una plantilla de Resource Manager y PowerShell para crear fácilmente una nueva máquina virtual de Windows."
+title: Creación de una máquina virtual Windows desde una plantilla de Azure | Microsoft Docs
+description: Use una plantilla de Resource Manager y PowerShell para crear fácilmente una nueva máquina virtual de Windows.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: davidmu1
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 19129d61-8c04-4aa9-a01f-361a09466805
 ms.service: virtual-machines-windows
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: davidmu
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ddab80262fe27c1f5995858ec7de75d7c46df081
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 141dbd6b16bf7e2b6316bd05991026b007668b11
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a>Creación de una máquina virtual Windows con una plantilla de Resource Manager
 
@@ -30,9 +30,9 @@ Para obtener una descripción detallada del recurso de máquina virtual, consult
 
 Tardará unos cinco minutos en realizar los pasos de este artículo.
 
-## <a name="install-azure-powershell"></a>Instalar Azure Powershell
+[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Consulte [Cómo instalar y configurar Azure PowerShell](../../powershell-install-configure.md) para obtener más información sobre cómo instalar la versión más reciente de Azure PowerShell, seleccionar la suscripción que quiere usar e iniciar sesión en su cuenta.
+Si decide instalar y usar PowerShell de forma local, para este tutorial se requiere la versión 5.3 del módulo de Azure PowerShell, o cualquier versión posterior. Ejecute `Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Login-AzureRmAccount` para crear una conexión con Azure.
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
@@ -66,7 +66,7 @@ En este paso, creará un archivo de plantilla que implementa los recursos y un a
       },
       "variables": {
         "vnetID": "[resourceId('Microsoft.Network/virtualNetworks','myVNet')]", 
-        "subnetRef": "[concat(variables('vnetID'),'/subnets/mySubnet')]", 
+        "subnetRef": "[concat(variables('vnetID'),'/subnets/mySubnet')]" 
       },
       "resources": [
         {

@@ -1,11 +1,11 @@
 ---
-title: "Cómo determinar el método de inicio de sesión único que se debe usar | Microsoft Docs"
-description: "Conozca los modos de inicio de sesión único que se admiten en Azure AD y cómo seleccionar uno para la aplicación que le interesa."
+title: Cómo determinar el método de inicio de sesión único que se debe usar | Microsoft Docs
+description: Conozca los modos de inicio de sesión único que se admiten en Azure AD y cómo seleccionar uno para la aplicación que le interesa.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: 4363f308f9bfa685b0f4e946cdd97d34b6ece197
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-determine-what-single-sign-on-method-to-use"></a>Cómo determinar el método de inicio de sesión único que se debe usar
 
@@ -79,6 +79,6 @@ Para establecer el modo de **inicio de sesión único** de una aplicación, siga
 
 7.  Cuando se cargue la aplicación, haga clic en **Inicio de sesión único** desde el menú de navegación izquierdo de la aplicación.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Proporcionar un inicio de sesión único a las aplicaciones con el proxy de aplicación](active-directory-application-proxy-sso-using-kcd.md)
 

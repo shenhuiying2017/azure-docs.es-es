@@ -1,12 +1,12 @@
 ---
-title: "Depuración de Hadoop en HDInsight: ver registros e interpretar mensajes de error - Azure | Microsoft Docs"
-description: "Conozca los mensajes de error que puede recibir cuando administre HDInsight con PowerShell, así como los pasos que debe seguir para la recuperación."
+title: 'Depuración de Hadoop en HDInsight: ver registros e interpretar mensajes de error - Azure | Microsoft Docs'
+description: Conozca los mensajes de error que puede recibir cuando administre HDInsight con PowerShell, así como los pasos que debe seguir para la recuperación.
 services: hdinsight
 tags: azure-portal
 editor: cgronlun
 manager: jhubbard
 author: ashishthaps
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 7e6ceb0e-8be8-4911-bc80-20714030a3ad
 ms.service: hdinsight
 ms.custom: hdinsightactive
@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: ashish
 ms.openlocfilehash: a5db3848eda2dbb6f117562e059b909575966993
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="analyze-hadoop-logs"></a>Análisis de los registros de Hadoop
 
@@ -317,7 +317,7 @@ Algunos de estos mensajes de error también podrían aparecer en el portal de Az
 * **Descripción**: la configuración de clúster no es válida. No se encuentra la configuración de cuenta WASB requerida en las cuentas externas.  
 * **Mitigación**: compruebe que la cuenta exista y que esté bien especificada en la configuración, y luego, vuelva a intentarlo.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Usar vistas de Ambari para depurar trabajos de Tez en HDInsight](../hdinsight-debug-ambari-tez-view.md)
 * [Habilitar los volcados de montón de los servicios de Hadoop en HDInsight basado en Linux (vista previa)](../hdinsight-hadoop-collect-debug-heap-dump-linux.md)

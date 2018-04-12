@@ -1,12 +1,12 @@
 ---
 title: StorSimple serie 8000 como destino de copia de seguridad con Veeam | Microsoft Docs
-description: "Describe la configuración del destino de copia de seguridad de StorSimple con Veeam."
+description: Describe la configuración del destino de copia de seguridad de StorSimple con Veeam.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: harshakirank
 manager: matd
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/06/2016
 ms.author: hkanna
 ms.openlocfilehash: cc1c7a3f77af76c451bb6e97a081a01c119333b5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="storsimple-as-a-backup-target-with-veeam"></a>StorSimple como destino de copia de seguridad con Veeam
 
@@ -274,11 +274,11 @@ De acuerdo con los supuestos anteriores, cree un volumen en capas de StorSimple 
 
     ![consola de administración de Veeam, pantalla de repositorio de copia de seguridad](./media/storsimple-configure-backup-target-using-veeam/veeamimage1.png)
 
-2.  En el cuadro de diálogo **New Backup Repository** (Nuevo repositorio de copia de seguridad), escriba un nombre y una descripción para el repositorio. Seleccione **Siguiente**.
+2.  En el cuadro de diálogo **New Backup Repository** (Nuevo repositorio de copia de seguridad), escriba un nombre y una descripción para el repositorio. Seleccione **Next** (Siguiente).
 
     ![consola de administración de Veeam, página de nombre y descripción](./media/storsimple-configure-backup-target-using-veeam/veeamimage2.png)
 
-3.  Para el tipo, seleccione **Microsoft Windows server**. Seleccione el servidor de Veeam. Seleccione **Siguiente**.
+3.  Para el tipo, seleccione **Microsoft Windows server**. Seleccione el servidor de Veeam. Seleccione **Next** (Siguiente).
 
     ![consola de administración de Veeam, selección del tipo de repositorio de copia de seguridad](./media/storsimple-configure-backup-target-using-veeam/veeamimage3.png)
 
@@ -291,7 +291,7 @@ De acuerdo con los supuestos anteriores, cree un volumen en capas de StorSimple 
 
     ![consola de administración de Veeam, configuración de compatibilidad de almacenamiento](./media/storsimple-configure-backup-target-using-veeam/veeamimage5.png)
 
-6.  En el cuadro de diálogo **New Backup Repository** (Nuevo repositorio de copia de seguridad), seleccione la casilla **Enable vPower NFS service on the mount server (recommended)** (Habilitar el servicio vPower NFS en el servidor de montaje [recomendado]). Seleccione **Siguiente**.
+6.  En el cuadro de diálogo **New Backup Repository** (Nuevo repositorio de copia de seguridad), seleccione la casilla **Enable vPower NFS service on the mount server (recommended)** (Habilitar el servicio vPower NFS en el servidor de montaje [recomendado]). Seleccione **Next** (Siguiente).
 
     ![consola de administración de Veeam, pantalla de repositorio de copia de seguridad](./media/storsimple-configure-backup-target-using-veeam/veeamimage6.png)
 

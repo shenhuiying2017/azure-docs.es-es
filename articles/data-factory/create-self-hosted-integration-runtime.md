@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: abnarain
 ms.openlocfilehash: b18fa2879056600cfc9c6a85afc599e2695af711
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Creación y configuración de una instancia de Integration Runtime autohospedado
 Integration Runtime es la infraestructura de proceso que usa Azure Data Factory para proporcionar capacidades de integración de datos en distintos entornos de red. Para obtener más información acerca del tiempo de ejecución de integración, consulte [Integration Runtime Overview](concepts-integration-runtime.md) (Información general de Integration Runtime).

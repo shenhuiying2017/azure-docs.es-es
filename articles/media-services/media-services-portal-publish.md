@@ -1,11 +1,11 @@
 ---
-title: "Publicación de contenido en Azure Portal | Microsoft Docs"
-description: "Este tutorial describe los pasos de publicación de contenido en Azure Portal."
+title: Publicación de contenido en Azure Portal | Microsoft Docs
+description: Este tutorial describe los pasos de publicación de contenido en Azure Portal.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 92c364eb-5a5f-4f4e-8816-b162c031bb40
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: juliako
-ms.openlocfilehash: 6759d3f49e15a3b01022df318a83563ad6bd859f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 6fec9b21e8612376dced6af9da7304f4c2b1a93f
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="publish-content-in-the-azure-portal"></a>Publicación de contenido en Azure Portal
 > [!div class="op_single_selector"]
@@ -36,20 +36,20 @@ ms.lasthandoff: 12/21/2017
 
 Para proporcionar al usuario una dirección URL que pueda utilizarse para transmitir o descargar el contenido, primero debe publicar el recurso mediante la creación de un localizador. Los localizadores proporcionan acceso a los archivos de recursos. Azure Media Services admite dos tipos de localizadores: 
 
-* **Localizadores de streaming (OnDemandOrigin)**. Los localizadores de streaming se usan para streaming adaptable. Los ejemplos de streaming adaptable incluyen Apple HTTP Live Streaming (HLS), Microsoft Smooth Streaming y Dynamic Adaptive Streaming sobre HTTP (DASH, también llamado MPEG-DASH). Para crear un localizador de streaming, el recurso debe incluir un archivo .ism. 
+* **Localizadores de streaming (OnDemandOrigin)**. Los localizadores de streaming se usan para streaming adaptable. Los ejemplos de streaming adaptable incluyen Apple HTTP Live Streaming (HLS), Microsoft Smooth Streaming y Dynamic Adaptive Streaming sobre HTTP (DASH, también llamado MPEG-DASH). Para crear un localizador de streaming, el recurso debe incluir un archivo .ism. Por ejemplo, http://amstest.streaming.mediaservices.windows.net/61b3da1d-96c7-489e-bd21-c5f8a7494b03/scott.ism/manifest.
 * **Localizadores progresivos (firma de acceso compartido)**. Los localizadores progresivos se usan para proporcionar vídeo mediante descarga progresiva.
 
 Para generar una dirección URL de streaming de HLS, anexe *(format=m3u8-aapl)* a la dirección URL:
 
-    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{file name}.ism/Manifest(format=m3u8-aapl)
+    {streaming endpoint name-media services account name}/{locator ID}/{file name}.ism/Manifest(format=m3u8-aapl)
 
 Para generar una dirección URL de streaming para reproducir recursos de Smooth Streaming, utilice el formato de dirección URL siguiente:
 
-    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{file name}.ism/Manifest
+    {streaming endpoint name-media services account name}/{locator ID}/{file name}.ism/Manifest
 
 Para generar una dirección URL de streaming de MPEG DASH, anexe *(format=mpd-time-csf)* a la dirección URL:
 
-    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{file name}.ism/Manifest(format=mpd-time-csf)
+    {streaming endpoint name-media services account name}/{locator ID}/{file name}.ism/Manifest(format=mpd-time-csf)
 
 Una dirección URL de firma de acceso compartido tiene el formato siguiente:
 

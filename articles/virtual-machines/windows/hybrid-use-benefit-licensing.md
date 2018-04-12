@@ -1,11 +1,11 @@
 ---
-title: "Ventaja para uso híbrido de Azure para Windows Server | Microsoft Docs"
-description: "Descubra cómo maximizar las ventajas de Software Assurance de Windows para incorporar licencias locales a Azure"
+title: Ventaja para uso híbrido de Azure para Windows Server | Microsoft Docs
+description: Descubra cómo maximizar las ventajas de Software Assurance de Windows para incorporar licencias locales a Azure
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: kmouss
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: 332583b6-15a3-4efb-80c3-9082587828b0
 ms.service: virtual-machines-windows
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/22/2017
 ms.author: kmouss
-ms.openlocfilehash: 245bffbc208ce67d990a63e744c42dc671686b4b
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f445a2c77b14477ea2ef4ff7722183d641275f08
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Ventaja para uso híbrido de Azure para Windows Server
 Para los clientes con Software Assurance, la ventaja para uso híbrido de Azure para Windows Server le permite usar las licencias de Windows Server locales y ejecutar máquinas virtuales de Windows en Azure a bajo costo. Puede usar la ventaja para uso híbrido de Azure para Windows Server para implementar nuevas máquinas virtuales desde imágenes personalizadas de Windows o cualquier imagen de Windows Server de una plataforma de Azure compatible. En este artículo se recorren los pasos necesarios para implementar nuevas máquinas virtuales con la Ventaja híbrida de Azure para Windows Server y para actualizar las máquinas virtuales en funcionamiento existentes. Para obtener más información acerca de los ahorros de costos y la concesión de licencias de la ventaja para uso híbrido para Azure para Windows Server, vea la [página de concesión de licencias de la ventaja para uso híbrido de Azure para Windows Server](https://azure.microsoft.com/pricing/hybrid-use-benefit/).

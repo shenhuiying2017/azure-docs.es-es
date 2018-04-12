@@ -1,11 +1,11 @@
 ---
-title: "Planificación de la migración de recursos de IaaS del modelo clásico a Azure Resource Manager | Microsoft Docs"
-description: "Planificación de la migración de recursos de IaaS del modelo clásico a Azure Resource Manager"
+title: Planificación de la migración de recursos de IaaS del modelo clásico a Azure Resource Manager | Microsoft Docs
+description: Planificación de la migración de recursos de IaaS del modelo clásico a Azure Resource Manager
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: singhkays
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 78492a2c-2694-4023-a7b8-c97d3708dcb7
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: 246032701d97fc7d16e6cb38ee79fbd5470f65d9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 586a5590c88ef4124543c47389f62eaa864d2d18
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planificación de la migración de recursos de IaaS del modelo clásico a Azure Resource Manager
 Aunque Azure Resource Manager ofrece muchas características increíbles, es fundamental planificar la trayectoria de migración para garantizar que el proceso se desarrolle con facilidad. Dedicar tiempo a la planificación garantizará que no se planteen problemas al ejecutar las actividades de migración. 
@@ -58,9 +58,9 @@ Los clientes de éxito disponen de planes detallados en los que se abordan, se d
 * [Planning for migration of IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-plan.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Planificación de la migración de recursos de IaaS del modelo clásico a Azure Resource Manager)
 * [Migración de recursos de IaaS de la implementación clásica a Resource Manager con Azure PowerShell](../windows/migration-classic-resource-manager-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Migración de recursos de IaaS de la implementación clásica a Azure Resource Manager con la CLI de Azure](migration-classic-resource-manager-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Herramientas de la comunidad para ayudar con la migración de recursos de IaaS de la versión clásica a Azure Resource Manager](../windows/migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Herramientas de la comunidad para ayudar con la migración de recursos de IaaS del modelo de implementación clásica a Azure Resource Manager](../windows/migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Revisión de los errores más comunes en la migración](migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Revisión de las preguntas más frecuentes acerca de cómo migrar recursos de IaaS de la versión clásica a Azure Resource Manager](migration-classic-resource-manager-faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Revisión de las preguntas más frecuentes acerca de cómo migrar recursos de IaaS del modelo de implementación clásica a Azure Resource Manager](migration-classic-resource-manager-faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ### <a name="pitfalls-to-avoid"></a>Errores que hay que evitar
 

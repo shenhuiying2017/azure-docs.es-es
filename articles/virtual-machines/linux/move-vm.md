@@ -1,11 +1,11 @@
 ---
 title: Movimiento de una VM de Linux en Azure | Microsoft Docs
-description: "Mueva una máquina virtual Linux a otro grupo de recursos o suscripción de Azure en el modelo de implementación de Resource Manager."
+description: Mueva una máquina virtual Linux a otro grupo de recursos o suscripción de Azure en el modelo de implementación de Resource Manager.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: d635f0a5-4458-4b95-a5f8-eed4f41eb4d4
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 12/14/2017
 ms.author: cynthn
-ms.openlocfilehash: 459e0d591e2279b63864a273f713e4c1df8c0858
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: a4a7dd5541fe298675232ffa803f749e71f6a03f
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="move-a-linux-vm-to-another-subscription-or-resource-group"></a>Traslado de una máquina virtual Linux a otra suscripción o grupo de recursos
 Este artículo le guiará en el procedimiento para mover una máquina virtual Linux entre suscripciones o grupos de recursos. Mover una máquina virtual entre suscripciones puede ser útil si ha creado una máquina virtual en una suscripción personal y ahora quiere moverla a la suscripción de su compañía.
@@ -70,6 +70,6 @@ Se le pedirá que confirme que quiere mover el recurso especificado. Escriba **Y
 
 [!INCLUDE [virtual-machines-common-move-vm](../../../includes/virtual-machines-common-move-vm.md)]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Puede mover muchos tipos diferentes de recursos entre suscripciones y grupos de recursos. Para obtener más información, consulte [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](../../resource-group-move-resources.md).    
 

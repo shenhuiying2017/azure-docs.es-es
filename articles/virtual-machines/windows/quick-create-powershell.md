@@ -1,13 +1,13 @@
 ---
-title: "Inicio rápido de Azure: creación de máquinas virtuales Windows con PowerShell | Microsoft Docs"
-description: "Aprenda rápidamente a crear una máquina virtual Windows con PowerShell."
+title: 'Inicio rápido de Azure: creación de máquinas virtuales Windows con PowerShell | Microsoft Docs'
+description: Aprenda rápidamente a crear una máquina virtual Windows con PowerShell.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: hero-article
@@ -16,16 +16,15 @@ ms.workload: infrastructure
 ms.date: 02/12/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 393536ab2c485f2ecf844144016c212bd1d00c16
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: f1ab714407bd686ac8bffb23c7ba9ec8951902ef
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-windows-virtual-machine-with-powershell"></a>Creación de una máquina virtual Windows con PowerShell
 
-El módulo de Azure PowerShell se usa para crear y administrar recursos de Azure desde la línea de comandos de PowerShell o en scripts. En esta guía de inicio rápido se detalla cómo usar PowerShell para crear y ejecutar máquinas virtuales de Azure con Windows Server 2016. Una vez completada la implementación, nos conectaremos al servidor e instalaremos IIS.
-  
+El módulo de Azure PowerShell se usa para crear y administrar recursos de Azure desde la línea de comandos de PowerShell o en scripts. En esta guía de inicio rápido se detalla cómo usar PowerShell para crear y ejecutar máquinas virtuales de Azure con Windows Server 2016. Una vez completada la implementación, nos conectaremos al servidor e instalaremos IIS.  
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -44,7 +43,7 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 ```
 
 
-## <a name="create-virtual-machine"></a>Create virtual machine
+## <a name="create-virtual-machine"></a>Crear máquina virtual
 
 Cree la máquina virtual con [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). Solo tiene que proporcionar los nombres de cada uno de los recursos y el cmdlet de New-AzureRMVM los creará si aún no existen.
 
@@ -100,7 +99,7 @@ Cuando ya no se necesiten, puede usar el comando [Remove-AzureRmResourceGroup](/
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En esta guía de inicio rápido, ha implementado una máquina virtual simple y una regla de grupo de seguridad de red, y ha instalado un servidor web. Para más información acerca de las máquinas virtuales de Azure, continúe con el tutorial de máquinas virtuales Windows.
 

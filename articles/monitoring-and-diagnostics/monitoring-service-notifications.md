@@ -1,12 +1,12 @@
 ---
-title: "¿Qué son las notificaciones de mantenimiento del servicio de Azure? | Microsoft Docs"
+title: ¿Qué son las notificaciones de mantenimiento del servicio de Azure? | Microsoft Docs
 description: Las notificaciones de mantenimiento del servicio permiten ver los mensajes de mantenimiento del servicio que publica Microsoft Azure.
 author: anirudhcavale
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/31/2017
 ms.author: ancav
 ms.openlocfilehash: 4a95e9882515e6a2861292829a44847e11f39063
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Visualización de las notificaciones de mantenimiento del servicio mediante Azure Portal
 
@@ -75,6 +75,6 @@ Properties.communicationId | La comunicación con la cual está asociado este ev
     ![Captura de pantalla del registro de actividad del Monitor, con Alertas seleccionado](./media/monitoring-service-notifications/service-health-summary.png)
 4. Seleccione **+Agregar alerta del registro de actividad** y configure una alerta para asegurarse de que recibe las futuras notificaciones del servicio. Para más información, consulte [Creación de alertas del registro de actividad en notificaciones del servicio](monitoring-activity-log-alerts-on-service-notifications.md).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Reciba [notificaciones de alertas con cada notificación de mantenimiento del servicio](monitoring-activity-log-alerts-on-service-notifications.md).  
 Más información sobre las [alertas del registro de actividad](monitoring-activity-log-alerts.md).

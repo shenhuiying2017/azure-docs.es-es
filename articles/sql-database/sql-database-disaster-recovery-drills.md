@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-ms.date: 10/20/2016
+ms.date: 04/01/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 10a3891c51d20a26b946847d47bb712d97fa3c51
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 948b8c2c7eac7306336e5dacafffb62a337b8191
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="performing-disaster-recovery-drill"></a>Obtención de detalles de la recuperación ante desastres
 Se recomienda validar periódicamente el flujo de trabajo de preparación de la aplicación para la recuperación. Comprobar el comportamiento de la aplicación y las implicaciones de las pérdidas de datos o de las interrupciones que conlleva la conmutación por error es una buena práctica de ingeniería. También es un requisito de la mayoría de estándares del sector como parte de la certificación de continuidad del negocio.

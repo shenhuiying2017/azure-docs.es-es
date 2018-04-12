@@ -1,11 +1,11 @@
 ---
-title: "Uso de Azure PowerShell para habilitar diagnósticos en una máquina virtual Windows | Microsoft Docs"
+title: Uso de Azure PowerShell para habilitar diagnósticos en una máquina virtual Windows | Microsoft Docs
 services: virtual-machines-windows
-documentationcenter: 
-description: "Aprenda a usar PowerShell para habilitar Diagnósticos de Azure en una máquina virtual con Windows"
+documentationcenter: ''
+description: Aprenda a usar PowerShell para habilitar Diagnósticos de Azure en una máquina virtual con Windows
 author: sbtron
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: 2e6d88f2-1980-4a24-827e-a81616a0d247
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: saurabh
-ms.openlocfilehash: d0be4a712657edfc516c5f32e66519f5d9486728
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 49c6fe69afdee6a075d9f888f8a2417455bc7e51
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="use-powershell-to-enable-azure-diagnostics-in-a-virtual-machine-running-windows"></a>Uso de PowerShell para habilitar Diagnósticos de Azure en una máquina virtual con Windows
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -195,6 +195,6 @@ La configuración debe actualizarse para incluir lo siguiente:
     ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Para obtener orientación adicional sobre el uso de la funcionalidad Diagnósticos de Azure y otras técnicas para solucionar problemas, consulte [Habilitación de diagnósticos en Servicios en la nube y Máquinas virtuales de Azure](../../cloud-services/cloud-services-dotnet-diagnostics.md).
+* Para obtener orientación adicional sobre el uso de la funcionalidad Diagnósticos de Azure y otras técnicas para solucionar problemas, consulte [Habilitación de diagnósticos en Azure Cloud Services y Virtual Machines](../../cloud-services/cloud-services-dotnet-diagnostics.md).
 * [Esquema de configuración de diagnósticos](https://msdn.microsoft.com/library/azure/mt634524.aspx) se explican las distintas opciones de configuración XML para la extensión de diagnósticos.
 

@@ -1,11 +1,11 @@
 ---
-title: "Error inesperado al otorgar consentimiento a una aplicación | Microsoft Docs"
-description: "Explica los errores que pueden producirse durante el proceso de otorgar su consentimiento a una aplicación y qué puede hacer al respecto"
+title: Error inesperado al otorgar consentimiento a una aplicación | Microsoft Docs
+description: Explica los errores que pueden producirse durante el proceso de otorgar su consentimiento a una aplicación y qué puede hacer al respecto
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: bbc0cee8a44773c025c6174eaf7eccaba81b8d1b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>Error inesperado al otorgar consentimiento a una aplicación
 
@@ -27,7 +27,7 @@ Muchas aplicaciones que se integran con Azure Active Directory requieren permiso
 
 Esto produce que se muestre una solicitud de consentimiento, que generalmente ocurre la primera vez que se usa una aplicación, pero que también se puede producir en un uso posterior de la aplicación.
 
-Determinadas condiciones deben cumplirse para que un usuario otorgue su consentimiento a los permisos que requiere una aplicación. Si no se cumplen estas condiciones, pueden producirse varios errores. Entre ellos se incluyen los siguientes:
+Determinadas condiciones deben cumplirse para que un usuario otorgue su consentimiento a los permisos que requiere una aplicación. Si no se cumplen estas condiciones, pueden producirse varios errores. Entre ellas se incluyen las siguientes:
 
 ## <a name="requesting-not-authorized-permissions-error"></a>Error por solicitud de permisos no autorizados
 * **AADSTS90093:**&lt;clientAppDisplayName&gt; solicita uno o más permisos que no está autorizado a conceder. Póngase en contacto con el administrador, que puede dar su consentimiento para esta aplicación en su nombre.

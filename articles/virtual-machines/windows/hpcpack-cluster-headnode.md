@@ -1,11 +1,11 @@
 ---
-title: "Creación de un nodo principal de HPC Pack en una VM de Azure | Microsoft Azure"
-description: "Aprenda a usar Azure Portal y el modelo de implementación de Resource Manager para crear un nodo principal Microsoft HPC Pack 2012 R2 en una máquina virtual de Azure."
+title: Creación de un nodo principal de HPC Pack en una VM de Azure | Microsoft Azure
+description: Aprenda a usar Azure Portal y el modelo de implementación de Resource Manager para crear un nodo principal Microsoft HPC Pack 2012 R2 en una máquina virtual de Azure.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager,hpc-pack
 ms.assetid: e6a13eaf-9124-47b4-8d75-2bc4672b8f21
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 12/29/2016
 ms.author: danlep
-ms.openlocfilehash: b2bb9caf82a580dc5f67ea0b0b1c2e9a46363e9c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: acd4cd44dd35a5b1755d9456f683076567d62165
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-the-head-node-of-an-hpc-pack-cluster-in-an-azure-vm-with-a-marketplace-image"></a>Creación del nodo principal de un clúster de HPC Pack en una máquina virtual de Azure con una imagen de Marketplace
 Use una [imagen de máquina virtual de Microsoft HPC Pack 2012 R2](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/) de Azure Marketplace y Azure Portal para crear el nodo principal de un clúster HPC. Esta imagen de máquina virtual de HPC Pack se basa en Windows Server 2012 R2 Datacenter con HPC Pack 2012 R2 Update 3 preinstalado. Utilice este nodo principal para una implementación de prueba de concepto de HPC Pack en Azure. A continuación, puede agregar nodos de proceso al clúster para ejecutar cargas de trabajo HPC.
@@ -58,7 +58,7 @@ A continuación, se muestran los pasos generales para, con el Portal de Azure, c
 6. Una la máquina virtual a un bosque de dominio de Active Directory mediante la selección de una de las siguientes opciones:
    
    * Si ha creado la máquina virtual en una red virtual de Azure con un bosque de dominio existente, una la máquina virtual al bosque mediante las herramientas estándar del Administrador de servidores o de Windows PowerShell. Después, reinicie.
-   * Si creó la máquina virtual en una nueva red virtual (sin un bosque de dominio existente), configure la máquina virtual como controlador de dominio. Utilice los pasos estándar para instalar y configurar el rol de Servicios de dominio de Active Directory en el nodo principal. Para ver los pasos detallados, consulte [Instalar un nuevo bosque de Active Directory de Windows Server 2012 (nivel 200)](https://technet.microsoft.com/library/jj574166.aspx).
+   * Si creó la máquina virtual en una nueva red virtual (sin un bosque de dominio existente), configure la máquina virtual como controlador de dominio. Utilice los pasos estándar para instalar y configurar el rol de Active Directory Domain Services en el nodo principal. Para ver los pasos detallados, consulte [Instalar un nuevo bosque de Active Directory de Windows Server 2012 (nivel 200)](https://technet.microsoft.com/library/jj574166.aspx).
 7. Cuando la máquina virtual se esté ejecutando y esté unida a un bosque de Active Directory, inicie los servicios de HPC Pack del modo siguiente:
    
     a. Conéctese a la máquina virtual del nodo principal con una cuenta de dominio que sea miembro del grupo Administradores local. Por ejemplo, use la cuenta de administrador que se configura al crear la máquina virtual del nodo principal.

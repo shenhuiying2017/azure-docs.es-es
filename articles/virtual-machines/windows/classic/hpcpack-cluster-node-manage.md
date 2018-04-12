@@ -1,11 +1,11 @@
 ---
-title: "Administración de nodos de proceso del clúster de HPC Pack | Microsoft Docs"
-description: "Obtenga información sobre las herramientas de script de PowerShell para agregar, quitar, iniciar y detener los nodos de proceso del clúster de HPC Pack 2012 R2 en Azure"
+title: Administración de nodos de proceso del clúster de HPC Pack | Microsoft Docs
+description: Obtenga información sobre las herramientas de script de PowerShell para agregar, quitar, iniciar y detener los nodos de proceso del clúster de HPC Pack 2012 R2 en Azure
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,hpc-pack
 ms.assetid: 4193f03b-94e9-4704-a7ad-379abde063a9
 ms.service: virtual-machines-windows
@@ -15,20 +15,20 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 12/29/2016
 ms.author: danlep
-ms.openlocfilehash: 2ad67efecf9a688ac3e7ccd7cc32576e9a46d1f5
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 453f53be15b24b96f183b4935cc45fc97ad058bd
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="manage-the-number-and-availability-of-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>Administrar el número y la disponibilidad de los nodos de ejecución en un clúster de HPC Pack en Azure
 Si creó un clúster de HPC Pack 2012 R2 en las máquinas virtuales de Azure, puede que desee agregar, quitar, iniciar (aprovisionar) o detener (desaprovisionar) fácilmente algunas máquinas virtuales de nodo de ejecución en el clúster. Para realizar estas tareas, ejecute los scripts de Azure PowerShell que están instalados en el nodo principal de la máquina virtual. Estos scripts le ayudan a controlar el número y la disponibilidad de los recursos de clúster de HPC Pack para que pueda controlar los costos.
 
 > [!IMPORTANT] 
-> La información de este artículo solo se aplica a los clústeres de HPC Pack 2012 R2 en Azure que se hayan creado con el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos.
+> La información de este artículo solo se aplica a los clústeres de HPC Pack 2012 R2 en Azure que se hayan creado con el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo de Resource Manager.
 > Además, los scripts de PowerShell que se describen en este artículo no están disponibles en HPC Pack 2016.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 * **Clúster de HPC Pack 2012 R2 en máquinas virtuales de Azure**: cree un clúster de HPC Pack 2012 R2 en el modelo de implementación clásico. Por ejemplo, puede automatizar la implementación mediante la imagen de la máquina virtual de HPC Pack 2012 R2 en Azure Marketplace y un script de Azure PowerShell. Para más información y ver los requisitos previos, consulte [Creación de un clúster de HPC con el script de implementación de HPC Pack IaaS](hpcpack-cluster-powershell-script.md).
   
     Después de la implementación, busque los scripts de administración de nodo en la carpeta % CCP\_HOME %bin en el nodo principal. Ejecute cada uno de estos scripts como administrador.
@@ -57,7 +57,7 @@ Add-HPCIaaSNode.ps1 [-ServiceName] <String> [-ImageName] <String>
  [[-NodeNameSeries] <String>] [<CommonParameters>]
 
 ```
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 * **ServiceName**: nombre del servicio en la nube al que se agregan las nuevas máquinas virtuales de nodos de proceso.
 * **ImageName**: nombre de la imagen de máquina virtual de Azure, que puede obtenerse mediante Azure Portal o el cmdlet de Azure PowerShell **Get-AzureVMImage**. La imagen debe cumplir los siguientes requisitos:
   
@@ -90,7 +90,7 @@ Remove-HPCIaaSNode.ps1 -Name <String[]> [-DeleteVHD] [-Force] [-WhatIf] [-Confir
 Remove-HPCIaaSNode.ps1 -Node <Object> [-DeleteVHD] [-Force] [-Confirm] [<CommonParameters>]
 ```
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 * **Name**: nombres de los nodos de clúster que se van a quitar. Se admite caracteres comodín. El nombre del conjunto de parámetros es Name. No se pueden especificar los dos parámetros, **Name** y **Node**.
 * **Node**: objeto HpcNode para los nodos que se van quitar, que se puede obtener a través del cmdlet de HPC PowerShell [Get-HpcNode](https://technet.microsoft.com/library/dn887927.aspx). El nombre del conjunto de parámetro es Node. No se pueden especificar los dos parámetros, **Name** y **Node**.
 * **DeleteVHD** (opcional): configuración para eliminar los discos asociados para las máquinas virtuales que se quitan.
@@ -114,7 +114,7 @@ Start-HPCIaaSNode.ps1 -Name <String[]> [<CommonParameters>]
 
 Start-HPCIaaSNode.ps1 -Node <Object> [<CommonParameters>]
 ```
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 * **Name**: nombres de los nodos de clúster que se van a iniciar. Se admite caracteres comodín. El nombre del conjunto de parámetros es Name. No se pueden especificar los dos parámetros, **Name** y **Node**.
 * **Node**: objeto HpcNode para los nodos que se van a iniciar, que se puede obtener mediante el cmdlet de HPC PowerShell [Get-HpcNode](https://technet.microsoft.com/library/dn887927.aspx). El nombre del conjunto de parámetro es Node. No se pueden especificar los dos parámetros, **Name** y **Node**.
 

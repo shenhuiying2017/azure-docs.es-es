@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/15/2017
 ms.author: robb
 ms.openlocfilehash: 02656c5bb4d2acd944f565d1397984ce94ced0bd
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Esquema de configuración de Azure Diagnostics 1.3 y posterior
 > [!NOTE]
@@ -603,12 +603,12 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Atributo|type|DESCRIPCIÓN|  
 |---------------|----------|-----------------|  
-|**name**|cadena|Cadena que identifica el nombre de receptor.|  
+|**name**|string|Cadena que identifica el nombre de receptor.|  
 
 |Elemento|type|DESCRIPCIÓN|  
 |-------------|----------|-----------------|  
-|**Application Insights**|cadena|Se usa solo al enviar datos a Application Insights. Contiene la clave de instrumentación para una cuenta activa de Application Insights a la que tiene acceso.|  
-|**Channels**|cadena|Uno para cada filtrado adicional transmitido|  
+|**Application Insights**|string|Se usa solo al enviar datos a Application Insights. Contiene la clave de instrumentación para una cuenta activa de Application Insights a la que tiene acceso.|  
+|**Channels**|string|Uno para cada filtrado adicional transmitido|  
 
 ## <a name="channels-element"></a>Elemento Channels  
  *Árbol: Raíz - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - Channels*
@@ -619,7 +619,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Elemento|type|DESCRIPCIÓN|  
 |-------------|----------|-----------------|  
-|**Channel**|cadena|Consulte la descripción en cualquier parte de esta página.|  
+|**Channel**|string|Consulte la descripción en cualquier parte de esta página.|  
 
 ## <a name="channel-element"></a>Elemento Channel
  *Árbol: Raíz - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - Channels - Channel*

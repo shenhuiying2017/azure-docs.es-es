@@ -4,7 +4,7 @@ description: Programe los eventos usando Azure Metadata Service para las máquin
 services: virtual-machines-windows, virtual-machines-linux, cloud-services
 documentationcenter: ''
 author: ericrad
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: ''
 ms.assetid: ''
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: c87dd5bdbdc87bf238f34d145bd7380a61b90cb6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: db4a0d1f288394276cd400e7a060cfb3662b34f0
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure Metadata Service: Scheduled Events (versión preliminar) para VM Linux
 
@@ -129,7 +129,7 @@ En caso de que haya eventos programados, la respuesta contiene una matriz de eve
 | ResourceType | Es el tipo de recurso al que este evento afecta. <br><br> Valores: <ul><li>`VirtualMachine`|
 | Recursos| Es la lista de recursos a los que este evento afecta. Se garantiza que contenga máquinas de un [dominio de actualización](manage-availability.md) como máximo, pero puede no contener todas las máquinas en dicho dominio. <br><br> Ejemplo: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | EventStatus | Es el estado de este evento. <br><br> Valores: <ul><li>`Scheduled`: este evento está programado para iniciarse después de la hora especificada en la propiedad `NotBefore`.<li>`Started`: este evento se ha iniciado.</ul> Ni `Completed` ni otro estado similar se han proporcionado antes. El evento ya no vuelve cuando finaliza el evento.
-| NotBefore| Hora a partir de la que puede iniciarse este evento. <br><br> Ejemplo: <br><ul><li> Lunes, 19 septiembre de 2016, 18:29:47 GMT  |
+| NotBefore| Hora a partir de la que puede iniciarse este evento. <br><br> Ejemplo: <br><ul><li> Lunes, 19 de septiembre de 2016, 18:29:47 GMT  |
 
 ### <a name="event-scheduling"></a>Programación de eventos
 Cada evento se programa una cantidad mínima de tiempo en el futuro en función de su tipo. Este tiempo se refleja en la propiedad `NotBefore` de un evento. 

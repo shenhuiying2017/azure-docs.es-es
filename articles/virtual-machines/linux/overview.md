@@ -1,11 +1,11 @@
 ---
-title: "Introducción a las máquinas virtuales Linux en Azure | Microsoft Docs"
-description: "Describe los servicios Azure Compute, Storage y Network con máquinas virtuales de Linux."
+title: Introducción a las máquinas virtuales Linux en Azure | Microsoft Docs
+description: Describe los servicios Azure Compute, Storage y Network con máquinas virtuales de Linux.
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
 author: rickstercdn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: 7965a80f-ea24-4cc2-bc43-60b574101902
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -15,11 +15,11 @@ ms.workload: infrastructure
 ms.date: 11/29/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: cdb2bda0c3f7e73b115c2609c3f229c633093bdc
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: d2e4a014a0f7bb7f94885528abc930d2b243318b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-and-linux"></a>Azure y Linux
 Microsoft Azure es una colección cada vez mayor de servicios en la nube, públicos e integrados, que incluyen servicios de análisis, máquinas virtuales, bases de datos, móviles, de red, de almacenamiento y web, ideales para hospedar sus soluciones.  Microsoft Azure proporciona una plataforma informática escalable que permite pagar solo por lo que use, cuando lo desee, sin tener que invertir en hardware local.  Azure está listo cuando tenga que escalar sus soluciones vertical y horizontalmente a cualquier escala que necesite para atender las necesidades de sus clientes.
@@ -125,7 +125,7 @@ Ahora, la máquina virtual se está ejecutando en Azure y ya puede iniciar sesi�
 * [Presentación del servicio Contenedor de Azure](../../container-service/container-service-intro.md)
 * [Implementación de un clúster del servicio Contenedor de Azure](../../container-service/dcos-swarm/container-service-deployment.md)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Ya tiene una visión general de Linux en Azure.  El siguiente paso consiste en empezar a crear algunas máquinas virtuales.
 
 * [Explore la creciente lista de scripts de ejemplo para ver las tareas comunes que se pueden realizar mediante la CLI de Azure](cli-samples.md)

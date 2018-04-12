@@ -1,12 +1,12 @@
 ---
-title: "Escalado de prueba y depuración local de U-SQL con el SDK de U-SQL para Azure Data Lake | Microsoft Docs"
-description: "Obtenga información acerca de cómo usar el SDK de U-SQL para Azure Data Lake para escalar pruebas y depuraciones locales de trabajos de U-SQL con línea de comandos e interfaces de programación en la estación de trabajo local."
+title: Escalado de prueba y depuración local de U-SQL con el SDK de U-SQL para Azure Data Lake | Microsoft Docs
+description: Obtenga información acerca de cómo usar el SDK de U-SQL para Azure Data Lake para escalar pruebas y depuraciones locales de trabajos de U-SQL con línea de comandos e interfaces de programación en la estación de trabajo local.
 services: data-lake-analytics
-documentationcenter: 
-author: 
-manager: 
-editor: 
-ms.assetid: 
+documentationcenter: ''
+author: ''
+manager: ''
+editor: ''
+ms.assetid: ''
 ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: article
@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 03/01/2017
 ms.author: yanacai
 ms.openlocfilehash: 55242bcf644ca0e7f30cfe7eada2130451c36e64
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="scale-u-sql-local-run-and-test-with-azure-data-lake-u-sql-sdk"></a>Escalado de prueba y depuración local de U-SQL con el SDK de U-SQL para Azure Data Lake
 
@@ -68,7 +68,7 @@ Puede usar tanto una ruta de acceso relativa como una ruta de acceso absoluta lo
 
 Al ejecutar localmente el script U-SQL, se crea un directorio de trabajo durante la compilación en el directorio que se está ejecutando actualmente. Además de las salidas de compilación, se creará una instantánea de los archivos del runtime necesarios para la ejecución local en este directorio de trabajo. La carpeta de raíz del directorio de trabajo se denomina "ScopeWorkDir" y los archivos dentro el directorio de trabajo son los siguientes:
 
-|Directorio o archivo|Directorio o archivo|Directorio o archivo|Definición|Descripción|
+|Directorio o archivo|Directorio o archivo|Directorio o archivo|Definición|DESCRIPCIÓN|
 |--------------|--------------|--------------|----------|-----------|
 |C6A101DDCB470506| | |Cadena de hash de la versión del runtime|Instantánea de los archivos del runtime necesarios para la ejecución local|
 | |Script_66AE4909AA0ED06C| |Nombre de script + cadena de hash de la ruta de acceso del script|Resultados de compilación y registro de los pasos de ejecución|
@@ -142,7 +142,7 @@ El comando **run** se utiliza para compilar el script y ejecutar después los re
 A continuación se muestran los argumentos opcionales para **run**:
 
 
-|Argumento|Valor predeterminado|Descripción|
+|Argumento|Valor predeterminado|DESCRIPCIÓN|
 |--------|-------------|-----------|
 |-CodeBehind|False|El script tiene código subyacente .cs|
 |-CppSDK| |Directorio CppSDK|
@@ -174,7 +174,7 @@ El comando **compile** se utiliza para compilar un script U-SQL en los archivos 
 A continuación, se muestran los argumentos opcionales para **compile**:
 
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 |--------|-----------|
 | -CodeBehind [valor predeterminado 'False']|El script tiene código subyacente .cs|
 | -CppSDK [valor predeterminado '']|Directorio CppSDK|
@@ -212,7 +212,7 @@ El comando **execute** se usa para ejecutar resultados compilados.
 
 A continuación, se muestran los argumentos opcionales para **execute**:
 
-|Argumento|Descripción|
+|Argumento|DESCRIPCIÓN|
 |--------|-----------|
 |-DataRoot [valor predeterminado '']|Raíz de datos para la ejecución de metadatos. De manera predeterminada, es la variable de entorno **LOCALRUN_DATAROOT**.|
 |-MessageOut [valor predeterminado '']|Volcar mensajes de la consola en un archivo.|
@@ -337,24 +337,24 @@ LocalRunHelper.exe proporciona las interfaces de programación de compilación l
 
 public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 
-|.|Tipo|Descripción|
+|.|type|DESCRIPCIÓN|
 |---------|----|-----------|
 |messageOutput|System.IO.TextWriter|para los mensajes de salida; establézcalo en null para usar la consola|
 
 **Propiedades**
 
-|Propiedad|Escriba|Descripción|
+|Propiedad|type|DESCRIPCIÓN|
 |--------|----|-----------|
 |AlgebraPath|string|La ruta de acceso al archivo álgebra (el archivo álgebra es uno de los resultados de compilación)|
 |CodeBehindReferences|string|Si el script tiene referencias adicionales de código subyacente, especifique las rutas de acceso separadas por ";".|
 |CppSdkDir|string|Directorio CppSDK|
 |CurrentDir|string|Directorio actual|
-|DataRoot|cadena|Ruta de acceso raíz de datos|
+|DataRoot|string|Ruta de acceso raíz de datos|
 |DebuggerMailPath|string|La ruta de acceso al buzón interproceso del depurador|
 |GenerateUdoRedirect|booleano|Si desea generar carga la configuración de invalidación de redirección de carga de ensamblados|
 |HasCodeBehind|booleano|Si el script tiene código subyacente|
-|InputDir|cadena|Directorio de datos de entrada|
-|MessagePath|cadena|Ruta de acceso del archivo de volcado de memoria de mensajes|
+|InputDir|string|Directorio de datos de entrada|
+|MessagePath|string|Ruta de acceso del archivo de volcado de memoria de mensajes|
 |OutputDir|string|Directorio de datos de salida|
 |Paralelismo|int|Paralelismo para ejecutar el álgebra|
 |ParentPid|int|PID del elemento primario en el que se supervisa el servicio; para salir se establece en 0 o en un valor negativo para omitirlo.|
@@ -362,14 +362,14 @@ public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 |RuntimeDir|string|Directorio del entorno en tiempo de ejecución|
 |scriptPath|string|Lugar donde se puede encontrar el script|
 |Shallow|booleano|Compilación superficial o no|
-|TempDir|cadena|Directorio temporal|
+|TempDir|string|Directorio temporal|
 |UseDataBase|string|Especifique la base de datos que se utilizará para el registro de ensamblados temporal de código subyacente; la maestra de forma predeterminada.|
 |WorkDir|string|Directorio de trabajo preferido|
 
 
 **Método**
 
-|Método|Descripción|Valor devuelto|Parámetro|
+|Método|DESCRIPCIÓN|Valor devuelto|.|
 |------|-----------|------|---------|
 |public bool DoCompile()|Compilación del script U-SQL|Si se realiza correctamente, devuelve True.| |
 |public bool DoExec()|Ejecución del resultado compilado|Si se realiza correctamente, devuelve True.| |

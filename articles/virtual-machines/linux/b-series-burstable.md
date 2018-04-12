@@ -1,13 +1,13 @@
 ---
-title: "Tamaños de las máquinas virtuales Linux en Azure serie B | Microsoft Docs"
-description: "Describe la serie B de tamaños de las máquinas virtuales de Azure ampliables."
+title: Tamaños de las máquinas virtuales Linux en Azure serie B | Microsoft Docs
+description: Describe la serie B de tamaños de las máquinas virtuales de Azure ampliables.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: jonbeck7
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/07/2017
 ms.author: jonbeck
-ms.openlocfilehash: 97bef9f3960926c93c410851f8c8c67c4b240c35
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: f60c5ab6b32eba8f35b4d788941406bd5723f25c
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Tamaños de las máquinas virtuales ampliables serie B
 

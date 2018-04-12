@@ -1,26 +1,26 @@
 ---
-title: "Ejemplo de PowerShell de grupo de conmutación por error de replicación geográfica para una instancia única de Azure SQL Database | Microsoft Docs"
-description: "Script de ejemplo de Azure PowerShell para configurar el grupo de conmutación por error de replicación geográfica activa para una instancia única de Azure SQL Database."
+title: Ejemplo de PowerShell de grupo de conmutación por error de replicación geográfica para una instancia única de Azure SQL Database | Microsoft Docs
+description: Script de ejemplo de Azure PowerShell para configurar el grupo de conmutación por error de replicación geográfica activa para una instancia única de Azure SQL Database.
 services: sql-database
 documentationcenter: sql-database
 author: janeng
 manager: jstrauss
 editor: carlrab
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: sql-database
 ms.custom: business continuity, mvc
 ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 06/23/2017
+ms.date: 04/01/2018
 ms.author: janeng
-ms.openlocfilehash: a2f4caf32ae7fa7e2384cbf1b80fd6f25d6a7bf5
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 5217063dc99868be6777b09042e5aeb1fe9640a2
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="use-powershell-to-configure-an-active-geo-replication-failover-group-for-a-single-azure-sql-database"></a>Usar PowerShell para configurar un grupo de conmutación por error de replicación geográfica activa para una instancia única de Azure SQL Database
 
@@ -61,7 +61,7 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 | [Switch-AzureRMSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/switch-azurermsqldatabasefailovergroup) | Intercambia los roles de los servidores del grupo de conmutación por error y cambia todas las bases de datos secundarias al rol principal. |
 | [Get-AzureRMSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/get-azurermsqldatabasefailovergroup) | Obtiene un grupo de conmutación por error de Azure SQL Database específico o enumera los grupos de conmutación por error de un servidor. |
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre Azure PowerShell, consulte la [documentación de Azure PowerShell](/powershell/azure/overview).
 

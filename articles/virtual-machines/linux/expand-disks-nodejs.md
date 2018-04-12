@@ -1,12 +1,12 @@
 ---
-title: "Aumento del tamaño de una máquina virtual Linux con la CLI de Azure 1.0 | Microsoft Docs"
-description: "Descripción sobre cómo expandir discos virtuales del sistema operativo en una máquina virtual Linux mediante la CLI 1.0 de Azure y el modelo de implementación de Resource Manager"
+title: Aumento del tamaño de una máquina virtual Linux con la CLI de Azure 1.0 | Microsoft Docs
+description: Descripción sobre cómo expandir discos virtuales del sistema operativo en una máquina virtual Linux mediante la CLI 1.0 de Azure y el modelo de implementación de Resource Manager
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
-editor: 
-ms.assetid: 
+manager: jeconnoc
+editor: ''
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.openlocfilehash: 0aedcd70b54c2ed47ec327ccf0529a48351353c0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f81054727bb1f0e8ffa752783e866a72d573589d
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="expand-os-disk-on-a-linux-vm-using-the-azure-cli-with-the-azure-cli-10"></a>Expansión del disco del sistema operativo en una máquina virtual Linux mediante la CLI de Azure 1.0
 Normalmente, el tamaño predeterminado del disco duro virtual del sistema operativo (SO) es de 30 GB en una máquina virtual Linux de Azure. Puede [agregar discos de datos](add-disk.md) para proporcionar espacio de almacenamiento adicional, pero puede que también desee expandir el disco del sistema operativo. En este artículo se detalla cómo expandir el disco del sistema operativo para una máquina virtual Linux mediante discos no administrados con la CLI de Azure 1.0.
@@ -27,9 +27,9 @@ Normalmente, el tamaño predeterminado del disco duro virtual del sistema operat
 Puede completar la tarea mediante una de las siguientes versiones de la CLI:
 
 - [CLI de Azure 1.0](#prerequisites): la CLI para los modelos de implementación clásico y de Resource Manager (este artículo)
-- [CLI de Azure 2.0](expand-disks.md): la CLI de última generación para el modelo de implementación de administración de recursos
+- [CLI de Azure 2.0 ](expand-disks.md): CLI de última generación para el modelo de implementación de administración de recursos
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Necesita tener instalada la [CLI de Azure 1.0 más reciente](../../cli-install-nodejs.md) y haber iniciado sesión en una [cuenta de Azure](https://azure.microsoft.com/pricing/free-trial/) con el modo Resource Manager de la forma siguiente:
 
 ```azurecli

@@ -1,5 +1,5 @@
 ---
-title: "PowerShell: ejemplo de importación de una base de datos Azure SQL Database a un archivo BACPAC | Microsoft Docs"
+title: 'PowerShell: ejemplo de importación de una base de datos Azure SQL Database a un archivo BACPAC | Microsoft Docs'
 description: Script de ejemplo de Azure PowerShell para importar un archivo BACPAC en una base de datos SQL
 services: sql-database
 documentationcenter: sql-database
@@ -7,20 +7,20 @@ author: janeng
 manager: jstrauss
 editor: carlrab
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: sql-database
 ms.custom: load & move data, mvc
 ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 06/23/2017
+ms.date: 04/01/2018
 ms.author: janeng
-ms.openlocfilehash: c24a3b7551058a69cbfdddf8b859b635e0829402
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 1ee17d416baa99105ea870cf334bdb360ed39272
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="use-powershell-to-import-a-bacpac-file-into-an-azure-sql-database"></a>Uso de PowerShell para importar un archivo BACPAC en una base de datos SQL de Azure
 
@@ -44,7 +44,7 @@ Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 
 Este script usa los siguientes comandos. Cada comando de la tabla crea un vínculo a documentación específica del comando.
 
-| Comando | Notas |
+| Get-Help | Notas |
 |---|---|
 | [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
 | [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) | Crea un servidor lógico que hospeda SQL Database. |

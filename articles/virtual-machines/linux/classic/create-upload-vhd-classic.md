@@ -1,10 +1,10 @@
 ---
-title: "Creación y carga de un VHD de Linux en Azure | Microsoft Docs"
-description: "Cree y cargue un disco duro virtual de Azure (VHD) que contenga el sistema operativo Linux con el modelo de implementación clásica."
+title: Creación y carga de un VHD de Linux en Azure | Microsoft Docs
+description: Cree y cargue un disco duro virtual de Azure (VHD) que contenga el sistema operativo Linux con el modelo de implementación clásica.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 ROBOTS: NOINDEX
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: iainfou
-ms.openlocfilehash: 49cf4f1718e4dce1e86aa3c8921eaa8af5f16192
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 1ba568eeaf3bbc3d786cc48e54404aa65a00fecc
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="creating-and-uploading-a-virtual-hard-disk-that-contains-the-linux-operating-system"></a>Creación y carga de un disco duro virtual que contiene el sistema operativo Linux
 > [!IMPORTANT] 
@@ -29,7 +29,7 @@ ms.lasthandoff: 01/08/2018
 En este artículo se muestra cómo puede crear y cargar un disco duro virtual (VHD) que podrá utilizar como imagen propia para crear máquinas virtuales en Azure. Aprenda a preparar el sistema operativo que podrá utilizar para crear máquinas virtuales basadas en esa imagen. 
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 En este artículo se supone que tiene los siguientes elementos:
 
 * **Sistema operativo Linux instalado en un archivo .vhd**: ha instalado una [distribución de Linux aprobada por Azure](../endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (o consulte la [información para distribuciones no aprobadas](../create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)) en un disco virtual en el formato VHD. Existen varias herramientas para crear una máquina virtual y archivos VHD:
@@ -109,7 +109,7 @@ azure vm create --userName ops --password P@ssw0rd! --vm-size Small --ssh `
 
 Para crear sus propias VM, proporcione su propio nombre de usuario + contraseña, la ubicación, el nombre DNS y el nombre de imagen.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información, consulte [Referencia de la CLI de Azure para el modelo de implementación clásica de Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
 
 [Step 1: Prepare the image to be uploaded]:#prepimage

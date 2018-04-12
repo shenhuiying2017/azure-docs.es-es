@@ -4,7 +4,7 @@ description: Tutorial en el que crea una base de datos en línea y la aplicació
 services: cosmos-db
 documentationcenter: .net
 author: arramac
-manager: jhubbard
+manager: kfile
 editor: ''
 ms.assetid: 9f93e276-9936-4efb-a534-a9889fa7c7d2
 ms.service: cosmos-db
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/12/2018
 ms.author: arramac
 ms.custom: devcenter
-ms.openlocfilehash: 90b720c174ab5730237f27d5ebb253976a70b071
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: ad6b8889b1d98993eadeb531b7e63771a848719b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-cosmos-db-getting-started-with-the-sql-api-and-net-core"></a>Azure Cosmos DB: introducción a la API de SQL y .NET Core
 > [!div class="op_single_selector"]
@@ -31,8 +31,6 @@ ms.lasthandoff: 03/17/2018
 > * [C++](sql-api-cpp-get-started.md)
 >  
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Le damos la bienvenida al tutorial de introducción de la API de SQL para Azure Cosmos DB con .NET Core. Después de seguir este tutorial, tendrá una aplicación de consola que crea recursos de Azure Cosmos DB y los consulta.
 
@@ -51,9 +49,6 @@ Esta tutorial abarca lo siguiente:
 ¿No tiene tiempo? ¡No se preocupe! La solución completa está disponible en [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started). Para obtener instrucciones rápidas, diríjase a la sección [Obtener la solución completa del tutorial de NoSQL](#GetSolution) .
 
 ¿Desea compilar una aplicación de Xamarin iOS, Android o Forms mediante la API de SQL y el SDK de .NET Core? Consulte [Creación de aplicaciones móviles con Xamarin y Azure Cosmos DB](mobile-apps-with-xamarin.md).
-
-> [!NOTE]
-> El SDK de .NET Core de Azure Cosmos DB que se usa en este tutorial no es aún compatible con aplicaciones de la Plataforma universal de Windows (UWP). Para obtener una versión preliminar del SDK de .NET Core que admita aplicaciones de UWP, envíe un correo electrónico a [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
 
 Comencemos.
 

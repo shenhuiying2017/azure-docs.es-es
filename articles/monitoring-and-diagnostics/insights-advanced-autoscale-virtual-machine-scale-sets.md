@@ -1,9 +1,9 @@
 ---
-title: "Escalado automático avanzado mediante Azure Virtual Machines | Microsoft Docs"
-description: "Usa Resource Manager y conjuntos de escalado de máquinas virtuales con varias reglas y perfiles que envían correo electrónico y llaman a direcciones URL de webhook con acciones de escalado."
+title: Escalado automático avanzado mediante Azure Virtual Machines | Microsoft Docs
+description: Usa Resource Manager y VM Scale Sets con varias reglas y perfiles que envían correo electrónico y llaman a direcciones URL de webhook con acciones de escalado.
 author: anirudhcavale
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 7e3576e2-4a2b-4736-b5ae-98c4689cdd2b
@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 02/22/2016
 ms.author: ancav
 ms.openlocfilehash: 80955535c8d863cd3d8d1b77e2ab8bc016b6d9f3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Configuración avanzada de escalado automático con plantillas de Resource Manager para conjuntos de escalado de máquinas virtuales
 Puede reducir y escalar horizontalmente los conjuntos de escalado de máquinas virtuales según umbrales de métricas de rendimiento, siguiendo una programación periódica o por una fecha determinada. También puede configurar notificaciones de correo electrónico y webhook para las acciones de escalado. Este tutorial muestra un ejemplo de configuración de todos estos objetos utilizando una plantilla de Resource Manager en un conjunto de escalado de máquinas virtuales.
 
 > [!NOTE]
-> Aunque este tutorial explica los pasos para los conjuntos de escalado de máquinas virtuales, la misma información se aplica al escalado automático de [Cloud Services](https://azure.microsoft.com/services/cloud-services/) y [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/).
+> Aunque este tutorial explica los pasos para los conjuntos de escalado de máquinas virtuales, la misma información se aplica al escalado automático de [Cloud Services](https://azure.microsoft.com/services/cloud-services/) y [App Service Web Apps](https://azure.microsoft.com/services/app-service/web/).
 > Para tener un valor simple de escalado y reducción horizontal en un conjunto de escalado de máquinas virtuales basado en una métrica de rendimiento simple como CPU, consulte los documentos sobre [Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) y [Windows](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md).
 >
 >
@@ -41,11 +41,11 @@ En este tutorial, usaremos el [Explorador de recursos de Azure](https://resource
 
 3. Ahora puede agregar más perfiles y reglas basadas en la programación o requisitos específicos. Creamos una configuración de escalado automático con tres perfiles. Para comprender los perfiles y las reglas de escalado automático, revise el artículo [Procedimientos recomendados de escalado automático](insights-autoscale-best-practices.md).  
 
-    | Perfiles y reglas | Description |
+    | Perfiles y reglas | DESCRIPCIÓN |
     |--- | --- |
     | **Perfil** |**Basado en rendimiento/métrica** |
-    | Regla |Recuento de mensajes de cola de Bus de servicio > x |
-    | Regla |Recuento de mensajes de cola de Bus de servicio > y |
+    | Regla |Recuento de mensajes de cola de Service Bus > x |
+    | Regla |Recuento de mensajes de cola de Service Bus > y |
     | Regla |CPU% > n |
     | Regla |% de CPU < p |
     | **Perfil** |**Horas de la mañana días de semana, (no hay reglas)** |

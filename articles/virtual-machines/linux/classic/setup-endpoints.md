@@ -4,7 +4,7 @@ description: Aprenda a configurar puntos de conexión para una máquina virtual 
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 ms.assetid: f3749738-1109-4a1d-8635-40e4bd220e91
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: cynthn
-ms.openlocfilehash: a37c70a0a304ecfa0c3ce205451f456948593ebe
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 03cb90dcdcc7a7407898ddd8cbc30f1af0833676
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-set-up-endpoints-on-a-linux-classic-virtual-machine-in-azure"></a>Cómo configurar puntos de conexión en máquinas virtuales Linux clásicas en Azure
 Todas las máquinas virtuales con Linux que se crean en Azure con el modelo de implementación clásico pueden comunicarse automáticamente a través de un canal de red privado con otras máquinas virtuales del mismo servicio en la nube o de la misma red virtual. Sin embargo, los equipos en Internet o en otras redes virtuales necesitan extremos para dirigir el tráfico de red entrante a una máquina virtual. Este artículo también está disponible para [máquinas virtuales Windows](../../windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).

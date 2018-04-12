@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/27/2017
 ms.author: johnkem
 ms.openlocfilehash: 81f083b799e359f69605de22c30d3adc4480e44b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Introducción a roles, permisos y seguridad con Azure Monitor
 Muchos equipos necesitan regular estrictamente el acceso a los datos y la configuración de supervisión. Por ejemplo, si tiene miembros del equipo que trabajan exclusivamente en la supervisión (ingenieros de soporte técnico o ingenieros de operaciones de desarrollo) o si usa un proveedor de servicios administrados, puede concederles acceso solo a datos de supervisión, mientras restringe su capacidad para crear, modificar o eliminar recursos. En este artículo se explica cómo aplicar rápidamente un rol RBAC de supervisión integrado a un usuario en Azure o crear un rol personalizado propio para un usuario que necesita permisos de supervisión limitados. Después se describen las consideraciones de seguridad para los recursos relacionados con Azure Monitor y cómo puede limitar el acceso a los datos que contienen.

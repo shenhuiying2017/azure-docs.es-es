@@ -1,11 +1,11 @@
 ---
-title: "Cumplimentación de campos específicos en una aplicación personalizada | Microsoft Docs"
-description: "Guía acerca de cómo deben rellenarse determinados campos cuando se registra una aplicación personalizada desarrollada con Azure AD"
+title: Cumplimentación de campos específicos en una aplicación personalizada | Microsoft Docs
+description: Guía acerca de cómo deben rellenarse determinados campos cuando se registra una aplicación personalizada desarrollada con Azure AD
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: cb85971d6d3d4dade69b9dc04e070c67341533a5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>Cumplimentación de campos específicos en una aplicación personalizada
 
@@ -36,18 +36,18 @@ Este artículo contiene una breve descripción de todos los campos disponibles e
 ## <a name="fields-in-the-application-registration-form"></a>Campos del formulario de registro de aplicaciones
 
 
-| Campo            | Description                                                                              |
+| Campo            | DESCRIPCIÓN                                                                              |
 |------------------|------------------------------------------------------------------------------------------|
-| Nombre             | Nombre de la aplicación. Debe tener un mínimo de cuatro caracteres.                |
+| NOMBRE             | Nombre de la aplicación. Debe tener un mínimo de cuatro caracteres.                |
 | Tipo de aplicación | **Aplicación web / API web**: aplicación que representa una aplicación web, una API web o ambas cosas 
 | |**Nativo**: aplicación que puede instalarse en el dispositivo o equipo de un usuario           |
 | URL de inicio de sesión      | Dirección URL donde los usuarios pueden iniciar sesión para utilizar la aplicación                                  |
 
 Cuando haya rellenado los campos anteriores, la aplicación se registrará en Azure Portal y la página de la aplicación se abrirá automáticamente. El botón **Configuración** del panel de la aplicación abre la página Configuración, que contiene otros campos que le permiten personalizar la aplicación. En la tabla siguiente se describen todos los campos de la página Configuración. Tenga en cuenta que, en función de si ha creado una aplicación web o una aplicación nativa, es posible que solo aparezca un subconjunto de estos campos.
 
-| Campo           | Descripción                                                                                                                                                                                                                                                                                                     |
+| Campo           | DESCRIPCIÓN                                                                                                                                                                                                                                                                                                     |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Identificador de aplicación  | Cuando registra una aplicación, Azure AD le asigna un identificador de aplicación. Este identificador puede usarse para identificar la aplicación en las solicitudes de autenticación que se envían a Azure AD, así como para acceder a ciertos recursos, como la API Graph.                                                          |
+| Identificador de aplicación  | Cuando registra una aplicación, Azure AD le asigna un identificador de aplicación. Este identificador puede usarse para identificar la aplicación en las solicitudes de autenticación que se envían a Azure AD, así como para acceder a ciertos recursos, como Graph API.                                                          |
 | URI del identificador de la aplicación      | Debe ser un URI único. Normalmente, tendrá el formato **https://&lt;inquilino\_nombre&gt;/&lt;aplicación\_nombre&gt;.** Se utiliza durante el flujo de concesión de autorizaciones como identificador único a fin de especificar el recurso para el que se debe emitir el token. También se convierte en la notificación "aud" del token de acceso emitido. |
 | Cargar nuevo logotipo | Puede usar este campo para cargar un logotipo en la aplicación. El logotipo debe tener el formato .bmp, .jpg o .png y el tamaño del archivo debe ser inferior a 100 KB. Las dimensiones de la imagen deben ser 215 x 215 píxeles y las de la imagen central, 94 x 94 píxeles.                                                       |
 | URL de página principal   | Se trata de la dirección URL de inicio de sesión especificada durante el registro de la aplicación.                                                                                                                                                                                                                                              |

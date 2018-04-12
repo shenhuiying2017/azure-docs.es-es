@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/22/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 1f234c2529213dfa7f42d6ee11b840236488065d
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 0bdadadb1f4ee5f76cde9d05b11e8d57b99ac191
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>Validación de certificados PKI de Azure Stack
 
@@ -43,7 +43,7 @@ La herramienta de comprobación de certificados (Certchecker) realiza las siguie
 ## <a name="prerequisites"></a>requisitos previos
 El sistema debe cumplir los siguientes requisitos previos antes de validar los certificados PKI para la implementación de Azure Stack:
 - CertChecker (en **PartnerToolKit** en **\utils\certchecker**)
-- Certificados SSL exportados siguiendo las [instrucciones de preparación](prepare-pki-certs.md)
+- Certificados SSL exportados siguiendo las [instrucciones de preparación](azure-stack-prepare-pki-certs.md)
 - DeploymentData.json
 - Windows 10 o Windows Server 2016
 

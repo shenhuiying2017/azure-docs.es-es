@@ -1,11 +1,11 @@
 ---
-title: "Uso de máquinas virtuales de proceso de Linux en un clúster de HPC Pack | Microsoft Docs"
-description: "Aprenda a crear y usar un clúster de HPC Pack en Azure para cargas de trabajo de informática de alto rendimiento (HPC) de Linux."
+title: Uso de máquinas virtuales de proceso de Linux en un clúster de HPC Pack | Microsoft Docs
+description: Aprenda a crear y usar un clúster de HPC Pack en Azure para cargas de trabajo de informática de alto rendimiento (HPC) de Linux.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,azure-resource-manager,hpc-pack
 ms.assetid: 4d080fdd-5ffe-4f54-a78d-4c818f6eb3fb
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 10/12/2016
 ms.author: danlep
-ms.openlocfilehash: 809d3944311badf265117d353b65642e044d900c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 57ad5d5d2e7e068f47d51408527f1f7553917279
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="get-started-with-linux-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>Introducción a los nodos de proceso de Linux en un clúster de HPC Pack en Azure
 Configure un clúster de [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029.aspx) en Azure que contenga un nodo principal en el que se ejecute Windows Server y varios nodos de proceso en los que se ejecute una distribución de Linux compatible. Explore las opciones para mover datos entre los nodos de Linux y el nodo principal de Windows del clúster. Aprenda a enviar trabajos de HPC de Linux al clúster.
@@ -40,7 +40,7 @@ En este artículo puede ver dos opciones para implementar un clúster de HPC Pac
 
 Para más información sobre las opciones de implementación de clústeres de HPC Pack en Azure, consulte las [opciones para crear y administrar un clúster de informática de alto rendimiento (HPC) en Azure con Microsoft HPC Pack](../hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>requisitos previos
 * **Suscripción de Azure** : puede usar una suscripción en el servicio Azure Global o Azure China. En caso de no tener ninguna, puede crear una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/) en tan solo unos minutos.
 * **Cuota de núcleos** : tal vez tenga que aumentar la cuota de núcleos, especialmente si decide implementar varios nodos de clúster con tamaños de máquina virtual de múltiples núcleos. Para aumentar una cuota, abra una solicitud de soporte técnico al cliente en línea sin cargo alguno.
 * **Distribuciones de Linux** : HPC Pack admite actualmente las siguientes distribuciones de Linux para nodos de proceso. Puede usar versiones de Marketplace de estas distribuciones cuando estén disponibles o proporcionar las suyas.
@@ -266,7 +266,7 @@ Hay varias formas de enviar trabajos al clúster de HPC Pack:
 
 * Administrador de clústeres HPC o GUI del Administrador de trabajos de HPC
 * Portal web de HPC
-* API de REST
+* API DE REST
 
 El envío de trabajos al clúster en Azure a través de herramientas de GUI de HPC Pack y el portal web de HPC es igual que para los nodos de proceso de Windows. Consulte [Administrador de trabajos de HPC Pack](https://technet.microsoft.com/library/ff919691.aspx) y [Envío de trabajos desde un equipo cliente local](../../windows/hpcpack-cluster-submit-jobs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

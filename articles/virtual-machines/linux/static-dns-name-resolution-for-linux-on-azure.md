@@ -4,7 +4,7 @@ description: Creación de tarjetas de interfaz de red virtual y uso de DNS inter
 services: virtual-machines-linux
 documentationcenter: ''
 author: vlivech
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: v-livech
-ms.openlocfilehash: a17a82aa9bc31997d52aa41f387f95d7a8ae4ae2
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 8df9035cf4a5e62102353c701625526e211b7282
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-virtual-network-interface-cards-and-use-internal-dns-for-vm-name-resolution-on-azure"></a>Creación de tarjetas de interfaz de red virtual y uso de DNS interno para la resolución de nombres de máquina virtual en Azure
 En este artículo se muestra cómo establecer nombres de DNS internos estáticos para máquinas virtuales Linux mediante tarjetas de interfaz de red virtual (vNic) y nombres de etiqueta DNS mediante la CLI de Azure 2.0. También puede llevar a cabo estos pasos con la [CLI de Azure 1.0](static-dns-name-resolution-for-linux-on-azure-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Los nombres de DNS estáticos se utilizan para los servicios de infraestructura permanente como un servidor de compilación Jenkins, que se usa para este documento o un servidor de Git.

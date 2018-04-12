@@ -7,13 +7,13 @@ author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 26d83779b218f8c936c020d63651861f45bafa2f
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c18e5da04fd92fed2cb9e93d13b5f3ecdeaac1a1
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="credentials-used-to-access-the-elastic-database-client-library"></a>Credenciales usadas para acceder a la biblioteca de cliente de Elastic Database
 La [biblioteca de cliente de Elastic Database](sql-database-elastic-database-client-library.md) usa tres variantes de credenciales para acceder al [administrador de mapas de particiones](sql-database-elastic-scale-shard-map-management.md). Según lo que necesite, use la credencial con el menor nivel de acceso posible.

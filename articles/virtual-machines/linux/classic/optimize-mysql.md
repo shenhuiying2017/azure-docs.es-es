@@ -1,11 +1,11 @@
 ---
-title: "Optimización del rendimiento de MySQL en Linux | Microsoft Docs"
-description: "Aprenda a optimizar MySQL ejecutado en una máquina virtual (VM) de Azure con Linux."
+title: Optimización del rendimiento de MySQL en Linux | Microsoft Docs
+description: Aprenda a optimizar MySQL ejecutado en una máquina virtual (VM) de Azure con Linux.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: NingKuang
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ms.assetid: 0c1c7fc5-a528-4d84-b65d-2df225f2233f
 ms.service: virtual-machines-linux
@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2017
 ms.author: ningk
-ms.openlocfilehash: 7e7582a31cb3e74fd8c3cd0dd54961392d9c53bb
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 447532452a848c88fd927f42e4263cef4742dd89
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="optimize-mysql-performance-on-azure-linux-vms"></a>Optimización del rendimiento de MySQL en máquinas virtuales de Azure con Linux
 Existen muchos factores que afectan al rendimiento de MySQL en Azure, tanto en la configuración de selección de software y hardware virtual. Este artículo se centra en la optimización del rendimiento a través del almacenamiento, el sistema y las configuraciones de base de datos.
 
 > [!IMPORTANT]
-> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Azure Resource Manager](../../../resource-manager-deployment-model.md) y el clásico. Este artículo trata del modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos. Para más información sobre las optimizaciones de máquinas virtuales Linux con el modelo de Resource Manager, consulte [Optimización de la máquina virtual Linux en Azure](../optimization.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Azure Resource Manager](../../../resource-manager-deployment-model.md) y el clásico. Este artículo trata del modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo de Resource Manager. Para más información sobre las optimizaciones de máquinas virtuales Linux con el modelo de Resource Manager, consulte [Optimización de la máquina virtual Linux en Azure](../optimization.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 ## <a name="utilize-raid-on-an-azure-virtual-machine"></a>Uso de RAID en una máquina virtual de Azure
@@ -312,7 +312,7 @@ Los tamaños de archivo que se usan para esta prueba es de 30 GB y 1 GB, respect
 | --- | --- | --- |
 | **innodb_buffer_pool_size** |None |7 GB |
 | **innodb_log_file_size** |5 MB |512 MB |
-| **max_connections** |100 |5.000 |
+| **max_connections** |100 |5000 |
 | **innodb_file_per_table** |0 |1 |
 | **innodb_flush_log_at_trx_commit** |1 |2 |
 | **innodb_log_buffer_size** |8 MB |128 MB |

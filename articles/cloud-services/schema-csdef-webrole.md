@@ -1,23 +1,23 @@
 ---
-title: "Esquema WebRole de definición de Azure Cloud Services | Microsoft Docs"
-ms.custom: 
+title: Esquema WebRole de definición de Azure Cloud Services | Microsoft Docs
+ms.custom: ''
 ms.date: 04/14/2015
 ms.prod: azure
-ms.reviewer: 
+ms.reviewer: ''
 ms.service: cloud-services
-ms.suite: 
-ms.tgt_pltfrm: 
+ms.suite: ''
+ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: 85368e4e-a0db-4c02-8dbc-8e2928fa6091
-caps.latest.revision: "60"
+caps.latest.revision: 60
 author: thraka
 ms.author: adegeo
 manager: timlt
 ms.openlocfilehash: b2873f61dcab9a14089949f27f40ca5bedaf14ee
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-cloud-services-definition-webrole-schema"></a>Esquema WebRole de definición de Azure Cloud Services
 El rol web de Azure es un rol que se personaliza para la programación de aplicaciones web compatibles con IIS 7, como ASP.NET, PHP, Windows Communication Foundation y FastCGI.
@@ -117,7 +117,7 @@ El archivo de definición de servicio incluye estos elementos, que se describen 
 
 [FixedPortRange](#FixedPortRange)
 
-[Certificados](#Certificates)
+[Certificates](#Certificates)
 
 [Certificate](#Certificate)
 
@@ -162,11 +162,11 @@ El elemento `WebRole` describe un rol que se personaliza para la programación d
 
 En la tabla siguiente se describen los atributos del elemento `WebRole`:
 
-| Atributo | Tipo | Description |  
+| Atributo | type | DESCRIPCIÓN |  
 | --------- | ---- | ----------- |  
-|name|cadena|Necesario. Nombre del rol web. El nombre del rol debe ser único.|  
+|Nombre|string|Necesario. Nombre del rol web. El nombre del rol debe ser único.|  
 |enableNativeCodeExecution|boolean|Opcional. El valor predeterminado es `true`; de forma predeterminada están habilitadas la ejecución de código nativo y la plena confianza. Establezca este atributo en `false` para deshabilitar la ejecución de código nativo para el rol web y usar en su lugar la confianza parcial de Azure.|  
-|vmsize|cadena|Opcional. Establezca este valor para cambiar el tamaño de la máquina virtual que se asigna al rol. El valor predeterminado es `Small`. Para más información, consulte los [tamaños de máquina virtual para Cloud Services](cloud-services-sizes-specs.md).|  
+|vmsize|string|Opcional. Establezca este valor para cambiar el tamaño de la máquina virtual que se asigna al rol. El valor predeterminado es `Small`. Para más información, consulte los [tamaños de máquina virtual para Cloud Services](cloud-services-sizes-specs.md).|  
 
 ##  <a name="ConfigurationSettings"></a> ConfigurationSettings  
 El elemento `ConfigurationSettings` describe la colección de valores de configuración de un rol web. Este elemento es el elemento primario del elemento `Setting`.
@@ -176,9 +176,9 @@ El elemento `Setting` describe un par de nombre y valor que especifica un valor 
 
 En la tabla siguiente se describen los atributos del elemento `Setting`:
 
-| Atributo | Tipo | Description |  
+| Atributo | type | DESCRIPCIÓN |  
 | --------- | ---- | ----------- |  
-|name|cadena|Necesario. Un nombre único para el valor de configuración.|  
+|Nombre|string|Necesario. Un nombre único para el valor de configuración.|  
 
 Los valores de configuración de un rol son pares de nombre y valor que se declaran en el archivo de definición de servicio y se establecen en el archivo de configuración de servicio.
 
@@ -193,9 +193,9 @@ El elemento `LocalStorage` identifica un recurso de almacenamiento local que pro
 
 En la tabla siguiente se describen los atributos del elemento `LocalStorage`:
 
-| Atributo | Tipo | Description |  
+| Atributo | type | DESCRIPCIÓN |  
 | --------- | ---- | ----------- |  
-|name|cadena|Necesario. Un nombre único para el almacén local.|  
+|Nombre|string|Necesario. Un nombre único para el almacén local.|  
 |cleanOnRoleRecycle|boolean|Opcional. Indica si se debe limpiar el almacén local cuando se reinicia el rol. El valor predeterminado es `true`.|  
 |sizeInMb|int|Opcional. La cantidad deseada de espacio de almacenamiento para asignar al almacén local, en MB. Si no se especifica, el espacio de almacenamiento predeterminado asignado es 100 MB. La cantidad mínima de espacio de almacenamiento que puede asignarse es 1 MB.<br /><br /> El tamaño máximo de los recursos locales depende del tamaño de máquina virtual. Para más información, consulte los [tamaños de máquina virtual para Cloud Services](cloud-services-sizes-specs.md).|  
   
@@ -216,24 +216,24 @@ Puede definir varios puntos de conexión que sean una combinación de puntos de 
 
 En la tabla siguiente se describen los atributos del elemento `InputEndpoint`:
 
-| Atributo | Tipo | Description |  
+| Atributo | type | DESCRIPCIÓN |  
 | --------- | ---- | ----------- |  
-|name|cadena|Necesario. Un nombre único para el punto de conexión externo.|  
+|Nombre|string|Necesario. Un nombre único para el punto de conexión externo.|  
 |protocolo|string|Necesario. El protocolo de transporte del punto de conexión externo. Los valores posibles para un rol web son `HTTP`, `HTTPS`, `UDP` o `TCP`.|  
 |puerto|int|Necesario. El puerto del punto de conexión externo. Puede especificar cualquier número de puerto que elija, pero los números de puerto especificados para cada rol del servicio deben ser únicos.<br /><br /> Los valores posibles oscilan entre 1 y 65535, ambos inclusive (versión 1.7 o posterior de Azure SDK).|  
-|certificado|cadena|Obligatorio para un punto de conexión HTTPS. El nombre de un certificado definido por un elemento `Certificate`.|  
+|certificado|string|Obligatorio para un punto de conexión HTTPS. El nombre de un certificado definido por un elemento `Certificate`.|  
 |localPort|int|Opcional. Especifica un puerto usado para las conexiones internas del punto de conexión. El atributo `localPort` asigna el puerto externo del punto de conexión a un puerto interno de un rol. Esto resulta de utilidad en escenarios donde un rol debe comunicarse con un componente interno en un puerto diferente del que se expone externamente.<br /><br /> Si no se especifica, el valor de `localPort` es el mismo que el del atributo `port`. Establezca el valor de `localPort` en "*" para asignar automáticamente un puerto sin asignar que se puede detectar mediante la API en tiempo de ejecución.<br /><br /> Los valores posibles oscilan entre 1 y 65535, ambos inclusive (versión 1.7 o posterior de Azure SDK).<br /><br /> El atributo `localPort` solo está disponible mediante la versión 1.3 o posterior de Azure SDK.|  
 |ignoreRoleInstanceStatus|boolean|Opcional. Cuando el valor de este atributo se establece en `true`, se omite el estado de un servicio y el equilibrador de carga no quita el punto de conexión. El establecimiento de este valor en `true` resulta de utilidad para depurar instancias ocupadas de un servicio. El valor predeterminado es `false`. **Nota:** Un punto de conexión puede seguir recibiendo tráfico aunque el rol no esté en un estado listo.|  
-|loadBalancerProbe|cadena|Opcional. El nombre del sondeo del equilibrador de carga asociado con el punto de conexión de entrada. Para más información, vea [Esquema LoadBalancerProbe](schema-csdef-loadbalancerprobe.md).|  
+|loadBalancerProbe|string|Opcional. El nombre del sondeo del equilibrador de carga asociado con el punto de conexión de entrada. Para más información, vea [Esquema LoadBalancerProbe](schema-csdef-loadbalancerprobe.md).|  
 
 ##  <a name="InternalEndpoint"></a> InternalEndpoint  
 El elemento `InternalEndpoint` describe un punto de conexión interno a un rol web. Un punto de conexión solo está disponible para otras instancias de rol que se ejecutan dentro del servicio; no está disponible para los clientes de fuera del servicio. Los roles web que no incluyen el elemento `Sites` solo pueden tener un único punto de conexión interno HTTP, UDP o TCP.
 
 En la tabla siguiente se describen los atributos del elemento `InternalEndpoint`:
 
-| Atributo | Tipo | Description |  
+| Atributo | type | DESCRIPCIÓN |  
 | --------- | ---- | ----------- |  
-|name|cadena|Necesario. Un nombre único para el punto de conexión interno.|  
+|Nombre|string|Necesario. Un nombre único para el punto de conexión interno.|  
 |protocolo|string|Necesario. El protocolo de transporte del punto de conexión interno. Los valores posibles son `HTTP`, `TCP`, `UDP` o `ANY`.<br /><br /> Un valor de `ANY` especifica que se permite cualquier protocolo y cualquier puerto.|  
 |puerto|int|Opcional. El puerto usado para las conexiones de carga equilibrada internas del punto de conexión. Un punto de conexión de carga equilibrada usa dos puertos: uno para la dirección IP pública y el otro en la dirección IP privada. Normalmente, estos puertos se establecen en el mismo valor, pero puede elegir usar puertos diferentes.<br /><br /> Los valores posibles oscilan entre 1 y 65535, ambos inclusive (versión 1.7 o posterior de Azure SDK).<br /><br /> El atributo `Port` solo está disponible mediante la versión 1.3 o posterior de Azure SDK.|  
 
@@ -244,9 +244,9 @@ El elemento `InstanceInputEndpoint` solo está disponible cuando se usa la versi
 
 En la tabla siguiente se describen los atributos del elemento `InstanceInputEndpoint`:
   
-| Atributo | Tipo | Description |  
+| Atributo | type | DESCRIPCIÓN |  
 | --------- | ---- | ----------- |  
-|name|cadena|Necesario. Un nombre único para el punto de conexión.|  
+|Nombre|string|Necesario. Un nombre único para el punto de conexión.|  
 |localPort|int|Necesario. Especifica el puerto interno que todas las instancias de rol escucharán para recibir el tráfico de entrada reenviado desde el equilibrador de carga. El intervalo de valores posibles oscila entre 1 y 65535, ambos inclusive.|  
 |protocolo|string|Necesario. El protocolo de transporte del punto de conexión interno. Los valores posibles son `udp` o `tcp`. Use `tcp` para el tráfico basado en http/https.|  
   
@@ -262,7 +262,7 @@ El elemento `FixedPort` solo está disponible cuando se usa la versión 1.3 o po
 
 En la tabla siguiente se describen los atributos del elemento `FixedPort`:
 
-| Atributo | Tipo | Descripción |  
+| Atributo | type | DESCRIPCIÓN |  
 | --------- | ---- | ----------- |  
 |puerto|int|Necesario. El puerto del punto de conexión interno. Esto tiene el mismo efecto que establecer el valor mínimo y máximo de `FixedPortRange` en el mismo puerto.<br /><br /> Los valores posibles oscilan entre 1 y 65535, ambos inclusive (versión 1.7 o posterior de Azure SDK).|  
 
@@ -276,10 +276,10 @@ El elemento `FixedPortRange` solo está disponible cuando se usa la versión 1.3
 
 En la tabla siguiente se describen los atributos del elemento `FixedPortRange`:
 
-| Atributo | Tipo | Descripción |  
+| Atributo | type | DESCRIPCIÓN |  
 | --------- | ---- | ----------- |  
 |Min|int|Necesario. El puerto mínimo del intervalo. Los valores posibles oscilan entre 1 y 65535, ambos inclusive (versión 1.7 o posterior de Azure SDK).|  
-|max|cadena|Necesario. El puerto máximo del intervalo. Los valores posibles oscilan entre 1 y 65535, ambos inclusive (versión 1.7 o posterior de Azure SDK).|  
+|max|string|Necesario. El puerto máximo del intervalo. Los valores posibles oscilan entre 1 y 65535, ambos inclusive (versión 1.7 o posterior de Azure SDK).|  
 
 ##  <a name="Certificates"></a> Certificates  
 El elemento `Certificates` describe la colección de certificados de un rol web. Este elemento es el elemento primario del elemento `Certificate`. Un rol puede tener cualquier número de certificados asociados. Para más información sobre cómo usar el elemento de certificados, vea cómo [modificar el archivo de definición de servicio con un certificado](cloud-services-configure-ssl-certificate-portal.md#step-2-modify-the-service-definition-and-configuration-files).
@@ -289,12 +289,12 @@ El elemento `Certificate` describe un certificado que está asociado a un rol we
 
 En la tabla siguiente se describen los atributos del elemento `Certificate`:
 
-| Atributo | Tipo | Description |  
+| Atributo | type | DESCRIPCIÓN |  
 | --------- | ---- | ----------- |  
-|name|cadena|Necesario. Un nombre para este certificado, que se usa para referirse a él cuando está asociado con un elemento `InputEndpoint` de HTTPS.|  
-|storeLocation|cadena|Necesario. La ubicación del almacén de certificados donde se puede encontrar este certificado en la máquina local. Los valores posibles son `CurrentUser` y `LocalMachine`.|  
-|storeName|cadena|Necesario. El nombre del almacén de certificados donde reside este certificado en la máquina local. Los valores posibles incluyen nombres de almacén integrados `My`, `Root`, `CA`, `Trust`, `Disallowed`, `TrustedPeople`, `TrustedPublisher`, `AuthRoot`, `AddressBook`, o cualquier otro nombre de almacén personalizado. Si se especifica un nombre de almacén personalizado, se crea automáticamente el almacén.|  
-|permissionLevel|cadena|Opcional. Especifica los permisos de acceso proporcionados a los procesos de rol. Si quiere que los procesos elevados puedan acceder a la clave privada, especifique entonces el permiso `elevated`. El permiso `limitedOrElevated` permite que todos los procesos del rol accedan a la clave privada. Los valores posibles son `limitedOrElevated` o `elevated`. El valor predeterminado es `limitedOrElevated`.|  
+|Nombre|string|Necesario. Un nombre para este certificado, que se usa para referirse a él cuando está asociado con un elemento `InputEndpoint` de HTTPS.|  
+|storeLocation|string|Necesario. La ubicación del almacén de certificados donde se puede encontrar este certificado en la máquina local. Los valores posibles son `CurrentUser` y `LocalMachine`.|  
+|storeName|string|Necesario. El nombre del almacén de certificados donde reside este certificado en la máquina local. Los valores posibles incluyen nombres de almacén integrados `My`, `Root`, `CA`, `Trust`, `Disallowed`, `TrustedPeople`, `TrustedPublisher`, `AuthRoot`, `AddressBook`, o cualquier otro nombre de almacén personalizado. Si se especifica un nombre de almacén personalizado, se crea automáticamente el almacén.|  
+|permissionLevel|string|Opcional. Especifica los permisos de acceso proporcionados a los procesos de rol. Si quiere que los procesos elevados puedan acceder a la clave privada, especifique entonces el permiso `elevated`. El permiso `limitedOrElevated` permite que todos los procesos del rol accedan a la clave privada. Los valores posibles son `limitedOrElevated` o `elevated`. El valor predeterminado es `limitedOrElevated`.|  
 
 ##  <a name="Imports"></a> Imports  
 El elemento `Imports` describe una colección de módulos de importación para un rol web que agregan componentes al sistema operativo invitado. Este elemento es el elemento primario del elemento `Import`. Este elemento es opcional y un rol solo puede tener un bloque de importaciones. 
@@ -308,9 +308,9 @@ El elemento `Import` solo está disponible cuando se usa la versión 1.3 o poste
 
 En la tabla siguiente se describen los atributos del elemento `Import`:
 
-| Atributo | Tipo | Descripción |  
+| Atributo | type | DESCRIPCIÓN |  
 | --------- | ---- | ----------- |  
-|moduleName|cadena|Necesario. El nombre del módulo que se va a importar. Los módulos de importación válidos son:<br /><br /> -   RemoteAccess<br />-   RemoteForwarder<br />-   Diagnostics<br /><br /> Los módulos RemoteAccess y RemoteForwarder permiten configurar la instancia de rol para las conexiones a Escritorio remoto. Para más información, vea cómo [habilitar la conexión a Escritorio remoto](cloud-services-role-enable-remote-desktop-new-portal.md).<br /><br /> El módulo Diagnostics permite recopilar datos de diagnóstico para una instancia de rol.|  
+|moduleName|string|Necesario. El nombre del módulo que se va a importar. Los módulos de importación válidos son:<br /><br /> -   RemoteAccess<br />-   RemoteForwarder<br />-   Diagnostics<br /><br /> Los módulos RemoteAccess y RemoteForwarder permiten configurar la instancia de rol para las conexiones a Escritorio remoto. Para más información, vea cómo [habilitar la conexión a Escritorio remoto](cloud-services-role-enable-remote-desktop-new-portal.md).<br /><br /> El módulo Diagnostics permite recopilar datos de diagnóstico para una instancia de rol.|  
 
 ##  <a name="Runtime"></a> Runtime  
 El elemento `Runtime` describe una colección de configuraciones de variables de entorno para un rol web que controlan el entorno en tiempo de ejecución del proceso de host de Azure. Este elemento es el elemento primario del elemento `Environment`. Este elemento es opcional y un rol solo puede tener un bloque de tiempo de ejecución.
@@ -319,9 +319,9 @@ El elemento `Runtime` solo está disponible cuando se usa la versión 1.3 o post
 
 En la tabla siguiente se describen los atributos del elemento `Runtime`:  
 
-| Atributo | Tipo | Descripción |  
+| Atributo | type | DESCRIPCIÓN |  
 | --------- | ---- | ----------- |  
-|executionContext|cadena|Opcional. Especifica el contexto en el que se inicia el proceso del rol. El contexto predeterminado es `limited`.<br /><br /> -   `limited`: el proceso se inicia sin necesidad de privilegios de administrador.<br />-   `elevated`: el proceso se inicia con privilegios de administrador.|  
+|executionContext|string|Opcional. Especifica el contexto en el que se inicia el proceso del rol. El contexto predeterminado es `limited`.<br /><br /> -   `limited`: el proceso se inicia sin necesidad de privilegios de administrador.<br />-   `elevated`: el proceso se inicia con privilegios de administrador.|  
 
 ##  <a name="Environment"></a> Environment  
 El elemento `Environment` describe una colección de configuraciones de variables de entorno para un rol web. Este elemento es el elemento primario del elemento `Variable`. Un rol puede tener cualquier número de conjunto de variables de entorno.
@@ -333,19 +333,19 @@ El elemento `Variable` solo está disponible cuando se usa la versión 1.3 o pos
 
 En la tabla siguiente se describen los atributos del elemento `Variable`:  
 
-| Atributo | Tipo | Description |  
+| Atributo | type | DESCRIPCIÓN |  
 | --------- | ---- | ----------- |  
-|name|cadena|Necesario. El nombre de la variable de entorno que se establece.|  
-|value|cadena|Opcional. El valor que se establece para la variable de entorno. Debe incluir un atributo de valor o un elemento `RoleInstanceValue`.|  
+|Nombre|string|Necesario. El nombre de la variable de entorno que se establece.|  
+|value|string|Opcional. El valor que se establece para la variable de entorno. Debe incluir un atributo de valor o un elemento `RoleInstanceValue`.|  
 
 ##  <a name="RoleInstanceValue"></a> RoleInstanceValue  
 El elemento `RoleInstanceValue` especifica la xPath de la que se recupera el valor de la variable.
 
 En la tabla siguiente se describen los atributos del elemento `RoleInstanceValue`:
 
-| Atributo | Tipo | Descripción |  
+| Atributo | type | DESCRIPCIÓN |  
 | --------- | ---- | ----------- |  
-|xpath|cadena|Opcional. Ruta de acceso de ubicación de la configuración de implementación de la instancia. Para más información, vea las [variables de configuración con XPath](cloud-services-role-config-xpath.md).<br /><br /> Debe incluir un atributo de valor o un elemento `RoleInstanceValue`.|  
+|xpath|string|Opcional. Ruta de acceso de ubicación de la configuración de implementación de la instancia. Para más información, vea las [variables de configuración con XPath](cloud-services-role-config-xpath.md).<br /><br /> Debe incluir un atributo de valor o un elemento `RoleInstanceValue`.|  
 
 ##  <a name="EntryPoint"></a> EntryPoint  
 El elemento `EntryPoint` especifica el punto de entrada de un rol. Este elemento es el elemento primario del elemento `NetFxEntryPoint`. Estos elementos le permiten especificar una aplicación que no sea la predeterminada WaWorkerHost.exe para que actúe como el punto de entrada del rol.
@@ -360,10 +360,10 @@ El elemento `NetFxEntryPoint` especifica el programa que se ejecutará para un r
 
 En la tabla siguiente se describen los atributos del elemento `NetFxEntryPoint`:
 
-| Atributo | Tipo | Descripción |  
+| Atributo | type | DESCRIPCIÓN |  
 | --------- | ---- | ----------- |  
-|assemblyName|cadena|Necesario. La ruta de acceso y el nombre de archivo del ensamblado que contiene el punto de entrada. La ruta de acceso es relativa a la carpeta **\\%ROLEROOT%\Approot** (no especifique **\\%ROLEROOT%\Approot** en `commandLine`, se da por supuesto). **%ROLEROOT%** es una variable de entorno que mantiene Azure y representa la ubicación de la carpeta raíz del rol. La carpeta **\\%ROLEROOT%\Approot** representa la carpeta de la aplicación del rol.<br /><br /> Para los roles HWC, la ruta de acceso siempre es relativa a la carpeta **\\%ROLEROOT%\Approot\bin**.<br /><br /> Para los roles web completos de IIS y IIS Express , si no se puede encontrar el ensamblado en la ruta de acceso relativa a la carpeta **\\%ROLEROOT%\Approot**, se busca en la carpeta **\\%ROLEROOT%\Approot\bin**.<br /><br /> Este comportamiento de retroceso para el rol web completo de IIS no es un procedimiento recomendado y, por tanto, puede eliminarse en futuras versiones.|  
-|targetFrameworkVersion|cadena|Necesario. La versión de .NET Framework en la que se compiló el ensamblado. Por ejemplo: `targetFrameworkVersion="v4.0"`.|  
+|assemblyName|string|Necesario. La ruta de acceso y el nombre de archivo del ensamblado que contiene el punto de entrada. La ruta de acceso es relativa a la carpeta **\\%ROLEROOT%\Approot** (no especifique **\\%ROLEROOT%\Approot** en `commandLine`, se da por supuesto). **%ROLEROOT%** es una variable de entorno que mantiene Azure y representa la ubicación de la carpeta raíz del rol. La carpeta **\\%ROLEROOT%\Approot** representa la carpeta de la aplicación del rol.<br /><br /> Para los roles HWC, la ruta de acceso siempre es relativa a la carpeta **\\%ROLEROOT%\Approot\bin**.<br /><br /> Para los roles web completos de IIS y IIS Express , si no se puede encontrar el ensamblado en la ruta de acceso relativa a la carpeta **\\%ROLEROOT%\Approot**, se busca en la carpeta **\\%ROLEROOT%\Approot\bin**.<br /><br /> Este comportamiento de retroceso para el rol web completo de IIS no es un procedimiento recomendado y, por tanto, puede eliminarse en futuras versiones.|  
+|targetFrameworkVersion|string|Necesario. La versión de .NET Framework en la que se compiló el ensamblado. Por ejemplo, `targetFrameworkVersion="v4.0"`.|  
 
 ##  <a name="Sites"></a> Sites  
 El elemento `Sites` describe una colección de sitios web y aplicaciones web que se hospedan en un rol web. Este elemento es el elemento primario del elemento `Site`. Si no especifica un elemento `Sites`, el rol web se hospeda como rol web heredado y solo puede tener un sitio web hospedado en el rol web. Este elemento es opcional y un rol solo puede tener un bloque de sitios.
@@ -377,10 +377,10 @@ El elemento `Site` solo está disponible cuando se usa la versión 1.3 o posteri
 
 En la tabla siguiente se describen los atributos del elemento `Site`:
 
-| Atributo | Tipo | Description |  
+| Atributo | type | DESCRIPCIÓN |  
 | --------- | ---- | ----------- |  
-|name|cadena|Necesario. Nombre del sitio web o de la aplicación.|  
-|physicalDirectory|cadena|La ubicación del directorio de contenido de la raíz del sitio. La ubicación puede especificarse como una ruta de acceso absoluta o relativa a la ubicación de .csdef.|  
+|Nombre|string|Necesario. Nombre del sitio web o de la aplicación.|  
+|physicalDirectory|string|La ubicación del directorio de contenido de la raíz del sitio. La ubicación puede especificarse como una ruta de acceso absoluta o relativa a la ubicación de .csdef.|  
 
 ##  <a name="VirtualApplication"></a> VirtualApplication  
 El elemento `VirtualApplication` define una aplicación de Internet Information Services (IIS) 7 como una agrupación de archivos que ofrece contenido o proporciona servicios a través protocolos como HTTP. Cuando se crea una aplicación en IIS 7, la ruta de acceso de la aplicación se convierte en parte de la dirección URL del sitio.
@@ -389,10 +389,10 @@ El elemento `VirtualApplication` solo está disponible cuando se usa la versión
 
 En la tabla siguiente se describen los atributos del elemento `VirtualApplication`:
 
-| Atributo | Tipo | Description |  
+| Atributo | type | DESCRIPCIÓN |  
 | --------- | ---- | ----------- |  
-|name|cadena|Necesario. Especifica un nombre para identificar la aplicación virtual.|  
-|physicalDirectory|cadena|Necesario. Especifica la ruta de acceso en el equipo de desarrollo que contiene la aplicación virtual. En el emulador de proceso, IIS se configura para recuperar el contenido desde esta ubicación. Cuando se implementa en Azure, el contenido del directorio físico se empaqueta junto con el resto del servicio. Cuando se implementa el paquete de servicio en Azure, IIS se configura con la ubicación del contenido desempaquetado.|  
+|Nombre|string|Necesario. Especifica un nombre para identificar la aplicación virtual.|  
+|physicalDirectory|string|Necesario. Especifica la ruta de acceso en el equipo de desarrollo que contiene la aplicación virtual. En el emulador de proceso, IIS se configura para recuperar el contenido desde esta ubicación. Cuando se implementa en Azure, el contenido del directorio físico se empaqueta junto con el resto del servicio. Cuando se implementa el paquete de servicio en Azure, IIS se configura con la ubicación del contenido desempaquetado.|  
 
 ##  <a name="VirtualDirectory"></a> VirtualDirectory  
 El elemento `VirtualDirectory` especifica un nombre de directorio (conocido también como ruta de acceso) que se especifica en IIS y se asigna a un directorio físico en un servidor local o remoto.
@@ -401,9 +401,9 @@ El elemento `VirtualDirectory` solo está disponible cuando se usa la versión 1
 
 En la tabla siguiente se describen los atributos del elemento `VirtualDirectory`:
 
-| Atributo | Tipo | Description |  
+| Atributo | type | DESCRIPCIÓN |  
 | --------- | ---- | ----------- |  
-|name|cadena|Necesario. Especifica un nombre para identificar el directorio virtual.|  
+|Nombre|string|Necesario. Especifica un nombre para identificar el directorio virtual.|  
 |value|physicalDirectory|Necesario. Especifica la ruta de acceso en el equipo de desarrollo que incluye contenido del directorio virtual o del sitio web. En el emulador de proceso, IIS se configura para recuperar el contenido desde esta ubicación. Cuando se implementa en Azure, el contenido del directorio físico se empaqueta junto con el resto del servicio. Cuando se implementa el paquete de servicio en Azure, IIS se configura con la ubicación del contenido desempaquetado.|  
 
 ##  <a name="Bindings"></a> Bindings  
@@ -416,18 +416,18 @@ El elemento `Binding` especifica la información de configuración requerida par
 
 El elemento `Binding` solo está disponible cuando se usa la versión 1.3 o posterior de Azure SDK.
 
-| Atributo | Tipo | Description |  
+| Atributo | type | DESCRIPCIÓN |  
 | --------- | ---- | ----------- |  
-|name|cadena|Necesario. Especifica un nombre para identificar el enlace.|  
-|endpointName|cadena|Necesario. Especifica el nombre del punto de conexión al que enlazar.|  
-|hostHeader|cadena|Opcional. Especifica un nombre de host que le permite hospedar varios sitios, con nombres de host diferentes, en una combinación única de dirección IP/número de puerto.|  
+|Nombre|string|Necesario. Especifica un nombre para identificar el enlace.|  
+|endpointName|string|Necesario. Especifica el nombre del punto de conexión al que enlazar.|  
+|hostHeader|string|Opcional. Especifica un nombre de host que le permite hospedar varios sitios, con nombres de host diferentes, en una combinación única de dirección IP/número de puerto.|  
 
 ##  <a name="Startup"></a> Startup  
 El elemento `Startup` describe una colección de tareas que se ejecutan cuando se inicia el rol. Este elemento es el elemento primario del elemento `Variable`. Para más información sobre el uso de las tareas de inicio de rol, vea [cómo configurar las tareas de inicio](cloud-services-startup-tasks.md). Este elemento es opcional y un rol solo puede tener un bloque de inicio.
 
 En la tabla siguiente se describen los atributos del elemento `Startup`.
 
-| Atributo | Tipo | Descripción |  
+| Atributo | type | DESCRIPCIÓN |  
 | --------- | ---- | ----------- |  
 |prioridad|int|Solo para uso interno.|  
 
@@ -438,11 +438,11 @@ El elemento `Task` solo está disponible cuando se usa la versión 1.3 o posteri
 
 En la tabla siguiente se describen los atributos del elemento `Task`:
 
-| Atributo | Tipo | Descripción |  
+| Atributo | type | DESCRIPCIÓN |  
 | --------- | ---- | ----------- |  
-|commandLine|cadena|Necesario. Un script, como un archivo CMD, que contiene los comandos que se van a ejecutar. Los comandos de inicio y los archivos por lotes se deben guardar en formato ANSI. Los formatos de archivo que establecen un marcador de orden de bytes al inicio del archivo no se procesarán correctamente.|  
-|executionContext|cadena|Especifica el contexto en el que se ejecuta el script.<br /><br /> -   `limited` [valor predeterminado]: se ejecuta con los mismos privilegios que el rol que hospeda el proceso.<br />-   `elevated`: se ejecuta con privilegios de administrador.|  
-|taskType|cadena|Especifica el comportamiento de ejecución del comando.<br /><br /> -   `simple` [valor predeterminado]: el sistema espera a que se cierre la tarea antes de iniciar otra.<br />-   `background`: el sistema no espera a que se cierre la tarea.<br />-   `foreground`: se parece a background, excepto que el rol no se reinicia hasta que todas las tareas de foreground se cierran.|  
+|commandLine|string|Necesario. Un script, como un archivo CMD, que contiene los comandos que se van a ejecutar. Los comandos de inicio y los archivos por lotes se deben guardar en formato ANSI. Los formatos de archivo que establecen un marcador de orden de bytes al inicio del archivo no se procesarán correctamente.|  
+|executionContext|string|Especifica el contexto en el que se ejecuta el script.<br /><br /> -   `limited` [valor predeterminado]: se ejecuta con los mismos privilegios que el rol que hospeda el proceso.<br />-   `elevated`: se ejecuta con privilegios de administrador.|  
+|taskType|string|Especifica el comportamiento de ejecución del comando.<br /><br /> -   `simple` [valor predeterminado]: el sistema espera a que se cierre la tarea antes de iniciar otra.<br />-   `background`: el sistema no espera a que se cierre la tarea.<br />-   `foreground`: se parece a background, excepto que el rol no se reinicia hasta que todas las tareas de foreground se cierran.|  
 
 ##  <a name="Contents"></a> Contents  
 El elemento `Contents` describe la colección de contenido de un rol web. Este elemento es el elemento primario del elemento `Content`.
@@ -456,9 +456,9 @@ El elemento `Content` solo está disponible cuando se usa la versión 1.5 o post
 
 En la tabla siguiente se describen los atributos del elemento `Content`:
 
-| Atributo | Tipo | Descripción |  
+| Atributo | type | DESCRIPCIÓN |  
 | --------- | ---- | ----------- |  
-|de destino|cadena|Necesario. Ubicación en la máquina virtual de Azure en la que se coloca el contenido. Esta ubicación es relativa a la carpeta **%ROLEROOT%\Approot**.|  
+|de destino|string|Necesario. Ubicación en la máquina virtual de Azure en la que se coloca el contenido. Esta ubicación es relativa a la carpeta **%ROLEROOT%\Approot**.|  
 
 Este elemento es el elemento primario del elemento `SourceDirectory`.
 
@@ -469,9 +469,9 @@ El elemento `SourceDirectory` solo está disponible cuando se usa la versión 1.
 
 En la tabla siguiente se describen los atributos del elemento `SourceDirectory`:
 
-| Atributo | Tipo | Descripción |  
+| Atributo | type | DESCRIPCIÓN |  
 | --------- | ---- | ----------- |  
-|path|cadena|Necesario. Ruta de acceso absoluta o relativa de un directorio local cuyo contenido se copiará en la máquina virtual de Azure. Se admite la expansión de variables de entorno en la ruta de acceso de directorio.|  
+|path|string|Necesario. Ruta de acceso absoluta o relativa de un directorio local cuyo contenido se copiará en la máquina virtual de Azure. Se admite la expansión de variables de entorno en la ruta de acceso de directorio.|  
   
 ## <a name="see-also"></a>Otras referencias
 [Cloud Service (classic) Definition Schema](schema-csdef-file.md) (Esquema de definición de servicio en la nube [clásico])

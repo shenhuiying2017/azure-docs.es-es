@@ -1,11 +1,11 @@
 ---
-title: "Instalación de Trend Micro Deep Security en una máquina virtual | Microsoft Docs"
-description: "En este artículo se describe cómo instalar y configurar la seguridad de Trend Micro en una máquina virtual creada con el modelo de implementación clásica en Azure."
+title: Instalación de Trend Micro Deep Security en una máquina virtual | Microsoft Docs
+description: En este artículo se describe cómo instalar y configurar la seguridad de Trend Micro en una máquina virtual creada con el modelo de implementación clásica en Azure.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ms.assetid: e991b635-f1e2-483f-b7ca-9d53e7c22e2a
 ms.service: virtual-machines-windows
@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: iainfou
-ms.openlocfilehash: 41b7ecf0d0c71b5c225454cc77ce87d5736c2165
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 155f4d8c7aa3e0e8f64944435e14112a7970420d
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-install-and-configure-trend-micro-deep-security-as-a-service-on-a-windows-vm"></a>Instalación y configuración de Trend Micro Deep Security como servicio en una máquina virtual de Azure
 > [!IMPORTANT]
-> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../../resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos.
+> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../../resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo de Resource Manager.
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 En este artículo se muestra cómo instalar y configurar Trend Micro Deep Security como servicio en una máquina virtual nueva o existente con Windows Server. Deep Security como servicio proporciona protección antimalware, firewall, sistema de prevención contra intrusiones y supervisión de integridad.

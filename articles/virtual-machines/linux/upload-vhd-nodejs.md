@@ -1,10 +1,10 @@
 ---
 title: Carga de una imagen de Linux personalizada con la CLI de Azure 1.0 | Microsoft Docs
-description: "Cree y cargue en Azure un disco duro virtual (VHD) con una imagen de Linux personalizada mediante el modelo de implementación de Resource Manager y la CLI de Azure 1.0."
+description: Cree y cargue en Azure un disco duro virtual (VHD) con una imagen de Linux personalizada mediante el modelo de implementación de Resource Manager y la CLI de Azure 1.0.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: a8c7818f-eb65-409e-aa91-ce5ae975c564
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: iainfou
-ms.openlocfilehash: ca4c6cb9296028275b2b032af0c94baabeec1223
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6eb0cae2b70e0cbb9a4fb5fcab3a58d566d0f4d9
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-image-by-using-the-azure-cli-10"></a>Carga y creación de una máquina virtual Linux a partir de una imagen de disco personalizada mediante la CLI de Azure 1.0
 En este artículo se muestra cómo cargar un disco duro virtual (VHD) en Azure mediante el modelo de implementación de Resource Manager y crear máquinas virtuales Linux desde esta imagen personalizada. Esta funcionalidad le permite instalar y configurar una distribución de Linux según sus requisitos y después utilizar ese disco duro virtual para crear rápidamente máquinas virtuales de Azure.
@@ -29,7 +29,7 @@ En este artículo se muestra cómo cargar un disco duro virtual (VHD) en Azure m
 Puede completar la tarea mediante una de las siguientes versiones de la CLI:
 
 - [CLI de Azure 1.0](#quick-commands): la CLI para los modelos de implementación clásico y de Resource Manager (este artículo)
-- [CLI de Azure 2.0](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): la CLI de última generación para el modelo de implementación de administración de recursos
+- [CLI de Azure 2.0 ](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): CLI de última generación para el modelo de implementación de administración de recursos
 
 
 ## <a name="quick-commands"></a>Comandos rápidos

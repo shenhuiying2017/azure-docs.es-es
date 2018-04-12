@@ -1,11 +1,11 @@
 ---
-title: "Análisis del rendimiento de nodo perimetral en la red CDN de Azure | Microsoft Docs"
-description: "Análisis del rendimiento del nodo perimetral en la red CDN de Microsoft Azure. El análisis del rendimiento perimetral proporciona información pormenorizada sobre tráfico y uso del ancho de banda para la red CDN."
+title: Análisis del rendimiento de nodo perimetral en la red CDN de Azure | Microsoft Docs
+description: Análisis del rendimiento del nodo perimetral en la red CDN de Microsoft Azure. El análisis del rendimiento perimetral proporciona información pormenorizada sobre tráfico y uso del ancho de banda para la red CDN.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: zhangmanling
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 8cc596a7-3e01-4f76-af7b-a05a1421517e
 ms.service: cdn
 ms.workload: tbd
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: ad285b4e2226c85859acb22ba214cc44c77c08e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="analyze-edge-node-performance-in-microsoft-azure-cdn"></a>Análisis del rendimiento del nodo perimetral en la red CDN de Microsoft Azure
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
@@ -39,7 +39,7 @@ Para poder generar los informes, el módulo Análisis del rendimiento perimetral
 > 
 > 
 
-## <a name="dashboard"></a>Panel
+## <a name="dashboard"></a>panel
 El panel de Análisis de rendimiento perimetral realiza un seguimiento actual e histórico del tráfico de la red CDN a través de un gráfico y de estadísticas. Use este panel para detectar las tendencias recientes y a largo plazo en el rendimiento del tráfico de la red CDN de su cuenta.
 
 Este panel consta de:
@@ -49,11 +49,11 @@ Este panel consta de:
 * Las métricas clave y la información estadística acerca de cómo nuestra red CDN mejora el tráfico del sitio con relación al rendimiento general, el uso y la eficiencia.
 
 ### <a name="accessing-the-edge-performance-dashboard"></a>Acceso al panel de rendimiento perimetral
-1. En la hoja de perfil de la red CDN, haga clic en el botón **Administrar** .
+1. En la hoja de perfil de CDN, haga clic en el botón **Administrar** .
    
     ![Botón de administración de hoja de perfil de red CDN](./media/cdn-edge-performance/cdn-manage-btn.png)
    
-    Se abre el portal de administración de CDN.
+    Se abre el Portal de administración de CDN.
 2. Mantenga el puntero sobre la pestaña **Análisis** y, después, sobre el control flotante **Análisis del rendimiento perimetral**.  Haga clic en **Panel**.
    
     Se muestra el panel de análisis de nodo perimetral.
@@ -83,7 +83,7 @@ El propósito de estas métricas es ver si se puede mejorar la eficiencia de la 
   * Reducción de los costos operacionales.
 * Mejora en la aceleración de la entrega de datos ya que atenderá más solicitudes directamente desde la red CDN.
 
-| Campo | Descripción |
+| Campo | DESCRIPCIÓN |
 | --- | --- |
 | Eficiencia de la memoria caché |Indica el porcentaje de los datos transferidos que se atendieron desde la memoria caché. Esta métrica mide cuándo una versión almacenada en caché del contenido solicitado se sirvió directamente desde la red CDN (servidores perimetrales) al solicitante (por ejemplo, un explorador web) |
 | Frecuencia de aciertos |Indica el porcentaje de solicitudes que se atendieron desde la caché. Esta métrica mide cuándo una versión almacenada en caché del contenido solicitado se sirvió directamente desde la red CDN (servidores perimetrales) al solicitante (por ejemplo, un explorador web). |
@@ -101,7 +101,7 @@ El propósito de estas métricas es proporcionar información sobre las siguient
 > 
 > 
 
-| Campo | Descripción |
+| Campo | DESCRIPCIÓN |
 | --- | --- |
 | Promedio de bytes de salida |Indica el número medio de bytes transferidos por cada solicitud que se sirvió desde la red CDN (servidores perimetrales) al solicitante (por ejemplo, un explorador web). |
 | Velocidad de bytes de ninguna configuración de caché |Indica el porcentaje de tráfico que se sirvió desde la red CDN (servidores perimetrales) al solicitante (por ejemplo, un explorador web) que no se almacenará en caché debido a la característica de omisión de la caché. |
@@ -113,10 +113,10 @@ El propósito de estas métricas es proporcionar información sobre las siguient
 #### <a name="performance-metrics"></a>Métricas de rendimiento.
 El propósito de estas métricas es realizar un seguimiento del rendimiento general para el tráfico de red CDN.
 
-| Campo | Descripción |
+| Campo | DESCRIPCIÓN |
 | --- | --- |
 | Transfer Rate |Indica la velocidad media a la que se transfirió contenido de la red CDN a un solicitante. |
-| Duración |Indica el tiempo medio, en milisegundos, que se tardó en entregar un activo a un solicitante (por ejemplo, un explorador web). |
+| Duration |Indica el tiempo medio, en milisegundos, que se tardó en entregar un activo a un solicitante (por ejemplo, un explorador web). |
 | Compressed Request Rate |Indica el porcentaje de aciertos que se enviaron desde la red CDN (servidores perimetrales) al solicitante (por ejemplo, un explorador web) en un formato comprimido. |
 | 4xx Error Rate |Indica el porcentaje de aciertos que generan un código de estado 4xx. |
 | 5xx Error Rate |Indica el porcentaje de aciertos que generan un código de estado 5xx. |
@@ -125,7 +125,7 @@ El propósito de estas métricas es realizar un seguimiento del rendimiento gene
 #### <a name="secure-traffic-metrics"></a>Secure Traffic Metrics
 El propósito de estas métricas es realizar un seguimiento del rendimiento de la red CDN para el tráfico HTTPS.
 
-| Campo | Descripción |
+| Campo | DESCRIPCIÓN |
 | --- | --- |
 | Secure Cache Efficiency |Indica el porcentaje de datos transferidos para solicitudes HTTPS que se atendieron desde la memoria caché. Esta métrica mide cuándo una versión almacenada en caché del contenido solicitado se sirvió directamente desde la red CDN (servidores perimetrales) al solicitante (por ejemplo, un explorador web) a través de HTTPS. |
 | Secure Transfer Rate |Indica la velocidad media a la que se transfirió contenido desde la red CDN (servidores perimetrales) a los solicitantes (por ejemplo, servidores web) a través de HTTPS. |
@@ -141,12 +141,12 @@ Cada informe de este módulo contiene un gráfico y las estadísticas de uso del
    
     ![Botón de administración de hoja de perfil de red CDN](./media/cdn-edge-performance/cdn-manage-btn.png)
    
-    Se abre el portal de administración de CDN.
+    Se abre el Portal de administración de CDN.
 2. Mantenga el puntero sobre la pestaña **Análisis** y, después, sobre el control flotante **Análisis del rendimiento perimetral**.  Haga clic en **Objeto grande HTTP**.
    
     Se muestra la pantalla de informes de análisis de nodo perimetral.
 
-| Informe | Descripción |
+| Informe | DESCRIPCIÓN |
 | --- | --- |
 | Daily Summary |Permite ver tendencias de tráfico diarias durante un período de tiempo especificado. Cada barra de este gráfico representa una fecha determinada. El tamaño de la barra indica el número total de aciertos de que se produjeron en esa fecha. |
 | Hourly Summary |Permite ver tendencias de tráfico por horas durante un período de tiempo especificado. Cada barra de este gráfico representa una sola hora de una fecha determinada. El tamaño de la barra indica el número total de aciertos de que se produjeron en esa hora. |
@@ -182,7 +182,7 @@ Cada informe de este módulo contiene un gráfico y las estadísticas de uso del
 | 502 Errors |Contiene un gráfico de barras que le permite ver las 10 principales solicitudes que dieron como resultado un código de respuesta 502 Puerta de enlace incorrecta. Un código de respuesta 502 Puerta de enlace incorrecta aparece cuando se produce un error de protocolo HTTP entre un servidor y un proxy HTTP. En el caso de nuestra red CDN, un código 502 Puerta de enlace incorrecta normalmente se produce cuando un servidor de origen del cliente devuelve una respuesta no válida a un servidor perimetral. Una respuesta no es válida si no se puede analizar o si está incompleta. |
 | 5xx Errors |Contiene un gráfico de barras que le permite ver las 10 principales solicitudes que dieron como resultado un código de respuesta de la gama 500.  Los códigos de respuesta 502 Puerta de enlace incorrecta y 504 Tiempo de espera agotado para la puerta de enlace, están excluidos de este informe. |
 
-## <a name="see-also"></a>Consulte también
+## <a name="see-also"></a>Otras referencias
 * [Información general de la red CDN de Azure](cdn-overview.md)
 * [Estadísticas en tiempo real en CDN de Microsoft Azure](cdn-real-time-stats.md)
 * [Invalidación del comportamiento HTTP predeterminado mediante el motor de reglas](cdn-rules-engine.md)

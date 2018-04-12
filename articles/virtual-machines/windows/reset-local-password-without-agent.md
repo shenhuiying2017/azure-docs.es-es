@@ -4,7 +4,7 @@ description: Restablecimiento de la contraseña de una cuenta de usuario de Wind
 services: virtual-machines-windows
 documentationcenter: ''
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: ''
 ms.assetid: cf353dd3-89c9-47f6-a449-f874f0957013
 ms.service: virtual-machines-windows
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/25/2018
 ms.author: iainfou
-ms.openlocfilehash: 2f9efdbaf0ae79781d6f9c7dfa4c8317185be79e
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: ad892aee646b1a5f8c96d5bdeca24b7a0d88f38e
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="reset-local-windows-password-for-azure-vm-offline"></a>Restablecimiento de una contraseña de Windows local para VM de Azure sin conexión
 Puede restablecer la contraseña de Windows local de una VM en Azure mediante [Azure Portal o Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) siempre que el agente invitado de Azure esté instalado. Este método es la manera principal de restablecer una contraseña para una VM de Azure. Si tiene problemas con el agente de invitado de Azure, como puede ser que no responda o que no se pueda instalar después de cargar una imagen personalizada, puede restablecer manualmente una contraseña de Windows. En este artículo se detalla cómo restablecer la contraseña de una cuenta local asociando el disco virtual de SO de origen a otra VM. Los pasos descritos en este artículo no se aplican a los controladores de dominio de Windows. 
@@ -148,6 +148,6 @@ Intente siempre restablecer una contraseña mediante [Azure Portal o Azure Power
     * De %windir%\System32\GroupPolicy
       * quite gpt.ini (si gpt.ini existía antes y cambió su nombre a gpt.ini.bak, vuelva a cambiar el nombre del archivo .bak a gpt.ini)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Si sigue sin poder conectarse mediante Escritorio remoto, consulte la [guía de solución de problemas de RDP](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). La [guía detallada de solución de problemas de RDP](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) examina los métodos de solución de problemas en lugar de pasos específicos. También puede [abrir una solicitud de soporte técnico de Azure](https://azure.microsoft.com/support/options/) para obtener ayuda práctica.
 

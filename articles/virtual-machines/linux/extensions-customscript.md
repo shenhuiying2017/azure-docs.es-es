@@ -1,11 +1,11 @@
 ---
-title: "Ejecución de scripts personalizados en VM de Linux en Azure | Microsoft Docs"
-description: "Automatización de tareas de configuración de máquinas virtuales Linux mediante la extensión de script personalizado"
+title: Ejecución de scripts personalizados en VM de Linux en Azure | Microsoft Docs
+description: Automatización de tareas de configuración de máquinas virtuales Linux mediante la extensión de script personalizado
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: danielsollondon
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: cf17ab2b-8d7e-4078-b6df-955c6d5071c2
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: danis
-ms.openlocfilehash: 53adef0f512c54e036a981dbaa0d08453db6b194
-ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
+ms.openlocfilehash: 88f337df14b7e2647a76cce7ef91ec6f8950bbc6
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="use-the-azure-custom-script-extension-with-linux-virtual-machines"></a>Uso de la extensión de script personalizado de Azure con máquinas virtuales Linux
 La extensión de script personalizado descarga y ejecuta scripts en máquinas virtuales de Azure. Esta extensión es útil para la configuración posterior a la implementación, la instalación de software o cualquier otra tarea de configuración o administración. Los scripts se pueden descargar desde Azure Storage u otra ubicación de Internet accesible, o se pueden proporcionar al tiempo de ejecución de la extensión. 
@@ -68,7 +68,7 @@ El esquema de la configuración protegida es el siguiente.
 }
 ```
 
-## <a name="azure-cli"></a>CLI de Azure
+## <a name="azure-cli"></a>Azure CLI
 Cuando se usa la CLI de Azure para ejecutar la extensión de script personalizado, cree un archivo o archivos de configuración. Como mínimo, los archivos de configuración contienen el URI del archivo y el comando de ejecución del script.
 
 ```azurecli
@@ -241,6 +241,6 @@ data:    Microsoft.OSTCExtensions    Microsoft.Insights.VMDiagnosticsSettings  2
 info:    vm extension get command OK
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre otras extensiones de script de máquina virtual, consulte [Introducción a la extensión de script de Azure para Linux](extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

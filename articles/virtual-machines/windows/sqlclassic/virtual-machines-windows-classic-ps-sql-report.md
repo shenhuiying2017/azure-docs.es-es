@@ -1,6 +1,6 @@
 ---
-title: "Uso de PowerShell para crear una máquina virtual de Azure con un servidor de informes en modo nativo | Microsoft Docs"
-description: "En este tema se describe y se le guiará por la implementación y la configuración de un servidor de informes de modo nativo de SQL Server Reporting Services en una máquina virtual de Azure. "
+title: Uso de PowerShell para crear una máquina virtual de Azure con un servidor de informes en modo nativo | Microsoft Docs
+description: 'En este tema se describe y se le guiará por la implementación y la configuración de un servidor de informes de modo nativo de SQL Server Reporting Services en una máquina virtual de Azure. '
 services: virtual-machines-windows
 documentationcenter: na
 author: guyinacube
@@ -16,14 +16,14 @@ ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: asaxton
 ms.openlocfilehash: 0b9f12127276f5aa689c4a1d3a5bf9fe645a0fc7
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>Usar PowerShell para crear una máquina virtual de Azure con un servidor de informes en modo nativo
 > [!IMPORTANT] 
-> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../../azure-resource-manager/resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos.
+> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../../azure-resource-manager/resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo de Resource Manager.
 
 En este tema se describe y se le guiará por la implementación y la configuración de un servidor de informes de modo nativo de SQL Server Reporting Services en una máquina virtual de Azure. Los pasos de este documento usan una combinación de pasos manuales para crear la máquina virtual y un script de Windows PowerShell para configurar Reporting Services en la máquina virtual. El script de configuración incluye la apertura de un puerto de firewall para HTTP o HTTPS.
 
@@ -66,7 +66,7 @@ En este tema se describe y se le guiará por la implementación y la configuraci
    * **Tamaño: A3** es el tamaño de máquina virtual recomendado para cargas de trabajo de SQL Server. Si una máquina virtual solo se usa como servidor de informes, un tamaño de A2 es suficiente a menos que el servidor de informes experimente una gran carga de trabajo. Para más información sobre precios de máquinas virtuales, consulte [Precios de Máquinas virtuales](https://azure.microsoft.com/pricing/details/virtual-machines/).
    * **Nuevo nombre de usuario**: el nombre que ofrece se crea como administrador en la máquina virtual.
    * **Nueva contraseña** y **Confirmar**. Esta contraseña se usa para la nueva cuenta de administrador y se recomienda usar una contraseña segura.
-   * Haga clic en **Siguiente**. ![next](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
+   * Haga clic en **Next**. ![next](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
 7. En la página siguiente, edite los siguientes campos:
    
    * **Servicio en la nube**: seleccione **Crear un nuevo servicio en la nube**.
@@ -511,7 +511,7 @@ Si no quiere ejecutar el script de PowerShell para configurar el servidor de inf
    
    1. Haga clic en **Cambiar base de datos**.
    2. Haga clic en **Crear una nueva base de datos del servidor de informes** y luego en **Siguiente**.
-   3. Deje el valor de **nombre de servidor** predeterminado como el nombre de la máquina virtual y deje el valor de **tipo de autenticación** predeterminado como **Usuario actual** – **Seguridad integrada**. Haga clic en **Siguiente**.
+   3. Deje el valor de **nombre de servidor** predeterminado como el nombre de la máquina virtual y deje el valor de **tipo de autenticación** predeterminado como **Usuario actual** – **Seguridad integrada**. Haga clic en **Next**.
    4. Deje el **nombre de base de datos** predeterminado como **ReportServer** y haga clic en **Siguiente**.
    5. Deje el valor de **Tipo de autenticación** predeterminado como **Credenciales de servicio** y haga clic en **Siguiente**.
    6. Haga clic en **Siguiente** on the **Resumen** .
@@ -563,7 +563,7 @@ Para comprobar que la funcionalidad del servidor de informes básica funciona, a
         https://ssrsnativecloud.cloudapp.net/ReportServer
 
 ## <a name="create-users-and-assign-roles"></a>Crear usuarios y asignar roles
-Después de configurar y comprobar el servidor de informes, una tarea administrativa común es crear uno o más usuarios y asignar usuarios a roles de Reporting Services. Para obtener más información, consulte los temas siguientes:
+Después de configurar y comprobar el servidor de informes, una tarea administrativa común es crear uno o más usuarios y asignar usuarios a roles de Reporting Services. Para obtener más información, vea lo siguiente: 
 
 * [Crear una cuenta de usuarios local](https://technet.microsoft.com/library/cc770642.aspx)
 * [Conceder a un usuario acceso a un servidor de informes (Administrador de informes)](https://msdn.microsoft.com/library/ms156034.aspx)
@@ -581,7 +581,7 @@ En la tabla siguiente se resumen algunas de las opciones disponibles para public
      Para más información, consulte [Instalar, desinstalar y asistencia del Generador de informes](https://technet.microsoft.com/library/dd207038.aspx).
 * **SQL Server Data Tools: máquina virtual** si ha creado la máquina virtual con SQL Server 2012, SQL Server Data Tools se instala en la máquina virtual y se puede usar para crear **proyectos del Servidor de informes** e informes en la máquina virtual. SQL Server Data Tools puede publicar los informes en el servidor de informes en la máquina virtual.
   
-    Si ha creado la máquina virtual con SQL server 2014, puede instalar SQL Server Data Tools- BI para Visual Studio. Para obtener más información, consulte los temas siguientes:
+    Si ha creado la máquina virtual con SQL server 2014, puede instalar SQL Server Data Tools- BI para Visual Studio. Para obtener más información, vea lo siguiente: 
   
   * [Microsoft SQL Server Data Tools - Business Intelligence para Visual Studio 2013](https://www.microsoft.com/download/details.aspx?id=42313)
   * [Microsoft SQL Server Data Tools - Business Intelligence para Visual Studio 2012](https://www.microsoft.com/download/details.aspx?id=36843)

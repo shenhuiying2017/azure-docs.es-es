@@ -1,11 +1,11 @@
 ---
-title: "Aplicación de seguridad con directivas en máquinas virtuales Linux en Azure | Microsoft Docs"
-description: "Aplicación de una directiva a una máquina virtual Linux de Azure Resource Manager"
+title: Aplicación de seguridad con directivas en máquinas virtuales Linux en Azure | Microsoft Docs
+description: Aplicación de una directiva a una máquina virtual Linux de Azure Resource Manager
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: singhkays
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 06778ab4-f8ff-4eed-ae10-26a276fc3faa
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: singhkay
-ms.openlocfilehash: 72abb01a3ce7f4dea2ee97219e9a406c69cda7c5
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 12066fe622ec3ed2eded74ecf7b791689ed873d5
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="apply-policies-to-linux-vms-with-azure-resource-manager"></a>Aplicación de directivas a máquinas virtuales con Linux con Azure Resource Manager
 Mediante las directivas, una organización puede aplicar varias convenciones y reglas en toda la empresa. La aplicación del comportamiento deseado puede ayudar a reducir el riesgo a la vez que se contribuye al éxito de la organización. En este artículo, describimos cómo puede usar las directivas de Azure Resource Manager para definir el comportamiento deseado para las máquinas virtuales de su organización.

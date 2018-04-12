@@ -1,12 +1,11 @@
 ---
-title: "Cadena de conexión de MongoDB para una cuenta de Azure Cosmos DB | Microsoft Docs"
-description: "Aprenda a conectar su aplicación de MongoDB a una cuenta de Azure Cosmos DB mediante una cadena de conexión de MongoDB."
-keywords: "cadena de conexión de mongodb"
+title: Cadena de conexión de MongoDB para una cuenta de Azure Cosmos DB | Microsoft Docs
+description: Aprenda a conectar su aplicación de MongoDB a una cuenta de Azure Cosmos DB mediante una cadena de conexión de MongoDB.
+keywords: cadena de conexión de mongodb
 services: cosmos-db
 author: AndrewHoh
-manager: jhubbard
-editor: 
-documentationcenter: 
+manager: kfile
+documentationcenter: ''
 ms.assetid: e36f7375-9329-403b-afd1-4ab49894f75e
 ms.service: cosmos-db
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2017
 ms.author: anhoh
-ms.openlocfilehash: 41c0b360b54f9a9dcd2458ce5bdc05911c4f73a5
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: dfdcb458d0f81c0ddb9399ee8b89a52c4cbc6270
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Conectar una aplicación de MongoDB a Azure Cosmos DB
 Aprenda a conectar su aplicación de MongoDB a una cuenta de Azure Cosmos DB mediante una cadena de conexión de MongoDB. Después, puede usar una base de datos de Azure Cosmos DB como almacén de datos de la aplicación MongoDB. 
@@ -74,6 +73,6 @@ Por ejemplo, considere la cuenta que aparece en la hoja **Cadena de conexión**.
 
     mongodb://contoso123:0Fc3IolnL12312asdfawejunASDF@asdfYXX2t8a97kghVcUzcDv98hawelufhawefafnoQRGwNj2nMPL1Y9qsIr9Srdw==@contoso123.documents.azure.com:10255/mydatabase?ssl=true
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Obtenga información sobre cómo [usar Studio 3T (MongoChef)](mongodb-mongochef.md) con una cuenta de MongoDB API en Azure Cosmos DB.
 * Explore [ejemplos](mongodb-samples.md) de la API de Azure Cosmos DB para MongoDB.

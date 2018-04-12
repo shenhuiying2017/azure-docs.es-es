@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2017
 ms.author: kumud
-ms.openlocfilehash: 09c51441d393de5d801e7a4c259b711a527349d8
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f6e9dd09558a3485629d5b70dd8b68b292427b18
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="high-availability-ports-overview"></a>Introducción a los puertos de alta disponibilidad
 
@@ -72,20 +72,20 @@ Esta configuración no permite ninguna otra configuración de reglas de equilibr
 
 Sin embargo, además de esta regla de puertos HA, puede configurar una instancia pública de Load Balancer estándar para las instancias de back-end.
 
-## <a name="one-single-floating-ip-direct-server-return-ha-ports-configuration-on-the-internal-standard-load-balancer"></a>Una configuración de puertos HA con una única dirección IP no flotante (Direct Server Return) en la instancia interna de Load Balancer estándar.
+### <a name="one-single-floating-ip-direct-server-return-ha-ports-configuration-on-the-internal-standard-load-balancer"></a>Una configuración de puertos HA con una única dirección IP no flotante (Direct Server Return) en la instancia interna de Load Balancer estándar.
 
 De igual forma, puede configurar Load Balancer para usar una regla de equilibrio de carga con **Puerto HA** con un único front-end y **Dirección IP flotante** establecida en **Habilitado**. 
 
 Esta configuración le permite agregar más reglas de equilibrio de carga con IP flotante o una instancia pública de Load Balancer. Sin embargo, no puede usar una configuración de equilibrio de carga de puertos HA con IP flotante encima de esta configuración.
 
-## <a name="multiple-ha-ports-configurations-on-the-internal-standard-load-balancer"></a>Varias configuraciones de puertos HA en la instancia interna de Load Balancer
+### <a name="multiple-ha-ports-configurations-on-the-internal-standard-load-balancer"></a>Varias configuraciones de puertos HA en la instancia interna de Load Balancer
 
 Si su escenario requiere que configure más de un front-end de puertos HA para el mismo grupo de servidores back-end, puede conseguirlo de dos maneras: 
 - Configure más de una dirección IP privada de front-end para un único recurso de una instancia interna de Load Balancer estándar.
 - Configure varias reglas de equilibrio de carga, donde cada una tiene seleccionada una única dirección IP de font-end.
 - Seleccione la opción **Puertos HA** y establezca **IP flotante** en **Habilitado** en todas las reglas de equilibrio de carga.
 
-## <a name="internal-load-balancer-with-ha-ports--public-load-balancer-on-the-same-backend-instances"></a>Instancia interna de Load Balancer con puertos HA e instancia pública de Load Balancer en las mismas instancias de back-end
+### <a name="internal-load-balancer-with-ha-ports--public-load-balancer-on-the-same-backend-instances"></a>Instancia interna de Load Balancer con puertos HA e instancia pública de Load Balancer en las mismas instancias de back-end
 
 Puede configurar **un** recurso de una instancia pública de Load Balancer estándar para los recursos de back-end, junto con una única instancia interna de Load Balancer estándar con puertos HA.
 

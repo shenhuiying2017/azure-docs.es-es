@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: b1a8510efccf810bd4fbdd647d58d38cd87d019f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 22c2f8d811da3dfc565ff32cb602e78b1097ffab
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="install-applications-into-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Instalación de aplicaciones en un conjunto de escalado de máquinas virtuales con la CLI de Azure 2.0
 Este script crea un conjunto de escalado de máquinas virtuales que ejecutan Ubuntu y usa la extensión de script personalizado para instalar una aplicación web básica. Después de ejecutar el script, puede tener acceso a la aplicación web mediante un explorador web.
@@ -30,7 +30,7 @@ Este script crea un conjunto de escalado de máquinas virtuales que ejecutan Ubu
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-script"></a>Script de ejemplo
-[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine-scale-sets/install-apps/install-apps.sh "Install apps into a scale set"")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine-scale-sets/install-apps/install-apps.sh "Install apps into a scale set")]
 
 ## <a name="clean-up-deployment"></a>Limpieza de la implementación
 Ejecute el siguiente comando para quitar el grupo de recursos, el conjunto de escalado y todos los recursos relacionados.

@@ -3,7 +3,7 @@ title: Actualización del firmware de los dispositivos con Azure IoT Hub | Micro
 description: Describe cómo usar la administración de dispositivos en IoT Hub de Azure para iniciar una actualización de firmware del dispositivo. El SDK de dispositivo IoT de Azure para .NET se usa para implementar una aplicación de dispositivo simulada, mientras que el SDK de servicio IoT de Azure para .NET se usa para implementar una aplicación de servicio que desencadena la actualización del firmware.
 services: iot-hub
 documentationcenter: .net
-author: JimacoMS2
+author: dominicbetts
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/19/2017
-ms.author: v-jamebr
-ms.openlocfilehash: 984fd7516b5c05973c45891f4eda31c41a5a2be5
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: v-jamebr;dobett
+ms.openlocfilehash: 50bb2ada9cf848bdcfb4f958272ff918996bf411
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-device-management-to-initiate-a-device-firmware-update-netnet"></a>Uso de la administración de dispositivos para iniciar una actualización de firmware de los dispositivos (. NET/.NET)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]

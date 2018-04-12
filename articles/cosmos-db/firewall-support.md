@@ -3,9 +3,8 @@ title: Compatibilidad con el firewall de Azure Cosmos DB y control de acceso bas
 description: Aprenda a usar directivas de control de acceso IP para la compatibilidad con el firewall en cuentas de base de datos de Azure Cosmos DB.
 keywords: Control de acceso IP, compatibilidad con el firewall
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-editor: ''
+author: SnehaGunda
+manager: kfile
 tags: azure-resource-manager
 documentationcenter: ''
 ms.assetid: c1b9ede0-ed93-411a-ac9a-62c113a8e887
@@ -15,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
-ms.author: mimig
-ms.openlocfilehash: 5b70f77d49651e2873428fc7798fff3770b7a095
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: sngun
+ms.openlocfilehash: 4d5743703f3a1d98b720bd92a30c91549bbf89c0
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-cosmos-db-firewall-support"></a>Compatibilidad con un firewall de Azure Cosmos DB
 Para proteger los datos almacenados en una cuenta de base de datos de Azure Cosmos DB, este proporciona compatibilidad con un [modelo de autorización](https://msdn.microsoft.com/library/azure/dn783368.aspx) basado en secreto que utiliza un código seguro de autenticación de mensajes basado en hash (HMAC). Ahora, además del modelo de autorización basado en secreto, Azure Cosmos DB admite controles de acceso basado en IP orientado a directivas para la compatibilidad con el firewall de entrada. Este modelo es muy parecido a las reglas de firewall de un sistema de base de datos tradicional y proporciona un nivel de seguridad adicional para la cuenta de base de datos de Azure Cosmos DB. Con él, ahora puede configurar una cuenta de base de datos de Azure Cosmos DB para que solo sea accesible desde un conjunto aprobado de máquinas o servicios en la nube. El acceso a recursos de Azure Cosmos DB desde estos conjuntos aprobados de máquinas y servicios requerirá que el autor de la llamada presente un token de autorización válido.

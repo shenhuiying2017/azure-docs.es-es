@@ -1,12 +1,10 @@
 ---
 title: Compatibilidad de Azure Cosmos DB con Gremlin | Microsoft Docs
-description: Más información acerca del lenguaje Gremlin de Apache TinkerPop. Más información acerca de las características y los pasos disponibles en Azure Cosmos DB
+description: Más información acerca del lenguaje de Gremlin de Apache TinkerPop. Más información acerca de las características y los pasos disponibles en Azure Cosmos DB
 services: cosmos-db
 documentationcenter: ''
 author: LuisBosquez
-manager: jhubbard
-editor: ''
-tags: ''
+manager: kfile
 ms.assetid: 6016ccba-0fb9-4218-892e-8f32a1bcc590
 ms.service: cosmos-db
 ms.devlang: na
@@ -15,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 01/02/2018
 ms.author: lbosq
-ms.openlocfilehash: f04beb9526dbf55d42590b9843e7c104b8fca092
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: c5e904c741c96808555718b0d90368e1bf770ecb
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Compatibilidad de Azure Cosmos DB con grafos Gremlin
 Azure Cosmos DB admite el lenguaje de recorrido de grafos de [Apache Tinkerpop](http://tinkerpop.apache.org), [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), que es una instancia de Graph API para crear entidades de grafo y realizar operaciones de consulta de grafos. Puede usar el lenguaje Gremlin para crear entidades de grafo (vértices y aristas), modificar las propiedades de las entidades, realizar consultas y recorridos, y eliminar entidades. 
@@ -37,7 +35,7 @@ Este grafo tiene los siguientes tipos de vértices (llamados "etiquetas" en Grem
 
 - Personas: el grafo tiene tres personas, Robin, Thomas y Ben.
 - Intereses: sus intereses; en este ejemplo, el fútbol.
-- Dispositivos: dispositivos que usan las personas.
+- Dispositivos: los dispositivos que usan las personas.
 - Sistemas operativos: sistemas operativos que se ejecutan en los dispositivos.
 
 Las relaciones entre estas entidades se representan con las siguientes etiquetas o tipos de arista:
@@ -202,7 +200,7 @@ Ahora, echemos un vistazo a los pasos de Gremlin que Azure Cosmos DB admite. Par
 | `V` | Incluye los pasos necesarios para los recorridos entre los vértices y las aristas `V`, `E`, `out`, `in`, `both`, `outE`, `inE`, `bothE`, `outV`, `inV`, `bothV` y `otherV` | [pasos vertex](http://tinkerpop.apache.org/docs/current/reference/#vertex-steps) |
 | `where` | Se usa para filtrar los resultados del recorrido. Admite los operadores `eq`, `neq`, `lt`, `lte`, `gt`, `gte` y `between`  | [paso where](http://tinkerpop.apache.org/docs/current/reference/#where-step) |
 
-De manera predeterminada, el motor optimizado para escritura de Azure Cosmos DB admite la indexación automática de todas las propiedades en vértices y aristas. Por lo tanto, las consultas con filtros, las consultas de intervalo, la ordenación o los agregados de cualquier propiedad se procesan a partir del índice y se sirven de forma eficiente. Para más información sobre cómo funciona la indexación en Azure Cosmos DB, consulte nuestro artículo sobre la [indexación independiente del esquema](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
+De manera predeterminada, el motor optimizado para escritura de Azure Cosmos DB admite la indexación automática de todas las propiedades dentro de los vértices y los bordes. Por lo tanto, las consultas con filtros, las consultas de intervalo, la ordenación o los agregados de cualquier propiedad se procesan a partir del índice y se sirven de forma eficiente. Para más información sobre cómo funciona la indexación en Azure Cosmos DB, consulte nuestro artículo sobre la [indexación independiente del esquema](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Empezar a compilar una aplicación de grafos [con nuestros SDK](create-graph-dotnet.md) 

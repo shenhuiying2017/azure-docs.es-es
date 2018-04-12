@@ -1,11 +1,11 @@
 ---
-title: "Uso del codificador Telestream Wirecast para enviar una transmisión en vivo con velocidad de bits única | Microsoft Docs"
-description: "En este tema se muestra cómo configurar el codificador en directo Wirecast para enviar una transmisión con velocidad de bits única a canales AMS habilitados para la codificación en directo. "
+title: Uso del codificador Telestream Wirecast para enviar una transmisión en vivo con velocidad de bits única | Microsoft Docs
+description: 'En este tema se muestra cómo configurar el codificador en directo Wirecast para enviar una transmisión con velocidad de bits única a canales AMS habilitados para la codificación en directo. '
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 0d2f1e81-51a6-4ca9-894a-6dfa51ce4c70
 ms.service: media-services
 ms.workload: media
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;cenkdin;anilmur
 ms.openlocfilehash: 0e4fb0b7c915969da1760eaccc77aa399030752e
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Uso del codificador Wirecast para enviar una transmisión por secuencias en directo de velocidad de bits única
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ En este artículo se muestra cómo configurar el codificador en directo [Telestr
 
 En este tutorial se muestra cómo administrar Azure Media Services (AMS) con la herramienta Explorador de Azure Media Services (AMSE). Esta herramienta solo se ejecuta en Windows PC. Si se encuentra en Mac o Linux, use Azure Portal para crear [canales](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) y [programas](media-services-portal-creating-live-encoder-enabled-channel.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 * [Creación de una cuenta de Azure Media Services](media-services-portal-create-account.md)
 * Asegúrese de que hay un punto de conexión de streaming en ejecución. Para obtener más información, consulte [Administración de extremos de streaming en una cuenta de Media Services](media-services-portal-manage-streaming-endpoints.md)
 * Debe instalar la última versión de la herramienta [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) .

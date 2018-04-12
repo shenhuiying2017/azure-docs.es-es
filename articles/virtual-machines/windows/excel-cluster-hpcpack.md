@@ -1,11 +1,11 @@
 ---
-title: "Clúster de HPC Pack para Excel y SOA | Microsoft Docs"
-description: "Introducción a la ejecución de cargas de trabajo de Excel y SOA a gran escala en un clúster de HPC Pack en Azure"
+title: Clúster de HPC Pack para Excel y SOA | Microsoft Docs
+description: Introducción a la ejecución de cargas de trabajo de Excel y SOA a gran escala en un clúster de HPC Pack en Azure
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager,hpc-pack
 ms.assetid: cb6a9abe-caf3-44da-b911-849a50f6cfb3
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 06/01/2017
 ms.author: danlep
-ms.openlocfilehash: 63babd94fdab15217cfb0757e4cd6efe458a628d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aaf26e04fdb38fd76f4ab8211f9fdda8ebafd668
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="get-started-running-excel-and-soa-workloads-on-an-hpc-pack-cluster-in-azure"></a>Introducción a la ejecución de cargas de trabajo de Excel y SOA en un clúster de HPC Pack en Azure
 En este artículo se muestra cómo implementar un clúster de Microsoft HPC Pack 2012 R2 en máquinas virtuales de Azure con una plantilla de inicio rápido de Azure, o bien, de manera opcional, un script de implementación de Azure PowerShell. El clúster usa imágenes de VM de Azure Marketplace diseñadas para ejecutar cargas de trabajo de Microsoft Excel o de Arquitectura orientada a servicios (SOA) con HPC Pack. Puede usar el clúster para ejecutar servicios de SOA y Excel HPC desde un equipo cliente local. Los servicios de Excel HPC incluyen la descarga de libros de Excel y las funciones definidas por el usuario de Excel o UDF.
@@ -34,7 +34,7 @@ En un nivel alto, el diagrama siguiente muestra el clúster de HPC Pack que crea
 
 ![Clúster HPC con nodos que ejecutan cargas de trabajo de Excel][scenario]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 * **Equipo cliente** : necesita un equipo cliente basado en Windows para enviar ejemplos de trabajos de Excel y SOA al clúster. También necesitará un equipo Windows para ejecutar el script de implementación de clúster de Azure PowerShell (si elige ese método de pago).
 * **Suscripción de Azure** : si no tiene ninguna, puede crear una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/) en un par de minutos.
 * **Cuota de núcleos** : tal vez tenga que aumentar la cuota de núcleos, especialmente si implementa varios nodos de clúster con tamaños de máquina virtual de múltiples núcleos. Si usa una plantilla de inicio rápido de Azure, la cuota de núcleos en Resource Manager es por región de Azure. En ese caso, puede que necesite aumentar la cuota en una región específica. Consulte [Límites, cuotas y restricciones de suscripción de Azure](../../azure-subscription-service-limits.md). Para aumentar una cuota, [abra una solicitud de soporte técnico al cliente en línea](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) sin cargo alguno.
@@ -192,7 +192,7 @@ El script de implementación de HPC Pack se ejecuta durante algún tiempo. Una d
     You have enabled REST API or web portal on HPC Pack head node. Please import the following certificate in the Trusted Root Certification Authorities certificate store on the computer where you are submitting job or accessing the HPC web portal:
     C:\Users\hpcuser\Documents\HPCWebComponent_HPCExcelHN004_20150707162011.cer
 
-## <a name="step-2-offload-excel-workbooks-and-run-udfs-from-an-on-premises-client"></a>Paso 2: Descarga de libros de Excel y ejecución de UDF desde un cliente local
+## <a name="step-2-offload-excel-workbooks-and-run-udfs-from-an-on-premises-client"></a>Paso 2. Descarga de libros de Excel y ejecución de UDF desde un cliente local
 ### <a name="excel-activation"></a>Activación de Excel
 Cuando usa la imagen de VM ComputeNodeWithExcel para las cargas de trabajo de producción, debe brindar una clave de licencia de Microsoft Office válida para activar Excel en los nodos de proceso. De lo contrario, la versión de evaluación de Excel expirará después 30 días y la ejecución de libros de Excel presentará errores con la excepción COMException (0x800AC472). 
 
@@ -275,7 +275,7 @@ Una vez que el clúster esté implementado correctamente, siga estos pasos para 
    
    Cuando haya una gran cantidad de celdas para calcular, presione Alt+Mayús+Ctrl+F9 para ejecutar el cálculo en todas las celdas.
 
-## <a name="step-3-run-a-soa-workload-from-an-on-premises-client"></a>Paso 3: Ejecución de una carga de trabajo de SOA desde un cliente local
+## <a name="step-3-run-a-soa-workload-from-an-on-premises-client"></a>Paso 3. Ejecución de una carga de trabajo de SOA desde un cliente local
 Para ejecutar aplicaciones generales de SOA en el clúster de HPC Pack IaaS, use primero uno de los métodos que aparecen en el paso 1 para implementar el clúster. En este caso, especifique una imagen de nodo de proceso genérica porque no necesita tener instalado Excel en los nodos de proceso. A continuación, siga estos pasos.
 
 1. Después de recuperar el certificado del clúster, impórtelo en el equipo cliente en Cert: \CurrentUser\Root.

@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/20/2018
+ms.date: 04/03/2018
 ms.author: dekapur
-ms.openlocfilehash: 4b0845cbb25d160b53b483641e242422c98029ee
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 613e5a2a746d480f020af652e7bbaf5e80ed059d
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="add-the-oms-agent-to-a-cluster"></a>Incorporación del Agente de OMS a un clúster
 
@@ -46,13 +46,13 @@ La mejor manera de agregar el Agente de OMS al clúster es a través de las API 
     En un clúster con Windows:
     
     ```sh
-    az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group <nameOfResourceGroup> --vmss-name <nameOfNodeType> --settings "{'workspaceId':'<OMSworkspaceId>'}" --protected-settings "{'workspaceKey':'<OMSworkspaceKey>'}"
+    az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group <nameOfResourceGroup> --vmss-name <nameOfNodeType> --settings "{'workspaceId':'<LogAnalyticsworkspaceId>'}" --protected-settings "{'workspaceKey':'<LogAnalyticsworkspaceKey>'}"
     ```
 
     En un clúster con Linux:
 
     ```sh
-    az vmss extension set --name OmsAgentForLinux --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group <nameOfResourceGroup> --vmss-name <nameOfNodeType> --settings "{'workspaceId':'<OMSworkspaceId>'}" --protected-settings "{'workspaceKey':'<OMSworkspaceKey>'}"
+    az vmss extension set --name OmsAgentForLinux --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group <nameOfResourceGroup> --vmss-name <nameOfNodeType> --settings "{'workspaceId':'<LogAnalyticsworkspaceId>'}" --protected-settings "{'workspaceKey':'<LogAnalyticsworkspaceKey>'}"
     ```
 
     Este es un ejemplo de incorporación del Agente de OMS a un clúster con Windows.

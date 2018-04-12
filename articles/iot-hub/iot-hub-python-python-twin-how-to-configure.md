@@ -1,11 +1,11 @@
 ---
 title: Uso de las propiedades de dispositivos gemelos de Azure IoT Hub (Python) | Microsoft Docs
-description: "En este artículo se describe cómo usar los dispositivos gemelos de IoT Hub de Azure para configurar dispositivos. Usará el SDK de Azure IoT para Python para implementar la aplicación de dispositivo simulado y una aplicación de servicio que modifica una configuración de dispositivo mediante un dispositivo gemelo."
+description: En este artículo se describe cómo usar los dispositivos gemelos de IoT Hub de Azure para configurar dispositivos. Usará el SDK de Azure IoT para Python para implementar la aplicación de dispositivo simulado y una aplicación de servicio que modifica una configuración de dispositivo mediante un dispositivo gemelo.
 services: iot-hub
 documentationcenter: .net
-author: msebolt
+author: kgremban
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: d0bcec50-26e6-40f0-8096-733b2f3071ec
 ms.service: iot-hub
 ms.devlang: python
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/12/2018
-ms.author: v-masebo
-ms.openlocfilehash: d0d5a30a76068eb3212124fd14e7ea1616b75708
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: v-masebo;kgremban
+ms.openlocfilehash: e6f4aa61e37769dc4851f8284d07a7991ee38c91
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-desired-properties-to-configure-devices-python"></a>Uso de las propiedades deseadas para configurar dispositivos (Python)
 [!INCLUDE [iot-hub-selector-twin-how-to-configure](../../includes/iot-hub-selector-twin-how-to-configure.md)]
@@ -251,7 +251,7 @@ En esta sección, creará una aplicación de consola Python que actualiza las *p
     Debería ver el cambio del identificador de la configuración notificada de **1** a **2** con la nueva frecuencia de envío activa de cinco minutos en lugar de 24 horas.
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este tutorial, ha establecido una configuración deseada como *propiedades deseadas* desde una aplicación back-end, y ha escrito una aplicación de dispositivo simulado para detectar ese cambio y simular un proceso de actualización que informe de su estado como *propiedades notificadas* para el dispositivo gemelo.
 
 Use los siguientes recursos para obtener información sobre cómo:

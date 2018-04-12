@@ -1,11 +1,11 @@
 ---
-title: "Adición de nodos de ráfaga a un clúster de HPC Pack | Microsoft Docs"
-description: "Aprenda a expandir un clúster de HPC Pack en Azure a petición mediante la adición de instancias de rol de trabajo que se ejecutan en un servicio en la nube"
+title: Adición de nodos de ráfaga a un clúster de HPC Pack | Microsoft Docs
+description: Aprenda a expandir un clúster de HPC Pack en Azure a petición mediante la adición de instancias de rol de trabajo que se ejecutan en un servicio en la nube
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,hpc-pack
 ms.assetid: 24b79a8a-24ad-4002-ae76-75abc9b28c83
 ms.service: virtual-machines-windows
@@ -15,24 +15,24 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 10/14/2016
 ms.author: danlep
-ms.openlocfilehash: 96e332504509ae98e280d1c8585b0b294e0e07cb
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: eee9183321f21676271c8a9c7e023c80c4daf554
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="add-on-demand-burst-nodes-to-an-hpc-pack-cluster-in-azure"></a>Adición de nodos de ráfaga a petición a un clúster de HPC Pack en Azure
 Si configura un clúster de [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) en Azure, es posible que desee conocer alguna forma de escalar o reducir verticalmente la capacidad de clúster de forma rápida, sin mantener un conjunto de máquinas virtuales de nodos de proceso preconfiguradas. En este artículo se muestra cómo agregar nodos de "ráfaga" a petición (instancias de rol de trabajo que se ejecutan en un servicio en la nube) como recursos de proceso a un nodo principal de Azure. 
 
 > [!IMPORTANT] 
-> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../../resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos.
+> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../../resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo de Resource Manager.
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 ![Nodos de ráfaga][burst]
 
 Los pasos de este artículo le ayudarán a agregar nodos de Azure rápidamente a una máquina virtual del nodo principal de HPC Pack basado en la nube para realizar una implementación de prueba o de prueba de concepto. Los pasos de alto nivel son los mismos que los de "ráfaga en Azure" para agregar capacidad de proceso en la nube a un clúster de HPC Pack local. Si desea conseguir un tutorial, consulte [Configurar un clúster de proceso híbrido con Microsoft HPC Pack](../../../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md). Para obtener instrucciones detalladas y consideraciones acerca de las implementaciones de producción, consulte [Ráfaga en Azure con Microsoft HPC Pack](https://technet.microsoft.com/library/gg481749.aspx).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 * **Nodo principal de HPC Pack implementado en una máquina virtual de Azure** : puede usar una máquina virtual del nodo principal independiente o una que forme parte de un clúster de mayor tamaño. Para crear un nodo principal independiente, consulte [Creación del nodo principal de un clúster de HPC Pack en una máquina virtual de Azure con una imagen de Marketplace](../../virtual-machines-windows-hpcpack-cluster-headnode.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Para ver las opciones de implementación de HPC Pack, consulte [Opciones para crear y administrar un clúster de informática de alto rendimiento (HPC) de Linux en Azure con Microsoft HPC Pack](../../virtual-machines-windows-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
   
   > [!TIP]

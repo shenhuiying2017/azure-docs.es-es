@@ -1,11 +1,11 @@
 ---
-title: "Cambio de tamaño de una VM de Windows en el modelo de implementación clásica - Azure | Microsoft Docs"
-description: "Cambio de tamaño de una máquina virtual Windows clásica creada con el modelo de implementación clásica utilizando Azure PowerShell."
+title: Cambio de tamaño de una VM de Windows en el modelo de implementación clásica - Azure | Microsoft Docs
+description: Cambio de tamaño de una máquina virtual Windows clásica creada con el modelo de implementación clásica utilizando Azure PowerShell.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: Drewm3
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ms.assetid: e3038215-001c-406e-904d-e0f4e326a4c7
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2016
 ms.author: drewm
-ms.openlocfilehash: 4277bc8394c7ba140291e9dc776162e87deab96b
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 6afc8125462a659d0892e7dbb53f1f71789815cc
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="resize-a-windows-vm-created-in-the-classic-deployment-model"></a>Cambio de tamaño de una máquina virtual Windows creada en el modelo de implementación clásica
 En este artículo se muestra cómo cambiar de tamaño una máquina virtual Windows creada con el modelo de implementación clásica utilizando Azure PowerShell.
@@ -66,6 +66,6 @@ Para cambiar el tamaño de una máquina virtual a uno que no esté disponible en
 
 [Aquí](https://github.com/Azure/azure-vm-scripts) puede encontrar un script de ejemplo para eliminar y volver a crear un servicio en la nube con un nuevo tamaño de máquina virtual. 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Cambie el tamaño de una máquina virtual con el modelo de implementación de Resource Manager](../resize-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

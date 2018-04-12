@@ -1,11 +1,11 @@
 ---
-title: "Extensión de script personalizada en una máquina virtual Windows | Microsoft Docs"
-description: "Automatizar tareas de configuración de máquina virtual de Azure mediante la extensión de script personalizada para ejecutar scripts de PowerShell en una máquina virtual remota de Windows"
+title: Extensión de script personalizada en una máquina virtual Windows | Microsoft Docs
+description: Automatizar tareas de configuración de máquina virtual de Azure mediante la extensión de script personalizada para ejecutar scripts de PowerShell en una máquina virtual remota de Windows
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: danielsollondon
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ms.assetid: ebb7340a-8f61-4d3c-a290-d7bf8de2d0bd
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/17/2017
 ms.author: danis
-ms.openlocfilehash: 5de2949561ed5f64582898006de7818e81f79f5b
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 0ed73a53e6ec40af888f12cbf8f002a62098cda5
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="custom-script-extension-for-windows-using-the-classic-deployment-model"></a>Extensión de script personalizado para Windows con el modelo de implementación clásico
 
@@ -31,7 +31,7 @@ La extensión de script personalizado descarga y ejecuta scripts en máquinas vi
 
 En este documento se detalla cómo usar la extensión de script personalizado mediante el módulo de Azure PowerShell y plantillas de Azure Resource Manager, y se detallan también los pasos para solucionar problemas en los sistemas Windows.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 ### <a name="operating-system"></a>Sistema operativo
 

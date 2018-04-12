@@ -1,11 +1,11 @@
 ---
 title: 'Interfaz de usuario de Azure Mobile Engagement: criterio de cobertura'
-description: "Aprenda a usar los criterios de orientación para enviar campañas de inserción a un subconjunto seleccionado de usuarios mediante Azure Mobile Engagement"
+description: Aprenda a usar los criterios de orientación para enviar campañas de inserción a un subconjunto seleccionado de usuarios mediante Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: a4ed03a0-55b1-4dd8-b0bd-c475005afb66
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 803b44721d0ab1ac7b5a8074e18857fc57adb724
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2adf473c6acea0f128eb14e2616748ff29d5d762
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-use-targeting-criteria-to-send-push-campaigns-to-a-select-subset-of-your-users"></a>Cómo usar los criterios de orientación para enviar campañas de inserción a un subconjunto seleccionado de usuarios
+> [!IMPORTANT]
+> Azure Mobile Engagement se retira el 31 de marzo de 2018. Esta página se eliminará poco después.
+> 
+
 Orientar su audiencia según criterios específicos mediante el botón "Nuevos criterios" es uno de los conceptos más eficaces de Azure Mobile Engagement, que le ayuda a enviar notificaciones de inserción relevantes a las que responderán los clientes en lugar de enviar spam a todo el mundo. Puede limitar la audiencia basándose en criterios estándar y simular inserciones para determinar cuántas personas recibirán la notificación.
 
 **Consulte también:**

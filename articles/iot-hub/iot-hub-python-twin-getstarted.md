@@ -1,11 +1,11 @@
 ---
-title: "Introducción a los dispositivos gemelos de Azure IoT Hub (Python) | Microsoft Docs"
-description: "Describe cómo usar dispositivos gemelos de IoT Hub de Azure para agregar etiquetas y, luego, usar una consulta de IoT Hub. El SDK de IoT de Azure para Python se usa para implementar la aplicación de dispositivo simulado y una aplicación de servicio que agrega las etiquetas y ejecuta la consulta de IoT Hub."
+title: Introducción a los dispositivos gemelos de Azure IoT Hub (Python) | Microsoft Docs
+description: Describe cómo usar dispositivos gemelos de IoT Hub de Azure para agregar etiquetas y, luego, usar una consulta de IoT Hub. El SDK de IoT de Azure para Python se usa para implementar la aplicación de dispositivo simulado y una aplicación de servicio que agrega las etiquetas y ejecuta la consulta de IoT Hub.
 services: iot-hub
 documentationcenter: python
-author: msebolt
+author: kgremban
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 314c88e4-cce1-441c-b75a-d2e08e39ae7d
 ms.service: iot-hub
 ms.devlang: python
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/04/2017
-ms.author: v-masebo
-ms.openlocfilehash: 20c1eeee6ca690ddcf0b9489b88689213b79488e
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.author: v-masebo;kgremban
+ms.openlocfilehash: d5b606532ac445b03527c5027dc3b434d88b6b1f
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="get-started-with-device-twins-python"></a>Introducción a los dispositivos gemelos (Python)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
@@ -259,7 +259,7 @@ En esta sección, creará una aplicación de consola de Python que se conecta al
    
     ![segunda consulta][3]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este tutorial, configuró un centro de IoT nuevo en Azure Portal y, después, creó una identidad de dispositivo en el registro de identidades del centro de IoT. Ha agregado metadatos de dispositivo como etiquetas desde una aplicación back-end y ha escrito una aplicación de dispositivo simulado para notificar la información de conectividad de dispositivos en el dispositivo gemelo. También ha aprendido cómo consultar esta información mediante el Registro.
 
 Use los siguientes recursos para obtener información sobre cómo:

@@ -1,11 +1,11 @@
 ---
-title: "Captura de una máquina virtual Linux en Azure para usarla como plantilla | Microsoft Docs"
-description: "Obtenga información sobre cómo capturar una imagen de una máquina virtual de Azure basada en Linux creada con el modelo de implementación de Azure Resource Manager."
+title: Captura de una máquina virtual Linux en Azure para usarla como plantilla | Microsoft Docs
+description: Obtenga información sobre cómo capturar una imagen de una máquina virtual de Azure basada en Linux creada con el modelo de implementación de Azure Resource Manager.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: e608116f-f478-41be-b787-c2ad91b5a802
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
-ms.openlocfilehash: f990a0da0be7f10dc16aa2e5a6320b456cfffed1
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 71c60c8d29e4db8aab1932a1bece03396a12e4da
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="capture-a-linux-virtual-machine-running-on-azure"></a>Captura de una máquina virtual Linux que se ejecuta en Azure
 Siga los pasos de este artículo para generalizar y capturar la máquina virtual (VM) Linux de Azure en el modelo de implementación de Resource Manager. Cuando se generaliza la máquina virtual, se quita la información de la cuenta personal y se prepara la máquina virtual para usarla como imagen. A continuación, se captura la imagen de un disco duro virtual (VHD) generalizado para el SO, discos duros virtuales para los discos de datos asociados y un [plantilla de Resource Manager](../../azure-resource-manager/resource-group-overview.md) para las implementaciones de nuevas máquinas virtuales. En este artículo se detalla cómo capturar una imagen de máquina virtual con la CLI de Azure 1.0 para una máquina virtual mediante discos no administrados. También puede [capturar una máquina virtual Azure Managed Disks con la CLI de Azure 2.0](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Los discos administrados se controlan mediante la plataforma de Azure y no requieren preparativos ni ubicación para el almacenamiento. Para obtener más información, consulte [Azure Managed Disks overview](../windows/managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Información general sobre Azure Managed Disks). 
@@ -33,7 +33,7 @@ Para crear máquinas virtuales mediante la imagen, configure los recursos de red
 Puede completar la tarea mediante una de las siguientes versiones de la CLI:
 
 - [CLI de Azure 1.0](#before-you-begin): la CLI para los modelos de implementación clásico y de Resource Manager (este artículo)
-- [CLI de Azure 2.0](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): la CLI de última generación para el modelo de implementación de administración de recursos
+- [CLI de Azure 2.0 ](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): CLI de última generación para el modelo de implementación de administración de recursos
 
 ## <a name="before-you-begin"></a>Antes de empezar
 Asegúrese de que se cumplen los siguientes requisitos previos:
@@ -115,7 +115,7 @@ azure network nic show myResourceGroup1 myNIC
 
 El **identificador** de la salida es similar a `/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup1/providers/Microsoft.Network/networkInterfaces/myNic`
 
-### <a name="create-a-vm"></a>Creación de una VM
+### <a name="create-a-vm"></a>Crear una VM
 Ahora ejecute el siguiente comando para crear la máquina virtual desde la imagen capturada de la máquina virtual. Use el parámetro **-f** para especificar la ruta de acceso al archivo JSON de la plantilla que guardó.
 
 ```azurecli

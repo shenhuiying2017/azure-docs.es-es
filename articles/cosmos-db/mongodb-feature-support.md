@@ -3,8 +3,7 @@ title: Compatibilidad de la característica Cosmos DB con MongoDB | Microsoft Do
 description: Obtenga información acerca de la compatibilidad de la característica que proporciona la API de Azure Cosmos DB MongoDB con MongoDB 3.4.
 services: cosmos-db
 author: alekseys
-manager: jhubbard
-editor: ''
+manager: kfile
 documentationcenter: ''
 ms.assetid: 29b6547c-3201-44b6-9e0b-e6f56e473e24
 ms.service: cosmos-db
@@ -14,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: alekseys
-ms.openlocfilehash: 22ae56d9ebb2ea39acbd9f4536ef9ea5508b9867
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: cadf637dd3a71e040fef8188f7290907659e5cdb
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="mongodb-api-support-for-mongodb-features-and-syntax"></a>Compatibilidad de la API de MongoDB con la sintaxis y las características de MongoDB
 
@@ -320,7 +319,7 @@ Azure Cosmos DB no admite aún usuarios y roles. Azure Cosmos DB admite el contr
 
 Azure Cosmos DB admite la replicación automática y nativa en las capas más inferiores. Esta lógica se amplía para lograr también una replicación global de baja latencia. Azure Cosmos DB no es compatible con comandos de replicación manuales.
 
-## <a name="sharding"></a>Clave de particionamiento
+## <a name="sharding"></a>Particionamiento
 
 Azure Cosmos DB admite el particionamiento de servidor automático. no es compatible con comandos de particionamiento manual.
 

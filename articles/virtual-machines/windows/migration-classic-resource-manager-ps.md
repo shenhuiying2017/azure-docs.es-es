@@ -1,11 +1,11 @@
 ---
-title: "Migración a Resource Manager con PowerShell | Microsoft Docs"
-description: "Este artículo lo guía a través de la migración de recursos de IaaS compatible con la plataforma de recursos, como máquinas virtuales, redes virtuales y cuentas de almacenamiento del modelo clásico al de Azure Resource Manager mediante comandos de Azure PowerShell."
+title: Migración a Resource Manager con PowerShell | Microsoft Docs
+description: Este artículo lo guía a través de la migración de recursos de IaaS compatible con la plataforma de recursos, como máquinas virtuales, redes virtuales y cuentas de almacenamiento del modelo clásico al de Azure Resource Manager mediante comandos de Azure PowerShell.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: singhkays
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 2b3dff9b-2e99-4556-acc5-d75ef234af9c
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: 38bc949917f6bb56486ad6267044ef2f19e33fcb
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c184fa2aa3e8b09c798f3c1f007cad57891c413e
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-powershell"></a>Migración de recursos de IaaS de la implementación clásica a la de Resource Manager con Azure PowerShell
 En estos pasos se describe cómo utilizar los comandos de Azure PowerShell para migrar los recursos de infraestructura como servicio (IaaS) desde el modelo de implementación clásica al modelo de implementación de Azure Resource Manager.
@@ -340,7 +340,7 @@ Si la configuración preparada parece correcta, puede continuar y confirmar los 
     Move-AzureStorageAccount -Commit -StorageAccountName $storageAccountName
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Información general sobre la migración compatible con la plataforma de recursos de IaaS desde el modelo de implementación clásica a Azure Resource Manager](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Profundización técnica en la migración compatible con la plataforma de la implementación clásica a la de Azure Resource Manager](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Planning for migration of IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-plan.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Planificación de la migración de recursos de IaaS del modelo clásico a Azure Resource Manager)

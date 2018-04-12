@@ -1,25 +1,24 @@
 ---
-title: "Guía de inicio rápido: Graph API con Python en Azure Cosmos DB | Microsoft Docs"
-description: "Esta guía de inicio rápido muestra cómo usar Graph API de Azure Cosmos DB para crear una aplicación de consola con Azure Portal y Python."
+title: 'Guía de inicio rápido: Graph API con Python en Azure Cosmos DB | Microsoft Docs'
+description: Esta guía de inicio rápido muestra cómo usar Graph API de Azure Cosmos DB para crear una aplicación de consola con Azure Portal y Python.
 services: cosmos-db
 documentationcenter: python
 author: luisbosquez
-manager: jhubbard
-editor: 
+manager: kfile
 ms.assetid: 383a51c5-7857-440d-ab54-1efb1c0c7079
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: lbosq
-ms.openlocfilehash: bb39cc25cc1c431c7ab98bfc3ed816934cb03e45
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: aa1d70d33e1f9cefee4d06ea182ffb3fc960e07a
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-python-and-the-azure-portal"></a>Azure Cosmos DB: creación una base de datos de grafos mediante Python y Azure Portal
 
@@ -258,7 +257,7 @@ Ahora puede volver al Explorador de datos y ver los vértices que se agregan al 
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En esta guía de inicio rápido, ha obtenido información sobre cómo crear una cuenta de Azure Cosmos DB, crear un grafo mediante el Explorador de datos y ejecutar una aplicación. Ahora puede crear consultas más complejas e implementar con Gremlin una lógica eficaz de recorrido del grafo. 
 

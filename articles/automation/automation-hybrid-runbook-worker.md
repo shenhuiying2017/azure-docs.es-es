@@ -5,14 +5,14 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/21/2018
+ms.date: 04/04/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: b317a2d9241016b66651af4659c7daf2e8d8f2cc
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 8f212797decdd967154584927984bc0a4e58f4ba
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="automate-resources-in-your-data-center-or-cloud-with-hybrid-runbook-worker"></a>Automatización de recursos en los centros de datos o nube con Hybrid Runbook Worker
 
@@ -93,6 +93,7 @@ Realice los pasos siguientes para automatizar la instalación y configuración d
 Realice los dos primeros pasos una vez para su entorno de Automation y después repita los pasos restantes en cada equipo de trabajo.
 
 #### <a name="1-create-log-analytics-workspace"></a>1. Creación de un área de trabajo de Log Analytics
+
 Si todavía no tiene un área de trabajo de Log Analytics, puede crear una mediante las instrucciones que se indican en [Administración del área de trabajo](../log-analytics/log-analytics-manage-access.md). Si cuenta con un área de trabajo existente, puede usarla.
 
 #### <a name="2-add-automation-solution-to-log-analytics-workspace"></a>2. Adición de la solución de Automation al área de trabajo de Log Analytics
@@ -102,6 +103,7 @@ Las soluciones agregan funcionalidad a Log Analytics. La solución de Automation
 Siga las instrucciones que se indican en [Adición de soluciones mediante la galería de soluciones](../log-analytics/log-analytics-add-solutions.md) para agregar la solución de **Automation** l área de trabajo de Log Analytics.
 
 #### <a name="3-install-the-microsoft-monitoring-agent"></a>3. Instalación de Microsoft Monitoring Agent
+
 Microsoft Monitoring Agent conecta los equipos a Log Analytics. Cuando instala el agente en el equipo local y se conecte al espacio de trabajo, se descargarán automáticamente los componentes necesarios para Hybrid Runbook Worker.
 
 Siga las instrucciones que se encuentran en [Conexión de equipos Windows a Log Analytics](../log-analytics/log-analytics-windows-agent.md) para instalar el agente en el equipo local. Puede repetir este proceso para varios equipos para agregar varios trabajos a su entorno.

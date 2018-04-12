@@ -1,13 +1,13 @@
 ---
-title: "Copia de seguridad de máquinas virtuales Windows de Azure | Microsoft Docs'"
-description: "Para proteger las máquinas virtuales Windows, realice una copia de seguridad de ellas mediante Azure Backup."
+title: Copia de seguridad de máquinas virtuales Windows de Azure | Microsoft Docs'
+description: Para proteger las máquinas virtuales Windows, realice una copia de seguridad de ellas mediante Azure Backup.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9638c7148d4347bb9cbc9e48022037ee6cb983d7
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 12859bf967cf8de1b57ab9dfd5c0bd080806f2eb
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="back-up-windows-virtual-machines-in-azure"></a>Copia de seguridad de máquinas virtuales Windows en Azure
 
@@ -92,7 +92,7 @@ En este ejemplo, se muestra cómo recuperar el archivo de imagen que se usa en l
 18. En el equipo local, vuelva a la pestaña de explorador de Azure Portal y en **Paso 3: Desmontar los discos después de la recuperación**, haga clic en el botón **Desmontar discos**. Si olvida realizar este paso, la conexión al punto de montaje se cierra automáticamente tras 12 horas. A las 12 horas, es preciso que descargue un script nuevo para crear un nuevo punto de montaje.
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial aprendió lo siguiente:
 

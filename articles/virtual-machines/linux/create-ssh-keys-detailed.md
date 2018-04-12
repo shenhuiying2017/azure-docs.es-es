@@ -1,13 +1,13 @@
 ---
-title: "Descripción detallada de la creación de un par de claves SSH para máquinas virtuales Linux en Azure | Microsoft Docs"
-description: "Descripción detallada sobre cómo crear un par de claves SSH pública y privada para máquinas virtuales Linux en Azure junto con los certificados específicos para distintos casos de uso."
+title: Descripción detallada de la creación de un par de claves SSH para máquinas virtuales Linux en Azure | Microsoft Docs
+description: Descripción detallada sobre cómo crear un par de claves SSH pública y privada para máquinas virtuales Linux en Azure junto con los certificados específicos para distintos casos de uso.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
-tags: 
-ms.assetid: 
+manager: jeconnoc
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 6/28/2017
 ms.author: danlep
-ms.openlocfilehash: 1308812287fa4484e244c47497a7aef7aa994b14
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 20d36f5e377f2d5af588319cee2be1808571f905
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="detailed-walk-through-to-create-an-ssh-key-pair-and-additional-certificates-for-a-linux-vm-in-azure"></a>Tutorial detallado sobre la creación de un par de claves SSH y certificados adicionales para una máquina virtual Linux en Azure
 Con un par de claves SSH, puede crear máquinas virtuales en Azure que usen claves SSH para autenticación de forma predeterminada, lo que elimina la necesidad de usar contraseñas para iniciar sesión. Las contraseñas se pueden adivinar y dejan las máquinas virtuales expuestas a intentos constantes de adivinarlas. Las máquinas virtuales creadas con la CLI de Azure o con plantillas de Resource Manager pueden incluir la clave SSH pública como parte de la implementación, por lo que no es necesario deshabilitar el inicio de sesión con contraseña después de configurar la implementación. En este artículo se proporcionan pasos detallados y otros ejemplos de generación de certificados, como los que se usan con las máquinas virtuales Linux. Si desea crear y utilizar rápidamente un par de claves SSH, consulte [Creación de un par de claves SSH pública y privada para máquinas virtuales Linux](mac-create-ssh-keys.md).

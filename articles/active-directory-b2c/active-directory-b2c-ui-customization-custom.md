@@ -3,22 +3,19 @@ title: Personalización de la interfaz de usuario con directivas personalizadas 
 description: Información acerca de cómo personalizar una interfaz de usuario (IU) con directivas personalizadas en Azure AD B2C.
 services: active-directory-b2c
 documentationcenter: ''
-author: saeedakhter-msft
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: 658c597e-3787-465e-b377-26aebc94e46d
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 04/04/2017
-ms.author: saeedakhter-msft
-ms.openlocfilehash: dcd8b6df68a68f5feb428b4fd98aee938b3bfe6c
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.author: davidmu
+ms.openlocfilehash: f92629a3a5d20cce050aa7f124b140b1f4eb32d9
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-active-directory-b2c-configure-ui-customization-in-a-custom-policy"></a>Azure Active Directory B2C: configuración de la interfaz de usuario personalizada en una directiva personalizada
 
@@ -131,6 +128,7 @@ En la etiqueta *\<TrustFrameworkPolicy\>* superior, debería encontrar la etique
     <ContentDefinitions>
       <ContentDefinition Id="api.idpselections">
         <LoadUri>https://{your_storage_account}.blob.core.windows.net/customize-ui.html</LoadUri>
+        <DataUri>urn:com:microsoft:aad:b2c:elements:idpselection:1.0.0</DataUri>
       </ContentDefinition>
     </ContentDefinitions>
   </BuildingBlocks>

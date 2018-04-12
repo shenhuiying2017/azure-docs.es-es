@@ -1,8 +1,7 @@
 ---
-title: "Administración de cuentas administrativas de acceso de emergencia en Azure AD | Microsoft Docs"
-description: "Este artículo describe cómo usar las cuentas de acceso de emergencia para ayudar a las organizaciones a restringir el acceso con privilegios en un entorno de Azure Active Directory existente."
+title: Administración de cuentas administrativas de acceso de emergencia en Azure AD | Microsoft Docs
+description: Este artículo describe cómo usar las cuentas de acceso de emergencia para ayudar a las organizaciones a restringir el acceso con privilegios en un entorno de Azure Active Directory existente.
 services: active-directory
-keywords: No agregue ni edite palabras clave sin consultar a su responsable de SEO Champ.
 author: markwahl-msft
 ms.author: billmath
 ms.date: 12/13/2017
@@ -11,11 +10,11 @@ ms.service: active-directory
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
-ms.openlocfilehash: 1545fb9a89794a74efbb855c4480040973c3308e
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 5c256befba4c73527b529c953f7b9cd4d266450c
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="manage-emergency-access-administrative-accounts-in-azure-ad"></a>Administración de cuentas administrativas de acceso de emergencia en Azure AD 
 
@@ -77,7 +76,7 @@ Para formar a los miembros del personal para que usen las cuentas de acceso de e
 * Si las cuentas se han registrado para la autenticación multifactor en un dispositivo, para su uso durante la activación de rol, asegúrese de que este dispositivo sea accesible para todos los administradores que podrían tener que usarlo en caso de emergencia. Compruebe también que el dispositivo se ha registrado mediante dos mecanismos que no compartan un modo de avería común. Por ejemplo, el dispositivo puede comunicarse con Internet a través de la red inalámbrica de la oficina y a través de una red de un proveedor de telefonía móvil.
 * Actualice las credenciales de la cuenta.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 - [Agregue un usuario basado en la nube](add-users-azure-active-directory.md) y [Asigne un nuevo usuario al rol de administrador global](active-directory-users-assign-role-azure-portal.md).
 - [Suscríbase a Azure Active Directory Premium](active-directory-get-started-premium.md), si no lo ha hecho anteriormente.
 - [Solicite Azure Multi-Factor Authentication a los usuarios individuales asignados como administradores](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states).

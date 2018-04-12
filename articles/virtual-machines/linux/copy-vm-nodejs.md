@@ -1,10 +1,10 @@
 ---
-title: "Creación de una copia de la máquina virtual Linux con la CLI de Azure 1.0 | Microsoft Docs"
-description: "Información sobre cómo crear una copia de una máquina virtual Linux de Azure con la CLI de Azure 1.0 en el modelo de implementación de Resource Manager"
+title: Creación de una copia de la máquina virtual Linux con la CLI de Azure 1.0 | Microsoft Docs
+description: Información sobre cómo crear una copia de una máquina virtual Linux de Azure con la CLI de Azure 1.0 en el modelo de implementación de Resource Manager
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 tags: azure-resource-manager
 ms.assetid: 770569d2-23c1-4a5b-801e-cddcd1375164
 ms.service: virtual-machines-linux
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2017
 ms.author: cynthn
-ms.openlocfilehash: 62ae54f3596c9383cbf3b401fcfdb42ecfdee63c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bb350f8d14ad451ad3ff7cd617ca3f90967aaa4b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-copy-of-a-linux-virtual-machine-running-on-azure-with-the-azure-cli-10"></a>Creación de una copia de una máquina virtual Linux que se ejecuta en Azure con la CLI de Azure 1.0
 En este artículo se muestra cómo crear una copia de una máquina virtual de Azure con Linux con el modelo de implementación de Resource Manager. Primero copie a través del sistema operativo y los discos de datos en un nuevo contenedor y, después, configure los recursos de red para crear la nueva máquina virtual.
@@ -29,7 +29,7 @@ También puede [cargar y crear una máquina virtual a partir de una imagen de di
 Puede completar la tarea mediante una de las siguientes versiones de la CLI:
 
 - CLI de Azure 1.0: la CLI para los modelos de implementación clásico y de Resource Manager (este artículo)
-- [CLI de Azure 2.0](copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): la CLI de última generación para el modelo de implementación de administración de recursos
+- [CLI de Azure 2.0 ](copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): CLI de última generación para el modelo de implementación de administración de recursos
 
 ## <a name="before-you-begin"></a>Antes de empezar
 Asegúrese de que se cumplen los siguientes requisitos previos antes de comenzar los pasos:

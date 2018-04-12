@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 04/01/2018
 ms.author: sstein
 ms.reviewer: billgib
-ms.openlocfilehash: 77741c39387dbfc8817b6494f8d79c424e1a498f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: eb7e87934269a5e1ba453e20f6f409a10dfbda5b
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="restore-a-single-tenant-with-a-database-per-tenant-saas-application"></a>Restauración de un solo inquilino con una aplicación SaaS de base de datos por inquilino
 
@@ -99,7 +99,7 @@ En este ejercicio se restaura la base de datos de Contoso Concert Hall a un mome
 1. Complete la sección en que se [simula que un usuario elimina datos de manera accidental](#simulate-a-tenant-accidentally-deleting-data).
 2. En PowerShell ISE, abra ...\\Learning Modules\\Business Continuity and Disaster Recovery\\RestoreTenant\\_Demo-RestoreTenant.ps1_.
 3. Establezca **$DemoScenario** = **2**, *Restore tenant in parallel* (Restaurar el inquilino en paralelo).
-4. Para ejecutar el script, presione F5.
+4. Presione F5 para ejecutar el script.
 
 El script restaura la base de datos de inquilino a un momento dado antes de que eliminara el evento. La base de datos se restaura a una base de datos nueva denominada _ContosoConcertHall\_old_. Los metadatos de catálogo que existen en esta base de datos restaurada se eliminar y, luego, la base de datos se agrega al catálogo mediante una clave construida a partir del nombre *ContosoConcertHall\_old*.
 
@@ -110,7 +110,7 @@ Desplace los eventos que aparecen en el explorador y confirmar que se restauró 
 Exponer al inquilino restaurado como un inquilino adicional, con su propia aplicación de eventos, puede que no sea la forma en que proporciona acceso de inquilino a los datos restaurados. Sí sirve para ilustrar el patrón de restauración. Habitualmente, proporciona acceso de solo lectura a los datos antiguos y retiene la base de datos restaurada durante un período definido. En el ejemplo, puede eliminar la entrada de inquilino restaurado una vez que finalice mediante la ejecución del escenario _Remove restored tenant_ (Quitar el inquilino restaurado).
 
 1. Establezca **$DemoScenario** = **4**, *Remove restored tenant* (Quitar el inquilino restaurado).
-2. Para ejecutar el script, presione F5.
+2. Presione F5 para ejecutar el script.
 3. La entrada *ContosoConcertHall\_old* se eliminó del catálogo. Cierre la página de eventos de este inquilino en el explorador.
 
 
@@ -120,7 +120,7 @@ En este ejercicio se restaura el inquilino de Contoso Concert Hall a un momento 
 
 1. En PowerShell ISE, abra el archivo **Demo-RestoreTenant.ps1**.
 2. Establezca **$DemoScenario** = **5**, *Restore tenant in place* (Restaurar el inquilino en contexto).
-3. Para ejecutar el script, presione F5.
+3. Presione F5 para ejecutar el script.
 
 El script restaura la base de datos de inquilino a un punto antes de que se eliminara el evento. En primer lugar, deja sin conexión al inquilino de Contoso Concert Hall para evitar futuras actualizaciones. Luego, se crea una base de datos en paralelo mediante la restauración a partir del punto de restauración. Luego, la base de datos restaurada recibe una marca de tiempo como nombre para garantizar que el nombre de la base de datos no entre en conflicto con el nombre de la base de datos de inquilino existente. A continuación, se elimina la base de datos de inquilino anterior y el nombre de la base de datos restaurada se cambia al nombre de la base de datos original. Por último, Contoso Concert Hall se vuelve a conectar para permitir que la aplicación tenga acceso a la base de datos restaurada.
 

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/27/2018
+ms.date: 04/05/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: cfc3fbf5432108222ee7941d92d78e49d3eaed78
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 512b6cde1a1de70f020a9af1254d2bc8e78f1b5f
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>Creación de una máquina virtual Linux en una zona de disponibilidad con la CLI de Azure
 
@@ -78,7 +78,7 @@ Cree la máquina virtual con el comando [az vm create](/cli/azure/vm#az_vm_creat
 Al crear una máquina virtual, están disponibles varias opciones, como la imagen de sistema operativo, tamaño de disco y credenciales administrativas. En este ejemplo, se crea una máquina virtual llamada *myVM* que se ejecuta en Ubuntu. La máquina virtual se crea en la zona de disponibilidad *1*. De forma predeterminada, la máquina virtual se crea con el tamaño *Standard_DS1_v2*.
 
 ```azurecli-interactive 
-az vm create --resource-group myResourceGroupVM --name myVM --image UbuntuLTS --generate-ssh-keys --zone 1
+az vm create --resource-group myResourceGroupVM --name myVM --location eastus2 --image UbuntuLTS --generate-ssh-keys --zone 1
 ```
 
 La creación de la máquina virtual puede tardar unos minutos. Una vez creada la máquina virtual, la CLI de Azure ofrece como salida información sobre la máquina virtual. Tome nota del valor de `zones`, que indica la zona de disponibilidad en la que se ejecuta la máquina virtual. 

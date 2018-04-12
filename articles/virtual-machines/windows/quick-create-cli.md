@@ -1,13 +1,13 @@
 ---
-title: "Inicio rápido de Azure: creación de máquinas virtuales con la CLI Microsoft Docs"
-description: "Aprenda rápidamente a crear una máquina virtual Windows con la CLI de Azure."
+title: 'Inicio rápido de Azure: creación de máquinas virtuales con la CLI Microsoft Docs'
+description: Aprenda rápidamente a crear una máquina virtual Windows con la CLI de Azure.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: hero-article
@@ -16,16 +16,15 @@ ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 9d7469035205f066091f6ca87f7199208706170c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 47ebaee840d1049c4d98be4672b08e3b56a697a5
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-windows-virtual-machine-with-the-azure-cli"></a>Creación de una máquina virtual Windows con la CLI de Azure
 
 La CLI de Azure se usa para crear y administrar recursos de Azure desde la línea de comandos o en scripts. En este inicio rápido se detalla cómo usar la CLI de Azure para implementar máquinas virtuales en las que se ejecuta Windows Server 2016. Una vez completada la implementación, nos conectaremos al servidor e instalaremos IIS.
-
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -45,7 +44,7 @@ En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGrou
 az group create --name myResourceGroup --location eastus
 ```
 
-## <a name="create-virtual-machine"></a>Create virtual machine
+## <a name="create-virtual-machine"></a>Crear máquina virtual
 
 Cree la máquina virtual con [az vm create](/cli/azure/vm#az_vm_create). 
 
@@ -109,7 +108,7 @@ Cuando ya no se necesiten, puede usar el comando [az group delete](/cli/azure/gr
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En esta guía de inicio rápido, ha implementado una máquina virtual simple y una regla de grupo de seguridad de red, y ha instalado un servidor web. Para más información acerca de las máquinas virtuales de Azure, continúe con el tutorial de máquinas virtuales Windows.
 

@@ -1,11 +1,11 @@
 ---
-title: "Cómo usar la API de Engagement en iOS"
-description: "Último SDK de iOS: cómo usar la API de Engagement en iOS"
+title: Cómo usar la API de Engagement en iOS
+description: 'Último SDK de iOS: cómo usar la API de Engagement en iOS'
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 1fb4509e-3804-46c1-949f-1cf727f91f9f
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: a31424da98205e97bdf57010cccfd044360f03dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 189a3029449a3161da2a20f940b77a5bb63bd1ef
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-use-the-engagement-api-on-ios"></a>Cómo usar la API de Engagement en iOS
+> [!IMPORTANT]
+> Azure Mobile Engagement se retira el 31 de marzo de 2018. Esta página se eliminará poco después.
+> 
+
 Este documento es un complemento al documento Cómo integrar Engagement en iOS: en él se proporciona información detallada acerca de cómo usar la API de Engagement para informar de las estadísticas de la aplicación.
 
 Tenga en cuenta que si solo desea que Engagement informe de las sesiones, las actividades, bloqueos e información técnica de la aplicación, a continuación, la manera más sencilla es hacer que todos los objetos `UIViewController` personalizados hereden de la clase `EngagementViewController` correspondiente.
@@ -224,7 +228,7 @@ Tenga en cuenta que los extras pueden contener `arrays(NSArray, NSMutableArray)`
     [extras setObject:@"http://foobar.com/blog" forKey:@"ref_click"];
     [[EngagementAgent shared] sendEvent:@"video_clicked" extras:extras];
 
-### <a name="limits"></a>Límites
+### <a name="limits"></a>límites
 #### <a name="keys"></a>simétricas
 Cada clave de la `NSDictionary` debe coincidir con la siguiente expresión regular:
 
@@ -253,7 +257,7 @@ Al igual que los extras de evento, la clase `NSDictionary` se usa para resumir l
     [appInfo setObject:@"1983-12-07" forKey:@"birthdate"]; // December 7th 1983
     [[EngagementAgent shared] sendAppInfo:appInfo];
 
-### <a name="limits"></a>Límites
+### <a name="limits"></a>límites
 #### <a name="keys"></a>simétricas
 Cada clave de la `NSDictionary` debe coincidir con la siguiente expresión regular:
 

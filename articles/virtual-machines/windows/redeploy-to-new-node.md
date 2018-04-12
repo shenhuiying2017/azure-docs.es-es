@@ -1,10 +1,10 @@
 ---
-title: "Nueva implementación de máquinas virtuales Windows en Azure | Microsoft Docs"
-description: "Cómo volver a implementar máquinas virtuales Windows en Azure para solucionar problemas de conexión RDP."
+title: Nueva implementación de máquinas virtuales Windows en Azure | Microsoft Docs
+description: Cómo volver a implementar máquinas virtuales Windows en Azure para solucionar problemas de conexión RDP.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: genlin
-manager: timlt
+manager: jeconnoc
 tags: azure-resource-manager,top-support-issue
 ms.assetid: 0ee456ee-4595-4a14-8916-72c9110fc8bd
 ms.service: virtual-machines-windows
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 5002010e58a5d8e901770c780f07f9bd625d5eb4
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: c4115e82e4d5f1ed2b952d9fb8d8d820794133b2
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="redeploy-windows-virtual-machine-to-new-azure-node"></a>Nueva implementación de máquinas virtuales Windows en un nuevo nodo de Azure
 Si ha tenido dificultades para solucionar problemas con la conexión a Escritorio remoto (RDP) o el acceso de aplicaciones a una maquina virtual de Azure basada en Windows, puede servir de ayuda que repita la implementación de la máquina virtual. Cuando se vuelve a implementar una máquina virtual, se mueve a otro nodo dentro de la infraestructura de Azure y después se vuelve a conectar, conservando todas las opciones de configuración y los recursos asociados. En este artículo se muestra cómo volver a implementar una máquina virtual con Azure PowerShell o el Portal de Azure.
@@ -39,6 +39,6 @@ Set-AzureRmVM -Redeploy -ResourceGroupName "myResourceGroup" -Name "myVM"
 
 [!INCLUDE [virtual-machines-common-redeploy-to-new-node](../../../includes/virtual-machines-common-redeploy-to-new-node.md)]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Puede encontrar ayuda específica sobre la [solución de problemas de las conexiones RDP](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) o [pasos detallados para solucionar problemas de RDP](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) si tiene problemas para conectarse a su VM. También puede leer sobre la [solución de problemas de aplicaciones](troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) si no puede acceder a una aplicación que se ejecuta en la máquina virtual.
 

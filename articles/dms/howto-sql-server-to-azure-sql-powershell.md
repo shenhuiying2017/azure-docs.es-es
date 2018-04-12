@@ -1,21 +1,21 @@
 ---
-title: "Uso del módulo de Azure Database Migration Service en Microsoft Azure PowerShell para migrar instancias locales de SQL Server a Azure SQL DB | Microsoft Docs"
-description: "En este artículo se describe información sobre cómo migrar de instancias locales de SQL Server a Azure SQL mediante Azure PowerShell."
+title: Uso del módulo de Azure Database Migration Service en Microsoft Azure PowerShell para migrar instancias locales de SQL Server a Azure SQL DB | Microsoft Docs
+description: En este artículo se describe información sobre cómo migrar de instancias locales de SQL Server a Azure SQL mediante Azure PowerShell.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
-manager: 
-ms.reviewer: 
+manager: ''
+ms.reviewer: ''
 ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 01/24/2018
-ms.openlocfilehash: 8569bf65d04f677a45935284dc61d68879014c10
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.date: 04/05/2018
+ms.openlocfilehash: d70d39f027df1fba7934c4b752b1dd2100f2e8b9
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-db-using-azure-powershell"></a>Migración de SQL Server local a Azure SQL Database mediante Azure PowerShell
 En este artículo, migrará la base de datos **Adventureworks2012** restaurada en una instancia local de SQL Server 2016 a una instancia de Azure SQL Database mediante Microsoft Azure PowerShell. Puede migrar bases de datos desde una instancia de SQL Server local a Azure SQL Database mediante el módulo `AzureRM.DataMigration` en Microsoft Azure PowerShell.
@@ -127,7 +127,7 @@ $project = New-AzureRmDataMigrationProject -ResourceGroupName myResourceGroup `
   -TargetType SQLDB `
   -SourceConnection $sourceConnInfo `
   -TargetConnection $targetConnInfo `
-  -DatabaseInfos $dbList
+  -DatabaseInfo $dbList
 ```
 
 ## <a name="create-and-start-a-migration-task"></a>Creación e inicio de una tarea de migración
@@ -205,5 +205,5 @@ if (($mytask.ProjectTask.Properties.State -eq "Running") -or ($mytask.ProjectTas
 }
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 - Revise las directrices de migración en la [Guía de migración de bases de datos](https://datamigration.microsoft.com/).

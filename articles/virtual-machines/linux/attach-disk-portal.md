@@ -1,11 +1,11 @@
 ---
-title: "Incorporación de un disco de datos a una máquina virtual con Linux | Microsoft Docs"
-description: "Use el portal para conectar un disco de datos nuevo o existente a una máquina virtual Linux."
+title: Incorporación de un disco de datos a una máquina virtual con Linux | Microsoft Docs
+description: Use el portal para conectar un disco de datos nuevo o existente a una máquina virtual Linux.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 5e1c6212-976c-4962-a297-177942f90907
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: cynthn
-ms.openlocfilehash: 1a7c98207a5f19d514a0cd05b66898e7fb725944
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 4acfe53d68db3192c1f6c3c9e5f91b55bd5df7b8
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Uso del portal para conectar un disco de datos a una máquina virtual Linux 
 En este artículo se muestra cómo adjuntar discos nuevos y existentes a una máquina virtual Linux a través del Portal de Azure. También puede [adjuntar un disco de datos a una máquina virtual con Windows en Azure Portal](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
@@ -27,12 +27,12 @@ En este artículo se muestra cómo adjuntar discos nuevos y existentes a una má
 Antes de conectar discos a la VM, revise estas sugerencias:
 
 * El tamaño de la máquina virtual controla cuántos discos de datos puede conectar. Para obtener más información, consulte [Tamaños de máquinas virtuales](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Para usar Premium Storage, necesita una máquina virtual de la serie DS o GS. Puede usar discos Premium y Estándar con estas máquinas virtuales. Almacenamiento premium está disponible en determinadas regiones. Para obtener más información, consulte [Almacenamiento Premium: Almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../windows/premium-storage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* Para usar Premium Storage, necesita una máquina virtual de la serie DS o GS. Puede usar discos Premium y Estándar con estas máquinas virtuales. Almacenamiento premium está disponible en determinadas regiones. Para obtener más información, consulte [Premium Storage: Almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../windows/premium-storage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * Los discos conectados a las máquinas virtuales son, en realidad, archivos .vhd almacenados en Azure. Para obtener más información, vea [Acerca de los discos y los discos duros virtuales para máquinas virtuales](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 
 ## <a name="find-the-virtual-machine"></a>Búsqueda de la máquina virtual
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 2. En el menú de la izquierda, haga clic en **Máquinas virtuales**.
 3. Seleccione la máquina virtual en la lista.
 4. En la página Máquinas virtuales, en **Essentials**, haga clic en **Discos**.

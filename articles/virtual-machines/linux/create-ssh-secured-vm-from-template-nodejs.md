@@ -1,13 +1,13 @@
 ---
-title: "Creación de una máquina virtual Linux mediante una plantilla de Azure con la CLI de Azure 1.0 | Microsoft Docs"
-description: "En este artículo se explica cómo crear una máquina virtual Linux en Azure mediante una plantilla de Azure Resource Manager y la CLI de Azure 1.0."
+title: Creación de una máquina virtual Linux mediante una plantilla de Azure con la CLI de Azure 1.0 | Microsoft Docs
+description: En este artículo se explica cómo crear una máquina virtual Linux en Azure mediante una plantilla de Azure Resource Manager y la CLI de Azure 1.0.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: vlivech
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/12/2017
 ms.author: v-livech
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 33d4aaa78fcdf3bd9e2e236606f2d3049f464a8a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 620adcba9e136aa56e7a4867196ce5b9249b6072
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-create-a-linux-vm-using-the-azure-cli-10-an-azure-resource-manager-template"></a>Procedimiento para crear una máquina virtual Linux mediante una plantilla de Azure Resource Manager y la CLI de Azure 1.0
 En este artículo se muestra cómo implementar rápidamente una máquina virtual Linux con plantillas de Azure Resource Manager y la CLI de Azure 1.0. Este artículo requiere:
@@ -35,7 +35,7 @@ También puede implementar rápidamente una plantilla de máquina virtual Linux 
 Puede completar la tarea mediante una de las siguientes versiones de la CLI:
 
 - [CLI de Azure 1.0](#quick-command-summary): la CLI para los modelos de implementación clásico y de Resource Manager (este artículo)
-- [CLI de Azure 2.0](create-ssh-secured-vm-from-template.md): la CLI de última generación para el modelo de implementación de administración de recursos
+- [CLI de Azure 2.0 ](create-ssh-secured-vm-from-template.md): CLI de última generación para el modelo de implementación de administración de recursos
 
 ## <a name="quick-command-summary"></a>Resumen rápido de comandos
 ```azurecli

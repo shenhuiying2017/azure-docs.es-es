@@ -1,11 +1,11 @@
 ---
-title: "Incorporación de un disco a una máquina virtual con Linux mediante la CLI de Azure | Microsoft Docs"
-description: "Aprenda a agregar un disco persistente a la máquina virtual Linux mediante la CLI de Azure 1.0 y 2.0."
-keywords: "máquina virtual de Linux, agregar disco de recursos"
+title: Incorporación de un disco a una máquina virtual con Linux mediante la CLI de Azure | Microsoft Docs
+description: Aprenda a agregar un disco persistente a la máquina virtual Linux mediante la CLI de Azure 1.0 y 2.0.
+keywords: máquina virtual de Linux, agregar disco de recursos
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rickstercdn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 3005a066-7a84-4dc5-bdaa-574c75e6e411
@@ -17,11 +17,11 @@ ms.devlang: azurecli
 ms.date: 02/02/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9db7d300b745001906bdc38769dcbe6e4d7c7b83
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c3d3e3468b491f366473899f5d073704ea9a95ea
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Adición de un disco a una máquina virtual de Linux
 En este artículo se muestra cómo conectar un disco persistente a la máquina virtual para que se puedan conservar los datos, incluso si la máquina virtual se vuelve a aprovisionar por mantenimiento o cambio de tamaño. 
@@ -261,7 +261,7 @@ Hay dos maneras de habilitar la compatibilidad con TRIM en su máquina virtual L
     sudo fstrim /datadrive
     ```
 
-## <a name="troubleshooting"></a>Solución de problemas
+## <a name="troubleshooting"></a>solución de problemas
 [!INCLUDE [virtual-machines-linux-lunzero](../../../includes/virtual-machines-linux-lunzero.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes

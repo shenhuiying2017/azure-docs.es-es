@@ -1,13 +1,12 @@
 ---
-title: "Script de Azure PowerShell: replicación en varias regiones para Azure Cosmos DB | Microsoft Docs"
-description: "Ejemplo de script de Azure PowerShell: replicación en varias regiones para Azure Cosmos DB"
+title: 'Script de Azure PowerShell: replicación en varias regiones para Azure Cosmos DB | Microsoft Docs'
+description: 'Ejemplo de script de Azure PowerShell: replicación en varias regiones para Azure Cosmos DB'
 services: cosmos-db
 documentationcenter: cosmosdb
-author: mimig1
-manager: jhubbard
-editor: 
+author: SnehaGunda
+manager: kfile
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: mvc
 ms.devlang: PowerShell
@@ -15,12 +14,12 @@ ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 05/10/2017
-ms.author: mimig
-ms.openlocfilehash: 3a469ba43e6c601f5eb0e13d588cd0bd4a0f8683
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: sngun
+ms.openlocfilehash: 00952105cbabbc128d25fc3ae802811ff9c7267f
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="replicate-an-azure-cosmos-db-database-account-in-multiple-regions-and-configure-failover-priorities-using-powershell"></a>Replicación de una cuenta de base de datos de Azure Cosmos DB en varias regiones y configuración de prioridades de conmutación por error mediante PowerShell
 
@@ -44,7 +43,7 @@ Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
 
 Este script usa los siguientes comandos. Cada comando de la tabla crea un vínculo a documentación específica del comando.
 
-| Comando | Notas |
+| Get-Help | Notas |
 |---|---|
 | [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/new-azurermresourcegroup) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
 | [New-AzureRmResource](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresource?view=azurermps-3.8.0) | Crea un servidor lógico que hospeda una base de datos o un grupo elástico. |

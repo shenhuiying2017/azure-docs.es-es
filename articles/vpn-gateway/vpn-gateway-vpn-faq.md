@@ -1,24 +1,24 @@
 ---
-title: "Preguntas más frecuentes acerca de Azure VPN Gateway | Microsoft Docs"
-description: "Preguntas más frecuentes sobre VPN Gateway Preguntas más frecuentes sobre las conexiones entre locales, las conexiones de configuración híbrida y VPN Gateway."
+title: Preguntas más frecuentes acerca de Azure VPN Gateway | Microsoft Docs
+description: Preguntas más frecuentes sobre VPN Gateway Preguntas más frecuentes sobre las conexiones entre locales, las conexiones de configuración híbrida y VPN Gateway.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: 6ce36765-250e-444b-bfc7-5f9ec7ce0742
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/20/2017
-ms.author: cherylmc,yushwang,anzaman
-ms.openlocfilehash: 2b648caa51eb457a62e846b74f1b95ca84974635
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.date: 04/05/2018
+ms.author: cherylmc
+ms.openlocfilehash: 9ebdbb8958779e074195623aec90b7a6f6de2bb4
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="vpn-gateway-faq"></a>Preguntas más frecuentes sobre VPN Gateway
 
@@ -74,7 +74,7 @@ Las puertas de enlace basadas en enrutamiento implementan VPN basadas en enrutam
 Nº No se puede cambiar un tipo de puerta de enlace de red virtual de Azure basada en directivas a una basada en el enrutamiento o viceversa. Es necesario eliminar la puerta de enlace y volver a crearla, un proceso tarda aproximadamente 60 minutos. La dirección IP de la puerta de enlace no se conserva, ni tampoco la clave precompartida (PSK).
 1. Elimine también las conexiones asociadas a la puerta de enlace que se va a eliminar.
 2. Elimine la puerta de enlace:
-* [portal de Azure](vpn-gateway-delete-vnet-gateway-portal.md)
+* [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
 * [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 * [Azure PowerShell: clásico](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 3. [Creación de una puerta de enlace del tipo deseado y configuración de VPN completa](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway)
@@ -240,7 +240,7 @@ Nº Únicamente el tráfico que tiene como destino una IP que se encuentra en lo
 
 Consulte información adicional de redes virtuales adicionales en las [Preguntas frecuentes sobre redes virtuales](../virtual-network/virtual-networks-faq.md).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * Para más información sobre VPN Gateway, consulte [Acerca de VPN Gateway](vpn-gateway-about-vpngateways.md).
 * Para más información acerca de la configuración de VPN Gateway, consulte [Acerca de la configuración de VPN Gateway](vpn-gateway-about-vpn-gateway-settings.md).

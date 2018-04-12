@@ -3,9 +3,8 @@ title: Niveles de coherencia en Azure Cosmos DB | Documentos de Microsoft
 description: Azure Cosmos DB tiene cinco niveles de coherencia para ayudar a equilibrar la coherencia, la disponibilidad y la latencia finales.
 keywords: coherencia final, azure cosmos db, azure, Microsoft azure
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-editor: cgronlun
+author: SnehaGunda
+manager: kfile
 documentationcenter: ''
 ms.assetid: 3fe51cfa-a889-4a4a-b320-16bf871fe74c
 ms.service: cosmos-db
@@ -14,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2018
-ms.author: mimig
+ms.author: sngun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5b0e46eb001e0b100ad1e181b02c18cfe67648f9
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 512f9e22d01e3bdb90210402aaf123ac6326759a
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Niveles de coherencia de datos optimizables en Azure Cosmos DB
 El diseño de Azure Cosmos DB se llevó a cabo desde el principio pensando en la distribución global de cada modelo de datos. Se ha diseñado para que ofrezca garantías de una baja latencia predecible y varios modelos de coherencia moderada bien definidos. Actualmente, Azure Cosmos DB ofrece cinco niveles de coherencia: fuerte, de obsolescencia limitada, de sesión, de prefijo coherente y final. Obsolescencia limitada, sesión, prefijo coherente y posible se denominan "modelos de coherencia moderada", ya que proporcionan menos coherencia que la coherencia fuerte, que es el modelo más coherente disponible. 

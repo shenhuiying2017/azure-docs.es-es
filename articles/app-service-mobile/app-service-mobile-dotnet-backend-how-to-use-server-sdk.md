@@ -1,12 +1,12 @@
 ---
 title: Trabajo con el SDK del servidor back-end de .NET para Mobile Apps | Microsoft Docs
-description: "Obtenga información sobre cómo trabajar con el SDK del servidor back-end de .NET para Azure App Service Mobile Apps"
-keywords: "servicio de aplicaciones, servicio de aplicaciones de azure, aplicación móvil, servicio móvil, escala, escalable, implementación de aplicaciones, implementación de aplicaciones de azure"
+description: Obtenga información sobre cómo trabajar con el SDK del servidor back-end de .NET para Azure App Service Mobile Apps
+keywords: servicio de aplicaciones, servicio de aplicaciones de azure, aplicación móvil, servicio móvil, escala, escalable, implementación de aplicaciones, implementación de aplicaciones de azure
 services: app-service\mobile
-documentationcenter: 
+documentationcenter: ''
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 0620554f-9590-40a8-9f47-61c48c21076b
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: a1a29d87864bff8cb2ecda70d8a0a7833c70d481
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Trabajar con el SDK del servidor back-end de .NET para Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -306,7 +306,7 @@ Cuando un usuario se autentica mediante App Service, se puede tener acceso al id
 
 El SID se deriva del identificador de usuario específico del proveedor y es estático para un usuario y un proveedor de inicio de sesión dados.  El SID es nulo para los tokens de autenticación no válidos.
 
-App Service también le permite solicitar notificaciones específicas de su proveedor de inicio de sesión. Cada proveedor de identidades puede proporcionar más información mediante el SDK del proveedor de identidades.  Por ejemplo, puede usar la API Graph de Facebook para la información de los amigos.  Puede especificar notificaciones solicitadas en la hoja del proveedor en Azure Portal. Algunas notificaciones requieren configuración adicional con el proveedor de identidades.
+App Service también le permite solicitar notificaciones específicas de su proveedor de inicio de sesión. Cada proveedor de identidades puede proporcionar más información mediante el SDK del proveedor de identidades.  Por ejemplo, puede usar Graph API de Facebook para la información de los amigos.  Puede especificar notificaciones solicitadas en la hoja del proveedor en Azure Portal. Algunas notificaciones requieren configuración adicional con el proveedor de identidades.
 
 El código siguiente llama al método de extensión **GetAppServiceIdentityAsync** para obtener las credenciales de inicio de sesión, que incluyen el token de acceso necesario para realizar solicitudes en la API Graph de Facebook:
 

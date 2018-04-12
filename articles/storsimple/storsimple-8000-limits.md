@@ -1,11 +1,11 @@
 ---
-title: "Límites del sistema de la serie 8000 de StorSimple | Microsoft Docs"
-description: "Describe los límites del sistema y los tamaños recomendados para conexiones y componentes de la serie StorSimple 8000."
+title: Límites del sistema de la serie 8000 de StorSimple | Microsoft Docs
+description: Describe los límites del sistema y los tamaños recomendados para conexiones y componentes de la serie StorSimple 8000.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: c7392678-0924-46c6-9c59-1665cb9b6586
 ms.service: storsimple
 ms.devlang: NA
@@ -16,10 +16,10 @@ ms.date: 03/28/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: cc3c0ad193af7625c8c4c1c2e82b6bdc8be33310
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="what-are-storsimple-8000-series-system-limits"></a>¿Cuáles son los límites del sistema de StorSimple serie 8000?
 
@@ -35,7 +35,7 @@ StorSimple proporciona almacenamiento escalable y flexible para su centro de dat
 | Número máximo de volúmenes anclados localmente |32 | |
 | Número máximo de programaciones por plantilla de ancho de banda |168 |Una programación para cada hora y cada día de la semana (24*7). |
 | Tamaño máximo de un volumen en capas en dispositivos físicos |64 TB para 8100 y 8600 |8100 y 8600 son dispositivos físicos. |
-| Tamaño máximo de un volumen en capas en dispositivos virtuales de Azure |30 TB para 8010  <br></br> 64 TB para 8020 |8010 y 8020 son dispositivos virtuales de Azure que utilizan el almacenamiento estándar y premium respectivamente. |
+| Tamaño máximo de un volumen en capas en dispositivos virtuales de Azure |30 TB para 8010  <br></br> 64 TB para 8020 |8010 y 8020 son dispositivos virtuales de Azure que utilizan Standard y Premium Storage respectivamente. |
 | Tamaño máximo de un volumen anclado localmente en dispositivos físicos |8,5 TB para 8100 <br></br> 22,5 TB para 8600 |8100 y 8600 son dispositivos físicos. |
 | Número máximo de conexiones iSCSI |512 | |
 | Número máximo de conexiones de iSCSI de iniciadores |512 | |
@@ -55,7 +55,7 @@ StorSimple proporciona almacenamiento escalable y flexible para su centro de dat
 
 &#42; Se midió el rendimiento máximo por tipo de E/S con escenarios de escritura y de lectura del 100%. Es posible que el rendimiento real sea inferior y dependa de las condiciones de la red y de la mezcla de E/S.
 
-&#42; &#42; Los números de rendimiento antes de Update 3 pueden ser inferiores.
+& #42; & #42; Los números de rendimiento antes de Update 3 pueden ser inferiores.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Revise los [Requisitos del sistema StorSimple](storsimple-8000-system-requirements.md).

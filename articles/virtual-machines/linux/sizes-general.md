@@ -1,13 +1,13 @@
 ---
-title: "Tamaños de las máquinas virtuales Linux en Azure: uso general | Microsoft Docs"
-description: "Enumera los tamaños diferentes de uso general disponibles para las máquinas virtuales Linux en Azure. Se proporciona información sobre el número de unidades vCPU, discos de datos y NIC, así como sobre el rendimiento de almacenamiento y el ancho de banda de red para los tamaños de esta serie."
+title: 'Tamaños de las máquinas virtuales Linux en Azure: uso general | Microsoft Docs'
+description: Enumera los tamaños diferentes de uso general disponibles para las máquinas virtuales Linux en Azure. Se proporciona información sobre el número de unidades vCPU, discos de datos y NIC, así como sobre el rendimiento de almacenamiento y el ancho de banda de red para los tamaños de esta serie.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: jonbeck7
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager,azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/08/2017
 ms.author: jonbeck
-ms.openlocfilehash: ed4bfe6ca15c53c95fb1fd1b93b5acc1d36d57ff
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 42b2fea0c2042512ad7a57538705bc8ee667b919
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="general-purpose-virtual-machine-sizes"></a>Tamaños de máquina virtual de uso general
 

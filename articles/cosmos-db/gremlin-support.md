@@ -4,9 +4,7 @@ description: Más información acerca del lenguaje de Gremlin de Apache TinkerPo
 services: cosmos-db
 documentationcenter: ''
 author: LuisBosquez
-manager: jhubbard
-editor: ''
-tags: ''
+manager: kfile
 ms.assetid: 6016ccba-0fb9-4218-892e-8f32a1bcc590
 ms.service: cosmos-db
 ms.devlang: na
@@ -15,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 01/02/2018
 ms.author: lbosq
-ms.openlocfilehash: 453e11c31a01b6ce8e77deda89725ecd53fd2db9
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: b13e31be58502d670b11dace1f646b0632a2f039
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Compatibilidad de Azure Cosmos DB con grafos Gremlin
 Azure Cosmos DB admite el lenguaje de recorrido de grafos de [Apache Tinkerpop](http://tinkerpop.apache.org), [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), que es una instancia de Graph API para crear entidades de grafo y realizar operaciones de consulta de grafos. Puede usar el lenguaje Gremlin para crear entidades de grafo (vértices y aristas), modificar las propiedades de las entidades, realizar consultas y recorridos, y eliminar entidades. 
@@ -38,7 +36,7 @@ Este grafo tiene los siguientes tipos de vértices (llamados "etiquetas" en Grem
 - Personas: el grafo tiene tres personas, Robin, Thomas y Ben.
 - Intereses: sus intereses; en este ejemplo, el fútbol.
 - Dispositivos: los dispositivos que usan las personas.
-- Sistemas operativos: los sistemas operativos que se ejecutan en los dispositivos.
+- Sistemas operativos: sistemas operativos que se ejecutan en los dispositivos.
 
 Las relaciones entre estas entidades se representan con las siguientes etiquetas o tipos de arista:
 

@@ -3,25 +3,24 @@ title: Solución de problemas de Azure Files Backup
 description: Este artículo contiene información para solución de problemas que se producen al proteger recursos compartidos de archivos de Azure.
 services: backup
 ms.service: backup
-keywords: No agregue ni edite palabras clave sin consultar a su responsable de SEO Champ.
 author: markgalioto
 ms.author: markgal
 ms.date: 2/21/2018
 ms.topic: tutorial
 ms.workload: storage-backup-recovery
 manager: carmonm
-ms.openlocfilehash: c803118ccdafa8db0e8f8ddee608f60311f65e05
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 2e067e0a1f673480bc08abfee61d2b1b2c92f885
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="troubleshoot-problems-backing-up-azure-files"></a>Solución de problemas de copia de seguridad de archivos de Azure
 Puede solucionar los problemas y errores encontrados durante el uso de Azure Files Backup con la información indicada en las siguientes tablas.
 
 ## <a name="preview-boundaries"></a>Límites de versión preliminar
 Azure Files Backup se encuentra en versión preliminar. No se admiten los siguientes escenarios de copia de seguridad para los recursos compartidos de archivos de Azure:
-- Protección de recursos compartidos de archivos de Azure en cuentas de almacenamiento con replicación de [almacenamiento con redundancia de zona](../storage/common/storage-redundancy.md#zone-redundant-storage) (ZRS) o [almacenamiento con redundancia geográfica con acceso de lectura](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage) (RA-GRS).
+- Protección de recursos compartidos de archivos de Azure en cuentas de almacenamiento con replicación de [almacenamiento con redundancia de zona](../storage/common/storage-redundancy-zrs.md) (ZRS) o [almacenamiento con redundancia geográfica con acceso de lectura](../storage/common/storage-redundancy-grs.md) (RA-GRS).
 - Protección de recursos compartidos de archivos de Azure en cuentas de almacenamiento que tienen habilitadas redes virtuales.
 - Realización de una copia de seguridad de recursos compartidos de archivos de Azure con PowerShell o la CLI.
 

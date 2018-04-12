@@ -3,7 +3,7 @@ title: Guía de inicio rápido de Graph API de Azure AD | Microsoft Docs
 description: Graph API de Azure Active Directory proporciona acceso mediante programación a Azure AD a través de los extremos de la API de REST OData. Las aplicaciones pueden usar Graph API de Azure AD para ejecutar operaciones de creación, lectura, actualización y eliminación (CRUD) en objetos y datos de directorio.
 services: active-directory
 documentationcenter: n/a
-author: viv-liu
+author: mtillman
 manager: mtillman
 editor: ''
 tags: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/28/2017
-ms.author: viviali
+ms.date: 04/02/2018
+ms.author: mtillman
 ms.custom: aaddev
-ms.openlocfilehash: 6869fc8ec582ea857128e91f1f127e9255e77865
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: d195d808e07b872c11379f13b6e89794da39f70e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="quickstart-for-the-azure-ad-graph-api"></a>Guía de inicio rápido de Graph API de Azure AD
 Graph API de Azure Active Directory (AD) proporciona acceso mediante programación a Azure AD a través de los extremos de la API de REST OData. Las aplicaciones pueden usar Graph API de Azure AD para ejecutar operaciones de creación, lectura, actualización y eliminación (CRUD) en objetos y datos de directorio. Por ejemplo, Graph API de Azure AD se puede usar para crear un nuevo usuario, ver o actualizar las propiedades de un usuario, cambiar la contraseña de un usuario, comprobar la pertenencia al grupo para el acceso basado en roles y deshabilitar o eliminar el usuario. Para más información sobre los escenarios de aplicaciones y características de Graph API de Azure AD, consulte [Graph API de Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) y los [requisitos previos de Graph API de Azure AD](https://msdn.microsoft.com/library/hh974476.aspx). 

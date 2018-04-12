@@ -1,13 +1,13 @@
 ---
-title: "Control de las notificaciones de mantenimiento de máquinas virtuales Windows en Azure | Microsoft Docs"
-description: "Ver las notificaciones de mantenimiento de máquinas virtuales Windows que se ejecutan en Azure e iniciar el mantenimiento de autoservicio."
+title: Control de las notificaciones de mantenimiento de máquinas virtuales Windows en Azure | Microsoft Docs
+description: Ver las notificaciones de mantenimiento de máquinas virtuales Windows que se ejecutan en Azure e iniciar el mantenimiento de autoservicio.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: zivraf
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: zivr
-ms.openlocfilehash: d6d8507508ef1946c1dfa41c47ae81f51c0ad4ef
-ms.sourcegitcommit: 8fc9b78a2a3625de2cecca0189d6ee6c4d598be3
+ms.openlocfilehash: a9cb24b569af4ff0fd3cf9bf66d0b937415907ae
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="handling-planned-maintenance-notifications-for-windows-virtual-machines"></a>Control de las notificaciones de mantenimiento planeado de máquinas virtuales Windows
 
@@ -214,6 +214,6 @@ Para más información acerca de la alta disponibilidad, consulte [Regiones y di
 **R:** Si ha hecho clic para actualizar varias instancias múltiples de un conjunto de disponibilidad muy rápidamente, Azure colocará dichas solicitudes en cola y empezará a actualizar las máquinas virtuales de un solo dominio de una actualización (UD), después de otro, y así hasta completar todos. Sin embargo, dado que podría haber una pausa entre los dominios de actualización, podría parecer que la actualización tarda más tiempo. Si la cola de actualización tarda más de 60 minutos, algunas instancias mostrarán el estado **omitida** aunque se hayan actualizado correctamente. Para evitar este estado incorrecto, actualice los conjuntos de su disponibilidad, para lo que debe hacer clic solo en una instancia de un conjunto de disponibilidad y esperar a la actualización de dicha máquina virtual se complete antes de hacer clic en la siguiente máquina virtual de otro dominio de actualización.
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Obtenga información acerca de cómo puede registrarse para eventos de mantenimiento desde la máquina virtual con [Eventos programados](scheduled-events.md).

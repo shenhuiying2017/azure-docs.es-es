@@ -1,6 +1,6 @@
 ---
-title: "Conexión a una máquina virtual de SQL Server en Azure (modelo clásico) | Microsoft Docs"
-description: "Obtenga información sobre cómo conectarse a SQL Server en ejecución en una máquina virtual en Azure. En este tema se usa el modelo de implementación clásica. Los escenarios varían según la configuración de red y la ubicación del cliente."
+title: Conexión a una máquina virtual de SQL Server en Azure (modelo clásico) | Microsoft Docs
+description: Obtenga información sobre cómo conectarse a SQL Server en ejecución en una máquina virtual en Azure. En este tema se usa el modelo de implementación clásica. Los escenarios varían según la configuración de red y la ubicación del cliente.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -16,10 +16,10 @@ ms.date: 01/31/2017
 ms.author: jroth
 experimental_id: d51f3cc6-753b-4e
 ms.openlocfilehash: e986440edc0b683d1b1cd49207a355dac060c53d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>Conexión a una máquina virtual de SQL Server en Azure (implementación clásica)
 > [!div class="op_single_selector"]

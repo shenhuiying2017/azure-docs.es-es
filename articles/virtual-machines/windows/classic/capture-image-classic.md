@@ -1,10 +1,10 @@
 ---
-title: "Captura de una imagen de una máquina virtual Windows de Azure | Microsoft Docs"
-description: "Capture una imagen de una máquina virtual Windows de Azure creada con el modelo de implementación clásica."
+title: Captura de una imagen de una máquina virtual Windows de Azure | Microsoft Docs
+description: Capture una imagen de una máquina virtual Windows de Azure creada con el modelo de implementación clásica.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 ROBOTS: NOINDEX
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: cynthn
-ms.openlocfilehash: ee6371faa9c3cc72104ba0eb05d17226679fa420
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 24366d3adf63fb6fafb8afa9f1a9fb359e88d8ed
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="capture-an-image-of-an-azure-windows-virtual-machine-created-with-the-classic-deployment-model"></a>Capture una imagen de una máquina virtual Windows de Azure creada con el modelo de implementación clásica.
 > [!IMPORTANT]
@@ -73,7 +73,7 @@ Antes de capturar una imagen de una máquina virtual de Azure, se recomienda hac
 
     ![Captura correcta de la imagen](./media/capture-image/VMCapturedImageAvailable.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 La imagen está lista para usarse para crear máquinas virtuales. En este caso, debe crear una máquina virtual; para ello, seleccione el elemento de menú **Todos los servicios** en la parte inferior del menú de servicios y luego seleccione **Imágenes de la VM (clásico)** en el grupo **Proceso**. Para obtener instrucciones, consulte [Creación de una máquina virtual desde una imagen](createportal.md).
 
 [How to sign in to a virtual machine running Windows Server]:connect-logon.md

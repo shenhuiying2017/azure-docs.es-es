@@ -1,10 +1,10 @@
 ---
-title: "Implementación de una máquina virtual con C# y una plantilla de Resource Manager | Microsoft Docs"
-description: "Aprenda a usar C# y una plantilla de Resource Manager para implementar una máquina virtual de Azure."
+title: Implementación de una máquina virtual con C# y una plantilla de Resource Manager | Microsoft Docs
+description: Aprenda a usar C# y una plantilla de Resource Manager para implementar una máquina virtual de Azure.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: davidmu1
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: bfba66e8-c923-4df2-900a-0c2643b81240
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: davidmu
-ms.openlocfilehash: b82a70d1b654ff9601db501011d9aa21af8e36c2
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: f2c488a891d1037535f1782da54544ac6af9dd41
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>Implementación de una máquina virtual de Azure con C# y una plantilla de Resource Manager
 En este artículo se muestra cómo implementar una plantilla de Azure Resource Manager con C#. La plantilla que crea implementa una sola máquina virtual que ejecuta Windows Server en una nueva red virtual con una sola subred.
@@ -326,6 +326,6 @@ Esta aplicación de consola tardará unos cinco minutos en ejecutarse completame
 
 2. Antes de presionar **Entrar** para comenzar la eliminación de recursos, puede dedicar unos minutos a comprobar la creación de los recursos en Azure Portal. Haga clic en el estado de implementación para ver información de la implementación.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Si se produjeron problemas durante la implementación, el paso siguiente sería consultar [Solución de errores comunes de implementación de Azure con Azure Resource Manager](../../resource-manager-common-deployment-errors.md).
 * Obtenga información sobre cómo implementar una máquina virtual y los recursos de apoyo leyendo [Implementación de una máquina virtual de Azure con C#](csharp.md).
