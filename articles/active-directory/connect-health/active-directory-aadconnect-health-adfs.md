@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ad8ed320a8dd91ea83dbaf71e2e9514b4df4cdb5
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 630a633cf8657d43d6416d316928830634c9bf48
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Supervisión de AD FS mediante Azure AD Connect Health
 La siguiente documentación es específica de la supervisión de la infraestructura de AD FS con Azure AD Connect Health. Para más información sobre la supervisión de Azure AD Connect (Sync) con Azure AD Connect Health, consulte [Uso de Azure AD Connect Health para sincronización](active-directory-aadconnect-health-sync.md). Para obtener información adicional sobre la supervisión de Active Directory Domain Services con Azure AD Connect Health, consulte [Using Azure AD Connect Health with AD DS](active-directory-aadconnect-health-adds.md)(Uso de Azure AD Connect Health con AD DS).
@@ -109,7 +109,7 @@ El informe ofrece la siguiente información:
 | Id. de usuario |Muestra el identificador de usuario que se usó. Este valor es lo que el usuario escribió, que en algunos casos es el identificador de usuario equivocado que se va a utilizar. |
 | Intentos con error |Muestra el número total de intentos con error para ese identificador de usuario específico. La tabla está ordenada por el mayor número de intentos con error en orden descendente. |
 | Último error |Muestra la marca de tiempo del momento en que se produjo el último error. |
-| Última IP con error |Muestra la dirección IP del cliente de la última solicitud incorrecta. |
+| Última IP con error |Muestra la dirección IP del cliente de la última solicitud incorrecta. Si ve más de una dirección IP en este valor, se puede deber a que incluye la dirección IP de reenvío del cliente junto con la dirección IP del último intento del usuario.  |
 
 > [!NOTE]
 > Este informe se actualiza automáticamente cada 12 horas con la información recopilada durante este período. Como resultado, puede que el informe no incluya los intentos de inicio de sesión de las últimas 12 horas.
@@ -191,11 +191,14 @@ El umbral de alerta se puede actualizar mediante las Opciones del umbral. De for
 1. ¿Por qué veo intervalos de direcciones IP privadas en el informe?  <br />
 Las direcciones IP privadas (<i>10.x.x.x, 172.x.x.x y 192.168.x.x</i>) y las direcciones IP de Exchange se filtran y se marcan como True en la lista de direcciones IP permitidas. Si ve intervalos de direcciones IP privadas, es muy probable que el equilibrador de carga externo no esté enviando la dirección IP del cliente cuando pasa la solicitud al servidor proxy de la aplicación web.
 
-2. ¿Qué hacer para bloquear la dirección IP?  <br />
+2. ¿Por qué veo direcciones IP del equilibrador de carga en el informe?  <br />
+Si ve direcciones IP del equilibrador de carga, es muy probable que el equilibrador de carga externo no esté enviando la dirección IP del cliente cuando pasa la solicitud al servidor proxy de la aplicación web. Configure el equilibrador de carga correctamente para que pase la dirección IP de reenvío del cliente. 
+
+3. ¿Qué hacer para bloquear la dirección IP?  <br />
 Debe agregar la dirección IP identificada como malintencionada al firewall o bloquearla en Exchange.   <br />
 Para AD FS 2016, 1803.C y QFE, puede bloquear la dirección IP directamente en AD FS. 
 
-3. ¿Por qué no veo ningún elemento de este informe? <br />
+4. ¿Por qué no veo ningún elemento de este informe? <br />
    - Las actividades de inicio de sesión con errores no superan los valores del umbral. 
    - Asegúrese de que no haya ninguna alerta del tipo "Health Service no está actualizado" en la lista de servidores de AD FS.  Más información sobre [cómo solucionar problemas de esta alerta](active-directory-aadconnect-health-data-freshness.md).
    - Las auditorías no están habilitadas en las granjas de servidores de AD FS.

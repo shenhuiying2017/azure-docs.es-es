@@ -1,12 +1,12 @@
 ---
 title: Asignar un nombre DNS personalizado a Azure Web Apps | Microsoft Docs
-description: "Aprenda a agregar un nombre de dominio DNS personalizado (dominio personal) a una aplicación web, un back-end de una aplicación móvil o una aplicación de API en Azure App Service."
+description: Aprenda a agregar un nombre de dominio DNS personalizado (dominio personal) a una aplicación web, un back-end de una aplicación móvil o una aplicación de API en Azure App Service.
 keywords: app service, azure app service, domain mapping, domain name, existing domain, hostname
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: dc446e0e-0958-48ea-8d99-441d2b947a7c
 ms.service: app-service-web
 ms.workload: web
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 9867cc2f8a8d484ca4bfb160c20a07df38790f4d
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 431268082b24d23289188f5422cd596dc5f37d30
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="map-an-existing-custom-dns-name-to-azure-web-apps"></a>Asignar un nombre DNS personalizado a Azure Web Apps
+# <a name="tutorial-map-an-existing-custom-dns-name-to-azure-web-apps"></a>Tutorial: Asignación de un nombre DNS personalizado a Azure Web Apps
 
 [Azure Web Apps](app-service-web-overview.md) proporciona un servicio de hospedaje web muy escalable y con aplicación de revisiones de un modo automático. En este tutorial se muestra cómo asignar un nombre DNS personalizado a Azure Web Apps.
 
@@ -292,13 +292,13 @@ En la parte inferior de la página, el directorio virtual raíz `/` apunta a `si
 
 ![Personalización del directorio virtual](./media/app-service-web-tutorial-custom-domain/customize-virtual-directory.png)
 
-Una vez completada la operación, la aplicación debe devolver la página correcta en la ruta de acceso raíz (por ejemplo, http://contoso.com).
+Una vez completada la operación, la aplicación debe devolver la página correcta en la ruta de acceso raíz (por ejemplo, http://contoso.com)).
 
 ## <a name="automate-with-scripts"></a>Automatizar con scripts
 
 Puede automatizar la administración e dominios personalizados con scripts, mediante la [CLI de Azure](/cli/azure/install-azure-cli) o [Azure PowerShell](/powershell/azure/overview). 
 
-### <a name="azure-cli"></a>CLI de Azure 
+### <a name="azure-cli"></a>Azure CLI 
 
 El comando siguiente agrega un nombre DNS personalizado configurado a una aplicación de App Service. 
 

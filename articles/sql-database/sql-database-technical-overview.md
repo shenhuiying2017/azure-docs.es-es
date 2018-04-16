@@ -9,15 +9,15 @@ ms.service: sql-database
 ms.topic: overview
 ms.date: 03/07/2018
 ms.author: carlrab
-ms.openlocfilehash: 7a06ed8433ebcf728c7b090f5e984d4e3ebeb846
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: a3b703c96e309294e5327fb7fb013cbf28c369e4
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>¿Qué es el servicio Azure SQL Database? 
 
-SQL Database es un servicio administrado de base de datos relacional de uso general de Microsoft Azure que admite estructuras como datos relacionales, JSON, espacial y XML. SQL Database ofrece [bases de datos SQL independientes](sql-database-servers-databases.md) administradas, bases de datos SQL administradas en un [grupo elástico](sql-database-elastic-pool.md) y las instancias de SQL administradas llamadas [Instancia administrada de SQL Database](sql-database-managed-instance.md) (en versión preliminar pública). Proporciona [un rendimiento escalable dinámicamente](sql-database-service-tiers.md) y opciones como [índices de almacén de columnas](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) para realizar un análisis analítico extremo y generar informes, y [OLTP en memoria](sql-database-in-memory.md) para el procesamiento extremo de transacciones. Microsoft controla perfectamente toda la aplicación de revisiones y de actualizaciones del código base de SQL y desaparece toda la administración de la infraestructura subyacente. 
+SQL Database es un servicio administrado de base de datos relacional de uso general de Microsoft Azure que admite estructuras como datos relacionales, JSON, espacial y XML. SQL Database ofrece [bases de datos SQL individuales](sql-database-servers-databases.md) administradas, bases de datos SQL administradas en un [grupo elástico](sql-database-elastic-pool.md) e [instancias administradas](sql-database-managed-instance.md) de SQL (en la versión preliminar pública). Proporciona [un rendimiento escalable dinámicamente](sql-database-service-tiers.md) y opciones como [índices de almacén de columnas](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) para realizar un análisis analítico extremo y generar informes, y [OLTP en memoria](sql-database-in-memory.md) para el procesamiento extremo de transacciones. Microsoft controla perfectamente toda la aplicación de revisiones y de actualizaciones del código base de SQL y desaparece toda la administración de la infraestructura subyacente. 
 
 SQL Database comparte su base de código con el [motor de base de datos de Microsoft SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation). Con la estrategia de primero en la nube de Microsoft, las funcionalidades más recientes de SQL Server se publican en primer lugar en SQL Database y, después, en el propio SQL Server. Este enfoque proporciona las funcionalidades más recientes de SQL Server sin sobrecarga alguna en la aplicación de revisiones o actualizaciones (y con estas nuevas características probadas en millones de bases de datos). Para obtener información acerca de las nuevas funcionalidades, consulte:
 
@@ -41,9 +41,13 @@ Con Instancia administrada de SQL Database, cada instancia está aislada de otra
 
 ### <a name="adjust-performance-and-scale-without-downtime"></a>Ajuste del rendimiento y escalabilidad sin tiempo de inactividad
 
-SQL Database ofrece tres niveles de servicio para dar soporte a cargas de trabajo de base de datos tanto ligeras como pesadas: Básico, Estándar y Premium. La primera aplicación se puede compilar en una base de datos pequeña con un costo muy pequeño al mes y, después, cambiar el nivel de servicio manualmente o mediante programación en cualquier momento para adecuarla a las necesidades de su solución. El rendimiento se puede ajustar sin que la aplicación o los clientes sufran ningún tipo de inactividad. La escalabilidad dinámica permite que una base de datos responda transparentemente a los requisitos de recursos, que cambian con rapidez, y le permite pagar solo por los recursos que necesite cuando los necesite.
+SQL Database ofrece un [modelo de compra basado en DTU](sql-database-service-tiers.md#dtu-based-purchasing-model) o el [modelo de compra basado en núcleos virtuales (versión preliminar)](sql-database-service-tiers.md#vcore-based-purchasing-model-preview). 
+- El modelo de compra basado en DTU ofrece una combinación de proceso, memoria y recursos de E/S en tres niveles de servicio para admitir cargas de trabajo de base de datos de ligeras a pesadas: Básico, Estándar y Premium. Los niveles de rendimiento de cada nivel ofrecen una mezcla diferente de estos recursos, a los que puede agregar recursos de almacenamiento adicionales.
+- El modelo de compra basado en núcleos virtuales le permite elegir el número de núcleos virtuales, la cantidad de memoria y la cantidad y velocidad del almacenamiento.
 
-   ![escalado](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
+La primera aplicación se puede compilar en una base de datos pequeña con un costo muy pequeño al mes y, después, cambiar el nivel de servicio manualmente o mediante programación en cualquier momento para adecuarla a las necesidades de su solución. El rendimiento se puede ajustar sin que la aplicación o los clientes sufran ningún tipo de inactividad. La escalabilidad dinámica permite que una base de datos responda transparentemente a los requisitos de recursos, que cambian con rapidez, y le permite pagar solo por los recursos que necesite cuando los necesite.
+
+   ![Escalado de DTU](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
 
 Instancia administrada de SQL Database está en versión preliminar y ofrece un nivel de servicio único. Para más información, consulte [Instancia administrada de SQL Database](sql-database-managed-instance.md)
 
@@ -64,7 +68,7 @@ Independientemente de lo que use (bases de datos únicas o grupos elásticos) no
 
 ### <a name="extensive-monitoring-and-alerting-capabilities"></a>Extensas funcionalidades de supervisión y alerta
 
-Pero, ¿cómo se puede comparar el rendimiento relativo de las bases de datos únicas con el de los grupos elásticos? ¿Cómo se sabe el momento correcto en el que debe hacer clic para detenerse al subir y bajar por el dial? Use las herramientas de [supervisión de rendimiento integrado](sql-database-performance.md) y de [alerta](sql-database-insights-alerts-portal.md) herramientas, en combinación con la evaluación del rendimiento basada en [unidades de transacción de bases de datos (DTU) para bases de datos únicas y DTU elásticas (eDTU) para grupos elásticos](sql-database-what-is-a-dtu.md). Uso de estas herramientas, puede evaluar rápidamente el impacto de escalar verticalmente en función de su suscripción actual o se proyecta necesidades de rendimiento. Para más detalles, consulte [Opciones y rendimiento de SQL Database: comprender lo que está disponible en cada nivel de servicio](sql-database-service-tiers.md) .
+Pero, ¿cómo se puede comparar el rendimiento relativo de las bases de datos únicas con el de los grupos elásticos? ¿Cómo se sabe el momento correcto en el que debe hacer clic para detenerse al subir y bajar por el dial? Utilice las herramientas de [supervisión de rendimiento integrado](sql-database-performance.md) y de [alertas](sql-database-insights-alerts-portal.md) en combinación con las clasificaciones del rendimiento. Uso de estas herramientas, puede evaluar rápidamente el impacto de escalar verticalmente en función de su suscripción actual o se proyecta necesidades de rendimiento. Para más detalles, consulte [Opciones y rendimiento de SQL Database: comprender lo que está disponible en cada nivel de servicio](sql-database-service-tiers.md) .
 
 Además, SQL Database puede [emitir métricas y registros de diagnóstico](sql-database-metrics-diag-logging.md) para facilitar la supervisión. SQL Database se puede configurar para que almacene el uso de recursos, los trabajadores y sesiones, y la conectividad en uno de estos recursos de Azure:
 
@@ -82,7 +86,7 @@ El contrato de nivel de servicio [(SLA)](http://azure.microsoft.com/support/lega
 - **[Restauraciones a un momento dado](sql-database-recovery-using-backups.md)**: SQL Database admite la recuperación a cualquier momento dado que esté dentro del período de retención de copia de seguridad automática.
 - **[Replicación geográfica activa](sql-database-geo-replication-overview.md)**: SQL Database permite configurar hasta cuatro bases de datos secundarias legibles en los mismos centros de datos de Azure o en centros de datos distribuidos globalmente.  Por ejemplo, si tiene una aplicación SaaS con una base de datos de catálogos tiene un alto volumen de transacciones simultáneas de solo lectura, utilice la replicación geográfica activa para habilitar la escala de lectura global y quitar cuellos de botella en el servidor principal debidos a las cargas de trabajo de lectura. 
 - **[Grupos de conmutación por error](sql-database-geo-replication-overview.md)**: SQL Database permite habilitar la alta disponibilidad y el equilibrio de carga a escala global, lo que incluye la replicación geográfica transparente y la conmutación por error de grandes conjuntos de bases de datos y grupos elásticos. Los grupos de conmutación por error y la replicación geográfica activa permiten la creación de aplicaciones SaaS distribuidas globalmente con una sobrecarga administrativa mínima que deja la supervisión compleja, el enrutamiento y la orquestación de la conmutación por error a SQL Database.
-- **[Bases de datos con redundancia de zona](sql-database-high-availability.md)**: SQL Database le permite aprovisionar bases de datos Premium o grupos elásticos Premium a través de varias zonas de disponibilidad. Dado que las bases de datos Premium y los grupos elásticos Premium tienen varias réplicas redundantes para lograr la alta disponibilidad, la colocación de estas réplicas en varias zonas de disponibilidad proporciona mayor resistencia, incluida la capacidad de recuperarse automáticamente de errores de escala de centro de datos sin pérdida de datos. Esta funcionalidad actualmente está en su versión preliminar. 
+- **[Bases de datos con redundancia de zona](sql-database-high-availability.md)**: SQL Database le permite aprovisionar bases de datos Premium o Crítico para la empresa (versión preliminar) o grupos elásticos a través de varias zonas de disponibilidad. Dado que tanto estas bases de datos como los grupos elásticos tienen varias réplicas redundantes para lograr la alta disponibilidad, la colocación de estas réplicas en varias zonas de disponibilidad proporciona mayor resistencia, lo que incluye la capacidad de recuperarse automáticamente de errores de escala de centro de datos sin pérdida de datos. Esta funcionalidad actualmente está en su versión preliminar. 
 
 ## <a name="built-in-intelligence"></a>Inteligencia integrada
 
@@ -166,7 +170,7 @@ SQL Database admite la compilación de aplicaciones con Python, Java, Node.js, P
 
 - Consulte la [página de precios](https://azure.microsoft.com/pricing/details/sql-database/), para ver comparativas y calculadoras de los costos tanto de las bases de datos únicas como de los grupos elásticos.
 
-- Consulte estas guías de inicio rápido para comenzar:
+- Consulte estos tutoriales de inicio rápido para comenzar:
 
   - [Creación de una base de datos SQL en Azure Portal](sql-database-get-started-portal.md)  
   - [Creación de una base de datos SQL con la CLI de Azure](sql-database-get-started-cli.md)

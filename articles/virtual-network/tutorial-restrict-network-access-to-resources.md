@@ -1,30 +1,31 @@
 ---
-title: Restricción del acceso de la red a los recursos de PaaS mediante Azure Portal | Microsoft Docs
-description: Aprenda a limitar o restringir el acceso de la red a los recursos de Azure, como Azure Storage y Azure SQL Database, con puntos de conexión de servicio de red virtual utilizando Azure Portal.
+title: 'Restricción del acceso de la red a los recursos de PaaS (tutorial): Azure Portal | Microsoft Docs'
+description: En este tutorial aprenderá a limitar y restringir el acceso de la red a los recursos de Azure, como Azure Storage y Azure SQL Database, con puntos de conexión de servicio de red virtual mediante Azure Portal.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: ''
-ms.tgt_pltfrm: virtual-network
+ms.topic: tutorial
+ms.tgt_pltfrm: virtual-networ
 ms.workload: infrastructure
 ms.date: 03/14/2018
 ms.author: jdial
-ms.custom: ''
-ms.openlocfilehash: 9a64a5c1f63dc05cba6fdfa310b694e34bdba7d1
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.custom: mvc
+ms.openlocfilehash: f53544e756bde623a604513f17f9cc92c8efe42b
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>Restrinja el acceso de la red a los recursos de PaaS mediante puntos de conexión de servicio de red virtual utilizando Azure Portal.
+# <a name="tutorial-restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>Tutorial: Restricción del acceso de la red a los recursos de PaaS mediante puntos de conexión de servicio de red virtual mediante Azure Portal.
 
-Los puntos de conexión de servicio de las redes virtuales permiten que el acceso de la red a algunos recursos de servicio de Azure esté restringido a una subred de la red virtual. También se puede quitar el acceso de Internet a los recursos. Los puntos de conexión de servicio proporcionan a la red virtual conexión directa con los servicios de Azure compatibles, de modo que se puede usar el espacio de direcciones privadas de la red virtual para acceder a los servicios de Azure. El tráfico destinado a los recursos de Azure a través de los puntos de conexión de servicio siempre se mantiene en la red troncal de Microsoft Azure. En este artículo, aprenderá a:
+Los puntos de conexión de servicio de las redes virtuales permiten que el acceso de la red a algunos recursos de servicio de Azure esté restringido a una subred de la red virtual. También se puede quitar el acceso de Internet a los recursos. Los puntos de conexión de servicio proporcionan a la red virtual conexión directa con los servicios de Azure compatibles, de modo que se puede usar el espacio de direcciones privadas de la red virtual para acceder a los servicios de Azure. El tráfico destinado a los recursos de Azure a través de los puntos de conexión de servicio siempre se mantiene en la red troncal de Microsoft Azure. En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 > * Crear una red virtual con una subred
@@ -33,6 +34,8 @@ Los puntos de conexión de servicio de las redes virtuales permiten que el acces
 > * Implementar una máquina virtual en cada subred
 > * Confirmar el acceso a un recurso desde una subred
 > * Confirmar que se ha denegado el acceso a un recurso desde una subred e Internet
+
+Si lo prefiere, puede completar este tutorial con la [CLI de Azure](tutorial-restrict-network-access-to-resources-cli.md) o [Azure PowerShell](tutorial-restrict-network-access-to-resources-powershell.md).
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -75,7 +78,7 @@ Inicie sesión en Azure Portal en http://portal.azure.com.
     |Intervalo de direcciones| 10.0.1.0/24|
     |Puntos de conexión de servicio| Seleccione **Microsoft.Storage** en **Servicios**.|
 
-## <a name="restrict-network-access-to-and-from-a-subnet"></a>Restricción del acceso entre una red y una subred
+## <a name="restrict-network-access-for-a-subnet"></a>Restricción del acceso de la red para una subred
 
 1. Seleccione **+ Crear un recurso** en la esquina superior izquierda de Azure Portal.
 2. Seleccione **Redes** y **Grupo de seguridad de red**.
@@ -160,7 +163,7 @@ Los pasos que deben seguirse para restringir el acceso de la red a los recursos 
 
 ### <a name="create-a-file-share-in-the-storage-account"></a>Creación de un recurso compartido de archivos en la cuenta de almacenamiento
 
-1. Cuando haya creado la cuenta de almacenamiento, especifique su nombre en el cuadro **Search resources, services, and docs** (Buscar recursos, servicios y documentos) situado en la parte superior del portal. Cuando el nombre de la cuenta de almacenamiento aparezca en los resultados de búsqueda, selecciónelo.
+1. Cuando haya creado la cuenta de almacenamiento, especifique su nombre en el cuadro **Buscar recursos, servicios y documentos**, situado en la parte superior del portal. Cuando el nombre de la cuenta de almacenamiento aparezca en los resultados de búsqueda, selecciónelo.
 2. Seleccione **Archivos**, tal y como se muestra en la siguiente ilustración:
 
     ![Cuenta de almacenamiento](./media/tutorial-restrict-network-access-to-resources/storage-account.png) 
@@ -269,7 +272,7 @@ La maquina virtual tarda unos minutos en implementarse. No avance al paso siguie
 2. Cuando aparezca **myVmPublic** en los resultados de búsqueda, selecciónelo.
 3. Siga los pasos 1 a 6 que se indican en [Confirmación del acceso a la cuenta de almacenamiento](#confirm-access-to-storage-account) con la máquina virtual *myVmPublic*.
 
-    El acceso se deniega y recibe el error `New-PSDrive : Access is denied`. El acceso se deniega porque la máquina virtual *myVmPublic* está implementada en la subred *Pública*. La subred *Pública* no tiene ningún punto de conexión de servicio habilitado para Azure Storage y la cuenta de almacenamiento solo permite el acceso de red desde la subred *Privada*, no desde la subred *Pública*.
+    El acceso se deniega y recibe el error `New-PSDrive : Access is denied`. El acceso se deniega porque la máquina virtual *myVmPublic* está implementada en la subred *Pública*. La subred *Public* no tiene ningún punto de conexión de servicio habilitado para Azure Storage y la cuenta de almacenamiento solo permite el acceso de red desde la subred *Private*, no desde la subred *Public*.
 
 4. Cierre la sesión de Escritorio remoto con la máquina virtual *myVmPublic*.
 
@@ -292,9 +295,9 @@ Cuando ya no sea necesario, elimine el grupo de recursos y todos los recursos qu
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha habilitado un punto de conexión de servicio en una subred de la red virtual. Ha aprendido que los puntos de conexión de servicio pueden habilitarse para los recursos implementados con varios servicios de Azure. Ha creado una cuenta de Azure Storage y ha hecho que el acceso de la red a la cuenta de almacenamiento esté limitado exclusivamente a los recursos que se encuentran en una subred de la red virtual. Antes de crear puntos de conexión de servicio en las redes virtuales de producción, es recomendable que se familiarice a fondo con los [puntos de conexión de servicio](virtual-network-service-endpoints-overview.md).
+En este tutorial, ha habilitado un punto de conexión de servicio en una subred de la red virtual. Ha aprendido que los puntos de conexión de servicio pueden habilitarse para los recursos implementados con varios servicios de Azure. Ha creado una cuenta de Azure Storage y ha hecho que el acceso de la red a la cuenta de almacenamiento esté limitado exclusivamente a los recursos que se encuentran en una subred de la red virtual. Para más información acerca de los puntos de conexión de servicio, consulte [Introducción a los puntos de conexión de un servicio](virtual-network-service-endpoints-overview.md) y [Administración de subredes](virtual-network-manage-subnet.md).
 
-Si tiene varias redes virtuales en la cuenta, es posible que desee conectar dos de ellas para que los recursos que están dentro de cada red virtual puedan comunicarse entre sí. Continúe con el siguiente tutorial para aprender a conectar redes virtuales.
+Si tiene varias redes virtuales en la cuenta, es posible que desee conectar dos de ellas para que los recursos que están dentro de cada red virtual puedan comunicarse entre sí. Para aprender a conectar redes virtuales, pase al siguiente tutorial.
 
 > [!div class="nextstepaction"]
 > [Conexión de redes virtuales](./tutorial-connect-virtual-networks-portal.md)

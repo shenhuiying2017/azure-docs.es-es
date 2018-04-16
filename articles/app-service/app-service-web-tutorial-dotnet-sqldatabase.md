@@ -1,11 +1,11 @@
 ---
-title: "Compilación de una aplicación ASP.NET en Azure con SQL Database | Microsoft Docs"
-description: "Aprenda a comenzar a trabajar con una aplicación ASP.NET en Azure, con conexión a una instancia de SQL Database."
+title: Compilación de una aplicación ASP.NET en Azure con SQL Database | Microsoft Docs
+description: Aprenda a comenzar a trabajar con una aplicación ASP.NET en Azure, con conexión a una instancia de SQL Database.
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 03c584f1-a93c-4e3d-ac1b-c82b50c75d3e
 ms.service: app-service-web
 ms.workload: web
@@ -15,13 +15,13 @@ ms.topic: tutorial
 ms.date: 06/09/2017
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: bd5aa5186bdec84e1943887ef0980fa50cd26324
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 72bc8e95e5b77baec29247f5593a522bbe663368
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="build-an-aspnet-app-in-azure-with-sql-database"></a>Compilación de una aplicación ASP.NET en Azure con SQL Database
+# <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>Tutorial: Creación de una aplicación ASP.NET en Azure con SQL Database
 
 [Azure Web Apps](app-service-web-overview.md) proporciona un servicio de hospedaje web muy escalable y con aplicación de revisiones de un modo automático. En este tutorial se muestra cómo implementar una aplicación web de ASP.NET orientada a datos en Azure y conectarla a [Azure SQL Database](../sql-database/sql-database-technical-overview.md). Cuando haya terminado, tendrá una aplicación ASP.NET en ejecución en Azure y conectada a SQL Database.
 
@@ -48,6 +48,8 @@ Para completar este tutorial:
   - **Desarrollo de Azure**
 
   ![ASP.NET y desarrollo web y desarrollo de Azure (en web y en la nube)](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
+
+Si ya ha instalado Visual Studio, agregue las cargas de trabajo en Visual Studio, para lo que debe hacer clic en **Herramientas** > **Get Tools and Features** (Obtener herramientas y características).
 
 ## <a name="download-the-sample"></a>Descarga del ejemplo
 

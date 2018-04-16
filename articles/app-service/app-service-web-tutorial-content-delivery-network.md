@@ -1,6 +1,6 @@
 ---
-title: "Adición de una red CDN a una instancia de Azure App Service | Microsoft Docs"
-description: "Agregue una red de entrega de contenido a Azure App Service para almacenar en memoria caché y entregar archivos estáticos desde servidores próximos a sus clientes en todo el mundo."
+title: Adición de una red CDN a una instancia de Azure App Service | Microsoft Docs
+description: Agregue una red de Content Delivery Network (CDN) a una instancia de Azure App Service para almacenar en memoria caché y entregar archivos estáticos desde servidores próximos a sus clientes en todo el mundo.
 services: app-service\web
 author: syntaxc4
 ms.author: cfowler
@@ -10,13 +10,13 @@ ms.service: app-service-web
 manager: erikre
 ms.workload: web
 ms.custom: mvc
-ms.openlocfilehash: 257b75d01f3904661c1a188a2d53ffcb74f48f06
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 74344b72869ef6b27f9e7329c7a1777a40662b17
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="add-a-content-delivery-network-cdn-to-an-azure-app-service"></a>Incorporación de una red de entrega de contenido a Azure App Service
+# <a name="tutorial-add-a-content-delivery-network-cdn-to-an-azure-app-service"></a>Tutorial: Adición de una red CDN a Azure App Service
 
 [Azure Content Delivery Network](../cdn/cdn-overview.md) almacena en caché contenido web estático en ubicaciones colocadas estratégicamente para obtener el máximo rendimiento a la hora de proporcionar contenido a los usuarios. CDN también reduce la carga del servidor en la aplicación web. Este tutorial muestra cómo agregar Azure CDN a una [aplicación web de Azure App Service](app-service-web-overview.md). 
 
@@ -32,7 +32,7 @@ Temas que se abordarán:
 > * Utilizar cadenas de consulta para controlar las versiones en caché.
 > * Utilizar un dominio personalizado para el punto de conexión de CDN.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para completar este tutorial:
 
@@ -51,7 +51,7 @@ Para realizar el paso de dominio personalizado de este tutorial, debe tener un d
 
 Si aún no tiene un nombre de dominio, puede seguir el tutorial [Comprar y configurar un nombre de dominio personalizado en Azure App Service](custom-dns-web-site-buydomains-web-app.md) para comprar un dominio mediante Azure Portal. 
 
-## <a name="log-in-to-the-azure-portal"></a>Iniciar sesión en el portal de Azure
+## <a name="log-in-to-the-azure-portal"></a>Iniciar sesión en Azure Portal
 
 Abra un explorador y vaya a [Azure Portal](https://portal.azure.com).
 
@@ -69,7 +69,7 @@ En la página **Azure Content Delivery Network**, proporcione la configuración 
 
 ![Creación del perfil y el punto de conexión en el portal](media/app-service-web-tutorial-content-delivery-network/portal-new-endpoint.png)
 
-| Configuración | Valor sugerido | Descripción |
+| Configuración | Valor sugerido | DESCRIPCIÓN |
 | ------- | --------------- | ----------- |
 | **Perfil de CDN** | myCDNProfile | Seleccione **Crear nuevo** para crear un nuevo perfil de red CDN. Un perfil de CDN es una colección de puntos de conexión de CDN con el mismo plan de tarifa. |
 | **Plan de tarifa** | Estándar de Akamai | El [plan de tarifa](../cdn/cdn-overview.md#azure-cdn-features) especifica el proveedor y las características disponibles. En este tutorial, usamos Akamai estándar. |

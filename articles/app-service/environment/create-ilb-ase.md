@@ -1,6 +1,6 @@
 ---
 title: Creación y uso de un equilibrador de carga interno con una instancia de Azure App Service Environment
-description: Obtener detalles sobre cómo crear y usar una instancia de Azure App Service Environment aislado de Internet
+description: Detalles sobre cómo crear y usar una instancia de Azure App Service Environment aislada de Internet
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 06/13/2017
+ms.date: 03/20/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 0d08d140ab338d8c742277835fdfb4316862f07b
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 61a454ffb36865d4e1bc6b7ae5622fa4d4e85fd2
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Creación y uso de un equilibrador de carga interno con una instancia de App Service Environment #
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 03/16/2018
 - Con una dirección VIP en una dirección IP externa, a la que se suele hacer referencia como instancia externa de ASE.
 - Con una dirección VIP en una dirección IP interna, llamada a menudo un ASE con un ILB porque el punto de conexión interno es un equilibrador de carga interno (ILB). 
 
-Este artículo muestra cómo crear un ASE con un ILB. Para obtener información general sobre el ASE, consulte [Introducción a App Service Environment][Intro]. Para obtener información sobre cómo crear un ASE externo, consulte [Creación de un ASE externo][MakeExternalASE].
+Este artículo muestra cómo crear un ASE con un ILB. Para obtener información general sobre ASE, consulte [Introducción a App Service Environment][Intro]. Para obtener información sobre cómo crear un ASE externo, consulte [Creación de un ASE externo][MakeExternalASE].
 
 ## <a name="overview"></a>Información general ##
 
@@ -63,7 +63,7 @@ Pasos para crear un ASE con un ILB:
 
 4. Cree una red virtual o seleccione una.
 
-5. Si selecciona una red virtual existente, debe crear una subred para almacenar el ASE. Asegúrese de establecer un tamaño de subred suficientemente grande para alojar el crecimiento futuro de su ASE. Recomendamos un tamaño de `/25`, que tiene 128 direcciones y puede controlar los ASE de tamaño máximo. El tamaño mínimo que puede seleccionar es `/28`. Tras las necesidades de infraestructura, este tamaño se puede escalar hasta un máximo de 11 instancias.
+5. Si selecciona una red virtual existente, debe crear una subred para almacenar el ASE. Asegúrese de establecer un tamaño de subred suficientemente grande para alojar el crecimiento futuro de su ASE. Recomendamos un tamaño de `/25`, que tiene 128 direcciones y puede controlar los ASE de tamaño máximo. El tamaño mínimo que puede seleccionar es `/28`. Tras las necesidades de infraestructura, este tamaño se puede escalar hasta un máximo de 3 instancias.
 
     * Vaya más allá del máximo predeterminado de 100 instancias en los planes de App Service.
 
@@ -81,7 +81,7 @@ Pasos para crear un ASE con un ILB:
 
     * &lt;nombre_del_ASE&gt;.p.azurewebsites.net
 
-   El nombre de dominio personalizado usado para las aplicaciones y el nombre de dominio que utiliza su ASE no se pueden superponer. Para un ASE con un ILB con el nombre de dominio _contoso.com_, no puede usar nombres de dominio personalizados para aplicaciones como:
+   Hay una característica llamada nombres de dominio personalizados que permite asignar un nombre DNS existente a su aplicación web. Puede leer más acerca de esta característica en el documento [Asignación de un nombre DNS existente a la aplicación web][customdomain]. El nombre de dominio personalizado usado para las aplicaciones y el nombre de dominio que utiliza su ASE no se pueden superponer. Para un ASE con un ILB con el nombre de dominio _contoso.com_, no puede usar nombres de dominio personalizados para aplicaciones como:
 
     * www.contoso.com
 
@@ -250,3 +250,4 @@ Para obtener más información sobre cómo configurar el ASE con un ILB con un d
 [Kudu]: http://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
+[customdomain]: ../app-service-web-tutorial-custom-domain.md

@@ -1,6 +1,6 @@
 ---
-title: "Introducción a Azure App Service Environment"
-description: "Introducción breve de Azure App Service Environment"
+title: Introducción a Azure App Service Environment
+description: Introducción breve a Azure App Service Environment
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 06/13/2017
+ms.date: 03/20/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 803a1cde5387b549504b42346d1a2e6a5df04746
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 0b113a594ebf1180346eccc295251f522dcc29c5
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="introduction-to-app-service-environments"></a>Introducción a Azure App Service Environment #
+# <a name="introduction-to-the-app-service-environments"></a>Introducción a App Service Environment #
  
 ## <a name="overview"></a>Información general ##
 
@@ -43,7 +43,7 @@ Las instancias de ASE están aisladas para ejecutar únicamente las aplicaciones
 
 ## <a name="dedicated-environment"></a>Entorno dedicado ##
 
-Una instancia de ASE está dedicada exclusivamente a una sola suscripción y puede hospedar 100 instancias. El rango puede abarcar 100 instancias en un único plan de App Service, 100 planes de App Service de una sola instancia o cualquier opción intermedia.
+Una instancia de ASE está dedicada exclusivamente a una sola suscripción y puede hospedar 100 instancias de un plan de App Service. El rango puede abarcar 100 instancias en un único plan de App Service, 100 planes de App Service de una sola instancia o cualquier opción intermedia.
 
 Una instancia de ASE se compone de front-end y trabajos. Los servidores front-end son responsables de la terminación HTTP/HTTPS y del equilibrio de carga automático de la solicitudes de aplicación en una instancia de ASE. Los servidores front-end se agregan automáticamente ya que los planes de App Service en la instancia de ASE se escalan horizontalmente.
 

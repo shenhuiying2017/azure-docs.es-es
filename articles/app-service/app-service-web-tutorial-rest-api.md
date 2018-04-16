@@ -1,11 +1,11 @@
 ---
 title: API RESTful con CORS en Azure App Service | Microsoft Docs
-description: "Aprenda cómo Azure App Service le ayuda a hospedar API RESTful con compatibilidad CORS."
+description: Aprenda cómo Azure App Service le ayuda a hospedar API RESTful con compatibilidad CORS.
 services: app-service\api
 documentationcenter: dotnet
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: a820e400-06af-4852-8627-12b3db4a8e70
 ms.service: app-service
 ms.workload: web
@@ -15,13 +15,13 @@ ms.topic: tutorial
 ms.date: 02/28/2018
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 7420e92bc929808f074e9be00dfbcb7d8476654a
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 4b5e432a9c553f5221f138b19a180f92420e6058
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="host-a-restful-api-with-cors-in-azure-app-service"></a>Hospedaje de una API RESTful con CORS en Azure App Service
+# <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>Tutorial: Hospedaje de una API RESTful con CORS en Azure App Service
 
 [Azure App Service](app-service-web-overview.md) proporciona un servicio de hospedaje web muy escalable y con aplicación de revisiones de un modo automático. Además, App Service tiene compatibilidad integrada para el [uso compartido de recursos entre orígenes (CORS)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing) para API RESTful. En este tutorial se muestra cómo implementar una aplicación de API de ASP. NET Core en App Service con compatibilidad con CORS. Va a configurar la aplicación mediante el uso de herramientas de línea de comandos e implementar la aplicación usando Git. 
 
@@ -204,7 +204,7 @@ Puede usar sus propias utilidades CORS en lugar de CORS de App Service para una 
 > * Implementar una API RESTful en Azure con Git
 > * Habilitar la compatibilidad con CORS de App Service
 
-Vaya al siguiente tutorial para aprender a asignar un nombre DNS personalizado a una aplicación web.
+Avance al siguiente tutorial para aprender a autenticar y autorizar a los usuarios.
 
 > [!div class="nextstepaction"]
-> [Asignar un nombre DNS personalizado a Azure Web Apps](app-service-web-tutorial-custom-domain.md)
+> [Tutorial: Autenticación y autorización de usuarios de un extremo a otro](app-service-web-tutorial-auth-aad.md)

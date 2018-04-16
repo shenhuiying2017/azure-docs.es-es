@@ -1,11 +1,11 @@
 ---
-title: "Guía de inicio rápido de Azure Security Center: incorporación de equipos Windows a Security Center | Microsoft Docs"
-description: "En esta guía de inicio rápido se explica cómo aprovisionar Microsoft Monitoring Agent en un equipo Windows."
+title: 'Guía de inicio rápido de Azure Security Center: incorporación de equipos Windows a Security Center | Microsoft Docs'
+description: En esta guía de inicio rápido se explica cómo aprovisionar Microsoft Monitoring Agent en un equipo Windows.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/22/2018
 ms.author: terrylan
-ms.openlocfilehash: 8d9b0fcc8b72f947cbc64c6ac9a428ac29f8dfd2
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: b872153278810ce92f19c7c71fe473a2b77def35
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Guía de inicio rápido: incorporación de equipos Windows a Azure Security Center
 Después de incorporar las suscripciones de Azure, puede habilitar Security Center para recursos que se ejecutan fuera de Azure, por ejemplo, en entornos locales o en otras nubes, mediante el aprovisionamiento de Microsoft Monitoring Agent.
@@ -62,7 +62,7 @@ Ahora, debe instalar el archivo descargado en el equipo de destino.
 2. En la página **principal**, seleccione **Siguiente**.
 3. En la página **Términos de licencia**, lea la licencia y seleccione **Acepto**.
 4. En la página **Carpeta de destino**, cambie o mantenga la carpeta de instalación predeterminada y seleccione **Siguiente**.
-5. En la página **Opciones de instalación del agente**, elija la opción para conectar el agente a Azure Log Analytics (OMS) y, luego, seleccione **Siguiente**.
+5. En la página **Opciones de instalación del agente**, elija la opción para conectar el agente a Azure Log Analytics y, luego, seleccione **Siguiente**.
 6. En la página **Azure Log Analytics**, pegue el **identificador del área de trabajo** y la **clave del área de trabajo (clave principal)** que copió en el Bloc de notas en el procedimiento anterior.
 7. Si el equipo tiene que notificar a un área de trabajo de Log Analytics en la nube de Azure Government, seleccione **Azure Gobierno de EE.UU.** de la lista desplegable **Azure Cloud**.  Si el equipo necesita comunicarse a través de un servidor proxy con el servicio de Log Analytics, seleccione **Avanzado** y proporcione la dirección URL y el número de puerto del servidor proxy.
 8. Seleccione **Siguiente** cuando haya terminado de proporcionar las opciones de configuración necesarias.

@@ -1,6 +1,6 @@
 ---
-title: "Compilación de una aplicación web Python y PostgreSQL en Azure | Microsoft Docs"
-description: "Aprenda a trabajar con una aplicación Python en Azure, con conexión a una base de datos PostgreSQL."
+title: Compilación de una aplicación web Python y PostgreSQL en Azure | Microsoft Docs
+description: Aprenda a trabajar con una aplicación Python en Azure, con conexión a una base de datos PostgreSQL.
 services: app-service\web
 documentationcenter: python
 author: berndverst
@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.date: 01/25/2018
 ms.author: beverst
 ms.custom: mvc
-ms.openlocfilehash: de20dae10ae6b43adcbc5040a8a71ba5650bafec
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 9694dcfec7b3297e925bb45bee5e74b69609063d
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="build-a-python-and-postgresql-web-app-in-azure"></a>Creación de una aplicación web Python y PostgreSQL en Azure
+# <a name="tutorial-build-a-python-and-postgresql-web-app-in-azure"></a>Tutorial: Compilación de una aplicación web Python y PostgreSQL en Azure
 
 > [!NOTE]
 > En este artículo se implementa una aplicación en App Service en Windows. Para realizar implementaciones de App Service en _Linux_, consulte [Compilación de una aplicación web Docker Python con PostgreSQL en Azure](./containers/tutorial-docker-python-postgresql-app.md).
@@ -226,7 +226,7 @@ INFO  [alembic.runtime.migration] Running upgrade  -> 791cd7d80402, empty messag
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 ```
 
-Navegue a http://localhost:5000 en un explorador. Haga clic en **Register!** (Registrarse) y cree un registro de prueba. Ya escribe datos en la base de datos de Azure.
+Vaya a http://localhost:5000 en un explorador. Haga clic en **Register!** (Registrarse) y cree un registro de prueba. Ya escribe datos en la base de datos de Azure.
 
 ![Aplicación Python Flask que se ejecuta de forma local](./media/app-service-web-tutorial-python-postgresql/local-app.png)
 

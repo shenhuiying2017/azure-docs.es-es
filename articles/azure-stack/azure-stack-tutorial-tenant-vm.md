@@ -17,10 +17,10 @@ ms.author: jeffgilb
 ms.reviewer: ''
 ms.custom: mvc
 ms.openlocfilehash: af97f32736959f8ebf8f3c4fbca400d6b0c41f3e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="make-virtual-machines-available-to-your-azure-stack-users"></a>Máquinas virtuales disponibles para los usuarios de Azure Stack
 Como administrador de la nube de Azure Stack, puede crear ofertas a las que se pueden suscribir los usuarios (a veces denominados inquilinos). Con su suscripción, los usuarios podrán consumir servicios de Azure Stack.
@@ -113,7 +113,7 @@ Ahora que ha creado una oferta, puede probarla. Inicie sesión como usuario y su
    Ahora puede iniciar sesión en el portal como usuario para suscribirse a una oferta.
 
    a. Inicie sesión en el portal de usuarios como usuario y haga clic en **Obtener una suscripción**.
-   - En un sistema integrado, la dirección URL varía en función de la región y el nombre de dominio externo del operador, y tendrá el formato https://portal.&lt;*región*&gt;.&lt;*FQDN*&gt;.
+   - En un sistema integrado, la dirección URL varía en función de la región y el nombre de dominio externo del operador y tendrá el formato https://portal.&lt;*región*&gt;.&lt;*FQDN*&gt;.
    - Si usa el Kit de desarrollo de Azure Stack, la dirección del portal es https://portal.local.azurestack.external.
 
    ![Obtener una suscripción](media/azure-stack-subscribe-plan-provision-vm/image01.png)
@@ -131,7 +131,7 @@ Ahora que ha creado una oferta, puede probarla. Inicie sesión como usuario y su
    Ahora puede iniciar sesión en el portal como usuario para aprovisionar a una máquina virtual mediante la suscripción. 
 
    a. Inicie sesión en el portal de usuario como usuario.
-      - En un sistema integrado, la dirección URL varía en función de la región y el nombre de dominio externo del operador, y tendrá el formato https://portal.&lt;*región*&gt;.&lt;*FQDN*&gt;.
+      - En un sistema integrado, la dirección URL varía en función de la región y el nombre de dominio externo del operador y tendrá el formato https://portal.&lt;*región*&gt;.&lt;*FQDN*&gt;.
    - Si usa el Kit de desarrollo de Azure Stack, la dirección del portal es https://portal.local.azurestack.external.
 
    b.  En el panel, haga clic en **Nuevo** > **Proceso** > **Windows Server 2016 Datacenter Eval** y, luego, haga clic en **Crear**.

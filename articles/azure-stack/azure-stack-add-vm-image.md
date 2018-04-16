@@ -1,28 +1,28 @@
 ---
-title: "Adición de una imagen de máquina virtual a Azure Stack | Microsoft Docs"
-description: "Agregue la imagen de máquina virtual Windows o Linux personalizada de su organización para que la usen los inquilinos."
+title: Adición de una imagen de máquina virtual a Azure Stack | Microsoft Docs
+description: Agregue la imagen de máquina virtual Windows o Linux personalizada de su organización para que la usen los inquilinos.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: e5a4236b-1b32-4ee6-9aaa-fcde297a020f
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/17/2018
+ms.date: 04/05/2018
 ms.author: mabrigg
-ms.openlocfilehash: 0ba0bc4e8350a65a95dc41788c93d5c89fc48334
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: eb2035f6e667a9b3ab642d42cb9bb5ecf5c86fb1
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="make-a-custom-virtual-machine-image-available-in-azure-stack"></a>Hacer que una imagen de máquina virtual personalizada esté disponible en Azure Stack
 
-*Se aplica a: sistemas integrados de Azure Stack y kit de desarrollo de Azure Stack*
+*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 En Azure Stack, los operadores pueden poner imágenes de máquina virtual personalizadas a disposición de los usuarios. Luego, las plantillas de Azure Resource Manager pueden hacer referencia a estas imágenes o se pueden agregar a la interfaz de usuario de Azure Marketplace como un elemento de Marketplace.
 
@@ -126,6 +126,7 @@ Para agregar la imagen a Azure Stack Marketplace, realice los pasos siguientes:
     -osDiskLocalPath 'C:\Users\AzureStackAdmin\Desktop\UbuntuServer.vhd' `
   ```
 
+
 El comando hace lo siguiente:
 
 * Realiza la autenticación en el entorno de Azure Stack.
@@ -133,9 +134,9 @@ El comando hace lo siguiente:
 * Agrega la imagen de máquina virtual al repositorio de imágenes de máquina virtual.
 * Crea un elemento de Marketplace.
 
-Para comprobar que el comando se ejecutó correctamente, vaya a Marketplace en el portal. Compruebe que la imagen de máquina virtual está disponible en la categoría **Máquinas virtuales**.
+Para comprobar que el comando se ejecutó correctamente, vaya a Marketplace en el portal. Compruebe que la imagen de la máquina virtual está disponible en la categoría **Proceso**.
 
-![Imagen de máquina virtual agregada correctamente](./media/azure-stack-add-vm-image/image5.PNG)
+![Imagen de máquina virtual agregada correctamente](./media/azure-stack-add-vm-image/verify-vm.png)
 
 ## <a name="remove-a-vm-image-by-using-powershell"></a>Eliminación de una imagen de máquina virtual mediante PowerShell
 

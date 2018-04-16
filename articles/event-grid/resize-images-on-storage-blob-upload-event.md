@@ -1,10 +1,10 @@
 ---
-title: "Usar Azure Event Grid para automatizar el cambio de tamaño de imágenes cargadas | Microsoft Docs"
-description: "Azure Event Grid puede desencadenarse en cargas de blob de Azure Storage. Puede usarlo para enviar archivos de imagen cargados en Azure Storage a otros servicios, como Azure Functions, a fin de cambiar el tamaño y otras mejoras."
+title: Usar Azure Event Grid para automatizar el cambio de tamaño de imágenes cargadas | Microsoft Docs
+description: Azure Event Grid puede desencadenarse en cargas de blob de Azure Storage. Puede usarlo para enviar archivos de imagen cargados en Azure Storage a otros servicios, como Azure Functions, a fin de cambiar el tamaño y otras mejoras.
 services: event-grid, functions
 author: ggailey777
 manager: cfowler
-editor: 
+editor: ''
 ms.service: event-grid
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 10/20/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 68343c3ffd87496ed4ae89b478ee5c8119ed67f5
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 0edf5648ddef58db74273635c84d7473e17e1b30
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="automate-resizing-uploaded-images-using-event-grid"></a>Automatizar el cambio de tamaño de imágenes cargadas mediante Event Grid
 
@@ -90,7 +90,7 @@ storageConnectionString=$(az storage account show-connection-string \
 az functionapp config appsettings set --name <function_app> \
 --resource-group myResourceGroup \
 --settings myblobstorage_STORAGE=$storageConnectionString \
-myContainerName=thumbs
+myContainerName=thumbnails
 ```
 
 Ahora puede implementar un proyecto de código de función en esta Function App.
@@ -145,7 +145,7 @@ Una suscripción de eventos indica los eventos generados por el proveedor que se
     | **Punto de conexión de suscriptor** | generado automáticamente | Use la dirección URL del punto de conexión generado automáticamente. | 
     | **Filtro de prefijo** | /blobServices/default/containers/images/blobs/ | Filtra los eventos de almacenamiento a solo aquellos del contenedor **images**.| 
 
-4. Haga clic en **Crear** para agregar la suscripción de eventos. Se crea una suscripción a evento que desencadena `imageresizerfunc` cuando se agrega un blob al contenedor *images*. La función cambia el tamaño de las imágenes y las agrega al contenedor *thumbs*.
+4. Haga clic en **Crear** para agregar la suscripción de eventos. Se crea una suscripción a evento que desencadena `imageresizerfunc` cuando se agrega un blob al contenedor *images*. La función cambia el tamaño de las imágenes y las agrega al contenedor *thumbnails*.
 
 Ahora que se han configurado los servicios back-end, pruebe la funcionalidad de cambio de tamaño de imagen en la aplicación web de ejemplo. 
 
@@ -155,7 +155,7 @@ Para probar el cambio de tamaño de imagen en la aplicación web, vaya a la dire
 
 Haga clic en la región **Cargar fotos** para seleccionar y cargar un archivo. También puede arrastrar una foto a esta región. 
 
-Observe que después de que la imagen cargada desaparezca, se muestra una copia de ella en el carrusel **Miniaturas generadas**. El tamaño de esta imagen se ha cambiado mediante la función, la imagen se ha agregado al contenedor *thumbs* y el cliente web la ha descargado.
+Observe que después de que la imagen cargada desaparezca, se muestra una copia de ella en el carrusel **Miniaturas generadas**. La función ha cambiado el tamaño de la imagen, la imagen se ha agregado al contenedor *thumbnails* y el cliente web la ha descargado.
 
 ![Aplicación web publicada en el explorador Edge](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png) 
 

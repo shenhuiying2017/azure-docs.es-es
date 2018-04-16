@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 9123519217e87494316c1dc6b7f90da1b30ba392
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 804bc3f3708a6b5e70c91d68f954ebc10c477831
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Preparación del entorno de desarrollo en Linux
 > [!div class="op_single_selector"]
@@ -194,11 +194,16 @@ Para compilar servicios de Service Fabric mediante Java, instale JDK 1.8 y Gradl
   sudo apt-get install gradle
   ```
 
-## <a name="install-the-eclipse-neon-plug-in-optional"></a>Instalación del complemento Eclipse Neon (opcional)
+## <a name="install-the-eclipse-plug-in-optional"></a>Instalación del complemento de Eclipse (opcional)
 
 Puede instalar el complemento de Eclipse para Service Fabric desde el IDE de Eclipse para desarrolladores de Java. Eclipse se puede usar para crear aplicaciones ejecutables y contenedoras de invitado de Service Fabric, además de aplicaciones Java de Service Fabric.
 
-1. En Eclipse, asegúrese de tener instaladas las versiones más recientes de Eclipse Neon y Buildship (1.0.17 o versiones posteriores). Puede comprobar las versiones de los componentes instalados seleccionando **Help** > **Installation Details** (Ayuda > Detalles de la instalación). Puede actualizar Buildship siguiendo las instrucciones de [Eclipse Buildship: Complementos de Eclipse para Gradle][buildship-update].
+> [!IMPORTANT]
+> El complemento de Service Fabric requiere Eclipse Neon o una versión posterior. Consulte las instrucciones que siguen a esta nota acerca de cómo comprobar la versión de Eclipse. Si tiene una versión anterior de Eclipse instalado, puede descargar las versiones más recientes de el [sitio web de Eclipse](https://www.eclipse.org). No se recomienda instalar (sobrescribir) sobre una instalación existente de Eclipse. Puede eliminarla antes de ejecutar el programa de instalación o instalar la versión más reciente en un directorio diferente. 
+> 
+> En Ubuntu, se recomienda instalar directamente desde el sitio de Eclipse, en lugar de usar un instalador de paquetes (`apt` o `apt-get`). Si lo hace así, se asegura de que tendrá la versión más reciente de Eclipse. 
+
+1. En Eclipse, asegúrese de que tiene Eclipse Neon o posterior y de que está instalada la versión más reciente de Buildship (1.0.17 o una versión posterior). Puede comprobar las versiones de los componentes instalados seleccionando **Help** > **Installation Details** (Ayuda > Detalles de la instalación). Puede actualizar Buildship siguiendo las instrucciones de [Eclipse Buildship: Complementos de Eclipse para Gradle][buildship-update].
 
 2. Para instalar el complemento de Service Fabric, seleccione **Help** > **Install New Software** (Ayuda > Instalar nuevo software).
 

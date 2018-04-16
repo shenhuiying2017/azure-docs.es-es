@@ -1,6 +1,6 @@
 ---
-title: "Archivado de datos de supervisión de Azure | Microsoft Docs"
-description: "Archivar datos de registros y de métricas que se producen dentro de Azure para una cuenta de almacenamiento."
+title: Archivado de datos de supervisión de Azure | Microsoft Docs
+description: Archivar datos de registros y de métricas que se producen dentro de Azure para una cuenta de almacenamiento.
 author: johnkemnetz
 manager: orenr
 services: monitoring-and-diagnostics
@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.openlocfilehash: a3ab4713861d4d9681ad2ac5f084255fc29462ce
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: b44bbd9cb2f54107d2593b1ab7f07f07fcc41e57
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="archive-azure-monitoring-data"></a>Archivado de datos de supervisión de Azure
 
@@ -22,11 +22,11 @@ Varias capas de su entorno de Azure generan datos de registros y de métricas qu
 
 > [!div class="checklist"]
 > * Creación de una cuenta de almacenamiento para conservar los datos de supervisión
-> * Enrutamiento de los registros de suscripción a la cuenta de almacenamiento 
-> * Enrutamiento de los datos de recursos a la cuenta de almacenamiento 
-> * Enrutamiento de los datos de máquinas virtuales (SO invitado) a la cuenta de almacenamiento 
-> * Visualización de los datos de supervisión en la cuenta de almacenamiento 
-> * Limpiar los recursos 
+> * Enrutamiento de los registros de suscripción a la cuenta de almacenamiento
+> * Enrutamiento de los datos de recursos a la cuenta de almacenamiento
+> * Enrutamiento de los datos de máquinas virtuales (SO invitado) a la cuenta de almacenamiento
+> * Visualización de los datos de supervisión en la cuenta de almacenamiento
+> * Limpiar los recursos
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -69,7 +69,7 @@ Ahora configure los datos de nivel de recurso (métricas de recursos y registros
 1. Haga clic en el botón **Monitor** que se encuentra en la lista de navegación de la izquierda y luego en **Configuración de diagnóstico**. Aquí verá una lista de todos los recursos de la suscripción que generan datos de supervisión a través de Azure Monitor. Si no dispone de ningún recurso en esta lista, puede [crear una aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md) antes de continuar para tener un recurso en el que pueda definir una configuración de diagnóstico.
 
 2. Haga clic en un recurso de la lista y luego en **Activar diagnóstico**.
-   
+
    ![Activación del diagnóstico](media/monitor-tutorial-archive-monitoring-data/diagnostic-settings-turn-on.png)
 
    Si ya existe una configuración definida, verá en su lugar la configuración existente y un botón para **Agregar configuración de diagnóstico**. Haga clic en este botón.
@@ -87,12 +87,19 @@ Ahora configure los datos de nivel de recurso (métricas de recursos y registros
 5. Marque todas las casillas debajo de **Registro** y **Métrica**. Según el tipo de recurso, puede que solo tenga una de estas opciones. Estas casillas controlan qué categorías de datos de registros y de métricas disponibles para ese tipo de recurso se envían al destino que ha seleccionado, en este caso, una cuenta de almacenamiento.
 
    ![Categorías de configuración de diagnóstico](media/monitor-tutorial-archive-monitoring-data/diagnostic-settings-categories.png)
-   
+
 6. Establezca el control deslizante **Retención (días)** en 30. Este control deslizante establece un número de días para retener los datos de supervisión en la cuenta de almacenamiento. Azure Monitor elimina automáticamente los datos anteriores al número de días especificado. Con una retención de cero días, los datos se almacenan indefinidamente.
 
 7. Haga clic en **Save**(Guardar).
 
 Los datos de supervisión del recurso ahora fluyen a la cuenta de almacenamiento.
+
+> [!NOTE]
+> Actualmente no se admite el envío de métricas de varias dimensiones a través de la configuración de diagnóstico. Las métricas con dimensiones se exportan como métricas unidimensionales planas agregadas a través de los valores de dimensión.
+>
+> *Por ejemplo*: la métrica "Mensajes entrantes" de una instancia de Event Hub se puede explorar y representar gráficamente por colas. Sin embargo, cuando se exporta a través de la configuración de diagnóstico, la métrica se representarán como todos los mensajes entrantes de todas las colas de Event Hub.
+>
+>
 
 ## <a name="route-virtual-machine-guest-os-data-to-the-storage-account"></a>Enrutamiento de los datos de máquinas virtuales (SO invitado) a la cuenta de almacenamiento
 
@@ -113,7 +120,7 @@ Los datos de supervisión del recurso ahora fluyen a la cuenta de almacenamiento
 6. Una vez que la configuración de diagnóstico se haya guardado correctamente, la pestaña **Información general** mostrará una lista de los datos que se recopilaron y dónde se almacenaron. Haga clic en la sección **Contadores de rendimiento** para revisar el conjunto de contadores de rendimiento de Windows que se recopilan.
 
    ![Configuración de contadores de rendimiento](media/monitor-tutorial-archive-monitoring-data/guest-perf-counters.png)
-   
+
 7. Haga clic en la pestaña **Registros** y marque las casillas para los registros de nivel de **Información** en los registros Aplicación y Sistema.
 
    ![Configuración de registros](media/monitor-tutorial-archive-monitoring-data/guest-logs.png)
@@ -166,16 +173,16 @@ Ya ha configurado correctamente que los datos de supervisión se archiven en una
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha visto cómo configurar los datos de supervisión desde el entorno de Azure (suscripción, recursos y SO invitado) para archivarlos en una cuenta de almacenamiento. 
+En este tutorial, ha visto cómo configurar los datos de supervisión desde el entorno de Azure (suscripción, recursos y SO invitado) para archivarlos en una cuenta de almacenamiento.
 
 
 > [!div class="checklist"]
 > * Creación de una cuenta de almacenamiento para conservar los datos de supervisión
-> * Enrutamiento de los registros de suscripción a la cuenta de almacenamiento 
-> * Enrutamiento de los datos de recursos a la cuenta de almacenamiento 
-> * Enrutamiento de los datos de máquinas virtuales (SO invitado) a la cuenta de almacenamiento 
-> * Visualización de los datos de supervisión en la cuenta de almacenamiento 
-> * Limpiar los recursos 
+> * Enrutamiento de los registros de suscripción a la cuenta de almacenamiento
+> * Enrutamiento de los datos de recursos a la cuenta de almacenamiento
+> * Enrutamiento de los datos de máquinas virtuales (SO invitado) a la cuenta de almacenamiento
+> * Visualización de los datos de supervisión en la cuenta de almacenamiento
+> * Limpiar los recursos
 
 Para obtener el máximo partido de los datos y derivar información adicional, envíe también los datos en Log Analytics.
 

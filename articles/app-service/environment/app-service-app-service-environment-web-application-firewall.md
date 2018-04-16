@@ -1,8 +1,8 @@
 ---
-title: "Configuración de un firewall de aplicaciones web (WAF) para entornos de App Service"
-description: "Obtenga información sobre cómo configurar un firewall de aplicaciones web delante del entorno de App Service."
+title: Configuración de un firewall de aplicaciones web (WAF) para entornos de App Service
+description: Obtenga información sobre cómo configurar un firewall de aplicaciones web delante del entorno de App Service.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: naziml
 manager: erikre
 editor: jimbe
@@ -12,25 +12,28 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/17/2016
+ms.date: 03/03/2018
 ms.author: naziml
 ms.custom: mvc
-ms.openlocfilehash: bfe36ee5365e71db4280e8e2ccff6db8e552dd39
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: bc59d8671d904cf5096d616213cc4674ef5743b8
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>Configuración de un firewall de aplicaciones web (WAF) para entornos de App Service
 ## <a name="overview"></a>Información general
-Los firewalls de aplicaciones web como [Barracuda WAF para Azure](https://www.barracuda.com/programs/azure), que está disponible en [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/barracudanetworks/waf-byol/), ayudan a proteger las aplicaciones web mediante la inspección del tráfico web entrante para bloquear las inyecciones de código SQL, scripts entre sitios, cargas de malware, DDoS de aplicaciones y otros ataques. También examina las respuestas de los servidores web back-end para prevención de pérdida de datos (DLP). Combinado con el aislamiento y la escala adicional proporcionados por los entornos de App Service, esto proporciona un entorno ideal para hospedar importantes aplicaciones web empresariales que deben soportar peticiones malintencionadas y tráfico de gran volumen.
+
+Los firewalls de aplicaciones web (WAF) ayudan a proteger las aplicaciones web, ya que inspeccionan el tráfico web entrante y bloquean las inyecciones de código SQL, un posible ataque de scripts de sitios, cargas de malware y DDoS de aplicaciones, y otros ataques. También inspecciona las respuestas de los servidores web back-end referentes a la prevención de pérdida de datos (DLP). Combinado con el aislamiento y la escala adicional proporcionados por los entornos de App Service, esto proporciona un entorno ideal para hospedar importantes aplicaciones web empresariales que deben soportar peticiones malintencionadas y tráfico de gran volumen. Azure proporciona una funcionalidad de WAF con [Application Gateway](http://docs.microsoft.com/azure/application-gateway/application-gateway-introduction).  Para ver cómo se integra un entorno de App Service con una instancia de Application Gateway, consulte el documento [Integración de ILB App Service Environment con una instancia de Application Gateway](http://docs.microsoft.com/azure/app-service/environment/integrate-with-application-gateway).
+
+Además de Azure Application Gateway, en el mercado hay otras opciones, como [Barracuda WAF para Azure](https://www.barracuda.com/programs/azure), que están disponibles en [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/barracudanetworks/waf-byol/). El resto de este documento se centra en cómo integrar un entorno de App Service con un dispositivo Barracuda WAF.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../../includes/app-service-web-to-api-and-mobile.md)] 
 
 ## <a name="setup"></a>Configuración
 Para este documento, configuraremos el entorno de App Service detrás de varias instancias de carga equilibrada de Barracuda WAF para que únicamente el tráfico del WAF pueda ponerse en contacto con el entorno de App Service y no se pueda acceder a este desde la red perimetral. También dispondremos de Azure Traffic Manager delante de las instancias de Barracuda WAF para equilibrar la carga entre las regiones y los centros de datos de Azure. Un diagrama de alto nivel del programa de instalación tendría el aspecto que se muestra a continuación:
 
-![Arquitectura][Architecture] 
+![Architecture][Architecture] 
 
 > [!NOTE]
 > Con la introducción de [la compatibilidad de ILB con el entorno de App Service](app-service-environment-with-internal-load-balancer.md), puede configurar el ASE para que no pueda accederse a este desde la red perimetral y solo esté disponible en la red privada. 

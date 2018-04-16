@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 03/26/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 6038251ba79797312a0fec61e4a6f3d2e99d5435
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 276c6bf1a476e5c74c5e75e4906f451154becf31
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="quickstart-create-a-net-service-fabric-application-in-azure"></a>Inicio rápido: Creación de una aplicación .NET de Service Fabric en Azure
 Azure Service Fabric es una plataforma de sistemas distribuidos para implementar y administrar microservicios y contenedores escalables y confiables. 
@@ -29,14 +29,14 @@ En este tutorial rápido se muestra cómo implementar la primera aplicación .NE
 ![Captura de pantalla de la aplicación](./media/service-fabric-quickstart-dotnet/application-screenshot.png)
 
 Mediante el uso de esta aplicación, aprenderá a hacer lo siguiente:
-> [!div class="checklist"]
-> * Crear una aplicación con .NET y Service Fabric
-> * Usar ASP.NET Core como front-end web
-> * Almacenar datos de la aplicación en un servicio con estado
-> * Depurar la aplicación de forma local
-> * Implementar la aplicación en un clúster en Azure
-> * Escalar horizontalmente la aplicación en varios nodos
-> * Realizar una actualización gradual de aplicaciones
+
+* Crear una aplicación con .NET y Service Fabric
+* Usar ASP.NET Core como front-end web
+* Almacenar datos de la aplicación en un servicio con estado
+* Depurar la aplicación de forma local
+* Implementar la aplicación en un clúster en Azure
+* Escalar horizontalmente la aplicación en varios nodos
+* Realizar una actualización gradual de aplicaciones
 
 ## <a name="prerequisites"></a>requisitos previos
 Para completar esta guía de inicio rápido:
@@ -92,7 +92,7 @@ Al votar en la aplicación, se producen los eventos siguientes:
 
 ## <a name="debug-in-visual-studio"></a>Depurar en Visual Studio
 
-Al depurar una aplicación en Visual Studio se usa un clúster de desarrollo de Service Fabric local. Tiene la opción de ajustar la experiencia de depuración a su escenario. En esta aplicación, los datos se almacenan en el servicio back-end mediante un diccionario confiable. Visual Studio quita la aplicación de forma predeterminada cuando se detiene el depurador. Cuando se quita la aplicación, los datos del servicio back-end también se quitan. Para conservar los datos entre sesiones de depuración, puede cambiar el **modo de depuración de la aplicación** como una propiedad del proyecto **Voting** en Visual Studio.
+La aplicación debería ejecutarse correctamente, pero puede usar el depurador para ver cómo funcionan las partes principales de ella. Al depurar una aplicación en Visual Studio se usa un clúster de desarrollo de Service Fabric local. Tiene la opción de ajustar la experiencia de depuración a su escenario. En esta aplicación, los datos se almacenan en el servicio back-end mediante un diccionario confiable. Visual Studio quita la aplicación de forma predeterminada cuando se detiene el depurador. Cuando se quita la aplicación, los datos del servicio back-end también se quitan. Para conservar los datos entre sesiones de depuración, puede cambiar el **modo de depuración de la aplicación** como una propiedad del proyecto **Voting** en Visual Studio.
 
 Para ver lo que ocurre en el código, siga estos pasos:
 1. Abra el archivo **/VotingWeb/Controllers/VotesController.cs** y establezca un punto de interrupción en el método **Put** (línea 69) de la API web (el archivo se puede buscar en el Explorador de soluciones de Visual Studio).
@@ -181,8 +181,8 @@ Es posible que reciba una advertencia del explorador que le indica que la ubicac
 
 Para escalar el servicio front-end web, siga estos pasos:
 
-1. Abra Service Fabric Explorer en el clúster, por ejemplo, `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`.
-2. Haga clic en el botón de puntos suspensivos (tres puntos) situado junto al nodo **fabric:/Voting/VotingWeb** en la vista de árbol y seleccione **Scale Service** (Escalar servicio).
+1. Abra Service Fabric Explorer en el clúster, por ejemplo, `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`. 
+2. En la vista de árbol, expanda **Applications** (Aplicaciones) ->**VotingType**->**fabric:/Voting**. Haga clic en el botón de puntos suspensivos (tres puntos) situado junto al nodo **fabric:/Voting/VotingWeb** en la vista de árbol y seleccione **Scale Service** (Escalar servicio).
 
     ![Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/service-fabric-explorer-scale.png)
 
@@ -213,25 +213,26 @@ Para actualizar la aplicación, haga lo siguiente:
 7. En el cuadro de diálogo **Publicación de la aplicación de Service Fabric**, active la casilla Actualizar la aplicación y haga clic en **Publicar**.
 
     ![Configuración de actualización del cuadro de diálogo de publicación](./media/service-fabric-quickstart-dotnet/upgrade-app.png)
+
+    Mientras se ejecuta la actualización, puede usar la aplicación. Dado que en el clúster se ejecutan dos instancias del servicio, algunas de las solicitudes podrían obtener una versión actualizada de la aplicación, mientras que otras podrían obtener la versión anterior.
+
 8. Abra el explorador y vaya a la dirección del clúster en el puerto 19080, por ejemplo, `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`.
 9. Haga clic en el nodo **Aplicaciones** en la vista de árbol y, después, en **Upgrades in Progress** (Actualizaciones en curso) en el panel de la derecha. Verá cómo la actualización se aplica en los dominios de actualización del clúster y se asegura de que cada dominio es correcto antes de continuar con el siguiente. Una vez que se haya verificado el estado del dominio, aparecerá uno actualizado en verde en la barra de progreso.
     ![Vista de actualización en Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/upgrading.png)
 
     Service Fabric hace que las actualizaciones sean seguras, ya que espera dos minutos después de actualizar el servicio en cada nodo del clúster. El proceso completo de actualización tardará aproximadamente ocho minutos.
 
-10. Mientras se ejecuta la actualización, puede usar la aplicación. Dado que en el clúster se ejecutan dos instancias del servicio, algunas de las solicitudes podrían obtener una versión actualizada de la aplicación, mientras que otras podrían obtener la versión anterior.
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este tutorial, ha aprendido a hacer lo siguiente:
 
-> [!div class="checklist"]
-> * Crear una aplicación con .NET y Service Fabric
-> * Usar ASP.NET Core como front-end web
-> * Almacenar datos de la aplicación en un servicio con estado
-> * Depurar la aplicación de forma local
-> * Implementar la aplicación en un clúster en Azure
-> * Escalar horizontalmente la aplicación en varios nodos
-> * Realizar una actualización gradual de aplicaciones
+* Crear una aplicación con .NET y Service Fabric
+* Usar ASP.NET Core como front-end web
+* Almacenar datos de la aplicación en un servicio con estado
+* Depurar la aplicación de forma local
+* Implementar la aplicación en un clúster en Azure
+* Escalar horizontalmente la aplicación en varios nodos
+* Realizar una actualización gradual de aplicaciones
 
 Para obtener más información sobre Service Fabric y .NET, eche un vistazo a este tutorial:
 > [!div class="nextstepaction"]

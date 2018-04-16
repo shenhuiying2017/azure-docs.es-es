@@ -1,6 +1,6 @@
 ---
-title: "Proteger el acceso a los datos de una aplicación en la nube con Azure Storage | Microsoft Docs"
-description: "Use tokens de SAS, cifrado y HTTPS para proteger los datos de la aplicación en la nube"
+title: Proteger el acceso a los datos de una aplicación en la nube con Azure Storage | Microsoft Docs
+description: Use tokens de SAS, cifrado y HTTPS para proteger los datos de la aplicación en la nube
 services: storage
 author: tamram
 manager: jeconnoc
@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 03/06/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 66a5f7e6872a76c91f1f5f1a4b0b1973cb890b0f
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 09a229d93ee8d5fec36a0cfa765e87bebaafc24d
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="secure-access-to-an-applications-data-in-the-cloud"></a>Proteger el acceso a los datos de una aplicación en la nube
 
@@ -34,7 +34,7 @@ Para realizar este tutorial debe haber completado el tutorial anterior sobre alm
 
 ## <a name="set-container-public-access"></a>Establecimiento del acceso público a contenedores
 
-En esta parte de la serie de tutoriales, se usan tokens de SAS para acceder a las vistas en miniatura. En este paso, se establece el acceso público del contenedor _thumbs_ en `off`.
+En esta parte de la serie de tutoriales, se usan tokens de SAS para acceder a las vistas en miniatura. En este paso se establece el acceso público del contenedor _thumbnails_ a `off`.
 
 ```azurecli-interactive 
 blobStorageAccount=<blob_storage_account>
@@ -42,7 +42,7 @@ blobStorageAccount=<blob_storage_account>
 blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
 -n $blobStorageAccount --query [0].value --output tsv) 
 
-az storage container set-permission \ --account-name $blobStorageAccount \ --account-key $blobStorageAccountKey \ --name thumbs  \
+az storage container set-permission \ --account-name $blobStorageAccount \ --account-key $blobStorageAccountKey \ --name thumbnails  \
 --public-access off
 ``` 
 

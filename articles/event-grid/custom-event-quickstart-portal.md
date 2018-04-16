@@ -5,14 +5,14 @@ services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 03/23/2018
+ms.date: 04/05/2018
 ms.topic: hero-article
 ms.service: event-grid
-ms.openlocfilehash: f1185c0b2d5d320cd712642f422408348bee7a37
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 3ee94025a12a004fda806183c47d5a336b958478
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-and-route-custom-events-with-the-azure-portal-and-event-grid"></a>Creación y enrutamiento de eventos personalizados con Azure Portal y Event Grid
 
@@ -38,7 +38,7 @@ Un tema de cuadrícula de eventos proporciona un punto de conexión definido por
 
    ![Pasos iniciales](./media/custom-event-quickstart-portal/select-create.png)
 
-1. Escriba un nombre único para el tema personalizado. El nombre del tema debe ser único porque se representa mediante una entrada DNS. No utilice el nombre que se muestra en la imagen. En su lugar, cree un nuevo. Seleccione una de las [regiones admitidas](overview.md). Proporcione un nombre para el grupo de recursos. Seleccione **Crear**.
+1. Escriba un nombre único para el tema personalizado. El nombre del tema debe ser único porque se representa mediante una entrada DNS. No utilice el nombre que se muestra en la imagen. En su lugar, cree un nuevo. Seleccione alguna de las [regiones admitidas](overview.md). Proporcione un nombre para el grupo de recursos. Seleccione **Crear**.
 
    ![Incorporación de los valores para el tema de Event Grid](./media/custom-event-quickstart-portal/create-custom-topic.png)
 
@@ -64,7 +64,7 @@ Antes de suscribirse al tema, vamos a crear el punto de conexión para el mensaj
 
 1. Para crear una función, seleccione **Crear un recurso**.
 
-   ![Crear un recurso](./media/custom-event-quickstart-portal/create-resource-small.png)
+   ![Creación de un recurso](./media/custom-event-quickstart-portal/create-resource-small.png)
 
 1. Seleccione **Proceso** y **Function App**.
 
@@ -118,25 +118,48 @@ Ahora, vamos a desencadenar un evento para ver cómo Event Grid distribuye el me
 
 ## <a name="send-an-event-to-your-topic"></a>Envío de un evento al tema
 
-En primer lugar, vamos a obtener la dirección URL y la clave del tema. Use el nombre de su tema en `<topic_name>`.
+Use la CLI de Azure o PowerShell para enviar un evento de prueba a su tema personalizado.
+
+En el primer ejemplo se utiliza la CLI de Azure. Obtiene la dirección URL y la clave del tema, y los datos de evento de ejemplo. Use el nombre de su tema en `<topic_name>`. Para ver el evento completo, use `echo "$body"`. El elemento `data` del archivo JSON es la carga del evento. En este campo, puede usar cualquier archivo JSON bien formado. También puede usar el campo de asunto para realizar enrutamiento y filtrado avanzados. CURL es una utilidad que envía solicitudes HTTP.
 
 ```azurecli-interactive
 endpoint=$(az eventgrid topic show --name <topic_name> -g myResourceGroup --query "endpoint" --output tsv)
 key=$(az eventgrid topic key list --name <topic_name> -g myResourceGroup --query "key1" --output tsv)
-```
 
-En el ejemplo siguiente se obtienen los datos del evento de ejemplo:
-
-```azurecli-interactive
 body=$(eval echo "'$(curl https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/customevent.json)'")
+
+curl -X POST -H "aeg-sas-key: $key" -d "$body" $endpoint
 ```
 
-Para ver el evento completo, use `echo "$body"`. El elemento `data` del archivo JSON es la carga del evento. En este campo, puede usar cualquier archivo JSON bien formado. También puede usar el campo de asunto para realizar enrutamiento y filtrado avanzados.
+El segundo ejemplo usa PowerShell para realizar pasos similares.
 
-CURL es una utilidad que envía solicitudes HTTP. En este artículo, use CURL para enviar un evento al tema personalizado. 
+```azurepowershell-interactive
+$endpoint = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Name <topic-name>).Endpoint
+$keys = Get-AzureRmEventGridTopicKey -ResourceGroupName gridResourceGroup -Name <topic-name>
 
-```azurecli-interactive
-curl -X POST -H "aeg-sas-key: $key" -d "$body" $endpoint
+$eventID = Get-Random 99999
+
+#Date format should be SortableDateTimePattern (ISO 8601)
+$eventDate = Get-Date -Format s
+
+#Construct body using Hashtable
+$htbody = @{
+    id= $eventID
+    eventType="recordInserted"
+    subject="myapp/vehicles/motorcycles"
+    eventTime= $eventDate   
+    data= @{
+        make="Ducati"
+        model="Monster"
+    }
+    dataVersion="1.0"
+}
+
+#Use ConvertTo-Json to convert event body from Hashtable to JSON Object
+#Append square brackets to the converted JSON payload since they are expected in the event's JSON payload syntax
+$body = "["+(ConvertTo-Json $htbody)+"]"
+
+Invoke-WebRequest -Uri $endpoint -Method POST -Body $body -Headers @{"aeg-sas-key" = $keys.Key1}
 ```
 
 Ha desencadenado el evento y Event Grid ha enviado el mensaje al punto de conexión que configuró al realizar la suscripción. Examine los registros para ver los datos del evento.

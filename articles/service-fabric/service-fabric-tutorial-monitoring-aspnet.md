@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 09/14/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 030c6fbfb5eb76a745a1089acab54e74ce7a01e3
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: febeb2b7e6ada69db78cb0553b4fa90874f5f2eb
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric"></a>Tutorial: Supervisión y diagnóstico de una aplicación ASP.NET Core en Service Fabric
 Este tutorial es la cuarta parte de una serie. Describe los pasos necesarios para configurar la supervisión y el diagnóstico de una aplicación ASP.NET Core que se ejecuta en un clúster de Service Fabric con Application Insights. Recopilaremos datos de telemetría de la aplicación desarrollada en la primera parte del tutorial, [Crear una aplicación de .NET Service Fabric](service-fabric-tutorial-create-dotnet-app.md). 
@@ -65,7 +65,7 @@ Una vez completada la información necesaria, haga clic en **Crear** para aprovi
 
 ## <a name="add-application-insights-to-the-applications-services"></a>Agregar Application Insights a los servicios de la aplicación
 
-Inicie Visual Studio de 2017 con privilegios elevados. Para hacerlo, haga clic con el botón derecho en el icono de Visual Studio del menú Inicio y seleccione **Ejecutar como administrador**. Haga clic en **Archivo** > **Abrir** > **Proyecto o solución** y desplácese hasta la aplicación Voting (creada en la primera parte del tutorial o clonada de GIT). Abra *Voting.sln* y, si se le pide que restaure los paquetes NuGet de la aplicación, haga clic en **Sí**.
+Inicie Visual Studio 2017 con privilegios elevados. Para hacerlo, haga clic con el botón derecho en el icono de Visual Studio del menú Inicio y seleccione **Ejecutar como administrador**. Haga clic en **Archivo** > **Abrir** > **Proyecto o solución** y desplácese hasta la aplicación Voting (creada en la primera parte del tutorial o clonada de GIT). Abra *Voting.sln* y, si se le pide que restaure los paquetes NuGet de la aplicación, haga clic en **Sí**.
 
 Siga estos pasos para configurar Application Insights para los servicios VotingWeb y VotingData:
 1. Haga clic con el botón derecho en el nombre del servicio y, a continuación, en **Configurar Application Insights...** .
@@ -89,8 +89,12 @@ Estos son los pasos necesarios para configurar el paquete NuGet:
 1. Haga clic con el botón derecho en la **solución 'Voting'**, en la parte superior del Explorador de soluciones, y, a continuación, en **Administrar paquetes NuGet para la solución...**.
 2. Haga clic en **Examinar** en el menú de navegación superior de la ventana "NuGet - Solución" y active la casilla **Incluir versión preliminar** junto a la barra de búsqueda.
 3. Busque `Microsoft.ApplicationInsights.ServiceFabric.Native` y haga clic en el paquete NuGet adecuado.
+
+>[!NOTE]
+>Es posible que sea necesario instalar el paquete de Microsoft.ServiceFabric.Diagnistics.Internal de forma similar si no está preinstalado antes de instalar el paquete de Application Insights
+
 4. A la derecha, haga clic en las dos casillas de verificación situadas junto a los dos servicios de la aplicación, **VotingWeb** y **VotingData**, y haga clic en **Instalar**.
-    ![Registro de AI completado](./media/service-fabric-tutorial-monitoring-aspnet/aisdk-sf-nuget.png)
+    ![AI sdk Nuget](./media/service-fabric-tutorial-monitoring-aspnet/ai-sdk-nuget-new.png)
 5. Haga clic en **Aceptar** en el cuadro de diálogo *Revisar cambios* que aparece y apruebe la *Aceptación de licencia*. Esto completará la adición del paquete NuGet a los servicios.
 6. Ahora debe configurar el inicializador de telemetría en los dos servicios. Para hacerlo, abra *VotingWeb.cs* y *VotingData.cs*. Para ambos, siga estos dos pasos:
     1. Agréguelos *mediante* instrucciones en la parte superior de cada archivo  *\<NombreServicio> .cs*:
@@ -114,6 +118,7 @@ Estos son los pasos necesarios para configurar el paquete NuGet:
                 .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext)))
         .UseContentRoot(Directory.GetCurrentDirectory())
         .UseStartup<Startup>()
+        .UseApplicationInsights()
         .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.None)
         .UseUrls(url)
         .Build();
@@ -137,6 +142,19 @@ Estos son los pasos necesarios para configurar el paquete NuGet:
         .Build();
     ```
 
+Compruebe que el método `UseApplicationInsights()` se llama en ambos archivos, como se ha mostrado antes. 
+
+>[!NOTE]
+>Esta aplicación de ejemplo utiliza http para que los servicios se comuniquen. Si desarrolla una aplicación con el servicio de comunicación remota V2 necesitaría agregar también las siguientes líneas de código en el mismo lugar como hizo anteriormente
+
+```csharp
+ConfigureServices(services => services
+    ...
+    .AddSingleton<ITelemetryModule>(new ServiceRemotingDependencyTrackingTelemetryModule())
+    .AddSingleton<ITelemetryModule>(new ServiceRemotingRequestTrackingTelemetryModule())
+)
+```
+
 En este punto, ya está listo para implementar la aplicación. Haga clic en **Iniciar** en la parte superior (o en **F5**) y Visual Studio compilará y empaquetará la aplicación, configurará el clúster local e implementará en este la aplicación. 
 
 Cuando la aplicación finalice la implementación, diríjase a [localhost: 8080](localhost:8080), donde podrá ver la aplicación de ejemplo de una sola página Voting. Vote distintos elementos de su elección para crear datos de ejemplo y telemetría. Yo elegí el tema de los postres.
@@ -147,9 +165,7 @@ Si quiere, puede seleccionar *Remove* (Quitar) para eliminar algunas opciones de
 
 ## <a name="view-telemetry-and-the-app-map-in-application-insights"></a>Ver datos de telemetría y Mapa de la aplicación en Application Insights 
 
-Vaya al recurso de Application Insights de Azure Portal y, en la barra de navegación izquierda del recurso, haga clic en **Versiones preliminares**, en la sección *Configurar*. **Active** la *Asignación de aplicaciones de varios roles* en la lista de versiones preliminares disponibles.
-
-![Habilitar Mapa de la aplicación en AI](./media/service-fabric-tutorial-monitoring-aspnet/ai-appmap-enable.png)
+Vaya al recurso de Application Insights en Azure Portal.
 
 Haga clic en **Introducción** para volver a la página principal del recurso. A continuación, haga clic en **Buscar** en la parte superior para ver los seguimientos entrantes. Los seguimientos tardan unos minutos en aparecer en Application Insights. En caso de no ver ninguno, espere un momento y seleccione el botón **Actualizar** en la parte superior.
 ![Ver los seguimientos de AI](./media/service-fabric-tutorial-monitoring-aspnet/ai-search.png)
@@ -160,9 +176,9 @@ Puede hacer clic en uno de los seguimientos para ver más detalles sobre este. A
 
 ![Detalles de seguimiento de AI](./media/service-fabric-tutorial-monitoring-aspnet/trace-details.png)
 
-Además, dado que habilitamos el Mapa de la aplicación, en la página *Introducción*, al hacer clic en el icono **Mapa de la aplicación**, se muestran los dos servicios conectados.
+Además, puede hacer clic en *Mapa de aplicación* en el menú de la izquierda de la página Información general o en el icono **Mapa de aplicación**, que le llevará al mapa de la aplicación, que mostrará la conexión entre los dos servicios.
 
-![Detalles de seguimiento de AI](./media/service-fabric-tutorial-monitoring-aspnet/app-map.png)
+![Detalles de seguimiento de AI](./media/service-fabric-tutorial-monitoring-aspnet/app-map-new.png)
 
 El Mapa de la aplicación le puede ayudar a entender mejor la topología de la aplicación, especialmente a medida que empiece a agregar distintos servicios que funcionan juntos. También proporciona datos básicos sobre los índices de éxito de las solicitudes, y puede ayudarle a diagnosticar solicitudes con error y a comprender qué salió mal. Para obtener más información sobre el Mapa de la aplicación, consulte [Mapa de aplicación en Application Insights](../application-insights/app-insights-app-map.md).
 

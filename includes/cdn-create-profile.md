@@ -1,27 +1,47 @@
-**Para crear un nuevo perfil de CDN**
+---
+title: archivo de inclusión
+description: archivo de inclusión
+services: cdn
+author: dksimpson
+ms.service: cdn
+ms.topic: include
+ms.date: 04/04/2018
+ms.author: rli; v-deasim
+ms.custom: include file
+ms.openlocfilehash: 692364e9b2e78b3bd1f63137148dfbc680364737
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 04/05/2018
+---
+## <a name="create-a-new-cdn-profile"></a>Crear un nuevo perfil de CDN
 
-1. En la parte superior izquierda de [Azure Portal](https://portal.azure.com), haga clic en **Crear un recurso**.
-    
-2. En la hoja **Nuevo**, seleccione **Web y móvil** y, luego, **CDN**.
-   
-    Aparece la hoja del **perfil de CDN**.
-   
-    ![Nuevo perfil de CDN](./media/cdn-create-profile/new-cdn-profile-include.png)
-3. En **Nombre**, escriba un nombre único para el perfil de CDN.
-    
-4. En **Suscripción**, seleccione la suscripción que vaya a usar con este perfil de CDN.
-   
-5. En **Grupo de recursos**, seleccione o cree un grupo de recursos. Para más información sobre los grupos de recursos, consulte [Información general sobre Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md#resource-groups).
-    
-6. Como **Ubicación del grupo de recursos**, seleccione la ubicación de Azure para almacenar la información del perfil CDN. Esta ubicación no afecta a las ubicaciones de los puntos de conexión de CDN.
-    
-7. Como **Plan de tarifa**, seleccione un plan de tarifa. Para una comparación de las características disponibles con cada plan de tarifa, consulte [Características de red CDN de Azure](../articles/cdn/cdn-overview.md#azure-cdn-features).
-   
-    ![Selección de planes de tarifa de CDN](./media/cdn-create-profile/cdn-choose-sku-include.png)
+Un perfil de CDN es un contenedor para los puntos de conexión de CDN y especifica un plan de tarifa.
 
-8. También puede seleccionar **Crear un punto de conexión de CDN ahora** para mostrar las opciones de creación de un punto de conexión al crear el perfil. Para más información, consulte [Crear un punto de conexión de CDN nuevo](../articles/cdn/cdn-create-new-endpoint.md#create-a-new-cdn-endpoint).
-   
-9. Si desea guardar el perfil en el panel después de crearlo para encontrarlo fácilmente, seleccione **Anclar al panel**.
+1. En Azure Portal, en la parte superior izquierda, seleccione **Crear un recurso**.
     
-10. Seleccione **Crear** para crear el perfil. 
+    Aparece el panel **Nuevos**.
+   
+2. Seleccione **Web y móvil**, y después **CDN**.
+   
+    ![Seleccionar recurso de CDN](./media/cdn-create-profile/cdn-new-resource.png)
+
+    Aparece el panel **Perfil de CDN**.
+
+    Use la configuración especificada en la tabla que aparece después de la imagen.
+   
+    ![Nuevo perfil de CDN](./media/cdn-create-profile/cdn-new-profile.png)
+
+    | Configuración  | Valor |
+    | -------- | ----- |
+    | **Name** | Escriba *my-cdn-profile-123* como nombre de perfil. Este nombre debe ser único globalmente; si ya está en uso, puede especificar otro diferente. |
+    | **Suscripción** | Seleccione una suscripción de Azure en la lista desplegable.|
+    | **Grupos de recursos** | Seleccione **Crear nuevo** y escriba *my-resource-group-123* y un nombre para el nuevo grupo de recursos. Este nombre debe ser único globalmente; si ya está en uso, puede especificar otro diferente. | 
+    | **Ubicación del grupo de recursos** | Seleccione **Centro de EE. UU.** en la lista desplegable. |
+    | **Plan de tarifa** | Seleccione **Verizon estándar** en la lista desplegable. |
+    | **Crear un punto de conexión de CDN ahora** | Déjelo sin seleccionar. |  
+   
+3. Seleccione **Anclar al panel** para guardar el perfil en el panel después de crearlo.
+    
+4. Seleccione **Crear** para crear el perfil. 
 
