@@ -21,7 +21,7 @@
       href: automation-tutorial-update-management.md
     - name: Incorporación de actualizaciones y seguimiento de cambios mediante un runbook
       href: automation-onboard-solutions.md
-    - name: Identificación del software en una máquina virtual
+    - name: Identificación del software en su entorno
       href: automation-tutorial-installed-software.md
     - name: Solución de los problemas de los cambios en una máquina virtual
       href: automation-tutorial-troubleshoot-changes.md

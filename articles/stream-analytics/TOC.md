@@ -2,40 +2,38 @@
 
 # Información general
 ## [¿Qué es Stream Analytics?](stream-analytics-introduction.md)
-## [Comparación de Storm con Stream Analytics](stream-analytics-comparison-storm.md)
 
-# Introducción
-## [Procesamiento de datos de streaming de IoT](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md)
-## [Detección de fraudes en tiempo real](stream-analytics-real-time-fraud-detection.md)
-## [Análisis de datos con Power BI](stream-analytics-power-bi-dashboard.md)
+# Guías de inicio rápido
+## [Creación de un trabajo: Azure Portal](stream-analytics-quick-create-portal.md)
+## [Creación de un trabajo: PowerShell](stream-analytics-quick-create-powershell.md)
+
+# Tutoriales
+## [1 - Creación y administración de un trabajo](stream-analytics-manage-job.md)
+## [2 - Ejecutar Azure Functions](stream-analytics-with-azure-functions.md)
+## [3 - Ejecutar un UDF de Javascript](stream-analytics-javascript-user-defined-functions.md)
 
 # Ejemplos
 ## [Ejemplos de código](https://azure.microsoft.com/en-us/resources/samples/?service=stream-analytics)
 
 # Conceptos
-## Tipos de entrada para un trabajo
+## [Tipos de entrada para un trabajo](stream-analytics-add-inputs.md)
 ### [Entradas de datos de streaming](stream-analytics-define-inputs.md)
 ### [Entradas de datos de referencia](stream-analytics-use-reference-data.md)
 ## [Tipos de salida para un trabajo](stream-analytics-define-outputs.md)
+### [Uso de Cosmos DB como destino](stream-analytics-documentdb-output.md)
 ## [Funciones de ventana](stream-analytics-window-functions.md)
 ## [Nivel de compatibilidad](stream-analytics-compatibility-level.md)
 ## [Patrones de consultas comunes](stream-analytics-stream-analytics-query-patterns.md)
 ## [Consideraciones sobre el orden de eventos](stream-analytics-out-of-order-and-late-events.md)
 
-
 # Guías de procedimientos
-
-## Creación de trabajos
-### [Prueba de consultas y datos de entrada de ejemplo](stream-analytics-sample-data-input.md)
-### [Consultas de prueba](stream-analytics-test-query.md)
-### [Ejecutar un UDF de Javascript](stream-analytics-javascript-user-defined-functions.md)
-### [Uso de Data Lake Store como destino](stream-analytics-data-lake-output.md)
-### [Uso de Cosmos DB como destino](stream-analytics-documentdb-output.md)
-### [Configurar alertas](stream-analytics-set-up-alerts.md)
 
 ## administración
 ### [Actualización de un trabajo](stream-analytics-job-reliability.md)
 ### [Actualización de credenciales](stream-analytics-login-credentials-inputs-outputs.md)
+### [Configurar alertas](stream-analytics-set-up-alerts.md)
+### [Comprobación del trabajo](stream-analytics-test-query.md)
+### [Visualización de los resultados en un panel](stream-analytics-power-bi-dashboard.md)
 
 ## Crear soluciones
 ### [Análisis de sentimientos de Twitter](stream-analytics-twitter-sentiment-analysis-trends.md)
@@ -44,11 +42,11 @@
 ### [Análisis de datos del sensor de cabina de peaje](stream-analytics-build-an-iot-solution-using-stream-analytics.md)
 ### [Ejecutar un UDA de Javascript](stream-analytics-javascript-user-defined-aggregates.md)
 ### [Operaciones bursátiles de alta frecuencia](stream-analytics-high-frequency-trading.md)
-### [Ejecutar Azure Functions](stream-analytics-with-azure-functions.md)
+### [Procesamiento de datos de streaming de IoT](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md)
 
 ## Supervisión
 
-### [Supervisión de trabajos: Portal](stream-analytics-monitoring.md)
+### [Supervisión de trabajos: Azure Portal](stream-analytics-monitoring.md)
 ### [Supervisión de trabajos: PowerShell](stream-analytics-monitor-and-manage-jobs-use-powershell.md)
 ### [Supervisión de trabajos: Azure SDK para .NET](stream-analytics-monitor-jobs.md)
 
@@ -82,7 +80,6 @@
 ### [Detección de anomalías](stream-analytics-machine-learning-anomaly-detection.md)
 ### [Uso de API REST](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
 
-
 # Referencia
 ## [Azure PowerShell](/powershell/module/azurerm.streamanalytics)
 ## [Lenguaje de consulta](https://msdn.microsoft.com/library/azure/dn834998)
@@ -102,7 +99,8 @@
 ## [Desbordamiento de la pila](http://stackoverflow.com/questions/tagged/azure-stream-analytics)
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=stream-analytics)
 ## [Casos prácticos de clientes](https://azure.microsoft.com/case-studies/?service=stream-analytics)
-## [Procesamiento de eventos en tiempo real](stream-analytics-real-time-event-processing-reference-architecture.md)
+## [Notas del producto: Procesamiento de eventos en tiempo real](stream-analytics-real-time-event-processing-reference-architecture.md)
+## [Comparación de Storm con Stream Analytics](stream-analytics-comparison-storm.md)
 
 
 

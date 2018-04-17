@@ -85,8 +85,6 @@
           href: backup-azure-files.md
         - name: Preguntas frecuentes acerca de la copia de seguridad de recursos compartidos de archivos de Azure
           href: backup-azure-files-faq.md
-        - name: Solución de problemas de copia de seguridad de recursos compartidos de archivos de Azure
-          href: troubleshoot-azure-files.md
     - name: Máquinas virtuales de Azure
       items:
         - name: Preparación de la VM
@@ -181,18 +179,20 @@
           href: backup-azure-delete-vault.md
     - name: Solución de problemas
       items:
-        - name: Problemas de copia de seguridad de máquinas virtuales de Azure en Azure Portal
+        - name: Mensajes de error de copia de seguridad de máquinas virtuales de IaaS
           href: backup-azure-vms-troubleshoot.md
-        - name: 'Se ha producido un error en la copia de seguridad de la máquina virtual de Azure: no se pudo comunicar con el agente de máquina virtual para el estado de la instantánea: la subtarea de la máquina virtual de la instantánea agotó el tiempo de espera'
+        - name: El agente de Azure Backup (MARS) o la extensión de máquina virtual han agotado el tiempo de espera
           href: backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md
-        - name: Lentitud en la copia de seguridad de archivos y carpetas en Azure Backup
+        - name: Lentitud en la copia de seguridad de archivos y carpetas
           href: backup-azure-troubleshoot-slow-backup-performance-issue.md
-        - name: Solución de problemas de Azure Backup Server
+        - name: Servidor de Azure Backup
           href: backup-azure-mabs-troubleshoot.md
-        - name: Solución de problemas de System Center Data Protection Manager
+        - name: System Center DPM
           href: backup-azure-scdpm-troubleshooting.md
-        - name: Solución de problemas del agente de Azure Backup
+        - name: Agente de Azure Backup (MARS)
           href: backup-azure-mars-troubleshoot.md
+        - name: Copia de seguridad de recursos compartidos de archivos de Azure
+          href: troubleshoot-azure-files.md
 - name: Referencia
   items:
     - name: Azure PowerShell

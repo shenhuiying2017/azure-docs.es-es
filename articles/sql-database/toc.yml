@@ -48,14 +48,18 @@
       href: sql-database-design-first-database.md
     - name: 1 - Diseño de una base de datos con .NET
       href: sql-database-design-first-database-csharp.md
-    - name: 2 - Migración a una base de datos de SQL Server
+    - name: 2 - Migración a una base de datos de SQL Server mediante DMS
       href: sql-database-migrate-your-sql-server-database.md
     - name: 3 - Protección de SQL Database
       href: sql-database-security-tutorial.md
     - name: '4: Implementación de una base de datos distribuida geográficamente'
       href: sql-database-implement-geo-distributed-database.md
     - name: 5 - Creación de instancia administrada
-      href: sql-database-managed-instance-tutorial-portal.md
+      href: sql-database-managed-instance-create-tutorial-portal.md
+    - name: 6 - Restauración de una copia de seguridad en una instancia administrada
+      href: sql-database-managed-instance-restore-from-backup-tutorial.md
+    - name: 7 - Migración a una instancia administrada mediante DMS
+      href: ../dms/tutorial-sql-server-to-managed-instance.md
 - name: Ejemplos
   items:
     - name: Ejemplos de código
@@ -410,6 +414,10 @@
               href: saas-tenancy-cross-tenant-reporting.md
             - name: 'Extracción, transformación y carga de datos para Analytics'
               href: saas-tenancy-tenant-analytics.md
+            - name: Recuperación ante desastres mediante la restauración geográfica
+              href: saas-dbpertenant-dr-geo-restore.md
+            - name: Recuperación ante desastres mediante la replicación geográfica de bases de datos
+              href: saas-dbpertenant-dr-geo-replication.md
         - name: Base de datos multiinquilino
           items:
             - name: Implementación de una aplicación de ejemplo

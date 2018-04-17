@@ -1,27 +1,28 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Documentación de Azure Data Science Virtual Machine"
+title: Documentación de Azure Data Science Virtual Machine
 metadata:
-  title: "Documentación de Azure Data Science Virtual Machine"
-  description: Aprenda a usar Data Science Virtual Machine.
+  title: 'Documentación sobre Data Science Virtual Machine: Azure'
+  description: Aprenda a usar Data Science Virtual Machine, un entorno experimental en la nube de Azure creado específicamente para realizar ciencia de datos. Tiene muchas ciencias de datos conocidas y otras herramientas preinstaladas y preconfiguradas para impulsar la creación de aplicaciones inteligentes para análisis avanzado.
   services: machine-learning
-  author: bradsev
+  author: gopitk
   manager: cgronlun
   ms.service: machine-learning
+  ms.component: data-science-vm
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 01/18/2018
-  ms.author: bradsev
-  ms.openlocfilehash: 291d38522adfa780629892ea6d7f7a17a82a0e39
-  ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+  ms.author: gokuma
+  ms.openlocfilehash: b4a4d167a74b89ff623fb8267c4fdc28b46923e9
+  ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 02/13/2018
+  ms.lasthandoff: 04/16/2018
 abstract:
-  description: "Data Science Virtual Machine y Deep Learning Virtual Machine son imágenes personalizadas de máquinas virtuales en Azure, cargadas con herramientas de ciencia de datos que se utilizan para compilar aplicaciones inteligentes de análisis avanzado."
+  description: Data Science Virtual Machine y Deep Learning Virtual Machine son imágenes personalizadas de máquinas virtuales en Azure, cargadas con herramientas de ciencia de datos que se utilizan para compilar aplicaciones inteligentes de análisis avanzado.
 sections:
-- title: "Inicios rápidos en 5 minutos"
+- title: Inicios rápidos en 5 minutos
   items:
   - type: paragraph
     text: 'Aprenda a configurar una instancia de Data Science Virtual Machine basada en Windows o Linux:'
@@ -43,15 +44,15 @@ sections:
     - html: <a href:"linux-dsvm-intro">Aprovisionamiento de una instancia de DSVM de Linux CentOS</a>
     - html: <a href="dsvm-ubuntu-intro">Aprovisionamiento de una instancia de DSVM de Linux Ubuntu</a>
     - html: <a href="linux-dsvm-walkthrough">Uso de una instancia de DSVM de Linux</a>
-- title: "Otras tecnologías de Azure Machine Learning"
+- title: Otras tecnologías de Azure Machine Learning
   items:
   - type: paragraph
-    text: "Otras tecnologías disponibles en Azure Machine Learning:"
+    text: 'Otras tecnologías disponibles en Azure Machine Learning:'
   - type: list
     style: cards
     className: cardsFTitle
     items:
-    - title: "Servicios de Azure Machine Learning (versión preliminar)"
+    - title: Servicios de Azure Machine Learning (versión preliminar)
       href: /azure/machine-learning/preview/
       image:
         src: media/index/i_machine-learning.svg

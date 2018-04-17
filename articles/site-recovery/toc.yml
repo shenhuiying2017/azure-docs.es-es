@@ -293,8 +293,8 @@
               href: delete-vault.md
         - name: Supervisión y solución de problemas
           items:
-            - name: Solución de problemas de conmutación por error en Azure
-              href: site-recovery-failover-to-azure-troubleshoot.md
+            - name: Solución de problemas de réplica de Hyper-V
+              href: hyper-v-azure-troubleshoot.md
             - name: Supervisión de Azure Site Recovery
               href: site-recovery-monitor-and-troubleshoot.md
     - name: De Hyper-V a un sitio secundario

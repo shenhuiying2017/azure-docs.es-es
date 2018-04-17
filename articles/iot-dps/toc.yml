@@ -89,28 +89,30 @@
       href: concepts-service.md
 - name: Guías de procedimientos
   items:
-    - name: Administración de inscripciones de los dispositivos
-      items:
-        - name: Administración de inscripciones de dispositivos con Azure Portal
-          href: how-to-manage-enrollments.md
-        - name: Administración de inscripciones de dispositivos con los SDK del servicio
-          href: how-to-manage-enrollments-sdks.md
-    - name: Revocación del acceso del dispositivo
-      href: how-to-revoke-device-access-portal.md
-    - name: Desaprovisionamiento de dispositivos
-      href: how-to-unprovision-devices.md
-    - name: Realización de la prueba de posesión de certificados de entidad de certificación X.509
-      href: how-to-verify-certificates.md
-    - name: Uso de HSM con SDK
-      href: use-hsm-with-sdk.md
-    - name: Control del acceso al servicio de aprovisionamiento
-      href: how-to-control-access.md
-    - name: Uso de la CLI de Azure para administrar el servicio de aprovisionamiento de dispositivos
-      href: how-to-manage-dps-with-cli.md
-    - name: Uso de herramientas de SDK para desarrollar
-      href: how-to-use-sdk-tools.md
-    - name: Conexión al MXChip IoT DevKit
+    - name: Conexión de MXChip IoT DevKit a IoT Hub
       href: how-to-connect-mxchip-iot-devkit.md
+    - name: Administración de la configuración del aprovisionamiento de dispositivos
+      items:
+        - name: Configuración de certificados de entidad de certificación comprobada
+          href: how-to-verify-certificates.md
+        - name: Administración del desaprovisionamiento
+          href: how-to-unprovision-devices.md
+        - name: Administración de la anulación de inscripciones
+          href: how-to-revoke-device-access-portal.md
+        - name: 'Administración de inscripciones: Portal'
+          href: how-to-manage-enrollments.md
+        - name: 'Administración de inscripciones: SDK de servicio'
+          href: how-to-manage-enrollments-sdks.md
+    - name: Administración del servicio de aprovisionamiento de dispositivos
+      items:
+        - name: Configuración del servicio de aprovisionamiento de dispositivos mediante la CLI de Azure
+          href: how-to-manage-dps-with-cli.md
+        - name: Control del acceso a las API del servicio de aprovisionamiento
+          href: how-to-control-access.md
+    - name: Uso de los mecanismos de atestación con SDK
+      href: use-hsm-with-sdk.md
+    - name: Uso de herramientas de SDK para el desarrollo
+      href: how-to-use-sdk-tools.md
 - name: Referencia
   items:
     - name: REST

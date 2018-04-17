@@ -364,6 +364,10 @@
           href: create-azure-ssis-integration-runtime.md
     - name: Ejecución de paquetes SSIS en Azure
       items:
+        - name: Configuración personalizada del entorno de ejecución de integración de Azure-SSIS
+          href: how-to-configure-azure-ssis-ir-custom-setup.md
+        - name: Aprovisionamiento de Enterprise Edition para el entorno de ejecución de integración de Azure-SSIS
+          href: how-to-configure-azure-ssis-ir-enterprise-edition.md
         - name: Unión de Integration Runtime de SSIS de Azure a una red virtual
           href: join-azure-ssis-integration-runtime-virtual-network.md
         - name: Administración de Integration Runtime de SSIS de Azure
@@ -374,6 +378,8 @@
           href: how-to-invoke-ssis-package-stored-procedure-activity.md
         - name: Programación del entorno de ejecución de integración de Azure-SSIS
           href: how-to-schedule-azure-ssis-integration-runtime.md
+        - name: Desarrollo de componentes con licencia para el entorno de ejecución de integración de Azure-SSIS
+          href: how-to-develop-azure-ssis-ir-licensed-components.md
     - name: Creación de desencadenadores
       items:
         - name: Creación de un desencadenador de programación

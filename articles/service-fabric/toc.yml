@@ -96,7 +96,7 @@
     - name: Creación de aplicaciones
       href: service-fabric-choose-framework.md
       items:
-        - name: Contenedores
+        - name: Containers
           href: service-fabric-containers-overview.md
           items:
             - name: Docker Compose (versión preliminar)
@@ -201,6 +201,8 @@
       items:
         - name: Seguridad de clúster
           href: service-fabric-cluster-security.md
+        - name: Escalado
+          href: service-fabric-cluster-scaling.md
         - name: Diferencias de características entre Linux y Windows
           href: service-fabric-linux-windows-differences.md
         - name: Clústeres en Azure
@@ -323,6 +325,8 @@
               href: service-fabric-resource-governance.md
             - name: Volumen y controladores de registro
               href: service-fabric-containers-volume-logging-drivers.md
+            - name: Visualización de registros de contenedores
+              href: service-fabric-containers-view-logs.md
             - name: Servicios dentro de contenedores
               href: service-fabric-services-inside-containers.md
             - name: Modos de redes de contenedor
@@ -539,8 +543,10 @@
           href: service-fabric-visualizing-your-cluster.md
         - name: Conexión a un clúster seguro
           href: service-fabric-connect-to-secure-cluster.md
-        - name: Aplicación de parches a nodos de clúster
+        - name: Aplicación de parches a nodos de clúster (Windows)
           href: service-fabric-patch-orchestration-application.md
+        - name: Aplicación de parches a nodos de clúster (Linux)
+          href: service-fabric-patch-orchestration-application-linux.md
     - name: Supervisión y diagnóstico
       items:
         - name: Análisis con OMS

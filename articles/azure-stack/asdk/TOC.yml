@@ -57,6 +57,8 @@
       href: asdk-register.md
     - name: Configuración de los valores de telemetría de Azure Stack
       href: asdk-telemetry.md
+    - name: Inicio y detención del kit de desarrollo de Azure Stack
+      href: asdk-start-stop.md
     - name: solución de problemas
       href: asdk-troubleshooting.md
 - name: Referencia

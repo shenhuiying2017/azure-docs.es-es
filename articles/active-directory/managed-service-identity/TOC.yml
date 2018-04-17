@@ -1,6 +1,14 @@
 - name: Identidad de servicio administrada
   href: overview.md
   items:
+    - name: Guías de inicio rápido
+      items:
+        - name: Uso de una identidad MSI de máquina virtual para acceder a Azure Resource Manager
+          items:
+            - name: Máquina virtual de Windows
+              href: tutorial-windows-vm-access-arm.md
+            - name: Máquina virtual de Linux
+              href: tutorial-linux-vm-access-arm.md
     - name: Configuración de MSI para una máquina virtual de Azure
       items:
         - name: Uso de Azure Portal
@@ -41,8 +49,6 @@
       items:
         - name: Acceso a Azure Data Lake Store
           href: tutorial-windows-vm-access-datalake.md
-        - name: Acceso a Azure Resource Manager
-          href: tutorial-windows-vm-access-arm.md
         - name: Acceso a Azure SQL
           href: tutorial-windows-vm-access-sql.md
         - name: Acceso a Azure Storage mediante una clave de acceso
@@ -55,14 +61,14 @@
       items:
         - name: Acceso a Azure Data Lake Store
           href: tutorial-linux-vm-access-datalake.md
-        - name: Acceso a Azure Resource Manager
-          href: tutorial-linux-vm-access-arm.md
         - name: Acceso a Azure Storage mediante una clave de acceso
           href: tutorial-linux-vm-access-storage.md
         - name: Acceso a Azure Storage mediante SAS
           href: tutorial-linux-vm-access-storage-sas.md
         - name: Acceso a Azure Key Vault
           href: tutorial-linux-vm-access-nonaad.md
+        - name: Acceso a Azure Cosmos DB
+          href: tutorial-linux-vm-access-cosmos-db.md
     - name: Preguntas frecuentes y problemas conocidos
       href: known-issues.md
     - name: Referencia
