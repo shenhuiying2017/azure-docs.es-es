@@ -23,7 +23,7 @@
       href: container-service-tutorial-kubernetes-scale.md
     - name: 6 - Actualización de una aplicación
       href: container-service-tutorial-kubernetes-app-update.md
-    - name: 7 - Supervisión con OMS
+    - name: 7 - Supervisión con Log Analytics
       href: container-service-tutorial-kubernetes-monitor.md
 - name: Conceptos
   items:
@@ -45,7 +45,7 @@
       href: container-service-scale.md
     - name: Supervisión
       items:
-        - name: Supervisión con OMS
+        - name: Supervisión con Log Analytics
           href: container-service-kubernetes-oms.md
         - name: Supervisión con Datadog
           href: container-service-kubernetes-datadog.md

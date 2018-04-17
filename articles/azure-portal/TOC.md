@@ -3,7 +3,7 @@
 # Tutoriales
 ## [DevOps con Azure Portal](tutorial-azureportal-devops.md)
 # Conceptos
-## [Administrador de recursos de Azure](../azure-resource-manager/resource-group-overview.md)
+## [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 ## [Métodos abreviados de teclado](azure-portal-keyboard-shortcuts.md)
 ## [Exploradores y dispositivos compatibles](../azure-preview-portal-supported-browsers-devices.md)
 ## [La estructura de los paneles de Azure](azure-portal-dashboards-structure.md)
@@ -13,10 +13,10 @@
 ### [Implementación con una plantilla de Resource Manager](../azure-resource-manager/resource-group-template-deploy.md)
 ### [Creación y uso compartido de paneles de Azure](azure-portal-dashboards.md)
 ### [Creación mediante programación de paneles de Azure](azure-portal-dashboards-create-programmatically.md)
-## Administrar
+## administración
 ### [Activación del contraste alto o cambio de tema](azure-portal-change-theme-high-contrast.md)
 ### [Uso del portal para administrar recursos](../azure-resource-manager/resource-group-portal.md)
-### [Administración de accesos con el control de acceso basado en rol](../active-directory/role-based-access-control-configure.md)
+### [Administración de accesos con el control de acceso basado en rol](../role-based-access-control/role-assignments-portal.md)
 ### [Uso compartido de paneles con el control de acceso basado en rol](azure-portal-dashboard-share-access.md)
 ### [Uso de etiquetas para organizar los recursos](../azure-resource-manager/resource-group-using-tags.md)
 ### [Escalado de los recursos](../monitoring-and-diagnostics/insights-how-to-scale.md)
@@ -43,7 +43,7 @@
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [Foro de MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazuremanagement) 
 ## [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-management-portal)
+## [Desbordamiento de la pila](http://stackoverflow.com/questions/tagged/azure-management-portal)
 
 
 

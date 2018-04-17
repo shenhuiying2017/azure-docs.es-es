@@ -196,6 +196,8 @@
               href: app-insights-usage-segmentation.md
             - name: Embudos
               href: usage-funnels.md
+            - name: Cohortes
+              href: app-insights-usage-cohorts.md
             - name: Impacto
               href: app-insights-usage-impact.md
             - name: Retención

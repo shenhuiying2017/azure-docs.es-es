@@ -7,18 +7,18 @@ metadata:
   description: Aprenda a usar Azure Cosmos DB para crear bases de datos de varios modelos de distribución global. Los tutoriales le explican cómo crear y consultar documentos, pares clave/valor y bases de datos de grafos.
   services: cosmos-db
   author: mimig1
-  manager: jhubbard
+  manager: kfile
   ms.service: cosmos-db
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 02/14/2018
   ms.author: mimig
-  ms.openlocfilehash: 684b0f00e85755b55aa0bfd9e8e6f68af3d38886
-  ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+  ms.openlocfilehash: 017130095fc8de6a83cbff075f47cbff9fd48089
+  ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 04/05/2018
+  ms.lasthandoff: 04/16/2018
 abstract:
   description: Azure Cosmos DB es un servicio de base de datos de varios modelos distribuido globalmente. Use estos inicios rápidos, tutoriales y ejemplos para desarrollar bases de datos de documentos, de clave-valor, basadas en columnas y de grafos mediante API conocidas y modelos de programación. Después, aprenda a replicar los datos en varias regiones de Azure y a escalar el rendimiento independientemente del almacenamiento, al tiempo que se beneficia de unos exhaustivos Acuerdos de Nivel de Servicio.
   aside:
