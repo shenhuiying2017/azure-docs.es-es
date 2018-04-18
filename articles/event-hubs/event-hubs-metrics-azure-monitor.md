@@ -1,12 +1,12 @@
 ---
-title: "Métricas de Azure Event Hubs en Azure Monitor (versión preliminar) | Microsoft Docs"
+title: Métricas de Azure Event Hubs en Azure Monitor (versión preliminar) | Microsoft Docs
 description: Uso de Azure Monitoring para supervisar Event Hubs
 services: event-hubs
 documentationcenter: .NET
 author: ShubhaVijayasarathy
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/19/2017
 ms.author: sethm
-ms.openlocfilehash: c3ee6a87592145801167b35ff281c04062e525da
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 8ca00b234c00bfeb52a5b601e8780d56a0732dd9
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-event-hubs-metrics-in-azure-monitor-preview"></a>Métricas de Azure Event Hubs en Azure Monitor (versión preliminar)
 
@@ -46,7 +46,7 @@ Para ver métricas que admitan las dimensiones, debe filtrar por el valor de la 
 
 ## <a name="billing"></a>Facturación
 
-Actualmente, el uso de métricas en Azure Monitor es gratuito, ya que se trata de una versión preliminar. Sin embargo, si usa otras soluciones que ingieren datos de métricas, puede que se le facturen dichas soluciones. Por ejemplo, se le facturará por Azure Storage si archiva datos de métricas en una cuenta de Azure Storage. También se le facturará por Operation Management Suite (OMS) si transmite datos de métricas a OMS para realizar análisis avanzados.
+Actualmente, el uso de métricas en Azure Monitor es gratuito, ya que se trata de una versión preliminar. Sin embargo, si usa otras soluciones que ingieren datos de métricas, puede que se le facturen dichas soluciones. Por ejemplo, se le facturará por Azure Storage si archiva datos de métricas en una cuenta de Azure Storage. También se le facturará por Azure si transmite datos de métricas a Log Analytics para realizar análisis avanzados.
 
 Las siguientes métricas ofrecen una visión general del estado de su servicio. 
 
@@ -59,7 +59,7 @@ Los valores de las métricas se envían a Azure Monitor cada minuto. La granular
 
 Cuenta el número de solicitudes de operaciones de datos y administración.
 
-| Nombre de métrica | Descripción |
+| Nombre de métrica | DESCRIPCIÓN |
 | ------------------- | ----------------- |
 | Solicitudes entrantes (versión preliminar) | Número de solicitudes realizadas al servicio de Azure Event Hubs durante un período determinado. <br/><br/> Unidad: recuento <br/> Tipo de agregación: total <br/> Dimensión: EntityName |
 | Solicitudes correctas (versión preliminar)   | Número de solicitudes correctas realizadas al servicio de Azure Event Hubs durante un período determinado. <br/><br/> Unidad: recuento <br/> Tipo de agregación: total <br/> Dimensión: EntityName |
@@ -70,13 +70,13 @@ Cuenta el número de solicitudes de operaciones de datos y administración.
 
 ## <a name="throughput-metrics"></a>Métricas de procesamiento
 
-| Nombre de métrica | Descripción |
+| Nombre de métrica | DESCRIPCIÓN |
 | ------------------- | ----------------- |
 |Solicitudes limitadas (versión preliminar)|Número de solicitudes que se han limitado porque se superó el uso de la unidad de procesamiento.<br/><br/> Unidad: recuento <br/> Tipo de agregación: total <br/> Dimensión: EntityName|
 
 ## <a name="message-metrics"></a>Métricas de mensaje
 
-| Nombre de métrica | Descripción |
+| Nombre de métrica | DESCRIPCIÓN |
 | ------------------- | ----------------- |
 |Mensajes entrantes (versión preliminar)|Número de eventos o mensajes enviados a Event Hubs durante un período determinado.<br/><br/> Unidad: recuento <br/> Tipo de agregación: total <br/> Dimensión: EntityName|
 |Mensajes salientes (versión preliminar)|Número de eventos o mensajes recuperados de Event Hubs durante un período determinado.<br/><br/> Unidad: recuento <br/> Tipo de agregación: total <br/> Dimensión: EntityName|
@@ -85,7 +85,7 @@ Cuenta el número de solicitudes de operaciones de datos y administración.
 
 ## <a name="connection-metrics"></a>Métricas de conexión
 
-| Nombre de métrica | Descripción |
+| Nombre de métrica | DESCRIPCIÓN |
 | ------------------- | ----------------- |
 |ActiveConnections (versión preliminar)|Número de conexiones activas en un espacio de nombres, así como en una entidad.<br/><br/> Unidad: recuento <br/> Tipo de agregación: total <br/> Dimensión: EntityName|
 |Conexiones abiertas (versión preliminar)|Número de conexiones abiertas.<br/><br/> Unidad: recuento <br/> Tipo de agregación: total <br/> Dimensión: EntityName|
@@ -95,7 +95,7 @@ Cuenta el número de solicitudes de operaciones de datos y administración.
 
 Puede supervisar las métricas de captura de Event Hubs cuando se habilita la característica de captura de los centros de eventos. Las métricas siguientes describen lo que puede supervisar con la característica de captura habilitada.
 
-| Nombre de métrica | Descripción |
+| Nombre de métrica | DESCRIPCIÓN |
 | ------------------- | ----------------- |
 |Captura de trabajo pendiente (versión preliminar)|El número de bytes que se aún se tiene que capturar en el destino elegido.<br/><br/> Unidad: bytes <br/> Tipo de agregación: total <br/> Dimensión: EntityName|
 |Mensajes capturados (versión preliminar)|El número de mensajes o eventos que se capturan en el destino elegido durante un período determinado.<br/><br/> Unidad: recuento <br/> Tipo de agregación: total <br/> Dimensión: EntityName|
@@ -105,7 +105,7 @@ Puede supervisar las métricas de captura de Event Hubs cuando se habilita la ca
 
 Azure Event Hubs admite las siguientes dimensiones para las métricas de Azure Monitor. La adición de dimensiones a las métricas es opcional. Si no agrega dimensiones, las métricas se especifican en el nivel de espacio de nombres. 
 
-| Nombre de métrica | Descripción |
+| Nombre de métrica | DESCRIPCIÓN |
 | ------------------- | ----------------- |
 |EntityName| Event Hubs admite las entidades de concentrador de eventos en el espacio de nombres.|
 

@@ -3,6 +3,8 @@
 
 * La conversión no es reversible. 
 
+* Tenga en cuenta que los usuarios con el rol [Colaborador de la máquina virtual](../articles/active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor) no podrán cambiar el tamaño de la máquina virtual (como lo hacían antes de la conversión). El motivo es que las máquinas virtuales con discos administrados requieren que el usuario tenga el permiso de escritura/discos/Microsoft.Compute para los discos del sistema operativo.
+
 * Asegúrese de probar la conversión. Migre una máquina virtual de prueba antes de realizar la migración en producción.
 
 * Durante la conversión, se desasigna la VM. La VM recibe una nueva dirección IP cuando se inicia después de la conversión. Si es necesario, puede [asignar una dirección IP estática](../articles/virtual-network/virtual-network-ip-addresses-overview-arm.md) a la máquina virtual.

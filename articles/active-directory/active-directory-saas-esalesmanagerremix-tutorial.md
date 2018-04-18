@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/21/2018
 ms.author: jeedes
 ms.openlocfilehash: 200d87b950ac76c85513bc11da2798562e48bec3
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Integración de Azure Active Directory con E Sales Manager Remix
 
@@ -155,7 +155,7 @@ Haga lo siguiente para habilitar el inicio de sesión único de Azure AD en Azur
     
     b. En la sección **Collaboration item** (Elemento de colaboración), en la lista desplegable, seleccione **email**.
 
-    c. En el cuadro **Collaboration item** (Elemento de colaboración), pegue el valor de notificación que copió anteriormente de Azure Portal (es decir, **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**).
+    c. En el cuadro de texto **Collaboration item** (Elemento de colaboración), pegue el valor de notificación que ha copiado de Azure Portal (es decir, **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**).
 
     d. En el cuadro de texto **Issuer (entity ID)** (Emisor [Id. de entidad]), pegue el valor del identificador que copió de la sección **E Sales Manager Remix Domain and URLs** (Dominio y direcciones URL de E Sales Manager Remix) de Azure Portal.
 

@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: agummadi
-ms.openlocfilehash: 586d78e29177dd4a627c94cd754c21cc2b6f37d4
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 7d6f064be21f717c825843780fac28bc874f46ce
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Configuración de Network Performance Monitor para ExpressRoute
 
-Network Performance Monitor es una solución que supervisa la conectividad entre las implementaciones de nube de Azure y las ubicaciones de local (sucursales, etcétera) de supervisión de red en la nube. Network Performance Monitor forma parte de Microsoft Operations Management Suite (OMS) Network Performance Monitor ahora ofrece una extensión para ExpressRoute que le permite supervisar el rendimiento de la red a través de circuitos ExpressRoute configurados para usar el emparejamiento privado. Cuando configura Network Performance Monitor para ExpressRoute, puede detectar problemas de red para identificar y eliminar.
+Network Performance Monitor es una solución que supervisa la conectividad entre las implementaciones de nube de Azure y las ubicaciones de local (sucursales, etcétera) de supervisión de red en la nube. NPM forma parte de Log Analytics. Network Performance Monitor ahora ofrece una extensión para ExpressRoute que le permite supervisar el rendimiento de la red a través de circuitos ExpressRoute configurados para usar el emparejamiento privado. Cuando configura Network Performance Monitor para ExpressRoute, puede detectar problemas de red para identificar y eliminar.
 
 Puede:
 
@@ -72,11 +72,11 @@ Cree un área de trabajo en la suscripción que tiene las redes virtuales vincul
 
 1. En [Azure Portal](https://portal.azure.com), seleccione la suscripción que tiene las redes virtuales emparejadas al circuito de ExpressRoute. A continuación, busque en la lista de servicios de **Marketplace** "Network Performance Monitor". Cuando se devuelva el resultado, haga clic para abrir la página **Network Performance Monitor**.
 
->[!NOTE]
->Puede crear una nueva área de trabajo o usar una existente.  Si desea usar un área de trabajo existente, debe asegurarse de que se haya migrado el área de trabajo al nuevo lenguaje de consulta. [Más información...](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-log-search-upgrade)
->
+   >[!NOTE]
+   >Puede crear una nueva área de trabajo o usar una existente.  Si desea usar un área de trabajo existente, debe asegurarse de que se haya migrado el área de trabajo al nuevo lenguaje de consulta. [Más información...](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-log-search-upgrade)
+   >
 
-  ![portal](.\media\how-to-npm\3.png)<br><br>
+   ![portal](.\media\how-to-npm\3.png)<br><br>
 2. En la parte inferior de la página **Network Performance Monitor** principal, haga clic en **Crear** para abrir la página **Network Performance Monitor - Crear nueva solución**. Haga clic en **Área de trabajo de OMS - Seleccionar un área de trabajo** para abrir la página Áreas de trabajo. Haga clic en **+Crear área de trabajo nueva** para abrir la página Área de trabajo.
 3. En la página **Área de trabajo de OMS**, seleccione **Crear nuevo** y configure las siguientes opciones:
 
@@ -86,15 +86,15 @@ Cree un área de trabajo en la suscripción que tiene las redes virtuales vincul
   * Ubicación: debe seleccionar una [región admitida](#regions).
   * Plan de tarifa: seleccione "Gratis"
   
-  >[!NOTE]
-  >El circuito ExpressRoute podría estar en cualquier parte del mundo y no tiene que estar en la misma región que el área de trabajo.
-  >
+    >[!NOTE]
+    >El circuito ExpressRoute podría estar en cualquier parte del mundo y no tiene que estar en la misma región que el área de trabajo.
+    >
   
-  ![área de trabajo](.\media\how-to-npm\4.png)<br><br>
+    ![área de trabajo](.\media\how-to-npm\4.png)<br><br>
 4. Haga clic en **Aceptar** para guardar e implementar la plantilla de configuración. Una vez validada la plantilla, haga clic en **Crear** para implementar el área de trabajo.
 5. Una vez implementado el área de trabajo, vaya al recurso **NetworkMonitoring(name)** que ha creado. Valide la configuración y haga clic en **La solución necesita una configuración adicional**.
 
-  ![configuración adicional](.\media\how-to-npm\5.png)
+   ![configuración adicional](.\media\how-to-npm\5.png)
 
 ## <a name="agents"></a>Paso 2: Instalación y configuración de agentes
 
@@ -126,9 +126,9 @@ Le recomendamos que instale al menos dos agentes en cada lado de la conexión de
 2. En la página **principal**, haga clic en **Siguiente**.
 3. En la página **Términos de licencia**, lea la licencia y haga clic en **Acepto**.
 4. En la página **Carpeta de destino**, cambie o mantenga la carpeta de instalación predeterminada y haga clic en **Siguiente**.
-5. En la página **Opciones de instalación del agente**, puede elegir conectar el agente a Azure Log Analytics (OMS) o a Operations Manager. O bien, puede dejar las opciones en blanco si desea configurar el agente más adelante. Tras efectuar la selección, haga clic en **Siguiente**.
+5. En la página **Opciones de instalación del agente**, puede decidir si desea conectar el agente a Azure Log Analytics o a Operations Manager. O bien, puede dejar las opciones en blanco si desea configurar el agente más adelante. Tras efectuar la selección, haga clic en **Siguiente**.
 
-  * Si decide conectar el agente a **Azure Log Analytics (OMS)**, pegue el **identificador del área de trabajo** y la **clave del área de trabajo** (clave principal) que copió en el Bloc de notas durante la sección anterior. A continuación, haga clic en **Siguiente**.
+  * Si decide conectar el agente a **Azure Log Analytics**, pegue el **identificador del área de trabajo** y la **clave del área de trabajo** (clave principal) que copió en el Bloc de notas en la sección anterior. A continuación, haga clic en **Siguiente**.
 
     ![Identificador y clave](.\media\how-to-npm\8.png)
   * Si decide conectar el agente a **Operations Manager**, en la página **Configuración del grupo de administración**, escriba el **nombre del grupo de administración**, el **servidor de administración** y el **puerto del servidor de administración**. A continuación, haga clic en **Siguiente**.
@@ -139,7 +139,7 @@ Le recomendamos que instale al menos dos agentes en cada lado de la conexión de
     ![Cuenta](.\media\how-to-npm\10.png)
 6. En la página **Preparado para instalar**, revise las opciones seleccionadas y haga clic en **Instalar**.
 7. En la página **La configuración finalizó correctamente**, haga clic en **Finalizar**.
-8. Una vez completado el proceso, Microsoft Monitoring Agent aparece en el Panel de control. Allí puede revisar la configuración y comprobar que el agente esté conectado a Visión operativa (OMS). Cuando se conecta a OMS, el agente muestra un mensaje similar al siguiente: **Microsoft Monitoring Agent se conectó correctamente al servicio Microsoft Operations Management Suite**.
+8. Una vez completado el proceso, Microsoft Monitoring Agent aparece en el Panel de control. Aquí puede revisar la configuración y verificar si el agente está conectado a Azure Log Analytics (OMS). Si está conectado, aparece un mensaje similar al siguiente en el agente: **Microsoft Monitoring Agent se conectó correctamente al servicio Microsoft Operations Management Suite**.
 
 9. Repita este paso con cada red virtual que quiera que se supervise.
 
@@ -162,8 +162,8 @@ Puede comprobar fácilmente si los agentes se están comunicando.
 
 1. En un servidor con el agente de supervisión, abra el **Panel de Control**.
 2. Abra **Microsoft Monitoring Agent**.
-3. Haga clic en la pestaña **Azure Log Analytics (OMS)**.
-4. En la columna **Estado**, verá que el agente se conectó correctamente al servicio Operations Management Suite.
+3. Haga clic en la pestaña **Azure Log Analytics**.
+4. En la columna **Estado**, debería ver que el agente se conectó correctamente a Log Analytics.
 
   ![status](.\media\how-to-npm\12.png)
 

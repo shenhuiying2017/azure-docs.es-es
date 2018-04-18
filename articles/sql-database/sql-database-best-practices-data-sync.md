@@ -1,18 +1,18 @@
 ---
-title: "Procedimientos recomendados para Azure SQL Data Sync (versión preliminar) | Microsoft Docs"
-description: "Conozca los procedimientos recomendados para configurar y ejecutar Azure SQL Data Sync (versión preliminar)."
+title: Procedimientos recomendados para Azure SQL Data Sync (versión preliminar) | Microsoft Docs
+description: Conozca los procedimientos recomendados para configurar y ejecutar Azure SQL Data Sync (versión preliminar).
 services: sql-database
-ms.date: 11/13/2017
+ms.date: 04/01/2018
 ms.topic: article
 ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 1c8ad4b318d52b5cb6af284b3304cfa7ad35522b
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 7ce7830d853a77b54706201fa614e9f4bee637a4
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="best-practices-for-sql-data-sync-preview"></a>Procedimientos recomendados para SQL Data Sync (versión preliminar) 
 
@@ -151,7 +151,7 @@ Puede que los cambios no se propaguen por alguno de los siguientes motivos:
 Supervise el estado del grupo de sincronización y la base de datos con regularidad desde la interfaz del portal y de registro.
 
 
-## <a name="maintenance"></a>Mantenimiento
+## <a name="maintenance"></a>Mantenimiento 
 
 ### <a name="avoid-out-of-date-databases-and-sync-groups"></a> Evitar bases de datos y grupos de sincronización obsoletos
 
@@ -212,7 +212,7 @@ Para obtener más información sobre SQL Data Sync (versión preliminar), vea:
 
 -   [Sincronización de datos entre varias bases de datos locales y de la nube con SQL Data Sync (versión preliminar)](sql-database-sync-data.md)
 -   [Configuración de Azure SQL Data Sync (versión preliminar)](sql-database-get-started-sql-data-sync.md)
--   [Supervisar SQL Data Sync (versión preliminar) con Log Analytics de OMS](sql-database-sync-monitor-oms.md)
+-   [Supervisión de Azure SQL Data Sync (versión preliminar) con Log Analytics](sql-database-sync-monitor-oms.md)
 -   [Solución de problemas de SQL Data Sync (versión preliminar)](sql-database-troubleshoot-data-sync.md)  
 -   Para obtener ejemplos completos de PowerShell que muestren cómo configurar SQL Data Sync (versión preliminar):  
     -   [Uso de PowerShell para sincronizar entre varias bases de datos SQL de Azure.](scripts/sql-database-sync-data-between-sql-databases.md)  

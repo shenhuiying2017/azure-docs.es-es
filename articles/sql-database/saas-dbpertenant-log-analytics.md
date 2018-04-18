@@ -1,6 +1,6 @@
 ---
 title: Uso de Log Analytics con una aplicación multiinquilino de SQL Database | Microsoft Docs
-description: Configuración y uso de Log Analytics (Operations Management Suite) con una aplicación SaaS multiinquilino de Azure SQL Database
+description: Configuración y uso de Log Analytics con la aplicación SaaS de Azure SQL Database multiinquilino
 keywords: tutorial de SQL Database
 services: sql-database
 author: stevestein
@@ -8,23 +8,23 @@ manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 04/01/2018
 ms.author: sstein
 ms.reviewer: billgib
-ms.openlocfilehash: 38a849ca5f4a767a4b9d9b9b86549e89a8217a2a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 285b8d0acc8a6cbe1a6441a4aabf372de204309e
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="set-up-and-use-log-analytics-operations-management-suite-with-a-multitenant-sql-database-saas-app"></a>Configuración y uso de Log Analytics (Operations Management Suite) con una aplicación SaaS multiinquilino de SQL Database
+# <a name="set-up-and-use-log-analytics-with-a-multitenant-sql-database-saas-app"></a>Configuración y uso de Log Analytics con la aplicación SaaS de SQL Database multiinquilino
 
-En este tutorial, configurará y usará Azure Log Analytics ([Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite)) para supervisar grupos elásticos y bases de datos. Este tutorial se basa en el [tutorial de administración y supervisión del rendimiento](saas-dbpertenant-performance-monitoring.md). Se muestra cómo usar Log Analytics para intensificar la supervisión y alerta proporcionadas en Azure Portal. Log Analytics admite la supervisión de miles de grupos elásticos y cientos de miles de bases de datos. Log Analytics proporciona una única solución de supervisión, que puede integrar la supervisión de distintas aplicaciones y servicios de Azure en varias suscripciones de Azure.
+En este tutorial, se va a configurar y usar Azure [Log Analytics](/azure/log-analytics/log-analytics-overview) para supervisar bases de datos y grupos elásticos. Este tutorial se basa en el [tutorial de administración y supervisión del rendimiento](saas-dbpertenant-performance-monitoring.md). Se muestra cómo usar Log Analytics para intensificar la supervisión y alerta proporcionadas en Azure Portal. Log Analytics admite la supervisión de miles de grupos elásticos y cientos de miles de bases de datos. Log Analytics proporciona una única solución de supervisión, que puede integrar la supervisión de distintas aplicaciones y servicios de Azure en varias suscripciones de Azure.
 
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Instalar y configurar Log Analytics (Operations Management Suite).
+> * Instalar y configurar Log Analytics.
 > * Usar Log Analytics para supervisar grupos y bases de datos.
 
 Para completar este tutorial, asegúrese de cumplir estos requisitos previos:
@@ -34,11 +34,11 @@ Para completar este tutorial, asegúrese de cumplir estos requisitos previos:
 
 Consulte el [tutorial de administración y supervisión del rendimiento](saas-dbpertenant-performance-monitoring.md) para una descripción de los patrones y escenarios de SaaS, y ver cómo afectan a los requisitos de una solución de supervisión.
 
-## <a name="monitor-and-manage-database-and-elastic-pool-performance-with-log-analytics-or-operations-management-suite"></a>Supervisión y administración del rendimiento de bases de datos y grupos elásticos con Log Analytics u Operations Management Suite
+## <a name="monitor-and-manage-database-and-elastic-pool-performance-with-log-analytics"></a>Supervisión y administración del rendimiento de bases de datos y grupos elásticos con Log Analytics
 
 En Azure SQL Database, la supervisión y alerta están disponibles en bases de datos y grupos de Azure Portal. Esta supervisión y alerta integrada resulta práctica, pero también es específica del recurso. Esto significa que resulta menos adecuada para supervisar grandes instalaciones o para proporcionar una vista unificada entre recursos y suscripciones.
 
-En escenarios de gran volumen, puede usarse Log Analytics para supervisión y alerta. Log Analytics es un servicio de Azure independiente, que permite el análisis sobre registros de diagnóstico y telemetría recopilados en un área de trabajo de muchos servicios en potencia. Log Analytics proporciona herramientas integradas de visualización de datos y lenguaje de consulta para el análisis de datos operativos. La solución SQL Analytics proporciona varias vistas y consultas predefinidas de supervisión y alerta de bases de datos y grupos elásticos. Operations Management Suite también proporciona un diseñador de vistas personalizadas.
+En escenarios de gran volumen, puede usarse Log Analytics para supervisión y alerta. Log Analytics es un servicio de Azure independiente, que permite el análisis sobre registros de diagnóstico y telemetría recopilados en un área de trabajo de muchos servicios en potencia. Log Analytics proporciona herramientas integradas de visualización de datos y lenguaje de consulta para el análisis de datos operativos. La solución SQL Analytics proporciona varias vistas y consultas predefinidas de supervisión y alerta de bases de datos y grupos elásticos. Log Analytics también ofrece un diseñador de vistas personalizadas.
 
 Las áreas de trabajo y soluciones de análisis de Log Analytics se abren en Azure Portal y en Operations Management Suite. Azure Portal es el punto de acceso más reciente, pero, en ciertos aspectos, podría ir por detrás del portal de Operations Management Suite.
 
@@ -129,9 +129,9 @@ En este ejercicio, abra Log Analytics y el portal de Operations Management Suite
 
 En el portal de Operations Management Suite, puede explorar aún más los datos de registro y métricas del área de trabajo. 
 
-La supervisión y alerta de Log Analytics y Operations Management Suite Portal se basa en consultas sobre los datos del área de trabajo, a diferencia de la alerta definida en cada recurso de Azure Portal. Al basar las alertas en consultas, puede definir una alerta única que busque en todas las bases de datos, en lugar de definir una por cada base de datos. Las consultas solo se ven limitadas por los datos disponibles en el área de trabajo.
+La supervisión y las alertas de Log Analytics se basan en consultas de datos en el área de trabajo, a diferencia de las alertas definidas en cada recurso en Azure Portal. Al basar las alertas en consultas, puede definir una alerta única que busque en todas las bases de datos, en lugar de definir una por cada base de datos. Las consultas solo se ven limitadas por los datos disponibles en el área de trabajo.
 
-Para más información sobre cómo usar Operations Management Suite para consultar y definir alertas, consulte [Uso de reglas de alertas en Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts-creating).
+Para más información sobre cómo usar Log Analytics para consultar y definir alertas, consulte [Uso de reglas de alertas en Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts-creating).
 
 Log Analytics para SQL Database se cobra en función del volumen de datos del área de trabajo. En este tutorial, ha creado un área de trabajo gratuita, que está limitada a 500 MB al día. Una vez alcanzado ese límite, ya no se agregan más datos al área de trabajo.
 
@@ -141,7 +141,7 @@ Log Analytics para SQL Database se cobra en función del volumen de datos del á
 En este tutorial, ha aprendido cómo:
 
 > [!div class="checklist"]
-> * Instalar y configurar Log Analytics (Operations Management Suite).
+> * Instalar y configurar Log Analytics.
 > * Usar Log Analytics para supervisar grupos y bases de datos.
 
 Pruebe el [tutorial de análisis de inquilinos](saas-dbpertenant-log-analytics.md).
@@ -150,4 +150,3 @@ Pruebe el [tutorial de análisis de inquilinos](saas-dbpertenant-log-analytics.m
 
 * [Otros tutoriales basados en la implementación inicial de la aplicación Wingtip Tickets SaaS Database Per Tenant](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md)
-* [Operations Management Suite](https://blogs.technet.microsoft.com/msoms/2017/02/21/azure-sql-analytics-solution-public-preview/)

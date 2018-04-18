@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/2/2018
 ms.author: vinagara
-ms.openlocfilehash: 9d2bc934424ff7a31b65ad6c03624ff02ee2a6f3
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: cd289d506cbe22e683392256cce14211a5db0729
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Acciones de webhook para reglas de alertas de registro
 Cuando se [crea una alerta en Azure](monitor-alerts-unified-usage.md), tiene la opción de [configurarla mediante grupos de acción](monitoring-action-groups.md), para así poder realizar una o varias acciones.  En este artículo se describen las diferentes acciones de webhook que están disponibles y los detalles sobre la configuración de los webhook personalizados basados en JSON.
@@ -54,7 +54,7 @@ Los webhooks incluyen una dirección URL y una carga en formato JSON que son los
 | Search Interval StartTime |#searchintervalstarttimeutc |Hora de inicio para la consulta en formato UTC. 
 | SearchQuery |#searchquery |Consulta de búsqueda de registros utilizada por la regla de alerta. |
 | SearchResults |"IncludeSearchResults": true|Son los registros que devuelve la consulta a modo de tabla de JSON y que están limitados a los primeros 1000 registros, si el elemento "IncludeSearchResults":true se agrega a una definición de webhook personalizada de JSON como propiedad de alto nivel. |
-| WorkspaceID |#workspaceid |Identificador del área de trabajo de Log Analytics (OMS). |
+| WorkspaceID |#workspaceid |Identificador del área de trabajo de Log Analytics. |
 | Identificador de aplicación |#applicationid |Identificador de la aplicación Application Insights. |
 | Id. de suscripción |#subscriptionid |Identificador de la suscripción de Azure que se usa con Application Insights. 
 
@@ -77,7 +77,7 @@ Para incluir resultados de búsqueda en una carga personalizada, asegúrese de q
 En esta sección se muestra la carga de ejemplo de webhook para las alertas del registro, incluso cuando la carga es estándar y se ha personalizado.
 
 > [!NOTE]
-> Para garantizar la compatibilidad con versiones anteriores, la carga de webhook estándar para alertas correspondiente a Azure Log Analytics es la misma que la [administración de alertas de OMS](../log-analytics/log-analytics-alerts-creating.md). En cuanto a las alertas de registro que usan [Application Insights](../application-insights/app-insights-analytics.md), la carga de webhook estándar se basa en el esquema del grupo de acciones.
+> Para garantizar la compatibilidad con versiones anteriores, la carga de webhook estándar para alertas correspondiente a Azure Log Analytics es la misma que la [administración de alertas de Log Analytics](../log-analytics/log-analytics-alerts-creating.md). En cuanto a las alertas de registro que usan [Application Insights](../application-insights/app-insights-analytics.md), la carga de webhook estándar se basa en el esquema del grupo de acciones.
 
 ### <a name="standard-webhook-for-log-alerts"></a>Webhook estándar de las alertas de registro 
 En ambos ejemplos se indica una carga ficticia con solo dos columnas y dos filas.

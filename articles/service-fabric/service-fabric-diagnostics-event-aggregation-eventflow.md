@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 37cae133dda2f274a83db1df37e798c5da58c539
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 94c6b9c1cc565c9e3411ea7ddd00082eed1e65be
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="event-aggregation-and-collection-using-eventflow"></a>Recopilación y agregación de eventos con EventFlow
 
@@ -156,5 +156,5 @@ Inicie el servicio y observe la ventana de resultados de depuración de Visual S
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Análisis y visualización de eventos con Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
-* [Análisis y visualización de eventos con OMS](service-fabric-diagnostics-event-analysis-oms.md)
+* [Análisis y visualización de eventos con Log Analytics](service-fabric-diagnostics-event-analysis-oms.md)
 * [Documentación de EventFlow](https://github.com/Azure/diagnostics-eventflow)

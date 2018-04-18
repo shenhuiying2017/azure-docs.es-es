@@ -1,6 +1,6 @@
 ---
-title: 'Supervisión de HBase con Operations Management Suite (OMS): Azure HDInsight | Microsoft Docs'
-description: Uso de OMS con Azure Log Analytics para supervisar clústeres de HDInsight HBase.
+title: Supervisión de HBase con Azure Log Analytics - Azure HDInsight | Microsoft Docs
+description: Use Azure Log Analytics para supervisar clústeres HBase de HDInsight.
 services: hdinsight
 documentationcenter: ''
 tags: azure-portal
@@ -16,23 +16,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: f78d570cfa8b040cd7673a5e14e6a992511f60bb
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 3746713cdadff0a4c6f4fe25d278e8d78555f9d6
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="monitor-hbase-with-operations-management-suite-oms"></a>Supervisión de HBase con Operations Management Suite (OMS)
+# <a name="monitor-hbase-with-log-analytics"></a>Supervisión de HBase con Log Analytics
 
 HDInsight HBase Monitoring usa Azure Log Analytics para recopilar las métricas de rendimiento de HDInsight HBase desde los nodos de clúster de HDInsight. Monitor proporciona visualizaciones y paneles específicos de HBase, las herramientas para buscar las métricas y la capacidad para crear alertas y reglas de supervisión personalizadas. Puede supervisar las métricas de varios clústeres de HDInsight HBase en distintas suscripciones de Azure.
 
-Log Analytics es un servicio de [Operations Management Suite (OMS)](../../operations-management-suite/operations-management-suite-overview.md) que supervisa los entornos local y en la nube para mantener su disponibilidad y rendimiento. Log Analytics recopila los datos generados por los recursos en los entornos local y de nube y mediante otras herramientas de supervisión, para proporcionar análisis entre varios orígenes.
+Log Analytics es un servicio de [Azure](../../operations-management-suite/operations-management-suite-overview.md) que supervisa los entornos local y en la nube para mantener su disponibilidad y rendimiento. Log Analytics recopila los datos generados por los recursos en los entornos local y de nube y mediante otras herramientas de supervisión, para proporcionar análisis entre varios orígenes.
 
-Las [soluciones de administración de Log Analytics](../../log-analytics/log-analytics-add-solutions.md) agregan funcionalidad a OMS, lo que proporciona datos y herramientas de análisis adicionales. Las soluciones de administración de Log Analytics son una colección de reglas de lógica, visualización y adquisición de datos que proporcionan métricas para un área determinada. Una solución también puede definir tipos de registro nuevos que se van a recopilar y estos registros se pueden analizar con búsquedas de registros o con las nuevas características de interfaz de usuario.
+Las [soluciones de administración de Log Analytics](../../log-analytics/log-analytics-add-solutions.md) le agregan funcionalidad, lo cual proporciona datos y herramientas de análisis adicionales. Las soluciones de administración de Log Analytics son una colección de reglas de lógica, visualización y adquisición de datos que proporcionan métricas para un área determinada. Una solución también puede definir tipos de registro nuevos que se van a recopilar y estos registros se pueden analizar con búsquedas de registros o con las nuevas características de interfaz de usuario.
 
 [Insight & Analytics](https://azure.microsoft.com/pricing/details/insight-analytics/) se compiló en base a la plataforma de Log Analytics. Puede elegir usar las funcionalidades de Log Analytics y pagar por los GB introducidos en el servicio o cambiar su área de trabajo a la capa de Insight and Analytics y pagar por nodo administrado por el servicio. Insight & Analytics ofrece un superconjunto de las funcionalidades que ofrece Log Analytics. La solución HBase Monitoring está disponible con Log Analytics o Insight & Analytics.
 
-Cuando se proporciona una solución de HDInsight HBase Monitoring, crea un área de trabajo de OMS. Cada área de trabajo es un entorno de Log Analytics único, con su propio repositorio de datos, sus propios orígenes de datos y sus propias soluciones. Puede crear varias áreas de trabajo en su suscripción para admitir varios entornos, como los entornos de producción y prueba.
+Cuando se aprovisiona una solución de HDInsight HBase Monitoring, se crea un área de trabajo de Log Analytics. Cada área de trabajo es un entorno de Log Analytics único, con su propio repositorio de datos, sus propios orígenes de datos y sus propias soluciones. Puede crear varias áreas de trabajo en su suscripción para admitir varios entornos, como los entornos de producción y prueba.
 
 ## <a name="provision-hdinsight-hbase-monitoring"></a>Aprovisionamiento de HDInsight HBase Monitoring
 
@@ -50,7 +50,7 @@ Cuando se proporciona una solución de HDInsight HBase Monitoring, crea un área
 
     ![Panel Soluciones de administración](./media/apache-hbase-monitor-with-oms/hbase-solution.png)  
 6. En el panel de soluciones de administración, revise la información sobre la solución de administración y seleccione **Crear**. 
-7. En el panel del *nombre de la solución de administración*, seleccione un área de trabajo existente para asociarlo con la solución de administración, o bien cree un área de trabajo de OMS nueva y selecciónela.
+7. En el panel del *nombre de la solución de administración*, seleccione un área de trabajo existente para asociar a la solución de administración o cree una nueva área de trabajo de Log Analytics y, a continuación, selecciónela.
 8. Cambie la configuración de área de trabajo de la suscripción de Azure, el grupo de recursos y la ubicación según corresponda. 
     ![área de trabajo de solución](./media/apache-hbase-monitor-with-oms/solution-workspace.png)  
 9. Seleccione **Crear**.  
@@ -68,9 +68,9 @@ Cuando se proporciona una solución de HDInsight HBase Monitoring, crea un área
 
 Para usar las herramientas que proporciona HDInsight HBase Monitoring, debe configurar el clúster para que transmita las métricas del servidor de región, los nodos principales y los nodos de ZooKeeper a Log Analytics. Esta configuración se realiza mediante la ejecución de una acción de script en el clúster de HDInsight HBase.
 
-### <a name="get-oms-workspace-id-and-workspace-key"></a>Obtención del identificador y la clave del área de trabajo de OMS
+### <a name="get-log-analytics-workspace-id-and-workspace-key"></a>Obtención del identificador y la clave del área de trabajo de Log Analytics
 
-Necesitará el identificador y la clave del área de trabajo de OMS para habilitar los nodos en el clúster para realizar la autenticación con Log Analytics. Para obtener estos valores:
+Necesitará el identificador y la clave del área de trabajo de Log Analytics para habilitar los nodos en el clúster para realizar la autenticación con Log Analytics. Para obtener estos valores:
 
 1. Desde el panel HBase Monitoring en Azure Portal, seleccione Información general.
 
@@ -146,5 +146,5 @@ Una vez que se completa la acción de script, debería ver los datos en la soluc
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Creación de alertas en Log Analytics (OMS)](../../log-analytics/log-analytics-alerts-creating.md)
+* [Creación de alertas en Log Analytics](../../log-analytics/log-analytics-alerts-creating.md)
 * [Búsqueda de datos con búsquedas de registros en Azure Log Analytics](../../log-analytics/log-analytics-log-searches.md).

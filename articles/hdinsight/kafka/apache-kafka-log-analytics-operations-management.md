@@ -1,30 +1,30 @@
 ---
 title: Log Analytics para Apache Kafka - Azure HDInsight | Microsoft Docs
-description: "Obtenga información acerca de cómo usar Operations Management Suite para analizar los registros de clúster de Apache Kafka en Azure HDInsight."
+description: Obtenga información acerca de cómo usar Log Analytics para analizar los registros de clúster de Apache Kafka en Azure HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/30/2018
 ms.author: larryfr
-ms.openlocfilehash: 6fcb925829e33704c94c96209a61346b0404e13b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 15107a0fbcd6242ac13f366b16be10efaeaad6bb
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>Análisis de registros para Apache Kafka en HDInsight
 
-Obtenga información acerca de cómo usar Microsoft Operations Management Suite para analizar los registros generados por Apache Kafka en HDInsight.
+Obtenga información acerca de cómo usar Log Analytics para analizar los registros generados por Apache Kafka en Azure HDInsight.
 
-## <a name="enable-oms-for-kafka"></a>Habilitación de OMS para Kafka
+## <a name="enable-log-analytics-for-kafka"></a>Habilitación de Log Analytics para Kafka
 
 Los pasos para habilitar Log Analytics para HDInsight son los mismos para todos los clústeres de HDInsight. Use los vínculos siguientes para aprender a crear y configurar los servicios necesarios:
 
@@ -32,14 +32,14 @@ Los pasos para habilitar Log Analytics para HDInsight son los mismos para todos 
 
 2. Cree Kafka en un clúster de HDInsight. Para obtener más información, consulte el documento [Introducción a Apache Kafka (versión preliminar) en HDInsight](apache-kafka-get-started.md).
 
-3. Configure el clúster de Kafka para usar Log Analyitcs. Para obtener más información, vea el documento [Use Log Analytics to monitor HDInsight](../hdinsight-hadoop-oms-log-analytics-tutorial.md) (Uso de Log Analytics para supervisar HDInsight).
+3. Configure el clúster de Kafka para usar Log Analytics. Para obtener más información, vea el documento [Use Log Analytics to monitor HDInsight](../hdinsight-hadoop-oms-log-analytics-tutorial.md) (Uso de Log Analytics para supervisar HDInsight).
 
     > [!NOTE]
     > También puede configurar el clúster para usar Log Analytics mediante el cmdlet `Enable-AzureRmHDInsightOperationsManagementSuite`. Este cmdlet requiere la información siguiente:
     >
     > * El nombre del clúster de HDInsight.
-    > * El identificador de área de trabajo de Log Analytics. Puede encontrar el identificador de área de trabajo en el área de trabajo de OMS para el área de trabajo de Log Analytics.
-    > * La clave principal para la conexión de OMS. Para buscar la clave principal, seleccione la instancia de Log Analytics y, a continuación, __Portal de OMS__. En el portal de OMS, seleccione __Configuración__, __Orígenes conectados__ y, a continuación, __Servidores de Linux__.
+    > * El identificador de área de trabajo de Log Analytics. Puede encontrar el identificador de área de trabajo de su área de trabajo de Log Analytics.
+    > * La clave principal para la conexión de Log Analytics. Para buscar la clave principal, seleccione la instancia de Log Analytics y, a continuación, __Portal de OMS__. En el portal de OMS, seleccione __Configuración__, __Orígenes conectados__ y, a continuación, __Servidores de Linux__.
 
 
 > [!IMPORTANT]
@@ -72,7 +72,7 @@ Los pasos para habilitar Log Analytics para HDInsight son los mismos para todos 
  
  ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información sobre Log Analytics, consulte el documento [Introducción a un área de trabajo de Log Analytics](../../log-analytics/log-analytics-get-started.md).
+Para más información sobre Log Analytics, consulte el documento [Introducción a un área de trabajo de Log Analytics](../../log-analytics/log-analytics-get-started.md).
 
 Para obtener información sobre cómo trabajar con Kafka, consulte los documentos siguientes:
 

@@ -9,20 +9,19 @@ ms.author: xshi
 ms.date: 03/18/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 0ea2dc723c674e7119b6ef38771a73ff4c11e98d
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6c94701507f86f6ecab2875f952215cc3e4cc719
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="develop-an-iot-edge-solution-with-multiple-modules-in-visual-studio-code---preview"></a>Desarrollo de una solución de IoT Edge con varios módulos en Visual Studio Code: versión preliminar
-Puede utilizar Visual Studio Code para desarrollar su solución de IoT Edge con varios módulos. Este tutorial le guía a través de la creación, la actualización y la implementación de una solución de IoT Edge que simplemente canaliza los datos de los sensores en un dispositivo IoT Edge simulado en Visual Studio Code. En este tutorial, aprenderá a:
+Puede utilizar Visual Studio Code para desarrollar su solución de IoT Edge con varios módulos. Este artículo le guía en la creación, la actualización y la implementación de una solución de IoT Edge que canaliza los datos de los sensores en un dispositivo IoT Edge simulado en Visual Studio Code. En este artículo, aprenderá a:
 
-> [!div class="checklist"]
-> * Usar Visual Studio Code para crear una solución de IoT Edge
-> * Usar Visual Studio Code para agregar un nuevo módulo a su solución de IoT Edge de trabajo 
-> * Implementar la solución de IoT Edge (varios módulos) al dispositivo de IoT Edge
-> * Visualización de datos generados
+* Usar Visual Studio Code para crear una solución de IoT Edge
+* Usar Visual Studio Code para agregar un nuevo módulo a su solución de IoT Edge de trabajo 
+* Implementar la solución de IoT Edge (varios módulos) al dispositivo de IoT Edge
+* Visualización de datos generados
 
 ## <a name="prerequisites"></a>requisitos previos
 * Complete los tutoriales siguientes:
@@ -67,8 +66,7 @@ Puede utilizar Visual Studio Code para desarrollar su solución de IoT Edge con 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha creado una solución de IoT Edge con un módulo C#, más adelante ha agregado un módulo de Functions, ha actualizado las rutas de la solución y ha compilado e implementado en el dispositivo de IoT Edge simulado. Puede continuar con cualquiera de los siguientes tutoriales para obtener información sobre otros escenarios al desarrollar Azure IoT Edge en VS Code.
+Puede continuar con cualquiera de los siguientes artículos para conocer otros escenarios al desarrollar Azure IoT Edge en Visual Studio Code.
 
-> [!div class="nextstepaction"]
-> [Uso de Visual Studio Code para depurar un módulo de C# con Azure IoT Edge](how-to-vscode-debug-csharp-module.md)
-> [Uso de Visual Studio Code para depurar Azure Functions con Azure IoT Edge](how-to-vscode-debug-azure-function.md)
+* [Depuración de un módulo de C# en VS Code](how-to-vscode-debug-csharp-module.md)
+* [Depuración de una función de C# en VS Code](how-to-vscode-debug-azure-function.md)

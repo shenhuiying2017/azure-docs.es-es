@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/02/2018
 ms.author: sachins
-ms.openlocfilehash: c394142ba40fc580bdcec11430dcae2816fa9760
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: daa6a0fd6927a166ee4809dc1dc5df612765403a
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="best-practices-for-using-azure-data-lake-store"></a>Procedimientos recomendados para usar Azure Data Lake Store
 En este artículo hallará más información sobre los procedimientos recomendados y las consideraciones que debe tener en cuenta al trabajar con Azure Data Lake Store. En este artículo se proporciona información sobre seguridad, rendimiento, resistencia y supervisión de Data Lake Store. Antes de Data Lake Store, el trabajo con macrodatos en servicios como Azure HDInsight era complicado. Había que particionar los datos en varias cuentas de almacenamiento de blobs para que se pudiera lograr un almacenamiento de petabytes y un rendimiento óptimo a esa escala. Gracias a Data Lake Store, la mayoría de los restrictivos límites de tamaño y rendimiento se han eliminado. No obstante, aún quedan algunas consideraciones que debe tener en cuenta y que se describen en este artículo para que pueda obtener el mejor rendimiento de Data Lake Store. 
@@ -129,7 +129,7 @@ Data Lake Store proporciona registros de diagnóstico detallados y auditoría. D
 
 ### <a name="export-data-lake-store-diagnostics"></a>Exportación de diagnósticos de Data Lake Store 
 
-Una de las formas más rápidas de acceder a los registros que permiten búsquedas de Data Lake Store es habilitar el trasvase de registros a **Operations Management Suite (OMS)** en la hoja **Diagnóstico** de la cuenta de Data Lake Store. Esto proporciona acceso inmediato a los registros entrantes con filtros de horas y contenido, junto con opciones de alerta (correo electrónico/webhook) que se desencadenan en intervalos de 15 minutos. Para obtener instrucciones, consulte [Acceso a los registros de diagnóstico de Azure Data Lake Store](data-lake-store-diagnostic-logs.md). 
+Una de las formas más rápidas de acceder a registros que permiten búsquedas de Data Lake Store es habilitar el trasvase de registros a **Log Analytics** en la hoja **Diagnóstico** de la cuenta de Data Lake Store. Esto proporciona acceso inmediato a los registros entrantes con filtros de horas y contenido, junto con opciones de alerta (correo electrónico/webhook) que se desencadenan en intervalos de 15 minutos. Para obtener instrucciones, consulte [Acceso a los registros de diagnóstico de Azure Data Lake Store](data-lake-store-diagnostic-logs.md). 
 
 Para recibir más alertas en tiempo real y tener más control sobre dónde se guardan los registros, considere la posibilidad de exportar los registros a Azure Event Hubs, donde se puede analizar el contenido de forma individual o a lo largo de un período de tiempo para enviar notificaciones en tiempo real a una cola. Una aplicación aparte como [Logic App](../connectors/connectors-create-api-azure-event-hubs.md) puede posteriormente consumir y comunicar las alertas al canal apropiado, así como enviar las métricas a herramientas de supervisión como NewRelic, Datadog o AppDynamics. Alternativamente, si está usando una herramienta de terceros como ElasticSearch, puede exportar los registros a Blob Storage y usar el [complemento Azure Logstash](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-input-azureblob) para consumir los datos en la pila de Elasticsearch, Kibana y Logstash (ELK).
 
@@ -139,7 +139,7 @@ Si el trasvase de registros de Data Lake Store no está activado, Azure HDInsigh
 
     log4j.logger.com.microsoft.azure.datalake.store=DEBUG 
 
-Una vez que esta se establece la propiedad y se reinician los nodos, los diagnósticos de Data Lake Store se escriben en los registros de YARN en los nodos (/tmp/<user>/yarn.log) y se pueden supervisar detalles importantes como los errores o las limitaciones (código de error HTTP 429). Esta misma información también se puede supervisar en OMS o en cualquier ubicación en la que se trasvasen los registros en la hoja [Diagnóstico](data-lake-store-diagnostic-logs.md) de la cuenta de Data Lake Store. Se recomienda tener activado al menos el registro del lado cliente o utilizar la opción de trasvase de registros con Data Lake Store para una mayor visibilidad operativa y una depuración más sencilla.
+Una vez que esta se establece la propiedad y se reinician los nodos, los diagnósticos de Data Lake Store se escriben en los registros de YARN en los nodos (/tmp/<user>/yarn.log) y se pueden supervisar detalles importantes como los errores o las limitaciones (código de error HTTP 429). Esta misma información también se puede supervisar en Log Analytics o en cualquier ubicación a la que se trasvasen los registros en la hoja [Diagnóstico](data-lake-store-diagnostic-logs.md) de la cuenta de Data Lake Store. Se recomienda tener activado al menos el registro del lado cliente o utilizar la opción de trasvase de registros con Data Lake Store para una mayor visibilidad operativa y una depuración más sencilla.
 
 ### <a name="run-synthetic-transactions"></a>Ejecutar transacciones sintéticas 
 

@@ -1,21 +1,21 @@
 ---
-title: Supervisión de Azure SQL Data Sync (versión preliminar) con Log Analytics de OMS | Microsoft Docs
-description: Obtenga información sobre cómo supervisar Azure SQL Data Sync (versión preliminar) mediante Log Analytics de OMS
+title: Supervisión de Azure SQL Data Sync (versión preliminar) con Log Analytics | Microsoft Docs
+description: Aprenda a supervisar Azure SQL Data Sync (versión preliminar) mediante Log Analytics
 services: sql-database
-ms.date: 11/07/2017
+ms.date: 04/01/2018
 ms.topic: article
 ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: c106d5bbea118c9b78cbccee187b8eb5c347f232
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 1b22b4ddf9fa4880b814efc3f8c3f1fc6ec7d141
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="monitor-sql-data-sync-preview-with-oms-log-analytics"></a>Supervisar SQL Data Sync (versión preliminar) con Log Analytics de OMS 
+# <a name="monitor-sql-data-sync-preview-with-log-analytics"></a>Supervisión de SQL Data Sync (versión preliminar) con Log Analytics 
 
 Antes, para consultar el registro de actividad de SQL Data Sync y detectar errores y advertencias, había que hacerlo manualmente en el Azure Portal, o bien recurrir a PowerShell o a la API de REST. Siga los pasos descritos en este artículo para configurar una solución personalizada que mejora la experiencia de supervisión de Data Sync. Esta solución se puede personalizar para adaptarse a su escenario.
 
@@ -23,27 +23,27 @@ Para obtener información general sobre SQL Data Sync, vea [Sincronización de d
 
 ## <a name="monitoring-dashboard-for-all-your-sync-groups"></a>Panel de supervisión de todos los grupos de sincronización 
 
-Ya no es necesario buscar por todos los registros de cada grupo de sincronización individualmente para dar con algún problema. Ahora, todos los grupos de sincronización de cualquiera de sus suscripciones se pueden supervisar en un solo lugar, con una vista de OMS (Operations Management Suite) personalizada. Esta vista presenta la información que es importante para los clientes de SQL Data Sync.
+Ya no es necesario buscar por todos los registros de cada grupo de sincronización individualmente para dar con algún problema. Ahora, todos los grupos de sincronización de cualquiera de sus suscripciones se pueden supervisar en un solo lugar, con una vista de Log Analytics personalizada. Esta vista presenta la información que es importante para los clientes de SQL Data Sync.
 
 ![Panel de supervisión de Data Sync](media/sql-database-sync-monitor-oms/sync-monitoring-dashboard.png)
 
 ## <a name="automated-email-notifications"></a>Notificaciones de correo electrónico automatizadas
 
-Ya no es necesario consultar el registro manualmente en Azure Portal o a través de PowerShell o la API de REST. [Log Analytics de OMS](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) le permite crear alertas que se envían directamente a las direcciones de correo electrónico de los usuarios que necesitan ver esas alertas cuando se produce un error.
+Ya no es necesario consultar el registro manualmente en Azure Portal o a través de PowerShell o la API de REST. [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) le permite crear alertas que se envían directamente a las direcciones de correo electrónico de los usuarios que necesitan ver esas alertas cuando se produce un error.
 
 ![Notificaciones de correo electrónico de Data Sync](media/sql-database-sync-monitor-oms/sync-email-notifications.png)
 
 ## <a name="how-do-you-set-up-these-monitoring-features"></a>¿Cómo configurar estas características de supervisión? 
 
-Si hace lo siguiente, implementará una solución de supervisión de OMS personalizada para SQL Data Sync en menos de una hora:
+Si hace lo siguiente, implementará una solución de supervisión de Log Analytics personalizada para SQL Data Sync en menos de una hora:
 
 Debe configurar tres componentes:
 
--   Un runbook de PowerShell para introducir datos de registro de SQL Data Sync en OMS
+-   Un runbook de PowerShell para introducir datos de registro de SQL Data Sync en Log Analytics.
 
--   Una alerta de Log Analytics de OMS para las notificaciones de correo electrónico
+-   Una alerta de Log Analytics para las notificaciones de correo electrónico.
 
--   Una vista de OMS para la supervisión
+-   Una vista de Log Analytics para la supervisión.
 
 ### <a name="samples-to-download"></a>Descarga de ejemplos
 
@@ -51,7 +51,7 @@ Descargue los dos ejemplos siguientes:
 
 -   [DataSyncLogPowerShellRunbook](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogPowerShellRunbook.ps1)
 
--   [DataSyncLogOMSView](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
+-   [Vista de Data Sync Log Analytics](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
 
 ### <a name="prerequisites"></a>requisitos previos
 
@@ -59,11 +59,11 @@ Asegúrese de que tiene configurado lo siguiente:
 
 -   Una cuenta de Azure Automation
 
--   Log Analytics vinculado a un área de trabajo de OMS
+-   Área de trabajo de Log Analytics
 
 ## <a name="powershell-runbook-to-get-sql-data-sync-log"></a>Runbook de PowerShell para obtener el registro de SQL Data Sync 
 
-Use un runbook de PowerShell hospedado en Azure Automation para extraer los datos del registro de SQL Data Sync y enviarlos a OMS. Se incluye un script de ejemplo. Como requisito previo, debe tener una cuenta de Azure Automation. Luego, debe crear un runbook y programarlo para ejecutarlo. 
+Use un runbook de PowerShell hospedado en Azure Automation para extraer los datos del registro de SQL Data Sync y enviarlos a Log Analytics. Se incluye un script de ejemplo. Como requisito previo, debe tener una cuenta de Azure Automation. Luego, debe crear un runbook y programarlo para ejecutarlo. 
 
 ### <a name="create-a-runbook"></a>Crear un runbook
 
@@ -121,9 +121,9 @@ Para programar un runbook:
 
 Para averiguar si la automatización funciona según lo previsto, en la sección **Información general** de su cuenta de Automation, busque la vista **Estadísticas del trabajo** dentro de **Supervisión**. Ancle esta vista en el panel para que sea más fácil verla. Las ejecuciones del runbook que se realizan correctamente se muestran como "Completado" y las que no, como "Error".
 
-## <a name="create-an-oms-log-reader-alert-for-email-notifications"></a>Crear una alerta de lector de registro de OMS para notificaciones de correo electrónico
+## <a name="create-a-log-analytics-reader-alert-for-email-notifications"></a>Creación de una alerta de lector de Log Analytics para notificaciones de correo electrónico
 
-Haga lo siguiente para crear una alerta que usa Log Analytics de OMS. Como requisito previo, Log Analytics de OMS debe estar vinculado a un área de trabajo de OMS.
+Haga lo siguiente para crear una alerta que usa Log Analytics. Como requisito previo, Log Analytics debe estar vinculado a un área de trabajo de este.
 
 1.  En el portal de OMS, seleccione **Búsqueda de registros**.
 
@@ -179,7 +179,7 @@ En la mayoría de los casos, esta solución es gratuita.
 
 **Azure Automation:** se puede incurrir en costes en función del uso que haga de la cuenta de Azure Automation. Los primeros 500 minutos de tiempo de ejecución del trabajo al mes son gratuitos. Esta solución casi nunca suele superar los 500 minutos al mes. Para no incurrir en gastos, programe el runbook para que se ejecute en un intervalo de dos horas o más. Para más información, vea [Precios de Automation](https://azure.microsoft.com/pricing/details/automation/).
 
-**Log Analytics de OMS:** se puede incurrir en un coste asociado a OMS en función del uso que haga. El nivel gratuito incluye 500 MB de datos introducidos por día. Esta solución casi nunca suele superar los 500 MB de datos introducidos al mes. Para reducir el uso, use el filtro de solo errores incluido en el runbook. Si usa más de 500 MB al día, actualice al nivel de pago para no arriesgarse a que Log Analytics se detenga cuando se alcance la limitación. Para más información, vea [Precios de Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
+**Log Analytics:** se puede incurrir en un coste asociado a Log Analytics en función del uso que haga. El nivel gratuito incluye 500 MB de datos introducidos por día. Esta solución casi nunca suele superar los 500 MB de datos introducidos al mes. Para reducir el uso, use el filtro de solo errores incluido en el runbook. Si usa más de 500 MB al día, actualice al nivel de pago para no arriesgarse a que Log Analytics se detenga cuando se alcance la limitación. Para más información, vea [Precios de Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
 
 ## <a name="code-samples"></a>Ejemplos de código
 
@@ -187,7 +187,7 @@ Descargue los códigos de ejemplo descritos en este artículo de las siguientes 
 
 -   [DataSyncLogPowerShellRunbook](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogPowerShellRunbook.ps1)
 
--   [DataSyncLogOMSView](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
+-   [Vista de Data Sync Log Analytics](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre SQL Data Sync, consulte:

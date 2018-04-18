@@ -1,12 +1,13 @@
 ---
 title: Enrutamiento del tráfico de red en Azure PowerShell | Microsoft Docs
-description: Aprenda a enrutar el tráfico de red con una tabla de rutas mediante PowerShell.
+description: En este artículo, aprenderá a enrutar el tráfico de red con una tabla de rutas mediante PowerShell.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: ''
@@ -16,24 +17,23 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: f7be6aa58c6779150d3e79893e6e179d08611567
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f6f3bd2a9683daf5f523cc5cfe43e568fb508694
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="route-network-traffic-with-a-route-table-using-powershell"></a>Enrutamiento del tráfico de red con una tabla de rutas mediante PowerShell
 
-De forma predeterminada, Azure enruta automáticamente el tráfico entre todas las subredes de una red virtual. Sin embargo, puede crear sus propias rutas para invalidar las predeterminadas de Azure. La posibilidad de crear rutas personalizadas resulta de utilidad si, por ejemplo, quiere enrutar el tráfico entre subredes por medio de una aplicación virtual de red. En este artículo, aprenderá a:
+De forma predeterminada, Azure enruta automáticamente el tráfico entre todas las subredes de una red virtual. Sin embargo, puede crear sus propias rutas para invalidar las predeterminadas de Azure. La posibilidad de crear rutas personalizadas resulta de utilidad si, por ejemplo, quiere enrutar el tráfico entre subredes por medio de una aplicación virtual de red (NVA). En este artículo, aprenderá a:
 
-> [!div class="checklist"]
-> * Creación de una tabla de rutas
-> * Creación de una ruta
-> * Creación de una red virtual con varias subredes
-> * Asociación de una tabla de rutas a una subred
-> * Creación de una aplicación virtual de red para enrutar el tráfico
-> * Implementación de máquinas virtuales en subredes diferentes
-> * Enrutamiento del tráfico desde una subred a otra a través de una aplicación virtual de red
+* Creación de una tabla de rutas
+* Creación de una ruta
+* Creación de una red virtual con varias subredes
+* Asociación de una tabla de rutas a una subred
+* Creación de una aplicación virtual de red para enrutar el tráfico
+* Implementación de máquinas virtuales (VM) en subredes diferentes
+* Enrutamiento del tráfico desde una subred a otra a través de una aplicación virtual de red
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -237,45 +237,45 @@ mstsc /v:<publicIpAddress>
 
 Abra el archivo RDP descargado. Cuando se le pida, seleccione **Conectar**.
 
-Escriba el nombre de usuario y la contraseña que especificó al crear la máquina virtual (puede que deba seleccionar **More choices** [Más opciones] y luego **Use a different account** [Usar una cuenta diferente], para especificar las credenciales que escribió cuando creó la máquina virtual). A continuación, seleccione **Aceptar**. Puede recibir una advertencia de certificado durante el proceso de inicio de sesión. Seleccione **Sí** para continuar con la conexión. 
+Escriba el nombre de usuario y la contraseña que especificó al crear la máquina virtual (puede que deba seleccionar **Más opciones** y luego **Usar una cuenta diferente**, para especificar las credenciales que escribió cuando creó la máquina virtual). A continuación, seleccione **Aceptar**. Puede recibir una advertencia de certificado durante el proceso de inicio de sesión. Seleccione **Sí** para continuar con la conexión. 
 
-En el último paso, se usa el comando tracert.exe para probar el enrutamiento. Tracert usa el Protocolo de mensajes de control de Internet (ICMP), que se deniega a través del Firewall de Windows. Para habilitar ICMP mediante el Firewall de Windows, escriba el comando siguiente desde PowerShell:
+En el último paso, se usa el comando tracert.exe para probar el enrutamiento. Tracert usa el Protocolo de mensajes de control de Internet (ICMP), que se deniega a través del Firewall de Windows. Para permitir el uso de ICMP a través del Firewall de Windows, escriba el comando siguiente desde PowerShell en la máquina virtual *myVmPrivate*:
 
 ```powershell
-New-NetFirewallRule ???DisplayName ???Allow ICMPv4-In??? ???Protocol ICMPv4
+New-NetFirewallRule -DisplayName "Allow ICMPv4-In" -Protocol ICMPv4
 ```
 
-Aunque en este artículo se usa tracert para probar el enrutamiento, no se recomienda permitir ICMP mediante el Firewall de Windows para las implementaciones en producción.
+Aunque en este artículo se usa trace route para probar el enrutamiento, no es recomendable permitir el uso de ICMP a través del Firewall de Windows en las implementaciones de producción.
 
-Habilite el reenvío IP dentro del sistema operativo de la máquina virtual *myVmNva* siguiendo estos pasos en la máquina virtual *myVmPrivate*:
+El reenvío IP se habilitó dentro de Azure para la interfaz de red de la máquina virtual en [Habilitación del reenvío IP](#enable-ip-forwarding). Dentro de la máquina virtual, también el sistema operativo o una aplicación en ejecución deben poder reenviar el tráfico de red. Habilite el reenvío IP en el sistema operativo de *myVmNva*.
 
-Realice una conexión de Escritorio remoto a la máquina virtual *myVmNva* con el siguiente comando desde PowerShell:
+Desde un símbolo del sistema de la máquina virtual *myVmPrivate*, conéctese mediante Escritorio remoto a *myVmNva*:
 
 ``` 
 mstsc /v:myvmnva
 ```
     
-Para habilitar el reenvío IP dentro del sistema operativo, escriba el siguiente comando en PowerShell:
+Para habilitar el reenvío IP dentro del sistema operativo, escriba el siguiente comando en PowerShell desde la máquina virtual *myVmNva*:
 
 ```powershell
 Set-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters -Name IpEnableRouter -Value 1
 ```
     
-Reinicie la máquina virtual, que también desconecta la sesión de Escritorio remoto.
+Reinicie la máquina virtual *myVmNva*, lo que desconectará también la sesión de Escritorio remoto.
 
-Mientras permanece conectado a la máquina virtual *myVmPrivate*, después de que se reinicia la máquina virtual *myVmNva*, cree una sesión de Escritorio remoto a la máquina virtual *myVmPublic* con el siguiente comando:
+Mientras sigue conectado a la máquina virtual *myVmPrivate* y una vez que se reinicie la máquina virtual *myVmNva*, cree una sesión de Escritorio remoto en la máquina virtual *myVmPublic*:
 
 ``` 
 mstsc /v:myVmPublic
 ```
     
-Para habilitar ICMP mediante el Firewall de Windows, escriba el comando siguiente desde PowerShell:
+Para permitir el uso de ICMP a través del Firewall de Windows, escriba el comando siguiente desde PowerShell en la máquina virtual *myVmPrivate*:
 
 ```powershell
-New-NetFirewallRule ???DisplayName ???Allow ICMPv4-In??? ???Protocol ICMPv4
+New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
 ```
 
-Para probar el enrutamiento del tráfico de red a la máquina virtual *myVmPrivate* de la máquina virtual *myVmPublic*, escriba el siguiente comando de PowerShell:
+Para probar el enrutamiento del tráfico de red desde *myVmPublic* hasta *myVmPrivate*, escriba el siguiente comando de PowerShell en la máquina virtual *myVmPublic*:
 
 ```
 tracert myVmPrivate
@@ -296,7 +296,8 @@ Trace complete.
 Puede ver que el primer salto es 10.0.2.4, que es la dirección IP privada de la aplicación virtual de red. El segundo salto es 10.0.1.4, la dirección IP privada de la máquina virtual *myVmPrivate*. La ruta agregada a la tabla de rutas *myRouteTablePublic* y asociada a la subred *Pública* hizo que Azure enrutara el tráfico mediante la NVA, en lugar de a la subred *Privada* directamente.
 
 Cierre la sesión de Escritorio remoto a la máquina virtual *myVmPublic*, que aún le deja conectado a la máquina virtual *myVmPrivate*.
-Para probar el enrutamiento del tráfico de red a la máquina virtual *myVmPublic* de la máquina virtual *myVmPrivate*, escriba el siguiente comando desde un símbolo del sistema:
+
+Para probar el enrutamiento del tráfico de red desde *myVmPrivate* hasta *myVmPublic*, escriba el siguiente comando en un símbolo del sistema de la máquina virtual *myVmPrivate*:
 
 ```
 tracert myVmPublic
@@ -309,7 +310,7 @@ Tracing route to myVmPublic.vpgub4nqnocezhjgurw44dnxrc.bx.internal.cloudapp.net 
 over a maximum of 30 hops:
     
 1     1 ms     1 ms     1 ms  10.0.0.4
-    
+   
 Trace complete.
 ```
 
@@ -327,9 +328,6 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, creó una tabla de rutas y la asoció a una subred. Creó una aplicación virtual de red sencilla que enrutó el tráfico desde una subred pública hasta una subred privada. Implemente una variedad de aplicaciones virtuales de red que realicen funciones de red, como firewall y optimización de la WAN, desde [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking). Antes de implementar tablas de rutas para su uso en producción, se recomienda familiarizarse bien con el [enrutamiento en Azure](virtual-networks-udr-overview.md), la [administración de tablas de rutas](manage-route-table.md) y los [límites de Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+En este artículo, creó una tabla de rutas y la asoció a una subred. Creó una aplicación virtual de red sencilla que enrutó el tráfico desde una subred pública hasta una subred privada. Implemente una variedad de aplicaciones virtuales de red que realicen funciones de red, como firewall y optimización de la WAN, desde [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking). Para más información acerca del enrutamiento, consulte [Introducción al enrutamiento](virtual-networks-udr-overview.md) y [Administración de una tabla de rutas](manage-route-table.md).
 
-Aunque puede implementar muchos recursos de Azure en una red virtual, no es el caso de los recursos de algunos servicios de PaaS de Azure. Pero puede restringir el acceso a los recursos de algunos servicios de PaaS de Azure solo al tráfico que procede de una subred de una red virtual. Avance al siguiente tutorial para aprender a restringir el acceso de red a los recursos de PaaS de Azure.
-
-> [!div class="nextstepaction"]
-> [Restringir el acceso de red a los recursos de PaaS](tutorial-restrict-network-access-to-resources-powershell.md)
+Aunque puede implementar muchos recursos de Azure en una red virtual, no es el caso de los recursos de algunos servicios de PaaS de Azure. Pero puede restringir el acceso a los recursos de algunos servicios de PaaS de Azure solo al tráfico que procede de una subred de una red virtual. Para saber cómo hacerlo, consulte [Restricción del acceso de red a los recursos de PaaS](tutorial-restrict-network-access-to-resources-powershell.md).

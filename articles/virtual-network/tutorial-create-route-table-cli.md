@@ -1,12 +1,13 @@
 ---
 title: Enrutamiento del tráfico de red en la CLI de Azure | Microsoft Docs
-description: Aprenda a enrutar el tráfico de red con una tabla de rutas mediante la CLI de Azure.
+description: En este artículo, aprenderá a enrutar el tráfico de red con una tabla de rutas mediante la CLI de Azure.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
@@ -16,24 +17,23 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 67bfc8ee677a14735174e9501fa5e10a69bd1ec7
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: eb4a28b5a57d7e301e800cd4ad87c56b7c5df6d2
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="route-network-traffic-with-a-route-table-using-the-azure-cli"></a>Enrutamiento del tráfico de red con una tabla de rutas mediante la CLI de Azure
 
 De forma predeterminada, Azure enruta automáticamente el tráfico entre todas las subredes de una red virtual. Sin embargo, puede crear sus propias rutas para invalidar las predeterminadas de Azure. La posibilidad de crear rutas personalizadas resulta de utilidad si, por ejemplo, quiere enrutar el tráfico entre subredes por medio de una aplicación virtual de red (NVA). En este artículo, aprenderá a:
 
-> [!div class="checklist"]
-> * Creación de una tabla de rutas
-> * Creación de una ruta
-> * Creación de una red virtual con varias subredes
-> * Asociación de una tabla de rutas a una subred
-> * Creación de una aplicación virtual de red para enrutar el tráfico
-> * Implementación de máquinas virtuales en subredes diferentes
-> * Enrutamiento del tráfico desde una subred a otra a través de una aplicación virtual de red
+* Creación de una tabla de rutas
+* Creación de una ruta
+* Creación de una red virtual con varias subredes
+* Asociación de una tabla de rutas a una subred
+* Creación de una aplicación virtual de red para enrutar el tráfico
+* Implementación de máquinas virtuales (VM) en subredes diferentes
+* Enrutamiento del tráfico desde una subred a otra a través de una aplicación virtual de red
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -205,7 +205,7 @@ La máquina virtual tarda en crearse unos minutos. Después de crear la máquina
 ```
 Anote el valor de **publicIpAddress**. En un paso posterior, usaremos esta dirección para obtener acceso a la máquina virtual desde Internet.
 
-## <a name="route-traffic-through-an-nva"></a>Enrutamiento del tráfico mediante una aplicación virtual de red
+## <a name="route-traffic-through-an-nva"></a>Enrutamiento del tráfico a través de una aplicación virtual de red
 
 Use el siguiente comando para crear una sesión de SSH con la máquina virtual *myVmPrivate*. Reemplace *<publicIpAddress>* con la dirección IP pública de la máquina virtual. En el ejemplo anterior, la dirección IP era *13.90.242.231*.
 
@@ -275,9 +275,6 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, creó una tabla de rutas y la asoció a una subred. Creó una aplicación virtual de red sencilla que enrutó el tráfico desde una subred pública hasta una subred privada. Puede implementar diversas aplicaciones virtuales de red preconfiguradas que realicen funciones de red, como son la optimización de la WAN y la de firewall, desde [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking). Antes de implementar tablas de rutas para su uso en producción, se recomienda familiarizarse bien con el [enrutamiento en Azure](virtual-networks-udr-overview.md), la [administración de tablas de rutas](manage-route-table.md) y los [límites de Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+En este artículo, creó una tabla de rutas y la asoció a una subred. Creó una aplicación virtual de red sencilla que enrutó el tráfico desde una subred pública hasta una subred privada. Puede implementar diversas aplicaciones virtuales de red preconfiguradas que realicen funciones de red, como son la optimización de la WAN y la de firewall, desde [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking). Para más información acerca del enrutamiento, consulte [Introducción al enrutamiento](virtual-networks-udr-overview.md) y [Administración de una tabla de rutas](manage-route-table.md).
 
-Aunque puede implementar muchos recursos de Azure en una red virtual, no es el caso de los recursos de algunos servicios de PaaS de Azure. Pero puede restringir el acceso a los recursos de algunos servicios de PaaS de Azure solo al tráfico que procede de una subred de una red virtual. Avance al siguiente tutorial para aprender a restringir el acceso de red a los recursos de PaaS de Azure.
-
-> [!div class="nextstepaction"]
-> [Restringir el acceso de red a los recursos de PaaS](virtual-network-service-endpoints-configure.md#azure-cli)
+Aunque puede implementar muchos recursos de Azure en una red virtual, no es el caso de los recursos de algunos servicios de PaaS de Azure. Pero puede restringir el acceso a los recursos de algunos servicios de PaaS de Azure solo al tráfico que procede de una subred de una red virtual. Para saber cómo hacerlo, consulte [Restricción del acceso de red a los recursos de PaaS](tutorial-restrict-network-access-to-resources-cli.md).

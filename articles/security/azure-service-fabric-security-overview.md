@@ -1,12 +1,12 @@
 ---
-title: "Introducción a la seguridad de Azure Service Fabric | Microsoft Docs"
-description: "En este artículo se proporciona información general de la seguridad de Azure Service Fabric."
+title: Introducción a la seguridad de Azure Service Fabric | Microsoft Docs
+description: En este artículo se proporciona información general de la seguridad de Azure Service Fabric.
 services: security
 documentationcenter: na
 author: unifycloud
 manager: swadhwa
 editor: tomsh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/04/2017
 ms.author: tomsh
-ms.openlocfilehash: 64717da922701aabd27e15a67e8da1b0acb30b77
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 9b6c2463c2a782f463e64d6e350a565fa7898b63
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-service-fabric-security-overview"></a>Introducción a la seguridad de Azure Service Fabric
 [Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) es una plataforma de sistemas distribuidos que facilita el empaquetamiento, la implementación y la administración de microservicios escalables y confiables. Service Fabric aborda los desafíos importantes en el desarrollo y la administración de aplicaciones en la nube. Los desarrolladores y administradores pueden evitar problemas complejos de infraestructura y centrarse en su lugar en las cargas de trabajo más exigentes y críticas que son escalables, confiables y fáciles de administrar.
@@ -104,7 +104,7 @@ El flujo de trabajo general de la supervisión y el diagnóstico consta de tres 
 
 -   **Agregación de eventos**: es preciso recopilar y agregar los eventos generados para que se puedan mostrar. Normalmente, se recomienda usar [Azure Diagnostics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-wad) (similar a la recopilación de registros basada en agentes) o [EventFlow](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-eventflow) (recopilación de registros en proceso).
 
--   **Analysis**: los eventos se deben visualizar y estar accesibles en algún formato, para permitir analizarlos y mostrarlos. Hay varias plataformas para el análisis y la visualización de datos de supervisión y diagnóstico. Los dos que se recomiendan son [Operations Managment Suite](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-oms) y [Azure Application Insights](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights) debido a su mejor integración con Service Fabric.
+-   **Analysis**: los eventos se deben visualizar y estar accesibles en algún formato, para permitir analizarlos y mostrarlos. Hay varias plataformas para el análisis y la visualización de datos de supervisión y diagnóstico. Los dos que se recomiendan son [Log Analytics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-oms) y [Azure Application Insights](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights) debido a su mejor integración con Service Fabric.
 
 También puede usar [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview) para supervisar muchos de los recursos de Azure que incorporan un clúster de Service Fabric.
 
@@ -120,7 +120,7 @@ Los certificados digitales X509 se usan habitualmente para autenticar a clientes
 
 En la siguiente tabla se enumeran los certificados que va a necesitar en su instalación del clúster:
 
-|Configuración de la información de certificado |Descripción|
+|Configuración de la información de certificado |DESCRIPCIÓN|
 |-------------------------------|-----------|
 |ClusterCertificate|    Este certificado es necesario para proteger la comunicación entre los nodos de un clúster. Puede utilizar dos certificados diferentes: uno principal y otro secundario para la actualización.|
 |ServerCertificate| Este certificado se presenta al cliente cuando intenta conectarse a este clúster. Puede utilizar dos certificados de servidor diferentes: uno principal y otro secundario para la actualización.|

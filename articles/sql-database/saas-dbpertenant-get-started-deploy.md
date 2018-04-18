@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 04/01/2018
 ms.author: genemi
-ms.openlocfilehash: c62817b6bb60d99a4762e433510cc54d15add35a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 84e6f2303bcfd6a2c91f29e9e9afdc2b84f990ca
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Implementación y exploración de una aplicación SaaS multiinquilino que usa el patrón de base de datos por inquilino con SQL Database
 
@@ -108,7 +108,7 @@ Dentro de la aplicación, cada inquilino obtiene una base de datos SQL implement
 
 Una página de **Event Hubs** central proporciona una lista de vínculos a los inquilinos en su implementación.
 
-1. Use la dirección URL para abrir Event Hubs en el explorador web: http://events.wingtip-dpt.&lt;usuario&gt;.trafficmanager.net. Sustituya &lt;usuario&gt; por el valor de usuario de la implementación.
+1. Use la dirección URL para abrir Event Hubs en el explorador web: http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net. Sustituya &lt;usuario&gt; por el valor de usuario de la implementación.
 
     ![Centro de eventos](media/saas-dbpertenant-get-started-deploy/events-hub.png)
 

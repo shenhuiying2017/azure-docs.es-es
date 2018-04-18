@@ -1,53 +1,47 @@
 ---
-title: "Asignación de notificaciones de usuario de colaboración B2B de Azure Active Directory | Microsoft Docs"
-description: "referencia de asignación de notificaciones para la colaboración B2B de Azure Active Directory"
+title: Asignación de notificaciones de usuario de colaboración B2B de Azure Active Directory | Microsoft Docs
+description: Personalice las notificaciones de usuario que se emiten en el token SAML para los usuarios B2B de Azure Active Directory (Azure AD).
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: twooley
 manager: mtillman
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 03/15/2017
+ms.date: 04/06/2018
 ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: 3fe75e96c153a7cbcad638d606d0fbc248bd983a
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 8f5e471d4e7102300cd5581976b45c9fa8cc57bc
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="b2b-collaboration-user-claims-mapping-in-azure-active-directory"></a>Asignación de notificaciones de usuario de colaboración B2B de Azure Active Directory
 
-Azure Active Directory (Azure AD) admite la personalización de las notificaciones emitidas en el token SAML para los usuarios de colaboración B2B. Cuando un usuario se autentique en la aplicación, Azure AD emitirá un token SAML a la aplicación que contiene información (o notificaciones) sobre el usuario que lo identifica de forma única. De forma predeterminada, dicha información incluye el nombre de usuario, la dirección de correo electrónico, el nombre y los apellidos del usuario. Las notificaciones enviadas en el token SAML a la aplicación se pueden ver o editar en la pestaña Atributos.
+Azure Active Directory (Azure AD) admite la personalización de las notificaciones emitidas en el token SAML para los usuarios de colaboración B2B. Cuando un usuario se autentique en la aplicación, Azure AD emitirá un token SAML a la aplicación que contiene información (o notificaciones) sobre el usuario que lo identifica de forma única. De forma predeterminada, dicha información incluye el nombre de usuario, la dirección de correo electrónico, el nombre y los apellidos del usuario.
 
-Hay dos razones posibles por qué tendría que editar las notificaciones emitidas en el token SAML.
+En [Azure Portal](https://portal.azure.com) puede ver o editar las notificaciones que se envían en el token SAML a la aplicación. Para acceder a la configuración, seleccione **Azure Active Directory** > **Aplicaciones empresariales** > la aplicación que está configurada para el inicio de sesión único > **Inicio de sesión único**. Consulte la configuración del token SAML en la sección **Atributos del usuario**.
 
-1. La aplicación se ha creado para requerir un conjunto diferente de URI o valores de notificación.
+![Muestra los atributos del token SAML en la interfaz de usuario](media/active-directory-b2b-claims-mapping/view-claims-in-saml-token.png)
 
-2. La aplicación requiere que la notificación NameIdentifier tenga un valor que no sea el del nombre principal de usuario almacenado en Azure Active Directory.
+Hay dos razones posibles por las que puede que tenga que editar las notificaciones que se emiten en el token SAML:
 
-  ![Visualización de notificaciones en el token SAML](media/active-directory-b2b-claims-mapping/view-claims-in-saml-token.png)
+1. La aplicación requiere un conjunto diferente de URI o valores de notificación.
 
-Para obtener información sobre cómo agregar y editar notificaciones, consulte este artículo sobre la personalización de notificaciones: [Personalización de notificaciones emitidas en el token SAML para aplicaciones previamente integradas en Azure Active Directory](develop/active-directory-saml-claims-customization.md). Para los usuarios de colaboración B2B, por motivos de seguridad, se evita realizar la asignación de NameID y UPD entre inquilinos.
+2. La aplicación requiere que la notificación NameIdentifier tenga un valor que no sea el del nombre principal de usuario (UPN) almacenado en Azure AD.
 
+Para más información acerca de cómo agregar y editar notificaciones, consulte [Personalización de las notificaciones emitidas en el token SAML para aplicaciones empresariales en Azure Active Directory](develop/active-directory-saml-claims-customization.md).
+
+Para los usuarios de colaboración B2B, por motivos de seguridad, se evita realizar la asignación de NameID y UPD entre inquilinos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Examine nuestros otros artículos sobre la colaboración B2B de Azure AD:
+- Para más información acerca de las propiedades de usuario de colaboración B2B, consulte [Propiedades de un usuario de colaboración B2B de Azure Active Directory](active-directory-b2b-user-properties.md).
+- Para más información acerca de los tokens de usuario para los usuarios de colaboración B2B, consulte [Información sobre los tokens de usuario de la colaboración B2B de Azure Active Directory](active-directory-b2b-user-token.md).
 
-* [¿Qué es la colaboración B2B de Azure AD?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [Propiedades de usuario de la colaboración B2B](active-directory-b2b-user-properties.md)
-* [Incorporación de usuarios de colaboración B2B a un rol](active-directory-b2b-add-guest-to-role.md)
-* [Delegación de las invitaciones de colaboración B2B](active-directory-b2b-delegate-invitations.md)
-* [Grupos dinámicos y colaboración B2B](active-directory-b2b-dynamic-groups.md)
-* [Código de colaboración B2B y ejemplos de PowerShell](active-directory-b2b-code-samples.md)
-* [Configuración de aplicaciones de SaaS para la colaboración B2B](active-directory-b2b-configure-saas-apps.md)
-* [Uso compartido externo de Office 365](active-directory-b2b-o365-external-user.md)
-* [Tokens de usuario de colaboración B2B](active-directory-b2b-user-token.md)
-* [Limitaciones actuales de la colaboración B2B](active-directory-b2b-current-limitations.md)

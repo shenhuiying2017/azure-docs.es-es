@@ -1,38 +1,38 @@
 ---
 title: 'Restricción del acceso a la red a los recursos de PaaS: Azure PowerShell | Microsoft Docs'
-description: Aprenda a limitar y restringir el acceso a la red a los recursos de Azure, como Azure Storage y Azure SQL Database, con puntos de conexión de servicio de red virtual mediante PowerShell.
+description: En este artículo aprenderá a limitar y restringir el acceso de la red a los recursos de Azure, como Azure Storage y Azure SQL Database, con puntos de conexión de servicio de red virtual mediante Azure PowerShell.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: ''
-ms.topic: ''
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 7e402af74babda2ce32d4a1597c61d71aba89b9e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 28c95e1333b4641e50284a869135a9608dd3242f
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-powershell"></a>Restricción del acceso a la red a los recursos de PaaS mediante puntos de conexión de servicio de red virtual mediante PowerShell
 
-Los puntos de conexión de servicio de red virtual permiten limitar el acceso a la red en algunos recursos de servicio de Azure a una subred de red virtual. También puede quitar el acceso a Internet a los recursos. Los puntos de conexión de servicio proporcionan conexión directa a los servicios de Azure compatibles desde la red virtual, de modo que puede usar el espacio de direcciones privadas de la red virtual para acceder a los servicios de Azure. El tráfico destinado a los recursos de Azure a través de puntos de conexión de servicio siempre se mantiene en la red troncal de Microsoft Azure. En este artículo, aprenderá a:
+Los puntos de conexión de servicio de red virtual permiten limitar el acceso a la red en algunos recursos de servicio de Azure a una subred de red virtual. También se puede quitar el acceso de Internet a los recursos. Los puntos de conexión de servicio proporcionan a la red virtual conexión directa con los servicios de Azure compatibles, de modo que se puede usar el espacio de direcciones privadas de la red virtual para acceder a los servicios de Azure. El tráfico destinado a los recursos de Azure a través de los puntos de conexión de servicio siempre se mantiene en la red troncal de Microsoft Azure. En este artículo, aprenderá a:
 
-> [!div class="checklist"]
-> * Crear una red virtual con una subred
-> * Agregar una subred y habilitar un punto de conexión de servicio
-> * Crear un recurso de Azure y permitir que tenga acceso a la red solamente desde una subred
-> * Implementar una máquina virtual (VM) en cada subred
-> * Confirmar el acceso a un recurso desde una subred
-> * Confirmar que se ha denegado el acceso a un recurso desde una subred e Internet
+* Crear una red virtual con una subred
+* Agregar una subred y habilitar un punto de conexión de servicio
+* Crear un recurso de Azure y permitir que la red solo pueda acceder a él desde una subred
+* Implementar una máquina virtual en cada subred
+* Confirmar el acceso a un recurso desde una subred
+* Confirmar que se ha denegado el acceso a un recurso desde una subred e Internet
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -93,7 +93,7 @@ $subnetConfigPrivate = Add-AzureRmVirtualNetworkSubnetConfig `
 $virtualNetwork | Set-AzureRmVirtualNetwork
 ```
 
-## <a name="restrict-network-access-to-and-from-a-subnet"></a>Restricción del acceso entre una red y una subred
+## <a name="restrict-network-access-for-a-subnet"></a>Restricción del acceso de la red para una subred
 
 Cree reglas de seguridad de grupo de seguridad de red con [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig). La siguiente regla permite el acceso de salida a las direcciones IP públicas asignadas al servicio Azure Storage: 
 
@@ -114,7 +114,7 @@ La siguiente regla deniega el acceso a todas las direcciones IP públicas. La re
 
 ```azurepowershell-interactive
 $rule2 = New-AzureRmNetworkSecurityRuleConfig `
-  -Name Deny-internet-All `
+  -Name Deny-Internet-All `
   -Access Deny `
   -DestinationAddressPrefix Internet `
   -DestinationPortRange * `
@@ -165,7 +165,7 @@ $virtualNetwork | Set-AzureRmVirtualNetwork
 
 ## <a name="restrict-network-access-to-a-resource"></a>Restricción del acceso a la red a un recurso
 
-Los pasos que deben seguirse para restringir el acceso a la red a los recursos creados a través de servicios de Azure habilitados para puntos de conexión de servicio varían en función de los servicios. Consulte en la documentación de cada servicio concreto los pasos necesarios para dicho servicio. Como ejemplo, de aquí en adelante se explican los pasos necesarios para restringir el acceso a la red en una cuenta de Azure Storage.
+Los pasos que deben seguirse para restringir el acceso de la red a los recursos creados con servicios de Azure habilitados para puntos de conexión de servicio varían en función del servicio. Consulte en la documentación de cada servicio concreto los pasos necesarios para dicho servicio. Como ejemplo, de aquí en adelante se explican los pasos necesarios para restringir el acceso de red en una cuenta de Azure Storage.
 
 ### <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
 
@@ -238,7 +238,7 @@ Add-AzureRmStorageAccountNetworkRule `
 
 ## <a name="create-virtual-machines"></a>Creación de máquinas virtuales
 
-Para probar el acceso a la red para una cuenta de almacenamiento, implemente una máquina virtual en cada subred.
+Para probar el acceso de la red a una cuenta de almacenamiento, implemente una máquina virtual en cada subred.
 
 ### <a name="create-the-first-virtual-machine"></a>Creación de la primera máquina virtual
 
@@ -319,7 +319,7 @@ Asegúrese de que la máquina virtual no tiene conectividad de salida con otras 
 ping bing.com
 ```
 
-Dado que el grupo de seguridad de red asociado a la subred *Private* no permite el acceso de salida a direcciones IP públicas que no sean las direcciones asignadas al servicio Azure Storage, no recibirá ninguna respuesta.
+Dado que el grupo de seguridad de red asociado a la subred *Privada* no permite el acceso de salida a otras direcciones IP públicas que no sean las direcciones asignadas al servicio Azure Storage, no recibirá ninguna respuesta.
 
 Cierre la sesión de Escritorio remoto a la máquina virtual *myVmPrivate*.
 
@@ -372,9 +372,6 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha habilitado un punto de conexión de servicio para una subred de red virtual. Ha aprendido que los puntos de conexión de servicio pueden habilitarse para los recursos implementados con varios servicios de Azure. Ha creado una cuenta de Azure Storage y ha limitado el acceso de red en la cuenta de almacenamiento solo a los recursos que se encuentran en una subred de red virtual. Antes de crear puntos de conexión de servicio en las redes virtuales de producción, es recomendable que se familiarice a fondo con los [puntos de conexión de servicio](virtual-network-service-endpoints-overview.md).
+En este artículo, ha habilitado un punto de conexión de servicio en una subred de la red virtual. Ha aprendido que los puntos de conexión de servicio pueden habilitarse para los recursos implementados con varios servicios de Azure. Ha creado una cuenta de Azure Storage y ha hecho que el acceso de la red a la cuenta de almacenamiento esté limitado exclusivamente a los recursos que se encuentran en una subred de la red virtual. Para más información acerca de los puntos de conexión de servicio, consulte [Introducción a los puntos de conexión de un servicio](virtual-network-service-endpoints-overview.md) y [Administración de subredes](virtual-network-manage-subnet.md).
 
-Si tiene varias redes virtuales en la cuenta, es posible que desee conectar dos de ellas para que los recursos que están dentro de cada red virtual puedan comunicarse entre sí. Continúe con el siguiente tutorial para aprender a conectar redes virtuales.
-
-> [!div class="nextstepaction"]
-> [Conexión de redes virtuales](./tutorial-connect-virtual-networks-powershell.md)
+Si tiene varias redes virtuales en la cuenta, es posible que desee conectar dos de ellas para que los recursos que están dentro de cada red virtual puedan comunicarse entre sí. Para obtener información sobre cómo hacerlo, consulte [Conexión de redes virtuales](tutorial-connect-virtual-networks-powershell.md).

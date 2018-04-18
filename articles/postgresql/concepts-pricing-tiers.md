@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 03/20/2018
-ms.openlocfilehash: 8c8a2f6076c14dabe70f90538ca8c8b97fb93de0
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 3ea7d09338d4d89030138b8c4dc4085a6cd8ccc5
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Planes de tarifa de Azure Database for PostgreSQL
 
@@ -24,7 +24,7 @@ Puede crear un servidor de Azure Database for PostgreSQL en tres planes de tarif
 | Generación de procesos | Gen 4, Gen 5 | Gen 4, Gen 5 | Gen 5 |
 | Núcleos virtuales | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
 | Memoria por núcleo virtual | Línea base | 2x Básico | 2x Uso general |
-| Tamaño de almacenamiento | De 5 GB a 1 TB | De 5 GB a 1 TB | De 5 GB a 1 TB |
+| Tamaño de almacenamiento | De 5 GB a 1 TB | De 5 GB a 2 TB | De 5 GB a 2 TB |
 | Tipo de almacenamiento | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
 | Período de retención de copias de seguridad de base de datos | De 7 a 35 días | De 7 a 35 días | De 7 a 35 días |
 
@@ -32,7 +32,7 @@ Para elegir un plan de tarifa, use la siguiente tabla como punto de partida.
 
 | Nivel de precios | Carga de trabajo objetivo |
 |:-------------|:-----------------|
-| Básica | Cargas de trabajo que requieren proceso y rendimiento de E/S ligeros. Algunos ejemplos son los servidores utilizados para desarrollo o prueba, o las aplicaciones a pequeña escala que se emplean con poca frecuencia. |
+| Básica | Cargas de trabajo que requieren proceso y rendimiento de E/S ligeros. Algunos ejemplos son los servidores que se usan para desarrollo o prueba, o bien las aplicaciones a pequeña escala que se usan con poca frecuencia. |
 | Uso general | La mayoría de las cargas de trabajo de empresa que requieren un equilibrio entre proceso y memoria con rendimiento de E/S escalable. Por ejemplo, servidores para hospedar aplicaciones web y móviles, y otras aplicaciones empresariales.|
 | Memoria optimizada | Cargas de trabajo de base de datos de alto rendimiento que requieren rendimiento en memoria para un procesamiento de transacciones más rápido y una mayor simultaneidad. Por ejemplo, servidores para procesar datos en tiempo real y aplicaciones de análisis y transacciones de alto rendimiento.|
 
@@ -46,9 +46,9 @@ Los recursos de proceso se proporcionan como núcleos virtuales, que representan
 |:---|:----------:|:--------------------:|
 | Central EE. UU: |  | X |
 | Este de EE. UU | X | X |
-| Este de EE. UU. 2 | X |  |
+| Este de EE. UU. 2 | X | X |
 | Centro-Norte de EE. UU | X |  |
-| Centro-Sur de EE. UU | X |  |
+| Centro-Sur de EE. UU | X | X |
 | Oeste de EE. UU | X | X |
 | Oeste de EE. UU. 2 |  | X |
 | Centro de Canadá | X | X |
@@ -63,8 +63,8 @@ Los recursos de proceso se proporcionan como núcleos virtuales, que representan
 | Australia Oriental |  | X |
 | India Central | X |  |
 | Oeste de la India | X |  |
-| Este de Japón | X |  |
-| Oeste de Japón | X |  |
+| Este de Japón | X | X |
+| Oeste de Japón | X | X |
 | Corea del Sur |  | X |
 
 Según el plan de tarifa, cada núcleo virtual se aprovisiona con una cantidad específica de memoria. Al aumentar o reducir el número de núcleos virtuales para el servidor, la memoria aumenta o disminuye proporcionalmente. El plan Uso general proporciona el doble de memoria por núcleo virtual en comparación con el plan Básico. El plan Memoria optimizada proporciona el doble de memoria en comparación con el plan Uso general.
@@ -76,7 +76,7 @@ El almacenamiento que se aprovisiona es la cantidad de capacidad de almacenamien
 |    | **Básico** | **Uso general** | **Memoria optimizada** |
 |:---|:----------|:--------------------|:---------------------|
 | Tipo de almacenamiento | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
-| Tamaño de almacenamiento | De 5 GB a 1 TB | De 5 GB a 1 TB | De 5 GB a 1 TB |
+| Tamaño de almacenamiento | De 5 GB a 1 TB | De 5 GB a 2 TB | De 5 GB a 2 TB |
 | Tamaño de incremento de almacenamiento | 1 GB | 1 GB | 1 GB |
 | E/S | Variable |3 IOPS/GB<br/>100 IOPS mín. | 3 IOPS/GB<br/>100 IOPS mín. |
 

@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/13/2018
+ms.date: 04/05/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2d1ca15028590824cef95e3e9c2d957f9883a0e3
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: b0cb9b4003faa2ccdd07ccc78c2095472690f0e7
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-write-accelerator-for-sap-deployments"></a>Acelerador de escritura de Azure para implementaciones de SAP
 Acelerador de escritura de Azure es una funcionalidad que se implementa exclusivamente para las máquinas virtuales de la serie M. El Acelerador de escritura de Azure no está disponible en ninguna otra serie de máquinas virtuales de Azure, solo para la serie M. Como el nombre indica, el propósito de la funcionalidad es mejorar la latencia de E/S de las escrituras en Azure Premium Storage. 
@@ -28,10 +28,11 @@ Acelerador de escritura de Azure es una funcionalidad que se implementa exclusiv
 >[!NOTE]
 > En este momento, el Acelerador de escritura de Azure está en versión preliminar pública y requiere que su identificador de suscripción de Azure esté en la lista de permitidos.
 
-La funcionalidad del Acelerador de escritura de Azure está disponible como versión preliminar pública en:
+La funcionalidad del acelerador de escritura de Azure está disponible para implementaciones de la serie M como versión preliminar pública en:
 
 - Oeste de EE. UU. 2
 - Europa Occidental
+- Sudeste asiático
 
 ## <a name="planning-for-using-azure-write-accelerator"></a>Planeación del uso de Acelerador de escritura de Azure
 El Acelerador de escritura de Azure se debe usar para los volúmenes, los que contienen el registro de transacciones o los registros de puestas al día de un DBMS. No se recomienda usar el Acelerador de escritura de Azure para los volúmenes de datos de un DBMS. El motivo de esta restricción es que el Acelerador de escritura de Azure requiere que los VHD de Azure Premium Storage se monten sin el almacenamiento en caché de lectura adicional disponible para Premium Storage. Se pueden observar mayores ventajas con este tipo de almacenamiento en caché en las bases de datos tradicionales. Como el Acelerador de escritura solo impacta en las actividades de escritura y no agiliza las lecturas, el diseño compatible para SAP es usar el Acelerador de escritura contra las unidades del registro de transacciones o del registro de puestas al día de las bases de datos compatibles de SAP. 
@@ -54,15 +55,16 @@ Hay límites en los VHD de Azure Premium Storage por máquina virtual que el Ace
 > Para habilitar el Acelerador de escritura de Azure en un disco existente de Azure que NO forma parte de un volumen compuesto de varios discos con administradores de volúmenes o discos de Windows, espacios de almacenamiento de Windows, servidor de archivos de escalabilidad horizontal (SOFS) de Windows, LVM o MDADM de Linux, la carga de trabajo que accede al disco de Azure debe estar apagada. Las aplicaciones de base de datos que usan el disco de Azure DEBEN estar apagadas.
 
 > [!IMPORTANT]
-> La habilitación del Acelerador de escritura para el disco del sistema operativo Azure de la máquina virtual hará que esta se reinicie. 
+> La habilitación del acelerador de escritura para el disco del sistema operativo de la máquina virtual de Azure hará que esta se reinicie. 
 
 La habilitación del Acelerador de escritura de Azure para los discos de sistema operativo no debería ser necesaria para las configuraciones de máquinas virtuales relacionadas con SAP.
 
 ### <a name="restrictions-when-using-azure-write-accelerator"></a>Restricciones del uso del Acelerador de escritura de Azure
 Estas restricciones se aplican al usar el Acelerador de escritura de Azure para un VHD o disco de Azure:
 
-- El almacenamiento en caché de disco Premium debe establecerse en "Ninguno". No se admite ningún otro modo de almacenamiento en caché.
+- El almacenamiento en caché de discos Premium debe establecerse en "Ninguno" o "Solo lectura". No se admite ningún otro modo de almacenamiento en caché.
 - Todavía no se admite la instantánea en el disco habilitado para el Acelerador de escritura. Esta restricción bloquea la capacidad que el servicio de Azure Backup tiene para realizar una instantánea coherente con la aplicación de todos los discos de la máquina virtual.
+- Solo los tamaños de E/S más pequeños toman la ruta de acceso acelerada. En situaciones de carga de trabajo donde los datos se cargan de forma masiva o donde los búferes de registros de transacción de los diferentes sistemas de administración de bases de datos (DBMS) se llenan hasta un mayor grado antes de conservarse en el almacenamiento, existe la probabilidad de que la E/S escrita en el disco no tome la ruta de acceso acelerada.
 
 
 ## <a name="enabling-write-accelerator-on-a-specific-disk"></a>Habilitación del Acelerador de escritura en un disco específico
@@ -289,7 +291,7 @@ La salida debería parecerse a esta:
 
 ```
 
-El paso siguiente es actualizar el archivo JSON y habilitar el Acelerador de escritura en el disco llamado "log1". Para hacerlo, agregue este atributo en el archivo JSON después de la entrada de caché del disco. 
+El paso siguiente es actualizar el archivo JSON y habilitar el Acelerador de escritura en el disco llamado "log1". Para ello, agregue este atributo en el archivo JSON después de la entrada de caché del disco. 
 
 ```
         {

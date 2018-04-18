@@ -1,38 +1,38 @@
 ---
 title: 'Restricción del acceso a la red a los recursos de PaaS: CLI de Azure | Microsoft Docs'
-description: Aprenda a limitar o restringir el acceso a la red a los recursos de Azure, como Azure Storage y Azure SQL Database, con puntos de conexión de servicio de red virtual mediante la CLI de Azure.
+description: En este artículo aprenderá a limitar y restringir el acceso de la red a los recursos de Azure, como Azure Storage y Azure SQL Database, con puntos de conexión de servicio de red virtual mediante la CLI de Azure.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
-ms.topic: ''
+ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 5c0c6a802c931b71f5be8b01c610cf0810b0b4d1
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f357861a7a44b249e06f091a8693b7f2d8dd5178
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>Restricción del acceso a la red a los recursos de PaaS con puntos de conexión de servicio de red virtual mediante la CLI de Azure
 
-Los puntos de conexión de servicio de red virtual permiten limitar el acceso a la red en algunos recursos de servicio de Azure a una subred de red virtual. También puede quitar el acceso a Internet a los recursos. Los puntos de conexión de servicio proporcionan conexión directa a los servicios de Azure compatibles desde la red virtual, de modo que puede usar el espacio de direcciones privadas de la red virtual para acceder a los servicios de Azure. El tráfico destinado a los recursos de Azure a través de puntos de conexión de servicio siempre se mantiene en la red troncal de Microsoft Azure. En este artículo, aprenderá a:
+Los puntos de conexión de servicio de red virtual permiten limitar el acceso a la red en algunos recursos de servicio de Azure a una subred de red virtual. También se puede quitar el acceso de Internet a los recursos. Los puntos de conexión de servicio proporcionan a la red virtual conexión directa con los servicios de Azure compatibles, de modo que se puede usar el espacio de direcciones privadas de la red virtual para acceder a los servicios de Azure. El tráfico destinado a los recursos de Azure a través de los puntos de conexión de servicio siempre se mantiene en la red troncal de Microsoft Azure. En este artículo, aprenderá a:
 
-> [!div class="checklist"]
-> * Crear una red virtual con una subred
-> * Agregar una subred y habilitar un punto de conexión de servicio
-> * Crear un recurso de Azure y permitir que tenga acceso a la red solamente desde una subred
-> * Implementar una máquina virtual (VM) en cada subred
-> * Confirmar el acceso a un recurso desde una subred
-> * Confirmar que se ha denegado el acceso a un recurso desde una subred e Internet
+* Crear una red virtual con una subred
+* Agregar una subred y habilitar un punto de conexión de servicio
+* Crear un recurso de Azure y permitir que la red solo pueda acceder a él desde una subred
+* Implementar una máquina virtual en cada subred
+* Confirmar el acceso a un recurso desde una subred
+* Confirmar que se ha denegado el acceso a un recurso desde una subred e Internet
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -82,7 +82,7 @@ az network vnet subnet create \
   --service-endpoints Microsoft.Storage
 ```
 
-## <a name="restrict-network-access-to-and-from-subnet"></a>Restricción del acceso entre una red y una subred
+## <a name="restrict-network-access-for-a-subnet"></a>Restricción del acceso de la red para una subred
 
 Cree un grupo de seguridad de red con [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create). En el ejemplo siguiente se crea un grupo de seguridad de red denominado *myNsgPrivate*.
 
@@ -151,7 +151,7 @@ az network nsg rule create \
 
 ## <a name="restrict-network-access-to-a-resource"></a>Restricción del acceso a la red a un recurso
 
-Los pasos que deben seguirse para restringir el acceso a la red a los recursos creados a través de servicios de Azure habilitados para puntos de conexión de servicio varían en función de los servicios. Consulte en la documentación de cada servicio concreto los pasos necesarios para dicho servicio. Como ejemplo, de aquí en adelante se explican los pasos necesarios para restringir el acceso a la red en una cuenta de Azure Storage.
+Los pasos que deben seguirse para restringir el acceso de la red a los recursos creados con servicios de Azure habilitados para puntos de conexión de servicio varían en función del servicio. Consulte en la documentación de cada servicio concreto los pasos necesarios para dicho servicio. Como ejemplo, de aquí en adelante se explican los pasos necesarios para restringir el acceso de red en una cuenta de Azure Storage.
 
 ### <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
 
@@ -218,7 +218,7 @@ az storage account network-rule add \
 ```
 ## <a name="create-virtual-machines"></a>Creación de máquinas virtuales
 
-Para probar el acceso a la red para una cuenta de almacenamiento, implemente una máquina virtual en cada subred.
+Para probar el acceso de la red a una cuenta de almacenamiento, implemente una máquina virtual en cada subred.
 
 ### <a name="create-the-first-virtual-machine"></a>Creación de la primera máquina virtual
 
@@ -311,7 +311,7 @@ Cree un directorio para un punto de montaje:
 sudo mkdir /mnt/MyAzureFileShare
 ```
 
-Intente montar el recurso compartido de archivos de Azure en el directorio que ha creado. En este tutorial se asume que ha implementado la versión más reciente de Ubuntu. Si está utilizando versiones anteriores de Ubuntu, consulte [Montaje en Linux](../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para instrucciones adicionales sobre el montaje de recursos compartidos de archivos. Antes de ejecutar el siguiente comando, reemplace `<storage-account-name>` con el nombre de cuenta y `<storage-account-key>` con la clave que recuperada en [Crear una cuenta de almacenamiento](#create-a-storage-account):
+Intente montar el recurso compartido de archivos de Azure en el directorio que ha creado. En este artículo se asume que ha implementado la versión más reciente de Ubuntu. Si está utilizando versiones anteriores de Ubuntu, consulte [Montaje en Linux](../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para instrucciones adicionales sobre el montaje de recursos compartidos de archivos. Antes de ejecutar el siguiente comando, reemplace `<storage-account-name>` con el nombre de cuenta y `<storage-account-key>` con la clave que recuperada en [Crear una cuenta de almacenamiento](#create-a-storage-account):
 
 ```bash
 sudo mount --types cifs //storage-account-name>.file.core.windows.net/my-file-share /mnt/MyAzureFileShare --options vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
@@ -341,9 +341,6 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha habilitado un punto de conexión de servicio para una subred de red virtual. Ha aprendido que los puntos de conexión de servicio pueden habilitarse para los recursos implementados con varios servicios de Azure. Ha creado una cuenta de Azure Storage y ha limitado el acceso de red en la cuenta de almacenamiento solo a los recursos que se encuentran en una subred de red virtual. Antes de crear puntos de conexión de servicio en las redes virtuales de producción, es recomendable que se familiarice a fondo con los [puntos de conexión de servicio](virtual-network-service-endpoints-overview.md).
+En este artículo, ha habilitado un punto de conexión de servicio en una subred de la red virtual. Ha aprendido que los puntos de conexión de servicio pueden habilitarse para los recursos implementados con varios servicios de Azure. Ha creado una cuenta de Azure Storage y ha hecho que el acceso de la red a la cuenta de almacenamiento esté limitado exclusivamente a los recursos que se encuentran en una subred de la red virtual. Para más información acerca de los puntos de conexión de servicio, consulte [Introducción a los puntos de conexión de un servicio](virtual-network-service-endpoints-overview.md) y [Administración de subredes](virtual-network-manage-subnet.md).
 
-Si tiene varias redes virtuales en la cuenta, es posible que desee conectar dos de ellas para que los recursos que están dentro de cada red virtual puedan comunicarse entre sí. Continúe con el siguiente tutorial para aprender a conectar redes virtuales.
-
-> [!div class="nextstepaction"]
-> [Conexión de redes virtuales](./tutorial-connect-virtual-networks-cli.md)
+Si tiene varias redes virtuales en la cuenta, es posible que desee conectar dos de ellas para que los recursos que están dentro de cada red virtual puedan comunicarse entre sí. Para obtener información sobre cómo hacerlo, consulte [Conexión de redes virtuales](tutorial-connect-virtual-networks-cli.md).

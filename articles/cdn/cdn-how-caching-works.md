@@ -4,7 +4,7 @@ description: El almacenamiento en caché es el proceso de almacenar datos localm
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: ''
+manager: akucer
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/23/2017
-ms.author: v-deasim
-ms.openlocfilehash: 26a0478f8713cb3584045f59c181c0a38331ea97
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: rli; v-deasim
+ms.openlocfilehash: 88c1b98a9dcaa1d22cdc1be3853b1fa7116c8a48
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-caching-works"></a>Cómo funciona el almacenamiento en caché
 
@@ -64,7 +64,7 @@ Se pueden utilizar dos encabezados para definir la actualización del almacenami
 ## <a name="cache-directive-headers"></a>Encabezados de la directiva de caché
 
 > [!IMPORTANT]
-> Un punto de conexión de red Azure CDN que está optimizado para DSA omite los encabezados de la directiva de caché y omite el almacenamiento en caché de forma predeterminada. En el caso de los perfiles de la **red CDN de Azure de Verizon Standard** y la **red CDN de Azure de Akamai Standard**, puede ajustar el modo en que un punto de conexión de red CDN de Azure trata estos encabezados utilizando las [reglas de caché de la red CDN](cdn-caching-rules.md) para habilitar el almacenamiento en caché. Si son solo perfiles de la **red CDN de Azure de Verizon Premium**, use el [motor de reglas](cdn-rules-engine.md) para habilitar el almacenamiento en caché.
+> Un punto de conexión de red Azure CDN que está optimizado para DSA omite los encabezados de la directiva de caché y omite el almacenamiento en caché de forma predeterminada. En el caso de los perfiles de la **red CDN Standard de Azure de Verizon** y la **red CDN Standard de Azure de Akamai**, puede ajustar el modo en que un punto de conexión de red CDN de Azure trata estos encabezados utilizando las [reglas de caché de la red CDN](cdn-caching-rules.md) para habilitar el almacenamiento en caché. Si son solo perfiles de la **red CDN Premium de Azure de Verizon**, use el [motor de reglas](cdn-rules-engine.md) para habilitar el almacenamiento en caché.
 
 La red CDN de Azure admite los siguientes encabezados de directiva de caché HTTP, que definen la duración de la memoria caché y el uso compartido de la memoria caché:
 

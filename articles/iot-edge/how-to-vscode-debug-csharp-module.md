@@ -9,22 +9,19 @@ ms.author: xshi
 ms.date: 03/18/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: c2a1acd2c249bdbc92119bc92f055b095f318f00
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 65f2fb4526f1048ae88193f85a552a2202afa1d9
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="use-visual-studio-code-to-debug-a-c-module-with-azure-iot-edge"></a>Uso de Visual Studio Code para depurar un módulo de C# con Azure IoT Edge
 En este artículo se proporcionan instrucciones detalladas para usar [Visual Studio Code](https://code.visualstudio.com/) como la herramienta de desarrollo principal para depurar los módulos de Azure IoT Edge.
 
 ## <a name="prerequisites"></a>requisitos previos
-En este tutorial se presupone que utiliza un equipo o una máquina virtual con Windows o Linux como máquina de desarrollo. El dispositivo de IoT Edge puede ser otro dispositivo físico o una simulación de dicho dispositivo en el equipo de desarrollo.
+En este artículo se supone que utiliza un equipo o una máquina virtual con Windows o Linux como máquina de desarrollo. El dispositivo de IoT Edge puede ser otro dispositivo físico o una simulación de dicho dispositivo en el equipo de desarrollo.
 
-Antes de empezar esta guía, complete el siguiente tutorial:
-- [Desarrollo de una solución de IoT Edge con varios módulos en Visual Studio Code](tutorial-multiple-modules-in-vscode.md)
-
-Una vez completado el tutorial anterior, debe tener listos los siguientes elementos:
+Antes de seguir las instrucciones de este artículo, complete los pasos que se indican en [Desarrollo de una solución de IoT Edge con varios módulos en Visual Studio Code](tutorial-multiple-modules-in-vscode.md). Después de eso, debe tener preparados los siguientes elementos:
 - Un registro de Docker local que se ejecuta en el equipo de desarrollo. Se recomienda usar un registro de Docker local para fines de prototipo y pruebas. Puede actualizar el registro de contenedores en el archivo `module.json` en cada carpeta del módulo.
 - Un área de trabajo del proyecto de solución de IoT Edge con una subcarpeta del módulo C# en ella.
 - El archivo `Program.cs` con el código más reciente del módulo.
@@ -55,8 +52,5 @@ Una vez completado el tutorial anterior, debe tener listos los siguientes elemen
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, creó un módulo con IoT Edge y lo implementó para la depuración. Empezó a depurarlo en VS Code. Para obtener información sobre otros escenarios al desarrollar Azure IoT Edge en VS Code, vea: 
-
-> [!div class="nextstepaction"]
-> [Desarrollo de una solución de IoT Edge con varios módulos en Visual Studio Code](tutorial-multiple-modules-in-vscode.md)
+[Uso de Visual Studio Code para depurar Azure Functions con Azure IoT Edge](how-to-vscode-debug-azure-function.md)
 

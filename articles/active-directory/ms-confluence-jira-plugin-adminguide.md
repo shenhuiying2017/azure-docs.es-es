@@ -1,6 +1,6 @@
 ---
-title: Guía de administración del complemento de inicio de sesión único de Microsoft Azure Active Directory | Microsoft Docs
-description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Microsoft Azure Active Directory single sign-on for JIRA.
+title: Guía de administración para el complemento SSO de Azure Active Directory | Microsoft Docs
+description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Jira/Confluence.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,165 +14,139 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2018
 ms.author: jeedes
-ms.openlocfilehash: af949d1db8af37a534a16364f9f0763479c436e4
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d34ff6021816c73fb064a3ce73b7fcf3ae22dbd1
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="microsoft-azure-active-directory-single-sign-on-plugin-admin-guide"></a>Guía de administración del complemento de inicio de sesión único de Microsoft Azure Active Directory
-
-## <a name="table-of-contents"></a>Tabla de contenido
-
-1. **[INFORMACIÓN GENERAL](#overview)**
-2. **[CÓMO FUNCIONA](#how-it-works)**
-3. **[PÚBLICO](#audience)**
-4. **[SUPUESTOS](#assumptions)**
-5. **[REQUISITOS PREVIOS](#prerequisites)**
-6. **[VERSIONES COMPATIBLES DE JIRA Y CONFLUENCE](#supported-versions-of-jira-and-confluence)**
-7. **[INSTALACIÓN](#installation)**
-8. **[CONFIGURACIÓN DEL COMPLEMENTO](#plugin-configuration)**
-9. **[EXPLICACIÓN DE LOS CAMPOS DE LA PANTALLA DE CONFIGURACIÓN DEL COMPLEMENTO:](#field-explanation-for-add---on-configuration-screen:)**
-10. **[SOLUCIÓN DE PROBLEMAS](#troubleshooting)**
+# <a name="admin-guide-for-the-azure-active-directory-sso-plug-in"></a>Guía de administración para el complemento SSO de Azure Active Directory
 
 ## <a name="overview"></a>Información general
 
-Estos complementos permiten que los clientes de Microsoft Azure AD usen el nombre de usuario y la contraseña de su organización para iniciar sesión en los productos basados en Atlassian Jira y Confluence Server. Se implementa el SSO basado en SAML 2.0.
+El complemento de inicio de sesión único (SSO) de Azure Active Directory (Azure AD) permite a los clientes de Microsoft Azure AD usar su cuenta profesional o educativa para iniciar sesión en Atlassian Jira y en los productos basados en Confluence Server. Implementa el SSO basado en SAML 2.0.
 
 ## <a name="how-it-works"></a>Cómo funciona
 
-Cuando los usuarios desean iniciar sesión en la aplicación Confluence o Atlassian Jira, verán el botón **Login with Azure AD** (Iniciar sesión con Azure AD) en la página de inicio de sesión. Cuando hagan clic en el botón, se les pedirá iniciar sesión con la página de inicio de sesión de Azure AD de la organización.
+Cuando los usuarios deseen iniciar sesión en la aplicación Confluence o Atlassian Jira, verán el botón **Login with Azure AD** (Iniciar sesión con Azure AD) en la página de inicio de sesión. Cuando se selecciona, deben iniciar sesión mediante la página de inicio de sesión de la organización de Azure AD (es decir, su cuenta profesional o educativa).
 
-Una vez que los usuarios se autentican, deberían poder iniciar sesión en la aplicación. Si ya se autenticaron con la contraseña y el identificador de la organización, inician sesión directamente en la aplicación. Además, tenga en cuenta que el inicio de sesión funciona en JIRA y en Confluence. Si los usuarios iniciaron sesión en la aplicación JIRA y Confluence también está abierto en la misma ventana del explorador, necesitan iniciar sesión una vez y no es necesario que vuelvan a proporcionar las credenciales para otra aplicación. Los usuarios también pueden acceder al producto Atlassian a través de myapps en la cuenta de Azure y deberían iniciar sesión sin que se les pidan las credenciales.
+Una vez que los usuarios se autentican, deberían poder iniciar sesión en la aplicación. Si ya se han autenticado con el identificador y la contraseña de su cuenta profesional o educativa, inician sesión directamente en la aplicación. 
+
+El inicio de sesión funciona en Jira y en Confluence. Si los usuarios iniciaron sesión en la aplicación Jira y Confluence también está abierto en la misma ventana del explorador, no tienen que proporcionar las credenciales para la otra aplicación. 
+
+Los usuarios también pueden obtener los productos de Atlassian a través de Mis aplicaciones en la cuenta profesional o educativa. Deberían iniciar sesión sin que se les pidan las credenciales.
 
 > [!NOTE]
 > El aprovisionamiento de usuarios no se realiza con este complemento.
 
 ## <a name="audience"></a>Público
 
-Administradores de JIRA y Confluence que planean usar este complemento para habilitar SSO mediante Azure AD.
+Los administradores de Jira y Confluence pueden usar el complemento para habilitar SSO con Azure AD.
 
 ## <a name="assumptions"></a>Supuestos
 
-* La instancia de JIRA/Confluence está habilitada para HTTPS.
-* Los usuarios ya se crearon en JIRA/Confluence.
-* Los usuarios tiene roles asignados en JIRA/Confluence.
+* Las instancias de Jira y Confluence están habilitadas para HTTPS.
+* Los usuarios ya se crearon en Jira o Confluence.
+* Los usuarios tienen roles asignados en Jira o Confluence.
 * Los administradores tienen acceso a la información necesaria para configurar el complemento.
-* JIRA/Confluence también están disponibles fuera de la red de la empresa.
-* El complemento solo funciona con la versión local de JIRA y Confluence.
+* Jira o Confluence también están disponibles fuera de la red de la empresa.
+* El complemento funciona solo con las versiones locales de Jira y Confluence.
 
 ## <a name="prerequisites"></a>requisitos previos
 
-Tenga en cuenta los requisitos previos siguientes antes de continuar con la instalación del complemento:
+Antes de instalar el complemento, tenga en cuenta la siguiente información:
 
-* JIRA/Confluence están instalados en una versión de Windows de 64 bits.
-* Las versiones de JIRA/Confluence están habilitadas para HTTPS.
-* Observe la versión compatible del complemento en la sección "Versiones compatibles" que aparece más adelante.
-* JIRA/Confluence están disponibles en Internet.
-* Credenciales de administrador para JIRA/Confluence.
-* Credenciales de administrador para Azure AD.
-* WebSudo debe estar deshabilitado en JIRA y Confluence.
+* Jira y Confluence están instalados en una versión de Windows de 64 bits.
+* Las versiones de Jira y Confluence están habilitadas para HTTPS.
+* Jira y Confluence están disponibles en Internet.
+* Las credenciales de administrador están en vigor para Jira y Confluence.
+* Las credenciales de administrador están en vigor para Azure AD.
+* WebSudo está deshabilitado en Jira y Confluence.
 
-## <a name="supported-versions-of-jira-and-confluence"></a>Versiones compatibles de JIRA y Confluence.
+## <a name="supported-versions-of-jira-and-confluence"></a>Versiones admitidas de Jira y Confluence
 
-En la actualidad, se admiten las versiones siguientes de JIRA y Confluence:
+El complemento admite las versiones siguientes en Jira y Confluence:
 
-* Núcleo y software de JIRA: de la 6.0 a la 7.2.0
-* Departamento de servicios de JIRA: de la 3.0 a la 3.2
+* Jira Core y Software: de la versión 6.0 a la 7.2.0
+* Jira Service Desk: de la versión 3.0 a la 3.2
 * Confluence: de la versión 5.0 a la 5.10
 
 ## <a name="installation"></a>Instalación
 
-El administrador debe seguir estos pasos para instalar el complemento:
+Para instalar el complemento, siga estos pasos:
 
-1. Inicie sesión en la instancia de JIRA/Confluence como administrador.
+1. Inicie sesión en la instancia de Jira o Confluence como administrador.
     
-2. Vaya a la administración de JIRA/Confluence y haga clic en Complementos.
+2. Vaya a la consola de administración de Jira o Confluence y seleccione **Add-ons** (Complementos).
     
 3. En Atlassian Marketplace, busque **Microsoft SAML SSO Plugin** (Complemento de SSO de Microsoft SAML).
  
-4. En la búsqueda aparece la versión correspondiente del complemento.
+   La versión adecuada del complemento aparece en los resultados de búsqueda.
  
-5. Seleccione el complemento y UPM lo instala.
+5. Seleccione el complemento y el Administrador de complementos universal (UPM) lo instala.
  
-6. Una vez instalado el complemento, aparece en la sección de complementos Instalados por el usuario de Administrar complemento.
- 
-7. Debe configurar el complemento antes de empezar a usarlo.
- 
-8. Haga clic en el complemento para ver un botón de configuración.
- 
-9. Haga clic en el botón para proporcionar entradas de configuración.
+Una vez instalado el complemento, aparece en la sección **Complementos instalados por el usuario** de **Administrar complemento**.
     
-## <a name="plugin-configuration"></a>Configuración del complemento
+## <a name="plug-in-configuration"></a>Configuración de complementos
 
-En la imagen siguiente se muestra la pantalla de configuración del complemento tanto en JIRA como en Confluence.
+Para empezar a usar el complemento, debe configurarlo. Seleccione el complemento, seleccione el botón **Configurar** y proporcione los detalles de configuración.
+
+En la imagen siguiente se muestra la pantalla de configuración tanto en Jira como en Confluence:
     
-![configuración del complemento](./media/ms-confluence-jira-plugin-adminguide/jira.png)
+![Pantalla de configuración de complementos](./media/ms-confluence-jira-plugin-adminguide/jira.png)
 
-### <a name="field-explanation-for-add-on-configuration-screen"></a>Explicación de los campos de la pantalla de configuración del complemento:
+*   **Metadata URL** (Dirección URL de metadatos): dirección URL para obtener los metadatos de federación de Azure AD.
+ 
+*   **Identifiers** (Identificadores): dirección URL que Azure AD usa para validar el origen de la solicitud. Se asigna al elemento **Identificador** de Azure AD. El complemento deduce automáticamente esta dirección URL como https://*<dominio:puerto>*/.
+ 
+*   **Reply URL** (Dirección URL de respuesta): la dirección URL de respuesta en el proveedor de identidades (IdP) que inicia el inicio de sesión de SAML. Se asigna al elemento **Dirección URL de respuesta** de Azure AD. El complemento deduce automáticamente esta dirección URL como https://*<dominio:puerto>*/plugins/servlet/saml/auth.
+ 
+*   **Sign On URL** (Dirección URL de inicio de sesión): la dirección URL de inicio de sesión en el IdP que inicia el inicio de sesión de SAML. Se asigna al elemento **Inicio de sesión** de Azure AD. El complemento deduce automáticamente esta dirección URL como https://*<dominio:puerto>*/plugins/servlet/saml/auth.
+ 
+*   **IdP Entity ID** (Identificador de la entidad de IdP): el identificador de entidad que el IdP usa. Este campo se rellena cuando se resuelve la dirección URL de metadatos.
+ 
+*   **Login URL** (Dirección URL de inicio de sesión): la dirección URL de inicio de sesión del IdP. Este cuadro se rellena desde Azure AD cuando se resuelve la dirección URL de metadatos.
+ 
+*   **Log out URL** (Dirección URL de cierre de sesión): la dirección URL de cierre de sesión del IdP. Este cuadro se rellena desde Azure AD cuando se resuelve la dirección URL de metadatos.
+ 
+*   **X.509 Certificate** (Certificado X.509): el certificado X.509 del IdP. Este cuadro se rellena desde Azure AD cuando se resuelve la dirección URL de metadatos.
+ 
+*   **Login Button Name** (Nombre del botón de inicio de sesión): el nombre del botón de inicio de sesión que la organización quiere que los usuarios vean en la página de inicio de sesión.
+ 
+*   **SAML User ID Locations** (Ubicaciones de Id. de usuario de SAML): la ubicación donde se espera el identificador de usuario de Jira o Confluence en la respuesta de SAML. Puede estar en **NameID** o en un nombre de atributo personalizado.
+ 
+*   **Attribute name** (Nombre de atributo): nombre del atributo donde se espera el identificador del usuario.
+ 
+*   **Enable Home Realm Discovery** (Habilitar la detección del territorio principal): la selección que hay que realizar si la compañía usa el inicio de sesión basado en Servicios de federación de Active Directory (AD FS).
+ 
+*   **Domain Name** (Nombre de dominio): el nombre del dominio si el inicio de sesión se basa en AD FS.
+ 
+*   **Enable Single Signout** (Habilitar cierre de sesión único): la selección que hay que realizar si desea cerrar la sesión de Azure AD cuando un usuario cierra la sesión de Jira o Confluence.
 
-1.   Metadata URL (Dirección URL de metadatos): dirección URL para obtener los metadatos de federación de Azure AD.
- 
-2.   Identifier (Identificador): Azure AD usa este campo para validar el origen de la solicitud. Se asigna al elemento Identificador de Azure AD. El complemento lo deriva automáticamente como https://<dominio:puerto>/
- 
-3.   Reply URL (Dirección URL de respuesta): use este campo en el IdP para iniciar el inicio de sesión de SAML. Se asigna al elemento Dirección URL de respuesta de Azure AD. El complemento lo deriva automáticamente como https://<dominio:puerto>/plugins/servlet/saml/auth
- 
-4.   Sign On URL (Dirección URL de inicio de sesión): use este campo en el IdP para iniciar el inicio de sesión de SAML. Se asigna al elemento Inicio de sesión de Azure AD. El complemento lo deriva automáticamente como https://<dominio:puerto>/plugins/servlet/saml/auth
- 
-5.   IdP Entity ID (Identificador de la entidad de IdP): el identificador de entidad que el IdP usa. Este campo se rellena cuando se resuelve la dirección URL de metadatos.
- 
-6.   Login URL (Dirección URL de inicio de sesión): la dirección URL de inicio de sesión del IdP. Este campo se rellena desde Azure AD cuando se resuelve la dirección URL de metadatos.
- 
-7.   Log out URL (Dirección URL de cierre de sesión): la dirección URL de cierre de sesión del IdP. Este campo se rellena desde Azure AD cuando se resuelve la dirección URL de metadatos.
- 
-8.   X.509 Certificate (Certificado X.509): el certificado X.509 del IdP. Este campo se rellena desde Azure AD cuando se resuelve la dirección URL de metadatos.
- 
-9.   Login Button Name (Nombre del botón de inicio de sesión): nombre del botón de inicio de sesión que su organización desea ver. Los usuarios ven este texto en el botón de inicio de sesión de la pantalla de inicio de sesión.
- 
-10.   SAML User ID Locations (Ubicaciones del identificador de usuario de SAML): ubicaciones en que se espera el identificador del usuario en la respuesta de SAML. Puede estar en NameID o en un nombre de atributo personalizado. Este identificador debe ser el identificador de usuario de JIRA/Confluence.
- 
-11.   Attribute name (Nombre de atributo): nombre del atributo donde se puede esperar el identificador del usuario.
- 
-12.   Enable Home Realm Discovery (Habilitar la detección del dominio de inicio): active esta marca si la empresa usa el inicio de sesión basado en ADFS.
- 
-13.   Domain Name (Nombre de dominio): escriba aquí el nombre del dominio en el caso de inicio de sesión basado en ADFS.
- 
-14.   Enable Single Sign out (Habilitar cierre de sesión único): active esta marca si desea cerrar sesión en Azure AD cuando un usuario cierra la sesión en JIRA/Confluence.
+## <a name="troubleshooting"></a>solución de problemas
 
-### <a name="troubleshooting"></a>solución de problemas
+* **Está recibiendo varios errores de certificado**: inicie sesión en Azure AD y quite los múltiples certificados que están disponibles en la aplicación. Asegúrese de que haya solo un certificado.
 
-* Si recibe varios errores de certificados
+* **Un certificado está a punto de expirar en Azure AD**: los complementos se encargan de la sustitución automática del certificado. Cuando hay un certificado a punto de expirar, se debe marcar como activo un certificado nuevo y se deben eliminar los certificados sin usar. Cuando un usuario intenta iniciar sesión en Jira en este escenario, el complemento captura el certificado nuevo y lo guarda.
+
+* **Desea deshabilitar WebSudo (deshabilitar la sesión segura del administrador)**:
     
-    * Inicie sesión en Azure AD y quite los distintos certificados disponibles en la aplicación. Asegúrese de que haya solo un certificado.
+  * En Jira, las sesiones seguras del administrador (es decir, con confirmación de contraseña antes de acceder a las funciones de administración) están habilitadas de manera predeterminada. Si desea quitar esta capacidad en la instancia de Jira, especifique la siguiente línea en el archivo jira-config.properties: `ira.websudo.is.disabled = true`
+    
+  * En Confluence, siga los pasos del [sitio de soporte técnico de Confluence](https://confluence.atlassian.com/doc/configuring-secure-administrator-sessions-218269595.html).
 
-* El certificado está a punto de expirar en Azure AD.
+* **Los campos que se supone que deberían rellenarse con la dirección URL de metadatos no se están rellenando**:
     
-    * Los complementos se encargan de sustituir automáticamente el certificado. Cuando hay un certificado a punto de expirar, se debe marcar como activo un certificado nuevo y el certificado no usado se debe eliminar. Cuando un usuario intenta iniciar sesión en JIRA en este escenario, el complemento captura el certificado nuevo y lo guarda.
+  * Compruebe que la dirección URL sea la correcta. Revise si asignó el inquilino y el identificador de aplicación correctos.
+    
+  * Escriba la dirección URL en el explorador y vea si recibe el archivo XML de metadatos de federación.
 
-* Cómo deshabilitar WebSudo (deshabilitar la sesión segura del administrador)
-    
-    * JIRA: las sesiones seguras del administrador (es decir, con confirmación de contraseña antes de acceder a las funciones de administración) están habilitadas de manera predeterminada. Si desea deshabilitar esta característica en la instancia de JIRA, puede hacerlo si especifica la línea siguiente en el archivo jira-config.properties: "ira.websudo.is.disabled = true".
-    
-    * Confluence: siga los pasos que se indican en la dirección URL siguiente https://confluence.atlassian.com/doc/configuring-secure-administrator-sessions-218269595.html
+* **Hay un error interno del servidor**: revise los registros en el directorio de registro de la instalación. Si recibe el error cuando el usuario intenta iniciar sesión mediante el SSO de Azure AD, puede compartir los registros con el equipo de soporte técnico.
 
-* Los campos que la dirección URL de metadatos debería rellenar no se están rellenando
-    
-    * Compruebe que la dirección URL sea la correcta. Revise si asignó el inquilino y el identificador de aplicación correspondientes.
-    
-    * Visite la dirección URL en el explorador y vea si recibe el archivo XML de metadatos de federación.
+* **Hay un error "User ID not found" cuando el usuario intenta iniciar sesión**: cree el identificador de usuario en Jira o Confluence.
 
-* Error interno del servidor:
-    
-    * Recorra los registros que se encuentran en el directorio de registros de la instalación. Si recibe el error cuando el usuario intenta iniciar sesión mediante el SSO de Azure AD, puede compartir los registros con el soporte técnico en la información que se proporciona más adelante en este documento.
+* **Hay un error "App not found" en Azure AD**: vea si la dirección URL apropiada se asigna a la aplicación en Azure AD.
 
-* No se encuentra el identificador de usuario cuando el usuario intenta iniciar sesión
+* **Necesita soporte técnico**: póngase en contacto con el [equipo de integración de SSO de Azure AD ](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). El equipo responde en un plazo de entre 24 y 48 horas laborales.
     
-    * El usuario no está creado en JIRA/Confluence, por lo que debe crearlo.
-
-* No se encuentra la aplicación en Azure AD
-    
-    * Vea si la dirección URL correspondiente está asignada a la aplicación en Azure AD.
-
-* Detalles de soporte técnico: póngase en contacto con nosotros en: [equipo de integración del SSO de Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). Le responderemos dentro de las próximas 24 a 48 horas hábiles.
-    
-    * También puede generar una incidencia de soporte técnico con Microsoft a través del canal de Azure Portal.
+  También puede generar una incidencia de soporte técnico con Microsoft a través del canal de Azure Portal.

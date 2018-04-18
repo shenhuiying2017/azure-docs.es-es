@@ -14,11 +14,11 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: e9343b4a0049b2eea30f903159fdeff0ae7ff851
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 07fb601b2cf6e3fe3cc9bfb7bca3bdcbec7e9ca7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>Guía del anunciante de Azure Marketplace y AppSource
 
@@ -121,7 +121,8 @@ Cada escaparate admite varias opciones de publicación y tipos de oferta. Selecc
 Use la opción de contacto cuando no sea posible un nivel de participación de evaluación o transacción. La ventaja de este enfoque es que permite que los anunciantes con una solución en el mercado comiencen a recibir inmediatamente clientes potenciales que se pueden educar en las ventas de base para hacer rodar el engranaje empresarial. Sin embargo, el inconveniente es que la implicación del cliente es limitada, en comparación con otros tipos de ofertas.
 
 >[!IMPORTANT]
->No se recomienda el tipo de anuncio Contacto. Solo se debe usar en situaciones donde no hay ninguna manera de establecer una experiencia de evaluación. La participación del cliente es mejor con ofertas de evaluación y transacción. Si tiene algún tipo de experiencia de evaluación, nuestro proceso de incorporación le llevará a una de esas opciones, según el escenario.
+<<<<<<< HEAD La implicación del cliente es mejor con las ofertas de evaluación y transacción. El valor que aporta Ponerse en contacto conmigo es el cliente potencial que recibe. Por tanto, si elige este tipo de anuncio, asegúrese de que el destino del cliente potencial está configurado y de que tiene todo listo para aprovechar al máximo ese cliente potencial. ======= No se recomienda el tipo de anuncio Ponerse en contacto conmigo. Solo se debe usar en situaciones donde no hay ninguna manera de establecer una experiencia de evaluación. La participación del cliente es mejor con ofertas de evaluación y transacción. Si tiene algún tipo de experiencia de evaluación, nuestro proceso de incorporación le llevará a una de esas opciones, según el escenario.
+>>>>>>> 2874631130f763b6e91e8725781400bcb76d6a62
 
 Cuando la oferta consista principalmente en servicios profesionales (por ejemplo, evaluaciones, implementaciones, talleres), use el tipo de oferta Servicios de consultoría. Se debe fijar el ámbito de la oferta, la duración y el precio para un solo cliente y se debe realizar in situ.
 

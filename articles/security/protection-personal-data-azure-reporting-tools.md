@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/06/2018
 ms.author: barclayn
-ms.openlocfilehash: 2c677a1dea001c6a414304fbaa683c3787b355b1
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: fc859f3aa34531133b7a21e36591b011c63d511c
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="document-protection-of-personal-data-with-azure-reporting-tools"></a>Documentación de protección de datos personales con herramientas de informes de Azure
 
@@ -95,13 +95,13 @@ Las herramientas de análisis de Log Analytics, como búsquedas de registros, vi
 
 #### <a name="how-do-i-use-log-analytics"></a>¿Cómo se puede usar Log Analytics?
 
-Puede tener acceso a Log Analytics a través del portal de OMS o Azure Portal desde cualquier explorador web. Log Analytics incluye un lenguaje de consulta para recuperar y consolidar rápidamente los datos en el repositorio. Puede crear y guardar búsquedas de registros para analizar datos directamente en el portal.
+Puede tener acceso a Log Analytics a través del portal de OMS o Azure Portal desde cualquier explorador web. Log Analytics incluye un lenguaje de consulta para recuperar y consolidar rápidamente los datos en el área de trabajo de Log Analytics. Puede crear y guardar búsquedas de registros para analizar datos directamente en el portal.
 
 Para crear un área de trabajo de Log Analytics en Azure Portal, realice lo siguiente:
 
 1. Seleccione **Log Analytics** de la lista de servicios de Marketplace.
 
-2. Seleccione **Crear** y, a continuación, especifique el nombre del área de trabajo de OMS, seleccione la suscripción, el grupo de recursos, la ubicación y el plan de tarifa.
+2. Seleccione **Crear** y, a continuación, especifique el nombre del área de trabajo de Log Analytics, seleccione la suscripción, el grupo de recursos, la ubicación y el plan de tarifa.
 
 3. Haga clic en **Aceptar** y verá una lista de las áreas de trabajo.
 

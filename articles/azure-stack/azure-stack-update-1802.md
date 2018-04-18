@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 04/06/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: b3a3c07446ad04a58d5180793404fc04677749b2
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 6f654e7897a9a00b0e53849002d5d4b16eab2bd6
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-stack-1802-update"></a>Actualización 1802 de Azure Stack
 
@@ -56,7 +56,9 @@ El número de compilación de la actualización 1802 de Azure Stack es **2018030
 
 
 ### <a name="post-update-steps"></a>Pasos posteriores a la actualización
-*No hay ningún paso posterior a la actualización para la actualización 1802.*
+Después de la instalación de 1802, instale todas las revisiones aplicables. Para más información, consulte los siguientes artículos de la Knowledge base, así como nuestra [Directiva de mantenimiento](azure-stack-servicing-policy.md).  
+- [KB 4103348 - Errores del servicio de API de controlador de red cuando intenta instalar una actualización de Azure Stack](https://support.microsoft.com/help/4103348)
+
 
 
 ### <a name="new-features-and-fixes"></a>Nuevas características y correcciones
@@ -141,6 +143,10 @@ No hay ningún problema conocido después de actualizar a 1802.
 
 #### <a name="compute"></a>Proceso
 - Los valores de escalado para conjuntos de escalas de máquina virtual no están disponibles en el portal. Como alternativa, puede usar [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Debido a diferencias en la versión de PowerShell, debe usar el parámetro `-Name` en lugar de `-VMScaleSetName`.
+
+- <!-- 2290877  --> You cannot scale up a virtual machine scale set (VMSS) that was created when using Azure Stack prior to version 1802. This is due to the change in support for using availability sets with virtual machine scale sets. This support was added with version 1802.  When you attempt to add additional instances to scale a VMSS that was created prior to this support being added, the action fails with the message *Provisioning state failed*. 
+
+  Este problema se ha corregido en la versión 1803. Para resolver este problema para la versión 1802, instale la revisión de Azure Stack **1.0.180302.4**. Para más información, consulte el artículo [KB 4131152: No se pueden escalar conjuntos de escalado de máquinas virtuales existentes después de instalar la actualización 1802 de Azure Stack]( https://support.microsoft.com/help/4131152). 
 
 - Azure Stack solo admite el uso de discos duros virtuales de tipo fijo. Algunas imágenes ofrecidas mediante Marketplace en Azure Stack usan discos duros virtuales dinámicos, pero estas se han quitado. El hecho de cambiar el tamaño de una máquina virtual (VM) que lleva asociado un disco dinámico deja a la máquina en estado de error.
 

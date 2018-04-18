@@ -4,7 +4,7 @@ description: Puede usar reglas de almacenamiento en caché de la red CDN para es
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: ''
+manager: akucer
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/23/2017
-ms.author: v-deasim
-ms.openlocfilehash: 735978a0986b2b16b4f96faca78c06d798915002
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.author: rli; v-deasim
+ms.openlocfilehash: 60693b919fad6808bfe60b504d2a70caf80fbe48
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="control-azure-cdn-caching-behavior-with-caching-rules"></a>Control del comportamiento del almacenamiento en caché de Azure CDN con reglas de caché
 
 > [!NOTE] 
-> Las reglas de almacenamiento en caché solo están disponibles para **Azure CDN de Verizon Standard** y **Azure CDN de Akamai Standard**. Para **Azure CDN de Verizon Premium**, puede usar el [motor de reglas de Azure CDN](cdn-rules-engine.md) en el portal **Administrar** para una funcionalidad similar.
+> Las reglas de almacenamiento en caché solo están disponibles para **Azure CDN estándar de Verizon** y **Azure CDN estándar de Akamai**. En el caso de **Azure CDN Premium de Verizon**, puede usar el [motor de reglas de Azure CDN](cdn-rules-engine.md) en el portal **Manage** (Administrar) para disfrutar de una funcionalidad similar.
  
 Azure Content Delivery Network (CDN) ofrece dos formas de controlar cómo los archivos se almacenan en caché: 
 

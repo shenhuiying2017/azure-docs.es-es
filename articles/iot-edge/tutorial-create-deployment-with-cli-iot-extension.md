@@ -1,21 +1,21 @@
 ---
-title: "Implementación de módulos en dispositivos de IoT Edge con la extensión de IoT de la CLI de Azure 2.0 | Microsoft Docs"
-description: "Implementación de módulos en un dispositivo de IoT Edge con la extensión de IoT de la CLI de Azure 2.0"
+title: Implementación de módulos en dispositivos de IoT Edge con la extensión de IoT de la CLI de Azure 2.0 | Microsoft Docs
+description: Implementación de módulos en un dispositivo de IoT Edge con la extensión de IoT de la CLI de Azure 2.0
 services: iot-edge
-keywords: 
+keywords: ''
 author: chrissie926
 manager: timlt
 ms.author: menchi
 ms.date: 03/02/2018
 ms.topic: article
 ms.service: iot-edge
-ms.custom: mvc
+ms.custom: ''
 ms.reviewer: kgremban
-ms.openlocfilehash: 25f1becff11138e59595c211802acbf791094e53
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 1f71fdfb7090dce24ba73f1fa01e287c52b065f8
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="deploy-modules-to-an-iot-edge-device-using-iot-extension-for-azure-cli-20"></a>Implementación de módulos en un dispositivo de IoT Edge con la extensión de IoT de la CLI de Azure 2.0
 
@@ -23,7 +23,7 @@ La [CLI de Azure 2.0](https://docs.microsoft.com/en-us/cli/azure?view=azure-cli-
 
 La CLI de Azure 2.0 permite administrar recursos de Azure IoT Hub, instancias de servicio de aprovisionamiento de dispositivos y centros vinculados listos para usar. La nueva extensión de IoT enriquece la CLI de Azure 2.0 con características como la administración de dispositivos y funcionalidad completa de IoT Edge.
 
-En este tutorial, primero realizará los pasos para configurar la CLI de Azure 2.0 y la extensión de IoT. A continuación, aprenderá a implementar módulos en un dispositivo de IoT Edge con los comandos de la CLI disponibles.
+En este artículo, configurará la CLI de Azure 2.0 y la extensión de IoT. A continuación, aprenderá a implementar módulos en un dispositivo de IoT Edge con los comandos de la CLI disponibles.
 
 ## <a name="prerequisites"></a>requisitos previos
 

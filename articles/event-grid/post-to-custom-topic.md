@@ -1,18 +1,18 @@
 ---
-title: "Publicación de eventos en un tema personalizado de Azure Event Grid"
-description: "Se describe cómo publicar un evento en un tema personalizado de Azure Event Grid"
+title: Publicación de eventos en un tema personalizado de Azure Event Grid
+description: Se describe cómo publicar un evento en un tema personalizado de Azure Event Grid
 services: event-grid
 author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 04/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: 43dcdf9ab0fee5f7e61ecdc42aaf40430e272d92
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 1c23aef0773ffddbc26e4090ecf137b632394ee3
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>Publicación en un tema personalizado de Azure Event Grid
 
@@ -91,8 +91,34 @@ Por ejemplo, un esquema de datos de evento válido es:
 }]
 ```
 
+## <a name="response"></a>Response
+
+Después de publicar en el punto de conexión del tema, recibirá una respuesta. La respuesta es un código de respuesta HTTP estándar. Algunas respuestas comunes son:
+
+|Resultado  |Response  |
+|---------|---------|
+|Correcto  | 200 OK  |
+|Punto de conexión incorrecto | 404 No encontrado |
+|Clave de acceso no válida | 401 No autorizado |
+|Los datos del evento tienen un formato incorrecto | 400 - Solicitud incorrecta |
+
+Si hay errores, el cuerpo del mensaje tiene el formato siguiente:
+
+```json
+{
+    "error": {
+        "code": "<HTTP status code>",
+        "message": "<description>",
+        "details": [{
+            "code": "<HTTP status code>",
+            "message": "<description>"
+    }]
+  }
+}
+```
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para obtener una introducción al enrutamiento de eventos personalizados, vea [Creación y enrutamiento de eventos personalizados con la CLI de Azure y Event Grid](custom-event-quickstart.md) o [Creación y enrutamiento de eventos personalizados con Azure PowerShell y Event Grid](custom-event-quickstart-powershell.md).
+* Para información sobre la supervisión de las entregas de eventos, consulte [Supervisar la entrega de mensajes de Event Grid](monitor-event-delivery.md).
 * Para más información sobre la clave de autenticación, vea [Seguridad y autenticación de Event Grid](security-authentication.md).
 * Para más información acerca de la creación de una suscripción de Azure Event Grid, consulte [Esquema de suscripción de Event Grid](subscription-creation-schema.md).

@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: ea2367a6e1facfbe6a36cb145e258491a1c99517
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 059f577c138847af04e92ce9ab12a8de88251c73
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="collector-appliance"></a>Aplicación del recopilador
 
@@ -53,7 +53,7 @@ La aplicación del recopilador debe estar conectada a Internet para enviar la in
 1. Puede configurar el recopilador para tener conectividad directa a Internet.
 2. Puede configurar el recopilador para que se conecte a través de un servidor proxy.
     * Si el servidor proxy requiere autenticación, puede especificar el nombre de usuario y la contraseña en la configuración de conexión.
-    * La dirección IP/FQDN del servidor proxy debe tener el formato http://IPaddress o http://FQDN. Solo se admiten servidores proxy http.
+    * La dirección IP o el FQDN del servidor proxy deben tener el formato http://IPaddress o http://FQDN. Solo se admiten servidores proxy http.
 
 > [!NOTE]
 > El recopilador no admite servidores proxy basados en https.
@@ -126,7 +126,7 @@ Una vez conectado a vCenter, puede seleccionar un ámbito de detección. Al sele
 
 1. El ámbito puede ser un centro de datos, una carpeta o un host ESXi. 
 2. Solo se puede seleccionar un ámbito a la vez. Para seleccionar más máquinas virtuales, puede completar una detección y reiniciar el proceso de detección con un nuevo ámbito.
-3. Solo puede seleccionar un ámbito que tenga *menos de 1000 máquinas virtuales*. Si selecciona un ámbito con más de 1000 máquinas virtuales, debe dividir el ámbito en unidades más pequeñas mediante la creación de carpetas. A continuación, debe ejecutar detecciones independientes de las carpetas más pequeñas.
+3. Solo puede seleccionar un ámbito que tenga *menos de 1500 máquinas virtuales*.
 
 ## <a name="specify-migration-project"></a>Especificación del proyecto de migración
 
@@ -197,6 +197,16 @@ Puede actualizar el recopilador con la versión más reciente sin tener que desc
 5. Haga clic con el botón derecho en Setup.ps1, seleccione Ejecutar con PowerShell y siga las instrucciones en pantalla para instalar la actualización.
 
 ### <a name="list-of-updates"></a>Lista de actualizaciones
+
+#### <a name="upgrade-to-version-1097"></a>Actualización a la versión 1.0.9.7
+
+Para actualizar a la versión 1.0.9.7, descargue el [paquete](https://aka.ms/migrate/col/upgrade_9_7).
+
+**Algoritmo** | **Valor del código hash**
+--- | ---
+MD5 | 01ccd6bc0281f63f2a672952a2a25363
+SHA1 | 3e6c57523a30d5610acdaa14b833c070bffddbff
+SHA256 | e3ee031fb2d47b7881cc5b13750fc7df541028e0a1cc038c796789139aa8e1e6
 
 #### <a name="upgrade-to-version-1095"></a>Actualizar a la versión 1.0.9.5
 

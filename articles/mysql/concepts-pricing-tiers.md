@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 03/20/2018
-ms.openlocfilehash: 9d4e42df3137108248a043bb0d9def181d766c7a
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: c9a74aa00ee263b8fb4e19b77ad5be418e31c7d6
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Planes de tarifa de Azure Database for MySQL
 
@@ -24,7 +24,7 @@ Puede crear un servidor de Azure Database for MySQL en tres planes de tarifa dif
 | Generación de procesos | Gen 4, Gen 5 | Gen 4, Gen 5 | Gen 5 |
 | Núcleos virtuales | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
 | Memoria por núcleo virtual | Línea base | 2x Básico | 2x Uso general |
-| Tamaño de almacenamiento | De 5 GB a 1 TB | De 5 GB a 1 TB | De 5 GB a 1 TB |
+| Tamaño de almacenamiento | De 5 GB a 1 TB | De 5 GB a 2 TB | De 5 GB a 2 TB |
 | Tipo de almacenamiento | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
 | Período de retención de copias de seguridad de base de datos | De 7 a 35 días | De 7 a 35 días | De 7 a 35 días |
 
@@ -46,9 +46,9 @@ Los recursos de proceso se proporcionan como núcleos virtuales, que representan
 |:---|:----------:|:--------------------:|
 | Central EE. UU: |  | X |
 | Este de EE. UU | X | X |
-| Este de EE. UU. 2 | X |  |
+| Este de EE. UU. 2 | X | X |
 | Centro-Norte de EE. UU | X |  |
-| Centro-Sur de EE. UU | X |  |
+| Centro-Sur de EE. UU | X | X |
 | Oeste de EE. UU | X | X |
 | Oeste de EE. UU. 2 |  | X |
 | Centro de Canadá | X | X |
@@ -63,8 +63,8 @@ Los recursos de proceso se proporcionan como núcleos virtuales, que representan
 | Australia Oriental |  | X |
 | India Central | X |  |
 | Oeste de la India | X |  |
-| Este de Japón | X |  |
-| Oeste de Japón | X |  |
+| Este de Japón | X | X |
+| Oeste de Japón | X | X |
 | Corea del Sur |  | X |
 
 Según el plan de tarifa, cada núcleo virtual se aprovisiona con una cantidad específica de memoria. Al aumentar o reducir el número de núcleos virtuales para el servidor, la memoria aumenta o disminuye proporcionalmente. El plan Uso general proporciona el doble de memoria por núcleo virtual en comparación con el plan Básico. El plan Memoria optimizada proporciona el doble de memoria en comparación con el plan Uso general.
@@ -76,7 +76,7 @@ El almacenamiento que se aprovisiona es la cantidad de capacidad de almacenamien
 |    | **Básico** | **Uso general** | **Memoria optimizada** |
 |:---|:----------|:--------------------|:---------------------|
 | Tipo de almacenamiento | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
-| Tamaño de almacenamiento | De 5 GB a 1 TB | De 5 GB a 1 TB | De 5 GB a 1 TB |
+| Tamaño de almacenamiento | De 5 GB a 1 TB | De 5 GB a 2 TB | De 5 GB a 2 TB |
 | Tamaño de incremento de almacenamiento | 1 GB | 1 GB | 1 GB |
 | E/S | Variable |3 IOPS/GB<br/>100 IOPS mín. | 3 IOPS/GB<br/>100 IOPS mín. |
 
@@ -92,7 +92,7 @@ El servicio realiza automáticamente copias de seguridad del servidor. El perío
 
 Después de crear el servidor, puede cambiar los núcleos virtuales, la cantidad de almacenamiento y el período de retención de copia de seguridad de manera independiente. No puede cambiar el plan de tarifa o el tipo de almacenamiento de copia de seguridad. Los núcleos virtuales y el período de retención de copia de seguridad se pueden escalar o reducir verticalmente. El tamaño de almacenamiento solo se puede aumentar. El escalado de los recursos puede realizarse a través del portal o la CLI de Azure. Para ver un ejemplo de escalado con la CLI de Azure, consulte [Supervisión y escalado de un servidor de Azure Database for MySQL mediante la CLI de Azure](scripts/sample-scale-server.md).
 
-Al cambiar el número de núcleos virtuales, se crea una copia del servidor original con la nueva asignación de proceso. Una vez que el nuevo servidor está en funcionamiento, las conexiones se transfieren al nuevo servidor. Durante el breve espacio de tiempo en que el sistema cambia al nuevo servidor, no se puede establecer ninguna nueva conexión y todas las transacciones no confirmadas se revierten. Esta ventana varía, pero en la mayoría de los casos es inferior a un minuto.
+Al cambiar el número de núcleos virtuales, se crea una copia del servidor original con la nueva asignación de proceso. Una vez que el nuevo servidor está en funcionamiento, las conexiones se transfieren a él. Durante el breve espacio de tiempo en que el sistema cambia al nuevo servidor, no se puede establecer ninguna nueva conexión y todas las transacciones no confirmadas se revierten. Esta ventana varía, pero en la mayoría de los casos es inferior a un minuto.
 
 El escalado del almacenamiento y el cambio del período de retención de copia de seguridad son operaciones verdaderamente en línea. No hay ningún tiempo de inactividad y la aplicación no se ve afectada. A medida que el valor de IOPS se escala con el tamaño del almacenamiento aprovisionado, puede aumentar el número de IOPS disponibles para el servidor mediante el escalado vertical del almacenamiento.
 

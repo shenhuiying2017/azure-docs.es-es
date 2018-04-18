@@ -1,5 +1,5 @@
 ---
-title: Información general sobre la prueba comparativa Azure SQL Database
+title: Información general sobre la prueba comparativa de DTU para Azure SQL Database
 description: Este tema describe la prueba comparativa Azure SQL Database Benchmark, que se usa para la medición del rendimiento de Azure SQL Database.
 services: sql-database
 author: jan-eng
@@ -7,17 +7,20 @@ manager: jhubbard
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 06/21/2016
+ms.date: 04/01/2018
 ms.author: janeng
-ms.openlocfilehash: 25685f663d976674ad877bcfa1409ef016dd02ae
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0dae04ab3de16e2ef51134ec6979c6c289a6da3f
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="azure-sql-database-benchmark-overview"></a>Información general sobre la prueba comparativa Azure SQL Database
+# <a name="azure-sql-database-dtu-benchmark-overview"></a>Información general sobre la prueba comparativa de DTU para Azure SQL Database
 ## <a name="overview"></a>Información general
-Microsoft Azure SQL Database ofrece tres [niveles de servicio](sql-database-service-tiers.md) con varios niveles de rendimiento. Cada nivel de rendimiento proporciona un conjunto de recursos (o "capacidad") cada vez mayor, diseñado para proporcionar un mayor rendimiento.
+En el modelo de compra basado en DTU, Microsoft Azure SQL Database ofrece tres [niveles de servicio](sql-database-service-tiers.md) con varios niveles de rendimiento. Cada nivel de rendimiento proporciona un conjunto de recursos (o "capacidad") cada vez mayor, diseñado para proporcionar un mayor rendimiento.
+
+> [!IMPORTANT]
+> Azure SQL Database admite también ahora un modelo de compra basado en núcleos virtuales (versión preliminar). Para más información, consulte [Modelo de compra basado en núcleos virtuales (versión preliminar)](sql-database-service-tiers.md#vcore-based-purchasing-model-preview).
 
 Es importante poder cuantificar cómo se traduce la potencia creciente de cada nivel de rendimiento en un rendimiento de base de datos mejorado. Para ello, Microsoft ha desarrollado la prueba comparativa Azure SQL Database Benchmark (ASDB). La prueba comparativa ejerce una combinación de operaciones básicas que se encuentran en todas las cargas de trabajo OLTP. Medimos el rendimiento conseguido para bases de datos que se ejecuten en cada nivel de rendimiento.
 
@@ -63,9 +66,9 @@ Las transacciones se seleccionan aleatoriamente de una distribución ponderada c
 | Tipo de transacción | % de combinación |
 | --- | --- |
 | Lectura ligera |35 |
-| Lectura mediana |20  |
+| Lectura mediana |20 |
 | Lectura intensa |5 |
-| Actualización ligera |20  |
+| Actualización ligera |20 |
 | Actualización intensa |3 |
 | Inserción ligera |3 |
 | Inserción intensa |2 |
@@ -96,7 +99,7 @@ La tabla siguiente muestra el número de usuarios sostenidos realmente para cada
 | --- | --- | --- |
 | Básica |5 |720 MB |
 | Estándar (S0) |10 |1 GB |
-| Estándar (S1) |20  |2,1 GB |
+| Estándar (S1) |20 |2,1 GB |
 | Estándar (S2) |50 |7,1 GB |
 | Premium (P1) |100 |14 GB |
 | Premium (P2) |200 |28 GB |

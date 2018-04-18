@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 04/03/2018
 ms.author: bonova
-ms.openlocfilehash: 2d07d58114a4d89f40a4ea9e388c58f58494766c
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: ffe25e911273b93f1c16224d30fea5c920425f03
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="what-is-a-managed-instance-preview"></a>¿Qué es Instancia administrada de SQL Database (versión preliminar)?
 
@@ -69,6 +69,23 @@ En la tabla siguiente se muestran varias propiedades, accesibles mediante Transa
 
 ![Inicio de sesión único](./media/sql-database-managed-instance/sso.png) 
 
+## <a name="vcore-based-purchasing-model"></a>Modelo de compra basado en núcleos virtuales
+
+El modelo de compra basado en núcleos virtuales le ofrece flexibilidad, control, transparencia y facilidad para trasladar sus necesidades de carga de trabajo del entorno local a la nube. Este modelo le permite escalar los recursos de proceso, memoria y almacenamiento en función de las necesidades de carga de trabajo. El modelo de núcleos virtuales también permite disfrutar de hasta un 30 por ciento de ahorro con la [Ventaja de uso híbrido de Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
+
+Un núcleo virtual representa una CPU lógica que cuenta con una opción para elegir entre varias generaciones de hardware.
+- Las CPU lógicas Gen 4 se basan en procesadores Intel E5-2673 v3 (Haswell) de 2.4 GHz.
+- Las CPU lógicas Gen 5 se basan en procesadores Intel E5-2673 v4 (Broadwell) de 2.3 GHz.
+
+La tabla siguiente le servirá de ayuda para determinar cuál es la configuración óptima que debe seleccionar en función de los recursos de proceso, memoria, almacenamiento y E/S.
+
+||Gen 4|Gen 5|
+|----|------|-----|
+|Hardware|Procesadores Intel E5-2673 v3 (Haswell) de 2.4 GHz, núcleo virtual SSD conectado equivalente a 1 PP (núcleo físico)|Procesadores Intel E5-2673 v4 (Broadwell) de 2.3 GHz, SSD eNVM rápido, núcleo virtual equivalente a 1 LP (Hyper-Threading)|
+|Niveles de rendimiento|8, 16, 24 núcleos virtuales|8, 16, 24, 32, 40 núcleos virtuales|
+|Memoria|7 GB por núcleo virtual|5,5 GB por núcleo virtual|
+||||
+
 ## <a name="managed-instance-service-tier"></a>Nivel de servicio de Instancia administrada
 
 Instancia administrada está inicialmente disponible en un único nivel de servicio, el nivel de uso general, que está diseñado para aplicaciones con los requisitos típicos de disponibilidad y latencia de E/S.
@@ -89,11 +106,11 @@ La tabla siguiente describe las principales características del nivel de servic
 
 |Característica | DESCRIPCIÓN|
 |---|---|
-| Número de núcleos virtuales* | 8, 16, 24|
+| Número de núcleos virtuales* | 8, 16, 24 (Gen 4)<br>8, 16, 24, 32, 40 (Gen5)|
 | Versión de SQL Server | SQL Server (la versión más reciente disponible) |
 | Tamaño de almacenamiento mínimo | 32 GB |
 | Tamaño de almacenamiento máximo | 8 TB |
-| Almacenamiento máximo por base de datos | 4 TB |
+| Almacenamiento máximo por base de datos | 8 TB |
 | IOPS de almacenamiento esperadas | 500-7500 IOPS por cada archivo de datos (depende del archivo de datos). Consulte, [Premium Storage](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes) |
 | Número de archivos de datos (ROWS) por base de datos | Múltiple | 
 | Número de archivos de registro (LOG) por base de datos | 1 | 
@@ -106,7 +123,7 @@ La tabla siguiente describe las principales características del nivel de servic
 | Soporte técnico del portal | Sí|
 |||
 
-\* Un núcleo virtual representa la CPU lógica que se ofrece con la posibilidad de elegir entre varias generaciones de hardware. Las CPU lógicas Gen 4 se basan en procesadores Intel E5-2673 v3 (Haswell) de 2,4 GHz y las CPU lógicas Gen 5 se basan en procesadores Intel E5-2673 v4 (Broadwell) de 2,3 GHz.  
+\* Un núcleo virtual representa la CPU lógica que se ofrece con la posibilidad de elegir entre varias generaciones de hardware. Las CPU lógicas Gen 4 se basan en procesadores Intel E5-2673 v3 (Haswell) de 2,4 GHz y las CPU lógicas Gen 5 se basan en procesadores Intel E5-2673 v4 (Broadwell) de 2,3 GHz. 
 
 ## <a name="advanced-security-and-compliance"></a>Conformidad y seguridad avanzada 
 
@@ -152,7 +169,7 @@ SQL Database permite administrar centralmente las identidades de usuario de base
 La autenticación de SQL Database indica cómo los usuarios prueban su identidad al conectarse a la base de datos. SQL Database admite dos tipos de autenticación:  
 
 - Autenticación de SQL, que usa un nombre de usuario y una contraseña.
-- Autenticación de Azure Active Directory, la cual usa las identidades administradas por Azure Active Directory y es compatible con los dominios administrados e integrados.  
+- Autenticación de Azure Active Directory, la cual usa las identidades administradas por Azure Active Directory y es compatible con los dominios administrados e integrados. 
 
 ### <a name="authorization"></a>Autorización
 
@@ -160,11 +177,11 @@ La autorización indica las acciones que pueden llevar a cabo los usuarios en Az
 
 ## <a name="database-migration"></a>Migración de bases de datos 
 
-Instancia administrada está diseñado para escenarios de usuario con migración masiva de bases de datos desde implementaciones locales o de base de datos de IaaS.  Instancia administrada admite varias opciones de migración de base de datos: 
+Instancia administrada está diseñado para escenarios de usuario con migración masiva de bases de datos desde implementaciones locales o de base de datos de IaaS. Instancia administrada admite varias opciones de migración de base de datos: 
 
 ### <a name="data-migration-service"></a>Data Migration Service
 
-Azure Database Migration Service es un servicio totalmente administrado diseñado para permitir migraciones completas desde varios orígenes de base de datos hasta las plataformas de datos de Azure con un tiempo de inactividad mínimo.   Este servicio simplifica las tareas necesarias para mover las bases de datos existentes de SQL Server y de terceros a Azure. Las opciones de implementación incluyen Azure SQL Database, Instancia administrada y SQL Server en una máquina virtual de Azure en versión preliminar pública. Consulte cómo [migrar su base de datos local a Instancia administrada mediante DMS](https://aka.ms/migratetoMIusingDMS).  
+Azure Database Migration Service es un servicio totalmente administrado diseñado para permitir migraciones completas desde varios orígenes de base de datos hasta las plataformas de datos de Azure con un tiempo de inactividad mínimo. Este servicio simplifica las tareas necesarias para mover las bases de datos existentes de SQL Server y de terceros a Azure. Las opciones de implementación incluyen Azure SQL Database, Instancia administrada y SQL Server en una máquina virtual de Azure en versión preliminar pública. Consulte cómo [migrar su base de datos local a Instancia administrada mediante DMS](https://aka.ms/migratetoMIusingDMS). 
 
 ### <a name="backup-and-restore"></a>Copia de seguridad y restauración  
 
@@ -174,7 +191,7 @@ El enfoque de migración aprovecha las copias de seguridad de SQL en Azure Blob 
 
 El objetivo de Instancia administrada es proporcionar una compatibilidad de área expuesta cercana al 100% con un entorno local de SQL Server, con una incorporación gradual hasta alcanzar la disponibilidad general del servicio. Para obtener una lista de características y una comparación, consulte [Características comunes de SQL](sql-database-features.md).
  
-Instancia administrada admite versiones anteriores hasta bases de datos de SQL 2008.  Se admite la migración directa desde los servidores de bases de datos de SQL 2005, el nivel de compatibilidad para las bases de datos de SQL 2005 migradas se ha actualizado a SQL 2008. 
+Instancia administrada admite versiones anteriores hasta bases de datos de SQL 2008. Se admite la migración directa desde los servidores de bases de datos de SQL 2005, el nivel de compatibilidad para las bases de datos de SQL 2005 migradas se ha actualizado a SQL 2008. 
  
 El siguiente diagrama describe la compatibilidad de área expuesta en Instancia administrada:  
 
@@ -182,7 +199,7 @@ El siguiente diagrama describe la compatibilidad de área expuesta en Instancia 
 
 ### <a name="key-differences-between-sql-server-on-premises-and-managed-instance"></a>Diferencias principales entre SQL Server local e Instancia administrada 
 
-Instancia administrada tiene la ventaja de estar siempre actualizada en la nube, lo cual significa que algunas características de la instancia local de SQL Server pueden ser obsoletas, estar retiradas o presentar alternativas.  Hay casos específicos en los que las herramientas deben reconocer que una característica determinada funciona de forma ligeramente diferente o que el servicio no se está ejecutando en un entorno que no controla totalmente: 
+Instancia administrada tiene la ventaja de estar siempre actualizada en la nube, lo cual significa que algunas características de la instancia local de SQL Server pueden ser obsoletas, estar retiradas o presentar alternativas. Hay casos específicos en los que las herramientas deben reconocer que una característica determinada funciona de forma ligeramente diferente o que el servicio no se está ejecutando en un entorno que no controla totalmente: 
 
 - La alta disponibilidad está integrada y configurada previamente. Las características de alta disponibilidad de Always On no se exponen de la misma manera que en las implementaciones de SQL IaaS 
 - Copias de seguridad automatizadas y restauración a un momento dado. El cliente puede iniciar copias de seguridad `copy-only` que no interfieren con la cadena de copias de seguridad automáticas. 
@@ -192,7 +209,7 @@ Instancia administrada tiene la ventaja de estar siempre actualizada en la nube,
  
 ### <a name="managed-instance-administration-features"></a>Características de administración de Instancia administrada  
 
-Instancia administrada permite al administrador del sistema centrarse en lo más importante para el negocio. Muchas actividades del administrador del sistema o DBA no son necesarias, o son sencillas. Por ejemplo, la instalación y aplicación de revisiones de SO o RDBMS, el cambio de tamaño y configuración de instancias dinámicos, las copias de seguridad, la replicación de bases de datos (incluidas las bases de datos del sistema), la configuración de la alta disponibilidad y los flujos de datos de configuración del estado y supervisión del rendimiento.  
+Instancia administrada permite al administrador del sistema centrarse en lo más importante para el negocio. Muchas actividades del administrador del sistema o DBA no son necesarias, o son sencillas. Por ejemplo, la instalación y aplicación de revisiones de SO o RDBMS, el cambio de tamaño y configuración de instancias dinámicos, las copias de seguridad, la replicación de bases de datos (incluidas las bases de datos del sistema), la configuración de la alta disponibilidad y los flujos de datos de configuración del estado y supervisión del rendimiento. 
 
 > [!IMPORTANT]
 > Para obtener una lista de las características compatibles, parcialmente compatibles o no compatibles, consulte [Características de SQL Database](sql-database-features.md). Para obtener una lista de diferencias de T-SQL en Instancia administrada en comparación con SQL Server, consulte [Managed Instance T-SQL Differences from SQL Server](sql-database-managed-instance-transact-sql-information.md) (Diferencias de T-SQL entre Instancia administrada y SQL Server)

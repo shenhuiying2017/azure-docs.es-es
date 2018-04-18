@@ -1,12 +1,12 @@
 ---
 title: Sistema de gobierno en Azure | Microsoft Docs
-description: "Obtenga información acerca de los servicios de computación en la nube que incluyen una amplia selección de instancias y servicios de proceso, que se pueden escalar tanto vertical como horizontalmente para satisfacer las necesidades de su aplicación o de su empresa."
+description: Obtenga información acerca de los servicios de computación en la nube que incluyen una amplia selección de instancias y servicios de proceso, que se pueden escalar tanto vertical como horizontalmente para satisfacer las necesidades de su aplicación o de su empresa.
 services: security
 documentationcenter: na
 author: UnifyCloud
 manager: swadhwa
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 875b78f6af330aea3333b045ee72e9632e9aa8a6
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 04d9e6152c87a49a5f1b1b1a29c16d80de00f4e9
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="governance-in-azure"></a>Sistema de gobierno en Azure
 
@@ -396,7 +396,7 @@ Finalmente, Azure Security Center analiza el estado de seguridad de los recursos
 >[!Note]
 > Para más información sobre cómo aplicar las recomendaciones, lea [Implementación de recomendaciones de seguridad en Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-recommendations).
 
-Security Center recopila datos de las máquinas virtuales para evaluar su estado de seguridad, proporcionar recomendaciones de seguridad y avisarle de las amenazas. La primera vez que se accede al Centro de seguridad la recopilación de datos se habilita en todas las máquinas virtuales de la suscripción. Se recomienda utilizar la recopilación de datos, pero se puede cancelar [desactivando la recopilación de datos](https://docs.microsoft.com/azure/security-center/security-center-faq) en la directiva de Security Center.
+Security Center recopila datos de las máquinas virtuales para evaluar su estado de seguridad, proporcionar recomendaciones de seguridad y avisarle de las amenazas. La primera vez que se accede a Azure Security Center la recopilación de datos se habilita en todas las máquinas virtuales de la suscripción. Se recomienda utilizar la recopilación de datos, pero se puede cancelar [desactivando la recopilación de datos](https://docs.microsoft.com/azure/security-center/security-center-faq) en la directiva de Security Center.
 
 Finalmente, Azure Security Center es una plataforma abierta que permite a los asociados de Microsoft y fabricantes independientes de software crear software que se integre en Azure Security Center para mejorar sus funcionalidades.
 
@@ -410,33 +410,33 @@ Azure Security Center supervisa los siguientes recursos de Azure:
 
 - Soluciones de asociados integradas en la suscripción de Azure, como un firewall de aplicaciones web en las máquinas virtuales y en [App Service Environment](https://docs.microsoft.com/azure/app-service/app-service-app-service-environments-readme)
 
-### <a name="operations-management-suite"></a>Operations Management Suite
+### <a name="log-analytics"></a>Log Analytics
 
-El [programa de gobierno](https://github.com/Microsoft/azure-docs/blob/master/articles/log-analytics/log-analytics-security.md) y seguridad de la información del equipo de servicio y desarrollo de software de OMS respalda sus requisitos empresariales y cumple las leyes y los reglamentos, tal y como se describe en el [Centro de confianza de Microsoft Azure](https://azure.microsoft.com/support/trust-center/) y en [Microsoft Trust Center Compliance](https://www.microsoft.com/TrustCenter/Compliance/default.aspx). En estas páginas también se describe cómo OMS establece los requisitos de seguridad, identifica los controles de seguridad, y administra y supervisa los riesgos. Cada año, revisamos las directivas, los estándares, los procedimientos y las instrucciones.
+El [programa de gobierno](https://github.com/Microsoft/azure-docs/blob/master/articles/log-analytics/log-analytics-security.md) y seguridad de la información del equipo de servicio y desarrollo del software de Log Analytics respalda sus requisitos empresariales y cumple las leyes y los reglamentos, tal y como se describe en el [Centro de confianza de Microsoft Azure](https://azure.microsoft.com/support/trust-center/) y en [Microsoft Trust Center Compliance](https://www.microsoft.com/TrustCenter/Compliance/default.aspx). En estas páginas también se describe cómo Log Analytics establece los requisitos de seguridad, identifica los controles de seguridad, y administra y supervisa los riesgos. Cada año, revisamos las directivas, los estándares, los procedimientos y las instrucciones.
 
-Cada miembro del equipo de desarrollo de OMS recibe cursos formales sobre seguridad de aplicaciones. Internamente, utilizamos un sistema de control de versiones para el desarrollo de software. Cada proyecto de software se protege mediante el sistema de control de versiones.
+Cada miembro del equipo de desarrollo de Log Analytics recibe aprendizaje formal sobre seguridad de aplicaciones. Internamente, utilizamos un sistema de control de versiones para el desarrollo de software. Cada proyecto de software se protege mediante el sistema de control de versiones.
 
-Microsoft cuenta con un equipo de seguridad y cumplimiento normativo que supervisa y evalúa todos los servicios de Microsoft. Los responsables de seguridad de la información conforman el equipo y no están vinculados con los departamentos de ingeniería que desarrollan OMS. Los responsables de seguridad tienen su propia cadena de administración y llevan a cabo evaluaciones independientes de los productos y servicios para garantizar la seguridad y el cumplimiento normativo.
+Microsoft cuenta con un equipo de seguridad y cumplimiento normativo que supervisa y evalúa todos los servicios de Microsoft. Los responsables de seguridad de la información conforman el equipo y no están vinculados con los departamentos de ingeniería que desarrollan Log Analytics. Los responsables de seguridad tienen su propia cadena de administración y llevan a cabo evaluaciones independientes de los productos y servicios para garantizar la seguridad y el cumplimiento normativo.
 
-Operations Management Suite (también conocido como OMS) es una colección de servicios de administración que desde el principio se diseñaron en la nube. En lugar de implementar y administrar recursos locales, los componentes de OMS se hospedan en su totalidad en Azure. La configuración es mínima, y puede estar listo y rindiendo literalmente en cuestión de minutos.
+Azure proporciona una colección de servicios de administración que desde el principio se diseñaron en la nube. En lugar de implementar y administrar recursos locales, estos componentes se hospedan en su totalidad en Azure. La configuración es mínima, y puede estar listo y rindiendo literalmente en cuestión de minutos.
 
 ![Operations Manager Suite](./media/governance-in-azure/security-governance-in-azure-fig8.png)
 
-El hecho de que los servicios de OMS se ejecuten en la nube no significa que no puedan administrar eficazmente cualquier entorno local.
+El hecho de que los servicios de Log Analytics se ejecuten en la nube no significa que no puedan administrar eficazmente cualquier entorno local.
 
 Coloque un agente en cualquier equipo Windows o Linux del centro de datos, y este enviará datos a Log Analytics, donde se pueden analizar, junto con los restantes datos recopilados de los servicios en la nube o locales. Use Azure Backup y Azure Site Recovery con el fin de utilizar la nube para realizar copias de seguridad de los recursos locales y de lograr una alta disponibilidad de estos.
 
 Los runbooks en la nube normalmente no pueden acceder a los recursos locales, pero puede instalar un agente en uno o varios equipos que hospeden los runbooks en su centro de datos. Cuando se inicia un runbook, simplemente especifique si desea que se ejecute en la nube o en un trabajo local.
 
-Un conjunto de servicios que se ejecutan en Azure proporciona la funcionalidad principal de OMS. Cada servicio ofrece una función de administración específica, y se pueden combinar los servicios para lograr escenarios de administración diferentes.
+Un conjunto de servicios que se ejecutan en Azure proporciona la funcionalidad principal de Log Analytics. Cada servicio ofrece una función de administración específica, y se pueden combinar los servicios para lograr escenarios de administración diferentes.
 
 ![Operations Manager Suite](./media/governance-in-azure/security-governance-in-azure-fig9.JPG)
 
-Operations Manager de Azure amplía sus funcionalidades proporcionando soluciones de administración. Las [soluciones de administración](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions) son conjuntos de lógica preempaquetados que implementan un escenario de administración concreto aprovechando uno o varios servicios de OMS.
+Operations Manager de Azure amplía sus funcionalidades proporcionando soluciones de administración. Las [soluciones de administración](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions) son conjuntos de lógica preempaquetados que implementan un escenario de administración concreto aprovechando uno o varios servicios de administración.
 
 ![Operations Manager de Azure](./media/governance-in-azure/security-governance-in-azure-fig10.png)
 
-Hay disponibles diferentes soluciones de Microsoft y de asociados que se pueden agregar fácilmente a la suscripción de Azure para aumentar el valor de su inversión en OMS.
+Hay disponibles diferentes soluciones de Microsoft y de asociados que se pueden agregar fácilmente a la suscripción de Azure para aumentar el valor de su inversión en Log Analytics.
 
 Como asociado, puede crear sus propias soluciones para que sean compatibles con los servicios y las aplicaciones, y proporcionarlas a los usuarios a través de las plantillas de inicio rápido o Azure Marketplace.
 
@@ -455,7 +455,7 @@ Las alertas están disponibles en los diferentes servicios, incluidos:
 >[!Note]
 > Vea [Definición de alertas en Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-alerts) y [Supervisión de la disponibilidad y la capacidad de respuesta de cualquier sitio web](https://docs.microsoft.com/azure/application-insights/app-insights-monitor-web-app-availability).
 
-- Log Analytics (Operations Management Suite): habilita el enrutamiento de los registros de actividad y diagnóstico en Log Analytics. Operations Management Suite permite métrica, registro y otros tipos de alerta.
+- Log Analytics: habilita el enrutamiento de los registros de actividad y diagnóstico para Log Analytics y permite alertas de métricas, registros y de otros tipos.
 
 >[!Note]
 > Para obtener más información, consulte la sección Alertas de [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts).

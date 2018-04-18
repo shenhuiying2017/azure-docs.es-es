@@ -9,13 +9,13 @@ ms.service: sql-database
 ms.custom: scale out apps
 ms.workload: data-management
 ms.topic: article
-ms.date: 12/18/2017
+ms.date: 04/01/2018
 ms.author: genemi
-ms.openlocfilehash: 3806b165e0124e979f59b51d5583cdbb1f949366
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4cbf758b82bccae8efe77e197d23a090d71fd7e5
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Implementación y exploración de una aplicación multiinquilino con particiones que usa Azure SQL Database
 
@@ -57,7 +57,7 @@ Para completar este tutorial, asegúrese de cumplir estos requisitos previos:
 
 En los pasos de esta sección, proporciona un valor de *usuario* que se utiliza para garantizar que los nombres de recursos sean globalmente únicos, y un nombre para el *grupo de recursos* que contiene todos los recursos creados mediante una implementación de la aplicación. Para una persona llamada *Ann Finley*, sugerimos:
 - *Usuario:* **af1**  *(sus iniciales más un dígito. Use un valor diferente (por ejemplo, af2) si implementa la aplicación una segunda vez).*
-- *Grupo de recursos:* **wingtip-dpt-af1** *(wingtip dpt indica que esta es la aplicación de base de datos por inquilino. Anexar el nombre de usuario af1 correlaciona el nombre del grupo de recursos con los nombres del recurso que contiene).*
+- *Grupo de recursos:* **wingtip-mt-af1**  *(wingtip-mt indica que esta es la aplicación multiinquilino con particiones. Anexar el nombre de usuario af1 correlaciona el nombre del grupo de recursos con los nombres del recurso que contiene).*
 
 Elija los nombres ahora y escríbalos. 
 
@@ -123,7 +123,7 @@ Cada ubicación obtiene una aplicación web personalizada para mostrar los event
 Una página web central de **Event Hubs** proporciona una lista de vínculos a los inquilinos de la implementación concreta. Siga estos pasos para conocer la página web del **centro de eventos** y una aplicación web individual:
 
 1. Abra **Events Hub** en el explorador web:
-    - http://events.wingtip-mt.&lt;usuario&gt;.trafficmanager.net &nbsp; *(reemplace &lt;usuario&gt; por el valor del usuario de la implementación).*
+    - http://events.wingtip-mt.&lt;user&gt;.trafficmanager.net &nbsp; *(reemplace &lt;user&gt; por el valor del usuario de su implementación).*
 
     ![events hub](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 
@@ -135,7 +135,7 @@ Una página web central de **Event Hubs** proporciona una lista de vínculos a l
 
 Para controlar la distribución de las solicitudes entrantes, la aplicación Wingtip usa [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). La página de eventos de cada inquilino incluye el nombre del inquilino en la dirección URL. La dirección URL también incluye el valor del usuario en cuestión. Cada dirección URL sigue el formato que se muestra mediante los siguientes pasos:
 
-- http://events.wingtip-mt.&lt;usuario&gt;.trafficmanager.net/*fabrikamjazzclub*
+- http://events.wingtip-mt.&lt;user&gt;.trafficmanager.net/*fabrikamjazzclub*
 
 1. La aplicación de eventos analiza el nombre del inquilino de la dirección URL. Este nombre del inquilino es *fabrikamjazzclub* en la dirección URL del ejemplo anterior.
 2. A continuación, la aplicación analiza el nombre del inquilino para crear una clave de acceso a un catálogo mediante [Shard Map Management](sql-database-elastic-scale-shard-map-management.md).

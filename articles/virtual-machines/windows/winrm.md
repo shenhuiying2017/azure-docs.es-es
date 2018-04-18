@@ -1,11 +1,11 @@
 ---
-title: "Configuración del acceso a WinRM para una máquina virtual de Azure | Microsoft Docs"
-description: "Configure el acceso a WinRM para usarlo con una máquina virtual Azure creada con el modelo de implementación de Resource Manager."
+title: Configuración del acceso a WinRM para una máquina virtual de Azure | Microsoft Docs
+description: Configure el acceso a WinRM para usarlo con una máquina virtual Azure creada con el modelo de implementación de Resource Manager.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: singhkays
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 9718e85b-d360-4621-90b8-0b0b84a21208
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2016
 ms.author: kasing
-ms.openlocfilehash: 2d6533462400bc1d93d0d3b0227769784e2658a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5fa82dd4a85ff2e62848df0fdc6006922005a84b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="setting-up-winrm-access-for-virtual-machines-in-azure-resource-manager"></a>Configuración de acceso a WinRM para máquinas virtuales en Azure Resource Manager
 ## <a name="winrm-in-azure-service-management-vs-azure-resource-manager"></a>WinRM en administración de servicios de Azure frente a Azure Resource Manager
@@ -29,18 +29,18 @@ ms.lasthandoff: 10/11/2017
 * Para ver información general sobre Azure Resource Manager, consulte este [artículo](../../azure-resource-manager/resource-group-overview.md)
 * Para conocer las diferencias entre la administración de servicios de Azure y Azure Resource Manager, consulte este [artículo](../../resource-manager-deployment-model.md)
 
-La diferencia clave en la configuración de WinRM entre las dos pilas es el modo en que se instala el certificado en la máquina virtual. En la pila de Azure Resource Manager, los certificados se modelan como recursos que se administran mediante el proveedor de recursos del Almacén de claves. Por lo tanto, el usuario debe proporcionar su propio certificado y cargarlo en un Almacén de claves antes de usar una máquina virtual.
+La diferencia clave en la configuración de WinRM entre las dos pilas es el modo en que se instala el certificado en la máquina virtual. En la pila de Azure Resource Manager, los certificados se modelan como recursos que se administran mediante el proveedor de recursos de Key Vault. Por lo tanto, el usuario debe proporcionar su propio certificado y cargarlo en un almacén de claves antes de usar una máquina virtual.
 
 Estos son los pasos que debe seguir para configurar una máquina virtual con conectividad de WinRM.
 
-1. Creación de un Almacén de claves
+1. Creación de un almacén de claves
 2. Creación de un certificado autofirmado
-3. Carga del certificado autofirmado en el Almacén de claves
-4. Obtención de la dirección URL para el certificado autofirmado en el Almacén de claves
+3. Carga del certificado autofirmado en Key Vault
+4. Obtención de la dirección URL para el certificado autofirmado en el almacén de claves.
 5. Referencia a la dirección URL de los certificados autofirmados durante la creación de una máquina virtual
 
-## <a name="step-1-create-a-key-vault"></a>Paso 1: Creación de un Almacén de claves
-Puede utilizar el siguiente comando para crear el Almacén de claves:
+## <a name="step-1-create-a-key-vault"></a>Paso 1: Creación de un almacén de claves
+Puede utilizar el siguiente comando para crear el almacén de claves:
 
 ```
 New-AzureRmKeyVault -VaultName "<vault-name>" -ResourceGroupName "<rg-name>" -Location "<vault-location>" -EnabledForDeployment -EnabledForTemplateDeployment
@@ -61,8 +61,8 @@ $password = Read-Host -Prompt "Please enter the certificate password." -AsSecure
 Export-PfxCertificate -Cert $cert -FilePath ".\$certificateName.pfx" -Password $password
 ```
 
-## <a name="step-3-upload-your-self-signed-certificate-to-the-key-vault"></a>Paso 3: Carga del certificado autofirmado en el Almacén de claves
-Antes de cargar el certificado en el Almacén de claves que creó en el paso 1, debe convertirlo a un formato que entienda el proveedor de recursos Microsoft.Compute. El siguiente script de PowerShell le permitirá hacer eso:
+## <a name="step-3-upload-your-self-signed-certificate-to-the-key-vault"></a>Paso 3: Carga del certificado autofirmado en el almacén de claves
+Antes de cargar el certificado en el almacén de claves que creó en el paso 1, debe convertirlo a un formato que entienda el proveedor de recursos Microsoft.Compute. El siguiente script de PowerShell le permitirá hacer eso:
 
 ```
 $fileName = "<Path to the .pfx file>"
@@ -84,11 +84,11 @@ $secret = ConvertTo-SecureString -String $jsonEncoded -AsPlainText –Force
 Set-AzureKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>" -SecretValue $secret
 ```
 
-## <a name="step-4-get-the-url-for-your-self-signed-certificate-in-the-key-vault"></a>Paso 4: Obtención de la dirección URL del certificado autofirmado en el Almacén de claves
-El proveedor de recursos Microsoft.Compute necesita una dirección URL al secreto en el Almacén de claves durante el aprovisionamiento de la máquina virtual. De esta manera, dicho proveedor podrá descargar el secreto y crear el certificado equivalente en la máquina virtual.
+## <a name="step-4-get-the-url-for-your-self-signed-certificate-in-the-key-vault"></a>Paso 4: Obtención de la dirección URL del certificado autofirmado en el almacén de claves
+El proveedor de recursos Microsoft.Compute necesita una dirección URL al secreto en el almacén de claves durante el aprovisionamiento de la máquina virtual. De esta manera, dicho proveedor podrá descargar el secreto y crear el certificado equivalente en la máquina virtual.
 
 > [!NOTE]
-> La dirección URL del secreto debe incluir también la versión. Este es un ejemplo de una dirección URL de este tipo https://contosovault.vault.azure.net:443/secretos/contososecret/01h9db0df2cd4300a20ence585a6s7ve
+> La dirección URL del secreto debe incluir también la versión. Una dirección URL de ejemplo se parece a esta: https://contosovault.vault.azure.net:443/secrets/contososecret/01h9db0df2cd4300a20ence585a6s7ve
 > 
 > 
 

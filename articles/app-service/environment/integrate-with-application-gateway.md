@@ -1,6 +1,6 @@
 ---
-title: Integración de ILB App Service Environment con una puerta de enlace de aplicaciones
-description: Tutorial sobre la integración de una aplicación de ILB App Service Environment con una puerta de enlace de aplicaciones
+title: Integración de ILB App Service Environment con Azure Application Gateway
+description: Tutorial sobre la integración de una aplicación de ILB App Service Environment con Azure Application Gateway
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -11,21 +11,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 03/03/2018
 ms.author: ccompy
-ms.openlocfilehash: c64b686d7a9016b3834096ebc88179db8972098f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 31aea1d19ed6da856bb5fc634a919819513cb6b2
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="integrate-your-ilb-app-service-environment-with-an-application-gateway"></a>Integración de ILB App Service Environment con una puerta de enlace de aplicaciones #
+# <a name="integrate-your-ilb-app-service-environment-with-the-azure-application-gateway"></a>Integración de ILB App Service Environment con Azure Application Gateway #
 
 [App Service Environment](./intro.md) es una implementación de Azure App Service en la subred de una red virtual de Azure de cliente. Se puede implementar con un punto de conexión público o privado para el acceso a las aplicaciones. La implementación de App Service Environment con un punto de conexión privado (es decir, un equilibrador de carga interno) se denomina ILB App Service Environment.  
 
-Azure Application Gateway es una aplicación virtual que ofrece un equilibrio de carga de nivel 7, descarga de SSL y protección mediante firewall de aplicaciones web (WAF). Puede escuchar en una dirección IP pública y enrutar el tráfico hacia el punto de conexión de la aplicación. 
+Los firewalls de aplicaciones web ayudan a proteger las aplicaciones web, ya que inspeccionan el tráfico web entrante y bloquean las inyecciones de código SQL, un posible ataque de scripts de sitios, cargas de malware y DDoS de aplicaciones, y otros ataques. También examina las respuestas de los servidores web back-end para prevención de pérdida de datos (DLP). Puede obtener un dispositivo WAF desde Azure Marketplace o puede usar [Azure Application Gateway][appgw].
 
-La siguiente información describe cómo integrar una puerta de enlace de aplicaciones configurada con firewall de aplicaciones web con una aplicación en una instancia de ILB App Service Environment.  
+Azure Application Gateway es una aplicación virtual que ofrece un equilibrio de carga de nivel 7, descarga de SSL y protección mediante firewall de aplicaciones web (WAF). Puede escuchar en una dirección IP pública y enrutar el tráfico hacia el punto de conexión de la aplicación. La siguiente información describe cómo integrar una puerta de enlace de aplicaciones configurada con firewall de aplicaciones web con una aplicación en una instancia de ILB App Service Environment.  
 
 La integración de la puerta de enlace de aplicaciones con ILB App Service Environment se produce en el nivel de la aplicación. Al configurar la puerta de enlace de aplicaciones con ILB App Service Environment, lo hace para aplicaciones específicas de este último. Esta técnica permite hospedar aplicaciones para varios inquilinos seguras en una única instancia de ILB App Service Environment.  
 
@@ -33,14 +33,14 @@ La integración de la puerta de enlace de aplicaciones con ILB App Service Envir
 
 En este tutorial realizará lo siguiente:
 
-* Crear una puerta de enlace de aplicaciones.
-* Configurar la puerta de enlace de aplicaciones para que apunte a una aplicación de la instancia de ILB App Service Environment.
+* Crear una instancia de Azure Application Gateway.
+* Configurar la instancia de Application Gateway para que apunte a una aplicación de la instancia de ILB App Service Environment.
 * Configurar la aplicación para que admita el nombre de dominio personalizado.
 * Editar el nombre de host público del DNS que apunta a la puerta de enlace de aplicaciones.
 
 ## <a name="prerequisites"></a>requisitos previos
 
-Para integrar la puerta de enlace de aplicaciones con ILB App Service Environment, necesita:
+Para integrar la instancia de Application Gateway con ILB App Service Environment, necesita:
 
 * Una instancia de ILB App Service Environment.
 * Una aplicación que se ejecute en la instancia de ILB App Service Environment.
@@ -49,13 +49,13 @@ Para integrar la puerta de enlace de aplicaciones con ILB App Service Environmen
 
     ![Ejemplo de lista de direcciones IP que usa ILB App Service Environment][9]
     
-* Un nombre DNS público que se utilizará posteriormente para que apunte a la puerta de enlace de aplicaciones. 
+* Un nombre DNS público que se utilizará posteriormente para que apunte a la instancia de Application Gateway. 
 
 Para detalles sobre la creación de una instancia de ILB App Service Environment, consulte [Creación y uso de un equilibrador de carga interno con una instancia de App Service Environment][ilbase].
 
-En este artículo se da por supuesto que desea una puerta de enlace de aplicaciones en la misma red virtual de Azure donde se implementa la instancia de App Service Environment. Antes de iniciar la creación de la puerta de enlace de aplicaciones, elija o cree la subred donde la hospedará. 
+En este artículo se da por supuesto que desea una instancia de Application Gateway en la misma red virtual de Azure donde se implementa la instancia de App Service Environment. Antes de empezar a crear la instancia de Application Gateway, elija o cree la subred donde la hospedará. 
 
-Debe usar una subred distinta a la denominada GatewaySubnet. Si coloca la puerta de enlace de aplicaciones en GatewaySubnet, no podrá crear ninguna puerta de enlace de red virtual posteriormente. 
+Debe usar una subred distinta a la denominada GatewaySubnet. Si coloca la instancia de Application Gateway en GatewaySubnet, no podrá crear ninguna puerta de enlace de red virtual posteriormente. 
 
 Tampoco se puede colocar la puerta de enlace en la subred que usa la instancia de ILB App Service Environment. App Service Environment es lo único que puede estar en esta subred.
 
@@ -65,7 +65,7 @@ Tampoco se puede colocar la puerta de enlace en la subred que usa la instancia d
 
 2. En la zona **Básico**:
 
-   a. Como **Nombre**, escriba el de la puerta de enlace de aplicaciones.
+   a. Como **Nombre**, escriba el de Azure Application Gateway.
 
    b. Como **Nivel**, seleccione **WAF**.
 
@@ -75,13 +75,13 @@ Tampoco se puede colocar la puerta de enlace en la subred que usa la instancia d
 
    e. Como **Ubicación**, seleccione la de la red virtual de App Service Environment.
 
-   ![Conceptos básicos de la creación de instancias de Application Gateway][2]
+   ![Conceptos básicos nuevos de la creación de instancias de Application Gateway][2]
 
 3. En el área **Configuración**:
 
    a. Como **Red virtual**, seleccione la de App Service Environment.
 
-   b. Como **Subred**, seleccione donde debe implementarse la puerta de enlace de aplicaciones. No utilice GatewaySubnet, ya que esto impediría la creación de puertas de enlace de VPN.
+   b. Como **Subred**, seleccione donde debe implementarse la instancia de Azure Application Gateway. No utilice GatewaySubnet, ya que esto impediría la creación de puertas de enlace de VPN.
 
    c. Como **Tipo de dirección IP**, seleccione **Pública**.
 
@@ -91,11 +91,11 @@ Tampoco se puede colocar la puerta de enlace en la subred que usa la instancia d
 
    f. Como **Firewall de aplicaciones web**, puede habilitar el firewall y también establecerlo en **Detección** o en **Prevención**, según estime oportuno.
 
-   ![Configuración de creación de nueva instancia de Application Gateway][3]
+   ![Nueva configuración de la creación de Application Gateway][3]
     
-4. En la sección **Resumen**, revise la configuración y seleccione **Aceptar**. La puerta de enlace de aplicaciones puede tardar algo más de 30 minutos en instalarse.  
+4. En la sección **Resumen**, revise la configuración y seleccione **Aceptar**. La instancia de Application Gateway puede tardar algo más de 30 minutos en instalarse.  
 
-5. Una vez instalada la puerta de enlace de aplicaciones, vaya a su portal. Seleccione **Grupo back-end**. Agregue la dirección del equilibrador de carga interno que usa la instancia de ILB App Service Environment.
+5. Una vez instalada, vaya a su portal. Seleccione **Grupo back-end**. Agregue la dirección del equilibrador de carga interno que usa la instancia de ILB App Service Environment.
 
    ![Configuración del grupo back-end][4]
 
@@ -107,9 +107,9 @@ Tampoco se puede colocar la puerta de enlace en la subred que usa la instancia d
 
    ![Configuración de HTTP][6]
     
-8. Vaya a la **Introducción** de la puerta de enlace de aplicaciones y copie la dirección IP pública que esta usa. Establezca esa dirección IP como registro A del nombre de dominio de la aplicación, o utilice el nombre DNS para esa dirección en un registro CNAME. Es más fácil seleccionar la dirección IP pública y copiarla desde la interfaz de usuario de dirección IP pública que desde el vínculo de la sección **Información general** de la puerta de enlace de aplicaciones. 
+8. Vaya a la sección **Información general** de la instancia de Application Gateway y copie la dirección IP pública que esta usa. Establezca esa dirección IP como registro A del nombre de dominio de la aplicación, o utilice el nombre DNS para esa dirección en un registro CNAME. Es más fácil seleccionar la dirección IP pública y copiarla desde la interfaz de usuario de dirección IP pública que desde el vínculo de la sección **Información general** de Application Gateway. 
 
-   ![Portal de la puerta de enlace de aplicaciones][7]
+   ![Portal de Application Gateway][7]
 
 9. Establezca el nombre de dominio personalizado para la aplicación de la instancia de ILB App Service Environment. Vaya a la aplicación en el portal y, en **Configuración**, seleccione **Dominios personalizados**.
 
