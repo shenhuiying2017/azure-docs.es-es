@@ -13,11 +13,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/24/2018
 ms.author: sedusch
-ms.openlocfilehash: f8c01c4e3f060c6a5ad52f1ed16103ea42d8cd2b
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: e3fb06309dabd7f66d5873e4c5faa48b468854f6
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="high-availability-of-sap-hana-on-azure-virtual-machines-vms"></a>Alta disponibilidad de SAP HANA en Azure Virtual Machines (VM)
 
@@ -34,6 +34,7 @@ ms.lasthandoff: 03/29/2018
 [2243692]:https://launchpad.support.sap.com/#/notes/2243692
 [1984787]:https://launchpad.support.sap.com/#/notes/1984787
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
+[2388694]:https://launchpad.support.sap.com/#/notes/2388694
 
 [hana-ha-guide-replication]:sap-hana-high-availability.md#14c19f65-b5aa-4856-9594-b81c7e4df73d
 [hana-ha-guide-shared-storage]:sap-hana-high-availability.md#498de331-fa04-490b-997c-b078de457c9d
@@ -155,17 +156,38 @@ Para implementar todos los recursos necesarios, puede usar una de las plantillas
         1. Escriba el nombre del sondeo de estado nuevo (por ejemplo hana-hp)
         1. Seleccione TCP como protocolo, puerto 625**03**, y mantenga el intervalo de 5 y el umbral incorrecto 2
         1. Haga clic en Aceptar
-    1. Creación de reglas de equilibrio de carga
+    1. SAP HANA 1.0: creación de reglas de equilibrio de carga
         1. Abra el equilibrador de carga, seleccione las reglas de equilibrio de carga y haga clic en Agregar
         1. Escriba el nombre de la nueva regla del equilibrador de carga (por ejemplo, hana-lb-3**03**15)
+        1. Seleccione la dirección IP de front-end, el grupo de back-end y el sondeo de estado que creó anteriormente (por ejemplo, hana-front-end)
+        1. Conserve el protocolo TCP y escriba el puerto 3**03**15
+        1. Aumente el tiempo de espera de inactividad a 30 minutos
+        1. **Asegúrese de habilitar la dirección IP flotante**
+        1. Haga clic en Aceptar
+        1. Repita los pasos anteriores para el puerto 3**03**17
+    1. SAP HANA 2.0: creación de reglas de equilibrio de carga para la base de datos del sistema
+        1. Abra el equilibrador de carga, seleccione las reglas de equilibrio de carga y haga clic en Agregar
+        1. Escriba el nombre de la nueva regla del equilibrador de carga (por ejemplo, hana-lb-3**03**13).
         1. Seleccione la dirección IP de front-end, el grupo de back-end y el sondeo de estado que creó anteriormente (por ejemplo, hana-front-end)
         1. Conserve el protocolo TCP y escriba el puerto 3**03**13.
         1. Aumente el tiempo de espera de inactividad a 30 minutos
         1. **Asegúrese de habilitar la dirección IP flotante**
         1. Haga clic en Aceptar
-        1. Repita los pasos anteriores para el puerto  3**03**15 y 3**03**17.
+        1. Repita los pasos anteriores para el puerto 3**03**14.
+    1. SAP HANA 2.0: creación de reglas de equilibrio de carga para la primera base de datos de inquilino
+        1. Abra el equilibrador de carga, seleccione las reglas de equilibrio de carga y haga clic en Agregar
+        1. Escriba el nombre de la nueva regla del equilibrador de carga (por ejemplo, hana-lb-3**03**40).
+        1. Seleccione la dirección IP de front-end, el grupo de back-end y el sondeo de estado que creó anteriormente (por ejemplo, hana-front-end)
+        1. Conserve el protocolo TCP y escriba el puerto 3**03**40.
+        1. Aumente el tiempo de espera de inactividad a 30 minutos
+        1. **Asegúrese de habilitar la dirección IP flotante**
+        1. Haga clic en Aceptar
+        1. Repita los pasos anteriores para el puerto 3**03**41 y 3**03**42.
 
-## <a name="create-pacemaker-cluster"></a>Creación de clúster de Pacemaker
+Para más información sobre los puertos necesarios para SAP HANA, lea el capítulo [Connections to Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) (Conexiones a las bases de datos de inquilino) de la guía [SAP HANA Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) (Bases de datos de inquilino de SAP HANA) o la [nota de SAP 2388694][2388694].
+
+
+## <a name="create-pacemaker-cluster"></a>Creación del clúster de Pacemaker
 
 Siga los pasos de [Configuración de Pacemaker en SUSE Linux Enterprise Server en Azure](high-availability-guide-suse-pacemaker.md) para crear un clúster de Pacemaker básico para este servidor HANA. También puede utilizar el mismo clúster de Pacemaker para SAP HANA y SAP NetWeaver (A)SCS.
 

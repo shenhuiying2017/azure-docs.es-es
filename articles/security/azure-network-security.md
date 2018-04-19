@@ -1,12 +1,12 @@
 ---
 title: Azure Network Security | Microsoft Docs
-description: "Obtenga información acerca de los servicios de computación en la nube que incluyen una amplia selección de instancias y servicios de proceso, que se pueden escalar tanto vertical como horizontalmente para satisfacer las necesidades de su aplicación o de su empresa."
+description: Obtenga información acerca de los servicios de computación en la nube que incluyen una amplia selección de instancias y servicios de proceso, que se pueden escalar tanto vertical como horizontalmente para satisfacer las necesidades de su aplicación o de su empresa.
 services: security
 documentationcenter: na
 author: UnifyCloud
 manager: swadhwa
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: f0cc1716daa70bf7c860373819568774cf6f95d9
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 9b86eda1f4ddff9b61ff5b0f9c465e5ef6c2088b
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-network-security"></a>Azure Network Security
 
@@ -392,7 +392,7 @@ Además, el WAF de Application Gateway le ayuda a supervisar las aplicaciones we
 
 El registro con formato JSON va directamente a la cuenta de almacenamiento del cliente. Tiene un control total sobre estos registros y puede aplicar sus propias directivas de retención.
 
-También puede usar estos registros en su propio sistema de análisis con [Integración de registro de Azure](https://aka.ms/AzLog). Los registros de WAF también se integran con [Operations Management Suite (OMS)](https://www.microsoft.com/cloud-platform/operations-management-suite) por lo que puede usar el análisis de registros de OMS para ejecutar consultas específicas sofisticadas.
+También puede usar estos registros en su propio sistema de análisis con [Integración de registro de Azure](https://aka.ms/AzLog). Los registros de WAF también se integran con [Log Analytics](../log-analytics/log-analytics-overview.md) por lo que puede usar este para ejecutar consultas específicas sofisticadas.
 
 #### <a name="azure-web-application-firewall-waf"></a>Firewall de aplicaciones web (WAF) de Azure
 
@@ -469,7 +469,7 @@ Con seguridad operativa de Azure, se hace referencia a los servicios, los contro
 
 -   [Azure Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)
 
--   Administrador de recursos de Azure
+-   Azure Resource Manager
 
 #### <a name="azure-resource-manager"></a>Azure Resource Manager
 
@@ -606,7 +606,7 @@ Network Watcher proporciona una vista de los registros de diagnóstico. Esta vis
 
 ### <a name="log-analytics"></a>Log Analytics
 
-[Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) es un servicio de [Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) que supervisa los entornos local y de nube para mantener su disponibilidad y rendimiento. Recopila los datos generados por los recursos en los entornos local y de nube y mediante otras herramientas de supervisión, para proporcionar análisis entre varios orígenes.
+[Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) es un servicio de Azure que supervisa los entornos local y en la nube para mantener su disponibilidad y rendimiento. Recopila los datos generados por los recursos en los entornos local y de nube y mediante otras herramientas de supervisión, para proporcionar análisis entre varios orígenes.
 
 Log Analytics ofrece las siguientes soluciones para supervisar las redes:
 
