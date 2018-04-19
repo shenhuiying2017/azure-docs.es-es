@@ -1,8 +1,8 @@
 ---
-title: "Administración de clústeres de Hadoop en HDInsight basados en Windows con el portal Azure | Microsoft Docs"
-description: "Vea cómo administrar el servicio HDInsight. Cree un clúster de HDInsight, abra la consola interactiva de JavaScript y la consola de comandos de Hadoop."
+title: Administración de clústeres de Hadoop en HDInsight basados en Windows con el portal Azure | Microsoft Docs
+description: Vea cómo administrar el servicio HDInsight. Cree un clúster de HDInsight, abra la consola interactiva de JavaScript y la consola de comandos de Hadoop.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
@@ -17,10 +17,10 @@ ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
 ms.openlocfilehash: 0b34f861b306dc62cbdbf97378a1c370494bbb20
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Administración de clústeres de Hadoop basados en Windows en HDInsight con el portal de Azure
 
@@ -40,7 +40,7 @@ Antes de empezar este artículo, debe tener lo siguiente:
 * **Cuenta de Azure Storage**: un clúster de HDInsight usa contenedores de Azure Blob Storage como sistemas de archivos predeterminados. Para obtener más información acerca de cómo Azure Blob Storage ofrece una experiencia perfecta con los clústeres de HDInsight, consulte [Uso de Azure Blob Storage con HDInsight](hdinsight-hadoop-use-blob-storage.md). Para obtener información acerca de la creación de una cuenta de Azure Storage, consulte [Creación de una cuenta de Almacenamiento](../storage/common/storage-create-storage-account.md).
 
 ## <a name="open-the-portal"></a>Abrir el portal
-1. Inicie sesión en [https://portal.azure.com/](https://portal.azure.com).
+1. Inicie sesión en [https://portal.azure.com](https://portal.azure.com).
 2. Después de abrir el portal, puede:
 
    * Hacer clic en **Crear un recurso** en el menú de la izquierda para crear un nuevo clúster:
@@ -73,7 +73,7 @@ HDInsight trabaja con una amplia gama de componentes de Hadoop. Para ver la list
 La instalación de software personalizado en el clúster mediante la Conexión a Escritorio remoto no es compatible. Debe evitar el almacenamiento de cualquier archivo en las unidades del nodo principal, debido a que se perderán si necesita volver a crear los clústeres. Recomendamos almacenar los archivos en el almacenamiento de blobs de Azure. El almacenamiento de blobs es persistente.
 
 ## <a name="list-and-show-clusters"></a>Enumeración y visualización de clústeres
-1. Inicie sesión en [https://portal.azure.com/](https://portal.azure.com).
+1. Inicie sesión en [https://portal.azure.com](https://portal.azure.com).
 2. Haga clic en **Clústeres de HDInsight** en el menú de la izquierda.
 3. Haga clic en el nombre del clúster. Si la lista de clústeres es extensa, puede usar el filtro de la parte superior de la página.
 4. Haga doble clic en un clúster de la lista para mostrar los detalles.

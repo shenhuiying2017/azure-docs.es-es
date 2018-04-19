@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 04/04/2018
 ms.author: babanisa
-ms.openlocfilehash: 4fd44387ac1c3dad9f0194f1b2c97d6350f9b15d
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e55127e60470f8f95235893a14113b80e8d6565b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="concepts-in-azure-event-grid"></a>Concepts de Azure Event Grid
 
@@ -32,9 +32,11 @@ Los publicadores clasifican los eventos en temas. El tema incluye un punto de co
 
 Los temas del sistema son temas integrados que ofrecen los servicios de Azure. Los temas personalizados son temas de terceros y de aplicación.
 
+Cundo diseñe la aplicación, cree un tema personalizado para cada categoría de eventos relacionados. Por ejemplo, considere una aplicación que envía eventos relacionados con la modificación de las cuentas de usuario y el procesamiento de pedidos. Es poco probable que algún controlador de eventos quiera ambas categorías de eventos. Cree dos temas personalizados y deje que los controladores de eventos se suscriban a uno que les interese. Cuando se suscriba al tema personalizado, el controlador de eventos puede filtrar por tipo de evento.
+
 ## <a name="event-subscriptions"></a>Suscripciones a eventos
 
-Una suscripción indica a Event Grid los eventos sobre un tema que a un suscriptor le interesa recibir.  Una suscripción contiene también información sobre cómo deben entregarse los eventos al suscriptor.
+Una suscripción indica a Event Grid los eventos sobre un tema que a un suscriptor le interesa recibir. Una suscripción contiene también información sobre cómo deben entregarse los eventos al suscriptor.
 
 ## <a name="event-handlers"></a>Controladores de eventos
 

@@ -1,9 +1,9 @@
 ---
-title: "Información general sobre los registros de diagnóstico de Azure | Microsoft Docs"
-description: "Aprenda qué son los registros de diagnóstico de Azure y cómo puede usarlos para entender los eventos que se producen en un recurso de Azure."
+title: Información general sobre los registros de diagnóstico de Azure | Microsoft Docs
+description: Aprenda qué son los registros de diagnóstico de Azure y cómo puede usarlos para entender los eventos que se producen en un recurso de Azure.
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: fe8887df-b0e6-46f8-b2c0-11994d28e44f
@@ -12,17 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2017
+ms.date: 04/04/2018
 ms.author: johnkem; magoedte
-ms.openlocfilehash: df20e174abb9960ad378221008ac7261fd0582f1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 884acc4885da3a321477c51f6d7b76748d797d9b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Recopile y use los datos de registro provenientes de los recursos de Azure
 
 ## <a name="what-are-azure-resource-diagnostic-logs"></a>Qué son los registros de diagnóstico de Azure
+
 Los **registros de diagnóstico de nivel de recursos de Azure** son registros emitidos por un recurso que proporcionan datos exhaustivos y frecuentes acerca del funcionamiento de ese recurso. El contenido de estos registros varía según el tipo de recurso. Por ejemplo, los contadores de regla de grupo de seguridad de red y las auditorías de Key Vault son dos categorías de registros de recursos.
 
 Lo registros de diagnóstico de nivel de recursos son distintos del [registro de actividad](monitoring-overview-activity-logs.md). El registro de actividad proporciona una visión general de las operaciones que se realizaron en los recursos de la suscripción con Resource Manager, por ejemplo, crear una máquina virtual o eliminar una aplicación de lógica. El registro de actividad es un registro de nivel de suscripción. Los registros de diagnóstico de nivel de recursos proporcionan una visión general de las operaciones realizadas dentro del mismo recurso, por ejemplo, obtener un secreto de un almacén de claves.
@@ -38,39 +39,44 @@ Estas son algunas de las cosas que puede hacer con los registros de diagnóstico
 
 ![Ubicación lógica de los registros de diagnóstico de recursos](./media/monitoring-overview-of-diagnostic-logs/Diagnostics_Logs_Actions.png)
 
-
 * Guardarlos en una [**cuenta de almacenamiento**](monitoring-archive-diagnostic-logs.md) para archivarlos o inspeccionarlos manualmente. Puede especificar el tiempo de retención (en días) usando la **configuración de diagnóstico de recursos**.
 * [Transmitirlos a **Event Hubs**](monitoring-stream-diagnostic-logs-to-event-hubs.md) para la ingestión en un servicio de terceros o una solución de análisis personalizado como PowerBI.
-* Analizarlos con [Log Analytics de OMS](../log-analytics/log-analytics-azure-storage.md)
+* Analizarlos con [Log Analytics](../log-analytics/log-analytics-azure-storage.md).
 
 Puede usar una cuenta de almacenamiento o un espacio de nombres de Event Hubs que no esté en la misma suscripción que el que emite los registros. El usuario que configura los ajustes debe tener el acceso de RBAC adecuado a ambas suscripciones.
 
 ## <a name="resource-diagnostic-settings"></a>Configuración de diagnóstico de recursos
+
 Los registros de diagnóstico de recursos para recursos que no son de proceso se configuran mediante la configuración de diagnóstico de recursos. **Configuración de diagnóstico de recursos** para un control de recursos:
 
-* Dónde se envían los registros de diagnóstico y las métricas (cuenta de Storage, Event Hubs o Log Analytics de OMS).
+* Dónde se envían los registros de diagnóstico y las métricas (cuenta de almacenamiento, Event Hubs o Log Analytics).
 * Qué categorías de registro se envían y si se envían también datos de métrica.
 * Cuánto tiempo se debe conservar cada categoría de registro en una cuenta de almacenamiento
     - Una retención de cero días significa que los registros se conservan de forma indefinida. De lo contrario, el valor puede ser cualquier número de días comprendido entre 1 y 2147483647.
-    - Si se establecen directivas de retención, pero el almacenamiento de registros en una cuenta de almacenamiento está deshabilitado (por ejemplo, si solo se han seleccionado las opciones de Event Hubs u OMS), las directivas de retención no surten ningún efecto.
+    - Si se establecen directivas de retención, pero el almacenamiento de registros en una cuenta de almacenamiento está deshabilitado (por ejemplo, si solo se han seleccionado las opciones Event Hubs o Log Analytics), las directivas de retención no surten ningún efecto.
     - Las directivas de retención se aplican a diario, por lo que al final de un día (UTC) se eliminan los registros del día que quede fuera de la directiva de retención. Por ejemplo, si tuviera una directiva de retención de un día, se eliminarían los registros de anteayer al principio del día de hoy.
 
 Estas opciones se configuran con facilidad a través de la configuración de los diagnósticos para un recurso en Azure Portal, mediante los comandos de Azure PowerShell y de la CLI, o mediante la [API de REST de Azure Monitor](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 
-> [!WARNING]
-> Los registros de diagnóstico y las métricas de la capa de sistema operativo invitado de los recursos de proceso (por ejemplo, máquinas virtuales o Service Fabric) usan [un mecanismo diferente para la configuración y la selección de salidas](../azure-diagnostics.md).
+> [!NOTE]
+> Actualmente no se admite el envío de métricas de varias dimensiones a través de la configuración de diagnóstico. Las métricas con dimensiones se exportan como métricas unidimensionales planas agregadas a través de los valores de dimensión.
+>
+> *Por ejemplo*: la métrica "Mensajes entrantes" de una instancia de Event Hub se puede explorar y representar gráficamente por colas. Sin embargo, cuando se exporta a través de la configuración de diagnóstico, la métrica se representarán como todos los mensajes entrantes de todas las colas de Event Hub.
 >
 >
 
+> [!WARNING]
+> Los registros de diagnóstico y las métricas de la capa de sistema operativo invitado de los recursos de proceso (por ejemplo, máquinas virtuales o Service Fabric) usan [un mecanismo diferente para la configuración y la selección de salidas](../azure-diagnostics.md).
+
 ## <a name="how-to-enable-collection-of-resource-diagnostic-logs"></a>Procedimientos para habilitar la recopilación de registros de diagnóstico de recursos
+
 La recopilación de registros de diagnóstico de recursos se puede habilitar [como parte de la creación de un recurso en una plantilla de Resource Manager](./monitoring-enable-diagnostic-logs-using-template.md) o después de crear un recurso mediante la página del recurso en el portal. También puede habilitar la recolección en cualquier momento mediante comandos de Azure PowerShell o de la CLI, o con la API de REST de Azure Monitor.
 
 > [!TIP]
 > Es posible que estas instrucciones no se apliquen directamente a cada recurso. Consulte los vínculos de esquema al final de esta página para ver los pasos especiales que se pueden aplicar a determinados tipos de recursos.
->
->
 
 ### <a name="enable-collection-of-resource-diagnostic-logs-in-the-portal"></a>Habilitación de la recopilación de registros de diagnóstico de recursos en el portal
+
 Puede habilitar la recopilación de registros de diagnóstico de recursos en Azure Portal una vez creado un recurso yendo a un recurso concreto o a Azure Monitor. Para habilitar esta opción a través de Azure Monitor:
 
 1. En [Azure Portal](http://portal.azure.com), desplácese a Azure Monitor y haga clic en **Configuración de diagnóstico**
@@ -88,14 +94,15 @@ Puede habilitar la recopilación de registros de diagnóstico de recursos en Azu
    ![Agregar configuración de diagnóstico: configuración actual](media/monitoring-overview-of-diagnostic-logs/diagnostic-settings-multiple.png)
 
 3. Asigne un nombre a su configuración, active las casillas para cada destino al que le gustaría enviar datos y configure el recurso que se utiliza para cada uno. Además, puede establecer un número de días para conservar estos registros mediante los controles deslizantes de **Retención (días)** (solo aplicable al destino de la cuenta de almacenamiento). Con una retención de cero días, los registros se almacenan indefinidamente.
-   
+
    ![Agregar configuración de diagnóstico: configuración actual](media/monitoring-overview-of-diagnostic-logs/diagnostic-settings-configure.png)
-    
+
 4. Haga clic en **Save**(Guardar).
 
 Transcurridos unos instantes, la nueva configuración aparece en la lista de opciones para este recurso y los registros de diagnóstico se envían a los destinos especificados en cuanto se generan nuevos datos de eventos.
 
 ### <a name="enable-collection-of-resource-diagnostic-logs-via-powershell"></a>Habilitación de la recopilación de registros de diagnóstico de recursos mediante PowerShell
+
 Para habilitar la recopilación de registros de diagnóstico de recursos con Azure PowerShell, use los siguientes comandos:
 
 Para habilitar el almacenamiento de registros de diagnóstico en una cuenta de almacenamiento, use este comando:
@@ -128,37 +135,72 @@ Puede obtener el identificador de recurso de su área de trabajo de Log Analytic
 
 Puede combinar estos parámetros para habilitar varias opciones de salida.
 
-### <a name="enable-collection-of-resource-diagnostic-logs-via-cli"></a>Habilitación de la recopilación de registros de diagnóstico de recursos mediante la CLI
-Para habilitar la recopilación de registros de diagnóstico de recursos con la CLI de Azure, use los siguientes comandos:
+### <a name="enable-collection-of-resource-diagnostic-logs-via-azure-cli-20"></a>Habilitación de la recopilación de registros de diagnóstico de recursos mediante la CLI de Azure 2.0
 
-Para habilitar el almacenamiento de registros de diagnóstico en una cuenta de almacenamiento, use este comando:
+Para habilitar la recopilación de registros de diagnóstico de recursos a través de la CLI de Azure 2.0, utilice el comando [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
 
-```azurecli
-azure insights diagnostic set --resourceId <resourceId> --storageId <storageAccountId> --enabled true
-```
-
-El identificador de la cuenta de almacenamiento es el identificador de recurso para la cuenta de almacenamiento a la que desea enviar los registros.
-
-Para habilitar el streaming de registros de diagnóstico a un centro de eventos, use este comando:
+Para habilitar el almacenamiento de registros de diagnóstico en una cuenta de almacenamiento:
 
 ```azurecli
-azure insights diagnostic set --resourceId <resourceId> --serviceBusRuleId <serviceBusRuleId> --enabled true
+az monitor diagnostic-settings create --name <diagnostic name> \
+    --storage-account <name or ID of storage account> \
+    --resource <target resource object ID> \
+    --resource-group <storage account resource group> \
+    --logs '[
+    {
+        "category": <category name>,
+        "enabled": true,
+        "retentionPolicy": {
+            "days": <# days to retain>,
+            "enabled": true
+        }
+    }]'
 ```
 
-El identificador de regla de Service Bus es una cadena con este formato: `{Service Bus resource ID}/authorizationrules/{key name}`.
+El argumento `--resource-group` solo es obligatorio si `--storage-account` no es un identificador de objeto.
 
-Para habilitar el envío de registros de diagnóstico a un área de trabajo de Log Analytics, use este comando:
+Para habilitar el streaming de registros de diagnóstico a un centro de eventos:
 
 ```azurecli
-azure insights diagnostic set --resourceId <resourceId> --workspaceId <resource id of the log analytics workspace> --enabled true
+az monitor diagnostic-settings create --name <diagnostic name> \
+    --event-hub <event hub name> \
+    --event-hub-rule <event hub rule ID> \
+    --resource <target resource object ID> \
+    --logs '[
+    {
+        "category": <category name>,
+        "enabled": true
+    }
+    ]'
 ```
 
-Puede combinar estos parámetros para habilitar varias opciones de salida.
+El identificador de regla es una cadena con este formato: `{Service Bus resource ID}/authorizationrules/{key name}`.
+
+Para habilitar el envío de registros de diagnóstico a un área de trabajo de Log Analytics:
+
+```azurecli
+az monitor diagnostic-settings create --name <diagnostic name> \
+    --workspace <log analytics name or object ID> \
+    --resource <target resource object ID> \
+    --resource-group <log analytics workspace resource group> \
+    --logs '[
+    {
+        "category": <category name>,
+        "enabled": true
+    }
+    ]'
+```
+
+El argumento `--resource-group` solo es obligatorio si `--workspace` no es un identificador de objeto.
+
+Con cualquier comando, puede agregar categorías adicionales al registro de diagnóstico mediante la incorporación de diccionarios a la matriz JSON que se pasa como el parámetro `--logs`. Puede combinar los parámetros `--storage-account`, `--event-hub` y `--workspace` para habilitar varias opciones de salida.
 
 ### <a name="enable-collection-of-resource-diagnostic-logs-via-rest-api"></a>Habilitación de la recopilación de registros de diagnóstico de recursos mediante la API de REST
+
 Para cambiar la configuración de diagnóstico con la API de REST de Azure Monitor, consulte [este documento](https://msdn.microsoft.com/library/azure/dn931931.aspx).
 
 ## <a name="manage-resource-diagnostic-settings-in-the-portal"></a>Administración de la configuración de diagnóstico de recursos en el portal
+
 Asegúrese de que todos los recursos estén instalados con la configuración de diagnóstico. Vaya a **Monitor** en el portal y abra **Configuración de diagnóstico**.
 
 ![Hoja Registros de diagnóstico en el portal](./media/monitoring-overview-of-diagnostic-logs/diagnostic-settings-nav.png)
@@ -172,6 +214,7 @@ Aquí puede ver y filtrar todos los recursos que admiten la configuración de di
 Al agregar una opción de configuración de diagnóstico, se abre la vista Configuración de diagnóstico, donde puede habilitar, deshabilitar o modificar la configuración de diagnóstico para el recurso seleccionado.
 
 ## <a name="supported-services-categories-and-schemas-for-resource-diagnostic-logs"></a>Servicios admitidos, categorías y esquemas para los registros de diagnóstico de recursos
+
 [Consulte este artículo](monitoring-diagnostic-logs-schema.md) para obtener una lista completa de los servicios admitidos y las categorías de registro y los esquemas utilizados por esos servicios.
 
 ## <a name="next-steps"></a>Pasos siguientes

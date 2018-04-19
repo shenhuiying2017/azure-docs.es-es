@@ -1,11 +1,11 @@
 ---
-title: "Uso del complemento para máquinas subordinadas de Azure con Hudson Continuous Integration | Microsoft Docs"
-description: "Describe cómo usar el complemento esclavo de Azure con Hudson Continuous Integration."
+title: Uso del complemento para máquinas subordinadas de Azure con Hudson Continuous Integration | Microsoft Docs
+description: Describe cómo usar el complemento subordinado de Azure con Hudson Continuous Integration.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rmcmurray
 manager: wpickett
-editor: 
+editor: ''
 ms.assetid: b2083d1c-4de8-4a19-a615-ccc9d9b6e1d9
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
@@ -20,8 +20,8 @@ ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/08/2018
 ---
-# <a name="how-to-use-the-azure-slave-plug-in-with-hudson-continuous-integration"></a>Uso del complemento esclavo de Azure con Hudson Continuous Integration
-El complemento esclavo de Azure para Hudson le permite aprovisionar los nodos subordinados en Azure cuando se ejecutan compilaciones distribuidas.
+# <a name="how-to-use-the-azure-slave-plug-in-with-hudson-continuous-integration"></a>Uso del complemento subordinado de Azure con Hudson Continuous Integration
+El complemento subordinado de Azure para Hudson le permite aprovisionar los nodos subordinados en Azure cuando se ejecutan compilaciones distribuidas.
 
 ## <a name="install-the-azure-slave-plug-in"></a>Instalación del complemento subordinado de Azure
 1. En el panel de Hudson, haga clic en **Manage Hudson**(Administrar Hudson).
@@ -30,14 +30,14 @@ El complemento esclavo de Azure para Hudson le permite aprovisionar los nodos su
 4. Haga clic en **Buscar** y escriba **Azure** para limitar la lista de complementos pertinentes.
    
     Si opta por desplazarse por la lista de complementos disponibles, encontrará el complemento para máquinas subordinadas de Azure en la sección **Cluster Management and Distributed Build** (Administración de clústeres y compilación distribuida) de la pestaña **Others** (Otros).
-5. Active la casilla **Azure Slave Plugin**(Complemento esclavo de Azure).
+5. Active la casilla **Azure Slave Plugin**(Complemento subordinado de Azure).
 6. Haga clic en **Instalar**.
 7. Reinicie Hudson.
 
 Ahora que está instalado el complemento, los siguientes pasos serían configurarlo con el perfil de suscripción de Azure y crear una plantilla que se usará en la creación de la máquina virtual para el nodo subordinado.
 
-## <a name="configure-the-azure-slave-plug-in-with-your-subscription-profile"></a>Configuración del complemento esclavo de Azure con el perfil de suscripción
-Un perfil de suscripción, también conocido como configuración de publicación, es un archivo XML que contiene credenciales seguras y alguna información adicional que necesitará para trabajar con Azure en el entorno de desarrollo. Para configurar el complemento esclavo de Azure, necesitará:
+## <a name="configure-the-azure-slave-plug-in-with-your-subscription-profile"></a>Configuración del complemento subordinado de Azure con el perfil de suscripción
+Un perfil de suscripción, también conocido como configuración de publicación, es un archivo XML que contiene credenciales seguras y alguna información adicional que necesitará para trabajar con Azure en el entorno de desarrollo. Para configurar el complemento subordinado de Azure, necesitará:
 
 * Su id. de suscripción
 * Un certificado de administración para la suscripción
@@ -63,7 +63,7 @@ Estos se pueden encontrar en su [perfil de suscripción]. A continuación se mue
 
     </PublishData>
 
-Una vez que tiene el perfil de suscripción, siga estos pasos para configurar el complemento esclavo de Azure.
+Una vez que tiene el perfil de suscripción, siga estos pasos para configurar el complemento subordinado de Azure.
 
 1. En el panel de Hudson, haga clic en **Manage Hudson**(Administrar Hudson).
 2. Haga clic en **Configure System**(Configurar sistema).

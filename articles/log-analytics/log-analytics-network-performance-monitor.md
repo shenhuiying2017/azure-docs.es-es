@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 9b3c4efc712ebe9c0fe209d2ca0478367872d3b7
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 6e81f2cdd0cd3f62d93c85c1a073e0b9df542ec7
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solución Network Performance Monitor en Azure
 
@@ -250,7 +250,9 @@ La topología mostrada en el mapa corresponde al nivel 3 y no contiene ningún d
 
 Todos los datos expuestos mediante gráficos en las páginas de exploración en profundidad y en el panel de Network Performance Monitor también se encuentran disponibles de forma nativa en la [búsqueda de Log Analytics](log-analytics-log-search-new.md). Puede realizar un análisis interactivo de los datos en el repositorio y correlacionar datos procedentes de distintos orígenes. También puede crear vistas y alertas personalizadas, y exportar los datos a Excel, Power BI o un vínculo que se pueda compartir. El área  **Common Queries**  (Consultas comunes) del panel incorpora una serie de consultas útiles que puede usar como punto de partida para crear sus propios informes y consultas. 
 
- 
+##<a name="pricing"></a>Precios
+
+La información sobre los precios está disponible [en línea](log-analytics-network-performance-monitor-pricing-faq.md).
 
 ## <a name="provide-feedback"></a>Envío de comentarios 
 

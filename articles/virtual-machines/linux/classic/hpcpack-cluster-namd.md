@@ -1,11 +1,11 @@
 ---
-title: "NAMD con Microsoft HPC Pack en máquinas virtuales Linux | Microsoft Docs"
-description: "Implementación de un clúster de Microsoft HPC Pack en Azure y ejecución de una simulación de NAMD con charmrun en varios nodos de proceso de Linux"
+title: NAMD con Microsoft HPC Pack en máquinas virtuales Linux | Microsoft Docs
+description: Implementación de un clúster de Microsoft HPC Pack en Azure y ejecución de una simulación de NAMD con charmrun en varios nodos de proceso de Linux
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,azure-resource-manager,hpc-pack
 ms.assetid: 76072c6b-ac35-4729-ba67-0d16f9443bd7
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 10/13/2016
 ms.author: danlep
-ms.openlocfilehash: 0c0b9875b4153edcc0ec0096577d041d394a842f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 61dd49d4bd3183b6b9a78036d6d7d01798e4dc89
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="run-namd-with-microsoft-hpc-pack-on-linux-compute-nodes-in-azure"></a>Ejecución de NAMD con Microsoft HPC Pack en nodos de proceso de Linux en Azure
 Este artículo muestra una manera de ejecutar una carga de trabajo de informática de alto rendimiento (HPC) de Linux en máquinas virtuales de Azure. Aquí configurará un clúster de [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) en Azure con nodos de ejecución de Linux y ejecutará una simulación [NAMD](http://www.ks.uiuc.edu/Research/namd/) para calcular y visualizar la estructura de un sistema biomolecular grande.  
@@ -29,7 +29,7 @@ Este artículo muestra una manera de ejecutar una carga de trabajo de informáti
 * **NAMD** (siglas del programa Nanoscale Molecular Dynamics) es un paquete de dinámica molecular paralelo diseñado para la simulación de alto rendimiento de sistemas biomoleculares grandes que contienen hasta millones de átomos. Algunos ejemplos de estos sistemas son virus, estructuras celulares y proteínas grandes. NAMD se escala a cientos de núcleos en las simulaciones típicas y a más de 500.000 núcleos en las simulaciones de mayor tamaño.
 * **Microsoft HPC Pack** proporciona características para ejecutar HPC y aplicaciones paralelas a gran escala, en clústeres de equipos locales o de máquinas virtuales de Azure. HPC Pack, que se desarrolló originalmente como una solución para cargas de trabajo de Windows HPC, ahora admite la ejecución de las aplicaciones HPC Linux en máquinas virtuales de nodos de proceso de Linux implementadas en un clúster de HPC Pack. Consulte [Introducción a los nodos de ejecución de Linux en un clúster de HPC Pack en Azure](hpcpack-cluster.md) para obtener información.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 * **Clúster de HPC Pack con nodos de ejecución de Linux**: implemente un clúster de HPC Pack con nodos de proceso de Linux en Azure utilizando una [plantilla de Azure Resource Manager](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) o un [script de Azure PowerShell](hpcpack-cluster-powershell-script.md). Consulte [Introducción a los nodos de proceso de Linux en un clúster de HPC Pack en Azure](hpcpack-cluster.md) para ver los requisitos previos y los pasos para cada opción. Si elige la opción de implementación de scripts de PowerShell, consulte el archivo de configuración de ejemplo en los archivos de ejemplo al final de este artículo. Este archivo configura un clúster basado en Azure HPC Pack que consta de un nodo principal de Windows Server 2012 R2 y cuatro nodos de ejecución de tamaño grande CentOS 6.6. Adapte este archivo según las necesidades de su entorno.
 * **Archivos de software y tutorial NAMD** : descargue el software NAMD para Linux desde el sitio [NAMD](http://www.ks.uiuc.edu/Research/namd/) (hay que registrarse). Este artículo se basa en NAMD versión 2.10 y usa el archivo [Linux-x86_64 (64-bit Intel/AMD con Ethernet)](http://www.ks.uiuc.edu/Development/Download/download.cgi?UserID=&AccessCode=&ArchiveID=1310). Descargue también los [archivos del tutorial de NAMD](http://www.ks.uiuc.edu/Training/Tutorials/#namd). Dado que las descargas son archivos .tar, necesita una herramienta de Windows para extraer los archivos en el nodo principal del clúster. Para extraer los archivos, siga las instrucciones que aparecen más adelante en este artículo. 
 * **VMD** (opcional): para ver los resultados del trabajo de NAMD, descargue e instale el programa de visualización molecular [VMD](http://www.ks.uiuc.edu/Research/vmd/) en un equipo de su elección. La versión actual es 1.9.2. Consulte el sitio de descargas de VMD para comenzar.  
@@ -208,7 +208,7 @@ host <Name of node2> ++cpus <Cores of node2>
 …
 ```
 
-Por ejemplo:
+Por ejemplo: 
 
 ```
 group main
@@ -232,7 +232,7 @@ Ahora está listo para enviar un trabajo NAMD en el administrador de clústeres 
 6. Haga clic en **Editar tareas** en el panel de navegación izquierdo y, luego, haga clic en **Agregar** para agregar una tarea al trabajo.    
 7. En la página **Task Details and I/O Redirection** (Detalles de la tarea y redirección de E/S), establezca los valores siguientes:
    
-   * **Línea de comandos**-
+   * **Línea de comandos** -
      `/namd2/hpccharmrun.sh ++remote-shell ssh /namd2/namd2 /namd2/namdsample/1-2-sphere/ubq_ws_eq.conf > /namd2/namd2_hpccharmrun.log`
      
      > [!TIP]

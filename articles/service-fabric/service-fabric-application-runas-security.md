@@ -12,90 +12,173 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/21/2018
+ms.date: 03/29/2018
 ms.author: mfussell
-ms.openlocfilehash: 3df5374911ee6381f25d08d23d565cdf8a7cd12f
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 471e5a79600d6a963a4fa5b6cec8d2cc16137489
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="run-a-service-as-a-local-user-account-or-local-system-account"></a>Ejecución de un servicio como cuenta de usuario local o cuenta de sistema local
-Azure Service Fabric le permite proteger aplicaciones que se ejecutan en distintas cuentas de usuario en el clúster. De forma predeterminada, las aplicaciones de Service Fabric se ejecutan en la misma cuenta en que se ejecuta el proceso Fabric.exe. Service Fabric también permite ejecutar aplicaciones en una cuenta de usuario local o una cuenta de sistema local, lo que se logra al especificar la directiva RunAs en el manifiesto de la aplicación. Los tipos de cuenta de sistema local compatibles son **LocalUser**, **NetworkService**, **LocalService** y **LocalSystem**.  Si va a ejecutar Service Fabric en un clúster de Windows independiente, puede ejecutar un servicio en [cuentas de dominio de Active Directory](service-fabric-run-service-as-ad-user-or-group.md) o en [cuentas de servicio administradas de grupo](service-fabric-run-service-as-gmsa.md).
+Azure Service Fabric le permite proteger aplicaciones que se ejecutan en distintas cuentas de usuario en el clúster. De forma predeterminada, las aplicaciones de Service Fabric se ejecutan en la misma cuenta en que se ejecuta el proceso Fabric.exe. Service Fabric también proporciona la funcionalidad de ejecutar aplicaciones con una cuenta de usuario o sistema local. Los tipos de cuenta de sistema local compatibles son **LocalUser**, **NetworkService**, **LocalService** y **LocalSystem**.  Si va a ejecutar Service Fabric en un clúster de Windows independiente, puede ejecutar un servicio en [cuentas de dominio de Active Directory](service-fabric-run-service-as-ad-user-or-group.md) o en [cuentas de servicio administradas de grupo](service-fabric-run-service-as-gmsa.md).
 
-También se pueden definir y crear grupos de usuarios, de modo que se puedan agregar uno o varios usuarios a cada grupo para poder administrarlos de forma conjunta. Esto es útil cuando hay varios usuarios para distintos puntos de entrada de servicio y es preciso que tengan ciertos privilegios comunes disponibles en el nivel de grupo.
+En el manifiesto de aplicación, se definen las cuentas de usuario necesarias para ejecutar los servicios o proteger los recursos en la sección **Principals**. También se pueden definir y crear grupos de usuarios, de modo que se puedan administrar uno o varios usuarios de forma conjunta. Esto es útil cuando hay varios usuarios para distintos puntos de entrada de servicio y necesitan privilegios comunes disponibles en el nivel de grupo.  Después, se hace referencia a los usuarios en una directiva RunAs, que se aplica a un servicio específico o a todos los servicios de la aplicación. 
+
+De forma predeterminada, la directiva RunAs se aplica en el punto de entrada principal.  También puede aplicar una directiva RunAs al punto de entrada del programa de instalación, si necesita [ejecutar determinadas operaciones de instalación con privilegios elevados bajo una cuenta de sistema](service-fabric-run-script-at-service-startup.md), o tanto a puntos de entrada principales como de instalación.  
 
 > [!NOTE] 
 > Si aplica una directiva de RunAs a un servicio y el manifiesto de servicio declara los recursos de punto de conexión con el protocolo HTTP, debe especificar **SecurityAccessPolicy**.  Para obtener más información, consulte [Assign a security access policy for HTTP and HTTPS endpoints](service-fabric-assign-policy-to-endpoint.md) (Asignación de una directiva de acceso de seguridad a los puntos de conexión HTTP y HTTPS). 
 >
 
-## <a name="create-local-user-groups"></a>Creación de grupos de usuarios locales
-Se pueden definir y crear grupos de usuarios que permitan agregar uno o varios usuarios a un grupo. Esto es útil si hay varios usuarios para distintos puntos de entrada de servicio y es preciso que tengan ciertos privilegios comunes disponibles en el nivel de grupo. En el ejemplo siguiente se muestra un grupo local denominado **LocalAdminGroup** con privilegios de administrador. Dos usuarios, Customer1 y Customer2, se convierten en miembros de este grupo local en este ejemplo de manifiesto de aplicación:
+## <a name="run-a-service-as-a-local-user"></a>Ejecución de un servicio como usuario local
+Puede crear un usuario local para proteger un servicio dentro de la aplicación. Si se especifica un tipo de cuenta **LocalUser** en la sección de entidades de seguridad del manifiesto de aplicación, Service Fabric crea cuentas de usuario locales en las máquinas donde se implementa la aplicación. De forma predeterminada, los nombres de dichas cuentas no coinciden con los que se especifican en el manifiesto de aplicación (por ejemplo, *Customer3* en el ejemplo siguiente de manifiesto de aplicación). En su lugar, se generan dinámicamente y tienen contraseñas aleatorias.
+
+En la sección **RunAsPolicy** de **ServiceManifestImport**, especifica la cuenta de usuario de la sección **Principals** para ejecutar el paquete de código de servicio.  En el ejemplo siguiente se muestra cómo crear un usuario local y aplicar una directiva RunAs al punto de entrada principal:
 
 ```xml
-<Principals>
- <Groups>
-   <Group Name="LocalAdminGroup">
-     <Membership>
-       <SystemGroup Name="Administrators"/>
-     </Membership>
-   </Group>
- </Groups>
-  <Users>
-     <User Name="Customer1">
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="Application7Type" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+  <Parameters>
+    <Parameter Name="Web1_InstanceCount" DefaultValue="-1" />
+  </Parameters>
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="Web1Pkg" ServiceManifestVersion="1.0.0" />
+    <ConfigOverrides />
+    <Policies>
+      <RunAsPolicy CodePackageRef="Code" UserRef="Customer3" EntryPointType="Main" />
+    </Policies>
+  </ServiceManifestImport>
+  <DefaultServices>    
+    <Service Name="Web1" ServicePackageActivationMode="ExclusiveProcess">
+      <StatelessService ServiceTypeName="Web1Type" InstanceCount="[Web1_InstanceCount]">
+        <SingletonPartition />
+      </StatelessService>
+    </Service>
+  </DefaultServices>
+  <Principals>
+    <Users>
+      <User Name="Customer3" />
+    </Users>
+  </Principals>
+</ApplicationManifest>
+```
+
+## <a name="create-a-local-user-group"></a>Creación de un grupo de usuarios local
+Puede crear grupos de usuarios y agregar uno o varios usuarios al grupo. Esto es útil si hay varios usuarios para distintos puntos de entrada de servicio y es preciso que tengan ciertos privilegios comunes disponibles en el nivel de grupo. En el ejemplo siguiente de manifiesto de aplicación se muestra un grupo local denominado *LocalAdminGroup* que tiene privilegios de administrador. Dos usuarios, *Customer1* y *Customer2*, se convierten en miembros de este grupo local. En la sección **ServiceManifestImport**, se aplica una directiva RunAs para ejecutar el paquete de código *Stateful1Pkg* como *Customer2*.  Se aplica otra directiva RunAs para ejecutar el paquete de código *Web1Pkg* como *Customer1*.
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="Application7Type" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+  <Parameters>
+    <Parameter Name="Stateful1_MinReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="Stateful1_PartitionCount" DefaultValue="1" />
+    <Parameter Name="Stateful1_TargetReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="Web1_InstanceCount" DefaultValue="-1" />
+  </Parameters>
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="Stateful1Pkg" ServiceManifestVersion="1.0.0" />
+    <ConfigOverrides />
+    <Policies>
+      <RunAsPolicy CodePackageRef="Code" UserRef="Customer2" EntryPointType="Main"/>
+    </Policies>
+  </ServiceManifestImport>
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="Web1Pkg" ServiceManifestVersion="1.0.0" />
+    <ConfigOverrides />
+    <Policies>
+      <RunAsPolicy CodePackageRef="Code" UserRef="Customer1" EntryPointType="Main"/>
+    </Policies>
+  </ServiceManifestImport>
+  <DefaultServices>
+    <Service Name="Stateful1" ServicePackageActivationMode="ExclusiveProcess">
+      <StatefulService ServiceTypeName="Stateful1Type" TargetReplicaSetSize="[Stateful1_TargetReplicaSetSize]" MinReplicaSetSize="[Stateful1_MinReplicaSetSize]">
+        <UniformInt64Partition PartitionCount="[Stateful1_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
+      </StatefulService>
+    </Service>
+    <Service Name="Web1" ServicePackageActivationMode="ExclusiveProcess">
+      <StatelessService ServiceTypeName="Web1Type" InstanceCount="[Web1_InstanceCount]">
+        <SingletonPartition />
+      </StatelessService>
+    </Service>
+  </DefaultServices>
+  <Principals>
+    <Groups>
+      <Group Name="LocalAdminGroup">
+        <Membership>
+          <SystemGroup Name="Administrators" />
+        </Membership>
+      </Group>
+    </Groups>
+    <Users>
+      <User Name="Customer1">
         <MemberOf>
-           <Group NameRef="LocalAdminGroup" />
+          <Group NameRef="LocalAdminGroup" />
         </MemberOf>
-     </User>
-    <User Name="Customer2">
-      <MemberOf>
-        <Group NameRef="LocalAdminGroup" />
-      </MemberOf>
-    </User>
-  </Users>
-</Principals>
+      </User>
+      <User Name="Customer2">
+        <MemberOf>
+          <Group NameRef="LocalAdminGroup" />
+        </MemberOf>
+      </User>
+    </Users>
+  </Principals>
+</ApplicationManifest>
 ```
-
-## <a name="create-local-users"></a>Creación de usuarios locales
-Puede crear un usuario local para proteger un servicio dentro de la aplicación. Si se especifica un tipo de cuenta **LocalUser** en la sección de entidades de seguridad del manifiesto de aplicación, Service Fabric crea cuentas de usuario locales en las máquinas donde se implementa la aplicación. De forma predeterminada, los nombres de dichas cuentas no coinciden con los que se especifican en el manifiesto de aplicación (por ejemplo, Customer3 en el ejemplo siguiente de manifiesto de aplicación). En su lugar, se generan dinámicamente y tienen contraseñas aleatorias.
-
-```xml
-<Principals>
-  <Users>
-     <User Name="Customer3" AccountType="LocalUser" />
-  </Users>
-</Principals>
-```
-
-Si una aplicación requiere que la cuenta de usuario y la contraseña coincidan en todas las máquinas (por ejemplo, para habilitar la autenticación NTLM), el manifiesto de clúster debe establecer **NTLMAuthenticationEnabled** en true. El manifiesto de clúster también debe especificar un **NTLMAuthenticationPasswordSecret** que se use para generar la misma contraseña en todos los equipos.
-
-```xml
-<Section Name="Hosting">
-      <Parameter Name="EndpointProviderEnabled" Value="true"/>
-      <Parameter Name="NTLMAuthenticationEnabled" Value="true"/>
-      <Parameter Name="NTLMAuthenticationPassworkSecret" Value="******" IsEncrypted="true"/>
- </Section>
-```
-
-## <a name="assign-policies-to-the-service-code-packages"></a>Asignación de directivas a los paquetes de código de servicio
-En la sección **RunAsPolicy** de **ServiceManifestImport**, se especifica la cuenta de la sección de entidades de seguridad que debe usarse para ejecutar un paquete de código. También se asocian los paquetes de código del manifiesto de servicio con las cuentas de usuario de la sección de entidades de seguridad. Puede especificarlo para los puntos de entrada de configuración o principales, o bien puede especificar `All` para que se aplique a ambos. En el ejemplo siguiente se muestra la aplicación de diferentes directivas:
-
-```xml
-<Policies>
-<RunAsPolicy CodePackageRef="Code" UserRef="LocalAdmin" EntryPointType="Setup"/>
-<RunAsPolicy CodePackageRef="Code" UserRef="Customer3" EntryPointType="Main"/>
-</Policies>
-```
-
-Si no se especifica **EntryPointType**, el valor predeterminado se establece en `EntryPointType=”Main”`. El uso de **SetupEntryPoint** es especialmente útil si lo que se desea es ejecutar determinadas operaciones de instalación con privilegios elevados en una cuenta de sistema. Para obtener más información, consulte [Ejecución de un script de inicio de servicio como cuenta de usuario local o del sistema](service-fabric-run-script-at-service-startup.md). El código de servicio real puede ejecutarse en una cuenta con menos privilegios.
 
 ## <a name="apply-a-default-policy-to-all-service-code-packages"></a>Aplicación de una directiva predeterminada a todos los paquetes de código de servicio
-La sección **DefaultRunAsPolicy** se usa para especificar una cuenta de usuario predeterminada para todos los paquetes de código que no tienen definido ningún parámetro **RunAsPolicy** específico. Si la mayoría de los paquetes de código especificados en el manifiesto de servicio que usa una aplicación deben ejecutarse en el mismo usuario, la aplicación solo puede definir una directiva RunAs predeterminada con dicha cuenta de usuario. En el ejemplo siguiente, se especifica que si un paquete de código no tiene una directiva **RunAsPolicy** especificada, tendrá que ejecutarse en la directiva **MyDefaultAccount** especificada en la sección de entidades de seguridad.
+La sección **DefaultRunAsPolicy** se usa para especificar una cuenta de usuario predeterminada para todos los paquetes de código que no tienen definido ningún parámetro **RunAsPolicy** específico. Si la mayoría de los paquetes de código especificados en el manifiesto de servicio que usa una aplicación deben ejecutarse en el mismo usuario, la aplicación solo puede definir una directiva RunAs predeterminada con dicha cuenta de usuario. En el ejemplo siguiente, se especifica que si un paquete de código no tiene una directiva **RunAsPolicy** especificada, dicho paquete tendrá que ejecutarse en el usuario **MyDefaultAccount** especificado en la sección de entidades de seguridad.  Los tipos de cuenta admitidos son LocalUser, NetworkService, LocalSystem y LocalService.  Si utiliza un servicio o usuario local, especifique también el nombre de cuenta y la contraseña.
 
 ```xml
-<Policies>
-  <DefaultRunAsPolicy UserRef="MyDefaultAccount"/>
-</Policies>
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="Application7Type" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+  <Parameters>
+    <Parameter Name="Web1_InstanceCount" DefaultValue="-1" />
+  </Parameters>
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="Web1Pkg" ServiceManifestVersion="1.0.0" />
+    <ConfigOverrides />
+    
+  </ServiceManifestImport>
+  <DefaultServices>    
+    <Service Name="Web1" ServicePackageActivationMode="ExclusiveProcess">
+      <StatelessService ServiceTypeName="Web1Type" InstanceCount="[Web1_InstanceCount]">
+        <SingletonPartition />
+      </StatelessService>
+    </Service>
+  </DefaultServices>
+  <Principals>
+    <Users>
+      <User Name="MyDefaultAccount" AccountType="NetworkService" />      
+    </Users>
+  </Principals>
+  <Policies>
+    <DefaultRunAsPolicy UserRef="MyDefaultAccount" />
+  </Policies>
+</ApplicationManifest>
+```
+
+## <a name="debug-a-code-package-locally-using-console-redirection"></a>Depuración de un paquete de código localmente mediante el redireccionamiento de consola
+En ocasiones, resulta útil ver la salida de la consola tras ejecutar un servicio con fines de depuración. Puede establecer una directiva de redireccionamiento de consola en el punto de entrada del manifiesto de servicio, que escribe la salida en un archivo. La salida del archivo se escribe en la carpeta de aplicación denominada **log** en el nodo del clúster donde se ha implementado y ejecutado la aplicación. 
+
+> [!WARNING]
+> No use nunca la directiva de redirección de la consola en una aplicación implementada en producción, ya que esto puede afectar a la capacidad de conmutación por error de la aplicación. *Solo* debe usarla con fines de depuración y desarrollo local.  
+> 
+> 
+
+En el ejemplo de manifiesto de servicio siguiente se muestra cómo habilitar el redireccionamiento de consola con un valor de FileRetentionCount:
+
+```xml
+<CodePackage Name="Code" Version="1.0.0">
+    <EntryPoint>
+      <ExeHost>
+        <Program>VotingWeb.exe</Program>
+        <WorkingFolder>CodePackage</WorkingFolder>
+        <ConsoleRedirection FileRetentionCount="10"/>
+      </ExeHost>
+    </EntryPoint>
+</CodePackage>
+
 ```
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->

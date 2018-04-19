@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: 8ab2e7cdc8472be9c0800eea5bef9322b0ed87f2
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 1399455fb727c27e22da8c5525eec87e343d46cc
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="monitor-data-factories-using-azure-monitor"></a>Supervisión de factorías de datos mediante Azure Monitor | Microsoft Docs  
 Las aplicaciones de nube son complejas y tienen muchas partes móviles. La supervisión proporciona datos para garantizar que la aplicación permanece en funcionamiento en un estado correcto. También ayuda a evitar posibles problemas o a solucionar los existentes. Además, puede usar datos de supervisión para obtener un conocimiento más profundo sobre su aplicación. Este conocimiento puede ayudarle a mejorar el rendimiento o mantenimiento de la aplicación, o a automatizar acciones que de lo contrario requerirían intervención manual.
@@ -31,7 +31,7 @@ Azure Monitor ofrece registros y métricas de infraestructuras a nivel básico p
 
 * Guardarlos en una **cuenta de almacenamiento** para archivarlos o inspeccionarlos manualmente. Puede especificar el tiempo de retención (en días) mediante la configuración de diagnóstico.
 * Transmitirlos a **Event Hubs** para la ingestión en un servicio de terceros o una solución de análisis personalizado como PowerBI.
-* Analícelos con **Log Analytics en Operations Management Suite (OMS)**
+* Analícelos con **Log Analytics**.
 
 Puede usar una cuenta de almacenamiento o un espacio de nombres de centro de eventos que no esté en la misma suscripción que el recurso que emite los registros. El usuario que configura los ajustes debe tener el control de acceso basado en rol (RBAC) adecuado a ambas suscripciones.
 
@@ -40,11 +40,11 @@ Puede usar una cuenta de almacenamiento o un espacio de nombres de centro de eve
 ### <a name="diagnostic-settings"></a>Configuración de diagnóstico
 Los registros de diagnóstico para recursos no de proceso se configuran mediante Configuración de diagnóstico. Configuración de diagnóstico para un control de recurso:
 
-* Dónde se envían los registros de diagnóstico (cuenta de Storage, Event Hubs o Log Analytics de OMS).
+* Dónde se envían los registros de diagnóstico (cuenta de Storage, Event Hubs o Log Analytics).
 * Qué categorías de registro se envían.
 * Cuánto tiempo se debe conservar cada categoría de registro en una cuenta de almacenamiento
 * Una retención de cero días significa que los registros se conservan de forma indefinida. De lo contrario, el valor puede ser cualquier número de días comprendido entre 1 y 2147483647.
-* Si se establecen directivas de retención, pero el almacenamiento de registros en una cuenta de almacenamiento está deshabilitado (por ejemplo, si solo se han seleccionado las opciones de Event Hubs u OMS), las directivas de retención no surten ningún efecto.
+* Si se establecen directivas de retención, pero el almacenamiento de registros en una cuenta de almacenamiento está deshabilitado (por ejemplo, si solo se han seleccionado las opciones Event Hubs o Log Analytics), las directivas de retención no surten ningún efecto.
 * Las directivas de retención se aplican a diario, por lo que al final de un día (UTC) se eliminan los registros del día que quede fuera de la directiva de retención. Por ejemplo, si tuviera una directiva de retención de un día, se eliminarían los registros de anteayer al principio del día de hoy.
 
 ### <a name="enable-diagnostic-logs-via-rest-apis"></a>Habilitación de los registros de diagnóstico mediante las API de REST
@@ -69,7 +69,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
     "properties": {
         "storageAccountId": "/subscriptions/<subID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Storage/storageAccounts/<storageAccountName>",
         "serviceBusRuleId": "/subscriptions/<subID>/resourceGroups/<resourceGroupName>/providers/Microsoft.EventHub/namespaces/<eventHubName>/authorizationrules/RootManageSharedAccessKey",
-        "workspaceId": "/subscriptions/<subID>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<OMSName>",
+        "workspaceId": "/subscriptions/<subID>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<LogAnalyticsName>",
         "metrics": [
         ],
         "logs": [
@@ -123,7 +123,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 ```json
 {
-    "id": "/subscriptions/1e42591f-1f0c-4c5a-b7f2-a268f6105ec5/resourcegroups/adf/providers/microsoft.datafactory/factories/shloadobetest2/providers/microsoft.insights/diagnosticSettings/service",
+    "id": "/subscriptions/<subID>/resourcegroups/adf/providers/microsoft.datafactory/factories/shloadobetest2/providers/microsoft.insights/diagnosticSettings/service",
     "type": null,
     "name": "service",
     "location": null,
@@ -132,7 +132,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
     "properties": {
         "storageAccountId": "/subscriptions/<subID>/resourceGroups/<resourceGroupName>//providers/Microsoft.Storage/storageAccounts/<storageAccountName>",
         "serviceBusRuleId": "/subscriptions/<subID>/resourceGroups/<resourceGroupName>//providers/Microsoft.EventHub/namespaces/<eventHubName>/authorizationrules/RootManageSharedAccessKey",
-        "workspaceId": "/subscriptions/<subID>/resourceGroups/<resourceGroupName>//providers/Microsoft.OperationalInsights/workspaces/<OMSName>",
+        "workspaceId": "/subscriptions/<subID>/resourceGroups/<resourceGroupName>//providers/Microsoft.OperationalInsights/workspaces/<LogAnalyticsName>",
         "eventHubAuthorizationRuleId": null,
         "eventHubName": null,
         "metrics": [],
@@ -187,16 +187,16 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 ```json
 {
-    "id": "/subscriptions/1e42591f-1f0c-4c5a-b7f2-a268f6105ec5/resourcegroups/adf/providers/microsoft.datafactory/factories/shloadobetest2/providers/microsoft.insights/diagnosticSettings/service",
+    "id": "/subscriptions/<subID>/resourcegroups/adf/providers/microsoft.datafactory/factories/shloadobetest2/providers/microsoft.insights/diagnosticSettings/service",
     "type": null,
     "name": "service",
     "location": null,
     "kind": null,
     "tags": null,
     "properties": {
-        "storageAccountId": "/subscriptions/1e42591f-1f0c-4c5a-b7f2-a268f6105ec5/resourceGroups/shloprivate/providers/Microsoft.Storage/storageAccounts/azmonlogs",
-        "serviceBusRuleId": "/subscriptions/1e42591f-1f0c-4c5a-b7f2-a268f6105ec5/resourceGroups/shloprivate/providers/Microsoft.EventHub/namespaces/shloeventhub/authorizationrules/RootManageSharedAccessKey",
-        "workspaceId": "/subscriptions/0ee78edb-a0ad-456c-a0a2-901bf542c102/resourceGroups/ADF/providers/Microsoft.OperationalInsights/workspaces/mihaipie",
+        "storageAccountId": "/subscriptions/<subID>/resourceGroups/shloprivate/providers/Microsoft.Storage/storageAccounts/azmonlogs",
+        "serviceBusRuleId": "/subscriptions/<subID>/resourceGroups/shloprivate/providers/Microsoft.EventHub/namespaces/shloeventhub/authorizationrules/RootManageSharedAccessKey",
+        "workspaceId": "/subscriptions/<subID>/resourceGroups/ADF/providers/Microsoft.OperationalInsights/workspaces/mihaipie",
         "eventHubAuthorizationRuleId": null,
         "eventHubName": null,
         "metrics": [],
@@ -230,7 +230,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
     "identity": null
 }
 ```
-(Consulte más información aquí: https://msdn.microsoft.com/en-us/library/azure/dn931932.aspx)
+[Consulte más información aquí](https://msdn.microsoft.com/en-us/library/azure/dn931932.aspx)
 
 ## <a name="schema-of-logs--events"></a>Esquema de registros y eventos
 

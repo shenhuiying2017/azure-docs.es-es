@@ -1,6 +1,6 @@
 ---
 title: Escenarios y ejemplos de gobierno de suscripciones | Microsoft Docs
-description: "Proporciona ejemplos de cómo implementar un sistema de gobierno de suscripciones de Azure para escenarios comunes."
+description: Proporciona ejemplos de cómo implementar un sistema de gobierno de suscripciones de Azure para escenarios comunes.
 services: azure-resource-manager
 documentationcenter: na
 author: rdendtler
@@ -160,7 +160,7 @@ David es consciente de que debe tener información específica con el objetivo d
 | EnvironmentType |**Production** (aunque el nombre de la suscripción incluya **Production**, esta etiqueta permite facilitar su identificación al buscar recursos en el portal o en la factura) |
 
 ### <a name="core-networks"></a>Redes principales
-El equipo de administración de riesgos y de seguridad de información de la unidad ETS de Contoso revisa el plan que ha propuesto David para migrar la aplicación a Azure. Quiere asegurarse de que la aplicación de tarjeta de fidelización está aislada y protegida en una red DMZ correctamente.  Para cumplir este requisito, Alicia y David crean una red virtual externa y un grupo de seguridad de red para aislar la aplicación de tarjeta de fidelización de la red corporativa de Contoso.  
+El equipo de administración de riesgos y de seguridad de información de la unidad ETS de Contoso revisa el plan que ha propuesto David para migrar la aplicación a Azure. Quiere asegurarse de que la aplicación de tarjeta de fidelización está aislada y protegida en una red perimetral correctamente.  Para cumplir este requisito, Alicia y David crean una red virtual externa y un grupo de seguridad de red para aislar la aplicación de tarjeta de fidelización de la red corporativa de Contoso.  
 
 Para la **suscripción de desarrollo**, crean los siguientes recursos:
 

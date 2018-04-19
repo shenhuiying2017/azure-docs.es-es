@@ -1,26 +1,21 @@
 ---
-title: Uso de tablas de búsqueda y datos de referencia en Stream Analytics | Microsoft Docs
-description: Uso de datos de referencia en una consulta de Stream Analytics
-keywords: tabla de búsqueda, datos de referencia
+title: Uso de datos de referencia para las búsquedas en Azure Stream Analytics
+description: En este artículo se describe cómo usar los datos de referencia para buscar o poner en correlación datos en el diseño de consultas de un trabajo de Azure Stream Analytics.
 services: stream-analytics
-documentationcenter: ''
 author: jseb225
-manager: ryanw
-ms.assetid: 06103be5-553a-4da1-8a8d-3be9ca2aff54
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: 77a4a9a28060206a30c658216156d7339bddc398
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 03/28/2017
+ms.openlocfilehash: 9d1763697e93ea0bd5eaeaeb92f5f882f39a6c64
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="using-reference-data-or-lookup-tables-in-a-stream-analytics-input-stream"></a>Uso de datos de referencia o tablas de consulta en una transmisión de entrada de Stream Analytics
+# <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Uso de datos de referencia para las búsquedas en Stream Analytics
 Los datos de referencia (también denominados tabla de consulta) son un conjunto finito de datos estáticos o de cambio lento de naturaleza, que se usan para realizar una búsqueda o para relacionarlos con el flujo de datos. Para usar los datos de referencia en un trabajo de Azure Stream Analytics, por lo general usará una [instrucción JOIN de los datos de referencia](https://msdn.microsoft.com/library/azure/dn949258.aspx) en la consulta. Stream Analytics usa Azure Blob Storage como capa de almacenamiento para los datos de referencia y con Azure Data Factory los datos de referencia se pueden transformar o copiar en Azure Blob Storage para su uso como datos de referencia, desde [cualquier número de almacenes de datos locales y en la nube](../data-factory/copy-activity-overview.md). Los datos de referencia se modelan como una secuencia de blobs (que se define en la configuración de entrada) en orden ascendente por la fecha y hora que se especifique en el nombre del blob. **Solo** se admite que se agreguen al final de la secuencia con una fecha y hora **posteriores** a las especificadas en el último blob de la secuencia.
 
 Stream Analytics tiene un **límite de 100 MB por blob**, pero los trabajos pueden procesar varios blobs de referencia mediante la propiedad **patrón de la ruta de acceso**.
@@ -97,7 +92,7 @@ Si los datos de referencia son un conjunto de datos que cambia con poca frecuenc
 3. Para evitar tener que enumerar un gran número de blobs, considere la posibilidad de eliminar los blobs muy antiguos para los que ya no se va a realizar el procesamiento. Tenga en cuenta que ASA puede tener que reprocesar una pequeña cantidad en algunos escenarios como un reinicio.
 
 ## <a name="get-help"></a>Obtención de ayuda
-Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ya conoce Stream Analytics, un servicio administrado para el análisis del streaming de datos desde Internet de las cosas. Para obtener más información acerca de este servicio, consulte:

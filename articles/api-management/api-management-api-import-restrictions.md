@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apipm
-ms.openlocfilehash: d4229a3ecbcf8aa044eb448290c243e9920bd5cb
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ab4bc4024248675c6325159b5507add1274addc9
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>Restricciones de importación de API y problemas conocidos
 ## <a name="about-this-list"></a>Acerca de esta lista
@@ -27,9 +27,11 @@ Al importar una API, podría encontrarse con algunas restricciones o identificar
 ## <a name="open-api"></a>Open API/Swagger
 Si recibe errores al importar el documento de Open API, asegúrese de que lo ha validado, ya sea mediante el diseñador en Azure Portal (Diseño - Front-End - Open API Specification Editor [Editor de especificaciones de Open API]) o con una herramienta de terceros como <a href="http://www.swagger.io">Swagger Editor</a>.
 
-* **Nombre de host**: APIM requiere un atributo de nombre de host.
-* **Ruta de acceso base**: APIM requiere un atributo de ruta de acceso base.
-* **Esquemas**: APIM requiere una matriz de esquema.
+* Se admite solo el formato JSON para OpenAPI.
+* Los esquemas a los que se hace referencia con propiedades **$ref** no pueden contener otras propiedades **$ref**.
+* Los punteros de **$ref** no pueden hacer referencia a archivos externos.
+* **x-ms-paths** y **x-servers** son las únicas extensiones admitidas.
+* Las extensiones personalizadas se omiten durante la importación y no se guardan ni conservan para la exportación.
 
 > [!IMPORTANT]
 > Consulte este [documento](https://blogs.msdn.microsoft.com/apimanagement/2018/03/28/important-changes-to-openapi-import-and-export/) para obtener información importante y consejos relacionados con la importación de OpenAPI.

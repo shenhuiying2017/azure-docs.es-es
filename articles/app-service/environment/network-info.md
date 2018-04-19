@@ -1,6 +1,6 @@
 ---
 title: Consideraciones de red con una instancia de Azure App Service Environment
-description: "Explica el tráfico de red de ASE y cómo establecer los NSG y las UDR con el ASE"
+description: Explica el tráfico de red de ASE y cómo establecer los NSG y las UDR con el ASE
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2017
+ms.date: 03/20/2018
 ms.author: ccompy
-ms.openlocfilehash: c4779ada60fab2db5249a107abfc7ca6f80cb16f
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 54257ae3e02a00c5097aa7880fa356da3bc0ecce
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Consideraciones de red para una instancia de App Service Environment #
 
@@ -163,7 +163,7 @@ Los dos primeros requisitos de entrada para que el ASE funcione están en la par
 
 ![Reglas de seguridad de entrada][4]
 
-Una regla predeterminada permite que las direcciones IP en la red virtual se comuniquen con la subred de ASE. Otra regla predeterminada permite que el equilibrador de carga, también conocido como VIP pública, se comunique con el ASE. Para ver las reglas predeterminadas, seleccione **Reglas predeterminadas** junto al icono **Agregar**. Si coloca una regla para denegar todo lo demás después de las reglas de NSG que se muestran, evita el tráfico entre la IP virtual y el ASE. Para impedir el tráfico procedente de dentro de la red virtual, agregue su propia regla para permitir la entrada. Use un origen igual que AzureLoadBalancer con **cualquier** destino y un intervalo de puertos  **\*** . Puesto que la regla NSG se aplica a la subred de ASE, no es necesario que sea específico en el destino.
+Una regla predeterminada permite que las direcciones IP en la red virtual se comuniquen con la subred de ASE. Otra regla predeterminada permite que el equilibrador de carga, también conocido como VIP pública, se comunique con el ASE. Para ver las reglas predeterminadas, seleccione **Reglas predeterminadas** junto al icono **Agregar**. Si coloca una regla para denegar todo lo demás después de las reglas de NSG que se muestran, evita el tráfico entre la IP virtual y el ASE. Para impedir el tráfico procedente de dentro de la red virtual, agregue su propia regla para permitir la entrada. Use un origen igual que AzureLoadBalancer con **cualquier** destino y un intervalo de puertos **\***. Puesto que la regla NSG se aplica a la subred de ASE, no es necesario que sea específico en el destino.
 
 Si ha asignado una dirección IP a la aplicación, asegúrese de mantener los puertos abiertos. Para ver los puertos, seleccione **App Service Environment** > **Direcciones IP**.  
 
@@ -175,31 +175,10 @@ Una vez que haya definido los NSG, asígnelos a la subred en la que se encuentra
 
 ## <a name="routes"></a>Rutas ##
 
-Las rutas constituyen un aspecto crucial del concepto de tunelización forzada y de cómo tratar con ella. En una instancia de Azure Virtual Network, el enrutamiento se realiza según la coincidencia de prefijo más larga (LPM). Si hay más de una ruta con la misma coincidencia LPM, se selecciona una ruta en función de su origen en el orden siguiente:
+La tunelización forzada se produce cuando establece las rutas de la red virtual para que el tráfico saliente no vaya directamente a Internet, sino a otro lugar como una puerta de enlace de ExpressRoute o un dispositivo virtual.  Si necesita configurar su ASE de esta manera, lea el documento en [Configuración de App Service Environment con tunelización forzada][forcedtunnel].  Este documento le indicará las opciones disponibles para trabajar con ExpressRoute y la tunelización forzada.
 
-- Ruta definida por el usuario (UDR)
-- Ruta BGP (cuando se utiliza ExpressRoute)
-- Ruta del sistema
-
-Para más información sobre el enrutamiento en una red virtual, lea [Rutas definidas por el usuario y reenvío IP][UDRs].
-
-La base de datos SQL de Azure que ASE utiliza para administrar el sistema tiene un firewall. Necesita una comunicación que se origine desde la VIP pública del ASE. Las conexiones con la base de datos SQL desde el ASE se denegarán si se envían a través de la conexión ExpressRoute y fuera de otra dirección IP.
-
-Si las respuestas a solicitudes entrantes de administración se envían a través de ExpressRoute, la dirección de respuesta es distinta del destino original. Esta falta de coincidencia interrumpe la comunicación TCP.
-
-Para que el ASE funcione cuando la red virtual se configure con ExpressRoute, lo más fácil es:
-
--   Configurar ExpressRoute para anunciar _0.0.0.0/0_. De forma predeterminada, obliga a dirigir todo el tráfico saliente tráfico local.
--   Crear un UDR. Aplicarlo a la subred que contiene el ASE, con un prefijo de dirección de _0.0.0.0/0_ y un tipo de próximo salto de _Internet_.
-
-Si realiza estos dos cambios, el tráfico destinado a Internet, que se origina en la subred ASE, no se forzará hacia ExpressRoute y el ASE funciona. 
-
-> [!IMPORTANT]
-> Las rutas definidas en una UDR tienen que ser lo suficientemente específicas para que tengan prioridad sobre cualquier otra ruta anunciada por la configuración de ExpressRoute. En el ejemplo anterior se utiliza el intervalo de direcciones amplio 0.0.0.0/0. Puede reemplazarse accidentalmente por los anuncios de ruta con intervalos de direcciones más específicos.
->
-> Las instancias de ASE no son compatibles con las configuraciones de ExpressRoute que anuncian rutas entre la ruta de acceso de emparejamiento público y la ruta de acceso de emparejamiento privado. Las configuraciones de ExpressRoute con el emparejamiento público configurado reciben anuncios de ruta de Microsoft. Los anuncios contienen un gran conjunto de intervalos de direcciones IP de Microsoft Azure. Si estos intervalos de direcciones se anuncian en la ruta de acceso de emparejamiento privado, la tunelización de todos los paquetes de red salientes se debe realizar desde la subred de ASE a la infraestructura de red local de un cliente. Actualmente, este flujo de red no es compatible con las instancias de ASE. Una solución a este problema es dejar de anunciar las rutas entre la ruta de acceso de emparejamiento público y la de emparejamiento privado.
-
-Para crear un UDR, siga estos pasos:
+Cuando se crea un ASE en el portal, se crea también un conjunto de tablas de rutas en la subred que se crea con el ASE.  Esas rutas sencillamente indican que se envíe el tráfico saliente directamente a Internet.  
+Para crear manualmente las mismas rutas, siga estos pasos:
 
 1. Vaya a Azure Portal. Seleccione **Redes** > **Tablas de rutas**.
 
@@ -217,17 +196,15 @@ Para crear un UDR, siga estos pasos:
 
     ![NSG y rutas][7]
 
-### <a name="deploy-into-existing-azure-virtual-networks-that-are-integrated-with-expressroute"></a>Implementación en redes virtuales de Azure existentes que están integradas con ExpressRoute ###
+## <a name="service-endpoints"></a>Puntos de conexión de servicio ##
 
-Para implementar su ASE en una red virtual que se integra con ExpressRoute, preconfigure la subred en la que desea que el ASE se implemente. Después, use una plantilla de Resource Manager para implementarlo. Para crear un ASE en una red virtual que ya tiene configurado ExpressRoute:
+Los puntos de conexión de servicio le permiten restringir el acceso de los servicios multiinquilino a un conjunto de subredes y redes virtuales de Azure. Puede leer más acerca de los puntos de conexión de servicio en la documentación de los [puntos de conexión de servicio de Azure Virtual Network][serviceendpoints]. 
 
-- Cree una subred para hospedar el ASE.
+Cuando se habilitan puntos de conexión de servicio en un recurso, hay rutas que se crean con prioridad más alta que las demás. Si usa puntos de conexión de servicio con una ASE con túnel forzado, el tráfico de administración de Azure SQL y de Azure Storage no se enruta a través de tunelización forzada. 
 
-    > [!NOTE]
-    > Puede no haber nada más en la subred excepto el ASE. Asegúrese de elegir un espacio de direcciones que pueda crecer en el futuro. No puede cambiar esta configuración posteriormente. Se recomienda un tamaño de `/25` con 128 direcciones.
+Cuando los puntos de conexión de servicio se habilitan en una subred con una instancia de Azure SQL, todas las instancias de Azure SQL conectadas desde esa subred deben tener habilitados también los puntos de conexión de servicio. Si desea acceder a varias instancias de Azure SQL desde la misma subred, debe habilitar los puntos de conexión de servicio en todas ellas y no solo en una. Azure Storage no se comporta igual que Azure SQL. Cuando se habilitan los puntos de conexión de servicio con Azure Storage, se bloquea el acceso a ese recurso desde la subred, pero aún se puede tener acceso a otras cuentas de Azure Storage incluso si no tienen habilitados los puntos de conexión de servicio.  
 
-- Cree las UDR (por ejemplo, las tablas de rutas) tal y como se ha descrito anteriormente y establezca eso en la subred.
-- Cree el ASE mediante una plantilla de Resource Manager como se describe en el artículo [Creación de un ASE mediante una plantilla de Azure Resource Manager][MakeASEfromTemplate].
+![Puntos de conexión de servicio][8]
 
 <!--Image references-->
 [1]: ./media/network_considerations_with_an_app_service_environment/networkase-overflow.png
@@ -237,6 +214,7 @@ Para implementar su ASE en una red virtual que se integra con ExpressRoute, prec
 [5]: ./media/network_considerations_with_an_app_service_environment/networkase-outboundnsg.png
 [6]: ./media/network_considerations_with_an_app_service_environment/networkase-udr.png
 [7]: ./media/network_considerations_with_an_app_service_environment/networkase-subnet.png
+[8]: ./media/network_considerations_with_an_app_service_environment/serviceendpoint.png
 
 <!--Links-->
 [Intro]: ./intro.md
@@ -258,3 +236,6 @@ Para implementar su ASE en una red virtual que se integra con ExpressRoute, prec
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
 [ASEManagement]: ./management-addresses.md
+[serviceendpoints]: ../../virtual-network/virtual-network-service-endpoints-overview.md
+[forcedtunnel]: ./forced-tunnel-support.md
+[serviceendpoints]: ../../virtual-network/virtual-network-service-endpoints-overview.md

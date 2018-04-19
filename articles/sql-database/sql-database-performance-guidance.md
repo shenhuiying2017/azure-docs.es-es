@@ -9,11 +9,11 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: 63a8b9f8c81ad3dc122bf25d8a06cdf242a0f35b
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 89575f94e95c5ae378d95220d63c162e53158069
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="tuning-performance-in-azure-sql-database"></a>Ajuste del rendimiento en Azure SQL Database
 
@@ -39,7 +39,7 @@ Azure SQL Database ofrece cuatro [niveles de servicio](sql-database-service-tier
   * **Tiene una base de datos con un único usuario**. Las aplicaciones que asocian un único usuario a una base de datos normalmente no tienen grandes requisitos de simultaneidad y rendimiento. Estas aplicaciones son candidatas al nivel de servicio básico.
 * **Estándar**: el nivel de servicio Estándar ofrece una funcionalidad mejorada para predecir el rendimiento y ofrece un buen rendimiento para bases de datos con solicitudes simultáneas, tales como aplicaciones web y de grupo de trabajo. Cuando se usa una base de datos con un nivel de servicio Estándar, puede ajustar el tamaño de la aplicación de base de datos según un rendimiento predecible, minuto a minuto.
   * **La base de datos tiene varias solicitudes simultáneas**. Las aplicaciones que atienden a más de un usuario a la vez suelen necesitar niveles de rendimiento más altos. Por ejemplo, las aplicaciones web o de grupo de trabajo que tienen requisitos de tráfico de entrada/salida de bajos a medios que admiten varias consultas concurrentes son buenas candidatas para el nivel de servicio Estándar.
-* **Premium**: El nivel de servicio Premium proporciona un rendimiento predecible, segundo a segundo, para cada base de datos Premium. Si elige el nivel de servicio Premium, puede cambiar el tamaño de la aplicación de base de datos según la carga máxima para dicha base de datos. El plan elimina los casos en los que variaciones en el rendimiento pueden ocasionar que consultas de pequeño tamaño tarden más de lo habitual en operaciones sensibles a la latencia. Este modelo puede simplificar en gran medida los ciclos de desarrollo y validación de productos en aplicaciones que necesitan hacer declaraciones firmes sobre las necesidades máximas de recursos, variación de rendimiento o latencia de las consultas. La mayoría de los casos de uso del nivel de servicio Premium tienen una o varias de estas características:
+* **Premium**: El nivel de servicio Premium proporciona un rendimiento predecible, segundo a segundo, para cada base de datos Premium o Crítico para la empresa (versión preliminar). Si elige el nivel de servicio Premium, puede cambiar el tamaño de la aplicación de base de datos según la carga máxima para dicha base de datos. El plan elimina los casos en los que variaciones en el rendimiento pueden ocasionar que consultas de pequeño tamaño tarden más de lo habitual en operaciones sensibles a la latencia. Este modelo puede simplificar en gran medida los ciclos de desarrollo y validación de productos en aplicaciones que necesitan hacer declaraciones firmes sobre las necesidades máximas de recursos, variación de rendimiento o latencia de las consultas. La mayoría de los casos de uso del nivel de servicio Premium tienen una o varias de estas características:
   * **Carga máxima elevada**. Una aplicación que requiere mucha CPU, memoria o entrada/salida (E/S) para completar sus operaciones necesita un nivel de rendimiento alto dedicado. Por ejemplo, una operación de base de datos que se sabe que consume varios núcleos de CPU durante mucho tiempo es candidata al nivel de servicio Premium.
   * **Muchas solicitudes simultáneas**. Algunas aplicaciones de base de datos atienden muchas solicitudes simultáneas, por ejemplo, cuando dan servicio a un sitio web con un volumen elevado de tráfico. Los niveles de servicio Básico y Estándar limitan el número de solicitudes simultáneas por base de datos. Las aplicaciones que requieren más conexiones necesitarían elegir un tamaño de reserva adecuado para controlar el número máximo de solicitudes necesarias.
   * **Baja latencia**. Algunas aplicaciones necesitan garantizar una respuesta de la base de datos en un tiempo mínimo. Si se llama a un procedimiento almacenado determinado como parte de una operación de cliente más amplia, podría ser necesario volver de esa llamada en no más de 20 milisegundos el 99 % del tiempo. Este tipo de aplicación se beneficia del nivel de servicio Premium para asegurarse de que haya la capacidad de proceso necesaria.

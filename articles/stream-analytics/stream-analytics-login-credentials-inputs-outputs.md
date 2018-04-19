@@ -1,24 +1,19 @@
 ---
-title: 'Stream Analytics: Rotación de las credenciales de inicio de sesión para entradas y salidas | Microsoft Docs'
-description: Obtenga información acerca de cómo actualizar las credenciales para las entradas y salidas de Stream Analytics.
-keywords: credenciales de inicio de sesión
+title: Rotación de las credenciales de inicio de sesión en los trabajos de Azure Stream Analytics
+description: En este artículo se describe cómo actualizar las credenciales de receptores de entrada y salida en trabajos de Azure Stream Analytics.
 services: stream-analytics
-documentationcenter: ''
-author: SnehaGunda
+author: jasonwhowell
+ms.author: jasonh
 manager: kfile
-ms.assetid: 42ae83e1-cd33-49bb-a455-a39a7c151ea4
+ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 01/11/2018
-ms.author: sngun
-ms.openlocfilehash: d01e5d9f0bbfe6ca3ef8511aeb813cead3809f04
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: b49b4fecb6be70987e7e6736d78f224c03f719bf
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="rotate-login-credentials-for-inputs-and-outputs-of-a-stream-analytics-job"></a>Rotación de las credenciales de inicio de sesión para entradas y salidas de un trabajo de Stream Analytics
 

@@ -1,24 +1,19 @@
 ---
-title: 'Conexión de datos: entradas de flujo de datos desde una transmisión de eventos | Microsoft Docs'
-description: Obtenga información sobre cómo configurar una conexión de datos a Stream Analytics que se denomina "entradas". Entre las entradas se incluyen una transmisión de datos de los eventos y también datos de referencia.
-keywords: transmisión de datos, conexión de datos, transmisión de eventos
+title: Entradas de flujos de datos desde un flujo de eventos en Azure Stream Analytics
+description: Obtenga información sobre cómo configurar una conexión de datos en Azure Stream Analytics. Entre las entradas se incluyen una transmisión de datos de los eventos y también datos de referencia.
 services: stream-analytics
-documentationcenter: ''
-author: SnehaGunda
+author: jasonwhowell
+ms.author: jasonh
 manager: kfile
-ms.assetid: 8155823c-9dd8-4a6b-8393-34452d299b68
+ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 12/11/2017
-ms.author: sngun
-ms.openlocfilehash: 0ddc3187e9fc0664838dd07f781f4d7e2e4a7fe0
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 0a90e97779416db7b7244cce9d6bdad740161051
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="data-connection-learn-about-data-stream-inputs-from-events-to-stream-analytics"></a>Conexión de datos: obtenga información sobre las entradas de transmisiones de datos desde eventos para el Stream Analytics
 La conexión de datos a un trabajo de Stream Analytics es un flujo de eventos procedente de un origen de datos, que se denomina *entrada* del trabajo. Stream Analytics cuenta con integración de primera clase con orígenes de flujo de datos de Azure, como, por ejemplo, [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) y [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/). Estos orígenes de entrada pueden proceder de la misma suscripción de Azure que el trabajo de análisis o de otra suscripción.
@@ -176,7 +171,7 @@ FROM Input
 ````
 
 ## <a name="get-help"></a>Obtención de ayuda
-Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Para obtener ayuda adicional, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ha obtenido información sobre las opciones de conexión de datos de Azure para sus trabajos de Stream Analytics. Para obtener más información sobre Stream Analytics, vea:

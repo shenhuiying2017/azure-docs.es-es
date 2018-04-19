@@ -1,12 +1,12 @@
 ---
-title: "Migración de aplicaciones desde BizTalk Services a Azure Logic Apps | Microsoft Docs"
-description: "Traslado o migración de Azure BizTalk Services (MABS) a Azure Logic Apps"
+title: Migración de aplicaciones desde BizTalk Services a Azure Logic Apps | Microsoft Docs
+description: Traslado o migración de Azure BizTalk Services (MABS) a Azure Logic Apps
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: jonfancey
 manager: anneta
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.workload: integration
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: jonfan; LADocs
-ms.openlocfilehash: 6e00e62e60c059a16731a77e529b4b93f50802e9
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: f5ad003189d70216198f2d5c7719a971c16d5479
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="move-from-biztalk-services-to-azure-logic-apps"></a>Migración desde BizTalk Services a Azure Logic Apps
 
@@ -130,7 +130,7 @@ A diferencia de BizTalk Services, estas acciones se separan de los protocolos de
 
 ## <a name="manage-and-monitor"></a>Administración y supervisión
 
-En BizTalk Services, un portal dedicado ofrecía funciones de seguimiento para supervisar y solucionar problemas. Logic Apps ofrece funcionalidades más avanzadas de seguimiento y supervisión a través de [Azure Portal](../logic-apps/logic-apps-monitor-your-logic-apps.md), y con la [solución B2B de Operations Management Suite](../logic-apps/logic-apps-monitor-b2b-message.md) incluye una aplicación móvil para supervisión cuando esté en movimiento.
+En BizTalk Services, un portal dedicado ofrecía funciones de seguimiento para supervisar y solucionar problemas. Logic Apps ofrece funcionalidades más avanzadas de seguimiento y supervisión a través de [Azure Portal](../logic-apps/logic-apps-monitor-your-logic-apps.md), e incluye una aplicación móvil para supervisión cuando esté en movimiento.
 
 ## <a name="high-availability"></a>Alta disponibilidad
 

@@ -1,24 +1,19 @@
 ---
-title: Depuración de Azure Stream Analytics con receptores de Event Hubs | Microsoft Docs
+title: Solución de problemas con receptores de Event Hubs en Azure Stream Analytics
 description: Prácticas recomendadas de consulta para la consideración de grupos de consumidores de Event Hubs en trabajos de Stream Analytics.
-keywords: límite de centro de eventos, grupo de consumidores
 services: stream-analytics
-documentationcenter: ''
 author: jseb225
-manager: ryanw
-ms.assetid: ''
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: 48fa5d0274549aa35e67526a758eef1f34198a6a
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 04/20/2017
+ms.openlocfilehash: 20614986fc6c6afa9a92d163bf973a148e0517c0
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="debug-azure-stream-analytics-with-event-hub-receivers"></a>Depuración de Azure Stream Analytics con receptores de Event Hubs
 
@@ -79,7 +74,7 @@ Para las consultas en las que hay conectadas tres o más entradas al mismo grupo
 
 
 ## <a name="get-help"></a>Obtención de ayuda
-Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [¿Qué es Stream Analytics?](stream-analytics-introduction.md)

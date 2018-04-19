@@ -1,8 +1,8 @@
 ---
-title: "Administración de clústeres de Hadoop en HDInsight con el portal de Azure | Microsoft Azure"
-description: "Aprenda a crear y administrar clústeres de HDInsight mediante el portal de Azure."
+title: Administración de clústeres de Hadoop en HDInsight con el portal de Azure | Microsoft Azure
+description: Aprenda a crear y administrar clústeres de HDInsight mediante el portal de Azure.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: b0a9b808f2c1a65d10c1c12500325a9b5a34bc5a
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 9b5df3d5e355fac0c0ea4203d28170a2d3c04ad9
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Administración de clústeres de Hadoop en HDInsight mediante el Portal de Azure
 
@@ -33,7 +33,7 @@ En el [portal de Azure][azure-portal], puede administrar clústeres de Hadoop en
 Para seguir los pasos de este artículo, necesitará una **suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ## <a name="open-the-azure-portal"></a>Abra Azure Portal.
-1. Inicie sesión en [https://portal.azure.com/](https://portal.azure.com).
+1. Inicie sesión en [https://portal.azure.com](https://portal.azure.com).
 2. Después de abrir el portal, puede:
 
    * Hacer clic en **Crear un recurso** en el menú de la izquierda para crear un nuevo clúster:
@@ -75,7 +75,7 @@ Debe especificar una suscripción de Azure cuando cree un clúster de HDInsight.
 Si recibe un error de NoRegisteredProviderFound o MissingSubscriptionRegistration, consulte [Solución de errores comunes de implementación de Azure con Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md).
 
 ## <a name="list-and-show-clusters"></a>Enumeración y visualización de clústeres
-1. Inicie sesión en [https://portal.azure.com/](https://portal.azure.com).
+1. Inicie sesión en [https://portal.azure.com](https://portal.azure.com).
 2. Haga clic en **Clústeres de HDInsight** en el menú de la izquierda para mostrar los clústeres existentes. Si no ve **Clústeres de HDInsight**, primero haga clic en **Todos los servicios**.
 3. Haga clic en el nombre del clúster. Si la lista de clústeres es extensa, puede usar el filtro de la parte superior de la página.
 4. Haga clic en un clúster de la lista para ver la página de información general:
@@ -103,7 +103,7 @@ Si recibe un error de NoRegisteredProviderFound o MissingSubscriptionRegistratio
     * **Tiendas de metadatos externas**: consulte las tiendas de metadatos de Hive y Oozie. Las tiendas de metadatos solo pueden configurarse durante el proceso de creación del clúster. Vea [Uso de Hive/Oozie Metastore](hdinsight-hadoop-provision-linux-clusters.md#use-hiveoozie-metastore).
     * **Acciones de script**: ejecuta scripts de Bash en el clúster. Consulte [Personalización de clústeres de HDInsight mediante la acción de scripts (Linux)](hdinsight-hadoop-customize-cluster-linux.md).
     * **Aplicaciones**: agregar o quitar aplicaciones de HDInsight.  Vea [Instalación de aplicaciones de HDInsight personalizadas](hdinsight-apps-install-custom-applications.md).
-    * **Supervisión**: supervise el clúster en Azure Operations Management Suite y Azure Log Analytics.
+    * **Supervisión**: supervise el clúster en Azure Log Analytics.
     * **Propiedades**: muestra las propiedades del clúster.
     * **Cuentas de almacenamiento**: ver las cuentas de almacenamiento y las claves. Las cuentas de almacenamiento se configuran durante el proceso de creación del clúster.
     * **Acceso a Data Lake Store**: configure el acceso a Data Lake Store.  Consulte [Creación de clústeres de HDInsight con Data Lake Store mediante Azure Portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
@@ -345,7 +345,7 @@ Consulte [Administración de clústeres de HDInsight con la interfaz de usuario 
 ## <a name="browse-files"></a>Examinar archivos
 Con el Portal de Azure, puede examinar el contenido del contenedor predeterminado.
 
-1. Inicie sesión en [https://portal.azure.com/](https://portal.azure.com).
+1. Inicie sesión en [https://portal.azure.com](https://portal.azure.com).
 2. Haga clic en **Clústeres de HDInsight** en el menú de la izquierda para mostrar los clústeres existentes.
 3. Haga clic en el nombre del clúster. Si la lista de clústeres es extensa, puede usar el filtro de la parte superior de la página.
 4. Haga clic en **Cuentas de almacenamiento** en el menú izquierdo del clúster.

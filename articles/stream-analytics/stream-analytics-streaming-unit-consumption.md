@@ -1,24 +1,19 @@
 ---
-title: 'Azure Stream Analytics: descripción y ajuste de las unidades de streaming | Microsoft Docs'
-description: Conozca los factores que afectan el rendimiento en Azure Stream Analytics.
-keywords: unidad de streaming, rendimiento de consulta
+title: Descripción y ajuste de las unidades de streaming en Azure Stream Analytics
+description: En este artículo se describe la configuración de unidades de streaming y otros factores que afectan al rendimiento en Azure Stream Analytics.
 services: stream-analytics
-documentationcenter: ''
 author: JSeb225
-manager: ryanw
-ms.assetid: ''
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: 4312b5f5a64048ad697ae398697da1c59a75e75c
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 04/20/2017
+ms.openlocfilehash: ede0c0aa7b0e795760123246366f947889224b2d
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Descripción y ajuste de las unidades de streaming
 
@@ -121,7 +116,7 @@ Cuando agrega una función UDF, Azure Stream Analytics carga el entorno de tiemp
 
 
 ## <a name="get-help"></a>Obtención de ayuda
-Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Para obtener ayuda adicional, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Creación de consultas que se pueden paralelizar en Azure Stream Analytics](stream-analytics-parallelization.md)

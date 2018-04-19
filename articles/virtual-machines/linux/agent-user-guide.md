@@ -1,11 +1,11 @@
 ---
-title: "Introducción al agente de máquina virtual Linux de Azure | Microsoft Docs"
-description: "Aprenda a instalar y configurar el Agente de Linux (waagent) para administrar la interacción de la máquina virtual con el controlador de tejido de Azure."
+title: Introducción al agente de máquina virtual Linux de Azure | Microsoft Docs
+description: Aprenda a instalar y configurar el Agente de Linux (waagent) para administrar la interacción de la máquina virtual con el controlador de tejido de Azure.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: szarkos
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: e41de979-6d56-40b0-8916-895bf215ded6
 ms.service: virtual-machines-linux
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: szark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 59266c6d6452eeff56b05e60389ac14f0b2c3f1f
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: be3955c670382af1a2b558e8e7d656ca5a1f353d
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Información y uso del agente de Linux de Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -62,7 +62,7 @@ El agente Linux de Microsoft Azure (waagent) administra el aprovisionamiento de 
 * **Extensión de máquina virtual**
   
   * Inserta un componente creado por Microsoft y sus socios en la VM de Linux (IaaS) para habilitar software y automatización de la configuración
-  * Implementación de la referencia de la extensión de máquina virtual en [https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions)
+  * Implementación de referencias de extensión de máquina virtual en [https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions)
 
 ## <a name="communication"></a>Comunicación
 El flujo de información desde la plataforma hasta el agente se produce a través de dos canales:
@@ -74,7 +74,7 @@ El flujo de información desde la plataforma hasta el agente se produce a travé
 Los siguientes sistemas se han probado y se sabe que funcionan con el agente Linux de Azure:
 
 > [!NOTE]
-> Esta lista puede diferir de la lista oficial de sistemas compatibles en la plataforma Microsoft Azure, como se describe aquí: [http://support.microsoft.com/kb/2805216](http://support.microsoft.com/kb/2805216)
+> Esta lista puede diferir de la lista oficial de sistemas admitidos en la plataforma Microsoft Azure, como se describe aquí: [http://support.microsoft.com/kb/2805216](http://support.microsoft.com/kb/2805216)
 > 
 > 
 

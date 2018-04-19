@@ -1,6 +1,6 @@
 ---
-title: "Compatibilidad con Uso compartido de recursos entre orígenes (CORS) | Microsoft Docs"
-description: Aprenda a habilitar la compatibilidad con CORS para los servicios de almacenamiento de Microsoft Azure.
+title: Compatibilidad con Uso compartido de recursos entre orígenes (CORS) | Microsoft Docs
+description: Aprenda a habilitar la compatibilidad con CORS para los servicios de Microsoft Azure Storage.
 services: storage
 documentationcenter: .net
 author: cbrooksmsft
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 2/22/2017
 ms.author: cbrooks
 ms.openlocfilehash: 8d189d3ec3e6081dd37b912824f287cd75f39b35
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="cross-origin-resource-sharing-cors-support-for-the-azure-storage-services"></a>Compatibilidad con Uso compartido de recursos entre orígenes (CORS) para los Servicios de almacenamiento de Azure
+# <a name="cross-origin-resource-sharing-cors-support-for-the-azure-storage-services"></a>Compatibilidad con Uso compartido de recursos entre orígenes (CORS) para los Servicios de Azure Storage
 A partir de la versión 2013-08-15, los servicios de almacenamiento de Azure admiten Uso compartido de recursos entre orígenes (CORS) para los servicios de blob, tablas, colas y archivos. CORS es una característica de HTTP que permite que una aplicación web que se ejecuta en un dominio tenga acceso a recursos de otro dominio. Los exploradores web implementan una restricción de seguridad denominada [directiva del mismo origen](http://www.w3.org/Security/wiki/Same_Origin_Policy) que impide que una página web llame a las API de otro dominio diferente; CORS proporciona una forma segura de permitir que un dominio (el dominio de origen) llame a las API de otro dominio. Consulte la [especificación CORS](http://www.w3.org/TR/cors/) para obtener más detalles sobre CORS.
 
 Puede establecer reglas de CORS individualmente para cada uno de los servicios de almacenamiento mediante una llamada a [Definición de las propiedades de Blob service](https://msdn.microsoft.com/library/hh452235.aspx), [Definición de las propiedades de Queue service](https://msdn.microsoft.com/library/hh452232.aspx) y [Definición de las propiedades de Table service](https://msdn.microsoft.com/library/hh452240.aspx). Una vez establecidas las reglas de CORS para el servicio, se evaluará una solicitud autenticada correctamente realizada en el servicio desde un dominio diferente para determinar si se permite según las reglas que ha especificado.
@@ -52,7 +52,7 @@ Una vez que la solicitud preparatoria se acepta y se devuelve una respuesta, el 
 
 La solicitud real se trata como una solicitud normal en el servicio de almacenamiento. La presencia del encabezado Origin indica que se trata de una solicitud CORS y el servicio comprobará las reglas de coincidencia de CORS. Si se encuentra una coincidencia, los encabezados Access-Control se agregan a la respuesta y se devuelven al cliente. Si no se encuentra ninguna coincidencia, no se devuelven los encabezados Access-Control de CORS.
 
-## <a name="enabling-cors-for-the-azure-storage-services"></a>Habilitar CORS para los servicios de almacenamiento de Azure
+## <a name="enabling-cors-for-the-azure-storage-services"></a>Habilitar CORS para los servicios de Azure Storage
 Las reglas de CORS se establecen en el nivel de servicio, por lo que necesita habilitar o deshabilitar CORS para cada servicio (Blob, Cola y Tabla) por separado. De forma predeterminada, CORS está deshabilitado para todos los servicios. Para habilitar CORS, necesita establecer las propiedades del servicio correspondiente utilizando la versión 2013-08-15 o posterior, y agregar reglas de CORS a las propiedades del servicio. Para más información sobre cómo habilitar o deshabilitar CORS para un servicio y cómo establecer las reglas de CORS, consulte [Definición de las propiedades de Blob service](https://msdn.microsoft.com/library/hh452235.aspx), [Definición de las propiedades de Queue service](https://msdn.microsoft.com/library/hh452232.aspx) y [Definición de las propiedades de Table service](https://msdn.microsoft.com/library/hh452240.aspx).
 
 A continuación se muestra un ejemplo de una única regla de CORS que se ha especificado mediante una operación Set Service Properties:
@@ -86,7 +86,7 @@ Se aplican las limitaciones siguientes a las reglas de CORS:
 * La longitud de un encabezado permitido, un encabezado expuesto o un origen permitido no debe superar los 256 caracteres.
 * Los encabezados permitidos y los encabezados expuestos pueden ser:
   * Encabezados literales, donde se proporciona el nombre exacto del encabezado, por ejemplo **x-ms-meta-processed**. Se puede especificar un máximo de 64 encabezados literales en la solicitud.
-  * Encabezados con prefijo, donde se proporciona un prefijo del encabezado como, por ejemplo, **x-ms-meta-data**. Al especificar un prefijo de este modo se permite o se expone cualquier encabezado que comience con el prefijo indicado. Se puede especificar un máximo de dos encabezados con prefijo en la solicitud.
+  * Encabezados con prefijo, donde se proporciona un prefijo del encabezado como, por ejemplo, **x-ms-meta-data***. Al especificar un prefijo de este modo se permite o se expone cualquier encabezado que comience con el prefijo indicado. Se puede especificar un máximo de dos encabezados con prefijo en la solicitud.
 * Los métodos (o los verbos HTTP) especificados en el elemento **AllowedMethods** deben ser acordes con los métodos admitidos por las API del servicio de almacenamiento de Azure. Los métodos admitidos son DELETE, GET, HEAD, MERGE, POST, OPTIONS y PUT.
 
 ## <a name="understanding-cors-rule-evaluation-logic"></a>Descripción de la lógica de evaluación de reglas de CORS
@@ -152,9 +152,9 @@ La tercera solicitud coincide con la segunda regla en su dominio de origen y mé
 ## <a name="understanding-how-the-vary-header-is-set"></a>Descripción de cómo se establece el encabezado Vary
 El encabezado *Vary* es un encabezado HTTP/1.1 estándar que consta de un conjunto de campos de encabezado de solicitud que aconseja al explorador o al agente de usuario sobre los criterios seleccionados por el servidor para procesar la solicitud. El encabezado *Vary* se usa principalmente para el almacenamiento en memoria caché por parte de los servidores proxy, los exploradores y las redes CDN, que lo usan para determinar cómo se debe almacenar la respuesta en memoria caché. Para obtener información detallada, vea la especificación del [Encabezado Vary](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
 
-Cuando el explorador u otro agente de usuario almacena en memoria caché la respuesta de una solicitud de CORS, el dominio de origen se almacena en memoria caché como el origen permitido. Cuando un segundo dominio emite la misma solicitud para un recurso de almacenamiento mientras la memoria caché está activa, el agente de usuario recupera el dominio de origen de la memoria caché. El segundo dominio no coincide con el dominio almacenado en memoria caché, por lo que se produce un error en la solicitud cuando de lo contrario se realizaría correctamente. En algunos casos, Almacenamiento de Azure configura el encabezado Vary como **Origin** para indicar al agente de usuario que envíe la solicitud de CORS subsiguiente al servicio cuando el dominio de la solicitud sea distinto del origen almacenado en memoria caché.
+Cuando el explorador u otro agente de usuario almacena en memoria caché la respuesta de una solicitud de CORS, el dominio de origen se almacena en memoria caché como el origen permitido. Cuando un segundo dominio emite la misma solicitud para un recurso de almacenamiento mientras la memoria caché está activa, el agente de usuario recupera el dominio de origen de la memoria caché. El segundo dominio no coincide con el dominio almacenado en memoria caché, por lo que se produce un error en la solicitud cuando de lo contrario se realizaría correctamente. En algunos casos, Azure Storage configura el encabezado Vary como **Origin** para indicar al agente de usuario que envíe la solicitud de CORS subsiguiente al servicio cuando el dominio de la solicitud sea distinto del origen almacenado en memoria caché.
 
-Almacenamiento de Azure configura el encabezado *Vary* como **Origin** para las solicitudes GET/HEAD reales en los casos siguientes:
+Azure Storage configura el encabezado *Vary* como **Origin** para las solicitudes GET/HEAD reales en los casos siguientes:
 
 * Cuando el origen de la solicitud coincide exactamente con el origen permitido definido por una regla de CORS. Para que sea una coincidencia exacta, la regla de CORS no puede incluir un carácter comodín '*'.
 * No hay ninguna regla que coincida con el origen de la solicitud, pero CORS se ha habilitado para el servicio de almacenamiento.
@@ -168,13 +168,13 @@ En la tabla siguiente se indica cómo responderá Almacenamiento de Azure a las 
 | Solicitud | Configuración de la cuenta y resultado de la evaluación de reglas |  |  | Response |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | **Encabezado Origin presente en la solicitud** |**Reglas de CORS especificadas para este servicio** |**Existe una regla de coincidencia que permite todos los orígenes (*)** |**Existe una regla de coincidencia para una coincidencia exacta del origen** |**La respuesta incluye el encabezado Vary establecido en Origin** |**La respuesta incluye Access-Control-Allowed-Origin: "*"** |**La respuesta incluye Access-Control-Exposed-Headers** |
-| No |No |No |No |No |No |No |
-| No |Sí |No |No |Sí |No |No |
-| No |Sí |Sí |No |No |Sí |Sí |
-| Sí |No |No |No |No |No |No |
-| Sí |Sí |No |Sí |Sí |No |Sí |
-| Sí |Sí |No |No |Sí |No |No |
-| Sí |Sí |Sí |No |No |Sí |Sí |
+| Sin  |Sin  |Sin  |Sin  |Sin  |Sin  |Sin  |
+| Sin  |Sí |Sin  |Sin  |Sí |Sin  |Sin  |
+| Sin  |Sí |Sí |Sin  |Sin  |Sí |Sí |
+| Sí |Sin  |Sin  |Sin  |Sin  |Sin  |Sin  |
+| Sí |Sí |Sin  |Sí |Sí |Sin  |Sí |
+| Sí |Sí |Sin  |Sin  |Sí |Sin  |Sin  |
+| Sí |Sí |Sí |Sin  |Sin  |Sí |Sí |
 
 ## <a name="billing-for-cors-requests"></a>Facturación de las solicitudes de CORS
 Las solicitudes preparatorias correctas se cobran si ha habilitado CORS para cualquiera de los servicios de almacenamiento de su cuenta (llamando a [Definición de las propiedades de Blob service](https://msdn.microsoft.com/library/hh452235.aspx), [Definición de las propiedades de Queue service](https://msdn.microsoft.com/library/hh452232.aspx) o [Definición de las propiedades de Table service](https://msdn.microsoft.com/library/hh452240.aspx)). Para minimizar los cargos, puede configurar el elemento **MaxAgeInSeconds** de las reglas de CORS con un valor grande para que el agente de usuario almacene la solicitud en la memoria caché.

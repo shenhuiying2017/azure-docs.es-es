@@ -1,8 +1,8 @@
 ---
-title: "Visualización de registros de actividad de Azure para supervisar recursos | Microsoft Docs"
+title: Visualización de registros de actividad de Azure para supervisar recursos | Microsoft Docs
 description: Use los registros de actividad para revisar las acciones y los errores de los usuarios. Muestra PowerShell de Azure Portal, CLI de Azure CLI y REST.
 services: azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
@@ -12,15 +12,16 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 04/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: fb6fb3f7172673be70b1a6dcfd77e42cd982e248
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 990c3ed8c6fd79430b27c7c96673f7845e54b26f
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="view-activity-logs-to-audit-actions-on-resources"></a>Visualización de registros de actividad para auditar las acciones sobre los recursos
+
 Mediante los registros de actividad, puede determinar:
 
 * qué operaciones se realizaron en los recursos en la suscripción
@@ -38,6 +39,7 @@ Los registros de actividad se conservan 90 días. Puede consultar cualquier inte
 Puede recuperar información de los registros de actividad mediante el portal, PowerShell, la CLI de Azure, la API de REST de Insights o la [biblioteca .NET de Insights](https://www.nuget.org/packages/Microsoft.Azure.Insights/).
 
 ## <a name="portal"></a>Portal
+
 1. Para ver los registros de actividad mediante el portal, seleccione **Monitor**.
    
     ![seleccionar registro de actividad](./media/resource-group-audit/select-monitor.png)
@@ -68,6 +70,7 @@ Puede recuperar información de los registros de actividad mediante el portal, P
     ![ver operación](./media/resource-group-audit/view-operation.png)  
 
 ## <a name="powershell"></a>PowerShell
+
 1. Para recuperar las entradas de registro, ejecute el comando **Get-AzureRmLog** . Ofrezca parámetros adicionales para filtrar la lista de entradas. Si no especifica una hora de inicio y de finalización, se devuelven las entradas de la última hora. Por ejemplo, para recuperar las operaciones de un grupo de recursos durante la última hora ejecute:
 
   ```powershell
@@ -136,17 +139,20 @@ Puede recuperar información de los registros de actividad mediante el portal, P
 
 
 ## <a name="azure-cli"></a>Azure CLI
-* Para recuperar las entradas del registro, ejecute el comando **azure group log show** .
+
+Para recuperar las entradas del registro, ejecute el comando [az monitor activity-log list](/cli/azure/monitor/activity-log#az-monitor-activity-log-list).
 
   ```azurecli
-  azure group log show ExampleGroup --json
+  az monitor activity-log list --resource-group <group name>
   ```
 
 
 ## <a name="rest-api"></a>API DE REST
+
 Las operaciones REST para trabajar con el registro de actividad forman parte de la [API de REST de Insights](https://msdn.microsoft.com/library/azure/dn931943.aspx). Para recuperar eventos de registro de actividad, consulte [Lista de los eventos de administración de una suscripción](https://msdn.microsoft.com/library/azure/dn931934.aspx).
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 * Los registros de actividad de Azure se pueden usar con Power BI para obtener mayor información sobre las acciones en su suscripción. Consulte [View and analyze Azure Audit Logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/)(Consulta y análisis de registros de auditoría de Azure en Power BI y más).
 * Para obtener información sobre cómo establecer directivas de seguridad, vea [Control de acceso basado en roles de Azure](../active-directory/role-based-access-control-configure.md).
 * Para aprender sobre los comandos para ver operaciones de implementación, consulte [Visualización de operaciones de implementación](resource-manager-deployment-operations.md).

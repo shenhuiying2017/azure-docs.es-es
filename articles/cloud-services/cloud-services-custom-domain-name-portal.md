@@ -1,11 +1,11 @@
 ---
-title: "Configuración de un nombre de dominio personalizado en Cloud Services | Microsoft Docs"
-description: "Aprenda a exponer su aplicación o sus datos de Azure en Internet en un dominio personalizado mediante la configuración de sus valores DNS.  Estos ejemplos usan el Portal de Azure."
+title: Configuración de un nombre de dominio personalizado en Cloud Services | Microsoft Docs
+description: Aprenda a exponer su aplicación o sus datos de Azure en Internet en un dominio personalizado mediante la configuración de sus valores DNS.  Estos ejemplos usan el Portal de Azure.
 services: cloud-services
 documentationcenter: .net
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 5783a246-a151-4fb1-b488-441bfb29ee44
 ms.service: cloud-services
 ms.workload: tbd
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
 ms.openlocfilehash: 139ec6578dc9e76039c5fb13e7a7741aa8ba4e0d
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Configuración de un nombre de dominio personalizado para un servicio en la nube de Azure
 Cuando se crea un servicio en la nube, Azure lo asigna a un subdominio de **cloudapp.net**. Por ejemplo, si el nombre del servicio en la nube es "contoso", los usuarios podrán tener acceso a la aplicación en una dirección URL como http://contoso.cloudapp.net. Azure también asigna una dirección IP virtual.

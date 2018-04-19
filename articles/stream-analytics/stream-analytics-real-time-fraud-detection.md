@@ -1,24 +1,19 @@
 ---
-title: 'Stream Analytics: detección de fraudes en tiempo real | Microsoft Docs'
+title: Detección de fraudes en tiempo real con Azure Stream Analytics
 description: Aprenda a crear una solución para la detección de fraudes en tiempo real con Stream Analytics. Use un centro de eventos para el procesamiento de eventos en tiempo real.
-keywords: detección de anomalías, detección de fraudes, detección de anomalías en tiempo real
 services: stream-analytics
-documentationcenter: ''
-author: SnehaGunda
+author: jasonwhowell
+ms.author: jasonh
 manager: kfile
-ms.assetid: c10dd53f-d17a-4268-a561-cb500a8c04eb
+ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 03/28/2017
-ms.author: sngun
-ms.openlocfilehash: a622b7851f52f65efe4450191c2cf65e73e816bc
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 1ebbdb22698ec1eab76b6b6b504fe27a6f0b28bf
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Introducción al uso de Azure Stream Analytics: detección de fraudes en tiempo real
 
@@ -405,7 +400,7 @@ Pero, si ha terminado y no necesita los recursos que ha creado, puede eliminarlo
 
 ## <a name="get-support"></a>Obtención de soporte técnico
 
-Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

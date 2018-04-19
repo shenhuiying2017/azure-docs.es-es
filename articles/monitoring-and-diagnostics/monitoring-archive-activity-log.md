@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2016
 ms.author: johnkem
-ms.openlocfilehash: 1ee634b3acf0fa8815b69aef21e6213aee636ce1
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6020272d79ace55041da94ee45165e557e92b80f
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="archive-the-azure-activity-log"></a>Archivo del registro de actividades de Azure
 En este artículo, le mostraremos cómo puede usar Azure Portal, los cmdlets de PowerShell o la CLI multiplataforma para archivar el [**registro de actividades de Azure**](monitoring-overview-activity-logs.md) en una cuenta de almacenamiento. Esta opción es útil si desea conservar el registro de actividades más de 90 días (con control total sobre la directiva de retención) para auditorías, análisis estáticos o copias de seguridad. Si solo necesita conservar los eventos durante 90 días o menos, no es necesario configurar el archivado en una cuenta de almacenamiento, ya que los eventos del registro de actividades se conservan en la plataforma de Azure durante 90 días sin necesidad de habilitar el archivado.
@@ -43,29 +43,43 @@ Para archivar el registro de actividades mediante cualquiera de los métodos sig
 5. Haga clic en **Save**(Guardar).
 
 ## <a name="archive-the-activity-log-via-powershell"></a>Archivo del registro de actividades a través de PowerShell
-```
-Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -Locations global,westus,eastus -RetentionInDays 180 -Categories Write,Delete,Action
-```
+
+   ```powershell
+   # Settings needed for the new log profile
+   $logProfileName = "default"
+   $locations = (Get-AzureRmLocation).Location
+   $locations += "global"
+   $subscriptionId = "<your Azure subscription Id>"
+   $resourceGroupName = "<resource group name your storage account belongs to>"
+   $storageAccountName = "<your storage account name>"
+
+   # Build the storage account Id from the settings above
+   $storageAccountId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
+
+   Add-AzureRmLogProfile -Name $logProfileName -Location $locations -StorageAccountId $storageAccountId
+   ```
 
 | Propiedad | Obligatorio | DESCRIPCIÓN |
 | --- | --- | --- |
-| StorageAccountId |Sin  |Identificador de recurso de la cuenta de almacenamiento donde se deben guardar los registros de actividades. |
-| Ubicaciones |Sí |Lista separada por comas de las regiones para las que desea recopilar eventos del registro de actividad. Puede ver una lista de todas las regiones [si visita esta página](https://azure.microsoft.com/en-us/regions) o mediante [la API de REST de administración de Azure](https://msdn.microsoft.com/library/azure/gg441293.aspx). |
-| RetentionInDays |Sí |Número de días que deben retenerse los eventos, entre 1 y 2147483647. Con el valor cero, se almacenan los registros indefinidamente. |
-| Categorías |Sí |Lista separada por comas de las categorías de eventos que deben recopilarse. Los valores posibles son Write, Delete y Action. |
+| StorageAccountId |Sí |Identificador de recurso de la cuenta de almacenamiento donde se deben guardar los registros de actividades. |
+| Ubicaciones |Sí |Lista separada por comas de las regiones para las que desea recopilar eventos del registro de actividad. Puede ver una lista de todas las regiones para la suscripción con `(Get-AzureRmLocation).Location`. |
+| RetentionInDays |Sin  |Número de días que deben retenerse los eventos, entre 1 y 2147483647. Con el valor cero, se almacenan los registros indefinidamente. |
+| Categorías |Sin  |Lista separada por comas de las categorías de eventos que deben recopilarse. Los valores posibles son Write, Delete y Action.  Si no se proporciona, se presuponen todos los valores posibles |
 
 ## <a name="archive-the-activity-log-via-cli"></a>Archivo del registro de actividades a través de CLI
-```
-azure insights logprofile add --name my_log_profile --storageId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/my_storage --locations global,westus,eastus,northeurope --retentionInDays 180 –categories Write,Delete,Action
-```
+
+   ```azurecli-interactive
+   az monitor log-profiles create --name "default" --location null --locations "global" "eastus" "westus" --categories "Delete" "Write" "Action"  --enabled false --days 0 --storage-account-id "/subscriptions/<YOUR SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>"
+   ```
 
 | Propiedad | Obligatorio | DESCRIPCIÓN |
 | --- | --- | --- |
 | Nombre |Sí |Nombre de su perfil de registro. |
-| storageId |Sin  |Identificador de recurso de la cuenta de almacenamiento donde se deben guardar los registros de actividades. |
-| Ubicaciones |Sí |Lista separada por comas de las regiones para las que desea recopilar eventos del registro de actividad. Puede ver una lista de todas las regiones [si visita esta página](https://azure.microsoft.com/en-us/regions) o mediante [la API de REST de administración de Azure](https://msdn.microsoft.com/library/azure/gg441293.aspx). |
-| RetentionInDays |Sí |Número de días que deben retenerse los eventos, entre 1 y 2147483647. Con el valor cero, se almacenarán los registros indefinidamente (de manera indefinida). |
-| Categorías |Sí |Lista separada por comas de las categorías de eventos que deben recopilarse. Los valores posibles son Write, Delete y Action. |
+| storage-account-id |Sí |Identificador de recurso de la cuenta de almacenamiento donde se deben guardar los registros de actividades. |
+| Ubicaciones |Sí |Lista separada por espacios de las regiones para las que desea recopilar eventos del registro de actividad. Puede ver una lista de todas las regiones para la suscripción con `az account list-locations --query [].name`. |
+| days |Sí |Número de días que deben retenerse los eventos, entre 1 y 2147483647. Con el valor cero, se almacenarán los registros indefinidamente (de manera indefinida).  Si el valor es cero, el parámetro habilitado se debe establecer en true. |
+|Enabled | Sí |True o False.  Se usa para habilitar o deshabilitar la directiva de retención.  Si el valor es True, el parámetro de días debe ser un valor mayor que 0.
+| Categorías |Sí |Lista separada por espacios de las categorías de eventos que deben recopilarse. Los valores posibles son Write, Delete y Action. |
 
 ## <a name="storage-schema-of-the-activity-log"></a>Esquema de almacenamiento del registro de actividades
 Una vez que haya configurado el archivado, se creará un contenedor de almacenamiento en la cuenta de almacenamiento en cuanto se produzca un evento del registro de actividades. Los blobs dentro del contenedor siguen el mismo formato en el registro de actividades y en los registros de diagnóstico. La estructura de estos blobs es:

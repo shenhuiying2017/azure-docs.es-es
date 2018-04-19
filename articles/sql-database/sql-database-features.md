@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/30/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: d8adf097d6bee404cff8e7b15782c6c59531a897
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: bca2629ea4a0c859e92d829b49072fbdf3f9ffe2
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Comparación de funciones: Azure SQL Database frente a SQL Server 
 
@@ -45,7 +45,7 @@ En las tablas siguientes se enumeran las características principales de SQL Ser
 | [Captura de datos modificados](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | Sin  | Sí |
 | [Seguimiento de cambios](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) | Sí |Sí |
 | [Instrucciones de intercalación](https://docs.microsoft.com/sql/t-sql/statements/collations) | Sí | Sí |
-| [Índices de almacén de columnas](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) | Sí: [plan Premium y Estándar (S3 y versiones posteriores)](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) |Sí |
+| [Índices de almacén de columnas](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) | Sí: [nivel Premium, nivel Estándar - S3 y superior, nivel De uso general y nivel Crítico para la empresa](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) |Sí |
 | [Common Language Runtime (CLR)](https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | Sin  | Sí; consulte el artículo sobre las [diferencias de CLR](sql-database-managed-instance-transact-sql-information.md#clr) |
 | [Bases de datos independientes](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) | Sí | Sí |
 | [Usuarios contenidos](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable) | Sí | Sí |
@@ -82,7 +82,7 @@ En las tablas siguientes se enumeran las características principales de SQL Ser
 | [Restauración geográfica](sql-database-recovery-using-backups.md#geo-restore) | Sí | No; puede restaurar copias de seguridad completas COPY_ONLY que toma periódicamente; consulte el artículo sobre [diferencias de copias de seguridad](sql-database-managed-instance-transact-sql-information.md#backup) y [diferencias de restauración](sql-database-managed-instance-transact-sql-information.md#restore-statement). |
 | [Replicación geográfica](sql-database-geo-replication-overview.md) | Sí | Sin  |
 | [Procesamiento de Graph](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview) | Sí | Sí |
-| [Optimización en memoria](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | Sí; [solo en Premium Edition](sql-database-in-memory.md). | Sin  |
+| [Optimización en memoria](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | Sí: [solo niveles Premium y Crítico para la empresa](sql-database-in-memory.md) | Sin  |
 | [Compatibilidad con datos JSON](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) | Sí | Sí |
 | [Elementos de lenguaje](https://docs.microsoft.com/sql/t-sql/language-elements/language-elements-transact-sql) | La mayoría; consulte el artículo sobre elementos. |  Sí; consulte el artículo sobre [diferencias de T-SQL](sql-database-managed-instance-transact-sql-information.md) |
 | [Servidores vinculados](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | No; consulte el artículo sobre [consulta elástica](sql-database-elastic-query-horizontal-partitioning.md). | Solo con SQL Server |

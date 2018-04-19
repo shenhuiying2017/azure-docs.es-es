@@ -1,8 +1,8 @@
 ---
-title: "Publicación de aplicaciones mediante el proxy de aplicación de Azure AD | Microsoft Docs"
-description: "Publique aplicaciones locales en la nube con el proxy de aplicación de Azure AD en Azure Portal."
+title: Publicación de aplicaciones mediante el proxy de aplicación de Azure AD | Microsoft Docs
+description: Publique aplicaciones locales en la nube con el proxy de aplicación de Azure AD en Azure Portal.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 ms.assetid: d94ac3f4-cd33-4c51-9d19-544a528637d4
@@ -15,11 +15,11 @@ ms.date: 12/06/2017
 ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 43cabb03a698dd87f12fef8e9a4dd54ee42c3ec9
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 1bf72b450747e98e254db77514fc7a902bbe70cc
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="publish-applications-using-azure-ad-application-proxy"></a>Publicación de aplicaciones mediante el proxy de aplicación de Azure AD
 
@@ -53,7 +53,7 @@ Siga estos pasos para publicar aplicaciones con el proxy de aplicación. Si aún
    - **URL interna**: dirección URL que se usa para obtener acceso a la aplicación desde la red privada. Puede especificar una ruta de acceso específica en el servidor back-end para publicar, mientras que el resto del servidor no se publica. De esta forma, puede publicar sitios diferentes en el mismo servidor como aplicaciones diferentes y dar a cada uno un nombre y unas reglas de acceso propios.
 
      > [!TIP]
-     > Si publica una ruta de acceso, asegúrese de que incluye todas las imágenes, los scripts y las hojas de estilos necesarias para la aplicación. Por ejemplo, si la aplicación está en https://yourapp/app y usa las imágenes que se encuentra en https://yourapp/media, debe publicar https://yourapp/ como la ruta de acceso. Esta dirección URL interna no tiene que ser la página de inicio que verán los usuarios. Para más información, consulte [Establecimiento de una página principal personalizada para aplicaciones publicadas mediante el proxy de aplicación de Azure AD](application-proxy-office365-app-launcher.md).
+     > Si publica una ruta de acceso, asegúrese de que incluye todas las imágenes, los scripts y las hojas de estilos necesarias para la aplicación. Por ejemplo, si la aplicación se encuentra en https://yourapp/app y usa las imágenes que se encuentran en https://yourapp/media, debe publicar https://yourapp/ como la ruta de acceso. Esta dirección URL interna no tiene que ser la página de inicio que verán los usuarios. Para más información, consulte [Establecimiento de una página principal personalizada para aplicaciones publicadas mediante el proxy de aplicación de Azure AD](application-proxy-office365-app-launcher.md).
 
    - **Dirección URL externa**: la dirección a la que irán los usuarios para tener acceso a la aplicación desde fuera de la red. Si no desea usar el dominio del proxy de aplicación predeterminado, lea sobre el [uso de dominios personalizados en el proxy de aplicación de Azure AD](active-directory-application-proxy-custom-domains.md).
    - **Autenticación previa**: la forma en que el proxy de aplicación comprueba los usuarios antes de concederles acceso a la aplicación. 
@@ -61,6 +61,9 @@ Siga estos pasos para publicar aplicaciones con el proxy de aplicación. Si aún
      - Azure Active Directory: el proxy de la aplicación redirige a los usuarios para que inicien sesión en Azure AD, que autentica sus permisos para el directorio y la aplicación. Se recomienda mantener esta opción como predeterminada, para que puede aprovechar las características de seguridad de Azure AD como el acceso condicional y Multi-Factor Authentication.
      - Acceso directo: los usuarios no tienen que autenticarse en Azure Active Directory para tener acceso a la aplicación. Esto no impide que pueda configurar los requisitos de autenticación en el back-end.
    - **Grupo de conectores**: los conectores procesan el acceso remoto a la aplicación, y los grupos de conectores le ayudan a organizar los conectores y las aplicaciones por región, red o finalidad. Si no tiene ningún grupo de conectores creado todavía, la aplicación se asigna al **predeterminado**.
+
+>[!NOTE]
+>Si la aplicación usa websockets para conectarse, asegúrese de que tiene la versión del conector 1.5.612.0 o superior con compatibilidad de websocket y de que el grupo de conectores asignado solo utiliza estos conectores.
 
    ![Configuración de la aplicación](./media/application-proxy-publish-azure-portal/configure-app.png)
 5. Si es necesario, configure opciones adicionales. En la mayoría de las aplicaciones, debe mantener esta configuración en su estado predeterminado. 

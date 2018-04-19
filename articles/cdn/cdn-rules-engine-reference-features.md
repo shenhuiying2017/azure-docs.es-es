@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.openlocfilehash: 9f1a9343a657e076e94f6aa59fd03128ef488ac9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 748cecbdf4c59469c9a56da03631dd04a819043b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Características del motor de reglas de la red CDN de Azure
 En este tema se muestran descripciones detalladas de las características disponibles para el [motor de reglas](cdn-rules-engine.md)de Azure Content Delivery Network (CDN).
@@ -28,7 +28,6 @@ La tercera parte de una regla es la característica. Una característica define 
 ## <a name="access-features"></a>Características de acceso
 
 Estas características están diseñadas para controlar el acceso al contenido.
-
 
 NOMBRE | Propósito
 -----|--------
@@ -312,7 +311,7 @@ Remove| Esta opción garantiza que no se incluirá un encabezado `Cache-Control`
 
 Información importante:
 
-- Especifique uno o más nombres de parámetro de cadena de consulta. Delimite cada nombre de parámetro con un único espacio.
+- Especifique uno o varios nombres de parámetro de consulta y separe cada nombre de parámetro con un solo espacio.
 - Esta característica determina si los parámetros de cadena de consulta se incluyen o excluyen de la clave de caché. En la tabla siguiente se proporciona información adicional para cada opción.
 
 type|DESCRIPCIÓN
@@ -326,11 +325,14 @@ El motor de reglas permite personalizar la manera en que se implementará el alm
 
 Para replicar el comportamiento de almacenamiento en caché de cadenas de consulta conocido como "no almacenar en caché" en la página Almacenamiento en caché de cadenas de consulta, cree una regla que contenga una condición de coincidencia de caracteres comodín de consulta de dirección URL y una característica Omisión de la memoria caché. Establezca la condición de coincidencia de caracteres comodín de consulta de dirección URL en un asterisco (*).
 
+>[!IMPORTANT] 
+> Si está habilitada la autorización de token en cualquier ruta de acceso de esta cuenta, el modo de caché estándar es el único modo que se puede usar para el almacenamiento en caché de la cadena de consulta. Para más información, consulte [Control del comportamiento del almacenamiento en caché de Azure CDN con cadenas de consulta](cdn-query-string-premium.md).
+
 #### <a name="sample-scenarios"></a>Escenarios de ejemplo
 
 El siguiente ejemplo de uso de esta característica proporciona una solicitud de ejemplo y la clave de caché predeterminada:
 
-- **Solicitud de ejemplo:** http://wpc.0001.&lt;Domain&gt;/800001/Origin/folder/asset.htm?sessionid=1234&amp;language=EN&amp;userid=01
+- **Solicitud de ejemplo:** http://wpc.0001.&lt;Domain&gt;/800001/Origin/folder/asset.htm?sessionid=1234&language=EN&userid=01
 - **Clave de caché predeterminada:** /800001/Origin/folder/asset.htm
 
 ##### <a name="include"></a>Include
@@ -1054,10 +1056,12 @@ Disabled| Restablece el comportamiento predeterminado. El comportamiento predete
 ### <a name="token-auth-denial-code"></a>Código de denegación de autorización de token
 **Propósito**: determina el tipo de respuesta que se devolverá al usuario cuando se deniegue una solicitud debido a la autenticación basada en token.
 
-Los códigos de respuesta disponibles se enumeran a continuación.
+El código de denegación de autorización de token no se puede usar con una condición de coincidencia Siempre. En su lugar, use la sección **Custom Denial Handling** (Control de denegación personalizado) en la página **Token de autenticación** del portal **Administrar**. Para más información, consulte [Protección de los activos de Azure CDN con autenticación por tokens](cdn-token-auth.md).
+
+Los códigos de respuesta disponibles se enumeran en la tabla siguiente.
 
 Código de respuesta|Nombre de la respuesta|DESCRIPCIÓN
-----------------|-----------|--------
+-------------|-------------|--------
 301|Movido permanentemente|Este código de estado redirige a los usuarios no autorizados a la dirección URL especificada en el encabezado Ubicación.
 302|Encontrado|Este código de estado redirige a los usuarios no autorizados a la dirección URL especificada en el encabezado Ubicación. Este código de estado es el método estándar del sector para llevar a cabo una redirección.
 307|Redirección temporal|Este código de estado redirige a los usuarios no autorizados a la dirección URL especificada en el encabezado Ubicación.

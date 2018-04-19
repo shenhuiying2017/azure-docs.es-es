@@ -1,10 +1,10 @@
 ---
-title: "Creación de una máquina virtual de Azure clásico con MySQL | Microsoft Docs"
-description: "Cree una máquina virtual de Azure que ejecute la Base de datos MySQL y Windows Server 2012 R2 con el modelo de implementación clásica."
+title: Creación de una máquina virtual de Azure clásico con MySQL | Microsoft Docs
+description: Cree una máquina virtual de Azure que ejecute la Base de datos MySQL y Windows Server 2012 R2 con el modelo de implementación clásica.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 ms.assetid: 98fa06d2-9b92-4d05-ac16-3f8e9fd4feaa
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: cynthn
-ms.openlocfilehash: e4135f96027cc25e1e0a149857ace1672570fc4b
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: be2a4232fdb59deb87d6d9340fd22909707294b8
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="install-mysql-on-a-virtual-machine-created-with-the-classic-deployment-model-running-windows-server-2016"></a>Instalación de MySQL en una máquina virtual creada con el modelo de implementación clásica con Windows Server 2016
 [MySQL](https://www.mysql.com) L es una conocida base de datos SQL de código abierto. Este tutorial muestra cómo instalar y ejecutar la **versión de comunidad de MySQL 5.7.18** como un servidor MySQL en una máquina virtual con **Windows Server 2016**. La experiencia podría ser ligeramente diferente con otras versiones de Windows Server o de MySQL.
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/09/2017
 Para obtener instrucciones sobre la instalación de MySQL en Linux, consulte: [Instalación de MySQL en Azure](../../linux/mysql-install.md).
 
 > [!IMPORTANT]
-> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../../resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos.
+> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../../resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo de Resource Manager.
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 ## <a name="create-a-virtual-machine-running-windows-server-2016"></a>Crear una máquina virtual con Windows Server 2016
@@ -109,7 +109,7 @@ Para agregar una regla de Firewall de Windows que permita tráfico de MySQL desd
 Para probar la conexión remota a la máquina virtual de Azure con el servicio MySQL Server, debe proporcionar el nombre DNS del servicio en la nube que contiene el VN.
 
 1. En Azure Portal, haga clic en **Máquinas virtuales (clásico)**, en el nombre de la máquina virtual del servidor MySQL y luego en **Información general**.
-2. En el panel de la máquina virtual, anote el valor de **Nombre DNS**. Aquí tiene un ejemplo:
+2. En el panel de la máquina virtual, anote el valor de **Nombre DNS**. Este es un ejemplo:
 
    ![](media/mysql-2008r2/MySQL_DNSName.png)
 3. Desde un equipo local que tenga MySQL o el cliente de MySQL en ejecución, ejecute el siguiente comando para iniciar sesión como un usuario de MySQL.

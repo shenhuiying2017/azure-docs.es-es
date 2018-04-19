@@ -1,11 +1,11 @@
 ---
-title: "Consideraciones de seguridad para el Proxy de aplicación de Azure AD | Microsoft Docs"
-description: "Se tratan las consideraciones de seguridad al utilizar el Proxy de aplicación de Azure AD."
+title: Consideraciones de seguridad para el Proxy de aplicación de Azure AD | Microsoft Docs
+description: Se tratan las consideraciones de seguridad al utilizar el Proxy de aplicación de Azure AD.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -59,7 +59,7 @@ Como el Proxy de aplicación de Azure AD es un servidor proxy inverso, todo el t
 
 No es necesario abrir conexiones de entrada a la red corporativa.
 
-Los conectores de Proxy de aplicación solo usan conexiones salientes al servicio Azure AD Application Proxy, lo que significa que no es necesario abrir los puertos de firewall para las conexiones entrantes. Los servidores proxy tradicionales requerían una red perimetral (también conocida como *DMZ*, *zona desmilitarizada* o *subred filtrada*) y permitían el acceso a las conexiones no autenticadas en el perímetro de la red. Este escenario hacía necesaria inversiones adicionales en productos de firewall de aplicaciones web para analizar el tráfico y proteger el entorno. Con Proxy de aplicación no se necesita una red perimetral, ya que todas las conexiones son de salida y tienen lugar a través de un canal seguro.
+Los conectores de Proxy de aplicación solo usan conexiones salientes al servicio Azure AD Application Proxy, lo que significa que no es necesario abrir los puertos de firewall para las conexiones entrantes. Los servidores proxy tradicionales requerían una red perimetral (también conocida como *DMZ* o *subred filtrada*) y permitían el acceso a las conexiones no autenticadas en el perímetro de la red. Este escenario hacía necesaria inversiones adicionales en productos de firewall de aplicaciones web para analizar el tráfico y proteger el entorno. Con Proxy de aplicación no se necesita una red perimetral, ya que todas las conexiones son de salida y tienen lugar a través de un canal seguro.
 
 Para más información sobre los conectores, consulte [Descripción de los conectores del Proxy de aplicación de Azure AD](application-proxy-understand-connectors.md).
 
@@ -180,7 +180,7 @@ Después de recibir una respuesta, el conector establece una conexión saliente 
 Aquí puede tener lugar cierto procesamiento de la aplicación. Si configura el proxy de aplicación para traducir los encabezados o las direcciones URL en la aplicación, ese procesamiento se produce según sea necesario durante este paso.
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 [Consideraciones sobre la topología de red al usar el Proxy de aplicación de Azure Active Directory](application-proxy-network-topology-considerations.md)
 

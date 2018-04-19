@@ -1,31 +1,29 @@
 ---
-title: "Enrutamiento de eventos de Azure Blob Storage a un punto de conexión web personalizado | Microsoft Docs"
+title: Enrutamiento de eventos de Azure Blob Storage a un punto de conexión web personalizado | Microsoft Docs
 description: Utilice Azure Event Grid para suscribirse a los eventos de Blob Storage.
 services: storage,event-grid
-keywords: 
+keywords: ''
 author: cbrooksmsft
 ms.author: cbrooks
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 4f10d9b26cb75bee8103d986b7fa1197168c692f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f0764ebc423cfb5323f2b634ce5a5ecbe075135c
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-azure-cli"></a>Enrutamiento de eventos de Blob Storage a un punto de conexión web personalizado con la CLI de Azure
 
 Azure Event Grid es un servicio de eventos para la nube. En este artículo, se usa la CLI de Azure para suscribirse a los eventos de Blob Storage y desencadenar el evento para ver el resultado. 
 
-Por lo general, los eventos se envían a un punto de conexión que responde ante ellos, como un webhook o Azure Function. Para simplificar el ejemplo de este artículo, enviamos los eventos a una dirección URL que simplemente recopila los mensajes. Debe crear esta dirección URL mediante herramientas de terceros desde [RequestBin](https://requestb.in/) o [Hookbin](https://hookbin.com/).
+Por lo general, los eventos se envían a un punto de conexión que responde ante ellos, como un webhook o Azure Function. Para simplificar el ejemplo de este artículo, enviamos los eventos a una dirección URL que simplemente recopila los mensajes. Ha creado esta dirección URL mediante una herramienta de terceros de [Hookbin](https://hookbin.com/).
 
 > [!NOTE]
-> **RequestBin** y **Hookbin** no están diseñados para el uso de alto rendimiento. El uso de estas herramientas es meramente ilustrativo. Si inserta más de un evento a la vez, puede que no vea todos los eventos en la herramienta.
+> **Hookbin** no está pensado para el uso de alto rendimiento. El uso de esta herramienta es meramente ilustrativo. Si inserta más de un evento a la vez, puede que no vea todos los eventos en la herramienta.
 
 Al completar los pasos descritos en este artículo, verá que los datos del evento se han enviado a un punto de conexión.
-
-![Datos de evento](./media/storage-blob-event-quickstart/request-result.png)
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -68,11 +66,11 @@ az storage account create \
 
 ## <a name="create-a-message-endpoint"></a>Creación de un punto de conexión de mensaje
 
-Antes de suscribirse al tema, vamos a crear el punto de conexión para el mensaje de evento. En lugar de escribir código para responder al evento, vamos a crear un punto de conexión que recopile los mensajes para que pueda verlos. RequestBin y Hookbin son herramientas de terceros que permiten crear un punto de conexión y ver las solicitudes enviadas a este. Vaya a [RequestBin](https://requestb.in/) y haga clic en **Create a RequestBin** (Crear un elemento de RequestBin), o visite [Hookbin](https://hookbin.com/) y haga clic en **Crear un nuevo punto de conexión**.  Copie la dirección URL de la ubicación, la necesitará para suscribirse al tema.
+Antes de suscribirse al tema, vamos a crear el punto de conexión para el mensaje de evento. En lugar de escribir código para responder al evento, vamos a crear un punto de conexión que recopile los mensajes para que pueda verlos. Hookbin es una herramienta de terceros que permite crear un punto de conexión y ver las solicitudes que se le envían. Vaya a [Hookbin](https://hookbin.com/) y haga clic en **Create New Endpoint** (Crear nuevo punto de conexión).  Copie la dirección URL de la ubicación, la necesitará para suscribirse al tema.
 
-## <a name="subscribe-to-your-storage-account"></a>Suscripción a una cuenta de almacenamiento
+## <a name="subscribe-to-your-storage-account"></a>Suscríbase a una cuenta de almacenamiento
 
-Suscríbase a un tema para indicar a Event Grid los eventos cuyo seguimiento desea realizar. En el ejemplo siguiente se realiza la suscripción a la cuenta de almacenamiento que ha creado y se pasa la dirección URL de RequestBin o Hookbin como punto de conexión para la notificación de eventos. Reemplace `<event_subscription_name>` por un nombre único para la suscripción de eventos y `<endpoint_URL>` por el valor de la sección anterior. Al especificar un punto de conexión cuando se suscribe, Event Grid controla el enrutamiento de los eventos a ese punto de conexión. En `<resource_group_name>` y `<storage_account_name>`, use los valores que creó anteriormente.  
+Suscríbase a un tema para indicar a Event Grid los eventos cuyo seguimiento desea realizar. En el ejemplo siguiente se realiza la suscripción a la cuenta de almacenamiento que ha creado y se pasa la dirección URL de Hookbin como punto de conexión para la notificación de eventos. Reemplace `<event_subscription_name>` por un nombre único para la suscripción de eventos y `<endpoint_URL>` por el valor de la sección anterior. Al especificar un punto de conexión cuando se suscribe, Event Grid controla el enrutamiento de los eventos a ese punto de conexión. En `<resource_group_name>` y `<storage_account_name>`, use los valores que creó anteriormente.  
 
 ```azurecli-interactive
 storageid=$(az storage account show --name <storage_account_name> --resource-group <resource_group_name> --query id --output tsv)

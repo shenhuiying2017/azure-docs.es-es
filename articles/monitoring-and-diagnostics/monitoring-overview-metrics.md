@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: ancav
-ms.openlocfilehash: 4598267e92716529774f42d22ab7c47d944d4495
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 537213fdf106da1c07d549d65b1d8cf71887db9f
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Información general sobre las métricas en Microsoft Azure
 En este artículo se explica qué son las métricas en Microsoft Azure, sus beneficios y cómo comenzar a utilizarlas.  
@@ -47,7 +47,7 @@ También puede:
 
 * Configurar una **regla de alerta de métrica que envía una notificación o realiza una acción automatizada** cuando la métrica cruza el umbral establecido. El escalado automático es una acción automatizada especial que permite escalar horizontalmente los recursos para satisfacer las solicitudes entrantes o las cargas en el sitio web o los recursos de procesos. Puede definir una regla de configuración de escalado automático para escalar o reducir horizontalmente si una métrica supera un umbral.
 
-* **Redirigir** todas las métricas a Application Insights o Log Analytics (OMS) para habilitar análisis instantáneos, búsquedas y alertas personalizadas de los datos de métricas de los recursos. También puede transmitir métricas a un centro de eventos, lo que permite redirigirlas a Azure Stream Analytics o a aplicaciones personalizadas para realizar análisis casi en tiempo real. Puede configurar la transmisión del centro de eventos con la configuración de diagnóstico.
+* **Enrute** todas las métricas a Application Insights o Log Analytics para habilitar análisis instantáneos, búsquedas y alertas personalizadas de los datos de métricas de los recursos. También puede transmitir métricas a un centro de eventos, lo que permite redirigirlas a Azure Stream Analytics o a aplicaciones personalizadas para realizar análisis casi en tiempo real. Puede configurar la transmisión del centro de eventos con la configuración de diagnóstico.
 
 * **Archivar métricas en almacenamiento** para una retención más prolongada o para crear informes sin conexión. Puede redirigir las métricas a Azure Blob Storage al configurar opciones de diagnóstico para el recurso.
 
@@ -100,11 +100,18 @@ Se puede acceder a las métricas de Azure a través de las API de Azure Monitor.
 Para ver un tutorial más detallado mediante las API de REST de Azure Monitor, vea el [Tutorial sobre la API de REST de Azure Monitor](monitoring-rest-api-walkthrough.md).
 
 ## <a name="export-metrics"></a>Exportación de métricas
-Puede ir a la hoja **Configuración de diagnóstico** de la pestaña **Supervisión** y ver las opciones de exportación de métricas. Puede seleccionar las métricas (y los registros de diagnóstico) para redirigirlas a Blob Storage, Event Hubs u OMS para aquellos casos de uso que se han mencionado anteriormente en este artículo.
+Puede ir a la hoja **Configuración de diagnóstico** de la pestaña **Supervisión** y ver las opciones de exportación de métricas. Puede seleccionar las métricas (y los registros de diagnóstico) para redirigirlas a Blob Storage, Event Hubs o Log Analytics para aquellos casos de uso que se han mencionado anteriormente en este artículo.
 
  ![Opciones de exportación de métricas en Azure Monitor](./media/monitoring-overview-metrics/MetricsOverview3.png)
 
 Puede configurar esto a través de plantillas de Resource Manager, [PowerShell](insights-powershell-samples.md), la [CLI de Azure](insights-cli-samples.md) o las [API de REST](https://msdn.microsoft.com/library/dn931943.aspx).
+
+> [!NOTE]
+> Actualmente no se admite el envío de métricas de varias dimensiones a través de la configuración de diagnóstico. Las métricas con dimensiones se exportan como métricas unidimensionales planas agregadas a través de los valores de dimensión.
+>
+> *Por ejemplo*: la métrica "Mensajes entrantes" de una instancia de Event Hub se puede explorar y representar gráficamente por colas. Sin embargo, cuando se exporta a través de la configuración de diagnóstico, la métrica se representarán como todos los mensajes entrantes de todas las colas de Event Hub.
+>
+>
 
 ## <a name="take-action-on-metrics"></a>Realización de acciones en las métricas
 Para recibir notificaciones o realizar acciones automatizadas en datos métricos, puede configurar reglas de alerta o los ajustes de escalado automático.

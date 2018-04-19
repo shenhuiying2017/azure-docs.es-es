@@ -1,13 +1,13 @@
 ---
 title: Alta disponibilidad de Azure Virtual Machines para SAP NetWeaver | Microsoft Docs
-description: "Guía de alta disponibilidad para SAP NetWeaver en Azure Virtual Machines"
+description: Guía de alta disponibilidad para SAP NetWeaver en Azure Virtual Machines
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-windows
 ms.devlang: NA
@@ -18,10 +18,10 @@ ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: d00db895ffcf9ba9a51e3df2dae5d33c0277dd6f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Alta disponibilidad de Azure Virtual Machines para SAP NetWeaver
 
@@ -71,7 +71,7 @@ ms.lasthandoff: 10/11/2017
 [sap-ha-guide-9.1]:#31c6bd4f-51df-4057-9fdf-3fcbc619c170
 [sap-ha-guide-9.1.1]:#a97ad604-9094-44fe-a364-f89cb39bf097
 
-[sap-ha-multi-sid-guide]:sap-high-availability-multi-sid.md (SAP multi-SID high-availability configuration)
+[sap-ha-multi-sid-guide]:sap-high-availability-multi-sid.md (Configuración de alta disponibilidad de varios SID de SAP)
 
 
 [sap-ha-guide-figure-1000]:./media/virtual-machines-shared-sap-high-availability-guide/1000-wsfc-for-sap-ascs-on-azure.png
@@ -742,7 +742,7 @@ Si desea usar otros números para las instancias de ASCS o SCS de SAP, debe actu
 1.  En Azure Portal, seleccione **<*SID*>-lb-ascs load balancer** > **Reglas de equilibrio de carga**.
 2.  Cambie estos valores para todas las reglas de equilibrio de carga que pertenezcan a la instancia de ASCS o SCS de SAP:
 
-  * Nombre
+  * NOMBRE
   * Port
   * Puerto de back-end
 
@@ -768,23 +768,23 @@ Azure Load Balancer tiene un equilibrador de carga interno que cierra las conexi
 
 Para agregar entradas de registro en los dos nodos de clúster de la instancia de ASCS/SCS de SAP, en primer lugar, agregue estas entradas del registro de Windows en ambos nodos de clúster de Windows para ASCS/SCS de SAP:
 
-| path | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
+| Ruta de acceso | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
 | --- | --- |
 | Nombre de la variable |`KeepAliveTime` |
 | Tipo de variable |REG_DWORD (Decimal) |
 | Valor |120000 |
-| Vínculo a la documentación |[https://technet.microsoft.com/es-es/library/cc957549.aspx](https://technet.microsoft.com/en-us/library/cc957549.aspx) |
+| Vínculo a la documentación |[https://technet.microsoft.com/en-us/library/cc957549.aspx](https://technet.microsoft.com/en-us/library/cc957549.aspx) |
 
 _**Tabla 3:** Cambio del primer parámetro de TCP/IP_
 
 Luego, agregue estas entradas del Registro de Windows en los nodos de clúster de Windows para ASCS/SCS de SAP:
 
-| path | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
+| Ruta de acceso | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
 | --- | --- |
 | Nombre de la variable |`KeepAliveInterval` |
 | Tipo de variable |REG_DWORD (Decimal) |
 | Valor |120000 |
-| Vínculo a la documentación |[https://technet.microsoft.com/es-es/library/cc957548.aspx](https://technet.microsoft.com/en-us/library/cc957548.aspx) |
+| Vínculo a la documentación |[https://technet.microsoft.com/en-us/library/cc957548.aspx](https://technet.microsoft.com/en-us/library/cc957548.aspx) |
 
 _**Tabla 4:** Cambio del segundo parámetro de TCP/IP_
 
@@ -1318,7 +1318,7 @@ Instale la instancia del servidor de aplicaciones principal (PAS) <*SID*>-di-0 e
 
 ### <a name="0ba4a6c1-cc37-4bcf-a8dc-025de4263772"></a> Instalación del servidor de aplicaciones adicional de SAP
 
-Instale un servidor de aplicaciones adicional (AAS) de SAP en todas las máquinas virtuales que designó para hospedar una instancia de servidores de aplicaciones de SAP. Por ejemplo, en <*SID*>-di-1 a <*SID*>-di-&lt;n&gt;.
+Instale un servidor de aplicaciones adicional (AAS) de SAP en todas las máquinas virtuales que designó para hospedar una instancia de servidores de aplicaciones de SAP. Por ejemplo, en <*SID*>-di-1 to <*SID*>-di-&lt;n&gt;.
 
 > [!NOTE]
 > Esta acción finaliza la instalación de un sistema SAP NetWeaver de alta disponibilidad. Después, continúe con las pruebas de conmutación por error.

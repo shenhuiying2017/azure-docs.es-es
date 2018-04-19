@@ -1,11 +1,11 @@
 ---
 title: Administrar la caducidad de Azure Blob Storage en Azure Content Delivery Network | Microsoft Docs
-description: "Obtenga información sobre las opciones para controlar el período de vida de los blobs de almacenamiento en caché de CDN de Azure."
+description: Obtenga información sobre las opciones para controlar el período de vida de los blobs de almacenamiento en caché de CDN de Azure.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: zhangmanling
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: ad4801e9-d09a-49bf-b35c-efdc4e6034e8
 ms.service: cdn
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 02/1/2018
 ms.author: mazha
-ms.openlocfilehash: bafb04a1a19c4436d8f6c1c21700e9463334b3de
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 72a823ef04ad69d1d3b40377c32a02bacb8328c2
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-content-delivery-network"></a>Administrar la caducidad de Azure Blob Storage en Azure Content Delivery Network
 > [!div class="op_single_selector"]
@@ -40,10 +40,10 @@ También puede controlar la configuración de caché desde Azure Portal establec
  
 
 ## <a name="setting-cache-control-headers-by-using-cdn-caching-rules"></a>Establecimiento de los encabezados Cache-Control mediante reglas de almacenamiento en caché de CDN
-El método preferido para establecer el encabezado `Cache-Control` de un blob consiste en usar las reglas de almacenamiento en caché en Azure Portal. Para obtener más información sobre las reglas de almacenamiento en caché de CDN, consulte [Control del comportamiento del almacenamiento en caché de Azure CDN con reglas de almacenamiento en caché](cdn-caching-rules.md).
+El método preferido para establecer el encabezado `Cache-Control` de un blob consiste en usar las reglas de almacenamiento en caché en Azure Portal. Para más información sobre las reglas de almacenamiento en caché de CDN, consulte [Control del comportamiento del almacenamiento en caché de Azure CDN con reglas de almacenamiento en caché](cdn-caching-rules.md).
 
 > [!NOTE] 
-> Las reglas de almacenamiento en caché solo están disponibles para los perfiles **Azure CDN de Verizon Standard** y **Azure CDN de Akamai Standard**. Para perfiles **Azure CDN de Verizon Premium**, debe usar el [motor de reglas de Azure CDN](cdn-rules-engine.md) en el portal **Administrar** para una funcionalidad similar.
+> Las reglas de almacenamiento en caché solo están disponibles para los perfiles **Azure CDN estándar de Verizon** y **Azure CDN estándar de Akamai**. Para perfiles **Azure CDN premium de Verizon**, debe usar el [motor de reglas de Azure CDN](cdn-rules-engine.md) en el portal **Administrar** para una funcionalidad similar.
 
 **Para navegar a la página de reglas de almacenamiento en caché de CDN**:
 

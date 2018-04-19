@@ -7,14 +7,14 @@ manager: jhubbard
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: e9ec0a0a602965561b77619123588db57c59993c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: dc97c0703150df9773427b13fc07371c3593ce9f
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Restauración de una instancia de Azure SQL Database o una conmutación por error en una secundaria
 Azure SQL Database ofrece las siguientes capacidades para recuperarse de un corte en el suministro eléctrico:
@@ -26,7 +26,7 @@ Azure SQL Database ofrece las siguientes capacidades para recuperarse de un cort
 Para obtener información sobre los escenarios de continuidad empresarial y sus características, consulte el artículo sobre [continuidad empresarial](sql-database-business-continuity.md).
 
 > [!NOTE]
-> Si usa la redundancia de zona de las bases de datos o grupos Premium, el proceso de recuperación se automatiza y el resto de este material no se aplica. 
+> Si usa bases de datos o grupos de nivel Premium o Crítico para la empresa (versión preliminar) con redundancia de zona, el proceso de recuperación se automatiza y el resto de este material no se aplica. 
 
 ### <a name="prepare-for-the-event-of-an-outage"></a>Preparación ante interrupciones
 Para que el proceso de recuperación pueda realizarse sin problemas en otra región de datos mediante los grupos de conmutación por error o las copias de seguridad con redundancia geográfica, debe preparar un servidor en otra interrupción de un centro de datos para convertirlo en el nuevo servidor principal si lo considera necesario. También hay que contar con pasos bien definidos que se hayan documentado y probado para garantizar que la recuperación se lleve a cabo correctamente. Estos son algunos de los pasos correspondientes a la fase de preparación:

@@ -1,11 +1,11 @@
 ---
 title: Modelo de datos de Log Analytics para Azure Backup
-description: "En este artículo se explican los detalles del modelo de datos de Log Analytics para los datos de Azure Backup."
+description: En este artículo se explican los detalles del modelo de datos de Log Analytics para los datos de Azure Backup.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: JPallavi
 manager: vijayts
-editor: 
+editor: ''
 ms.assetid: dfd5c73d-0d34-4d48-959e-1936986f9fc0
 ms.service: backup
 ms.devlang: na
@@ -15,14 +15,14 @@ ms.workload: storage-backup-recovery
 ms.date: 07/24/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 041a8835a1dd185739b23d4073fd5811bb4490b5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d55ec8ac4416fe0a082812584552462292b6dbb7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Modelo de datos de Log Analytics para datos de Azure Backup
-En este artículo se describe el modelo de datos utilizado para los datos de informes de inserción para Log Analytics. Con este modelo de datos, puede crear consultas personalizadas y paneles y utilizarlos en OMS. 
+En este artículo se describe el modelo de datos utilizado para los datos de informes de inserción para Log Analytics. Con este modelo de datos, puede crear consultas personalizadas y paneles y utilizarlos en Log Analytics. 
 
 ## <a name="using-azure-backup-data-model"></a>Uso del modelo de datos de Azure Backup
 Puede usar los siguientes campos que se proporcionan como parte del modelo de datos para crear objetos visuales, consultas personalizadas y paneles, según sus requisitos.
@@ -30,7 +30,7 @@ Puede usar los siguientes campos que se proporcionan como parte del modelo de da
 ### <a name="alert"></a>Alerta
 Esta tabla proporciona detalles acerca de los campos relacionados con la alerta.
 
-| Campo | Tipo de datos | Descripción |
+| Campo | Tipo de datos | DESCRIPCIÓN |
 | --- | --- | --- |
 | AlertUniqueId_s |Texto |Identificador único de la alerta generada |
 | AlertType_s |Texto |Tipo de la alerta generada por ejemplo, Copia de seguridad |
@@ -57,7 +57,7 @@ Esta tabla proporciona detalles acerca de los campos relacionados con la alerta.
 ### <a name="backupitem"></a>BackupItem
 Esta tabla proporciona detalles acerca de los campos relacionados con el elemento de copia de seguridad.
 
-| Campo | Tipo de datos | Descripción |
+| Campo | Tipo de datos | DESCRIPCIÓN |
 | --- | --- | --- |
 | EventName_s |Texto |Este campo representa el nombre de este evento; es siempre AzureBackupCentralReport |  
 | BackupItemUniqueId_s |Texto |Identificador exclusivo del elemento de copia de seguridad |
@@ -83,7 +83,7 @@ Esta tabla proporciona detalles acerca de los campos relacionados con el element
 ### <a name="backupitemassociation"></a>BackupItemAssociation
 Esta tabla proporciona detalles acerca de las asociaciones de elementos de copia de seguridad con varias entidades.
 
-| Campo | Tipo de datos | Descripción |
+| Campo | Tipo de datos | DESCRIPCIÓN |
 | --- | --- | --- |
 | EventName_s |Texto |Este campo representa el nombre de este evento; es siempre AzureBackupCentralReport |  
 | BackupItemUniqueId_s |Texto |Identificador exclusivo del elemento de copia de seguridad |
@@ -106,7 +106,7 @@ Esta tabla proporciona detalles acerca de las asociaciones de elementos de copia
 ### <a name="job"></a>Trabajo
 Esta tabla proporciona detalles acerca de los campos relacionados con los trabajos.
 
-| Campo | Tipo de datos | Descripción |
+| Campo | Tipo de datos | DESCRIPCIÓN |
 | --- | --- | --- |
 | EventName_s |Texto |Este campo representa el nombre de este evento; es siempre AzureBackupCentralReport |
 | BackupItemUniqueId_s |Texto |Identificador único del elemento de copia de seguridad a la que pertenece este trabajo |
@@ -136,7 +136,7 @@ Esta tabla proporciona detalles acerca de los campos relacionados con los trabaj
 ### <a name="policy"></a>Directiva
 Esta tabla proporciona detalles acerca de los campos relacionados con las directivas.
 
-| Campo | Tipo de datos | Descripción |
+| Campo | Tipo de datos | DESCRIPCIÓN |
 | --- | --- | --- |
 | EventName_s |Texto |Este campo representa el nombre de este evento; es siempre AzureBackupCentralReport |
 | SchemaVersion_s |Texto |Este campo indica la versión actual del esquema; es **V1** |
@@ -176,7 +176,7 @@ Esta tabla proporciona detalles acerca de los campos relacionados con las direct
 ### <a name="policyassociation"></a>PolicyAssociation
 Esta tabla proporciona detalles acerca de las asociaciones de directivas con varias entidades.
 
-| Campo | Tipo de datos | Descripción |
+| Campo | Tipo de datos | DESCRIPCIÓN |
 | --- | --- | --- |
 | EventName_s |Texto |Este campo representa el nombre de este evento; es siempre AzureBackupCentralReport |
 | SchemaVersion_s |Texto |Este campo indica la versión actual del esquema; es **V1** |
@@ -197,7 +197,7 @@ Esta tabla proporciona detalles acerca de las asociaciones de directivas con var
 ### <a name="protectedserver"></a>ProtectedServer
 Esta tabla proporciona detalles acerca de los campos relacionados con el servidor protegido.
 
-| Campo | Tipo de datos | Descripción |
+| Campo | Tipo de datos | DESCRIPCIÓN |
 | --- | --- | --- |
 | EventName_s |Texto |Este campo representa el nombre de este evento; es siempre AzureBackupCentralReport |
 | ProtectedServerName_s |Texto |Nombre del servidor protegido |
@@ -222,7 +222,7 @@ Esta tabla proporciona detalles acerca de los campos relacionados con el servido
 ### <a name="protectedserverassociation"></a>ProtectedServerAssociation
 Esta tabla proporciona detalles acerca de las asociaciones de servidores protegidos con otras entidades.
 
-| Campo | Tipo de datos | Descripción |
+| Campo | Tipo de datos | DESCRIPCIÓN |
 | --- | --- | --- |
 | EventName_s |Texto |Este campo representa el nombre de este evento; es siempre AzureBackupCentralReport |
 | SchemaVersion_s |Texto |Este campo indica la versión actual del esquema; es **V1** |
@@ -240,10 +240,10 @@ Esta tabla proporciona detalles acerca de las asociaciones de servidores protegi
 | ResourceProvider |Texto |Este campo representa el proveedor de recursos para el que se están recopilando datos: Microsoft.RecoveryServices |
 | ResourceType |Texto |Este campo representa el tipo del recurso para el que se están recopilando datos: almacenes |
 
-### <a name="storage"></a>Almacenamiento
+### <a name="storage"></a>Storage
 Esta tabla proporciona detalles acerca de los campos relacionados con el almacenamiento.
 
-| Campo | Tipo de datos | Descripción |
+| Campo | Tipo de datos | DESCRIPCIÓN |
 | --- | --- | --- |
 | CloudStorageInBytes_s |Número decimal |Almacenamiento de copia de seguridad en la nube utilizado por las copias de seguridad, calculados basándose en el último valor |
 | ProtectedInstances_s |Número decimal |Número de instancias protegidas que se utilizan para calcular el almacenamiento de front-end en la facturación; se calcula en función del valor más reciente |
@@ -266,7 +266,7 @@ Esta tabla proporciona detalles acerca de los campos relacionados con el almacen
 ### <a name="vault"></a>Almacén
 Esta tabla proporciona detalles acerca de los campos relacionados con el almacén.
 
-| Campo | Tipo de datos | Descripción |
+| Campo | Tipo de datos | DESCRIPCIÓN |
 | --- | --- | --- |
 | EventName_s |Texto |Este campo representa el nombre de este evento; es siempre AzureBackupCentralReport |
 | SchemaVersion_s |Texto |Este campo indica la versión actual del esquema; es **V1** |
@@ -286,4 +286,4 @@ Esta tabla proporciona detalles acerca de los campos relacionados con el almacé
 | ResourceType |Texto |Este campo representa el tipo del recurso para el que se están recopilando datos: almacenes |
 
 ## <a name="next-steps"></a>Pasos siguientes
-Cuando revise el modelo de datos para crear informes de Azure Backup, puede iniciar la [creación de un panel](../log-analytics/log-analytics-dashboards.md) en Log Analytics y OMS.
+Cuando revise el modelo de datos para crear informes de Azure Backup, puede comenzar a [crear un panel](../log-analytics/log-analytics-dashboards.md) en Log Analytics.

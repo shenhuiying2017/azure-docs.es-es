@@ -1,25 +1,19 @@
 ---
-title: Integración de Azure Stream Analytics y Machine Learning | Microsoft Docs
-description: Cómo utilizar una función definida por el usuario y Machine Learning en un trabajo de Stream Analytics
-keywords: ''
-documentationcenter: ''
+title: Integración de Azure Stream Analytics con Azure Machine Learning
+description: En este artículo se explica cómo configurar rápidamente un trabajo sencillo de Azure Stream Analytics que integre Azure Machine Learning mediante una función definida por el usuario.
 services: stream-analytics
-author: SnehaGunda
-manager: jhubbard
-editor: cgronlun
-ms.assetid: cfced01f-ccaa-4bc6-81e2-c03d1470a7a2
+author: jasonwhowell
+ms.author: jasonh
+manager: kfile
+ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 03/01/2018
-ms.author: sngun
-ms.openlocfilehash: 10d514aeb50dcd24f28ed879875b23b25578cebb
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 93397e5370863b11b7c153bbf234d6bfdd808718
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Análisis de opiniones mediante Azure Stream Analytics y Azure Machine Learning
 En este artículo se explica cómo configurar rápidamente un trabajo sencillo de Azure Stream Analytics que integre Azure Machine Learning. Un modelo de análisis de opiniones de Machine Learning de la galería de Cortana Intelligence se usa para analizar datos de texto que se están transmitiendo y determinar la puntuación de opiniones en tiempo real. Cortana Intelligence Suite permite realizar esta tarea sin preocuparse por las complejidades de la creación de un modelo de análisis de opiniones.

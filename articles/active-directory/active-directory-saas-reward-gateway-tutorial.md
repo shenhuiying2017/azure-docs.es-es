@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integración de Azure Active Directory con Reward Gateway | Microsoft Docs"
-description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Reward Gateway."
+title: 'Tutorial: Integración de Azure Active Directory con Reward Gateway | Microsoft Docs'
+description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Reward Gateway.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: 6e46668804da237e789cea73d25982953a31edef
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 76e34b2d170ad1a47dca180fe7caf8c015d17634
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reward-gateway"></a>Tutorial: Integración de Azure Active Directory con Reward Gateway
 
@@ -31,7 +31,7 @@ Integrar Reward Gateway con Azure AD le proporciona las siguientes ventajas:
 
 Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para configurar la integración de Azure AD con Reward Gateway, necesita los siguientes elementos:
 
@@ -47,7 +47,7 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 - Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descripción del escenario
-En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. La situación descrita en este tutorial consta de dos bloques de creación principales:
+En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
 1. Adición de Reward Gateway desde la galería
 2. Configuración y comprobación del inicio de sesión único de Azure AD
@@ -63,11 +63,11 @@ Para configurar la integración de Reward Gateway en Azure AD, deberá agregar R
 
 2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
-    ![Aplicaciones][2]
+    ![APLICACIONES][2]
     
 3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
-    ![Aplicaciones][3]
+    ![APLICACIONES][3]
 
 4. En el cuadro de búsqueda, escriba **Reward Gateway**.
 
@@ -127,7 +127,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     | `https://<companyname>.rewardgateway.com.au/Authentication/EndLogin?idp=<Unique Id>` |
 
     > [!NOTE] 
-    > Estos valores no son reales. Actualice estos valores con el identificador y la URL de respuesta reales. Póngase en contacto con [equipo de soporte técnico de Reward Gateway](mailto:clientsupport@rewardgateway.com) obtener estos valores.
+    > Estos valores no son reales. Actualice estos valores con el identificador y la URL de respuesta reales. Para obtener estos valores empiece por configurar una integración en el portal de Reward Manager. Encontrará más información en http://success.rewardgateway.com/it-implementation/293968-how-to-configure-a-sso-integration.
  
 4. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo de metadatos en el equipo.
 
@@ -137,7 +137,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-reward-gateway-tutorial/tutorial_general_400.png)
 
-6. Para configurar el inicio de sesión único en **Reward Gateway**, necesita enviar el archivo **XML de metadatos** descargado al [equipo de soporte técnico de Reward Gateway](mailto:clientsupport@rewardgateway.com). Ellos se encargan de realizar esta configuración para que la conexión de SSO de SAML esté establecida correctamente en ambos lados.
+6. Para configurar el inicio de sesión único en **Reward Gateway**, empiece por configurar una integración en el portal de Reward Manager. Utilice los metadatos descargados para obtener el certificado de firma y cárguelos durante la configuración. Encontrará más información en http://success.rewardgateway.com/it-implementation/293968-how-to-configure-a-sso-integration.
 
 > [!TIP]
 > Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -172,7 +172,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     c. Seleccione **Mostrar contraseña** y anote el valor del cuadro **Contraseña**.
 
-    d. Haga clic en **Crear**.
+    d. Haga clic en **Create**(Crear).
  
 ### <a name="creating-a-reward-gateway-test-user"></a>Creación de un usuario de prueba de Reward Gateway
 
@@ -186,7 +186,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 **Para asignar Britta Simon a Reward Gateway, siga estos pasos:**
 
-1. En Azure Portal, abra la vista de aplicaciones, vaya a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego, haga clic en **Todas las aplicaciones**.
+1. En Azure Portal, abra la vista de aplicaciones, navegue a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego haga clic en **Todas las aplicaciones**.
 
     ![Asignar usuario][201] 
 

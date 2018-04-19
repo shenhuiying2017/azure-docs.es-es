@@ -1,11 +1,11 @@
 ---
-title: "Simulación de problemas en microservicios de Azure | Microsoft Docs"
-description: "Protección de los servicios contra errores correctos/incorrectos"
+title: Simulación de problemas en microservicios de Azure | Microsoft Docs
+description: Protección de los servicios contra errores correctos/incorrectos
 services: service-fabric
 documentationcenter: .net
 author: anmolah
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 44af01f0-ed73-4c31-8ac0-d9d65b4ad2d6
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -28,10 +28,10 @@ Esta prueba muestra un escenario que intercala la carga de trabajo de negocios c
 
 Recorramos en iteración un ejemplo de un servicio que expone cuatro cargas de trabajo: A, B, C y D. Cada una de ellas se corresponde a un conjunto de flujos de trabajo y podrían ser de proceso, almacenamiento o una combinación de ambos. Por simplicidad, se aislarán las cargas de trabajo en nuestro ejemplo. Los diferentes errores ejecutados en este ejemplo son:
 
-* RestartNode: error sin gracia para simular un reinicio de la máquina.
-* RestartDeployedCodePackage: error sin gracia para simular el bloqueo de los procesos del host de servicio.
-* RemoveReplica: error sin gracia para simular la eliminación de réplicas.
-* MovePrimary: error sin gracia para simular los movimientos de réplica desencadenados por el equilibrador de carga de Service Fabric.
+* RestartNode: error al simular un reinicio de la máquina.
+* RestartDeployedCodePackage: error al simular el bloqueo de los procesos del host de servicio.
+* RemoveReplica: error al simular la eliminación de réplicas.
+* MovePrimary: error al simular los movimientos de réplica desencadenados por el equilibrador de carga de Service Fabric.
 
 ```csharp
 // Add a reference to System.Fabric.Testability.dll and System.Fabric.dll.

@@ -1,11 +1,11 @@
 ---
-title: "Conexión de Operations Manager con Log Analytics | Microsoft Docs"
-description: "Para mantener su inversión existente en System Center Operations Manager y usar las funcionalidades ampliadas con Log Analytics, puede integrar Operations Manager con el área de trabajo OMS."
+title: Conexión de Operations Manager con Log Analytics | Microsoft Docs
+description: Para mantener su inversión existente en System Center Operations Manager y usar las funcionalidades ampliadas con Log Analytics, puede integrar Operations Manager con el área de trabajo OMS.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 245ef71e-15a2-4be8-81a1-60101ee2f6e6
 ms.service: log-analytics
 ms.workload: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/10/2017
 ms.author: magoedte
 ms.openlocfilehash: 6db47c7baa0a345a32d26d56e843acd0204ae50b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Conexión de Operations Manager con Log Analytics
 Para mantener su inversión existente en System Center Operations Manager y usar las funcionalidades ampliadas con Log Analytics, puede integrar Operations Manager con el área de trabajo OMS.  Esto le permite aprovechar las oportunidades de OMS mientras sigue utilizando Operations Manager para:
@@ -50,7 +50,7 @@ A continuación se muestra la información de configuración de proxy y firewall
 |Recurso | Número de puerto| Omitir inspección de HTTP|  
 |---------|------|-----------------------|  
 |**Agent**|||  
-|\*.ods.opinsights.azure.com| 443 |yes|  
+|\*.ods.opinsights.azure.com| 443 |Sí|  
 |\*.oms.opinsights.azure.com| 443|Sí|  
 |\*blob.core.windows.net| 443|Sí|  
 |\*.azure-automation.net| 443|Sí|  

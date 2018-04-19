@@ -1,13 +1,29 @@
+---
+title: archivo de inclusión
+description: archivo de inclusión
+services: storage
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 04/03/2018
+ms.author: tamram
+ms.custom: include file
+ms.openlocfilehash: 6381f8f0e68853183fc3e17e76b4ab93b152b48b
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 04/05/2018
+---
 | Recurso | Límite predeterminado |
 | --- | --- |
 | Número de cuentas de almacenamiento por región | 200<sup>1</sup> |
 | Capacidad máxima de la cuenta de almacenamiento | 500 TiB<sup>2</sup> |
 | Número máximo de contenedores de blobs, blobs, recursos compartidos de archivos, tablas, colas, entidades o mensajes por cuenta de almacenamiento | Sin límite |
 | Tasa de solicitud total por cuenta de almacenamiento | 20 000 solicitudes por segundo<sup>2</sup> |
-| Entrada máxima<sup>3</sup> por cuenta de almacenamiento (regiones de EE. UU.) | 10 Gbps si RA-GRS/GRS/ZRS<sup>4</sup> están habilitados, 20 Gbps en el caso de LRS<sup>2</sup> |
-| Salida máxima<sup>3</sup> por cuenta de almacenamiento (regiones de EE. UU.) | 20 Gbps si RA-GRS/GRS/ZRS<sup>4</sup> están habilitados, 30 Gbps en el caso de LRS<sup>2</sup> |
-| Entrada máxima<sup>3</sup> por cuenta de almacenamiento (regiones no de EE. UU.) | 5 Gbps si RA-GRS/GRS/ZRS<sup>4</sup> están habilitados, 10 Gbps en el caso de LRS<sup>2</sup> |
-| Salida máxima<sup>3</sup> por cuenta de almacenamiento (regiones no de EE. UU.) | 10 Gbps si RA-GRS/GRS/ZRS<sup>4</sup> están habilitados, 15 Gbps en el caso de LRS<sup>2</sup> |
+| Entrada máxima<sup>3</sup> por cuenta de almacenamiento (regiones de EE. UU.) | 10 Gbps si RA-GRS/GRS están habilitados, 20 Gbps en el caso de LRS/ZRS<sup>4</sup> |
+| Salida máxima<sup>3</sup> por cuenta de almacenamiento (regiones de EE. UU.) | 20 Gbps si RA-GRS/GRS están habilitados, 30 Gbps en el caso de LRS/ZRS<sup>4</sup> |
+| Entrada máxima<sup>3</sup> por cuenta de almacenamiento (regiones no de EE. UU.) | 5 Gbps si RA-GRS/GRS están habilitados, 10 Gbps en el caso de LRS/ZRS<sup>4</sup> |
+| Salida máxima<sup>3</sup> por cuenta de almacenamiento (regiones no de EE. UU.) | 10 Gbps si RA-GRS/GRS están habilitados, 15 Gbps en el caso de LRS/ZRS<sup>4</sup> |
 
 <sup>1</sup>Incluye las cuentas de almacenamiento Estándar y Premium. Si necesita más de 200 cuentas de almacenamiento, realice una solicitud a través del [servicio de soporte técnico de Azure](https://azure.microsoft.com/support/faq/). El equipo de Azure Storage revisará su caso empresarial y podría aprobar hasta 250 cuentas de almacenamiento. 
 

@@ -1,10 +1,10 @@
 ---
-title: "Supervisión de una máquina virtual de Linux con una extensión de máquina virtual | Microsoft Docs"
-description: "Obtenga información sobre cómo usar la extensión de diagnóstico de Linux para supervisar los datos de rendimiento y diagnóstico de una máquina virtual Linux de Azure."
+title: Supervisión de una máquina virtual de Linux con una extensión de máquina virtual | Microsoft Docs
+description: Obtenga información sobre cómo usar la extensión de diagnóstico de Linux para supervisar los datos de rendimiento y diagnóstico de una máquina virtual Linux de Azure.
 services: virtual-machines-linux
 author: NingKuang
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ms.assetid: f54a11c5-5a0e-40ff-af6c-e60bd464058b
 ms.service: virtual-machines-linux
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: Ning
-ms.openlocfilehash: b8c6e2e22d8478b6e92e7b7942f15d37a840fed3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cd22188042c60da7c761e1fa00a12921146caf25
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-the-linux-diagnostic-extension-to-monitor-the-performance-and-diagnostic-data-of-a-linux-vm"></a>Uso de la extensión de diagnóstico de Linux para supervisar los datos de rendimiento y diagnóstico de una máquina virtual Linux
 
@@ -59,12 +59,12 @@ En este artículo nos centramos en cómo habilitar y configurar la extensión me
 
 Tenga en cuenta que los métodos de configuración que se describen a continuación no funcionarán en el Portal de Azure. Para ver y configurar los datos de rendimiento y del sistema directamente desde el Portal de Azure, se debe habilitar esta extensión a través de dicho portal.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 * **Versión 2.0.6 o posterior del agente Linux de Azure**.
 
   Tenga en cuenta que la mayoría de las imágenes de la galería de máquina virtual Linux de Azure incluyen la versión 2.0.6 o posterior. Puede ejecutar **WAAgent -version** para confirmar la versión instalada en la máquina virtual. Si la máquina virtual está ejecutando una versión anterior a la 2.0.6, puede seguir [estas instrucciones de GitHub](https://github.com/Azure/WALinuxAgent "instrucciones") para actualizarla.
-* **Azure CLI**. Siga [esta guía de instalación de la CLI](../../../cli-install-nodejs.md) para configurar el entorno de la CLI de Azure en su máquina. Cuando se haya instalado la CLI de Azure, puede usar el comando **azure** desde la interfaz de la línea de comandos (Bash, Terminal o símbolo del sistema) para obtener acceso a los comandos de la CLI de Azure. Por ejemplo:
+* **Azure CLI**. Siga [esta guía de instalación de la CLI](../../../cli-install-nodejs.md) para configurar el entorno de la CLI de Azure en su máquina. Cuando se haya instalado la CLI de Azure, puede usar el comando **azure** desde la interfaz de la línea de comandos (Bash, Terminal o símbolo del sistema) para obtener acceso a los comandos de la CLI de Azure. Por ejemplo: 
 
   * Ejecute **azure vm extension set --help** para obtener información de ayuda detallada.
   * Ejecute **azure login** para iniciar sesión en Azure.
@@ -88,7 +88,7 @@ Paso 1. Cree un archivo llamado "PrivateConfig.json" con el siguiente contenido:
         "storageAccountKey" : "the key of the account"
     }
 
-Paso 2: Ejecute **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExtensions 2.* --private-config-path PrivateConfig.json**.
+Paso 2. Ejecute **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExtensions 2.* --private-config-path PrivateConfig.json**.
 
 ### <a name="scenario-2-customize-the-performance-monitor-metrics"></a>Escenario 2. Personalización de las métricas del monitor de rendimiento
 
@@ -111,7 +111,7 @@ De forma predeterminada, siempre se recopilan los datos de Rsyslog.
     }
 
 
-Paso 2: Ejecute **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json**.
+Paso 2. Ejecute **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExtensions "2.*"--private-config-path PrivateConfig.json --public-config-path PublicConfig.json**.
 
 ### <a name="scenario-3-upload-your-own-log-files"></a>Escenario 3. Carga de sus propios archivos de registro
 
@@ -131,7 +131,7 @@ Paso 1. Cree un archivo denominado "PrivateConfig.json" con el contenido descrit
 }
 ```
 
-Paso 2: Ejecute `azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json`.
+Paso 2. Ejecute `azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json`.
 
 Tenga en cuenta que, con esta configuración de las versiones de extensión anteriores a 2.3, todos los registros que se escriban en `/var/log/mysql.err` también podrían duplicarse en `/var/log/syslog` (o `/var/log/messages` según la distribución de Linux). Si desea evitar este registro duplicado, puede excluir el registro de los registros de instalación `local6` en la configuración de rsyslog. Depende de la distribución de Linux pero en un sistema Ubuntu 14.04 el archivo que se debe modificar es `/etc/rsyslog.d/50-default.conf` y puede reemplazar la línea `*.*;auth,authpriv.none -/var/log/syslog` por `*.*;auth,authpriv,local6.none -/var/log/syslog`. Este problema se ha corregido en la versión de revisión de 2.3 (2.3.9007) más reciente, de modo que si tiene la versión de extensión 2.3, no debería producirse más. Si sigue produciéndose incluso después de reiniciar la máquina virtual, póngase en contacto con nosotros y ayúdenos a averiguar por qué la versión de revisión más reciente no se ha instalado automáticamente.
 
@@ -147,20 +147,20 @@ Paso 1. Cree un archivo denominado "PrivateConfig.json" con el contenido descrit
     }
 
 
-Paso 2: Ejecute **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json**.
+Paso 2. Ejecute **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExtensions "2.*"--private-config-path PrivateConfig.json --public-config-path PublicConfig.json**.
 
 ## <a name="review-your-data"></a>Revisión de los datos
 
-Los datos de diagnóstico y rendimiento y se almacenan en una tabla de almacenamiento de Azure. Consulte [Uso del Almacenamiento de tablas de Azure con Ruby](../../../cosmos-db/table-storage-how-to-use-ruby.md) para obtener información sobre cómo acceder a los datos de la tabla de almacenamiento utilizando scripts de la CLI de Azure.
+Los datos de diagnóstico y rendimiento y se almacenan en una tabla de Azure Storage. Consulte [Uso de Azure Table Storage con Ruby](../../../cosmos-db/table-storage-how-to-use-ruby.md) para obtener información sobre cómo acceder a los datos de la tabla de almacenamiento utilizando scripts de la CLI de Azure.
 
 Además, puede utilizar las siguientes herramientas de la interfaz de usuario para tener acceso a los datos:
 
 1. Explorador de servidores de Visual Studio. Vaya a la cuenta de almacenamiento. Cuando la máquina virtual se ejecute aproximadamente durante 5 minutos, debe ver las cuatro tablas predeterminadas: "LinuxCpu", "LinuxDisk", "LinuxMemory" y "Linuxsyslog". Haga doble clic en el nombre de la tabla para ver los datos.
-1. [Explorador de almacenamiento de Azure](https://azurestorageexplorer.codeplex.com/ "Explorador de almacenamiento de Azure").
+1. [Explorador de Azure Storage](https://azurestorageexplorer.codeplex.com/ "Explorador de Azure Storage").
 
 ![imagen](./media/diagnostic-extension/no1.png)
 
-Si ha habilitado el archivo fileCfg o perfCfg (tal y como se describe en los escenarios 2 y 3), podrá utilizar el Explorador de servidores de Visual Studio y el Explorador de almacenamiento de Azure para ver los datos no predeterminados.
+Si ha habilitado el archivo fileCfg o perfCfg (tal y como se describe en los escenarios 2 y 3), podrá utilizar el Explorador de servidores de Visual Studio y el Explorador de Azure Storage para ver los datos no predeterminados.
 
 ## <a name="known-issues"></a>Problemas conocidos
 

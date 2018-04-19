@@ -1,13 +1,13 @@
 ---
 title: Alta disponibilidad de Azure Virtual Machines para SAP NetWeaver en SUSE Linux Enterprise Server para SAP Applications | Microsoft Docs
-description: "Guía de alta disponibilidad para SAP NetWeaver en SUSE Linux Enterprise Server para SAP Applications"
+description: Guía de alta disponibilidad para SAP NetWeaver en SUSE Linux Enterprise Server para SAP Applications
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: mssedusch
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-windows
 ms.devlang: NA
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: sedusch
-ms.openlocfilehash: 609b811705bb6f116db055b756910450f8990528
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: f1d2725237d2cf059450ce7e2c1600b24d17f35c
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>Alta disponibilidad para SAP NetWeaver en máquinas virtuales de Azure en SUSE Linux Enterprise Server para SAP Applications
 
@@ -49,9 +49,10 @@ ms.lasthandoff: 12/08/2017
 [template-file-server]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-file-server-md%2Fazuredeploy.json
 
 [sap-hana-ha]:sap-hana-high-availability.md
+[nfs-ha]:high-availability-guide-suse-nfs.md
 
 En este artículo se describe cómo implementar y configurar las máquinas virtuales, y cómo instalar el marco del clúster y un sistema SAP NetWeaver 7.50 de alta disponibilidad.
-En las configuraciones, comandos de instalación, etc. de ejemplo, se usa el número de instancia 00 de ASCS, el número de instancia 02 de ERS y NWS del identificador de sistema de SAP. Los nombres de los recursos (por ejemplo, máquinas virtuales, redes virtuales) en el ejemplo se da por sentado que usó la [plantilla convergente][template-converged] con NWS del identificador de sistema de SAP para crear los recursos.
+En las configuraciones, comandos de instalación, etc. de ejemplo, Se usa el número de instancia 00 de ASCS, el número de instancia 02 de ERS y NW1 del identificador de sistema de SAP. Los nombres de los recursos (por ejemplo, máquinas virtuales, redes virtuales) del ejemplo dan por sentado que usó la [plantilla convergente][template-converged] con NW1 del identificador de sistema de SAP para crear los recursos.
 
 Lea primero las notas y los documentos de SAP siguientes:
 
@@ -84,22 +85,12 @@ Para lograr alta disponibilidad, SAP NetWeaver requiere un servidor NFS. El serv
 
 ![Información general sobre la alta disponibilidad de SAP NetWeaver](./media/high-availability-guide-suse/img_001.png)
 
-El servidor NFS, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS y la base de datos SAP HANA usan direcciones IP virtuales y nombre de host virtual. En Azure, se requiere un equilibrador de carga para usar una dirección IP virtual. En la lista siguiente se muestra la configuración del equilibrador de carga.
-
-### <a name="nfs-server"></a>Servidor NFS
-* Configuración de front-end
-  * Dirección IP 10.0.0.4
-* Configuración de back-end
-  * Se conecta a interfaces de red principales de todas las máquinas que deben ser parte del clúster NFS
-* Puerto de sondeo
-  * Puerto 61000
-* Reglas de equilibrio de carga
-  * 2049 TCP 
-  * 2049 UDP
+El servidor NFS, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS y la base de datos SAP HANA usan direcciones IP virtuales y nombre de host virtual. En Azure, se requiere un equilibrador de carga para usar una dirección IP virtual. En la lista siguiente se muestra la configuración del equilibrador de carga (A)SCS y ERS.
 
 ### <a name="ascs"></a>(A)SCS
+
 * Configuración de front-end
-  * Dirección IP 10.0.0.10
+  * Dirección IP 10.0.0.7
 * Configuración de back-end
   * Se conecta a interfaces de red principales de todas las máquinas que deben ser parte del clúster (A)SCS/ERS
 * Puerto de sondeo
@@ -114,8 +105,9 @@ El servidor NFS, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS y la b
   * 5**&lt;nr&gt;**16 TCP
 
 ### <a name="ers"></a>ERS
+
 * Configuración de front-end
-  * Dirección IP 10.0.0.11
+  * Dirección IP 10.0.0.8
 * Configuración de back-end
   * Se conecta a interfaces de red principales de todas las máquinas que deben ser parte del clúster (A)SCS/ERS
 * Puerto de sondeo
@@ -126,426 +118,15 @@ El servidor NFS, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS y la b
   * 5**&lt;nr&gt;**14 TCP
   * 5**&lt;nr&gt;**16 TCP
 
-### <a name="sap-hana"></a>SAP HANA
-* Configuración de front-end
-  * Dirección IP 10.0.0.12
-* Configuración de back-end
-  * Se conecta a interfaces de red principales de todas las máquinas que deben ser parte del clúster HANA
-* Puerto de sondeo
-  * Puerto 625**&lt;nr&gt;**
-* Reglas de equilibrio de carga
-  * 3**&lt;nr&gt;**15 TCP
-  * 3**&lt;nr&gt;**17 TCP
-
 ## <a name="setting-up-a-highly-available-nfs-server"></a>Configuración de un servidor NFS de alta disponibilidad
 
-### <a name="deploying-linux"></a>Implementación de Linux
-
-Azure Marketplace contiene una imagen de SUSE Linux Enterprise Server para SAP Applications 12 que puede usar para implementar nuevas máquinas virtuales.
-Para implementar todos los recursos necesarios, puede usar una de las plantillas de inicio rápido de GitHub. La plantilla implementa las máquinas virtuales, el equilibrador de carga, el conjunto de disponibilidad, etc. Siga estos pasos para implementar la plantilla:
-
-1. Abra la [plantilla del servidor de archivos SAP][template-file-server] en Azure Portal   
-1. Escriba los siguientes parámetros:
-   1. Prefijo de recurso  
-      Escriba el prefijo que desea usar. El valor se usa como prefijo de los recursos que se implementan.
-   2. Tipo de sistema operativo  
-      Seleccione una de las distribuciones de Linux. En este ejemplo, seleccione SLES 12
-   3. Nombre de usuario y contraseña del administrador  
-      Se crea un usuario nuevo que se puede usar para iniciar sesión en la máquina.
-   4. Identificador de subred  
-      El identificador de la subred a la que deben conectarse las máquinas virtuales. Deje el valor en blanco si quiere crear una nueva red virtual o seleccione la subred de la VPN o la red virtual de Express Route para conectar la máquina virtual a la red local. El identificador suele tener este aspecto: /subscriptions/**&lt;id. de suscripción&gt;**/resourceGroups/**&lt;nombre del grupo de recursos&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;nombre de red virtual&gt;**/subnets/**&lt;nombre de subred&gt;**
-
-### <a name="installation"></a>Instalación
-
-Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos, **[1]**: aplicable solo al nodo 1 o **[2]**: aplicable solo al nodo 2.
-
-1. **[A]** Actualice SLES
-
-   <pre><code>
-   sudo zypper update
-   </code></pre>
-
-1. **[1]** Habilite el acceso de SSH
-
-   <pre><code>
-   sudo ssh-keygen -tdsa
-   
-   # Enter file in which to save the key (/root/.ssh/id_dsa): -> ENTER
-   # Enter passphrase (empty for no passphrase): -> ENTER
-   # Enter same passphrase again: -> ENTER
-   
-   # copy the public key
-   sudo cat /root/.ssh/id_dsa.pub
-   </code></pre>
-
-2. **[2]** Habilite el acceso de SSH
-
-   <pre><code>
-   sudo ssh-keygen -tdsa
-
-   # insert the public key you copied in the last step into the authorized keys file on the second server
-   sudo vi /root/.ssh/authorized_keys
-   
-   # Enter file in which to save the key (/root/.ssh/id_dsa): -> ENTER
-   # Enter passphrase (empty for no passphrase): -> ENTER
-   # Enter same passphrase again: -> ENTER
-   
-   # copy the public key   
-   sudo cat /root/.ssh/id_dsa.pub
-   </code></pre>
-
-1. **[1]** Habilite el acceso de SSH
-
-   <pre><code>
-   # insert the public key you copied in the last step into the authorized keys file on the first server
-   sudo vi /root/.ssh/authorized_keys
-   </code></pre>
-
-1. **[A]** Instale la extensión de alta disponibilidad
-   
-   <pre><code>
-   sudo zypper install sle-ha-release fence-agents
-   </code></pre>
-
-1. **[A]** Configure la resolución nombres de host   
-
-   Puede usar un servidor DNS o modificar /etc/hosts en todos los nodos. En este ejemplo se muestra cómo utilizar el archivo /etc/hosts.
-   Reemplace la dirección IP y el nombre de host en los siguientes comandos
-
-   <pre><code>
-   sudo vi /etc/hosts
-   </code></pre>
-   
-   Inserte las siguientes líneas en /etc/hosts. Cambie la dirección IP y el nombre de host para que coincida con su entorno   
-   
-   <pre><code>
-   # IP address of the load balancer frontend configuration for NFS
-   <b>10.0.0.4 nws-nfs</b>
-   </code></pre>
-
-1. **[1]** Instale el clúster
-   
-   <pre><code>
-   sudo ha-cluster-init
-   
-   # Do you want to continue anyway? [y/N] -> y
-   # Network address to bind to (for example: 192.168.1.0) [10.79.227.0] -> ENTER
-   # Multicast address (for example: 239.x.x.x) [239.174.218.125] -> ENTER
-   # Multicast port [5405] -> ENTER
-   # Do you wish to use SBD? [y/N] -> N
-   # Do you wish to configure an administration IP? [y/N] -> N
-   </code></pre>
-
-1. **[2]** Agregue un nodo al clúster
-   
-   <pre><code> 
-   sudo ha-cluster-join
-
-   # WARNING: NTP is not configured to start at system boot.
-   # WARNING: No watchdog device found. If SBD is used, the cluster will be unable to start without a watchdog.
-   # Do you want to continue anyway? [y/N] -> y
-   # IP address or hostname of existing node (for example: 192.168.1.1) [] -> IP address of node 1 for example 10.0.0.10
-   # /root/.ssh/id_dsa already exists - overwrite? [y/N] N
-   </code></pre>
-
-1. **[A]** Haga que la contraseña de hacluster coincida
-
-   <pre><code> 
-   sudo passwd hacluster
-   </code></pre>
-
-1. **[A]** Configure corosync para usar otro tipo de transporte y agregue nodelist. De lo contrario, el clúster no funciona.
-   
-   <pre><code> 
-   sudo vi /etc/corosync/corosync.conf   
-   </code></pre>
-
-   Agregue el siguiente contenido en negrita al archivo.
-   
-   <pre><code> 
-   [...]
-     interface { 
-        [...] 
-     }
-     <b>transport:      udpu</b>
-   } 
-   <b>nodelist {
-     node {
-      # IP address of <b>prod-nfs-0</b>
-      ring0_addr:10.0.0.5
-     }
-     node {
-      # IP address of <b>prod-nfs-1</b>
-      ring0_addr:10.0.0.6
-     } 
-   }</b>
-   logging {
-     [...]
-   </code></pre>
-
-   Después, reinicie el servicio corosync
-
-   <pre><code>
-   sudo service corosync restart
-   </code></pre>
-
-1. **[A]** Instale los componentes de drbd
-
-   <pre><code>
-   sudo zypper install drbd drbd-kmp-default drbd-utils
-   </code></pre>
-
-1. **[A]** Cree una partición para el dispositivo drbd
-
-   <pre><code>
-   sudo sh -c 'echo -e "n\n\n\n\n\nw\n" | fdisk /dev/sdc'
-   </code></pre>
-
-1. **[A]** Cree configuraciones de LVM
-
-   <pre><code>
-   sudo pvcreate /dev/sdc1   
-   sudo vgcreate vg_NFS /dev/sdc1
-   sudo lvcreate -l 100%FREE -n <b>NWS</b> vg_NFS
-   </code></pre>
-
-1. **[A]** Cree el dispositivo drbd NFS
-
-   <pre><code>
-   sudo vi /etc/drbd.d/<b>NWS</b>_nfs.res
-   </code></pre>
-
-   Inserte la configuración del nuevo dispositivo drbd y salga
-
-   <pre><code>
-   resource <b>NWS</b>_nfs {
-      protocol     C;
-      disk {
-         on-io-error       pass_on;
-      }
-      on <b>prod-nfs-0</b> {
-         address   <b>10.0.0.5</b>:7790;
-         device    /dev/drbd0;
-         disk      /dev/vg_NFS/NWS;
-         meta-disk internal;
-      }
-      on <b>prod-nfs-1</b> {
-         address   <b>10.0.0.6</b>:7790;
-         device    /dev/drbd0;
-         disk      /dev/vg_NFS/NWS;
-         meta-disk internal;
-      }
-   }
-   </code></pre>
-
-   Cree el dispositivo drbd e inícielo
-
-   <pre><code>
-   sudo drbdadm create-md <b>NWS</b>_nfs
-   sudo drbdadm up <b>NWS</b>_nfs
-   </code></pre>
-
-1. **[1]** Omita la sincronización inicial
-
-   <pre><code>
-   sudo drbdadm new-current-uuid --clear-bitmap <b>NWS</b>_nfs
-   </code></pre>
-
-1. **[1]** Establezca el nodo principal
-
-   <pre><code>
-   sudo drbdadm primary --force <b>NWS</b>_nfs
-   </code></pre>
-
-1. **[1]** Espere hasta que se sincronicen los nuevos dispositivos drbd
-
-   <pre><code>
-   sudo cat /proc/drbd
-
-   # version: 8.4.6 (api:1/proto:86-101)
-   # GIT-hash: 833d830e0152d1e457fa7856e71e11248ccf3f70 build by abuild@sheep14, 2016-05-09 23:14:56
-   # 0: cs:Connected ro:Primary/Secondary ds:UpToDate/UpToDate C r-----
-   #    ns:0 nr:0 dw:0 dr:912 al:8 bm:0 lo:0 pe:0 ua:0 ap:0 ep:1 wo:f oos:0
-   </code></pre>
-
-1. **[1]** Cree sistemas de archivos en los dispositivos drbd
-
-   <pre><code>
-   sudo mkfs.xfs /dev/drbd0
-   </code></pre>
-
-
-### <a name="configure-cluster-framework"></a>Configuración de la plataforma del clúster
-
-1. **[1]** Cambie la configuración predeterminada
-
-   <pre><code>
-   sudo crm configure
-
-   crm(live)configure# rsc_defaults resource-stickiness="1"
-
-   crm(live)configure# commit
-   crm(live)configure# exit
-   </code></pre>
-
-1. **[1]** Agregue el dispositivo drbd NFS a la configuración del clúster
-
-   <pre><code>
-   sudo crm configure
-
-   crm(live)configure# primitive drbd_<b>NWS</b>_nfs \
-     ocf:linbit:drbd \
-     params drbd_resource="<b>NWS</b>_nfs" \
-     op monitor interval="15" role="Master" \
-     op monitor interval="30" role="Slave"
-
-   crm(live)configure# ms ms-drbd_<b>NWS</b>_nfs drbd_<b>NWS</b>_nfs \
-     meta master-max="1" master-node-max="1" clone-max="2" \
-     clone-node-max="1" notify="true" interleave="true"
-
-   crm(live)configure# commit
-   crm(live)configure# exit
-   </code></pre>
-
-1. **[1]** Cree el servidor NFS
-
-   <pre><code>
-   sudo crm configure
-
-   crm(live)configure# primitive nfsserver \
-     systemd:nfs-server \
-     op monitor interval="30s"
-
-   crm(live)configure# clone cl-nfsserver nfsserver interleave="true"
-
-   crm(live)configure# commit
-   crm(live)configure# exit
-   </code></pre>
-
-1. **[1]** Cree los recursos del sistema de archivos NFS
-
-   <pre><code>
-   sudo crm configure
-
-   crm(live)configure# primitive fs_<b>NWS</b>_sapmnt \
-     ocf:heartbeat:Filesystem \
-     params device=/dev/drbd0 \
-     directory=/srv/nfs/<b>NWS</b>  \
-     fstype=xfs \
-     op monitor interval="10s"
-
-   crm(live)configure# group g-<b>NWS</b>_nfs fs_<b>NWS</b>_sapmnt
-
-   crm(live)configure# order o-<b>NWS</b>_drbd_before_nfs inf: \
-     ms-drbd_<b>NWS</b>_nfs:promote g-<b>NWS</b>_nfs:start
-   
-   crm(live)configure# colocation col-<b>NWS</b>_nfs_on_drbd inf: \
-     g-<b>NWS</b>_nfs ms-drbd_<b>NWS</b>_nfs:Master
-
-   crm(live)configure# commit
-   crm(live)configure# exit
-   </code></pre>
-
-1. **[1]** Cree las exportaciones NFS
-
-   <pre><code>
-   sudo mkdir /srv/nfs/<b>NWS</b>/sidsys
-   sudo mkdir /srv/nfs/<b>NWS</b>/sapmntsid
-   sudo mkdir /srv/nfs/<b>NWS</b>/trans
-
-   sudo crm configure
-
-   crm(live)configure# primitive exportfs_<b>NWS</b> \
-     ocf:heartbeat:exportfs \
-     params directory="/srv/nfs/<b>NWS</b>" \
-     options="rw,no_root_squash" \
-     clientspec="*" fsid=0 \
-     wait_for_leasetime_on_stop=true \
-     op monitor interval="30s"
-
-   crm(live)configure# modgroup g-<b>NWS</b>_nfs add exportfs_<b>NWS</b>
-
-   crm(live)configure# commit
-   crm(live)configure# exit
-   </code></pre>
-
-1. **[1]** Cree un recurso IP virtual y sondeo de mantenimiento para el equilibrador de carga interno
-
-   <pre><code>
-   sudo crm configure
-
-   crm(live)configure# primitive vip_<b>NWS</b>_nfs IPaddr2 \
-     params ip=<b>10.0.0.4</b> cidr_netmask=<b>24</b> \
-     op monitor interval=10 timeout=20
-
-   crm(live)configure# primitive nc_<b>NWS</b>_nfs anything \
-     params binfile="/usr/bin/nc" cmdline_options="-l -k 610<b>00</b>" \
-     op monitor timeout=20s interval=10 depth=0
-
-   crm(live)configure# modgroup g-<b>NWS</b>_nfs add nc_<b>NWS</b>_nfs
-   crm(live)configure# modgroup g-<b>NWS</b>_nfs add vip_<b>NWS</b>_nfs
-
-   crm(live)configure# commit
-   crm(live)configure# exit
-   </code></pre>
-
-### <a name="create-stonith-device"></a>Creación de un dispositivo STONITH
-
-El dispositivo STONITH usa una entidad de servicio para la autorización de Microsoft Azure. Siga estos pasos para crear una entidad de servicio.
-
-1. Vaya a <https://portal.azure.com>
-1. Abra la hoja Azure Active Directory  
-   Vaya a Propiedades y anote el identificador del directorio. Se trata del **id. de inquilino**.
-1. Haga clic en Registros de aplicaciones
-1. Haga clic en Agregar
-1. Escriba un nombre, seleccione el tipo de aplicación "Aplicación web o API", escriba una dirección URL de inicio de sesión (por ejemplo, http://localhost) y haga clic en Crear
-1. La dirección URL de inicio de sesión no se usa y puede ser cualquier dirección URL válida
-1. Seleccione la nueva aplicación y haga clic en las llaves de la pestaña Configuración
-1. Escriba una descripción para la nueva clave, seleccione "Nunca expira" y haga clic en Guardar
-1. Anote el valor. Se utiliza como **contraseña** para la entidad de servicio
-1. Anote el identificador de la aplicación. Se utiliza como nombre de usuario (**Id. de inicio de sesión** en los pasos siguientes) de la entidad de servicio
-
-La entidad de servicio no tiene permiso para tener acceso a los recursos de Azure de forma predeterminada. Debe concedérselos para iniciar y detener (desasignar) todas las máquinas virtuales del clúster.
-
-1. Vaya a https://portal.azure.com
-1. Abra la hoja Todos los recursos
-1. Seleccione la máquina virtual
-1. Haga clic en Control de acceso (IAM)
-1. Haga clic en Agregar
-1. Seleccione el rol de propietario
-1. Escriba el nombre de la aplicación que creó anteriormente
-1. Haga clic en Aceptar
-
-#### <a name="1-create-the-stonith-devices"></a>**[1]** Cree los dispositivos STONITH
-
-Después de editar los permisos para las máquinas virtuales, puede configurar los dispositivos STONITH en el clúster.
-
-<pre><code>
-sudo crm configure
-
-# replace the bold string with your subscription ID, resource group, tenant ID, service principal ID and password
-
-crm(live)configure# primitive rsc_st_azure_1 stonith:fence_azure_arm \
-   params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
-
-crm(live)configure# primitive rsc_st_azure_2 stonith:fence_azure_arm \
-   params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
-
-crm(live)configure# colocation col_st_azure -2000: rsc_st_azure_1:Started rsc_st_azure_2:Started
-
-crm(live)configure# commit
-crm(live)configure# exit
-</code></pre>
-
-#### <a name="1-enable-the-use-of-a-stonith-device"></a>**[1]** Habilite el uso de un dispositivo STONITH
-
-<pre><code>
-sudo crm configure property stonith-enabled=true 
-</code></pre>
+SAP NetWeaver requiere un almacenamiento compartido para el directorio de transporte y perfil. Lea [Alta disponibilidad para NFS en máquinas virtuales de Azure en SUSE Linux Enterprise Server][nfs-ha] para información sobre cómo configurar un servidor NFS para SAP NetWeaver.
 
 ## <a name="setting-up-ascs"></a>Configuración de (A)SCS
 
-### <a name="deploying-linux"></a>Implementación de Linux
+Puede usar una plantilla de Azure de GitHub para implementar todos los recursos de Azure necesarios, como máquinas virtuales, conjunto de disponibilidad y equilibrador de carga, o puede implementar los recursos manualmente.
+
+### <a name="deploy-linux-via-azure-template"></a>Implementación de Linux mediante una plantilla de Azure
 
 Azure Marketplace contiene una imagen de SUSE Linux Enterprise Server para SAP Applications 12 que puede usar para implementar nuevas máquinas virtuales. La imagen de Marketplace contiene el agente de recursos para SAP NetWeaver.
 
@@ -572,56 +153,77 @@ Para implementar todos los recursos necesarios, puede usar una de las plantillas
    10. Identificador de subred  
    El identificador de la subred a la que deben conectarse las máquinas virtuales.  Deje el valor en blanco si desea crear una red virtual nueva o seleccione la misma subred que usó o creó como parte de la implementación del servidor NFS. El identificador suele tener este aspecto: /subscriptions/**&lt;id. de suscripción&gt;**/resourceGroups/**&lt;nombre del grupo de recursos&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;nombre de red virtual&gt;**/subnets/**&lt;nombre de subred&gt;**
 
+### <a name="deploy-linux-manually-via-azure-portal"></a>Implementación manual de Linux mediante Azure Portal
+
+En primer lugar, debe crear las máquinas virtuales de este clúster NFS. Después, creará un equilibrador de carga y usará las máquinas virtuales de los grupos de servidores back-end.
+
+1. Creación de un grupo de recursos
+1. Creación de una red virtual
+1. Creación de un conjunto de disponibilidad  
+   Establecimiento del dominio máximo de actualización
+1. Creación de la máquina virtual 1   
+   Use al menos SLES4SAP 12 SP1; en este ejemplo se usa la imagen SLES4SAP 12 SP1 https://portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP1PremiumImage-ARM.  
+   Se usa SLES para SAP Applications 12 SP1  
+   Seleccione el conjunto de disponibilidad creado anteriormente.  
+1. Creación de la máquina virtual 2   
+   Use al menos SLES4SAP 12 SP1; en este ejemplo se usa la imagen SLES4SAP 12 SP1 https://portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP1PremiumImage-ARM.  
+   Se usa SLES para SAP Applications 12 SP1  
+   Seleccione el conjunto de disponibilidad creado anteriormente.  
+1. Agregue al menos un disco de datos a ambas máquinas virtuales.  
+   Los discos de datos se usan para el directorio /usr/sap/`<SAPSID`>.
+1. Creación de un equilibrador de carga (interno)  
+   1. Creación de las direcciones IP de front-end
+      1. Dirección IP 10.0.0.7 de ASCS
+         1. Abra el equilibrador de carga, seleccione el grupo de direcciones IP de front-end y haga clic en Agregar
+         1. Escriba el nombre del nuevo grupo de direcciones IP de front-end (por ejemplo, **nw1-ascs-frontend**).
+         1. Configure la asignación como estática y escriba la dirección IP (por ejemplo **10.0.0.7**).
+         1. Haga clic en Aceptar
+      1. Dirección IP 10.0.0.8 para ASCS ERS
+         * Repita los pasos anteriores para crear una dirección IP para el ERS (por ejemplo, **10.0.0.8** y **nw1-aers-backend**).
+   1. Creación de los grupos de servidores back-end
+      1. Creación de un grupo de servidores back-end para ASCS
+         1. Abra el equilibrador de carga, seleccione los grupos de back-end y haga clic en Agregar
+         1. Escriba el nombre del nuevo grupo de servidores back-end (por ejemplo, **nw1-ascs-backend**).
+         1. Haga clic en Agregar una máquina virtual.
+         1. Seleccione el conjunto de disponibilidad que creó anteriormente
+         1. Seleccione las máquinas virtuales del clúster (A)SCS.
+         1. Haga clic en Aceptar
+      1. Creación de un grupo de servidores back-end para ASCS ERS
+         * Repita los pasos anteriores para crear un grupo de servidores back-end para ERS (por ejemplo **nw1-aers-backend**)
+   1. Creación de los sondeos de estado
+      1. Puerto 620**00** para ASCS
+         1. Abra el equilibrador de carga, seleccione los sondeos de estado y haga clic en Agregar
+         1. Escriba el nombre del nuevo sondeo de estado (por ejemplo, **nw1-ascs-hp**).
+         1. Seleccione TCP como protocolo, puerto 620**00**, y mantenga el intervalo de 5 y el umbral incorrecto 2.
+         1. Haga clic en Aceptar
+      1. Puerto 621**02** para ASCS ERS
+         * Repita los pasos anteriores para crear un sondeo de estado para ERS (por ejemplo 621**02** y **nw1-aers-hp**).
+   1. Reglas de equilibrio de carga
+      1. TCP 32**00** para ASCS
+         1. Abra el equilibrador de carga, seleccione las reglas de equilibrio de carga y haga clic en Agregar
+         1. Escriba el nombre de la nueva regla del equilibrador de carga (por ejemplo, **nw1-lb-3200**).
+         1. Seleccione la dirección IP de front-end, el grupo de servidores back-end y el sondeo de estado que creó anteriormente (por ejemplo, **nw1-ascs-frontend**).
+         1. Conserve el protocolo **TCP** y escriba el puerto **3200**.
+         1. Aumente el tiempo de espera de inactividad a 30 minutos
+         1. **Asegúrese de habilitar la dirección IP flotante**
+         1. Haga clic en Aceptar    
+      1. Puertos adicionales para ASCS
+         * Repita los pasos anteriores para los puertos 36**00**, 39**00**, 81**00**, 5**00**13, 5**00**14, 5**00**16 y TCP para ASCS.
+      1. Puertos adicionales para ASCS ERS
+         * Repita los pasos anteriores para los puertos 33**02**, 5**02**13, 5**02**14, 5**02**16 y TCP para ASCS ERS
+
+### <a name="create-pacemaker-cluster"></a>Creación del clúster de Pacemaker
+
+Siga los pasos que se describen en [Configuración de Pacemaker en SUSE Linux Enterprise Server en Azure](high-availability-guide-suse-pacemaker.md) para crear un clúster de Pacemaker básico para este servidor (A)SCS.
+
 ### <a name="installation"></a>Instalación
 
 Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos, **[1]**: aplicable solo al nodo 1 o **[2]**: aplicable solo al nodo 2.
 
-1. **[A]** Actualice SLES
-
-   <pre><code>
-   sudo zypper update
-   </code></pre>
-
-1. **[1]** Habilite el acceso de SSH
-
-   <pre><code>
-   sudo ssh-keygen -tdsa
-   
-   # Enter file in which to save the key (/root/.ssh/id_dsa): -> ENTER
-   # Enter passphrase (empty for no passphrase): -> ENTER
-   # Enter same passphrase again: -> ENTER
-   
-   # copy the public key
-   sudo cat /root/.ssh/id_dsa.pub
-   </code></pre>
-
-2. **[2]** Habilite el acceso de SSH
-
-   <pre><code>
-   sudo ssh-keygen -tdsa
-
-   # insert the public key you copied in the last step into the authorized keys file on the second server
-   sudo vi /root/.ssh/authorized_keys
-   
-   # Enter file in which to save the key (/root/.ssh/id_dsa): -> ENTER
-   # Enter passphrase (empty for no passphrase): -> ENTER
-   # Enter same passphrase again: -> ENTER
-   
-   # copy the public key   
-   sudo cat /root/.ssh/id_dsa.pub
-   </code></pre>
-
-1. **[1]** Habilite el acceso de SSH
-
-   <pre><code>
-   # insert the public key you copied in the last step into the authorized keys file on the first server
-   sudo vi /root/.ssh/authorized_keys
-   </code></pre>
-
-1. **[A]** Instale la extensión de alta disponibilidad
+1. **[A]** Instale el conector de SUSE
    
    <pre><code>
-   sudo zypper install sle-ha-release fence-agents
+   sudo zypper install sap_suse_cluster_connector
    </code></pre>
 
 1. **[A]** Actualice los agentes de recursos de SAP  
@@ -660,222 +262,13 @@ Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos,
    
    <pre><code>
    # IP address of the load balancer frontend configuration for NFS
-   <b>10.0.0.4 nws-nfs</b>
-   # IP address of the load balancer frontend configuration for SAP NetWeaver ASCS/SCS
-   <b>10.0.0.10 nws-ascs</b>
-   # IP address of the load balancer frontend configuration for SAP NetWeaver ERS
-   <b>10.0.0.11 nws-ers</b>
+   <b>10.0.0.4 nw1-nfs</b>
+   # IP address of the load balancer frontend configuration for SAP NetWeaver ASCS
+   <b>10.0.0.11 nw1-ascs</b>
+   # IP address of the load balancer frontend configuration for SAP NetWeaver ASCS ERS
+   <b>10.0.0.12 nw1-aers</b>
    # IP address of the load balancer frontend configuration for database
-   <b>10.0.0.12 nws-db</b>
-   </code></pre>
-
-1. **[1]** Instale el clúster
-   
-   <pre><code>
-   sudo ha-cluster-init
-   
-   # Do you want to continue anyway? [y/N] -> y
-   # Network address to bind to (for example: 192.168.1.0) [10.79.227.0] -> ENTER
-   # Multicast address (for example: 239.x.x.x) [239.174.218.125] -> ENTER
-   # Multicast port [5405] -> ENTER
-   # Do you wish to use SBD? [y/N] -> N
-   # Do you wish to configure an administration IP? [y/N] -> N
-   </code></pre>
-
-1. **[2]** Agregue un nodo al clúster
-   
-   <pre><code> 
-   sudo ha-cluster-join
-
-   # WARNING: NTP is not configured to start at system boot.
-   # WARNING: No watchdog device found. If SBD is used, the cluster will be unable to start without a watchdog.
-   # Do you want to continue anyway? [y/N] -> y
-   # IP address or hostname of existing node (for example: 192.168.1.1) [] -> IP address of node 1 for example 10.0.0.10
-   # /root/.ssh/id_dsa already exists - overwrite? [y/N] N
-   </code></pre>
-
-1. **[A]** Haga que la contraseña de hacluster coincida
-
-   <pre><code> 
-   sudo passwd hacluster
-   </code></pre>
-
-1. **[A]** Configure corosync para usar otro tipo de transporte y agregue nodelist. De lo contrario, el clúster no funciona.
-   
-   <pre><code> 
-   sudo vi /etc/corosync/corosync.conf   
-   </code></pre>
-
-   Agregue el siguiente contenido en negrita al archivo.
-   
-   <pre><code> 
-   [...]
-     interface { 
-        [...] 
-     }
-     <b>transport:      udpu</b>
-   } 
-   <b>nodelist {
-     node {
-      # IP address of <b>nws-cl-0</b>
-      ring0_addr:     10.0.0.14
-     }
-     node {
-      # IP address of <b>nws-cl-1</b>
-      ring0_addr:     10.0.0.13
-     } 
-   }</b>
-   logging {
-     [...]
-   </code></pre>
-
-   Después, reinicie el servicio corosync
-
-   <pre><code>
-   sudo service corosync restart
-   </code></pre>
-
-1. **[A]** Instale los componentes de drbd
-
-   <pre><code>
-   sudo zypper install drbd drbd-kmp-default drbd-utils
-   </code></pre>
-
-1. **[A]** Cree una partición para el dispositivo drbd
-
-   <pre><code>
-   sudo sh -c 'echo -e "n\n\n\n\n\nw\n" | fdisk /dev/sdc'
-   </code></pre>
-
-1. **[A]** Cree configuraciones de LVM
-
-   <pre><code>
-   sudo pvcreate /dev/sdc1   
-   sudo vgcreate vg_<b>NWS</b> /dev/sdc1
-   sudo lvcreate -l 50%FREE -n <b>NWS</b>_ASCS vg_<b>NWS</b>
-   sudo lvcreate -l 50%FREE -n <b>NWS</b>_ERS vg_<b>NWS</b>
-   </code></pre>
-
-1. **[A]** Cree el dispositivo drbd SCS
-
-   <pre><code>
-   sudo vi /etc/drbd.d/<b>NWS</b>_ascs.res
-   </code></pre>
-
-   Inserte la configuración del nuevo dispositivo drbd y salga
-
-   <pre><code>
-   resource <b>NWS</b>_ascs {
-      protocol     C;
-      disk {
-         on-io-error       pass_on;
-      }
-      on <b>nws-cl-0</b> {
-         address   <b>10.0.0.14</b>:7791;
-         device    /dev/drbd0;
-         disk      /dev/vg_NWS/NWS_ASCS;
-         meta-disk internal;
-      }
-      on <b>nws-cl-1</b> {
-         address   <b>10.0.0.13</b>:7791;
-         device    /dev/drbd0;
-         disk      /dev/vg_NWS/NWS_ASCS;
-         meta-disk internal;
-      }
-   }
-   </code></pre>
-
-   Cree el dispositivo drbd e inícielo
-
-   <pre><code>
-   sudo drbdadm create-md <b>NWS</b>_ascs
-   sudo drbdadm up <b>NWS</b>_ascs
-   </code></pre>
-
-1. **[A]** Cree el dispositivo drbd ERS
-
-   <pre><code>
-   sudo vi /etc/drbd.d/<b>NWS</b>_ers.res
-   </code></pre>
-
-   Inserte la configuración del nuevo dispositivo drbd y salga
-
-   <pre><code>
-   resource <b>NWS</b>_ers {
-      protocol     C;
-      disk {
-         on-io-error       pass_on;
-      }
-      on <b>nws-cl-0</b> {
-         address   <b>10.0.0.14</b>:7792;
-         device    /dev/drbd1;
-         disk      /dev/vg_NWS/NWS_ERS;
-         meta-disk internal;
-      }
-      on <b>nws-cl-1</b> {
-         address   <b>10.0.0.13</b>:7792;
-         device    /dev/drbd1;
-         disk      /dev/vg_NWS/NWS_ERS;
-         meta-disk internal;
-      }
-   }
-   </code></pre>
-
-   Cree el dispositivo drbd e inícielo
-
-   <pre><code>
-   sudo drbdadm create-md <b>NWS</b>_ers
-   sudo drbdadm up <b>NWS</b>_ers
-   </code></pre>
-
-1. **[1]** Omita la sincronización inicial
-
-   <pre><code>
-   sudo drbdadm new-current-uuid --clear-bitmap <b>NWS</b>_ascs
-   sudo drbdadm new-current-uuid --clear-bitmap <b>NWS</b>_ers
-   </code></pre>
-
-1. **[1]** Establezca el nodo principal
-
-   <pre><code>
-   sudo drbdadm primary --force <b>NWS</b>_ascs
-   sudo drbdadm primary --force <b>NWS</b>_ers
-   </code></pre>
-
-1. **[1]** Espere hasta que se sincronicen los nuevos dispositivos drbd
-
-   <pre><code>
-   sudo cat /proc/drbd
-
-   # version: 8.4.6 (api:1/proto:86-101)
-   # GIT-hash: 833d830e0152d1e457fa7856e71e11248ccf3f70 build by abuild@sheep14, 2016-05-09 23:14:56
-   # 0: cs:<b>Connected</b> ro:Primary/Secondary ds:<b>UpToDate/UpToDate</b> C r-----
-   #     ns:93991268 nr:0 dw:93991268 dr:93944920 al:383 bm:0 lo:0 pe:0 ua:0 ap:0 ep:1 wo:f oos:0
-   # 1: cs:<b>Connected</b> ro:Primary/Secondary ds:<b>UpToDate/UpToDate</b> C r-----
-   #     ns:6047920 nr:0 dw:6047920 dr:6039112 al:34 bm:0 lo:0 pe:0 ua:0 ap:0 ep:1 wo:f oos:0
-   # 2: cs:<b>Connected</b> ro:Primary/Secondary ds:<b>UpToDate/UpToDate</b> C r-----
-   #     ns:5142732 nr:0 dw:5142732 dr:5133924 al:30 bm:0 lo:0 pe:0 ua:0 ap:0 ep:1 wo:f oos:0
-   </code></pre>
-
-1. **[1]** Cree sistemas de archivos en los dispositivos drbd
-
-   <pre><code>
-   sudo mkfs.xfs /dev/drbd0
-   sudo mkfs.xfs /dev/drbd1
-   </code></pre>
-
-
-### <a name="configure-cluster-framework"></a>Configuración de la plataforma del clúster
-
-**[1]** Cambie la configuración predeterminada
-
-   <pre><code>
-   sudo crm configure
-
-   crm(live)configure# rsc_defaults resource-stickiness="1"
-
-   crm(live)configure# commit
-   crm(live)configure# exit
+   <b>10.0.0.13 nw1-db</b>
    </code></pre>
 
 ## <a name="prepare-for-sap-netweaver-installation"></a>Preparación de la instalación de SAP NetWeaver
@@ -883,20 +276,24 @@ Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos,
 1. **[A]** Cree los directorios compartidos
 
    <pre><code>
-   sudo mkdir -p /sapmnt/<b>NWS</b>
+   sudo mkdir -p /sapmnt/<b>NW1</b>
    sudo mkdir -p /usr/sap/trans
-   sudo mkdir -p /usr/sap/<b>NWS</b>/SYS
+   sudo mkdir -p /usr/sap/<b>NW1</b>/SYS
+   sudo mkdir -p /usr/sap/<b>NW1</b>/ASCS<b>00</b>
+   sudo mkdir -p /usr/sap/<b>NW1</b>/ERS<b>02</b>
 
-   sudo chattr +i /sapmnt/<b>NWS</b>
+   sudo chattr +i /sapmnt/<b>NW1</b>
    sudo chattr +i /usr/sap/trans
-   sudo chattr +i /usr/sap/<b>NWS</b>/SYS
+   sudo chattr +i /usr/sap/<b>NW1</b>/SYS
+   sudo chattr +i /usr/sap/<b>NW1</b>/ASCS<b>00</b>
+   sudo chattr +i /usr/sap/<b>NW1</b>/ERS<b>02</b>
    </code></pre>
 
 1. **[A]** Configure autofs
  
    <pre><code>
    sudo vi /etc/auto.master
-
+   
    # Add the following line to the file, save and exit
    +auto.master
    /- /etc/auto.direct
@@ -906,11 +303,13 @@ Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos,
 
    <pre><code>
    sudo vi /etc/auto.direct
-
+   
    # Add the following lines to the file, save and exit
-   /sapmnt/<b>NWS</b> -nfsvers=4,nosymlink,sync <b>nws-nfs</b>:/sapmntsid
-   /usr/sap/trans -nfsvers=4,nosymlink,sync <b>nws-nfs</b>:/trans
-   /usr/sap/<b>NWS</b>/SYS -nfsvers=4,nosymlink,sync <b>nws-nfs</b>:/sidsys
+   /sapmnt/<b>NW1</b> -nfsvers=4,nosymlink,sync <b>nw1-nfs</b>:/<b>NW1</b>/sapmntsid
+   /usr/sap/trans -nfsvers=4,nosymlink,sync <b>nw1-nfs</b>:/<b>NW1</b>/trans
+   /usr/sap/<b>NW1</b>/SYS -nfsvers=4,nosymlink,sync <b>nw1-nfs</b>:/<b>NW1</b>/sidsys
+   /usr/sap/<b>NW1</b>/ASCS<b>00</b> -nfsvers=4,nosymlink,sync <b>nw1-nfs</b>:/<b>NW1</b>/ASCS
+   /usr/sap/<b>NW1</b>/ERS<b>02</b> -nfsvers=4,nosymlink,sync <b>nw1-nfs</b>:/<b>NW1</b>/ASCSERS
    </code></pre>
 
    Reinicie autofs para montar los recursos compartidos nuevos
@@ -921,14 +320,14 @@ Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos,
    </code></pre>
 
 1. **[A]** Configure el archivo de intercambio
- 
+
    <pre><code>
    sudo vi /etc/waagent.conf
-
+   
    # Set the property ResourceDisk.EnableSwap to y
    # Create and use swapfile on resource disk.
    ResourceDisk.EnableSwap=<b>y</b>
-
+   
    # Set the size of the SWAP file with property ResourceDisk.SwapSizeMB
    # The free space of resource disk varies by virtual machine size. Make sure that you do not set a value that is too big. You can check the SWAP space with command swapon
    # Size of the swapfile.
@@ -941,74 +340,46 @@ Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos,
    sudo service waagent restart
    </code></pre>
 
+
 ### <a name="installing-sap-netweaver-ascsers"></a>Instalación de SAP NetWeaver ASCS/ERS
 
-1. **[1]** Cree un recurso IP virtual y sondeo de mantenimiento para el equilibrador de carga interno
+1. **[1]** Cree un recurso IP virtual y un sondeo de estado para la instancia de ASCS
 
    <pre><code>
-   sudo crm node standby <b>nws-cl-1</b>
-   sudo crm configure
-
-   crm(live)configure# primitive drbd_<b>NWS</b>_ASCS \
-     ocf:linbit:drbd \
-     params drbd_resource="<b>NWS</b>_ascs" \
-     op monitor interval="15" role="Master" \
-     op monitor interval="30" role="Slave"
-
-   crm(live)configure# ms ms-drbd_<b>NWS</b>_ASCS drbd_<b>NWS</b>_ASCS \
-     meta master-max="1" master-node-max="1" clone-max="2" \
-     clone-node-max="1" notify="true"
-
-   crm(live)configure# primitive fs_<b>NWS</b>_ASCS \
-     ocf:heartbeat:Filesystem \
-     params device=/dev/drbd0 \
-     directory=/usr/sap/<b>NWS</b>/ASCS<b>00</b>  \
-     fstype=xfs \
-     op monitor interval="10s"
-
-   crm(live)configure# primitive vip_<b>NWS</b>_ASCS IPaddr2 \
-     params ip=<b>10.0.0.10</b> cidr_netmask=<b>24</b> \
+   sudo crm node standby <b>nw1-cl-1</b>
+   
+   sudo crm configure primitive vip_<b>NW1</b>_ASCS IPaddr2 \
+     params ip=<b>10.0.0.11</b> cidr_netmask=<b>24</b> \
      op monitor interval=10 timeout=20
-
-   crm(live)configure# primitive nc_<b>NWS</b>_ASCS anything \
+   
+   sudo crm configure primitive nc_<b>NW1</b>_ASCS anything \
      params binfile="/usr/bin/nc" cmdline_options="-l -k 620<b>00</b>" \
      op monitor timeout=20s interval=10 depth=0
    
-   crm(live)configure# group g-<b>NWS</b>_ASCS nc_<b>NWS</b>_ASCS vip_<b>NWS</b>_ASCS fs_<b>NWS</b>_ASCS \
+   sudo crm configure group g-<b>NW1</b>_ASCS nc_<b>NW1</b>_ASCS vip_<b>NW1</b>_ASCS \
       meta resource-stickiness=3000
-
-   crm(live)configure# order o-<b>NWS</b>_drbd_before_ASCS inf: \
-     ms-drbd_<b>NWS</b>_ASCS:promote g-<b>NWS</b>_ASCS:start
-   
-   crm(live)configure# colocation col-<b>NWS</b>_ASCS_on_drbd inf: \
-     ms-drbd_<b>NWS</b>_ASCS:Master g-<b>NWS</b>_ASCS
-   
-   crm(live)configure# commit
-   crm(live)configure# exit
    </code></pre>
 
    Asegúrese de que el estado del clúster sea el correcto y que se iniciaron todos los recursos. No es importante en qué nodo se ejecutan los recursos.
 
    <pre><code>
    sudo crm_mon -r
-
-   # Node nws-cl-1: standby
-   # <b>Online: [ nws-cl-0 ]</b>
+   
+   # Node nw1-cl-1: standby
+   # <b>Online: [ nw1-cl-0 ]</b>
    # 
    # Full list of resources:
    # 
-   #  Master/Slave Set: ms-drbd_NWS_ASCS [drbd_NWS_ASCS]
-   #      <b>Masters: [ nws-cl-0 ]</b>
-   #      Stopped: [ nws-cl-1 ]
-   #  Resource Group: g-NWS_ASCS
-   #      nc_NWS_ASCS        (ocf::heartbeat:anything):      <b>Started nws-cl-0</b>
-   #      vip_NWS_ASCS       (ocf::heartbeat:IPaddr2):       <b>Started nws-cl-0</b>
-   #      fs_NWS_ASCS        (ocf::heartbeat:Filesystem):    <b>Started nws-cl-0</b>
+   # stonith-sbd     (stonith:external/sbd): <b>Started nw1-cl-0</b>
+   # rsc_st_azure    (stonith:fence_azure_arm):      <b>Started nw1-cl-0</b>
+   #  Resource Group: g-NW1_ASCS
+   #      nc_NW1_ASCS        (ocf::heartbeat:anything):      <b>Started nw1-cl-0</b>
+   #      vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       <b>Started nw1-cl-0</b>
    </code></pre>
 
 1. **[1]** Instale SAP NetWeaver ASCS  
 
-   Instale SAP NetWeaver ASCS como raíz en el primer nodo mediante un nombre de host virtual que se asigna a la dirección IP de la configuración de front-end del equilibrador de carga para ASCS; por ejemplo, <b>nws-ascs</b>, <b>10.0.0.10</b>. Especifique también el número de instancia que usó para el sondeo del equilibrador de carga; por ejemplo, <b>00</b>.
+   Instale SAP NetWeaver ASCS como raíz en el primer nodo mediante un nombre de host virtual que se asigna a la dirección IP de la configuración de front-end del equilibrador de carga para ASCS; por ejemplo, <b>nw1-ascs</b>, <b>10.0.0.11</b>. Especifique también el número de instancia que usó para el sondeo del equilibrador de carga; por ejemplo, <b>00</b>.
 
    Puede usar el parámetro de sapinst SAPINST_REMOTE_ACCESS_USER para permitir que un usuario no raíz se conecta a sapinst.
 
@@ -1016,83 +387,56 @@ Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos,
    sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
    </code></pre>
 
-1. **[1]** Cree un recurso IP virtual y sondeo de mantenimiento para el equilibrador de carga interno
+   Si se produce un error en la instalación para crear una subcarpeta en/usr/sap/**NW1**/ASCS**00**, pruebe a establecer el propietario y el grupo de la carpeta ASCS**00** e inténtelo de nuevo.
 
    <pre><code>
-   sudo crm node standby <b>nws-cl-0</b>
-   sudo crm node online <b>nws-cl-1</b>
-   sudo crm configure
+   chown nw1adm /usr/sap/<b>NW1</b>/ASCS<b>00</b>
+   chgrp sapsys /usr/sap/<b>NW1</b>/ASCS<b>00</b>
+   </code></pre>
 
-   crm(live)configure# primitive drbd_<b>NWS</b>_ERS \
-     ocf:linbit:drbd \
-     params drbd_resource="<b>NWS</b>_ers" \
-     op monitor interval="15" role="Master" \
-     op monitor interval="30" role="Slave"
+1. **[1]** Cree un recurso IP virtual y un sondeo de estado para la instancia de ERS
 
-   crm(live)configure# ms ms-drbd_<b>NWS</b>_ERS drbd_<b>NWS</b>_ERS \
-     meta master-max="1" master-node-max="1" clone-max="2" \
-     clone-node-max="1" notify="true"
-
-   crm(live)configure# primitive fs_<b>NWS</b>_ERS \
-     ocf:heartbeat:Filesystem \
-     params device=/dev/drbd1 \
-     directory=/usr/sap/<b>NWS</b>/ERS<b>02</b>  \
-     fstype=xfs \
-     op monitor interval="10s"
-
-   crm(live)configure# primitive vip_<b>NWS</b>_ERS IPaddr2 \
-     params ip=<b>10.0.0.11</b> cidr_netmask=<b>24</b> \
+   <pre><code>
+   sudo crm node online <b>nw1-cl-1</b>
+   sudo crm node standby <b>nw1-cl-0</b>
+   
+   sudo crm configure primitive vip_<b>NW1</b>_ERS IPaddr2 \
+     params ip=<b>10.0.0.12</b> cidr_netmask=<b>24</b> \
      op monitor interval=10 timeout=20
-
-   crm(live)configure# primitive nc_<b>NWS</b>_ERS anything \
+   
+   sudo crm configure primitive nc_<b>NW1</b>_ERS anything \
     params binfile="/usr/bin/nc" cmdline_options="-l -k 621<b>02</b>" \
     op monitor timeout=20s interval=10 depth=0
-
-   crm(live)configure# group g-<b>NWS</b>_ERS nc_<b>NWS</b>_ERS vip_<b>NWS</b>_ERS fs_<b>NWS</b>_ERS
-
-   crm(live)configure# order o-<b>NWS</b>_drbd_before_ERS inf: \
-     ms-drbd_<b>NWS</b>_ERS:promote g-<b>NWS</b>_ERS:start
    
-   crm(live)configure# colocation col-<b>NWS</b>_ERS_on_drbd inf: \
-     ms-drbd_<b>NWS</b>_ERS:Master g-<b>NWS</b>_ERS
-   
-   crm(live)configure# commit
-   # WARNING: Resources nc_NWS_ASCS,nc_NWS_ERS,nc_NWS_nfs violate uniqueness for parameter "binfile": "/usr/bin/nc"
+   # WARNING: Resources nc_NW1_ASCS,nc_NW1_ERS violate uniqueness for parameter "binfile": "/usr/bin/nc"
    # Do you still want to commit (y/n)? y
-
-   crm(live)configure# exit
    
+   sudo crm configure group g-<b>NW1</b>_ERS nc_<b>NW1</b>_ERS vip_<b>NW1</b>_ERS
    </code></pre>
  
    Asegúrese de que el estado del clúster sea el correcto y que se iniciaron todos los recursos. No es importante en qué nodo se ejecutan los recursos.
 
    <pre><code>
    sudo crm_mon -r
-
-   # Node <b>nws-cl-0: standby</b>
-   # <b>Online: [ nws-cl-1 ]</b>
+   
+   # Node <b>nw1-cl-0: standby</b>
+   # <b>Online: [ nw1-cl-1 ]</b>
    # 
    # Full list of resources:
-   # 
-   #  Master/Slave Set: ms-drbd_NWS_ASCS [drbd_NWS_ASCS]
-   #      <b>Masters: [ nws-cl-1 ]</b>
-   #      Stopped: [ nws-cl-0 ]
-   #  Resource Group: g-NWS_ASCS
-   #      nc_NWS_ASCS        (ocf::heartbeat:anything):      <b>Started nws-cl-1</b>
-   #      vip_NWS_ASCS       (ocf::heartbeat:IPaddr2):       <b>Started nws-cl-1</b>
-   #      fs_NWS_ASCS        (ocf::heartbeat:Filesystem):    <b>Started nws-cl-1</b>
-   #  Master/Slave Set: ms-drbd_NWS_ERS [drbd_NWS_ERS]
-   #      <b>Masters: [ nws-cl-1 ]</b>
-   #      Stopped: [ nws-cl-0 ]
-   #  Resource Group: g-NWS_ERS
-   #      nc_NWS_ERS (ocf::heartbeat:anything):      <b>Started nws-cl-1</b>
-   #      vip_NWS_ERS        (ocf::heartbeat:IPaddr2):       <b>Started nws-cl-1</b>
-   #      fs_NWS_ERS (ocf::heartbeat:Filesystem):    <b>Started nws-cl-1</b>
+   #
+   # stonith-sbd     (stonith:external/sbd): <b>Started nw1-cl-1</b>
+   # rsc_st_azure    (stonith:fence_azure_arm):      <b>Started nw1-cl-1</b>
+   #  Resource Group: g-NW1_ASCS
+   #      nc_NW1_ASCS        (ocf::heartbeat:anything):      <b>Started nw1-cl-1</b>
+   #      vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       <b>Started nw1-cl-1</b>
+   #  Resource Group: g-NW1_ERS
+   #      nc_NW1_ERS (ocf::heartbeat:anything):      <b>Started nw1-cl-1</b>
+   #      vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       <b>Started nw1-cl-1</b>
    </code></pre>
 
 1. **[2]** Instale SAP NetWeaver ERS  
 
-   Instale SAP NetWeaver ERS como raíz en el segundo nodo mediante un nombre de host virtual que se asigna a la dirección IP de la configuración de front-end del equilibrador de carga para ERS (por ejemplo, <b>nws-ers</b>, <b>10.0.0.11</b>) y el número de instancia que usó para el sondeo del equilibrador de carga (por ejemplo, <b>02</b>).
+   Instale SAP NetWeaver ERS como raíz en el segundo nodo mediante un nombre de host virtual que se asigna a la dirección IP de la configuración de front-end del equilibrador de carga para ERS (por ejemplo, <b>nw1-aers</b>, <b>10.0.0.12</b>) y el número de instancia que usó para el sondeo del equilibrador de carga (por ejemplo, <b>02</b>).
 
    Puede usar el parámetro de sapinst SAPINST_REMOTE_ACCESS_USER para permitir que un usuario no raíz se conecta a sapinst.
 
@@ -1102,6 +446,13 @@ Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos,
 
    > [!NOTE]
    > Use SWPM SP 20 PL 05 o superior. Las versiones inferiores no establecen correctamente los permisos y se producirá un error de instalación.
+
+   Si se produce un error en la instalación para crear una subcarpeta en/usr/sap/**NW1**/ERS**00**, pruebe a establecer el propietario y el grupo de la carpeta ERS**02** e inténtelo de nuevo.
+
+   <pre><code>
+   chown nw1adm /usr/sap/<b>NW1</b>/ERS<b>02</b>
+   chgrp sapsys /usr/sap/<b>NW1</b>/ERS<b>02</b>
+   </code></pre>
    > 
 
 1. **[1]** Adapte los perfiles de instancias ASCS/SCS y ERS
@@ -1109,16 +460,16 @@ Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos,
    * Perfil ASCS/SCS
 
    <pre><code> 
-   sudo vi /sapmnt/<b>NWS</b>/profile/<b>NWS</b>_<b>ASCS00</b>_<b>nws-ascs</b>
-
+   sudo vi /sapmnt/<b>NW1</b>/profile/<b>NW1</b>_<b>ASCS00</b>_<b>nw1-ascs</b>
+   
    # Change the restart command to a start command
    #Restart_Program_01 = local $(_EN) pf=$(_PF)
    Start_Program_01 = local $(_EN) pf=$(_PF)
-
+   
    # Add the following lines
    service/halib = $(DIR_CT_RUN)/saphascriptco.so
    service/halib_cluster_connector = /usr/bin/sap_suse_cluster_connector
-
+   
    # Add the keep alive parameter
    enque/encni/set_so_keepalive = true
    </code></pre>
@@ -1126,8 +477,8 @@ Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos,
    * Perfil ERS
 
    <pre><code> 
-   sudo vi /sapmnt/<b>NWS</b>/profile/<b>NWS</b>_ERS<b>02</b>_<b>nws-ers</b>
-
+   sudo vi /sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ERS<b>02</b>_<b>nw1-aers</b>
+   
    # Add the following lines
    service/halib = $(DIR_CT_RUN)/saphascriptco.so
    service/halib_cluster_connector = /usr/bin/sap_suse_cluster_connector
@@ -1149,7 +500,7 @@ Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos,
  
    <pre><code>
    # Add sidadm to the haclient group
-   sudo usermod -aG haclient <b>nws</b>adm   
+   sudo usermod -aG haclient <b>nw1</b>adm   
    </code></pre>
 
 1. **[1]** Agregue los servicios SAP de ASCS y ERS al archivo sapservice
@@ -1157,400 +508,68 @@ Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos,
    Agregue la entrada del servicio ASCS al segundo nodo y copie la entrada del servicio ERS al primer nodo.
 
    <pre><code>
-   cat /usr/sap/sapservices | grep ASCS<b>00</b> | sudo ssh <b>nws-cl-1</b> "cat >>/usr/sap/sapservices"
-   sudo ssh <b>nws-cl-1</b> "cat /usr/sap/sapservices" | grep ERS<b>02</b> | sudo tee -a /usr/sap/sapservices
+   cat /usr/sap/sapservices | grep ASCS<b>00</b> | sudo ssh <b>nw1-cl-1</b> "cat >>/usr/sap/sapservices"
+   sudo ssh <b>nw1-cl-1</b> "cat /usr/sap/sapservices" | grep ERS<b>02</b> | sudo tee -a /usr/sap/sapservices
    </code></pre>
 
 1. **[1]** Cree los recursos de clúster de SAP
 
    <pre><code>
-   sudo crm configure property maintenance-mode="true"
-
-   sudo crm configure
-
-   crm(live)configure# primitive rsc_sap_<b>NWS</b>_ASCS<b>00</b> SAPInstance \
-    operations $id=rsc_sap_<b>NWS</b>_ASCS<b>00</b>-operations \
+   sudo crm configure property maintenance-mode="true"   
+   
+   sudo crm configure primitive rsc_sap_<b>NW1</b>_ASCS<b>00</b> SAPInstance \
+    operations \$id=rsc_sap_<b>NW1</b>_ASCS<b>00</b>-operations \
     op monitor interval=11 timeout=60 on_fail=restart \
-    params InstanceName=<b>NWS</b>_ASCS<b>00</b>_<b>nws-ascs</b> START_PROFILE="/sapmnt/<b>NWS</b>/profile/<b>NWS</b>_ASCS<b>00</b>_<b>nws-ascs</b>" \
+    params InstanceName=<b>NW1</b>_ASCS<b>00</b>_<b>nw1-ascs</b> START_PROFILE="/sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ASCS<b>00</b>_<b>nw1-ascs</b>" \
     AUTOMATIC_RECOVER=false \
     meta resource-stickiness=5000 failure-timeout=60 migration-threshold=1 priority=10
-
-   crm(live)configure# primitive rsc_sap_<b>NWS</b>_ERS<b>02</b> SAPInstance \
-    operations $id=rsc_sap_<b>NWS</b>_ERS<b>02</b>-operations \
+   
+   sudo crm configure primitive rsc_sap_<b>NW1</b>_ERS<b>02</b> SAPInstance \
+    operations \$id=rsc_sap_<b>NW1</b>_ERS<b>02</b>-operations \
     op monitor interval=11 timeout=60 on_fail=restart \
-    params InstanceName=<b>NWS</b>_ERS<b>02</b>_<b>nws-ers</b> START_PROFILE="/sapmnt/<b>NWS</b>/profile/<b>NWS</b>_ERS<b>02</b>_<b>nws-ers</b>" AUTOMATIC_RECOVER=false IS_ERS=true \
+    params InstanceName=<b>NW1</b>_ERS<b>02</b>_<b>nw1-aers</b> START_PROFILE="/sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ERS<b>02</b>_<b>nw1-aers</b>" AUTOMATIC_RECOVER=false IS_ERS=true \
     meta priority=1000
-
-   crm(live)configure# modgroup g-<b>NWS</b>_ASCS add rsc_sap_<b>NWS</b>_ASCS<b>00</b>
-   crm(live)configure# modgroup g-<b>NWS</b>_ERS add rsc_sap_<b>NWS</b>_ERS<b>02</b>
-
-   crm(live)configure# colocation col_sap_<b>NWS</b>_no_both -5000: g-<b>NWS</b>_ERS g-<b>NWS</b>_ASCS
-   crm(live)configure# location loc_sap_<b>NWS</b>_failover_to_ers rsc_sap_<b>NWS</b>_ASCS<b>00</b> rule 2000: runs_ers_<b>NWS</b> eq 1
-   crm(live)configure# order ord_sap_<b>NWS</b>_first_start_ascs Optional: rsc_sap_<b>NWS</b>_ASCS<b>00</b>:start rsc_sap_<b>NWS</b>_ERS<b>02</b>:stop symmetrical=false
-
-   crm(live)configure# commit
-   crm(live)configure# exit
-
+   
+   sudo crm configure modgroup g-<b>NW1</b>_ASCS add rsc_sap_<b>NW1</b>_ASCS<b>00</b>
+   sudo crm configure modgroup g-<b>NW1</b>_ERS add rsc_sap_<b>NW1</b>_ERS<b>02</b>
+   
+   sudo crm configure colocation col_sap_<b>NW1</b>_no_both -5000: g-<b>NW1</b>_ERS g-<b>NW1</b>_ASCS
+   sudo crm configure location loc_sap_<b>NW1</b>_failover_to_ers rsc_sap_<b>NW1</b>_ASCS<b>00</b> rule 2000: runs_ers_<b>NW1</b> eq 1
+   sudo crm configure order ord_sap_<b>NW1</b>_first_start_ascs Optional: rsc_sap_<b>NW1</b>_ASCS<b>00</b>:start rsc_sap_<b>NW1</b>_ERS<b>02</b>:stop symmetrical=false
+   
+   sudo crm node online <b>nw1-cl-0</b>
    sudo crm configure property maintenance-mode="false"
-   sudo crm node online <b>nws-cl-0</b>
    </code></pre>
 
    Asegúrese de que el estado del clúster sea el correcto y que se iniciaron todos los recursos. No es importante en qué nodo se ejecutan los recursos.
 
    <pre><code>
    sudo crm_mon -r
-
-   # Online: <b>[ nws-cl-0 nws-cl-1 ]</b>
-   # 
+   
+   # Online: <b>[ nw1-cl-0 nw1-cl-1 ]</b>
+   #
    # Full list of resources:
-   # 
-   #  Master/Slave Set: ms-drbd_NWS_ASCS [drbd_NWS_ASCS]
-   #      <b>Masters: [ nws-cl-0 ]</b>
-   #      <b>Slaves: [ nws-cl-1 ]</b>
-   #  Resource Group: g-NWS_ASCS
-   #      nc_NWS_ASCS        (ocf::heartbeat:anything):      <b>Started nws-cl-0</b>
-   #      vip_NWS_ASCS       (ocf::heartbeat:IPaddr2):       <b>Started nws-cl-0</b>
-   #      fs_NWS_ASCS        (ocf::heartbeat:Filesystem):    <b>Started nws-cl-0</b>
-   #      rsc_sap_NWS_ASCS00 (ocf::heartbeat:SAPInstance):   <b>Started nws-cl-0</b>
-   #  Master/Slave Set: ms-drbd_NWS_ERS [drbd_NWS_ERS]
-   #      <b>Masters: [ nws-cl-1 ]</b>
-   #      <b>Slaves: [ nws-cl-0 ]</b>
-   #  Resource Group: g-NWS_ERS
-   #      nc_NWS_ERS (ocf::heartbeat:anything):      <b>Started nws-cl-1</b>
-   #      vip_NWS_ERS        (ocf::heartbeat:IPaddr2):       <b>Started nws-cl-1</b>
-   #      fs_NWS_ERS (ocf::heartbeat:Filesystem):    <b>Started nws-cl-1</b>
-   #      rsc_sap_NWS_ERS02  (ocf::heartbeat:SAPInstance):   <b>Started nws-cl-1</b>
+   #
+   # stonith-sbd     (stonith:external/sbd): <b>Started nw1-cl-1</b>
+   # rsc_st_azure    (stonith:fence_azure_arm):      <b>Started nw1-cl-1</b>
+   #  Resource Group: g-NW1_ASCS
+   #      nc_NW1_ASCS        (ocf::heartbeat:anything):      <b>Started nw1-cl-1</b>
+   #      vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       <b>Started nw1-cl-1</b>
+   #      rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   <b>Started nw1-cl-1</b>
+   #  Resource Group: g-NW1_ERS
+   #      nc_NW1_ERS (ocf::heartbeat:anything):      <b>Started nw1-cl-0</b>
+   #      vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       <b>Started nw1-cl-0</b>
+   #      rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   <b>Started nw1-cl-0</b>
    </code></pre>
 
-### <a name="create-stonith-device"></a>Creación de un dispositivo STONITH
+## <a name="2d6008b0-685d-426c-b59e-6cd281fd45d7"></a>Preparación del servidor de aplicaciones de SAP NetWeaver
 
-El dispositivo STONITH usa una entidad de servicio para la autorización de Microsoft Azure. Siga estos pasos para crear una entidad de servicio.
+Algunas bases de datos requieren que la instalación de la instancia de base de datos se ejecute en un servidor de aplicaciones. Prepare las máquinas virtuales del servidor de aplicaciones para poder usarlas en estos casos.
 
-1. Vaya a <https://portal.azure.com>
-1. Abra la hoja Azure Active Directory  
-   Vaya a Propiedades y anote el identificador del directorio. Se trata del **id. de inquilino**.
-1. Haga clic en Registros de aplicaciones
-1. Haga clic en Agregar
-1. Escriba un nombre, seleccione el tipo de aplicación "Aplicación web o API", escriba una dirección URL de inicio de sesión (por ejemplo, http://localhost) y haga clic en Crear
-1. La dirección URL de inicio de sesión no se usa y puede ser cualquier dirección URL válida
-1. Seleccione la nueva aplicación y haga clic en las llaves de la pestaña Configuración
-1. Escriba una descripción para la nueva clave, seleccione "Nunca expira" y haga clic en Guardar
-1. Anote el valor. Se utiliza como **contraseña** para la entidad de servicio
-1. Anote el identificador de la aplicación. Se utiliza como nombre de usuario (**Id. de inicio de sesión** en los pasos siguientes) de la entidad de servicio
+En los pasos siguientes se supone que instala el servidor de aplicaciones en un servidor distinto de los servidores ASCS/SCS y HANA. De lo contrario, no se necesitan algunos de los pasos que aparecen a continuación (como configurar la resolución de nombres de host).
 
-La entidad de servicio no tiene permiso para tener acceso a los recursos de Azure de forma predeterminada. Debe concedérselos para iniciar y detener (desasignar) todas las máquinas virtuales del clúster.
+1. Configure la resolución de nombres de host
 
-1. Vaya a https://portal.azure.com
-1. Abra la hoja Todos los recursos
-1. Seleccione la máquina virtual
-1. Haga clic en Control de acceso (IAM)
-1. Haga clic en Agregar
-1. Seleccione el rol de propietario
-1. Escriba el nombre de la aplicación que creó anteriormente
-1. Haga clic en Aceptar
-
-#### <a name="1-create-the-stonith-devices"></a>**[1]** Cree los dispositivos STONITH
-
-Después de editar los permisos para las máquinas virtuales, puede configurar los dispositivos STONITH en el clúster.
-
-<pre><code>
-sudo crm configure
-
-# replace the bold string with your subscription ID, resource group, tenant ID, service principal ID and password
-
-crm(live)configure# primitive rsc_st_azure_1 stonith:fence_azure_arm \
-   params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
-
-crm(live)configure# primitive rsc_st_azure_2 stonith:fence_azure_arm \
-   params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
-
-crm(live)configure# colocation col_st_azure -2000: rsc_st_azure_1:Started rsc_st_azure_2:Started
-
-crm(live)configure# commit
-crm(live)configure# exit
-</code></pre>
-
-#### <a name="1-enable-the-use-of-a-stonith-device"></a>**[1]** Habilite el uso de un dispositivo STONITH
-
-Habilite el uso de un dispositivo STONITH
-
-<pre><code>
-sudo crm configure property stonith-enabled=true 
-</code></pre>
-
-## <a name="install-database"></a>Instalar la base de datos
-
-En este ejemplo, hay una replicación del sistema SAP HANA instalada y configurada. SAP HANA se ejecuta en el mismo clúster que SAP NetWeaver ASCS/SCS y ERS. También puede instalar SAP HANA en un clúster dedicado. Para más información, consulte [Alta disponibilidad de SAP HANA en las máquinas virtuales (VM) de Azure][sap-hana-ha].
-
-### <a name="prepare-for-sap-hana-installation"></a>Preparación de la instalación de SAP HANA
-
-Por lo general, se recomienda usar LVM para volúmenes de almacén de datos y archivos de registro. Con fines de prueba, también puede elegir almacenar los datos y el archivo de registro directamente en un disco sin formato.
-
-1. **[A]** LVM  
-   En el ejemplo siguiente se supone que las máquinas virtuales tienen cuatro discos de datos conectados que se deben usar para crear dos volúmenes.
-   
-   Cree volúmenes físicos de todos los discos que desee usar.
-   
-   <pre><code>
-   sudo pvcreate /dev/sdd
-   sudo pvcreate /dev/sde
-   sudo pvcreate /dev/sdf
-   sudo pvcreate /dev/sdg
-   </code></pre>
-   
-   Cree un grupo de volúmenes para los archivos de datos, un grupo de volúmenes para los archivos de registro y otro para el directorio compartido de SAP HANA
-   
-   <pre><code>
-   sudo vgcreate vg_hana_data /dev/sdd /dev/sde
-   sudo vgcreate vg_hana_log /dev/sdf
-   sudo vgcreate vg_hana_shared /dev/sdg
-   </code></pre>
-   
-   Cree los volúmenes lógicos
-   
-   <pre><code>
-   sudo lvcreate -l 100%FREE -n hana_data vg_hana_data
-   sudo lvcreate -l 100%FREE -n hana_log vg_hana_log
-   sudo lvcreate -l 100%FREE -n hana_shared vg_hana_shared
-   sudo mkfs.xfs /dev/vg_hana_data/hana_data
-   sudo mkfs.xfs /dev/vg_hana_log/hana_log
-   sudo mkfs.xfs /dev/vg_hana_shared/hana_shared
-   </code></pre>
-   
-   Cree los directorios de montaje y copie el UUID de todos los volúmenes lógicos
-   
-   <pre><code>
-   sudo mkdir -p /hana/data
-   sudo mkdir -p /hana/log
-   sudo mkdir -p /hana/shared
-   sudo chattr +i /hana/data
-   sudo chattr +i /hana/log
-   sudo chattr +i /hana/shared
-   # write down the ID of /dev/vg_hana_data/hana_data, /dev/vg_hana_log/hana_log and /dev/vg_hana_shared/hana_shared
-   sudo blkid
-   </code></pre>
-   
-   Cree entradas de autofs para los tres volúmenes lógicos
-   
-   <pre><code>
-   sudo vi /etc/auto.direct
-   </code></pre>
-   
-   Inserte esta línea en sudo vi /etc/auto.direct
-   
-   <pre><code>
-   /hana/data -fstype=xfs :UUID=<b>&lt;UUID of /dev/vg_hana_data/hana_data&gt;</b>
-   /hana/log -fstype=xfs :UUID=<b>&lt;UUID of /dev/vg_hana_log/hana_log&gt;</b>
-   /hana/shared -fstype=xfs :UUID=<b>&lt;UUID of /dev/vg_hana_shared/hana_shared&gt;</b>
-   </code></pre>
-   
-   Monte los volúmenes nuevos.
-   
-   <pre><code>
-   sudo service autofs restart 
-   </code></pre>
-
-1. **[A]** Discos sin formatos  
-
-   Para sistemas pequeños o de demostración, puede colocar los archivos de datos y de registro HANA en un disco. Con los siguientes comandos se crea una partición en /dev/sdc y con formato xfs.
-   ```bash
-   sudo sh -c 'echo -e "n\n\n\n\n\nw\n" | fdisk /dev/sdd'
-   sudo mkfs.xfs /dev/sdd1
-   
-   # write down the id of /dev/sdd1
-   sudo /sbin/blkid
-   sudo vi /etc/auto.direct
-   ```
-   
-   Inserte esta línea en /etc/auto.direct
-   <pre><code>
-   /hana -fstype=xfs :UUID=<b>&lt;UUID&gt;</b>
-   </code></pre>
-   
-   Cree el directorio de destino y monte el disco.
-   
-   <pre><code>
-   sudo mkdir /hana
-   sudo chattr +i /hana
-   sudo service autofs restart
-   </code></pre>
-
-### <a name="installing-sap-hana"></a>Instalación de SAP HANA
-
-Los siguientes pasos se basan en el capítulo 4 de la [Guía del escenario de rendimiento optimizado para la replicación del sistema de SAP HANA][suse-hana-ha-guide] para instalar la replicación del sistema de SAP HANA. Léalo antes de seguir con la instalación.
-
-1. **[A]** Ejecute hdblcm desde el DVD de HANA
-   
-   <pre><code>
-   sudo hdblcm --sid=<b>HDB</b> --number=<b>03</b> --action=install --batch --password=<b>&lt;password&gt;</b> --system_user_password=<b>&lt;password for system user&gt;</b>
-
-   sudo /hana/shared/<b>HDB</b>/hdblcm/hdblcm --action=configure_internal_network --listen_interface=internal --internal_network=<b>10.0.0/24</b> --password=<b>&lt;password for system user&gt;</b> --batch
-   </code></pre>
-
-1. **[A]** Actualice el agente de host de SAP
-
-   Descargue el archivo más reciente del agente de host de SAP desde [SAP Softwarecenter][sap-swcenter] y ejecute el siguiente comando para actualizar el agente. Reemplace la ruta de acceso al archivo para que apunte al archivo que descargó.
-   <pre><code>
-   sudo /usr/sap/hostctrl/exe/saphostexec -upgrade -archive <b>&lt;path to SAP Host Agent SAR&gt;</b> 
-   </code></pre>
-
-1. **[1]** Cree la replicación de HANA (como raíz)  
-
-   Ejecute el siguiente comando. Asegúrese de reemplazar las cadenas en negrita (HDB de Id. de sistema de HANA y número de instancia 03) con los valores de la instalación de SAP HANA.
-   <pre><code>
-   PATH="$PATH:/usr/sap/<b>HDB</b>/HDB<b>03</b>/exe"
-   hdbsql -u system -i <b>03</b> 'CREATE USER <b>hdb</b>hasync PASSWORD "<b>passwd</b>"' 
-   hdbsql -u system -i <b>03</b> 'GRANT DATA ADMIN TO <b>hdb</b>hasync' 
-   hdbsql -u system -i <b>03</b> 'ALTER USER <b>hdb</b>hasync DISABLE PASSWORD LIFETIME' 
-   </code></pre>
-
-1. **[A]** Cree la entrada de almacén de claves (como raíz)
-
-   <pre><code>
-   PATH="$PATH:/usr/sap/<b>HDB</b>/HDB<b>03</b>/exe"
-   hdbuserstore SET <b>hdb</b>haloc localhost:3<b>03</b>15 <b>hdb</b>hasync <b>&lt;passwd&gt;</b>
-   </code></pre>
-
-1. **[1]** Realice la copia de seguridad de la base de datos (como raíz)
-
-   <pre><code>
-   PATH="$PATH:/usr/sap/<b>HDB</b>/HDB<b>03</b>/exe"
-   hdbsql -u system -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackup</b>')" 
-   </code></pre>
-
-1. **[1]** Cambie al usuario sapsid HANA y cree el sitio principal
-
-   <pre><code>
-   su - <b>hdb</b>adm
-   hdbnsutil -sr_enable –-name=<b>SITE1</b>
-   </code></pre>
-
-1. **[2]** Cambie al usuario sapsid HANA y cree el sitio secundario
-
-   <pre><code>
-   su - <b>hdb</b>adm
-   sapcontrol -nr <b>03</b> -function StopWait 600 10
-   hdbnsutil -sr_register --remoteHost=<b>nws-cl-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b> 
-   </code></pre>
-
-1. **[1]** Creación de recursos de clúster de SAP HANA
-
-   Primero, cree la topología.
-   
-   <pre><code>
-   sudo crm configure
-
-   # replace the bold string with your instance number and HANA system ID
-   
-   crm(live)configure# primitive rsc_SAPHanaTopology_<b>HDB</b>_HDB<b>03</b>   ocf:suse:SAPHanaTopology \
-     operations $id="rsc_sap2_<b>HDB</b>_HDB<b>03</b>-operations" \
-     op monitor interval="10" timeout="600" \
-     op start interval="0" timeout="600" \
-     op stop interval="0" timeout="300" \
-     params SID="<b>HDB</b>" InstanceNumber="<b>03</b>"
-    
-   crm(live)configure# clone cln_SAPHanaTopology_<b>HDB</b>_HDB<b>03</b> rsc_SAPHanaTopology_<b>HDB</b>_HDB<b>03</b> \
-     meta is-managed="true" clone-node-max="1" target-role="Started" interleave="true"
-
-   crm(live)configure# commit
-   crm(live)configure# exit
-   </code></pre>
-   
-   A continuación, cree los recursos de HANA.
-   
-   <pre><code>
-   sudo crm configure
-
-   # replace the bold string with your instance number, HANA system ID and the frontend IP address of the Azure load balancer. 
-    
-   crm(live)configure# primitive rsc_SAPHana_<b>HDB</b>_HDB<b>03</b> ocf:suse:SAPHana \
-     operations $id="rsc_sap_<b>HDB</b>_HDB<b>03</b>-operations" \
-     op start interval="0" timeout="3600" \
-     op stop interval="0" timeout="3600" \
-     op promote interval="0" timeout="3600" \
-     op monitor interval="60" role="Master" timeout="700" \
-     op monitor interval="61" role="Slave" timeout="700" \
-     params SID="<b>HDB</b>" InstanceNumber="<b>03</b>" PREFER_SITE_TAKEOVER="true" \
-     DUPLICATE_PRIMARY_TIMEOUT="7200" AUTOMATED_REGISTER="false"
-    
-   crm(live)configure# ms msl_SAPHana_<b>HDB</b>_HDB<b>03</b> rsc_SAPHana_<b>HDB</b>_HDB<b>03</b> \
-     meta is-managed="true" notify="true" clone-max="2" clone-node-max="1" \
-     target-role="Started" interleave="true"
-    
-   crm(live)configure# primitive rsc_ip_<b>HDB</b>_HDB<b>03</b> ocf:heartbeat:IPaddr2 \ 
-     meta target-role="Started" is-managed="true" \ 
-     operations $id="rsc_ip_<b>HDB</b>_HDB<b>03</b>-operations" \ 
-     op monitor interval="10s" timeout="20s" \ 
-     params ip="<b>10.0.0.12</b>" 
-
-   crm(live)configure# primitive rsc_nc_<b>HDB</b>_HDB<b>03</b> anything \ 
-     params binfile="/usr/bin/nc" cmdline_options="-l -k 625<b>03</b>" \ 
-     op monitor timeout=20s interval=10 depth=0 
-
-   crm(live)configure# group g_ip_<b>HDB</b>_HDB<b>03</b> rsc_ip_<b>HDB</b>_HDB<b>03</b> rsc_nc_<b>HDB</b>_HDB<b>03</b>
-    
-   crm(live)configure# colocation col_saphana_ip_<b>HDB</b>_HDB<b>03</b> 2000: g_ip_<b>HDB</b>_HDB<b>03</b>:Started \ 
-     msl_SAPHana_<b>HDB</b>_HDB<b>03</b>:Master  
-
-   crm(live)configure# order ord_SAPHana_<b>HDB</b>_HDB<b>03</b> 2000: cln_SAPHanaTopology_<b>HDB</b>_HDB<b>03</b> \ 
-     msl_SAPHana_<b>HDB</b>_HDB<b>03</b>
-    
-   crm(live)configure# commit
-   crm(live)configure# exit
-   </code></pre>
-
-   Asegúrese de que el estado del clúster sea el correcto y que se iniciaron todos los recursos. No es importante en qué nodo se ejecutan los recursos.
-
-   <pre><code>
-   sudo crm_mon -r
-
-   # <b>Online: [ nws-cl-0 nws-cl-1 ]</b>
-   # 
-   # Full list of resources:
-   # 
-   #  Master/Slave Set: ms-drbd_NWS_ASCS [drbd_NWS_ASCS]
-   #      <b>Masters: [ nws-cl-1 ]</b>
-   #      <b>Slaves: [ nws-cl-0 ]</b>
-   #  Resource Group: g-NWS_ASCS
-   #      nc_NWS_ASCS        (ocf::heartbeat:anything):      <b>Started nws-cl-1</b>
-   #      vip_NWS_ASCS       (ocf::heartbeat:IPaddr2):       <b>Started nws-cl-1</b>
-   #      fs_NWS_ASCS        (ocf::heartbeat:Filesystem):    <b>Started nws-cl-1</b>
-   #      rsc_sap_NWS_ASCS00 (ocf::heartbeat:SAPInstance):   <b>Started nws-cl-1</b>
-   #  Master/Slave Set: ms-drbd_NWS_ERS [drbd_NWS_ERS]
-   #      <b>Masters: [ nws-cl-0 ]</b>
-   #      <b>Slaves: [ nws-cl-1 ]</b>
-   #  Resource Group: g-NWS_ERS
-   #      nc_NWS_ERS (ocf::heartbeat:anything):      <b>Started nws-cl-0</b>
-   #      vip_NWS_ERS        (ocf::heartbeat:IPaddr2):       <b>Started nws-cl-0</b>
-   #      fs_NWS_ERS (ocf::heartbeat:Filesystem):    <b>Started nws-cl-0</b>
-   #      rsc_sap_NWS_ERS02  (ocf::heartbeat:SAPInstance):   <b>Started nws-cl-0</b>
-   #  Clone Set: cln_SAPHanaTopology_HDB_HDB03 [rsc_SAPHanaTopology_HDB_HDB03]
-   #      <b>Started: [ nws-cl-0 nws-cl-1 ]</b>
-   #  Master/Slave Set: msl_SAPHana_HDB_HDB03 [rsc_SAPHana_HDB_HDB03]
-   #      <b>Masters: [ nws-cl-0 ]</b>
-   #      <b>Slaves: [ nws-cl-1 ]</b>
-   #  Resource Group: g_ip_HDB_HDB03
-   #      rsc_ip_HDB_HDB03   (ocf::heartbeat:IPaddr2):       <b>Started nws-cl-0</b>
-   #      rsc_nc_HDB_HDB03   (ocf::heartbeat:anything):      <b>Started nws-cl-0</b>
-   # rsc_st_azure_1  (stonith:fence_azure_arm):      <b>Started nws-cl-0</b>
-   # rsc_st_azure_2  (stonith:fence_azure_arm):      <b>Started nws-cl-1</b>
-   </code></pre>
-
-1. **[1]** Instale la instancia de base de datos de SAP NetWeaver
-
-   Instale la instancia de base de datos de SAP NetWeaver como raíz con un nombre de host virtual que se asigna a la dirección IP de la configuración front-end del equilibrador de carga para la base de datos, por ejemplo, <b>nws-db</b> y <b>10.0.0.12</b>.
-
-   Puede usar el parámetro de sapinst SAPINST_REMOTE_ACCESS_USER para permitir que un usuario no raíz se conecta a sapinst.
-
-   <pre><code>
-   sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
-   </code></pre>
-
-## <a name="sap-netweaver-application-server-installation"></a>Instalación del servidor de aplicaciones de SAP NetWeaver
-
-Siga estos pasos para instalar un servidor de aplicaciones de SAP. En los pasos siguientes se supone que instala el servidor de aplicaciones en un servidor distinto de los servidores ASCS/SCS y HANA. De lo contrario, no se necesitan algunos de los pasos que aparecen a continuación (como configurar la resolución de nombres de host).
-
-1. Configure la resolución de nombres de host    
    Puede usar un servidor DNS o modificar /etc/hosts en todos los nodos. En este ejemplo se muestra cómo utilizar el archivo /etc/hosts.
    Reemplace la dirección IP y el nombre de host en los siguientes comandos
    ```bash
@@ -1560,24 +579,25 @@ Siga estos pasos para instalar un servidor de aplicaciones de SAP. En los pasos 
     
    <pre><code>
    # IP address of the load balancer frontend configuration for NFS
-   <b>10.0.0.4 nws-nfs</b>
+   <b>10.0.0.4 nw1-nfs</b>
    # IP address of the load balancer frontend configuration for SAP NetWeaver ASCS/SCS
-   <b>10.0.0.10 nws-ascs</b>
+   <b>10.0.0.11 nw1-ascs</b>
    # IP address of the load balancer frontend configuration for SAP NetWeaver ERS
-   <b>10.0.0.11 nws-ers</b>
+   <b>10.0.0.12 nw1-aers</b>
    # IP address of the load balancer frontend configuration for database
-   <b>10.0.0.12 nws-db</b>
-   # IP address of the application server
-   <b>10.0.0.8 nws-di-0</b>
+   <b>10.0.0.13 nw1-db</b>
+   # IP address of all application servers
+   <b>10.0.0.8 nw1-di-0</b>
+   <b>10.0.0.7 nw1-di-1</b>
    </code></pre>
 
 1. Cree el directorio sapmnt
 
    <pre><code>
-   sudo mkdir -p /sapmnt/<b>NWS</b>
+   sudo mkdir -p /sapmnt/<b>NW1</b>
    sudo mkdir -p /usr/sap/trans
 
-   sudo chattr +i /sapmnt/<b>NWS</b>
+   sudo chattr +i /sapmnt/<b>NW1</b>
    sudo chattr +i /usr/sap/trans
    </code></pre>
 
@@ -1585,7 +605,7 @@ Siga estos pasos para instalar un servidor de aplicaciones de SAP. En los pasos 
  
    <pre><code>
    sudo vi /etc/auto.master
-
+   
    # Add the following line to the file, save and exit
    +auto.master
    /- /etc/auto.direct
@@ -1595,10 +615,10 @@ Siga estos pasos para instalar un servidor de aplicaciones de SAP. En los pasos 
 
    <pre><code>
    sudo vi /etc/auto.direct
-
+   
    # Add the following lines to the file, save and exit
-   /sapmnt/<b>NWS</b> -nfsvers=4,nosymlink,sync <b>nws-nfs</b>:/sapmntsid
-   /usr/sap/trans -nfsvers=4,nosymlink,sync <b>nws-nfs</b>:/trans
+   /sapmnt/<b>NW1</b> -nfsvers=4,nosymlink,sync <b>nw1-nfs</b>:/<b>NW1</b>/sapmntsid
+   /usr/sap/trans -nfsvers=4,nosymlink,sync <b>nw1-nfs</b>:/<b>NW1</b>/trans
    </code></pre>
 
    Reinicie autofs para montar los recursos compartidos nuevos
@@ -1612,11 +632,11 @@ Siga estos pasos para instalar un servidor de aplicaciones de SAP. En los pasos 
  
    <pre><code>
    sudo vi /etc/waagent.conf
-
+   
    # Set the property ResourceDisk.EnableSwap to y
    # Create and use swapfile on resource disk.
    ResourceDisk.EnableSwap=<b>y</b>
-
+   
    # Set the size of the SWAP file with property ResourceDisk.SwapSizeMB
    # The free space of resource disk varies by virtual machine size. Make sure that you do not set a value that is too big. You can check the SWAP space with command swapon
    # Size of the swapfile.
@@ -1628,6 +648,28 @@ Siga estos pasos para instalar un servidor de aplicaciones de SAP. En los pasos 
    <pre><code>
    sudo service waagent restart
    </code></pre>
+
+## <a name="install-database"></a>Instalar la base de datos
+
+En este ejemplo, SAP NetWeaver se instala en SAP HANA. En esta instalación puede usar todas las bases de datos admitidas. Para más información sobre cómo instalar SAP HANA en Azure, consulte [Alta disponibilidad de SAP HANA en Azure Virtual Machines (VM)][sap-hana-ha]. Para ver una lista de las bases de datos admitidas, consulte la [nota de SAP 1928533][1928533].
+
+1. Ejecute la instalación de la instancia de base de datos de SAP.
+
+   Instale la instancia de base de datos de SAP NetWeaver como raíz con un nombre de host virtual que se asigna a la dirección IP de la configuración de front-end del equilibrador de carga para la base de datos, por ejemplo, <b>nw1-db</b> y <b>10.0.0.13</b>.
+
+   Puede usar el parámetro de sapinst SAPINST_REMOTE_ACCESS_USER para permitir que un usuario no raíz se conecta a sapinst.
+
+   <pre><code>
+   sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
+   </code></pre>
+
+## <a name="sap-netweaver-application-server-installation"></a>Instalación del servidor de aplicaciones de SAP NetWeaver
+
+Siga estos pasos para instalar un servidor de aplicaciones de SAP. 
+
+1. Preparación del servidor de aplicaciones
+
+Siga los pasos descritos en el capítulo [Preparación del servidor de aplicaciones de SAP NetWeaver](high-availability-guide-suse.md#2d6008b0-685d-426c-b59e-6cd281fd45d7) anterior para preparar el servidor de aplicaciones.
 
 1. Instale el servidor de aplicaciones de SAP NetWeaver
 
@@ -1642,9 +684,28 @@ Siga estos pasos para instalar un servidor de aplicaciones de SAP. En los pasos 
 1. Actualice el almacenamiento seguro de SAP HANA
 
    Actualice el almacenamiento seguro de SAP HANA que apunte al nombre virtual de la configuración de la replicación del sistema SAP HANA.
+
+   Ejecute el siguiente comando para mostrar las entradas:
    <pre><code>
-   su - <b>nws</b>adm
-   hdbuserstore SET DEFAULT <b>nws-db</b>:3<b>03</b>15 <b>SAPABAP1</b> <b>&lt;password of ABAP schema&gt;</b>
+   hdbuserstore List
+   </code></pre>
+
+   Se deberían mostrar todas las entradas y deberían ser parecidas a estas:
+   <pre><code>
+   DATA FILE       : /home/nw1adm/.hdb/nw1-di-0/SSFS_HDB.DAT
+   KEY FILE        : /home/nw1adm/.hdb/nw1-di-0/SSFS_HDB.KEY
+   
+   KEY DEFAULT
+     ENV : 10.0.0.14:<b>30313</b>
+     USER: <b>SAPABAP1</b>
+     DATABASE: HN1
+   </code></pre>
+
+   El resultado muestra que la dirección IP de la entrada predeterminada apunta a la máquina virtual y no a la dirección IP del equilibrador de carga. Esta entrada debe modificarse para que apunte al nombre de host virtual del equilibrador de carga. Asegúrese de usar el mismo puerto (**30313** en la salida anterior).
+
+   <pre><code>
+   su - <b>nw1</b>adm
+   hdbuserstore SET DEFAULT <b>nw1-db</b>:<b>30313</b> <b>SAPABAP1</b> <b>&lt;password of ABAP schema&gt;</b>
    </code></pre>
 
 ## <a name="next-steps"></a>Pasos siguientes

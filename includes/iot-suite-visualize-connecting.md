@@ -26,7 +26,7 @@ Para invocar métodos en los dispositivos, use la página **Dispositivos** de la
 
 1. Para mostrar una lista de los métodos se pueden llamar en su dispositivo, elija **Programación**. Para programar un método para ejecutarse en varios dispositivos, puede seleccionar varios en la lista. El panel **Programación** muestra los tipos de método comunes a todos los dispositivos seleccionados.
 
-1. Elija **FirmwareUpdate** y establezca el nombre del trabajo en **UpdatePhysicalChiller**. Establezca la **versión del firmware** en **2.0.0**, establezca el **URI del firmware** en **http://contoso.com/updates/firmware.bin** y luego elija **Aplicar**:
+1. Elija **FirmwareUpdate** y establezca el nombre del trabajo en **UpdatePhysicalChiller**. Configure la **versión de firmware** en **2.0.0**, configure el **URI de firmware** en  **http://contoso.com/updates/firmware.bin** y, a continuación, elija **Aplicar**:
 
     ![Programación de la actualización de firmware](media/iot-suite-visualize-connecting/deviceschedule.png)
 

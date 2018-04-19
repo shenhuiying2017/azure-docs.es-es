@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 6ec202237a0b3fb1b7f0b7158c0aa454b4d65770
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1f2f0819f987bf389ff4b2816ad422fdd8a81f82
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>Estrategias de recuperación ante desastres para aplicaciones que usan grupos elásticos de SQL Database
 A lo largo de los años, hemos aprendido que los servicios en la nube no son infalibles y que los incidentes catastróficos ocurren. SQL Database proporciona una serie de funcionalidades para proporcionar la continuidad del negocio de la aplicación cuando se producen estos incidentes. Los [grupos elásticos](sql-database-elastic-pool.md) y las bases de datos únicas admiten el mismo tipo de funcionalidades de recuperación ante desastres. En este artículo se describen varias estrategias de recuperación ante desastres para grupos elásticos que sacan partido a esas características de continuidad de negocio de SQL Database.
@@ -26,7 +26,7 @@ En este artículo se usa el modelo de aplicaciones de ISV de SaaS canónico sigu
 En este artículo se describen las estrategias de recuperación ante desastres que abarcan una variedad de escenarios que va desde las aplicaciones de inicio sensibles al costo a aquellas con requisitos estrictos de disponibilidad.
 
 > [!NOTE]
-> Si usa grupos y bases de datos premium, puede hacerlos resistentes a las interrupciones regionales mediante su conversión en una configuración de implementación con redundancia de zona (actualmente en versión preliminar). Vea [Alta disponibilidad y Azure SQL Database](sql-database-high-availability.md).
+> Si usa bases de datos y grupos elásticos de nivel Premium o Crítico para la empresa (versión preliminar), puede hacerlos resistentes a las interrupciones regionales mediante su conversión a una configuración de implementación con redundancia de zona (actualmente en versión preliminar). Vea [Alta disponibilidad y Azure SQL Database](sql-database-high-availability.md).
 
 ## <a name="scenario-1-cost-sensitive-startup"></a>Escenario 1. Inicio sensible al costo
 <i>Acabo de crear una empresa y me preocupan sobremanera los costos.  Quiero simplificar la implementación y administración de la aplicación y puedo tener un Acuerdo de Nivel de Servicio limitado para clientes individuales. Sin embargo, quiero garantizar que nunca se quede sin conexión toda la aplicación.</i>
@@ -65,7 +65,7 @@ La principal **ventaja** de esta estrategia es el bajo costo continuo para la re
 ## <a name="scenario-2-mature-application-with-tiered-service"></a>Escenario 2. Aplicación madura con servicio en capas
 <i>Tengo una aplicación de SaaS desarrollada con ofertas de servicio en capas y distintos Acuerdos de Nivel de Servicio para clientes de versiones de prueba y de pago. Para los clientes de versiones de prueba, tengo que reducir el costo tanto como sea posible. Los clientes de versiones de prueba pueden asumir el tiempo de inactividad, pero quiero reducir su probabilidad. Para los clientes de versiones de pago, los tiempos de inactividad es un riesgo de vuelo. Por tanto, quiero asegurarme de que los clientes con versiones de pago siempre tengan acceso a sus datos.</i> 
 
-Para admitir este escenario, separe los inquilinos de versiones de prueba de los inquilinos de versiones de pago, colocándolos en grupos elásticos independientes. Los clientes de versiones de prueba tienen un eDTU menor por inquilino y un contrato de nivel de servicio menor con un tiempo de recuperación mayor. Los clientes de versiones de pago se encuentran en un grupo con mayor eDTU por inquilino y un contrato de nivel de servicio superior. Para garantizar el menor tiempo de recuperación, las bases de datos de inquilino de los clientes de versiones de pago deben replicarse geográficamente. En el siguiente diagrama se ilustra esta configuración. 
+Para admitir este escenario, separe los inquilinos de versiones de prueba de los inquilinos de versiones de pago, colocándolos en grupos elásticos independientes. Los clientes de versiones de prueba tienen menos eDTU o núcleos virtuales por inquilino y un Acuerdo de Nivel de Servicio menor con un tiempo de recuperación mayor. Los clientes de versiones de pago se encuentran en un grupo con más eDTU o núcleos virtuales por inquilino y un Acuerdo de Nivel de Servicio superior. Para garantizar el menor tiempo de recuperación, las bases de datos de inquilino de los clientes de versiones de pago deben replicarse geográficamente. En el siguiente diagrama se ilustra esta configuración. 
 
 ![Ilustración 4](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-4.png)
 
@@ -80,7 +80,7 @@ En el caso de una interrupción en la región principal, en el diagrama siguient
 * Realice inmediatamente una conmutación por error en las bases de datos de administración en la región de recuperación ante desastres (3).
 * Cambie la cadena de conexión de la aplicación para que apunte a la región de recuperación ante desastres. Ahora todas las cuentas nuevas y las bases de datos de inquilino se crean en la región de recuperación ante desastres. Los clientes de versiones de prueba existentes verán que sus datos no están disponibles temporalmente.
 * Realice una conmutación por error en las bases de datos de inquilino de versiones de pago, en el grupo de la región de recuperación ante desastres, para restaurar inmediatamente su disponibilidad (4). Dado que la conmutación por error es un rápido cambio de nivel de metadatos, se puede considerar una optimización cuando se desencadenan las conmutaciones por error individuales a petición de las conexiones del usuario final. 
-* Si el tamaño de eDTU del grupo secundario era menor que el principal porque las bases de datos secundarias solo requieren la capacidad para procesar los registros de cambio mientras eran secundarias, aumente inmediatamente la capacidad del bloque para acomodar la carga de trabajo completa de todos los inquilinos (5). 
+* Si el tamaño de eDTU o el valor de núcleo virtual del grupo secundario eran menores que en el principal porque las bases de datos secundarias solo requerían la capacidad para procesar los registros de cambio mientras eran secundarias, aumente inmediatamente la capacidad del grupo para acomodar la carga de trabajo completa de todos los inquilinos (5). 
 * Cree el nuevo grupo elástico con el mismo nombre y la misma configuración en la región de recuperación ante desastres para bases de datos de los clientes de versiones de prueba (6). 
 * Una vez creado el grupo de clientes de versiones de prueba, puede usar la restauración geográfica para restaurar las bases de datos de inquilino de versiones de prueba individuales en el nuevo grupo (7). Considere desencadenar las restauraciones individuales por las conexiones de los usuarios finales o utilizar algún otro esquema de prioridad específica de la aplicación.
 
@@ -108,7 +108,7 @@ La principal **ventaja** de esta estrategia es que proporciona el Acuerdo de Niv
 ## <a name="scenario-3-geographically-distributed-application-with-tiered-service"></a>Escenario 3. Aplicación distribuida geográficamente con servicio en capas
 <i>Tengo una aplicación de SaaS desarrollada con ofertas de servicio en capas. Deseo ofrecer un contrato de nivel de servicio muy agresivo a mis clientes de versiones de pago y minimizar el riesgo de impacto cuando se produzcan interrupciones, porque incluso una breve interrupción puede causar la insatisfacción del cliente. Es fundamental que los clientes de versiones de pago siempre puedan acceder a sus datos. Las versiones de prueba son gratuitas y no se ofrece ningún Acuerdo de Nivel de Servicio durante el periodo de prueba. </i> 
 
-Para este escenario, use tres grupos elásticos independientes. Aprovisione dos grupos de igual tamaño con elevados eDTU por base de datos en dos regiones diferentes para contener las bases de datos de inquilino de clientes de versiones de pago. El tercer grupo que contiene a los inquilinos de versiones de prueba tendría menores eDTU por base de datos y se puede aprovisionar en una de las dos regiones.
+Para este escenario, use tres grupos elásticos independientes. Aprovisione dos grupos de igual tamaño con un número mayor de eDTU o núcleos virtuales por base de datos en dos regiones diferentes para que contengan las bases de datos de inquilino de los clientes de versiones de pago. El tercer grupo que contiene los inquilinos de versiones de evaluación puede tener menos eDTU o núcleos virtuales por base de datos y se aprovisionará en una de las dos regiones.
 
 Para garantizar el menor tiempo de recuperación durante las interrupciones en las bases de datos de inquilino de los clientes de versiones de pago, deben replicarse geográficamente con el 50 % de las bases de datos principales en cada una de las dos regiones. De forma similar, cada región tiene el 50 % de las bases de datos secundarias. De este modo si una región está sin conexión, solo el 50 % de las bases de datos de los clientes de versiones de pago se ven afectados y tienen que realizar la conmutación por error. Las otras bases de datos permanecen intactas. Esta configuración se ilustra en el diagrama siguiente:
 
@@ -125,7 +125,7 @@ El siguiente diagrama ilustra los pasos de recuperación que hay que llevar a ca
 * Realice inmediatamente una conmutación por error en las bases de datos de administración en la región B (3).
 * Cambie la cadena de conexión de la aplicación para que señale a las bases de datos de administración de la región B. Modifique las bases de datos de administración para asegurarse de que las nuevas cuentas y bases de datos de inquilino se crearán en la región B y que las bases de datos de inquilino existentes se encontrarán allí también. Los clientes de versiones de prueba existentes verán que sus datos no están disponibles temporalmente.
 * Realice una conmutación por error en las bases de datos de inquilino de versiones de pago en el grupo 2 de la región B, para restaurar inmediatamente su disponibilidad (4). Dado que la conmutación por error es un rápido cambio de nivel de metadatos, se puede considerar una optimización cuando se desencadenan las conmutaciones por error individuales a petición de las conexiones del usuario final. 
-* Como ahora el grupo 2 contiene solo bases de datos principales, aumenta la carga de trabajo total del grupo, por lo que puede aumentar de inmediato su tamaño de eDTU (5). 
+* Como ahora el grupo 2 contiene solo bases de datos principales, aumenta la carga de trabajo total del grupo, por lo que puede aumentar de inmediato su tamaño de eDTU (5) o número de núcleos virtuales. 
 * Cree el nuevo grupo elástico con el mismo nombre y la misma configuración en la región B para bases de datos de los clientes de versiones de prueba (6). 
 * Una vez creado el grupo, puede usar la restauración geográfica para restaurar las bases de datos de inquilino de versiones de prueba individuales en el grupo (7). Considere desencadenar las restauraciones individuales por las conexiones de los usuarios finales o utilizar algún otro esquema de prioridad específica de la aplicación.
 
@@ -142,7 +142,7 @@ Cuando se recupera la región A, debe decidir si quiere usar la región B para c
 * Cancele todas las solicitudes de restauración geográfica pendientes en el grupo de recuperación ante desastres de versiones de prueba.   
 * Realice una conmutación por error en la base de datos de administración (8). Después de la recuperación de la región, la región primaria anterior se convierte automáticamente en secundaria. Ahora vuelve a convertir en principal.  
 * Seleccione qué bases de datos de inquilino de versiones de pago producen una conmutación por recuperación en el grupo 1 e inicie la conmutación por error en sus secundarias (9). Después de la recuperación de la región, todas las bases de datos del grupo 1 se convertirán automáticamente en secundarias. Ahora el 50 % volverán a ser principales. 
-* Reduzca el tamaño del grupo 2 a la eDTU original (10).
+* Reduzca el tamaño del grupo 2 a la cantidad original de eDTU (10) o núcleos virtuales.
 * Establezca todas las bases de datos de versiones de prueba restauradas de la región B en solo lectura (11).
 * Para las bases de datos del grupo de recuperación ante desastres de versiones de prueba que hayan cambiado desde la recuperación, cambie el nombre o elimine las bases de datos correspondientes del grupo principal (12). 
 * Copie las bases de datos actualizadas desde el grupo de recuperación ante desastres al grupo principal (13). 

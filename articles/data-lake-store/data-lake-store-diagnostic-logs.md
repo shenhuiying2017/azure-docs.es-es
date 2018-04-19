@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 5f1fa378c8eea68181d4596700238d03f360c5d0
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a5cdc67a138e2316c2e87a72371a6df527cc36ac
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-store"></a>Acceso a los registros de diagnóstico de Azure Data Lake Store
 Sepa cómo habilitar el registro de diagnósticos en su cuenta de Data Lake Store y cómo ver los registros recopilados relativos a su cuenta.
@@ -47,7 +47,7 @@ Las organizaciones pueden habilitar el registro de diagnósticos en sus cuentas 
         
         * Seleccione la opción **Stream to an event hub** (Transmitir a un centro de eventos) para transmitir los datos de registro a una instancia de Azure Event Hubs. Lo más probable es que use esta opción si tiene una canalización de procesamiento de bajada para analizar los registros entrantes en tiempo real. Si selecciona esta opción, debe proporcionar los detalles del Centro de eventos de Azure que quiera usar.
 
-        * Seleccione la opción de **Send to Log Analytics** (Enviar a Log Analytics) para usar el servicio Azure Log Analytics para analizar los datos de registro generados. Si selecciona esta opción, debe proporcionar los detalles para el área de trabajo de Operations Management Suite que usaría para realizar análisis de registros. Consulte [Visualización o análisis de los datos recopilados con la búsqueda de registros de Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) para más información sobre el uso de Log Analytics.
+        * Seleccione la opción de **Send to Log Analytics** (Enviar a Log Analytics) para usar el servicio Azure Log Analytics para analizar los datos de registro generados. Si selecciona esta opción, debe proporcionar los detalles del área de trabajo de Log Analytics que usaría para realizar análisis de registros. Consulte [Visualización o análisis de los datos recopilados con la búsqueda de registros de Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) para más información sobre el uso de Log Analytics.
      
    * Indique si quiere obtener los registros de auditoría, los registros de solicitudes o ambos.
    * Especifique el número de días durante los que deben conservarse los datos. La retención solo es aplicable si está utilizando la cuenta de Azure Storage para archivar datos de registro.

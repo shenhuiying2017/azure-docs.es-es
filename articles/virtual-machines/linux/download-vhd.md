@@ -2,12 +2,12 @@
 title: Descarga de un VHD de Linux desde Azure | Microsoft Docs
 description: Descarga de un VHD de Linux mediante la CLI de Azure y Azure Portal.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: davidmu1
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2017
 ms.author: davidmu
-ms.openlocfilehash: 20af28dd4caa6ee5487b9a2ed83715b9b16fad48
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: d177e8de7ace571c57a0b8b39c8834fb5b115365
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>Descarga de un VHD de Linux desde Azure
 
@@ -35,10 +35,10 @@ No se puede descargar un VHD desde Azure si está conectado a una máquina virtu
 
 Para usar el VHD como imagen para crear otras máquinas virtuales, siga estos pasos:
 
-1. Use SSH, el nombre de la cuenta y la dirección IP pública de la máquina virtual para conectarse a ella y desaprovisionarla. El parámetro +user también quita la última cuenta de usuario aprovisionada. Si está creando credenciales de cuenta en la máquina virtual, ignore este parámetro +user. En el ejemplo siguiente se quita la última cuenta de usuario aprovisionada:
+1. Use SSH, el nombre de la cuenta y la dirección IP pública de la máquina virtual para conectarse a ella y desaprovisionarla. Puede encontrar la dirección IP pública con [az network public-ip show](https://docs.microsoft.com/en-us/cli/azure/network/public-ip#az-network-public-ip-show). El parámetro +user también quita la última cuenta de usuario aprovisionada. Si está creando credenciales de cuenta en la máquina virtual, ignore este parámetro +user. En el ejemplo siguiente se quita la última cuenta de usuario aprovisionada:
 
     ```bash
-    ssh azureuser@40.118.249.235
+    ssh azureuser@<publicIpAddress>
     sudo waagent -deprovision+user -force
     exit 
     ```

@@ -1,8 +1,8 @@
 ---
-title: "Restricción del acceso mediante firmas de acceso compartido - Azure HDInsight | Microsoft Docs"
-description: "Obtener información acerca de cómo usar firmas de acceso compartido para restringir el acceso de HDInsight a datos almacenados en blobs de Almacenamiento de Azure."
+title: Restricción del acceso mediante firmas de acceso compartido - Azure HDInsight | Microsoft Docs
+description: Obtener información acerca de cómo usar firmas de acceso compartido para restringir el acceso de HDInsight a datos almacenados en blobs de Almacenamiento de Azure.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: cgronlun
 editor: cgronlun
@@ -16,10 +16,10 @@ ms.workload: big-data
 ms.date: 01/25/2018
 ms.author: larryfr
 ms.openlocfilehash: d3e37ba0f590cf0572b84a53bdd407af63a19d36
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Uso de firmas de acceso compartido de Azure Storage para restringir el acceso a datos en HDInsight
 
@@ -196,7 +196,7 @@ Este script tarda un tiempo en completarse, normalmente unos 15 minutos. Una vez
 
 Si tiene un clúster existente basado en Linux, puede agregar las SAS para la configuración **core-site** mediante los pasos siguientes:
 
-1. Abra la interfaz de usuario web Ambari del clúster. La dirección de esta página es https://NOMBREDESUCLÚSTER.azurehdinsight.net. Cuando se le solicite, autentíquese en el clúster con el nombre de administrador (admin) y la contraseña que usó al crear el clúster.
+1. Abra la interfaz de usuario web Ambari del clúster. La dirección de esta página es https://YOURCLUSTERNAME.azurehdinsight.net. Cuando se le solicite, autentíquese en el clúster con el nombre de administrador (admin) y la contraseña que usó al crear el clúster.
 
 2. En el lado izquierdo de la interfaz de usuario web Ambari, seleccione **HDFS** y, a continuación, seleccione la pestaña **Configs** (Configuraciones) en el centro de la página.
 

@@ -1,11 +1,11 @@
 ---
-title: "Creación de una máquina virtual Linux en Azure con varias NIC | Microsoft Docs"
-description: "Aprenda a crear una máquina virtual Linux con varias NIC conectadas a ella mediante la CLI de Azure 2.0 o las plantillas de Resource Manager."
+title: Creación de una máquina virtual Linux en Azure con varias NIC | Microsoft Docs
+description: Aprenda a crear una máquina virtual Linux con varias NIC conectadas a ella mediante la CLI de Azure 2.0 o las plantillas de Resource Manager.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 5d2d04d0-fc62-45fa-88b1-61808a2bc691
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: iainfou
-ms.openlocfilehash: 635d1373a51f2f2e4d4f7ab5053e520f5b9363a6
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: d981ffc9a0053ed8bf2d49f386f7c1c82d50c907
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Cómo crear una máquina virtual Linux en Azure con red varias tarjetas de interfaz de red
 Puede crear una máquina virtual (VM) en Azure que tenga asociadas varias interfaces de red virtual (NIC). Un escenario común es tener distintas subredes para la conectividad front-end y back-end o una red dedicada a una solución de supervisión o copia de seguridad. En este artículo describe cómo crear una máquina virtual con varias NIC asociadas a ella y cómo agregar o quitar las NIC de una máquina virtual existente. Diferentes [tamaños de máquina virtual](sizes.md) admiten un número distinto de NIC, así que ajuste el tamaño de su máquina virtual teniendo esto en cuenta.
@@ -100,6 +100,8 @@ az vm create \
     --nics myNic1 myNic2
 ```
 
+Agregue tablas de enrutamiento al sistema operativo invitado completando los pasos descritos en [Cómo crear una máquina virtual Linux en Azure con red varias tarjetas de interfaz de red](#configure-guest-os-for- multiple-nics).
+
 ## <a name="add-a-nic-to-a-vm"></a>Adición de una NIC a una máquina virtual
 Los pasos anteriores crean una máquina virtual con varias NIC. También puede agregar varias NIC a una máquina virtual existente con la versión 2.0 de la CLI de Azure. Diferentes [tamaños de máquina virtual](sizes.md) admiten un número distinto de NIC, así que ajuste el tamaño de su máquina virtual teniendo esto en cuenta. Si es necesario, puede [cambiar el tamaño de una máquina virtual](change-vm-size.md).
 
@@ -135,6 +137,8 @@ Inicie la máquina virtual con [az vm start](/cli/azure/vm#az_vm_start):
 ```azurecli
 az vm start --resource-group myResourceGroup --name myVM
 ```
+
+Agregue tablas de enrutamiento al sistema operativo invitado completando los pasos descritos en [Cómo crear una máquina virtual Linux en Azure con red varias tarjetas de interfaz de red](#configure-guest-os-for- multiple-nics).
 
 ## <a name="remove-a-nic-from-a-vm"></a>Eliminación de una NIC de una máquina virtual
 Para quitar una NIC de una máquina virtual existente, en primer lugar desasigne la máquina virtual con [az vm deallocate](/cli/azure/vm#az_vm_deallocate). En el ejemplo siguiente se desasigna la máquina virtual denominada *myVM*:
@@ -179,6 +183,7 @@ También puede utilizar `copyIndex()` para anexar un número a un nombre de recu
 
 Puede leer un ejemplo completo de [cómo crear varias NIC con plantillas de Resource Manager](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
 
+Agregue tablas de enrutamiento al sistema operativo invitado completando los pasos descritos en [Cómo crear una máquina virtual Linux en Azure con red varias tarjetas de interfaz de red](#configure-guest-os-for- multiple-nics).
 
 ## <a name="configure-guest-os-for-multiple-nics"></a>Configuración del sistema operativo invitado para varias NIC
 Al agregar varios NIC a una máquina virtual de Linux, debe crear reglas de enrutamiento. Estas reglas permiten a la máquina virtual enviar y recibir tráfico que pertenece a una NIC específica. En caso contrario, el tráfico que pertenece a *eth1* no se puede procesar correctamente debido a la ruta predeterminada definida.
@@ -190,7 +195,7 @@ echo "200 eth0-rt" >> /etc/iproute2/rt_tables
 echo "201 eth1-rt" >> /etc/iproute2/rt_tables
 ```
 
-Para hacer que el cambio sea persistente y se aplique durante la activación de la pila de red, es necesario modificar los archivos */etc/sysconfig/network-scipts/ifcfg-eth0* y */etc/sysconfig/network-scipts/ifcfg-eth1*. Cambie la línea *"NM_CONTROLLED = yes"* por *"NM_CONTROLLED = no"*. Sin este paso, las reglas o rutas adicionales no se aplicarán automáticamente.
+Para hacer que el cambio sea persistente y se aplique durante la activación de la pila de red, es necesario modificar los archivos */etc/sysconfig/network-srcipts/ifcfg-eth0* y */etc/sysconfig/network-scripts/ifcfg-eth1*. Cambie la línea *"NM_CONTROLLED = yes"* por *"NM_CONTROLLED = no"*. Sin este paso, las reglas o rutas adicionales no se aplicarán automáticamente.
  
 El siguiente paso es extender las tablas de enrutamiento. Supongamos que tenemos la siguiente configuración:
 

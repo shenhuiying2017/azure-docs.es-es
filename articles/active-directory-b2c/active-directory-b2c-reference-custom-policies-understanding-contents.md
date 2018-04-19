@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: davidmu
-ms.openlocfilehash: 624a40b1e40db6ceac9c567926b3932449e7bf7e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 12f63bc42f8450f086ed9f0e8d598c9c91a0c3d4
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="understanding-the-custom-policies-of-the-azure-ad-b2c-custom-policy-starter-pack"></a>Descripción de las directivas personalizadas del paquete del inicio de directivas personalizadas de Azure AD B2C
 
@@ -39,7 +39,7 @@ Estos esquemas de notificaciones se dividen en tres secciones:
 3.  Y, finalmente, una tercera sección que muestra las notificaciones adicionales opcionales que pueden recopilarse del usuario, almacenarse en el directorio y enviarse en tokens durante el inicio de sesión. En esta sección se pueden agregar los nuevos tipos de notificaciones que se recopilan del usuario o se envían en el token.
 
 > [!IMPORTANT]
-> El esquema de notificaciones contiene restricciones sobre ciertas notificaciones, como contraseñas y nombres de usuario. La directiva del marco de confianza (TF) trata a Azure AD como cualquier otro proveedor de notificaciones y todas sus restricciones se modelan en la directiva premium. Una directiva se podría modificar para agregar más restricciones o usar otro proveedor de notificaciones para el almacenamiento de credenciales que tenga sus propias restricciones.
+> El esquema de notificaciones contiene restricciones sobre ciertas notificaciones, como contraseñas y nombres de usuario. La directiva del marco de confianza (TF) trata a Azure AD como cualquier otro proveedor de notificaciones y todas sus restricciones se modelan en la directiva personalizada. Una directiva se podría modificar para agregar más restricciones o usar otro proveedor de notificaciones para el almacenamiento de credenciales que tenga sus propias restricciones.
 
 A continuación se enumeran los tipos de notificaciones disponibles.
 
@@ -51,12 +51,12 @@ Las siguientes notificaciones son necesarias para que los recorridos de usuario 
 |-------------|-------------|
 | *UserId* | Nombre de usuario |
 | *signInName* | Nombre de inicio de sesión |
-| *tenantId* | Identificador de objeto (id.) del objeto de usuario en Azure AD B2C Premium. |
-| *objectId* | Identificador de objeto (id.) del objeto de usuario en Azure AD B2C Premium. |
+| *tenantId* | Identificador de inquilino (id.) del objeto de usuario en Azure AD B2C |
+| *objectId* | Identificador de objeto (id.) del objeto de usuario en Azure AD B2C |
 | *password* | Password |
 | *newPassword* | |
 | *reenterPassword* | |
-| *passwordPolicies* | Directivas de contraseña usadas por Azure AD B2C Premium para determinar la seguridad de la contraseña, su caducidad, etc. |
+| *passwordPolicies* | Directivas de contraseña usadas por Azure AD B2C para determinar la seguridad de la contraseña, su caducidad, etc. |
 | *sub* | |
 | *alternativeSecurityId* | |
 | *identityProvider* | |
@@ -66,9 +66,9 @@ Las siguientes notificaciones son necesarias para que los recorridos de usuario 
 | *email* | Dirección de correo electrónico que puede usarse para ponerse en contacto con el usuario. |
 | *signInNamesInfo.emailAddress* | Dirección de correo electrónico que el usuario puede usar para iniciar sesión. |
 | *otherMails* | Direcciones de correo electrónico que pueden usarse para ponerse en contacto con el usuario. |
-| *userPrincipalName* | Nombre de usuario tal como se almacena en Azure AD B2C Premium. |
+| *userPrincipalName* | Nombre de usuario tal como se almacena en Azure AD B2C |
 | *upnUserName* | Nombre de usuario para la creación del nombre principal de usuario. |
-| *mailNickName* | Nombre de alias de correo electrónico del usuario tal como se almacena en Azure AD B2C Premium |
+| *mailNickName* | Nombre de alias de correo electrónico del usuario tal como se almacena en Azure AD B2C |
 | *newUser* | |
 | *executed-SelfAsserted-Input* | Notificación que especifica si se recopilaron atributos del usuario. |
 | *executed-PhoneFactor-Input* | Notificación que especifica si se recopiló un nuevo número de teléfono del usuario. |

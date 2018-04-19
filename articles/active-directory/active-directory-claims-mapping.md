@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: billmath
-ms.openlocfilehash: b0dae074734b13046fb0d90e178e05f81399b5c6
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: e35a33cbe77d9d29b975ede8535abbded2cde4c3
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="claims-mapping-in-azure-active-directory-public-preview"></a>Asignación de notificaciones en Azure Active Directory (versión preliminar pública)
 
@@ -234,7 +234,7 @@ Las notificaciones restringidas no se pueden modificar mediante una directiva. N
 |http://schemas.microsoft.com/identity/claims/scope|
 
 ## <a name="claims-mapping-policy-properties"></a>Propiedades de la directiva de asignación de notificaciones
-Use las propiedades de una directiva de asignación de notificaciones para controlar las notificaciones que se emiten y de dónde se originan los datos. Si no se establece ninguna directiva, el sistema emite los tokens que contienen el conjunto de notificaciones principales, el conjunto de notificaciones básicas y las notificaciones opcionales que la aplicación ha elegido recibir.
+Use las propiedades de una directiva de asignación de notificaciones para controlar las notificaciones que se emiten y de dónde se originan los datos. Si no se establece ninguna directiva, el sistema emite los tokens que contienen el conjunto de notificaciones principales, el conjunto de notificaciones básicas y las [notificaciones opcionales](develop/active-directory-optional-claims.md) que la aplicación ha elegido recibir.
 
 ### <a name="include-basic-claim-set"></a>Inclusión del conjunto de notificaciones básicas
 

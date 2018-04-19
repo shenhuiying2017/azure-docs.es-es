@@ -1,11 +1,11 @@
 ---
-title: "Uso de claves SSH con Windows para máquinas virtuales Linux | Microsoft Docs"
-description: "Obtenga información acerca de cómo generar y utilizar claves SSH en un equipo de Windows para conectarse a una máquina virtual con Linux en Azure."
+title: Uso de claves SSH con Windows para máquinas virtuales Linux | Microsoft Docs
+description: Obtenga información acerca de cómo generar y utilizar claves SSH en un equipo de Windows para conectarse a una máquina virtual con Linux en Azure.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 2cacda3b-7949-4036-bd5d-837e8b09a9c8
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2017
 ms.author: danlep
-ms.openlocfilehash: 66837a3a153cda041f5351c52c8ccb1f8ccfea50
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: fcc2365c3b41fb69492aa68bf7c48c2d3b8ee5f3
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Uso de SSH con Windows en Azure
 > [!div class="op_single_selector"]
@@ -137,7 +137,7 @@ En el ejemplo siguiente se crea una clave privada adicional específica para que
     ```bash
     chmod 0600 myPrivateKey_rsa
     ```
-2. Descargue y ejecute PuTTYgen desde la siguiente ubicación: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
+2. Descargue y ejecute PuTTYgen de la ubicación siguiente: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 3. Haga clic en el menú: **File** > **Load a Private Key** (Archivo > Cargar clave privada).
 4. Busque la clave privada (`myPrivateKey_rsa` en el ejemplo anterior). El directorio predeterminado al iniciar **Git Bash** es `C:\Users\%username%`. Deberá cambiar el filtro de archivos para mostrar **Todos los archivos (\*:\*)**:
 
@@ -168,7 +168,7 @@ En el ejemplo siguiente se crea una clave privada adicional específica para que
 ## <a name="use-putty-to-ssh-to-a-linux-machine"></a>Uso de Putty para usar un cliente SSH en una máquina virtual Linux
 PuTTY es un cliente SSH común para Windows. Puede utilizar cualquier cliente SSH que desee. En los siguientes pasos se explica cómo usar una clave privada para autenticarse en una máquina virtual de Azure mediante SSH. Dichos pasos son similares en otros clientes con claves SSH, en lo que se refiere a la necesidad de cargar una clave privada para autenticar la conexión SSH.
 
-1. Descargue y ejecute putty desde la siguiente ubicación: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
+1. Descargue y ejecute putty de la ubicación siguiente: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 2. Rellene el nombre de host o la dirección IP de la máquina virtual en Azure Portal:
 
     ![Abrir conexión nueva de PuTTY](./media/ssh-from-windows/putty-new-connection.png)

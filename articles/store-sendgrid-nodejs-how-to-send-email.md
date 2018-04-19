@@ -1,11 +1,11 @@
 ---
-title: "Uso del servicio de correo electrónico SendGrid (Node.js) | Microsoft Docs"
-description: "Obtenga información acerca de cómo enviar correo electrónico con el servicio de correo electrónico SendGrid en Azure. Ejemplos de código escritos con la API de Node.js."
-services: 
+title: Uso del servicio de correo electrónico SendGrid (Node.js) | Microsoft Docs
+description: Obtenga información acerca de cómo enviar correo electrónico con el servicio de correo electrónico SendGrid en Azure. Ejemplos de código escritos con la API de Node.js.
+services: ''
 documentationcenter: nodejs
 author: erikre
 manager: wpickett
-editor: 
+editor: ''
 ms.assetid: cac444b4-26b0-45ea-9c3d-eca28d57dacb
 ms.service: multiple
 ms.workload: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/05/2016
 ms.author: erikre
 ms.openlocfilehash: 327cea3a24cc47a9cc463b37cc2346ebc475ef7f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-send-email-using-sendgrid-from-nodejs"></a>Envío de correo electrónico con SendGrid desde Node.js
 Esta guía describe cómo realizar tareas comunes de programación con el servicio de correo electrónico SendGrid en Azure. Los ejemplos están escritos usando la API Node.js. Entre los escenarios descritos se incluyen **creación de correo electrónico**, **envío de correo electrónico**, **incorporación de archivos adjuntos**, **uso de filtros** y **actualización de propiedades**. Para obtener más información sobre SendGrid y el envío de correo electrónico, consulte la sección [Pasos siguientes](#next-steps) .
@@ -33,7 +33,7 @@ SendGrid es un [servicio de correo electrónico basado en la nube] que ofrece un
 * Reenvío de consultas de los clientes
 * Envío de notificaciones de correo electrónico desde su aplicación
 
-Para obtener más información, consulte [https://sendgrid.com](https://sendgrid.com).
+Para más información, consulte [https://sendgrid.com](https://sendgrid.com).
 
 ## <a name="create-a-sendgrid-account"></a>Creación de una cuenta de SendGrid
 [!INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
@@ -60,7 +60,7 @@ La creación de un mensaje de correo electrónico mediante el módulo SendGrid c
         text: 'This is a sample email message.'
     });
 
-También es posible especificar un mensaje de HTML para clientes que lo admitan mediante la configuración de la propiedad html. Por ejemplo:
+También es posible especificar un mensaje de HTML para clientes que lo admitan mediante la configuración de la propiedad html. Por ejemplo: 
 
     html: This is a sample <b>HTML<b> email message.
 
@@ -78,7 +78,7 @@ Después de crear un mensaje de correo electrónico mediante la función Email, 
     });
 
 > [!NOTE]
-> Mientras que los ejemplos anteriores muestran la transferencia de un objeto de correo electrónico y la función de devolución de llamada, también es posible invocar la función de envío mediante la especificación directa de las propiedades del correo electrónico. Por ejemplo:  
+> Mientras que los ejemplos anteriores muestran la transferencia de un objeto de correo electrónico y la función de devolución de llamada, también es posible invocar la función de envío mediante la especificación directa de las propiedades del correo electrónico. Por ejemplo:   
 > 
 > `````
 > sendgrid.send({
@@ -161,7 +161,7 @@ Los siguientes ejemplos demuestran el uso de los filtros de pie de página y seg
     sendgrid.send(email);
 
 ## <a name="how-to-update-email-properties"></a>Actualización de las propiedades del correo electrónico
-Es posible sobrescribir algunas propiedades de correo electrónico con **set*Property* *** o anexarlas con *add*Property***. Por ejemplo, puede agregar destinatarios adicionales mediante
+Es posible sobrescribir algunas propiedades de correo electrónico con **set*Property*** o anexarlas con **add*Property***. Por ejemplo, puede agregar destinatarios adicionales mediante
 
     email.addTo('jeff@contoso.com');
 

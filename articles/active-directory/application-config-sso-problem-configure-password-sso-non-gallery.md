@@ -1,11 +1,11 @@
 ---
-title: "Problema en la configuración del inicio de sesión único con contraseña para una aplicación ajena a la galería | Microsoft Docs"
-description: "Comprender los problemas más comunes a los que se enfrentan los usuarios al configurar un inicio de sesión único con contraseña para las aplicaciones ajenas a la galería que no figuran en la Galería de aplicaciones de Azure AD"
+title: Problema en la configuración del inicio de sesión único con contraseña para una aplicación ajena a la galería | Microsoft Docs
+description: Comprender los problemas más comunes a los que se enfrentan los usuarios al configurar un inicio de sesión único con contraseña para las aplicaciones ajenas a la galería que no figuran en la Galería de aplicaciones de Azure AD
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: e5c8562b89b70236d9d65a5f8765ae386d6831b4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="problem-configuring-password-single-sign-on-for-a-non-gallery-application"></a>Problema en la configuración del inicio de sesión único con contraseña para una aplicación ajena a la galería
 
@@ -249,7 +249,7 @@ A continuación se explica más en profundidad lo que significa cada uno de los 
 
 -   **Detalles**: la descripción detallada de lo que se produjo como resultado de la operación
 
-    -   Por ejemplo: **la dirección url interna 'http://bing.com/' no es válida puesto que ya está en uso**
+    -   Por ejemplo: **la dirección url interna "**" no es válida puesto que ya está en usohttp://bing.com/
 
 -   **Copiar error**: haga clic en el **icono de copia** situado a la derecha del cuadro de texto **Copiar error** para copiar todos los detalles de la notificación para compartirlos con un ingeniero de soporte técnico o un grupo de producto
 

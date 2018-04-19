@@ -2,19 +2,20 @@
 title: Copias de seguridad automáticas con redundancia geográfica de Azure SQL Database | Microsoft Docs
 description: SQL Database crea automáticamente una copia de seguridad local de la base de datos cada pocos minutos y usa almacenamiento con redundancia geográfica con acceso de lectura de Azure para proporcionar redundancia geográfica.
 services: sql-database
-author: CarlRabeler
-manager: jhubbard
+author: anosov1960
+manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
 ms.workload: Active
-ms.date: 07/05/2017
-ms.author: carlrab
-ms.openlocfilehash: 053dd680af020aa05bc071c49f0f47ebe6a8f0da
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.date: 04/04/2018
+ms.author: sashan
+ms.reviewer: carlrab
+ms.openlocfilehash: ab1793621950fd57d3f0be545772d85b32f5d7b8
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>Más información sobre copias de seguridad automáticas de SQL Database
 
@@ -22,7 +23,7 @@ SQL Database crea automáticamente copias de seguridad de la base de datos y usa
 
 ## <a name="what-is-a-sql-database-backup"></a>¿Qué es una copia de seguridad de SQL Database?
 
-SQL Database emplea tecnología de SQL Server para crear copias de seguridad [completas](https://msdn.microsoft.com/library/ms186289.aspx), [diferenciales](https://msdn.microsoft.com/library/ms175526.aspx) y del [registro de transacciones](https://msdn.microsoft.com/library/ms191429.aspx). Por lo general, las copias de seguridad del registro de transacciones se producen cada 5-10 minutos, y la frecuencia depende del nivel de rendimiento y de la cantidad de actividad de la base de datos. Las copias del registro de transacciones, junto con las completas y diferenciales, permiten restaurar una base de datos a un momento específico en el mismo servidor que hospede la base de datos. Cuando se restaura una base de datos, el servicio calcula qué copia de seguridad completa, diferencial o del registro de transacciones es necesario restaurar.
+SQL Database emplea tecnología de SQL Server para crear copias de seguridad [completas](https://msdn.microsoft.com/library/ms186289.aspx), [diferenciales](https://msdn.microsoft.com/library/ms175526.aspx) y de [registro de transacciones](https://msdn.microsoft.com/library/ms191429.aspx) para la restauración a un momento dado. Por lo general, las copias de seguridad del registro de transacciones se producen cada 5-10 minutos, y la frecuencia depende del nivel de rendimiento y de la cantidad de actividad de la base de datos. Las copias del registro de transacciones, junto con las completas y diferenciales, permiten restaurar una base de datos a un momento específico en el mismo servidor que hospede la base de datos. Cuando se restaura una base de datos, el servicio calcula qué copia de seguridad completa, diferencial o del registro de transacciones es necesario restaurar.
 
 
 Puede utilizar estas copias de seguridad para realizar lo siguiente:
@@ -30,7 +31,7 @@ Puede utilizar estas copias de seguridad para realizar lo siguiente:
 * Restaurar una base de datos a un momento dado dentro del período de retención. Esta operación creará una base de datos nueva en el mismo servidor de la base de datos original.
 * Restaurar una base de datos eliminada al momento en que se eliminó o a cualquier otro punto comprendido en el periodo de retención. La base de datos eliminada solo se puede restaurar en el mismo servidor donde se creara la original.
 * Restaurar una base de datos en otra región geográfica. Esta opción permite recuperarse de un desastre en una región geográfica cuando no puede acceder a su servidor y base de datos. Crea una nueva base de datos en cualquier servidor existente del mundo. 
-* Restaurar una base de datos desde una copia de seguridad específica guardada en el almacén de Azure Recovery Services. Esta opción permite restaurar una versión antigua de la base de datos para respetar una solicitud de cumplimiento o ejecutar una versión antigua de la aplicación. Consulte el tema sobre la [retención a largo plazo](sql-database-long-term-retention.md).
+* Restaure una base de datos desde una copia de seguridad a largo plazo específica si la base de datos se ha configurado con una directiva de retención a largo plazo. Esta opción permite restaurar una versión antigua de la base de datos para respetar una solicitud de cumplimiento o ejecutar una versión antigua de la aplicación. Consulte el tema sobre la [retención a largo plazo](sql-database-long-term-retention.md).
 * Para llevar a cabo una restauración, consulte el artículo sobre la [restauración de bases de datos a partir de copias de seguridad](sql-database-recovery-using-backups.md).
 
 > [!NOTE]
@@ -49,10 +50,14 @@ Cada copia de seguridad de SQL Database tiene un período de retención que se b
 * Nivel de servicio Básico: 7 días.
 * Nivel de servicio Estándar: 35 días
 * Nivel de servicio Premium: 35 días.
+* El nivel de uso general es configurable con un máximo de 35 días (7 días de forma predeterminada)*
+* El nivel de crítico para la empresa es configurable con un máximo de 35 días (7 días de forma predeterminada)*
 
-Si cambia la base de datos de los niveles de servicio Estándar o Premium a Básico, las copias de seguridad se guardan durante siete días. Todas las copias de seguridad existentes con una antigüedad de más de siete días ya no estarán disponibles. 
+\* Durante la versión preliminar, el período de retención de copias de seguridad no es configurable y permanece fijo en 7 días.
 
-Si actualiza la base de datos del nivel de servicio Básico a Estándar o Premium, SQL Database mantiene las copias de seguridad existentes hasta que tienen 35 días de antigüedad. Además, mantiene nuevas copias de seguridad que se producen durante 35 días.
+Si convierte una base de datos con una retención de copias de seguridad más larga a una base de datos con una retención más corta, dejarán de estar disponibles todas las copias de seguridad existentes más antiguas que el período de retención de nivel de destino.
+
+Si actualiza una base de datos con un período de retención más corto a una base de datos con un período más largo, SQL Database conserva las copias de seguridad existentes hasta que se alcance el período de retención. 
 
 Si elimina una base de datos, SQL Database mantiene las copias de seguridad de la misma manera que para una base de datos en línea. Por ejemplo, suponga que elimina una base de datos básica que tiene un período de retención de siete días. Una copia de seguridad con cuatro días de antigüedad se guarda durante tres días más.
 
@@ -61,17 +66,17 @@ Si elimina una base de datos, SQL Database mantiene las copias de seguridad de l
 > 
 
 ## <a name="how-to-extend-the-backup-retention-period"></a>¿Cómo se puede ampliar el periodo de retención de las copias de seguridad?
-Si la aplicación requiere que las copias de seguridad estén disponibles durante un periodo mayor, puede ampliar el periodo de retención integrado configurando la directiva de retención de copias de seguridad a largo plazo para bases de datos individuales (directiva de LTR). De este modo, podrá ampliar el periodo de retención integrado de 35 días a un máximo de 10 años. Para más información, consulte [retención a largo plazo](sql-database-long-term-retention.md).
 
-Una vez que agregue la directiva de LTR a una base de datos mediante Azure Portal o la API, las copias de seguridad completas de la base de datos semanales se copiarán de forma automática en su almacén del servicio Azure Backup. Si la base de datos se cifra con TDE, las copias de seguridad se cifran automáticamente en reposo.  El almacén de Recovery Services eliminará de forma automática sus copias de seguridad caducadas según su fecha y hora y la directiva de LTR.  Por ello, no tiene que administrar la programación de copias de seguridad ni preocuparse por la limpieza de archivos antiguos. La API de restauración admite las copias de seguridad almacenadas en el almacén siempre que este se encuentre en la misma suscripción que la base de datos SQL. Puede usar Azure Portal o PowerShell para acceder a estas copias de seguridad.
+Si la aplicación requiere que las copias de seguridad estén disponibles durante un periodo mayor al periodo de retención de copias de seguridad de PITR, puede configurar una directiva de retención de copias de seguridad a largo plazo para bases de datos individuales (directiva de LTR). De este modo, podrá ampliar el periodo de retención integrado del máximo de 35 días a 10 años. Para más información, consulte [retención a largo plazo](sql-database-long-term-retention.md).
 
-> [!TIP]
-> Para obtener una guía de procedimientos, vea [Configuración de la retención de copias de seguridad a largo plazo de Azure SQL Database](sql-database-long-term-backup-retention-configure.md).
->
+Una vez que agregue la directiva de LTR a una base de datos mediante Azure Portal o la API, las copias de seguridad completas de la base de datos semanales se copiarán de forma automática a un contenedor de almacenamiento de RA-GRS independiente para la retención a largo plazo (almacenamiento LTR). Si la base de datos se cifra con TDE, las copias de seguridad se cifran automáticamente en reposo. SQL Database eliminará de forma automática sus copias de seguridad caducadas según su fecha y hora y la directiva de LTR. Una vez configurada la directiva, no tiene que administrar la programación de copias de seguridad ni preocuparse por la limpieza de archivos antiguos. Puede usar Azure Portal o PowerShell para ver, restaurar o eliminar estas copias de seguridad.
 
 ## <a name="are-backups-encrypted"></a>¿Se cifran las copias de seguridad?
 
 Cuando TDE está habilitado para una instancia de Azure SQL Database, también se cifran las copias de seguridad. Todas las instancias nuevas de Azure SQL Database están configuradas con TDE habilitado de forma predeterminada. Para más información, vea [Cifrado de datos transparente con Azure SQL Database](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
+
+## <a name="are-the-automatic-backups-compliant-with-gdpr"></a>¿Las copias de seguridad automáticas son compatibles con el RGPD?
+Si la copia de seguridad contiene datos personales, que están sujetos a Reglamento general de protección de datos (RGPD), debe aplicar medidas de seguridad mejoradas para proteger los datos contra el acceso no autorizado. Para cumplir con el RGPD, necesita una manera de administrar las solicitudes de datos de los propietarios de datos sin necesidad de acceder a las copias de seguridad.  En cuanto a las copias de seguridad a corto plazo, una solución puede ser acortar la ventana de la copia de seguridad a menos de 30 días, que es el tiempo permitido para completar las solicitudes de acceso de datos.  Si se requieren copias de seguridad a más largo plazo, se recomienda almacenar solo los datos en formato anónimo en las copias de seguridad. Por ejemplo, si es necesario eliminar o actualizar la información sobre una persona, no será necesario eliminar o actualizar las copias de seguridad existentes. Puede encontrar más información acerca de las prácticas recomendadas de RGPD en [Data Governance for GDPR Compliance](https://info.microsoft.com/DataGovernanceforGDPRCompliancePrinciplesProcessesandPractices-Registration.html) (Gobernanza de datos para el cumplimiento de RGPD).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

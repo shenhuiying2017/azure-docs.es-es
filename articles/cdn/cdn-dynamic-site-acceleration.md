@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
-ms.author: rli
-ms.openlocfilehash: d105c88105512df4a9f8d999f64ad001b5d54917
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.author: rli; v-deasim
+ms.openlocfilehash: 2ffe547d1d1333a5469d313f9f9cc60f5118f814
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>Aceleración de sitios dinámicos a través de Azure CDN
 
@@ -152,7 +152,7 @@ Con DSA, el almacenamiento en caché está desactivado de forma predeterminada e
 
 Si tiene un sitio web con una combinación de recursos estáticos y dinámicos, es mejor adoptar un enfoque híbrido para obtener el mejor rendimiento. 
 
-En los perfiles de **Azure CDN de Verizon estándar** y **Azure CDN de Akamai estándar**, puede activar el almacenamiento en caché para puntos de conexión de DSA específicos mediante [reglas de caché](cdn-caching-rules.md).
+En los perfiles de **Azure CDN estándar de Verizon** y **Azure CDN estándar de Akamai**, puede activar el almacenamiento en caché para puntos de conexión de DSA específicos mediante [reglas de caché](cdn-caching-rules.md).
 
 Para acceder a las reglas de almacenamiento en caché:
 
@@ -164,7 +164,7 @@ Para acceder a las reglas de almacenamiento en caché:
 
 2. Cree una regla de caché global o personalizada para activar el almacenamiento en caché en su punto de conexión de DSA. 
 
-En los perfiles de **Azure CDN de Verizon premium**, puede activar el almacenamiento en caché para determinados puntos de conexión de DSA mediante el [motor de reglas](cdn-rules-engine.md). Las reglas que se crean afectan únicamente a esos puntos de conexión del perfil que están optimizados para DSA. 
+Solo en los perfiles de **Azure CDN premium de Verizon** puede activar el almacenamiento en caché para determinados puntos de conexión de DSA mediante el [motor de reglas](cdn-rules-engine.md). Las reglas que se crean afectan únicamente a esos puntos de conexión del perfil que están optimizados para DSA. 
 
 Para acceder al motor de reglas:
     

@@ -1,11 +1,11 @@
 ---
-title: "Supervisión del mantenimiento en Service Fabric | Microsoft Docs"
-description: "Una introducción al modelo de supervisión del mantenimiento de Azure Service Fabric, que proporciona supervisión del clúster y de sus aplicaciones y servicios."
+title: Supervisión del mantenimiento en Service Fabric | Microsoft Docs
+description: Una introducción al modelo de supervisión del mantenimiento de Azure Service Fabric, que proporciona supervisión del clúster y de sus aplicaciones y servicios.
 services: service-fabric
 documentationcenter: .net
 author: oanapl
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1d979210-b1eb-4022-be24-799fd9d8e003
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: d226b8f8b3252fe82cd5077d235f301cfaa83654
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: c5ce0a765451171f7cbd6d875d4302d1e406b4f6
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Introducción a la supervisión del mantenimiento de Service Fabric
 Azure Service Fabric presenta un modelo de mantenimiento que proporciona informes y datos de evaluación del mantenimiento completos, flexibles y extensibles. El modelo permite la supervisión casi en tiempo real del estado tanto del clúster como de los servicios que se ejecutan en él. Puede obtener con facilidad información sobre el mantenimiento, y corregir posibles problemas antes de que se propaguen y causen interrupciones masivas. En el modelo típico, los servicios envían informes basados en sus vistas locales, y dicha información se agrega para proporcionar una vista general del nivel del clúster.

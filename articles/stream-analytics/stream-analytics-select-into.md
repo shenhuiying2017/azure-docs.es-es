@@ -1,24 +1,19 @@
 ---
-title: Depuración de consultas de Azure Stream Analytics mediante SELECT INTO | Microsoft Docs
-description: Datos de ejemplo de consulta intermedia mediante instrucciones SELECT INTO en Stream Analytics
-keywords: ''
+title: Depuración de consultas de Azure Stream Analytics mediante SELECT INTO
+description: En este artículo se describe cómo muestrear una consulta intermedia de datos en el trabajo de Azure Stream Analytics mediante el uso de instrucciones SELECT INTO en la sintaxis de la consulta.
 services: stream-analytics
-documentationcenter: ''
 author: jseb225
-manager: ryanw
-ms.assetid: 9952e2cf-b335-4a5c-8f45-8d3e1eda2e20
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: f232ba9804886f416ac0941ddc7e602782b6ebe2
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 04/20/2017
+ms.openlocfilehash: ccaa6203e4bfe52758e26416646f9152ac5378ea
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="debug-queries-by-using-select-into-statements"></a>Depuración de consultas mediante instrucciones SELECT INTO
 
@@ -73,7 +68,7 @@ Esta vez, los datos en la salida tienen el formato adecuado y se han rellenado s
 
 ## <a name="get-help"></a>Obtener ayuda
 
-Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Para obtener ayuda adicional, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/20/2018
 ms.author: dekapur
-ms.openlocfilehash: f3e7b9c7432538c0f78662213544d4d691652f13
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 7af0dd37b5c16e48ce4e504211e68a29cf8bce77
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="application-and-service-level-logging"></a>Registro en el nivel de aplicación y de servicio
 
@@ -36,10 +36,11 @@ Cuando se crea una solución de Service Fabric a partir de una plantilla en Visu
 
 Es importante planear minuciosamente la instrumentación del código. Un plan de instrumentación correcto puede ayudarle a evitar que se desestabilice el código base y sea necesario volver a instrumentarlo. Para reducir el riesgo, puede elegir una biblioteca de instrumentación como [Microsoft.Extensions.Logging](https://www.nuget.org/packages/Microsoft.Extensions.Logging/), componente de Microsoft ASP.NET Core. ASP.NET Core tiene una interfaz [ILogger](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.ilogger) que puede usar con su proveedor preferido al tiempo que reduce al mínimo el efecto sobre el código existente. Puede utilizar el código de ASP.NET Core en Windows y Linux, y en .NET Framework completo, por lo que el código de instrumentación es estándar.
 
-## <a name="choosing-a-logging-provider"></a>Elección de un proveedor de registro
+## <a name="application-insights-sdk"></a>SDK de Application Insights
 
-Si la aplicación depende del alto rendimiento, **EventSource** suele ser el mejor enfoque. *Por lo general*, **EventSource** utiliza menos recursos y su rendimiento es mejor que el del registro de ASP.NET Core o de cualquiera de las soluciones de terceros disponibles.  Esto no supone un problema para muchos servicios, pero si está orientado al rendimiento, **EventSource** sería una opción mejor. Sin embargo, para obtener las ventajas del registro estructurado, **EventSource** requiere una mayor inversión por parte del equipo de ingeniería. Si es posible, cree un prototipo rápido de algunas opciones de registro y, luego, seleccione la que mejor se adapte a sus necesidades.
+Application Insights consigue una eficaz integración con Service Fabric directamente, sin necesidad de configuraciones adicionales. Los usuarios pueden agregar los paquetes de NuGet de Service Fabric de AI y recibir datos y registros creados y recopilados que pueden verse en Azure Portal. Además, se aconseja que los usuarios agreguen su propia telemetría para poder diagnosticar y depurar sus aplicaciones y rastrear cuáles son los servicios y las partes de su aplicación que más se usan. La clase [TelemetryClient](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient?view=azure-dotnet) del SDK ofrece muchas formas de rastrear la telemetría en sus aplicaciones. Consulte un ejemplo de cómo instrumentar y agregar Application Insights a su aplicación en nuestro tutorial para [supervisar y diagnosticar una aplicación .NET](service-fabric-tutorial-monitoring-aspnet.md).
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez que haya elegido el proveedor de registro para instrumentar las aplicaciones y los servicios, los registros y los eventos deben agregarse antes de que se puedan enviar a cualquier plataforma de análisis. Obtenga información sobre [EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md) y [WAD](service-fabric-diagnostics-event-aggregation-wad.md) para entender mejor algunas de las opciones recomendadas.
+Una vez que haya elegido el proveedor de registro para instrumentar las aplicaciones y los servicios, los registros y los eventos deben agregarse antes de que se puedan enviar a cualquier plataforma de análisis. Obtenga información sobre [Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md), [EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md) y [WAD](service-fabric-diagnostics-event-aggregation-wad.md) para entender mejor algunas de las opciones recomendadas.

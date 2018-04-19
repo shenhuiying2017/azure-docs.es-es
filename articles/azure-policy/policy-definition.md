@@ -9,11 +9,11 @@ ms.date: 01/17/2018
 ms.topic: article
 ms.service: azure-policy
 ms.custom: ''
-ms.openlocfilehash: 50965010d821d4edf94e2f5727546cb56f61f5db
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 42fdfa2eb629351c38fb72c20a62cd7d78acf229
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Estructura de definición de Azure Policy
 
@@ -70,7 +70,7 @@ El **modo** determina qué tipos de recurso se evaluarán para una directiva. Lo
 * `all`: evalúe los grupos de recursos y todos los tipos de recurso 
 * `indexed`: evalúe solo los tipos de recurso que admitan las etiquetas y la ubicación
 
-Se recomienda que establezca **mode** en `all` en la mayoría de los casos. Todas las definiciones de directivas creadas a través del portal usan el modo `all`. Si usa PowerShell o la CLI de Azure, tiene que especificar el parámetro **mode** de forma manual.
+Se recomienda que establezca **mode** en `all` en la mayoría de los casos. Todas las definiciones de directivas creadas a través del portal usan el modo `all`. Si usa PowerShell o la CLI de Azure, tiene que especificar el parámetro **mode** de forma manual. Si la definición de directiva no contiene un valor **mode**, utiliza `indexed` como valor predeterminado para compatibilidad con versiones anteriores.
 
 `indexed` debe usarse al crear directivas que apliquen etiquetas o ubicaciones. Esto no es obligatorio, pero impedirá que los recursos que no son compatibles con etiquetas y ubicaciones aparezcan como no conformes en los resultados de cumplimiento. La única excepción a esto es **grupos de recursos**. Las directivas que intentan aplicar la ubicación o etiquetas en un grupo de recursos deben establecer **mode** en `all` y tener como destino específico el tipo `Microsoft.Resources/subscriptions/resourceGroup`. Para obtener un ejemplo, consulte [Aplicar etiqueta y su valor en grupos de recursos](scripts/enforce-tag-rg.md).
 
@@ -102,6 +102,8 @@ Dentro de la propiedad de metadatos puede usar **strongType** para proporcionar 
 * `"resourceTypes"`
 * `"storageSkus"`
 * `"vmSKUs"`
+* `"existingResourceGroups"`
+* `"omsWorkspace"`
 
 En la regla de directiva, se hace referencia a los parámetros con la sintaxis siguiente:
 

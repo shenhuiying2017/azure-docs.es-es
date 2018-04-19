@@ -1,10 +1,10 @@
 ---
-title: "Arquitectura del motor de búsqueda de texto completo en Azure Search | Microsoft Docs"
-description: "Explicación de conceptos de recuperación de documentos y procesamiento de consultas de Lucene para la búsqueda de texto completo, como se establece en Azure Search."
+title: Arquitectura del motor de búsqueda de texto completo en Azure Search | Microsoft Docs
+description: Explicación de conceptos de recuperación de documentos y procesamiento de consultas de Lucene para la búsqueda de texto completo, como se establece en Azure Search.
 services: search
 manager: jhubbard
 author: yahnoosh
-documentationcenter: 
+documentationcenter: ''
 ms.service: search
 ms.devlang: NA
 ms.workload: search
@@ -13,10 +13,10 @@ ms.tgt_pltfrm: na
 ms.date: 04/06/2017
 ms.author: jlembicz
 ms.openlocfilehash: 0b2e66cd40c1b49832b865e5bf59edcf78996eb8
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Cómo funciona la búsqueda de texto completo en Azure Search
 

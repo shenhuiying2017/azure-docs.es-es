@@ -1,26 +1,21 @@
 ---
-title: Salida de JSON para Stream Analytics | Microsoft Docs
-description: Obtenga información sobre cómo Stream Analytics puede tener como destino Azure Cosmos DB para la salida de JSON, para el archivado de datos y las consultas de latencia baja en datos de JSON no estructurados.
-keywords: Salida de JSON
-documentationcenter: ''
-services: stream-analytics,documentdb
+title: Salida de Azure Stream Analytics a Cosmos DB
+description: En este artículo se describe cómo usar Azure Stream Analytics para guardar la salida en Azure Cosmos DB para la salida de JSON, para el archivado de datos y las consultas de latencia baja en datos de JSON no estructurados.
+services: stream-analytics
 author: jseb225
-manager: ryanw
-ms.assetid: 5d2a61a6-0dbf-4f1b-80af-60a80eb25dd1
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: 8bda2abda6f2b7207a5a7195c24b07da9089fb06
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 03/28/2017
+ms.openlocfilehash: f7115f7d19cd44ae7d0812d3aa6c48d8dd58c20d
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="target-azure-cosmos-db-for-json-output-from-stream-analytics"></a>Tener como destino Azure Cosmos DB para la salida de JSON de Stream Analytics
+# <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Salida de Azure Stream Analytics a Azure Cosmos DB  
 Stream Analytics puede tener como destino [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) para la salida de JSON, habilitando el archivado de datos y las consultas de latencia baja en datos de JSON no estructurados. En este documento tratan algunas prácticas recomendadas para implementar esta configuración.
 
 Aquellos que no estén familiarizados con Cosmos DB pueden comenzar por la [ruta de aprendizaje de Azure Cosmos DB](https://azure.microsoft.com/documentation/learning-paths/documentdb/). 
@@ -35,7 +30,7 @@ La salida de Azure Cosmos DB de Stream Analytics de permite escribir los resulta
 A continuación se detallan algunas de las opciones de la colección de Cosmos DB.
 
 ## <a name="tune-consistency-availability-and-latency"></a>Ajustar la coherencia, la disponibilidad y la latencia
-Para satisfacer las necesidades de su aplicación, Cosmos DB permite optimizar la base de datos y las colecciones y buscar el equilibrio entre coherencia, disponibilidad y latencia. En función de los niveles de coherencia de lectura que requiera su situación en comparación con la latencia de lectura y escritura, puede elegir un nivel de coherencia u otro en la cuenta de base de datos. También de forma predeterminada, Cosmos DB permite la indexación sincrónica en cada operación CRUD de la colección. Esta es otra opción útil para controlar el rendimiento de escritura o lectura en Cosmos DB. Para obtener más información sobre este tema, revise el artículo [Cambio de los niveles de coherencia de la base de datos y las consultas](../cosmos-db/consistency-levels.md) .
+Para satisfacer las necesidades de su aplicación, Cosmos DB permite optimizar la base de datos y las colecciones y buscar el equilibrio entre coherencia, disponibilidad y latencia. En función de los niveles de coherencia de lectura que requiera su situación en comparación con la latencia de lectura y escritura, puede elegir un nivel de coherencia u otro en la cuenta de base de datos. También de forma predeterminada, Cosmos DB permite la indexación sincrónica en cada operación CRUD de la colección. Esta es otra opción útil para controlar el rendimiento de escritura o lectura en Cosmos DB. Para obtener más información, revise el artículo [Niveles de coherencia de datos optimizables en Azure Cosmos DB](../cosmos-db/consistency-levels.md).
 
 ## <a name="upserts-from-stream-analytics"></a>Upserts de Stream Analytics
 La integración de Stream Analytics con Cosmos DB permite insertar o actualizar registros en su colección de Cosmos DB en función de una columna de identificador de documento determinada. Esto se conoce también como *Upsert*.

@@ -1,11 +1,11 @@
 ---
-title: "Configuración de Apache Tomcat en una máquina virtual de Linux | Microsoft Docs"
-description: "Obtenga información acerca de cómo configurar Apache Tomcat7 con una máquina virtual Azure con Linux."
+title: Configuración de Apache Tomcat en una máquina virtual de Linux | Microsoft Docs
+description: Obtenga información acerca de cómo configurar Apache Tomcat7 con una máquina virtual Azure con Linux.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: NingKuang
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ms.assetid: 45ecc89c-1cb0-4e80-8944-bd0d0bbedfdc
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: ningk
-ms.openlocfilehash: f3bd3167c9a879a876774e5d91fbb10fd340c6a8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 161a56a019f8c2c8ce5e3890e73ad5c5710e7b82
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="set-up-tomcat7-on-a-linux-virtual-machine-with-azure"></a>Configuración de Tomcat7 en una máquina virtual con Linux con Azure
 Apache Tomcat (o simplemente Tomcat, anteriormente denominado Jakarta Tomcat) es un servidor web y contenedor de servlet de código abierto desarrollado por Apache Software Foundation (ASF). Tomcat implementa el servlet de Java y las especificaciones de JavaServer Pages (JSP) de Sun Microsystems. Además, proporciona un entorno de servidor web HTTP Java puro en el que se va a ejecutar el código de Java. En la configuración más sencilla, Tomcat se ejecuta en un proceso de sistema operativo único. Este proceso ejecuta una máquina virtual de Java (JVM). Todas las solicitudes HTTP desde un explorador para Tomcat se procesan como un subproceso independiente en el proceso de Tomcat.  
@@ -54,7 +54,7 @@ Otra ventaja de este método es que no es necesario disponer de distintas contra
 
 Siga estos pasos para generar la clave de autenticación SSH.
 
-1. Descargue e instale Puttygen desde la siguiente ubicación: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
+1. Descargue e instale PuTTYgen desde la siguiente ubicación: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 2. Ejecute Puttygen.exe.
 3. Haga clic en **Generar** para generar las claves. En el proceso puede aumentar la aleatoriedad al mover el mouse sobre el área en blanco en la ventana.  
    ![Captura de pantalla de PuTTY Key Generator que muestra el botón de generación de nueva clave][1]
@@ -184,7 +184,7 @@ Use el comando siguiente para instalar Tomcat7.
 Si no usa Tomcat7, use la variación adecuada de este comando.  
 
 #### <a name="confirm-that-tomcat7-installation-is-successful"></a>Confirmación de que la instalación de Tomcat7 es correcta
-Para comprobar si se instaló correctamente Tomcat7, busque el nombre DNS de su servidor de Tomcat . En este artículo, la dirección URL es http://tomcatexample.cloudapp.net/. Si ve un mensaje similar al siguiente, Tomcat7 está instalado correctamente.
+Para comprobar si se instaló correctamente Tomcat7, busque el nombre DNS de su servidor de Tomcat . En este artículo, la dirección URL de ejemplo es http://tomcatexample.cloudapp.net/. Si ve un mensaje similar al siguiente, Tomcat7 está instalado correctamente.
 ![Mensaje de instalación Tomcat7 correcta][16]
 
 ### <a name="install-other-tomcat7-components"></a>Instalación de otros componentes de Tomcat7

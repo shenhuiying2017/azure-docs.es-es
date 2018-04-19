@@ -1,8 +1,8 @@
 ---
-title: "Proceso de ciencia de datos en equipos en acción: Uso de un clúster de Hadoop de Azure HDInsight en un conjunto de datos de 1 TB | Microsoft Docs"
-description: "Uso del proceso de ciencia de datos en equipos en un escenario completo con un clúster de Hadoop de HDInsight para crear e implementar un modelo con un conjunto de datos disponible públicamente de gran tamaño (1 TB)"
+title: 'Proceso de ciencia de datos en equipos en acción: uso de un clúster de Hadoop de HDInsight de Azure en un conjunto de datos de 1 TB | Microsoft Docs'
+description: Uso del proceso de ciencia de datos en equipos en un escenario completo con un clúster de Hadoop de HDInsight para crear e implementar un modelo con un conjunto de datos disponible públicamente de gran tamaño (1 TB)
 services: machine-learning,hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: bradsev
 ms.openlocfilehash: 760e08643fb3e71478fc899278591569da1d515b
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Proceso de ciencia de datos en equipos en acción: Uso de un clúster de Hadoop de Azure HDInsight en un conjunto de datos de 1 TB
 

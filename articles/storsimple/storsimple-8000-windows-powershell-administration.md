@@ -1,12 +1,12 @@
 ---
-title: "PowerShell para la administración de dispositivos StorSimple | Microsoft Docs"
-description: "Obtenga más información acerca de cómo usar Windows PowerShell para que StorSimple administre su dispositivo StorSimple."
+title: PowerShell para la administración de dispositivos StorSimple | Microsoft Docs
+description: Obtenga más información acerca de cómo usar Windows PowerShell para que StorSimple administre su dispositivo StorSimple.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -112,7 +112,7 @@ Puede elegir entre las siguientes opciones:
     > [!NOTE]
     > Esta es la opción preferida si ha olvidado la contraseña del administrador de dispositivos y no se puede conectar a través de la opción 1 o 2.
 
-4. **Cambiar idioma** : esta opción le permite cambiar el idioma para mostrar en la interfaz de Windows PowerShell. Los idiomas admitidos son inglés, japonés, ruso, francés, coreano de Corea del Sur, español, italiano, alemán, chino y portugués de Brasil.
+4. **Cambiar idioma** : esta opción le permite cambiar el idioma para mostrar en la interfaz de Windows PowerShell. Los idiomas admitidos son inglés, japonés, ruso, francés, coreano de Corea del Sur, español, italiano, alemán, chino y portugués (Brasil).
 
 ## <a name="connect-remotely-to-storsimple-using-windows-powershell-for-storsimple"></a>Conectarse remotamente a StorSimple con Windows PowerShell para StorSimple
 
@@ -182,7 +182,7 @@ Puede actualizar fácilmente la Ayuda en la interfaz de Windows PowerShell. Real
 > Para obtener una lista de todos los cmdlets disponibles en un espacio de ejecución, inicie sesión en la opción de menú correspondiente y ejecute el cmdlet `Get-Command`.
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Si experimenta problemas con el dispositivo StorSimple al realizar uno de los flujos de trabajo anteriores, vea [Herramientas para solucionar problemas en implementaciones de StorSimple](storsimple-8000-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
 

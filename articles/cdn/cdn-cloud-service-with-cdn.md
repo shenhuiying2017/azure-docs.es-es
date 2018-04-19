@@ -1,6 +1,6 @@
 ---
-title: "Integración de un servicio en la nube de Azure con la red CDN de Azure | Microsoft Docs"
-description: "Aprenda a implementar un servicio en la nube que ofrece contenido de un punto de conexión de la red CDN de Azure integrado"
+title: Integración de un servicio en la nube de Azure con la red CDN de Azure | Microsoft Docs
+description: Aprenda a implementar un servicio en la nube que ofrece contenido de un punto de conexión de la red CDN de Azure integrado
 services: cdn, cloud-services
 documentationcenter: .net
 author: zhangmanling
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: f131eb021d85766f12b0fb6cb8b5a07f965f9c97
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="intro"></a> Integración de un servicio en la nube con la Red de entrega de contenido (CDN) de Azure
 Un servicio en la nube puede integrarse con CDN de Azure, sirviendo cualquier contenido desde la ubicación del servicio en la nube. Este enfoque le ofrece las siguientes ventajas:
@@ -138,7 +138,7 @@ Un perfil de red de entrega de contenido es una colección de puntos de conexió
    > 
 
 ## <a name="test-the-cdn-endpoint"></a>Probar el punto de conexión de CDN
-Cuando el estado de publicación sea **Completado** abra una ventana del explorador y navegue a **http://<cdnName>*.azureedge.net/Content/bootstrap.css**. En nuestra instalación, esta URL es:
+Cuando el estado de publicación sea **Completado**, abra una ventana del explorador y navegue a **http://<cdnName>*.azureedge.net/Content/bootstrap.css**. En nuestra instalación, esta URL es:
 
     http://camservice.azureedge.net/Content/bootstrap.css
 
@@ -146,18 +146,18 @@ Esta URL corresponde a la siguiente URL de origen en el extremo de red CDN:
 
     http://camcdnservice.cloudapp.net/Content/bootstrap.css
 
-Cuando navegue a **http://*&lt;cdnName>*.azureedge.net/Content/bootstrap.css** en función del explorador que haya usado, se le solicitará que descargue o abra el archivo bootstrap.css proveniente de la aplicación web publicada.
+Cuando navegue a **http://*&lt;cdnName>*.azureedge.net/Content/bootstrap.css**, en función del explorador que haya usado, se le solicitará que descargue o abra el archivo bootstrap.css proveniente de la aplicación web publicada.
 
 ![](media/cdn-cloud-service-with-cdn/cdn-1-browser-access.PNG)
 
-Puede acceder de forma parecida a cualquier dirección URL de acceso público en **http://*&lt;serviceName>*.cloudapp.net/** directamente desde el punto de conexión de la red CDN. Por ejemplo: 
+Puede acceder de forma parecida a cualquier dirección URL de acceso público en **http://*&lt;serviceName>*.cloudapp.net/**, directamente desde el punto de conexión de la red CDN. Por ejemplo: 
 
 * Un archivo .js desde la ruta /Script
 * Cualquier archivo de contenido desde la ruta /Content
 * Cualquier controlador/acción
 * Si la cadena de consulta está habilitada en el extremo de red CDN, cualquier URL con cadenas de consulta
 
-De hecho, con la configuración anterior, es posible hospedar todo el servicio en la nube desde **http://*&lt;cdnName>*.azureedge.net/**. Si se va a **http://camservice.azureedge.net/**, el resultado de la acción se obtiene de Home/Index.
+De hecho, con la configuración anterior, es posible hospedar todo el servicio en la nube desde **http://*&lt;nombreCdn>*.azureedge.net/**. Si se navega a **http://camservice.azureedge.net/**, el resultado de la acción se obtiene de Home/Index.
 
 ![](media/cdn-cloud-service-with-cdn/cdn-2-home-page.PNG)
 
@@ -325,7 +325,7 @@ Siga los pasos anteriores para configurar esta acción de controlador:
             <br />
             <input class="btn" type="submit" value="Generate meme" />
         </form>
-5. Vuelva a publicar el servicio en la nube y navegue a **http://*&lt;nombreServicio>*.cloudapp.net/MemeGenerator/Index** en el explorador.
+5. Vuelva a publicar el servicio en la nube y navegue a**http://*&lt;nombreServicio>*.cloudapp.net/MemeGenerator/Index** en el explorador.
 
 Cuando envía los valores de formulario a `/MemeGenerator/Index`, el método de acción `Index_Post` devuelve un vínculo al método de acción `Show` con el identificador de entrada respectivo. Cuando hace clic en el vínculo, llega al siguiente código:  
 

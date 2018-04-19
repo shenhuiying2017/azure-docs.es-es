@@ -1,11 +1,11 @@
 ---
-title: "Introducción a la solución de problemas de conexiones en Azure Network Watcher | Microsoft Docs"
-description: "En esta página se proporciona información general de la funcionalidad de solución de problemas de conexiones en Network Watcher."
+title: Introducción a la solución de problemas de conexiones en Azure Network Watcher | Microsoft Docs
+description: En esta página se proporciona información general de la funcionalidad de solución de problemas de conexiones en Network Watcher.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: f8825af71620722065c03a28c93e113876c5aa71
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 0268c7e54aa82df12243f98fd72de836fbc82070
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="introduction-to-connection-troubleshoot-in-azure-network-watcher"></a>Introducción a la solución de problemas de conexiones en Azure Network Watcher
 
 La característica de solución de problemas de conexiones de Network Watcher proporciona la funcionalidad de comprobar una conexión TCP directa de una máquina virtual con una máquina virtual (VM), un nombre de dominio completo (FQDN), un URI o una dirección IPv4. Los escenarios de red son complejos, se implementan mediante grupos de seguridad de red, firewalls, rutas definidas por el usuario y recursos proporcionados por Azure. Las configuraciones complejas dificultan la solución de problemas de conectividad. Network Watcher ayuda a reducir la cantidad de tiempo en buscar y detectar problemas de conectividad. Los resultados devueltos pueden proporcionar información sobre si un problema de conectividad se debe a una plataforma o a un problema de configuración del usuario. La conectividad se puede comprobar con [PowerShell](network-watcher-connectivity-powershell.md), la [CLI de Azure](network-watcher-connectivity-cli.md) y la [API de REST](network-watcher-connectivity-rest.md).
 
 > [!IMPORTANT]
-> La solución de problemas de conexiones requiere una extensión de máquina virtual `AzureNetworkWatcherExtension`. Para instalar la extensión en una máquina virtual Windows, consulte [Extensión de máquina virtual del agente de Azure Network Watcher para Windows](../virtual-machines/windows/extensions-nwa.md), y en una máquina virtual con Linux, consulte [Extensión de máquina virtual del agente de Azure Network Watcher para Linux](../virtual-machines/linux/extensions-nwa.md).
+> La solución de problemas de conexión requiere que la VM desde la que soluciona el problema tenga la extensión de VM `AzureNetworkWatcherExtension` instalada. Para instalar la extensión en una máquina virtual Windows, consulte [Extensión de máquina virtual del agente de Azure Network Watcher para Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json), y en una máquina virtual con Linux, consulte [Extensión de máquina virtual del agente de Azure Network Watcher para Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). La extensión no es necesaria en el punto de conexión de destino.
 
 ## <a name="response"></a>Response
 

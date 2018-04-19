@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/26/2018
 ms.author: johnkem
-ms.openlocfilehash: 80f427d5acb884be1752f470e2a9d9d04eee5518
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f1e1c2aa447e35ea483665cc33e4eb6af7a41f51
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Habilitación automática de Configuración de diagnóstico al crear recursos con una plantilla de Resource Manager
 En este artículo se muestra cómo usar una [plantilla de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) para establecer Configuración de diagnóstico en un recurso cuando se crea. Esto permite empezar automáticamente a transmitir las métricas y los registros de diagnóstico a Event Hubs, a archivarlos en una cuenta de almacenamiento o a enviarlos a Log Analytics cuando se crea un recurso.
@@ -40,7 +40,7 @@ A continuación, se ofrece un ejemplo del archivo JSON de plantilla que debe gen
 ## <a name="non-compute-resource-template"></a>Plantilla para recursos no de proceso
 Para recursos no de proceso, debe hacer dos cosas:
 
-1. Agregue parámetros al blob de parámetros para el nombre de cuenta de almacenamiento, el identificador de regla de autorización de centro de eventos o el identificador del área de trabajo de Log Analytics de OMS (que permite el archivado de registros de diagnóstico en una cuenta de almacenamiento, el streaming de registros a Event Hubs o el envío de registros a Log Analytics).
+1. Agregue parámetros al blob de parámetros para el nombre de cuenta de almacenamiento, el identificador de regla de autorización de centro de eventos o el identificador del área de trabajo de Log Analytics (que permite el archivado de registros de diagnóstico en una cuenta de almacenamiento, el streaming de registros a Event Hubs o el envío de registros a Log Analytics).
    
     ```json
     "settingName": {

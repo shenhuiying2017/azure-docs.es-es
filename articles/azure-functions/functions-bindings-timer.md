@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: tdykstra
 ms.custom: ''
-ms.openlocfilehash: 89469af2b1d02ef00fc347e47719956885e7f142
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 2bc2559dc1cf737e018895ffae61d0da0e56fc85
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Desencadenador de temporizador para Azure Functions 
 
@@ -171,8 +171,8 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |**type** | N/D | Debe establecerse en "timerTrigger". Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal.|
 |**dirección** | N/D | Debe establecerse en "in". Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal. |
 |**name** | N/D | Nombre de la variable que representa el objeto de temporizador en el código de la función. | 
-|**schedule**|**ScheduleExpression**|Una [expresión CRON](#cron-expressions) o un valor [TimeSpan](#timespan). `TimeSpan` solamente se puede usar para una aplicación de función que se ejecuta en un plan de App Service. Puede colocar la expresión de programación en una configuración de aplicación y establecer esta propiedad en el nombre de dicha configuración encapsulado en signos **%**, como en este ejemplo: "%NameOfAppSettingWithScheduleExpression%". |
-|**runOnStartup**|**RunOnStartup**|Si `true`, la función se invoca cuando se inicia el entorno de ejecución. Por ejemplo, el entorno de ejecución se inicia cuando la aplicación de función se reactiva después de estar inactiva por inactividad, cuando la aplicación de función se reinicia debido a cambios de función y cuando la aplicación de función se escala horizontalmente. Por lo tanto, **runOnStartup** rara vez se debe establecer en `true`, ya que hará que el código se ejecute en momentos altamente impredecibles. Si tiene que activar la función fuera de la programación de temporizador, puede crear una segunda función con un tipo de desencadenador diferente y compartir el código entre las dos funciones. Por ejemplo, para el desencadenamiento en la implementación [personalice su implementación](https://github.com/projectkudu/kudu/wiki/Customizing-deployments) para invocar la segunda función mediante la realización de una solicitud HTTP cuando se haya completado la implementación.|
+|**schedule**|**ScheduleExpression**|Una [expresión CRON](#cron-expressions) o un valor [TimeSpan](#timespan). `TimeSpan` solamente se puede usar para una aplicación de función que se ejecuta en un plan de App Service. Puede colocar la expresión de programación en una configuración de aplicación y establecer esta propiedad en el nombre de dicha configuración encapsulado en signos **%**, como en este ejemplo: "%ScheduleAppSetting%". |
+|**runOnStartup**|**RunOnStartup**|Si `true`, la función se invoca cuando se inicia el entorno de ejecución. Por ejemplo, el entorno de ejecución se inicia cuando la aplicación de función se reactiva después de estar inactiva por inactividad, cuando la aplicación de función se reinicia debido a cambios de función y cuando la aplicación de función se escala horizontalmente. Por lo tanto, **runOnStartup** rara vez se debe establecer en `true`, ya que hará que el código se ejecute en momentos altamente impredecibles.|
 |**useMonitor**|**useMonitor**|Establezca esta propiedad en `true` o `false` para indicar si la programación se debe supervisar. La supervisión de la programación conserva las apariciones de programación para ayudar a garantizar que la programación se mantiene correctamente aunque las instancias de aplicación de función se reinicien. Si no se establece explícitamente, el valor predeterminado es `true` para las programaciones que tienen un intervalo de periodicidad suprior a 1 minuto. Para las programaciones que se desencadenan más de una vez por minuto, el valor predeterminado es `false`.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

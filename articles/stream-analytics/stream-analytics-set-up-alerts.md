@@ -1,24 +1,19 @@
 ---
-title: Configuración de alertas para consultas en Stream Analytics | Microsoft Docs
-description: Descripción de las entradas del Stream Analytics
-keywords: configuración de alertas
+title: Configuración de alertas de supervisión en Azure Stream Analytics
+description: En este artículo se describe cómo usar Azure Portal para configurar la supervisión y las alertas para los trabajos de Azure Stream Analytics.
 services: stream-analytics
-documentationcenter: ''
 author: jseb225
-manager: ryanw
-ms.assetid: 9952e2cf-b335-4a5c-8f45-8d3e1eda2e20
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 06/26/2017
 ms.author: jeanb
-ms.openlocfilehash: b88d7e82ffcd2fab1845faf92f6d7a53b72cb54d
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 06/26/2017
+ms.openlocfilehash: 2498c0960ef8fd50064e40428f87d106abf10ecd
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Configuración de alertas en Azure Stream Analytics
 ## <a name="introduction-monitor-page"></a>Introducción: Página de supervisión
@@ -49,7 +44,7 @@ Para más información sobre la configuración de alertas en Azure Portal, consu
 
 
 ## <a name="get-help"></a>Obtención de ayuda
-Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Introducción a Azure Stream Analytics](stream-analytics-introduction.md)

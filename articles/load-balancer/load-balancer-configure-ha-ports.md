@@ -31,7 +31,7 @@ En este artículo se proporciona un ejemplo de implementación de los puertos de
 En la ilustración se muestra la configuración del ejemplo de implementación siguiente que se describe en este artículo:
 
 - Los aplicaciones virtuales de red se implementan en el grupo back-end de un equilibrador de carga interno detrás de la configuración de los puertos de alta disponibilidad. 
-- La ruta definida por el usuario aplicada en las rutas de la subred DMZ enruta todo el tráfico a aplicaciones virtuales de red al realizar el salto siguiente como IP virtual del equilibrador de carga interno. 
+- La ruta definida por el usuario aplicada en las rutas de La subred perimetral enruta todo el tráfico a aplicaciones virtuales de red al realizar el salto siguiente como IP virtual del equilibrador de carga interno. 
 - El equilibrador de carga interno distribuye el tráfico a uno de los aplicaciones virtuales de red activos según el algoritmo del equilibrador de carga.
 - El dispositivo virtual de red procesa el tráfico y lo reenvía al destino original en la subred de back-end.
 - La ruta de devolución también puede ser la misma, si se configura la ruta definida por el usuario correspondiente en la subred de back-end. 

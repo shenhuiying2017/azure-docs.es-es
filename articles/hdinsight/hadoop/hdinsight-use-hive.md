@@ -1,9 +1,9 @@
 ---
-title: "Qué son Apache Hive y HiveQL: Azure HDInsight | Microsoft Docs"
+title: 'Qué son Apache Hive y HiveQL: Azure HDInsight | Microsoft Docs'
 description: Apache Hive es un sistema de almacenamiento de datos para Hadoop. Puede consultar datos almacenados en Hive mediante HiveQL, que se parece a Transact-SQL. En este documento, aprenda a usar Hive y HiveQL con Azure HDInsight.
-keywords: "hiveql,qué es hive,hadoop hiveql,cómo usar hive,aprender hive,qué es hive"
+keywords: hiveql,qué es hive,hadoop hiveql,cómo usar hive,aprender hive,qué es hive
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -18,10 +18,10 @@ ms.workload: big-data
 ms.date: 01/26/2018
 ms.author: larryfr
 ms.openlocfilehash: afd2bc95beb2458ec149824723ec62381b31b2da
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>¿Qué son Apache Hive y HiveQL en Azure HDInsight?
 
@@ -57,7 +57,7 @@ Utilice la siguiente tabla para descubrir distintas formas de usar Hive con HDIn
 
 ## <a name="hiveql-language-reference"></a>Referencia del lenguaje HiveQL
 
-La referencia sobre el lenguaje HiveQL está disponible en el [manual del lenguaje (https://cwiki.apache.org/confluence/display/Hive/LanguageManual)](https://cwiki.apache.org/confluence/display/Hive/LanguageManual).
+La referencia del lenguaje de HiveQL está disponible en el [manual del lenguaje (https://cwiki.apache.org/confluence/display/Hive/LanguageManual)](https://cwiki.apache.org/confluence/display/Hive/LanguageManual).
 
 ## <a name="hive-and-data-structure"></a>Hive y estructura de datos
 
@@ -78,7 +78,7 @@ STORED AS TEXTFILE LOCATION '/example/data/';
 
 Hive también admite **serializador/deserializadores (SerDe)** personalizados para datos estructurados irregularmente o complejos. Para obtener más información, consulte el documento [Uso de un SerDe de JSON personalizado con HDInsight](http://blogs.msdn.com/b/bigdatasupport/archive/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight.aspx).
 
-Para más información sobre los formatos de archivo compatibles con Hive, consulte el [manual del lenguaje (https://cwiki.apache.org/confluence/display/Hive/LanguageManual)](https://cwiki.apache.org/confluence/display/Hive/LanguageManual).
+Para obtener más información sobre formatos de archivo compatibles con Hive, consulte el [manual del lenguaje (https://cwiki.apache.org/confluence/display/Hive/LanguageManual)](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)
 
 ### <a name="hive-internal-tables-vs-external-tables"></a>Tablas internas frente a tablas externas de Hive.
 

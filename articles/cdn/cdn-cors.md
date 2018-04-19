@@ -1,11 +1,11 @@
 ---
 title: Uso de la red CDN de Azure con CORS | Microsoft Docs
-description: "Descubra cómo usar la red de entrega de contenido (CDN) de Azure con el Uso compartido de recursos entre orígenes (CORS)."
+description: Descubra cómo usar Azure Content Delivery Network (CDN) con el Uso compartido de recursos entre orígenes (CORS).
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: zhangmanling
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 86740a96-4269-4060-aba3-a69f00e6f14e
 ms.service: cdn
 ms.workload: tbd
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 7070397f6e69b21add75bad8220f0b8ebe36d266
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="using-azure-cdn-with-cors"></a>Uso de la red CDN de Azure con CORS
 ## <a name="what-is-cors"></a>¿Qué es CORS?
@@ -35,7 +35,7 @@ Hay dos tipos de solicitudes de CORS, *solicitudes sencillas* y *solicitudes com
 
 2. El servidor puede responder con lo siguiente:
 
-   * Un encabezado **Access-Control-Allow-Origin** en la respuesta, que indica cuál de los sitios de origen se permite. Por ejemplo:
+   * Un encabezado **Access-Control-Allow-Origin** en la respuesta, que indica cuál de los sitios de origen se permite. Por ejemplo: 
 
      `Access-Control-Allow-Origin: https://www.contoso.com`
 

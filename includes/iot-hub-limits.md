@@ -16,6 +16,7 @@ En la tabla siguiente se enumeran los límites que se aplican a los recursos de 
 | --- | --- |
 | Cantidad máxima de Centros de IoT de pago por suscripción a Azure |10 |
 | Cantidad máxima de Centros de IoT gratis por suscripción a Azure |1 |
+| Número máximo de caracteres incluido en un identificador de dispositivo | 128 |
 | Número máximo de identidades del dispositivo<br/> devueltas en una sola llamada |1000 |
 | Retención máxima de mensajes de IoT Hub para los mensajes de dispositivo a la nube |7 días |
 | Tamaño máximo de mensaje del dispositivo a la nube |256 KB |

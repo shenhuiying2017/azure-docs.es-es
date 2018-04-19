@@ -1,11 +1,11 @@
 ---
 title: Plantillas de problema de Azure API Management | Microsoft Docs
-description: "Aprenda a personalizar el contenido de las páginas de problema en el portal para desarrolladores en Azure API Management."
+description: Aprenda a personalizar el contenido de las páginas de problema en el portal para desarrolladores en Azure API Management.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 47da4bb2-426e-4e53-8fa7-214ee2e3ab37
 ms.service: api-management
 ms.workload: mobile
@@ -31,7 +31,7 @@ Azure API Management le ofrece la posibilidad de personalizar el contenido de la
 >  En la siguiente documentación se incluyen plantillas predeterminadas de ejemplo; sin embargo, están sujetas a cambios debido a mejoras continuas. Puede ver las plantillas predeterminadas en vivo en el portal para desarrolladores; para ello, vaya hasta a las plantillas individuales que desee. Para más información sobre cómo trabajar con plantillas, consulte [Cómo personalizar el portal para desarrolladores de API Management mediante plantillas](api-management-developer-portal-templates.md).  
   
 ##  <a name="IssueList"></a> Issue list  
- La plantilla **Issue list** le permite personalizar el cuero de la página de lista de problemas en el portal para desarrolladores.  
+ La plantilla **Issue list** le permite personalizar el cuerpo de la página de lista de problemas en el portal para desarrolladores.  
   
  ![Lista de problemas del portal para desarrolladores](./media/api-management-issue-templates/APIM-Issue-List-Developer-Portal.png "Lista de problemas del portal para desarrolladores de APIM")  
   

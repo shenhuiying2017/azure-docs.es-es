@@ -7,13 +7,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: develop databases
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 04/04/2018
 ms.author: jodebrui
-ms.openlocfilehash: 442c860a13e2af1d5398fb30a6069a0e3764ee64
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 36a6b32851c4778db3405b6b9b35d9551181abf4
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Optimización del rendimiento mediante las tecnologías en memoria de SQL Database
 
@@ -22,7 +22,7 @@ Mediante el uso de tecnologías en memoria en Azure SQL Database, puede lograr m
 A continuación se muestran dos ejemplos de cómo OLTP en memoria ayudó significativamente a mejorar el rendimiento:
 
 - Gracias al uso de OLTP en memoria, [Quorum Business Solutions pudo duplicar la carga de trabajo al mismo tiempo que mejoró las DTU en un 70 %](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database).
-    - DTU significa *Unidad de transmisión de datos*, e incluye una medida del consumo de recursos.
+    - DTU significa *unidad de transacción de datos*, e incluye una medida del consumo de recursos.
 - El vídeo siguiente muestra la mejora significativa del consumo de recursos con una carga de trabajo de ejemplo: [In-Memory OLTP in Azure SQL Database Video](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB) (Vídeo sobre OLTP en memoria en Azure SQL Database).
     - Para más información, consulte la entrada de blog: [In-Memory OLTP in Azure SQL Database Blog Post](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/) (OLTP en memoria en la entrada de Blog de base de datos de SQL de Azure).
 
@@ -36,7 +36,7 @@ En el siguiente vídeo se explican posibles mejoras de rendimiento obtenidas con
 
 Azure SQL Database cuenta con las siguientes tecnologías en memoria:
 
-- *OLTP en memoria* aumenta el rendimiento y reduce la latencia del procesamiento de transacciones. Estas son las situaciones en las que se obtienen ventajas con OLTP en memoria: procesamiento de transacciones de alto rendimiento, como operaciones comerciales y juegos, ingesta de datos de eventos o dispositivos de IoT, almacenamiento en caché, carga de datos y escenarios de tablas temporales y variables de tablas.
+- *OLTP en memoria* aumenta las transacciones y reduce la latencia de su procesamiento. Estas son las situaciones en las que se obtienen ventajas con OLTP en memoria: procesamiento de transacciones de alto rendimiento, como operaciones comerciales y juegos, ingesta de datos de eventos o dispositivos de IoT, almacenamiento en caché, carga de datos y escenarios de tablas temporales y variables de tablas.
 - Los *índices de almacén de columnas en clúster* reducen el espacio de almacenamiento necesario (hasta 10 veces) y mejoran el rendimiento de las consultas de análisis e informes. Puede usarlos con las tablas de hechos de sus data marts para incluir más datos en la base de datos y mejorar el rendimiento. También puede usarlos con los datos históricos de la base de datos operativa para archivar hasta 10 veces más datos, así como para disfrutar de un incremento equivalente en el número de consultas realizadas sobre ellos.
 - Con los *índices de almacén de columnas no clúster* para HTAP, podrá obtener información en tiempo real sobre su negocio realizando consultas directamente a la base de datos operativa, sin necesidad de ejecutar un caro proceso de extracción, transformación y carga (ETL) ni esperar a que se rellene el almacén de datos. Los índices de almacén de columnas no clúster permiten una ejecución muy rápida de las consultas de análisis en la base de datos OLTP y, a la vez, reducen el impacto en la carga de trabajo operativa.
 - También puede tener la combinación de una tabla optimizada para memoria con un índice de almacén de columnas. Esta combinación le permite realizar el procesamiento de transacciones de manera muy rápida y ejecutar consultas de análisis *simultáneamente* de manera muy rápida en los mismos datos.
@@ -71,7 +71,7 @@ Vídeos detallados sobre las tecnologías:
 
 OLTP en memoria incluye tablas optimizadas para memoria, que se usan para almacenar los datos de los usuarios. Estas tablas deben caber en la memoria. Dado que administra la memoria directamente en el servicio de SQL Database, tenemos el concepto de una cuota para datos de usuario. Esta idea se conoce como *almacenamiento de OLTP en memoria*.
 
-Cada plan de tarifa de grupo elástico y de base de datos independiente admitido incluye una cantidad determinada de almacenamiento de OLTP en memoria. En el momento de escribir este artículo, obtiene un gigabyte de almacenamiento por cada 125 unidades de transacción de base de datos (DTU) o unidades de transacción de base de datos elástica (eDTU). Para obtener más información, consulte los [límites de recursos](sql-database-resource-limits.md).
+Cada plan de tarifa de grupo elástico y de base de datos independiente admitido incluye una cantidad determinada de almacenamiento de OLTP en memoria. Consulte los [límites de recursos basados en DTU](sql-database-dtu-resource-limits.md) y los [límites de recursos basados en núcleos virtuales](sql-database-vcore-resource-limits.md).
 
 Los siguientes elementos cuentan para su límite de almacenamiento de OLTP en memoria:
 
@@ -87,8 +87,8 @@ Para obtener más información sobre cómo supervisar la utilización del almace
 
 Con grupos elásticos, el almacenamiento de OLTP en memoria se comparte entre todas las bases de datos del grupo. Por lo tanto, el uso de una base de datos puede afectar a otras bases de datos. Existen dos formas de mitigar este problema:
 
-- Establecer un valor de eDTU máx. para las bases de datos que sea inferior al número de eDTU del grupo en su conjunto. De este modo, se limita la utilización del almacenamiento de OLTP en memoria en cualquier base de datos del grupo al tamaño correspondiente al número de eDTU.
-- Configurar un valor de eDTU mín. que sea mayor que 0. Este mínimo garantiza que cada base de datos del grupo tenga la cantidad de almacenamiento de OLTP en memoria disponible que corresponde al valor configurado para eDTU mín.
+- Configure un valor `Max-eDTU` o `MaxvCore` para las bases de datos que sea inferior al recuento de eDTU o núcleos virtuales del grupo como un todo. De este modo, se limita la utilización del almacenamiento de OLTP en memoria en cualquier base de datos del grupo al tamaño correspondiente al número de eDTU.
+- Configure un valor `Min-eDTU` o `MinvCore` que sea mayor que 0. Este mínimo garantiza que cada base de datos del grupo tenga la cantidad de almacenamiento de OLTP en memoria disponible que corresponda al valor `Min-eDTU` o `vCore` configurado.
 
 ### <a name="data-size-and-storage-for-columnstore-indexes"></a>Almacenamiento y tamaño de datos para los índices de almacén de columnas
 
@@ -152,7 +152,7 @@ Si desea ver una demostración más simple, pero más atractiva visualmente, del
 
 #### <a name="installation-steps"></a>Pasos de instalación
 
-1. En el [Azure Portal](https://portal.azure.com/), cree una base de datos Premium en un servidor. Establezca el **Origen** en la base de datos de ejemplo de AdventureWorksLT. Para obtener instrucciones detalladas, consulte [Creación de la primera Base de datos SQL de Azure](sql-database-get-started-portal.md).
+1. En [Azure Portal](https://portal.azure.com/), cree una base de datos de nivel Premium o Crítico para la empresa (versión preliminar) en un servidor. Establezca el **Origen** en la base de datos de ejemplo de AdventureWorksLT. Para obtener instrucciones detalladas, consulte [Creación de la primera Base de datos SQL de Azure](sql-database-get-started-portal.md).
 
 2. Conéctese a la base de datos con SQL Server Management Studio [(SSMS.exe)](http://msdn.microsoft.com/library/mt238290.aspx).
 

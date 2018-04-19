@@ -8,21 +8,21 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: c596006e33c2c4f0228c14a65f58e82bcf300727
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d19087743740799ec9972bed7a602073afea9f26
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="designing-highly-available-services-using-azure-sql-database"></a>Diseño de servicios de alta disponibilidad con Azure SQL Database
 
 Al compilar e implementar servicios de alta disponibilidad en Azure SQL Database, use los [grupos de conmutación por error y la replicación geográfica activa](sql-database-geo-replication-overview.md) para proporcionar resistencia frente a interrupciones regionales y errores muy graves. También permite una recuperación rápida a las bases de datos secundarias. Este artículo se centra en los patrones comunes de aplicación y analiza las ventajas y desventajas de cada opción. Para saber cómo utilizar la replicación geográfica activa con los grupos elásticos, consulte [Estrategias de recuperación ante desastres para aplicaciones que usan el grupo elástico de Base de datos SQL](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 
 > [!NOTE]
-> Si usa grupos y bases de datos premium, puede hacerlos resistentes a las interrupciones regionales mediante su conversión en una configuración de implementación con redundancia de zona (actualmente en versión preliminar). Vea [Alta disponibilidad y Azure SQL Database](sql-database-high-availability.md).  
+> Si usa bases de datos y grupos elásticos de nivel Premium o Crítico para la empresa (versión preliminar), puede hacerlos resistentes a las interrupciones regionales mediante su conversión a una configuración de implementación con redundancia de zona (actualmente en versión preliminar). Vea [Alta disponibilidad y Azure SQL Database](sql-database-high-availability.md).  
 
 ## <a name="scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime"></a>Escenario 1: Utilizar dos regiones de Azure para la continuidad empresarial con un tiempo de inactividad mínimo
 En este escenario, las aplicaciones tienen las siguientes características: 

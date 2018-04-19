@@ -1,11 +1,11 @@
 ---
-title: "Actualización al proxy de aplicación de Azure AD | Microsoft Docs"
-description: "Elija qué solución de proxy es la mejor si va a actualizar desde Microsoft Forefront o Unified Access Gateway."
+title: Actualización al proxy de aplicación de Azure AD | Microsoft Docs
+description: Elija qué solución de proxy es la mejor si va a actualizar desde Microsoft Forefront o Unified Access Gateway.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -45,7 +45,7 @@ Use esta tabla para comprender cómo se comparan Threat Management Gateway (TMG)
 | Autenticación con encabezados | - | Sí | - | Sí, con PingAccess | 
 | Seguridad de escala en la nube | - | - | - | Sí | 
 | Acceso condicional | - | Sí | - | Sí |
-| No existe ningún componente en la zona desmilitarizada (DMZ) | - | - | - | Sí |
+| No existe ningún componente en la red perimetral (DMZ) | - | - | - | Sí |
 | No hay conexiones entrantes | - | - | - | Sí |
 
 En la mayoría de los escenarios, se recomienda la aplicación Azure AD como la solución actual. Web Application Proxy solo se prefiere en los escenarios que requieran un servidor proxy para AD FS y no pueda usar dominios personalizados en Azure Active Directory. 
@@ -55,12 +55,12 @@ El proxy de aplicación de Azure AD ofrece ventajas exclusivas en comparación c
 - Extensión de Azure AD para recursos locales
    - Seguridad y protección de escala en la nube
    - Las características como el acceso condicional y la autenticación multifactor son fáciles de habilitar
-- No existe ningún componente en la zona desmilitarizada
+- No existe ningún componente en La red perimetral
 - No se requieren conexiones entrantes
 - Un panel de acceso que los usuarios pueden usar para todas sus aplicaciones, incluidas Office 365, las aplicaciones SassS integradas en Azure AD y las aplicaciones web locales. 
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - [Uso de la aplicación Azure AD para proporcionar acceso remoto seguro a aplicaciones locales](active-directory-application-proxy-get-started.md)
 - [Transición de Forefront TMG y UAG al proxy de aplicación](https://blogs.technet.microsoft.com/isablog/2015/06/30/modernizing-microsoft-application-access-with-web-application-proxy-and-azure-active-directory-application-proxy/).

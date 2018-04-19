@@ -1,24 +1,19 @@
 ---
-title: Panel de Power BI en Azure Stream Analytics | Microsoft Docs
-description: Utilice un panel de Power BI de streaming en tiempo real para reunir información de inteligencia empresarial y analizar grandes volúmenes de datos procedentes de un trabajo de Stream Analytics.
-keywords: panel de análisis, panel en tiempo real
+title: Integración del panel de Power BI con Azure Stream Analytics
+description: En este artículo se describe cómo usar un panel de Power BI en tiempo real para visualizar datos fuera de un trabajo de Azure Stream Analytics.
 services: stream-analytics
-documentationcenter: ''
 author: jseb225
-manager: ryanw
-ms.assetid: fe8db732-4397-4e58-9313-fec9537aa2ad
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 06/27/2017
 ms.author: jeanb
-ms.openlocfilehash: e1f1d960c312362e0e0cd6d2f83599c28c8c3f05
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 06/27/2017
+ms.openlocfilehash: 15b8548e8b5b6ff8d2f5722d2a4031f8e52d044b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics y Power BI: panel de análisis en tiempo real de flujo de datos
 Azure Stream Analytics permite aprovechar una de las principales herramientas de inteligencia empresarial, [Microsoft Power BI](https://powerbi.com/). En este artículo, aprenderá a crear herramientas de inteligencia empresarial personalizadas utilizando Power BI como salida para los trabajos de Azure Stream Analytics. También aprenderá a crear y usar un panel en tiempo real.
@@ -249,7 +244,7 @@ De forma similar, si un trabajo intenta iniciarse después de que el token haya 
 Después de que la autorización se haya actualizado con Power BI, se mostrará una alerta verde en el área de autorización para indicar que el problema se ha resuelto.
 
 ## <a name="get-help"></a>Obtención de ayuda
-Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Para obtener ayuda adicional, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Introducción a Azure Stream Analytics](stream-analytics-introduction.md)

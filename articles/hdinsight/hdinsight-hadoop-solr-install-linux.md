@@ -1,8 +1,8 @@
 ---
-title: "Uso de la acción de script para instalar Solr en HDInsight basado en Linux (Azure) | Microsoft Docs"
-description: "Aprenda a instalar Solr en clústeres de Hadoop para HDInsight basados en Linux mediante acciones de script."
+title: Uso de la acción de script para instalar Solr en HDInsight basado en Linux (Azure) | Microsoft Docs
+description: Aprenda a instalar Solr en clústeres de Hadoop para HDInsight basados en Linux mediante acciones de script.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 02/20/2018
 ms.author: larryfr
 ms.openlocfilehash: f642a1f8060f566ec95b23995d0f82191b0c5315
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="install-and-use-solr-on-hdinsight-hadoop-clusters"></a>Instalación y uso de Solr en clústeres de Hadoop de HDInsight
 
@@ -39,7 +39,7 @@ Aprenda a instalar Solr en Azure HDInsight con acción de script. Solr es una ef
 > [!WARNING]
 > Los componentes proporcionados con el clúster de HDInsight son totalmente compatibles con Microsoft.
 >
-> Los componentes personalizados reciben soporte técnico comercialmente razonable para ayudarlo a solucionar el problema. El soporte técnico de Microsoft puede no ser capaz de resolver problemas con componentes personalizados. Debe ponerse en contacto con las comunidades de código abierto para obtener ayuda. Por ejemplo, hay diversos sitios de la comunidad que se pueden usar, como el [foro de MSDN para HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Los proyectos de Apache también tienen sitios de proyecto en [http://apache.org](http://apache.org) (por ejemplo, [Hadoop](http://hadoop.apache.org/)).
+> Los componentes personalizados reciben soporte técnico comercialmente razonable para ayudarlo a solucionar el problema. El soporte técnico de Microsoft puede no ser capaz de resolver problemas con componentes personalizados. Debe ponerse en contacto con las comunidades de código abierto para obtener ayuda. Por ejemplo, hay diversos sitios de la comunidad que se pueden usar, como el [foro de MSDN para HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Los proyectos de Apache también tienen sitios de proyecto en [http://apache.org](http://apache.org), por ejemplo: [Hadoop](http://hadoop.apache.org/).
 
 ## <a name="what-the-script-does"></a>Funcionamiento del script
 
@@ -319,7 +319,7 @@ Use los pasos siguientes para realizar copias de seguridad de datos de Solr en e
     hdfs dfs -put snapshot.20150806185338855.tgz /example/data
     ```
 
-Para más información sobre cómo trabajar con copia de seguridad y restauraciones de Solr, vea [https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups](https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups).
+Para obtener más información sobre cómo trabajar con copia de seguridad y restauraciones de Solr, consulte [https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups](https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

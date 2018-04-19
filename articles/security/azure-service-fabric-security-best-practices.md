@@ -1,12 +1,12 @@
 ---
 title: Procedimientos recomendados de seguridad de Azure Service Fabric | Microsoft Docs
-description: "En este artículo se proporciona un conjunto de procedimientos recomendados para la reforzar la seguridad de Azure Service Fabric."
+description: En este artículo se proporciona un conjunto de procedimientos recomendados para la reforzar la seguridad de Azure Service Fabric.
 services: security
 documentationcenter: na
 author: unifycloud
 manager: swadhwa
 editor: tomsh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -56,7 +56,7 @@ Use implementaciones automatizadas:
 -   Requiera autenticación para el acceso de usuario a los secretos.
 
 Además, tenga en cuenta las siguientes opciones de configuración:
--   Cree redes perimetrales (también conocido como zonas desmilitarizadas, DMZ y subredes filtradas) mediante el uso de grupos de seguridad de red (NSG) de Azure.
+-   Cree redes perimetrales (también conocido como DMZ y subredes filtradas) mediante el uso de grupos de seguridad de red (NSG) de Azure.
 -   Use servidores de salto con conexión a Escritorio remoto para obtener acceso a las máquinas virtuales (VM) del clúster o administrar el clúster.
 
 Los clústeres deben estar protegidos para evitar que usuarios no autorizados se conecten a ellos, especialmente cuando un clúster está en producción. Aunque es posible crear un clúster sin protección, si este expone los puntos de conexión de administración a Internet público, podrían conectarse a él usuarios anónimos.

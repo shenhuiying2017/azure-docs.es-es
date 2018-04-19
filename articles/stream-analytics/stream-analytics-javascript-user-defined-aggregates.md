@@ -1,23 +1,19 @@
 ---
-title: Agregados definidos por el usuario en JavaScript para Azure Stream Analytics | Microsoft Docs
-description: Realización de la mecánica de consultas avanzadas con agregados definidos por el usuario en JavaScript
-keywords: javascript, agregados definidos por el usuario, uda
+title: Agregados definidos por el usuario de JavaScript en Azure Stream Analytics
+description: En este artículo se describe cómo realizar mecanismos de consulta avanzados con agregados definidos por el usuario de JavaScript en Azure Stream Analytics.
 services: stream-analytics
 author: minhe-msft
-manager: santoshb
-ms.assetid: ''
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 10/28/2017
 ms.author: minhe
-ms.openlocfilehash: 9f9a2e33f97fc90265933ee9941f2d02a92cbc4c
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: santoshb
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 10/28/2017
+ms.openlocfilehash: 718109d17309747a3c19f22921e4a316b0b88dc6
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-aggregates-preview"></a>Agregados definidos por el usuario en JavaScript para Azure Stream Analytics (versión preliminar)
 
@@ -230,7 +226,7 @@ Cree un archivo JSON local con el contenido siguiente, cárguelo en el trabajo d
 
 ## <a name="get-help"></a>Obtención de ayuda
 
-Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

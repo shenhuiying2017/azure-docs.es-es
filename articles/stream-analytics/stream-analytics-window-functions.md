@@ -1,24 +1,19 @@
 ---
-title: Introducción a las funciones de ventana de Stream Analytics | Microsoft Docs
-description: Obtenga información sobre las tres funciones de ventana de Stream Analytics (saltos de tamaño constante, salto y deslizante).
-keywords: ventana de saltos de tamaño constante, ventana deslizante, ventana de salto
-documentationcenter: ''
+title: Introducción a las funciones de ventana de Azure Stream Analytics
+description: Este artículo describen tres funciones de ventana (saltos de tamaño constante, salto y deslizamiento) que se usan en los trabajos de Azure Stream Analytics.
 services: stream-analytics
 author: jseb225
-manager: ryanw
-ms.assetid: 0d8d8717-5d23-43f0-b475-af078ab4627d
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: 3757834ff816fffc4571aeef8c164c2230c0f7c2
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 03/28/2017
+ms.openlocfilehash: c6f5dbe49cb60e3c7b2bc6562acf2d7fd79096ec
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="introduction-to-stream-analytics-window-functions"></a>Introducción a las funciones de ventana de Stream Analytics
 En numerosos escenarios de transmisión en tiempo real, es necesario realizar operaciones solamente en los datos contenidos en ventanas temporales. La compatibilidad nativa para las funciones de ventanas es una característica clave de Azure Stream Analytics que marca la diferencia en la productividad del desarrollador en la creación de trabajos de procesamiento de transmisiones complejos. Stream Analytics permite a los desarrolladores usar ventanas de [**saltos de tamaño constante**](https://msdn.microsoft.com/library/dn835055.aspx), [**salto**](https://msdn.microsoft.com/library/dn835041.aspx) y [**deslizantes**](https://msdn.microsoft.com/library/dn835051.aspx) para realizar operaciones temporales en datos de transmisión. Es importante destacar que todas las operaciones de [ventana](https://msdn.microsoft.com/library/dn835019.aspx) generan resultados al **final** de la ventana. La salida de la ventana será un solo evento basado en la función agregada que se usa. El evento tendrá la marca de tiempo del final de la ventana y todas las funciones de ventana están definidas con una longitud fija. Por último, es importante tener en cuenta que todas las funciones de ventana se deben usar en una cláusula [**GROUP BY**](https://msdn.microsoft.com/library/dn835023.aspx).
@@ -41,7 +36,7 @@ Las funciones de ventana deslizante, a diferencia de las ventanas de saltos de t
 ![Introducción al deslizamiento de las funciones de ventana de Stream Analytics](media/stream-analytics-window-functions/stream-analytics-window-functions-sliding-intro.png)
 
 ## <a name="getting-help-with-window-functions"></a>Obtener ayuda con las funciones de ventana
-Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Introducción a Azure Stream Analytics](stream-analytics-introduction.md)

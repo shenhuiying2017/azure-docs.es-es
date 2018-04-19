@@ -8,13 +8,13 @@ ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 04/04/2018
 ms.author: v-daljep
-ms.openlocfilehash: 0f23a76506a6692dd907a0b9fc7cfadfe7cd8f40
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7830a8a4bfc43e158069cc7cdc186e289e166751
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Solucionar problemas de rendimiento de Azure SQL Database con Intelligent Insights
 
@@ -58,7 +58,7 @@ En la sección siguiente se describen los patrones de rendimiento detectables en
 
 Este patrón de rendimiento detectable combina los problemas de rendimiento relacionados con el alcance de los límites de recursos disponibles, los límites de trabajo y los límites de sesión. Una vez que se detecta este problema de rendimiento, un campo de descripción del registro de diagnóstico indica si el problema de rendimiento está relacionado con el recurso, el trabajo o los límites de la sesión.
 
-Los recursos de SQL Database se conocen normalmente como [recursos DTU](https://docs.microsoft.com/azure/sql-database/sql-database-what-is-a-dtu). Están formados por una medida mezclada de recursos de CPU y E/S (de datos y registro de transacciones). El patrón de alcance de los límites de recursos se reconoce cuando la degradación detectada del rendimiento de consultas se produce debido a que se alcanza alguno de los límites de los recursos medidos.
+Los recursos de SQL Database se conocen normalmente como [recursos DTU](https://docs.microsoft.com/azure/sql-database/sql-database-what-is-a-dtu). Están formados por una medida combinada de recursos de CPU y E/S (datos y registro de transacciones). El patrón de alcance de los límites de recursos se reconoce cuando la degradación detectada del rendimiento de consultas se produce debido a que se alcanza alguno de los límites de los recursos medidos.
 
 El recurso de límites de sesión denota el número de inicios de sesión simultáneos disponibles en SQL Database. Este patrón de rendimiento se reconoce cuando las aplicaciones que se conectan a las bases de datos SQL han alcanzado el número de inicios de sesión simultáneos disponibles para la base de datos. Si las aplicaciones intenten usar más sesiones que las que hay disponibles en una base de datos, el rendimiento de consultas resultará afectado.
 
@@ -154,7 +154,7 @@ Los bloqueos temporales son mecanismos de sincronización ligeros que usa SQL Da
 
 Existen muchos tipos de bloqueos temporales en SQL Database. Por motivos de simplicidad, los bloqueos temporales de búfer se usan para proteger las páginas en memoria en el grupo de búferes. Los bloqueos temporales de E/S se usan para proteger las páginas que aún no se han cargado en el grupo de búferes. Siempre que se escriben o se leen datos en una página del grupo de búferes, primero es necesario que un subroceso de trabajo adquiera un bloqueo temporal de búferes para la página. Cada vez que un subproceso de trabajo intenta acceder a una página que aún no está disponible en el grupo de búferes en memoria, se realiza una solicitud de E/S para cargar la información necesaria desde el almacenamiento. Esta secuencia de eventos indica una forma más grave de degradación del rendimiento.
 
-La contención en los bloqueos temporales de páginas se produce cuando varios subprocesos intentan adquirir simultáneamente bloqueos temporales en la misma estructura en memoria, lo que introduce un tiempo de espera mayor en la ejecución de la consulta. En el caso de la contención de E/S de Pagelatch cuando es necesario acceder a los datos desde el almacenamiento, este tiempo de espera aún es mayor. Esto puede afectar considerablemente al rendimiento de la carga de trabajo. La contención de PAGELATCH es el escenario más común de subprocesos que se esperan mutuamente y compiten por recursos en varios sistemas de CPU.
+La contención en los bloqueos temporales de páginas se produce cuando varios subprocesos intentan adquirir simultáneamente bloqueos temporales en la misma estructura en memoria, lo que introduce un tiempo de espera mayor en la ejecución de la consulta. En el caso de la contención de E/S de PAGELATCH, cuando es necesario acceder a los datos desde el almacenamiento, este tiempo de espera es incluso mayor. Esto puede afectar considerablemente al rendimiento de la carga de trabajo. La contención de PAGELATCH es el escenario más común de subprocesos que se esperan mutuamente y compiten por recursos en varios sistemas de CPU.
 
 ### <a name="troubleshooting"></a>solución de problemas
 
@@ -162,7 +162,7 @@ El registro de diagnóstico genera detalles de contención de Pagelatch. Puede u
 
 Dado que Pagelatch es un mecanismo de control interno de SQL Database, se determina automáticamente cuándo se debe usar. Las decisiones de aplicación, incluido el diseño de esquema, pueden afectar al comportamiento de Pagelatch debido al comportamiento determinista de los bloqueos temporales.
 
-Un método para controlar la contención de bloqueos temporales es reemplazar una clave de índice secuencial por una clave no secuencial a fin de distribuir uniformemente las inserciones en un intervalo de índices. Normalmente, una columna inicial en el índice distribuye la carga de trabajo de manera proporcional. Otro método que se debe tener en cuenta es la creación de particiones de tablas. La creación de un esquema de creación de particiones por hash con una columna calculada en una tabla con particiones es un enfoque común para mitigar la contención de bloqueos temporales excesivos. En el caso de la contención de E/S de Pagelatch, la introducción de índices ayuda a mitigar este problema de rendimiento. 
+Un método para controlar la contención de bloqueos temporales es reemplazar una clave de índice secuencial por una clave no secuencial a fin de distribuir uniformemente las inserciones en un intervalo de índices. Normalmente, una columna inicial en el índice distribuye la carga de trabajo de manera proporcional. Otro método que se debe tener en cuenta es la creación de particiones de tablas. La creación de un esquema de creación de particiones por hash con una columna calculada en una tabla con particiones es un enfoque común para mitigar la contención de bloqueos temporales excesivos. En el caso de la contención de E/S de PAGELATCH, la introducción de índices ayuda a mitigar este problema de rendimiento. 
 
 Para más información, consulte [Diagnosing and Resolving Latch Contention on SQL Server](http://download.microsoft.com/download/B/9/E/B9EDF2CD-1DBF-4954-B81E-82522880A2DC/SQLServerLatchContention.pdf) (Diagnóstico y resolución de la contención de bloqueo temporal en SQL Server) (descarga de PDF).
 
@@ -234,7 +234,7 @@ Para más información, consulte [Introducción a las tablas optimizadas para me
 
 Este patrón de rendimiento detectable indica una degradación del rendimiento actual de la carga de trabajo de la base de datos en comparación con la base de referencia de los últimos 7 días. El motivo es la escasez de DTU disponibles en el grupo elástico de su suscripción. 
 
-Normalmente, se hace referencia a los recursos de SQL Database como [recursos de DTU](sql-database-what-is-a-dtu.md), que consisten en una medida combinada de los recursos de la CPU y E/S (del registro de transacciones y datos). Los [recursos del grupo elástico de Azure ](sql-database-elastic-pool.md) se usan como un grupo de recursos disponibles de eDTU que se comparten entre varias bases de datos con finalidades de escala. Cuando los recursos de eDTU disponibles en su grupo elástico no son lo suficientemente grandes como para admitir todas las bases de datos del grupo, el sistema detecta el problema de rendimiento por escasez de DTU en el grupo elástico.
+Normalmente, se hace referencia a los recursos de SQL Database como [recursos de DTU](sql-database-what-is-a-dtu.md), que consisten en una medida combinada de recursos de CPU y E/S (datos y registro de transacciones). Los [recursos del grupo elástico de Azure ](sql-database-elastic-pool.md) se usan como un grupo de recursos disponibles de eDTU que se comparten entre varias bases de datos con finalidades de escala. Cuando los recursos de eDTU disponibles en su grupo elástico no son lo suficientemente grandes como para admitir todas las bases de datos del grupo, el sistema detecta el problema de rendimiento por escasez de DTU en el grupo elástico.
 
 ### <a name="troubleshooting"></a>solución de problemas
 

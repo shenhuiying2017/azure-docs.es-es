@@ -4,7 +4,7 @@ description: Aprenda a habilitar o deshabilitar HTTPS en un punto de conexión d
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: ''
+manager: akucer
 editor: ''
 ms.assetid: 10337468-7015-4598-9586-0b66591d939b
 ms.service: cdn
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2018
-ms.author: casoper
-ms.openlocfilehash: fea7121fc67944b20b8f39007edb0c0aad86aeaa
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: rli; v-deasim
+ms.openlocfilehash: 554ae4c19d1a3d35075ad174549a62a20329e5fa
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="configure-https-on-an-azure-content-delivery-network-custom-domain"></a>Configurar HTTPS en un dominio personalizado de Azure Content Delivery Network
 
@@ -45,7 +45,7 @@ Para habilitar HTTPS en un dominio personalizado, siga estos pasos:
 
 ### <a name="step-1-enable-the-feature"></a>Paso 1: Habilitación de la característica 
 
-1. En [Azure Portal](https://portal.azure.com), vaya a su perfil de CDN estándar o Premium de Verizon.
+1. En el [Azure Portal](https://portal.azure.com), vaya a su perfil de CDN **Azure CDN estándar de Verizon** o **Azure CDN premium de Verizon**.
 
 2. En la lista de puntos de conexión, haga clic en el que contiene el dominio personalizado.
 
@@ -149,7 +149,7 @@ Después de haber habilitado HTTPS en un dominio público, puede deshabilitarlo 
 
 ### <a name="step-1-disable-the-feature"></a>Paso 1: Deshabilitación de la característica 
 
-1. En [Azure Portal](https://portal.azure.com), vaya a su perfil de CDN estándar o Premium de Verizon.
+1. En el [Azure Portal](https://portal.azure.com), vaya a su perfil de CDN **Azure CDN estándar de Verizon** o **Azure CDN premium de Verizon**.
 
 2. En la lista de puntos de conexión, haga clic en el que contiene el dominio personalizado.
 

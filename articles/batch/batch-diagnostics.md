@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c41c8c9f8fd9302c610ce356b0485e33ea3c967d
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: c4c68df9650fa300ea20ea0621c732cb96d167ef
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="log-events-for-diagnostic-evaluation-and-monitoring-of-batch-solutions"></a>Eventos de registro para la evaluación de diagnósticos y la supervisión de soluciones de Batch
 
@@ -97,7 +97,7 @@ Además de almacenar los eventos de registro de diagnóstico en una cuenta de Az
   Transmita eventos de diagnóstico de Batch al servicio de entrada de datos altamente escalable, Event Hubs. Event Hubs puede ingerir millones de eventos por segundo, que posteriormente se pueden transformar y almacenar con cualquier proveedor de análisis en tiempo real.
 * [Análisis de los registros de diagnóstico de Azure mediante Log Analytics](../log-analytics/log-analytics-azure-storage.md)
   
-  Envíe los registros de diagnóstico a Log Analytics, donde puede analizarlos en el portal de Operations Management Suite (OMS), o bien exportarlos para su análisis en Power BI o Excel.
+  Envíe los registros de diagnóstico a Log Analytics, donde puede analizarlos en Azure Portal, o bien exportarlos para su análisis en Power BI o Excel.
 
 [pool_create]: https://msdn.microsoft.com/library/azure/mt743615.aspx
 [pool_delete_start]: https://msdn.microsoft.com/library/azure/mt743610.aspx

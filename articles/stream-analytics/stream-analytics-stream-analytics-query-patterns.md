@@ -1,24 +1,19 @@
 ---
-title: Ejemplos de consulta para patrones de uso comunes de Stream Analytics | Microsoft Docs
-description: Patrones de consulta comunes de Azure Stream Analytics
-keywords: ejemplos de consultas
+title: Patrones de consulta comunes en Azure Stream Analytics
+description: En este artículo se describe una serie de patrones de consulta comunes y diseños que son útiles en los trabajos de Azure Stream Analytics.
 services: stream-analytics
-documentationcenter: ''
 author: jseb225
-manager: ryanw
-ms.assetid: 6b9a7d00-fbcc-42f6-9cbb-8bbf0bbd3d0e
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 08/08/2017
+manager: kfile
 ms.author: jeanb
-ms.openlocfilehash: 9632a77afff6ba47d6ce80457e02f1f6194362a1
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 08/08/2017
+ms.openlocfilehash: b929eaf17255210a5c813e3e91478f9202941b64
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Ejemplos de consulta para patrones de uso comunes de Stream Analytics
 ## <a name="introduction"></a>Introducción
@@ -224,7 +219,7 @@ GROUP BY
 
 
 **Explicación:**
-**COUNT(DISTINCT Make)** devuelve la cantidad de valores distintos de la columna **Make** dentro de una ventana de tiempo.
+** COUNT(DISTINCT Make)** devuelve la cantidad de valores distintos de la columna **Make** dentro de una ventana de tiempo.
 
 ## <a name="query-example-determine-if-a-value-has-changed"></a>Ejemplo de consulta: determinar si un valor ha cambiado
 **Descripción**: busque un valor anterior para determinar si es diferente del valor actual.
@@ -580,7 +575,7 @@ WHERE
 
 
 ## <a name="get-help"></a>Obtención de ayuda
-Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Para obtener ayuda adicional, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Introducción a Azure Stream Analytics](stream-analytics-introduction.md)

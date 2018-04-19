@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Configuración de Workplace by Facebook para el aprovisionamiento automático de usuarios con Azure Active Directory | Microsoft Docs"
-description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Workplace by Facebook."
+title: 'Tutorial: Configuración de Workplace by Facebook para el aprovisionamiento automático de usuarios con Azure Active Directory | Microsoft Docs'
+description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Workplace by Facebook.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 15cbaafcd86c576f4789a61ed80c526b6fe705ab
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: d42a6b63833bffc3cce1830a728ec21083b25dc9
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Tutorial: Configuración de Workplace by Facebook para el aprovisionamiento automático de usuarios
 
@@ -75,7 +75,7 @@ Azure AD admite la capacidad de sincronizar automáticamente los detalles de la 
 
     ![Aprovisionamiento](./media/active-directory-saas-workplacebyfacebook-provisioning-tutorial/provisioning.png)
 
-5. En la sección **Credenciales de administrador**, escriba el token secreto de administrador de Workplace by Facebook y establezca el valor de la dirección URL de inquilino en `https://www.facebook.com/scim/v1/`.
+5. En la sección **Credenciales de administrador**, escriba el token de acceso del administrador de Workplace by Facebook y establezca el valor de la dirección URL de inquilino en `https://www.facebook.com/scim/v1/`. Vea estas [instrucciones](https://developers.facebook.com/docs/workplace/integrations/custom-integrations/apps) acerca de cómo crear un token de acceso para Workplace. 
 
 6. En Azure Portal, haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a la aplicación Workplace by Facebook. Si la conexión no se establece, asegúrese de que la cuenta de Workplace by Facebook tiene permisos de administrador de equipo.
 
@@ -91,7 +91,7 @@ Azure AD admite la capacidad de sincronizar automáticamente los detalles de la 
 
 12. Haga clic en **Guardar**.
 
-Para más información sobre cómo configurar el aprovisionamiento automático, consulte [https://developers.facebook.com/docs/facebook-at-work/provisioning/cloud-providers](https://developers.facebook.com/docs/facebook-at-work/provisioning/cloud-providers)
+Para más información sobre cómo configurar el aprovisionamiento automático, consulte [https://developers.facebook.com/docs/facebook-at-work/provisioning/cloud-providers](https://developers.facebook.com/docs/facebook-at-work/provisioning/cloud-providers).
 
 Ahora puede crear una cuenta de prueba. Espere 20 minutos para comprobar que la cuenta se ha sincronizado con Workplace by Facebook.
 

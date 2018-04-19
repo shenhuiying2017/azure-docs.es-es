@@ -1,12 +1,12 @@
 ---
-title: "Creación de una máquina virtual Linux en Azure con varias NIC | Microsoft Docs"
-description: "Aprenda a crear una máquina virtual Linux con varias NIC conectadas a ella mediante la CLI de Azure o plantillas de Resource Manager."
+title: Creación de una máquina virtual Linux en Azure con varias NIC | Microsoft Docs
+description: Aprenda a crear una máquina virtual Linux con varias NIC conectadas a ella mediante la CLI de Azure o plantillas de Resource Manager.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
-editor: 
-ms.assetid: 
+manager: jeconnoc
+editor: ''
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.openlocfilehash: 93a32ae7ec0cf73825791e8c8bc3d388cf999ece
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: 20e3a65c28e95849822d81076b6780e05a2aebbf
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-multiple-nics-using-the-azure-cli-10"></a>Creación de una máquina virtual Linux con varias NIC mediante la CLI de Azure 1.0
 Puede crear una máquina virtual (VM) en Azure que tenga asociadas varias interfaces de red virtual (NIC). Un escenario común es tener distintas subredes para la conectividad front-end y back-end o una red dedicada a una solución de supervisión o copia de seguridad. En este artículo se proporcionan comandos rápidos para crear una máquina virtual que tiene conectadas varias NIC. Diferentes [tamaños de máquina virtual](sizes.md) admiten un número distinto de NIC, así que ajuste el tamaño de su máquina virtual teniendo esto en cuenta.
@@ -31,7 +31,7 @@ Puede crear una máquina virtual (VM) en Azure que tenga asociadas varias interf
 Puede completar la tarea mediante una de las siguientes versiones de la CLI:
 
 - [CLI de Azure 1.0](#create-supporting-resources): la CLI para los modelos de implementación clásico y de Resource Manager (este artículo)
-- [CLI de Azure 2.0](multiple-nics.md): la CLI de última generación para el modelo de implementación de administración de recursos
+- [CLI de Azure 2.0 ](multiple-nics.md): CLI de última generación para el modelo de implementación de administración de recursos
 
 
 ## <a name="create-supporting-resources"></a>Creación de recursos de apoyo
@@ -143,6 +143,8 @@ azure vm create \
     --ssh-publickey-file ~/.ssh/id_rsa.pub
 ```
 
+Al agregar varios NIC a una máquina virtual de Linux, debe crear reglas de enrutamiento. Estas reglas permiten a la máquina virtual enviar y recibir tráfico que pertenece a una NIC específica. En caso contrario, el tráfico que pertenece a eth1, por ejemplo, no se puede procesar correctamente mediante la ruta predeterminada definida. Para corregir este problema de enrutamiento, consulte [Configuración del sistema operativo invitado para varias NIC](multiple-nics.md#configure-guest-os-for-multiple-nics).
+
 ## <a name="create-multiple-nics-using-resource-manager-templates"></a>Creación de varias NIC con plantillas de Resource Manager
 Las plantillas de Azure Resource Manager emplean archivos JSON declarativos para definir el entorno. Puede leer la [introducción a Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md). Las plantillas de Resource Manager ofrecen una manera de crear varias instancias de un recurso durante la implementación; por ejemplo, se pueden crear varias NIC. Utilizará el comando *copy* para especificar el número de instancias que se crearán:
 
@@ -162,6 +164,8 @@ También puede utilizar `copyIndex()` para anexar un número a un nombre de recu
 ```
 
 Puede leer un ejemplo completo de [cómo crear varias NIC con plantillas de Resource Manager](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
+
+Al agregar varios NIC a una máquina virtual de Linux, debe crear reglas de enrutamiento. Estas reglas permiten a la máquina virtual enviar y recibir tráfico que pertenece a una NIC específica. En caso contrario, el tráfico que pertenece a eth1, por ejemplo, no se puede procesar correctamente mediante la ruta predeterminada definida. Para corregir este problema de enrutamiento, consulte [Configuración del sistema operativo invitado para varias NIC](multiple-nics.md#configure-guest-os-for-multiple-nics).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Asegúrese de revisar los [tamaños de máquina virtual Linux](sizes.md) al intentar crear una máquina virtual con varias NIC. Preste atención al número máximo de NIC que admite cada tamaño de máquina virtual. 

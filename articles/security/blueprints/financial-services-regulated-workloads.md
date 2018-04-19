@@ -1,6 +1,6 @@
 ---
-title: "Plano técnico de seguridad y cumplimiento de Azure: cargas de trabajo reguladas por servicios financieros de FFIEC"
-description: "Plano técnico de seguridad y cumplimiento de Azure: cargas de trabajo reguladas por servicios financieros de FFIEC"
+title: 'Plano técnico de seguridad y cumplimiento de Azure: cargas de trabajo reguladas por servicios financieros de FFIEC'
+description: 'Plano técnico de seguridad y cumplimiento de Azure: cargas de trabajo reguladas por servicios financieros de FFIEC'
 services: security
 documentationcenter: na
 author: simorjay
@@ -168,7 +168,7 @@ La arquitectura fundamental define una red virtual privada con un espacio de dir
 
 Cada uno de los niveles de red tiene un grupo de seguridad de red dedicado (NSG):
 
-- Un grupo de seguridad de red DMZ para el firewall y el modo WAFS de Application Gateway
+- Un grupo de seguridad de red perimetral para el firewall y el modo WAFS de Application Gateway
 - Un NSG para un jumpbox de administración (host de tipo bastión)
 - Un NSG para el entorno del servicio de la aplicación
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/02/2018
 ms.author: johnkem
-ms.openlocfilehash: 4b2d9866839f943f65beb271d44bc691441b0fb3
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 8a599558fc35ca2bf48ce2a5f11ec4978bf10277
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>Transmisión del registro de actividad de Azure a Event Hubs
 Puede transmitir el [registro de actividad de Azure](monitoring-overview-activity-logs.md) casi en tiempo real a cualquier replicación de dos maneras:
@@ -56,38 +56,48 @@ Para actualizar el perfil de registro del registro de actividad para incluir el 
 
    > [!WARNING]  
    > Si selecciona un valor distinto de **Todas las regiones**, se pasarán por alto eventos clave que espera recibir. El registro de actividad es un registro global (no regional), así que la mayoría de los eventos no tienen asociada una región. 
-   > 
+   >
 
 4. Haga clic en **Guardar** para guardar esta configuración. La configuración se aplica inmediatamente a la suscripción.
 5. Si tiene varias suscripciones, repita esta acción y envíe todos los datos al mismo centro de eventos.
 
 ### <a name="via-powershell-cmdlets"></a>Mediante cmdlets de PowerShell
-Si ya existe un perfil de registro, primero debe quitarlo.
+Si ya existe un perfil de registro, primero debe quitar el perfil de registro existente y luego crear un nuevo perfil de registro.
 
-1. Use `Get-AzureRmLogProfile` para identificar si existe un perfil de registro.
-2. Si es así, use `Remove-AzureRmLogProfile` para quitarlo.
-3. Use `Set-AzureRmLogProfile` para crear un perfil:
+1. Use `Get-AzureRmLogProfile` para identificar si existe un perfil de registro.  Si existe un perfil de registro, busque la propiedad *name*.
+2. Use `Remove-AzureRmLogProfile` para quitar el perfil de registro mediante el valor de la propiedad *name*.
+
+    ```powershell
+    # For example, if the log profile name is 'default'
+    Remove-AzureRmLogProfile -Name "default"
+    ```
+3. Use `Add-AzureRmLogProfile` para crear un nuevo perfil de registro:
 
    ```powershell
+   # Settings needed for the new log profile
+   $logProfileName = "default"
+   $locations = (Get-AzureRmLocation).Location
+   $locations += "global"
+   $subscriptionId = "<your Azure subscription Id>"
+   $resourceGroupName = "<resource group name your event hub belongs to>"
+   $eventHubNamespace = "<event hub namespace>"
 
-   Add-AzureRmLogProfile -Name my_log_profile -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus -RetentionInDays 90 -Categories Write,Delete,Action
+   # Build the service bus rule Id from the settings above
+   $serviceBusRuleId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.EventHub/namespaces/$eventHubNamespaceName/authorizationrules/RootManageSharedAccessKey"
 
+   Add-AzureRmLogProfile -Name $logProfileName -Location $locations -ServiceBusRuleId $serviceBusRuleId
    ```
-
-El identificador de regla de Service Bus es una cadena con este formato: `{service bus resource ID}/authorizationrules/{key name}`. 
 
 ### <a name="via-azure-cli"></a>Mediante la CLI de Azure
-Si ya existe un perfil de registro, primero debe quitarlo.
+Si ya existe un perfil de registro, primero debe quitar el perfil de registro existente y luego crear un nuevo perfil de registro.
 
-1. Use `azure insights logprofile list` para identificar si existe un perfil de registro.
-2. Si es así, use `azure insights logprofile delete` para quitarlo.
-3. Use `azure insights logprofile add` para crear un perfil:
+1. Use `az monitor log-profiles list` para identificar si existe un perfil de registro.
+2. Use `az monitor log-profiles delete --name "<log profile name>` para quitar el perfil de registro mediante el valor de la propiedad *name*.
+3. Use `az monitor log-profiles create` para crear un nuevo perfil de registro:
 
    ```azurecli-interactive
-   azure insights logprofile add --name my_log_profile --storageId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/my_storage --serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey --locations global,westus,eastus,northeurope --retentionInDays 90 –categories Write,Delete,Action
+   az monitor log-profiles create --name "default" --location null --locations "global" "eastus" "westus" --categories "Delete" "Write" "Action"  --enabled false --days 0 --service-bus-rule-id "/subscriptions/<YOUR SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventHub/namespaces/<EVENT HUB NAME SPACE>/authorizationrules/RootManageSharedAccessKey"
    ```
-
-El identificador de regla de Service Bus es una cadena con este formato: `{service bus resource ID}/authorizationrules/{key name}`.
 
 ## <a name="consume-the-log-data-from-event-hubs"></a>Consumo de los datos de registro de Event Hubs
 El esquema para el registro de actividad está disponible en [Supervisión de la actividad de suscripción con el registro de actividad de Azure](monitoring-overview-activity-logs.md). Cada evento está en una matriz de blobs JSON denominados *registros*.

@@ -1,23 +1,23 @@
 ---
-title: "Configuración de la asignación a la aplicación de autoservicio | Microsoft Docs"
+title: Configuración de la asignación a la aplicación de autoservicio | Microsoft Docs
 description: Habilitar el acceso de autoservicio a las aplicaciones para permitir a los usuarios buscar sus propias aplicaciones
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
+ms.date: 04/02/2018
 ms.author: asteen
-ms.openlocfilehash: 8aeda498847759debab18ddf4b44a75cd739a56c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: cf70da4933f5513b75f84aef01dec1ef902eab85
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-configure-self-service-application-assignment"></a>Configuración de la asignación a la aplicación de autoservicio
 
@@ -47,7 +47,7 @@ Para habilitar el acceso de autoservicio a las aplicaciones, siga estos pasos:
 
 1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global**.
 
-2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Todos los servicios** en la parte superior del menú de navegación izquierdo principal.
+2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Todos los servicios** en la parte inferior del menú de navegación izquierdo.
 
 3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
@@ -64,7 +64,10 @@ Para habilitar el acceso de autoservicio a las aplicaciones, siga estos pasos:
 8.  Para habilitar el acceso de autoservicio a las aplicaciones para esta aplicación, establezca la opción **¿Quiere permitir que los usuarios soliciten acceso a esta aplicación?** en **Sí.**
 
 9.  A continuación, seleccione el grupo al que se deben agregar los usuarios que solicitan acceso a esta aplicación, haga clic en el selector situado junto a la etiqueta **¿A qué grupo se deberían agregar los usuarios asignados?** y seleccione un grupo.
-
+  
+  > [!NOTE]
+  > No se admite el uso de grupos sincronizados desde el entorno local para el grupo al que se deben agregar los usuarios que solicitan acceso a esta aplicación.
+  
 10. **Opcional:** si desea requerir la aprobación de la empresa antes de permitir el acceso a los usuarios, establezca la opción **¿Quiere requerir una aprobación para conceder acceso a esta aplicación?** en **Sí**.
 
 11. **Opcional: para las aplicaciones que solo utilizan el inicio de sesión único con contraseña,** si desea permitir que los aprobadores de la empresa especifiquen las contraseñas que se envían a esta aplicación para los usuarios aprobados, establezca la opción **¿Quiere permitir que los aprobadores establezcan las contraseñas de los usuarios de esta aplicación?** en **Sí**.

@@ -1,12 +1,12 @@
 ---
-title: "Migración de contenido de Colección de áreas de trabajo de Power BI a Power BI Embedded | Microsoft Docs"
-description: "Aprenda a migrar de las colecciones de áreas de trabajo de Power BI a Power BI Embedded y aproveche los avances para insertar aplicaciones."
+title: Migración de contenido de Colección de áreas de trabajo de Power BI a Power BI Embedded | Microsoft Docs
+description: Aprenda a migrar de las colecciones de áreas de trabajo de Power BI a Power BI Embedded y aproveche los avances para insertar aplicaciones.
 services: power-bi-embedded
-documentationcenter: 
+documentationcenter: ''
 author: guyinacube
 manager: erikre
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: article
@@ -15,10 +15,10 @@ ms.workload: powerbi
 ms.date: 09/28/2017
 ms.author: asaxton
 ms.openlocfilehash: 069f31c8213bd0d8586f7ca50e543acfdad8a2b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-migrate-power-bi-workspace-collection-content-to-power-bi-embedded"></a>Migración de contenido de Colección de áreas de trabajo de Power BI a Power BI Embedded
 
@@ -121,9 +121,9 @@ Los conjuntos de datos almacenados en caché hacen referencia a archivos PBIX qu
 2. Llame a la API Download PBIX para descargar archivos PBIX del área de trabajo de Colección de áreas de trabajo de Power BI.
 3. Guarde PBIX.
 4. Llame a Import PBIX para importar los archivos PBIX al área de trabajo de Power BI Embedded.
-5. Actualice la cadena de conexión mediante una llamada a - POST https://api.powerbi.com/v1.0/myorg/datasets/{dataset_id}/Default.SetAllConnections.
-6. Obtenga el identificador de GW y el identificador del origen de datos mediante una llamada a GET https://api.powerbi.com/v1.0/myorg/datasets/{dataset_id}/Default.GetBoundGatewayDataSources
-7. Actualice las credenciales del usuario mediante una llamada - https://api.powerbi.com/v1.0/myorg/gateways/{gateway_id}/datasources/{datasource_id}
+5. Actualice la cadena de conexión mediante una llamada - POST https://api.powerbi.com/v1.0/myorg/datasets/{dataset_id}/Default.SetAllConnections
+6. Obtenga el id. de GW y el id. del origen de datos mediante una llamada - GET https://api.powerbi.com/v1.0/myorg/datasets/{dataset_id}/Default.GetBoundGatewayDataSources
+7. Actualice las credenciales del usuario mediante una llamada - PATCH https://api.powerbi.com/v1.0/myorg/gateways/{gateway_id}/datasources/{datasource_id}
 
 #### <a name="old-dataset-and-reports"></a>Informes y conjunto de datos antiguos
 

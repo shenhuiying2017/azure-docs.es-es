@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/07/2018
 ms.author: glenga
-ms.openlocfilehash: 559cfee1a8116703371a5641cf4534b7ad6f7578
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: d008e94186dd3c5a18c92617ebddfffa966358d5
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Conceptos básicos sobre los enlaces y desencadenadores de Azure Functions
 
@@ -49,7 +49,7 @@ En la versión 2.x del entorno de ejecución de Azure Functions, debe registrar 
 
 Las extensiones se entregan como paquetes NuGet, donde el nombre del paquete normalmente comienza con [microsoft.azure.webjobs.extensions](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions).  La forma de instalar y registrar las extensiones de enlace depende de cómo desarrolle sus funciones: 
 
-+ [Localmente en C# con Visual Studio o VS Code](#precompiled-functions-c)
++ [Localmente en C# con Visual Studio o VS Code](#local-c-development-using-visual-studio-or-vs-code)
 + [Localmente con Azure Functions Core Tools](#local-development-azure-functions-core-tools)
 + [En Azure Portal](#azure-portal-development) 
 
@@ -635,7 +635,7 @@ En C# y otros lenguajes .NET, puede usar un patrón de enlace imperativo, en con
 
 ## <a name="functionjson-file-schema"></a>Esquema del archivo function.json
 
-El esquema del archivo*function.json* está disponible en [http://json.schemastore.org/function](http://json.schemastore.org/function).
+El esquema de archivo *function.json* está disponible en [http://json.schemastore.org/function](http://json.schemastore.org/function).
 
 ## <a name="handling-binding-errors"></a>Control de errores de enlace
 

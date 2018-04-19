@@ -1,24 +1,19 @@
 ---
-title: Supervisión y administración de trabajos de Stream Analytics con PowerShell | Microsoft Docs
-description: Aprenda a usar los cmdlets de Azure PowerShell para supervisar y administrar trabajos de Stream Analytics.
-keywords: azure powershell, cmdlets de azure powershell, comando de powershell, scripting de powershell
+title: Supervisión y administración de los trabajos de Azure Stream Analytics con PowerShell
+description: En este artículo se describe cómo usar Azure PowerShell y cmdlets para supervisar y administrar trabajos de Azure Stream Analytics.
 services: stream-analytics
-documentationcenter: ''
 author: jseb225
-manager: ryanw
-ms.assetid: 514f454e-d18c-4081-8304-ab48577e15e8
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: 1dcb6f8fe9f2f26ea0bd6970134b0bec67a50aa5
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 03/28/2017
+ms.openlocfilehash: ed47141c46259007227ed391c1e114932153de38
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-azure-powershell-cmdlets"></a>Supervisar y administrar los trabajos de Stream Analytics con los cmdlets de Azure PowerShell
 Aprenda a supervisar y administrar los recursos de Stream Analytics con los cmdlets de Azure PowerShell y el scripting de PowerShell que se encargan de ejecutar las tareas básicas de Stream Analytics.
@@ -449,7 +444,7 @@ Azure PowerShell 1.0:
 Este comando de PowerShell comprueba el estado de conexión de la salida Output en StreamingJob.  
 
 ## <a name="get-support"></a>Obtención de soporte técnico
-Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics). 
+Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Introducción a Azure Stream Analytics](stream-analytics-introduction.md)

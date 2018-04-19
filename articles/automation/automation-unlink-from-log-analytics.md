@@ -1,18 +1,18 @@
 ---
-title: Desvinculación de la cuenta de Azure Automation de Log Analytics | Microsoft Docs
+title: Desvinculación de una cuenta de Azure Automation de Log Analytics
 description: En este artículo se proporciona información general sobre cómo desvincular la cuenta de Azure Automation de un área de trabajo de Log Analytics.
 services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/19/2018
+ms.date: 04/04/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: b8b00f8a82dd63df13ccd0bc7e10429323c15ab3
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 4928f1b92e84fc2b960c1f41e7531de9e346dfa2
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-unlink-your-automation-account-from-a-log-analytics-workspace"></a>Procedimiento para desvincular su cuenta de Automation de un área de trabajo de Log Analytics
 
@@ -21,16 +21,27 @@ Azure Automation se integra con Log Analytics no solo para admitir la supervisi�
 * [Administración de actualizaciones](../operations-management-suite/oms-solution-update-management.md)
 * [Seguimiento de cambios](../log-analytics/log-analytics-change-tracking.md)
 * [Inicio y detención de máquinas virtuales durante las horas de trabajo](automation-solution-vm-management.md)
- 
-Si decide que ya no desea integrar su cuenta de Automation con Log Analytics, puede desvincular la cuenta directamente desde Azure Portal.  Antes de continuar, primero deberá quitar las soluciones mencionadas anteriormente; en caso contrario, este proceso no podrá continuar.  Revise el tema de la solución concreto que ha importado para conocer los pasos necesarios para quitarla.  
+
+Si decide que ya no desea integrar su cuenta de Automation con Log Analytics, puede desvincular la cuenta directamente desde Azure Portal.  Antes de continuar, primero deberá quitar las soluciones mencionadas anteriormente; en caso contrario, este proceso no podrá continuar. Revise el tema de la solución concreto que ha importado para conocer los pasos necesarios para quitarla.
 
 Después de quitar estas soluciones, puede realizar los pasos siguientes para desvincular la cuenta de Automation.
 
+> [!NOTE]
+> Algunas soluciones que incluyen versiones anteriores de la solución de supervisión de SQL Azure pueden haber creado recursos de automatización y también puede que tengan que quitarse antes de desvincularse del área de trabajo.
+
 ## <a name="unlink-workspace"></a>Unlink workspace (Desvincular área de trabajo)
 
-1. En Azure Portal, abra su cuenta de Automation y, en la página de la cuenta de Automation, seleccione **Desvincular área de trabajo**  en la sección **Recursos relacionados** de la izquierda.<br><br> ![Opción para desvincular el área de trabajo](media/automation-unlink-from-log-analytics/automation-unlink-workspace-option.png)<br><br>  
-2. En la página Desvincular área de trabajo, haga clic en **Desvincular área de trabajo**.<br><br> ![Página Desvincular área de trabajo](media/automation-unlink-from-log-analytics/automation-unlink-workspace-blade.png).<br><br>  Recibirá un aviso para comprobar que desea continuar.<br><br>
-3. Aunque Azure Automation trate de desvincular la cuenta del área de trabajo de Log Analytics, puede seguir el progreso en **Notificaciones** en el menú.
+1. En Azure Portal, abra su cuenta de Automation y, en la página de la cuenta de Automation, seleccione **Desvincular área de trabajo**  en la sección **Recursos relacionados** de la izquierda.
+
+   ![Opción Desvincular área de trabajo](media/automation-unlink-from-log-analytics/automation-unlink-workspace-option.png)
+
+1. En la página Desvincular área de trabajo, haga clic en **Desvincular área de trabajo**.
+
+   ![Página Desvincular área de trabajo](media/automation-unlink-from-log-analytics/automation-unlink-workspace-blade.png).
+
+   Recibirá un aviso para comprobar que desea continuar.
+
+1. Aunque Azure Automation trate de desvincular la cuenta del área de trabajo de Log Analytics, puede seguir el progreso en **Notificaciones** en el menú.
 
 Si ha usado la solución de administración de actualizaciones, también puede quitar los siguientes elementos que ya no necesite después de quitar la solución.
 
@@ -40,10 +51,10 @@ Si ha usado la solución de administración de actualizaciones, también puede q
 
 Si ha usado la solución de inicio y detención de máquinas virtuales durante las horas de trabajo, también puede quitar los siguientes elementos que ya no necesite después de quitar la solución.
 
-* Programaciones de runbook de inicio y detención de máquinas virtuales 
+* Programaciones de runbook de inicio y detención de máquinas virtuales
 * Runbooks de inicio y detención de máquinas virtuales
-* variables   
+* variables
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para volver a configurar la cuenta de Automation para integrarla con Log Analytics, consulte [Reenvío del estado de un trabajo y de transmisiones de trabajos desde Automation a Log Analytics](automation-manage-send-joblogs-log-analytics.md). 
+Para volver a configurar la cuenta de Automation para integrarla con Log Analytics, consulte [Reenvío del estado de un trabajo y de transmisiones de trabajos desde Automation a Log Analytics](automation-manage-send-joblogs-log-analytics.md).

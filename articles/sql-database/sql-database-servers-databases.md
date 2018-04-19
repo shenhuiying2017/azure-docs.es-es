@@ -9,11 +9,11 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 2e05be2131ca89a084da5eeffc0b025b38432a8d
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 18f904a2bac70bce3e1208945a7b94b59f6225f7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>Creación y administración de servidores y bases de datos de Azure SQL Database
 
@@ -53,7 +53,7 @@ Un servidor lógico de Azure Database:
 - Proporciona acceso a los metadatos de recursos contenidos a través de las DMV conectándose a una base de datos maestra. 
 - Proporciona el ámbito de las directivas de administración que se aplican a sus bases de datos: inicios de sesión, firewall, auditoría, detección de amenazas, etc. 
 - Está restringido por una cuota dentro de la suscripción primaria (seis servidores por suscripción de forma predeterminada; [consulte el artículo sobre los límites de la suscripción aquí](../azure-subscription-service-limits.md)).
-- Proporciona el ámbito de la cuota de la base de datos y la cuota de DTU para los recursos que contiene (por ejemplo, 45000 DTU).
+- Proporciona el ámbito de la cuota de la base de datos y la cuota de DTU o de núcleos virtuales para los recursos que contiene (por ejemplo, 45 000 DTU).
 - Es el ámbito de control de versiones para funciones que se habilitan en los recursos contenidos. 
 - Los inicios de sesión de la entidad de seguridad en el nivel de servidor pueden administrar todas las bases de datos en un servidor.
 - Puede contener inicios de sesión similares a los de las instancias de SQL Server en sus instalaciones que tienen acceso a una o más bases de datos en el servidor y puede ser concesionario de derechos administrativos limitados. Para obtener más información, consulte el artículo sobre [inicios de sesión](sql-database-manage-logins.md).

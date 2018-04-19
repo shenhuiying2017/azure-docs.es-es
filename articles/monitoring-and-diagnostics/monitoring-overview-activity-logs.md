@@ -12,15 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 04/04/2018
 ms.author: johnkem
-ms.openlocfilehash: 6e373740d6b5af4b3b7d3dca8877c952d79f8b20
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 9768fd96b8023ac97d8c5711e0c02f2c147e28f6
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Supervise la actividad de suscripción con Azure Activity Log
+
 **Azure Activity Log** es un registro de suscripción que proporciona información sobre los eventos de nivel de suscripción que se han producido en Azure. Esta incluye una serie de datos, desde datos operativos de Azure Resource Manager hasta actualizaciones en eventos de Estado del servicio. El Registro de actividad se conocía anteriormente como "Registros de auditoría" o "Registros operativos", ya que la categoría Administrativo notifica eventos del plano de control de las suscripciones. Con el Registro de actividades, se pueden determinar los interrogantes “qué, quién y cuándo” de las operaciones de escritura (PUT, POST, DELETE) en los recursos de la suscripción. También puede conocer el estado de la operación y otras propiedades relevantes. El registro de actividad no incluye las operaciones de lectura (GET) ni las operaciones de los recursos que usan el modelo Clásico/"RDFE".
 
 ![Comparación de los registros de actividad y otros tipos de registros ](./media/monitoring-overview-activity-logs/Activity_Log_vs_other_logs_v5.png)
@@ -37,9 +38,7 @@ El registro de actividad es distinto de los [registros de diagnóstico](monitori
 Puede recuperar los eventos del registro de actividad mediante Azure Portal, la CLI, los cmdlets de PowerShell y la API de REST de Azure Monitor.
 
 > [!NOTE]
-
 >  [Las alertas más recientes](monitoring-overview-unified-alerts.md) ofrecen una experiencia mejorada para crear y administrar las reglas de alerta del registro de actividad.  [Más información](monitoring-activity-log-alerts-new-experience.md).
-
 
 Vea el vídeo siguiente sobre la introducción del registro de actividad.
 > [!VIDEO https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz/player]
@@ -103,7 +102,7 @@ Un **perfil de registro** controla cómo se exporta el registro de actividad. Co
 * Qué regiones (ubicaciones) se deben exportar. Asegúrese de que incluye "global", ya que muchos eventos en Activity Log son eventos globales.
 * El tiempo durante el que se debe conservar un registro de actividad en una cuenta de almacenamiento.
     - Una retención de cero días significa que los registros se conservan de forma indefinida. De lo contrario, el valor puede ser cualquier número de días comprendido entre 1 y 2147483647.
-    - Si se establecen directivas de retención, pero el almacenamiento de registros en una cuenta de almacenamiento está deshabilitado (por ejemplo, si solo se han seleccionado las opciones de Event Hubs u OMS), las directivas de retención no surten ningún efecto.
+    - Si se establecen directivas de retención, pero el almacenamiento de registros en una cuenta de almacenamiento está deshabilitado (por ejemplo, si solo se han seleccionado las opciones Event Hubs o Log Analytics), las directivas de retención no surten ningún efecto.
     - Las directivas de retención se aplican a diario, por lo que al final de un día (UTC) se eliminan los registros del día que quede fuera de la directiva de retención. Por ejemplo, si tuviera una directiva de retención de un día, se eliminarían los registros de anteayer al principio del día de hoy.
 
 Puede usar una cuenta de almacenamiento o un espacio de nombres de centro de eventos que no esté en la misma suscripción que el que emite los registros. El usuario que configura los ajustes debe tener el acceso de RBAC adecuado a ambas suscripciones.
@@ -129,12 +128,15 @@ Puede transmitir el registro de actividad a un centro de eventos o almacenarlo e
 4. Haga clic en **Guardar** para guardar la configuración. La configuración se aplica inmediatamente a la suscripción.
 
 ### <a name="configure-log-profiles-using-the-azure-powershell-cmdlets"></a>Configuración de perfiles de registro mediante cmdlets de Azure PowerShell
+
 #### <a name="get-existing-log-profile"></a>Obtención del perfil de registro existente
+
 ```
 Get-AzureRmLogProfile
 ```
 
 #### <a name="add-a-log-profile"></a>Incorporación de un perfil de registro
+
 ```
 Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus -RetentionInDays 90 -Categories Write,Delete,Action
 ```
@@ -148,38 +150,37 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 | RetentionInDays |Sí |Número de días que deben retenerse los eventos, entre 1 y 2147483647. Con el valor cero, se almacenan los registros indefinidamente. |
 | Categorías |Sin  |Lista separada por comas de las categorías de eventos que deben recopilarse. Los valores posibles son Write, Delete y Action. |
 
-#### <a name="remove-a-log-profile"></a>Eliminación de perfil de registro
+#### <a name="remove-a-log-profile"></a>Eliminación de un perfil de registro
 ```
 Remove-AzureRmLogProfile -name my_log_profile
 ```
 
-### <a name="configure-log-profiles-using-the-azure-cross-platform-cli"></a>Configuración de perfiles de registro mediante la CLI multiplataforma de Azure
+### <a name="configure-log-profiles-using-the-azure-cli-20"></a>Configuración de perfiles de registro mediante CLI de Azure 2.0
+
 #### <a name="get-existing-log-profile"></a>Obtención del perfil de registro existente
+
+```azurecli
+az monitor log-profiles list
+az monitor log-profiles show --name <profile name>
 ```
-azure insights logprofile list
-```
-```
-azure insights logprofile get --name my_log_profile
-```
+
 La propiedad `name` debe ser el nombre del perfil de registro.
 
 #### <a name="add-a-log-profile"></a>Incorporación de un perfil de registro
-```
-azure insights logprofile add --name my_log_profile --storageId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/my_storage --serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey --locations global,westus,eastus,northeurope --retentionInDays 90 –categories Write,Delete,Action
+
+```azurecli
+az monitor log-profiles create --name <profile name> \
+    --locations <location1 location2 ...> \
+    --location <location> \
+    --categories <category1 category2 ...>
 ```
 
-| Propiedad | Obligatorio | DESCRIPCIÓN |
-| --- | --- | --- |
-| Nombre |Sí |Nombre de su perfil de registro. |
-| storageId |Sin  |Identificador de recurso de la cuenta de almacenamiento donde se debe guardar el registro de actividad. |
-| serviceBusRuleId |Sin  |Identificador de regla de Service Bus para el espacio de nombres de Service Bus donde desea que se creen los centros de eventos. Es una cadena con este formato: `{service bus resource ID}/authorizationrules/{key name}`. |
-| Ubicaciones |Sí |Lista separada por comas de las regiones para las que desea recopilar eventos del registro de actividad. |
-| RetentionInDays |Sí |Número de días que deben retenerse los eventos, entre 1 y 2147483647. Con el valor cero, se almacenan los registros indefinidamente. |
-| Categorías |Sin  |Lista separada por comas de las categorías de eventos que deben recopilarse. Los valores posibles son Write, Delete y Action. |
+Para obtener la documentación completa para crear un perfil de monitor con la CLI, consulte la [referencia de comandos de la CLI](/cli/azure/monitor/log-profiles#az-monitor-log-profiles-create).
 
 #### <a name="remove-a-log-profile"></a>Eliminación de un perfil de registro
-```
-azure insights logprofile delete --name my_log_profile
+
+```azurecli
+az monitor log-profiles delete --name <profile name>
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

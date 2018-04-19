@@ -1,8 +1,8 @@
 ---
-title: "Provisión de acceso remoto seguro a aplicaciones locales"
-description: "Explica cómo utilizar el proxy de la aplicación de Azure AD para proporcionar acceso remoto seguro a sus aplicaciones locales."
+title: Provisión de acceso remoto seguro a aplicaciones locales
+description: Explica cómo utilizar el proxy de la aplicación de Azure AD para proporcionar acceso remoto seguro a sus aplicaciones locales.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: d5450da1-9e06-4d08-8146-011c84922ab5
@@ -46,7 +46,7 @@ El proxy de aplicación de Azure AD es:
    * Al publicar las aplicaciones mediante la característica Proxy de la aplicación de Azure AD, puede sacar partido de los sofisticados controles de autorización y análisis de seguridad de Azure. Obtendrá características de seguridad de escala en la nube y de seguridad de Azure, como el acceso condicional y la verificación en dos pasos.
    * No tendrá que permitir ninguna conexión de entrada a través del firewall para ofrecer acceso remoto a los usuarios. 
 * **Rentable**
-   * Proxy de aplicación funciona en la nube, por lo que puede ahorrar tiempo y dinero. Las soluciones locales normalmente requieren la configuración y mantenimiento de redes DMZ, servidores perimetrales u otras infraestructuras complejas.  
+   * Proxy de aplicación funciona en la nube, por lo que puede ahorrar tiempo y dinero. Las soluciones locales normalmente requieren la configuración y mantenimiento de redes perimetrales, servidores perimetrales u otras infraestructuras complejas.  
 
 ## <a name="what-kind-of-applications-work-with-application-proxy"></a>¿Qué tipo de aplicaciones funcionan con la característica Proxy de aplicación?
 Con esta característica puede tener acceso a diferentes tipos de aplicaciones internas:

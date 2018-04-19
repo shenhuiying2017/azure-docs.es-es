@@ -1,24 +1,24 @@
 ---
-title: "Administración del acceso a aplicaciones en la nube mediante la restricción de inquilinos - Azure | Microsoft Docs"
-description: "Uso de Restricciones de inquilino para administrar los usuarios que pueden acceder a las aplicaciones según su inquilino de Azure AD."
+title: Administración del acceso a aplicaciones en la nube mediante la restricción de inquilinos - Azure | Microsoft Docs
+description: Uso de Restricciones de inquilino para administrar los usuarios que pueden acceder a las aplicaciones según su inquilino de Azure AD.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: kgremban
 manager: mtillman
 editor: yossib
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 04/03/2018
 ms.author: kgremban
-ms.openlocfilehash: 63e0fa54433a60fe7384d21cf7d215cc8283afca
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a6b498b38e76dfa2553bf3a916b723cd774d950d
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Uso de Restricciones de inquilino para administrar el acceso a aplicaciones en la nube SaaS
 
@@ -58,7 +58,7 @@ Para usar Restricciones de inquilino, los clientes deben ser capaces de conectar
 
 Se necesita la configuración siguiente para habilitar Restricciones de inquilino a través de la infraestructura del proxy. Esta guía es genérica, por lo que debe remitirse a la documentación del proveedor del proxy para conocer los pasos de implementación específicos.
 
-#### <a name="prerequisites"></a>Requisitos previos
+#### <a name="prerequisites"></a>requisitos previos
 
 - El proxy debe ser capaz de realizar la intercepción de SSL y la inserción de encabezados HTTP, así como filtrar destinos mediante direcciones URL o FQDN. 
 
@@ -112,7 +112,9 @@ Consulte [Updated Office 365 modern authentication](https://blogs.office.com/201
 
 Actualmente, las aplicaciones de Office 365 basadas en explorador (portal de Office, Yammer, sitios de SharePoint, Outlook en la web, etc.) son compatibles con Restricciones de inquilino. Para clientes gruesos (Outlook, Skype Empresarial, Word, Excel, PowerPoint, etc.), Restricciones de inquilinos solo se puede aplicar cuando se usa autenticación moderna.  
 
-Los clientes de Outlook y Skype Empresarial que admiten autenticación moderna pueden seguir usando protocolos heredados en inquilinos donde la autenticación moderna no está habilitada, evitando eficazmente Restricciones de inquilino. Para Outlook en Windows, los clientes pueden optar por implementar restricciones que impidan a los usuarios finales agregar cuentas de correo no aprobadas a sus perfiles. Por ejemplo, vea el establecimiento de directiva de grupo [Prevent adding non-default Exchange accounts](http://gpsearch.azurewebsites.net/default.aspx?ref=1) (Impedir la incorporación de cuentas de Exchange no predeterminadas). Para Outlook en plataformas distintas de Windows y para Skype Empresarial en todas las plataformas, actualmente no está disponible la compatibilidad total para restricciones de inquilino.
+Es posible que los clientes de Outlook y Skype Empresarial que admiten autenticación moderna puedan seguir usando protocolos heredados en inquilinos donde la autenticación moderna no está habilitada, evitando eficazmente Restricciones de inquilino. Es posible que las aplicaciones que usan protocolos heredados estén bloqueadas por Restricciones del inquilino si entran en contacto con login.microsoftonline.com, login.microsoft.com o login.windows.net durante la autenticación.
+
+Para Outlook en Windows, los clientes pueden optar por implementar restricciones que impidan a los usuarios finales agregar cuentas de correo no aprobadas a sus perfiles. Por ejemplo, vea el establecimiento de directiva de grupo [Prevent adding non-default Exchange accounts](http://gpsearch.azurewebsites.net/default.aspx?ref=1) (Impedir la incorporación de cuentas de Exchange no predeterminadas). Para Outlook en plataformas distintas de Windows y para Skype Empresarial en todas las plataformas, actualmente no está disponible la compatibilidad total para restricciones de inquilino.
 
 ## <a name="testing"></a>Prueba
 
@@ -132,7 +134,7 @@ Fiddler es un proxy de depuración web gratis que puede usarse para capturar y m
   if (oSession.HostnameIs("login.microsoftonline.com") || oSession.HostnameIs("login.microsoft.com") || oSession.HostnameIs("login.windows.net")){      oSession.oRequest["Restrict-Access-To-Tenants"] = "<tenant domain>";      oSession.oRequest["Restrict-Access-Context"] = "<directory ID>";}
   ```
 
-  Si necesita permitir varios inquilinos, use una coma para separar los nombres de los mismos. Por ejemplo:
+  Si necesita permitir varios inquilinos, use una coma para separar los nombres de los mismos. Por ejemplo: 
 
   ```
   oSession.oRequest["Restrict-Access-To-Tenants"] = "contoso.onmicrosoft.com,fabrikam.onmicrosoft.com";

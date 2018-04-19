@@ -1,11 +1,11 @@
 ---
-title: "Topologías admitidas de Azure AD Connect | Microsoft Docs"
-description: "En este tema se detallan las topologías admitidas y no admitidas de Azure AD Connect."
+title: Topologías admitidas de Azure AD Connect | Microsoft Docs
+description: En este tema se detallan las topologías admitidas y no admitidas de Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 1034c000-59f2-4fc8-8137-2416fa5e4bfe
 ms.service: active-directory
 ms.devlang: na
@@ -51,7 +51,7 @@ No se pueden tener varios servidores de Azure AD Connect Sync conectados al mism
 
 Muchas organizaciones tienen entornos con varios bosques de Active Directory locales. Existen varias razones para tener más de un bosque de Active Directory local. Los ejemplos más habituales son los diseños con bosques de cuenta-recurso o los que resultan de una fusión o adquisición.
 
-Cuando hay varios bosques, todos los bosques deben ser accesibles mediante un único servidor de Azure AD Connect Sync. No es necesario unir el servidor a un dominio. Si es necesario para llegar a todos los bosques, puede colocar el servidor en una red perimetral (también conocida como DMZ, zona desmilitarizada y subred filtrada).
+Cuando hay varios bosques, todos los bosques deben ser accesibles mediante un único servidor de Azure AD Connect Sync. No es necesario unir el servidor a un dominio. Si es necesario para llegar a todos los bosques, puede colocar el servidor en una red perimetral (también conocida como DMZ y subred filtrada).
 
 El asistente para la instalación de Azure AD Connect ofrece varias opciones para consolidar los usuarios representados en varios bosques. El objetivo es que un usuario esté representado solo una vez en Azure AD. Hay algunas topologías habituales que puede configurar en la ruta de acceso de instalación personalizada del Asistente para instalación. En la página **Identificación de forma exclusiva de usuarios**, seleccione la opción correspondiente que representa su topología. La consolidación solo se configura para los usuarios. Los grupos duplicados no se consolidan con la configuración predeterminada.
 
@@ -181,7 +181,7 @@ Los inquilinos de Azure AD están aislados por diseño. No se admiten las siguie
 
 Puede usar FIM 2010 o MIM 2016 local para sincronizar los usuarios (mediante GALSync) entre dos organizaciones de Exchange. Los usuarios de una organización se mostrarán como usuarios o contactos externos en la otra organización. Estas instancias de Active Directory locales se pueden sincronizar después con sus propios inquilinos de Azure AD.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para más información sobre cómo instalar Azure AD Connect en estos escenarios, consulte [Instalación personalizada de Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
 
 Obtenga más información sobre la configuración de la [Sincronización de Azure AD Connect](active-directory-aadconnectsync-whatis.md) .

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: mazha
-ms.openlocfilehash: 87f00575e0c2c4cd7a8525df96b2f5b13d470643
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: ed6f0b2c021fc4b31b85986c07df0502dba826f2
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings---standard-tier"></a>Control del comportamiento del almacenamiento en caché de Azure CDN con cadenas de consulta: nivel estándar
 > [!div class="op_single_selector"]
@@ -36,8 +36,13 @@ Con el almacenamiento en caché de cadenas de consulta, Azure Content Delivery N
 Existen tres modos de cadena de consulta:
 
 - **Ignorar cadenas de consulta**: este es el modo predeterminado. En este modo, el nodo de punto de presencia (POP) de CDN pasa las cadenas de consulta del solicitante al servidor de origen en la primera solicitud y almacena en caché el recurso. Todas las solicitudes posteriores del recurso que se ofrecen desde el punto de presencia omiten las cadenas de consulta hasta que expira el recurso en caché.
+
 - **Omitir el almacenamiento en caché de cadenas de consulta**: en este modo, las solicitudes con cadenas de consulta no se almacenan en caché en el nodo POP de CDN. El nodo POP recupera el recurso directamente del servidor de origen y lo pasa al solicitante con cada solicitud.
-- **Almacenar en caché todas las URL únicas**: en este modo, cada solicitud con un URL único, incluida la cadena de consulta, se trata como un recurso único con su propia memoria caché. Por ejemplo, la respuesta desde el servidor de origen a una solicitud de `example.ashx?q=test1` se almacena en caché en el nodo POP y se devuelve en los sucesivos almacenamientos en caché con la misma cadena de consulta. Se almacena en caché una solicitud de `example.ashx?q=test2` como un recurso independiente con su propia configuración de período de vida.
+
+- **Almacenar en caché todas las URL únicas**: en este modo, cada solicitud con un URL único, incluida la cadena de consulta, se trata como un recurso único con su propia memoria caché. Por ejemplo, la respuesta desde el servidor de origen a una solicitud de example.ashx?q=test1 se almacena en caché en el nodo POP y se devuelve en los sucesivos almacenamientos en caché con la misma cadena de consulta. Se almacena en caché una solicitud de example.ashx?q=test2 como un recurso independiente con su propia configuración de período de vida.
+   
+    >[!IMPORTANT] 
+    > No use este modo cuando la cadena de consulta contenga parámetros que vayan a cambiar con cada solicitud, por ejemplo, un identificador de sesión o un nombre de usuario, puesto que dará lugar a una relación de acierto de caché baja.
 
 ## <a name="changing-query-string-caching-settings-for-standard-cdn-profiles"></a>Modificación de la configuración del almacenamiento en caché de cadenas de consultas para perfiles de red CDN estándar
 1. Abra un perfil de CDN y, después, seleccione el punto de conexión de CDN que quiere administrar.

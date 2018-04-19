@@ -5,7 +5,7 @@ services: cdn
 documentationcenter: .NET
 author: dksimpson
 manager: akucer
-editor: 
+editor: ''
 ms.assetid: bef53fcc-bb13-4002-9324-9edee9da8288
 ms.service: cdn
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: mazha
-ms.openlocfilehash: db7b5053cb926d2ec86c7feea4ac411acbeb1ae2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d1a12e0d5bd5852cf8de3d5fec93f2bfdd3ab257
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="manage-expiration-of-web-content-in-azure-content-delivery-network"></a>Administrar la caducidad de contenido web en Azure Content Delivery Network
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ También puede controlar la configuración de caché desde Azure Portal establec
 El método preferido para establecer el encabezado `Cache-Control` de un servidor web consiste en usar las reglas de almacenamiento en caché en Azure Portal. Para más información sobre las reglas de almacenamiento en caché de CDN, consulte [Control del comportamiento del almacenamiento en caché de Azure CDN con reglas de almacenamiento en caché](cdn-caching-rules.md).
 
 > [!NOTE] 
-> Las reglas de almacenamiento en caché solo están disponibles para los perfiles **Azure CDN de Verizon Standard** y **Azure CDN de Akamai Standard**. Para perfiles **Azure CDN de Verizon Premium**, debe usar el [motor de reglas de Azure CDN](cdn-rules-engine.md) en el portal **Administrar** para una funcionalidad similar.
+> Las reglas de almacenamiento en caché solo están disponibles para los perfiles **Azure CDN estándar de Verizon** y **Azure CDN estándar de Akamai**. Para perfiles **Azure CDN premium de Verizon**, debe usar el [motor de reglas de Azure CDN](cdn-rules-engine.md) en el portal **Administrar** para una funcionalidad similar.
 
 **Para navegar a la página de reglas de almacenamiento en caché de CDN**:
 
@@ -71,9 +71,9 @@ El método preferido para establecer el encabezado `Cache-Control` de un servido
 
 1. En **Reglas de almacenamiento en caché personalizadas**, cree dos condiciones de coincidencia:
 
-     a. Para la primera condición de coincidencia, establezca **Condición de coincidencia** en **Ruta de acceso** y escriba `/webfolder1/*` en **Valor de coincidencia**. Establezca **Comportamiento de almacenamiento en caché** en **Invalidar** y escriba 4 en el cuadro **Horas**.
+     a. Para la primera condición de coincidencia, establezca **Condición de coincidencia** en **Ruta de acceso** y escriba `/webfolder1/*` en **Match value** (Valor de coincidencia). Establezca **Comportamiento de almacenamiento en caché** en **Invalidar** y escriba 4 en el cuadro **Horas**.
 
-     b. Para la segunda condición de coincidencia, establezca **Condición de coincidencia** en **Ruta de acceso** y escriba `/webfolder1/file1.txt` en **Valor de coincidencia**. Establezca **Comportamiento de almacenamiento en caché** en **Invalidar** y escriba 2 en el cuadro **Horas**.
+     b. Para la segunda condición de coincidencia, establezca **Condición de coincidencia** en **Ruta de acceso** y escriba `/webfolder1/file1.txt` en **Match value** (Valor de coincidencia). Establezca **Comportamiento de almacenamiento en caché** en **Invalidar** y escriba 2 en el cuadro **Horas**.
 
     ![Ejemplo de reglas de almacenamiento en caché personalizadas de CDN](./media/cdn-manage-expiration-of-cloud-service-content/cdn-custom-caching-rules-example.png)
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: jingwang
-ms.openlocfilehash: 12f673a8d3ca9c0bb03b9cd2d8c33ae866039289
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 82aea8b13fd4bad777fd3120fa811fa1ab284ac1
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Copia de datos con una instancia de Azure SQL Database como origen o destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -492,7 +492,7 @@ Observe que la tabla de destino tiene una columna de identidad.
 
 Tenga en cuenta que la tabla de origen y de destino tienen un esquema diferente (el destino tiene una columna adicional con identidad). En este escenario, debe especificar la propiedad **structure** de la definición del conjunto de datos de destino, que no incluye la columna de identidad.
 
-## <a name="invoke-stored-procedure-from-sql-sink"></a>Invocación del procedimiento almacenado desde el receptor de SQL
+## <a name="invoking-stored-procedure-for-sql-sink"></a> Invocación del procedimiento almacenado desde el receptor de SQL
 
 Al copiar datos en Azure SQL Database, se puede configurar e invocar un procedimiento almacenado especificado por el usuario con parámetros adicionales.
 

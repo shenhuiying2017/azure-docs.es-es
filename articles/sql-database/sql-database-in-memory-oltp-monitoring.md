@@ -7,19 +7,19 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 04/04/2018
 ms.author: jodebrui
-ms.openlocfilehash: c1adc6e98f7d101a6e5f3227f44b0035d9b9d157
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0802a3b51847236efb64e628ed259dc7776bac4e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="monitor-in-memory-oltp-storage"></a>Supervisión del almacenamiento OLTP en memoria
-Cuando se usa [OLTP en memoria](sql-database-in-memory.md), los datos de tablas optimizadas para memoria y las variables de tabla residen en el almacenamiento OLTP en memoria. Cada nivel de servicio Premium tiene un tamaño máximo de almacenamiento OLTP en memoria, que se documenta en [Límites de recursos de bases de datos únicas](sql-database-resource-limits.md#single-database-storage-sizes-and-performance-levels) y [Límites de recursos de grupos de bases de datos elásticas](sql-database-resource-limits.md#elastic-pool-change-storage-size). Una vez que se supera ese límite, las operaciones de inserción y actualización pueden empezar a producir el error 41823 para las bases de datos independientes y el 41840 para los grupos elásticos. En ese momento, es necesario eliminar los datos para reclamar memoria o actualizar el nivel de rendimiento de la base de datos.
+Cuando se usa [OLTP en memoria](sql-database-in-memory.md), los datos de tablas optimizadas para memoria y las variables de tabla residen en el almacenamiento OLTP en memoria. Cada nivel de servicio Premium y Crítico para la empresa tiene un tamaño máximo de almacenamiento OLTP en memoria, que se documenta en [DTU-based resource limits](sql-database-dtu-resource-limits.md) (Límites de recursos basados en DTU) y [vCore-based resource limits](sql-database-vcore-resource-limits.md) (Límites de recursos basados en núcleo virtual). Una vez que se supera ese límite, las operaciones de inserción y actualización pueden empezar a producir el error 41823 para las bases de datos independientes y el 41840 para los grupos elásticos. En ese momento, es necesario eliminar los datos para reclamar memoria o actualizar el nivel de rendimiento de la base de datos.
 
 ## <a name="determine-whether-data-fits-within-the-in-memory-oltp-storage-cap"></a>Determinación de si los datos se ajustan al límite de almacenamiento de OLTP en memoria
-Determine los extremos de almacenamiento de los diferentes niveles de servicio Premium. Consulte [Límites de recursos de base de datos únicas](sql-database-resource-limits.md#single-database-storage-sizes-and-performance-levels) y [Límites de recursos de grupos de bases de datos elásticas](sql-database-resource-limits.md#elastic-pool-change-storage-size).
+Determine los extremos de almacenamiento de los diferentes niveles de servicio. Consulte [DTU-based resource limits](sql-database-dtu-resource-limits.md) (Límites de recursos basados en DTU) y [vCore-based resource limits](sql-database-vcore-resource-limits.md) (Límites de recursos basados en núcleo virtual).
 
 La estimación de los requisitos de memoria para una tabla optimizada para memoria funciona de la misma manera para SQL Server tal y como se hace en la base de datos SQL de Azure. Dedique algunos minutos a revisar ese artículo en [MSDN](https://msdn.microsoft.com/library/dn282389.aspx).
 
@@ -48,7 +48,7 @@ Para resolver este error, haga uno de los siguientes:
 * Actualice el nivel de servicio a uno con suficiente espacio de almacenamiento en memoria para los datos que necesita mantener en tablas optimizadas para memoria.
 
 > [!NOTE] 
-> En raras ocasiones, los errores 41823 y 41840 pueden ser transitorios, lo que significa que hay suficiente espacio de OLTP disponible en memoria y la operación se realiza de nuevo correctamente. Por lo tanto, se recomienda supervisar el almacenamiento de OLTP en memoria global disponible y volver a intentar cuando primero cuando se produce el error 41823 o 41840. Para más información acerca de la lógica de reintento, consulte [Detección de conflictos y lógica de reintento de OLTP en memoria](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/transactions-with-memory-optimized-tables#conflict-detection-and-retry-logic).
+> En raras ocasiones, los errores 41823 y 41840 pueden ser transitorios, lo que significa que hay suficiente espacio de OLTP disponible en memoria y la operación se realiza de nuevo correctamente. Por lo tanto, se recomienda supervisar el almacenamiento de OLTP en memoria global disponible y volver a intentar cuando primero cuando se produce el error 41823 o 41840. Para más información acerca de la lógica de reintento, consulte [Detección de conflictos y lógica de reintento de OLTP en memoria](https://docs.microsoft.com/sql/relational-databases/In-memory-oltp/transactions-with-memory-optimized-tables#conflict-detection-and-retry-logic).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener instrucciones sobre la supervisión, consulte [Supervisión de Azure SQL Database con vistas de administración dinámica](sql-database-monitoring-with-dmvs.md).

@@ -1,12 +1,12 @@
 ---
-title: "Solución de problemas de errores de protección de servidores VMWare y físicos a Azure | Microsoft Docs"
-description: "Este artículo describe los errores más comunes en la replicación de máquinas de VMware y cómo solucionarlos"
+title: Solución de problemas de errores de protección de servidores VMWare y físicos a Azure | Microsoft Docs
+description: Este artículo describe los errores más comunes en la replicación de máquinas de VMware y cómo solucionarlos
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: asgang
 manager: rochakm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
@@ -35,7 +35,7 @@ En la mayoría de los casos, puede solucionar estos problemas siguiendo los paso
 > [!NOTE]
     > Utilice Telnet, no use PING para probar la conectividad.  Si no está instalado Telnet, siga los pasos indicados [aquí](https://technet.microsoft.com/library/cc771275(v=WS.10).aspx)
 
-Si no se puede conectar, habilite el puerto de entrada 9443 en el servidor de proceso y compruebe si el problema todavía persiste. Ha habido algunos casos en los que el servidor de proceso está detrás de la DMZ y que fue la causa del problema.
+Si no se puede conectar, habilite el puerto de entrada 9443 en el servidor de proceso y compruebe si el problema todavía persiste. Ha habido algunos casos en los que el servidor de proceso está detrás de la red permitral y que fue la causa del problema.
 
 * Compruebe el estado del servicio `InMage Scout VX Agent – Sentinel/OutpostStart` si no está en ejecución y compruebe si el problema persiste.   
 

@@ -1,11 +1,11 @@
 ---
-title: "Protección de activos de la red CDN de Azure con autenticación por tokens | Microsoft Docs"
-description: "Obtenga información sobre cómo usar la autenticación por tokens para proteger el acceso a los recursos de Azure CDN."
+title: Protección de activos de la red CDN de Azure con autenticación por tokens | Microsoft Docs
+description: Obtenga información sobre cómo usar la autenticación por tokens para proteger el acceso a los recursos de Azure CDN.
 services: cdn
 documentationcenter: .net
 author: zhangmanling
 manager: zhangmanling
-editor: 
+editor: ''
 ms.assetid: 837018e3-03e6-4f9c-a23e-4b63d5707a64
 ms.service: cdn
 ms.devlang: multiple
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mezha
-ms.openlocfilehash: f6d008a92677d28d0184e64637dcb2e093299519
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: aaec713a7680aeda8317f5af41b9b99bcbdca4b7
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="securing-azure-content-delivery-network-assets-with-token-authentication"></a>Protección de recursos de Azure Content Delivery Network con la autenticación por tokens
+# <a name="securing-azure-cdn-assets-with-token-authentication"></a>Protección de los activos de la red CDN de Azure con autenticación por tokens
 
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
 ## <a name="overview"></a>Información general
 
-La autenticación por tokens es un mecanismo que permite impedir que Azure Content Delivery Network (CDN) proporcione recursos a clientes no autorizados. Normalmente esto se hace para evitar la "vinculación activa" de contenido, donde otro sitio web, como un panel de mensajes, usa los recursos sin permiso. La vinculación activa puede repercutir en los costos de la entrega de contenido. Al habilitar la autenticación por tokens en la red de entrega de contenido, el servidor perimetral de dicha red autentica las solicitudes antes de que la propia red entregue el contenido. 
+La autenticación por tokens es un mecanismo que permite impedir que Azure Content Delivery Network (CDN) proporcione recursos a clientes no autorizados. Normalmente esto se hace para evitar la *vinculación activa* de contenido, donde otro sitio web, como un panel de mensajes, usa los recursos sin permiso. La vinculación activa puede repercutir en los costos de la entrega de contenido. Al habilitar la autenticación por tokens en la red de entrega de contenido, el servidor perimetral de dicha red autentica las solicitudes antes de que la propia red entregue el contenido. 
 
 ## <a name="how-it-works"></a>Cómo funciona
 
@@ -42,6 +42,9 @@ La autenticación por tokens verifica que un sitio de confianza genere las solic
 
 Para obtener más información, vea los ejemplos de configuración detallados para cada parámetro en [Configuración de la autenticación por tokens](#setting-up-token-authentication).
 
+>[!IMPORTANT] 
+> Si está habilitada la autorización de token en cualquier ruta de acceso de esta cuenta, el modo de caché estándar es el único modo que se puede usar para el almacenamiento en caché de la cadena de consulta. Para más información, consulte [Control del comportamiento del almacenamiento en caché de Azure CDN con cadenas de consulta](cdn-query-string-premium.md).
+
 ## <a name="reference-architecture"></a>Arquitectura de referencia
 
 En el siguiente diagrama de flujo de trabajo se describe cómo la red de entrega de contenido usa la autenticación por tokens para trabajar con la aplicación web.
@@ -56,11 +59,11 @@ En el diagrama de flujo siguiente se describe cómo Azure CDN valida una solicit
 
 ## <a name="setting-up-token-authentication"></a>Configuración de la autenticación por tokens
 
-1. En [Azure Portal](https://portal.azure.com), busque el perfil de la red CDN y haga clic en **Administrar** para iniciar el portal complementario.
+1. En [Azure Portal](https://portal.azure.com), busque el perfil de la red CDN y seleccione **Administrar** para iniciar el portal complementario.
 
     ![Botón de administración del perfil de la red CDN](./media/cdn-token-auth/cdn-manage-btn.png)
 
-2. Mantenga el mouse sobre **HTTP grande** y, después, haga clic en **Token Auth** (Autenticación por tokens) en el control flotante. Después puede configurar la clave y los parámetros de cifrado como sigue:
+2. Mantenga el mouse sobre **HTTP grande** y después seleccione **Token Auth** (Autenticación por tokens) en el control flotante. Después puede configurar la clave y los parámetros de cifrado como sigue:
 
     1. Cree una o varias claves de cifrado. Una clave de cifrado distingue mayúsculas de minúsculas y puede contener cualquier combinación de caracteres alfanuméricos. No se permite ningún otro tipo de caracteres, incluidos espacios. La longitud máxima es de 250 caracteres. Para asegurarse de que las claves de cifrado sean aleatorias, se recomienda crearlas con la [herramienta OpenSSL](https://www.openssl.org/). 
 
@@ -68,7 +71,7 @@ En el diagrama de flujo siguiente se describe cómo Azure CDN valida una solicit
 
        ```rand -hex <key length>```
 
-       Por ejemplo:
+       Por ejemplo: 
 
        ```OpenSSL> rand -hex 32``` 
 
@@ -76,7 +79,7 @@ En el diagrama de flujo siguiente se describe cómo Azure CDN valida una solicit
     
     2. Escriba una clave de cifrado única en el cuadro **Clave principal** y, opcionalmente, escriba una clave de copia de seguridad en el cuadro **Clave de copia de seguridad**.
 
-    3. Seleccione la versión de cifrado mínima para cada clave de la lista **Minimum Encryption Version** (Versión mínima de cifrado) y, después, haga clic en **Actualizar**:
+    3. Seleccione la versión de cifrado mínima para cada clave de la lista **Minimum Encryption Version** (Versión mínima de cifrado) y después seleccione **Actualizar**:
        - **V2**: indica que la clave se puede utilizar para generar tokens de versión 2.0 y 3.0. Use esta opción solo si está realizando la transición de una clave de cifrado de la versión 2.0 heredada a una clave de la versión 3.0.
        - **V3**: (recomendada) indica que la clave solo se puede utilizar para generar tokens de la versión 3.0.
 
@@ -92,7 +95,7 @@ En el diagrama de flujo siguiente se describe cómo Azure CDN valida una solicit
        > <table>
        > <tr>
        >   <th>Nombre de parámetro</th> 
-       >   <th>Descripción</th>
+       >   <th>DESCRIPCIÓN</th>
        > </tr>
        > <tr>
        >    <td><b>ec_expire</b></td>
@@ -110,7 +113,7 @@ En el diagrama de flujo siguiente se describe cómo Azure CDN valida una solicit
        >          <li>`http://www.mydomain.com/pictures/city/strasbourg.png`</li>
        >          <li>`http://www.mydomain.com/picturesnew/city/strasbourgh.png`</li>
        >       </ul></li>
-       >       <li>Valor de entrada `/pictures/`: solo se permiten las solicitudes que contienen la ruta de acceso `/pictures/`. Por ejemplo: `http://www.mydomain.com/pictures/city/strasbourg.png`.</li>
+       >       <li>Valor de entrada `/pictures/`: solo se permiten las solicitudes que contienen la ruta de acceso `/pictures/`. Por ejemplo, `http://www.mydomain.com/pictures/city/strasbourg.png`.</li>
        >       <li>Valor de entrada `/pictures/city/strasbourg.png`: solo se permiten las solicitudes de esta ruta de acceso y recurso específicos.</li>
        >    </ul>
        > </tr>
@@ -156,27 +159,29 @@ En el diagrama de flujo siguiente se describe cómo Azure CDN valida una solicit
     
     6. Seleccione una versión de cifrado de la lista **Encryption Version** (Versión de cifrado ): **V2** para la versión 2 o **V3** para la versión 3 (recomendado). 
 
-    7. Haga clic en **Cifrar** para generar el token.
+    7. Seleccione **Cifrar** para generar el token.
 
-    Una vez generado el token, se muestra en el cuadro **Generated Token** (Token generado). Para usar el token, anéxelo como una cadena de consulta al final del archivo en la ruta de acceso de la dirección URL. Por ejemplo: `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
+    Una vez generado el token, se muestra en el cuadro **Generated Token** (Token generado). Para usar el token, anéxelo como una cadena de consulta al final del archivo en la ruta de acceso de la dirección URL. Por ejemplo, `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
         
-    8. Opcionalmente, pruebe el token con la herramienta de descifrado para poder ver los parámetros del token. Pegue el valor del token en el cuadro **Token to Decrypt** (Token para descifrar). Seleccione la clave de cifrado que se usará en la lista **Key To Decrypt** (Clave para descifrar) y, después, haga clic en **Descifrar**.
+    8. Opcionalmente, pruebe el token con la herramienta de descifrado para poder ver los parámetros del token. Pegue el valor del token en el cuadro **Token to Decrypt** (Token para descifrar). Seleccione la clave de cifrado que se usará en la lista **Key To Decrypt** (Clave para descifrar) y después seleccione **Descifrar**.
 
     Una vez descifrado el token, sus parámetros se muestran en el cuadro **Parámetros originales**.
 
-    9. También puede personalizar el tipo de código de respuesta que se devuelve cuando se deniega una solicitud. Seleccione **Habilitado** y, después, seleccione el código de respuesta de la lista **Código de respuesta**. El **Nombre de encabezado** se establece automáticamente en **Ubicación**. Haga clic en **Guardar** para implementar el nuevo código de respuesta. Para determinados códigos de respuesta, también debe especificar la dirección URL de la página de error en el cuadro **Valor de encabezado**. El código de respuesta **403** (Prohibido) está seleccionado de forma predeterminada. 
+    9. También puede personalizar el tipo de código de respuesta que se devuelve cuando se deniega una solicitud. Seleccione **Habilitado** y, después, seleccione el código de respuesta de la lista **Código de respuesta**. El **Nombre de encabezado** se establece automáticamente en **Ubicación**. Seleccione **Guardar** para implementar el nuevo código de respuesta. Para determinados códigos de respuesta, también debe especificar la dirección URL de la página de error en el cuadro **Valor de encabezado**. El código de respuesta **403** (Prohibido) está seleccionado de forma predeterminada. 
 
-3. En **HTTP Large** (HTTP grandes), haga clic en **Motor de reglas**. Utilice el motor de reglas para definir las rutas de acceso para aplicar la característica, habilitar la característica de autenticación por tokens y habilitar otras funcionalidades relacionadas con la autenticación por tokens. Para más información, vea [Referencia del motor de reglas](cdn-rules-engine-reference.md).
+3. En **HTTP Large** (HTTP grandes), seleccione **Motor de reglas**. Utilice el motor de reglas para definir las rutas de acceso para aplicar la característica, habilitar la característica de autenticación por tokens y habilitar otras funcionalidades relacionadas con la autenticación por tokens. Para más información, vea [Referencia del motor de reglas](cdn-rules-engine-reference.md).
 
     1. Seleccione una regla existente o cree una para definir el recurso o la ruta de acceso para los que desea aplicar la autenticación por tokens. 
-    2. Para habilitar la autenticación por tokens según una regla, seleccione **[Token Auth](cdn-rules-engine-reference-features.md#token-auth)** (Autenticación por tokens) en la lista **Características** y después seleccione **Habilitada**. Haga clic en **Actualizar** si va a actualizar una regla o en **Agregar** si va a crearla.
+    2. Para habilitar la autenticación por tokens según una regla, seleccione **[Token Auth](cdn-rules-engine-reference-features.md#token-auth)** (Autenticación por tokens) en la lista **Características** y después seleccione **Habilitada**. Seleccione **Actualizar** si va a actualizar una regla o **Agregar** si va a crearla.
         
     ![Ejemplo de autenticación por tokens habilitada en el motor de reglas de la red CDN](./media/cdn-token-auth/cdn-rules-engine-enable2.png)
 
 4. En el motor de reglas, también puede habilitar otras características relacionadas con la autenticación por tokens. Para habilitar cualquiera de las siguientes características, selecciónela en la lista **Características** y después seleccione **Habilitada**.
     
     - **[Token auth denial code](cdn-rules-engine-reference-features.md#token-auth-denial-code)** (Código de denegación de autenticación de token): determina el tipo de respuesta que se devuelve al usuario cuando se deniega una solicitud. Las reglas establecidas aquí invalidan el código de respuesta especificado en la sección **Custom Denial Handling** (Control de denegación personalizado) de la página de autenticación por tokens.
+
     - **[Token Auth Ignore URL Case](cdn-rules-engine-reference-features.md#token-auth-ignore-url-case)** (Ignorar mayúsculas y minúsculas en URL de autenticación por tokens): determina si la dirección URL usada para validar el token distingue mayúsculas de minúsculas.
+
     - **[Token Auth Parameter](cdn-rules-engine-reference-features.md#token-auth-parameter)** (Parámetro de autenticación por tokens): cambia el nombre del parámetro de cadena de consulta de autenticación por tokens que aparece en la dirección URL solicitada. 
         
     ![Ejemplo de configuración de la autenticación por tokens en el motor de reglas de la red CDN](./media/cdn-token-auth/cdn-rules-engine2.png)
@@ -193,4 +198,4 @@ Idiomas disponibles:
 
 ## <a name="azure-cdn-features-and-provider-pricing"></a>Precios de las características y los proveedores de Azure CDN
 
-Para obtener información sobre las características, consulte [Información general de la red CDN](cdn-overview.md). Para obtener información sobre los precios, consulte [Precios de Content Delivery Network](https://azure.microsoft.com/pricing/details/cdn/).
+Para información sobre las características, consulte [Características de producto de Azure CDN](cdn-features.md). Para obtener información sobre los precios, consulte [Precios de Content Delivery Network](https://azure.microsoft.com/pricing/details/cdn/).

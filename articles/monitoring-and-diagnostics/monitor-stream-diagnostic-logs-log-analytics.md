@@ -12,16 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 04/04/2018
 ms.author: johnkem
-ms.openlocfilehash: 517ce3547f471dd1b40c79b2f087b02ad7f51b85
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 82011126375a3c5016e110aac9ce6bc1b2d59cdf
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>Transmisión de registros de Azure Diagnostics a Log Analytics
-**[Los registros de Azure Diagnostics](monitoring-overview-of-diagnostic-logs.md)** se pueden transmitir casi en tiempo real a Azure Log Analytics mediante el portal, cmdlets de PowerShell o CLI de Azure.
+
+**[Los registros de Azure Diagnostics](monitoring-overview-of-diagnostic-logs.md)** se pueden transmitir casi en tiempo real a Azure Log Analytics mediante el portal, cmdlets de PowerShell o la CLI de Azure 2.0.
 
 ## <a name="what-you-can-do-with-diagnostics-logs-in-log-analytics"></a>Qué se puede hacer con registros de diagnóstico en Log Analytics
 
@@ -33,9 +34,17 @@ Azure Log Analytics es una herramienta flexible de búsqueda y análisis de regi
 * **Análisis avanzados**: aplique el aprendizaje automático y algoritmos de coincidencia de patrones para identificar posibles problemas revelados por los registros.
 
 ## <a name="enable-streaming-of-diagnostic-logs-to-log-analytics"></a>Habilitación de la transmisión de registros de diagnóstico a Log Analytics
+
 Puede habilitar el streaming de registros de diagnóstico mediante programación, a través del portal o mediante la [API de REST de Azure Monitor](https://docs.microsoft.com/rest/api/monitor/servicediagnosticsettings). En cualquier caso, puede crear una configuración de diagnóstico en la que se especifica un área de trabajo de Log Analytics y las categorías de registro y métricas que desea enviar a dicha área de trabajo. Una **categoría de registro** de diagnóstico es un tipo de registro que puede proporcionar un recurso.
 
 El área de trabajo de Log Analytics no tiene que estar en la misma suscripción que la del recurso que emite los registros, siempre que el usuario que configura la configuración tenga acceso RBAC adecuado a ambas suscripciones.
+
+> [!NOTE]
+> Actualmente no se admite el envío de métricas de varias dimensiones a través de la configuración de diagnóstico. Las métricas con dimensiones se exportan como métricas unidimensionales planas agregadas a través de los valores de dimensión.
+>
+> *Por ejemplo*: la métrica "Mensajes entrantes" de una instancia de Event Hub se puede explorar y representar gráficamente por colas. Sin embargo, cuando se exporta a través de la configuración de diagnóstico, la métrica se representarán como todos los mensajes entrantes de todas las colas de Event Hub.
+>
+>
 
 ## <a name="stream-diagnostic-logs-using-the-portal"></a>Streaming de registros de diagnóstico mediante el portal
 1. En el portal, desplácese a Azure Monitor y haga clic en **Configuración de diagnóstico**.
@@ -53,7 +62,7 @@ El área de trabajo de Log Analytics no tiene que estar en la misma suscripción
    ![Agregar configuración de diagnóstico: configuración actual](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-multiple.png)
 
 3. Asigne un nombre de su configuración y active la casilla **Enviar a Log Analytics** y, después, seleccione un área de trabajo de Log Analytics.
-   
+
    ![Agregar configuración de diagnóstico: configuración actual](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-configure.png)
 
 4. Haga clic en **Save**(Guardar).
@@ -69,19 +78,31 @@ Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -WorkspaceID [resour
 
 Tenga en cuenta que la propiedad workspaceID toma el identificador de recurso completo de Azure del área de trabajo, no el identificador/clave del área de trabajo que se muestra en el portal de Log Analytics.
 
-### <a name="via-azure-cli"></a>Mediante la CLI de Azure
-Para habilitar el streaming mediante la [CLI de Azure](insights-cli-samples.md), puede utilizar el comando `insights diagnostic set` del modo siguiente:
+### <a name="via-azure-cli-20"></a>Mediante la CLI de Azure 2.0
+
+Para habilitar el streaming a través de la [CLI de Azure 2.0](insights-cli-samples.md), puede usar el comando [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
 
 ```azurecli
-azure insights diagnostic set --resourceId <resourceID> --workspaceId <workspace resource ID> --categories <list of categories> --enabled true
+az monitor diagnostic-settings create --name <diagnostic name> \
+    --workspace <log analytics name or object ID> \
+    --resource <target resource object ID> \
+    --resource-group <log analytics workspace resource group> \
+    --logs '[
+    {
+        "category": <category name>,
+        "enabled": true
+    }
+    ]'
 ```
 
-Tenga en cuenta que la propiedad workspaceID toma el identificador de recurso completo de Azure del área de trabajo, no el identificador/clave del área de trabajo que se muestra en el portal de Log Analytics.
+Puede agregar categorías adicionales al registro de diagnóstico mediante la incorporación de diccionarios a la matriz JSON que se pasa como el parámetro `--logs`.
+
+El argumento `--resource-group` solo es obligatorio si `--workspace` no es un identificador de objeto.
 
 ## <a name="how-do-i-query-the-data-in-log-analytics"></a>¿Cómo se consultan los datos en Log Analytics?
 
 En la hoja Búsqueda de registros del portal o en la experiencia de análisis avanzado como parte de Log Analytics, puede consultar los registros de diagnóstico como parte de la solución Log Management en la tabla AzureDiagnostics. También hay [varias soluciones para recursos de Azure](../log-analytics/log-analytics-add-solutions.md) que se pueden instalar para obtener información inmediata sobre los datos del registro que va a enviar a Log Analytics.
 
-
 ## <a name="next-steps"></a>Pasos siguientes
+
 * [Más información sobre los registros de Diagnósticos de Azure](monitoring-overview-of-diagnostic-logs.md)

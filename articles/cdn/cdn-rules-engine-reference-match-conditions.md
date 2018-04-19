@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
 ms.openlocfilehash: f8dac5469e7160fae93e8251ab7f4195a383f8b4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Condiciones de coincidencia del motor de reglas de la red CDN de Azure 
 En este artículo se muestran descripciones detalladas de las condiciones de coincidencia disponibles para el [motor de reglas](cdn-rules-engine.md) de Azure Content Delivery Network (CDN).
@@ -726,7 +726,7 @@ Información importante:
 - Se vuelve a escribir una dirección URL de CNAME perimetral a una dirección URL de la red CDN antes de la comparación de la dirección URL.
 
     Por ejemplo, las siguientes direcciones URL apuntan al mismo recurso y, por tanto, tienen la misma ruta de acceso URL:
-     - Dirección URL de la red CDN: http://wpc.0001.&lt;domain&gt;/800001/CustomerOrigin/path/asset.htm
+     - Dirección URL de la red CDN: http://wpc.0001.&lt;dominio&gt;/800001/CustomerOrigin/path/asset.htm
      - Dirección URL del CNAME perimetral: http:\//&lt;punto_de_conexión&gt;.azureedge.net/path/asset.htm
     
     Información adicional:

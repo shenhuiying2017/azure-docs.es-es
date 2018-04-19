@@ -15,11 +15,11 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 09/28/2017
 ms.author: danlep
-ms.openlocfilehash: e2d97929ada820a1ce969c59fb69b3518fe2eb6c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 2479701174086ddf680e0ecb1da4a9d13b32b76e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autenticación de soluciones de servicio de Batch con Active Directory
 
@@ -312,13 +312,13 @@ public static async Task PerformBatchOperations()
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información acerca de Azure AD, consulte la [Documentación de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/). Puede consultar los ejemplos detallados sobre el uso de ADAL que están disponibles en la biblioteca de [ejemplos de código de Azure](https://azure.microsoft.com/resources/samples/?service=active-directory).
+* Para más información acerca de Azure AD, consulte la [Documentación de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/). Puede consultar los ejemplos detallados sobre el uso de ADAL que están disponibles en la biblioteca de [ejemplos de código de Azure](https://azure.microsoft.com/resources/samples/?service=active-directory).
 
-Para más información acerca de las entidades de servicio, consulte [Objetos de aplicación y de entidad de servicio de Azure Active Directory](../active-directory/develop/active-directory-application-objects.md). Para crear una entidad de servicio mediante Azure Portal, consulte [Uso del portal para crear una aplicación de Azure Active Directory y una entidad de servicio con acceso a los recursos](../resource-group-create-service-principal-portal.md). Las entidades de servicio también se pueden crear con PowerShell o la CLI de Azure.
+* Para más información acerca de las entidades de servicio, consulte [Objetos de aplicación y de entidad de servicio de Azure Active Directory](../active-directory/develop/active-directory-application-objects.md). Para crear una entidad de servicio mediante Azure Portal, consulte [Uso del portal para crear una aplicación de Azure Active Directory y una entidad de servicio con acceso a los recursos](../resource-group-create-service-principal-portal.md). Las entidades de servicio también se pueden crear con PowerShell o la CLI de Azure.
 
-Para autenticar aplicaciones de administración de Batch con Azure AD, consulte [Autenticación de soluciones de administración de Batch con Active Directory](batch-aad-auth-management.md).
+* Para autenticar aplicaciones de administración de Batch con Azure AD, consulte [Autenticación de soluciones de administración de Batch con Active Directory](batch-aad-auth-management.md).
 
-Para obtener un ejemplo en Python sobre cómo crear un cliente de Batch que se autentica mediante un token de Azure AD, consulte el ejemplo de [autenticación de Azure Active Directory](http://azure-sdk-for-python.readthedocs.io/en/latest/batch.html#azure-active-directory-authentication) en el SDK de Azure de la documentación de Python.
+* Para obtener un ejemplo de Python de cómo crear un cliente de Batch que se autentica utilizando un token de Azure AD, consulte el ejemplo [Deploying Azure Batch Custom Image with a Python Script](https://github.com/azurebigcompute/recipes/blob/master/Azure%20Batch/CustomImages/CustomImagePython.md) (Implementación de una imagen personalizada de Azure Batch con un script de Python).
 
 [aad_about]: ../active-directory/active-directory-whatis.md "¿Qué es Azure Active Directory?"
 [aad_adal]: ../active-directory/active-directory-authentication-libraries.md

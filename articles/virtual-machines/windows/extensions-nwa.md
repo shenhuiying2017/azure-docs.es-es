@@ -1,11 +1,11 @@
 ---
-title: "Extensión de máquina virtual del agente de Azure Network Watcher para Windows | Microsoft Docs"
-description: "Implemente el agente de Network Watcher en la máquina virtual Windows mediante una extensión de máquina virtual."
+title: Extensión de máquina virtual del agente de Azure Network Watcher para Windows | Microsoft Docs
+description: Implemente el agente de Network Watcher en la máquina virtual Windows mediante una extensión de máquina virtual.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: dennisg
 manager: amku
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 27e46af7-2150-45e8-b084-ba33de8c5e3f
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: 68855e0070916dc672914fbc8ca3587a5d3c25f6
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 84ac50ea555df538cc6347be58537e31b0f14611
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-windows"></a>Extensión de máquina virtual del agente de Network Watcher para Windows
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/20/2017
 [Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md) es un servicio de supervisión, diagnóstico y análisis del rendimiento de red que permite supervisar redes de Azure. La extensión de máquina virtual del agente de Network Watcher es un requisito para capturar el tráfico de red a petición y otra funcionalidad avanzada en máquinas virtuales de Azure.
 
 
-En este documento se especifican las plataformas compatibles y las opciones de implementación de la extensión de máquina virtual del agente de Network Watcher para Windows.
+En este documento se especifican las plataformas compatibles y las opciones de implementación de la extensión de máquina virtual del agente de Network Watcher para Windows. La instalación del agente no interrumpe la máquina virtual ni requiere reiniciarla.
 
 ## <a name="prerequisites"></a>requisitos previos
 

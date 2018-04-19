@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect: solución de problemas de conectividad | Microsoft Docs"
-description: "Explica cómo solucionar problemas de conectividad con Azure AD Connect."
+title: 'Azure AD Connect: solución de problemas de conectividad | Microsoft Docs'
+description: Explica cómo solucionar problemas de conectividad con Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 3aa41bb5-6fcb-49da-9747-e7a3bd780e64
 ms.service: active-directory
 ms.workload: identity
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
 ms.openlocfilehash: 1c8bbbde653ed8e927ab1550c32ae86a4dc2ffac
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Solución de problemas de conectividad con Azure AD Connect
 Este artículo explica cómo funciona la conectividad entre Azure AD Connect y Azure AD y cómo solucionar los problemas de conectividad. Estos problemas suelen aparecer en un entorno con un servidor proxy.

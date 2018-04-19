@@ -1,6 +1,6 @@
 ---
-title: "Prácticas recomendadas para empresas que migran su infraestructura a Azure | Microsoft Docs"
-description: "En este artículo se describe una plantilla scaffold que las empresas pueden utilizar para garantizar que el entorno sea seguro y fácil de administrar."
+title: Prácticas recomendadas para empresas que migran su infraestructura a Azure | Microsoft Docs
+description: En este artículo se describe una plantilla scaffold que las empresas pueden utilizar para garantizar que el entorno sea seguro y fácil de administrar.
 services: azure-resource-manager
 documentationcenter: na
 author: rdendtler
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/31/2017
 ms.author: rodend;karlku;tomfitz
-ms.openlocfilehash: 3b5087faaf3db087b15b77fedac8df0d7e4a899a
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 02553bb59cb37bab21d53adafc42fddcf08795a7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-enterprise-scaffold---prescriptive-subscription-governance"></a>Scaffolding empresarial de Azure: gobierno de suscripción preceptivo
 Cada vez son más las empresas que adoptan la tecnología de nube pública para ganar agilidad y flexibilidad. Aprovechan los puntos fuertes de la nube para generar ingresos u optimizar los recursos de la empresa. Microsoft Azure proporciona un gran número de servicios que las empresas pueden ensamblar como bloques de creación con el objetivo de abordar diversas aplicaciones y cargas de trabajo. 
@@ -135,7 +135,7 @@ Entorno del método ágil para una unidad de negocio que va a crear aplicaciones
 > 
 
 ### <a name="audit---what-happened"></a>Auditoría: ¿qué ha ocurrido?
-Para ver cómo funciona el entorno, debe auditar la actividad de usuario. La mayoría de los tipos de recursos de Azure crean registros de diagnóstico que se pueden analizar a través de una herramienta de registro o en Azure Operations Management Suite. Puede recopilar registros de actividades a través de varias suscripciones para proporcionar información de la empresa o de departamentos concretos. Los registros de auditoría constituyen una herramienta de diagnóstico importante y un mecanismo fundamental para desencadenar eventos en el entorno de Azure.
+Para ver cómo funciona el entorno, debe auditar la actividad de usuario. La mayoría de los tipos de recursos de Azure crean registros de diagnóstico que se pueden analizar a través de una herramienta de registro o en Azure Log Analytics. Puede recopilar registros de actividades a través de varias suscripciones para proporcionar información de la empresa o de departamentos concretos. Los registros de auditoría constituyen una herramienta de diagnóstico importante y un mecanismo fundamental para desencadenar eventos en el entorno de Azure.
 
 Los registros de actividades de las implementaciones de Resource Manager permiten determinar las **operaciones** que se realizaron y las personas responsables. Además, pueden recopilarse y agregarse mediante herramientas como Log Analytics.
 
@@ -160,7 +160,7 @@ Consulte [Recommended naming conventions for Azure resources](../guidance/guidan
 > 
 > * Grupos de recursos
 > * Storage
-> * Máquinas virtuales
+> * Virtual Machines
 > * Servidores web y entornos de servicios de aplicaciones
 > 
 > Esta estrategia de etiquetado identifica en las distintas suscripciones qué metadatos se necesitan para los aspectos comerciales, económicos, de seguridad, de administración de riesgos y de administración general del entorno. 
@@ -190,7 +190,7 @@ Esta proliferación de suscripciones ya no es necesaria. Gracias al control de a
 > * Conecte su almacén de identidades corporativo (normalmente, Active Directory) a Azure Active Directory con la herramienta AD Connect.
 > * Controle el administrador o coadministrador de una suscripción mediante una identidad administrada. **No** asigne administradores o coadministradores a un nuevo propietario de la suscripción. En su lugar, use los roles RBAC para proporcionar derechos de **propietario** a un grupo o usuario.
 > * Agregue los usuarios de Azure a un grupo (por ejemplo, los propietarios de la aplicación X) en Active Directory. Utilice el grupo sincronizado para proporcionar a los miembros del grupo los derechos adecuados para administrar el grupo de recursos que contiene la aplicación.
-> * Siga el principio de conceder los **privilegios mínimos** necesarios para realizar el trabajo previsto. Por ejemplo:
+> * Siga el principio de conceder los **privilegios mínimos** necesarios para realizar el trabajo previsto. Por ejemplo: 
 >   * Grupo de implementación: un grupo que solo puede implementar recursos.
 >   * Administración de máquinas virtuales: un grupo que puede reiniciar las máquinas virtuales (para realizar operaciones)
 > 

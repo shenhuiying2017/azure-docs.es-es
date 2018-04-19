@@ -158,7 +158,7 @@ Al utilizar Azure AD Connect para implementar los Servicios de federación de Ac
   * En el equipo en el que se está ejecutando el asistente (si el equipo de destino no está unido al dominio o el dominio no es de confianza):
     * En una ventana de comandos PSH con privilegios elevados, use el comando `Set-Item WSMan:\localhost\Client\TrustedHosts –Value <DMZServerFQDN> -Force –Concatenate`
     * En el Administrador de servidores:
-      * Agregue el host WAP de DMZ al grupo de máquinas (pestaña Administrador de servidores -> Administrar -> Agregar servidores... usar DNS)
+      * Agregue el host WAP de red perimetral al grupo de máquinas (pestaña Administrador de servidores -> Administrar -> Agregar servidores... usar DNS)
       * Pestaña Todos los servidores del Administrador de servidores: haga clic con el botón derecho en el servidor WAP y elija Administrar como..., escriba credenciales locales (no de dominio) para la máquina WAP.
       * Para validar la conectividad remota de PSH, en la pestaña Todos los servidores del Administrador de servidores, haga clic con el botón derecho en el servidor WAP y elija Windows PowerShell. Debe abrirse una sesión remota de PSH para asegurarse de que se pueden establecer sesiones remotas de PowerShell.
 

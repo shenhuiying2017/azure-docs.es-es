@@ -1,35 +1,30 @@
 ---
-title: Uso de las herramientas de Stream Analytics para Visual Studio para configurar el proceso de integración e implementación continuas | Microsoft Docs
-description: Tutorial sobre el uso de las herramientas de Stream Analytics para Visual Studio para configurar un proceso de integración e implementación continuas
-keywords: visual studio, NuGet, DevOps, CI/CD
-documentationcenter: ''
+title: Integración y desarrollo continuos con las herramientas de Stream Analytics
+description: En este artículo se describe cómo usar las herramientas de Visual Studio para Azure Stream Analytics para configurar un proceso de integración e implementación continuas.
 services: stream-analytics
 author: su-jie
-manager: ''
-ms.assetid: a473ea0a-3eaa-4e5b-aaa1-fec7e9069f20
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 9/27/2017
 ms.author: sujie
-ms.openlocfilehash: 14bb15f19b517b55281959f0de970e3f5e0d360b
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 9/27/2017
+ms.openlocfilehash: e4e831c602255df66f4c86ffa17336f51d2b52f7
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="use-stream-analytics-visual-studio-tools-to-set-up-a-continuous-integration-and-deployment-process"></a>Uso de las herramientas de Stream Analytics para Visual Studio para configurar un proceso de integración e implementación continuas
-En este tutorial, aprenderá a usar las herramientas de Azure Stream Analytics para Visual Studio para configurar un proceso de integración e implementación continuas.
+# <a name="continuously-integrate-and-develop-with-stream-analytics-tools"></a>Integración y desarrollo continuos con las herramientas de Stream Analytics
+En este artículo se describe cómo usar las herramientas de Azure Stream Analytics para Visual Studio para configurar un proceso de integración e implementación continuas.
 
-La versión más reciente (2.3.0000.0 o superior) de las [herramientas de Stream Analytics para Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio) agrega compatibilidad con MSBuild.
+Use la versión 2.3.0000.0 o superior de las [herramientas de Stream Analytics para Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio) para obtener compatibilidad para MSBuild.
 
-También hay un paquete NuGet [Microsoft.Azure.Stream Analytics.CICD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/) recientemente publicado. Proporciona las herramientas de implementación, ejecución local y MSBuild que admite la integración continua y el proceso de implementación de los proyectos Stream Analytics para Visual Studio. 
+También hay un paquete NuGet disponible: [Microsoft.Azure.Stream Analytics.CICD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/). Proporciona las herramientas de implementación, ejecución local y MSBuild que admite la integración continua y el proceso de implementación de los proyectos Stream Analytics para Visual Studio. 
 > [!NOTE] 
 El paquete NuGet solo se puede usar con la versión 2.3.0000.0 o superior de las herramientas de Stream Analytics para Visual Studio. Si tiene proyectos creados en versiones anteriores de las herramientas de Visual Studio, ábralos con la versión 2.3.0000.0 o superior y guárdelos. A continuación, se habilitarán las nuevas funcionalidades. 
 
-Obtenga información acerca de cómo usar las [herramientas de Stream Analytics para Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio).
+Para más información, consulte [Uso de herramientas de Azure Stream Analytics para Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio).
 
 ## <a name="msbuild"></a>MSBuild
 Al igual que con la experiencia estándar de Visual Studio MSBuild, para compilar un proyecto tiene dos opciones. Puede hacer clic con el botón derecho en el proyecto y, después, elegir **Compilar**. También puede usar **MSBuild** en el paquete de NuGet desde la línea de comandos.

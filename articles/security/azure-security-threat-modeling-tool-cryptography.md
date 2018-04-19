@@ -1,5 +1,5 @@
 ---
-title: "Criptografía: Microsoft Threat Modeling Tool (Azure) | Microsoft Docs"
+title: 'Criptografía: Microsoft Threat Modeling Tool (Azure) | Microsoft Docs'
 description: mitigaciones para amenazas expuestas en Threat Modeling Tool
 services: security
 documentationcenter: na
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 96e74371fe51a8050a91c86215e3eefab07bbed8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5e5d487c4c793a49ce1d4ac17f6fcd672e09bb90
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="security-frame-cryptography--mitigations"></a>Marco de seguridad: Criptografía | Mitigaciones 
 | Producto o servicio | Artículo |
 | --------------- | ------- |
 | **Aplicación web** | <ul><li>[Use solamente los cifrados de bloques simétricos y longitudes de clave aprobados](#cipher-length)</li><li>[Use modos aprobados de cifrado de bloques y vectores de inicialización apropiados para los cifrados simétricos](#vector-ciphers)</li><li>[Use algoritmos asimétricos, longitudes de clave y rellenos aprobados](#padding)</li><li>[Use generadores de números aleatorios aprobados](#numgen)</li><li>[No use cifrados de flujo simétricos](#stream-ciphers)</li><li>[Use los algoritmos hash con clave MAC o HMAC aprobados](#mac-hash)</li><li>[Use solamente las funciones hash criptográficas aprobadas](#hash-functions)</li></ul> |
 | **Base de datos** | <ul><li>[Use algoritmos de cifrado de alta seguridad para cifrar los datos de la base de datos](#strong-db)</li><li>[Los paquetes SSIS deben cifrarse y firmarse digitalmente](#ssis-signed)</li><li>[Agregue una firma digital a los elementos protegibles críticos de base de datos ](#securables-db)</li><li>[Use la administración extensible de claves (EKM) de SQL Server para proteger las claves de cifrado](#ekm-keys)</li><li>[Use la característica AlwaysEncrypted si las claves de cifrado no deben mostrarse al motor de base de datos](#keys-engine)</li></ul> |
-| **Dispositivo de IoT** | <ul><li>[Almacene las claves criptográficas de forma segura en dispositivos IoT](#keys-iot)</li></ul> | 
+| **Dispositivo IoT** | <ul><li>[Almacene las claves criptográficas de forma segura en dispositivos IoT](#keys-iot)</li></ul> | 
 | **Puerta de enlace de nube de IoT** | <ul><li>[Genere una clave simétrica aleatoria de longitud suficiente para la autenticación en IoT Hub](#random-hub)</li></ul> | 
 | **Cliente para dispositivos móviles de Dynamics CRM** | <ul><li>[Asegúrese de que hay una directiva de administración de dispositivos que requiere el uso de un PIN y permite el borrado remoto](#pin-remote)</li></ul> | 
 | **Cliente de Outlook de Dynamics CRM** | <ul><li>[Asegúrese de que hay una directiva de administración de dispositivos que requiere un bloqueo automático con PIN o contraseña, y cifra todos los datos (por ejemplo, Bitlocker)](#bitlocker)</li></ul> | 
@@ -73,7 +73,7 @@ ms.lasthandoff: 10/11/2017
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | N/D  |
-| **Pasos** | <p>Los productos tienen que usar generadores de números aleatorios aprobados. Las funciones pseudoaleatorias, como la función en tiempo de ejecución de C, la clase de .NET Framework System.Random, o funciones del sistema como GetTickCount no deben por lo tanto usarse nunca en este código. Se prohíbe el uso del algoritmo (DUAL_EC_DRBG) del generador de números aleatorios de curva elíptica dual</p><ul><li>**CNG:** BCryptGenRandom (uso de la marca BCRYPT_USE_SYSTEM_PREFERRED_RNG recomendado a menos que el llamador pueda ejecutarse en cualquier IRQL mayor que 0 [es decir, PASSIVE_LEVEL])</li><li>**CAPI:** cryptGenRandom</li><li>**Win32/64:** RtlGenRandom (las implementaciones nuevas deben utilizar BCryptGenRandom o CryptGenRandom) * rand_s * SystemPrng (para el modo de kernel)</li><li>**.NET:** RNGCryptoServiceProvider o RNGCng</li><li>**Aplicaciones de la Tienda Windows:** Windows.Security.Cryptography.CryptographicBuffer.GenerateRandom o .GenerateRandomNumber</li><li>**Apple OS X (10.7+)/iOS(2.0+):** int SecRandomCopyBytes (SecRandomRef random, size_t count, uint8_t *bytes )</li><li>**Apple OS X (&lt;10.7)-** Use /dev/random para recuperar números aleatorios</li><li>**Java (incluido código Google Android Java) -** java.security.SecureRandom clase. Tenga en cuenta que para Android 4.3 (Jelly Bean), los desarrolladores tienen que seguir la solución alternativa recomendada por Android y actualizar sus aplicaciones para inicializar explícitamente PRNG con la entropía de /dev/urandom o /dev/Random</li></ul>|
+| **Pasos** | <p>Los productos tienen que usar generadores de números aleatorios aprobados. Las funciones pseudoaleatorias, como la función en tiempo de ejecución de C, la clase de .NET Framework System.Random, o funciones del sistema como GetTickCount no deben por lo tanto usarse nunca en este código. Se prohíbe el uso del algoritmo (DUAL_EC_DRBG) del generador de números aleatorios de curva elíptica dual</p><ul><li>**CNG:** BCryptGenRandom (uso de la marca BCRYPT_USE_SYSTEM_PREFERRED_RNG recomendado a menos que el llamador pueda ejecutarse en cualquier IRQL mayor que 0 [es decir, PASSIVE_LEVEL])</li><li>**CAPI:** cryptGenRandom</li><li>**Win32/64:** RtlGenRandom (las implementaciones nuevas deben utilizar BCryptGenRandom o CryptGenRandom) * rand_s * SystemPrng (para el modo de kernel)</li><li>**.NET:** RNGCryptoServiceProvider o RNGCng</li><li>**Aplicaciones de la Tienda Windows:** Windows.Security.Cryptography.CryptographicBuffer.GenerateRandom o .GenerateRandomNumber</li><li>**Apple OS X (10.7+)/iOS(2.0+)-** int SecRandomCopyBytes (SecRandomRef random, size_t count, uint8_t \*bytes)</li><li>**Apple OS X (< 10.7)-** Use /dev/random para recuperar números aleatorios</li><li>**Java (incluido código Google Android Java) -** java.security.SecureRandom clase. Tenga en cuenta que para Android 4.3 (Jelly Bean), los desarrolladores tienen que seguir la solución alternativa recomendada por Android y actualizar sus aplicaciones para inicializar explícitamente PRNG con la entropía de /dev/urandom o /dev/Random</li></ul>|
 
 ## <a id="stream-ciphers"></a>No use cifrados de flujo simétricos
 

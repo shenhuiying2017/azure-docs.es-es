@@ -1,25 +1,19 @@
 ---
-title: Incorporación de entradas de datos a trabajos de Stream Analytics | Microsoft Docs
+title: Incorporación de una entrada de datos a trabajos de Azure Stream Analytics
 description: Obtenga información acerca de cómo enlazar un origen de datos al trabajo de Stream Analytics como entrada de datos de streaming desde Event Hubs, o bien como datos de referencia desde Blob Storage.
-keywords: entrada de datos, datos de streaming
-documentationcenter: ''
 services: stream-analytics
 author: jseb225
-manager: ryanw
-editor: ''
-ms.assetid: 9e59bd24-2a80-4ecb-b6b2-309a07c70bcd
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: 441cc2d1c6d2cdc6ce4bbd14306ec8ae71c38c55
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 03/28/2017
+ms.openlocfilehash: 713b830717cce7b4b2b0fb1171596659c2275b85
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="add-a-streaming-data-input-or-reference-data-to-a-stream-analytics-job"></a>Adición de entradas de datos de streaming o datos de referencia a trabajos de Stream Analytics
 Aprenda a enlazar un origen de datos al trabajo de Stream Analytics como entrada de datos de streaming desde Event Hubs, o bien como datos de referencia desde Blob Storage.
@@ -73,7 +67,7 @@ Para agregar una entrada a su trabajo de Stream Analytics:
     ![Prueba de la conexión de la entrada de datos de streaming](./media/stream-analytics-add-inputs/11-stream-analytics-add-inputs.png)  
 
 ## <a name="get-help-with-streaming-data-inputs"></a>Obtener ayuda con las entradas de datos de streaming
-Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Introducción a Azure Stream Analytics](stream-analytics-introduction.md)

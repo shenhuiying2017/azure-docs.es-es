@@ -1,24 +1,19 @@
 ---
-title: Depuración orientada a datos de Azure Stream Analytics mediante el diagrama de trabajo | Microsoft Docs
-description: Solucione los problemas de los trabajos de Stream Analytics mediante el diagrama de trabajo y las métricas.
-keywords: ''
-documentationcenter: ''
+title: Depuración controlada por datos en Azure Stream Analytics
+description: En este artículo se describe cómo solucionar problemas de un trabajo de Azure Stream Analytics mediante el uso del diagrama de trabajo y métricas en Azure Portal.
 services: stream-analytics
 author: jseb225
-manager: ryanw
-ms.assetid: ''
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 05/01/2017
 ms.author: jeanb
-ms.openlocfilehash: 65eeeee7daa22b94074f55defdfd1219049774c9
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 05/01/2017
+ms.openlocfilehash: e6b2b7f4c01a5280c2fb3a5c17158b8dcc2797d4
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="data-driven-debugging-by-using-the-job-diagram"></a>Depuración orientada a datos mediante el diagrama de trabajo
 
@@ -85,7 +80,7 @@ Si el paso de consulta anterior es un procesador de entrada, use las métricas d
 
 
 ## <a name="get-help"></a>Obtención de ayuda
-Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [¿Qué es Stream Analytics?](stream-analytics-introduction.md)

@@ -1,24 +1,19 @@
 ---
-title: 'Arquitectura de referencia: procesado de eventos en tiempo real con Microsoft Azure Stream Analytics | Microsoft Docs'
-description: Aprenda cómo puede interoperar un conjunto de servicios de Azure para habilitar el procesado de eventos en tiempo real y el análisis.
-keywords: procesamiento en tiempo real, procesamiento de eventos, arquitectura de referencia
-services: stream-analytics,event-hubs,storage,sql-database
-documentationcenter: ''
+title: Procesamiento de eventos en tiempo real mediante el procesamiento de eventos de Azure Stream Analytics
+description: En este artículo se describe la arquitectura de referencia para lograr el análisis y el procesamiento de eventos en tiempo real mediante Azure Stream Analytics.
+services: stream-analytics
 author: jseb225
-manager: ryanw
-ms.assetid: 11af48bc-313c-4527-8c80-91088dc9f3c6
-ms.service: stream-analytics
-ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/24/2017
 ms.author: jeanb
-ms.openlocfilehash: cf11a80a93a923f038b7d6a0f02a35938794c242
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 01/24/2017
+ms.openlocfilehash: 8a5d426d67916e010c7fff048eebdc77b93c5c38
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="reference-architecture-real-time-event-processing-with-microsoft-azure-stream-analytics"></a>Arquitectura de referencia: procesado de eventos en tiempo real con Stream Analytics de Microsoft Azure
 La arquitectura de referencia para el procesado de eventos en tiempo real con Azure Stream Analytics está diseñada para proporcionar un plano genérico para implementar una plataforma en tiempo real como una solución de procesado de transmisiones (PaaS) de servicio con Microsoft Azure.
@@ -50,7 +45,7 @@ Microsoft Azure proporciona un catálogo muy amplio de tecnologías de análisis
 **Descarga:**[Procesado de eventos en tiempo real con Stream Analytics de Microsoft Azure](http://download.microsoft.com/download/6/2/3/623924DE-B083-4561-9624-C1AB62B5F82B/real-time-event-processing-with-microsoft-azure-stream-analytics.pdf)
 
 ## <a name="get-help"></a>Obtención de ayuda
-Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Para más ayuda, pruebe el [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Introducción a Azure Stream Analytics](stream-analytics-introduction.md)

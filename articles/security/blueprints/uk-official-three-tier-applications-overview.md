@@ -1,6 +1,6 @@
 ---
-title: "Azure Security and Compliance Blueprint: automatización de aplicaciones web de tres niveles para UK-OFFICIAL"
-description: "Azure Security and Compliance Blueprint: automatización de aplicaciones web de tres niveles para UK-OFFICIAL"
+title: 'Azure Security and Compliance Blueprint: automatización de aplicaciones web de tres niveles para UK-OFFICIAL'
+description: 'Azure Security and Compliance Blueprint: automatización de aplicaciones web de tres niveles para UK-OFFICIAL'
 services: security
 documentationcenter: na
 author: jomolesk
@@ -197,7 +197,7 @@ Estas redes virtuales se siguen administrando como recursos independientes, pero
 
 **Seguridad de administración**: este plano técnico permite a los administradores conectarse a la red virtual y el Jumpbox de administración con el RDP desde un origen de confianza. El tráfico de red para la red virtual de administración se controla mediante NSG. El acceso al puerto 3389 está restringido para el tráfico de un intervalo IP de confianza que puede tener acceso a la subred que contiene el Jumpbox.
 
-Los clientes también puede usar un [modelo administrativo de seguridad mejorada](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/securing-privileged-access) para proteger el entorno al conectarse a la red virtual y Jumpbox de administración. Se recomienda que los clientes de seguridad mejorada usen una [estación de trabajo de acceso con privilegios](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/privileged-access-workstations#what-is-a-privileged-access-workstation-paw) y la configuración de RDGateway. El uso de aplicaciones virtuales de red y DMZ públicos/privados le ofrece más mejoras de seguridad.
+Los clientes también puede usar un [modelo administrativo de seguridad mejorada](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/securing-privileged-access) para proteger el entorno al conectarse a la red virtual y Jumpbox de administración. Se recomienda que los clientes de seguridad mejorada usen una [estación de trabajo de acceso con privilegios](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/privileged-access-workstations#what-is-a-privileged-access-workstation-paw) y la configuración de RDGateway. El uso de aplicaciones virtuales de red y red perimetral públicos/privados le ofrece más mejoras de seguridad.
 
 **Protección de la red**: los [grupos de seguridad de red](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) (NSG) se recomiendan para que cada subred proporcione un segundo nivel de protección contra el tráfico entrante que omite una puerta de enlace configurada incorrectamente o deshabilitada. Ejemplo: [Plantilla de Resource Manager para implementar un NSG](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/networkSecurityGroups).
 

@@ -1,8 +1,7 @@
 ---
-title: 'Referencia de Azure Active Directory B2C: personalización de la IU de un recorrido de usuario con directivas personalizadas | Microsoft Docs'
-description: Un tema acerca de las directivas personalizadas de Azure Active Directory B2C
+title: Personalización de la IU de un recorrido de usuario con directivas personalizadas| Microsoft Docs
+description: Obtenga información sobre las directivas personalizadas de Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
 editor: ''
@@ -11,18 +10,18 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: davidmu
-ms.openlocfilehash: b0f68f76bfb746b91cb82b2b7e9e750f15f14253
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4fe9e90996c56773480eb147e5aef7475453fe43
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Personalización de la IU de un recorrido de usuario con directivas personalizadas
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 > [!NOTE]
-> Este artículo es una descripción avanzada del funcionamiento de la personalización de la interfaz de usuario y cómo habilitarla con directivas B2C personalizadas, mediante el marco de experiencia de identidad.
+> Este artículo es una descripción avanzada del funcionamiento de la personalización de la interfaz de usuario y cómo habilitarla con directivas personalizadas de Azure AD B2C, mediante el marco de experiencia de identidad.
 
 
 En una solución de negocio a consumidor, es esencial una experiencia de usuario sin problemas. Una experiencia de usuario sin problemas es una experiencia, ya sea en un dispositivo o en un explorador, en que el recorrido de un usuario por el servicio no se puede distinguir del que tiene lugar en el servicio al cliente que usa.
@@ -115,7 +114,7 @@ Si siguió los pasos anteriores, los archivos HTML5 y CSS del *UI-Customization-
 
 ## <a name="ensure-the-storage-account-has-cors-enabled"></a>Comprobación de que la cuenta de almacenamiento está habilitada para CORS
 
-CORS (uso compartido de recursos entre orígenes) debe estar habilitado en el punto de conexión para que Azure AD B2C Premium pueda cargar el contenido porque este se hospeda en un dominio diferente al dominio desde el que Azure AD B2C Premium muestra la página.
+CORS (Uso compartido de recursos entre orígenes) debe estar habilitado en su punto de conexión para que Azure AD B2C cargue el contenido. El motivo es que el contenido está hospedado en un dominio diferente al dominio desde el que Azure AD B2C atiende la página.
 
 Para comprobar que el almacenamiento en el que hospeda su contenido está habilitado para CORS, siga estos pasos:
 
@@ -163,7 +162,7 @@ En la tabla siguiente se describe el conjunto de identificadores de definición 
 | *api.localaccountsignin* | **Página de inicio de sesión en una cuenta local**. Esta página contiene un formulario de registro que el usuario tiene que rellenar al iniciar sesión con una cuenta local basada en una dirección de correo electrónico o un nombre de usuario. El formulario puede contener un cuadro de entrada de texto y un cuadro de entrada de contraseña. |
 | *api.localaccountsignup* | **Página de registro en una cuenta local**. Esta página contiene un formulario de registro que el usuario tiene que rellenar al registrarse con una cuenta local basada en una dirección de correo electrónico o un nombre de usuario. El formulario puede contener diferentes controles de entrada, como un cuadro de entrada de texto, un cuadro de entrada de contraseña, un botón de radio, cuadros desplegables de selección única y casillas de verificación de selección múltiple. |
 | *api.phonefactor* | **Página de autenticación multifactor**. Esta página permite a los usuarios verificar sus números de teléfono (mediante texto o voz) durante el registro o el inicio de sesión. |
-| *api.selfasserted* | **Página de registro en una cuenta social**. Esta página contiene un formulario de registro que el usuario tiene que rellenar al registrarse con una cuenta existente de un proveedor de identidades sociales, como Facebook o Google+. Esta página es similar a la página anterior de registro en una cuenta social, excepto por los campos de entrada de contraseña. |
+| *api.selfasserted* | **Página de registro en una cuenta social**. Esta página contiene un formulario de registro que el usuario tiene que rellenar al registrarse con una cuenta existente de un proveedor de identidades social, como Facebook o Google+. Esta página es similar a la página anterior de registro en una cuenta social, excepto por los campos de entrada de contraseña. |
 | *api.selfasserted.profileupdate* | **Página de actualización de perfil**. Esta página contiene un formulario que el usuario puede usar para actualizar su perfil. Esta página es similar a la página anterior de registro en una cuenta social, excepto por los campos de entrada de contraseña. |
 | *api.signuporsignin* | **Página de inicio de sesión o registro unificada**.  Esta página controla tanto la suscripción como el inicio de sesión de los usuarios, que pueden usar proveedores de identidades de empresa, proveedores de identidades sociales, como Facebook o Google+, o cuentas locales.
 

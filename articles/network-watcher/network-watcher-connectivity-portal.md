@@ -1,11 +1,11 @@
 ---
-title: "Solución de problemas de conexiones con Azure Network Watcher: Azure Portal | Microsoft Docs"
-description: "Obtenga información sobre cómo usar la funcionalidad de solución de problemas de conexiones de Azure Network Watcher con Azure Portal."
+title: 'Solución de problemas de conexiones con Azure Network Watcher: Azure Portal | Microsoft Docs'
+description: Obtenga información sobre cómo usar la funcionalidad de solución de problemas de conexiones de Azure Network Watcher con Azure Portal.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/03/2017
 ms.author: jdial
-ms.openlocfilehash: 8d3a537523cce3457c18c7563e885a3f7348326f
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 55c8e6763b0c3d8bd3884a44695c25e62b8d9900
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-portal"></a>Solución de problemas de conexiones con Azure Network Watcher mediante Azure Portal
 
@@ -37,7 +37,7 @@ En este artículo se da por hecho que tiene los siguientes recursos:
 * Las máquinas virtuales con las cuales solucionar los problemas de las conexiones.
 
 > [!IMPORTANT]
-> La solución de problemas de conexiones requiere una extensión de máquina virtual `AzureNetworkWatcherExtension`. Para instalar la extensión en una máquina virtual Windows, consulte [Extensión de máquina virtual del agente de Azure Network Watcher para Windows](../virtual-machines/windows/extensions-nwa.md), y en una máquina virtual con Linux, consulte [Extensión de máquina virtual del agente de Azure Network Watcher para Linux](../virtual-machines/linux/extensions-nwa.md).
+> La solución de problemas de conexión requiere que la VM desde la que soluciona el problema tenga la extensión de VM `AzureNetworkWatcherExtension` instalada. Para instalar la extensión en una máquina virtual Windows, consulte [Extensión de máquina virtual del agente de Azure Network Watcher para Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json), y en una máquina virtual con Linux, consulte [Extensión de máquina virtual del agente de Azure Network Watcher para Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). La extensión no es necesaria en el punto de conexión de destino.
 
 ## <a name="check-connectivity-to-a-virtual-machine"></a>Comprobación de la conectividad a una máquina virtual
 

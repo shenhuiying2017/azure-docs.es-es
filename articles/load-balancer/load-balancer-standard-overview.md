@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/26/2018
+ms.date: 04/02/2018
 ms.author: kumud
-ms.openlocfilehash: b5443cb1d883bd829a13b6d941d2c87c6205c64f
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 684c226e566d6a5a2db456d24ad2fc5811f08067
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Introducción a Azure Load Balancer Estándar
 
@@ -43,7 +43,7 @@ Los recursos de Load Balancer son objetos mediante los cuales se puede expresar 
 
 ## <a name="why-use-standard-load-balancer"></a>¿Por qué usar Load Balancer Estándar?
 
-Load Balancer Estándar se puede usar en la gama completa de centros de datos virtuales, desde implementaciones a pequeña escala hasta arquitecturas de varias zonas grandes y complejas.
+Load Balancer estándar permite escalar las aplicaciones y crear alta disponibilidad para las implementaciones a pequeña escala en arquitecturas grandes y complejas de varias zonas.
 
 Consulte la tabla siguiente para obtener información general de las diferencias entre Load Balancer Estándar y Load Balancer Básico:
 

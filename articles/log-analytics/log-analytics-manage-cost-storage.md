@@ -1,6 +1,6 @@
 ---
 title: Administración del costo de datos en Azure Log Analytics | Microsoft Docs
-description: Aprenda cómo cambiar el plan de precios y cómo administrar el volumen y la directiva de retención de datos para el área de trabajo de Log Analytics en Azure Portal.
+description: Aprenda cómo cambiar el plan de precios y cómo administrar el volumen de datos y la directiva de retención para el área de trabajo de Log Analytics en Azure.
 services: log-analytics
 documentationcenter: log-analytics
 author: mgoedtel
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2018
 ms.author: magoedte
-ms.openlocfilehash: 629031310eba21bc3308754706bd7ba227009ac6
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 8fb20fc9e6249a2d19d62df1ce331ce873d5fd3d
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="manage-cost-by-controlling-data-volume-and-retention-with-your-log-analytics-workspace"></a>Administración del costo mediante el control del volumen y la retención de datos con el área de trabajo de Log Analytics
+# <a name="manage-cost-by-controlling-data-volume-and-retention-in-log-analytics"></a>Administración de los costos mediante el control del volumen de datos y la retención en Log Analytics
 Log Analytics está diseñado para escalar y admitir la recopilación, indexación y almacenamiento de grandes cantidades de datos por día provenientes de cualquier origen dentro de su empresa o implementados en Azure.  Aunque esto puede ser un factor clave principal para su organización, la rentabilidad es en última instancia el factor clave subyacente. Con este fin, es importante comprender que el costo de un área de trabajo de Log Analytics no se basa simplemente en el volumen de datos recopilados, también depende del plan seleccionado y de cuánto tiempo se decida almacenar los datos generados a partir de los orígenes conectados.  
 
 En este artículo revisamos cómo puede supervisar de forma proactiva el crecimiento del volumen y del almacenamiento de datos, y definir los límites para controlar esos costos asociados. 

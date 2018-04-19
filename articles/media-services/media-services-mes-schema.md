@@ -1,11 +1,11 @@
 ---
 title: Esquema de Media Encoder Standard | Microsoft Docs
-description: "En este artículo se proporciona información general sobre el esquema de Media Encoder Standard."
+description: En este artículo se proporciona información general sobre el esquema de Media Encoder Standard.
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 4c060062-8ef2-41d9-834e-e81e8eafcf2e
 ms.service: media-services
 ms.workload: media
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: juliako
 ms.openlocfilehash: e936f5c47abe5bb5531f9af3be48662ea2f48c97
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="media-encoder-standard-schema"></a>Esquema de Media Encoder Standard
 En este artículo se describen algunos de los elementos y tipos del esquema XML en los que se basan los [valores preestablecidos de Media Encoder Standard](media-services-mes-presets-overview.md). En el artículo se proporciona una explicación de los elementos y sus valores válidos.  
@@ -35,7 +35,7 @@ Define un valor preestablecido de codificación.
 ### <a name="attributes"></a>Atributos
 | NOMBRE | type | DESCRIPCIÓN |
 | --- | --- | --- |
-| **Versión**<br/><br/> Requerido |**xs: decimal** |La versión del valor preestablecido. Se aplican las restricciones siguientes: xs:fractionDigits value="1" y xs:minInclusive value="1". Por ejemplo, **version="1.0"**. |
+| **Versión**<br/><br/> Obligatorio |**xs: decimal** |La versión del valor preestablecido. Se aplican las restricciones siguientes: xs:fractionDigits value="1" y xs:minInclusive value="1". Por ejemplo, **version="1.0"**. |
 
 ## <a name="Encoding"></a> Encoding
 Contiene una secuencia de los elementos siguientes:  
@@ -83,8 +83,8 @@ De forma predeterminada, si envía una entrada al codificador que solo contenga 
 ### <a name="elements"></a>Elementos
 | NOMBRE | type | DESCRIPCIÓN |
 | --- | --- | --- |
-| **Perfil**<br/><br/> minOccurs="0"<br/><br/> default=”Auto” |**xs: cadena** |Puede ser de uno de los siguientes valores **xs: string**: **Auto**, **Baseline**, **Main** o **High**. |
-| **Level**<br/><br/> minOccurs="0"<br/><br/> default=”Auto” |**xs: cadena** | |
+| **Perfil**<br/><br/> minOccurs="0"<br/><br/> default=”Auto” |**xs: string** |Puede ser de uno de los siguientes valores **xs: string**: **Auto**, **Baseline**, **Main** o **High**. |
+| **Level**<br/><br/> minOccurs="0"<br/><br/> default=”Auto” |**xs: string** | |
 | **Bitrate**<br/><br/> minOccurs="0" |**xs:int** |La velocidad de bits usada para esta capa de vídeo, especificada en Kbps. |
 | **MaxBitrate**<br/><br/> minOccurs="0" |**xs: int** |La velocidad de bits máxima usada para esta capa de vídeo, especificada en Kbps. |
 | **BufferWindow**<br/><br/> minOccurs="0"<br/><br/> default="00:00:05" |**xs: time** |Longitud del búfer de vídeo. |
@@ -92,7 +92,7 @@ De forma predeterminada, si envía una entrada al codificador que solo contenga 
 | **Height**<br/><br/> minOccurs="0" |**xs:int** |Alto del fotograma de vídeo de salida, en píxeles.<br/><br/> Actualmente, debe especificar ancho y alto. El ancho y el alto deben ser números pares.|
 | **BFrames**<br/><br/> minOccurs="0" |**xs: int** |Número de fotogramas B entre fotogramas de referencia. |
 | **ReferenceFrames**<br/><br/> minOccurs="0"<br/><br/> default=”3” |**xs:int** |Número de fotogramas de referencia en un GOP. |
-| **EntropyMode**<br/><br/> minOccurs="0"<br/><br/> default=”Cabac” |**xs: cadena** |Puede ser uno de los siguientes valores: **Cabac** y **Cavlc**. |
+| **EntropyMode**<br/><br/> minOccurs="0"<br/><br/> default=”Cabac” |**xs: string** |Puede ser uno de los siguientes valores: **Cabac** y **Cavlc**. |
 | **FrameRate**<br/><br/> minOccurs="0" |número racional |Determina la velocidad de fotogramas del vídeo de salida. Use el valor predeterminado "0/1" para permitir que el codificador use la misma velocidad de fotogramas que el vídeo de entrada. Se espera que los valores permitidos sean velocidades de fotogramas de vídeo habituales. No obstante, se admite cualquier número racional válido. Por ejemplo, 1/1 sería 1 fps y es válido.<br/><br/> - 12/1  (12 fps)<br/><br/> - 15/1 (15 fps)<br/><br/> - 24/1 (24 fps)<br/><br/> - 24000/1001 (23,976 fps)<br/><br/> - 25/1 (25 fps)<br/><br/>  - 30/1 (30 fps)<br/><br/> - 30000/1001 (29,97 fps) <br/> <br/>**NOTA** Si está creando un valor preestablecido personalizado para la codificación de velocidad de bits múltiple, todas las capas del valor preestablecido **deben** tener el mismo valor en FrameRate.|
 | **AdaptiveBFrame**<br/><br/> minOccurs="0" |**xs: boolean** |Copia de Azure Media Encoder. |
 | **Slices**<br/><br/> minOccurs="0"<br/><br/> default="0" |**xs:int** |Determina en cuántos segmentos se divide un fotograma. Se recomienda usar el valor predeterminado. |
@@ -105,12 +105,12 @@ De forma predeterminada, si envía una entrada al codificador que solo contenga 
 ### <a name="elements"></a>Elementos
 | NOMBRE | type | DESCRIPCIÓN |
 | --- | --- | --- |
-| **Perfil**<br/><br/> minOccurs="0 "<br/><br/> default="AACLC" |**xs: cadena** |Puede ser uno de los siguientes valores: **AACLC**, **HEAACV1** o **HEAACV2**. |
+| **Perfil**<br/><br/> minOccurs="0 "<br/><br/> default="AACLC" |**xs: string** |Puede ser uno de los siguientes valores: **AACLC**, **HEAACV1** o **HEAACV2**. |
 
 ### <a name="attributes"></a>Atributos
 | NOMBRE | type | DESCRIPCIÓN |
 | --- | --- | --- |
-| **Condition** |**xs: cadena** |Para forzar al codificador a producir un activo que contiene una pista de audio silenciosa cuando la entrada no tiene audio, especifique el valor de "InsertSilenceIfNoAudio".<br/><br/> De forma predeterminada, si envía una entrada al codificador que solo contenga vídeo, y no audio, el recurso de salida contendrá archivos que solo contienen datos de vídeos. Algunos reproductores no puede controlar estos flujos de salida. Puede usar este ajuste para forzar al codificador a agregar una pista de audio silenciosa a la salida en ese escenario. |
+| **Condition** |**xs: string** |Para forzar al codificador a producir un activo que contiene una pista de audio silenciosa cuando la entrada no tiene audio, especifique el valor de "InsertSilenceIfNoAudio".<br/><br/> De forma predeterminada, si envía una entrada al codificador que solo contenga vídeo, y no audio, el recurso de salida contendrá archivos que solo contienen datos de vídeos. Algunos reproductores no puede controlar estos flujos de salida. Puede usar este ajuste para forzar al codificador a agregar una pista de audio silenciosa a la salida en ese escenario. |
 
 ### <a name="groups"></a>Grupos
 | Referencia | DESCRIPCIÓN |

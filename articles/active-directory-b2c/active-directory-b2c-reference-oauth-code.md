@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: davidmu
-ms.openlocfilehash: d49a1c97a578726c26f8533476042646b0b302d3
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d8ed5747f29f969535bbafc1624d9d02e54c8418
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-active-directory-b2c-oauth-20-authorization-code-flow"></a>Azure Active Directory B2C: flujo de código de autorización de OAuth 2.0
 Puede usar la concesión de un código de autorización de OAuth 2.0 en las aplicaciones instaladas en un dispositivo para obtener acceso a recursos protegidos, como las API web. Mediante la implementación de OAuth 2.0 de Azure Active Directory B2C (Azure AD B2C) puede agregar tareas de registro, inicio de sesión y otras tareas de administración de identidades a las aplicaciones móviles y de escritorio. Este artículo es independiente del lenguaje y en él describimos cómo enviar y recibir mensajes HTTP sin usar ninguna biblioteca de código abierto.
@@ -195,7 +195,8 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90
 | . | ¿Necesario? | DESCRIPCIÓN |
 | --- | --- | --- |
 | p |Obligatorio |La directiva usada para adquirir el token de actualización original. No puede usar una directiva diferente en esta solicitud. Tenga en cuenta que este parámetro se agrega a la *cadena de consulta*, no al cuerpo de POST. |
-| client_id |Recomendado |Identificador de aplicación asignado a la aplicación en [Azure Portal](https://portal.azure.com). |
+| client_id |Obligatorio |Identificador de aplicación asignado a la aplicación en [Azure Portal](https://portal.azure.com). |
+| client_secret |Obligatorio |El client_secret asociado a su client_id en [Azure Portal](https://portal.azure.com). |
 | grant_type |Obligatorio |Tipo de concesión. Para este segmento del flujo de código de autorización, el tipo de concesión debe ser `refresh_token`. |
 | ámbito |Recomendado |Una lista de ámbitos separada por espacios. Un valor de ámbito único indica a Azure AD los dos permisos que se solicitan. El uso del identificador de cliente como ámbito indica que la aplicación necesita un token de acceso que se puede usar con su propio servicio o API web, representado por el mismo identificador de cliente.  El ámbito `offline_access` indica que la aplicación necesitará un token de actualización para un acceso de larga duración a los recursos.  También puede usar el ámbito `openid` para solicitar un token de identificador desde Azure AD B2C. |
 | redirect_uri |Opcional |El URI de redirección de la aplicación en la que recibió el código de autorización. |
