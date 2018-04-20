@@ -318,6 +318,6 @@ Actualiza el servicio especificado con la descripción de actualización determi
 | --query               | Cadena de consulta de JMESPath. Para obtener más información y ejemplos, consulte http://jmespath.org/.|
 | --verbose             | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos.|
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 - [Configuración](service-fabric-cli.md) de la CLI de Service Fabric.
 - Obtenga información sobre cómo utilizar la CLI de Service Fabric con los [scripts de ejemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).

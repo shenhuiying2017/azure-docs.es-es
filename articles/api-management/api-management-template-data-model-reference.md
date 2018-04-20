@@ -355,5 +355,5 @@ Este tema describe las representaciones de entidad y tipo de elementos comunes q
 |NameIdentifier|cadena|Valor utilizado por el control de inicio de sesión [sign-up](api-management-page-controls.md#sign-up).|  
 |ProviderName|cadena|Nombre del proveedor de autenticación.|
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para obtener más información sobre el trabajo con plantillas, consulte [Cómo personalizar el portal para desarrolladores de Azure API Management mediante plantillas](api-management-developer-portal-templates.md).
