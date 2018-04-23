@@ -1,12 +1,12 @@
 ---
-title: "Protección de bases de datos de PaaS en Azure | Microsoft Docs"
+title: Protección de bases de datos de PaaS en Azure | Microsoft Docs
 description: " Obtenga información sobre los procedimientos recomendados de seguridad de Azure SQL Database y SQL Data Warehouse para proteger las aplicaciones web y móviles PaaS. "
 services: security
 documentationcenter: na
 author: techlake
 manager: MBaldwin
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: ed15ff750e73179f6979d13e45ab27aeee5c82ab
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 3e7dc4dfba001228a4d11e2b21cdeed8e7af45ac
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="securing-paas-databases-in-azure"></a>Protección de bases de datos de PaaS en Azure
 
@@ -31,7 +31,7 @@ En este artículo se presenta una colección de procedimientos recomendados de s
 - Firewall de Azure SQL
 - Cifrado de datos transparente (TDE) 
 
-## <a name="best-practices"></a>Prácticas recomendadas
+## <a name="best-practices"></a>Procedimientos recomendados
 
 ### <a name="use-a-centralized-identity-repository-for-authentication-and-authorization"></a>Uso de un repositorio centralizado de identidades para autenticación y autorización
 
@@ -51,7 +51,7 @@ Entre las ventajas de utilizar la autenticación de Azure AD en lugar de la aute
 - Usa usuarios de base de datos independiente para autenticar las identidades en el nivel de base de datos.
 - Admite la autenticación basada en token para las aplicaciones que se conectan a SQL Database.
 - Es compatible con ADFS (federación de dominios) o la autenticación nativa de usuario y contraseña para una instancia de Azure AD local sin sincronización de dominios.
-- Admite conexiones de SQL Server Management Studio que usan la autenticación universal de Active Directory, lo cual incluye [Multi-Factor Authentication (MFA)](../multi-factor-authentication/multi-factor-authentication.md). MFA incluye una sólida autenticación con una gama de sencillas opciones de comprobación: llamada de teléfono, mensaje de texto, tarjetas inteligentes con PIN o notificación de aplicación móvil. Para obtener más información, consulte [Compatibilidad de SSMS con Azure AD MFA con SQL Database y SQL Data Warehouse](../sql-database/sql-database-ssms-mfa-authentication.md).
+- Admite conexiones de SQL Server Management Studio que usan la autenticación universal de Active Directory, lo cual incluye [Multi-Factor Authentication (MFA)](../active-directory/authentication/multi-factor-authentication.md). MFA incluye una sólida autenticación con una gama de sencillas opciones de comprobación: llamada de teléfono, mensaje de texto, tarjetas inteligentes con PIN o notificación de aplicación móvil. Para obtener más información, consulte [Compatibilidad de SSMS con Azure AD MFA con SQL Database y SQL Data Warehouse](../sql-database/sql-database-ssms-mfa-authentication.md).
 
 Para obtener más información sobre la autenticación de Azure AD, vea:
 

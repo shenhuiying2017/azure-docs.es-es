@@ -4,15 +4,16 @@ description: Actualización a la versión 2 del SDK de administración de Azure 
 author: brjohnstmsft
 manager: jlembicz
 ms.author: brjohnst
+services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 01/15/2018
-ms.openlocfilehash: 3ed4279b71887e96e8f4c468d9c16cf7e9ad1d88
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: a6b6c01f0cc811abca90139e4c26c27b7bd7119f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="upgrading-to-the-azure-search-net-management-sdk-version-2"></a>Actualización a la versión 2 del SDK de administración de Azure Search para .NET
 Si usa la versión 1.0.2 o posterior del [SDK de administración de Azure Search para .NET](https://aka.ms/search-mgmt-sdk), en este artículo se le ayudará a actualizar la aplicación para que use la versión 2.

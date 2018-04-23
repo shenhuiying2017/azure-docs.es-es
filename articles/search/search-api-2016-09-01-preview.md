@@ -3,16 +3,17 @@ title: API de REST de Azure Search Service versión 2016-09-01-Preview | Microso
 description: La API de REST de Azure Search Service, versión 2016-09-01-Preview incluye características experimentales como búsquedas de sinónimos y moreLikeThis.
 author: mhko
 manager: jlembicz
+services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: reference
 ms.date: 10/25/2017
 ms.author: nateko
-ms.openlocfilehash: bbfdb2641d68f1262cc6293462c7022701357374
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 034c7c9c6e97ebb128860b6041089b311ffaf528
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-search-service-rest-api-version-2016-09-01-preview"></a>API de REST de Azure Search Service: versión 2016-09-01-Preview
 Este artículo es la documentación de referencia de `api-version=2016-09-01-Preview`. Esta vista previa amplía la versión disponible actualmente con carácter general, [api-version=2016-09-01](https://msdn.microsoft.com/library/dn798935.aspx), al proporcionar las siguientes características experimentales:

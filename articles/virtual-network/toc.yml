@@ -327,7 +327,5 @@
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/azure-virtual-network'
-    - name: Proveedor de recursos de red
-      href: resource-groups-networking.md
     - name: Preguntas más frecuentes
       href: virtual-networks-faq.md

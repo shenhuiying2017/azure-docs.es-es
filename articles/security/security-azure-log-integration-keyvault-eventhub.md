@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 02/16/2018
 ms.author: Barclayn
 ms.custom: AzLog
-ms.openlocfilehash: 9b3ae914774d2d6a66c5732f1d63f09926bb48fc
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 42c30a825e44c289c42d0fb0a40a442c4ac950d7
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Tutorial de integración de registros de Azure: Procesamiento de eventos de Azure Key Vault mediante Event Hubs
 
@@ -88,7 +88,7 @@ Necesita lo siguiente para completar los pasos de este artículo:
 
 4. Tras la autenticación correcta, iniciará sesión y verá la información de la captura de pantalla siguiente. Tome nota del identificador y el nombre de la suscripción, ya que los necesitará para completar los pasos posteriores.
 
-   ![Ventana de PowerShell](./media/security-azure-log-integration-keyvault-eventhub/Connect-AzureRmAccount.png)
+   ![Ventana de PowerShell](./media/security-azure-log-integration-keyvault-eventhub/login-azurermaccount.png)
 5. Cree variables para almacenar valores que se usarán más adelante. Escriba cada una de las siguientes líneas de PowerShell. Es posible que necesite ajustar los valores para que se adapten a su entorno.
     - ```$subscriptionName = ‘Visual Studio Ultimate with MSDN’``` (El nombre de la suscripción puede ser diferente. Puede verlo como parte de la salida del comando anterior).
     - ```$location = 'West US'``` (Se utilizará esta variable para pasar la ubicación donde se deben crear los recursos. Puede cambiar esta variable para que sea cualquier otra ubicación que elija).

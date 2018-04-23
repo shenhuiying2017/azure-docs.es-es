@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2017
 ms.author: trinadhk, sogup
-ms.openlocfilehash: 7c340f60bc648909d073821f1987036da9633458
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ffc5f11a324b5ac65c872ca2c033f039c129c5f8
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="backup-vault-upgraded-to-recovery-services-vault"></a>Almacén de Backup actualizado al almacén de Recovery Services
 En este artículo se proporciona información general sobre Recovery Services, preguntas frecuentes sobre la actualización del almacén existente de Backup al almacén de Recovery Services y los pasos que se deben realizar con posterioridad a la actualización. Un almacén de Recovery Services es el equivalente de Azure Resource Manager de un almacén de Backup que aloja los datos de copia de seguridad. Normalmente, los datos son copias de datos o información de configuración de máquinas virtuales (VM), cargas de trabajo, servidores o estaciones de trabajo, tanto de Azure como locales.
@@ -60,7 +60,7 @@ En la segunda pantalla se muestran los vínculos de ayuda para empezar a usar el
 El almacén de Recovery Services admite la especificación de información de zona horaria en la directiva de copia de seguridad. Después de que el almacén se actualice correctamente, vaya a las directivas de Backup desde el menú de configuración del almacén y actualice la información de zona horaria para cada una de las directivas configuradas en dicho almacén. En esta pantalla ya se muestra la hora de programación de copia de seguridad especificada según la zona horaria local utilizada cuando se creó la directiva. 
 
 ## <a name="enhanced-security"></a>Mayor seguridad
-Cuando un almacén de Backup se actualiza a un almacén de Recovery Services, la configuración de seguridad para ese almacén se activa automáticamente. Cuando la configuración de seguridad está activada, determinadas operaciones, como la eliminación de copias de seguridad o el cambio de una frase de contraseña, requieren un PIN de [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md). Para más información sobre la seguridad mejorada, vea el artículo [Características de seguridad para proteger copias de seguridad híbridas mediante Azure Backup](backup-azure-security-feature.md). Cuando la seguridad mejorada está activada, los datos se conservan hasta catorce días después de eliminar la información del punto de recuperación del almacén. Se factura a los clientes por el almacenamiento de estos datos de seguridad. La retención de datos de seguridad se aplica a los puntos de recuperación obtenidos para el agente de Azure Backup, Azure Backup Server y System Center Data Protection Manager. 
+Cuando un almacén de Backup se actualiza a un almacén de Recovery Services, la configuración de seguridad para ese almacén se activa automáticamente. Cuando la configuración de seguridad está activada, determinadas operaciones, como la eliminación de copias de seguridad o el cambio de una frase de contraseña, requieren un PIN de [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md). Para más información sobre la seguridad mejorada, vea el artículo [Características de seguridad para proteger copias de seguridad híbridas mediante Azure Backup](backup-azure-security-feature.md). Cuando la seguridad mejorada está activada, los datos se conservan hasta catorce días después de eliminar la información del punto de recuperación del almacén. Se factura a los clientes por el almacenamiento de estos datos de seguridad. La retención de datos de seguridad se aplica a los puntos de recuperación obtenidos para el agente de Azure Backup, Azure Backup Server y System Center Data Protection Manager. 
 
 ## <a name="gather-data-on-your-vault"></a>Recopilación de datos en el almacén
 Cuando haya actualizado a un almacén de Recovery Services, configure los informes para Azure Backup (para máquinas virtuales IaaS y del agente de Microsoft Azure Recovery Services) y use Power BI para acceder a los informes. Para más información sobre la recopilación de datos, vea el artículo [Configuración de informes de Azure Backup](backup-azure-configure-reports.md).

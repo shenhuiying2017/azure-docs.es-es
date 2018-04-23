@@ -1,5 +1,3 @@
-Para habilitar el inicio de sesión en la aplicación, deberá crear una directiva de inicio de sesión. Esta directiva describe las experiencias que tendrán los consumidores durante el inicio de sesión y el contenido de los tokens que recibirá la aplicación en inicios de sesión correctos.
-
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 
 En la sección de directivas de configuración, seleccione **Directivas de inicio de sesión o de registro** y haga clic en **+ Agregar**.
@@ -8,11 +6,11 @@ En la sección de directivas de configuración, seleccione **Directivas de inici
 
 Escriba un **nombre** de directiva al que la aplicación haga referencia. Por ejemplo, escriba: `SiUpIn`.
 
-Seleccione **Proveedores de identidades** y **Registro por correo electrónico**. También puede seleccionar proveedores de identidades sociales, si ya se han configurado. Haga clic en **Aceptar**.
+Seleccione **Proveedores de identidades** y **Registro por correo electrónico**. También puede seleccionar proveedores de identidades sociales, si ya se han configurado. Haga clic en **OK**.
 
 ![Seleccionar registro por correo electrónico como proveedor de identidades y hacer clic en el botón Aceptar](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-identity-providers.png)
 
-Seleccione **Atributos de registro**. Elija los atributos que quiere recopilar del consumidor durante el registro. Por ejemplo, seleccione **País o región**, **Nombre para mostrar** y **Código postal**. Haga clic en **Aceptar**.
+Seleccione **Atributos de registro**. Elija los atributos que quiere recopilar del consumidor durante el registro. Por ejemplo, seleccione **País o región**, **Nombre para mostrar** y **Código postal**. Haga clic en **OK**.
 
 ![Seleccionar algunos atributos y hacer clic en el botón Aceptar](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-sign-up-attributes.png)
 
@@ -28,7 +26,7 @@ Para abrir la directiva, haga clic en **B2C_1_SiUpIn**. Compruebe la configuraci
 
 | Configuración      | Valor  |
 | ------------ | ------ |
-| **Aplicaciones** | Aplicación B2C de Contoso |
+| **Applications** | Aplicación B2C de Contoso |
 | **Seleccionar dirección URL de respuesta** | `https://localhost:44316/` |
 
 Se abrirá una nueva pestaña del explorador y podrá comprobar la experiencia del consumidor de registro o de inicio de sesión tal como se configuró.

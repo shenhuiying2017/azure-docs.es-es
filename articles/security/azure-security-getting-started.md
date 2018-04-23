@@ -1,6 +1,6 @@
 ---
-title: "Introducción a la seguridad de Microsoft Azure | Microsoft Docs"
-description: "Este artículo proporciona información general sobre las funcionalidades de seguridad de Microsoft Azure y aspectos generales que deben tener en cuentas las organizaciones que van a migrar sus recursos a un proveedor de nube."
+title: Introducción a la seguridad de Microsoft Azure | Microsoft Docs
+description: Este artículo proporciona información general sobre las funcionalidades de seguridad de Microsoft Azure y aspectos generales que deben tener en cuentas las organizaciones que van a migrar sus recursos a un proveedor de nube.
 services: security
 documentationcenter: na
 author: YuriDio
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: e1ee07f2284df925b8bbd9050de7ae40fa66bf65
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 7d3fab20ec238bff0664fc98c2067c919e97a7c2
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="getting-started-with-microsoft-azure-security"></a>Introducción a la seguridad de Microsoft Azure
 Al crear o migrar recursos de TI a un proveedor de nube, confía en las capacidades de la organización para proteger las aplicaciones y los datos con los servicios y los controles que facilitan para administrar la seguridad de sus recursos en la nube.
@@ -35,7 +35,7 @@ Controlar el acceso a la infraestructura de TI, los datos y las aplicaciones es 
 
 [Azure AD](../active-directory/active-directory-whatis.md) es un repositorio de identidades y un motor que proporciona autenticación, autorización y control de acceso para usuarios, grupos y objetos de una organización. Azure AD ofrece a los desarrolladores una forma eficaz de integrar la administración de identidades en sus aplicaciones. Protocolos estándar del sector como [SAML 2.0](https://en.wikipedia.org/wiki/SAML_2.0), [WS-Federation](https://msdn.microsoft.com/library/bb498017.aspx) y [OpenID Connect](http://openid.net/connect/) hacen posible el inicio de sesión en plataformas como .NET, Java, Node.js y PHP.
 
-La API Graph basada en REST permite a los desarrolladores leer y escribir en el directorio desde cualquier plataforma. Gracias a la compatibilidad con [OAuth 2.0](http://oauth.net/2/), los desarrolladores pueden compilar aplicaciones móviles y web que se integran con las API web de Microsoft y de terceros, así como crear API web seguras propias. Hay bibliotecas de cliente de código abierto disponibles para .NET, la Tienda Windows, iOS y Android, así como otras bibliotecas en fase de desarrollo.
+Graph API basada en REST permite a los desarrolladores leer y escribir en el directorio desde cualquier plataforma. Gracias a la compatibilidad con [OAuth 2.0](http://oauth.net/2/), los desarrolladores pueden compilar aplicaciones móviles y web que se integran con las API web de Microsoft y de terceros, así como crear API web seguras propias. Hay bibliotecas de cliente de código abierto disponibles para .NET, la Tienda Windows, iOS y Android, así como otras bibliotecas en fase de desarrollo.
 
 ### <a name="how-azure-enables-identity-and-access-management"></a>Cómo habilita Azure la administración de identidades y acceso
 Azure AD se puede usar como un directorio en la nube independiente para su organización, o bien como una solución integrada con su Active Directory local existente. Algunas características de integración incluyen la sincronización de directorios y el inicio de sesión único (SSO). Estos extienden la cobertura de sus identidades locales existentes a la nube y mejoran la experiencia del administrador y del usuario.
@@ -45,7 +45,7 @@ Otras capacidades de administración de identidades y acceso incluyen:
 * Azure AD habilita [SSO](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/) para las aplicaciones SaaS, independientemente de donde estén hospedadas. Algunas aplicaciones están federadas con Azure AD y otras usan SSO con contraseña. Las aplicaciones federadas también pueden admitir el aprovisionamiento de usuarios y almacén de contraseñas.
 * El acceso a datos en [Azure Storage](https://azure.microsoft.com/services/storage/) se controla mediante la autenticación. Cada cuenta de almacenamiento tiene una clave principal ([clave de la cuenta de almacenamiento](https://msdn.microsoft.com/library/azure/ee460785.aspx), o SAK) y una clave secreta secundaria (la firma de acceso compartido, o SAS).
 * Azure AD proporciona identidad como servicio a través de la federación (mediante los [Servicios de federación de Active Directory](../active-directory/fundamentals-identity.md)), sincronización y replicación de directorios locales.
-* [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) es el servicio de autenticación multifactor que requiere que los usuarios también comprueben los inicios de sesión mediante una aplicación móvil, una llamada de teléfono o un mensaje de texto. Se puede usar con Azure AD como ayuda para proteger los recursos locales con el servidor de Azure Multi-Factor Authentication, y también con aplicaciones y directorios personalizados mediante el SDK.
+* [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) es el servicio de autenticación multifactor que requiere que los usuarios también comprueben los inicios de sesión mediante una aplicación móvil, una llamada de teléfono o un mensaje de texto. Se puede usar con Azure AD como ayuda para proteger los recursos locales con el servidor de Azure Multi-Factor Authentication, y también con aplicaciones y directorios personalizados mediante el SDK.
 * [Servicios de dominio de Azure AD ](https://azure.microsoft.com/services/active-directory-ds/) permite unir máquinas virtuales de Azure a un dominio sin necesidad de implementar controladores de dominio. Puede conectarse a estas máquinas virtuales con sus credenciales corporativas de Active Directory y administrar las máquinas virtuales unidas a un dominio mediante una directiva de grupo para aplicar una base de referencia de seguridad en todas sus máquinas virtuales de Azure.
 * [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) proporciona un servicio de administración de identidades global y de alta disponibilidad para aplicaciones de consumo que se escalan a cientos de millones de identidades. Se puede integrar en plataformas móviles y web. Los consumidores pueden conectarse a todas sus aplicaciones con una experiencia totalmente personalizable, usando sus cuentas de las redes sociales o mediante credenciales nuevas.
 

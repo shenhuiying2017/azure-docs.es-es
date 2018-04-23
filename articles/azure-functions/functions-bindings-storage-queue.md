@@ -3,7 +3,7 @@ title: Enlaces de Azure Queue Storage para Azure Functions
 description: Obtenga información acerca de cómo usar enlaces de salida y desencadenador de Azure Queue Storage en Azure Functions.
 services: functions
 documentationcenter: na
-author: ggailey777
+author: tdykstra
 manager: cfowler
 editor: ''
 tags: ''
@@ -14,13 +14,13 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/23/2017
-ms.author: glenga
+ms.author: tdykstra
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: bdbbb80ff1b367a0da37094e787d03d23a7d4d59
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 52cd0e9b23d7a752b121d3087f040a3bc63def41
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Enlaces de Azure Queue Storage para Azure Functions
 
@@ -243,7 +243,7 @@ En JavaScript, use `context.bindings.<name>` para tener acceso a la carga del el
 
 El desencadenador de cola proporciona varias [propiedades de metadatos](functions-triggers-bindings.md#binding-expressions---trigger-metadata). Estas propiedades pueden usarse como parte de expresiones de enlace en otros enlaces o como parámetros del código. Los valores tienen la misma semántica que [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage).
 
-|Propiedad|type|DESCRIPCIÓN|
+|Propiedad|Escriba|DESCRIPCIÓN|
 |--------|----|-----------|
 |`QueueTrigger`|`string`|Carga de cola (si hay una cadena válida). Si la cola envía la carga como una cadena, `QueueTrigger` tiene el mismo valor que la variable denominada por la propiedad `name` en *function.json*.|
 |`DequeueCount`|`int`|Es el número de veces que se ha quitado de la cola este mensaje.|

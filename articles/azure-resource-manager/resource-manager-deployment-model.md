@@ -1,6 +1,6 @@
 ---
-title: "La implementación de Resource Manager y la implementación clásica | Microsoft Docs"
-description: "Describe las diferencias entre el modelo de implementación del Administrador de recursos y el modelo de implementación clásica (o de administración del servicio)."
+title: La implementación de Resource Manager y la implementación clásica | Microsoft Docs
+description: Describe las diferencias entre el modelo de implementación del Administrador de recursos y el modelo de implementación clásica (o de administración del servicio).
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: 2144e3527b44e3cf508d23fedf7abb4cda595bbf
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 06da24babd470e81bed9c45a32c59ad9cfd153fe
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>La implementación de Azure Resource Manager frente a la implementación clásica: los modelos de implementación y el estado de los recursos
 En este artículo aprenderá sobre Azure Resource Manager y los modelos de implementación clásicos. El modelo de implementación de Resource Manager y el modelo de implementación clásica representan dos formas diferentes de implementar y administrar las soluciones de Azure. Usted trabaja con ellos a través de dos conjuntos de API distintos y los recursos implementados pueden contener diferencias importantes. Los dos modelos no son compatibles entre sí. En este artículo se describen esas diferencias.
@@ -101,14 +101,14 @@ La solución clásica para hospedar una máquina virtual incluye:
 
 En la siguiente tabla se describen los cambios en la interacción de los proveedores de recursos de Compute, Network y Storage:
 
-| Elemento | Clásico | Resource Manager |
+| item | Clásico | Resource Manager |
 | --- | --- | --- |
 | Servicio en la nube para máquinas virtuales |El servicio en la nube es un contenedor para las máquinas virtuales que exige la disponibilidad de la plataforma y el equilibrio de carga. |El servicio en la nube ya no es un objeto necesario para crear una máquina virtual usando el nuevo modelo. |
 | Virtual Networks |Una red virtual es opcional para la máquina virtual. En caso de incluirse, la red virtual no puede implementarse con Resource Manager. |La máquina virtual requiere una red virtual que se ha implementado con Resource Manager. |
 | Cuentas de almacenamiento |La máquina virtual requiere una cuenta de almacenamiento que almacena los discos duros virtuales para los discos de datos del sistema operativo, temporales y adicionales. |La máquina virtual requiere una cuenta de almacenamiento para almacenar sus discos en Blob Storage. |
 | Conjuntos de disponibilidad |La disponibilidad en la plataforma se ha indicado mediante la configuración del mismo "AvailabilitySetName" en las máquinas virtuales. El número máximo de dominios con error era de 2. |Un conjunto de disponibilidad es un recurso expuesto por el proveedor de Microsoft.Compute. Las máquinas virtuales que requieren alta disponibilidad deben incluirse en el conjunto de disponibilidad. Ahora, el recuento máximo de dominios con error es de 3. |
 | Grupos de afinidad |Los grupos de afinidad eran necesarios para crear redes virtuales. Sin embargo, con la introducción de las redes virtuales regionales, ya no era necesario. |Para simplificar, no existe el concepto de grupos de afinidad en las API expuestas a través del Administrador de recursos de Azure. |
-| Equilibrio de carga |La creación de un servicio en la nube proporciona un equilibrador de carga implícito para las máquinas virtuales implementadas. |El equilibrador de carga es un recurso expuesto por el proveedor de Microsoft.Network. La interfaz de red principal de las máquinas virtuales cuya carga se debe equilibrar debe hacer referencia al equilibrador de carga. Los equilibradores de carga pueden ser internos o externos. Una instancia de equilibrador de carga hace referencia al grupo de backend de direcciones IP que incluye la NIC de una máquina virtual (opcional) y hace referencia a una dirección IP pública o privada del equilibrador de carga (opcional). [Más información.](../virtual-network/resource-groups-networking.md) |
+| Equilibrio de carga |La creación de un servicio en la nube proporciona un equilibrador de carga implícito para las máquinas virtuales implementadas. |El equilibrador de carga es un recurso expuesto por el proveedor de Microsoft.Network. La interfaz de red principal de las máquinas virtuales cuya carga se debe equilibrar debe hacer referencia al equilibrador de carga. Los equilibradores de carga pueden ser internos o externos. Una instancia de equilibrador de carga hace referencia al grupo de backend de direcciones IP que incluye la NIC de una máquina virtual (opcional) y hace referencia a una dirección IP pública o privada del equilibrador de carga (opcional). |
 | Dirección IP virtual |Cloud Services obtiene una VIP (dirección IP virtual) predeterminada cuando se agrega una máquina virtual a un servicio en la nube. La dirección IP virtual es la dirección asociada al equilibrador de carga implícito. |La dirección IP pública es un recurso expuesto por el proveedor de Microsoft.Network. La dirección IP pública puede ser estática (reservada) o dinámica. Las direcciones IP públicas dinámicas pueden asignarse a un equilibrador de carga. Las direcciones IP públicas se pueden proteger mediante grupos de seguridad. |
 | Dirección IP reservada |Puede reservar una dirección IP en Azure y asociarlo a un servicio en la nube para asegurarse de que la dirección IP es permanente. |La dirección IP pública puede crearse en modo "Estático" y ofrece la misma capacidad que una "dirección IP reservada". |
 | Dirección IP pública (PIP) por máquina virtual |Las direcciones IP públicas también se pueden asociar directamente a una VM. |La dirección IP pública es un recurso expuesto por el proveedor de Microsoft.Network. La dirección IP pública puede ser estática (reservada) o dinámica. |

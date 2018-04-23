@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 7575e25f06014caf962a4b7241a8a2d6bca8c918
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f8e9a2fbf28ace78b4ad2d361358bd394ac69ac7
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="security-management-in-azure"></a>Administración de la seguridad en Azure
 Los suscriptores de Azure pueden administrar sus entornos de nube desde diversos dispositivos, incluidas estaciones de trabajo de administración, equipos de desarrollador e incluso dispositivos de usuario final con privilegios que tengan permisos específicos para la tarea. En algunos casos, las funciones administrativas se realizan mediante consolas web tales como [Azure Portal](https://azure.microsoft.com/features/azure-portal/). En otros casos, puede haber conexiones directas a Azure desde sistemas locales a través de redes privadas virtuales (VPN), Terminal Services, protocolos de aplicación de cliente o Azure Service Management API (SMAPI). Además, los puntos de conexión de cliente pueden estar unidos a un dominio o aislados y no administrados, como tabletas o smartphones.
@@ -99,7 +99,7 @@ La configuración de servicios en la nube de Azure se realiza mediante el Portal
 
 Máquina virtual: las aplicaciones implementadas proporcionan sus propias herramientas e interfaces de cliente según sea necesario, como Microsoft Management Console (MMC), una consola de administración empresarial (Microsoft System Center o Windows Intune) u otra aplicación de administración (Microsoft SQL Server Management Studio, por ejemplo). Estas herramientas suelen residir en una red de cliente o en un entorno empresarial. Pueden depender de protocolos de red específicos, como el Protocolo de escritorio remoto (RDP), que requiere conexiones directas con estado. Algunos pueden tener interfaces habilitadas para web que no se deben publicar ni ser accesibles a través de Internet.
 
-Puede restringir el acceso a la administración de los servicios de infraestructura y plataforma en Azure mediante la [autenticación multifactor](../multi-factor-authentication/multi-factor-authentication.md), los [certificados de administración X.509](https://blogs.msdn.microsoft.com/azuresecurity/2015/07/13/certificate-management-in-azure-dos-and-donts/) y las reglas de firewall. El Portal de Azure y SMAPI requieren Seguridad de capa de transporte (TLS). Sin embargo, los servicios y las aplicaciones que implemente en Azure requieren que tome medidas de protección adecuadas en función de la aplicación. Estos mecanismos se suelen habilitar más fácilmente mediante una configuración de estación de trabajo protegida estándar.
+Puede restringir el acceso a la administración de los servicios de infraestructura y plataforma en Azure mediante la [autenticación multifactor](../active-directory/authentication/multi-factor-authentication.md), los [certificados de administración X.509](https://blogs.msdn.microsoft.com/azuresecurity/2015/07/13/certificate-management-in-azure-dos-and-donts/) y las reglas de firewall. El Portal de Azure y SMAPI requieren Seguridad de capa de transporte (TLS). Sin embargo, los servicios y las aplicaciones que implemente en Azure requieren que tome medidas de protección adecuadas en función de la aplicación. Estos mecanismos se suelen habilitar más fácilmente mediante una configuración de estación de trabajo protegida estándar.
 
 ### <a name="management-gateway"></a>Puerta de enlace de administración
 Para centralizar todo el acceso administrativo y simplificar la supervisión y el registro, puede implementar un servidor de [Puerta de enlace de Escritorio remoto](https://technet.microsoft.com/library/dd560672) dedicado en su red local, conectado a su entorno de Azure.
@@ -110,7 +110,7 @@ Puerta de enlace de Escritorio remoto es un servicio de proxy RDP basado en dire
 * Una Puerta de enlace de Escritorio remoto al mismo [dominio de administración](http://technet.microsoft.com/library/bb727085.aspx) que las estaciones de trabajo de administrador. Esto es necesario cuando se usa una VPN IPsec de sitio a sitio o ExpressRoute dentro de un dominio que tenga una confianza unidireccional con Azure AD, o si federa las credenciales entre su instancia de AD DS local y Azure AD.
 * Configure una [directiva de autorización de conexión de cliente](http://technet.microsoft.com/library/cc753324.aspx) para que Puerta de enlace de Escritorio remoto pueda comprobar si el nombre de la máquina cliente es válido (unido a un dominio) y tiene permiso para acceder a Azure Portal.
 * Use IPsec para que la [VPN de Azure](https://azure.microsoft.com/documentation/services/vpn-gateway/) pueda proteger aún más el tráfico de administración contra la interceptación y el robo de tokens, o podría usar un vínculo a Internet aislado mediante [Azure ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/).
-* Habilite la autenticación multifactor (mediante [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)) o la autenticación de tarjeta inteligente para los administradores que inician sesión mediante Puerta de enlace de Escritorio remoto.
+* Habilite la autenticación multifactor (mediante [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md)) o la autenticación de tarjeta inteligente para los administradores que inician sesión mediante Puerta de enlace de Escritorio remoto.
 * Configure las [restricciones de direcciones IP](http://azure.microsoft.com/blog/2013/08/27/confirming-dynamic-ip-address-restrictions-in-windows-azure-web-sites/) de origen o los [grupos de seguridad de red](../virtual-network/virtual-networks-nsg.md) en Azure para minimizar el número de puntos de conexión de administración permitidos.
 
 ## <a name="security-guidelines"></a>Directrices de seguridad

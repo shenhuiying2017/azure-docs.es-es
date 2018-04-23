@@ -1,11 +1,11 @@
 ---
-title: "Características de seguridad para proteger copias de seguridad híbridas mediante Azure Backup | Microsoft Docs"
-description: "Aprenda a usar las características de seguridad de Azure Backup para que las copias de seguridad sean más seguras"
+title: Características de seguridad para proteger copias de seguridad híbridas mediante Azure Backup | Microsoft Docs
+description: Aprenda a usar las características de seguridad de Azure Backup para que las copias de seguridad sean más seguras
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: JPallavi
 manager: vijayts
-editor: 
+editor: ''
 ms.assetid: 47bc8423-0a08-4191-826d-3f52de0b4cb8
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: pajosh
-ms.openlocfilehash: f856303d4abf05178eb11a242b87390ff1484e1b
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 2529d19dbf0ca0fb59f5abe48be3e8b14e862e29
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Características de seguridad para proteger copias de seguridad híbridas mediante Azure Backup
 Cada vez es mayor la preocupación que generan problemas de seguridad como malware, ransomware e intrusión. Estos problemas de seguridad pueden ser costosos, en términos de dinero y datos. Para protegerse contra dichos ataques, Azure Backup proporciona características de seguridad que protegen las copias de seguridad híbridas. En este artículo se habla de cómo habilitar y usar estas características mediante un agente de Azure Recovery Services y Azure Backup Server. Estas características son:
@@ -55,7 +55,7 @@ Si va a crear un almacén de Recovery Services, puede usar todas las caracterís
     ![Captura de pantalla de propiedades del almacén de Recovery Services](./media/backup-azure-security-feature/security-settings-update.png)
 
     El vínculo de actualización abre la hoja **Configuración de seguridad**, que proporciona un resumen de las características y permite habilitarlas.
-5. En el menú desplegable **Have you configured Azure Multi-Factor Authentication?** (¿Ha configurado Azure Multi-Factor Authentication?), seleccione un valor para confirmar si ha habilitado [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md). Si está habilitado, se le pedirá que realice la autenticación desde otro dispositivo (por ejemplo, un teléfono móvil) al iniciar sesión en Azure Portal.
+5. En el menú desplegable **Have you configured Azure Multi-Factor Authentication?** (¿Ha configurado Azure Multi-Factor Authentication?), seleccione un valor para confirmar si ha habilitado [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md). Si está habilitado, se le pedirá que realice la autenticación desde otro dispositivo (por ejemplo, un teléfono móvil) al iniciar sesión en Azure Portal.
 
    Al realizar operaciones críticas en Backup, debe especificar un PIN de seguridad, disponible en Azure Portal. Al habilitar Azure Multi-Factor Authentication, se agrega una capa de seguridad. Solo los usuarios autorizados con credenciales de Azure válidas y autenticados desde un segundo dispositivo pueden tener acceso a Azure Portal.
 6. Para guardar la configuración de seguridad, seleccione **Habilitar** y haga clic en **Guardar**. Solo se puede seleccionar **Habilitar** después de seleccionar un valor en la lista **Have you configured Azure Multi-Factor Authentication?** (¿Ha configurado Azure Multi-Factor Authentication?) del paso anterior.

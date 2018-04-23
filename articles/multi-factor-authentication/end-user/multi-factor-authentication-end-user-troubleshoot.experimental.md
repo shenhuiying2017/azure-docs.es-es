@@ -1,9 +1,9 @@
 ---
-title: "Solución de problemas de la comprobación en dos pasos | Microsoft Docs"
-description: "Este documento ofrecerá a los usuarios información sobre qué hacer si se encuentran con un problema con Azure Multi-Factor Authentication"
+title: Solución de problemas de la comprobación en dos pasos | Microsoft Docs
+description: Este documento ofrecerá a los usuarios información sobre qué hacer si se encuentran con un problema con Azure Multi-Factor Authentication
 services: multi-factor-authentication
-keywords: "cliente de multi-factor authentication, problema de autenticación, identificador de correlación"
-documentationcenter: 
+keywords: cliente de multi-factor authentication, problema de autenticación, identificador de correlación
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.assetid: 8f3aef42-7f66-4656-a7cd-d25a971cb9eb
@@ -16,11 +16,11 @@ ms.date: 07/06/2017
 ms.author: barlan
 ms.reviewer: richagi
 ms.custom: end-user
-ms.openlocfilehash: 20a90aa36b727b18fb37aaf658da884b5997cd44
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 736a1f03ef87850fdaaee7ce636d8dd0f3ae1a84
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="get-help-with-two-step-verification"></a>Obtener ayuda con la verificación en dos pasos
 Este artículo responde a las preguntas más comunes que tienen las personas sobre la verificación en dos pasos. 
@@ -86,7 +86,7 @@ Si no tiene otro método configurado, póngase en contacto con el soporte técni
 Si suele tener retrasos debido a una mala calidad de la señal, recomendamos que use la [aplicación Microsoft Authenticator](microsoft-authenticator-app-how-to.md) en su smartphone. La aplicación puede generar códigos de seguridad aleatorios que usa para iniciar sesión, los cuales no requieren señal telefónica ni conexión a Internet.
 
 ## <a name="app-passwords-are-not-working"></a>Las contraseñas de la aplicación no funcionan
-En primer lugar, asegúrese de haber escrito correctamente la contraseña de la aplicación. La contraseña de aplicación generada reemplaza a la contraseña normal, pero solo para aplicaciones de escritorio más antiguas que no admiten la verificación en dos pasos. Si sigue sin funcionar, intente iniciar sesión y [cree una nueva contraseña de aplicación](multi-factor-authentication-end-user-app-passwords.md).  Si aún no funciona, póngase en contacto con el soporte técnico de la empresa, pídale que [elimine sus contraseñas de aplicación existentes](../multi-factor-authentication-manage-users-and-devices.md) y luego puede crear otra.
+En primer lugar, asegúrese de haber escrito correctamente la contraseña de la aplicación. La contraseña de aplicación generada reemplaza a la contraseña normal, pero solo para aplicaciones de escritorio más antiguas que no admiten la verificación en dos pasos. Si sigue sin funcionar, intente iniciar sesión y [cree una nueva contraseña de aplicación](multi-factor-authentication-end-user-app-passwords.md).  Si aún no funciona, póngase en contacto con el soporte técnico de la empresa, pídale que [elimine sus contraseñas de aplicación existentes](../../active-directory/authentication/howto-mfa-userdevicesettings.md) y luego puede crear otra.
 
 ## <a name="i-didnt-find-an-answer-to-my-problem"></a>No encuentro una respuesta a mi problema.
 Si probó estos pasos para solucionar los problemas pero estos no desaparecen, póngase en contacto con el soporte técnico de la empresa. Deberían poder ayudarle.

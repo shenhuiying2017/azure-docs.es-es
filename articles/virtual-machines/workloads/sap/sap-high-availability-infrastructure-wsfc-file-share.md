@@ -1,13 +1,13 @@
 ---
-title: "Preparación de la infraestructura de Azure para la alta disponibilidad de SAP con un clúster de conmutación por error de Windows y el recurso compartido de archivos para instancias de SAP ASCS/SCS | Microsoft Docs"
-description: "Preparación de la infraestructura de Azure para la alta disponibilidad de SAP con un clúster de conmutación por error de Windows y el recurso compartido de archivos para instancias de SAP ASCS/SCS"
+title: Preparación de la infraestructura de Azure para la alta disponibilidad de SAP con un clúster de conmutación por error de Windows y el recurso compartido de archivos para instancias de SAP ASCS/SCS | Microsoft Docs
+description: Preparación de la infraestructura de Azure para la alta disponibilidad de SAP con un clúster de conmutación por error de Windows y el recurso compartido de archivos para instancias de SAP ASCS/SCS
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: 2ce38add-1078-4bb9-a1da-6f407a9bc910
 ms.service: virtual-machines-windows
 ms.devlang: NA
@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3f9e2108a7714dcbfd4f2db583cb6ee4b803f65a
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 2945f731a71a66d2594eb31afb50d1ae775a2b42
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>Preparación de la infraestructura de Azure para la alta disponibilidad de SAP con un clúster de conmutación por error de Windows y el recurso compartido de archivos para instancias de SAP ASCS/SCS
 
@@ -98,7 +98,7 @@ ms.lasthandoff: 11/16/2017
 [sap-ha-guide-9.1]:#31c6bd4f-51df-4057-9fdf-3fcbc619c170
 [sap-ha-guide-9.1.1]:#a97ad604-9094-44fe-a364-f89cb39bf097
 
-[sap-ha-multi-sid-guide]:sap-high-availability-multi-sid.md (SAP multi-SID high-availability configuration)
+[sap-ha-multi-sid-guide]:sap-high-availability-multi-sid.md (Configuración de alta disponibilidad de varios SID de SAP)
 
 
 [sap-ha-guide-figure-1000]:./media/virtual-machines-shared-sap-high-availability-guide/1000-wsfc-for-sap-ascs-on-azure.png
@@ -212,12 +212,12 @@ En este artículo, se describen los pasos de preparación de la infraestructura 
 
 Antes de empezar la instalación, consulte el artículo siguiente:
 
-* [Guía de arquitectura: Agrupación de una instancia de ASCS/SCS de SAP en un clúster de conmutación por error de Windows con un disco compartido de clúster][sap-high-availability-guide-wsfc-shared-disk]
+* [Guía de arquitectura: Agrupación de una instancia de ASCS/SCS de SAP en un clúster de conmutación por error de Windows con un disco compartido de clúster][sap-high-availability-guide-wsfc-file-share]
 
 
 ## <a name="host-names-and-ip-addresses"></a>Nombres de host y direcciones IP
 
-| Rol de nombre de host virtual | Nombre de host virtual | Dirección IP estática | El conjunto de disponibilidad |
+| Rol de nombre de host virtual | Nombre de host virtual | Dirección IP estática | Conjunto de disponibilidad |
 | --- | --- | --- | --- |
 | Primer clúster ASCS/SCS de nodo de clúster | ascs-1 | 10.0.6.4 | ascs-as |
 | Segundo clúster ASCS/SCS de nodo de clúster | ascs-2 | 10.0.6.5 | ascs-as |
@@ -234,7 +234,7 @@ Antes de empezar la instalación, consulte el artículo siguiente:
 **Tabla 2:** detalles de la instancia de SAP ASCS/SCS
 
 
-| Rol de nombre de host virtual | Nombre de host virtual | Dirección IP estática | El conjunto de disponibilidad |
+| Rol de nombre de host virtual | Nombre de host virtual | Dirección IP estática | Conjunto de disponibilidad |
 | --- | --- | --- | --- |
 | Primer nodo de clúster | sofs-1 | 10.0.6.10 | sofs-as |
 | Segundo nodo de clúster | sofs-2 | 10.0.6.11 | sofs-as |

@@ -3,7 +3,7 @@ title: 'Configuración de una Azure Virtual Network (clásica): archivo de confi
 description: Obtenga información sobre cómo crear y modificar redes virtuales (clásicas) mediante la exportación, la modificación y la importación de un archivo de configuración de red.
 services: virtual-network
 documentationcenter: ''
-author: genli
+author: genlin
 manager: cshepard
 editor: ''
 tags: azure-service-management
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2017
 ms.author: genli
 ms.custom: ''
-ms.openlocfilehash: 4349f6ef28ef8667802a81df1fee133ff3f56e51
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ed47a5d1449ba634f90e93a82f15daf6e44a553e
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="configure-a-virtual-network-classic-using-a-network-configuration-file"></a>Configuración de una red virtual (clásica) mediante un archivo de configuración de red
 > [!IMPORTANT]

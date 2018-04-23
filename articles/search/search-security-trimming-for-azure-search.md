@@ -3,15 +3,16 @@ title: Filtros de seguridad para restringir los resultados en Azure Search | Mic
 description: Control de acceso al contenido de Azure Search mediante filtros de seguridad e identidades de usuario.
 ms.service: search
 ms.topic: conceptual
+services: search
 ms.date: 08/07/2017
 author: revitalbarletz
 ms.author: revitalb
 manager: jlembicz
-ms.openlocfilehash: cf61cb1d57f0dbc9dc3def9804551da1591bf02a
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: dd26676b74431566b3631b8a79cd06bcf3022518
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="security-filters-for-trimming-results-in-azure-search"></a>Filtros de seguridad para restringir los resultados en Azure Search
 

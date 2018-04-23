@@ -3,15 +3,16 @@ title: Análisis de tráfico de búsqueda para Azure Search | Microsoft Docs
 description: Habilite el análisis de tráfico de búsqueda para Azure Search, un servicio de búsqueda hospedado en la nube en Microsoft Azure, para descubrir información acerca de los usuarios y los datos.
 author: HeidiSteen
 manager: cgronlun
+services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 04/05/2017
 ms.author: heidist
-ms.openlocfilehash: 10963d1e022fc2aa574c88e994c4d8593b4d4de1
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: ca0a00d078cd63aa8736ba9f9822fd812823304f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="what-is-search-traffic-analytics"></a>Análisis de tráfico de búsqueda
 Análisis de tráfico de búsqueda es un modelo de implementación de un bucle de comentarios para el servicio de búsqueda. Este modelo describe los datos necesarios y cómo recopilarlos con Application Insights, el líder en el sector para la supervisión de servicios en varias plataformas.

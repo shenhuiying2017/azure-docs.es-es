@@ -3,16 +3,17 @@ title: Modelado multiinquilino en Azure Search | Microsoft Docs
 description: Aprenda sobre patrones de diseño comunes para aplicaciones SaaS multiinquilino mientras usa Azure Search.
 manager: jlembicz
 author: ashmaka
+services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: ashmaka
-ms.openlocfilehash: 99be323b72326a9d912fa28cd63999ecd98a671b
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 765f9c4600f762efdd7d57681529751e99c13894
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-search"></a>Modelos de diseño para aplicaciones SaaS multiinquilino y Azure Search
 Una aplicación multiinquilino es una que proporciona los mismos servicios y funcionalidades a cualquier número de inquilinos que no pueden ver o compartir los datos de cualquier otro inquilino. En este documento se describen estrategias de aislamiento de inquilinos para aplicaciones miltiinquilino creadas con Azure Search.

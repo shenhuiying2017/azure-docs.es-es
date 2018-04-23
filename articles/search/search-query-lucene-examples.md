@@ -4,15 +4,16 @@ description: Sintaxis de consulta de Lucene para la búsqueda aproximada, la bú
 author: LiamCa
 manager: jlembicz
 tags: Lucene query analyzer syntax
+services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 07/21/2017
 ms.author: liamca
-ms.openlocfilehash: 5bf033d7549f3a1213d7a2b2c3694ae7415643eb
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: c83b3b0d9c0cc99ba8a76dc4a6b2f83ed6de49dc
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="lucene-query-syntax-examples-for-building-queries-in-azure-search"></a>Ejemplos de sintaxis de consulta de Lucene para la creación de consultas en Azure Search
 Al construir consultas para Azure Search, puede usar la [sintaxis de consulta simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) predeterminada o el [analizador de consultas Lucene alternativo de Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search). El Analizador de consultas de Lucene admite las construcciones de consulta más complejas, como las consultas de ámbito de campo, la búsqueda aproximada, la búsqueda por proximidad, la priorización de términos y las expresiones regulares.

@@ -1,9 +1,9 @@
 ---
-title: "Introducción a los Notification Hubs para las aplicaciones Xamarin.Android | Microsoft Docs"
-description: "En este tutorial, obtenga información acerca de cómo usar Azure Notification Hubs para enviar notificaciones push a una aplicación Xamarin Android."
+title: Introducción a los Notification Hubs para las aplicaciones Xamarin.Android | Microsoft Docs
+description: En este tutorial, obtenga información acerca de cómo usar Azure Notification Hubs para enviar notificaciones push a una aplicación Xamarin Android.
 author: jwhitedev
 manager: kpiteira
-editor: 
+editor: ''
 services: notification-hubs
 documentationcenter: xamarin
 ms.assetid: 0be600fe-d5f3-43a5-9e5e-3135c9743e54
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 12/22/2017
 ms.author: jawh
-ms.openlocfilehash: 1cb6fbc82c493e17815dc60ddcff183a47513bc6
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 7fee7813bbdcf902d5f5ae2d0af7540c8899ad25
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-notification-hubs-for-xamarinandroid-apps"></a>Introducción a Notification Hubs para las aplicaciones Xamarin.Android
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -95,6 +95,20 @@ En primer lugar, cree un nuevo proyecto.
 3. Busque **Xamarin.Firebase.Messaging** y agréguelo al proyecto.
 
 ### <a name="set-up-notification-hubs-in-your-project"></a>Configuración de los centros de notificaciones en su proyecto
+
+#### <a name="registering-with-firebase-cloud-messaging"></a>Registro en Firebase Cloud Messaging
+
+Abra el archivo **AndroidManifest.xml** e inserte los siguientes elementos `<receiver>` en el elemento `<application>`:
+
+        <receiver android:name="com.google.firebase.iid.FirebaseInstanceIdInternalReceiver" android:exported="false" />
+        <receiver android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:exported="true" android:permission="com.google.android.c2dm.permission.SEND">
+          <intent-filter>
+            <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+            <category android:name="${applicationId}" />
+          </intent-filter>
+        </receiver>
+
 1. Recopile la siguiente información para el centro de notificaciones y la aplicación Android:
    
    * **Cadena de conexión de escucha**: en el panel de [Azure Portal], elija **Ver cadenas de conexión**. Copie la cadena de conexión *DefaultListenSharedAccessSignature* para este valor.

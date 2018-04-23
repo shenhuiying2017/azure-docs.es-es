@@ -1,12 +1,12 @@
 ---
-title: "Protección de implementaciones de PaaS | Microsoft Docs"
+title: Protección de implementaciones de PaaS | Microsoft Docs
 description: " Conozca las ventajas de seguridad de PaaS con respecto a los modelos de servicio en la nube y consulte los procedimientos recomendados para proteger la implementación de PaaS en Azure. "
 services: security
 documentationcenter: na
 author: techlake
 manager: MBaldwin
 editor: techlake
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 4629e0ab6bbc9554128a923e92b269df79446b18
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: f19c52629a997687692eef9bce2e13b2b7894052
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="securing-paas-deployments"></a>Protección de implementaciones de PaaS
 
@@ -87,12 +87,12 @@ A continuación se resume un enfoque de procedimientos recomendados generales pa
 
 - **No pierda las claves o credenciales** Es fundamental proteger las claves y credenciales para preservar la seguridad de las implementaciones de PaaS. La pérdida de claves y credenciales es un problema común. Una buena solución es usar una solución centralizada donde se pueden almacenar claves y secretos en módulos de seguridad de hardware (HSM). Azure proporciona un HSM en la nube con [Azure Key Vault](../key-vault/key-vault-whatis.md).
 - **No coloque las credenciales y otros secretos en el código fuente o GitHub** Mucho peor que perder las claves y las credenciales es que un tercero no autorizado acceda a ellas. Los atacantes pueden aprovechar las tecnologías de bots para encontrar claves y secretos almacenados en repositorios de código, como GitHub. No coloque las claves ni los secretos en estos repositorios públicos de código fuente.
-- **Proteja las interfaces de administración de máquinas virtuales en servicios híbridos IaaS y PaaS** Los servicios IaaS y PaaS se ejecutan en máquinas virtuales (VM). Según el tipo de servicio, existen varias interfaces de administración que permiten administrar estas máquinas virtuales directamente de forma remota. Se pueden usar protocolos de administración remota como el [Protocolo Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell), el [Protocolo de escritorio remoto (RDP)](https://support.microsoft.com/kb/186607) y [PowerShell remoto](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/enable-psremoting). En general, se recomienda no habilitar el acceso remoto directo a máquinas virtuales desde Internet. Si están disponibles, debe usar enfoques alternativos como el uso de una red privada virtual en una red virtual de Azure. Si no hay enfoques alternativos disponibles, asegúrese de utilizar frases de contraseña complejas y, si está disponible, la autenticación en dos fases (como [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)).
+- **Proteja las interfaces de administración de máquinas virtuales en servicios híbridos IaaS y PaaS** Los servicios IaaS y PaaS se ejecutan en máquinas virtuales (VM). Según el tipo de servicio, existen varias interfaces de administración que permiten administrar estas máquinas virtuales directamente de forma remota. Se pueden usar protocolos de administración remota como el [Protocolo Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell), el [Protocolo de escritorio remoto (RDP)](https://support.microsoft.com/kb/186607) y [PowerShell remoto](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/enable-psremoting). En general, se recomienda no habilitar el acceso remoto directo a máquinas virtuales desde Internet. Si están disponibles, debe usar enfoques alternativos como el uso de una red privada virtual en una red virtual de Azure. Si no hay enfoques alternativos disponibles, asegúrese de utilizar frases de contraseña complejas y, si está disponible, la autenticación en dos fases (como [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md)).
 - **Use plataformas sólidas de autenticación y autorización**
 
   - Use identidades federadas en Azure AD en lugar de tiendas de usuarios personalizadas. Cuando se usan identidades federadas, se puede beneficiar de un enfoque basado en plataformas y delegar la administración de identidades autorizadas en sus asociados. Un enfoque federado resulta especialmente importante en escenarios en que los empleados terminan los contratos y dicha información necesita reflejarse a través de varios sistemas de identidad y autorización.
   - Use los mecanismos de autenticación y autorización proporcionados en la plataforma en lugar del código personalizado. La razón es que desarrollar código de autenticación personalizado puede resultar un método propenso a errores. La mayoría de los desarrolladores no son expertos en seguridad y es poco probable que conozcan los detalles y los últimos desarrollos en términos de autenticación y autorización. El código comercial (por ejemplo, de Microsoft) suele revisarse de manera amplia a efectos de seguridad.
-  - Use Multi-factor Authentication. Multi-factor Authentication es el estándar actual para la autenticación y autorización porque evita las vulnerabilidades de seguridad inherentes a tipos de nombres de usuario y contraseñas de autenticación. El acceso a las interfaces de administración de Azure (portal/PowerShell remoto) y a los servicios usados por el cliente debe diseñarse y configurarse para usar [Azure Multi-Factor Authentication (MFA)](../multi-factor-authentication/multi-factor-authentication.md).
+  - Use Multi-factor Authentication. Multi-factor Authentication es el estándar actual para la autenticación y autorización porque evita las vulnerabilidades de seguridad inherentes a tipos de nombres de usuario y contraseñas de autenticación. El acceso a las interfaces de administración de Azure (portal/PowerShell remoto) y a los servicios usados por el cliente debe diseñarse y configurarse para usar [Azure Multi-Factor Authentication (MFA)](../active-directory/authentication/multi-factor-authentication.md).
   - Use los protocolos de autenticación estándar, como OAuth2 y Kerberos. Estos protocolos se han sometido a revisiones exhaustivas del mismo nivel y posiblemente se implementen como parte de las bibliotecas de la plataforma a efectos de autenticación y autorización.
 
 ## <a name="next-steps"></a>Pasos siguientes

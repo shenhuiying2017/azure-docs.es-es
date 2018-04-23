@@ -3,16 +3,17 @@ title: Consideraciones sobre el rendimiento y la optimización de Azure Search |
 description: Optimización del rendimiento de Azure Search y configuración de la escala óptima
 author: LiamCavanagh
 manager: jlembicz
+services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 05/01/2017
 ms.author: liamca
-ms.openlocfilehash: 14f46e2f76268f4d865d9ea6b16e8eda047ffe31
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 89c0352723f1ed00784250b566902028af853d10
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-search-performance-and-optimization-considerations"></a>Consideraciones sobre el rendimiento y la optimización de Azure Search
 Una buena experiencia de búsqueda es clave para el éxito de muchas aplicaciones web y móviles. Desde el mercado inmobiliario al de vehículos usados o catálogos en línea, una búsqueda rápida y unos resultados pertinentes influirán en la experiencia del cliente. Este documento ofrece información sobre los procedimientos recomendados para sacar el máximo provecho de Azure Search, especialmente en escenarios avanzados con requisitos sofisticados de escalabilidad, compatibilidad multilingüe o clasificación personalizada.  Además, este documento describe los aspectos internos y los enfoques que funcionan de forma eficaz en las aplicaciones de clientes reales.
